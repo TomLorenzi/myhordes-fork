@@ -26,17 +26,17 @@ use Doctrine\ORM\EntityManagerInterface;
 use DOMDocument;
 use DOMNode;
 use DOMXPath;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
- * @Route("/",condition="request.isXmlHttpRequest()")
- * @IsGranted("ROLE_USER")
  * @method User getUser
  */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
+#[IsGranted('ROLE_USER')]
 class MessageController extends CustomAbstractController
 {
     const ErrorForumNotFound     = ErrorHelper::BaseForumErrors + 1;
@@ -153,9 +153,9 @@ class MessageController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/admin/numb/editor", name="admin_numb_editor")
      * @return Response
      */
+    #[Route(path: 'jx/admin/numb/editor', name: 'admin_numb_editor')]
     public function admin_numb_editor(): Response {
         $user = $this->getUser();
 

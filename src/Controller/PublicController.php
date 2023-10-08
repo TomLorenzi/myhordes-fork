@@ -53,9 +53,9 @@ use Symfony\Component\Validator\Validation;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
- * @Route("/",condition="request.isXmlHttpRequest()")
  * @method User|null getUser
  */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
 class PublicController extends CustomAbstractController
 {
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null): array {
@@ -79,11 +79,11 @@ class PublicController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/public/login", name="public_login")
      * @param ConfMaster $conf
      * @param EternalTwinHandler $etwin
      * @return Response
      */
+    #[Route(path: 'jx/public/login', name: 'public_login')]
     public function login(ConfMaster $conf, EternalTwinHandler $etwin): Response
     {
         $rt = Request::createFromGlobals()->headers->get('X-Render-Target');
@@ -102,11 +102,11 @@ class PublicController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/public/register", name="public_register")
      * @param EternalTwinHandler $etwin
      * @param SessionInterface $s
      * @return Response
      */
+    #[Route(path: 'jx/public/register', name: 'public_register')]
     public function register(EternalTwinHandler $etwin, SessionInterface $s): Response
     {
         if ($this->isGranted( 'ROLE_REGISTERED' ))
@@ -122,9 +122,9 @@ class PublicController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/public/validate", name="public_validate")
      * @return Response
      */
+    #[Route(path: 'jx/public/validate', name: 'public_validate')]
     public function validate(): Response
     {
         if ($this->getUser() && $this->getUser()->getValidated())
@@ -133,9 +133,9 @@ class PublicController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/public/accept_tos", name="public_accept_tos")
      * @return Response
      */
+    #[Route(path: 'jx/public/accept_tos', name: 'public_accept_tos')]
     public function accept_tos(): Response
     {
         if (!$this->getUser() || ($this->getUser()->tosAccepted() && $this->getUser()->tosUpdateAccepted()))
@@ -147,13 +147,13 @@ class PublicController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/public/tos/accept", name="api_accept_tos", defaults={"accept"=true})
-     * @Route("api/public/tos/later", name="api_defer_tos", defaults={"accept"=false})
      * @param bool $accept
      * @return Response
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
+    #[Route(path: 'api/public/tos/accept', name: 'api_accept_tos', defaults: ['accept' => true])]
+    #[Route(path: 'api/public/tos/later', name: 'api_defer_tos', defaults: ['accept' => false])]
     public function tos_api(bool $accept): Response
     {
         if (!$this->getUser() || ($this->getUser()->tosAccepted() && $this->getUser()->tosUpdateAccepted()))
@@ -183,10 +183,10 @@ class PublicController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/public/reset/{pkey}", name="public_reset")
      * @param string|null $pkey
      * @return Response
      */
+    #[Route(path: 'jx/public/reset/{pkey}', name: 'public_reset')]
     public function reset_pw(?string $pkey = null): Response
     {
         if ($this->isGranted( 'ROLE_REGISTERED' ))
@@ -202,10 +202,10 @@ class PublicController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/public/revalidate", name="api_resend_validation")
      * @param UserFactory $factory
      * @return Response
      */
+    #[Route(path: 'api/public/revalidate', name: 'api_resend_validation')]
     public function revalidate_api(UserFactory $factory): Response
     {
         if (!$this->isGranted( 'ROLE_REGISTERED' ))
@@ -230,12 +230,12 @@ class PublicController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/public/reset", name="api_reset")
      * @param JSONRequestParser $parser
      * @param TranslatorInterface $translator
      * @param UserFactory $factory
      * @return Response
      */
+    #[Route(path: 'api/public/reset', name: 'api_reset')]
     public function reset_api(
         JSONRequestParser $parser,
         TranslatorInterface $translator,
@@ -311,7 +311,6 @@ class PublicController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/public/register", name="api_register")
      * @param Request $request
      * @param ConfMaster $conf
      * @param JSONRequestParser $parser
@@ -325,6 +324,7 @@ class PublicController extends CustomAbstractController
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
+    #[Route(path: 'api/public/register', name: 'api_register')]
     public function register_api(
         Request $request,
         ConfMaster $conf,
@@ -503,7 +503,6 @@ class PublicController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/public/login/etwin/{code}", name="etwin_login")
      * @param string $code
      * @param TranslatorInterface $translator
      * @param EternalTwinHandler $etwin
@@ -511,6 +510,7 @@ class PublicController extends CustomAbstractController
      * @param UserHandler $userHandler
      * @return Response
      */
+    #[Route(path: 'jx/public/login/etwin/{code}', name: 'etwin_login')]
     public function login_via_etwin(string $code, TranslatorInterface $translator, EternalTwinHandler $etwin, SessionInterface $session, UserHandler $userHandler): Response {
 
         $myhordes_user = $this->getUser();
@@ -526,7 +526,6 @@ class PublicController extends CustomAbstractController
             $etwin->setAuthorizationCode( $code );
             $user = $etwin->requestAuthSelf($e);
         } catch (Exception $e) {
-            dump($e);
             $this->addFlash('error', $translator->trans('Fehler bei der Datenübertragung.', [], 'login'));
             throw new DynamicAjaxResetException(Request::createFromGlobals());
         }
@@ -572,7 +571,6 @@ class PublicController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/public/etwin/confirm", name="api_etwin_confirm")
      * @param Request $request
      * @param JSONRequestParser $parser
      * @param SessionInterface $session
@@ -583,6 +581,7 @@ class PublicController extends CustomAbstractController
      * @param TranslatorInterface $translator
      * @return Response
      */
+    #[Route(path: 'api/public/etwin/confirm', name: 'api_etwin_confirm')]
     public function etwin_confirm_api(Request $request, JSONRequestParser $parser, SessionInterface $session, UserFactory $userFactory,
                                       UserPasswordHasherInterface $pass, TranslatorInterface $trans, ConfMaster $conf, TranslatorInterface $translator, UserHandler $userHandler): Response {
 
@@ -769,10 +768,10 @@ class PublicController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/public/etwin/cancel", name="api_etwin_cancel")
      * @param SessionInterface $session
      * @return Response
      */
+    #[Route(path: 'api/public/etwin/cancel', name: 'api_etwin_cancel')]
     public function etwin_cancel_api(SessionInterface $session): Response {
         $session->remove('_etwin_user');
         $session->remove('_etwin_login');
@@ -780,9 +779,9 @@ class PublicController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/public/login", name="api_login")
      * @return Response
      */
+    #[Route(path: 'api/public/login', name: 'api_login')]
     public function login_api(TranslatorInterface $trans, JSONRequestParser $parser): Response
     {
         /** @var User $user */
@@ -825,12 +824,12 @@ class PublicController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/public/validate", name="api_validate")
      * @param JSONRequestParser $parser
      * @param TranslatorInterface $translator
      * @param UserFactory $factory
      * @return Response
      */
+    #[Route(path: 'api/public/validate', name: 'api_validate')]
     public function validate_api(
         JSONRequestParser $parser,
         TranslatorInterface $translator,
@@ -877,9 +876,9 @@ class PublicController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/public/welcome", name="public_welcome")
      * @return Response
      */
+    #[Route(path: 'jx/public/welcome', name: 'public_welcome')]
     public function welcome(HTMLService $html): Response
     {
         $lang = $this->getUserLanguage();
@@ -896,19 +895,19 @@ class PublicController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/public/about", name="public_about")
      * @return Response
      */
+    #[Route(path: 'jx/public/about', name: 'public_about')]
     public function about(): Response
     {
         return $this->render('ajax/public/about.html.twig', $this->addDefaultTwigArgs());
     }
 
     /**
-     * @Route("jx/public/changelog/{id}", name="public_changelog", requirements={"id"="\d+"})
      * @param int $id
      * @return Response
      */
+    #[Route(path: 'jx/public/changelog/{id}', name: 'public_changelog', requirements: ['id' => '\d+'])]
     public function changelog(HTMLService $html, int $id = -1): Response
     {
         $lang = $this->getUserLanguage();
@@ -932,9 +931,9 @@ class PublicController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/public/news", name="public_news")
      * @return Response
      */
+    #[Route(path: 'jx/public/news', name: 'public_news')]
     public function news(HTMLService $html): Response
     {
         $lang = $this->getUserLanguage();
@@ -946,9 +945,9 @@ class PublicController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/public/privacy", name="public_privacy")
      * @return Response
      */
+    #[Route(path: 'jx/public/privacy', name: 'public_privacy')]
     public function privacy(): Response
     {
         return $this->render('ajax/public/privacy.html.twig', $this->addDefaultTwigArgs());

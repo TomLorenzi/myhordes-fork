@@ -16,26 +16,23 @@ use App\Service\CitizenHandler;
 use App\Service\TownHandler;
 use App\Service\ZoneHandler;
 use Doctrine\ORM\EntityManagerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 
-/**
- * @Route("/rest/v1/game/map", name="rest_game_map_", condition="request.headers.get('Accept') === 'application/json'")
- * @IsGranted("ROLE_USER")
- */
+#[Route(path: '/rest/v1/game/map', name: 'rest_game_map_', condition: "request.headers.get('Accept') === 'application/json'")]
+#[IsGranted('ROLE_USER')]
 class MapController extends CustomAbstractCoreController
 {
 
     /**
-     * @Route("", name="base", methods={"GET"})
-     * @Route("/index", name="base_index", methods={"GET"})
      * @param EntityManagerInterface $em
      * @return JsonResponse
      */
+    #[Route(path: '', name: 'base', methods: ['GET'])]
+    #[Route(path: '/index', name: 'base_index', methods: ['GET'])]
     public function index(EntityManagerInterface $em): JsonResponse {
         $all_tags = [];
         $last = 0;
@@ -116,65 +113,65 @@ class MapController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/radar/map", name="radar", methods={"GET"})
-     * @Toaster()
-     * @GateKeeperProfile(only_alive=true, only_beyond=true)
      * @param RenderMapAction $renderer
      * @return JsonResponse
      */
+    #[Route(path: '/radar/map', name: 'radar', methods: ['GET'])]
+    #[GateKeeperProfile(only_alive: true, only_beyond: true)]
+    #[Toaster]
     public function radar(RenderMapAction $renderer): JsonResponse {
         return new JsonResponse($renderer( activeCitizen: $this->getUser()->getActiveCitizen() ) );
     }
 
     /**
-     * @Route("/radar/routes", name="radar_routes", methods={"GET"})
-     * @GateKeeperProfile(only_alive=true, only_beyond=true)
      * @param RenderMapRouteAction $renderer
      * @return JsonResponse
      */
+    #[Route(path: '/radar/routes', name: 'radar_routes', methods: ['GET'])]
+    #[GateKeeperProfile(only_alive: true, only_beyond: true)]
     public function radar_routes(RenderMapRouteAction $renderer): JsonResponse {
         return new JsonResponse($renderer( $this->getUser()->getActiveCitizen()->getTown() ) );
     }
 
     /**
-     * @Route("/satellite/map", name="satellite", methods={"GET"})
-     * @Toaster()
-     * @GateKeeperProfile(only_in_town=true, only_alive=true, only_with_profession=true)
      * @param RenderMapAction $renderer
      * @return JsonResponse
      */
+    #[Route(path: '/satellite/map', name: 'satellite', methods: ['GET'])]
+    #[GateKeeperProfile(only_alive: true, only_with_profession: true, only_in_town: true)]
+    #[Toaster]
     public function satellite(RenderMapAction $renderer): JsonResponse {
         return new JsonResponse($renderer( activeCitizen: $this->getUser()->getActiveCitizen() ) );
     }
 
     /**
-     * @Route("/satellite/routes", name="satellite_routes", methods={"GET"})
-     * @GateKeeperProfile(only_in_town=true, only_alive=true, only_with_profession=true)
      * @param RenderMapRouteAction $renderer
      * @return JsonResponse
      */
+    #[Route(path: '/satellite/routes', name: 'satellite_routes', methods: ['GET'])]
+    #[GateKeeperProfile(only_alive: true, only_with_profession: true, only_in_town: true)]
     public function satellite_routes(RenderMapRouteAction $renderer): JsonResponse {
         return new JsonResponse($renderer( $this->getUser()->getActiveCitizen()->getTown() ) );
     }
 
     /**
-     * @Route("/admin/{id}/map", name="admin", methods={"GET"})
-     * @IsGranted("ROLE_CROW")
      * @param Town $town
      * @param RenderMapAction $renderer
      * @return JsonResponse
      */
+    #[Route(path: '/admin/{id}/map', name: 'admin', methods: ['GET'])]
+    #[IsGranted('ROLE_CROW')]
     public function admin(Town $town, RenderMapAction $renderer): JsonResponse {
         return new JsonResponse($renderer( town: $town, admin: true ) );
     }
 
     /**
-     * @Route("/admin/{id}/routes", name="admin_routes", methods={"GET"})
-     * @IsGranted("ROLE_CROW")
      * @param Town $town
      * @param RenderMapRouteAction $renderer
      * @return JsonResponse
      */
+    #[Route(path: '/admin/{id}/routes', name: 'admin_routes', methods: ['GET'])]
+    #[IsGranted('ROLE_CROW')]
     public function admin_routes(Town $town, RenderMapRouteAction $renderer): JsonResponse {
         return new JsonResponse($renderer($town));
     }

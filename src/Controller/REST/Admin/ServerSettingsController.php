@@ -15,26 +15,23 @@ use App\Structures\MyHordesConf;
 use DateTime;
 use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
-/**
- * @Route("/rest/v1/admin/settings", name="rest_admin_settings_", condition="request.headers.get('Accept') === 'application/json'")
- * @IsGranted("ROLE_ADMIN")
- * @GateKeeperProfile("skip")
- */
+#[Route(path: '/rest/v1/admin/settings', name: 'rest_admin_settings_', condition: "request.headers.get('Accept') === 'application/json'")]
+#[IsGranted('ROLE_ADMIN')]
+#[GateKeeperProfile('skip')]
 class ServerSettingsController extends CustomAbstractCoreController
 {
     /**
-     * @Route("", name="mod", methods={"PATCH"})
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
      * @return JsonResponse
      * @throws \Exception
      */
+    #[Route(path: '', name: 'mod', methods: ['PATCH'])]
     public function modify(EntityManagerInterface $em, JSONRequestParser $parser): JsonResponse {
         if (!$parser->has_all(['setting','value'], false))
             return new JsonResponse([], Response::HTTP_UNPROCESSABLE_ENTITY);

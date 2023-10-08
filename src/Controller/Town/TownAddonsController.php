@@ -43,17 +43,15 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-/**
- * @Route("/",condition="request.isXmlHttpRequest()")
- * @GateKeeperProfile(only_in_town=true, only_alive=true, only_with_profession=true)
- * @Semaphore("town", scope="town")
- */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
+#[GateKeeperProfile(only_alive: true, only_with_profession: true, only_in_town: true)]
+#[Semaphore('town', scope: 'town')]
 class TownAddonsController extends TownController
 {
     /**
-     * @Route("jx/town/upgrades", name="town_upgrades")
      * @return Response
      */
+    #[Route(path: 'jx/town/upgrades', name: 'town_upgrades')]
     public function addon_upgrades(): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
@@ -83,10 +81,10 @@ class TownAddonsController extends TownController
     }
 
     /**
-     * @Route("api/town/upgrades/vote", name="town_upgrades_vote_controller")
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/town/upgrades/vote', name: 'town_upgrades_vote_controller')]
     public function upgrades_votes_api(JSONRequestParser $parser): Response {
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
@@ -118,9 +116,9 @@ class TownAddonsController extends TownController
     }
 
     /**
-     * @Route("jx/town/watchtower", name="town_watchtower")
      * @return Response
      */
+    #[Route(path: 'jx/town/watchtower', name: 'town_watchtower')]
     public function addon_watchtower(): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
@@ -165,9 +163,9 @@ class TownAddonsController extends TownController
     }
 
     /**
-     * @Route("api/town/watchtower/est", name="town_watchtower_estimate_controller")
      * @return Response
      */
+    #[Route(path: 'api/town/watchtower/est', name: 'town_watchtower_estimate_controller')]
     public function watchtower_est_api(): Response {
         if ($this->isGranted("IS_IMPERSONATOR", $this->getUser()))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableImpersonator );
@@ -208,11 +206,11 @@ class TownAddonsController extends TownController
     }
 
     /**
-     * @Route("jx/town/workshop", name="town_workshop")
      * @param TownHandler $th
      * @param InventoryHandler $iv
      * @return Response
      */
+    #[Route(path: 'jx/town/workshop', name: 'town_workshop')]
     public function addon_workshop(TownHandler $th, InventoryHandler $iv): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
@@ -259,12 +257,12 @@ class TownAddonsController extends TownController
     }
 
     /**
-     * @Route("api/town/workshop/do", name="town_workshop_do_controller")
      * @param JSONRequestParser $parser
      * @param ActionHandler $ah
      * @param TownHandler $th
      * @return Response
      */
+    #[Route(path: 'api/town/workshop/do', name: 'town_workshop_do_controller')]
     public function workshop_do_api(JSONRequestParser $parser, ActionHandler $ah, TownHandler $th): Response {
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
@@ -308,14 +306,14 @@ class TownAddonsController extends TownController
     }
 
 	/**
-	 * @Route("jx/town/dump", name="town_dump")
-	 * @param TownHandler              $th
-	 * @param EventDispatcherInterface $dispatcher
-	 * @param EventFactory             $e
-	 * @return Response
-	 * @throws ContainerExceptionInterface
-	 * @throws NotFoundExceptionInterface
-	 */
+     * @param TownHandler              $th
+     * @param EventDispatcherInterface $dispatcher
+     * @param EventFactory             $e
+     * @return Response
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    #[Route(path: 'jx/town/dump', name: 'town_dump')]
     public function addon_dump(TownHandler $th, EventDispatcherInterface $dispatcher, EventFactory $e): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
@@ -340,15 +338,15 @@ class TownAddonsController extends TownController
     }
 
 	/**
-	 * @Route("jx/town/nightwatch", name="town_nightwatch")
-	 * @param TownHandler              $th
-	 * @param EventDispatcherInterface $dispatcher
-	 * @param EventFactory             $eventFactory
-	 * @param EventProxyService        $proxy
-	 * @return Response
-	 * @throws ContainerExceptionInterface
-	 * @throws NotFoundExceptionInterface
-	 */
+     * @param TownHandler              $th
+     * @param EventDispatcherInterface $dispatcher
+     * @param EventFactory             $eventFactory
+     * @param EventProxyService        $proxy
+     * @return Response
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    #[Route(path: 'jx/town/nightwatch', name: 'town_nightwatch')]
     public function addon_nightwatch(TownHandler $th, EventDispatcherInterface $dispatcher, EventFactory $eventFactory, EventProxyService $proxy): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
@@ -430,12 +428,12 @@ class TownAddonsController extends TownController
     }
 
     /**
-     * @Route("api/town/nightwatch/gowatch", name="town_nightwatch_go_controller")
      * @param TownHandler $th
      * @param JSONRequestParser $parser
      * @param EventProxyService $proxy
      * @return Response
      */
+    #[Route(path: 'api/town/nightwatch/gowatch', name: 'town_nightwatch_go_controller')]
     public function api_nightwatch_gowatch(TownHandler $th, JSONRequestParser $parser, EventProxyService $proxy): Response
     {
         $town = $this->getActiveCitizen()->getTown();
@@ -492,10 +490,10 @@ class TownAddonsController extends TownController
     }
 
     /**
-     * @Route("jx/town/catapult", name="town_catapult")
      * @param TownHandler $th
      * @return Response
      */
+    #[Route(path: 'jx/town/catapult', name: 'town_catapult')]
     public function addon_catapult(TownHandler $th): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
@@ -519,10 +517,10 @@ class TownAddonsController extends TownController
     }
 
     /**
-     * @Route("api/town/catapult/assign", name="town_catapult_assign_controller")
      * @param TownHandler $townHandler
      * @return Response
      */
+    #[Route(path: 'api/town/catapult/assign', name: 'town_catapult_assign_controller')]
     public function catapult_new_api(TownHandler $townHandler): Response
     {
         $selection = $townHandler->assignCatapultMaster( $this->getActiveCitizen()->getTown(), false );
@@ -534,7 +532,6 @@ class TownAddonsController extends TownController
     }
 
     /**
-     * @Route("api/town/catapult/do", name="town_catapult_do_controller")
      * @param JSONRequestParser $parser
      * @param CitizenHandler $ch
      * @param EventProxyService $event
@@ -543,6 +540,7 @@ class TownAddonsController extends TownController
      * @param TranslatorInterface $trans
      * @return Response
      */
+    #[Route(path: 'api/town/catapult/do', name: 'town_catapult_do_controller')]
     public function catapult_do_api(JSONRequestParser $parser, CitizenHandler $ch, ItemFactory $if, Packages $asset, TranslatorInterface $trans): Response {
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();

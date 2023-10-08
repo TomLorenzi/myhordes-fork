@@ -12,16 +12,14 @@ use App\Service\JSONRequestParser;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- * @Route("/",condition="request.isXmlHttpRequest()")
- * @GateKeeperProfile(allow_during_attack=true)
- */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
+#[GateKeeperProfile(allow_during_attack: true)]
 class AdminSpamController extends AdminActionController
 {
     /**
-     * @Route("jx/admin/spam/domains", name="admin_spam_domain_view")
      * @return Response
      */
+    #[Route(path: 'jx/admin/spam/domains', name: 'admin_spam_domain_view')]
     public function spam_view(): Response
     {
         try {
@@ -35,9 +33,9 @@ class AdminSpamController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/spam/ids", name="admin_spam_identifiers_view")
      * @return Response
      */
+    #[Route(path: 'jx/admin/spam/ids', name: 'admin_spam_identifiers_view')]
     public function spam_view_ids(): Response
     {
         try {
@@ -58,10 +56,10 @@ class AdminSpamController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/spam/domains/search", name="admin_spam_domain_search")
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'jx/admin/spam/domains/search', name: 'admin_spam_domain_search')]
     public function spam_search(JSONRequestParser $parser): Response
     {
         $query = $parser->get('query','');
@@ -75,11 +73,11 @@ class AdminSpamController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/spam/domains/add", name="admin_add_spam_domain")
-     * @AdminLogProfile(enabled=true)
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/admin/spam/domains/add', name: 'admin_add_spam_domain')]
+    #[AdminLogProfile(enabled: true)]
     public function spam_domain_add(JSONRequestParser $parser): Response
     {
         if (!$this->isGranted('ROLE_ADMIN'))
@@ -113,11 +111,11 @@ class AdminSpamController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/spam/domains/remove", name="admin_remove_spam_domain")
-     * @AdminLogProfile(enabled=true)
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/admin/spam/domains/remove', name: 'admin_remove_spam_domain')]
+    #[AdminLogProfile(enabled: true)]
     public function spam_domain_remove(JSONRequestParser $parser): Response
     {
         if (!$this->isGranted('ROLE_ADMIN'))

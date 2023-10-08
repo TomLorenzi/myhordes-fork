@@ -27,18 +27,18 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * @Route("/",condition="request.isXmlHttpRequest()")
  * @method User getUser
- * @GateKeeperProfile(allow_during_attack=true)
  */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
+#[GateKeeperProfile(allow_during_attack: true)]
 class AdminForumController extends AdminActionController
 {
     /**
-     * @Route("jx/admin/forum/report/pm", name="admin_pm_viewer")
      * @param JSONRequestParser $parser
      * @param PermissionHandler $perm
      * @return Response
      */
+    #[Route(path: 'jx/admin/forum/report/pm', name: 'admin_pm_viewer')]
     public function render_pm(JSONRequestParser $parser, PermissionHandler $perm, HTMLService $html) {
         $user = $this->getUser();
 
@@ -69,11 +69,11 @@ class AdminForumController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/forum/report/gpm", name="admin_gpm_viewer")
      * @param JSONRequestParser $parser
      * @param PermissionHandler $perm
      * @return Response
      */
+    #[Route(path: 'jx/admin/forum/report/gpm', name: 'admin_gpm_viewer')]
     public function render_gpm(JSONRequestParser $parser, HTMLService $html) {
         $user = $this->getUser();
 
@@ -101,12 +101,12 @@ class AdminForumController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/forum/reports/clear", name="admin_reports_clear")
-     * @AdminLogProfile(enabled=true)
      * @param JSONRequestParser $parser
      * @param AdminHandler $admh
      * @return Response
      */
+    #[Route(path: 'api/admin/forum/reports/clear', name: 'admin_reports_clear')]
+    #[AdminLogProfile(enabled: true)]
     public function reports_clear(JSONRequestParser $parser, AdminHandler $admh): Response
     {
         if (!$parser->has_all(['postId'], true))
@@ -122,12 +122,12 @@ class AdminForumController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/forum/reports/seen", name="admin_reports_seen")
-     * @AdminLogProfile(enabled=true)
      * @param JSONRequestParser $parser
      * @param AdminHandler $admh
      * @return Response
      */
+    #[Route(path: 'api/admin/forum/reports/seen', name: 'admin_reports_seen')]
+    #[AdminLogProfile(enabled: true)]
     public function reports_seen(JSONRequestParser $parser, AdminHandler $admh): Response
     {
         if (!$parser->has_all(['postId'], true))
@@ -152,13 +152,13 @@ class AdminForumController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/forum/reports/moderate-pm", name="admin_reports_mod_pm")
-     * @AdminLogProfile(enabled=true)
      * @param JSONRequestParser $parser
      * @param PermissionHandler $perm
      * @param CrowService $crow
      * @return Response
      */
+    #[Route(path: 'api/admin/forum/reports/moderate-pm', name: 'admin_reports_mod_pm')]
+    #[AdminLogProfile(enabled: true)]
     public function reports_moderate_pm(JSONRequestParser $parser, PermissionHandler $perm, CrowService $crow): Response
     {
         $user = $this->getUser();
@@ -214,12 +214,12 @@ class AdminForumController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/forum/reports/moderate-bb", name="admin_reports_mod_bb")
-     * @AdminLogProfile(enabled=true)
      * @param JSONRequestParser $parser
      * @param PermissionHandler $perm
      * @return Response
      */
+    #[Route(path: 'api/admin/forum/reports/moderate-bb', name: 'admin_reports_mod_bb')]
+    #[AdminLogProfile(enabled: true)]
     public function reports_moderate_bb(JSONRequestParser $parser, PermissionHandler $perm): Response
     {
         $user = $this->getUser();
@@ -254,11 +254,11 @@ class AdminForumController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/forum/reports/moderate-c", name="admin_reports_mod_c")
-     * @AdminLogProfile(enabled=true)
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/admin/forum/reports/moderate-c', name: 'admin_reports_mod_c')]
+    #[AdminLogProfile(enabled: true)]
     public function reports_moderate_c(JSONRequestParser $parser): Response
     {
         $user = $this->getUser();
@@ -290,11 +290,11 @@ class AdminForumController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/forum/reports/moderate-u", name="admin_reports_mod_u")
-     * @AdminLogProfile(enabled=true)
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/admin/forum/reports/moderate-u', name: 'admin_reports_mod_u')]
+    #[AdminLogProfile(enabled: true)]
     public function reports_moderate_u(JSONRequestParser $parser): Response
     {
         $user = $this->getUser();
@@ -324,13 +324,13 @@ class AdminForumController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/forum/reports/seen-pm", name="admin_reports_seen_pm")
-     * @AdminLogProfile(enabled=true)
      * @param JSONRequestParser $parser
      * @param PermissionHandler $perm
      * @param CrowService $crow
      * @return Response
      */
+    #[Route(path: 'api/admin/forum/reports/seen-pm', name: 'admin_reports_seen_pm')]
+    #[AdminLogProfile(enabled: true)]
     public function reports_seen_pm(JSONRequestParser $parser, PermissionHandler $perm, CrowService $crow): Response
     {
         $user = $this->getUser();
@@ -357,12 +357,12 @@ class AdminForumController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/forum/reports/moderate-gpm", name="admin_reports_mod_gpm")
-     * @AdminLogProfile(enabled=true)
      * @param JSONRequestParser $parser
      * @param CrowService $crow
      * @return Response
      */
+    #[Route(path: 'api/admin/forum/reports/moderate-gpm', name: 'admin_reports_mod_gpm')]
+    #[AdminLogProfile(enabled: true)]
     public function reports_moderate_gpm(JSONRequestParser $parser, CrowService $crow): Response
     {
         $user = $this->getUser();
@@ -414,12 +414,12 @@ class AdminForumController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/forum/reports/seen-gpm", name="admin_reports_seen_gpm")
-     * @AdminLogProfile(enabled=true)
      * @param JSONRequestParser $parser
      * @param CrowService $crow
      * @return Response
      */
+    #[Route(path: 'api/admin/forum/reports/seen-gpm', name: 'admin_reports_seen_gpm')]
+    #[AdminLogProfile(enabled: true)]
     public function reports_seen_gpm(JSONRequestParser $parser, CrowService $crow): Response
     {
         $user = $this->getUser();
@@ -448,11 +448,11 @@ class AdminForumController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/forum/reports/snippet/add", name="admin_reports_add_snippet")
-     * @AdminLogProfile(enabled=true)
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/admin/forum/reports/snippet/add', name: 'admin_reports_add_snippet')]
+    #[AdminLogProfile(enabled: true)]
     public function add_snippet(JSONRequestParser $parser): Response {
 
         if (!$parser->has_all(['id','lang','content','edit'],true)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
@@ -483,11 +483,11 @@ class AdminForumController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/forum/reports/snippet/remove/{id<\d+>}", name="admin_reports_remove_snippet")
-     * @AdminLogProfile(enabled=true)
      * @param int $id
      * @return Response
      */
+    #[Route(path: 'api/admin/forum/reports/snippet/remove/{id<\d+>}', name: 'admin_reports_remove_snippet')]
+    #[AdminLogProfile(enabled: true)]
     public function remove_snippet(int $id): Response {
 
 
@@ -506,11 +506,11 @@ class AdminForumController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/forum/posts/{opt}", name="admin_reports_forum_posts")
      * @param PermissionHandler $perm
      * @param string $opt
      * @return Response
      */
+    #[Route(path: 'jx/admin/forum/posts/{opt}', name: 'admin_reports_forum_posts')]
     public function forum_reports(PermissionHandler $perm, string $opt = ''): Response
     {
         $show_bin = $opt === 'bin';
@@ -563,11 +563,11 @@ class AdminForumController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/forum/pn/{opt}", name="admin_reports_town")
      * @param PermissionHandler $perm
      * @param string $opt
      * @return Response
      */
+    #[Route(path: 'jx/admin/forum/pn/{opt}', name: 'admin_reports_town')]
     public function pn_reports(PermissionHandler $perm, string $opt = ''): Response
     {
         $show_bin = $opt === 'bin';
@@ -611,10 +611,10 @@ class AdminForumController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/forum/global/{opt}", name="admin_reports_global")
      * @param string $opt
      * @return Response
      */
+    #[Route(path: 'jx/admin/forum/global/{opt}', name: 'admin_reports_global')]
     public function gpn_reports(string $opt = ''): Response
     {
         $show_bin = $opt === 'bin';
@@ -654,11 +654,11 @@ class AdminForumController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/forum/woh/{opt}", name="admin_reports_blackboard")
      * @param PermissionHandler $perm
      * @param string $opt
      * @return Response
      */
+    #[Route(path: 'jx/admin/forum/woh/{opt}', name: 'admin_reports_blackboard')]
     public function blackboard_reports(PermissionHandler $perm, string $opt = ''): Response
     {
         $show_bin = $opt === 'bin';
@@ -702,10 +702,10 @@ class AdminForumController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/forum/citizen/{opt}", name="admin_reports_citizen")
      * @param string $opt
      * @return Response
      */
+    #[Route(path: 'jx/admin/forum/citizen/{opt}', name: 'admin_reports_citizen')]
     public function citizen_reports(string $opt = ''): Response
     {
         $show_bin = $opt === 'bin';
@@ -755,10 +755,10 @@ class AdminForumController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/forum/user/{opt}", name="admin_reports_user")
      * @param string $opt
      * @return Response
      */
+    #[Route(path: 'jx/admin/forum/user/{opt}', name: 'admin_reports_user')]
     public function user_reports(string $opt = ''): Response
     {
         $show_bin = $opt === 'bin';
@@ -801,10 +801,10 @@ class AdminForumController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/forum/snippets", name="admin_reports_snippets")
      * @param PermissionHandler $perm
      * @return Response
      */
+    #[Route(path: 'jx/admin/forum/snippets', name: 'admin_reports_snippets')]
     public function forum_snippets(PermissionHandler $perm): Response
     {
         return $this->render( 'ajax/admin/reports/snippets.html.twig', $this->addDefaultTwigArgs(null, [

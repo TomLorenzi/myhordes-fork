@@ -39,19 +39,19 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
- * @Route("/",condition="request.isXmlHttpRequest()")
- * @GateKeeperProfile(allow_during_attack=true)
  * @method User getUser
  */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
+#[GateKeeperProfile(allow_during_attack: true)]
 class MessageGlobalPMController extends MessageController
 {
     /**
-     * @Route("api/pm/ping", name="api_pm_ping")
-     * @GateKeeperProfile("skip")
      * @param EntityManagerInterface $em
      * @param SessionInterface $s
      * @return Response
      */
+    #[Route(path: 'api/pm/ping', name: 'api_pm_ping')]
+    #[GateKeeperProfile('skip')]
     public function ping_check_new_message(EntityManagerInterface $em, SessionInterface $s): Response {
         $cache = $s->get('cache_ping');
 
@@ -87,7 +87,6 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("api/pm/spring/{domain}/{id<\d+>}/{archive<\d>}", name="api_pm_spring")
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
      * @param string $domain
@@ -95,6 +94,7 @@ class MessageGlobalPMController extends MessageController
      * @param int $archive
      * @return Response
      */
+    #[Route(path: 'api/pm/spring/{domain}/{id<\d+>}/{archive<\d>}', name: 'api_pm_spring')]
     public function ping_fetch_new_messages(EntityManagerInterface $em, JSONRequestParser $parser, string $domain = '', int $id = 0, int $archive = 0): Response {
 
         $user = $this->getUser();
@@ -165,28 +165,28 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("jx/pm", name="pm_proxy_view")
      * @return Response
      */
+    #[Route(path: 'jx/pm', name: 'pm_proxy_view')]
     public function pm_proxy_view(): Response {
         return $this->render( 'ajax/pm/proxy.html.twig', $this->addDefaultTwigArgs());
     }
 
 
     /**
-     * @Route("jx/pm/short/{s}", name="pm_proxy_view_short")
      * @param string|null $s
      * @return Response
      */
+    #[Route(path: 'jx/pm/short/{s}', name: 'pm_proxy_view_short')]
     public function pm_proxy_view_short(?string $s = null): Response {
         return $this->render( 'ajax/pm/proxy.html.twig', $this->addDefaultTwigArgs(null,['command' => $s]));
     }
 
     /**
-     * @Route("jx/pm/view", name="pm_view")
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'jx/pm/view', name: 'pm_view')]
     public function pm_view(JSONRequestParser $parser): Response {
         $target = Request::createFromGlobals()->headers->get('X-Render-Target', '');
 
@@ -361,12 +361,12 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("jx/pm/list/{set}", name="pm_list")
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $p
      * @param string $set
      * @return Response
      */
+    #[Route(path: 'jx/pm/list/{set}', name: 'pm_list')]
     public function pm_load_list(EntityManagerInterface $em, JSONRequestParser $p, string $set = 'inbox'): Response {
         $entries = [];
 
@@ -407,11 +407,11 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("api/pm/folders/state", name="pm_check_folder_states")
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/pm/folders/state', name: 'pm_check_folder_states')]
     public function check_folder_states( EntityManagerInterface $em, JSONRequestParser $parser ): Response {
 
         $folders = array_unique( $parser->get_array('folders') );
@@ -456,12 +456,12 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("api/pm/conversation/group/{gid<\d+>}/user/{uid<\d+>}/kick", name="pm_conv_group_user_kick")
      * @param int $gid
      * @param int $uid
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'api/pm/conversation/group/{gid<\d+>}/user/{uid<\d+>}/kick', name: 'pm_conv_group_user_kick')]
     public function pm_conversation_group_user_kick(int $gid, int $uid, EntityManagerInterface $em, PermissionHandler $perm): Response {
 
         if ($uid === $this->getUser()->getId()) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
@@ -504,12 +504,12 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("api/pm/conversation/group/{gid<\d+>}/user/{uid<\d+>}/restore", name="pm_conv_group_user_restore")
      * @param int $gid
      * @param int $uid
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'api/pm/conversation/group/{gid<\d+>}/user/{uid<\d+>}/restore', name: 'pm_conv_group_user_restore')]
     public function pm_conversation_group_user_restore(int $gid, int $uid, EntityManagerInterface $em): Response {
 
         $group = $em->getRepository( UserGroup::class )->find($gid);
@@ -544,7 +544,6 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("api/pm/conversation/group/{gid<\d+>}/user/{uid<\d+>}/add", name="pm_conv_group_user_add")
      * @param int $gid
      * @param int $uid
      * @param EntityManagerInterface $em
@@ -552,6 +551,7 @@ class MessageGlobalPMController extends MessageController
      * @param PermissionHandler $perm
      * @return Response
      */
+    #[Route(path: 'api/pm/conversation/group/{gid<\d+>}/user/{uid<\d+>}/add', name: 'pm_conv_group_user_add')]
     public function pm_conversation_group_user_add(int $gid, int $uid, EntityManagerInterface $em, UserHandler $userHandler, PermissionHandler $perm): Response {
 
         if ($userHandler->isRestricted($this->getUser(), AccountRestriction::RestrictionGlobalCommunication))
@@ -593,11 +593,11 @@ class MessageGlobalPMController extends MessageController
 
 
     /**
-     * @Route("jx/pm/conversation/group/{id<\d+>}/users", name="pm_conv_group_users")
      * @param int $id
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'jx/pm/conversation/group/{id<\d+>}/users', name: 'pm_conv_group_users')]
     public function pm_user_list(int $id, EntityManagerInterface $em): Response {
         $group = $em->getRepository( UserGroup::class )->find($id);
         if (!$group || $group->getType() !== UserGroup::GroupMessageGroup) return new Response('not found');
@@ -632,13 +632,13 @@ class MessageGlobalPMController extends MessageController
 
 
     /**
-     * @Route("jx/pm/conversation/group/{id<\d+>}", name="pm_conv_group")
      * @param int $id
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $p
      * @param SessionInterface $s
      * @return Response
      */
+    #[Route(path: 'jx/pm/conversation/group/{id<\d+>}', name: 'pm_conv_group')]
     public function pm_conversation_group(int $id, EntityManagerInterface $em, JSONRequestParser $p, SessionInterface $s): Response {
 
         $group = $em->getRepository( UserGroup::class )->find($id);
@@ -696,13 +696,13 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("jx/pm/conversation/dm", name="pm_dm")
      * @param EntityManagerInterface $em
      * @param LogTemplateHandler $th
      * @param JSONRequestParser $p
      * @param SessionInterface $s
      * @return Response
      */
+    #[Route(path: 'jx/pm/conversation/dm', name: 'pm_dm')]
     public function pm_direct_messages(EntityManagerInterface $em, LogTemplateHandler $th, JSONRequestParser $p, SessionInterface $s): Response {
 
         $num = max(5,min($p->get('num', 5),30));
@@ -754,12 +754,12 @@ class MessageGlobalPMController extends MessageController
 
 
     /**
-     * @Route("jx/pm/conversation/announce/{id<\d+>}", name="pm_announce")
      * @param int $id
      * @param EntityManagerInterface $em
      * @param SessionInterface $s
      * @return Response
      */
+    #[Route(path: 'jx/pm/conversation/announce/{id<\d+>}', name: 'pm_announce')]
     public function pm_announcement(int $id, EntityManagerInterface $em, SessionInterface $s): Response {
         $announce = $em->getRepository( Announcement::class )->find($id);
         if (!$announce || $announce->getLang() != $this->getUserLanguage()) return new Response('not found');
@@ -783,12 +783,12 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("jx/pm/conversation/announce/all", name="pm_announce_all")
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
      * @param SessionInterface $s
      * @return Response
      */
+    #[Route(path: 'jx/pm/conversation/announce/all', name: 'pm_announce_all')]
     public function pm_announcement_all(EntityManagerInterface $em, JSONRequestParser $parser, SessionInterface $s): Response {
         $skip = $parser->get_array('skip');
         $num = max(1,min(10,$parser->get_int('num', 5)));
@@ -823,12 +823,12 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("api/pm/conversation/group/{id<\d+>}/delete", name="pm_delete_conv_group")
      * @param int $id
      * @param EntityManagerInterface $em
      * @param PermissionHandler $perm
      * @return Response
      */
+    #[Route(path: 'api/pm/conversation/group/{id<\d+>}/delete', name: 'pm_delete_conv_group')]
     public function pm_delete_conversation_group(int $id, EntityManagerInterface $em, PermissionHandler $perm): Response {
 
         $group = $em->getRepository( UserGroup::class )->find($id);
@@ -858,11 +858,11 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("api/pm/conversation/group/unread/{id<\d+>}", name="pm_unread_conv_group")
      * @param int $id
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'api/pm/conversation/group/unread/{id<\d+>}', name: 'pm_unread_conv_group')]
     public function pm_unread_conversation_group(int $id, EntityManagerInterface $em): Response {
 
         $group = $em->getRepository( UserGroup::class )->find($id);
@@ -886,12 +886,12 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("api/pm/conversation/group/archive/{id<\d+>}/{arch<\d>}", name="pm_archive_conv_group")
      * @param int $id
      * @param int $arch
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'api/pm/conversation/group/archive/{id<\d+>}/{arch<\d>}', name: 'pm_archive_conv_group')]
     public function pm_archive_conversation_group(int $id, int $arch, EntityManagerInterface $em): Response {
 
         $group = $em->getRepository( UserGroup::class )->find($id);
@@ -915,12 +915,12 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("api/pm/conversation/group/pin/{id<\d+>}/{pin<\d>}", name="pm_pin_conv_group")
      * @param int $id
      * @param int $pin
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'api/pm/conversation/group/pin/{id<\d+>}/{pin<\d>}', name: 'pm_pin_conv_group')]
     public function pm_pin_conversation_group(int $id, int $pin, EntityManagerInterface $em): Response {
 
         $group = $em->getRepository( UserGroup::class )->find($id);
@@ -944,11 +944,11 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("api/pm/conversation/group/block/{id<\d+>}", name="pm_block_conv_group")
      * @param int $id
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'api/pm/conversation/group/block/{id<\d+>}', name: 'pm_block_conv_group')]
     public function pm_block_conversation_group(int $id, EntityManagerInterface $em): Response {
 
         $group = $em->getRepository( UserGroup::class )->find($id);
@@ -983,10 +983,10 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("api/pm/conversation/dm/delete", name="pm_delete_dm")
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'api/pm/conversation/dm/delete', name: 'pm_delete_dm')]
     public function pm_delete_dm(EntityManagerInterface $em): Response {
 
         foreach ($em->getRepository(GlobalPrivateMessage::class)->getDirectPMsByUser( $this->getUser() ) as $dm)
@@ -1002,10 +1002,10 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("api/pm/conversation/dm/unread", name="pm_unread_dm")
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'api/pm/conversation/dm/unread', name: 'pm_unread_dm')]
     public function pm_unread_dm(EntityManagerInterface $em): Response {
         $dm = $em->getRepository(GlobalPrivateMessage::class)->getDirectPMsByUser( $this->getUser(), 0, 1 );
 
@@ -1022,11 +1022,11 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("api/pm/conversation/announce/unread/{id<\d+>}", name="pm_unread_announce")
      * @param int $id
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'api/pm/conversation/announce/unread/{id<\d+>}', name: 'pm_unread_announce')]
     public function pm_unread_announcement(int $id, EntityManagerInterface $em): Response {
 
         $announce = $em->getRepository( Announcement::class )->find($id);
@@ -1048,10 +1048,10 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("jx/pm/og_resolve", name="pm_og_resolve")
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'jx/pm/og_resolve', name: 'pm_og_resolve')]
     public function editor_og_group_preview(JSONRequestParser $parser) {
         if (!$parser->has('og')) return new Response("");
         $group = $this->entity_manager->getRepository(OfficialGroup::class)->find($parser->get_int('og'));
@@ -1061,10 +1061,10 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("jx/pm/user_resolve", name="pm_user_resolve")
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'jx/pm/user_resolve', name: 'pm_user_resolve')]
     public function editor_user_preview(JSONRequestParser $parser) {
         if (!$parser->has('user')) return new Response("");
         $user = $this->entity_manager->getRepository(User::class)->find($parser->get_int('user'));
@@ -1074,10 +1074,10 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("jx/pm/create-editor", name="pm_thread_editor_controller")
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'jx/pm/create-editor', name: 'pm_thread_editor_controller')]
     public function editor_pm_thread_api(EntityManagerInterface $em): Response {
         if ($this->userHandler->isRestricted($this->getUser(), AccountRestriction::RestrictionGlobalCommunication))
             return new Response("");
@@ -1105,10 +1105,10 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("jx/pm/create-og-editor", name="pm_og_thread_editor_controller")
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'jx/pm/create-og-editor', name: 'pm_og_thread_editor_controller')]
     public function editor_pm_og_thread_api(EntityManagerInterface $em): Response {
 
         return $this->render( 'ajax/forum/editor.html.twig', [
@@ -1131,11 +1131,11 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("jx/pm/answer-editor/{id<\d+>}", name="pm_post_editor_controller")
      * @param int $id
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'jx/pm/answer-editor/{id<\d+>}', name: 'pm_post_editor_controller')]
     public function editor_pm_post_api(int $id, EntityManagerInterface $em): Response {
         if ($this->userHandler->isRestricted($this->getUser(), AccountRestriction::RestrictionGlobalCommunication))
             return new Response("");
@@ -1161,13 +1161,13 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("api/pm/post", name="pm_new_thread_controller")
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
      * @param UserHandler $userHandler
      * @param PermissionHandler $perm
      * @return Response
      */
+    #[Route(path: 'api/pm/post', name: 'pm_new_thread_controller')]
     public function new_thread_api(JSONRequestParser $parser, EntityManagerInterface $em, UserHandler $userHandler, PermissionHandler $perm): Response {
 
         $user = $this->getUser();
@@ -1273,7 +1273,6 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("api/pm/og_post", name="pm_new_og_thread_controller")
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
      * @param PermissionHandler $perm
@@ -1281,6 +1280,7 @@ class MessageGlobalPMController extends MessageController
      * @param User[]|null $overwrite_user
      * @return Response
      */
+    #[Route(path: 'api/pm/og_post', name: 'pm_new_og_thread_controller')]
     public function new_og_thread_api(JSONRequestParser $parser, EntityManagerInterface $em, PermissionHandler $perm, ?int $overwrite_og = null, ?array $overwrite_user = null): Response {
         if (!$parser->has_all(['title','content'], true) || ( !$parser->has('og') && !$overwrite_og ))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -1337,13 +1337,13 @@ class MessageGlobalPMController extends MessageController
 
 
     /**
-     * @Route("api/pm/{id<\d+>}/answer", name="pm_new_post_controller")
      * @param int $id
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
      * @param UserHandler $userHandler
      * @return Response
      */
+    #[Route(path: 'api/pm/{id<\d+>}/answer', name: 'pm_new_post_controller')]
     public function new_post_api(int $id, JSONRequestParser $parser, EntityManagerInterface $em, UserHandler $userHandler): Response {
 
         $user = $this->getUser();
@@ -1408,12 +1408,12 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("api/pm/{pid<\d+>}/report", name="pm_report_post_controller")
      * @param int $pid
      * @param EntityManagerInterface $em
      * @param TranslatorInterface $ti
      * @return Response
      */
+    #[Route(path: 'api/pm/{pid<\d+>}/report', name: 'pm_report_post_controller')]
     public function report_post_api(int $pid, EntityManagerInterface $em, TranslatorInterface $ti, JSONRequestParser $parser, CrowService $crow, RateLimitingFactoryProvider $rateLimiter): Response {
         $user = $this->getUser();
 
@@ -1468,12 +1468,12 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("api/pm/{pid<\d+>}/pin/{action<\d+>}", name="pm_pin_post_controller")
      * @param int $pid
      * @param int $action
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'api/pm/{pid<\d+>}/pin/{action<\d+>}', name: 'pm_pin_post_controller')]
     public function report_pin_api(int $pid, int $action, EntityManagerInterface $em): Response {
         $user = $this->getUser();
 
@@ -1512,12 +1512,12 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("api/pm/{pid<\d+>}/collapse/{action<\d+>}", name="pm_collapse_post_controller")
      * @param int $pid
      * @param int $action
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'api/pm/{pid<\d+>}/collapse/{action<\d+>}', name: 'pm_collapse_post_controller')]
     public function report_collapse_api(int $pid, int $action, EntityManagerInterface $em): Response {
         $user = $this->getUser();
 

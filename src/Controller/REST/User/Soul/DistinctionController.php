@@ -13,30 +13,23 @@ use App\Enum\UserSetting;
 use App\Service\JSONRequestParser;
 use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Contracts\Translation\TranslatorInterface;
-use function App\Controller\REST\User\mb_strlen;
-use function App\Controller\REST\User\str_contains;
 
-
-/**
- * @Route("/rest/v1/user/soul/distinctions", name="rest_user_soul_distinctions_", condition="request.headers.get('Accept') === 'application/json'")
- * @IsGranted("ROLE_USER")
- */
+#[Route(path: '/rest/v1/user/soul/distinctions', name: 'rest_user_soul_distinctions_', condition: "request.headers.get('Accept') === 'application/json'")]
+#[IsGranted('ROLE_USER')]
 class DistinctionController extends CustomAbstractCoreController
 {
 
     /**
-     * @Route("", name="base", methods={"GET"})
-     * @Route("/index", name="base_index", methods={"GET"})
      * @param Packages $assets
      * @return JsonResponse
      */
+    #[Route(path: '', name: 'base', methods: ['GET'])]
+    #[Route(path: '/index', name: 'base_index', methods: ['GET'])]
     public function index(Packages $assets): JsonResponse {
         return new JsonResponse([
             'strings' => [
@@ -61,7 +54,6 @@ class DistinctionController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/{id}/{source<old|soul|mh|imported|all>}", name="list", methods={"GET"})
      * @param User $user
      * @param string $source
      * @param UserHandler $userHandler
@@ -69,6 +61,7 @@ class DistinctionController extends CustomAbstractCoreController
      * @param Packages $assets
      * @return JsonResponse
      */
+    #[Route(path: '/{id}/{source<old|soul|mh|imported|all>}', name: 'list', methods: ['GET'])]
     public function list(
         User $user,
         string $source,
@@ -145,13 +138,13 @@ class DistinctionController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/{id}/top3", name="patch_top3", methods={"PATCH"})
      * @param User $user
      * @param UserHandler $userHandler
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
      * @return JsonResponse
      */
+    #[Route(path: '/{id}/top3', name: 'patch_top3', methods: ['PATCH'])]
     public function patchTop3(
         User $user,
         UserHandler $userHandler,

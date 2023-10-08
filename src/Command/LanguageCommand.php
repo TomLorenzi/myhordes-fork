@@ -27,13 +27,13 @@ class LanguageCommand extends Command
         $this->addOption('lang', null, InputOption::VALUE_REQUIRED, 'Select output language', 'en');
     }
 
-    /** @required  */
+    #[\Symfony\Contracts\Service\Attribute\Required]
     public function setTranslator(TranslatorInterface $translator): void
     {
         $this->translator = $translator;
     }
 
-    /** @required  */
+    #[\Symfony\Contracts\Service\Attribute\Required]
     public function setCommandHelper(CommandHelper $helper): void
     {
         $this->helper = $helper;

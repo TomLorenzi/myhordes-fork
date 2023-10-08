@@ -4,30 +4,22 @@
 namespace App\Annotations;
 
 use App\Enum\SemaphoreScope;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ConfigurationInterface;
+use Attribute;
 
-/**
- * @Annotation
- * @Target({"METHOD","CLASS"})
- */
-class Semaphore implements ConfigurationInterface
+#[Attribute(Attribute::TARGET_METHOD | Attribute::TARGET_CLASS | Attribute::IS_REPEATABLE)]
+class Semaphore implements CustomAttribute
 {
+    public function __construct(
+        public ?string $value = null,
+        public string $scope = "global",
+    ) { }
 
-    public ?string $value = null;
-
-    public string $scope  = "global";
-
-    /**
-     * @inheritDoc
-     */
-    public function getAliasName(): string {
+    public static function getAliasName(): string {
         return 'Semaphores';
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function allowArray(): bool {
+    public static function isRepeatable(): bool
+    {
         return true;
     }
 
@@ -38,4 +30,6 @@ class Semaphore implements ConfigurationInterface
     public function getScope(): SemaphoreScope {
         return SemaphoreScope::from($this->scope);
     }
+
+
 }

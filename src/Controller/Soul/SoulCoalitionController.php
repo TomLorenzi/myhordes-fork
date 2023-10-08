@@ -24,16 +24,16 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
- * @Route("/",condition="request.isXmlHttpRequest()")
  * @method User getUser
  */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
 class SoulCoalitionController extends SoulController
 {
     /**
-     * @Route("jx/soul/coalitions", name="soul_coalitions")
      * @param ConfMaster $conf
      * @return Response
      */
+    #[Route(path: 'jx/soul/coalitions', name: 'soul_coalitions')]
     public function soul_coalitions(ConfMaster $conf): Response
     {
         $user = $this->getUser();
@@ -72,9 +72,9 @@ class SoulCoalitionController extends SoulController
     }
 
     /**
-     * @Route("jx/soul/shoutbox", name="soul_shoutbox")
      * @return Response
      */
+    #[Route(path: 'jx/soul/shoutbox', name: 'soul_shoutbox')]
     public function soul_shoutbox(): Response
     {
         $user = $this->getUser();
@@ -114,11 +114,11 @@ class SoulCoalitionController extends SoulController
     }
 
     /**
-     * @Route("api/soul/coalition/create", name="soul_create_coalition")
      * @param TranslatorInterface $trans
      * @param PermissionHandler $perm
      * @return Response
      */
+    #[Route(path: 'api/soul/coalition/create', name: 'soul_create_coalition')]
     public function api_soul_create_coalitions(TranslatorInterface $trans, PermissionHandler $perm): Response
     {
         $user = $this->getUser();
@@ -158,9 +158,9 @@ class SoulCoalitionController extends SoulController
     }
 
     /**
-     * @Route("api/soul/coalition/toggle", name="soul_toggle_coalition")
      * @return Response
      */
+    #[Route(path: 'api/soul/coalition/toggle', name: 'soul_toggle_coalition')]
     public function api_soul_toggle_coalition_membership(): Response
     {
         $user = $this->getUser();
@@ -189,10 +189,10 @@ class SoulCoalitionController extends SoulController
     }
 
     /**
-     * @Route("api/soul/coalition/leave/{coalition<\d+>}", name="soul_leave_coalition")
      * @param int $coalition
      * @return Response
      */
+    #[Route(path: 'api/soul/coalition/leave/{coalition<\d+>}', name: 'soul_leave_coalition')]
     public function api_soul_leave_coalition(int $coalition): Response
     {
         $user = $this->getUser();
@@ -248,11 +248,11 @@ class SoulCoalitionController extends SoulController
     }
 
     /**
-     * @Route("api/soul/coalition/join/{coalition<\d+>}", name="soul_join_coalition")
      * @param int $coalition
      * @param TranslatorInterface $trans
      * @return Response
      */
+    #[Route(path: 'api/soul/coalition/join/{coalition<\d+>}', name: 'soul_join_coalition')]
     public function api_soul_join_coalition(int $coalition, TranslatorInterface $trans): Response
     {
         $user = $this->getUser();
@@ -301,10 +301,10 @@ class SoulCoalitionController extends SoulController
     }
 
     /**
-     * @Route("api/soul/coalition/kick/{coalition<\d+>}", name="soul_kick_coalition")
      * @param int $coalition
      * @return Response
      */
+    #[Route(path: 'api/soul/coalition/kick/{coalition<\d+>}', name: 'soul_kick_coalition')]
     public function api_soul_kick_coalition(int $coalition): Response
     {
         $user = $this->getUser();
@@ -350,10 +350,10 @@ class SoulCoalitionController extends SoulController
     }
 
     /**
-     * @Route("api/soul/coalition/rename", name="soul_rename_coalition")
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/soul/coalition/rename', name: 'soul_rename_coalition')]
     public function api_soul_rename_coalition(JSONRequestParser $parser): Response
     {
         $user = $this->getUser();
@@ -393,11 +393,11 @@ class SoulCoalitionController extends SoulController
     }
 
     /**
-     * @Route("api/soul/coalition/invite/{id<\d+>}", name="soul_invite_coalition")
      * @param ConfMaster $conf
      * @param int $id
      * @return Response
      */
+    #[Route(path: 'api/soul/coalition/invite/{id<\d+>}', name: 'soul_invite_coalition')]
     public function api_soul_invite_coalition(ConfMaster $conf, int $id): Response
     {
         $user = $this->getUser();
@@ -468,10 +468,10 @@ class SoulCoalitionController extends SoulController
     }
 
     /**
-     * @Route("api/soul/coalition/shout", name="soul_shout_coalition")
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/soul/coalition/shout', name: 'soul_shout_coalition')]
     public function api_coalition_shout(JSONRequestParser $parser, HTMLService $html): Response
     {
         $user = $this->getUser();

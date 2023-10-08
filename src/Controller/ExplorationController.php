@@ -43,11 +43,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-/**
- * @Route("/",condition="request.isXmlHttpRequest()")
- * @GateKeeperProfile(only_alive=true, only_in_ruin=true)
- * @Semaphore("town", scope="town")
- */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
+#[GateKeeperProfile(only_alive: true, only_in_ruin: true)]
+#[Semaphore('town', scope: 'town')]
 class ExplorationController extends InventoryAwareController implements HookedInterfaceController
 {
     protected $game_factory;
@@ -104,9 +102,9 @@ class ExplorationController extends InventoryAwareController implements HookedIn
     }
 
     /**
-     * @Route("jx/beyond/explore", name="exploration_dashboard")
      * @return Response
      */
+    #[Route(path: 'jx/beyond/explore', name: 'exploration_dashboard')]
     public function explore(): Response
     {
         $citizen = $this->getActiveCitizen();
@@ -152,9 +150,9 @@ class ExplorationController extends InventoryAwareController implements HookedIn
     }
 
     /**
-     * @Route("api/beyond/explore/exit", name="beyond_ruin_enter_desert_controller")
      * @return Response
      */
+    #[Route(path: 'api/beyond/explore/exit', name: 'beyond_ruin_enter_desert_controller')]
     public function ruin_exit_api() {
         $citizen = $this->getActiveCitizen();
 
@@ -174,9 +172,9 @@ class ExplorationController extends InventoryAwareController implements HookedIn
     }
 
     /**
-     * @Route("api/beyond/explore/escape", name="beyond_ruin_escape_controller")
      * @return Response
      */
+    #[Route(path: 'api/beyond/explore/escape', name: 'beyond_ruin_escape_controller')]
     public function ruin_escape_api() {
         $ruinZone = $this->getCurrentRuinZone();
         $ex = $this->getActiveCitizen()->activeExplorerStats();
@@ -199,10 +197,10 @@ class ExplorationController extends InventoryAwareController implements HookedIn
     }
 
     /**
-     * @Route("api/beyond/explore/move", name="beyond_ruin_move_controller")
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/beyond/explore/move', name: 'beyond_ruin_move_controller')]
     public function ruin_move_api(JSONRequestParser $parser) {
         $ruinZone = $this->getCurrentRuinZone();
         $ex = $this->getActiveCitizen()->activeExplorerStats();
@@ -251,9 +249,9 @@ class ExplorationController extends InventoryAwareController implements HookedIn
     }
 
     /**
-     * @Route("api/beyond/explore/shift", name="beyond_ruin_room_enter_controller")
      * @return Response
      */
+    #[Route(path: 'api/beyond/explore/shift', name: 'beyond_ruin_room_enter_controller')]
     public function ruin_room_enter_api() {
         $ruinZone = $this->getCurrentRuinZone();
         $ex = $this->getActiveCitizen()->activeExplorerStats();
@@ -279,9 +277,9 @@ class ExplorationController extends InventoryAwareController implements HookedIn
     }
 
     /**
-     * @Route("api/beyond/explore/stairs", name="beyond_ruin_stairs_enter_controller")
      * @return Response
      */
+    #[Route(path: 'api/beyond/explore/stairs', name: 'beyond_ruin_stairs_enter_controller')]
     public function ruin_stairs_enter_api() {
         $ruinZone = $this->getCurrentRuinZone();
         $ex = $this->getActiveCitizen()->activeExplorerStats();
@@ -307,9 +305,9 @@ class ExplorationController extends InventoryAwareController implements HookedIn
     }
 
     /**
-     * @Route("api/beyond/explore/unshift", name="beyond_ruin_room_leave_controller")
      * @return Response
      */
+    #[Route(path: 'api/beyond/explore/unshift', name: 'beyond_ruin_room_leave_controller')]
     public function ruin_room_leave_api() {
         $ex = $this->getActiveCitizen()->activeExplorerStats();
 
@@ -328,11 +326,11 @@ class ExplorationController extends InventoryAwareController implements HookedIn
     }
 
     /**
-     * @Route("api/beyond/explore/item", name="beyond_ruin_item_controller")
      * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
      * @return Response
      */
+    #[Route(path: 'api/beyond/explore/item', name: 'beyond_ruin_item_controller')]
     public function item_explore_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
         $ex = $this->getActiveCitizen()->activeExplorerStats();
         //$down_inv = $ex->getInRoom() ? $this->getCurrentRuinZone()->getRoomFloor() : $this->getCurrentRuinZone()->getFloor();
@@ -343,10 +341,10 @@ class ExplorationController extends InventoryAwareController implements HookedIn
     }
 
     /**
-     * @Route("api/beyond/explore/scavenge", name="beyond_ruin_scavenge_controller")
      * @param GameProfilerService $gps
      * @return Response
      */
+    #[Route(path: 'api/beyond/explore/scavenge', name: 'beyond_ruin_scavenge_controller')]
     public function scavenge_explore_api(GameProfilerService $gps, EventProxyService $proxyService): Response {
         $citizen = $this->getActiveCitizen();
         $ex = $citizen->activeExplorerStats();
@@ -427,10 +425,10 @@ class ExplorationController extends InventoryAwareController implements HookedIn
     }
 
     /**
-     * @Route("api/beyond/explore/imprint", name="beyond_ruin_imprint_controller")
      * @param InventoryHandler $handler
      * @return Response
      */
+    #[Route(path: 'api/beyond/explore/imprint', name: 'beyond_ruin_imprint_controller')]
     public function imprint_explore_api(InventoryHandler $handler): Response {
         $citizen = $this->getActiveCitizen();
         $ex = $citizen->activeExplorerStats();
@@ -465,10 +463,10 @@ class ExplorationController extends InventoryAwareController implements HookedIn
     }
 
     /**
-     * @Route("api/beyond/explore/unlock", name="beyond_ruin_unlock_controller")
      * @param InventoryHandler $handler
      * @return Response
      */
+    #[Route(path: 'api/beyond/explore/unlock', name: 'beyond_ruin_unlock_controller')]
     public function unlock_explore_api(InventoryHandler $handler): Response {
         $citizen = $this->getActiveCitizen();
         $ex = $citizen->activeExplorerStats();
@@ -508,29 +506,29 @@ class ExplorationController extends InventoryAwareController implements HookedIn
     }
 
     /**
-     * @Route("api/beyond/explore/heroic", name="beyond_ruin_heroic_controller")
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/beyond/explore/heroic', name: 'beyond_ruin_heroic_controller')]
     public function heroic_desert_api(JSONRequestParser $parser): Response {
         return $this->generic_heroic_action_api( $parser );
     }
 
     /**
-     * @Route("api/beyond/explore/action", name="beyond_ruin_action_controller")
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/beyond/explore/action', name: 'beyond_ruin_action_controller')]
     public function action_desert_api(JSONRequestParser $parser): Response {
         return $this->generic_action_api( $parser );
     }
 
     /**
-     * @Route("api/beyond/explore/recipe", name="beyond_ruin_recipe_controller")
      * @param JSONRequestParser $parser
      * @param ActionHandler $handler
      * @return Response
      */
+    #[Route(path: 'api/beyond/explore/recipe', name: 'beyond_ruin_recipe_controller')]
     public function recipe_desert_api(JSONRequestParser $parser, ActionHandler $handler): Response {
         return $this->generic_recipe_api( $parser, $handler);
     }

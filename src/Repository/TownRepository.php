@@ -22,7 +22,7 @@ class TownRepository extends ServiceEntityRepository
     /**
      * @return Town[] Returns an array of Town objects
      */
-    
+
     public function findOpenTown()
     {
         return $this->createQueryBuilder('t')

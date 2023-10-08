@@ -21,8 +21,7 @@ use App\Service\UserHandler;
 use App\Structures\Image;
 use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManagerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -30,25 +29,23 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use function App\Controller\REST\User\mb_strlen;
-use function App\Controller\REST\User\str_contains;
 
 
 /**
- * @Route("/rest/v1/user/settings/avatar", name="rest_user_settings_avatar_", condition="request.headers.get('Accept') === 'application/json'")
- * @IsGranted("ROLE_USER")
  * @method User getUser()
  */
+#[Route(path: '/rest/v1/user/settings/avatar', name: 'rest_user_settings_avatar_', condition: "request.headers.get('Accept') === 'application/json'")]
+#[IsGranted('ROLE_USER')]
 class AvatarController extends AbstractController
 {
 
     /**
-     * @Route("", name="base", methods={"GET"})
-     * @Route("/index", name="base_index", methods={"GET"})
      * @param Packages $assets
      * @param TranslatorInterface $trans
      * @return JsonResponse
      */
+    #[Route(path: '', name: 'base', methods: ['GET'])]
+    #[Route(path: '/index', name: 'base_index', methods: ['GET'])]
     public function index(Packages $assets, TranslatorInterface $trans): JsonResponse {
         return new JsonResponse([
             'strings' => [
@@ -115,9 +112,9 @@ class AvatarController extends AbstractController
 
 
     /**
-     * @Route("/media", name="list", methods={"GET"})
      * @return JsonResponse
      */
+    #[Route(path: '/media', name: 'list', methods: ['GET'])]
     public function fetchMedia(): JsonResponse {
         return new JsonResponse( [
             'default' => $this->renderAvatar( $this->getUser(), false ),
@@ -127,10 +124,10 @@ class AvatarController extends AbstractController
     }
 
     /**
-     * @Route("/media", name="delete", methods={"DELETE"})
      * @param EntityManagerInterface $em
      * @return JsonResponse
      */
+    #[Route(path: '/media', name: 'delete', methods: ['DELETE'])]
     public function deleteMedia(EntityManagerInterface $em): JsonResponse {
 
         if ($this->getUser()->getAvatar()) {
@@ -162,13 +159,13 @@ class AvatarController extends AbstractController
     }
 
     /**
-     * @Route("/media", name="upload", methods={"PUT"})
      * @param JSONRequestParser $parser
      * @param UserHandler $userHandler
      * @param ConfMaster $conf
      * @param EntityManagerInterface $em
      * @return JsonResponse
      */
+    #[Route(path: '/media', name: 'upload', methods: ['PUT'])]
     public function uploadMedia(JSONRequestParser $parser, UserHandler $userHandler, ConfMaster $conf, EntityManagerInterface $em): JsonResponse {
         $payload = $parser->get_base64('data');
         $mime = $parser->get('mime');

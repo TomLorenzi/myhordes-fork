@@ -18,17 +18,15 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use function Symfony\Component\String\b;
 
-/**
- * @Route("/",condition="request.isXmlHttpRequest()")
- * @GateKeeperProfile(allow_during_attack=true)
- */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
+#[GateKeeperProfile(allow_during_attack: true)]
 class AdminFileSystemController extends AdminActionController
 {
 
     /**
-     * @Route("jx/admin/fs/index", name="admin_file_system_dash")
      * @return Response
      */
+    #[Route(path: 'jx/admin/fs/index', name: 'admin_file_system_dash')]
     public function fs_index(): Response
     {
         return $this->render('ajax/admin/files/list.html.twig', $this->addDefaultTwigArgs(null, [
@@ -38,13 +36,13 @@ class AdminFileSystemController extends AdminActionController
     }
 
     /**
-     * @Route("admin/fs/log/fetch/{a}/{f}", name="admin_log", condition="!request.isXmlHttpRequest()")
-     * @AdminLogProfile(enabled=true)
      * @param ParameterBagInterface $params
      * @param string $a
      * @param string $f
      * @return Response
      */
+    #[Route(path: 'admin/fs/log/fetch/{a}/{f}', name: 'admin_log', condition: '!request.isXmlHttpRequest()')]
+    #[AdminLogProfile(enabled: true)]
     public function log(ParameterBagInterface $params, string $a = '', string $f = ''): Response
     {
         if (!$this->isGranted('ROLE_ADMIN')) return new Response('', 403);
@@ -71,12 +69,12 @@ class AdminFileSystemController extends AdminActionController
     }
 
     /**
-     * @Route("admin/fs/townlog/fetch/{id<\d+>}/{type}.txt", name="admin_townlog", condition="!request.isXmlHttpRequest()")
-     * @AdminLogProfile(enabled=true)
      * @param int $id
      * @param string $type
      * @return Response
      */
+    #[Route(path: 'admin/fs/townlog/fetch/{id<\d+>}/{type}.txt', name: 'admin_townlog', condition: '!request.isXmlHttpRequest()')]
+    #[AdminLogProfile(enabled: true)]
     public function townlog(int $id, string $type): Response
     {
         if (!$this->isGranted('ROLE_CROW')) return new Response('', 403);
@@ -167,12 +165,12 @@ class AdminFileSystemController extends AdminActionController
     }
 
     /**
-     * @Route("admin/fs/backup/fetch/{f}", name="admin_backup", condition="!request.isXmlHttpRequest()")
-     * @AdminLogProfile(enabled=true)
      * @param ParameterBagInterface $params
      * @param string $f
      * @return Response
      */
+    #[Route(path: 'admin/fs/backup/fetch/{f}', name: 'admin_backup', condition: '!request.isXmlHttpRequest()')]
+    #[AdminLogProfile(enabled: true)]
     public function backup(ParameterBagInterface $params, string $f = ''): Response
     {
         if (!$this->isGranted('ROLE_ADMIN')) return new Response('', 403);
@@ -227,12 +225,12 @@ class AdminFileSystemController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/fs/log/delete/{f}", name="api_admin_clear_log")
-     * @AdminLogProfile(enabled=true)
      * @param ParameterBagInterface $params
      * @param string $f
      * @return Response
      */
+    #[Route(path: 'api/admin/fs/log/delete/{f}', name: 'api_admin_clear_log')]
+    #[AdminLogProfile(enabled: true)]
     public function clear_log_api(ParameterBagInterface $params, string $f = ''): Response
     {
         if (!$this->isGranted('ROLE_ADMIN')) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
@@ -251,12 +249,12 @@ class AdminFileSystemController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/fs/backup/delete/{f}", name="api_admin_clear_backup")
-     * @AdminLogProfile(enabled=true)
      * @param ParameterBagInterface $params
      * @param string $f
      * @return Response
      */
+    #[Route(path: 'api/admin/fs/backup/delete/{f}', name: 'api_admin_clear_backup')]
+    #[AdminLogProfile(enabled: true)]
     public function clear_backup_api(ParameterBagInterface $params, string $f = ''): Response
     {
         if (!$this->isGranted('ROLE_ADMIN')) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );

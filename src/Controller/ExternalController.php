@@ -11,8 +11,8 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class ExternalController
  * @package App\Controller
- * @GateKeeperProfile(allow_during_attack=true, record_user_activity=false)
  */
+#[GateKeeperProfile(allow_during_attack: true, record_user_activity: false)]
 class ExternalController extends CustomAbstractController {
 
     protected function decodeUrl(?string $url): ?string {
@@ -44,10 +44,10 @@ class ExternalController extends CustomAbstractController {
     }
 
     /**
-     * @Route("/jx/disclaimer/{id<\d+>}", name="disclaimer", condition="request.isXmlHttpRequest()")
      * @param ExternalApp $app
      * @return Response
      */
+    #[Route(path: '/jx/disclaimer/{id<\d+>}', name: 'disclaimer', condition: 'request.isXmlHttpRequest()')]
     public function disclaimer(ExternalApp $app): Response {
         $user = $this->getUser();
         if (!$user || ($app->getTesting() && $app->getOwner() !== $user && !$this->isGranted('ROLE_ADMIN')))
@@ -65,17 +65,17 @@ class ExternalController extends CustomAbstractController {
     }
 
     /**
-     * @Route("/jx/json_docs", name="json_docs", condition="request.isXmlHttpRequest()")
      * @return Response
      */
+    #[Route(path: '/jx/json_docs', name: 'json_docs', condition: 'request.isXmlHttpRequest()')]
     public function json_documentation(): Response {
         return $this->render('ajax/public/jsonapidocs.html.twig', []);
     }
 
     /**
-     * @Route("/jx/xml_docs", name="xml_docs", condition="request.isXmlHttpRequest()")
      * @return Response
      */
+    #[Route(path: '/jx/xml_docs', name: 'xml_docs', condition: 'request.isXmlHttpRequest()')]
     public function xml_documentation(): Response {
         return $this->render('ajax/public/xmlapidocs.html.twig', []);
     }

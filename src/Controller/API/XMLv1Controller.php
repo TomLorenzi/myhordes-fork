@@ -20,16 +20,16 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class XMLv1Controller
  * @package App\Controller
- * @GateKeeperProfile(allow_during_attack=true, record_user_activity=false)
  */
+#[GateKeeperProfile(allow_during_attack: true, record_user_activity: false)]
 class XMLv1Controller extends CoreController {
 
     /**
-     * @ExternalAPI(user=true, app=true, api=ExternalAPIInterface::XMLv1)
-     * @Route("api/x/xml", name="api_x_xml", defaults={"_format"="xml"}, methods={"GET","POST"})
      * @param User|null $user
      * @return Response
      */
+    #[Route(path: 'api/x/xml', name: 'api_x_xml', defaults: ['_format' => 'xml'], methods: ['GET', 'POST'])]
+    #[ExternalAPI(user: true, app: true, api: ExternalAPIInterface::XMLv1)]
     public function api_xml(?User $user): Response {
         // All fine, let's populate the response.
         $data = $this->generateLegacyData($user);

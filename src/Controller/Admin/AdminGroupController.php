@@ -19,20 +19,17 @@ use App\Structures\MyHordesConf;
 use App\Translation\T;
 use Exception;
 use ReflectionClass;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/",condition="request.isXmlHttpRequest()")
- * @GateKeeperProfile(allow_during_attack=true)
- */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
+#[GateKeeperProfile(allow_during_attack: true)]
 class AdminGroupController extends AdminActionController
 {
     /**
-     * @Route("jx/admin/groups/all", name="admin_group_view")
      * @return Response
      */
+    #[Route(path: 'jx/admin/groups/all', name: 'admin_group_view')]
     public function groups_view(PermissionHandler $perm): Response
     {
         $groups = $this->entity_manager->getRepository(OfficialGroup::class)->findAll();
@@ -52,9 +49,9 @@ class AdminGroupController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/groups/new", name="admin_group_new")
      * @return Response
      */
+    #[Route(path: 'jx/admin/groups/new', name: 'admin_group_new')]
     public function group_new(): Response
     {
         if (!$this->isGranted('ROLE_ADMIN')) $this->redirect($this->generateUrl('admin_group_view'));
@@ -67,11 +64,11 @@ class AdminGroupController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/groups/{id<-?\d+>}", name="admin_group_edit")
      * @param int $id
      * @param PermissionHandler $perm
      * @return Response
      */
+    #[Route(path: 'jx/admin/groups/{id<-?\d+>}', name: 'admin_group_edit')]
     public function group_edit(int $id, PermissionHandler $perm): Response
     {
         if (!$this->isGranted('ROLE_ADMIN')) $this->redirect($this->generateUrl('admin_group_view'));
@@ -87,10 +84,10 @@ class AdminGroupController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/groups/update/{id<-?\d+>}", name="admin_group_update")
      * @param int $id
      * @return Response
      */
+    #[Route(path: 'api/admin/groups/update/{id<-?\d+>}', name: 'admin_group_update')]
     public function update_group(int $id, JSONRequestParser $parser, PermissionHandler $perm): Response
     {
         if (!$this->isGranted('ROLE_ADMIN')) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );

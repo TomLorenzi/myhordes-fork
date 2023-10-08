@@ -39,8 +39,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * Class SeoController
  * @package App\Controller
- * @GateKeeperProfile(allow_during_attack=true)
  */
+#[GateKeeperProfile(allow_during_attack: true)]
 class SeoController extends CustomAbstractController
 {
 
@@ -55,9 +55,9 @@ class SeoController extends CustomAbstractController
     }
 
     /**
-     * @Route("/robots.txt", name="robots.txt")
      * @return Response
      */
+    #[Route(path: '/robots.txt', name: 'robots.txt')]
     public function robots_txt(): Response
     {
         $base_url = Request::createFromGlobals()->getHost();
@@ -70,26 +70,19 @@ class SeoController extends CustomAbstractController
     }
 
     /**
-     * @Route(
-     *     "/", priority=100, name="seo_welcome",
-     *     condition="request.headers.has('User-Agent') and request.headers.get('User-Agent') matches '%seobots%'"
-     * )
      * @return Response
      */
+    #[Route(path: '/', priority: 100, name: 'seo_welcome', condition: "request.headers.has('User-Agent') and request.headers.get('User-Agent') matches '%seobots%'")]
     public function seo_welcome(): Response
     {
         return $this->redirectToRoute( 'seo_welcome_lang', ['lang' => 'en'] );
     }
 
     /**
-     * @Route(
-     *     "/{lang}/", priority=100, name="seo_welcome_lang",
-     *     requirements={"lang"="de|en|fr|es"},
-     *     condition="request.headers.has('User-Agent') and request.headers.get('User-Agent') matches '%seobots%'"
-     * )
      * @param Request $request
      * @return Response
      */
+    #[Route(path: '/{lang}/', priority: 100, name: 'seo_welcome_lang', requirements: ['lang' => 'de|en|fr|es'], condition: "request.headers.has('User-Agent') and request.headers.get('User-Agent') matches '%seobots%'")]
     public function seo_welcome_with_lang(Request $request): Response
     {
         return $this->renderWithLanguageLinks( $request, 'seo/welcome.html.twig', [
@@ -99,28 +92,22 @@ class SeoController extends CustomAbstractController
     }
 
     /**
-     * @Route(
-     *     "jx/help/{name}", priority=100, name="seo_help",
-     *     condition="request.headers.has('User-Agent') and request.headers.get('User-Agent') matches '%seobots%'"
-     * )
      * @param string $name
      * @return Response
      */
+    #[Route(path: 'jx/help/{name}', priority: 100, name: 'seo_help', condition: "request.headers.has('User-Agent') and request.headers.get('User-Agent') matches '%seobots%'")]
     public function seo_help(string $name = 'welcome'): Response
     {
         return $this->redirectToRoute( 'seo_help_lang', [ 'lang' => 'en', 'name' => $name ] );
     }
 
     /**
-     * @Route(
-     *     "{lang}/help/{name}", priority=100, name="seo_help_lang", requirements={"lang"="de|en|fr|es"},
-     *     condition="request.headers.has('User-Agent') and request.headers.get('User-Agent') matches '%seobots%'"
-     * )
      * @param Request $request
      * @param string $lang
      * @param string $name
      * @return Response
      */
+    #[Route(path: '{lang}/help/{name}', priority: 100, name: 'seo_help_lang', requirements: ['lang' => 'de|en|fr|es'], condition: "request.headers.has('User-Agent') and request.headers.get('User-Agent') matches '%seobots%'")]
     public function seo_help_with_lang(Request $request, string $lang, string $name = 'welcome'): Response
     {
         if ($name === 'shell') return $this->redirect($this->generateUrl('help'));
@@ -147,12 +134,12 @@ class SeoController extends CustomAbstractController
     }
 
     /**
-     * @Route("{lang}/{any}", name="seo_redirect", requirements={"lang"="de|en|fr|es", "any"=".*"})
      * @param Request $request
      * @param string $lang
      * @param string $any
      * @return Response
      */
+    #[Route(path: '{lang}/{any}', name: 'seo_redirect', requirements: ['lang' => 'de|en|fr|es', 'any' => '.*'])]
     public function seo_redirect(Request $request, string $lang, string $any): Response
     {
         return trim($any)

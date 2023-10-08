@@ -3,30 +3,24 @@
 
 namespace App\Annotations;
 
-use App\Enum\SemaphoreScope;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ConfigurationInterface;
+use Attribute;
 
-/**
- * @Annotation
- * @Target({"METHOD","CLASS"})
- */
-class Toaster implements ConfigurationInterface
+#[Attribute(Attribute::TARGET_METHOD | Attribute::TARGET_CLASS)]
+class Toaster implements CustomAttribute
 {
-    public bool $full = true;
+    public function __construct(
+        public bool $full = true
+    ) { }
 
-    /**
-     * @inheritDoc
-     */
-    public function getAliasName(): string {
+    public static function getAliasName(): string {
         return 'Toaster';
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function allowArray(): bool {
+    public static function isRepeatable(): bool
+    {
         return false;
     }
+
 
     public function fullSecurity(): bool {
         return $this->full;

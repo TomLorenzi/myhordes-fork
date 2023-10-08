@@ -34,8 +34,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * Class CoreController
  * @package App\Controller\API
- * @GateKeeperProfile(allow_during_attack=true, record_user_activity=false)
  */
+#[GateKeeperProfile(allow_during_attack: true, record_user_activity: false)]
 abstract class CoreController extends InventoryAwareController {
 
     protected GazetteService         $gazette_service;

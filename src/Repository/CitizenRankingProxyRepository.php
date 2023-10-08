@@ -107,7 +107,7 @@ class CitizenRankingProxyRepository extends ServiceEntityRepository
 
         if($limit10)
             $query->setMaxResults(10);
-        
+
         return $query->getQuery()
             ->getResult()
         ;
@@ -136,7 +136,7 @@ class CitizenRankingProxyRepository extends ServiceEntityRepository
 
         if($limit10)
             $query->setMaxResults(10);
-        
+
         return $query->getQuery()
             ->getResult()
         ;

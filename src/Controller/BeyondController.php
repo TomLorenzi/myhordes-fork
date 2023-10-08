@@ -62,11 +62,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-/**
- * @Route("/",condition="request.isXmlHttpRequest()")
- * @GateKeeperProfile(only_alive=true, only_beyond=true)
- * @Semaphore("town", scope="town")
- */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
+#[GateKeeperProfile(only_alive: true, only_beyond: true)]
+#[Semaphore('town', scope: 'town')]
 class BeyondController extends InventoryAwareController
 {
 
@@ -225,11 +223,11 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @Route("jx/beyond/desert/{sect}", name="beyond_dashboard")
      * @param TownHandler $th
      * @param string $sect
      * @return Response
      */
+    #[Route(path: 'jx/beyond/desert/{sect}', name: 'beyond_dashboard')]
     public function desert(TownHandler $th, string $sect = ''): Response
     {
         $request = Request::createFromGlobals();
@@ -452,18 +450,18 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @Route("jx/beyond/partial/desert/inventory", name="beyond_dashboard_partial_inventory")
      * @return Response
      */
+    #[Route(path: 'jx/beyond/partial/desert/inventory', name: 'beyond_dashboard_partial_inventory')]
     public function desert_partial_inventory(): Response
     {
         return $this->render( 'ajax/game/beyond/partials/inventory.standalone.html.twig', $this->desert_partial_inventory_args() );
     }
 
     /**
-     * @Route("jx/beyond/partial/desert/actions", name="beyond_dashboard_partial_item_actions")
      * @return Response
      */
+    #[Route(path: 'jx/beyond/partial/desert/actions', name: 'beyond_dashboard_partial_item_actions')]
     public function desert_partial_item_actions(): Response
     {
         return $this->render( 'ajax/game/beyond/partials/item-actions.standalone.html.twig', $this->desert_partial_item_action_args() );
@@ -486,11 +484,11 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/beyond/trash", name="beyond_trash_controller", condition="")
      * @param InventoryHandler $handler
      * @param GameProfilerService $gps
      * @return Response
      */
+    #[Route(path: 'api/beyond/trash', name: 'beyond_trash_controller', condition: '')]
     public function trash_api(InventoryHandler $handler, GameProfilerService $gps): Response {
 
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -545,11 +543,11 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/beyond/bury_rucksack", name="beyond_bury_rucksack_controller", condition="")
      * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
      * @return Response
      */
+    #[Route(path: 'api/beyond/bury_rucksack', name: 'beyond_bury_rucksack_controller', condition: '')]
     public function bury_rucksack_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
 
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -588,11 +586,11 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/beyond/desert/exit/{special}", name="beyond_desert_exit_controller")
      * @param string $special
      * @param TownHandler $th
      * @return Response
      */
+    #[Route(path: 'api/beyond/desert/exit/{special}', name: 'beyond_desert_exit_controller')]
     public function desert_exit_api(TownHandler $th, string $special = 'normal'): Response {
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
@@ -700,9 +698,9 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/beyond/desert/enter", name="beyond_desert_enter_ruin_controller")
      * @return Response
      */
+    #[Route(path: 'api/beyond/desert/enter', name: 'beyond_desert_enter_ruin_controller')]
     public function ruin_enter_api() {
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         $citizen = $this->getActiveCitizen();
@@ -773,11 +771,11 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/beyond/desert/move", name="beyond_desert_move_controller")
      * @param JSONRequestParser $parser
      * @param GameProfilerService $gps
      * @return Response
      */
+    #[Route(path: 'api/beyond/desert/move', name: 'beyond_desert_move_controller')]
     public function desert_move_api(JSONRequestParser $parser, GameProfilerService $gps): Response {
         $citizen = $this->getActiveCitizen();
         $zone = $citizen->getZone();
@@ -1023,10 +1021,10 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/beyond/desert/action", name="beyond_desert_action_controller")
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/beyond/desert/action', name: 'beyond_desert_action_controller')]
     public function action_desert_api(JSONRequestParser $parser): Response {
         if (!$this->activeCitizenCanAct())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -1041,10 +1039,10 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/beyond/desert/escort/action", name="beyond_desert_escort_action_controller")
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/beyond/desert/escort/action', name: 'beyond_desert_escort_action_controller')]
     public function escort_action_desert_api(JSONRequestParser $parser): Response {
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
@@ -1095,10 +1093,10 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/beyond/desert/heroic", name="beyond_desert_heroic_controller")
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/beyond/desert/heroic', name: 'beyond_desert_heroic_controller')]
     public function heroic_desert_api(JSONRequestParser $parser): Response {
         $zone = $this->getActiveCitizen()->getZone();
 
@@ -1113,31 +1111,31 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/beyond/desert/special_action", name="beyond_desert_special_action_controller")
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/beyond/desert/special_action', name: 'beyond_desert_special_action_controller')]
     public function special_action_api(JSONRequestParser $parser): Response {
         return $this->generic_special_action_api( $parser );
     }
 
     /**
-     * @Route("api/beyond/desert/camping", name="beyond_desert_camping_controller")
      * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
      * @return Response
      */
+    #[Route(path: 'api/beyond/desert/camping', name: 'beyond_desert_camping_controller')]
     public function camping_desert_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
         if (!$this->activeCitizenIsNotEscorted()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         return $this->generic_camping_action_api( $parser);
   }
 
     /**
-     * @Route("api/beyond/desert/recipe", name="beyond_desert_recipe_controller")
      * @param JSONRequestParser $parser
      * @param ActionHandler $handler
      * @return Response
      */
+    #[Route(path: 'api/beyond/desert/recipe', name: 'beyond_desert_recipe_controller')]
     public function recipe_desert_api(JSONRequestParser $parser, ActionHandler $handler): Response {
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
@@ -1150,11 +1148,11 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/beyond/desert/item", name="beyond_desert_item_controller")
      * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
      * @return Response
      */
+    #[Route(path: 'api/beyond/desert/item', name: 'beyond_desert_item_controller')]
     public function item_desert_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
         $down_inv = $this->getActiveCitizen()->getZone()->getFloor();
         $escort = $parser->get_int('escort', null);
@@ -1183,9 +1181,9 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/beyond/desert/escape", name="beyond_desert_escape_controller")
      * @return Response
      */
+    #[Route(path: 'api/beyond/desert/escape', name: 'beyond_desert_escape_controller')]
     public function escape_desert_api(): Response {
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
@@ -1236,10 +1234,10 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/beyond/desert/attack", name="beyond_desert_attack_controller")
      * @param RandomGenerator $generator
      * @return Response
      */
+    #[Route(path: 'api/beyond/desert/attack', name: 'beyond_desert_attack_controller')]
     public function attack_desert_api(RandomGenerator $generator): Response {
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
@@ -1303,10 +1301,10 @@ class BeyondController extends InventoryAwareController
         }
 
     /**
-     * @Route("api/beyond/desert/dig/{ext}", name="beyond_desert_dig_controller")
      * @param null|int|string $ext
      * @return Response
      */
+    #[Route(path: 'api/beyond/desert/dig/{ext}', name: 'beyond_desert_dig_controller')]
     public function desert_dig_api($ext = null): Response {
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
@@ -1362,9 +1360,9 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/beyond/desert/scavenge", name="beyond_desert_scavenge_controller")
      * @return Response
      */
+    #[Route(path: 'api/beyond/desert/scavenge', name: 'beyond_desert_scavenge_controller')]
     public function desert_scavenge_api(GameProfilerService $gps, EventProxyService $proxyService): Response {
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
@@ -1485,9 +1483,9 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/beyond/desert/uncover", name="beyond_desert_uncover_controller")
      * @return Response
      */
+    #[Route(path: 'api/beyond/desert/uncover', name: 'beyond_desert_uncover_controller')]
     public function desert_uncover_api(): Response {
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
@@ -1535,10 +1533,10 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/beyond/desert/attack_citizen/{cid<\d+>}", name="beyond_desert_attack_citizen_controller")
      * @param int $cid
      * @return Response
      */
+    #[Route(path: 'api/beyond/desert/attack_citizen/{cid<\d+>}', name: 'beyond_desert_attack_citizen_controller')]
     public function desert_attack_api(int $cid): Response {
         $citizen = $this->getActiveCitizen();
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -1556,10 +1554,10 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/beyond/desert/devour_citizen/{cid<\d+>}", name="beyond_desert_devour_citizen_controller")
      * @param int $cid
      * @return Response
      */
+    #[Route(path: 'api/beyond/desert/devour_citizen/{cid<\d+>}', name: 'beyond_desert_devour_citizen_controller')]
     public function desert_devour_api(int $cid): Response {
         $citizen = $this->getActiveCitizen();
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -1577,11 +1575,11 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/beyond/desert/escort/self", name="beyond_desert_escort_self_controller")
      * @param JSONRequestParser $parser
      * @param ConfMaster $conf
      * @return Response
      */
+    #[Route(path: 'api/beyond/desert/escort/self', name: 'beyond_desert_escort_self_controller')]
     public function desert_escort_self_api(JSONRequestParser $parser, ConfMaster $conf): Response {
         if (!$conf->getTownConfiguration($this->getActiveCitizen()->getTown())->get( TownConf::CONF_FEATURE_ESCORT, true ))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -1619,12 +1617,12 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/beyond/desert/escort/{cid<\d+>}", name="beyond_desert_escort_controller")
      * @param int $cid
      * @param JSONRequestParser $parser
      * @param ConfMaster $conf
      * @return Response
      */
+    #[Route(path: 'api/beyond/desert/escort/{cid<\d+>}', name: 'beyond_desert_escort_controller')]
     public function desert_escort_api(int $cid, JSONRequestParser $parser, ConfMaster $conf): Response {
         if (!$conf->getTownConfiguration($this->getActiveCitizen()->getTown())->get( TownConf::CONF_FEATURE_ESCORT, true ))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -1685,10 +1683,10 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/beyond/desert/escort/all", name="beyond_desert_escort_drop_controller")
      * @param ConfMaster $conf
      * @return Response
      */
+    #[Route(path: 'api/beyond/desert/escort/all', name: 'beyond_desert_escort_drop_controller')]
     public function desert_escort_api_drop_all(ConfMaster $conf): Response {
         if (!$conf->getTownConfiguration($this->getActiveCitizen()->getTown())->get( TownConf::CONF_FEATURE_ESCORT, true ))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -1713,10 +1711,10 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/beyond/desert/rain", name="beyond_desert_shaman_rain")
      * @param JSONRequestParser $json
      * @return Response
      */
+    #[Route(path: 'api/beyond/desert/rain', name: 'beyond_desert_shaman_rain')]
     public function desert_shaman_rain(JSONRequestParser $json): Response {
         if (!$this->activeCitizenCanAct())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -1812,10 +1810,10 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/beyond/desert/zone_marker", name="beyond_desert_change_zone_marker")
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/beyond/desert/zone_marker', name: 'beyond_desert_change_zone_marker')]
     public function beyond_change_zone_marker(JSONRequestParser $parser): Response {
         $tagRef = $parser->get('tag', null);
         if ($tagRef < 0 || !is_numeric($tagRef) )

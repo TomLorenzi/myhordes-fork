@@ -22,17 +22,15 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use function Symfony\Component\String\b;
 
-/**
- * @Route("/",condition="request.isXmlHttpRequest()")
- * @GateKeeperProfile(allow_during_attack=true)
- */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
+#[GateKeeperProfile(allow_during_attack: true)]
 class AdminScheduleController extends AdminActionController
 {
 
     /**
-     * @Route("jx/admin/schedule/attack", name="admin_schedule_attacks")
      * @return Response
      */
+    #[Route(path: 'jx/admin/schedule/attack', name: 'admin_schedule_attacks')]
     public function attack_index(): Response
     {
         $planned = $this->entity_manager->getRepository(AttackSchedule::class)->findBy(['completed' => false], ['timestamp' => 'ASC']);

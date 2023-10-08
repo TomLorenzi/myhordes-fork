@@ -13,17 +13,14 @@ use App\Structures\MyHordesConf;
 use DateTime;
 use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
-/**
- * @Route("/rest/v1/admin/schedule/attack", name="rest_admin_schedule_attack_", condition="request.headers.get('Accept') === 'application/json'")
- * @IsGranted("ROLE_ADMIN")
- * @GateKeeperProfile("skip")
- */
+#[Route(path: '/rest/v1/admin/schedule/attack', name: 'rest_admin_schedule_attack_', condition: "request.headers.get('Accept') === 'application/json'")]
+#[IsGranted('ROLE_ADMIN')]
+#[GateKeeperProfile('skip')]
 class AttackScheduleController extends CustomAbstractCoreController
 {
     private function current_delay( EntityManagerInterface $em ): JsonResponse {
@@ -47,11 +44,11 @@ class AttackScheduleController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/current", name="find", methods={"PATCH"})
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
      * @return JsonResponse
      */
+    #[Route(path: '/current', name: 'find', methods: ['PATCH'])]
     public function modify(EntityManagerInterface $em, JSONRequestParser $parser): JsonResponse {
         if (!$parser->has('method', true))
             return new JsonResponse([], Response::HTTP_UNPROCESSABLE_ENTITY);

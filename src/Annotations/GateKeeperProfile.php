@@ -3,41 +3,30 @@
 
 namespace App\Annotations;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ConfigurationInterface;
-use Symfony\Component\RateLimiter\RateLimit;
+use Attribute;
 
-/**
- * @Annotation
- * @Target({"METHOD","CLASS"})
- */
-class GateKeeperProfile implements ConfigurationInterface
+#[Attribute(Attribute::TARGET_METHOD | Attribute::TARGET_CLASS)]
+class GateKeeperProfile implements CustomAttribute
 {
+    public function __construct(
+        public ?string $value = null,
+        public bool $allow_during_attack  = false,
+        public bool $record_user_activity = true,
+        public bool $only_ghost           = false,
+        public bool $only_incarnated      = false,
+        public bool $only_alive           = false,
+        public bool $only_with_profession = false,
+        public bool $only_in_town         = false,
+        public bool $only_beyond          = false,
+        public bool $only_in_ruin         = false,
+        public bool $hook                 = true,
+    ) { }
 
-    public ?string $value = null;
-
-    public bool $allow_during_attack  = false;
-    public bool $record_user_activity = true;
-
-    public bool $only_ghost           = false;
-    public bool $only_incarnated      = false;
-    public bool $only_alive           = false;
-    public bool $only_with_profession = false;
-    public bool $only_in_town         = false;
-    public bool $only_beyond          = false;
-    public bool $only_in_ruin         = false;
-
-    public bool $hook                 = true;
-    /**
-     * @inheritDoc
-     */
-    public function getAliasName(): string {
+    public static function getAliasName(): string {
         return 'GateKeeperProfile';
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function allowArray(): bool {
+    public static function isRepeatable(): bool {
         return false;
     }
 

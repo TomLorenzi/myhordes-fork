@@ -21,17 +21,17 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/",condition="request.isXmlHttpRequest()")
  * @method User getUser
  */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
 class SoulImportController extends SoulController
 {
     /**
-     * @Route("jx/soul/import/{code}", name="soul_import")
      * @param TwinoidHandler $twin
      * @param string $code
      * @return Response
      */
+    #[Route(path: 'jx/soul/import/{code}', name: 'soul_import')]
     public function soul_import(TwinoidHandler $twin, string $code = ''): Response
     {
         $conf = $this->conf->getGlobalConf();
@@ -86,10 +86,10 @@ class SoulImportController extends SoulController
     }
 
     /**
-     * @Route("jx/soul/import/view/{id}", name="soul_import_viewer")
      * @param int $id
      * @return Response
      */
+    #[Route(path: 'jx/soul/import/view/{id}', name: 'soul_import_viewer')]
     public function soul_import_viewer(int $id): Response
     {
         $conf = $this->conf->getGlobalConf();
@@ -138,11 +138,11 @@ class SoulImportController extends SoulController
     }
 
     /**
-     * @Route("api/soul/import_turl", name="soul_import_turl_api")
      * @param JSONRequestParser $json
      * @param TwinoidHandler $twin
      * @return Response
      */
+    #[Route(path: 'api/soul/import_turl', name: 'soul_import_turl_api')]
     public function soul_import_twinoid_endpoint(JSONRequestParser $json, TwinoidHandler $twin): Response
     {
         $conf = $this->conf->getGlobalConf();
@@ -158,13 +158,13 @@ class SoulImportController extends SoulController
     }
 
     /**
-     * @Route("api/soul/import/{code}", name="soul_import_api")
      * @param string $code
      * @param JSONRequestParser $json
      * @param TwinoidHandler $twin
      * @param LoggerInterface $logger
      * @return Response
      */
+    #[Route(path: 'api/soul/import/{code}', name: 'soul_import_api')]
     public function soul_import_loader(string $code, JSONRequestParser $json, TwinoidHandler $twin, LoggerInterface $logger): Response
     {
         $conf = $this->conf->getGlobalConf();
@@ -245,9 +245,9 @@ class SoulImportController extends SoulController
     }
 
     /**
-     * @Route("api/soul/import-cancel", name="soul_import_cancel_api")
      * @return Response
      */
+    #[Route(path: 'api/soul/import-cancel', name: 'soul_import_cancel_api')]
     public function soul_import_cancel(): Response
     {
         $user = $this->getUser();
@@ -268,12 +268,12 @@ class SoulImportController extends SoulController
     }
 
     /**
-     * @Route("api/soul/import-confirm/{id}", name="soul_import_confirm_api")
      * @param JSONRequestParser $json
      * @param TwinoidHandler $twin
      * @param int $id
      * @return Response
      */
+    #[Route(path: 'api/soul/import-confirm/{id}', name: 'soul_import_confirm_api')]
     public function soul_import_confirm(JSONRequestParser $json, TwinoidHandler $twin, int $id = -1): Response
     {
         $conf = $this->conf->getGlobalConf();
@@ -352,9 +352,9 @@ class SoulImportController extends SoulController
     }
 
     /**
-     * @Route("api/soul/import-soft-reset", name="soul_import_soft_reset_api")
      * @return Response
      */
+    #[Route(path: 'api/soul/import-soft-reset', name: 'soul_import_soft_reset_api')]
     public function soul_soft_reset(): Response
     {
         $conf = $this->conf->getGlobalConf();

@@ -19,8 +19,7 @@ use DiscordWebhooks\Embed;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -32,19 +31,17 @@ use function App\Controller\REST\User\mb_strlen;
 use function App\Controller\REST\User\str_contains;
 
 
-/**
- * @Route("/rest/v1/user/soul/events", name="rest_user_soul_events_", condition="request.headers.get('Accept') === 'application/json'")
- * @IsGranted("ROLE_USER")
- */
+#[Route(path: '/rest/v1/user/soul/events', name: 'rest_user_soul_events_', condition: "request.headers.get('Accept') === 'application/json'")]
+#[IsGranted('ROLE_USER')]
 class EventController extends CustomAbstractCoreController
 {
 
     /**
-     * @Route("/index", name="base", methods={"GET"})
-     * @Route("/index_data", name="base_index", methods={"GET"})
      * @param Packages $assets
      * @return JsonResponse
      */
+    #[Route(path: '/index', name: 'base', methods: ['GET'])]
+    #[Route(path: '/index_data', name: 'base_index', methods: ['GET'])]
     public function index(Packages $assets): JsonResponse {
         return new JsonResponse([
             'strings' => [
@@ -155,11 +152,11 @@ class EventController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("", name="list", methods={"GET"})
      * @param EntityManagerInterface $em
      * @param UserHandler $userHandler
      * @return JsonResponse
      */
+    #[Route(path: '', name: 'list', methods: ['GET'])]
     public function listEvents(
         EntityManagerInterface $em,
         UserHandler $userHandler
@@ -234,11 +231,11 @@ class EventController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("", name="create", methods={"PUT"})
      * @param UserHandler $userHandler
      * @param EntityManagerInterface $em
      * @return JsonResponse
      */
+    #[Route(path: '', name: 'create', methods: ['PUT'])]
     public function createEvent(
         UserHandler $userHandler,
         EntityManagerInterface $em
@@ -269,8 +266,6 @@ class EventController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/{id}/proposal", name="set_proposal", methods={"PUT"}, defaults={"option"=true})
-     * @Route("/{id}/proposal", name="remove_proposal", methods={"DELETE"}, defaults={"option"=false})
      * @param CommunityEvent $event
      * @param bool $option
      * @param EntityManagerInterface $em
@@ -278,6 +273,8 @@ class EventController extends CustomAbstractCoreController
      * @param MessageBusInterface $bus
      * @return JsonResponse
      */
+    #[Route(path: '/{id}/proposal', name: 'set_proposal', methods: ['PUT'], defaults: ['option' => true])]
+    #[Route(path: '/{id}/proposal', name: 'remove_proposal', methods: ['DELETE'], defaults: ['option' => false])]
     public function editEventProposal(
         CommunityEvent $event,
         bool $option,
@@ -359,12 +356,12 @@ class EventController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/{id}/publish", name="set_published", methods={"PUT"})
      * @param CommunityEvent $event
      * @param EntityManagerInterface $em
      * @param CrowService $crow
      * @return JsonResponse
      */
+    #[Route(path: '/{id}/publish', name: 'set_published', methods: ['PUT'])]
     public function publishEvent(
         CommunityEvent $event,
         EntityManagerInterface $em,
@@ -397,11 +394,11 @@ class EventController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/{id}/end", name="set_ended", methods={"PUT"})
      * @param CommunityEvent $event
      * @param EntityManagerInterface $em
      * @return JsonResponse
      */
+    #[Route(path: '/{id}/end', name: 'set_ended', methods: ['PUT'])]
     public function endEvent(
         CommunityEvent $event,
         EntityManagerInterface $em
@@ -423,10 +420,10 @@ class EventController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/{id}/config", name="get_config", methods={"GET"})
      * @param CommunityEvent $event
      * @return JsonResponse
      */
+    #[Route(path: '/{id}/config', name: 'get_config', methods: ['GET'])]
     public function getEventConfig(
         CommunityEvent $event
     ): JsonResponse {
@@ -437,12 +434,12 @@ class EventController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/{id}/config", name="edit_config", methods={"PATCH"})
      * @param CommunityEvent $event
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
      * @return JsonResponse
      */
+    #[Route(path: '/{id}/config', name: 'edit_config', methods: ['PATCH'])]
     public function updateEventConfig(
         CommunityEvent $event,
         JSONRequestParser $parser,
@@ -469,12 +466,12 @@ class EventController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/{id}", name="delete", methods={"DELETE"})
      * @param CommunityEvent $event
      * @param EntityManagerInterface $em
      * @param CrowService $crow
      * @return JsonResponse
      */
+    #[Route(path: '/{id}', name: 'delete', methods: ['DELETE'])]
     public function deleteEvent(
         CommunityEvent $event,
         EntityManagerInterface $em,
@@ -510,10 +507,10 @@ class EventController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/{id}/meta", name="list_meta", methods={"GET"})
      * @param CommunityEvent $event
      * @return JsonResponse
      */
+    #[Route(path: '/{id}/meta', name: 'list_meta', methods: ['GET'])]
     public function listEventMeta(
         CommunityEvent $event
     ): JsonResponse {
@@ -523,13 +520,13 @@ class EventController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/{id}/meta/{lang<de|en|fr|es>}", name="edit_meta", methods={"PATCH"})
      * @param CommunityEvent $event
      * @param string $lang
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
      * @return JsonResponse
      */
+    #[Route(path: '/{id}/meta/{lang<de|en|fr|es>}', name: 'edit_meta', methods: ['PATCH'])]
     public function editEventMeta(
         CommunityEvent $event,
         string $lang,
@@ -563,12 +560,12 @@ class EventController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/{id}/meta/{lang<de|en|fr|es>}", name="delete_meta", methods={"DELETE"})
      * @param CommunityEvent $event
      * @param string $lang
      * @param EntityManagerInterface $em
      * @return JsonResponse
      */
+    #[Route(path: '/{id}/meta/{lang<de|en|fr|es>}', name: 'delete_meta', methods: ['DELETE'])]
     public function deleteEventMeta(
         CommunityEvent $event,
         string $lang,
@@ -614,11 +611,11 @@ class EventController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/{id}/towns", name="list-town-presets", methods={"GET"})
      * @param CommunityEvent $event
      * @param EntityManagerInterface $em
      * @return JsonResponse
      */
+    #[Route(path: '/{id}/towns', name: 'list-town-presets', methods: ['GET'])]
     public function list_town_presets(
         CommunityEvent $event,
         EntityManagerInterface $em,
@@ -643,13 +640,13 @@ class EventController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/{id}/town/{preset}", name="get-town-preset", methods={"GET"})
      * @param CommunityEvent $event
      * @param CommunityEventTownPreset $preset
      * @param EntityManagerInterface $em
      * @param SanitizeTownConfigAction $sanitizer
      * @return JsonResponse
      */
+    #[Route(path: '/{id}/town/{preset}', name: 'get-town-preset', methods: ['GET'])]
     public function get_town_preset(
         #[MapEntity(id: 'id')]
         CommunityEvent $event,
@@ -678,8 +675,6 @@ class EventController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/{id}/town", name="create-town-preset", methods={"PUT"}, defaults={"create"=true})
-     * @Route("/{id}/town/{preset}", name="update-town-preset", methods={"PATCH"}, defaults={"create"=false})
      * @param bool $create
      * @param CommunityEvent $event
      * @param CommunityEventTownPreset|null $preset
@@ -688,6 +683,8 @@ class EventController extends CustomAbstractCoreController
      * @param SanitizeTownConfigAction $sanitizeTownConfigAction
      * @return JsonResponse
      */
+    #[Route(path: '/{id}/town', name: 'create-town-preset', methods: ['PUT'], defaults: ['create' => true])]
+    #[Route(path: '/{id}/town/{preset}', name: 'update-town-preset', methods: ['PATCH'], defaults: ['create' => false])]
     public function save_town_preset(
         bool $create,
         #[MapEntity(id: 'id')] CommunityEvent $event,
@@ -729,12 +726,12 @@ class EventController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/{id}/town/{preset}", name="delete-town-preset", methods={"DELETE"})
      * @param CommunityEvent $event
      * @param CommunityEventTownPreset $preset
      * @param EntityManagerInterface $em
      * @return JsonResponse
      */
+    #[Route(path: '/{id}/town/{preset}', name: 'delete-town-preset', methods: ['DELETE'])]
     public function remove_town_preset(
         #[MapEntity(id: 'id')]
         CommunityEvent $event,

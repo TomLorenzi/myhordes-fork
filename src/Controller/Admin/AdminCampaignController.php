@@ -21,22 +21,19 @@ use App\Structures\MyHordesConf;
 use App\Translation\T;
 use Exception;
 use ReflectionClass;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/",condition="request.isXmlHttpRequest()")
- * @IsGranted("ROLE_USER")
- * @GateKeeperProfile(allow_during_attack=true)
- */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
+#[IsGranted('ROLE_USER')]
+#[GateKeeperProfile(allow_during_attack: true)]
 class AdminCampaignController extends CustomAbstractController
 {
     /**
-     * @Route("jx/admin/cst/campaigns", name="admin_campaigns")
      * @return Response
      */
+    #[Route(path: 'jx/admin/cst/campaigns', name: 'admin_campaigns')]
     public function campaign_view(): Response
     {
         $campaigns = $this->entity_manager->getRepository(MarketingCampaign::class)->findAll();
@@ -53,12 +50,12 @@ class AdminCampaignController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/admin/cst/campaigns/new", name="admin_campaign_new", defaults={"new"=true}, priority=1)
-     * @Route("jx/admin/cst/campaigns/{id}", name="admin_campaign_edit", defaults={"new"=false}, priority=0)
      * @param bool $new
      * @param MarketingCampaign|null $campaign
      * @return Response
      */
+    #[Route(path: 'jx/admin/cst/campaigns/new', name: 'admin_campaign_new', defaults: ['new' => true], priority: 1)]
+    #[Route(path: 'jx/admin/cst/campaigns/{id}', name: 'admin_campaign_edit', defaults: ['new' => false], priority: 0)]
     public function campaign_new(bool $new, ?MarketingCampaign $campaign): Response
     {
         if (
@@ -72,13 +69,13 @@ class AdminCampaignController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/admin/cst/campaigns/new", name="admin_campaign_create", defaults={"new"=true}, priority=1)
-     * @Route("api/admin/cst/campaigns/{id}", name="admin_campaign_update", defaults={"new"=false}, priority=0)
      * @param bool $new
      * @param MarketingCampaign|null $campaign
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/admin/cst/campaigns/new', name: 'admin_campaign_create', defaults: ['new' => true], priority: 1)]
+    #[Route(path: 'api/admin/cst/campaigns/{id}', name: 'admin_campaign_update', defaults: ['new' => false], priority: 0)]
     public function update_campaign(bool $new, ?MarketingCampaign $campaign, JSONRequestParser $parser): Response
     {
         if (
@@ -144,10 +141,10 @@ class AdminCampaignController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/admin/cst/campaigns/delete/{id}", name="admin_campaign_delete")
      * @param MarketingCampaign $campaign
      * @return Response
      */
+    #[Route(path: 'api/admin/cst/campaigns/delete/{id}', name: 'admin_campaign_delete')]
     public function delete_campaign(MarketingCampaign $campaign): Response
     {
         if (!$this->isGranted('ROLE_ANIMAC'))

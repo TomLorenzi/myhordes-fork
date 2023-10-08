@@ -40,7 +40,7 @@ use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\QueryBuilder;
 use Exception;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -49,11 +49,11 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
- * @Route("/",condition="request.isXmlHttpRequest()")
- * @IsGranted("ROLE_USER")
- * @GateKeeperProfile(allow_during_attack=true)
  * @method User getUser
  */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
+#[IsGranted('ROLE_USER')]
+#[GateKeeperProfile(allow_during_attack: true)]
 class MessageForumController extends MessageController
 {
     protected const ThreadsPerPage = 20;
@@ -161,10 +161,10 @@ class MessageForumController extends MessageController
     }
 
     /**
-     * @Route("jx/forum/town", name="forum_town_redirect")
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'jx/forum/town', name: 'forum_town_redirect')]
     public function forum_redirector(EntityManagerInterface $em): Response
     {
         $user = $this->getUser();
@@ -177,20 +177,19 @@ class MessageForumController extends MessageController
     }
 
     /**
-     * @Route("jx/forum/{id<\d+>}", name="forum_view")
      * @param int $id
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $p
      * @param CitizenHandler $ch
      * @return Response
      */
+    #[Route(path: 'jx/forum/{id<\d+>}', name: 'forum_view')]
     public function forum(int $id, EntityManagerInterface $em, JSONRequestParser $p, CitizenHandler $ch): Response
     {
         return $this->default_forum_renderer($id,-1,-1, -1, $em, $p, $ch);
     }
 
     /**
-     * @Route("jx/forum/{fid<\d+>}/{tid<\d+>}/{page<\d+>}", name="forum_thread_view")
      * @param int $fid
      * @param int $tid
      * @param int $page
@@ -199,19 +198,20 @@ class MessageForumController extends MessageController
      * @param CitizenHandler $ch
      * @return Response
      */
+    #[Route(path: 'jx/forum/{fid<\d+>}/{tid<\d+>}/{page<\d+>}', name: 'forum_thread_view')]
     public function forum_thread(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $p, CitizenHandler $ch, int $page = -1): Response
     {
         return $this->default_forum_renderer($fid,$tid,-1, $page, $em,$p,$ch);
     }
 
     /**
-     * @Route("jx/forum/jump/{pid<\d+>}", name="forum_jump_view")
      * @param int $pid
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $p
      * @param CitizenHandler $ch
      * @return Response
      */
+    #[Route(path: 'jx/forum/jump/{pid<\d+>}', name: 'forum_jump_view')]
     public function forum_jump_post(int $pid, EntityManagerInterface $em, JSONRequestParser $p, CitizenHandler $ch): Response
     {
         /** @var Post $post */
@@ -221,9 +221,9 @@ class MessageForumController extends MessageController
     }
 
     /**
-     * @Route("jx/forum", name="forum_list")
      * @return Response
      */
+    #[Route(path: 'jx/forum', name: 'forum_list')]
     public function forums(): Response
     {
         /** @var Forum[] $forums */
@@ -283,12 +283,12 @@ class MessageForumController extends MessageController
     }
 
     /**
-     * @Route("api/forum/{id<\d+>}/post", name="forum_new_thread_controller")
      * @param int $id
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'api/forum/{id<\d+>}/post', name: 'forum_new_thread_controller')]
     public function new_thread_api(int $id, JSONRequestParser $parser, EntityManagerInterface $em, RateLimitingFactoryProvider $rateLimiter, CrowService $crow): Response {
 
         /** @var Forum $forum */
@@ -395,7 +395,6 @@ class MessageForumController extends MessageController
     }
 
     /**
-     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/cast_vote", name="forum_poll_cast_api")
      * @param int $fid
      * @param int $tid
      * @param JSONRequestParser $parser
@@ -403,6 +402,7 @@ class MessageForumController extends MessageController
      * @param Locksmith $locksmith
      * @return Response
      */
+    #[Route(path: 'api/forum/{fid<\d+>}/{tid<\d+>}/cast_vote', name: 'forum_poll_cast_api')]
     public function poll_cast_api( int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, Locksmith $locksmith): Response {
         $user = $this->getUser();
 
@@ -445,13 +445,13 @@ class MessageForumController extends MessageController
     }
 
     /**
-     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/polls", name="forum_poll_query_api")
      * @param int $fid
      * @param int $tid
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'api/forum/{fid<\d+>}/{tid<\d+>}/polls', name: 'forum_poll_query_api')]
     public function poll_query_api( int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em): Response {
         $user = $this->getUser();
 
@@ -488,7 +488,6 @@ class MessageForumController extends MessageController
     }
 
     /**
-     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/post", name="forum_new_post_controller")
      * @param int $fid
      * @param int $tid
      * @param JSONRequestParser $parser
@@ -496,6 +495,7 @@ class MessageForumController extends MessageController
      * @param PictoHandler $ph
      * @return Response
      */
+    #[Route(path: 'api/forum/{fid<\d+>}/{tid<\d+>}/post', name: 'forum_new_post_controller')]
     public function new_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, PictoHandler $ph, CrowService $crow): Response {
         $user = $this->getUser();
 
@@ -649,7 +649,6 @@ class MessageForumController extends MessageController
     }
 
     /**
-     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/{pid<\d+>}/edit", name="forum_edit_post_controller")
      * @param int $fid
      * @param int $tid
      * @param int $pid
@@ -658,6 +657,7 @@ class MessageForumController extends MessageController
      * @param CrowService $crow
      * @return Response
      */
+    #[Route(path: 'api/forum/{fid<\d+>}/{tid<\d+>}/{pid<\d+>}/edit', name: 'forum_edit_post_controller')]
     public function edit_post_api(int $fid, int $tid, int $pid, JSONRequestParser $parser, EntityManagerInterface $em, CrowService $crow): Response {
         $user = $this->getUser();
         if ($this->userHandler->isRestricted( $user, AccountRestriction::RestrictionForum )) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
@@ -771,12 +771,12 @@ class MessageForumController extends MessageController
 
 
     /**
-     * @Route("api/forum/{sem<\d+>}/{fid<\d+>}/preview", name="forum_previewer_controller")
      * @param int $fid
      * @param int $sem
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'api/forum/{sem<\d+>}/{fid<\d+>}/preview', name: 'forum_previewer_controller')]
     public function small_viewer_api( int $fid, int $sem, EntityManagerInterface $em, CitizenHandler $ch) {
         $user = $this->getUser();
 
@@ -812,7 +812,6 @@ class MessageForumController extends MessageController
     }
 
     /**
-     * @Route("api/forum/{tid<\d+>}/{fid<\d+>}/view/{pid<\d+>}", name="forum_viewer_controller")
      * @param int $fid
      * @param int $tid
      * @param EntityManagerInterface $em
@@ -822,6 +821,7 @@ class MessageForumController extends MessageController
      * @param int $pid
      * @return Response
      */
+    #[Route(path: 'api/forum/{tid<\d+>}/{fid<\d+>}/view/{pid<\d+>}', name: 'forum_viewer_controller')]
     public function viewer_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, SessionInterface $session, CitizenHandler $ch, int $pid = -1): Response {
         $user = $this->getUser();
 
@@ -959,11 +959,11 @@ class MessageForumController extends MessageController
     }
 
     /**
-     * @Route("jx/forum/{id<\d+>}/editor", name="forum_thread_editor_controller")
      * @param int $id
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'jx/forum/{id<\d+>}/editor', name: 'forum_thread_editor_controller')]
     public function editor_thread_api(int $id, EntityManagerInterface $em): Response {
         $forum = $em->getRepository(Forum::class)->find($id);
         $user = $this->getUser();
@@ -1001,10 +1001,10 @@ class MessageForumController extends MessageController
     }
 
     /**
-     * @Route("jx/forum/query", name="forum_query_controller")
      * @param JSONRequestParser $json
      * @return Response
      */
+    #[Route(path: 'jx/forum/query', name: 'forum_query_controller')]
     public function forum_query(JSONRequestParser $json): Response {
 
         $forum = ($fid = $json->get_int('fid',-1)) > 0 ? $this->entity_manager->getRepository(Forum::class)->find($fid) : null;
@@ -1201,11 +1201,11 @@ class MessageForumController extends MessageController
     }
 
     /**
-     * @Route("jx/forum/{fid<\d+>}/search", name="forum_id_search_controller")
      * @param int $fid
      * @param JSONRequestParser $json
      * @return Response
      */
+    #[Route(path: 'jx/forum/{fid<\d+>}/search', name: 'forum_id_search_controller')]
     public function forum_search_id(int $fid, JSONRequestParser $json): Response {
         $forum = $this->entity_manager->getRepository(Forum::class)->find($fid);
         if (!$forum || !$this->perm->checkEffectivePermissions( $this->getUser(), $forum,ForumUsagePermissions::PermissionRead ) || $this->isLimitedDuringAttack($forum))
@@ -1215,19 +1215,19 @@ class MessageForumController extends MessageController
     }
 
     /**
-     * @Route("jx/forum/global/search", name="forum_all_search_controller")
      * @param JSONRequestParser $json
      * @return Response
      */
+    #[Route(path: 'jx/forum/global/search', name: 'forum_all_search_controller')]
     public function forum_search_all(JSONRequestParser $json): Response {
         return $this->forum_search(null, $json->get('query'), $json->get_int('user'), $json->get('titles'));
     }
 
     /**
-     * @Route("jx/forum/search", name="forum_search_wrapper_controller")
      * @param Request $request
      * @return Response
      */
+    #[Route(path: 'jx/forum/search', name: 'forum_search_wrapper_controller')]
     public function forum_search_wrapper(Request $request): Response {
         $data = [
             'forum'     => $request->query->get('f', null),
@@ -1244,13 +1244,13 @@ class MessageForumController extends MessageController
     }
 
     /**
-     * @Route("jx/forum/{fid<\d+>}/{tid<\d+>}/editor", name="forum_post_editor_controller")
      * @param int $fid
      * @param int $tid
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'jx/forum/{fid<\d+>}/{tid<\d+>}/editor', name: 'forum_post_editor_controller')]
     public function editor_post_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser): Response {
         $user = $this->getUser();
         $forum = $em->getRepository(Forum::class)->find($fid);
@@ -1316,12 +1316,12 @@ class MessageForumController extends MessageController
     }
 
     /**
-     * @Route("api/forum/{fid<\d+>}/mute", name="forum_mute_controller", defaults={"mute": true})
-     * @Route("api/forum/{fid<\d+>}/unmute", name="forum_unmute_controller", defaults={"mute": false})
      * @param int $fid
      * @param bool $mute
      * @return Response
      */
+    #[Route(path: 'api/forum/{fid<\d+>}/mute', name: 'forum_mute_controller', defaults: ['mute' => true])]
+    #[Route(path: 'api/forum/{fid<\d+>}/unmute', name: 'forum_unmute_controller', defaults: ['mute' => false])]
     public function forum_mute(int $fid, bool $mute): Response {
         /** @var Forum $forum */
         $forum = $this->entity_manager->getRepository(Forum::class)->find($fid);
@@ -1344,13 +1344,13 @@ class MessageForumController extends MessageController
     }
 
     /**
-     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/subscribe", name="forum_thread_subscribe_controller", defaults={"subscribe": true})
-     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/unsubscribe", name="forum_thread_unsubscribe_controller", defaults={"subscribe": false})
      * @param int $fid
      * @param int $tid
      * @param bool $subscribe
      * @return Response
      */
+    #[Route(path: 'api/forum/{fid<\d+>}/{tid<\d+>}/subscribe', name: 'forum_thread_subscribe_controller', defaults: ['subscribe' => true])]
+    #[Route(path: 'api/forum/{fid<\d+>}/{tid<\d+>}/unsubscribe', name: 'forum_thread_unsubscribe_controller', defaults: ['subscribe' => false])]
     public function forum_thread_subscribe(int $fid, int $tid, bool $subscribe): Response {
         /** @var Forum $forum */
         $forum = $this->entity_manager->getRepository(Forum::class)->find($fid);
@@ -1379,9 +1379,9 @@ class MessageForumController extends MessageController
     }
 
     /**
-     * @Route("api/forum/read_all", name="forum_all_read_controller")
      * @return Response
      */
+    #[Route(path: 'api/forum/read_all', name: 'forum_all_read_controller')]
     public function forum_mark_all_read(): Response {
 
         $last_post = $this->entity_manager->getRepository(Post::class)->findBy(['hidden' => false], ['id' => 'DESC'], 1);
@@ -1403,7 +1403,6 @@ class MessageForumController extends MessageController
     }
 
     /**
-     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/moderate/{mod}", name="forum_thread_mod_controller")
      * @param int $fid
      * @param int $tid
      * @param string $mod
@@ -1411,6 +1410,7 @@ class MessageForumController extends MessageController
      * @param CrowService $crow
      * @return Response
      */
+    #[Route(path: 'api/forum/{fid<\d+>}/{tid<\d+>}/moderate/{mod}', name: 'forum_thread_mod_controller')]
     public function mod_thread_api(int $fid, int $tid, string $mod, JSONRequestParser $parser, CrowService $crow): Response {
         $success = false;
 
@@ -1661,7 +1661,6 @@ class MessageForumController extends MessageController
     }
 
     /**
-     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/post/report", name="forum_report_post_controller")
      * @param int $fid
      * @param int $tid
      * @param JSONRequestParser $parser
@@ -1669,6 +1668,7 @@ class MessageForumController extends MessageController
      * @param TranslatorInterface $ti
      * @return Response
      */
+    #[Route(path: 'api/forum/{fid<\d+>}/{tid<\d+>}/post/report', name: 'forum_report_post_controller')]
     public function report_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti, CrowService $crow, RateLimitingFactoryProvider $rateLimiter): Response {
         if (!$parser->has('postId'))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);

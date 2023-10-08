@@ -37,8 +37,8 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 /**
  * Class ExternalController
  * @package App\Controller
- * @GateKeeperProfile(allow_during_attack=true, record_user_activity=false)
  */
+#[GateKeeperProfile(allow_during_attack: true, record_user_activity: false)]
 class JSONv1Controller extends CoreController {
     private Request $request;
     private                          $SURLLobj;
@@ -60,21 +60,21 @@ class JSONv1Controller extends CoreController {
     }
 
     /**
-     * @ExternalAPI(user=false, app=false, api=ExternalAPIInterface::JSONv1)
-     * @Route("/api/x/json/status", priority=1, name="ext_json_status", methods={"GET", "POST"})
      * @return Response
      */
+    #[Route(path: '/api/x/json/status', priority: 1, name: 'ext_json_status', methods: ['GET', 'POST'])]
+    #[ExternalAPI(user: false, app: false, api: ExternalAPIInterface::JSONv1)]
     public function api_json_status(): Response {
         return $this->api_json( null,'status' );
     }
 
     /**
-     * @ExternalAPI(user=true, app=true, api=ExternalAPIInterface::JSONv1)
-     * @Route("/api/x/json/{type}", name="ext_json", methods={"GET", "POST"})
      * @param User|null $user
      * @param string $type
      * @return Response
      */
+    #[Route(path: '/api/x/json/{type}', name: 'ext_json', methods: ['GET', 'POST'])]
+    #[ExternalAPI(user: true, app: true, api: ExternalAPIInterface::JSONv1)]
     public function api_json(?User $user, string $type = ''): Response {
 
         $data = [];

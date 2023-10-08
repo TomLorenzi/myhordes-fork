@@ -25,29 +25,29 @@ use App\Service\RateLimitingFactoryProvider;
 use App\Service\UserHandler;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
- * @Route("/",condition="request.isXmlHttpRequest()")
- * @IsGranted("ROLE_USER")
  * @method User getUser
  */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
+#[IsGranted('ROLE_USER')]
 class MessageTownMessageController extends MessageController
 {
 
     public const ErrorMessageOrTitleEmpty = ErrorHelper::BaseMessageErrors + 1;
 
     /**
-     * @Route("api/town/house/sendpm", name="town_house_send_pm_controller")
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
      * @param TranslatorInterface $t
      * @param UserHandler $userHandler
      * @return Response
      */
+    #[Route(path: 'api/town/house/sendpm', name: 'town_house_send_pm_controller')]
     public function send_pm_api(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $t, UserHandler $userHandler): Response {
         if ($userHandler->isRestricted($this->getUser(), AccountRestriction::RestrictionTownCommunication))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
@@ -277,11 +277,11 @@ class MessageTownMessageController extends MessageController
     }
 
     /**
-     * @Route("api/town/house/pm/{tid<\d+>}/view", name="home_view_thread_controller")
      * @param int $tid
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'api/town/house/pm/{tid<\d+>}/view', name: 'home_view_thread_controller')]
     public function pm_viewer_api(int $tid, EntityManagerInterface $em): Response {
         $user = $this->getUser();
 
@@ -415,12 +415,12 @@ class MessageTownMessageController extends MessageController
     }
 
     /**
-     * @Route("api/town/house/pm/{tid<\d+>}/archive/{action<\d+>}", name="home_archive_pm_controller")
      * @param int $tid
      * @param int $action
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'api/town/house/pm/{tid<\d+>}/archive/{action<\d+>}', name: 'home_archive_pm_controller')]
     public function pm_archive_api(int $tid, int $action, EntityManagerInterface $em): Response {
         $user = $this->getUser();
 
@@ -440,12 +440,12 @@ class MessageTownMessageController extends MessageController
     }
 
     /**
-     * @Route("api/town/house/pm/report", name="home_report_pm_controller")
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
      * @param TranslatorInterface $ti
      * @return Response
      */
+    #[Route(path: 'api/town/house/pm/report', name: 'home_report_pm_controller')]
     public function pm_report_api(JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti, CrowService $crow, RateLimitingFactoryProvider $rateLimiter): Response {
         $user = $this->getUser();
 
@@ -495,11 +495,11 @@ class MessageTownMessageController extends MessageController
     }
 
     /**
-     * @Route("jx/town/house/pm/{tid<\d+>}/editor", name="home_answer_post_editor_controller")
      * @param int $tid
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'jx/town/house/pm/{tid<\d+>}/editor', name: 'home_answer_post_editor_controller')]
     public function home_answer_editor_post_api(int $tid, EntityManagerInterface $em): Response {
         $user = $this->getUser();
 
@@ -528,10 +528,10 @@ class MessageTownMessageController extends MessageController
     }
 
     /**
-     * @Route("jx/town/house/pm/{type}/editor", name="home_new_post_editor_controller")
      * @param string $type
      * @return Response
      */
+    #[Route(path: 'jx/town/house/pm/{type}/editor', name: 'home_new_post_editor_controller')]
     public function home_new_editor_post_api(string $type): Response {
         $user = $this->getUser();
 
@@ -560,10 +560,10 @@ class MessageTownMessageController extends MessageController
     }
 
     /**
-     * @Route("jx/admin/pm/{type}/editor", name="admin_pm_editor_controller")
      * @param string $type
      * @return Response
      */
+    #[Route(path: 'jx/admin/pm/{type}/editor', name: 'admin_pm_editor_controller')]
     public function admin_pm_new_editor_post_api(string $type): Response {
         $user = $this->getUser();
 
@@ -589,12 +589,12 @@ class MessageTownMessageController extends MessageController
     }
 
     /**
-     * @Route("api/admin/sendpm", name="admin_send_pm_controller")
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
      * @param TranslatorInterface $t
      * @return Response
      */
+    #[Route(path: 'api/admin/sendpm', name: 'admin_send_pm_controller')]
     public function admin_pm_api(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $t): Response {
         $type      = $parser->get('type', "");
         $recipient = $parser->get('recipient', '');

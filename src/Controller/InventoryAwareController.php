@@ -77,9 +77,9 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * Class InventoryAwareController
  * @package App\Controller
- * @GateKeeperProfile(only_alive=true, only_with_profession=true)
- * @Semaphore("town", scope="town")
  */
+#[GateKeeperProfile(only_alive: true, only_with_profession: true)]
+#[Semaphore('town', scope: 'town')]
 class InventoryAwareController extends CustomAbstractController
     implements HookedInterfaceController
 {

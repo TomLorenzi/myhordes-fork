@@ -19,24 +19,20 @@ use App\Service\LogTemplateHandler;
 use App\Service\TownHandler;
 use App\Traits\Controller\ActiveCitizen;
 use Doctrine\ORM\EntityManagerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
-/**
- * @Route("/rest/v1/town/core/door", name="rest_town_core_door_", condition="request.headers.get('Accept') === 'application/json'")
- * @IsGranted("ROLE_USER")
- * @GateKeeperProfile(only_in_town=true, only_alive=true, only_with_profession=true)
- * @Semaphore("town", scope="town")
- */
+#[Route(path: '/rest/v1/town/core/door', name: 'rest_town_core_door_', condition: "request.headers.get('Accept') === 'application/json'")]
+#[IsGranted('ROLE_USER')]
+#[GateKeeperProfile(only_alive: true, only_with_profession: true, only_in_town: true)]
+#[Semaphore('town', scope: 'town')]
 class DoorController extends CustomAbstractCoreController
 {
     use ActiveCitizen;
 
     /**
-     * @Route("", name="control", methods={"PATCH"})
      * @param EventProxyService $event
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
@@ -45,6 +41,7 @@ class DoorController extends CustomAbstractCoreController
      * @param LogTemplateHandler $log
      * @return JsonResponse
      */
+    #[Route(path: '', name: 'control', methods: ['PATCH'])]
     public function control(
         EventProxyService $event,
         JSONRequestParser $parser,
@@ -121,12 +118,12 @@ class DoorController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/exit/{special}", name="exit", methods={"POST"})
      * @param EntityManagerInterface $em
      * @param LogTemplateHandler $log
      * @param string $special
      * @return JsonResponse
      */
+    #[Route(path: '/exit/{special}', name: 'exit', methods: ['POST'])]
     public function exit(
         EntityManagerInterface $em,
         LogTemplateHandler $log,
