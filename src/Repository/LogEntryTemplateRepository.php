@@ -51,7 +51,7 @@ class LogEntryTemplateRepository extends ServiceEntityRepository
      /**
       * @return LogEntryTemplate[] Returns an array of LogEntryTemplate objects
       */
-    
+
       public function findByType($value)
       {
           return $this->createQueryBuilder('l')
@@ -63,11 +63,11 @@ class LogEntryTemplateRepository extends ServiceEntityRepository
               ->getResult()
           ;
       }
-  
+
        /**
         * @return LogEntryTemplate[] Returns an array of LogEntryTemplate objects
         */
-      
+
         public function findByTypes(array $value)
         {
             return $this->createQueryBuilder('l')
@@ -80,7 +80,7 @@ class LogEntryTemplateRepository extends ServiceEntityRepository
             ;
         }
 
-        
+
     // /**
     //  * @return LogEntryTemplate[] Returns an array of LogEntryTemplate objects
     //  */

@@ -31,8 +31,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -41,10 +40,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 
-/**
- * @Route("/rest/v1/game/log", name="rest_game_log_", condition="request.headers.get('Accept') === 'application/json'")
- * @IsGranted("ROLE_USER")
- */
+#[Route(path: '/rest/v1/game/log', name: 'rest_game_log_', condition: "request.headers.get('Accept') === 'application/json'")]
+#[IsGranted('ROLE_USER')]
 class LogController extends CustomAbstractCoreController
 {
 
@@ -58,11 +55,11 @@ class LogController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("", name="base", methods={"GET"})
-     * @Route("/index", name="base_index", methods={"GET"})
      * @param Packages $asset
      * @return JsonResponse
      */
+    #[Route(path: '', name: 'base', methods: ['GET'])]
+    #[Route(path: '/index', name: 'base_index', methods: ['GET'])]
     public function index(Packages $asset): JsonResponse {
         return new JsonResponse([
             'wrapper' => [
@@ -187,14 +184,14 @@ class LogController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/beyond", name="beyond", methods={"GET"})
-     * @Toaster()
-     * @GateKeeperProfile(only_alive=true, only_beyond=true)
      * @param Request $request
      * @param EntityManagerInterface $em
      * @return JsonResponse
      * @throws Exception
      */
+    #[Route(path: '/beyond', name: 'beyond', methods: ['GET'])]
+    #[GateKeeperProfile(only_alive: true, only_beyond: true)]
+    #[Toaster]
     public function beyond(Request $request, EntityManagerInterface $em): JsonResponse {
         return new JsonResponse([
             'entries' => $this->renderLogEntries(
@@ -216,10 +213,6 @@ class LogController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/town", name="town", methods={"GET"})
-     * @Route("/citizen/{id}", name="town_citizen", methods={"GET"})
-     * @Toaster()
-     * @GateKeeperProfile(only_in_town=true, only_with_profession=true)
      * @param Request $request
      * @param EntityManagerInterface $em
      * @param Citizen|null $citizen
@@ -227,6 +220,10 @@ class LogController extends CustomAbstractCoreController
      * @return JsonResponse
      * @throws Exception
      */
+    #[Route(path: '/town', name: 'town', methods: ['GET'])]
+    #[Route(path: '/citizen/{id}', name: 'town_citizen', methods: ['GET'])]
+    #[GateKeeperProfile(only_alive: true, only_with_profession: true, only_in_town: true)]
+    #[Toaster]
     public function town(Request $request, EntityManagerInterface $em, UserHandler $userHandler, ?Citizen $citizen = null): JsonResponse {
 
         $active_citizen = $this->getUser()->getActiveCitizen();
@@ -253,14 +250,14 @@ class LogController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/{id}", name="delete_log", methods={"DELETE"})
-     * @Toaster()
-     * @GateKeeperProfile(only_in_town=true, only_alive=true, only_with_profession=true)
      * @param TownLogEntry $entry
      * @param UserHandler $userHandler
      * @param EntityManagerInterface $em
      * @return JsonResponse
      */
+    #[Route(path: '/{id}', name: 'delete_log', methods: ['DELETE'])]
+    #[GateKeeperProfile(only_alive: true, only_with_profession: true, only_in_town: true)]
+    #[Toaster]
     public function delete_log(TownLogEntry $entry, UserHandler $userHandler, EntityManagerInterface $em): JsonResponse {
         $active_citizen = $this->getUser()->getActiveCitizen();
 
@@ -286,14 +283,14 @@ class LogController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/admin/zone/{id}", name="admin_zone", methods={"GET"})
-     * @IsGranted("ROLE_CROW")
      * @param Zone $zone
      * @param Request $request
      * @param EntityManagerInterface $em
      * @return JsonResponse
      * @throws Exception
      */
+    #[Route(path: '/admin/zone/{id}', name: 'admin_zone', methods: ['GET'])]
+    #[IsGranted('ROLE_CROW')]
     public function adminZone(Zone $zone, Request $request, EntityManagerInterface $em): JsonResponse {
         return new JsonResponse([
                                     'entries' => $this->renderLogEntries(
@@ -309,14 +306,14 @@ class LogController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/admin/town/{id}", name="admin_town", methods={"GET"})
-     * @IsGranted("ROLE_CROW")
      * @param Town $town
      * @param Request $request
      * @param EntityManagerInterface $em
      * @return JsonResponse
      * @throws Exception
      */
+    #[Route(path: '/admin/town/{id}', name: 'admin_town', methods: ['GET'])]
+    #[IsGranted('ROLE_CROW')]
     public function adminTown(Town $town, Request $request, EntityManagerInterface $em): JsonResponse {
 
         $filter = $request->query->get('filter', '');
@@ -337,9 +334,6 @@ class LogController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/chat/{id}", name="chat", methods={"PUT"})
-     * @Toaster()
-     * @GateKeeperProfile(only_alive=true, only_beyond=true)
      * @param Zone $zone
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
@@ -348,6 +342,9 @@ class LogController extends CustomAbstractCoreController
      * @param LogTemplateHandler $log
      * @return JsonResponse
      */
+    #[Route(path: '/chat/{id}', name: 'chat', methods: ['PUT'])]
+    #[GateKeeperProfile(only_alive: true, only_beyond: true)]
+    #[Toaster]
     public function chat(Zone $zone, JSONRequestParser $parser, EntityManagerInterface $em, HTMLService $html, CitizenHandler $citizenHandler, LogTemplateHandler $log): JsonResponse {
         $active_citizen = $this->getUser()->getActiveCitizen();
         if ($active_citizen->getZone() !== $zone) return new JsonResponse([], Response::HTTP_NOT_ACCEPTABLE);

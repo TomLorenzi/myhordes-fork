@@ -21,27 +21,24 @@ use App\Structures\MyHordesConf;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
-/**
- * @Route("/rest/v1/town-creator", name="rest_town_creator_", condition="request.headers.get('Accept') === 'application/json'")
- * @IsGranted("ROLE_USER")
- * @GateKeeperProfile("skip")
- */
+#[Route(path: '/rest/v1/town-creator', name: 'rest_town_creator_', condition: "request.headers.get('Accept') === 'application/json'")]
+#[IsGranted('ROLE_USER')]
+#[GateKeeperProfile('skip')]
 class TownCreatorController extends CustomAbstractCoreController
 {
 
     /**
-     * @Route("", name="base", methods={"GET"})
      * @param EntityManagerInterface $em
      * @param Packages $asset
      * @return JsonResponse
      */
+    #[Route(path: '', name: 'base', methods: ['GET'])]
     public function index(EntityManagerInterface $em, Packages $asset): JsonResponse {
 
         $all_events = array_values(array_map(
@@ -401,10 +398,10 @@ class TownCreatorController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/town-types", name="town-types", methods={"GET"})
      * @param EntityManagerInterface $em
      * @return JsonResponse
      */
+    #[Route(path: '/town-types', name: 'town-types', methods: ['GET'])]
     public function town_types(EntityManagerInterface $em): JsonResponse {
         return new JsonResponse(array_map(
             function(TownClass $town) {
@@ -421,13 +418,13 @@ class TownCreatorController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/town-rules/{id}", name="town-rules", methods={"GET"}, defaults={"private"=false})
-     * @Route("/town-rules/private/{id}", name="private-town-rules", methods={"GET"}, defaults={"private"=true})
      * @param TownClass $townClass
      * @param bool $private
      * @param SanitizeTownConfigAction $sanitizeTownConfigAction
      * @return JsonResponse
      */
+    #[Route(path: '/town-rules/{id}', name: 'town-rules', methods: ['GET'], defaults: ['private' => false])]
+    #[Route(path: '/town-rules/private/{id}', name: 'private-town-rules', methods: ['GET'], defaults: ['private' => true])]
     public function town_type_rules(TownClass $townClass, bool $private, SanitizeTownConfigAction $sanitizeTownConfigAction): JsonResponse {
         if ($townClass->getHasPreset()) {
 
@@ -443,7 +440,6 @@ class TownCreatorController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/create-town", name="create-town", methods={"POST"})
      * @param JSONRequestParser $parser
      * @param SanitizeTownConfigAction $sanitizeTownConfigAction
      * @param CreateTownFromConfigAction $createTownFromConfigAction
@@ -451,6 +447,7 @@ class TownCreatorController extends CustomAbstractCoreController
      * @param UserHandler $userHandler
      * @return JsonResponse
      */
+    #[Route(path: '/create-town', name: 'create-town', methods: ['POST'])]
     public function create_town(JSONRequestParser        $parser,
                                 SanitizeTownConfigAction $sanitizeTownConfigAction,
                                 CreateTownFromConfigAction $createTownFromConfigAction,
@@ -485,10 +482,10 @@ class TownCreatorController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/template", name="list-template", methods={"GET"})
      * @param EntityManagerInterface $em
      * @return JsonResponse
      */
+    #[Route(path: '/template', name: 'list-template', methods: ['GET'])]
     public function list_templates(
         EntityManagerInterface $em,
     ): JsonResponse {
@@ -499,8 +496,6 @@ class TownCreatorController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/template", name="create-template", methods={"PUT"}, defaults={"create"=true})
-     * @Route("/template/{id}", name="update-template", methods={"PATCH"}, defaults={"create"=false})
      * @param bool $create
      * @param TownRulesTemplate|null $template
      * @param EntityManagerInterface $em
@@ -508,6 +503,8 @@ class TownCreatorController extends CustomAbstractCoreController
      * @param SanitizeTownConfigAction $sanitizeTownConfigAction
      * @return JsonResponse
      */
+    #[Route(path: '/template', name: 'create-template', methods: ['PUT'], defaults: ['create' => true])]
+    #[Route(path: '/template/{id}', name: 'update-template', methods: ['PATCH'], defaults: ['create' => false])]
     public function save_template(
         bool $create,
         ?TownRulesTemplate $template,
@@ -545,11 +542,11 @@ class TownCreatorController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/template/{id}", name="delete-template", methods={"DELETE"})
      * @param TownRulesTemplate $template
      * @param EntityManagerInterface $em
      * @return JsonResponse
      */
+    #[Route(path: '/template/{id}', name: 'delete-template', methods: ['DELETE'])]
     public function remove_template(
         TownRulesTemplate $template,
         EntityManagerInterface $em
@@ -568,10 +565,10 @@ class TownCreatorController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/template/{id}", name="load-template", methods={"GET"})
      * @param TownRulesTemplate $template
      * @return JsonResponse
      */
+    #[Route(path: '/template/{id}', name: 'load-template', methods: ['GET'])]
     public function load_template(
         TownRulesTemplate $template,
         SanitizeTownConfigAction $sanitizer

@@ -78,9 +78,9 @@ use Symfony\Component\Validator\Constraints;
 use Symfony\Component\Validator\Validation;
 
 /**
- * @Route("/",condition="request.isXmlHttpRequest()")
  * @method User getUser
  */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
 class SoulController extends CustomAbstractController
 {
     const ErrorUserEditPasswordIncorrect     = ErrorHelper::BaseSoulErrors + 1;
@@ -155,9 +155,9 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/disabled_message", name="soul_disabled")
      * @return Response
      */
+    #[Route(path: 'jx/soul/disabled_message', name: 'soul_disabled')]
     public function soul_disabled(): Response
     {
         $user = $this->getUser();
@@ -179,10 +179,10 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/me", name="soul_me")
      * @param HTMLService $html
      * @return Response
      */
+    #[Route(path: 'jx/soul/me', name: 'soul_me')]
     public function soul_me(HTMLService $html): Response
     {
         $user = $this->getUser();
@@ -217,10 +217,10 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/pictos/{id}", name="soul_pictos_all", requirements={"id"="\d+"})
      * @param int $id
      * @return Response
      */
+    #[Route(path: 'jx/soul/pictos/{id}', name: 'soul_pictos_all', requirements: ['id' => '\d+'])]
     public function soul_pictos_all(int $id): Response
     {
         $current_user = $this->getUser();
@@ -240,13 +240,13 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/refer", name="soul_refer")
-     * @Route("jx/soul/contacts/{opt}", name="soul_contacts", requirements={"opt"="\d"})
      * @param Request $request
      * @param ConfMaster $conf
      * @param int $opt
      * @return Response
      */
+    #[Route(path: 'jx/soul/refer', name: 'soul_refer')]
+    #[Route(path: 'jx/soul/contacts/{opt}', name: 'soul_contacts', requirements: ['opt' => '\d'])]
     public function soul_refer(Request $request, ConfMaster $conf, int $opt = 0): Response {
         $refer = $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['user' => $this->getUser()]);
         if ($refer === null && !$this->user_handler->hasRole($this->getUser(), 'ROLE_DUMMY')) {
@@ -316,10 +316,8 @@ class SoulController extends CustomAbstractController
             'coa_members' => $coa_members]));
     }
 
-    /**
-     * @Route("jx/soul/exists", name="user_exists")
-     * @GateKeeperProfile(allow_during_attack=true,record_user_activity=false)
-     */
+    #[Route(path: 'jx/soul/exists', name: 'user_exists')]
+    #[GateKeeperProfile(allow_during_attack: true, record_user_activity: false)]
     public function users_exists(JSONRequestParser $parser, TranslatorInterface $translator): Response {
         $return = [];
 
@@ -371,9 +369,9 @@ class SoulController extends CustomAbstractController
 
 
     /**
-     * @Route("jx/soul/heroskill", name="soul_heroskill")
      * @return Response
      */
+    #[Route(path: 'jx/soul/heroskill', name: 'soul_heroskill')]
     public function soul_heroskill(): Response
     {
         $user = $this->getUser();
@@ -400,12 +398,12 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/future/{id}", name="soul_future")
      * @param Request $request
      * @param UserHandler $userHandler
      * @param int $id
      * @return Response
      */
+    #[Route(path: 'jx/soul/future/{id}', name: 'soul_future')]
     public function soul_future(Request $request, UserHandler $userHandler, HTMLService $html, int $id = 0): Response
     {
         $user = $this->getUser();
@@ -436,12 +434,12 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/polls/{id}/{group}/{tag}", name="soul_polls")
      * @param int $id
      * @param string $group
      * @param string $tag
      * @return Response
      */
+    #[Route(path: 'jx/soul/polls/{id}/{group}/{tag}', name: 'soul_polls')]
     public function soul_polls(int $id = 0, string $group = '', string $tag = ''): Response
     {
         if (($group !== '' || $tag !== '') && !$this->isGranted('ROLE_ADMIN'))
@@ -471,9 +469,9 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/stats", name="soul_stats")
      * @return Response
      */
+    #[Route(path: 'jx/soul/stats', name: 'soul_stats')]
     public function soul_stats(): Response
     {
         $byLang = $this->entity_manager->getRepository(Statistic::class)->createQueryBuilder('s')
@@ -517,9 +515,9 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/events", name="soul_events")
      * @return Response
      */
+    #[Route(path: 'jx/soul/events', name: 'soul_events')]
     public function soul_events(): Response
     {
         $now = new DateTime();
@@ -545,11 +543,11 @@ class SoulController extends CustomAbstractController
 
 
     /**
-     * @Route("api/soul/polls/{id<\d+>}/{answer<\d+>}", name="soul_poll_participate")
      * @param int $id
      * @param int $answer
      * @return Response
      */
+    #[Route(path: 'api/soul/polls/{id<\d+>}/{answer<\d+>}', name: 'soul_poll_participate')]
     public function soul_poll_participate(int $id = 0, int $answer = 0): Response
     {
         $user = $this->getUser();
@@ -596,9 +594,9 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/news", name="soul_news")
      * @return Response
      */
+    #[Route(path: 'jx/soul/news', name: 'soul_news')]
     public function soul_news(): Response
     {
         return $this->render( 'ajax/soul/news.html.twig', $this->addDefaultTwigArgs("soul_news", []) );
@@ -606,10 +604,10 @@ class SoulController extends CustomAbstractController
 
 
     /**
-     * @Route("jx/soul/settings", name="soul_settings")
      * @param EternalTwinHandler $etwin
      * @return Response
      */
+    #[Route(path: 'jx/soul/settings', name: 'soul_settings')]
     public function soul_settings(EternalTwinHandler $etwin): Response
     {
         $user = $this->getUser();
@@ -660,11 +658,11 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/settings/header", name="api_soul_header")
      * @param JSONRequestParser $parser
      * @param HTMLService $html
      * @return Response
      */
+    #[Route(path: 'api/soul/settings/header', name: 'api_soul_header')]
     public function soul_set_header(JSONRequestParser $parser, HTMLService $html): Response {
         $user = $this->getUser();
 
@@ -776,11 +774,11 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/settings/team", name="api_soul_team")
      * @param JSONRequestParser $parser
      * @param HTMLService $html
      * @return Response
      */
+    #[Route(path: 'api/soul/settings/team', name: 'api_soul_team')]
     public function soul_set_team(JSONRequestParser $parser, HTMLService $html): Response {
         $user = $this->getUser();
 
@@ -811,9 +809,9 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/rps", name="soul_rps")
      * @return Response
      */
+    #[Route(path: 'jx/soul/rps', name: 'soul_rps')]
     public function soul_rps(): Response
     {
         $user = $this->getUser();
@@ -836,11 +834,11 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/rps/read/{id}-{page}", name="soul_rp", requirements={"id"="\d+", "page"="\d+"})
      * @param int $id
      * @param int $page
      * @return Response
      */
+    #[Route(path: 'jx/soul/rps/read/{id}-{page}', name: 'soul_rp', requirements: ['id' => '\d+', 'page' => '\d+'])]
     public function soul_view_rp(int $id, int $page): Response
     {
         $user = $this->getUser();
@@ -879,12 +877,12 @@ class SoulController extends CustomAbstractController
 
 
     /**
-     * @Route("jx/soul/{sid}/town/{idtown}/{return_path}", name="soul_view_town")
      * @param string $sid
      * @param int $idtown
      * @param string $return_path
      * @return Response
      */
+    #[Route(path: 'jx/soul/{sid}/town/{idtown}/{return_path}', name: 'soul_view_town')]
     public function soul_view_town(int $idtown, string $sid = 'me', string $return_path = "soul_me"): Response
     {
         $user = $this->getUser();
@@ -930,10 +928,10 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/town/add_comment", name="soul_add_comment")
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/soul/town/add_comment', name: 'soul_add_comment')]
     public function soul_add_comment(JSONRequestParser $parser): Response
     {
         $user = $this->getUser();
@@ -962,12 +960,12 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/{sid}/report", name="soul_report_user")
      * @param int $sid
      * @param JSONRequestParser $parser
      * @param RateLimitingFactoryProvider $rateLimiter
      * @return Response
      */
+    #[Route(path: 'api/soul/{sid}/report', name: 'soul_report_user')]
     public function soul_report_user(int $sid, JSONRequestParser $parser, RateLimitingFactoryProvider $rateLimiter): Response
     {
         $user = $this->getUser();
@@ -983,7 +981,6 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/{sid}/town/{idtown}/report/{topic}", name="soul_report_comment")
      * @param int $sid
      * @param int $idtown
      * @param string $topic
@@ -991,6 +988,7 @@ class SoulController extends CustomAbstractController
      * @param RateLimitingFactoryProvider $rateLimiter
      * @return Response
      */
+    #[Route(path: 'api/soul/{sid}/town/{idtown}/report/{topic}', name: 'soul_report_comment')]
     public function soul_report_comment(int $sid, int $idtown, string $topic, JSONRequestParser $parser, RateLimitingFactoryProvider $rateLimiter): Response
     {
         if (!in_array( $topic, ['lw','com'] )) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
@@ -1014,10 +1012,10 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/settings/generateid", name="api_soul_settings_generateid")
      * @param EntityManagerInterface $entityManager
      * @return Response
      */
+    #[Route(path: 'api/soul/settings/generateid', name: 'api_soul_settings_generateid')]
     public function soul_settings_generate_id(EntityManagerInterface $entityManager): Response {
         $user = $this->getUser();
         if (!$user)
@@ -1031,10 +1029,10 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/settings/deleteid", name="api_soul_settings_deleteid")
      * @param EntityManagerInterface $entityManager
      * @return Response
      */
+    #[Route(path: 'api/soul/settings/deleteid', name: 'api_soul_settings_deleteid')]
     public function soul_settings_deleteid(EntityManagerInterface $entityManager): Response {
         $user = $this->getUser();
         if (!$user)
@@ -1048,11 +1046,11 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/settings/common", name="api_soul_common")
      * @param JSONRequestParser $parser
      * @param SessionInterface $session
      * @return Response
      */
+    #[Route(path: 'api/soul/settings/common', name: 'api_soul_common')]
     public function soul_settings_common(JSONRequestParser $parser, SessionInterface $session): Response {
         $user = $this->getUser();
 
@@ -1078,13 +1076,13 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/settings/setlanguage", name="api_soul_set_language")
      * @param JSONRequestParser $parser
      * @param Request $request
      * @param UserHandler $userHandler
      * @param SessionInterface $session
      * @return Response
      */
+    #[Route(path: 'api/soul/settings/setlanguage', name: 'api_soul_set_language')]
     public function soul_settings_set_language(JSONRequestParser $parser, Request $request, UserHandler $userHandler, SessionInterface $session): Response {
         $user = $this->getUser();
 
@@ -1112,11 +1110,11 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/settings/defaultrole", name="api_soul_defaultrole")
      * @param JSONRequestParser $parser
      * @param AdminHandler $admh
      * @return Response
      */
+    #[Route(path: 'api/soul/settings/defaultrole', name: 'api_soul_defaultrole')]
     public function soul_settings_default_role(JSONRequestParser $parser, AdminHandler $admh): Response {
         $user = $this->getUser();
 
@@ -1128,11 +1126,11 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/settings/mod_tools_window", name="api_soul_mod_tools_window")
      * @param JSONRequestParser $parser
      * @param AdminHandler $admh
      * @return Response
      */
+    #[Route(path: 'api/soul/settings/mod_tools_window', name: 'api_soul_mod_tools_window')]
     public function soul_mod_tools_window(JSONRequestParser $parser, AdminHandler $admh): Response {
         $user = $this->getUser();
 
@@ -1146,12 +1144,12 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/settings/change_account_details", name="api_soul_change_account_details")
      * @param UserPasswordHasherInterface $passwordEncoder
      * @param JSONRequestParser $parser
      * @param TokenStorageInterface $token
      * @return Response
      */
+    #[Route(path: 'api/soul/settings/change_account_details', name: 'api_soul_change_account_details')]
     public function soul_settings_change_account_details(UserPasswordHasherInterface $passwordEncoder, JSONRequestParser $parser, TokenStorageInterface $token): Response
     {
         $user = $this->getUser();
@@ -1237,9 +1235,9 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/settings/resend_token_email", name="api_soul_resend_token_email")
      * @return Response
      */
+    #[Route(path: 'api/soul/settings/resend_token_email', name: 'api_soul_resend_token_email')]
     public function soul_settings_resend_token_email(): Response
     {
         $user = $this->getUser();
@@ -1252,9 +1250,9 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/settings/cancel_token_email", name="api_soul_cancel_email_token")
      * @return Response
      */
+    #[Route(path: 'api/soul/settings/cancel_token_email', name: 'api_soul_cancel_email_token')]
     public function soul_settings_cancel_token_email(): Response
     {
         $user = $this->getUser();
@@ -1272,10 +1270,10 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/settings/unremember_me", name="api_soul_unremember_me")
      * @param TokenStorageInterface $token
      * @return Response
      */
+    #[Route(path: 'api/soul/settings/unremember_me', name: 'api_soul_unremember_me')]
     public function soul_settings_unremember(TokenStorageInterface $token): Response
     {
         $user = $this->getUser();
@@ -1293,11 +1291,11 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/{id}", name="soul_visit", requirements={"id"="\d+"})
      * @param int $id
      * @param HTMLService $html
      * @return Response
      */
+    #[Route(path: 'jx/soul/{id}', name: 'soul_visit', requirements: ['id' => '\d+'])]
     public function soul_visit(int $id, HTMLService $html): Response
     {
         $current_user = $this->getUser();
@@ -1331,12 +1329,12 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/{id}/block/{action}", name="soul_block_control", requirements={"id"="\d+", "action"="\d+"})
-     * @GateKeeperProfile(allow_during_attack=true)
      * @param int $id
      * @param int $action
      * @return Response
      */
+    #[Route(path: 'api/soul/{id}/block/{action}', name: 'soul_block_control', requirements: ['id' => '\d+', 'action' => '\d+'])]
+    #[GateKeeperProfile(allow_during_attack: true)]
     public function soul_control_block(int $id, int $action): Response
     {
         if ($action !== 0 && $action !== 1) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -1368,11 +1366,11 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/unsubscribe", name="api_unsubscribe")
      * @param JSONRequestParser $parser
      * @param SessionInterface $session
      * @return Response
      */
+    #[Route(path: 'api/soul/unsubscribe', name: 'api_unsubscribe')]
     public function unsubscribe_api(JSONRequestParser $parser, SessionInterface $session): Response {
         $this->user_handler->confirmNextDeath( $this->getUser(), $parser->get('lastwords', '') );
 
@@ -1383,12 +1381,12 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/welcomeToNowhere", name="soul_death", defaults={"latest"=true})
-     * @Route("jx/soul/obituary/{id}", name="soul_obituary", defaults={"latest"=false})
      * @param bool $latest
      * @param CitizenRankingProxy|null $nextDeath
      * @return Response
      */
+    #[Route(path: 'jx/soul/welcomeToNowhere', name: 'soul_death', defaults: ['latest' => true])]
+    #[Route(path: 'jx/soul/obituary/{id}', name: 'soul_obituary', defaults: ['latest' => false])]
     public function soul_death_page(bool $latest, ?CitizenRankingProxy $nextDeath = null): Response
     {
         $user = $this->getUser();
@@ -1441,11 +1439,11 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/{user_id}/towns_all", name="soul_get_towns")
      * @param int $user_id
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/soul/{user_id}/towns_all', name: 'soul_get_towns')]
     public function soul_town_list(int $user_id, JSONRequestParser $parser): Response {
         /** @var User $user */
         $user = $this->entity_manager->getRepository(User::class)->find($user_id);
@@ -1481,9 +1479,9 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/help", name="help_me")
      * @return Response
      */
+    #[Route(path: 'jx/help', name: 'help_me')]
     public function help_me(): Response
     {
         $support_groups = $this->entity_manager->getRepository(OfficialGroup::class)->findBy(['lang' => $this->getUserLanguage(), 'semantic' => OfficialGroup::SEMANTIC_SUPPORT]);
@@ -1493,12 +1491,12 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/app/{id<\d+>}", name="soul_own_app_update")
      * @param int $id
      * @param JSONRequestParser $parser
      * @param RandomGenerator $rand
      * @return Response
      */
+    #[Route(path: 'api/soul/app/{id<\d+>}', name: 'soul_own_app_update')]
     public function api_update_own_app(int $id, JSONRequestParser $parser, RandomGenerator $rand) {
         /** @var ExternalApp $app */
         $app = $this->entity_manager->getRepository(ExternalApp::class)->find($id);
@@ -1543,11 +1541,11 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/game_history", name="soul_game_history")
      * @param JSONRequestParser $parser
      * @param RandomGenerator $rand
      * @return Response
      */
+    #[Route(path: 'jx/soul/game_history', name: 'soul_game_history')]
     public function soul_game_history(JSONRequestParser $parser, RandomGenerator $rand) {
         $lifes = $this->getUser()->getPastLifes()->getValues();
         usort($lifes, fn(CitizenRankingProxy $b, CitizenRankingProxy $a) =>
@@ -1562,12 +1560,12 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/tooltip", name="soul_tooltip")
-     * @GateKeeperProfile(allow_during_attack=true)
      * @param int $id
      * @param HTMLService $html
      * @return Response
      */
+    #[Route(path: 'api/soul/tooltip', name: 'soul_tooltip')]
+    #[GateKeeperProfile(allow_during_attack: true)]
     public function api_soul_tooltip(JSONRequestParser $parser, HTMLService $html, TimeKeeperService $timeKeeper) {
         $id = $parser->get("id");
         $user = $id ? $this->entity_manager->getRepository(User::class)->find($id) : null;
@@ -1604,12 +1602,12 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/friend/{action}", name="soul_friend_control")
-     * @GateKeeperProfile(allow_during_attack=true)
      * @param int $action
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/soul/friend/{action}', name: 'soul_friend_control')]
+    #[GateKeeperProfile(allow_during_attack: true)]
     public function api_friend_control(int $action, JSONRequestParser $parser) {
         if ($action !== 0 && $action !== 1) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
@@ -1647,12 +1645,12 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/ignore/{action}", name="soul_ignore_control")
-     * @GateKeeperProfile(allow_during_attack=true)
      * @param int $action
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/soul/ignore/{action}', name: 'soul_ignore_control')]
+    #[GateKeeperProfile(allow_during_attack: true)]
     public function api_ignore_control(int $action, JSONRequestParser $parser) {
         if ($action !== 0 && $action !== 1) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 

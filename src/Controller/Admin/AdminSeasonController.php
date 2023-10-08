@@ -10,20 +10,18 @@ use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\RandomGenerator;
 use App\Translation\T;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
-/**
- * @Route("/",condition="request.isXmlHttpRequest()")
- * @GateKeeperProfile(allow_during_attack=true)
- */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
+#[GateKeeperProfile(allow_during_attack: true)]
 class AdminSeasonController extends CustomAbstractController
 {
     /**
-     * @Route("jx/admin/seasons/all", name="admin_seasons_view")
      * @return Response
      */
+    #[Route(path: 'jx/admin/seasons/all', name: 'admin_seasons_view')]
     public function seasons_view(): Response
     {
         $seasons = $this->entity_manager->getRepository(Season::class)->findAll();
@@ -31,11 +29,11 @@ class AdminSeasonController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/admin/seasons/toggle_current/{id}", name="admin_toggle_current_season")
-     * @Security("is_granted('ROLE_ADMIN')")
      * @param int $id The season ID we want to toggle current
      * @return Response
      */
+    #[Route(path: 'api/admin/seasons/toggle_current/{id}', name: 'admin_toggle_current_season')]
+    #[IsGranted('ROLE_ADMIN')]
     public function seasons_toggle_current(int $id): Response
     {
         $seasons = $this->entity_manager->getRepository(Season::class)->findAll();
@@ -50,10 +48,10 @@ class AdminSeasonController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/admin/seasons/{id<\d+>}", name="admin_season_edit")
      * @param int $id
      * @return Response
      */
+    #[Route(path: 'jx/admin/seasons/{id<\d+>}', name: 'admin_season_edit')]
     public function season_edit(int $id): Response
     {
         T::__("Neue Saison", "admin");
@@ -64,9 +62,9 @@ class AdminSeasonController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/admin/seasons/new", name="admin_season_new")
      * @return Response
      */
+    #[Route(path: 'jx/admin/seasons/new', name: 'admin_season_new')]
     public function season_new(): Response
     {
         if (!$this->isGranted('ROLE_ADMIN')) $this->redirect($this->generateUrl('admin_seasons_view'));
@@ -74,12 +72,12 @@ class AdminSeasonController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/admin/seasons/register/{id<-?\d+>}", name="admin_update_season")
      * @param int $id
      * @param JSONRequestParser $parser
      * @param RandomGenerator $rand
      * @return Response
      */
+    #[Route(path: 'api/admin/seasons/register/{id<-?\d+>}', name: 'admin_update_season')]
     public function season_update(int $id, JSONRequestParser $parser, RandomGenerator $rand): Response
     {
         if (!$this->isGranted('ROLE_ADMIN')) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );

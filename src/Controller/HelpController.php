@@ -13,10 +13,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/",condition="request.isXmlHttpRequest()")
- * @GateKeeperProfile(allow_during_attack=true)
- */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
+#[GateKeeperProfile(allow_during_attack: true)]
 class HelpController extends CustomAbstractController
 {
     private function renderHelpPage(string $page, ?string $section = null, bool $partial = false): Response {
@@ -48,28 +46,28 @@ class HelpController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/help/{name}", name="help", defaults={"sect"=null,"partial"=false})
-     * @Route("jx/help/{sect}/{name}", name="help_classified", defaults={"partial"=false})
-     * @Route("jx/help/partial/{name}", name="help_partial", defaults={"sect"=null,"partial"=true}, priority=1)
-     * @Route("jx/help/partial/{sect}/{name}", name="help_partial_sect", defaults={"partial"=true}, priority=1)
      * @param string|null $sect
      * @param string $name
      * @param bool $partial
      * @return Response
      */
+    #[Route(path: 'jx/help/{name}', name: 'help', defaults: ['sect' => null, 'partial' => false])]
+    #[Route(path: 'jx/help/{sect}/{name}', name: 'help_classified', defaults: ['partial' => false])]
+    #[Route(path: 'jx/help/partial/{name}', name: 'help_partial', defaults: ['sect' => null, 'partial' => true], priority: 1)]
+    #[Route(path: 'jx/help/partial/{sect}/{name}', name: 'help_partial_sect', defaults: ['partial' => true], priority: 1)]
     public function help(?string $sect = null, string $name = 'welcome', bool $partial = false): Response
     {
         return $this->validateSection($sect) ? $this->renderHelpPage($name, $sect, $partial) : $this->redirectToRoute('help');
     }
 
     /**
-     * @Route("api/help/search", name="help_search")
      * @param JSONRequestParser $parser
      * @param KernelInterface $kernel
      * @return Response
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
+    #[Route(path: 'api/help/search', name: 'help_search')]
     public function help_search(JSONRequestParser $parser, KernelInterface $kernel): Response
     {
         $dirs = [null];

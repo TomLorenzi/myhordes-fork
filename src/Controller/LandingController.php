@@ -19,19 +19,19 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class LandingController
  * @package App\Controller
- * @GateKeeperProfile(allow_during_attack=true)
  */
+#[GateKeeperProfile(allow_during_attack: true)]
 class LandingController extends CustomAbstractController
 {
 
     /**
-     * @Route("jx/landing", name="initial_landing",condition="request.isXmlHttpRequest()")
      * @param EntityManagerInterface $em
      * @param TimeKeeperService $tk
      * @param Request $request
      * @param UserHandler $userHandler
      * @return Response
      */
+    #[Route(path: 'jx/landing', name: 'initial_landing', condition: 'request.isXmlHttpRequest()')]
     public function main_landing(EntityManagerInterface $em, TimeKeeperService $tk, Request $request, UserHandler $userHandler): Response
     {
         if ($tk->isDuringAttack()) {
@@ -67,12 +67,12 @@ class LandingController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/offline/attack_processing", name="maintenance_attack",condition="request.isXmlHttpRequest()")
      * @param EntityManagerInterface $em
      * @param TimeKeeperService $tk
      * @param RandomGenerator $rand
      * @return Response
      */
+    #[Route(path: 'jx/offline/attack_processing', name: 'maintenance_attack', condition: 'request.isXmlHttpRequest()')]
     public function maintenance_attack(EntityManagerInterface $em, TimeKeeperService $tk, RandomGenerator $rand, JSONRequestParser $parser): Response
     {
         if (!$tk->isDuringAttack() && !$parser->has('refresh'))

@@ -1309,13 +1309,13 @@ class NightlyHandler
 
                 // The town lose water as zombies are entering town.
                 $d = min($town->getWell(), rand(20, 40));
-                
+
                 if($d > 0){
                     $this->log->debug("The zombies entering town removed <info>{$d} water rations</info> from the well.");
                     $this->entity_manager->persist($this->logTemplates->nightlyDevastationAttackWell($d, $town));
                     $town->setWell($town->getWell() - $d);
                 }
-                
+
                 //foreach ($town->getBuildings() as $target_building)
                 //    if (!$target_building->getComplete()) $target_building->setAp(0);
             }

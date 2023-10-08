@@ -35,17 +35,15 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Translation\Translator;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-/**
- * @Route("/",condition="request.isXmlHttpRequest()")
- * @GateKeeperProfile(only_in_town=true, only_alive=true, only_with_profession=true)
- * @Semaphore("town", scope="town")
- */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
+#[GateKeeperProfile(only_alive: true, only_with_profession: true, only_in_town: true)]
+#[Semaphore('town', scope: 'town')]
 class TownHomeController extends TownController
 {
     /**
-     * @Route("jx/town/house/dash", name="town_house_dash")
      * @return Response
      */
+    #[Route(path: 'jx/town/house/dash', name: 'town_house_dash')]
     public function house_dash(): Response
     {
         $activeCitizen = $this->getActiveCitizen();
@@ -70,12 +68,12 @@ class TownHomeController extends TownController
     }
 
     /**
-     * @Route("jx/town/house/messages/{subtab?}", name="town_house_messages")
      * @param string|null $subtab
      * @param Request $request
      * @param TranslatorInterface $trans
      * @return Response
      */
+    #[Route(path: 'jx/town/house/messages/{subtab?}', name: 'town_house_messages')]
     public function house_messages(?string $subtab, Request $request, TranslatorInterface $trans): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
@@ -191,9 +189,9 @@ class TownHomeController extends TownController
     }
 
     /**
-     * @Route("jx/town/house/complaints", name="town_house_complaints")
      * @return Response
      */
+    #[Route(path: 'jx/town/house/complaints', name: 'town_house_complaints')]
     public function house_complaints(): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
@@ -213,11 +211,11 @@ class TownHomeController extends TownController
     }
 
     /**
-     * @Route("jx/town/house/build", name="town_house_build")
      * @param EntityManagerInterface $em
      * @param TownHandler $th
      * @return Response
      */
+    #[Route(path: 'jx/town/house/build', name: 'town_house_build')]
     public function house_build(EntityManagerInterface $em, TownHandler $th): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
@@ -252,9 +250,9 @@ class TownHomeController extends TownController
     }
 
     /**
-     * @Route("jx/town/house/values", name="town_house_values")
      * @return Response
      */
+    #[Route(path: 'jx/town/house/values', name: 'town_house_values')]
     public function house_values(): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
@@ -352,20 +350,20 @@ class TownHomeController extends TownController
     }
 
     /**
-     * @Route("jx/town/partial/house/inventory", name="house_partial_inventory")
      * @return Response
      */
+    #[Route(path: 'jx/town/partial/house/inventory', name: 'house_partial_inventory')]
     public function house_partial_inventory(): Response
     {
         return $this->render( 'ajax/game/town/partials/inventory.standalone.html.twig', $this->house_partial_inventory_args() );
     }
 
     /**
-     * @Route("api/town/house/item", name="town_house_item_controller")
      * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
      * @return Response
      */
+    #[Route(path: 'api/town/house/item', name: 'town_house_item_controller')]
     public function item_house_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
         $up_inv   = $this->getActiveCitizen()->getInventory();
         $down_inv = $this->getActiveCitizen()->getHome()->getChest();
@@ -373,20 +371,20 @@ class TownHomeController extends TownController
     }
 
     /**
-     * @Route("api/town/house/action", name="town_house_action_controller")
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/town/house/action', name: 'town_house_action_controller')]
     public function action_house_api(JSONRequestParser $parser): Response {
         return $this->generic_action_api( $parser );
     }
 
     /**
-     * @Route("api/town/house/action/{sect}", name="town_house_special_action_controller")
      * @param string $sect
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/town/house/action/{sect}', name: 'town_house_special_action_controller')]
     public function special_action_house_api(string $sect, JSONRequestParser $parser): Response {
         return match ($sect) {
             'home' => $this->generic_home_action_api( $parser ),
@@ -396,33 +394,33 @@ class TownHomeController extends TownController
     }
 
     /**
-     * @Route("api/town/house/heroic", name="town_house_heroic_controller")
      * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
      * @return Response
      */
+    #[Route(path: 'api/town/house/heroic', name: 'town_house_heroic_controller')]
     public function heroic_house_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
         return $this->generic_heroic_action_api( $parser );
     }
 
     /**
-     * @Route("api/town/house/recipe", name="town_house_recipe_controller")
      * @param JSONRequestParser $parser
      * @param ActionHandler $handler
      * @return Response
      */
+    #[Route(path: 'api/town/house/recipe', name: 'town_house_recipe_controller')]
     public function recipe_house_api(JSONRequestParser $parser, ActionHandler $handler): Response {
         return $this->generic_recipe_api($parser, $handler);
     }
 
     /**
-     * @Route("api/town/house/upgrade", name="town_house_upgrade_controller")
      * @param EntityManagerInterface $em
      * @param InventoryHandler $ih
      * @param CitizenHandler $ch
      * @param TownHandler $th
      * @return Response
      */
+    #[Route(path: 'api/town/house/upgrade', name: 'town_house_upgrade_controller')]
     public function upgrade_house_api(EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, TownHandler $th): Response {
         // Get citizen, town and home object
         $citizen = $this->getActiveCitizen();
@@ -504,12 +502,12 @@ class TownHomeController extends TownController
     }
 
     /**
-     * @Route("api/town/house/describe", name="town_house_describe_controller")
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
      * @param Translator $t
      * @return Response
      */
+    #[Route(path: 'api/town/house/describe', name: 'town_house_describe_controller')]
     public function describe_house_api(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $t): Response {
         if ($this->user_handler->isRestricted($this->getActiveCitizen()->getUser(), AccountRestriction::RestrictionTownCommunication))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
@@ -532,13 +530,13 @@ class TownHomeController extends TownController
     }
 
     /**
-     * @Route("api/town/house/extend", name="town_house_extend_controller")
      * @param EntityManagerInterface $em
      * @param InventoryHandler $ih
      * @param CitizenHandler $ch
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/town/house/extend', name: 'town_house_extend_controller')]
     public function extend_house_api(EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, JSONRequestParser $parser): Response {
         // Get extension ID; fail if missing
         $id = (int)$parser->get('id', -1);
@@ -610,10 +608,10 @@ class TownHomeController extends TownController
     }
 
     /**
-     * @Route("api/town/house/suicid", name="town_home_suicid")
      * @param AdminHandler $admh
      * @return Response
      */
+    #[Route(path: 'api/town/house/suicid', name: 'town_home_suicid')]
     public function suicid(AdminHandler $admh): Response
     {
         $message = $admh->suicid($this->getUser()->getId());
@@ -622,10 +620,10 @@ class TownHomeController extends TownController
     }
 
     /**
-     * @Route("api/town/house/pm/all_read", name="town_home_mark_all_read")
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'api/town/house/pm/all_read', name: 'town_home_mark_all_read')]
     public function mark_all_pm_as_read(EntityManagerInterface $em): Response
     {
         $user = $this->getUser();
@@ -651,10 +649,10 @@ class TownHomeController extends TownController
     }
 
     /**
-     * @Route("api/town/house/pm/archive_all", name="town_home_archive_all_pm")
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'api/town/house/pm/archive_all', name: 'town_home_archive_all_pm')]
     public function archive_all_pm(EntityManagerInterface $em): Response
     {
         $user = $this->getUser();

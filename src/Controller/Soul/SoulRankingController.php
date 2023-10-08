@@ -83,9 +83,9 @@ use Symfony\Component\Validator\Constraints;
 use Symfony\Component\Validator\Validation;
 
 /**
- * @Route("/",condition="request.isXmlHttpRequest()")
  * @method User getUser
  */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
 class SoulRankingController extends SoulController
 {
 
@@ -99,12 +99,12 @@ class SoulRankingController extends SoulController
     }
 
     /**
-     * @Route("/jx/soul/ranking/{type<\d+>}/{season<\d+|c|all|a>}", name="soul_season")
      * @param JSONRequestParser $parser
      * @param null $type Type of town we're looking the ranking for
      * @param null $season
      * @return Response
      */
+    #[Route(path: '/jx/soul/ranking/{type<\d+>}/{season<\d+|c|all|a>}', name: 'soul_season')]
     public function soul_season(JSONRequestParser $parser, $type = null, $season = null): Response
     {
         $user = $this->getUser();
@@ -162,12 +162,12 @@ class SoulRankingController extends SoulController
     }
 
     /**
-     * @Route("/jx/soul/ranking/soul/{page}/{season<\d+|c|all|myh|a>}", name="soul_season_solo")
      * @param JSONRequestParser $parser
      * @param int $page
      * @param null $season
      * @return Response
      */
+    #[Route(path: '/jx/soul/ranking/soul/{page}/{season<\d+|c|all|myh|a>}', name: 'soul_season_solo')]
     public function soul_season_solo(JSONRequestParser $parser, int $page = 1, $season = null): Response
     {
         $resultsPerPage = 30;
@@ -220,11 +220,11 @@ class SoulRankingController extends SoulController
     }
 
     /**
-     * @Route("/jx/soul/ranking/distinctions/{season<\d+|c|all|myh|a>}", name="soul_season_distinction_overview")
      * @param JSONRequestParser $parser
      * @param null $season
      * @return Response
      */
+    #[Route(path: '/jx/soul/ranking/distinctions/{season<\d+|c|all|myh|a>}', name: 'soul_season_distinction_overview')]
     public function soul_season_distinction_overview(JSONRequestParser $parser, $season = null): Response
     {
         $user = $this->getUser();
@@ -317,12 +317,12 @@ class SoulRankingController extends SoulController
 
 
     /**
-     * @Route("/jx/soul/ranking/distinctions/detail/{id}/{season<\d+|c|all|myh|a>}", name="soul_season_distinction_detail")
      * @param PictoPrototype $prototype
      * @param JSONRequestParser $parser
      * @param null $season
      * @return Response
      */
+    #[Route(path: '/jx/soul/ranking/distinctions/detail/{id}/{season<\d+|c|all|myh|a>}', name: 'soul_season_distinction_detail')]
     public function soul_season_distinction_detail(PictoPrototype $prototype, JSONRequestParser $parser, $season = null): Response
     {
         $user = $this->getUser();

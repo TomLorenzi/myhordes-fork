@@ -27,21 +27,18 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Environment;
 
-
-/**
- * @Route("/rest/v1/user/security", name="rest_user_security_", condition="request.headers.get('Accept') === 'application/json'")
- * @GateKeeperProfile("skip")
- */
+#[Route(path: '/rest/v1/user/security', name: 'rest_user_security_', condition: "request.headers.get('Accept') === 'application/json'")]
+#[GateKeeperProfile('skip')]
 class SecurityController extends CustomAbstractCoreController
 {
 
     /**
-     * @Route("/token/exchange/{ticket}", name="token_exchange", methods={"GET"})
      * @param string $ticket
      * @param Request $request
      * @param GenerateKeyAction $keygen
      * @return JsonResponse
      */
+    #[Route(path: '/token/exchange/{ticket}', name: 'token_exchange', methods: ['GET'])]
     public function find(string $ticket, Request $request, GenerateKeyAction $keygen): JsonResponse {
         $tokens = $request->getSession()->get('token-ticket');
         if ($ticket && isset($tokens[$ticket])) {
@@ -56,13 +53,13 @@ class SecurityController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/account", name="delete_account", methods={"DELETE"})
      * @param EntityManagerInterface $em
      * @param TokenStorageInterface $token
      * @param UserPasswordHasherInterface $pw_enc
      * @param JSONRequestParser $parser
      * @return JsonResponse
      */
+    #[Route(path: '/account', name: 'delete_account', methods: ['DELETE'])]
     public function delete_account(
         EntityManagerInterface $em,
         TokenStorageInterface $token,
@@ -99,7 +96,6 @@ class SecurityController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/account/local/create", name="add_local_login", methods={"POST"})
      * @param EntityManagerInterface $em
      * @param UserPasswordHasherInterface $pw_enc
      * @param GenerateKeyAction $keygen
@@ -109,6 +105,7 @@ class SecurityController extends CustomAbstractCoreController
      * @param Environment $twig
      * @return JsonResponse
      */
+    #[Route(path: '/account/local/create', name: 'add_local_login', methods: ['POST'])]
     public function add_local_login(
         EntityManagerInterface $em,
         UserPasswordHasherInterface $pw_enc,

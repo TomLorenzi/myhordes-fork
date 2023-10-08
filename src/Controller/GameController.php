@@ -42,11 +42,11 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
- * @Route("/",condition="request.isXmlHttpRequest()")
- * @GateKeeperProfile(only_incarnated=true)
- * @Semaphore("town", scope="town")
  * @method User getUser()
  */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
+#[GateKeeperProfile(only_incarnated: true)]
+#[Semaphore('town', scope: 'town')]
 class GameController extends CustomAbstractController
 {
     private LogTemplateHandler $logTemplateHandler;
@@ -72,9 +72,9 @@ class GameController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/game/landing", name="game_landing")
      * @return Response
      */
+    #[Route(path: 'jx/game/landing', name: 'game_landing')]
     public function landing(): Response
     {
         $activeCitizen = $this->getActiveCitizen();
@@ -92,10 +92,10 @@ class GameController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/game/expert_toggle", name="game_toggle_expert_mode")
      * @param LogTemplateHandler $log
      * @return Response
      */
+    #[Route(path: 'api/game/expert_toggle', name: 'game_toggle_expert_mode')]
     public function toggle_expert_mode(LogTemplateHandler $log): Response
     {
         $this->entity_manager->persist( $this->getUser()->setExpert( !$this->getUser()->getExpert() ) );
@@ -112,9 +112,9 @@ class GameController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/game/raventimes", name="game_newspaper")
      * @return Response
      */
+    #[Route(path: 'jx/game/raventimes', name: 'game_newspaper')]
     public function newspaper(): Response {
         $activeCitizen = $this->getActiveCitizen();
         if ($activeCitizen->getAlive() && $activeCitizen->getProfession()->getName() === CitizenProfession::DEFAULT)
@@ -184,10 +184,10 @@ class GameController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/game/jobcenter", name="game_jobs")
      * @param ConfMaster $cf
      * @return Response
      */
+    #[Route(path: 'jx/game/jobcenter', name: 'game_jobs')]
     public function job_select(ConfMaster $cf): Response
     {
         $activeCitizen = $this->getActiveCitizen();
@@ -234,13 +234,13 @@ class GameController extends CustomAbstractController
     const ErrorJobInvalid         = ErrorHelper::BaseJobErrors + 2;
 
     /**
-     * @Route("api/game/job", name="api_jobcenter")
      * @param JSONRequestParser $parser
      * @param ItemFactory $if
      * @param ConfMaster $cf
-	 * @param TranslatorInterface $translator
+     * @param TranslatorInterface $translator
      * @return Response
      */
+    #[Route(path: 'api/game/job', name: 'api_jobcenter')]
     public function job_select_api(JSONRequestParser $parser, ItemFactory $if, ConfMaster $cf, TranslatorInterface $translator): Response {
 
         $citizen = $this->getActiveCitizen();
@@ -364,10 +364,10 @@ class GameController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/game/delete_log_entry", name="delete_log_entry")
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/game/delete_log_entry', name: 'delete_log_entry')]
     public function delete_log_entry(JSONRequestParser $parser): Response {
 
         $citizen = $this->getActiveCitizen();

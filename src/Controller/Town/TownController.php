@@ -78,11 +78,11 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
- * @Route("/",condition="request.isXmlHttpRequest()")
- * @GateKeeperProfile(only_in_town=true, only_alive=true, only_with_profession=true)
- * @Semaphore("town", scope="town")
  * @method User getUser()
  */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
+#[GateKeeperProfile(only_alive: true, only_with_profession: true, only_in_town: true)]
+#[Semaphore('town', scope: 'town')]
 class TownController extends InventoryAwareController
 {
     const ErrorWellEmpty         = ErrorHelper::BaseTownErrors + 1;
@@ -166,10 +166,10 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("jx/town/dashboard", name="town_dashboard")
      * @param TownHandler $th
      * @return Response
      */
+    #[Route(path: 'jx/town/dashboard', name: 'town_dashboard')]
     public function dashboard(TownHandler $th): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
@@ -313,11 +313,11 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("jx/town/visit/{id}/headshot", name="town_visit_headshot", requirements={"id"="\d+"})
      * @param int $id Citizen's ID
      * @param AdminHandler $admh
      * @return Response
      */
+    #[Route(path: 'jx/town/visit/{id}/headshot', name: 'town_visit_headshot', requirements: ['id' => '\d+'])]
     public function visitHeadshot(int $id, AdminHandler $admh): Response
     {
         $sourceUserId = $this->getUser()->getId();
@@ -328,12 +328,12 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("jx/town/visit/{id}", name="town_visit", requirements={"id"="\d+"})
-     * @Toaster(full=false)
      * @param int $id
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'jx/town/visit/{id}', name: 'town_visit', requirements: ['id' => '\d+'])]
+    #[Toaster(full: false)]
     public function visit(int $id, EntityManagerInterface $em): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
@@ -445,13 +445,13 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/town/visit/{id}/dispose", name="town_visit_dispose_controller")
      * @param int $id
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
      * @param ItemFactory $if
      * @return Response
      */
+    #[Route(path: 'api/town/visit/{id}/dispose', name: 'town_visit_dispose_controller')]
     public function dispose_visit_api(int $id, EntityManagerInterface $em, JSONRequestParser $parser, ItemFactory $if): Response {
         if ($id === $this->getActiveCitizen()->getId())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
@@ -548,13 +548,13 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/town/visit/{id}/complain", name="town_visit_complain_controller")
      * @param int $id
      * @param EntityManagerInterface $em
      * @param TownHandler $th
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/town/visit/{id}/complain', name: 'town_visit_complain_controller')]
     public function complain_visit_api(int $id, EntityManagerInterface $em, TownHandler $th, JSONRequestParser $parser ): Response {
         if ($id === $this->getActiveCitizen()->getId())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
@@ -723,12 +723,12 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/town/visit/{id}/report", name="report_personal_desc")
      * @param int $id
      * @param JSONRequestParser $parser
      * @param RateLimitingFactoryProvider $rateLimiter
      * @return Response
      */
+    #[Route(path: 'api/town/visit/{id}/report', name: 'report_personal_desc')]
     public function report_personal_desc_api(int $id, JSONRequestParser $parser, RateLimitingFactoryProvider $rateLimiter ): Response {
 
         if ($id === $this->getActiveCitizen()->getId())
@@ -742,11 +742,11 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/town/visit/{id}/intrude", name="town_visit_intrusion_controller")
      * @param int $id
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/town/visit/{id}/intrude', name: 'town_visit_intrusion_controller')]
     public function intrude_visit_api(int $id, JSONRequestParser $parser): Response {
 
         $action = $parser->get_int('action');
@@ -788,13 +788,13 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/town/visit/{id}/item", name="town_visit_item_controller")
      * @param int $id
      * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'api/town/visit/{id}/item', name: 'town_visit_item_controller')]
     public function item_visit_api(int $id, JSONRequestParser $parser, InventoryHandler $handler, EntityManagerInterface $em): Response {
         if ($id === $this->getActiveCitizen()->getId())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
@@ -820,10 +820,10 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/town/remove_password", name="town_remove_password")
      * @param int $id
      * @return Response
      */
+    #[Route(path: 'api/town/remove_password', name: 'town_remove_password')]
     public function town_remove_password(): Response {
         /** @var Town $town */
         $town = $this->getActiveCitizen()->getTown();;
@@ -842,7 +842,6 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("jx/town/well", name="town_well")
      * @param TownHandler $th
      * @param EventDispatcherInterface $dispatcher
      * @param EventFactory $e
@@ -850,6 +849,7 @@ class TownController extends InventoryAwareController
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
+    #[Route(path: 'jx/town/well', name: 'town_well')]
     public function well(TownHandler $th, EventDispatcherInterface $dispatcher, EventFactory $e): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
@@ -868,10 +868,10 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("jx/town/bank", name="town_bank")
      * @param TownHandler $th
      * @return Response
      */
+    #[Route(path: 'jx/town/bank', name: 'town_bank')]
     public function bank(TownHandler $th): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
@@ -894,11 +894,11 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/town/bank/item", name="town_bank_item_controller")
      * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
      * @return Response
      */
+    #[Route(path: 'api/town/bank/item', name: 'town_bank_item_controller')]
     public function item_bank_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
         $item_id = $parser->get_int('item', -1);
         $direction = $parser->get('direction', '');
@@ -917,11 +917,11 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("jx/town/citizens", name="town_citizens")
      * @param EntityManagerInterface $em
      * @param TownHandler $th
      * @return Response
      */
+    #[Route(path: 'jx/town/citizens', name: 'town_citizens')]
     public function citizens(EntityManagerInterface $em, TownHandler $th): Response
     {
         $activeCitizen = $this->getActiveCitizen();
@@ -993,11 +993,10 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("jx/town/citizens/vote/{roleId}", name="town_citizen_vote", requirements={"id"="\d+"})
-     * Show the citizens eligible to vote for a role
      * @param int $roleId The role we want to vote for
      * @return Response
      */
+    #[Route(path: 'jx/town/citizens/vote/{roleId}', name: 'town_citizen_vote', requirements: ['id' => '\d+'])]
     public function citizens_vote(int $roleId): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
@@ -1028,10 +1027,10 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/town/citizens/send_vote", name="town_citizens_send_vote")
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/town/citizens/send_vote', name: 'town_citizens_send_vote')]
     public function citizens_send_vote_api(JSONRequestParser $parser): Response {
         // Get citizen & town
         $citizen = $this->getActiveCitizen();
@@ -1084,9 +1083,9 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("jx/town/citizens/omniscience", name="town_citizens_omniscience")
      * @return Response
      */
+    #[Route(path: 'jx/town/citizens/omniscience', name: 'town_citizens_omniscience')]
     public function citizens_omniscience(): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
@@ -1131,10 +1130,10 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/town/constructions/build", name="town_constructions_build_controller")
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/town/constructions/build', name: 'town_constructions_build_controller')]
     public function construction_build_api(JSONRequestParser $parser, GameProfilerService $gps, EventProxyService $events): Response {
         // Get citizen & town
         $citizen = $this->getActiveCitizen();
@@ -1313,10 +1312,10 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("jx/town/constructions", name="town_constructions")
      * @param TownHandler $th
      * @return Response
      */
+    #[Route(path: 'jx/town/constructions', name: 'town_constructions')]
     public function constructions(TownHandler $th): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
@@ -1367,10 +1366,10 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/town/constructions/vote", name="town_constructions_vote_controller")
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/town/constructions/vote', name: 'town_constructions_vote_controller')]
     public function constructions_votes_api(JSONRequestParser $parser): Response {
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
@@ -1406,10 +1405,10 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("jx/town/door", name="town_door")
      * @param TownHandler $th
      * @return Response
      */
+    #[Route(path: 'jx/town/door', name: 'town_door')]
     public function door(TownHandler $th): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
@@ -1460,9 +1459,9 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("jx/town/routes", name="town_routes")
      * @return Response
      */
+    #[Route(path: 'jx/town/routes', name: 'town_routes')]
     public function routes(): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
@@ -1478,9 +1477,9 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("jx/town/planner", name="town_planner")
      * @return Response
      */
+    #[Route(path: 'jx/town/planner', name: 'town_planner')]
     public function planner(): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
@@ -1500,11 +1499,11 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/town/planner/submit", name="town_planner_route_submit_controller")
      * @param JSONRequestParser $parser
      * @param TranslatorInterface $trans
      * @return Response
      */
+    #[Route(path: 'api/town/planner/submit', name: 'town_planner_route_submit_controller')]
     public function planner_submit_api(JSONRequestParser $parser, TranslatorInterface $trans): Response {
         $citizen = $this->getActiveCitizen();
 
@@ -1571,10 +1570,10 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/town/planner/delete", name="town_planner_delete_route")
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/town/planner/delete', name: 'town_planner_delete_route')]
     public function planner_delete_api(JSONRequestParser $parser): Response {
         $route_id = $parser->get('id', -1);
 
@@ -1595,11 +1594,11 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/town/dashboard/wordofheroes", name="town_dashboard_save_woh")
      * @param JSONRequestParser $parser
      * @param RateLimitingFactoryProvider $rateLimiter
      * @return Response
      */
+    #[Route(path: 'api/town/dashboard/wordofheroes', name: 'town_dashboard_save_woh')]
     public function dashboard_save_wordofheroes_api(JSONRequestParser $parser, RateLimitingFactoryProvider $rateLimiter ): Response {
         if (!$this->getTownConf()->get(TownConf::CONF_FEATURE_WORDS_OF_HEROS, false) || !$this->getActiveCitizen()->getProfession()->getHeroic())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
@@ -1645,11 +1644,11 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/town/dashboard/wordofheroes/report", name="town_dashboard_report_woh")
      * @param JSONRequestParser $parser
      * @param RateLimitingFactoryProvider $rateLimiter
      * @return Response
      */
+    #[Route(path: 'api/town/dashboard/wordofheroes/report', name: 'town_dashboard_report_woh')]
     public function dashboard_report_wordofheroes_api(JSONRequestParser $parser, RateLimitingFactoryProvider $rateLimiter ): Response {
         $user = $this->getUser();
         $blackBoardEdit = $this->entity_manager->getRepository(BlackboardEdit::class)->find( $parser->get_int('bbe') );
@@ -1697,10 +1696,10 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("jx/town/visit/{id}/heal", name="visit_heal_citizen", requirements={"id"="\d+"})
      * @param int $id
      * @return Response
      */
+    #[Route(path: 'jx/town/visit/{id}/heal', name: 'visit_heal_citizen', requirements: ['id' => '\d+'])]
     public function visit_heal_citizen(int $id): Response
     {
         if ($id === $this->getActiveCitizen()->getId())
@@ -1811,10 +1810,10 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("jx/town/visit/{id}/attack", name="visit_attack_citizen", requirements={"id"="\d+"})
      * @param int $id
      * @return Response
      */
+    #[Route(path: 'jx/town/visit/{id}/attack', name: 'visit_attack_citizen', requirements: ['id' => '\d+'])]
     public function visit_attack_citizen(int $id): Response
     {
         if ($id === $this->getActiveCitizen()->getId())
@@ -1837,10 +1836,10 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("jx/town/visit/{id}/devour", name="visit_devour_citizen", requirements={"id"="\d+"})
      * @param int $id
      * @return Response
      */
+    #[Route(path: 'jx/town/visit/{id}/devour', name: 'visit_devour_citizen', requirements: ['id' => '\d+'])]
     public function visit_devour_citizen(int $id): Response
     {
         if ($id === $this->getActiveCitizen()->getId())
@@ -1856,10 +1855,10 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("jx/town/visit/{id}/recycle", name="visit_recycle_home", requirements={"id"="\d+"})
      * @param int $id
      * @return Response
      */
+    #[Route(path: 'jx/town/visit/{id}/recycle', name: 'visit_recycle_home', requirements: ['id' => '\d+'])]
     public function visit_recycle_home(int $id, ItemFactory $if, Packages $asset): Response
     {
         if ($id === $this->getActiveCitizen()->getId())
@@ -1938,10 +1937,10 @@ class TownController extends InventoryAwareController
     }
 
 	/**
-	 * @Route("api/town/insurrect", name="town_insurrect")
-	 * @param GameProfilerService $gps
-	 * @return Response
-	 */
+     * @param GameProfilerService $gps
+     * @return Response
+     */
+    #[Route(path: 'api/town/insurrect', name: 'town_insurrect')]
     public function do_insurrection(GameProfilerService $gps): Response
     {
         /** @var Citizen $citizen */

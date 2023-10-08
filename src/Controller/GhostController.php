@@ -41,10 +41,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
- * @Route("/",condition="request.isXmlHttpRequest()")
- * @GateKeeperProfile(only_ghost=true)
  * @method User|null getUser
  */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
+#[GateKeeperProfile(only_ghost: true)]
 class GhostController extends CustomAbstractController
 {
     private UserHandler $user_handler;
@@ -59,10 +59,10 @@ class GhostController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/ghost/welcome", name="ghost_welcome")
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'jx/ghost/welcome', name: 'ghost_welcome')]
     public function welcome(EntityManagerInterface $em): Response
     {
         $user = $this->getUser();
@@ -100,18 +100,18 @@ class GhostController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/ghost/welcome_soul", name="welcome_soul")
      * @return Response
      */
+    #[Route(path: 'jx/ghost/welcome_soul', name: 'welcome_soul')]
     public function welcome_soul(): Response
     {
         return $this->render( 'ajax/ghost/welcome.html.twig' );
     }
 
     /**
-     * @Route("jx/ghost/postgame", name="postgame")
      * @return Response
      */
+    #[Route(path: 'jx/ghost/postgame', name: 'postgame')]
     public function postgame_screen(): Response
     {
         $last_game_sp = $this->entity_manager->getRepository( CitizenRankingProxy::class )->matching(
@@ -132,11 +132,11 @@ class GhostController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/ghost/create_town", name="ghost_create_town")
-     * @Route("jx/ghost/create_town_rc", name="ghost_create_town_rc")
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'jx/ghost/create_town', name: 'ghost_create_town')]
+    #[Route(path: 'jx/ghost/create_town_rc', name: 'ghost_create_town_rc')]
     public function create_town(EntityManagerInterface $em): Response
     {
         /** @var User $user */
@@ -163,8 +163,6 @@ class GhostController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/ghost/join", name="api_join")
-     * @Semaphore(scope="global")
      * Process the user joining a town
      * @param JSONRequestParser $parser
      * @param GameFactory $factory
@@ -173,6 +171,8 @@ class GhostController extends CustomAbstractController
      * @param TownHandler $townHandler
      * @return Response
      */
+    #[Route(path: 'api/ghost/join', name: 'api_join')]
+    #[Semaphore(scope: 'global')]
     public function join_api(JSONRequestParser $parser, GameFactory $factory,
                              ConfMaster $conf, LogTemplateHandler $log, TownHandler $townHandler) {
         /** @var User $user */

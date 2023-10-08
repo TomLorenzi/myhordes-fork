@@ -57,26 +57,26 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Expr;
 use Doctrine\ORM\Query\Expr\Join;
 use Exception;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 /**
- * @Route("/",condition="request.isXmlHttpRequest()")
- * @GateKeeperProfile(allow_during_attack=true)
  * @method User getUser
  */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
+#[GateKeeperProfile(allow_during_attack: true)]
 class AdminUserController extends AdminActionController
 {
     /**
-     * @Route("jx/admin/users", name="admin_users")
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'jx/admin/users', name: 'admin_users')]
     public function users(JSONRequestParser $parser, EntityManagerInterface $em): Response {
         $query = (new Criteria());
         $filter = $parser->get_array('filters');
@@ -211,10 +211,10 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/users/multis", name="admin_users_multi")
      * @param AntiCheatService $as
      * @return Response
      */
+    #[Route(path: 'jx/admin/users/multis', name: 'admin_users_multi')]
     public function users_multi(AntiCheatService $as): Response
     {
         $report = $as->createMultiAccountReport();
@@ -224,10 +224,10 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/users/{id}/account/view", name="admin_users_account_view", requirements={"id"="\d+"})
      * @param int $id
      * @return Response
      */
+    #[Route(path: 'jx/admin/users/{id}/account/view', name: 'admin_users_account_view', requirements: ['id' => '\d+'])]
     public function users_account_view(int $id, HTMLService $html): Response
     {
         /** @var User $user */
@@ -253,9 +253,9 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/users/tokens", name="admin_users_tokens")
      * @return Response
      */
+    #[Route(path: 'jx/admin/users/tokens', name: 'admin_users_tokens')]
     public function users_tokens(): Response
     {
         $tokens = $this->entity_manager->getRepository(RegistrationToken::class)->findAll();
@@ -265,9 +265,9 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/users/settings", name="admin_users_settings")
      * @return Response
      */
+    #[Route(path: 'jx/admin/users/settings', name: 'admin_users_settings')]
     public function settings(): Response
     {
         return $this->render( 'ajax/admin/users/settings_index.html.twig', $this->addDefaultTwigArgs("settings", [
@@ -278,9 +278,9 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/users/tokens/distribute", name="admin_users_tokens_distribute")
      * @return Response
      */
+    #[Route(path: 'jx/admin/users/tokens/distribute', name: 'admin_users_tokens_distribute')]
     public function users_tokens_dist(): Response
     {
         $tokens = $this->entity_manager->getRepository(RegistrationToken::class)->findAll();
@@ -290,9 +290,9 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/users/generateTokens", name="admin_users_generatetokens")
      * @return Response
      */
+    #[Route(path: 'api/admin/users/generateTokens', name: 'admin_users_generatetokens')]
     public function users_generate_tokens(JSONRequestParser $parser):Response {
         if (!$parser->has("count")) {
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -314,9 +314,9 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/users/distributeTokens", name="admin_users_distributetokens")
      * @return Response
      */
+    #[Route(path: 'api/admin/users/distributeTokens', name: 'admin_users_distributetokens')]
     public function users_distribute_tokens(JSONRequestParser $parser):Response {
         if (!$parser->has_all(['message','csv']))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -378,8 +378,6 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/users/{id}/account/do/overwrite_pw/{param}", name="admin_users_account_manage_pw", requirements={"id"="\d+"}, priority=1)
-     * @AdminLogProfile(enabled=true, mask={"param", "$.param"})
      * @param int $id
      * @param JSONRequestParser $parser
      * @param UserHandler $userHandler
@@ -387,6 +385,8 @@ class AdminUserController extends AdminActionController
      * @param string $param
      * @return Response
      */
+    #[Route(path: 'api/admin/users/{id}/account/do/overwrite_pw/{param}', name: 'admin_users_account_manage_pw', requirements: ['id' => '\d+'], priority: 1)]
+    #[AdminLogProfile(enabled: true, mask: ['param', '$.param'])]
     public function user_account_manager_pw(int $id, JSONRequestParser $parser, UserHandler $userHandler,
                                          UserPasswordHasherInterface $passwordEncoder, string $param = ''): Response
     {
@@ -415,8 +415,6 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/users/{id}/account/do/{action}/{param}", name="admin_users_account_manage", requirements={"id"="\d+"})
-     * @AdminLogProfile(enabled=true)
      * @param int $id
      * @param string $action
      * @param JSONRequestParser $parser
@@ -429,6 +427,8 @@ class AdminUserController extends AdminActionController
      * @param string $param
      * @return Response
      */
+    #[Route(path: 'api/admin/users/{id}/account/do/{action}/{param}', name: 'admin_users_account_manage', requirements: ['id' => '\d+'])]
+    #[AdminLogProfile(enabled: true)]
     public function user_account_manager(int $id, string $action, JSONRequestParser $parser, UserFactory $uf,
                                          TwinoidHandler $twin, UserHandler $userHandler, PermissionHandler $perm,
                                          CrowService $crow, KernelInterface $kernel,
@@ -925,10 +925,10 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/users/{id}/ban/view", name="admin_users_ban_view", requirements={"id"="\d+"})
      * @param int $id
      * @return Response
      */
+    #[Route(path: 'jx/admin/users/{id}/ban/view', name: 'admin_users_ban_view', requirements: ['id' => '\d+'])]
     public function users_ban_view(int $id): Response
     {
         $user = $this->entity_manager->getRepository(User::class)->find($id);
@@ -982,12 +982,12 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/users/{uid}/ban/{bid}/confirm", name="admin_users_ban_confirm", requirements={"uid"="\d+","bid"="\d+"})
-     * @AdminLogProfile(enabled=true)
      * @param int $uid
      * @param int $bid
      * @return Response
      */
+    #[Route(path: 'api/admin/users/{uid}/ban/{bid}/confirm', name: 'admin_users_ban_confirm', requirements: ['uid' => '\d+', 'bid' => '\d+'])]
+    #[AdminLogProfile(enabled: true)]
     public function users_confirm_ban(int $uid, int $bid): Response
     {
         $a = $this->entity_manager->getRepository(AccountRestriction::class)->find($bid);
@@ -1011,12 +1011,12 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/users/{uid}/ban/{bid}/disable", name="admin_users_ban_disable", requirements={"uid"="\d+","bid"="\d+"})
-     * @AdminLogProfile(enabled=true)
      * @param int $uid
      * @param int $bid
      * @return Response
      */
+    #[Route(path: 'api/admin/users/{uid}/ban/{bid}/disable', name: 'admin_users_ban_disable', requirements: ['uid' => '\d+', 'bid' => '\d+'])]
+    #[AdminLogProfile(enabled: true)]
     public function users_disable_ban(int $uid, int $bid): Response
     {
         $a = $this->entity_manager->getRepository(AccountRestriction::class)->find($bid);
@@ -1057,13 +1057,13 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/users/{uid}/ban/{bid}/modify", name="admin_users_ban_modify", requirements={"uid"="\d+","bid"="\d+"})
-     * @AdminLogProfile(enabled=true)
      * @param int $uid
      * @param int $bid
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/admin/users/{uid}/ban/{bid}/modify', name: 'admin_users_ban_modify', requirements: ['uid' => '\d+', 'bid' => '\d+'])]
+    #[AdminLogProfile(enabled: true)]
     public function users_modify_ban(int $uid, int $bid, JSONRequestParser $parser): Response
     {
         $a = $this->entity_manager->getRepository(AccountRestriction::class)->find($bid);
@@ -1107,12 +1107,12 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/users/{id}/ban", name="admin_users_ban", requirements={"id"="\d+"})
-     * @AdminLogProfile(enabled=true)
      * @param int $id
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/admin/users/{id}/ban', name: 'admin_users_ban', requirements: ['id' => '\d+'])]
+    #[AdminLogProfile(enabled: true)]
     public function users_ban(int $id, JSONRequestParser $parser): Response
     {
         if (!$parser->has_all(['reason','duration','restriction'], true))
@@ -1168,10 +1168,10 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/users/{id}/ban/lift", name="admin_users_ban_lift", requirements={"id"="\d+"})
-     * @AdminLogProfile(enabled=true)
      * @return Response
      */
+    #[Route(path: 'api/admin/users/{id}/ban/lift', name: 'admin_users_ban_lift', requirements: ['id' => '\d+'])]
+    #[AdminLogProfile(enabled: true)]
     public function users_ban_lift(int $id): Response
     {                
         if ($this->adminHandler->liftAllBans($this->getUser()->getId(), $id))
@@ -1181,11 +1181,11 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/users/fuzzyfind", name="admin_users_fuzzyfind")
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'jx/admin/users/fuzzyfind', name: 'admin_users_fuzzyfind')]
     public function users_fuzzyfind(JSONRequestParser $parser, EntityManagerInterface $em): Response
     {
         if (!$parser->has_all(['name'], true))
@@ -1221,10 +1221,10 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/users/{id}/citizen/view", name="admin_users_citizen_view", requirements={"id"="\d+"})
      * @param int $id
      * @return Response
      */
+    #[Route(path: 'jx/admin/users/{id}/citizen/view', name: 'admin_users_citizen_view', requirements: ['id' => '\d+'])]
     public function users_citizen_view(int $id): Response
     {
         $user = $this->entity_manager->getRepository(User::class)->find($id);
@@ -1281,11 +1281,11 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/users/{id}/citizen/delete", name="admin_users_citizen_remove_aspect", requirements={"id"="\d+"})
      * @param User $user
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/admin/users/{id}/citizen/delete', name: 'admin_users_citizen_remove_aspect', requirements: ['id' => '\d+'])]
     public function users_citizen_remove_aspect(User $user, JSONRequestParser $parser): Response {
         $citizen = $user->getActiveCitizen();
 
@@ -1319,10 +1319,10 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/users/{id}/social/view", name="admin_users_social_view", requirements={"id"="\d+"})
      * @param int $id
      * @return Response
      */
+    #[Route(path: 'jx/admin/users/{id}/social/view', name: 'admin_users_social_view', requirements: ['id' => '\d+'])]
     public function user_social_view(int $id): Response {
         $user = $this->entity_manager->getRepository(User::class)->find($id);
 
@@ -1339,12 +1339,12 @@ class AdminUserController extends AdminActionController
         ]));
     }
     /**
-     * @Route("api/admin/users/{id}/citizen/headshot", name="admin_users_citizen_headshot", requirements={"id"="\d+"})
-     * @AdminLogProfile(enabled=true)
      * @param int $id
      * @param AdminHandler $admh
      * @return Response
      */
+    #[Route(path: 'api/admin/users/{id}/citizen/headshot', name: 'admin_users_citizen_headshot', requirements: ['id' => '\d+'])]
+    #[AdminLogProfile(enabled: true)]
     public function users_citizen_headshot(int $id, AdminHandler $admh): Response
     {
         if ($admh->headshot($this->getUser()->getId(), $id))
@@ -1354,12 +1354,12 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/users/{id}/citizen/eat_liver", name="admin_users_citizen_eat_liver", requirements={"id"="\d+"})
-     * @AdminLogProfile(enabled=true)
      * @param int $id
      * @param AdminHandler $admh
      * @return Response
      */
+    #[Route(path: 'api/admin/users/{id}/citizen/eat_liver', name: 'admin_users_citizen_eat_liver', requirements: ['id' => '\d+'])]
+    #[AdminLogProfile(enabled: true)]
     public function users_citizen_eat_liver(int $id, AdminHandler $admh): Response
     {
         if ($admh->eatLiver($this->getUser()->getId(), $id))
@@ -1369,12 +1369,12 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/users/{id}/citizen/engagement/{cid}", name="admin_users_citizen_engage", requirements={"id"="\d+","cid"="\d+"})
-     * @AdminLogProfile(enabled=true)
      * @param int $id
      * @param int $cid
      * @return Response
      */
+    #[Route(path: 'api/admin/users/{id}/citizen/engagement/{cid}', name: 'admin_users_citizen_engage', requirements: ['id' => '\d+', 'cid' => '\d+'])]
+    #[AdminLogProfile(enabled: true)]
     public function users_update_engagement(int $id, int $cid): Response
     {
         /** @var User $user */
@@ -1395,10 +1395,10 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/users/{id}/pictos/view", name="admin_users_pictos_view", requirements={"id"="\d+"})
      * @param int $id
      * @return Response
      */
+    #[Route(path: 'jx/admin/users/{id}/pictos/view', name: 'admin_users_pictos_view', requirements: ['id' => '\d+'])]
     public function users_pictos_view(int $id): Response
     {
         $user = $this->entity_manager->getRepository(User::class)->find($id);
@@ -1425,14 +1425,14 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/users/{id}/picto/give", name="admin_user_give_picto", requirements={"id"="\d+"})
-     * @AdminLogProfile(enabled=true)
-     * @Security("is_granted('ROLE_CROW')")
      * @param int $id User ID
      * @param JSONRequestParser $parser The Request Parser
      * @param KernelInterface $kernel
      * @return Response
      */
+    #[Route(path: 'api/admin/users/{id}/picto/give', name: 'admin_user_give_picto', requirements: ['id' => '\d+'])]
+    #[IsGranted('ROLE_CROW')]
+    #[AdminLogProfile(enabled: true)]
     public function user_give_picto(int $id, JSONRequestParser $parser, KernelInterface $kernel): Response
     {
         $user = $this->entity_manager->getRepository(User::class)->find($id);
@@ -1478,14 +1478,14 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/users/{id}/unique_award/manage", name="admin_user_manage_unique_award", requirements={"id"="\d+"})
-     * @AdminLogProfile(enabled=true)
-     * @Security("is_granted('ROLE_ADMIN')")
      * @param int $id User ID
      * @param JSONRequestParser $parser The Request Parser
      * @param CrowService $crow
      * @return Response
      */
+    #[Route(path: 'api/admin/users/{id}/unique_award/manage', name: 'admin_user_manage_unique_award', requirements: ['id' => '\d+'])]
+    #[IsGranted('ROLE_ADMIN')]
+    #[AdminLogProfile(enabled: true)]
     public function user_manage_unique_award(int $id, JSONRequestParser $parser, CrowService $crow): Response {
         $user = $this->entity_manager->getRepository(User::class)->find($id);
         if (!$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -1553,14 +1553,14 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/users/{id}/comments/{cid}", name="admin_user_edit_comment", requirements={"id"="\d+","cid"="\d+"})
-     * @AdminLogProfile(enabled=true)
-     * @Security("is_granted('ROLE_CROW')")
      * @param int $id User ID
      * @param int $cid
      * @param JSONRequestParser $parser The Request Parser
      * @return Response
      */
+    #[Route(path: 'api/admin/users/{id}/comments/{cid}', name: 'admin_user_edit_comment', requirements: ['id' => '\d+', 'cid' => '\d+'])]
+    #[IsGranted('ROLE_CROW')]
+    #[AdminLogProfile(enabled: true)]
     public function user_edit_comments(int $id, int $cid, JSONRequestParser $parser): Response
     {
         $user = $this->entity_manager->getRepository(User::class)->find($id);
@@ -1586,14 +1586,14 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/users/{id}/feature/give", name="admin_user_give_feature", requirements={"id"="\d+"})
-     * @AdminLogProfile(enabled=true)
-     * @Security("is_granted('ROLE_ADMIN')")
      * @param int $id User ID
      * @param JSONRequestParser $parser The Request Parser
      * @return Response
      * @throws Exception
      */
+    #[Route(path: 'api/admin/users/{id}/feature/give', name: 'admin_user_give_feature', requirements: ['id' => '\d+'])]
+    #[IsGranted('ROLE_ADMIN')]
+    #[AdminLogProfile(enabled: true)]
     public function user_give_feature(int $id, JSONRequestParser $parser): Response
     {
         $user = $this->entity_manager->getRepository(User::class)->find($id);

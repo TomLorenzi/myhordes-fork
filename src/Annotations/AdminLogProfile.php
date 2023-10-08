@@ -1,38 +1,26 @@
 <?php
-
-
 namespace App\Annotations;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ConfigurationInterface;
-use Symfony\Component\RateLimiter\RateLimit;
+use Attribute;
 
-/**
- * @Annotation
- * @Target({"METHOD"})
- */
-class AdminLogProfile implements ConfigurationInterface
+#[Attribute(Attribute::TARGET_METHOD)]
+class AdminLogProfile implements CustomAttribute
 {
+    public function __construct(
+        public bool  $enabled = true,
+        public array $mask = []
+    ) {}
 
-    public ?string $value = null;
-    public bool $enabled = false;
-    public array $mask = [];
-
-    /**
-     * @inheritDoc
-     */
-    public function getAliasName(): string {
+    public static function getAliasName(): string {
         return 'AdminLogProfile';
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function allowArray(): bool {
+    public static function isRepeatable(): bool {
         return false;
     }
 
     public function enableLogging(): bool {
-        return $this->enabled || strtolower($this->value ?? '') === "on";
+        return $this->enabled;
     }
 
     public function isMasked( string $parameter ): bool {

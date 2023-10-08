@@ -19,24 +19,24 @@ use DateTime;
 use DiscordWebhooks\Client;
 use DiscordWebhooks\Embed;
 use Doctrine\ORM\EntityManagerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
- * @Route("/",condition="request.isXmlHttpRequest()")
- * @IsGranted("ROLE_USER")
  * @method User getUser
  */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
+#[IsGranted('ROLE_USER')]
 class MessageAnnouncementController extends MessageController
 {
     /**
-     * @Route("jx/admin/com/changelogs/{tab}", name="admin_changelogs")
      * @param string $tab
      * @return Response
      */
+    #[Route(path: 'jx/admin/com/changelogs/{tab}', name: 'admin_changelogs')]
     public function changelogs( string $tab = 'changelog' ): Response
     {
         return $this->render( 'ajax/admin/changelogs/changelogs.html.twig', $this->addDefaultTwigArgs(null, [
@@ -47,9 +47,9 @@ class MessageAnnouncementController extends MessageController
     }
 
     /**
-     * @Route("jx/admin/com/changelogs/polls", name="admin_polls", priority=1)
      * @return Response
      */
+    #[Route(path: 'jx/admin/com/changelogs/polls', name: 'admin_polls', priority: 1)]
     public function polls(  ): Response
     {
         return $this->render( 'ajax/admin/changelogs/polls.html.twig', $this->addDefaultTwigArgs(null, [
@@ -60,11 +60,11 @@ class MessageAnnouncementController extends MessageController
     }
 
     /**
-     * @Route("api/admin/com/changelogs/new_poll", name="admin_changelog_new_poll")
      * @param JSONRequestParser $parser
      * @param HTMLService $html
      * @return Response
      */
+    #[Route(path: 'api/admin/com/changelogs/new_poll', name: 'admin_changelog_new_poll')]
     public function create_poll_api(JSONRequestParser $parser, HTMLService $html): Response {
         if ($this->isGranted('ROLE_ADMIN')) $p = ForumUsagePermissions::PermissionOwn;
         elseif ($this->isGranted('ROLE_CROW')) $p = ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingModerator;
@@ -137,11 +137,11 @@ class MessageAnnouncementController extends MessageController
     }
 
     /**
-     * @Route("api/admin/changelogs/poll/{id}/{action}", name="admin_changelog_poll_control")
      * @param int $id
      * @param string $action
      * @return Response
      */
+    #[Route(path: 'api/admin/changelogs/poll/{id}/{action}', name: 'admin_changelog_poll_control')]
     public function modify_poll_api(int $id, string $action): Response {
 
         if (!$this->isGranted('ROLE_ADMIN'))
@@ -167,9 +167,9 @@ class MessageAnnouncementController extends MessageController
 
 
     /**
-     * @Route("jx/admin/changelogs/c/editor", name="admin_new_changelog_editor_controller")
      * @return Response
      */
+    #[Route(path: 'jx/admin/changelogs/c/editor', name: 'admin_new_changelog_editor_controller')]
     public function admin_new_changelog_editor_controller(): Response {
         $user = $this->getUser();
 
@@ -196,9 +196,9 @@ class MessageAnnouncementController extends MessageController
     }
 
     /**
-     * @Route("jx/admin/com/changelogs/a/editor", name="admin_new_announcement_editor_controller")
      * @return Response
      */
+    #[Route(path: 'jx/admin/com/changelogs/a/editor', name: 'admin_new_announcement_editor_controller')]
     public function admin_new_announcement_editor_controller(): Response {
         $user = $this->getUser();
 
@@ -225,11 +225,11 @@ class MessageAnnouncementController extends MessageController
     }
 
     /**
-     * @Route("api/admin/changelogs/new_changelog", name="admin_changelog_new_changelog")
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/admin/changelogs/new_changelog', name: 'admin_changelog_new_changelog')]
     public function create_changelog_api(EntityManagerInterface $em, JSONRequestParser $parser): Response {
         $title     = $parser->get('title', '');
         $content   = $parser->get('content', '');
@@ -255,13 +255,13 @@ class MessageAnnouncementController extends MessageController
     }
 
     /**
-     * @Route("api/admin/com/changelogs/new_announcement", name="admin_changelog_new_announcement")
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
      * @param UrlGeneratorInterface $urlGenerator
      * @param MessageBusInterface $bus
      * @return Response
      */
+    #[Route(path: 'api/admin/com/changelogs/new_announcement', name: 'admin_changelog_new_announcement')]
     public function create_announcement_api(EntityManagerInterface $em, JSONRequestParser $parser, UrlGeneratorInterface $urlGenerator, MessageBusInterface $bus): Response {
         $title     = $parser->get('title', '');
         $content   = $parser->get('content', '');
@@ -310,11 +310,11 @@ class MessageAnnouncementController extends MessageController
     }
 
     /**
-     * @Route("api/admin/com/changelogs/del_c/{id<\d+>}", name="admin_changelog_del_changelog")
      * @param Changelog $changelog
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'api/admin/com/changelogs/del_c/{id<\d+>}', name: 'admin_changelog_del_changelog')]
     public function delete_changelog_api(Changelog $changelog, EntityManagerInterface $em): Response {
         if (!$this->isGranted('ROLE_ADMIN') && $this->getUser() !== $changelog->getAuthor())
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
@@ -326,11 +326,11 @@ class MessageAnnouncementController extends MessageController
     }
 
     /**
-     * @Route("api/admin/com/changelogs/del_a/{id<\d+>}", name="admin_changelog_del_announcement")
      * @param Announcement $announcement
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'api/admin/com/changelogs/del_a/{id<\d+>}', name: 'admin_changelog_del_announcement')]
     public function delete_announcement_api(Announcement $announcement, EntityManagerInterface $em): Response {
         if (!$this->isGranted('ROLE_ADMIN') && $this->getUser() !== $announcement->getSender())
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
@@ -342,11 +342,11 @@ class MessageAnnouncementController extends MessageController
     }
 
     /**
-     * @Route("api/admin/com/changelogs/validate/{id<\d+>}", name="admin_changelog_val_announcement")
      * @param Announcement $announcement
      * @param EntityManagerInterface $em
      * @return Response
      */
+    #[Route(path: 'api/admin/com/changelogs/validate/{id<\d+>}', name: 'admin_changelog_val_announcement')]
     public function validate_announcement_api(Announcement $announcement, EntityManagerInterface $em): Response {
         if (!$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
@@ -360,10 +360,10 @@ class MessageAnnouncementController extends MessageController
     }
 
     /**
-     * @Route("api/admin/com/changelogs/render/{id<\d+>}", name="admin_changelog_render_announcement")
      * @param Announcement $announcement
      * @return Response
      */
+    #[Route(path: 'api/admin/com/changelogs/render/{id<\d+>}', name: 'admin_changelog_render_announcement')]
     public function render_announcement_api(Announcement $announcement): Response {
         return AjaxResponse::success( additional: [
             'html' => $this->html->prepareEmotes( $announcement->getText(), $announcement->getSender() )

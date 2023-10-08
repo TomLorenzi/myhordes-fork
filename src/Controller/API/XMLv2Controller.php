@@ -40,8 +40,8 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 /**
  * Class XMLv2Controller
  * @package App\Controller
- * @GateKeeperProfile(allow_during_attack=true, record_user_activity=false)
  */
+#[GateKeeperProfile(allow_during_attack: true, record_user_activity: false)]
 class XMLv2Controller extends CoreController {
 
     public function on_error(ExternalAPIError $message, string $language): Response {
@@ -75,10 +75,10 @@ class XMLv2Controller extends CoreController {
     }
 
     /**
-     * @ExternalAPI(user=true, app=false, api=ExternalAPIInterface::XMLv2)
-     * @Route("api/x/v2/xml", name="api_x2_xml", defaults={"_format"="xml"}, methods={"GET","POST"})
      * @return Response The XML that contains the list of accessible endpoints
      */
+    #[Route(path: 'api/x/v2/xml', name: 'api_x2_xml', defaults: ['_format' => 'xml'], methods: ['GET', 'POST'])]
+    #[ExternalAPI(user: true, app: false, api: ExternalAPIInterface::XMLv2)]
     public function api_xml(?User $user, ?string $app_key): Response {
         $endpoints = [];
         if ($app_key) {
@@ -101,11 +101,10 @@ class XMLv2Controller extends CoreController {
     }
 
     /**
-     * @ExternalAPI(user=true, app=true, api=ExternalAPIInterface::XMLv2)
-     * @Route("api/x/v2/xml/user", name="api_x2_xml_user", defaults={"_format"="xml"}, methods={"GET","POST"})
-     * Get the XML content for the soul of a user
      * @return Response Return the XML content for the soul of the user
      */
+    #[Route(path: 'api/x/v2/xml/user', name: 'api_x2_xml_user', defaults: ['_format' => 'xml'], methods: ['GET', 'POST'])]
+    #[ExternalAPI(user: true, app: true, api: ExternalAPIInterface::XMLv2)]
     public function api_xml_user(?User $user, string $language): Response {
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
@@ -254,14 +253,13 @@ class XMLv2Controller extends CoreController {
     }
 
     /**
-     * @ExternalAPI(user=true, app=false, api=ExternalAPIInterface::XMLv2)
-     * @Route("api/x/v2/xml/town", name="api_x2_xml_town", defaults={"_format"="xml"}, methods={"GET","POST"})
-     * Get the XML content for the town of a user
      * @param User|null $user
      * @param string $language
      * @param string|null $app_key
      * @return Response
      */
+    #[Route(path: 'api/x/v2/xml/town', name: 'api_x2_xml_town', defaults: ['_format' => 'xml'], methods: ['GET', 'POST'])]
+    #[ExternalAPI(user: true, app: false, api: ExternalAPIInterface::XMLv2)]
     public function api_xml_town(?User $user, string $language, ?string $app_key): Response {
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
@@ -737,13 +735,12 @@ class XMLv2Controller extends CoreController {
     }
 
     /**
-     * @ExternalAPI(user=true, app=true, api=ExternalAPIInterface::XMLv2)
-     * @Route("api/x/v2/xml/items", name="api_x2_xml_items", defaults={"_format"="xml"}, methods={"GET","POST"})
-     * Returns the lists of items currently used in the game
      * @param User|null $user
      * @param string $language
      * @return Response
      */
+    #[Route(path: 'api/x/v2/xml/items', name: 'api_x2_xml_items', defaults: ['_format' => 'xml'], methods: ['GET', 'POST'])]
+    #[ExternalAPI(user: true, app: true, api: ExternalAPIInterface::XMLv2)]
     public function api_xml_items(?User $user, string $language): Response {
 
         try {
@@ -809,13 +806,12 @@ class XMLv2Controller extends CoreController {
     }
 
     /**
-     * @ExternalAPI(user=true, app=true, api=ExternalAPIInterface::XMLv2)
-     * @Route("api/x/v2/xml/buildings", name="api_x2_xml_buildings", defaults={"_format"="xml"}, methods={"GET","POST"})
-     * Returns the lists of buildings currently used in the game
      * @param User|null $user
      * @param string $language
      * @return Response
      */
+    #[Route(path: 'api/x/v2/xml/buildings', name: 'api_x2_xml_buildings', defaults: ['_format' => 'xml'], methods: ['GET', 'POST'])]
+    #[ExternalAPI(user: true, app: true, api: ExternalAPIInterface::XMLv2)]
     public function api_xml_buildings(?User $user, string $language): Response {
 
         try {
@@ -878,13 +874,12 @@ class XMLv2Controller extends CoreController {
     }
 
     /**
-     * @ExternalAPI(user=true, app=true, api=ExternalAPIInterface::XMLv2)
-     * @Route("api/x/v2/xml/ruins", name="api_x2_xml_ruins", defaults={"_format"="xml"}, methods={"GET","POST"})
-     * Returns the lists of ruins currently used in the game
      * @param User|null $user
      * @param string $language
      * @return Response
      */
+    #[Route(path: 'api/x/v2/xml/ruins', name: 'api_x2_xml_ruins', defaults: ['_format' => 'xml'], methods: ['GET', 'POST'])]
+    #[ExternalAPI(user: true, app: true, api: ExternalAPIInterface::XMLv2)]
     public function api_xml_ruins(?User $user, string $language): Response {
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
@@ -941,13 +936,12 @@ class XMLv2Controller extends CoreController {
     }
 
     /**
-     * @ExternalAPI(user=true, app=true, api=ExternalAPIInterface::XMLv2)
-     * @Route("api/x/v2/xml/pictos", name="api_x2_xml_pictos", defaults={"_format"="xml"}, methods={"GET","POST"})
-     * Returns the lists of pictos currently used in the game
      * @param User|null $user
      * @param string $language
      * @return Response
      */
+    #[Route(path: 'api/x/v2/xml/pictos', name: 'api_x2_xml_pictos', defaults: ['_format' => 'xml'], methods: ['GET', 'POST'])]
+    #[ExternalAPI(user: true, app: true, api: ExternalAPIInterface::XMLv2)]
     public function api_xml_pictos(?User $user, string $language): Response {
 
         try {
@@ -1004,13 +998,12 @@ class XMLv2Controller extends CoreController {
     }
 
     /**
-     * @ExternalAPI(user=true, app=true, api=ExternalAPIInterface::XMLv2)
-     * @Route("api/x/v2/xml/titles", name="api_x2_xml_titles", defaults={"_format"="xml"}, methods={"GET","POST"})
-     * Returns the lists of titles currently used in the game
      * @param User|null $user
      * @param string $language
      * @return Response
      */
+    #[Route(path: 'api/x/v2/xml/titles', name: 'api_x2_xml_titles', defaults: ['_format' => 'xml'], methods: ['GET', 'POST'])]
+    #[ExternalAPI(user: true, app: true, api: ExternalAPIInterface::XMLv2)]
     public function api_xml_titles(?User $user, string $language): Response {
 
         try {

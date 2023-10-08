@@ -15,18 +15,15 @@ use App\Structures\MyHordesConf;
 use DateTime;
 use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-
-/**
- * @Route("/rest/v1/admin/spam", name="rest_admin_blacklist_spam_", condition="request.headers.get('Accept') === 'application/json'")
- * @IsGranted("ROLE_CROW")
- * @GateKeeperProfile("skip")
- */
+#[Route(path: '/rest/v1/admin/spam', name: 'rest_admin_blacklist_spam_', condition: "request.headers.get('Accept') === 'application/json'")]
+#[IsGranted('ROLE_CROW')]
+#[GateKeeperProfile('skip')]
 class BlacklistController extends CustomAbstractCoreController
 {
     private function decode(JSONRequestParser $parser, ?DomainBlacklistType &$type, ?string &$value): bool {
@@ -41,12 +38,12 @@ class BlacklistController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/itentifier", name="check", methods={"POST"})
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
      * @param TranslatorInterface $translator
      * @return JsonResponse
      */
+    #[Route(path: '/itentifier', name: 'check', methods: ['POST'])]
     public function check(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $translator): JsonResponse {
         if (!$this->decode( $parser, $type, $value ))
             return new JsonResponse([], Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -59,13 +56,13 @@ class BlacklistController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/itentifier", name="add", methods={"PUT"})
-     * @IsGranted("ROLE_ADMIN")
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
      * @param TranslatorInterface $translator
      * @return JsonResponse
      */
+    #[Route(path: '/itentifier', name: 'add', methods: ['PUT'])]
+    #[IsGranted('ROLE_ADMIN')]
     public function add(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $translator): JsonResponse {
         if (!$this->decode( $parser, $type, $value ))
             return new JsonResponse([], Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -82,13 +79,13 @@ class BlacklistController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/itentifier", name="delete", methods={"DELETE"})
-     * @IsGranted("ROLE_ADMIN")
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
      * @param TranslatorInterface $translator
      * @return JsonResponse
      */
+    #[Route(path: '/itentifier', name: 'delete', methods: ['DELETE'])]
+    #[IsGranted('ROLE_ADMIN')]
     public function delete(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $translator): JsonResponse {
         if (!$this->decode( $parser, $type, $value ))
             return new JsonResponse([], Response::HTTP_UNPROCESSABLE_ENTITY);

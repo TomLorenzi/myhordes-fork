@@ -16,16 +16,14 @@ use App\Translation\T;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- * @Route("/",condition="request.isXmlHttpRequest()")
- * @GateKeeperProfile(allow_during_attack=true)
- */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
+#[GateKeeperProfile(allow_during_attack: true)]
 class AdminAppController extends AdminActionController
 {
     /**
-     * @Route("jx/admin/apps/all", name="admin_app_view")
      * @return Response
      */
+    #[Route(path: 'jx/admin/apps/all', name: 'admin_app_view')]
     public function ext_app_view(): Response
     {
         $apps = $this->entity_manager->getRepository(ExternalApp::class)->findAll();
@@ -33,10 +31,10 @@ class AdminAppController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/apps/{id<\d+>}", name="admin_app_edit")
      * @param int $id
      * @return Response
      */
+    #[Route(path: 'jx/admin/apps/{id<\d+>}', name: 'admin_app_edit')]
     public function ext_app_edit(int $id): Response
     {
         T::__("Neue Anwendung registrieren", "admin");
@@ -51,9 +49,9 @@ class AdminAppController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/apps/new", name="admin_app_new")
      * @return Response
      */
+    #[Route(path: 'jx/admin/apps/new', name: 'admin_app_new')]
     public function ext_app_new(): Response
     {
         if (!$this->isGranted('ROLE_ADMIN')) $this->redirect($this->generateUrl('admin_app_view'));
@@ -64,12 +62,12 @@ class AdminAppController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/apps/toggle/{id<\d+>}", name="admin_toggle_ext_app")
-     * @AdminLogProfile(enabled=true)
      * @param int $id
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/admin/apps/toggle/{id<\d+>}', name: 'admin_toggle_ext_app')]
+    #[AdminLogProfile(enabled: true)]
     public function ext_app_toggle(int $id, JSONRequestParser $parser): Response {
         if (!$this->isGranted('ROLE_ADMIN')) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
@@ -91,13 +89,13 @@ class AdminAppController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/apps/register/{id<-?\d+>}", name="admin_update_ext_app")
-     * @AdminLogProfile(enabled=true)
      * @param int $id
      * @param JSONRequestParser $parser
      * @param RandomGenerator $rand
      * @return Response
      */
+    #[Route(path: 'api/admin/apps/register/{id<-?\d+>}', name: 'admin_update_ext_app')]
+    #[AdminLogProfile(enabled: true)]
     public function ext_app_update(int $id, JSONRequestParser $parser, RandomGenerator $rand): Response
     {
         if (!$this->isGranted('ROLE_ADMIN')) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );

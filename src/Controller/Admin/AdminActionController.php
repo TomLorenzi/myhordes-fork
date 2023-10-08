@@ -2,7 +2,6 @@
 
 namespace App\Controller\Admin;
 
-use App\Annotations\AdminLogProfile;
 use App\Controller\CustomAbstractController;
 use App\Entity\AttackSchedule;
 use App\Entity\CitizenRole;
@@ -41,10 +40,8 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 use Symfony\Contracts\Translation\TranslatorInterface;
 use App\Annotations\GateKeeperProfile;
 
-/**
- * @Route("/",condition="request.isXmlHttpRequest()")
- * @GateKeeperProfile(allow_during_attack=true)
- */
+#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
+#[GateKeeperProfile(allow_during_attack: true)]
 class AdminActionController extends CustomAbstractController
 {
     protected LogTemplateHandler $logTemplateHandler;
@@ -104,9 +101,9 @@ class AdminActionController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/admin/com/dash", name="admin_dashboard")
      * @return Response
      */
+    #[Route(path: 'jx/admin/com/dash', name: 'admin_dashboard')]
     public function dash(): Response
     {
         return $this->render( 'ajax/admin/dash.html.twig', $this->addDefaultTwigArgs(null, [
@@ -116,10 +113,10 @@ class AdminActionController extends CustomAbstractController
 
 
     /**
-     * @Route("api/admin/login", name="api_admin_login")
      * @param TokenStorageInterface $ts
      * @return Response
      */
+    #[Route(path: 'api/admin/login', name: 'api_admin_login')]
     public function login_api(TokenStorageInterface $ts): Response
     {
         /** @var User $user */
@@ -133,10 +130,10 @@ class AdminActionController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/admin/com/action/{id}", name="admin_action", requirements={"id"="\d+"})
      * @param int $id
      * @return Response
      */
+    #[Route(path: 'jx/admin/com/action/{id}', name: 'admin_action', requirements: ['id' => '\d+'])]
     public function index(int $id): Response
     {
         $actions = $this->isGranted('ROLE_CROW') ? self::getAdminActions() : self::getCommunityActions();

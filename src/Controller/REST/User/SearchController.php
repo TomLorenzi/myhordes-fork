@@ -9,17 +9,14 @@ use App\Entity\User;
 use App\Enum\UserAccountType;
 use App\Service\JSONRequestParser;
 use Doctrine\ORM\EntityManagerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
-/**
- * @Route("/rest/v1/user/search", name="rest_user_search_", condition="request.headers.get('Accept') === 'application/json'")
- * @IsGranted("ROLE_USER")
- * @GateKeeperProfile("skip")
- */
+#[Route(path: '/rest/v1/user/search', name: 'rest_user_search_', condition: "request.headers.get('Accept') === 'application/json'")]
+#[IsGranted('ROLE_USER')]
+#[GateKeeperProfile('skip')]
 class SearchController extends CustomAbstractCoreController
 {
 
@@ -62,11 +59,11 @@ class SearchController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/find", name="find", methods={"POST"})
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
      * @return JsonResponse
      */
+    #[Route(path: '/find', name: 'find', methods: ['POST'])]
     public function find(EntityManagerInterface $em, JSONRequestParser $parser): JsonResponse {
         if (!$parser->has('name', true))
             return new JsonResponse([], Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -101,11 +98,11 @@ class SearchController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/findList", name="findList", methods={"POST"})
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
      * @return JsonResponse
      */
+    #[Route(path: '/findList', name: 'findList', methods: ['POST'])]
     public function findList(EntityManagerInterface $em, JSONRequestParser $parser): JsonResponse {
         if (!$parser->has('names', true))
             return new JsonResponse([], Response::HTTP_UNPROCESSABLE_ENTITY);

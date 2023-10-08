@@ -29,8 +29,8 @@ use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use App\Translation\T;
 use Psr\Cache\InvalidArgumentException;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Shivas\VersioningBundle\Service\VersionManagerInterface as VersionManager;
+use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\ErrorHandler\Exception\FlattenException;
@@ -51,8 +51,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * Class WebController
  * @package App\Controller
- * @GateKeeperProfile(allow_during_attack=true)
  */
+#[GateKeeperProfile(allow_during_attack: true)]
 class WebController extends CustomAbstractController
 {
     // Format:
@@ -187,10 +187,10 @@ class WebController extends CustomAbstractController
     }
 
     /**
-     * @Route("/", name="home")
      * @param Request $r
      * @return Response
      */
+    #[Route(path: '/', name: 'home')]
     public function framework(Request $r): Response
     {
         return $this->handleDomainRedirection() ?? $this->render_web_framework($r, $this->generateUrl('initial_landing'), true);
@@ -198,22 +198,22 @@ class WebController extends CustomAbstractController
 
 
     /**
-     * @Route("/swagger", name="swagger")
      * @return Response
      */
+    #[Route(path: '/swagger', name: 'swagger')]
     public function swagger(): Response
     {
         return $this->render('web/swagger.html.twig');
     }
 
     /**
-     * @Route("/legal/{document}", name="legal_doc_default")
-     * @Route("/legal/{lang}/{document}", name="legal_doc_lang")
      * @param ParameterBagInterface $params
      * @param string $document
      * @param string|null $lang
      * @return Response
      */
+    #[Route(path: '/legal/{document}', name: 'legal_doc_default')]
+    #[Route(path: '/legal/{lang}/{document}', name: 'legal_doc_lang')]
     public function legal(ParameterBagInterface $params, string $document, ?string $lang = null): Response
     {
         $lang = $lang ?? $this->getUserLanguage();
@@ -245,11 +245,11 @@ class WebController extends CustomAbstractController
     }
 
     /**
-     * @Route("/ref/{name}")
      * @param string $name
      * @param SessionInterface $s
      * @return Response
      */
+    #[Route(path: '/ref/{name}')]
     public function refer_incoming(Request $rq, string $name, SessionInterface $s): Response
     {
         if ($r = $this->handleDomainRedirection()) return $r;
@@ -258,10 +258,10 @@ class WebController extends CustomAbstractController
     }
 
     /**
-     * @Route("/pm/{com}", name="home_pm")
      * @param string|null $com
      * @return Response
      */
+    #[Route(path: '/pm/{com}', name: 'home_pm')]
     public function standalone_pm(string $com = null): Response
     {
         if ($r = $this->handleDomainRedirection()) return $r;
@@ -272,10 +272,10 @@ class WebController extends CustomAbstractController
     }
 
     /**
-     * @Route("/pm/group/{id<\d+>}", name="home_pm_group_id", priority=1)
      * @param int $id
      * @return Response
      */
+    #[Route(path: '/pm/group/{id<\d+>}', name: 'home_pm_group_id', priority: 1)]
     public function standalone_pm_gid(int $id): Response
     {
         if ($r = $this->handleDomainRedirection()) return $r;
@@ -289,12 +289,12 @@ class WebController extends CustomAbstractController
     }
 
     /**
-     * @Route("/pm/group/{semantic}", name="home_pm_group_sem")
-     * @Route("/pm/group/{lang}/{semantic}", name="home_pm_group_sem_lang")
      * @param string|null $lang
      * @param string $semantic
      * @return Response
      */
+    #[Route(path: '/pm/group/{semantic}', name: 'home_pm_group_sem')]
+    #[Route(path: '/pm/group/{lang}/{semantic}', name: 'home_pm_group_sem_lang')]
     public function standalone_pm_sem(string $semantic, string $lang = null): Response
     {
         if ($r = $this->handleDomainRedirection()) return $r;
@@ -326,11 +326,11 @@ class WebController extends CustomAbstractController
     }
 
     /**
-     * @Route("/r/ach", name="revert_ach_language")
-     * @GateKeeperProfile("skip")
      * @param SessionInterface $session
      * @return Response
      */
+    #[Route(path: '/r/ach', name: 'revert_ach_language')]
+    #[GateKeeperProfile('skip')]
     public function rescue_mode_lang_ach( SessionInterface $session ): Response
     {
         if (!$this->isGranted('ROLE_USER'))
@@ -350,11 +350,11 @@ class WebController extends CustomAbstractController
     }
 
     /**
-     * @Route("/r/pivot/{id}", name="pivot_user_account")
-     * @GateKeeperProfile("skip")
      * @param SessionInterface $session
      * @return Response
      */
+    #[Route(path: '/r/pivot/{id}', name: 'pivot_user_account')]
+    #[GateKeeperProfile('skip')]
     public function pivot_user_account( SessionInterface $session ): Response
     {
         if (!$this->isGranted('ROLE_USER'))
@@ -374,11 +374,11 @@ class WebController extends CustomAbstractController
     }
 
     /**
-     * @Route("gateway/eternal-twin", name="gateway-etwin")
      * @param EternalTwinHandler $etwin
      * @param SessionInterface $session
      * @return Response
      */
+    #[Route(path: 'gateway/eternal-twin', name: 'gateway-etwin')]
     public function gateway_etwin(EternalTwinHandler $etwin, SessionInterface $session): Response {
         if (!$etwin->isReady()) return new Response('Error: No gateway to EternalTwin is configured.');
         $session->set('_etwin_rm', false);
@@ -387,11 +387,11 @@ class WebController extends CustomAbstractController
     }
 
     /**
-     * @Route("gateway/rm/eternal-twin", name="gateway-remember-etwin")
      * @param EternalTwinHandler $etwin
      * @param SessionInterface $session
      * @return Response
      */
+    #[Route(path: 'gateway/rm/eternal-twin', name: 'gateway-remember-etwin')]
     public function gateway_rm_etwin(EternalTwinHandler $etwin, SessionInterface $session): Response {
         if (!$etwin->isReady()) return new Response('Error: No gateway to EternalTwin is configured.');
         $session->set('_etwin_rm', true);
@@ -400,21 +400,21 @@ class WebController extends CustomAbstractController
     }
 
     /**
-     * @Route("gateway/eternal-twin-registration", name="gateway-etwin-reg")
      * @param EternalTwinHandler $etwin
      * @param ConfMaster $conf
      * @return Response
      */
+    #[Route(path: 'gateway/eternal-twin-registration', name: 'gateway-etwin-reg')]
     public function gateway_etwin_reg(EternalTwinHandler $etwin, ConfMaster $conf): Response {
         if (!$etwin->isReady()) return new Response('Error: No gateway to EternalTwin is configured.');
         return new RedirectResponse( $conf->getGlobalConf()->get( MyHordesConf::CONF_ETWIN_REG ) );
     }
 
     /**
-     * @Route("/twinoid", name="twinoid_auth_endpoint")
      * @param ConfMaster $conf
      * @return Response
      */
+    #[Route(path: '/twinoid', name: 'twinoid_auth_endpoint')]
     public function framework_import(Request $r, ConfMaster $conf): Response
     {
         $request = Request::createFromGlobals();
@@ -443,11 +443,11 @@ class WebController extends CustomAbstractController
     }
 
     /**
-     * @Route("/jx/{ajax}",requirements={"ajax"=".+"},condition="!request.isXmlHttpRequest()")
      * @param string $ajax
      * @param Request $q
      * @return Response
      */
+    #[Route(path: '/jx/{ajax}', requirements: ['ajax' => '.+'], condition: '!request.isXmlHttpRequest()')]
     public function loader(string $ajax, Request $q): Response
     {
         if ($q->query->count() > 0) {
@@ -512,13 +512,13 @@ class WebController extends CustomAbstractController
     }
 
     /**
-     * @Route("/cdn/avatar/{uid<\d+>}/{name}.{ext<[\w\d]+>}",requirements={"name"="[0123456789abcdef]{32}"},condition="!request.isXmlHttpRequest()",name="app_web_avatar_legacy")
-     * @Route("/cdn/avatars/{uid<\d+>}/{name}.{ext<[\w\d]+>}",requirements={"name"="[0123456789abcdef]{32}"},condition="!request.isXmlHttpRequest()",name="app_web_avatar")
      * @param int $uid
      * @param string $name
      * @param string $ext
      * @return Response
      */
+    #[Route(path: '/cdn/avatar/{uid<\d+>}/{name}.{ext<[\w\d]+>}', requirements: ['name' => '[0123456789abcdef]{32}'], condition: '!request.isXmlHttpRequest()', name: 'app_web_avatar_legacy')]
+    #[Route(path: '/cdn/avatars/{uid<\d+>}/{name}.{ext<[\w\d]+>}', requirements: ['name' => '[0123456789abcdef]{32}'], condition: '!request.isXmlHttpRequest()', name: 'app_web_avatar')]
     public function avatar(int $uid, string $name, string $ext): Response
     {
         if ($r = $this->check_cache($name)) return $r;
@@ -536,13 +536,13 @@ class WebController extends CustomAbstractController
     }
 
     /**
-     * @Route("/cdn/icon/{uid<\d+>}/{aid<\d+>}/{name}.{ext<[\w\d]+>}",requirements={"name"="[0123456789abcdef]{32}"},condition="!request.isXmlHttpRequest()")
      * @param int $uid
      * @param int $aid
      * @param string $name
      * @param string $ext
      * @return Response
      */
+    #[Route(path: '/cdn/icon/{uid<\d+>}/{aid<\d+>}/{name}.{ext<[\w\d]+>}', requirements: ['name' => '[0123456789abcdef]{32}'], condition: '!request.isXmlHttpRequest()')]
     public function customIcon(int $uid, int $aid, string $name, string $ext): Response
     {
         if ($r = $this->check_cache($name)) return $r;
@@ -559,12 +559,12 @@ class WebController extends CustomAbstractController
     }
 
     /**
-     * @Route("/cdn/app/{aid<\d+>}/{name}.{ext<[\w\d]+>}",requirements={"name"="[0123456789abcdef]{32}"},condition="!request.isXmlHttpRequest()")
      * @param int $aid
      * @param string $name
      * @param string $ext
      * @return Response
      */
+    #[Route(path: '/cdn/app/{aid<\d+>}/{name}.{ext<[\w\d]+>}', requirements: ['name' => '[0123456789abcdef]{32}'], condition: '!request.isXmlHttpRequest()')]
     public function app_icon(int $aid, string $name, string $ext): Response
     {
         if ($r = $this->check_cache($name)) return $r;
@@ -579,12 +579,12 @@ class WebController extends CustomAbstractController
     }
 
     /**
-     * @Route("/cdn/group/{gid<\d+>}/{name}.{ext<[\w\d]+>}",requirements={"name"="[0123456789abcdef]{32}"},condition="!request.isXmlHttpRequest()")
      * @param int $gid
      * @param string $name
      * @param string $ext
      * @return Response
      */
+    #[Route(path: '/cdn/group/{gid<\d+>}/{name}.{ext<[\w\d]+>}', requirements: ['name' => '[0123456789abcdef]{32}'], condition: '!request.isXmlHttpRequest()')]
     public function group_icon(int $gid, string $name, string $ext): Response
     {
         if ($r = $this->check_cache($name)) return $r;
@@ -603,10 +603,10 @@ class WebController extends CustomAbstractController
     }
 
     /**
-     * @Route("/cdn/{url}",requirements={"url"=".+"},condition="!request.isXmlHttpRequest()")
      * @param string $url
      * @return Response
      */
+    #[Route(path: '/cdn/{url}', requirements: ['url' => '.+'], condition: '!request.isXmlHttpRequest()')]
     public function cdn_fallback(string $url): Response {
         return new Response(
             "File not found: cdn/{$url}",
@@ -617,11 +617,13 @@ class WebController extends CustomAbstractController
 
 
     /**
-     * @Route("/c/{campaign_slug}", name="campaign_redirect", methods={"GET"},condition="!request.isXmlHttpRequest()")
-     * @ParamConverter("campaign", options={"mapping": {"campaign_slug": "slug"}})
      * @return Response
      */
-    public function redirect_campaign(?MarketingCampaign $campaign, SessionInterface $session) {
+    #[Route(path: '/c/{campaign_slug}', name: 'campaign_redirect', methods: ['GET'], condition: '!request.isXmlHttpRequest()')]
+    public function redirect_campaign(
+        #[MapEntity(mapping: ['campaign_slug' => 'slug'])] ?MarketingCampaign $campaign,
+        SessionInterface $session
+    ) {
         if ($campaign && !$this->getUser()) $session->set('campaign', $campaign->getId());
         return $this->redirectToRoute('home');
     }
