@@ -61,11 +61,16 @@ export type MapRoute = {
     stops: MapCoordinate[],
 }
 
+export type MapConfig = {
+    scout: boolean
+}
+
 export type MapData = {
     geo: MapGeometry,
     zones: MapZone[],
     local: LocalZone[],
     lid: number
+    conf: MapConfig
 }
 
 export type MapCoreProps = {
@@ -150,6 +155,7 @@ export type MapControlProps = {
     markEnabled: boolean,
     globalEnabled: boolean,
     scoutEnabled: boolean,
+    showScoutButton: boolean,
     showRoutes: boolean,
     showRoutesPanel: boolean,
     showGlobalButton: boolean,

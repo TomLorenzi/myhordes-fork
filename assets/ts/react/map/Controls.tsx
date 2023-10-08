@@ -55,12 +55,15 @@ const MapControls = ( props: MapControlProps ) => {
                         ) }
                     </div>
                     <div className="float-right">
-                        <button
-                            className={`small inline ${props.scoutEnabled ? 'show-tags' : 'hide-tags'} map_button map_button_icon map_button_right map_button_scout`}
-                            onClick={()=>props.wrapDispatcher({scoutEnabled: !props.scoutEnabled})}
-                        >
-                            &nbsp;
-                        </button>
+                        { props.showScoutButton &&
+                            <button
+                                className={`small inline ${props.scoutEnabled ? 'show-tags' : 'hide-tags'} map_button map_button_icon map_button_right map_button_scout`}
+                                onClick={()=>props.wrapDispatcher({scoutEnabled: !props.scoutEnabled})}
+                            >
+                                &nbsp;
+                            </button>
+                        }
+
                         <button onClick={()=>zoom_handler(1)} disabled={props.zoom >= 2}
                             className={`small inline map_button map_button_icon map_button_right map_button_zoom_in`}
                         >

@@ -371,8 +371,14 @@ class Zone
 
     public function getScoutLevel(): int
     {
-        return min(3, max(0, floor($this->getActivityMarkersFor( ZoneActivityMarkerType::ScoutVisit )->count()/5)));
+        return min(3, max(0, floor($this->getActivityMarkersFor( ZoneActivityMarkerType::ScoutVisit )->count()/1)));
     }
+
+    public function getScoutLevelFor(?Citizen $citizen): int
+    {
+        return min(3, max(0, floor($this->getActivityMarkersFor( ZoneActivityMarkerType::ScoutVisit, $citizen ?? false )->count()/1)));
+    }
+
     public function getScoutEstimationOffset(): ?int
     {
         return $this->scoutEstimationOffset;
@@ -560,14 +566,16 @@ class Zone
 
     /**
      * @param ZoneActivityMarkerType|null $type
-     * @param Citizen|null $citizen
+     * @param Citizen|null|bool $citizen
      * @return Collection
      */
-    public function getActivityMarkersFor(?ZoneActivityMarkerType $type = null, ?Citizen $citizen = null): Collection
+    public function getActivityMarkersFor(?ZoneActivityMarkerType $type = null, Citizen|bool|null $citizen = null): Collection
     {
         $criteria = new Criteria();
         if ($type !== null)    $criteria->andWhere( new Comparison( 'type', Comparison::EQ, $type->value ) );
-        if ($citizen !== null) $criteria->andWhere( new Comparison( 'citizen', Comparison::EQ, $citizen ) );
+        if ($citizen === false)    $criteria->andWhere( new Comparison( 'citizen', Comparison::EQ, null ) );
+        elseif ($citizen === true) $criteria->andWhere( new Comparison( 'citizen', Comparison::NEQ, null ) );
+        elseif ($citizen !== null) $criteria->andWhere( new Comparison( 'citizen', Comparison::EQ, $citizen ) );
         return $this->getActivityMarkers()->matching( $criteria );
     }
 

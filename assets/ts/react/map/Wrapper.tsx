@@ -91,6 +91,11 @@ const MapWrapper = ( props: ReactDataMapCore ) => {
     const scrollPlaneRef = useRef<HTMLDivElement>(null);
     let dx = 0, dy = 0;
 
+    const [strings, setStrings] = useState<RuntimeMapStrings>( null );
+    const [map, setMap] = useState<MapData>( null );
+    const [routes, setRoutes] = useState<MapRoute[]>( [] );
+    const [inc, setInc] = useState<number>( 0 );
+
     const [state, dispatch] = React.useReducer((state: RuntimeMapState, action: RuntimeMapStateAction): RuntimeMapState => {
         const new_state = {...state};
         if (typeof action.configure   !== "undefined") new_state.conf        = action.configure;
@@ -218,11 +223,6 @@ const MapWrapper = ( props: ReactDataMapCore ) => {
         } else return ()=>{};
     });
 
-    const [strings, setStrings] = useState<RuntimeMapStrings>( null );
-    const [map, setMap] = useState<MapData>( null );
-    const [routes, setRoutes] = useState<MapRoute[]>( [] );
-    const [inc, setInc] = useState<number>( 0 );
-
     const activeRoute = routes.filter(r=>r.id===state.activeRoute)[0] ?? null;
 
     const api = new BeyondMapAPI();
@@ -323,6 +323,7 @@ const MapWrapper = ( props: ReactDataMapCore ) => {
                     showRoutes={routes.length > 0} showRoutesPanel={state.showPanel} zoom={state.zoom}
                     scrollAreaRef={scrollPlaneRef} showGlobalButton={state.conf.enableGlobalButton}
                     showZoneViewerButtons={state.conf.enableLocalView} scoutEnabled={state.scoutEnabled}
+                    showScoutButton={map?.conf?.scout ?? false}
                 />
             </div>
         </Globals.Provider>

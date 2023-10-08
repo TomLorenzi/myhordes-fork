@@ -52,8 +52,9 @@ class RenderMapAction
         $local_zones = [];
         $citizen_zone = $activeCitizen?->getZone();
 
-        $scavenger_sense = $activeCitizen !== null ? $activeCitizen->getProfession()->getName() === 'collec' : $admin;
-        $scout_sense     = $activeCitizen !== null ? $activeCitizen->getProfession()->getName() === 'hunter' : $admin;
+        $scavenger_sense = $activeCitizen !== null ? $activeCitizen->getProfession()->getName() === 'collec'  : $admin;
+        $scout_sense     = $activeCitizen !== null ? $activeCitizen->getProfession()->getName() === 'hunter'  : $admin;
+        $scout_markings  = $activeCitizen !== null ? ($scout_sense || $activeCitizen->hasRole('guide')) : $admin;
 
         $citizen_zone_cache = [];
         foreach ($town->getCitizens() as $citizen)
@@ -146,7 +147,10 @@ class RenderMapAction
             elseif ($zone->isTownZone())
                 $current_zone['co'] = count( array_filter( $town->getCitizens()->getValues(), fn(Citizen $c) => $c->getAlive() && $c->getZone() === null ) );
 
-            $current_zone['scoutLevel'] = $zone->getScoutLevel();
+            if ($scout_markings) $current_zone['scoutLevel'] = $admin
+                ? $zone->getScoutLevel()
+                : ( $zone->getScoutLevelFor(null) + ($scout_sense && $activeCitizen) ? $zone->getScoutLevelFor( $activeCitizen ) : 0 );
+
             $zones[] = $current_zone;
         }
 
@@ -156,6 +160,9 @@ class RenderMapAction
             'geo' => [ 'x0' => $range_x[0], 'x1' => $range_x[1], 'y0' => $range_y[0], 'y1' => $range_y[1] ],
             'zones' => $zones,
             'lid' => $citizen_zone?->getId() ?? 0,
+            'conf' => [
+                'scout' => $scout_markings
+            ],
             'local' => array_map( function(Zone $z) use ($activeCitizen, $town, $citizen_zone, $scavenger_sense, $scout_sense) {
                 $local = $citizen_zone === $z;
                 $adjacent = ( abs( $citizen_zone->getX() - $z->getX() ) + abs( $citizen_zone->getY() - $z->getY() ) ) <= 1;
