@@ -2870,3 +2870,5 @@ Eventsieger: Eventsieger
 Eventteilnehmer: Eventteilnehmer
 'Auszeichnung für deinen Sieg in einem Community-Event, Glückwünsch!': 'Auszeichnung für deinen Sieg in einem Community-Event, Glückwünsch!'
 'Auszeichnung für deine Teilnahme an einem Community-Event.': 'Auszeichnung für deine Teilnahme an einem Community-Event.'
+'Du hast {count} x {item} auf der öffentlichen Müllhalde abgeladen. <strong>Die Stadt hat {def} Verteidigungspunkt(e) dazugewonnen.</strong>': 'Du hast {count} x {item} auf der öffentlichen Müllhalde abgeladen. <strong>Die Stadt hat {def} Verteidigungspunkt(e) dazugewonnen.</strong>'
+'Was für ein Glück! Kurz nach dem Angriff wurden Baupläne in die Stadt geweht. Ihr erhaltet: {items}': 'Was für ein Glück! Kurz nach dem Angriff wurden Baupläne in die Stadt geweht. Ihr erhaltet: {items}'
