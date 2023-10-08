@@ -630,11 +630,9 @@ class BeyondController extends InventoryAwareController
 
         $movers = [];
         $movers[] = $citizen;
-        if ($special === 'normal-escort' || ($special === 'normal' && $distance > 0) || $special === 'hero')
-            foreach ($citizen->getValidLeadingEscorts() as $escort) {
-                if ($special !== 'hero' || $escort->getCitizen()->getProfession()->getHeroic())
-                    $movers[] = $escort->getCitizen();
-            }
+        if ($special === 'normal-escort' || ($special === 'normal' && $distance > 0))
+            foreach ($citizen->getValidLeadingEscorts() as $escort)
+                $movers[] = $escort->getCitizen();
         else
             foreach ($citizen->getLeadingEscorts() as $escort)
                 $escort->getCitizen()->getEscortSettings()->setLeader(null);
