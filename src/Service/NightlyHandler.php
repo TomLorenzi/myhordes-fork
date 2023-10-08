@@ -845,6 +845,8 @@ class NightlyHandler
         $has_ikea             = (bool)$this->town_handler->getBuilding($town, 'small_ikea_#00', true);
         $has_armory           = (bool)$this->town_handler->getBuilding($town, 'small_armor_#00', true);
 
+        $picto_nightwatch = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_guard_#00']);
+
         $wounded_citizens = [];
         $terrorized_citizens = [];
         $no_watch_items_citizens = [];
@@ -868,6 +870,9 @@ class NightlyHandler
                 if ($overflow <= 0) {
                     $this->entity_manager->persist($this->logTemplates->citizenDeathOnWatch($watcher->getCitizen(), 0));
                     $skip = true;
+                } else {
+                    // We must give the nightwatch picto here, because the citizen dies and the additional picto stage does not execute for dead citizens
+                    $this->picto_handler->give_picto($ctz, $picto_nightwatch);
                 }
 
                 // Remove all night watch items
