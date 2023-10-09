@@ -45,6 +45,8 @@
         </div>
     {% endif %}
 
+    {{ hook('nightwatchHeader') }}
+
     {% if watchers is not empty %}
         <h5>{{ 'Nachtwächter'|trans({},'game') }}</h5>
         <div class="nightwatch row-table citizens-list">
