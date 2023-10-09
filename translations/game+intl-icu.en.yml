@@ -2404,3 +2404,7 @@ Tarnexperte: Camo Chief
 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> verbraucht.': 'After some DIY (thumb hammering, sweating, and colorful language), you have obtained a {item} (the object has been placed in the bank).<hr />You have used <strong>{ap} action point(s)</strong>.'
 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'After some DIY (thumb hammering, sweating, and colorful language), you have obtained a {item} (the object has been placed in the bank).<hr />You have used <strong>{cp} construction points</strong>.'
 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> und <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'After some DIY (thumb hammering, sweating, and colorful language), you have obtained a {item} (the object has been placed in the bank).<hr />You have used <strong>{ap} action point(s)</strong> and <strong>{cp} construction points</strong>.'
+Eventsieger: Event winner
+Eventteilnehmer: Eventteilnehmer
+'Auszeichnung für deinen Sieg in einem Community-Event, Glückwünsch!': 'Distinction obtained following your designation as winner of a community event, congrats!'
+'Auszeichnung für deine Teilnahme an einem Community-Event.': 'Distinction obtained following your participation in a community event.'
