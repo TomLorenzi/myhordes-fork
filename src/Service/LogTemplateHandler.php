@@ -36,10 +36,10 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class LogTemplateHandler
 {
-    private TranslatorInterface $trans;
-    private Packages $asset;
-    private EntityManagerInterface $entity_manager;
-    private UrlGeneratorInterface $url;
+    protected TranslatorInterface $trans;
+    protected Packages $asset;
+    protected EntityManagerInterface $entity_manager;
+    protected UrlGeneratorInterface $url;
 
     public function __construct(TranslatorInterface $t, Packages $a, EntityManagerInterface $em, UrlGeneratorInterface $url)
     {
