@@ -521,7 +521,7 @@ Nachtwächter: Veilleur
 'Gesamt: {def}': 'Défense de la ville : {def}'
 Gegenstand: Objet
 Installieren: Jeter
-'Wie viele Gegenstände möchtest du auf den Müll werfen?': 'Combien d''objets voulez-vous jeter à la poubelle ?'
+'Wie viele Gegenstände möchtest du auf den Müll werfen?': 'Combien d’objets voulez-vous jeter à la décharge ?'
 'Du kannst keine Aktionen ausführen, während du dich versteckst.': 'Vous ne pouvez faire aucune action en étant enterré.'
 'Du kannst dich nicht fortbewegen während du versteckt bist.': 'Vous ne pouvez pas vous déplacer tant que vous êtes caché.'
 'Du kannst das nicht tun während du dich versteckst.': 'Vous ne pouvez pas faire cela en étant caché.'
@@ -2405,3 +2405,7 @@ Tarnexperte: Chef-Camouflage
 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> verbraucht.': 'Après quelques bricolages, vous avez obtenu {item} (l''objet a été placé en banque).<hr />Vous avez utilisé <strong>{ap} point(s) d''action</strong>.'
 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'Après quelques bricolages, vous avez obtenu {item} (l''objet a été placé en banque).<hr />Vous avez utilisé <strong>{cp} points de chantiers</strong>.'
 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> und <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'Après quelques bricolages, vous avez obtenu {item} (l''objet a été placé en banque).<hr />Vous avez utilisé <strong>{ap} point(s) d''action</strong> et <strong>{cp} points de chantiers</strong>.'
+Eventsieger: Gagnant d'évènement
+Eventteilnehmer: Participant d'évènement
+'Auszeichnung für deinen Sieg in einem Community-Event, Glückwünsch!': 'Distinction obtenue suite à votre désignation comme vainqueur d''un événement communautaire, bravo !'
+'Auszeichnung für deine Teilnahme an einem Community-Event.': 'Distinction obtenue suite à votre participation à un événement communautaire.'
