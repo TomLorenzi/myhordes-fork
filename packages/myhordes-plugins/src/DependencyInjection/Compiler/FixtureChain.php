@@ -2,6 +2,7 @@
 
 namespace MyHordes\Plugins\DependencyInjection\Compiler;
 
+use App\Entity\Hook;
 use MyHordes\Plugins\Fixtures\Action;
 use MyHordes\Plugins\Fixtures\AwardFeature;
 use MyHordes\Plugins\Fixtures\AwardIcon;
@@ -20,6 +21,7 @@ use MyHordes\Plugins\Fixtures\Emote;
 use MyHordes\Plugins\Fixtures\ForumThreadTag;
 use MyHordes\Plugins\Fixtures\GazetteEntry;
 use MyHordes\Plugins\Fixtures\HeroSkill;
+use MyHordes\Plugins\Fixtures\HookData;
 use MyHordes\Plugins\Fixtures\HordesFact;
 use MyHordes\Plugins\Fixtures\Item;
 use MyHordes\Plugins\Fixtures\ItemCategory;
@@ -69,6 +71,7 @@ class FixtureChain implements CompilerPassInterface
             HeroSkill::class                 => 'myhordes.fixtures.heroskills',
             HordesFact::class                => 'myhordes.fixtures.hordesfact',
             Building::class                  => 'myhordes.fixtures.buildings',
+			HookData::class					 => 'myhordes.fixtures.hooks',
             Recipe::class                    => 'myhordes.fixtures.recipes',
             Quote::class                     => 'myhordes.fixtures.quotes',
             Picto::class                     => 'myhordes.fixtures.pictos',

@@ -20,6 +20,9 @@ services:
     MyHordes\Fixtures\Service\RolePlayTextDataService:
       tags: [ { name: 'myhordes.fixtures.rp_texts', priority: 0 } ]
 
+    MyHordes\Fixtures\Service\HookDataService:
+      tags: [ { name: 'myhordes.fixtures.hooks', priority: 0 } ]
+
     MyHordes\Fixtures\Service\PictoDataService:
       tags: [ { name: 'myhordes.fixtures.pictos', priority: 0 } ]
     MyHordes\Fixtures\Service\AwardTitleDataService:

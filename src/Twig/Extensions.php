@@ -6,6 +6,7 @@ namespace App\Twig;
 
 use App\Entity\Award;
 use App\Entity\AwardPrototype;
+use App\Entity\Hook;
 use App\Entity\Item;
 use App\Entity\Town;
 use App\Entity\TownSlotReservation;
@@ -13,12 +14,10 @@ use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\User;
 use App\Enum\UserSetting;
-use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\EventProxyService;
 use App\Service\GameFactory;
 use App\Service\LogTemplateHandler;
-use App\Service\TownHandler;
 use App\Service\UserHandler;
 use App\Structures\MyHordesConf;
 use DateTime;
@@ -28,12 +27,10 @@ use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\GlobalsInterface;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
-use function PHPUnit\Framework\matches;
 
 class Extensions extends AbstractExtension implements GlobalsInterface
 {
@@ -91,6 +88,7 @@ class Extensions extends AbstractExtension implements GlobalsInterface
             new TwigFunction('help_lnk', [$this, 'help_lnk'], ['is_safe' => array('html')]),
             new TwigFunction('tooltip',  [$this, 'tooltip'], ['is_safe' => array('html')]),
             new TwigFunction('conf',     [$this, 'conf']),
+			new TwigFunction('hook', [$this, 'execute_hooks'], ['is_safe' => array('html')])
         ];
     }
 
@@ -329,4 +327,25 @@ class Extensions extends AbstractExtension implements GlobalsInterface
 
         return $this->translator->trans($base, [], 'game', $lang);
     }
+
+	public function execute_hooks(string $hookName, ...$args): string {
+		$output = '';
+
+		$registeredHooks = $this->entityManager->getRepository(Hook::class)->findBy(['hookname' => $hookName, 'active' => true]);
+		if (count($registeredHooks) === 0) return '';
+
+		usort($registeredHooks, fn($a, $b) => $b->getPosition() <=> $a->getPosition());
+		$hookFunction = 'hook' . ucfirst($hookName);
+		foreach ($registeredHooks as $registeredHook) {
+
+			if (!class_exists($registeredHook->getClassname())) continue;
+
+			$className = $registeredHook->getClassname();
+			$hook = new $className($this->translator);
+			if (!is_callable([$hook, $hookFunction])) continue;
+
+			$output .= $hook->{$hookFunction}($args);
+		}
+		return $output;
+	}
 }
