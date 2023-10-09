@@ -14,6 +14,18 @@ class HookDataService implements FixtureProcessorInterface {
 				'classname' => "App\\Hooks\\DumpHooks",
 				'active' => true,
 				'position' => 0
+			],
+			'dumpDisplayItemsCore' => [
+				'hookname' => 'dumpDisplayItems',
+				'classname' => "App\\Hooks\\DumpHooks",
+				'active' => true,
+				'position' => 0
+			],
+			'dumpDisplayActionsCoreJs' => [
+				'hookname' => 'dumpDisplayActionsJs',
+				'classname' => "App\\Hooks\\DumpHooks",
+				'active' => true,
+				'position' => 0
 			]
         ]);
     }

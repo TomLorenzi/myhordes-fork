@@ -88,7 +88,7 @@ class Extensions extends AbstractExtension implements GlobalsInterface
             new TwigFunction('help_lnk', [$this, 'help_lnk'], ['is_safe' => array('html')]),
             new TwigFunction('tooltip',  [$this, 'tooltip'], ['is_safe' => array('html')]),
             new TwigFunction('conf',     [$this, 'conf']),
-			new TwigFunction('hook', [$this, 'execute_hooks'], ['is_safe' => array('html')])
+			new TwigFunction('hook', [ExtensionsRuntime::class, 'execute_hooks'], ['is_safe' => array('html')])
         ];
     }
 
@@ -327,25 +327,4 @@ class Extensions extends AbstractExtension implements GlobalsInterface
 
         return $this->translator->trans($base, [], 'game', $lang);
     }
-
-	public function execute_hooks(string $hookName, ...$args): string {
-		$output = '';
-
-		$registeredHooks = $this->entityManager->getRepository(Hook::class)->findBy(['hookname' => $hookName, 'active' => true]);
-		if (count($registeredHooks) === 0) return '';
-
-		usort($registeredHooks, fn($a, $b) => $b->getPosition() <=> $a->getPosition());
-		$hookFunction = 'hook' . ucfirst($hookName);
-		foreach ($registeredHooks as $registeredHook) {
-
-			if (!class_exists($registeredHook->getClassname())) continue;
-
-			$className = $registeredHook->getClassname();
-			$hook = new $className($this->translator);
-			if (!is_callable([$hook, $hookFunction])) continue;
-
-			$output .= $hook->{$hookFunction}($args);
-		}
-		return $output;
-	}
 }
