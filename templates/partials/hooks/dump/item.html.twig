@@ -1,0 +1,20 @@
+{% set proto = item[0] %}
+{# @var \App\Entity\ItemPrototype proto #}
+<div class="padded cell rw-5 rw-md-2 rw-sm-1">
+	<span class="icon hide-md hide-sm">
+			<img src='{{asset('build/images/item/item_' ~ proto.icon ~ '.gif')}}'  alt='{{ proto.label|trans({}, 'items')}}' />
+			{{ proto.label|trans({}, 'items')}}
+			</span>
+	<img class='hide-lg hide-desktop' src='{{ asset('build/images/item/item_' ~ proto.icon ~ '.gif')}}' alt='{{ proto.label|trans({},'items') }}' />
+</div>
+<div class="padded cell rw-2 center">
+	<span class='small'> {{ item[1] }} ({{ item[3] }})</span>
+</div>
+<div class="padded cell rw-2 rw-md-3 center">
+	<div class='defense'>+{{ item[2] }}</div>
+</div>
+<div class="padded cell rw-3 rw-md-5 rw-sm-6 right">
+	{% if not banished %}
+	<button x-item-id='{{ proto.id }}'>{{'Installieren'|trans({},  'game')}}</button>
+	{% endif %}
+</div>
