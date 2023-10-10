@@ -270,6 +270,7 @@
                     {% if can_devour %}
                         <button x-devour-citizen {% if not allow_devour_corpse %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" />{{ 'Die Leiche verspeisen!'|trans({},'game') }}</button>
                     {% endif %}
+                    {{ hook('homeForeignDeadActions', owner) }}
                 {% else %}
                     {% if owner.disposed is null %}
                         <h5>{% trans from 'game' %}Was ist mit ihm passiert?{% endtrans %}</h5>
@@ -623,5 +624,7 @@
                         } );
                 })
         {% endif %}
+
+        {{ hook('homeForeignDeadActionsJs', owner) }}
     </script>
 {% endblock %}
