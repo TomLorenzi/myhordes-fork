@@ -52,7 +52,9 @@ class NightlyHandler
     private array $cleanup = [];
     private array $skip_reanimation = [];
     private array $skip_infection = [];
+    private bool $exec_firework = false;
     private ?Building $upgraded_building = null;
+    private bool $exec_reactor = false;
     private array $deferred_log_entries = [];
 
     private EntityManagerInterface $entity_manager;
@@ -732,6 +734,8 @@ class NightlyHandler
         $total_watch_def = floor($this->town_handler->calculate_watch_def($town, $town->getDay() - 1) * $def_scale);
         $this->log->debug("There are <info>".count($watchers)."</info> watchers (with <info>{$total_watch_def}</info> watch defense) in town, against <info>$overflow</info> zombies.");
 
+        $picto_nightwatch = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_guard_#00']);
+
         $wounded_citizens = [];
         $terrorized_citizens = [];
         $no_watch_items_citizens = [];
@@ -762,6 +766,9 @@ class NightlyHandler
                 if ($overflow <= 0) {
                     $this->entity_manager->persist($this->logTemplates->citizenDeathOnWatch($watcher->getCitizen(), 0));
                     $skip = true;
+                } else {
+                    // We must give the nightwatch picto here, because the citizen dies and the additional picto stage does not execute for dead citizens
+                    $this->picto_handler->give_picto($ctz, $picto_nightwatch);
                 }
 
                 // Remove all night watch items

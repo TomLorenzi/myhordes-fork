@@ -347,12 +347,12 @@ Westen: l'ouest
 'Es ist kein Bürger in der Nähe...': 'Il n''y a pas de citoyen à proximité...'
 'Rucksack in der Bank ausleeren': 'Vider son sac dans la banque'
 'Meine objekte': 'Objets'
-Gammler: "{ref__icu, select,                on {                    {ref__gender, select,                        female {Indécise}                        other {Indécis}                    }                }            other {Indécis}            }"
-Buddler: "{ref__icu, select,                on {                    {ref__gender, select,                       female {Fouineuse}                        other {Fouineur}                    }                }            other {Fouineur}            }"
+Gammler: "\n            {ref__icu, select,\n                on {\n                    {ref__gender, select,\n                        female {Indécise}\n                        other {Indécis}\n                    }\n                }\n            other {Indécis}\n            }\n        "
+Buddler: "\n            {ref__icu, select,\n                on {\n                    {ref__gender, select,\n                        female {Fouineuse}\n                        other {Fouineur}\n                    }\n                }\n            other {Fouineur}\n            }\n        "
 Wächter: "Gardien"
 Aufklärer: "Éclaireur"
 Dompteur: "Apprivoiseur"
-Techniker: "{ref__icu, select,                on {                    {ref__gender, select,                        female {Technicienne}                        other {Technicien}                    }                }            other {Technicien}            }"
+Techniker: "\n            {ref__icu, select,\n                on {\n                    {ref__gender, select,\n                        female {Technicienne}\n                        other {Technicien}\n                    }\n                }\n            other {Technicien}\n            }\n        "
 Schamane: "Chaman"
 Einsiedler: "Ermite"
 'Verbesserung des Tages': 'Les évolutions du jour'
@@ -520,7 +520,7 @@ Nachtwächter: Veilleur
 'Gesamt: {def}': 'Défense de la ville : {def}'
 Gegenstand: Objet
 Installieren: Jeter
-'Wie viele Gegenstände möchtest du auf den Müll werfen?': 'Combien d''objets voulez-vous jeter à la poubelle ?'
+'Wie viele Gegenstände möchtest du auf den Müll werfen?': 'Combien d’objets voulez-vous jeter à la décharge ?'
 'Du kannst keine Aktionen ausführen, während du dich versteckst.': 'Vous ne pouvez faire aucune action en étant enterré.'
 'Du kannst dich nicht fortbewegen während du versteckt bist.': 'Vous ne pouvez pas vous déplacer tant que vous êtes caché.'
 'Du kannst das nicht tun während du dich versteckst.': 'Vous ne pouvez pas faire cela en étant caché.'
@@ -1192,7 +1192,7 @@ Kantinenkoch: Cuistot de cantine
 'Meister Eintopf': 'Cordon bleu du village'
 'Großer Wüstenkonditor': 'Grand pâtissier du désert'
 'Begnadeter Wüstenkonditor': 'Maître pâtissier du désert'
-'Cooking Mama': 'Cooking-papa'
+'Cooking Mama': 'Cooking-mama'
 'Meisterhafter Kochlöffelschwinger': 'Expert de la cuillère'
 Amateur-Laborratte: Laborantin amateur
 'Kleiner Präparator': 'Petit préparateur'
@@ -1238,7 +1238,7 @@ Müllmann: Eboueur
 Entsorgungsfachmann: Expulseur de cadavres
 'SM Anhänger': 'Adepte SM'
 'SM Spezialist': 'Maître du PMV'
-'Nenn mich Herrin': 'Appelez-moi Maître'
+'Nenn mich Herrin': 'Appelez-moi Maîtresse'
 'Ich möchte dein Objekt sein.': 'Fais de moi ton objet'
 Stadtmetzger: 30 millions d'ennemis
 'Spezialität: Hundesteaks': 'Responsable d''extinctions'
@@ -1616,7 +1616,7 @@ Paranoid: Parano
 'Der Bruce Lee des Spachtels': 'Le Bruce Lee de la truelle'
 'Es ist Zeit für Kathedralen': 'Il est venu le temps des cathédrales'
 'Hast du nichts besseres zu tun?': 'Z''avez pas mieux à faire ?'
-'Hohepriesterin des Sonnentempels': 'Grand prêtre du temple du soleil'
+'Hohepriesterin des Sonnentempels': 'Grande prêtresse du temple du soleil'
 'Obelisk der heutigen Zeit!': 'Obélisque des temps modernes !'
 'Lebhafter Tribut': 'Vibrant hommage'
 'Wird in die Annalen eingehen': 'Restera dans les annales'
@@ -2862,3 +2862,7 @@ Ninja_f: Maître des ombres
 AP: AP
 CP: CP
 MP: MP
+Eventsieger: Gagnant d'évènement
+Eventteilnehmer: Participant d'évènement
+'Auszeichnung für deinen Sieg in einem Community-Event, Glückwünsch!': 'Distinction obtenue suite à votre désignation comme vainqueur d''un événement communautaire, bravo !'
+'Auszeichnung für deine Teilnahme an einem Community-Event.': 'Distinction obtenue suite à votre participation à un événement communautaire.'

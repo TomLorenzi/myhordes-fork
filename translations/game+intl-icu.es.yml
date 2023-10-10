@@ -1192,7 +1192,7 @@ Kantinenkoch: Ayudante de cocina
 'Meister Eintopf': 'Cordon bleu del barrio'
 'Großer Wüstenkonditor': 'Cordon bleu del pueblo'
 'Begnadeter Wüstenkonditor': 'Cuchara-brava'
-'Cooking Mama': 'Cooking Papa'
+'Cooking Mama': 'Cooking Mama'
 'Meisterhafter Kochlöffelschwinger': 'Maestro Cocinero'
 Amateur-Laborratte: Laboratorista amateur
 'Kleiner Präparator': 'Laboratorista autodidacta'
@@ -1238,7 +1238,7 @@ Müllmann: Basurero
 Entsorgungsfachmann: Cañón lanzamuertos
 'SM Anhänger': 'Adepto del SM'
 'SM Spezialist': 'Amo de la COSA'
-'Nenn mich Herrin': 'Nenn mich Herr'
+'Nenn mich Herrin': 'Aprietame las esposas'
 'Ich möchte dein Objekt sein.': 'Quiero ser un objeto'
 Stadtmetzger: Amigo de los animales
 'Spezialität: Hundesteaks': 'Encargado de extinciones'
@@ -1616,7 +1616,7 @@ Paranoid: Paranoico
 'Der Bruce Lee des Spachtels': 'El Bruce Lee de la Espatula'
 'Es ist Zeit für Kathedralen': 'Ha llegado el momento de las catedrales'
 'Hast du nichts besseres zu tun?': '¿No tienes algo mejor que hacer?'
-'Hohepriesterin des Sonnentempels': 'Templo del Sumo Sacerdote del Sol'
+'Hohepriesterin des Sonnentempels': 'Templo de la Suma Sacerdotisa del Sol'
 'Obelisk der heutigen Zeit!': '¡Obelisco moderno!'
 'Lebhafter Tribut': 'Ovación de pié'
 'Wird in die Annalen eingehen': 'Uno para los libros'
@@ -2862,3 +2862,7 @@ Ninja_f: Maestro de la oscuridad
 AP: AP
 CP: CP
 MP: MP
+Eventsieger: Ganador del evento
+Eventteilnehmer: Participante del evento
+'Auszeichnung für deinen Sieg in einem Community-Event, Glückwünsch!': 'Distinción obtenida tras su designación como ganador de un evento comunitario, ¡enhorabuena!'
+'Auszeichnung für deine Teilnahme an einem Community-Event.': 'Distinción obtenida tras su participación en un evento comunitario.'

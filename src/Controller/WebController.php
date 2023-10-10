@@ -72,7 +72,8 @@ class WebController extends CustomAbstractController
         'MisterD', 'Mondi', 'Schrödinger', 'Kitsune',
         'MOTZI', 'devwwm', 'tchekof', 'alonsopor', 'Termineitron',
         'Rikrdo', 'Valedres', 'Yaken', 'Finne', 'Aeon',
-        'Elara', 'MisterSimple', 'Eragony', 'Tristana', 'Bigonoud', 'Bacchus', 'unukun'
+        'Elara', 'MisterSimple', 'Eragony', 'Tristana', 'Bigonoud', 'Bacchus', 'unukun',
+        'Docteur'
     ];
 
     private VersionManager $version_manager;

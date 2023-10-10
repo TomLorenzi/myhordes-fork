@@ -79,7 +79,10 @@ class MessageForumController extends MessageController
         // Set the activity status
         if ($forum->getTown() && $user->getActiveCitizen() && $user->getActiveCitizen()->getTown() === $forum->getTown()) {
             $c = $user->getActiveCitizen();
-            if ($c) $ch->inflictStatus($c, 'tg_chk_forum');
+            if ($c) {
+                $ch->inflictStatus($c, 'tg_chk_forum');
+                $c->setLastActionTimestamp(time());
+            }
             $paranoid = $ch->hasStatusEffect($c,'tg_paranoid');
             $em->persist( $c );
             $em->flush();

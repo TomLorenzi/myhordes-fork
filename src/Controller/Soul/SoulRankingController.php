@@ -129,7 +129,17 @@ class SoulRankingController extends SoulController
         if ($currentType === null)
             return $this->redirect($this->generateUrl('soul_season'));
 
-        $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->findTopOfSeason($currentSeason, $currentType, 10);
+        $range = [1,15,35];
+        $additional = 0;
+        if ($currentSeason?->getCurrent()) {
+            $range = [$currentType->getRankingTop(), $currentType->getRankingMid(), $currentType->getRankingLow()];
+            $additional = 10;
+        } elseif ( $rangeConf = $currentSeason?->getRankingRange( $currentType ) ) {
+            $range = [$rangeConf->getTop(), $rangeConf->getMid(), $rangeConf->getLow()];
+            $additional = 10;
+        }
+
+        $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->findTopOfSeason($currentSeason, $currentType, $additional);
         $played = [];
         foreach ($towns as $town) {
             /* @var TownRankingProxy $town */
@@ -142,11 +152,7 @@ class SoulRankingController extends SoulController
             }
         }
 
-        $range = [1,15,35];
-        if ($currentSeason?->getCurrent())
-            $range = [ $currentType->getRankingTop(), $currentType->getRankingMid(), $currentType->getRankingLow() ];
-        elseif ( $rangeConf = $currentSeason?->getRankingRange( $currentType ) )
-            $range = [ $rangeConf->getTop(), $rangeConf->getMid(), $rangeConf->getLow() ];
+
 
         return $this->render( 'ajax/soul/ranking/towns.html.twig', $this->addDefaultTwigArgs("soul_season", [
             'seasons' => $seasons,
