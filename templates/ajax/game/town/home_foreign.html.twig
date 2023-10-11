@@ -290,7 +290,12 @@
                         {% elseif owner.disposed == constant('App\\Entity\\Citizen::Ghoul') %}
                             {{ 'Keine Ahnung. <strong>Der leblose Körper ist spurlos verschwunden...</strong> Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?'|trans({}, 'game')|raw }}
                         {% else %}
-                            {{ 'Unbekannt'|trans({}, 'game') }}
+                            {% set result = hook('homeForeignDisposalText', owner) %}
+                            {% if result is not null and result != "" %}
+                                {{ result|raw }}
+                            {% else %}
+                                {{ 'Unbekannt'|trans({}, 'game') }}
+                            {% endif %}
                         {% endif %}
                     </span>
                     {% endif %}
