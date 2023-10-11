@@ -745,15 +745,13 @@ class NightlyHandler
         foreach ($watchers as $watcher) {
             $used_items = count( array_filter( $watcher->getCitizen()->getInventory()->getItems()->getValues(), fn(Item $i) => $i->getPrototype()->getWatchpoint() > 0 || $i->getPrototype()->getName() === 'chkspk_#00' ) );
 
-			/** @var CitizenQueryNightwatchDefenseEvent $event */
-			$this->dispatcher->dispatch($event = $this->eventFactory->gameInteractionEvent( CitizenQueryNightwatchDefenseEvent::class )->setup( $watcher->getCitizen() ));
-            $defBonus = $overflow > 0 ? floor($event->nightwatchDefense * $def_scale) : 0;
+			$watcherDefense = $this->events->citizenQueryNightwatchDefense($watcher->getCitizen());
+            $defBonus = $overflow > 0 ? floor($watcherDefense * $def_scale) : 0;
 
-			/** @var CitizenQueryNightwatchDeathChancesEvent $event */
-			$this->dispatcher->dispatch($event = $this->eventFactory->gameInteractionEvent( CitizenQueryNightwatchDeathChancesEvent::class )->setup( $watcher->getCitizen(), true ));
-			$deathChances = $event->deathChance;
+			$chances = $this->events->citizenQueryNightwatchDeathChance($watcher->getCitizen());
+			$deathChances = $chances['death'];
 
-            $woundOrTerrorChances = $event->woundChance + $event->terrorChance;
+            $woundOrTerrorChances = $chances['wound'] + $chances['terror'];
             $ctz = $watcher->getCitizen();
 
             $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> chances are <info>{$deathChances}</info> for death and <info>{$woundOrTerrorChances}</info> for wound or terror.");
@@ -779,7 +777,7 @@ class NightlyHandler
 
             } else if($overflow > 0 && $this->random->chance($woundOrTerrorChances)) {
 
-                if( $this->random->pickEntryFromRawRandomArray( [ [true, round($event->woundChance * 100)], [false, round($event->terrorChance * 100)] ] ) ){
+                if( $this->random->pickEntryFromRawRandomArray( [ [true, round($chances['wound'] * 100)], [false, round($chances['terror'] * 100)] ] ) ){
                     // Wound
                     if (!$this->citizen_handler->isWounded($ctz)) {
                         $this->citizen_handler->inflictWound($ctz);

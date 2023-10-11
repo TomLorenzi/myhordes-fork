@@ -17,6 +17,9 @@ use App\Enum\ScavengingActionType;
 use App\Event\Game\Actions\CustomActionProcessorEvent;
 use App\Event\Game\Citizen\CitizenPostDeathEvent;
 use App\Event\Game\Citizen\CitizenQueryDigChancesEvent;
+use App\Event\Game\Citizen\CitizenQueryNightwatchDeathChancesEvent;
+use App\Event\Game\Citizen\CitizenQueryNightwatchDefenseEvent;
+use App\Event\Game\Citizen\CitizenQueryNightwatchInfoEvent;
 use App\Event\Game\Citizen\CitizenWorkshopOptionsData;
 use App\Event\Game\Citizen\CitizenWorkshopOptionsEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingCatapultItemTransformEvent;
@@ -127,6 +130,26 @@ class EventProxyService
         $this->ed->dispatch( $event = $this->ef->gameEvent( CitizenWorkshopOptionsEvent::class, $citizen->getTown() )->setup( $citizen ) );
         return $event->data;
     }
+
+	public function citizenQueryNightwatchDefense(Citizen $citizen): int {
+		$this->ed->dispatch($event = $this->ef->gameEvent(CitizenQueryNightwatchDefenseEvent::class, $citizen->getTown())->setup($citizen));
+		return $event->nightwatchDefense;
+	}
+
+	public function citizenQueryNightwatchDeathChance(Citizen $citizen): array {
+		$this->ed->dispatch($event = $this->ef->gameEvent(CitizenQueryNightwatchDeathChancesEvent::class, $citizen->getTown())->setup($citizen));
+		return [
+			'death' => $event->deathChance,
+			'terror' => $event->terrorChance,
+			'wound' => $event->woundChance,
+			'hint' => $event->hintSentence
+		];
+	}
+
+	public function citizenQueryNightwatchInfo(Citizen $citizen): array {
+		$this->ed->dispatch($event = $this->ef->gameEvent(CitizenQueryNightwatchInfoEvent::class, $citizen->getTown())->setup($citizen));
+		return $event->nightwatchInfo;
+	}
 
     public function queryTownParameter( Town $town, BuildingValueQuery $query ): float|int {
         $this->ed->dispatch( $event = $this->ef->gameEvent( BuildingQueryTownParameterEvent::class, $town )->setup( $query ) );

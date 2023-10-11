@@ -2,12 +2,12 @@
 
 namespace App\Event\Game\Citizen;
 
-use App\Event\Game\GameInteractionEvent;
+use App\Event\Game\GameEvent;
 
 /**
  * @property-read CitizenWatchData $data
  * @mixin CitizenWatchData
  */
-class CitizenQueryNightwatchInfoEvent extends GameInteractionEvent {
+class CitizenQueryNightwatchInfoEvent extends GameEvent {
 	protected static function configuration(): string { return CitizenWatchData::class; }
 }

@@ -339,15 +339,11 @@ class TownAddonsController extends TownController
 
 	/**
      * @param TownHandler              $th
-     * @param EventDispatcherInterface $dispatcher
-     * @param EventFactory             $eventFactory
      * @param EventProxyService        $proxy
      * @return Response
-     * @throws ContainerExceptionInterface
-     * @throws NotFoundExceptionInterface
      */
     #[Route(path: 'jx/town/nightwatch', name: 'town_nightwatch')]
-    public function addon_nightwatch(TownHandler $th, EventDispatcherInterface $dispatcher, EventFactory $eventFactory, EventProxyService $proxy): Response
+    public function addon_nightwatch(TownHandler $th, EventProxyService $proxy): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
@@ -375,11 +371,11 @@ class TownAddonsController extends TownController
 
             if($watcher->getCitizen()->getId() === $this->getActiveCitizen()->getId())
                 $is_watcher = true;
-			$dispatcher->dispatch($event = $eventFactory->gameInteractionEvent( CitizenQueryNightwatchDefenseEvent::class )->setup( $watcher->getCitizen() ));
-            $total_def += $event->nightwatchDefense;
 
-			$dispatcher->dispatch($event = $eventFactory->gameInteractionEvent( CitizenQueryNightwatchInfoEvent::class )->setup( $watcher->getCitizen() ));
-            $watchers[$watcher->getId()] = $event->nightwatchInfo;
+
+            $total_def += $proxy->citizenQueryNightwatchDefense($watcher->getCitizen());
+
+            $watchers[$watcher->getId()] = $proxy->citizenQueryNightwatchInfo($watcher->getCitizen());
 
             foreach ($watcher->getCitizen()->getInventory()->getItems() as $item) {
                 if($item->getPrototype()->getName() == 'chkspk_#00')
@@ -393,8 +389,7 @@ class TownAddonsController extends TownController
         if($has_counsel)
             $total_def += ($counsel_def = 15 * $count);
 
-		/** @var CitizenQueryNightwatchDeathChancesEvent $event */
-		$dispatcher->dispatch($event = $eventFactory->gameInteractionEvent( CitizenQueryNightwatchDeathChancesEvent::class )->setup( $this->getActiveCitizen() ));
+		$chances = $proxy->citizenQueryNightwatchDeathChance($this->getActiveCitizen());
         $has_zombie_est_today    = !empty($this->town_handler->getBuilding($town, 'item_tagger_#00'));
 
         $estims = $this->town_handler->get_zombie_estimation($town);
@@ -411,10 +406,10 @@ class TownAddonsController extends TownController
         return $this->render( 'ajax/game/town/nightwatch.html.twig', $this->addDefaultTwigArgs('battlement', [
             'watchers' => $watchers,
             'is_watcher' => $is_watcher,
-            'deathChance' => $event->deathChance,
-            'woundChance' => $event->woundChance,
-			'terrorChance' => $event->terrorChance,
-			'hintSentence' => $event->hintSentence,
+            'deathChance' => $chances['death'],
+            'woundChance' => $chances['wound'],
+			'terrorChance' => $chances['terror'],
+			'hintSentence' => $chances['hint'],
             'me' => $this->getActiveCitizen(),
             'total_def' => $total_def,
             'has_counsel' => $has_counsel,
