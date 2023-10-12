@@ -293,7 +293,10 @@ class ExplorationController extends InventoryAwareController implements HookedIn
         $targetRuinZone = $this->entity_manager->getRepository( RuinZone::class )->findOneByPosition( $ruinZone->getZone(), $ex->getX(), $ex->getY(), $ex->getZ() + $ruinZone->getConnect() );
         if (!$targetRuinZone) return AjaxResponse::error( BeyondController::ErrorNotReachableFromHere );
 
-        $ex->setZ( $ex->getZ() + $ruinZone->getConnect() );
+        $ex
+            ->setZ( $ex->getZ() + $ruinZone->getConnect() )
+            ->setTimeout( (new DateTime)->setTimestamp( $ex->getTimeout()->getTimestamp() )->sub(DateInterval::createFromDateString( mt_rand( 15, 24) . 'sec' ) ) );
+
         $this->entity_manager->persist($ex);
         try {
             $this->entity_manager->flush();

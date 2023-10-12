@@ -58,7 +58,7 @@ parameters:
         lock_distance: 10
         item_fillrate: 7
         max_distance: 10
-        floors: 1
+        floors: 2
         dig_chance: 0.55
         plan_limits:
           unusual: -1
