@@ -256,47 +256,19 @@ class BeyondController extends InventoryAwareController
         $require_ap = ($is_on_zero && $th->getBuilding($town, 'small_labyrinth_#00',  true));
 
         if (!$is_on_zero && $this->getTownConf()->get(TownConf::CONF_FEATURE_CAMPING, false)) {
-            // Camping Information
-            $camping_zone_texts = [
-                1 => T::__("Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.", 'game'),
-                2 => "", // T::__('text','domain')
-                3 => T::__("Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...", 'game'),
-                4 => T::__("Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.", 'game'),
-                5 => T::__("Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.", 'game'),
-                6 => T::__("An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...", 'game'),
-                7 => T::__("In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.", 'game'),
-                8 => T::__("Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.", 'game'),
-            ];
             $zone_camping_base = ($zone->getPrototype() ? $zone->getPrototype()->getCampingLevel() : 0) + ($zone->getImprovementLevel() );
-            if ($zone_camping_base <= 0) {
-                $camping_zone = $camping_zone_texts[1];
-            } else if ($zone_camping_base <= 2) {
-                $camping_zone = $camping_zone_texts[2];
-            } else if ($zone_camping_base <= 4) {
-                $camping_zone = $camping_zone_texts[3];
-            } else if ($zone_camping_base <= 6) {
-                $camping_zone = $camping_zone_texts[4];
-            } else if ($zone_camping_base <= 8) {
-                $camping_zone = $camping_zone_texts[5];
-            } else if ($zone_camping_base <= 10) {
-                $camping_zone = $camping_zone_texts[6];
-            } else if ($zone_camping_base <= 12) {
-                $camping_zone = $camping_zone_texts[7];
-            } else {
-                $camping_zone = $camping_zone_texts[8];
-            }
 
-            // Ruin capacity Information
-            $ruin_capacity_texts = [
-                // -1 when there were slots, but none are left
-                -1 => T::__("Es scheint, dass alle guten Verstecke bereits von Ihren \"Freunden\" besetzt sind. Sie müssen also einen anderen Ort finden oder improvisieren...", 'game'),
-                0 => T::__("Du siehst nicht wirklich, wo du dich hier verstecken könntest...", 'game'),
-                1 => T::__("Egal, wie sehr du suchst, es erscheint offensichtlich, dass es an diesem Ort nur ein einziges geeignetes Versteck gibt. Entscheide selbst...", 'game'),
-                2 => T::__("Dieser Ort bietet Möglichkeiten zum Verstecken, wenn du kreativ genug bist.", 'game'),
-                3 => T::__("Dieser Ort bietet Möglichkeiten zum Verstecken, wenn du kreativ genug bist.", 'game'),
-                4 => T::__("Du beobachtest mehrere geeignete Verstecke, aber es wird nicht für jeden etwas dabei sein.", 'game'),
-                5 => T::__("Es sollte nicht allzu schwer sein, diesen Ort zum Untertauchen auszunutzen.", 'game'),
-            ];
+            // Camping Information
+            $camping_zone = match (true) {
+                $zone_camping_base <= 0     => T::__("Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.", 'game'),
+                $zone_camping_base <= 2     => '',
+                $zone_camping_base <= 4     => T::__("Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...", 'game'),
+                $zone_camping_base <= 6     => T::__("Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.", 'game'),
+                $zone_camping_base <= 8     => T::__("Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.", 'game'),
+                $zone_camping_base <= 10    => T::__("An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...", 'game'),
+                $zone_camping_base <= 12    => T::__("In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.", 'game'),
+                default                     => T::__("Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.", 'game'),
+            };
 
             $camping_capacity = "";
             $ruin_capacity = $zone->getBuildingCampingCapacity();
@@ -304,29 +276,30 @@ class BeyondController extends InventoryAwareController
             if($zone->getPrototype() && $ruin_capacity !== -1) {
                 $zone_capacity = max(0, min(5, $zone->getBuildingCampingCapacity() - $zone->getPreviousCampers($citizen)));
 
-                $camping_capacity = $ruin_capacity_texts[$zone_capacity];
+                // Ruin capacity Information
+                $camping_capacity = match($zone_capacity) {
+                    0       => T::__("Du siehst nicht wirklich, wo du dich hier verstecken könntest...", 'game'),
+                    1       => T::__("Egal, wie sehr du suchst, es erscheint offensichtlich, dass es an diesem Ort nur ein einziges geeignetes Versteck gibt. Entscheide selbst...", 'game'),
+                    2, 3    => T::__("Dieser Ort bietet Möglichkeiten zum Verstecken, wenn du kreativ genug bist.", 'game'),
+                    4       => T::__("Du beobachtest mehrere geeignete Verstecke, aber es wird nicht für jeden etwas dabei sein.", 'game'),
+                    5       => T::__("Es sollte nicht allzu schwer sein, diesen Ort zum Untertauchen auszunutzen.", 'game'),
+                    default => '',
+                };
 
                 // When building at full capacity, display a special text
                 if($zone->getPrototype()->getCapacity() > 0 && $zone_capacity <= 0) {
-                    $camping_capacity = $ruin_capacity_texts[-1];
+                    $camping_capacity = T::__("Es scheint, dass alle guten Verstecke bereits von deinen \"Freunden\" besetzt sind. Du musst also einen anderen Ort finden oder improvisieren...", 'game');
 
                     // Set building text to default (outside) when no slot is left
-                    $camping_zone = $camping_zone_texts[1];
+                    $camping_zone = T::__("Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.", 'game');
                 }
             }
 
-            $camping_zombie_texts = [
-                0 => '', // T::__('text','domain')
-                1 => T::__("Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...", 'game'),
-                2 => T::__("Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.", 'game'),
-            ];
-            if ($zone->getZombies() >= 11) {
-                $camping_zombies = $camping_zombie_texts[2];
-            } else if ($zone->getZombies() >= 5) {
-                $camping_zombies = $camping_zombie_texts[1];
-            } else {
-                $camping_zombies = $camping_zombie_texts[0];
-            }
+            $camping_zombies = match (true) {
+                $zone->getZombies() >= 11 => T::__("Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...", 'game'),
+                $zone->getZombies() >=  5 => T::__("Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.", 'game'),
+                default => ''
+            };
 
             $camping_chance_texts = [
                 0 => T::__("Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.", 'game'),
@@ -341,27 +314,22 @@ class BeyondController extends InventoryAwareController
             $survival_chance = $citizen->getCampingChance() > 0
                 ? $citizen->getCampingChance()
                 : $this->citizen_handler->getCampingOdds($citizen);
-            if ($survival_chance <= .10) {
-                $camping_chance = $camping_chance_texts[0];
-            } else if ($survival_chance <= .3) {
-                $camping_chance = $camping_chance_texts[1];
-            } else if ($survival_chance <= .50) {
-                $camping_chance = $camping_chance_texts[2];
-            } else if ($survival_chance <= .65) {
-                $camping_chance = $camping_chance_texts[3];
-            } else if ($survival_chance <= .80) {
-                $camping_chance = $camping_chance_texts[4];
-            } else if ($survival_chance <= .9) {
-                $camping_chance = $camping_chance_texts[5];
-            } else if ($survival_chance < 1) {
-                $camping_chance = $camping_chance_texts[6];
-            } else if ($survival_chance == 1) {
-                $camping_chance = $camping_chance_texts[7];
-            } else {
-                $camping_chance = "";
-            }
 
-            $camping_improvable = ($survival_chance < $this->citizen_handler->getCampingOdds($citizen)) ? $this->translator->trans("Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?", [], 'game') : "";
+            $camping_chance = match (true) {
+                $survival_chance <= .10     => T::__("Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.", 'game'),
+                $survival_chance <= .30     => T::__("Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?", 'game'),
+                $survival_chance <= .50     => T::__("Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.", 'game'),
+                $survival_chance <= .65     => T::__("Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...", 'game'),
+                $survival_chance <= .80     => T::__("Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.", 'game'),
+                $survival_chance <= .90     => T::__("Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!", 'game'),
+                $survival_chance  < 1.0     => T::__("Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.", 'game'),
+                $survival_chance === 1.0    => T::__("Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.", 'game'),
+                default                     => '',
+            };
+
+            $camping_improvable = ($survival_chance < $this->citizen_handler->getCampingOdds($citizen))
+                ? $this->translator->trans("Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?", [], 'game')
+                : "";
 
             $camping_blueprint = "";
             $blueprintFound = false;
