@@ -46,10 +46,10 @@
                 {% endtrans %}
                 <br />
                 <strong>
-                {% if pump is null %}
+                {% if not pump %}
                     {{'Wenn die Stadt eine Pumpe baut, ist sie im Stande mehr Wasser zu fördern!'|trans({}, 'game')}} {{ help_btn('Du kannst den Bau einer Pumpe im Bereich <strong>Konstruktionen</strong> beginnen.'|trans({}, 'game')) }}
                 {% else %}
-                        ({{'Die Stadt verfügt über eine {pumpname}.'|trans({'{pumpname}': 'Pumpe'|trans({}, 'buildings')}, 'game')}})
+                    ({{'Die Stadt verfügt über eine {pumpname}.'|trans({'{pumpname}': 'Pumpe'|trans({}, 'buildings')}, 'game')}})
                 {% endif %}
                 </strong>
             </div>

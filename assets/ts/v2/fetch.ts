@@ -269,7 +269,7 @@ export class Fetch {
 
         let error_code = data?.error ?? null;
         const success_data = data?.success ?? null;
-        const error_message = (success_data !== false) ? null : (error_code === 'message' || error_code === null) ? (data?.message) ?? null : null;
+        const error_message = (success_data !== false && !error_code) ? null : (error_code === 'message' || error_code === null) ? (data?.message) ?? null : null;
 
         if (!response.ok || typeof data === "undefined" || (options.body_success && (!success_data || error_message))) {
 
