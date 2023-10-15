@@ -24,6 +24,7 @@ use App\Entity\RuinExplorerStats;
 use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
 use App\Entity\ZoneTag;
+use App\Enum\EventStages\BuildingValueQuery;
 use App\Enum\ScavengingActionType;
 use App\Enum\ZoneActivityMarkerType;
 use App\Response\AjaxResponse;
@@ -239,12 +240,7 @@ class BeyondController extends InventoryAwareController
         $town = $this->getActiveCitizen()->getTown();
         $zone = $this->getActiveCitizen()->getZone();
 
-        $watchtower = $th->getBuilding($town, 'item_tagger_#00',  true);
-        if ($watchtower) switch ($watchtower->getLevel()) {
-            case 4: $port_distance = 1;  break;
-            case 5: $port_distance = 2;  break;
-            default:$port_distance = 0; break;
-        } else $port_distance = 0;
+        $port_distance = $this->events->queryTownParameter( $town, BuildingValueQuery::BeyondTeleportRadius );
         $distance = round(sqrt( pow($zone->getX(),2) + pow($zone->getY(),2) ));
 
         $can_enter = $distance <= $port_distance && !$this->getActiveCitizen()->isCamping();
@@ -598,12 +594,7 @@ class BeyondController extends InventoryAwareController
         $zone = $citizen->getZone();
         $town = $citizen->getTown();
 
-        $watchtower = $th->getBuilding($town, 'item_tagger_#00',  true);
-        if ($watchtower && $special === 'normal') switch ($watchtower->getLevel()) {
-            case 4: $port_distance = 1;  break;
-            case 5: $port_distance = 2;  break;
-            default:$port_distance = 0; break;
-        } else $port_distance = 0;
+        $port_distance = $this->events->queryTownParameter( $town, BuildingValueQuery::BeyondTeleportRadius );
         $distance = round(sqrt( pow($zone->getX(),2) + pow($zone->getY(),2) ));
 
         if ($distance > $port_distance)

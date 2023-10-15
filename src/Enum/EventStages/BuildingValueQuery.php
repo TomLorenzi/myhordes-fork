@@ -24,4 +24,5 @@ enum BuildingValueQuery {
     case NightlyRedSoulPenalty;
     case MaxItemDefense;
     case ScoutMarkingsEnabled;
+    case BeyondTeleportRadius;
 }
