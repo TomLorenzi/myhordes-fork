@@ -177,6 +177,9 @@
                     <input type="checkbox" name="zone-camp" id="zone-camp"{% if citizen_hidden or sect == 'ca' %} checked="checked"{% endif %} /><label for="zone-camp">{% trans from 'game' %}Die Zone untersuchen{% endtrans %}</label>
                     <div class="zone-camp-info">
                         <p>{% trans from 'game' %}Du schaust dir die Gegend etwas genauer an...{% endtrans %}</p>
+                        {% if camping_capacity != "" %}
+                            <p>{{ camping_capacity|trans({}, 'game') }}</p>
+                        {% endif %}
                         {% if camping_zone != "" %}
                             <p>{{ camping_zone|trans({}, 'game') }}</p>
                         {% endif %}
