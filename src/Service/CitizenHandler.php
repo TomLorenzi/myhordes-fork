@@ -23,6 +23,7 @@ use App\Entity\PictoPrototype;
 use App\Entity\PrivateMessage;
 use App\Entity\PrivateMessageThread;
 use App\Entity\Town;
+use App\Entity\Zone;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use DateTime;
@@ -579,10 +580,16 @@ class CitizenHandler
         return $days * ( $days + 1 ) / 2;
     }
 
-    public function getCampingChance(Citizen $citizen): float {
+    public function getCampingOdds(Citizen $citizen): float {
+		return max(0, min(array_sum($this->getCampingValues($citizen)) / 100.0, $citizen->getProfession()->getName() === 'survivalist' ? 1.0 : 0.9));
+    }
+
+    public function getCampingValues(Citizen $citizen): array {
         // In order to don't overflow 100%, we take the min between 0 and the camping value.
         // Camping value is going more and more negative when your camping chances are dropping.
         // The survivalist job can reach 100% of camping survival chances. Others are stuck at 90%.
+
+        $zone = $citizen->getZone();
 
 		// Generic infos
 		$is_panda = $citizen->getTown()->getType()->getName() === 'panda';
@@ -591,6 +598,7 @@ class CitizenHandler
 		$has_scout_protection = $this->inventory_handler->countSpecificItems(
 			$citizen->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
 		) > 0;
+        $previous_campers = $zone->getPreviousCampers($citizen);
 
 		$chance = [
 			'previous' => 0,
@@ -627,16 +635,10 @@ class CitizenHandler
 		$chance["town"] = (int)$config->get(TownConf::CONF_MODIFIER_CAMPING_BONUS, 0);
 
 		// Zone improvement
-		$chance["zone"] = $citizen->getZone()->getImprovementLevel();
-		if ($citizen->getZone()->getPrototype()) {
-			if ($citizen->getZone()->getBuryCount() == 0) {
-				$chance["zoneBuilding"] = $citizen->getZone()->getPrototype()->getCampingLevel();
-			} else {
-				$chance["zoneBuilding"] = 15;
-			}
-		} else {
-			$chance["zoneBuilding"] = -25;
-		}
+		$chance["zone"] = $zone->getImprovementLevel();
+
+        // Ruin
+        $chance["zoneBuilding"] = $this->getZoneBuildingBonus($citizen);
 
 		// Lighthouse
 		if ($this->container->get(TownHandler::class)->getBuilding( $citizen->getTown(), "small_lighthouse_#00", true ))
@@ -651,12 +653,12 @@ class CitizenHandler
 
 		// Zombies on the zone
 		$zombieRatio = ($has_scout_protection ? -3 : -7);
-		$chance["zombies"] = $citizen->getZone()->getZombies() * $zombieRatio;
+		$chance["zombies"] = $zone->getZombies() * $zombieRatio;
 
 		// Other campers on the zone
-		if (count($citizen->getZone()->getCampers()) > 0) {
+		if ($previous_campers > 0) {
 			$crowdChances = [0,-10,-30,-50,-70];
-			$cc = $crowdChances[ min(count($crowdChances) - 1, max(0, count($citizen->getZone()->getCampers()) - 2))]; // -1 because we must not count ourselves AND we ignore the first camper.
+			$cc = $crowdChances[ min(count($crowdChances) - 1, max(0, $previous_campers - 2))]; // -1 because we must not count ourselves AND we ignore the first camper.
 			$chance["campers"] = $cc;
 		}
 
@@ -669,188 +671,57 @@ class CitizenHandler
 
 		// Zone distance
 		$distChances = [-100, -75, -50, -25, -10, 0, 0, 0, 0, 0, 0, 0, 5, 7, 10, 15, 20];
-		$chance["distance"] = $distChances[ min(count($distChances) - 1, $citizen->getZone()->getDistance()) ];
+		$chance["distance"] = $distChances[ min(count($distChances) - 1, $zone->getDistance()) ];
 
 		// Devastated town
 		if ($citizen->getTown()->getDevastated())
 			$chance["devastated"] = -50;
 
-		return max(0, min(array_sum($chance) / 100.0, $citizen->getProfession()->getName() === 'survivalist' ? 1.0 : 0.9));
+		return $chance;
 		// OLD METHOD:
         // return min(max((100.0 - (abs(min(0, array_sum($this->getCampingValues($citizen)))) * 5)) / 100.0, .1), $citizen->getProfession()->getName() === 'survivalist' ? 1.0 : 0.9);
     }
 
-    public function getCampingValues(Citizen $citizen): array {
-        // Based on https://docs.google.com/spreadsheets/d/1uxSAGoNUIhSPGY7fj_3yPzJEri9ktEXLj9Wt7x_B9Ig/edit#gid=555313428
-        // and on   http://www.camping-predict.nadazone.fr/
-        $camping_values = [];
+    /**
+     * Obtain the currently available camping bonus provided by a ruin in this area.
+     * Takes into account the current camping priority of the provided citizen.
+     */
+    public function getZoneBuildingBonus(Citizen $citizen) {
         $zone = $citizen->getZone();
-        $town = $citizen->getTown();
-        $has_pro_camper = $citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'procamp');
-        $has_scout_protection = $this->inventory_handler->countSpecificItems(
-                $citizen->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
-            ) > 0;
-        $is_panda = $town->getType()->getName() === 'panda';
+        $ruin = $zone->getPrototype();
 
-        $config = $this->conf->getTownConfiguration($citizen->getTown());
+        // Empty desert default penalty
+        $chance = -25;
 
-        // Town type: Pandemonium gets malus of 14, all other types are neutral.
-        $camping_values['town'] = (int)$config->get(TownConf::CONF_MODIFIER_CAMPING_BONUS, 0);
+        // Try to hide inside a building
+		if ($this->canHideInsideCurrentBuilding($citizen)) {
+            // Buried ruin bonus
+            $chance = 15;
 
-        // Distance in km
-        $distance_map = [
-            1 => -24,
-            2 => -19,
-            3 => -14,
-            4 => -11,
-            5 => -9,
-            6 => -9,
-            7 => -9,
-            8 => -9,
-            9 => -9,
-            10 => -9,
-            11 => -9,
-            12 => -8,
-            13 => -7.6,
-            14 => -7,
-            15 => -6,
-        ];
-
-        $zone_distance = $zone->getDistance();
-        if ($zone_distance >= 16) {
-            $camping_values['distance'] = -5;
-        }
-        else {
-            $camping_values['distance'] = $distance_map[$zone_distance];
-        }
-
-        // Ruin in zone.
-        $camping_values['ruin'] = $zone->getPrototype() ? ($zone->getBuryCount() <= 0 ? $zone->getPrototype()->getCampingLevel() : 8) : 0;
-
-        // Zombies in zone. Factor -1.4, for hidden scouts it is -0.6.
-        $camping_values['zombies'] = ($has_scout_protection ? -0.6 : -1.4) * $zone->getZombies();
-
-        // Zone improvement level.
-        $camping_values['improvement'] = $zone->getImprovementLevel();
-
-        // Camping count. After each night in camping, you have an increasing malus.
-        // Arbitrary values are here to be sure that citizen will be camping with lowest chance (or make the night count in array).
-        $campings_map = [
-            'normal' => [
-                'nonpro' => [
-                    0 => 0,
-                    1 => -4,
-                    2 => -9,
-                    3 => -13,
-                    4 => -16,
-                    5 => -26,
-                    6 => -36,
-                    7 => -50, // Totally arbitrary
-                    8 => -65, // Totally arbitrary
-                    9 => -80 // Totally arbitrary
-                ],
-                'pro' => [
-                    0 => 0,
-                    1 => -2,
-                    2 => -4,
-                    3 => -8,
-                    4 => -10,
-                    5 => -12,
-                    6 => -16,
-                    7 => -26,
-                    8 => -36,
-                    9 => -60 // Totally arbitrary
-                ]
-            ],
-            'hard' => [
-                'nonpro' => [
-                    0 => 0,
-                    1 => -4,
-                    2 => -6,
-                    3 => -8,
-                    4 => -10,
-                    5 => -20,
-                    6 => -36,
-                    7 => -50, // Totally arbitrary
-                    8 => -65, // Totally arbitrary
-                    9 => -80 // Totally arbitrary
-                ],
-                'pro' => [
-                    0 => 0,
-                    1 => -1,
-                    2 => -2,
-                    3 => -4,
-                    4 => -6,
-                    5 => -8,
-                    6 => -10,
-                    7 => -20,
-                    8 => -36, // Totally arbitrary
-                    9 => -60 // Totally arbitrary
-                ]
-            ],
-        ];
-
-        $camping_values['campings'] = $campings_map[$config->get(TownConf::CONF_MODIFIER_CAMPING_CHANCE_MAP, 'normal')][$has_pro_camper ? 'pro' : 'nonpro'][min(9,$citizen->getCampingCounter())];
-
-        // Campers that are already hidden.
-        $campers_map = [
-            0 => 0,
-            1 => 0,
-            2 => -2,
-            3 => -6,
-            4 => -10,
-            5 => -14,
-            6 => -20
-        ];
-
-        $previous_campers = 0;
-        $zone_campers = $zone->getCampers();
-        foreach ($zone_campers as $camper) {
-            if ($camper !== $citizen) {
-                $previous_campers++;
+            // Ruin bonus
+            if($zone->getBuryCount() == 0) {
+                $chance = $ruin->getCampingLevel();
             }
-            else {
-                break;
-            }
-        }
-        if ($previous_campers >= 7) {
-            $camping_values['campers'] = -26;
-        }
-        else {
-            $camping_values['campers'] = $campers_map[$previous_campers];
-        }
+		}
 
-        // Hautfetzen + Zeltplanen
-        $campitems = [
-            $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( 'smelly_meat_#00' ),
-            $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( 'sheet_#00' ),
-        ];
-        $camping_values['campitems'] = $this->inventory_handler->countSpecificItems($citizen->getInventory(), $campitems, false, false);
+        return $chance;
+    }
 
-        // Grab
-        $camping_values['tomb'] = 0;
-        if ($citizen->getStatus()->contains( $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' ) )) {
-            $camping_values['tomb'] = 1.6;
-        }
+    /**
+     * Checks if the citizen is able to hide inside the building.
+     * If the citizen is already hidden, takes into account his camping priority.
+     */
+    public function canHideInsideCurrentBuilding(Citizen $citizen): bool {
+        $zone = $citizen->getZone();
+        $ruin = $zone->getPrototype();
 
-        // Night time bonus.
-        $camping_values['night'] = 0;
-        $camping_datetime = new DateTime();
-        if ($citizen->getCampingTimestamp() > 0)
-            $camping_datetime->setTimestamp( $citizen->getCampingTimestamp() );
-        if ($config->isNightMode())
-            $camping_values['night'] = 2;
+        // No building to hide inside
+        if(!$ruin) return false;
 
-        // Leuchtturm
-        $camping_values['lighthouse'] = 0;
+        $previous_campers = $zone->getPreviousCampers($citizen);
+        $capacity = $zone->getBuildingCampingCapacity();
 
-        if ($this->container->get(TownHandler::class)->getBuilding( $town, "small_lighthouse_#00", true ))
-            $camping_values['lighthouse'] = 5; //camping improvement or percent ? Because it's 5 camping improvement normally
-
-        // Devastated town.
-        $camping_values['devastated'] = $town->getDevastated() ? -10 : 0;
-
-        return $camping_values;
+        return $capacity < 0 || $previous_campers < $capacity;
     }
 
     public function getNightwatchProfessionDefenseBonus(Citizen $citizen): int{

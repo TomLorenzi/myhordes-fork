@@ -45,6 +45,9 @@ class ZonePrototype implements RandomEntry
     #[ORM\Column(type: 'integer')]
     private ?int $chance;
 
+    #[ORM\Column(type: 'integer')]
+    private ?int $capacity;
+
     #[ORM\Column(type: 'string', length: 32)]
     private ?string $icon;
 
@@ -138,6 +141,16 @@ class ZonePrototype implements RandomEntry
     public function setChance(int $chance): self
     {
         $this->chance = $chance;
+
+        return $this;
+    }
+    public function getCapacity(): ?int
+    {
+        return $this->capacity;
+    }
+    public function setCapacity(int $capacity): self
+    {
+        $this->capacity = $capacity;
 
         return $this;
     }

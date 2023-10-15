@@ -231,26 +231,27 @@ class BeyondController extends InventoryAwareController
     #[Route(path: 'jx/beyond/desert/{sect}', name: 'beyond_dashboard')]
     public function desert(TownHandler $th, string $sect = ''): Response
     {
+        $citizen = $this->getActiveCitizen();
         $request = Request::createFromGlobals();
         $inline = $request->headers->get('X-Render-Target') === 'beyond_desert_content';
 
-        if (!$this->getActiveCitizen()->getHasSeenGazette())
+        if (!$citizen->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
             
-        $town = $this->getActiveCitizen()->getTown();
-        $zone = $this->getActiveCitizen()->getZone();
+        $town = $citizen->getTown();
+        $zone = $citizen->getZone();
 
         $port_distance = $this->events->queryTownParameter( $town, BuildingValueQuery::BeyondTeleportRadius );
         $distance = round(sqrt( pow($zone->getX(),2) + pow($zone->getY(),2) ));
 
-        $can_enter = $distance <= $port_distance && !$this->getActiveCitizen()->isCamping();
+        $can_enter = $distance <= $port_distance && !$citizen->isCamping();
         $is_on_zero = $zone->getX() == 0 && $zone->getY() == 0;
 
-        $citizen_tired = $this->getActiveCitizen()->getAp() <= 0 || $this->citizen_handler->isTired( $this->getActiveCitizen());
+        $citizen_tired = $citizen->getAp() <= 0 || $this->citizen_handler->isTired($citizen);
 
         $blocked = !$this->zone_handler->isZoneUnderControl($zone, $cp);
-        $escape = $this->get_escape_timeout( $this->getActiveCitizen() );
-        $escape_desperate = ($escape < 0) ? $this->get_escape_timeout( $this->getActiveCitizen(), true ) : -1;
+        $escape = $this->get_escape_timeout($citizen);
+        $escape_desperate = ($escape < 0) ? $this->get_escape_timeout( $citizen, true ) : -1;
 
         $require_ap = ($is_on_zero && $th->getBuilding($town, 'small_labyrinth_#00',  true));
 
@@ -285,6 +286,35 @@ class BeyondController extends InventoryAwareController
                 $camping_zone = $camping_zone_texts[8];
             }
 
+            // Ruin capacity Information
+            $ruin_capacity_texts = [
+                // -1 when there were slots, but none are left
+                -1 => T::__("Es scheint, dass alle guten Verstecke bereits von Ihren \"Freunden\" besetzt sind. Sie müssen also einen anderen Ort finden oder improvisieren...", 'game'),
+                0 => T::__("Du siehst nicht wirklich, wo du dich hier verstecken könntest...", 'game'),
+                1 => T::__("Egal, wie sehr du suchst, es erscheint offensichtlich, dass es an diesem Ort nur ein einziges geeignetes Versteck gibt. Entscheide selbst...", 'game'),
+                2 => T::__("Dieser Ort bietet Möglichkeiten zum Verstecken, wenn du kreativ genug bist.", 'game'),
+                3 => T::__("Dieser Ort bietet Möglichkeiten zum Verstecken, wenn du kreativ genug bist.", 'game'),
+                4 => T::__("Du beobachtest mehrere geeignete Verstecke, aber es wird nicht für jeden etwas dabei sein.", 'game'),
+                5 => T::__("Es sollte nicht allzu schwer sein, diesen Ort zum Untertauchen auszunutzen.", 'game'),
+            ];
+
+            $camping_capacity = "";
+            $ruin_capacity = $zone->getBuildingCampingCapacity();
+
+            if($zone->getPrototype() && $ruin_capacity !== -1) {
+                $zone_capacity = max(0, min(5, $zone->getBuildingCampingCapacity() - $zone->getPreviousCampers($citizen)));
+
+                $camping_capacity = $ruin_capacity_texts[$zone_capacity];
+
+                // When building at full capacity, display a special text
+                if($zone->getPrototype()->getCapacity() > 0 && $zone_capacity <= 0) {
+                    $camping_capacity = $ruin_capacity_texts[-1];
+
+                    // Set building text to default (outside) when no slot is left
+                    $camping_zone = $camping_zone_texts[1];
+                }
+            }
+
             $camping_zombie_texts = [
                 0 => '', // T::__('text','domain')
                 1 => T::__("Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...", 'game'),
@@ -308,9 +338,9 @@ class BeyondController extends InventoryAwareController
                 6 => T::__("Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.", 'game'),
                 7 => T::__("Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.", 'game'),
             ];
-            $survival_chance = $this->getActiveCitizen()->getCampingChance() > 0
-            ? $this->getActiveCitizen()->getCampingChance()
-            : $this->citizen_handler->getCampingChance($this->getActiveCitizen());
+            $survival_chance = $citizen->getCampingChance() > 0
+                ? $citizen->getCampingChance()
+                : $this->citizen_handler->getCampingOdds($citizen);
             if ($survival_chance <= .10) {
                 $camping_chance = $camping_chance_texts[0];
             } else if ($survival_chance <= .3) {
@@ -331,7 +361,7 @@ class BeyondController extends InventoryAwareController
                 $camping_chance = "";
             }
 
-            $camping_improvable = ($survival_chance < $this->citizen_handler->getCampingChance($this->getActiveCitizen())) ? $this->translator->trans("Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?", [], 'game') : "";
+            $camping_improvable = ($survival_chance < $this->citizen_handler->getCampingOdds($citizen)) ? $this->translator->trans("Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?", [], 'game') : "";
 
             $camping_blueprint = "";
             $blueprintFound = false;
@@ -345,7 +375,7 @@ class BeyondController extends InventoryAwareController
             } else $camping_blueprint = T::__("Du erhälst einen Bauplan wenn Du in diesem Gebäude campst, aber du musst zunächst die Zone aufräumen.", 'game');
 
             // Uncomment next line to show camping values in game interface.
-            #$camping_debug = "DEBUG CampingChances\nSurvivalChance for Comparison: " . $survival_chance . "\nCitizenCampingChance: " . $this->getActiveCitizen()->getCampingChance() . "\nCitizenHandlerCalculatedChance: " . $this->citizen_handler->getCampingChance($this->getActiveCitizen()) . "\nCalculationValues:\n" . str_replace( ',', "\n", str_replace( ['{', '}'], '', json_encode($this->citizen_handler->getCampingValues($this->getActiveCitizen()), 8) ) );
+            #$camping_debug = "DEBUG CampingChances\nSurvivalChance for Comparison: " . $survival_chance . "\nCitizenCampingChance: " . $citizen->getCampingChance() . "\nCitizenHandlerCalculatedChance: " . $this->citizen_handler->getCampingOdds($citizen) . "\nCalculationValues:\n" . str_replace( ',', "\n", str_replace( ['{', '}'], '', json_encode($this->citizen_handler->getCampingValues($citizen), 8) ) );
         }
 
         $zone_tags = [];
@@ -354,27 +384,28 @@ class BeyondController extends InventoryAwareController
         }
 
         $args = $this->addDefaultTwigArgs(null, array_merge([
-            'scout' => $this->getActiveCitizen()->getProfession()->getName() === 'hunter',
+            'scout' => $citizen->getProfession()->getName() === 'hunter',
             'allow_enter_town' => $can_enter,
             'doors_open' => $town->getDoor(),
             'town' => $town,
             'show_ventilation'  => $is_on_zero && $th->getBuilding($town, 'small_ventilation_#00',  true) !== null,
-            'allow_ventilation' => $this->getActiveCitizen()->getProfession()->getHeroic(),
-            'show_sneaky' => $is_on_zero && $this->getActiveCitizen()->hasRole('ghoul') && $town->getDoor(),
+            'allow_ventilation' => $citizen->getProfession()->getHeroic(),
+            'show_sneaky' => $is_on_zero && $citizen->hasRole('ghoul') && $town->getDoor(),
             'enter_costs_ap' => $require_ap,
-            'can_escape' => !$this->citizen_handler->isWounded( $this->getActiveCitizen() ) && !$citizen_tired,
-            'can_attack' => !$citizen_tired && !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'wound2'),
-            'can_attack_nr' => $citizen_tired ? 'tired' : ( $this->citizen_handler->isWounded($this->getActiveCitizen()) ? 'wounded' : false ),
-            'can_escape_nr' => $citizen_tired ? 'tired' : ( $this->citizen_handler->isWounded($this->getActiveCitizen()) ? 'wounded' : false ),
+            'can_escape' => !$this->citizen_handler->isWounded( $citizen ) && !$citizen_tired,
+            'can_attack' => !$citizen_tired && !$this->citizen_handler->hasStatusEffect($citizen, 'wound2'),
+            'can_attack_nr' => $citizen_tired ? 'tired' : ( $this->citizen_handler->isWounded($citizen) ? 'wounded' : false ),
+            'can_escape_nr' => $citizen_tired ? 'tired' : ( $this->citizen_handler->isWounded($citizen) ? 'wounded' : false ),
             'zone_blocked' => $blocked,
             'zone_escape' => $escape,
             'zone_escape_desperate' => $escape_desperate,
-            'digging' => $this->getActiveCitizen()->isDigging(),
-            'dig_ruin' => $this->getActiveCitizen()->getZone()->getActivityMarkerFor( ZoneActivityMarkerType::RuinDig, $this->getActiveCitizen() ) === null,
+            'digging' => $citizen->isDigging(),
+            'dig_ruin' => $citizen->getZone()->getActivityMarkerFor( ZoneActivityMarkerType::RuinDig, $citizen ) === null,
             'actions' => $this->getItemActions(),
             'other_citizens' => $zone->getCitizens(),
-            'day' => $this->getActiveCitizen()->getTown()->getDay(),
+            'day' => $citizen->getTown()->getDay(),
             'camping_zone' => $camping_zone ?? '',
+            'camping_capacity' => $camping_capacity ?? '',
             'camping_zombies' => $camping_zombies ?? '',
             'camping_chance' => $camping_chance ?? '',
             'camping_improvable' => $camping_improvable ?? '',

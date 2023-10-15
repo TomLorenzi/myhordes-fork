@@ -1186,7 +1186,7 @@ class ActionHandler
                     case 10: {
                         $date = new DateTime();
                         $citizen->setCampingTimestamp( $date->getTimestamp() );
-                        $citizen->setCampingChance( $this->citizen_handler->getCampingChance($citizen) );
+                        $citizen->setCampingChance( $this->citizen_handler->getCampingOdds($citizen) );
                         $dig_timers = $citizen->getDigTimers();
                         foreach ($dig_timers as $timer) {
                             $timer->setPassive(true);

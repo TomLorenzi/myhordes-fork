@@ -54,18 +54,19 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
 
             // Set property
             $entity
-            ->setLabel( $entry['label'] )
-            ->setDescription( $entry['desc'] )
-            ->setCampingLevel( $entry['camping'] ?? '10' ) // It's 10% per default
-            ->setMinDistance( $entry['min_dist'] )
-            ->setMaxDistance( $entry['max_dist'] )
-            ->setChance( $entry['chance'] )
-            ->setIcon( $entry['icon'] )
-            ->setDrops( FixtureHelper::createItemGroup( $manager, 'zp_drop_' . substr(md5($entry['label']),0, 24), $entry['drops'] ) )
-            ->setExplorable( $entry['explorable'] ?? 0 )
-            ->setExplorableSkin( $entry['explorable_skin'] ?? 'bunker' )
-            ->setExplorableDescription( $entry['explorable_desc'] ?? $entry['desc'] ?? null )
-            ->setEmptyDropChance( $entry['empty'] ?? 0.25 )
+                ->setLabel( $entry['label'] )
+                ->setDescription( $entry['desc'] )
+                ->setCampingLevel( $entry['camping'] ?? '10' ) // It's 10% per default
+                ->setMinDistance( $entry['min_dist'] )
+                ->setMaxDistance( $entry['max_dist'] )
+                ->setChance( $entry['chance'] )
+                ->setIcon( $entry['icon'] )
+                ->setDrops( FixtureHelper::createItemGroup( $manager, 'zp_drop_' . substr(md5($entry['label']),0, 24), $entry['drops'] ) )
+                ->setExplorable( $entry['explorable'] ?? 0 )
+                ->setExplorableSkin( $entry['explorable_skin'] ?? 'bunker' )
+                ->setExplorableDescription( $entry['explorable_desc'] ?? $entry['desc'] ?? null )
+                ->setEmptyDropChance( $entry['empty'] ?? 0.25 )
+                ->setCapacity( $entry['capacity'] ?? -1 )
             ;
 
             foreach ($entity->getNamedDrops() as $existing_drop)
