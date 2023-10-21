@@ -94,9 +94,6 @@ class DeathHandler
             $this->citizen_handler->pass_airborne_ghoul_infection($citizen);
 
         $survivedDays = max(0, $citizen->getTown()->getDay() - 1);
-        if($citizen->getTown()->getDevastated() && ($this->citizen_handler->hasStatusEffect($citizen, 'tg_hide') || $this->citizen_handler->hasStatusEffect($citizen, 'tg_tomb')))
-            $survivedDays += 1;
-
         $citizen->setSurvivedDays($survivedDays);
         $citizen->setDayOfDeath($citizen->getTown()->getDay());
 
