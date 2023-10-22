@@ -83,8 +83,8 @@ class UpdateTranslationsCommand extends Command
 
             $this->conf_trans->setConfigured(true);
             if ($input->getOption('disable-db') || $input->getOption('prime')) $this->conf_trans->setDatabaseSearch(false);
-            if ($input->getOption('disable-twig') || $input->getOption('prime')) $this->conf_trans->setTwigSearch(false);
-            if ($input->getOption('disable-config') || $input->getOption('prime')) $this->conf_trans->setConfigSearch(false);
+            if ($input->getOption('disable-twig')) $this->conf_trans->setTwigSearch(false);
+            if ($input->getOption('disable-config')) $this->conf_trans->setConfigSearch(false);
 
             try {
                 if (!$input->getOption('prime')) {

@@ -144,6 +144,10 @@ services:
       arguments: ['@app.decoration.translator.inner']
       public: false
 
+    # This disables the default twig extractor
+    twig.translation.extractor:
+      abstract: true
+
     App\Translation\NameResolverVisitor:
       tags:
         - { name: translation.extractor.visitor, priority: 999 }
