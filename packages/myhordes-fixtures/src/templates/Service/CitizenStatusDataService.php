@@ -79,6 +79,7 @@ class CitizenStatusDataService implements FixtureProcessorInterface {
             'tg_stats_locked' => ['name' => 'tg_stats_locked', 'volatile' => false],
             'tg_rec_heroic' => ['name' => 'tg_rec_heroic', 'volatile' => false],
             'tg_unban_altar' => ['name' => 'tg_unban_altar', 'volatile' => false],
+            'tg_camping_death' => ['name' => 'tg_camping_death', 'volatile' => false],
         ]);
     }
 }

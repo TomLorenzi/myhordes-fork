@@ -61,7 +61,7 @@ class MessageTownMessageController extends MessageController
 
         $allowed_types = ['pm', 'global'];
 
-        if(!in_array($type, $allowed_types)) {
+        if(!in_array($type, $allowed_types) || mb_strlen( $content ) > 16384) {
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 

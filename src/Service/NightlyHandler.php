@@ -310,6 +310,7 @@ class NightlyHandler
 
         $camp_1 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'tg_hide']);
         $camp_2 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'tg_tomb']);
+        $camp_d = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'tg_camping_death']);
 
         foreach ($town->getCitizens() as $citizen)
             if ($citizen->getAlive() && $citizen->getZone()) {
@@ -325,8 +326,14 @@ class NightlyHandler
                     $survival_chance = $citizen->getCampingChance();
 
                     if (!$this->random->chance($survival_chance)) {
-                        $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> was at <info>{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}</info> and died while camping (survival chance was " . ($survival_chance * 100) . "%)!");
-                        $this->kill_wrap($citizen, $cod, false, 0, true, $town->getDay()+1);
+                        if ($town->getDevastated()) {
+                            $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> was at <info>{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}</info> and has been marked for a camping death (survival chance was " . ($survival_chance * 100) . "%)!");
+                            $this->citizen_handler->inflictStatus($citizen, $camp_d);
+                        } else {
+                            $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> was at <info>{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}</info> and died while camping (survival chance was " . ($survival_chance * 100) . "%)!");
+                            $this->kill_wrap($citizen, $cod, false, 0, true, $town->getDay()+1);
+                        }
+
                     }
                     else {
                         $citizen->setCampingCounter($citizen->getCampingCounter() + 1);
@@ -411,6 +418,23 @@ class NightlyHandler
         $this->log->info('<info>Processing building before the attack</info> ...');
         foreach ($town->getBuildings() as $building)
             if ($building->getComplete()) $this->events->buildingEffect( $building, $this->upgraded_building, BuildingEffectStage::BeforeDailyUpgrade );
+    }
+
+    private function stage2_vanish(Town $town) {
+        $this->log->info('<info>Vanishing citizens marked for post-devastation camping death</info> ...');
+        $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => CauseOfDeath::Vanished]);
+        $camp_d = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'tg_camping_death']);
+
+        foreach ($town->getCitizens() as $citizen)
+            if ($citizen->getAlive() && $citizen->getZone() && $this->citizen_handler->hasStatusEffect( $citizen, $camp_d )) {
+                $zone = $citizen->getZone();
+                $cp_ok = $this->zone_handler->check_cp($zone);
+
+                $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> was at <info>{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}</info> and died while camping!");
+                $this->kill_wrap($citizen, $cod, false, 0, true, $town->getDay());
+
+                $this->zone_handler->handleCitizenCountUpdate($zone, $cp_ok);
+            }
     }
 
     private function stage2_building_effects(Town $town) {
@@ -1703,6 +1727,7 @@ class NightlyHandler
         $town->setDay( $town->getDay() + 1);
         $this->log->info('Entering <comment>Phase 2</comment> - The Attack');
         $this->stage2_pre_attack_buildings($town);
+        $this->stage2_vanish($town);
         $this->stage2_building_effects($town);
         $this->stage2_day($town);
 

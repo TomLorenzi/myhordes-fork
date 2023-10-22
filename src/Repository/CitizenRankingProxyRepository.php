@@ -83,7 +83,7 @@ class CitizenRankingProxyRepository extends ServiceEntityRepository
                 $qb->andWhere('c.end IS NOT NULL AND c.end >= :from')->setParameter('from', $from);
 
             if ($skip_redacted)
-                $qb->andWhere('c.disabled = false')->andWhere('t.disabled = false');
+                $qb->andWhere('c.disabled = false')->andWhere('t.disabled = false')->andWhere('c.disableFlag = 0');
 
             return $qb->getQuery()->getSingleScalarResult();
         } catch (Exception $e) {
