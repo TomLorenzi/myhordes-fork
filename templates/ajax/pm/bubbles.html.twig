@@ -128,6 +128,8 @@
             {% endfor %}
         {% elseif entry.system or (entry.owner and entry.owner.id == 66) %}
             <span class="author crow-note">{{ 'Der Rabe'|trans({},'global') }}</span>
+        {% elseif entry.owner and entry.owner.id == 67 %}
+            <span class="author"><b class="sender">{{ 'Animateur-Team'|trans({},'global') }}</b></span>
         {% elseif entry.official is not null and app.user not in entry.users %}
             {% if (entry.users|length < 5) %}
                 {% for message_partner in entry.users %}

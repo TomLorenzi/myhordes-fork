@@ -28,7 +28,7 @@
                 <li class="tab" x-tab-id="citizens"><div class="tab-link">{{ 'Bürger'|trans({},'admin') }}</div></li>
                 </div>
             </ul>
-            {# @var town \App\Entity\TownRankingEntry #}
+            {# @var town \App\Entity\TownRankingProxy #}
             <div x-tab-group="admin-town" x-tab-id="dash" x-tab-target>
                 <div class="row">
                     <div class="cell padded rw-6 rw-sm-12">
@@ -40,7 +40,8 @@
                         {{ _self.valuelist('Saison'|trans({},'admin'),     town.season ? town.season.number : '--') }}
                         {{ _self.valuelist('Tag'|trans({},'admin'),        town.days) }}
                         {{ _self.valuelist('Importiert'|trans({},'admin'), town.imported) }}
-
+                        {{ _self.valuelist('Beginn'|trans({}, 'admin')    , town.begin|format_datetime) }}
+                        {{ _self.valuelist('Ende'|trans({}, 'admin')      , town.end|format_datetime) }}
                     </div>
                 </div>
             </div>

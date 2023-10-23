@@ -1036,7 +1036,7 @@ ul.subscriptions {
       &>li {
         position: relative; list-style: disc; clear: both;
         div.pm-avatar, div.pm-avatar-crow {
-          position: absolute; height: 40px; width: 40px; border-radius: 100%; top: 0; left: 0;
+          position: absolute; height: 40px; width: 40px; border-radius: 100%; top: 0; left: -40px;
           background: @myhordes-smalltext; font-size: 16px; filter: drop-shadow(0 0 4px black);
           &.pm-avatar-crow { background: url(../../img/forum/crow/crow.png) center / cover no-repeat; border: 2px solid #3e0000; filter: drop-shadow(0 0 4px #3e0000) }
         }
@@ -1084,7 +1084,7 @@ ul.subscriptions {
 
         div.pm-announce {
 
-          div.pm-avatar { left: 6px; top: 3px; }
+          div.pm-avatar, div.pm-avatar-crow { left: 6px; top: 3px; }
 
           &>div.pm-message-content {
             &:before {
