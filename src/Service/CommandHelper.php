@@ -88,6 +88,7 @@ class CommandHelper
         $process_handle = popen( $command, 'r' );
 
         $lines = [];
+        if ($output) $output->writeln( "" );
         if (!$detach) while (($line = fgets( $process_handle )) !== false) {
             if ($output) $output->write( "> {$line}" );
             $lines[] = $line;
