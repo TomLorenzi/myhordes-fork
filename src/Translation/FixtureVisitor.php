@@ -39,6 +39,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 final class FixtureVisitor extends AbstractVisitor implements NodeVisitor
 {
     private ?MessageCatalogue $catalogue = null;
+	private TranslationConfigGlobal $configGlobal;
+	private string $currentFixture;
 
     public function __construct(
         TranslationConfigGlobal $config, TranslatorInterface $trans,
@@ -46,6 +48,7 @@ final class FixtureVisitor extends AbstractVisitor implements NodeVisitor
         private readonly ContainerInterface $container
     ) {
         $this->catalogue = $config->skipExistingMessages() ? $trans->getCatalogue('de') : null;
+		$this->configGlobal = $config;
     }
 
     public function beforeTraverse(array $nodes): ?Node
@@ -55,7 +58,7 @@ final class FixtureVisitor extends AbstractVisitor implements NodeVisitor
 
     protected function addMessageToCatalogue(string $message, ?string $domain, int $line): void {
         if ($this->catalogue?->has($message,$domain)) return;
-
+		$this->configGlobal->add_source_for($message, $domain, 'fixture', str_replace('MyHordes\\Plugins\\Fixtures\\', '', $this->currentFixture));
         parent::addMessageToCatalogue($message,$domain,$line);
     }
 
@@ -85,6 +88,7 @@ final class FixtureVisitor extends AbstractVisitor implements NodeVisitor
     }
 
     protected function extractData( FixtureChainInterface $provider, array $data ): bool {
+		$this->currentFixture = $provider::class;
         return match ($provider::class) {
             Action::class =>
                 $this->extractArrayData( $data['message_keys'] ?? [], 'items') &&
