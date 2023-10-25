@@ -71,6 +71,7 @@ final class TMethodVisitor extends AbstractVisitor implements NodeVisitor
 
     protected function addMessageToCatalogue(string $message, ?string $domain, int $line): void {
         if ($this->catalogue?->has($message,$domain) || !$this->config->checkPath( $this->relative_path )) return;
+		$this->config->add_source_for($message, $domain, "php", $this->relative_path);
         parent::addMessageToCatalogue($message,$domain,$line);
     }
 
