@@ -49,7 +49,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
         // Iterate over all entries
         foreach ($zone_class_data as $entry) {
             // Get existing entry, or create new one
-            $entity = $this->entityManager->getRepository(ZonePrototype::class)->findOneBy( ['label' => $entry['label']] );
+            $entity = $this->entityManager->getRepository(ZonePrototype::class)->findOneBy( ['icon' => $entry['icon']] );
             if ($entity === null) $entity = new ZonePrototype();
 
             // Set property
