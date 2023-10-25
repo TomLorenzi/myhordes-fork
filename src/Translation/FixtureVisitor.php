@@ -32,6 +32,7 @@ use MyHordes\Plugins\Management\FixtureSourceLookup;
 use PhpParser\Node;
 use PhpParser\NodeVisitor;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Translation\Extractor\Visitor\AbstractVisitor;
 use Symfony\Component\Translation\MessageCatalogue;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -40,16 +41,26 @@ final class FixtureVisitor extends AbstractVisitor implements NodeVisitor
 {
     private ?MessageCatalogue $catalogue = null;
 	private TranslationConfigGlobal $configGlobal;
-	private string $currentFixture;
+	private string $base_path = '';
+	private string $relative_path = '';
 
-    public function __construct(
+	public function __construct(
         TranslationConfigGlobal $config, TranslatorInterface $trans,
         private readonly FixtureSourceLookup $lookup,
-        private readonly ContainerInterface $container
+        private readonly ContainerInterface $container, KernelInterface $appKernel
     ) {
         $this->catalogue = $config->skipExistingMessages() ? $trans->getCatalogue('de') : null;
 		$this->configGlobal = $config;
+		$this->base_path = (new \SplFileInfo($appKernel->getProjectDir()))->getRealPath();
     }
+
+	public function initialize(MessageCatalogue $catalogue, \SplFileInfo $file, string $messagePrefix): void
+	{
+		$this->relative_path = $file->getRealPath();
+		if ( str_starts_with( $this->relative_path, $this->base_path ) )
+			$this->relative_path = substr( $this->relative_path, strlen( $this->base_path ) );
+		parent::initialize($catalogue,$file,$messagePrefix);
+	}
 
     public function beforeTraverse(array $nodes): ?Node
     {
@@ -58,7 +69,7 @@ final class FixtureVisitor extends AbstractVisitor implements NodeVisitor
 
     protected function addMessageToCatalogue(string $message, ?string $domain, int $line): void {
         if ($this->catalogue?->has($message,$domain)) return;
-		$this->configGlobal->add_source_for($message, $domain, 'fixture', str_replace('MyHordes\\Plugins\\Fixtures\\', '', $this->currentFixture));
+		$this->configGlobal->add_source_for($message, $domain, 'fixture', $this->relative_path);
         parent::addMessageToCatalogue($message,$domain,$line);
     }
 
@@ -88,7 +99,6 @@ final class FixtureVisitor extends AbstractVisitor implements NodeVisitor
     }
 
     protected function extractData( FixtureChainInterface $provider, array $data ): bool {
-		$this->currentFixture = $provider::class;
         return match ($provider::class) {
             Action::class =>
                 $this->extractArrayData( $data['message_keys'] ?? [], 'items') &&
