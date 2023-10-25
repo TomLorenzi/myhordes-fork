@@ -4,10 +4,8 @@
 namespace App\Translation;
 
 use App\Service\Globals\TranslationConfigGlobal;
-use Iterator;
 use Symfony\Bridge\Twig\Translation\TwigExtractor;
 use Symfony\Component\HttpKernel\KernelInterface;
-use Symfony\Component\Translation\Extractor\PhpStringTokenParser;
 use Symfony\Component\Translation\MessageCatalogue;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Environment;

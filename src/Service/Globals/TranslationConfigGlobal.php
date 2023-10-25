@@ -35,6 +35,10 @@ class TranslationConfigGlobal
         return $this->source_cache[$domain][$message] ?? [];
     }
 
+	function get_sources(): array {
+		return $this->source_cache;
+	}
+
     function useFileNameMatching(): bool {
         return $this->matchFileNames !== false;
     }
