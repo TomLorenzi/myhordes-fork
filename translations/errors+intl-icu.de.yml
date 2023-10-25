@@ -6,8 +6,8 @@
 '**Lösche den Cache** deines Browsers.': '**Lösche den Cache** deines Browsers.'
 '**Lade die Seite noch einmal (je nach Browser, funktioniert das mit: CTRL + R oder F5).**': '**Lade die Seite noch einmal (je nach Browser, funktioniert das mit: CTRL + R oder F5).**'
 '**Lösche deine alten Lesezeichen**.': '**Lösche deine alten Lesezeichen**.'
-"Vergewissere dich, dass du mindestens **Firefox** oder **Google Chrome**\n                    **benutzt**.": "Vergewissere dich, dass du mindestens **Firefox** oder **Google Chrome**\n                    **benutzt**."
-"**Safari, Opera, Internet Explorer** und andere Browser werden offiziell **nicht\n                    unterstützt**.": "**Safari, Opera, Internet Explorer** und andere Browser werden offiziell **nicht\n                    unterstützt**."
+"Vergewissere dich, dass du mindestens **Firefox** oder **Google Chrome** **benutzt**.": "Vergewissere dich, dass du mindestens **Firefox** oder **Google Chrome** **benutzt**."
+"**Safari, Opera, Internet Explorer** und andere Browser werden offiziell **nicht unterstützt**.": "**Safari, Opera, Internet Explorer** und andere Browser werden offiziell **nicht unterstützt**."
 'Eventuell auftretende Probleme kannst du auf unserem Supportportal melden: {error_url}': 'Eventuell auftretende Probleme kannst du auf unserem Supportportal melden: {error_url}'
 'Bugs melden': 'Bugs melden'
 'Error {code}': 'Error {code}'
