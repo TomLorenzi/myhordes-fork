@@ -117,6 +117,9 @@ class Town
     #[ORM\Column]
     private int $bonusScore = 0;
 
+    #[ORM\Column(length: 128, nullable: true)]
+    private ?string $prime = null;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -856,6 +859,18 @@ class Town
     public function setBonusScore(int $bonusScore): static
     {
         $this->bonusScore = $bonusScore;
+
+        return $this;
+    }
+
+    public function getPrime(): ?string
+    {
+        return $this->prime;
+    }
+
+    public function setPrime(?string $prime): static
+    {
+        $this->prime = $prime;
 
         return $this;
     }

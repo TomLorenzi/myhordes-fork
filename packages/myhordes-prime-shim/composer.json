@@ -2,7 +2,7 @@
     "name": "myhordes/prime",
     "description": "This package exists as a replacement for the closed-source game content provided by the real myhordes/prime package.",
     "type": "symfony-bundle",
-    "version": "0.0.1",
+    "version": "2.0.0",
     "license": "proprietary",
     "authors": [
         {

@@ -23,7 +23,7 @@ trait ContainerTypeTrait
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    private function getService(string $service): object {
+    protected function getService(string $service): object {
         return $this->container->get($service);
     }
 }

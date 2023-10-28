@@ -18,6 +18,7 @@
         "adbario/php-dot-notation": "^3.3",
         "brainbox-et/etwin-api-client": "0.1.1",
         "clue/graph": "0.9.3",
+        "composer/semver": "^3.4",
         "doctrine/annotations": "2.0.1",
         "doctrine/doctrine-bundle": "2.10.2",
         "doctrine/doctrine-fixtures-bundle": "3.4.4",
@@ -72,6 +73,7 @@
         "twig/intl-extra": "3.7.1",
         "twig/markdown-extra": "3.7.1",
         "twig/twig": "^2.12|^3.0",
+        "wikimedia/composer-merge-plugin": "^2.1",
         "zenstruck/schedule-bundle": "^1.5"
     },
     "require-dev": {
@@ -96,7 +98,7 @@
     "repositories": [
       {
         "type": "path",
-        "url": "packages/*"
+        "url": "packages/myhordes-*"
       }
     ],
     "config": {
@@ -106,7 +108,8 @@
         "sort-packages": true,
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
-            "symfony/flex": true
+            "symfony/flex": true,
+            "wikimedia/composer-merge-plugin": true
         }
     },
     "autoload": {
@@ -147,6 +150,11 @@
         "symfony": {
             "allow-contrib": false,
             "require": "6.3.*"
+        },
+        "merge-plugin": {
+          "include": [
+            "composer.dist.json"
+          ]
         }
     }
 }

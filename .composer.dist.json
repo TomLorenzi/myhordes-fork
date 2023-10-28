@@ -1,0 +1,5 @@
+{
+    "require": {
+        "myhordes/prime-csc": "*"
+    }
+}
