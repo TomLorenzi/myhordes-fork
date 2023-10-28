@@ -3,9 +3,9 @@
 
 namespace App\EventListener\Maintenance\ContentMigrations;
 
+use App\Entity\Building;
 use App\Entity\BuildingPrototype;
 use App\Event\Game\Town\Maintenance\TownContentMigrationEvent;
-use App\EventListener\ContainerTypeTrait;
 use App\Service\TownHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
@@ -29,7 +29,7 @@ class TownContentMigrateBuildingTreeListener extends TownContentMigrationListene
         return true;
     }
 
-    private function unlock( TownContentMigrationEvent $event, BuildingPrototype $prototype ): void {
+    protected function unlock( TownContentMigrationEvent $event, BuildingPrototype $prototype ): ?Building {
         $all_parents = [$prototype];
         $current_level = $prototype;
         while ($current_level->getParent())
@@ -37,12 +37,15 @@ class TownContentMigrateBuildingTreeListener extends TownContentMigrationListene
 
         $th = $this->getService(TownHandler::class);
 
+        $b = null;
         foreach ( array_reverse($all_parents) as $parent )
-            if (!($th->getBuilding( $event->town, $parent, false ))) {
+            if (!($b = $th->getBuilding( $event->town, $parent, false ))) {
                 $b = $th->addBuilding( $event->town, $parent );
                 if (!$b) throw new \Exception("Unable to unlock <fg=green>[{$parent->getId()}]</> <fg=yellow>{$parent->getLabel()}</>");
                 $event->debug( "Unlocking <fg=green>[{$parent->getId()}]</> <fg=yellow>{$parent->getLabel()}</>." );
             }
+
+        return $b;
     }
 
     protected function execute( TownContentMigrationEvent $event ): void {

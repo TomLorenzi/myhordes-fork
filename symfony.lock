@@ -135,8 +135,8 @@
     "myhordes/plugins": {
         "version": "dev-master"
     },
-    "myhordes/prime": {
-        "version": "1.0.0"
+    "myhordes/prime-csc": {
+        "version": "2.0.0"
     },
     "nikic/php-parser": {
         "version": "v4.5.0"

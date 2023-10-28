@@ -37,6 +37,7 @@ use App\Service\Maps\MazeMaker;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Structures\TownSetup;
+use App\Traits\System\PrimeInfo;
 use App\Translation\T;
 use DateInterval;
 use Doctrine\ORM\EntityManagerInterface;
@@ -45,6 +46,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class GameFactory
 {
+    use PrimeInfo;
+
     private EntityManagerInterface $entity_manager;
     private GameValidator $validator;
     private Locksmith $locksmith;
@@ -500,7 +503,9 @@ class GameFactory
 
         $currentSeason = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
 
-        $town->setSeason($currentSeason);
+        $town
+            ->setSeason($currentSeason)
+            ->setPrime( self::buildPrimePackageVersionIdentifier() );
 
         $conf = $this->conf->getTownConfiguration($town);
 

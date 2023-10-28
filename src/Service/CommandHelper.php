@@ -22,9 +22,12 @@ use App\Structures\IdentifierSemantic;
 use DirectoryIterator;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Helper\QuestionHelper;
+use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ChoiceQuestion;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
@@ -96,6 +99,17 @@ class CommandHelper
 
         $ret = pclose($process_handle);
         return $lines;
+    }
+
+    public function console( string $command, array $arguments = [], ?OutputInterface &$output = null ): int {
+
+        $application = new Application($this->app);
+        $application->setAutoExit(false);
+
+        $input = new ArrayInput(array_merge($arguments,['command' => $command]));
+        if ($output === null) $output = new BufferedOutput();
+
+        return $application->run($input, $output);
     }
 
     public function capsule( string $command, OutputInterface $output, ?string $note = null, bool $bin_console = true, ?string &$ret_str = null, $php_bin = "php", bool $enforce_verbosity = false, int $retry = 0, ?array $as = null ): bool {

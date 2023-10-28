@@ -64,9 +64,13 @@ class MigrateContentCommand extends Command
 
         if ($dry_run) $output->writeln('<bg=yellow>DRY RUN</>');
 
-        foreach ( $town_ids as $id )
-            if (!$this->helper->capsule( "app:season:migrate --town $id" . ($dry_run ? ' --dry-run' : '') , $output, "Processing content migration for town <fg=green>$id</>... "))
-                return 1;
+        foreach ( $town_ids as $id ) {
+            $output->writeln( "Processing content migration for town <fg=green>$id</>... " );
+            if (($code = $this->helper->console( "app:season:migrate", ['--town' => $id, '--dry-run' => $dry_run], $output)) !== 0) {
+                $output->writeln("<fg=red>Error $code.</>");
+                return $code;
+            }
+        }
 
         return 0;
     }
