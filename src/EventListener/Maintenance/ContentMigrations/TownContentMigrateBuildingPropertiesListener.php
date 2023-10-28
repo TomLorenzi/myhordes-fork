@@ -58,6 +58,7 @@ class TownContentMigrateBuildingPropertiesListener extends TownContentMigrationL
 
         }
 
+        $total_vote_clamp -= $event->manually_distributed_votes;
         if ($total_vote_clamp > 0) {
             $event->debug( "Town lost a total of <fg=green>$total_vote_clamp</> daily votes. Compensating by randomly increasing the vote level of other buildings." );
 

@@ -12,6 +12,8 @@ class TownContentMigrationData
 {
     private readonly OutputInterface $output;
 
+    public int $manually_distributed_votes = 0;
+
     /**
      * @return TownContentMigrationEvent
      * @noinspection PhpDocSignatureInspection
