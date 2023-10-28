@@ -2523,11 +2523,11 @@
         },
         {
             "name": "myhordes/fixtures",
-            "version": "dev-content-migration",
+            "version": "dev-master-v2.0",
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-fixtures",
-                "reference": "59b44236a462f33ddf50f47c82b4d10febf621c6"
+                "reference": "781bcc78dac7c5da1c2457c7ebda0e793914501e"
             },
             "require": {
                 "etwin/myhordes": "@dev",
@@ -2561,11 +2561,11 @@
         },
         {
             "name": "myhordes/plugins",
-            "version": "dev-content-migration",
+            "version": "dev-master-v2.0",
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-plugins",
-                "reference": "dbc338961fb7e2a3fa17fec38ce95a580a9fc415"
+                "reference": "70fd33c9c9cddc9eb3987b4dc16e21faa6c2b517"
             },
             "require": {
                 "etwin/myhordes": "@dev",
@@ -2599,7 +2599,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-prime",
-                "reference": "2c7683879bae32fda13e1025483a38b116d3abbb"
+                "reference": "f73fcf52223506c90e38a0430c9174a399ca0b22"
             },
             "require": {
                 "php": ">=8.2",
@@ -11917,5 +11917,5 @@
     "platform-dev": {
         "ext-sqlite3": "*"
     },
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
