@@ -155,7 +155,7 @@ class ConfMaster
                 $markers = $this->entityManager->getRepository(EventActivationMarker::class)->findBy(['citizen' => $ref, 'active' => true]);
             else throw new \LogicException('Queried current event from an object that is not referenced by EventActivationMarker.');
 
-            if (empty($markers)) return [new EventConf()];
+            if (empty($markers)) return [(new EventConf())->complete()];
 
             $conf = array_map( fn(EventActivationMarker $m) => $this->getEvent( $m->getEvent() ), $markers );
             usort($conf, fn(EventConf $a, EventConf $b) => $b->priority() <=> $a->priority());
