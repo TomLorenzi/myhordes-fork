@@ -255,9 +255,24 @@ class MazeMaker
         $origin = [0,0];
         $originOffset = 0;
 
+        $conf = $this->conf->getTownConfiguration( $this->targetZone->getTown() );
+        $rooms_total = $conf->get(TownConf::CONF_EXPLORABLES_ROOMS_TOTAL,  15);
+        $rooms_min_per_floor = $conf->get(TownConf::CONF_EXPLORABLES_ROOMS_MIN, 5);
+
+        // Calculate rooms per level
+        $rooms_level = [];
+        for ($i = 0; $i < $levels; $i++) {
+            $rooms_level[$i] = $rooms_min_per_floor;
+            $rooms_total -= $rooms_min_per_floor;
+        }
+        while ($rooms_total > 0) {
+            $rooms_level[ mt_rand(0, $levels - 1) ]++;
+            $rooms_total--;
+        }
+
         for ($i = 0; $i < $levels; $i++) {
             $this->generateMaze($i, $origin, $originOffset);
-            $originZone = $this->generateRoom($i, $origin, $originOffset, $i < ($levels-1), $invert);
+            $originZone = $this->generateRoom($i, $origin, $originOffset, $i < ($levels-1), $invert, $rooms_level[ $i ]);
             if (!$originZone) break;
             $origin = [ $originZone->getX(), $originZone->getY() ];
             $originOffset += $originZone->getDistance() + 1;
@@ -432,7 +447,7 @@ class MazeMaker
      * @param bool $invertDirections
      * @return RuinZone|null
      */
-    public function generateRoom(int $level = 0, array $origin = [0,0], int $offset_distance = 0, bool $go_up = false, bool $invertDirections = false): ?RuinZone {
+    public function generateRoom(int $level = 0, array $origin = [0,0], int $offset_distance = 0, bool $go_up = false, bool $invertDirections = false, ?int $room_count = null): ?RuinZone {
         $cache = [];
         // Get a two dim array to map where are the corridors
         foreach ($this->targetZone->getRuinZonesOnLevel($level) as $ruinZone) {
@@ -458,7 +473,6 @@ class MazeMaker
         $room_distance = $conf->get(TownConf::CONF_EXPLORABLES_ROOMDIST,   5) + $offset_distance;
         $lock_distance = $conf->get(TownConf::CONF_EXPLORABLES_LOCKDIST,  10);
         $room_dist     = $conf->get(TownConf::CONF_EXPLORABLES_ROOM_DIST,  4);
-        $room_count    = $conf->get(TownConf::CONF_EXPLORABLES_ROOMS,     10);
 
         // Room candidates
         $room_candidates = [];

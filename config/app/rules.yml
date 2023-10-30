@@ -52,7 +52,12 @@ parameters:
         complexity: 0.9
         convolution: 0.2
         cruelty: 0.06
-        rooms: 10
+        room_config:
+          lock: 10
+          distance: 5
+          spacing: 4
+          total: 15
+          min: 5
         room_distance: 5
         room_spacing: 4
         lock_distance: 10

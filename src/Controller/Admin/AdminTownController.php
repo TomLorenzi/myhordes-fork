@@ -589,7 +589,7 @@ class AdminTownController extends AdminActionController
 			'day' => $town->getDay(),
 			'tab' => "eruins_explorer",
 			'explorables' => $explorables,
-
+            'town_conf' => $this->conf->getTownConfiguration( $town )
 		])));
 	}
 

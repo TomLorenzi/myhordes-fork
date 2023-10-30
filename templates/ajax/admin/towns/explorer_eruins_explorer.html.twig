@@ -29,7 +29,7 @@
 				{% for floornum, floor in exploration.rz %}
 					<div class="adm-exploration" x-tab-group="admin-town-explorable-{{ exploration.z.id }}" x-tab-id="f-{{ exploration.z.id }}-{{ floornum }}" x-tab-target>
 						{% for rz in floor %}
-							<div class="rz {% if rz.prototype and rz.connect == 0 %}rz-{{ rz.locked ? 'locked' : 'unlocked' }}{% endif%} {% if rz.prototype and rz.connect != 0 %}rz-{{ rz.connect > 0 ? 'up' : 'down' }}{% endif%} rz-{{ rz.distance > conf.get(constant('App\\Structures\\TownConf::CONF_EXPLORABLES_LOCKDIST')) ? 'far' : 'close' }} rz-{{ rz.corridor }} {% if rz.zombies > 0 %}rz-zeds{% endif %}" style="top:{{ rz.y * 20 }}px;left:{{ rz.x * 20 }}px;">
+							<div class="rz {% if rz.prototype and rz.connect == 0 %}rz-{{ rz.locked ? 'locked' : 'unlocked' }}{% endif%} {% if rz.prototype and rz.connect != 0 %}rz-{{ rz.connect > 0 ? 'up' : 'down' }}{% endif%} rz-{{ rz.distance > town_conf.get(constant('App\\Structures\\TownConf::CONF_EXPLORABLES_LOCKDIST')) ? 'far' : 'close' }} rz-{{ rz.corridor }} {% if rz.zombies > 0 %}rz-zeds{% endif %}" style="top:{{ rz.y * 20 }}px;left:{{ rz.x * 20 }}px;">
 								{% if rz.corridor != 0 %}
 									<div class="tooltip ndynamic">
 										{{ _self.valuelist('ID'|trans({},'admin'), rz.id) }}
