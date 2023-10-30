@@ -15,6 +15,7 @@ use App\Entity\PictoPrototype;
 use App\Entity\Statistic;
 use App\Entity\Town;
 use App\Entity\User;
+use App\Enum\Configuration\TownSetting;
 use App\Enum\StatisticType;
 use App\Service\AdminHandler;
 use App\Service\AntiCheatService;
@@ -524,11 +525,11 @@ class CronCommand extends Command implements SelfSchedulingCommand
                 $this->entityManager->persist($town);
                 $this->entityManager->flush();
 
-                $limit = (int)$town_conf->get( TownConf::CONF_CLOSE_TOWN_AFTER, -1 );
-                $grace = (int)$town_conf->get( TownConf::CONF_CLOSE_TOWN_GRACE, 40 );
+                $limit = (int)$town_conf->get( TownSetting::CancelTownAfterDaysWithoutFilling );
+                $grace = (int)$town_conf->get( TownSetting::DoNotCancelAfterCitizensReached );
 
-                $stranger_day   = (int)$town_conf->get( TownConf::CONF_STRANGER_TOWN_AFTER, -1 );
-                $stranger_limit = (int)$town_conf->get( TownConf::CONF_STRANGER_TOWN_MIN, 0 );
+                $stranger_day   = (int)$town_conf->get( TownSetting::SpawnStrangerAfterUnfilledDays );
+                $stranger_limit = (int)$town_conf->get( TownSetting::SpawnStrangerAfterCitizenCount );
 
                 $update_events = false;
 

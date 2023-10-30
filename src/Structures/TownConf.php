@@ -3,33 +3,16 @@
 
 namespace App\Structures;
 
+use App\Enum\Configuration\Configuration;
+use App\Enum\Configuration\TownSetting;
 use App\Enum\DropMod;
 use DateTime;
 
+/**
+ * @method get(string|TownSetting $key, $default = null): mixed
+ */
 class TownConf extends Conf
 {
-    const CONF_ALLOW_LOCAL           = 'allow_local_conf';
-
-    const CONF_CLOSE_TOWN_AFTER      = 'open_town_limit';
-    const CONF_CLOSE_TOWN_GRACE      = 'open_town_grace';
-    const CONF_STRANGER_TOWN_AFTER   = 'stranger_day_limit';
-    const CONF_STRANGER_TOWN_MIN     = 'stranger_citizen_limit';
-    const CONF_LOCK_UNTIL_FULL       = 'lock_door_until_full';
-
-    const CONF_WELL_MIN              = 'well.min';
-    const CONF_WELL_MAX              = 'well.max';
-    const CONF_MAP_MIN               = 'map.min';
-    const CONF_MAP_MAX               = 'map.max';
-    const CONF_MAP_MARGIN            = 'map.margin';
-    const CONF_POPULATION_MIN        = 'population.min';
-    const CONF_POPULATION_MAX        = 'population.max';
-
-    const CONF_MARGIN_CUSTOM_ENABLED = 'margin_custom.enabled';
-    const CONF_MARGIN_CUSTOM_NORTH	 = 'margin_custom.north';
-    const CONF_MARGIN_CUSTOM_SOUTH	 = 'margin_custom.south';
-    const CONF_MARGIN_CUSTOM_WEST	 = 'margin_custom.west';
-    const CONF_MARGIN_CUSTOM_EAST	 = 'margin_custom.east';
-
     const CONF_ZONE_ITEMS_MIN        = 'zone_items.min';
     const CONF_ZONE_ITEMS_MAX        = 'zone_items.max';
     const CONF_ZONE_ITEMS_RE_MIN     = 'zone_items.refresh_min';

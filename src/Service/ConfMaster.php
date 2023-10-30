@@ -8,6 +8,7 @@ use App\Entity\EventActivationMarker;
 use App\Entity\ServerSettings;
 use App\Entity\Town;
 use App\Entity\TownClass;
+use App\Enum\Configuration\TownSetting;
 use App\Enum\ServerSetting;
 use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
@@ -46,7 +47,7 @@ class ConfMaster
 
     public function getTownConfiguration( Town $town ): TownConf {
         $tc = new TownConf( [$this->game_rules['default'], $town->getDeriveConfigFrom() ? $this->game_rules[$town->getDeriveConfigFrom()] : [], $this->game_rules[$town->getType()->getName()]] );
-        if ($tc->complete()->get(TownConf::CONF_ALLOW_LOCAL, false) && $town->getConf()) $tc->import( $town->getConf() );
+        if ($tc->complete()->get(TownSetting::AllowLocalConfiguration) && $town->getConf()) $tc->import( $town->getConf() );
         return $tc->complete();
     }
 

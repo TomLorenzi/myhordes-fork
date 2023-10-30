@@ -31,6 +31,7 @@ use App\Entity\UserGroup;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
+use App\Enum\Configuration\TownSetting;
 use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Service\Maps\MapMaker;
 use App\Service\Maps\MazeMaker;
@@ -509,8 +510,8 @@ class GameFactory
 
         $conf = $this->conf->getTownConfiguration($town);
 
-        if ($townSetup->population === null) $townSetup->population = mt_rand( $conf->get(TownConf::CONF_POPULATION_MIN, 0), $conf->get(TownConf::CONF_POPULATION_MAX, 0) );
-        if ($townSetup->population <= 0 || $townSetup->population < $conf->get(TownConf::CONF_POPULATION_MIN, 0) || $townSetup->population > $conf->get(TownConf::CONF_POPULATION_MAX, 0))
+        if ($townSetup->population === null) $townSetup->population = mt_rand( $conf->get(TownSetting::PopulationMin), $conf->get(TownSetting::PopulationMax) );
+        if ($townSetup->population <= 0 || $townSetup->population < $conf->get(TownSetting::PopulationMin) || $townSetup->population > $conf->get(TownSetting::PopulationMax))
             return null;
 
         $this->translator->setLocale($townSetup->language ?? 'de');
@@ -522,7 +523,7 @@ class GameFactory
             ->setNameSchema( $schema )
             ->setLanguage( $townSetup->language )
             ->setBank( new Inventory() )
-            ->setWell( mt_rand( $conf->get(TownConf::CONF_WELL_MIN, 0), $conf->get(TownConf::CONF_WELL_MAX, 0) ) );
+            ->setWell( mt_rand( $conf->get(TownSetting::DefaultWellFillMin), $conf->get(TownSetting::DefaultWellFillMax) ) );
 
         if ($bb_override = $this->conf->getGlobalConf()->getBlackboardOverrideFor( $townSetup->language ))
             $town->setWordsOfHeroes( $bb_override );

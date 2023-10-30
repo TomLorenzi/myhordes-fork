@@ -3,10 +3,14 @@
 
 namespace App\Structures;
 
+use Adbar\Dot;
+use App\Enum\Configuration\Configuration;
+use ArrayHelpers\Arr;
+
 class Conf
 {
     private array $data;
-    private array $flat = [];
+    private ?Dot $dot = null;
     private bool $is_complete = false;
 
     private function deep_merge( array &$base, array $inc ) {
@@ -46,25 +50,32 @@ class Conf
     public function complete(): self {
         if ($this->is_complete) return $this;
         $this->is_complete = true;
-        $this->flat = [];
-        $this->flatten($this->data, $this->flat);
+        $this->dot = new Dot($this->data);
         return $this;
     }
 
     public function raw(): array {
-        return $this->flat;
+        return $this->dot?->flatten() ?? (new Dot($this->data))->flatten();
     }
 
     public function getData() {
         return $this->data;
     }
 
-    public function get(string $key, $default = null) {
-        return $this->flat[$key] ?? $default;
+    public function get(string|Configuration $key, $default = null) {
+        if ( is_a( $key, Configuration::class ) ) {
+
+            if ($key->abstract()) throw new \Exception("Cannot read data from abstract setting '{$key->name()}'.");
+            return $this->dot->get( $key->key(), $key->default() ?? $default );
+
+        } else return $this->dot->get( $key, $default );
     }
 
+    /**
+     * @deprecated
+     */
     public function getSubKey(string $key, string $subKey, $default = null) {
-        return $this->flat["{$key}.{$subKey}"] ?? $default;
+        return $this->get( "{$key}.{$subKey}", $default );
     }
 
     public function is(string $key, $values, $default = null): bool {

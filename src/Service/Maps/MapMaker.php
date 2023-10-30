@@ -7,6 +7,7 @@ use App\Entity\Town;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
+use App\Enum\Configuration\TownSetting;
 use App\Enum\HordeSpawnBehaviourType;
 use App\Enum\HordeSpawnGovernor;
 use App\Service\ConfMaster;
@@ -197,19 +198,19 @@ class MapMaker
     }
 
     private function getDefaultZoneResolution( TownConf $conf, ?int &$offset_x, ?int &$offset_y ): int {
-        $resolution = mt_rand( $conf->get(TownConf::CONF_MAP_MIN, 0), $conf->get(TownConf::CONF_MAP_MAX, 0) );
+        $resolution = mt_rand( $conf->get(TownSetting::MapSizeMin), $conf->get(TownSetting::MapSizeMax) );
 
-        if($conf->get(TownConf::CONF_MARGIN_CUSTOM_ENABLED, false)) {
+        if($conf->get(TownSetting::MapUseCustomMargin)) {
             $offset_x = mt_rand(
-                floor($resolution * $conf->get(TownConf::CONF_MARGIN_CUSTOM_WEST, null)),
-                floor($resolution - ($resolution * $conf->get(TownConf::CONF_MARGIN_CUSTOM_EAST, null)))
+                floor($resolution * $conf->get(TownSetting::MapCustomMarginWest)),
+                floor($resolution - ($resolution * $conf->get(TownSetting::MapCustomMarginEast)))
             );
             $offset_y = mt_rand(
-                floor($resolution * $conf->get(TownConf::CONF_MARGIN_CUSTOM_SOUTH, null)),
-                floor($resolution - ($resolution * $conf->get(TownConf::CONF_MARGIN_CUSTOM_NORTH, null)))
+                floor($resolution * $conf->get(TownSetting::MapCustomMarginSouth)),
+                floor($resolution - ($resolution * $conf->get(TownSetting::MapCustomMarginNorth)))
             );
         } else {
-            $safe_border = ceil($resolution * $conf->get(TownConf::CONF_MAP_MARGIN, 0.25));
+            $safe_border = ceil($resolution * $conf->get(TownSetting::MapSafeMargin));
 
             if ($safe_border >= $resolution/2) {
                 $offset_x = mt_rand(floor(($resolution-1)/2), ceil(($resolution-1)/2));
