@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dba2cd087ab725678a98ff46d1f10a05",
+    "content-hash": "373a3d0cdecdc30a560a714c36ea8e40",
     "packages": [
         {
             "name": "adbario/php-dot-notation",
@@ -2126,6 +2126,73 @@
             "time": "2020-02-20T18:01:41+00:00"
         },
         {
+            "name": "jawira/case-converter",
+            "version": "v3.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jawira/case-converter.git",
+                "reference": "2be05b98dcb743bef60ab6f849145bd3434ed003"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jawira/case-converter/zipball/2be05b98dcb743bef60ab6f849145bd3434ed003",
+                "reference": "2be05b98dcb743bef60ab6f849145bd3434ed003",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "behat/behat": "^3.0",
+                "phpstan/phpstan": "^1.0",
+                "phpunit/phpunit": "^9.0",
+                "vimeo/psalm": "^4.0"
+            },
+            "suggest": {
+                "pds/skeleton": "PHP Package Development Standards",
+                "phing/phing": "PHP Build Tool"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jawira\\CaseConverter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jawira Portugal",
+                    "email": "dev@tugal.be"
+                }
+            ],
+            "description": "Convert strings between 13 naming conventions: Snake case, Camel case, Pascal case, Kebab case, Ada case, Train case, Cobol case, Macro case, Upper case, Lower case, Sentence case, Title case and Dot notation.",
+            "homepage": "https://jawira.github.io/case-converter/",
+            "keywords": [
+                "Ada case",
+                "Cobol case",
+                "Macro case",
+                "Train case",
+                "camel case",
+                "dot notation",
+                "kebab case",
+                "lower case",
+                "pascal case",
+                "sentence case",
+                "snake case",
+                "title case",
+                "upper case"
+            ],
+            "support": {
+                "issues": "https://github.com/jawira/case-converter/issues",
+                "source": "https://github.com/jawira/case-converter/tree/v3.5.1"
+            },
+            "time": "2022-08-14T11:40:18+00:00"
+        },
+        {
             "name": "jdrieghe/array-helpers",
             "version": "v0.2.0",
             "source": {
@@ -2527,7 +2594,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-fixtures",
-                "reference": "781bcc78dac7c5da1c2457c7ebda0e793914501e"
+                "reference": "59b44236a462f33ddf50f47c82b4d10febf621c6"
             },
             "require": {
                 "etwin/myhordes": "@dev",
@@ -2565,7 +2632,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-plugins",
-                "reference": "70fd33c9c9cddc9eb3987b4dc16e21faa6c2b517"
+                "reference": "dbc338961fb7e2a3fa17fec38ce95a580a9fc415"
             },
             "require": {
                 "etwin/myhordes": "@dev",
@@ -2599,7 +2666,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-prime",
-                "reference": "f73fcf52223506c90e38a0430c9174a399ca0b22"
+                "reference": "2c7683879bae32fda13e1025483a38b116d3abbb"
             },
             "require": {
                 "php": ">=8.2",
@@ -11917,5 +11984,5 @@
     "platform-dev": {
         "ext-sqlite3": "*"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }

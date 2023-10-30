@@ -3,6 +3,7 @@
 
 namespace App\Twig;
 
+use Jawira\CaseConverter\Convert;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\GlobalsInterface;
 use Twig\TwigFilter;
@@ -16,6 +17,7 @@ class HTMLUtils extends AbstractExtension  implements GlobalsInterface
         return [
             new TwigFilter('classes', [$this, 'classListParser'], ['is_safe' => ['html_attr']]),
             new TwigFilter('attributes', [$this, 'attributeListParser'], ['is_safe' => ['html_attr']]),
+            new TwigFilter('data', [$this, 'datasetParser'], ['is_safe' => ['html_attr']]),
         ];
     }
 
@@ -54,6 +56,15 @@ class HTMLUtils extends AbstractExtension  implements GlobalsInterface
         $normalized_data = array_filter( array_map( fn($attribute, $value) => $value === true ? [$attribute,$attribute] : [$attribute,(is_string($value) ? htmlentities($value) : $value)], array_keys($normalized_data), $normalized_data ) );
 
         return implode(" ", array_map( fn($list) => "{$list[0]}=\"{$list[1]}\"", $normalized_data ));
+    }
+
+    public function datasetParser( array $data ): string {
+        $converted = [];
+        array_walk_recursive($data, function($value, string $key) use (&$converted) {
+            $converted[ 'data-' . (new Convert($key))->toKebab() ] = is_string( $value ) ? htmlentities($value) : $value;
+        });
+        $converted = array_filter( $converted, fn($v) => $v !== null );
+        return implode(" ", array_map( fn($key, $value) => "{$key}=\"{$value}\"", array_keys($converted), $converted ));
     }
 
     public function getGlobals(): array

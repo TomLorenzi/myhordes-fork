@@ -154,6 +154,12 @@
             if (!document.body.classList.contains('page-attract'))
                 document.body.classList.add('{{ custom_css }}');
         {% endif %}
+        {% if theme is defined %}
+            document.querySelectorAll('[data-theme-container="1"]').forEach(element => {
+                for (const [key, value] of Object.entries(JSON.parse('{{ theme|json_encode|e('js') }}')))
+                    element.dataset[key] = value;
+            });
+        {% endif %}
         
         {% if block('title') is defined %}
             $.html.setTitleSegmentAddendum( '{{ block('title')|replace({"\n": "", "\r": "", "\t": "", "'": "\\\'", "&amp;":"&"})|raw }}' );

@@ -117,18 +117,31 @@ class CustomAbstractController extends CustomAbstractCoreController {
     }
 
     private function enrichParameter(array &$parameters): void {
-        if ($this->getUser() && $this->getUser()->getActiveCitizen())
-            $current_events = $this->conf->getCurrentEvents($this->getUser()->getActiveCitizen()->getTown());
-        else $current_events = $this->conf->getCurrentEvents();
+        $town = $this->getUser()?->getActiveCitizen()?->getTown();
+        $current_events = $town ? $this->conf->getCurrentEvents($town) : $this->conf->getCurrentEvents();
 
+        $event_css = null;
         foreach ($current_events as $current_event) {
             if ($current_event->active() && ($css = $current_event->get(EventConf::EVENT_CSS, null))) {
-                $parameters = array_merge($parameters, [
-                    'custom_css' => $current_event->get(EventConf::EVENT_CSS, $css)
-                ]);
+                $event_css = $current_event->get(EventConf::EVENT_CSS, $css);
                 break;
             }
         }
+
+        $nightMode = $town && $this->conf->getTownConfiguration($this->getUser()->getActiveCitizen()->getTown())->isNightMode();
+
+        $parameters = array_merge($parameters, [
+            'theme' => [
+                'themeContainer' => 1,
+                'themeName' => $event_css ?? 'none',
+                'themeDaytime' => $nightMode ? 'night' : 'day',
+                'themePrimaryModifier' => $town?->getType()?->getName() ?? ' none',
+                'themeSecondaryModifier' => match (true) {
+                    $town?->getChaos() => 'chaos',
+                    default => 'none'
+                },
+            ]
+        ]);
     }
 
     /**

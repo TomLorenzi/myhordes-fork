@@ -48,7 +48,7 @@
         <title>MyHordes - {{'Error {code}'|trans({'{code}': exception.statusCode}, 'errors')}}</title>
     {% endblock %}
 </head>
-<body onclick class="{% if is_granted('ROLE_USER') %}online_body{% else %}offline_body{% endif %} {% if custom_css is defined and custom_css != '' %}{{ custom_css }}{% endif %}">
+<body {{ (theme ?? {})|data }} onclick class="{% if is_granted('ROLE_USER') %}online_body{% else %}offline_body{% endif %} {% if custom_css is defined and custom_css != '' %}{{ custom_css }}{% endif %}">
 <div id="notifications"></div>
 <div id="post-office">
     <div id="post-office-box">
@@ -111,7 +111,7 @@
 </div>
 {% include "partials/containers.html.twig" with {} only %}
 </body>
-<footer class="{% if custom_css is defined and custom_css != '' %}{{ custom_css }}{% endif %}">
+<footer {{ (theme ?? {})|data }} class="{% if custom_css is defined and custom_css != '' %}{{ custom_css }}{% endif %}">
     {% block footer %}
         <div class="row">
             <div class="padded cell footer rw-5 rw-sm-12 justify">

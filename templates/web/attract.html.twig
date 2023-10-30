@@ -67,7 +67,7 @@
 {
 {% include "partials/containers.html.twig" with {} only %}
 </body>
-<footer class="{% if custom_css is defined and custom_css != '' %}{{ custom_css }}{% endif %}">
+<footer {{ (theme ?? {})|data }} class="{% if custom_css is defined and custom_css != '' %}{{ custom_css }}{% endif %}">
     {% block footer %}
         <div class="row">
             <div class="padded cell footer rw-5 rw-sm-12 justify">
