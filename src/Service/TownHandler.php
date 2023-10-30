@@ -579,21 +579,17 @@ class TownHandler
         $d = $town->getDay();
         for ($current_day = $d; $current_day <= ($d+$future); $current_day++)
             if (!$this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$current_day)) {
-                $mode = $this->conf->getTownConfiguration( $town )->get(TownConf::CONF_FEATURE_ATTACKS, 'normal');
-                switch($mode){
-                    case "hard":
-                        $max_ratio = 3.0;
-                        break;
-                    case "easy":
-                        $max_ratio = 0.66;
-                        break;
-                    case "normal":
-                    default:
-                        $max_ratio = 1.0;
-                        break;
-                }
-                $ratio_min = ($current_day <= 3 ? 0.66 : $max_ratio);
-                $ratio_max = ($current_day <= 3 ? ($current_day <= 1 ? 0.4 : 0.66) : $max_ratio);
+                $const_ratio_base = 0.5;
+                $const_ratio_low = 0.75;
+
+                $max_ratio = match( $this->conf->getTownConfiguration( $town )->get(TownConf::CONF_FEATURE_ATTACKS, 'normal') ) {
+                    'hard' => 3.1,
+                    'easy' => $const_ratio_low,
+                    default => 1.1,
+                };
+
+                $ratio_min = ($current_day <= 3 ? $const_ratio_low : $max_ratio);
+                $ratio_max = ($current_day <= 3 ? ($current_day <= 1 ? $const_ratio_base : $const_ratio_low) : $max_ratio);
 
                 $min = round( $ratio_min * pow(max(1,$current_day-1) * 0.75 + 2.5,3) );
                 $max = round( $ratio_max * pow($current_day * 0.75 + 3.5,3) );
