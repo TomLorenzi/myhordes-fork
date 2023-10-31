@@ -766,6 +766,7 @@ class NightlyHandler
 
         $weapons_are_active = $this->events->queryTownParameter( $town, BuildingValueQuery::NightWatcherWeaponsAllowed ) > 0;
 
+        shuffle($watchers);
         foreach ($watchers as $watcher) {
             $used_items = count( array_filter( $watcher->getCitizen()->getInventory()->getItems()->getValues(), fn(Item $i) => $i->getPrototype()->getWatchpoint() > 0 || $i->getPrototype()->getName() === 'chkspk_#00' ) );
 
