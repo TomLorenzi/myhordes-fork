@@ -57,7 +57,7 @@
         <div class="{% if first_buttons %}forum-control{% endif %}">
             {% if first_buttons %}
                 <div class="forum-header-bar">
-                    <i class="fa fa-comments"></i>
+                    <span><img alt=">" src="{{ asset('build/images/icons/thread.png') }}" /></span>
                     {% if paranoid and thread.owner and thread.owner != app.user and not thread.translatable %}
                         {% set mode = (app.user.id + thread.id + thread.owner.id) % 12 %}
                         {% if mode == 0 %}

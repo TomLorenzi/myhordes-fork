@@ -55,7 +55,9 @@
                             <b>{{ 'Beachte: Die Suchfunktion durchsucht nur den aktuell gewählten Tab (Posteingang oder Archiv).'|trans({},'global') }}</b>
                         </div>
                     </div>
-                    <div class="forum-note" style="border-bottom: none;"><b><i class="fa fa-comments"></i> {{ 'Konversationen'|trans({},'global') }}</b></div>
+                    <div class="forum-note" style="border-bottom: none;">
+                        <b><span><img alt=">" src="{{ asset('build/images/icons/thread.png') }}" /></span> {{ 'Konversationen'|trans({},'global') }}</b>
+                    </div>
                 </div>
 
                 <div class="cell grow-1 relative">
