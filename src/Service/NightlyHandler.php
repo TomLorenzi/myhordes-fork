@@ -87,7 +87,8 @@ class NightlyHandler
                               RandomGenerator $rg, DeathHandler $dh, TownHandler $th, ZoneHandler $zh, PictoHandler $ph,
                               ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ActionHandler $ah, MazeMaker $maze,
                               CrowService $crow, UserHandler $uh, GameFactory $gf, GazetteService $gs, GameProfilerService $gps,
-                              TimeKeeperService $timeKeeper, MapMaker $mapMaker, EventProxyService $events, EventDispatcherInterface $dispatcher, EventFactory $eventFactory )
+                              TimeKeeperService $timeKeeper, MapMaker $mapMaker, EventProxyService $events, EventDispatcherInterface $dispatcher, EventFactory $eventFactory,
+    )
     {
         $this->entity_manager = $em;
         $this->citizen_handler = $ch;
@@ -1711,6 +1712,7 @@ class NightlyHandler
                 $town->setDayWithoutAttack($town->getDayWithoutAttack() + 1);
             return false;
         } else $this->log->info("Precondition checks passed. Attack can <info>commence</info>.");
+
 
         foreach ($events as $event) $event->hook_nightly_pre($town);
 

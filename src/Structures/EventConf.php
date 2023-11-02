@@ -35,6 +35,18 @@ class EventConf extends Conf
     const EVENT_HOOK_ENABLE_CITIZEN  = 'hooks.enable_citizen';
     const EVENT_HOOK_DISABLE_CITIZEN = 'hooks.disable_citizen';
 
+    const EVENT_DISPATCH_WATCHTOWER   = 'dispatch.watchtower';
+    const EVENT_DISPATCH_DASHBOARD    = 'dispatch.dashboard';
+    const EVENT_DISPATCH_DOOR         = 'dispatch.door';
+    const EVENT_DISPATCH_NIGHTLY_PRE  = 'dispatch.night_before';
+    const EVENT_DISPATCH_NIGHTLY_POST = 'dispatch.night_after';
+    const EVENT_DISPATCH_NIGHTLY_NONE = 'dispatch.night_none';
+
+    const EVENT_DISPATCH_ENABLE_TOWN     = 'dispatch.enable_town';
+    const EVENT_DISPATCH_DISABLE_TOWN    = 'dispatch.disable_town';
+    const EVENT_DISPATCH_ENABLE_CITIZEN  = 'dispatch.enable_citizen';
+    const EVENT_DISPATCH_DISABLE_CITIZEN = 'dispatch.disable_citizen';
+
 
 
     private ?string $eventName;
