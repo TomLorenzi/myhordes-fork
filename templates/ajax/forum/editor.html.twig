@@ -115,7 +115,7 @@
                     <div x-forum-action="edit" x-text-wrap-node="s" x-control-shortcut="s" class="forum-button"><i class="fa fa-strikethrough"></i><span class="forum-button-tooltip">{{ 'Durchstreichen'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="big" x-control-shortcut="+" class="forum-button"><i class="fa fa-expand-alt"></i><span class="forum-button-tooltip">{{ 'Groß'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="bad" class="forum-button"><i class="fas fa-tint"></i><span class="forum-button-tooltip">{{ 'Verräter'|trans({},'global') }}</span></div>
-                    <div x-forum-action="modal" x-text-modal-node="link" class="forum-button"><i class="fa fa-link"></i><span class="forum-button-tooltip">{{ 'Link einfügen'|trans({},'global') }}</span></div>
+                    <div x-forum-action="modal" x-text-modal-node="link" x-text-wrap-node="k" x-control-shortcut="k" class="forum-button"><i class="fa fa-link"></i><span class="forum-button-tooltip">{{ 'Link einfügen'|trans({},'global') }}</span></div>
                     {% if permission.format_admin() or permission.format_oracle() %}
                         <div x-forum-action="modal" x-text-modal-node="image" class="forum-button"><i class="fa fa-image"></i><span class="forum-button-tooltip">{{ 'Bild einfügen'|trans({},'global') }}</span></div>
                     {% endif %}
@@ -383,7 +383,7 @@
             });
             node_transfer_source.addEventListener('keydown', e => {
                 if (e.ctrlKey || e.metaKey) {
-                    const button = document.querySelector('[x-forum-action="edit"][x-control-shortcut="' + e.key.toLowerCase() + '"], [x-forum-action="send"][x-control-shortcut="' + e.key.toLowerCase() + '"]');
+                    const button = document.querySelector('[x-forum-action="edit"][x-control-shortcut="' + e.key.toLowerCase() + '"], [x-forum-action="modal"][x-control-shortcut="' + e.key.toLowerCase() + '"], [x-forum-action="send"][x-control-shortcut="' + e.key.toLowerCase() + '"]');
                     if (button) {
                         button.dispatchEvent( new Event('click', { bubbles: false, cancelable: true }) );
                         e.preventDefault();
