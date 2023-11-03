@@ -385,7 +385,9 @@
                                 <div class="float-left"><i>{{ 'Permanenter Link zu diesem Post:'|trans({},'global') }}</i></div>
                                 <div class="float-right" style="display: inline-flex; gap: 8px;">
                                     <div style="flex-grow: 1">&nbsp;{{ url('forum_jump_view', {pid: post.id}) }}</div>
-                                    <div data-copy="{{ url('forum_jump_view', {pid: post.id}) }}" class="pointer" style="flex-shrink: 1"><i class="fa fa-clipboard"></i></div>
+                                    <div data-copy="{{ url('forum_jump_view', {pid: post.id}) }}" class="pointer" style="flex-shrink: 1">
+                                        <img alt="Copy" src="{{ asset('build/images/icons/clipboard.png') }}" style="margin-bottom: 2px" />
+                                    </div>
                                 </div>
 
                             </div>
