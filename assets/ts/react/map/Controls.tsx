@@ -61,9 +61,8 @@ const MapControls = ( props: MapControlProps ) => {
                             &nbsp;
                         </button>
                         <button onClick={()=>center_handler()} disabled={props.zoom <= 0}
-                            className={`small inline map_button map_button_icon map_button_right`}
+                            className={`small inline map_button map_button_icon map_button_right map_button_pin`}
                         >
-                            <i className="fa fa-map-marker-alt"/>
                         </button>
                         <button onClick={()=>zoom_handler(-1)} disabled={props.zoom <= 0}
                             className={`small inline map_button map_button_icon map_button_right map_button_zoom_out`}
