@@ -34,7 +34,7 @@ class SoulImportController extends SoulController
     {
         $conf = $this->conf->getGlobalConf();
 
-        if (!$conf->get(MyHordesConf::CONF_IMPORT_ENABLED, true))
+        if ($this->getUser()->getTwinoidID() === null || !$conf->get(MyHordesConf::CONF_IMPORT_ENABLED, true))
             return $this->redirect($this->generateUrl('soul_settings'));
 
         $user = $this->getUser();

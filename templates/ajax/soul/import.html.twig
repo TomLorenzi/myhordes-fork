@@ -2,39 +2,15 @@
 {% block soul_content %}
     <div class="row">
         <div class="cell rw-12 padded">
-            {% if not read_only %}
-                <h5>{{ 'Eine neue Seele importieren'|trans({},'soul') }}</h5>
-                {% if limited_import %}
-                    <div class="row">
-                        <div class="cell padded rw-12">
-                            <div class="note note-warning">
-                                <b>{{ 'Achtung, der Seelenimport unterliegt aktuell zusätzlichen Einschränkungen.'|trans({},'soul') }}</b>
-                                <p>
-                                    {{ 'Um zu verhindern, dass Spieler Auszeichnungen, Seelenpunkte oder Heldenerfahrung farmen, indem sie gleichzeitig auf MyHordes und Hordes (oder einer lokalen Variante von Hordes) spielen, werden <b>neu gesammelte Auszeichnungen, SP oder Heldenerfahrung</b> nicht länger zu deiner MH-Seele hinzugerechnet.'|trans({},'soul')|raw }}
-                                </p>
-                                {% if limited_import_threshold >= 0 and limited_import_town_threshold < 0 %}
-                                    <p>{{ 'Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits <b>mehr als {threshold} Seelenpunkte</b> gesammelt haben.'|trans({threshold: limited_import_threshold},'soul')|raw }}</p>
-                                {% elseif limited_import_threshold < 0 and limited_import_town_threshold >= 0 %}
-                                    <p>{{ 'Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits <b>mehr als {threshold} Städte</b> nach dem Ende der Alpha-Phase gespielt haben.'|trans({threshold: limited_import_town_threshold},'soul')|raw }}</p>
-                                {% else %}
-                                    <p>{{ 'Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits <b>mehr als {thresholdS} Seelenpunkte</b> gesammelt oder <b>mehr als {thresholdT} Städte</b> nach dem Ende der Alpha-Phase gespielt haben.'|trans({thresholdS: limited_import_threshold, thresholdT: limited_import_town_threshold},'soul')|raw }}</p>
-                                {% endif %}
-
-                                {% if is_limited %}
-                                    <p>{{ 'Es werden nach wie vor alle Informationen aus deiner importierten Seele auf MyHordes gespeichert. Durch den Import <b>neu</b> gewonnene Auszeichnungen, SP oder Heldenerfahrung wird jedoch <b>nur noch in einem gesonderten Bereich</b> auf deiner MH-Seele angezeigt.'|trans({},'soul')|raw }}</p>
-                                {% else %}
-                                    <p>{{ 'Du kannst deine Seele aktuell <b>ohne Einschränkungen</b> importieren.'|trans({},'soul')|raw }}</p>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
-            {% endif %}
-
             <h5>{{ 'Deine importierten Seelen'|trans({},'soul') }}</h5>
             {% if souls|length == 0 %}
                 <div class="note">{{ 'Du hast bisher keine Seelen importiert.'|trans({},'soul') }}</div>
             {% else %}
+                <div class="note note-warning">
+                    <b>{{ 'Twinoid existiert nicht mehr.'|trans({},'soul') }}</b>
+                    <p>{{ 'Aufgrund der Schließung von Hordes und Twinoid am 2. November 2023 ist es nicht länger möglich, neue Seelen zu importieren oder die Daten bereits importierter Seelen zu aktualisieren.'|trans({},'soul') }}</p>
+                </div>
+
                 {% for soul in souls %}
                     {# @var soul \App\Entity\TwinoidImport #}
                     <div class="note">
@@ -53,6 +29,15 @@
                                 {{ 'Erneut importieren'|trans({},'soul') }}
                                 <div class="tooltip">{{ 'Führt den Import-Vorgang erneut durch, ohne frische Daten von Twinoid abzurufen. Dies ist nützlich, wenn die importierten Daten durch ein MyHordes-Update nun besser verarbeitet werden können als dies beim letzten Import der Fall war. Diese Funktion wird auch nach der Abschaltung von Twinoid weiter zur Verfügung stehen.'|trans({},'soul') }}</div>
                             </button>
+                            {% if soul.main and limited_import and is_limited %}
+                                <div class="inline">
+                                    <img alt="!" src="{{ asset('build/images/icons/small_warning.gif') }}"/>
+                                    <div class="tooltip">
+                                        <b>{{ 'Achtung, der Seelenimport unterliegt aktuell zusätzlichen Einschränkungen.'|trans({},'soul') }}</b>
+                                        <p>{{ 'Es werden nach wie vor alle Informationen aus deiner importierten Seele auf MyHordes gespeichert. Durch den Import <b>neu</b> gewonnene Auszeichnungen, SP oder Heldenerfahrung wird jedoch <b>nur noch in einem gesonderten Bereich</b> auf deiner MH-Seele angezeigt.'|trans({},'soul')|raw }}</p>
+                                    </div>
+                                </div>
+                            {% endif %}
                             {% if select_main_soul %}
                                 <button data-fetch="{{ path('soul_import_confirm_api', {id: soul.id}) }}" data-fetch-method="post" data-fetch-load="{{ path('soul_import') }}" data-fetch-message-text="{{ 'Diese Seele wurde erfolgreich als deine Hauptseele registriert!'|trans({},'soul') }}" data-confirm="{{ 'Bist du sicher, dass du diese Seele als deine Hauptseele festlegen willst. Dieser Vorgang kann nicht rückgängig gemacht werden!'|trans({},'soul') }}" class="inline small">
                                     <img alt="" src="{{ asset('build/images/icons/small_hero_up.gif') }}" />{{ 'Als Hauptseele wählen'|trans({},'soul') }}
