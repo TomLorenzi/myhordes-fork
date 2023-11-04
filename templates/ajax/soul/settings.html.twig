@@ -46,7 +46,7 @@
                     {% if show_importer %}
                         <li class="tab" x-tab-id="soul-import"><div class="tab-link">
                             <img alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}" />
-                            <span class="hide-md hide-sm">{{ 'Seelenimport'|trans({},'soul') }}</span>
+                            <span class="hide-md hide-sm">{{ 'Importierte Seelen'|trans({},'soul') }}</span>
                         </div></li>
                     {% endif %}
                     <li class="tab" x-tab-id="general-settings"><div class="tab-link">
@@ -537,30 +537,18 @@
                 <div x-tab-target x-tab-group="user-settings-tabs" x-tab-id="soul-import">
                     <div class="row">
                         <div class="cell rw-6 ro-3 rw-md-8 ro-md-2 rw-sm-12 ro-sm-0">
-                            {% if importer_readonly %}
-                                <h5>{{ 'Importierte Seelen'|trans({},'soul') }}</h5>
-                            {% else %}
-                                <h5>{{ 'Seele importieren'|trans({},'soul') }}</h5>
-                            {% endif %}
+                            <h5>{{ 'Importierte Seelen'|trans({},'soul') }}</h5>
                             <div class="importSoulBanner">
                                 <h4>{{ 'Willkommen bei MyHordes!'|trans({},'welcome') }}</h4>
                                 <p>
                                     {{ 'Hast du ein Seele bei {hordes}, {dv}, {d2n} oder {zn}?'|trans({
                                         '{hordes}': '<i>Hordes</i>', '{dv}': '<i>Die Verdammten</i>', '{d2n}': '<i>Die2Nite</i>', '{zn}': '<i>Zombinoia</i>'
                                     },'soul')|raw }}
-                                    {% if importer_readonly %}
-                                        {{ '<b>Wenn du sie in der Vergangenheit importiert hast</b>, kannst du sie dir hier ansehen!'|trans({},'soul')|raw }}
-                                    {% else %}
-                                        <b>{{ 'Dann musst du nicht von Vorne beginnen!'|trans({},'soul') }}</b> {{ 'Importiere deine Seele und mache dort weiter, wo du aufgehört hast.'|trans({},'soul') }}
-                                    {% endif %}
+                                    {{ '<b>Wenn du sie in der Vergangenheit importiert hast</b>, kannst du sie dir hier ansehen!'|trans({},'soul')|raw }}
                                 </p>
                                 <button class="bigbutton" x-ajax-href="{{ url('soul_import') }}">
                                     <img class="float-left" alt="" src="{{ asset('build/images/icons/small_ghost_blue.gif') }}">
-                                    {% if importer_readonly %}
-                                        <span>{{ 'Importierte Seelen'|trans({},'soul') }}</span>
-                                    {% else %}
-                                        <span>{{ 'Seele importieren'|trans({},'soul') }}</span>
-                                    {% endif %}
+                                    <span>{{ 'Importierte Seelen'|trans({},'soul') }}</span>
                                     <img class="right" alt="" src="{{ asset('build/images/icons/small_ghost_blue.gif') }}">
                                 </button>
                             </div>

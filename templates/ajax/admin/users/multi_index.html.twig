@@ -44,9 +44,9 @@
                             </div>
                             {% if is_granted('ROLE_ADMIN') %}
                                 <div class="cell rw-2 rw-md-12 padded">
-                                    <button class="small inline" x-shadow="{{ table.principal.id }}" x-api-endpoint="{{ url('admin_users_account_manage', {action: 'shadow',    id: table.principal.id}) }}"><i class="fa fa-hammer hide-desktop"></i> <span class="hide-lg">{{ 'Bann'|trans({},'admin') }}</span></button>
-                                    <button class="small inline" x-shadow="{{ group|join('|') }}" x-api-endpoint="{{ url('admin_users_account_manage', {action: 'shadow',    id: table.principal.id}) }}"><i class="fa fa-hammer hide-desktop"></i> <span class="hide-lg">{{ 'Alle bannen'|trans({},'admin') }}</span></button>
-                                    <button class="small inline" x-whitelist="{{ group|join('|') }}" x-api-endpoint="{{ url('admin_users_account_manage', {action: 'whitelist', id: table.principal.id}) }}"><i class="fa fa-clipboard-check hide-desktop"></i> <span class="hide-lg">{{ 'Whitelist'|trans({},'admin') }}</span></button>
+                                    <button class="small inline" x-shadow="{{ table.principal.id }}" x-api-endpoint="{{ url('admin_users_account_manage', {action: 'shadow',    id: table.principal.id}) }}"><img alt="x" src="{{ asset('build/images/pictos/r_ban.gif') }}" /> <span class="hide-lg">{{ 'Bann'|trans({},'admin') }}</span></button><br />
+                                    <button class="small inline" x-shadow="{{ group|join('|') }}" x-api-endpoint="{{ url('admin_users_account_manage', {action: 'shadow',    id: table.principal.id}) }}"><img alt="x" src="{{ asset('build/images/pictos/r_ban.gif') }}" /> <span class="hide-lg">{{ 'Alle bannen'|trans({},'admin') }}</span></button><br />
+                                    <button class="small inline" x-whitelist="{{ group|join('|') }}" x-api-endpoint="{{ url('admin_users_account_manage', {action: 'whitelist', id: table.principal.id}) }}"><img alt="✓" src="{{ asset('build/images/icons/done.png') }}" /> <span class="hide-lg">{{ 'Whitelist'|trans({},'admin') }}</span></button>
                                 </div>
                             {% endif %}
                         </div>

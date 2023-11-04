@@ -85,7 +85,7 @@ Stadtname: Stadtname
 Punkte: Punkte
 'Letzte Worte': 'Letzte Worte'
 'Import bestätigen': 'Import bestätigen'
-'Hast du ein Seele bei {hordes}, {dv}, {d2n} oder {zn}?': 'Hast du ein Seele bei {hordes}, {dv}, {d2n} oder {zn}?'
+'Hast du ein Seele bei {hordes}, {dv}, {d2n} oder {zn}?': 'Hast du eine Seele bei {hordes}, {dv}, {d2n} oder {zn}?'
 'Seele importieren': 'Seele importieren'
 'Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.': 'Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.'
 'Dein Profil konnte nicht geladen werden, da die Datenverarbeitung fehlgeschlagen ist.': 'Dein Profil konnte nicht geladen werden, da die Datenverarbeitung fehlgeschlagen ist.'
@@ -586,3 +586,5 @@ Passwort-Login: Passwort-Login
 'Für einige Baustellen werden viele verschiedene Arten von Ressourcen benötigt, so dass es schwierig ist, sie alle in einer Zeile anzuzeigen. Diese Option legt fest, ob die Resourcen immer vollständig angezeigt oder individuell ausklappbar sein sollen.': 'Für einige Baustellen werden viele verschiedene Arten von Ressourcen benötigt, so dass es schwierig ist, sie alle in einer Zeile anzuzeigen. Diese Option legt fest, ob die Resourcen immer vollständig angezeigt oder individuell ausklappbar sein sollen.'
 'Private Foren über Weltforen anzeigen': 'Private Foren über Weltforen anzeigen'
 'Diese Option steuert, ob Private Foren in denen du Mitglied bist in der Forenliste über oder unter den Weltforen angezeigt werden. Unabhängig von dieser Einstellung wird das Stadtforum deiner aktuellen Stadt immer ganz oben angezeigt.': 'Diese Option steuert, ob Private Foren in denen du Mitglied bist in der Forenliste über oder unter den Weltforen angezeigt werden. Unabhängig von dieser Einstellung wird das Stadtforum deiner aktuellen Stadt immer ganz oben angezeigt.'
+'Twinoid existiert nicht mehr.': 'Twinoid existiert nicht mehr.'
+'Aufgrund der Schließung von Hordes und Twinoid am 2. November 2023 ist es nicht länger möglich, neue Seelen zu importieren oder die Daten bereits importierter Seelen zu aktualisieren.': 'Aufgrund der Schließung von Hordes und Twinoid am 2. November 2023 ist es nicht länger möglich, neue Seelen zu importieren oder die Daten bereits importierter Seelen zu aktualisieren.'

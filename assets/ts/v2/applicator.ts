@@ -20,6 +20,7 @@ function applyFetchFunctions( node: HTMLElement ) {
                 .method( node.dataset.fetchMethod, payload )
                 .then(data => {
                     if (node.dataset.fetchMessage && data[node.dataset.fetchMessage]) $.html.notice( data[node.dataset.fetchMessage] );
+                    if (node.dataset.fetchMessageText) $.html.notice( node.dataset.fetchMessageText );
                     if (node.dataset.fetchLoad) $.ajax.load(null, node.dataset.fetchLoad, true)
                 } )
                 .catch(data => {

@@ -23,20 +23,18 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @method User getUser
  */
-#[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
+#[Route(path: '/', condition: 'request.isXmlHttpRequest() || request.headers.get("Accept") === "application/json"')]
 class SoulImportController extends SoulController
 {
     /**
-     * @param TwinoidHandler $twin
-     * @param string $code
      * @return Response
      */
-    #[Route(path: 'jx/soul/import/{code}', name: 'soul_import')]
-    public function soul_import(TwinoidHandler $twin, string $code = ''): Response
+    #[Route(path: 'jx/soul/import', name: 'soul_import')]
+    public function soul_import(): Response
     {
         $conf = $this->conf->getGlobalConf();
 
-        if (!$conf->get(MyHordesConf::CONF_IMPORT_ENABLED, true))
+        if ($this->getUser()->getTwinoidID() === null || !$conf->get(MyHordesConf::CONF_IMPORT_ENABLED, true))
             return $this->redirect($this->generateUrl('soul_settings'));
 
         $user = $this->getUser();
@@ -73,7 +71,6 @@ class SoulImportController extends SoulController
 
             return $this->render('ajax/soul/import.html.twig', $this->addDefaultTwigArgs("soul_settings", [
                 'services' => ['www.hordes.fr' => 'Hordes', 'www.die2nite.com' => 'Die2Nite', 'www.dieverdammten.de' => 'Die Verdammten', 'www.zombinoia.com' => 'Zombinoia'],
-                'code' => $code, 'need_sk' => !$twin->hasBuiltInTwinoidAccess(),
                 'souls' => $this->entity_manager->getRepository(TwinoidImport::class)->findBy(['user' => $user], ['created' => 'DESC']),
                 'select_main_soul' => $main === null,
                 'read_only' => $conf->get(MyHordesConf::CONF_IMPORT_READONLY, false),
@@ -118,130 +115,6 @@ class SoulImportController extends SoulController
             'limited' => $limited,
             'main_soul' => $main !== null && $main->getScope() === $import->getScope(), 'select_main_soul' => $main === null,
         ]) );
-    }
-
-    private function validate_twin_json_request(JSONRequestParser $json, TwinoidHandler $twin, ?string &$sc = null, ?string &$sk = null, ?int &$app = null): bool {
-        $sc = $json->get('scope');
-        if (!in_array($sc, ['www.hordes.fr','www.die2nite.com','www.dieverdammten.de','www.zombinoia.com']))
-            return false;
-
-        $sk    = $json->get('sk');
-        $app   = (int)$json->get('app');
-
-        if (!$twin->hasBuiltInTwinoidAccess()) {
-            if ($app <= 0 || empty($sk))
-                return false;
-            $twin->setFallbackAccess($app,$sk);
-        }
-
-        return true;
-    }
-
-    /**
-     * @param JSONRequestParser $json
-     * @param TwinoidHandler $twin
-     * @return Response
-     */
-    #[Route(path: 'api/soul/import_turl', name: 'soul_import_turl_api')]
-    public function soul_import_twinoid_endpoint(JSONRequestParser $json, TwinoidHandler $twin): Response
-    {
-        $conf = $this->conf->getGlobalConf();
-
-        if (!$conf->get(MyHordesConf::CONF_IMPORT_ENABLED, true) || $conf->get(MyHordesConf::CONF_IMPORT_READONLY, false))
-            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
-
-        if (!$this->validate_twin_json_request( $json, $twin, $scope ))
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        $request = Request::createFromGlobals();
-        return AjaxResponse::success(true, ['goto' => $twin->getTwinoidAuthURL('import#'  . $request->getHost() . $request->getBaseUrl(),$scope)]);
-    }
-
-    /**
-     * @param string $code
-     * @param JSONRequestParser $json
-     * @param TwinoidHandler $twin
-     * @param LoggerInterface $logger
-     * @return Response
-     */
-    #[Route(path: 'api/soul/import/{code}', name: 'soul_import_api')]
-    public function soul_import_loader(string $code, JSONRequestParser $json, TwinoidHandler $twin, LoggerInterface $logger): Response
-    {
-        $conf = $this->conf->getGlobalConf();
-
-        if (!$conf->get(MyHordesConf::CONF_IMPORT_ENABLED, true) || $conf->get(MyHordesConf::CONF_IMPORT_READONLY, false))
-            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
-
-        $user = $this->getUser();
-
-        if ($this->isGranted('ROLE_DUMMY'))
-            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
-
-        if ($this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user]))
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
-        if (!$this->validate_twin_json_request( $json, $twin, $scope ))
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        $twin->setCode( $code );
-
-        $data1 = $twin->getData("$scope/tid",'me', [
-            'name','twinId',
-            'playedMaps' => [ 'mapId','survival','mapName','season','v1','score','dtype','msg','comment','cleanup' ]
-        ], $error, $raw_data);
-
-        if ($error || isset($data1['error'])) {
-            $logger->alert( 'Twinoid import failed at stage 1.', [ 'raw' => $raw_data, 'error' => $error ] );
-            if (isset($data1['error']) && $data1['error'] === 'server_error')
-                return AjaxResponse::error(self::ErrorETwinImportServerCrash, ['response' => $data1]);
-            else return AjaxResponse::error(self::ErrorTwinImportInvalidResponse, ['response' => $data1]);
-        }
-
-        $twin_id = (int)($data1['twinId'] ?? 0);
-        if (!$twin_id) {
-            $logger->alert( 'Twinoid import failed at stage 2.', [ 'raw' => $raw_data, 'error' => 'no_twin_id' ] );
-            return AjaxResponse::error(self::ErrorTwinImportInvalidResponse, ['response' => $data1]);
-        }
-
-        $data2 = $twin->getData('twinoid.com',"site?host={$scope}", [
-            'me' => [ 'points','npoints',
-                'stats' => [ 'id','score','name','rare','social' ],
-                'achievements' => [ 'id','name','stat','score','points','npoints','date','index',
-                    'data' => ['type','title','url','prefix','suffix']
-                ]
-            ]
-        ], $error, $raw_data);
-
-        if ($error || isset($data2['error'])) {
-            $logger->alert( 'Twinoid import failed at stage 3.', [ 'raw' => $raw_data, 'error' => $error ] );
-            return AjaxResponse::error(self::ErrorTwinImportInvalidResponse, ['response' => $data2]);
-        }
-
-        if ($user->getTwinoidID() === null) {
-
-            if (
-                $this->entity_manager->getRepository(User::class)->findOneBy(['twinoidID' => $twin_id]) ||
-                $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['twinoidID' => $twin_id])
-            ) return AjaxResponse::error(self::ErrorTwinImportProfileInUse);
-
-        } elseif ($user->getTwinoidID() !== $twin_id)
-            return AjaxResponse::error(self::ErrorTwinImportProfileMismatch);
-
-        $import_preview = (new TwinoidImportPreview())
-            ->setUser($user)
-            ->setTwinoidID($twin_id)
-            ->setCreated(new DateTime())
-            ->setScope($scope)
-            ->setPayload(array_merge($data1,$data2['me'] ?? []));
-
-        try {
-            $this->entity_manager->persist($import_preview);
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
-        return AjaxResponse::success();
     }
 
     /**

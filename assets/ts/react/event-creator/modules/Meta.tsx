@@ -74,7 +74,7 @@ const HordesEventConfigEditor = ( {config, setConfig}: {
     const editorGlobals = useContext(EditorGlobals);
 
     const min = new Date();
-    min.setDate(min.getDate() + 15)
+    min.setDate(min.getDate() + 1)
     const max = new Date();
     max.setDate(max.getDate() + 194)
 
