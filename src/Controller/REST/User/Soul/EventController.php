@@ -296,7 +296,7 @@ class EventController extends CustomAbstractCoreController
                 if (!$event->getConfiguredStartDate())
                     return new JsonResponse(['message' => $this->translator->trans('Du musst ein Startdatum für dein Event festlegen.', [], 'global')], Response::HTTP_NOT_ACCEPTABLE);
 
-                $minDate = (new \DateTime())->add( \DateInterval::createFromDateString('14days') );
+                $minDate = new \DateTime();
                 $maxDate = (new \DateTime())->add( \DateInterval::createFromDateString('194days') );
 
                 if ($event->getConfiguredStartDate() < $minDate || $event->getConfiguredStartDate() > $maxDate)
