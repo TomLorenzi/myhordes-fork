@@ -78,7 +78,7 @@ abstract class RequirementsAtom implements ArrayDecoratorReadInterface {
 
     public function __get(string $name): mixed
     {
-        return $this->data[$name] ?? $this->default($name);
+        return array_key_exists($name, $this->data) ? $this->data[$name] : $this->default($name);
     }
 
     /**
