@@ -388,7 +388,7 @@
                         </div>
                         <div class="cell padded rw-3 rw-sm-12">
                             {% if user.twinoidID is not null %}
-                                <a target="_blank" href="https://twinoid.com/user/{{ user.twinoidID }}"><i class="fa fa-external-link-alt"></i> {{ user.twinoidID }}</a><br />
+                                <a target="_blank" href="https://eternaltwin.org/api/v1/archive/twinoid/users/{{ user.twinoidID }}"><i class="fa fa-external-link-alt"></i> {{ user.twinoidID }}</a><br />
                                 {% for soul in user.twinoidImports %}
                                     {% if soul.main %}
                                         <div><img alt=">" src="{{ asset('build/images/icons/arrowRight.png') }}" /> <img alt="" src="{{ asset('build/images/icons/small_hero_up.gif') }}"> <b>{{ soul.scope|replace({'www.': ''}) }}</b></div>
