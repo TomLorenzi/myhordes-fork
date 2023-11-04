@@ -28,7 +28,14 @@
                  <div class="cell padded rw-4">{{ route.label }}<br /><span class="small">{{ "von {citizen}"|trans({'{citizen}': route.owner.name }, 'game') }}</span></div>
                  <div class="cell padded rw-3">{{ route.length}} <div class="ap"></div></div>
                  <div class="cell padded rw-4"><img src="{{ asset('build/images/icons/small_view.gif') }}" alt="" />{{ "Ansehen"|trans({}, 'game') }}</div>
-                 <div class="cell padded rw-1 delete_exp"><div class="inline-block"><img src="{{ asset('build/images/icons/small_remove.gif') }}" alt="" /><div class="tooltip">{{ 'Diese Expedition löschen'|trans({}, 'game') }}</div></div></div>
+                 <div class="cell padded rw-1 delete_exp">
+                     {% if route.owner.user == app.user %}
+                        <div class="inline-block">
+                            <img src="{{ asset('build/images/icons/small_remove.gif') }}" alt="" />
+                            <div class="tooltip">{{ 'Diese Expedition löschen'|trans({}, 'game') }}</div>
+                        </div>
+                     {% endif %}
+                 </div>
              </div>
             {% endfor %}
             {% endif %}
