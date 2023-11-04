@@ -29,41 +29,6 @@
                         </div>
                     </div>
                 {% endif %}
-                {% if need_sk %}
-                    <div class="row">
-                        <div class="cell padded rw-4 rw-sm-12">
-                            <label for="twin_id">{{ 'Twinoid Application ID'|trans({},'soul') }}</label>
-                        </div>
-                        <div class="cell padded rw-8 rw-sm-12">
-                            <input id="twin_id" type="text">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="cell padded rw-4 rw-sm-12">
-                            <label for="twin_sk">{{ 'Twinoid Secret Key'|trans({},'soul') }}</label>
-                        </div>
-                        <div class="cell padded rw-8 rw-sm-12">
-                            <input id="twin_sk" type="password">
-                        </div>
-                    </div>
-                {% endif %}
-                <div class="row">
-                    <div class="cell padded rw-4 rw-sm-12">
-                        <label for="twin_scope">{{ 'Seele auswählen'|trans({},'soul') }}</label>
-                    </div>
-                    <div class="cell padded rw-8 rw-sm-12">
-                        <select id="twin_scope">
-                            {% for url,service in services %}
-                                <option value="{{ url }}">{{ service }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="cell padded rw-8 ro-4 ro-sm-0 rw-sm-12">
-                        <button id="begin_import_btn">{{ 'Import starten'|trans({},'soul') }}</button>
-                    </div>
-                </div>
             {% endif %}
 
             <h5>{{ 'Deine importierten Seelen'|trans({},'soul') }}</h5>
@@ -79,23 +44,17 @@
                                 {% if soul.created != soul.updated %} / {{ 'Letztes Update: {d}'|trans({'{d}': soul.updated|format_datetime('medium', 'medium') },'soul') }}{% endif %}
                         </i></div>
                         <hr/>
-                        {% if not need_sk and not read_only %}
-                            <button x-fast-update="{{ soul.scope }}" class="inline small">
-                                {{ 'Daten aktualisieren'|trans({},'soul') }}
-                                <div class="tooltip">{{ 'Ruft deine Seele erneut von Twinoid ab und aktualisiert die gespeicherten Informationen. Bevor die neuen Daten gespeichert werden, wird dir eine Vorschau angezeigt.'|trans({},'soul') }}</div>
-                            </button>
-                        {% endif %}
                         <button x-ajax-href="{{ path('soul_import_viewer', {id: soul.id}) }}" class="inline small">
                             {{ 'Daten ansehen'|trans({},'soul') }}
                             <div class="tooltip">{{ 'Zeigt die zuletzt importierten Informationen an.'|trans({},'soul') }}</div>
                         </button>
                         {% if not read_only %}
-                            <button x-redo-import="{{ path('soul_import_confirm_api', {id: soul.id}) }}" class="inline small">
+                            <button data-fetch="{{ path('soul_import_confirm_api', {id: soul.id}) }}" data-fetch-method="post" data-fetch-load="{{ path('soul_import') }}" data-fetch-message-text="{{ 'Deine Seele wurde erfolgreich importiert!'|trans({},'soul') }}" class="inline small">
                                 {{ 'Erneut importieren'|trans({},'soul') }}
                                 <div class="tooltip">{{ 'Führt den Import-Vorgang erneut durch, ohne frische Daten von Twinoid abzurufen. Dies ist nützlich, wenn die importierten Daten durch ein MyHordes-Update nun besser verarbeitet werden können als dies beim letzten Import der Fall war. Diese Funktion wird auch nach der Abschaltung von Twinoid weiter zur Verfügung stehen.'|trans({},'soul') }}</div>
                             </button>
                             {% if select_main_soul %}
-                                <button x-redo-import-m="{{ path('soul_import_confirm_api', {id: soul.id}) }}" class="inline small">
+                                <button data-fetch="{{ path('soul_import_confirm_api', {id: soul.id}) }}" data-fetch-method="post" data-fetch-load="{{ path('soul_import') }}" data-fetch-message-text="{{ 'Diese Seele wurde erfolgreich als deine Hauptseele registriert!'|trans({},'soul') }}" data-confirm="{{ 'Bist du sicher, dass du diese Seele als deine Hauptseele festlegen willst. Dieser Vorgang kann nicht rückgängig gemacht werden!'|trans({},'soul') }}" class="inline small">
                                     <img alt="" src="{{ asset('build/images/icons/small_hero_up.gif') }}" />{{ 'Als Hauptseele wählen'|trans({},'soul') }}
                                     <div class="tooltip">
                                         {{ 'Legt diese Seele als Hauptseele fest und importiert Seelenpunkte und Heldenerfahrung.'|trans({},'soul') }}<br />
@@ -126,110 +85,11 @@
                             <li>{{ 'Seelenpunkte oder Auszeichnungen, die du importiert hast'|trans({},'soul') }}</li>
                         </ul>
                         <div class="row">
-                            <button id="reset_soul_button" class="small inline float-right">{{ 'Meine Seele zurücksetzen'|trans({},'soul') }}</button>
+                            <button data-fetch="{{ path('soul_import_soft_reset_api') }}" data-fetch-method="post" data-fetch-load="{{ url('soul_import') }}" data-fetch-confirm="{{ 'Bitte bestätige, dass du deine Seele zurücksetzen möchtest. Du kannst diese Aktion NUR EIN MAL ausführen. Diese Aktion KANN NICHT RÜCKGÄNGIG GEMACHT WERDEN!'|trans({},'soul') }}" class="small inline float-right">{{ 'Meine Seele zurücksetzen'|trans({},'soul') }}</button>
                         </div>
                     </div>
                 </div>
             {% endif %}
         </div>
     </div>
-{% endblock %}
-{% block js %}
-    {{ parent() }}
-    <script>
-        {% if not read_only %}
-            const tconf = $.client.config.twinoidImport.get();
-            {% if need_sk %}
-                if (tconf[0] > 0) document.getElementById('twin_id').value = tconf[0];
-                if (tconf[1])     document.getElementById('twin_sk').value = tconf[1];
-            {% endif %}
-            if (tconf[2]) document.getElementById('twin_scope').querySelector('option[value="' + tconf[2] + '"]').setAttribute('selected','selected');
-
-            {% if code is not empty %}
-                if ({% if need_sk %}tconf[0] > 0 && tconf[1] && {% endif %} tconf[2]) {
-
-                    $.ajax.easySend('{{ url('soul_import_api', {'code': code}) }}', {
-                        {% if need_sk %}'app': tconf[0], 'sk': tconf[1],{% endif %} 'scope': tconf[2]
-                    }, function() {
-                        $.ajax.load(null, '{{ url('soul_import') }}', true, );
-                    })
-
-                } else $.html.error('{{ 'Allgemeiner Fehler.'|trans({},'global')|e('js') }}')
-            {% endif %}
-
-            document.getElementById('begin_import_btn').addEventListener('click', function() {
-                {% if need_sk %}
-                    const id = document.getElementById('twin_id').value;
-                    const sk = document.getElementById('twin_sk').value;
-                {% endif %}
-                const sc = document.getElementById('twin_scope').value;
-
-                {% if need_sk %}
-                    $.client.config.twinoidImport.set([id,sk,sc]);
-                {% else %}
-                    $.client.config.twinoidImport.set([0,'',sc]);
-                {% endif %}
-
-                $.ajax.easySend('{{ url('soul_import_turl_api') }}', {
-                    {% if need_sk %}'app': id, 'sk': sk,{% endif %} 'scope': sc
-                }, function(d) {
-                    const url = d.goto;
-                    if (url) {
-                        $.html.addLoadStack();
-                        window.location.replace(url);
-                    }
-                    else $.html.error('{{ 'Allgemeiner Fehler.'|trans({},'global')|e('js') }}');
-                })
-            });
-
-            {% if not need_sk %}
-                $.html.addEventListenerAll('[x-fast-update]','click', function (e,elem) {
-                    const sc = elem.getAttribute('x-fast-update');
-                    $.client.config.twinoidImport.set([0,'',sc]);
-                    $.ajax.easySend('{{ url('soul_import_turl_api') }}', {
-                        'scope': sc
-                    }, function(d) {
-                        const url = d.goto;
-                        if (url) {
-                            $.html.addLoadStack();
-                            window.location.replace(url);
-                        }
-                        else $.html.error('{{ 'Allgemeiner Fehler.'|trans({},'global')|e('js') }}');
-                    })
-                });
-            {% endif %}
-
-            $.html.addEventListenerAll('[x-redo-import]','click',function (e,elem) {
-                $.ajax.easySend( elem.getAttribute('x-redo-import'), {},
-                    function () {
-                        $.html.notice( '{{ 'Deine Seele wurde erfolgreich importiert!'|trans({},'soul')|e('js') }}' )
-                        $.ajax.load(null, '{{ path('soul_import') }}', true);
-                    } )
-            });
-
-            {% if select_main_soul %}
-                $.html.addEventListenerAll('[x-redo-import-m]','click',function (e,elem) {
-                    if (!confirm('{{ 'Bist du sicher, dass du diese Seele als deine Hauptseele festlegen willst. Dieser Vorgang kann nicht rückgängig gemacht werden!'|trans({},'soul')|e('js') }}'))
-                        return;
-
-                    $.ajax.easySend( elem.getAttribute('x-redo-import-m'), {main: true},
-                        function () {
-                            $.html.notice( '{{ 'Diese Seele wurde erfolgreich als deine Hauptseele registriert!'|trans({},'soul')|e('js') }}' )
-                            $.ajax.load(null, '{{ path('soul_import') }}', true);
-                        } )
-                });
-            {% endif %}
-        {% endif %}
-
-        {% if can_reset and not read_only %}
-            $.html.addEventListenerAll('#reset_soul_button', 'click', () => {
-                if (!confirm('{{ 'Bitte bestätige, dass du deine Seele zurücksetzen möchtest. Du kannst diese Aktion NUR EIN MAL ausführen. Diese Aktion KANN NICHT RÜCKGÄNGIG GEMACHT WERDEN!'|trans({},'soul')|e('js') }}'))
-                    return;
-
-                $.ajax.easySend('{{ url('soul_import_soft_reset_api') }}', {}, () => {
-                    $.ajax.load(null, '{{ url('soul_import') }}', true, );
-                })
-            })
-        {% endif %}
-    </script>
 {% endblock %}

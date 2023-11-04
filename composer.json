@@ -103,7 +103,8 @@
         "sort-packages": true,
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
-            "symfony/flex": true
+            "symfony/flex": true,
+            "wikimedia/composer-merge-plugin": true
         }
     },
     "autoload": {
