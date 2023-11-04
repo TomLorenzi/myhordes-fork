@@ -13,13 +13,6 @@ use DateTime;
  */
 class TownConf extends Conf
 {
-    const CONF_ZONE_ITEMS_MIN        = 'zone_items.min';
-    const CONF_ZONE_ITEMS_MAX        = 'zone_items.max';
-    const CONF_ZONE_ITEMS_RE_MIN     = 'zone_items.refresh_min';
-    const CONF_ZONE_ITEMS_RE_MAX     = 'zone_items.refresh_max';
-    const CONF_ZONE_ITEMS_TOTAL_MAX  = 'zone_items.fill_max';
-    const CONF_ZONE_ITEMS_THROTTLE_AT= 'zone_items.throttle_at';
-
     const CONF_RUIN_ITEMS_MIN        = 'ruin_items.min';
     const CONF_RUIN_ITEMS_MAX        = 'ruin_items.max';
 

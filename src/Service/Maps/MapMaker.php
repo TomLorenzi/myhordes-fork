@@ -47,8 +47,9 @@ class MapMaker
         for ($x = 0; $x < $map_resolution; $x++)
             for ($y = 0; $y < $map_resolution; $y++) {
                 $zone = new Zone();
+                $n = $conf->get(TownSetting::MapZoneDropCountInitializer);
                 //Hordes Dig Count is N + rand(N), where rand is between 0 included and N excluded
-                $digCount = ceil($conf->get(TownConf::CONF_ZONE_ITEMS_MIN, 5)*0.7) + mt_rand(0,$conf->get(TownConf::CONF_ZONE_ITEMS_MIN, 5)-1 ) ;
+                $digCount = ceil($n*0.7) + mt_rand(0,$n-1 ) ;
                 $zone
                     ->setX( $x - $ox )
                     ->setY( $y - $oy )

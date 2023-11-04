@@ -41,6 +41,10 @@ enum TownSetting: string implements Configuration
     const MapCustomMarginSouth = 'margin_custom.south';
     const MapCustomMarginWest = 'margin_custom.west';
     const MapCustomMarginEast = 'margin_custom.east';
+
+    const MapZoneDropCountInitializer = 'zone_items.min';
+    const MapZoneDropCountThreshold = 'zone_items.max';
+    const MapZoneDropCountRefresh = 'zone_items.refresh_max';
     //</editor-fold>
 
     //</editor-fold>
@@ -78,7 +82,10 @@ enum TownSetting: string implements Configuration
             self::MapCustomMarginNorth,
             self::MapCustomMarginSouth,
             self::MapCustomMarginWest,
-            self::MapCustomMarginEast => self::Section_Map_Beyond,
+            self::MapCustomMarginEast,
+            self::MapZoneDropCountInitializer,
+            self::MapZoneDropCountThreshold,
+            self::MapZoneDropCountRefresh => self::Section_Map_Beyond,
 
             default => null
         };
@@ -122,6 +129,10 @@ enum TownSetting: string implements Configuration
             self::MapCustomMarginSouth  => 0,
             self::MapCustomMarginWest   => 0,
             self::MapCustomMarginEast   => 0,
+
+            self::MapZoneDropCountInitializer => 5,
+            self::MapZoneDropCountThreshold   => 10,
+            self::MapZoneDropCountRefresh     => 5,
 
             default => null,
         };

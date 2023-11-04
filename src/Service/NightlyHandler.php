@@ -28,6 +28,7 @@ use App\Entity\TownRankingProxy;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZoneTag;
+use App\Enum\Configuration\TownSetting;
 use App\Enum\EventStages\BuildingEffectStage;
 use App\Enum\EventStages\BuildingValueQuery;
 use App\Enum\ItemPoisonType;
@@ -1783,24 +1784,23 @@ class NightlyHandler
     public function attemptRegenZone(array $reco_counter, Zone $zone, Town $town, float $recovery_chance): void
     {
         $reco_counter[1]++;
-        $dropChanceFactor = $zone->getDigs() >= $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_MAX, 10) ? 0.33 : 1;
+        $dropChanceFactor = $zone->getDigs() >= $this->conf->getTownConfiguration($town)->get(TownSetting::MapZoneDropCountThreshold) ? 0.33 : 1;
         $dropRegenChance = $recovery_chance * $dropChanceFactor;
+
+        $n = $this->conf->getTownConfiguration($town)->get(TownSetting::MapZoneDropCountRefresh);
+
         if ($this->random->chance($dropRegenChance)) {
-            $digs = $zone->getDigs()
-                + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_RE_MAX, 5)
-                + mt_rand(0, $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_RE_MAX, 5) - 1);
+            $digs = $zone->getDigs() + $n + mt_rand(0, $n - 1);
 
             $zone->setDigs($zone->getDigs() + $digs);
             $this->log->debug("Zone <info>{$zone->getX()}/{$zone->getY()}</info>: Recovering by <info>{$digs}</info> to <info>{$zone->getDigs()}</info>.");
             $reco_counter[0]++;
         }
 
-        $ruinChanceFactor = $zone->getRuinDigs() >= $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_MAX, 10) ? 0.33 : 1;
+        $ruinChanceFactor = $zone->getRuinDigs() >= $this->conf->getTownConfiguration($town)->get(TownSetting::MapZoneDropCountThreshold) ? 0.33 : 1;
         $ruinRegenChange = $recovery_chance * $ruinChanceFactor;
         if ($zone->getPrototype() && $this->random->chance($ruinRegenChange)) {
-            $rdigs = $zone->getRuinDigs()
-                + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_RE_MAX, 5)
-                + mt_rand(0, $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_RE_MAX, 5) - 1);
+            $rdigs = $zone->getRuinDigs() + $n + mt_rand(0, $n - 1);
             $zone->setRuinDigs($rdigs);
             $this->log->debug("Zone <info>{$zone->getX()}/{$zone->getY()}</info>: Recovering ruin by <info>{$rdigs}</info> to <info>{$zone->getRuinDigs()}</info>.");
         }

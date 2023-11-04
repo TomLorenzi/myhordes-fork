@@ -24,10 +24,7 @@ parameters:
       zone_items:
         min: 5
         max: 10
-        refresh_min: 1
         refresh_max: 8
-        fill_max: 10
-        throttle_at: 10
         plan_limits:
           bag: 3
       ruin_items:
