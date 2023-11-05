@@ -3,15 +3,21 @@
 
 namespace App\EventListener\Game\Events;
 
+use App\Entity\CauseOfDeath;
+use App\Event\Game\EventHooks\Purge\DashboardModifierEvent;
+use App\Event\Game\EventHooks\Purge\TownDeactivateEvent;
 use App\Event\Game\EventHooks\Purge\WatchtowerModifierEvent;
 use App\EventListener\ContainerTypeTrait;
 use App\Response\AjaxResponse;
+use App\Service\DeathHandler;
 use App\Translation\T;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Contracts\Service\ServiceSubscriberInterface;
 
 #[AsEventListener(event: WatchtowerModifierEvent::class, method: 'fakeWatchtower', priority: 0)]
+#[AsEventListener(event: DashboardModifierEvent::class, method: 'fakeDashboard', priority: 0)]
+#[AsEventListener(event: TownDeactivateEvent::class, method: 'purge', priority: 0)]
 final class PurgeListener implements ServiceSubscriberInterface
 {
     use ContainerTypeTrait;
@@ -22,7 +28,7 @@ final class PurgeListener implements ServiceSubscriberInterface
 
     public static function getSubscribedServices(): array
     {
-        return [];
+        return [DeathHandler::class];
     }
 
     public static function purge_daysUntil(?\DateTimeInterface $dateTime = null): int {
@@ -45,5 +51,25 @@ final class PurgeListener implements ServiceSubscriberInterface
                 0   => T::__('Das sieht nicht gut aus... Die Zombies werden heute Nacht nicht unser größtes Problem sein.', 'game'),
                 default => null,
             };
+    }
+
+    public function fakeDashboard(DashboardModifierEvent $event): void
+    {
+        if (self::purge_daysUntil() === 0) {
+            $event->addBullet( T::__('Beten', 'game'), false );
+            $event->addSituation( T::__('Es gibt keine Hoffnung!', 'game'), true );
+        }
+    }
+
+    public function purge(TownDeactivateEvent $event): void
+    {
+        $death_handler = $this->getService(DeathHandler::class);
+
+        foreach ($event->town->getCitizens() as $citizen) {
+            if (!$citizen->getAlive()) continue;
+            $death_handler->kill($citizen, CauseOfDeath::Apocalypse);
+        }
+
+        $event->value = true;
     }
 }

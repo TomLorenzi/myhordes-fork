@@ -698,7 +698,7 @@ class TownHandler
         // Disable all old events that are not in the list of the new events
         foreach ($old_events as $old_event)
             if (!in_array($old_event->name(), $active_names) && $old_event->active()) {
-                if (!$old_event->hook_disable_citizen($citizen)) return false;
+                if (!$this->gameEvents->triggerDisableCitizenHooks( $citizen, $old_event )) return false;
                 foreach ($citizen_markers as $marker)
                     if ($marker->getEvent() === $old_event->name())
                         $pc[] = $marker->setActive(false);
@@ -707,7 +707,7 @@ class TownHandler
         // Enable all new events that are not in the list of the old events
         foreach ($events as $event)
             if (!in_array($event->name(), $current_names) && $event->active()) {
-                if (!$event->hook_enable_citizen($citizen)) return false;
+                if (!$this->gameEvents->triggerEnableCitizenHooks( $citizen, $event )) return false;
                 $pc[] = ( (new EventActivationMarker())
                     ->setCitizen($citizen)
                     ->setActive(true)
@@ -745,7 +745,7 @@ class TownHandler
         // Disable all old events that are not in the list of the new events
         foreach ($old_events as $old_event)
             if (!in_array($old_event->name(), $active_names) && $old_event->active()) {
-                if (!$old_event->hook_disable_town($town)) return false;
+                if (!$this->gameEvents->triggerDisableTownHooks( $town, $old_event )) return false;
                 foreach ($town_markers as $marker)
                     if ($marker->getEvent() === $old_event->name())
                         $pc[] = $marker->setActive(false);
@@ -754,7 +754,7 @@ class TownHandler
         // Enable all new events that are not in the list of the old events
         foreach ($events as $event)
             if (!in_array($event->name(), $current_names) && $event->active()) {
-                if (!$event->hook_enable_town($town)) return false;
+                if (!$this->gameEvents->triggerEnableTownHooks( $town, $event )) return false;
                 $pc[] = ( (new EventActivationMarker())
                     ->setTown($town)
                     ->setActive(true)
