@@ -19,50 +19,6 @@ use App\Translation\T;
 class Hook
 {
     /**
-     * Fake the watchtower estims for the armageddon
-     *
-     * @param array $est
-     */
-    public static function watchtower_arma(array $est): void{
-        $town = $est[2];
-        $est[0] *= mt_rand($town->getDay(), $town->getDay() + 4);
-        $est[1] *= mt_rand($town->getDay() + 3, $town->getDay() + 8);
-    }
-
-    /**
-     * For the armageddon, we prevent the door being closed by citizens
-     *
-     * @param [type] $action
-     * @return AjaxResponse|null
-     */
-    public static function door_arma($action): ?AjaxResponse {
-        if ($action === "close")
-            return AjaxResponse::error( 666666 );
-        return null;
-    }
-
-    /**
-     * For aprils fools, we prevent the door being closed by citizens (different error message than arma)
-     *
-     * @param [type] $action
-     * @return AjaxResponse|null
-     */
-    public static function door_april($action): ?AjaxResponse {
-        if ($action === "close")
-            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
-        return null;
-    }
-
-    /**
-     * For the armageddon and aprils fools, we automatically close the door
-     *
-     * @param Town $town
-     */
-    public static function night_arma(Town $town): void {
-        if(!$town->getDevastated()) $town->setDoor(false);
-    }
-
-    /**
      * For easter, we enable the chocolate cross once the event begins
      *
      * @param Town $town

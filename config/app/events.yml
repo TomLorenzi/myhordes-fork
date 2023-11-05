@@ -9,10 +9,11 @@ parameters:
         name: 'Armageddon'
         priority: 10
         css: 'arma'
-        hooks:
-          watchtower: 'App\Structures\Hook::watchtower_arma'
-          door: 'App\Structures\Hook::door_arma'
-          night_before: 'App\Structures\Hook::night_arma'
+        dispatch:
+          night_before: 'App\Event\Game\EventHooks\Common\AutoDoorEvent'
+          door: 'App\Event\Game\EventHooks\Arma\DoorResponseEvent'
+          watchtower: 'App\Event\Game\EventHooks\Arma\WatchtowerModifierEvent'
+
     afools:
       trigger:
         type: datetime
@@ -21,10 +22,12 @@ parameters:
       conf:
         name: '1. April'
         priority: 11
+        dispatch:
+          night_before: 'App\Event\Game\EventHooks\Common\AutoDoorEvent'
+          door: 'App\Event\Game\EventHooks\April\DoorResponseEvent'
         hooks:
-          door: 'App\Structures\Hook::door_april'
-          night_before: 'App\Structures\Hook::night_arma'
           enable_citizen: 'App\Structures\Hook::enable_april'
+
     christmas:
       trigger:
         type: datetime
@@ -41,6 +44,7 @@ parameters:
           night_after: 'App\Event\Game\EventHooks\Christmas\NightlyEvent'
           night_none: 'App\Event\Game\EventHooks\Christmas\NightlyEvent'
       public: true
+
     stpatrick:
       trigger:
         type: datetime
@@ -53,6 +57,7 @@ parameters:
         mods:
           enable: [ 103 ]
       public: true
+
     easter:
       trigger:
         type: easter
@@ -68,6 +73,7 @@ parameters:
           enable_town: 'App\Structures\Hook::enable_easter'
           disable_town: 'App\Structures\Hook::disable_easter'
       public: true
+
     halloween:
       trigger:
         type: datetime
@@ -81,6 +87,7 @@ parameters:
         mods:
           enable: [ 104 ]
       public: true
+
     contamination:
       trigger:
         type: datetime
@@ -90,6 +97,7 @@ parameters:
         name: 'Großen Verseuchung'
         priority: 105
         css: 'contamination'
+
     purge:
       trigger:
         type: datetime
@@ -98,7 +106,8 @@ parameters:
       conf:
         name: 'Purge'
         priority: 10
+        dispatch:
+          watchtower: 'App\Event\Game\EventHooks\Purge\WatchtowerModifierEvent'
         hooks:
-          watchtower: 'App\Structures\Hook::watchtower_purge'
           dashboard: 'App\Structures\Hook::dashboard_purge'
           disable_town: 'App\Structures\Hook::citizen_purge'

@@ -31,7 +31,7 @@ final class ChristmasListener implements ServiceSubscriberInterface
 
     public function santa(NightlyEvent $event): void
     {
-        //if ((int)date('m') !== 12 || (int)date('j') !== 25) return;
+        if ((int)date('m') !== 12 || (int)date('j') !== 25) return;
         $citizen_handler   = $this->getService(CitizenHandler::class);
         $inventory_handler = $this->getService(InventoryHandler::class);
         $item_factory      = $this->getService(ItemFactory::class);

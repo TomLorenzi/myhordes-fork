@@ -14,6 +14,7 @@ use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
 use App\Service\EventProxyService;
+use App\Service\GameEventService;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
 use App\Service\TownHandler;
@@ -49,6 +50,7 @@ class DoorController extends CustomAbstractCoreController
         TownHandler $townHandler,
         CitizenHandler $citizenHandler,
         LogTemplateHandler $log,
+        GameEventService $gameEvents
     ): JsonResponse {
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
@@ -95,9 +97,8 @@ class DoorController extends CustomAbstractCoreController
         if ($door_interaction_ap > 0 && ($citizen->getAp() < $door_interaction_ap || $citizen->hasStatus('tired')))
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
-        foreach ($this->conf->getCurrentEvents($town) as $e)
-            if ($result = $e->hook_door($action))
-                return $result;
+        $result = $gameEvents->triggerDoorResponseHooks( $town, $this->conf->getCurrentEvents($town), $action );
+        if ($result) return $result;
 
         if ($door_interaction_ap > 0)
             $citizenHandler->setAP($citizen, true, -$door_interaction_ap);

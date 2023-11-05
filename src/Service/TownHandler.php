@@ -59,11 +59,12 @@ class TownHandler
     private DoctrineCacheService $doctrineCache;
     private EventProxyService $proxy;
 
+    private GameEventService $gameEvents;
 
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, ItemFactory $if, LogTemplateHandler $lh,
         TimeKeeperService $tk, CitizenHandler $ch, PictoHandler $ph, ConfMaster $conf, RandomGenerator $rand,
-        CrowService $armbrust, DoctrineCacheService $doctrineCache, EventProxyService $proxy)
+        CrowService $armbrust, DoctrineCacheService $doctrineCache, EventProxyService $proxy, GameEventService $gs)
     {
         $this->entity_manager = $em;
         $this->inventory_handler = $ih;
@@ -77,6 +78,7 @@ class TownHandler
         $this->crowService = $armbrust;
         $this->doctrineCache = $doctrineCache;
         $this->proxy = $proxy;
+        $this->gameEvents = $gs;
     }
 
     /**
@@ -486,16 +488,14 @@ class TownHandler
         $max = round($max * $soulFactor);
 
         $quality = min(($cc_offset + $est->getCitizens()->count()*$ratio) / 24, 1);
-        $message = null;
-        foreach ($this->conf->getCurrentEvents($town) as $e)
-            $e->hook_watchtower_estimations($min,$max, $town, 0, $quality, $message);
+        $override = $this->gameEvents->triggerWatchtowerModifierHooks( $town, $this->conf->getCurrentEvents($town), $min, $max, 0, $quality );
 
         $estim = new WatchtowerEstimation();
-        $estim->setMin($min);
-        $estim->setMax($max);
-        $estim->setEstimation($quality);
+        $estim->setMin($override?->min ?? $min);
+        $estim->setMax($override?->max ?? $max);
+        $estim->setEstimation($override?->quality ?? $quality);
         $estim->setFuture(0);
-        $estim->setMessage($message);
+        $estim->setMessage($override?->message);
 
         $result = [$estim];
 
@@ -527,16 +527,14 @@ class TownHandler
 
             $quality2 = min($calculateUntil / 24, 1);
 
-            $message2 = null;
-            foreach ($this->conf->getCurrentEvents($town) as $e)
-                $e->hook_watchtower_estimations($min2,$max2, $town, 1, $quality2, $message2);
+            $override2 = $this->gameEvents->triggerWatchtowerModifierHooks( $town, $this->conf->getCurrentEvents($town), $min2, $max2, 1, $quality2 );
 
             $estim2 = new WatchtowerEstimation();
-            $estim2->setMin($min2);
-            $estim2->setMax($max2);
-            $estim2->setEstimation($quality2);
+            $estim2->setMin($override2?->min ?? $min2);
+            $estim2->setMax($override2?->max ?? $max2);
+            $estim2->setEstimation($override2?->quality ?? $quality2);
             $estim2->setFuture(1);
-            $estim2->setMessage($message2);
+            $estim2->setMessage($override2?->message);
             $result[] = $estim2;
         }
 

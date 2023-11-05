@@ -29,6 +29,10 @@ abstract class GameEvent extends Event
 
     protected static function configuration(): ?string { return null; }
 
+    public static function publicConfigurationClass(): string {
+        return static::configuration() ?? stdClass::class;
+    }
+
     public function __construct(
         protected readonly Town $town,
         public readonly TownConf $townConfig,

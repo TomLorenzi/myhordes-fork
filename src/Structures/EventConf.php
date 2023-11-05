@@ -72,14 +72,6 @@ class EventConf extends Conf
     public static function Void(): ?object { return null; }
     public static function True(): bool { return true; }
 
-    public function hook_door(string $action): Response|JsonResponse|null {
-        return call_user_func( $this->get(self::EVENT_HOOK_DOOR, 'App\Structures\EventConf::Void') , $action);
-    }
-
-    public function hook_watchtower_estimations(int &$min, int &$max, Town $town, int $dayOffset, float $quality, ?string &$message = null ): void {
-        call_user_func( $this->get(self::EVENT_HOOK_WATCHTOWER, 'App\Structures\EventConf::Void') , array(&$min, &$max, $town, $dayOffset, $quality, &$message));
-    }
-
     public function hook_dashboard(Town $town, ?array &$additional_bullets = null, ?array &$additional_situation = null ): void {
         if ($additional_bullets === null) $additional_bullets = [];
         if ($additional_situation === null) $additional_situation = [];
