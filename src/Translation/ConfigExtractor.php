@@ -4,6 +4,7 @@ namespace App\Translation;
 
 use App\Service\ConfMaster;
 use App\Service\Globals\TranslationConfigGlobal;
+use App\Service\Translation\TranslationService;
 use App\Structures\Conf;
 use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManagerInterface;
@@ -21,12 +22,12 @@ class ConfigExtractor implements ExtractorInterface
     private ?MessageCatalogue $catalogue = null;
     protected static $has_been_run = false;
 
-    public function __construct(EntityManagerInterface $em, ConfMaster $confMaster, TranslationConfigGlobal $config, TranslatorInterface $trans)
+    public function __construct(EntityManagerInterface $em, ConfMaster $confMaster, TranslationConfigGlobal $config, TranslationService $trans)
     {
         $this->em = $em;
         $this->confMaster = $confMaster;
         $this->config = $config;
-        $this->catalogue = $config->skipExistingMessages() ? $trans->getCatalogue('de') : null;
+        $this->catalogue = $config->skipExistingMessages() ? $trans->getMessageSubCatalogue(bundle: false, locale: 'de') : null;
     }
 
     private function insert(MessageCatalogue &$c, string $message, string $domain, string $file) {

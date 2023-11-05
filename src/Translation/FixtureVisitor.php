@@ -3,6 +3,7 @@
 namespace App\Translation;
 
 use App\Service\Globals\TranslationConfigGlobal;
+use App\Service\Translation\TranslationService;
 use MyHordes\Plugins\Fixtures\Action;
 use MyHordes\Plugins\Fixtures\AwardFeature;
 use MyHordes\Plugins\Fixtures\AwardTitle;
@@ -45,11 +46,11 @@ final class FixtureVisitor extends AbstractVisitor implements NodeVisitor
 	private string $relative_path = '';
 
 	public function __construct(
-        TranslationConfigGlobal $config, TranslatorInterface $trans,
+        TranslationConfigGlobal $config, TranslationService $trans,
         private readonly FixtureSourceLookup $lookup,
         private readonly ContainerInterface $container, KernelInterface $appKernel
     ) {
-        $this->catalogue = $config->skipExistingMessages() ? $trans->getCatalogue('de') : null;
+        $this->catalogue = $config->skipExistingMessages() ? $trans->getMessageSubCatalogue(bundle: false, locale: 'de') : null;
 		$this->configGlobal = $config;
 		$this->base_path = (new \SplFileInfo($appKernel->getProjectDir()))->getRealPath();
     }

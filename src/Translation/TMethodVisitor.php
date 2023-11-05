@@ -3,6 +3,7 @@
 namespace App\Translation;
 
 use App\Service\Globals\TranslationConfigGlobal;
+use App\Service\Translation\TranslationService;
 use PhpParser\Node;
 use PhpParser\NodeVisitor;
 use Symfony\Component\HttpKernel\KernelInterface;
@@ -18,10 +19,10 @@ final class TMethodVisitor extends AbstractVisitor implements NodeVisitor
     private string $relative_path = '';
     private TranslationConfigGlobal $config;
 
-    public function __construct(TranslationConfigGlobal $config, TranslatorInterface $trans, KernelInterface $appKernel)
+    public function __construct(TranslationConfigGlobal $config, TranslationService $trans, KernelInterface $appKernel)
     {
         $this->config = $config;
-        $this->catalogue = $config->skipExistingMessages() ? $trans->getCatalogue('de') : null;
+        $this->catalogue = $config->skipExistingMessages() ? $trans->getMessageSubCatalogue(bundle: false, locale: 'de') : null;
         $this->base_path = (new \SplFileInfo($appKernel->getProjectDir()))->getRealPath();
     }
 

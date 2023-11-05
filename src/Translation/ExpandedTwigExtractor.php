@@ -4,6 +4,7 @@
 namespace App\Translation;
 
 use App\Service\Globals\TranslationConfigGlobal;
+use App\Service\Translation\TranslationService;
 use Symfony\Bridge\Twig\Translation\TwigExtractor;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Translation\MessageCatalogue;
@@ -26,17 +27,17 @@ class ExpandedTwigExtractor extends TwigExtractor
     private $prefix = '';
     private $defaultDomain = 'messages';
     private $file = '';
-    private TranslatorInterface $trans;
+    private TranslationService $trans;
 
     /**
      * {@inheritdoc}
      */
-    public function setPrefix(string $prefix)
+    public function setPrefix(string $prefix): void
     {
         $this->prefix = $prefix;
     }
 
-    public function __construct(Environment $twig, TranslationConfigGlobal $config, KernelInterface $kernel, TranslatorInterface $trans)
+    public function __construct(Environment $twig, TranslationConfigGlobal $config, KernelInterface $kernel, TranslationService $trans)
     {
         parent::__construct($twig);
         $this->environment = $twig;
@@ -48,7 +49,7 @@ class ExpandedTwigExtractor extends TwigExtractor
     /**
      * {@inheritdoc}
      */
-    public function extract($resource, MessageCatalogue $catalogue)
+    public function extract($resource, MessageCatalogue $catalogue): void
     {
         if (!$this->config->useTwig()) return;
 
@@ -73,14 +74,14 @@ class ExpandedTwigExtractor extends TwigExtractor
         return !$this->config->useFileNameMatching() || in_array(basename($file),$this->config->matchingFileNames());
     }
 
-    protected function extractTemplate(string $template, MessageCatalogue $catalogue)
+    protected function extractTemplate(string $template, MessageCatalogue $catalogue): void
     {
         $visitor = $this->environment->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->getTranslationNodeVisitor();
         $visitor->enable();
 
         $this->environment->parse($this->environment->tokenize(new Source($template, '')));
 
-        $reference = $this->config->skipExistingMessages() ? $this->trans->getCatalogue('de') : null;
+        $reference = $this->config->skipExistingMessages() ? $this->trans->getMessageSubCatalogue(bundle: false, locale: 'de') : null;
 
         foreach ($visitor->getMessages() as $message) {
             if ($reference?->has( trim($message[0]), $message[1] ?: $this->defaultDomain ))

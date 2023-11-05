@@ -3,6 +3,7 @@
 namespace App\Translation;
 
 use App\Service\Globals\TranslationConfigGlobal;
+use App\Service\Translation\TranslationService;
 use PhpParser\Node;
 use PhpParser\NodeVisitor;
 use Symfony\Component\DependencyInjection\Attribute\AsDecorator;
@@ -28,10 +29,10 @@ final class DecoratedTransMethodVisitor extends AbstractVisitor implements NodeV
         #[AutowireDecorated]
         private readonly TransMethodVisitor $inner,
         private readonly TranslationConfigGlobal $config,
-        TranslatorInterface $trans,
+        TranslationService $trans,
         KernelInterface $appKernel
     ) {
-        $this->catalogue = $config->skipExistingMessages() ? $trans->getCatalogue('de') : null;
+        $this->catalogue = $config->skipExistingMessages() ? $trans->getMessageSubCatalogue(bundle: false, locale: 'de') : null;
         $this->base_path = (new \SplFileInfo($appKernel->getProjectDir()))->getRealPath();
     }
 
