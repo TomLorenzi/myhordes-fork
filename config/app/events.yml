@@ -9,10 +9,11 @@ parameters:
         name: 'Armageddon'
         priority: 10
         css: 'arma'
-        hooks:
-          watchtower: 'App\Structures\Hook::watchtower_arma'
-          door: 'App\Structures\Hook::door_arma'
-          night_before: 'App\Structures\Hook::night_arma'
+        dispatch:
+          night_before: 'App\Event\Game\EventHooks\Common\AutoDoorEvent'
+          door: 'App\Event\Game\EventHooks\Arma\DoorResponseEvent'
+          watchtower: 'App\Event\Game\EventHooks\Arma\WatchtowerModifierEvent'
+
     afools:
       trigger:
         type: datetime
@@ -21,10 +22,11 @@ parameters:
       conf:
         name: '1. April'
         priority: 11
-        hooks:
-          door: 'App\Structures\Hook::door_april'
-          night_before: 'App\Structures\Hook::night_arma'
-          enable_citizen: 'App\Structures\Hook::enable_april'
+        dispatch:
+          night_before: 'App\Event\Game\EventHooks\Common\AutoDoorEvent'
+          door: 'App\Event\Game\EventHooks\April\DoorResponseEvent'
+          enable_citizen: 'App\Event\Game\EventHooks\April\CitizenActivateEvent'
+
     christmas:
       trigger:
         type: datetime
@@ -37,10 +39,11 @@ parameters:
         mutate_names: 'christmas'
         mods:
           enable: [ 102 ]
-        hooks:
-          night_after: 'App\Structures\Hook::night_xmas'
-          night_none: 'App\Structures\Hook::night_xmas'
+        dispatch:
+          night_after: 'App\Event\Game\EventHooks\Christmas\NightlyEvent'
+          night_none: 'App\Event\Game\EventHooks\Christmas\NightlyEvent'
       public: true
+
     stpatrick:
       trigger:
         type: datetime
@@ -53,6 +56,7 @@ parameters:
         mods:
           enable: [ 103 ]
       public: true
+
     easter:
       trigger:
         type: easter
@@ -64,10 +68,11 @@ parameters:
         css: 'easter'
         mods:
           enable: [ 101 ]
-        hooks:
-          enable_town: 'App\Structures\Hook::enable_easter'
-          disable_town: 'App\Structures\Hook::disable_easter'
+        dispatch:
+          enable_town: 'App\Event\Game\EventHooks\Easter\TownActivateEvent'
+          disable_town: 'App\Event\Game\EventHooks\Easter\TownDeactivateEvent'
       public: true
+
     halloween:
       trigger:
         type: datetime
@@ -81,6 +86,7 @@ parameters:
         mods:
           enable: [ 104 ]
       public: true
+
     contamination:
       trigger:
         type: datetime
@@ -90,6 +96,7 @@ parameters:
         name: 'Großen Verseuchung'
         priority: 105
         css: 'contamination'
+
     purge:
       trigger:
         type: datetime
@@ -98,7 +105,7 @@ parameters:
       conf:
         name: 'Purge'
         priority: 10
-        hooks:
-          watchtower: 'App\Structures\Hook::watchtower_purge'
-          dashboard: 'App\Structures\Hook::dashboard_purge'
-          disable_town: 'App\Structures\Hook::citizen_purge'
+        dispatch:
+          watchtower: 'App\Event\Game\EventHooks\Purge\WatchtowerModifierEvent'
+          dashboard: 'App\Event\Game\EventHooks\Purge\DashboardModifierEvent'
+          disable_town: 'App\Event\Game\EventHooks\Purge\TownDeactivateEvent'

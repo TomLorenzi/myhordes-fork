@@ -22,6 +22,7 @@ use App\Service\AntiCheatService;
 use App\Service\CommandHelper;
 use App\Service\ConfMaster;
 use App\Service\CrowService;
+use App\Service\GameEventService;
 use App\Service\GameFactory;
 use App\Service\GameProfilerService;
 use App\Service\GazetteService;
@@ -79,13 +80,15 @@ class CronCommand extends Command implements SelfSchedulingCommand
     private AdminHandler $adminHandler;
     private UserStatCollectionService $userStats;
 
+    private GameEventService $gameEvents;
+
     private array $db;
 
     public function __construct(array $db, KernelInterface $kernel, Environment $twig,
                                 EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator,
                                 ConfMaster $conf, AntiCheatService $acs, GameFactory $gf, UserHandler $uh, GazetteService $gs,
                                 TownHandler $th, CrowService $cs, CommandHelper $helper, ParameterBagInterface $params,
-                                GameProfilerService $gps, AdminHandler $adminHandler, UserStatCollectionService $us)
+                                GameProfilerService $gps, AdminHandler $adminHandler, UserStatCollectionService $us, GameEventService $gameEvents)
     {
         $this->kernel = $kernel;
         $this->twig = $twig;
@@ -106,6 +109,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
         $this->gps = $gps;
         $this->adminHandler = $adminHandler;
         $this->userStats = $us;
+        $this->gameEvents = $gameEvents;
 
         $this->db = $db;
         parent::__construct();
@@ -574,8 +578,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
                         } else $this->entityManager->clear();
                     }
 
-                    foreach ($running_events as $running_event)
-                        $running_event->hook_nightly_none( $town );
+                    $this->gameEvents->triggerNoAttackHooks( $town, $running_events );
                     $this->entityManager->persist($town);
                     $this->entityManager->flush();
                 }

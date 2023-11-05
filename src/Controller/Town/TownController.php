@@ -51,6 +51,7 @@ use App\Service\BankAntiAbuseService;
 use App\Service\ConfMaster;
 use App\Service\EventFactory;
 use App\Service\EventProxyService;
+use App\Service\GameEventService;
 use App\Service\GameProfilerService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
@@ -170,7 +171,7 @@ class TownController extends InventoryAwareController
      * @return Response
      */
     #[Route(path: 'jx/town/dashboard', name: 'town_dashboard')]
-    public function dashboard(TownHandler $th): Response
+    public function dashboard(TownHandler $th, GameEventService $gameEvents): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirectToRoute('game_newspaper');
@@ -255,10 +256,7 @@ class TownController extends InventoryAwareController
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
         $has_estimated = ($est && ($est->getCitizens()->contains($this->getActiveCitizen()))) || (!$has_zombie_est_tomorrow && $zeds_today[3] >= 100) || ($has_zombie_est_tomorrow && $zeds_tomorrow[3] >= 100);
 
-        $additional_bullets = [];
-        $additional_situation = [];
-        foreach ($this->conf->getCurrentEvents($town) as $e)
-            $e->hook_dashboard($town, $additional_bullets, $additional_situation);
+        $dashboardValueOverride = $gameEvents->triggerDashboardModifierHooks( $town, $this->conf->getCurrentEvents($town) );
 
         $user_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy( [
             'user' => $this->getActiveCitizen()->getUser(),
@@ -303,8 +301,8 @@ class TownController extends InventoryAwareController
             'can_edit_blackboard' => $can_edit_blackboard,
             'has_dictator' => $has_dictator,
             'new_coa_message' => $messages,
-            'additional_bullet_points' => $additional_bullets,
-            'additional_situation_points' => $additional_situation,
+            'additional_bullet_points' => $dashboardValueOverride?->additional_bullets ?? [],
+            'additional_situation_points' => $dashboardValueOverride?->additional_situation ?? [],
             'is_dehydrated' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'thirst2'),
             'bbe_id' => $this->entity_manager->getRepository(BlackboardEdit::class)->findOneBy(['town' => $town], ['id' => 'DESC'])?->getId() ?? -1,
             'potential_defense_loss' => $this->events->queryTownParameter( $town, BuildingValueQuery::MissingItemDefenseLoss ),
