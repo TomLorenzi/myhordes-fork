@@ -38,11 +38,8 @@ parameters:
         mods:
           enable: [ 102 ]
         dispatch:
-          night_after: 'App\Event\Game\EventHooks\Christmas::NightlyEvent'
-          night_none: 'App\Event\Game\EventHooks\Christmas::NightlyEvent'
-        hooks:
-          night_after: 'App\Structures\Hook::night_xmas'
-          night_none: 'App\Structures\Hook::night_xmas'
+          night_after: 'App\Event\Game\EventHooks\Christmas\NightlyEvent'
+          night_none: 'App\Event\Game\EventHooks\Christmas\NightlyEvent'
       public: true
     stpatrick:
       trigger:

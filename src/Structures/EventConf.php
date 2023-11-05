@@ -72,18 +72,6 @@ class EventConf extends Conf
     public static function Void(): ?object { return null; }
     public static function True(): bool { return true; }
 
-    public function hook_nightly_pre(Town $town): void {
-        call_user_func( $this->get(self::EVENT_HOOK_NIGHTLY_PRE, 'App\Structures\EventConf::Void') , $town);
-    }
-
-    public function hook_nightly_post(Town $town): void {
-        call_user_func( $this->get(self::EVENT_HOOK_NIGHTLY_POST, 'App\Structures\EventConf::Void') , $town);
-    }
-
-    public function hook_nightly_none(Town $town): void {
-        call_user_func( $this->get(self::EVENT_HOOK_NIGHTLY_NONE, 'App\Structures\EventConf::Void') , $town);
-    }
-
     public function hook_door(string $action): Response|JsonResponse|null {
         return call_user_func( $this->get(self::EVENT_HOOK_DOOR, 'App\Structures\EventConf::Void') , $action);
     }

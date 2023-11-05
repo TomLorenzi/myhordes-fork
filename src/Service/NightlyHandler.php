@@ -80,14 +80,13 @@ class NightlyHandler
     private GameProfilerService $gps;
     private TimeKeeperService $timeKeeper;
     private EventProxyService $events;
-	private EventDispatcherInterface $dispatcher;
-	private EventFactory $eventFactory;
+	private GameEventService $gameEvents;
 
     public function __construct(EntityManagerInterface $em, LoggerInterface $log, CitizenHandler $ch, InventoryHandler $ih,
                               RandomGenerator $rg, DeathHandler $dh, TownHandler $th, ZoneHandler $zh, PictoHandler $ph,
                               ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ActionHandler $ah, MazeMaker $maze,
                               CrowService $crow, UserHandler $uh, GameFactory $gf, GazetteService $gs, GameProfilerService $gps,
-                              TimeKeeperService $timeKeeper, MapMaker $mapMaker, EventProxyService $events, EventDispatcherInterface $dispatcher, EventFactory $eventFactory,
+                              TimeKeeperService $timeKeeper, MapMaker $mapMaker, EventProxyService $events, GameEventService $gameEvents,
     )
     {
         $this->entity_manager = $em;
@@ -112,8 +111,7 @@ class NightlyHandler
         $this->timeKeeper = $timeKeeper;
         $this->map = $mapMaker;
         $this->events = $events;
-		$this->dispatcher = $dispatcher;
-		$this->eventFactory = $eventFactory;
+		$this->gameEvents = $gameEvents;
     }
 
     private function check_town(Town $town): bool {
@@ -1714,7 +1712,7 @@ class NightlyHandler
         } else $this->log->info("Precondition checks passed. Attack can <info>commence</info>.");
 
 
-        foreach ($events as $event) $event->hook_nightly_pre($town);
+        $this->gameEvents->triggerPreAttackHooks($town, $events);
 
         $this->town_handler->triggerAlways( $town, true );
 
@@ -1755,7 +1753,7 @@ class NightlyHandler
             $this->stage4_stranger($town);
         }
 
-        foreach ($events as $event) $event->hook_nightly_post($town);
+        $this->gameEvents->triggerPostAttackHooks( $town, $events );
 
         $this->game_factory->updateTownScore( $town );
         $this->entity_manager->persist( TownRankingProxy::fromTown( $town, true ) );

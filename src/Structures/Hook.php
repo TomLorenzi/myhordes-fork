@@ -63,29 +63,6 @@ class Hook
     }
 
     /**
-     * For christmas, if we're on the 25th or 31st, we spawn items
-     *
-     * @param Town $town
-     */
-    public static function night_xmas(Town $town): void {
-        if ((int)date('m') !== 12 || (int)date('j') !== 25) return;
-
-        global $kernel;
-
-        $citizen_handler   = $kernel->getContainer()->get(CitizenHandler::class);
-        $inventory_handler = $kernel->getContainer()->get(InventoryHandler::class);
-        $item_factory      = $kernel->getContainer()->get(ItemFactory::class);
-
-        foreach ($town->getCitizens() as $citizen) {
-            if (!$citizen->getAlive() || $citizen_handler->hasStatusEffect($citizen, 'tg_got_xmas_gift')) continue;
-
-            $citizen_handler->inflictStatus( $citizen, 'tg_got_xmas_gift' );
-            $inventory_handler->forceMoveItem( $citizen->getHome()->getChest(), $item_factory->createItem( 'chest_christmas_3_#00' ) );
-            $inventory_handler->forceMoveItem( $citizen->getHome()->getChest(), $item_factory->createItem( 'rp_letter_#00' ) );
-        }
-    }
-
-    /**
      * For easter, we enable the chocolate cross once the event begins
      *
      * @param Town $town
