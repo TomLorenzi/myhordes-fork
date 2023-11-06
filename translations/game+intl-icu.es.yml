@@ -2404,7 +2404,7 @@ Tarnexperte: Amo del Camuflaje
 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> verbraucht.': 'Con un poco de ingenio, has obtenido {item} (el objeto ha sido puesto en el Almacén).<hr />Has utilizado <strong>{ap} Punto(s) de Acción</strong>.'
 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'Con un poco de ingenio, has obtenido {item} (el objeto ha sido puesto en el Almacén).<hr />Has utilizado <strong>{cp} Punto(s) de Construcción</strong>.'
 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> und <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'Con un poco de ingenio, has obtenido {item} (el objeto ha sido puesto en el Almacén).<hr />Has utilizado <strong>{ap} Punto(s) de Acción</strong> y <strong>{cp}Punto(s) de Acción</strong>.'
-Eventsieger: Ganador del evento
+Eventsieger: Ganador de evento
 Eventteilnehmer: Participante del evento
 'Auszeichnung für deinen Sieg in einem Community-Event, Glückwünsch!': 'Distinción obtenida tras su designación como ganador de un evento comunitario, ¡enhorabuena!'
 'Auszeichnung für deine Teilnahme an einem Community-Event.': 'Distinción obtenida tras su participación en un evento comunitario.'
