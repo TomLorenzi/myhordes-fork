@@ -341,11 +341,12 @@
                 <span>{{'Du kannst <strong>pro Tag eine Heldentat</strong> vollbringen und jede dieser Aktionen kann nur <strong>einmal</strong> pro Partie ausgeführt werden:'|trans({}, 'game')|raw}}</span>
             </li>
             {% for entry in heroic_action_list %}
+                {% set tickIcon =  (entry.used is defined and entry.used) ? "tickOn.gif": "tickOff.gif" %}
                 <li     {{ { 'heroic_action': true, 'already': entry.used is defined and entry.used }|classes }}
                         {% if entry.crossed %}disabled{% elseif entry.targets is null %}x-action-id="{{ entry.id }}" x-action-confirm="1" {% else %}x-target-definition="{{ entry.id }}--hero"{% endif %}
                         {% if entry.used is defined and entry.used %}data-used-message="{{ entry.used_message|trans({},'items') }}"{% endif %}
                 >
-                    <img src="{{ asset('build/images/icons/tickOff.gif') }}" alt="">
+                    <img src="{{ asset('build/images/icons/' ~ tickIcon) }}" alt="">
                     <span class="label"><b>{{ entry.action.label|trans({},'items') }}</b></span>
                     {% if entry.targets is not null and not entry.crossed %}
                         {% if entry.target_mode == 2 %}
