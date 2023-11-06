@@ -86,7 +86,7 @@ Stadtname: Nombre del pueblo
 Punkte: Puntos
 'Letzte Worte': 'Últimas palabras'
 'Import bestätigen': 'Confirmar importación'
-'Hast du ein Seele bei {hordes}, {dv}, {d2n} oder {zn}?': '¿Tienes un alma en {hordes}, {dv}, {d2n} o {zn}?'
+'Hast du ein Seele bei {hordes}, {dv}, {d2n} oder {zn}?': '¿Tienes un alma en {d2n}, {hordes}, {dv}, o {zn}?'
 'Seele importieren': 'Importar Alma'
 'Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.': 'No se pudo cargar tu perfil porque Twinoid rechazó la solicitud.'
 'Dein Profil konnte nicht geladen werden, da die Datenverarbeitung fehlgeschlagen ist.': 'Tu perfil no se pudo cargar porque falló el procesamiento de datos.'
@@ -581,5 +581,3 @@ Gross: Grande
 'Für einige Baustellen werden viele verschiedene Arten von Ressourcen benötigt, so dass es schwierig ist, sie alle in einer Zeile anzuzeigen. Diese Option legt fest, ob die Resourcen immer vollständig angezeigt oder individuell ausklappbar sein sollen.': 'Algunas obras requieren muchos tipos diferentes de recursos, por lo que resulta difícil mostrarlos todos en una fila. Esta opción controla si los recursos deben mostrarse siempre en su totalidad o ampliarse individualmente.'
 'Private Foren über Weltforen anzeigen': 'Mostrar foros privados encima de foros mundiales'
 'Diese Option steuert, ob Private Foren in denen du Mitglied bist in der Forenliste über oder unter den Weltforen angezeigt werden. Unabhängig von dieser Einstellung wird das Stadtforum deiner aktuellen Stadt immer ganz oben angezeigt.': 'Esta opción determina si los foros privados a los que tiene acceso se muestran encima o debajo de los foros mundiales en la lista de foros. Independientemente de esta configuración, el foro de tu ciudad actual siempre se mostrará en la parte superior.'
-'Twinoid existiert nicht mehr.': 'Twinoid dejó de funcionar.'
-'Aufgrund der Schließung von Hordes und Twinoid am 2. November 2023 ist es nicht länger möglich, neue Seelen zu importieren oder die Daten bereits importierter Seelen zu aktualisieren.': 'Debido al cierre de Zombinoia y Twinoid el 2 de noviembre de 2023, ya no es posible importar nuevas almas ni es posible actualizar los datos de almas ya importadas.'
