@@ -561,6 +561,8 @@ class AdminTownController extends AdminActionController
 		$town = $this->entity_manager->getRepository(Town::class)->find($id);
 		if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
 
+        $conf_self = $this->conf->getTownConfiguration($town);
+
 		$explorables = [];
 		foreach ($town->getZones() as $zone)
 			/** @var Zone $zone */
@@ -578,6 +580,7 @@ class AdminTownController extends AdminActionController
 
 		return $this->render('ajax/admin/towns/explorer_eruins_explorer.html.twig', $this->addDefaultTwigArgs(null, array_merge([
 			'town' => $town,
+			'conf' => $conf_self,
 			'day' => $town->getDay(),
 			'tab' => "eruins_explorer",
 			'explorables' => $explorables,
