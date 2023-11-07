@@ -135,7 +135,8 @@ class MigrateCommand extends Command
         '3b460b6a4c4420a75d43353f921f83eeee5b792f' => [ ["app:migrate", ['--fix-thread-creation-date' => true ] ] ],
         '9ba59c2c0d9474987f99a0e039009d2dab6a8656' => [ ['app:migrate', ['--repair-permissions' => true] ] ],
 		'a8ddaec85455e9ab14b1ac91b7e1b7e232ad03c9' => [ ['app:migrate', ['--fix-town-loot-log' => true] ] ],
-		'7ef3c511bb2f0c7a9504853cd7ea0daee0c37253' => [ ['app:migrate', ['--add-building-inventory' => true] ] ]
+		'7ef3c511bb2f0c7a9504853cd7ea0daee0c37253' => [ ['app:migrate', ['--add-building-inventory' => true] ] ],
+		'f7423c389d327c1d3588f738eb59baa2a0dd4356' => [ ['app:migrate', ['--create-session-table' => true ] ] ]
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
