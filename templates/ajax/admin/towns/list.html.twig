@@ -80,7 +80,7 @@
                             </div>
                         {% endif %}
                         <div class="cell padded rw-2 rw-sm-4 right">
-                            <button x-ajax-href="{{ path('admin_town_dashboard', {id: town.id}) }}" class="small inline">{{ 'Details'|trans({},'admin') }}...</button>
+                            <button x-ajax-href="{{ path('admin_town_dashboard', {id: town.id}) }}" class="small inline icon-only"><img src="{{ asset("build/images/heroskill/small_view.gif") }}" alt="" /></button>
                         </div>
                     </div>
                 {% endfor %}
