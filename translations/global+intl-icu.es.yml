@@ -2,7 +2,7 @@
 'Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.': 'El foro seleccionado no existe o no tienes permiso para verlo.'
 'Dein Text muss mindestens 2 Zeichen lang sein.': 'Tu texto debe tener al menos 2 caracteres de largo.'
 'Dein Titel muss zwischen 3 und 64 Zeichen lang sein.': 'Tu título debe contener entre 3 y 64 caracteres.'
-Kommunikationsfehler.: Error de comunicación.
+Kommunikationsfehler.: 'Error de comunicación.'
 'Die Aktion kann nicht ausgeführt werden, da deine Anfrage unvollständig oder fehlerhaft ist.': 'Esta acción no puede completarse porque está incompleta o contiene errores.'
 'Beim Ausführen der Aktion ist ein Datenbankfehler aufgetreten. Bitte versuche es später erneut.': 'Se produjo un error en la base de datos al ejecutar esta acción. Por favor intente nuevamente más tarde.'
 'Beim Ausführen der Aktion ist ein interner Fehler aufgetreten. Bitte versuche es später erneut.': 'Se produjo un error interno al ejecutar esta acción. Por favor intente nuevamente más tarde.'
@@ -37,7 +37,7 @@ Achtung: Atención
 Forum: Foros
 'Deine Seele': 'Tu alma'
 Hilfe: Guía
-'Zum Spiel': 'Jugar'
+'Zum Spiel': Jugar
 Deutsch: Alemán
 Englisch: Inglés
 Französisch: Francés
@@ -48,7 +48,7 @@ Spiel: Juego
 Statistiken: Estadísticas
 '{points} Punkte': '{points} Puntos'
 'Dieser Spieler hat bisher noch keine Preise gewonnen...': 'Este jugador aún no ha ganado ninguna distinción...'
-Seelenpunktzahl: Puntos de alma
+Seelenpunktzahl: 'Puntos de alma'
 'Aktuelles Leben': 'Pueblo actual'
 Saison: Temporada
 Tage: Día
@@ -80,7 +80,7 @@ Papier: Papel
 Kopf: Cara
 Zahl: Cruz
 '{color} {value}': '{value} de {color}'
-Vorschau: Vista previa
+Vorschau: 'Vista previa'
 'Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...': 'Cuando llega el momento de hacerlo, tu dolor te hace gritar y te detiene en tu camino. Tienes que curarte antes de poder hacerlo...'
 Autor: Autor
 Datum: Fecha
@@ -89,7 +89,7 @@ Fett: Negrita
 Kursiv: Cursiva
 Unterstreichen: Subrayar
 Durchstreichen: Tachar
-Listenpunkt: Elemento de lista
+Listenpunkt: 'Elemento de lista'
 Spoiler: Spoiler
 Zitat: Citar
 Ruhm: Gloria
@@ -103,11 +103,11 @@ Verräter: Traidor
 'Admin Ankündigung': 'Anuncio de Administrador'
 'Mod Ankündigung': 'Anuncio de Moderador'
 'Orakel Ankündigung': 'Anuncio de Oráculo'
-Rollenspiel: Juego de Rol
-Link-Text: Texto del enlace
+Rollenspiel: 'Juego de Rol'
+Link-Text: 'Texto del enlace'
 Link-URL: Enlace
-Bildtitel: Título de imágen
-Bild-URL: Url de imagen
+Bildtitel: 'Título de imágen'
+Bild-URL: 'Url de imagen'
 'Liste der Themen aktualisieren': 'Actualizar la lista de temas'
 'Dieses Thema enthält offizielle Ansagen der Website Administratoren.': 'Este tema tiene uno o varios anuncios de la Administración.'
 'Dieses Thema enthält Ansagen von Community-Vertretern.': 'Este tema tiene uno o varios anuncios de representantes de la comunidad.'
@@ -131,7 +131,7 @@ Link: Enlace
 'Permanenter Link zu diesem Post:': 'Enlace permanente a esta publicación:'
 'Mehr anzeigen': 'Mostrar más'
 'Deinen Rucksack umklammern': '¡Tengo esposa e hijos!'
-Schreien: '¡Nooooooo!'
+Schreien: ¡Nooooooo!
 'Rotz und Wasser heulen': '¡Me muero!'
 'Die Zähne zusammenbeißen': '¡Me vengaré!'
 'Eine Gitarre umarmen': '¡No se lleven a mi amigo!'
@@ -140,7 +140,7 @@ Schreien: '¡Nooooooo!'
 'Hinter dem Wrack verstecken': '¡Ay que miedo!'
 'Die Tür zuhalten': '¿Por qué a mí?'
 'Unter der Decke verstecken': '¡Mi carne apesta!'
-'Nach Hilfe schreien': '¡Auxiliooo!'
+'Nach Hilfe schreien': ¡Auxiliooo!
 '"Hilfe" schreien': '¡Adiós mundo cruel!'
 'Unter einem Karton verstecken': '¡Malditos zombies!'
 'Unter dem Bett verstecken': 'Esconderse bajo la cama'
@@ -158,8 +158,8 @@ Mehrsprachig: Multilingüe
 'Du weißt nicht, was du tun sollst? Folge den Empfehlungen hier unten :)': '¿No sabes que hacer? Sigue las recomendaciones a continuación :)'
 'Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.': 'Este Bonus sólo funciona si los guardianes están en el pueblo durante el ataque.'
 'Manche deiner Gegenstände sind <strong>benutzbar</strong>. Klick einfach auf einen Link hier unten, um den jeweiligen Gegenstand zu gebrauchen. Andere Gegenstände wiederum, wie zum Beispiel Waffen, können nur <strong>außerhalb der Stadt</strong> verwendet werden..': 'Algunos de sus artículos son <strong>utilizables</strong>. Simplemente haga clic en un enlace a continuación para usar el artículo en cuestión. Otros elementos, como armas, solo se pueden usar <strong>fuera del pueblo</strong>.'
-Stadtforum: Foro del pueblo
-Weltforen: Foros Mundiales
+Stadtforum: 'Foro del pueblo'
+Weltforen: 'Foros Mundiales'
 'Andere Foren': 'Otros Foros'
 'Mindestens ein Post in diesem Thema wurde den Moderatoren gemeldet.': 'Se ha informado a los moderadores de al menos una publicación sobre este tema.'
 'Dieses Thema enthält {count} gemeldete Posts:': 'Este tema contiene {count} publicaciones reportadas:'
@@ -175,7 +175,7 @@ Wiederherstellen: Restaurar
 'Wenn ein andered Mitglied deiner Koalition eine Stadt auswählt, schließt du dich ihm automatisch an und spielst in der gleichen Stadt wie er.': 'Si otro miembro de la alianza se une a un pueblo, le seguirás y comenzarás a jugar en su mismo pueblo.'
 'Du musst noch mehr Erfahrung sammeln, um das tun zu können...': 'Necesita ganar más experiencia para poder hacer esto...'
 Code: Código
-Kein: "No"
+Kein: 'No'
 'Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...': 'Éste mensaje te lo trajo personalmente el Cuervo. Él siempre vuela sobre el pueblo y tiene un ojo clavado en tí...'
 'Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude <strong>Kleiner Friedhof</strong>.': 'Este bonus se encuentra disponible gracias a tus antiguos camaradas y a la Construcción <strong>Defensa Post-Mortem</strong>.'
 'Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.': 'Este Bonus sólo se encuentra disponible si los Guardianes se encuentran en la ciudad.'
@@ -184,14 +184,14 @@ Ausblenden: Esconder
 Nachricht: Noticia
 Ausb.+Nachr.: Remplazar
 '<strong>Die Stadt versinkt im Chaos!</strong></p>Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!<p><em>... Oder euch gegenseitig abschlachten, je nachdem.</em>': '<strong>¡El pueblo está en Caos Total!</strong></p> Ninguna ley se aplica... ¡Habrá que mantenerse unidos...!<p><em> O matarse los unos a los otros.</em>'
-Entwickler-Einstellungen: Opciones de desarrollador
+Entwickler-Einstellungen: 'Opciones de desarrollador'
 'Als Entwickler dieser Webseite kannst du hier einige Einstellungen anpassen.': 'Como desarrollador del sitio, puedes cambiar algunos ajustes aquí.'
 'Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.': 'Esta dirección de correo electrónico se mostrará como correo electrónico de contacto.'
 'Dies ist die URL, zu der Spieler weitergeleitet werden, wenn sie auf den Link klicken.': 'Esta es la URL a la que los jugadores serán dirigidos cuando clickeen el link.'
 'Mit diesem Schlüssel authentifiziert sich deine Webseite gegenüber MyHordes.': 'Tu sitio utiliza esta clave para autenticarse con "MyHordes".'
 'Du darfst ihn keinesfalls weitergeben oder öffentlich verfügbar machen, beispielsweise in einem Code-Repository.': 'No debes distribuirlo ni hacerlo público, por ejemplo, en un repositorio de claves.'
 'Wenn du den Verdacht hast, dass dein Schlüssel kompromittiert wurde, kannst du einen neuen Schlüssel anfordern.': 'Si sospechas que tu clave ha sido comprometida, puedes pedir una nueva.'
-'Alle Foren': 'Foros'
+'Alle Foren': Foros
 'Als <strong>Ausgestoßener</strong> stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...': 'Ahora eres un <strong>paria</strong>, y no tienes acceso a las herramientas comunitarias en el pueblo: almacén, construcciones, portal, etc.'
 'Die Seite wird von Horden von Zombies belagert!': '¡El sitio está siendo asediado por hordas de zombies!'
 'Spielhilfe:': 'Guía:'
@@ -220,7 +220,7 @@ Dauerhaft: Permanente
 'Ausgeschlossene Teilnehmer': 'Participantes excluidos'
 'Ausschluss annulieren': 'Cancelar la exclusión'
 'Der Ausschluss des Spielers wird annuliert und er oder sie erhält wieder vollen Zugriff auf die Gruppe.': 'La exclusión del jugador se cancelará y recuperará el acceso completo al grupo.'
-'Wird geladen...': 'Cargando...'
+'Wird geladen...': Cargando...
 'Bitte wähle eine Konversation auf der linken Seite.': 'Seleccione una conversación a la izquierda.'
 'Spamschutz: Du hast heute bereits eine große Anzahl an Spielern kontaktiert; du musst eine Weile warten, bevor du eine neue Nachricht erstellen kannst.': 'Protección contra correo no deseado: ya te has puesto en contacto con un gran número de jugadores hoy; tienes que esperar un poco antes de poder redactar un nuevo mensaje.'
 'Weitere Einträge werden geladen...': 'Cargando más entradas...'
@@ -241,9 +241,9 @@ Ankündigung: Anuncio
 'Fehler beim Laden des Posteingangs.': 'Error al cargar la bandeja de entrada.'
 Heute: Hoy
 Gestern: Ayer
-Abonniert: Dejar de seguir
+Abonniert: 'Dejar de seguir'
 Abonnieren: Seguir
-und: "y"
+und: 'y'
 'HINWEIS: Diese Aktion ist nur in der Stadt möglich.': 'NOTA: Esta acción sólo está disponible en el pueblo.'
 'HINWEIS: Diese Aktion ist nur in Übersee möglich.': 'NOTA: Esta acción sólo está disponible en el ultramundo.'
 'Neuer Beitrag in': 'Nueva publicación en'
@@ -252,7 +252,7 @@ und: "y"
 'Du wirst informiert, wenn es neue Beiträge zu dieser Diskussion gibt': 'Sabrás si hay nuevas respuestas en este tema.'
 'Du wirst nicht mehr informiert, wenn es neue Beiträge zu dieser Diskussion gibt.': 'Dejarás de ser informado si hay nuevas respuestas.'
 'Nachrichten suchen': 'Buscar un mensaje'
-Suchbegriff: Palabras clave
+Suchbegriff: 'Palabras clave'
 'Suchbegriffe eingeben': 'Ingresa las palabras clave'
 'Benutzer (optional)': 'Usuario (opcional)'
 Entfernen: Eliminar
@@ -284,7 +284,7 @@ Groß: Grande
 'Eine offizielle Gruppe kontaktieren': 'Contactar con un grupo oficial'
 'via {group_inbox}': 'vía {group_inbox}'
 'Überlebte Tage': 'Días sobrevividos'
-Abschiedsworte: Comentario personal
+Abschiedsworte: 'Comentario personal'
 'Zum Wechsein der Seite hier klicken': 'Clic para cambiar de página'
 'Es ist nicht erlaubt, im Chaos-Modus einen Gegenstand an einen Bürger zu senden, der sich außerhalb der Stadt befindet.': 'No está permitido enviar un artículo a un ciudadano que está fuera de la ciudad en el modo Caos.'
 'Pin entfernen': 'Quitar destacado'
@@ -297,7 +297,7 @@ Einblenden: Mostrar
 'Du hast diesen Spieler auf deine Blacklist gesetzt.': 'Este usuario está ahora en tu Lista Negra.'
 'Du hast diesen Spieler von deiner Blacklist genommen.': 'Este usuario ya no está en tu Lista Negra.'
 'Du hast {user} blockiert.': 'Bloqueaste a {user}.'
-'Blockade aufheben': 'Desbloquear'
+'Blockade aufheben': Desbloquear
 'Spieler blockieren': 'Bloquear jugador'
 '{user} blockieren': 'Bloquear a {user}'
 'Wenn du diesen Spieler blockierst, kann er dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.': 'Si bloquea a este jugador, no podrás enviarle ningún mensaje nuevo. Si una tercera persona los agrega a un chat grupal, los mensajes del jugador bloqueado se ocultarán de forma predeterminada.'
@@ -315,11 +315,11 @@ Kopieren: Copiar
 'Wenn möglich gib bitte einen Grund für deine Meldung an:': 'Si es posible, proporcione la razón de su denuncia:'
 'Keinen Grund angeben': 'No dar una razón'
 Cheating: Trampas
-'Flooding oder Spam': 'Spam'
+'Flooding oder Spam': Spam
 'Verwendung einer anderen als der Forensprache': 'Uso de un idioma que no sea el idioma del foro'
 'Beleidigungen / Unangemessener Ausdruck': 'Insultos / Lenguaje inapropiado'
 Pornographie: Pornografía
-Hassrede: Incitación al odio racial
+Hassrede: 'Incitación al odio racial'
 'Verbreitung persönlicher Informationen': 'Difusión de datos personales privados'
 'Verletzung von Copyright': 'Violación de derechos de autor'
 'Aufruf zu Gesetzesverstößen': 'Incitacion a las violaciones de la ley'
@@ -339,12 +339,12 @@ Abstimmen: Votar
 Antwort: Respuesta
 (optional): (opcional)
 'Info-Text hinzufügen': 'Agregar texto informativo'
-Info-Text: Texto informativo
+Info-Text: 'Texto informativo'
 'Du musst mindestens eine Antwort eingeben.': 'Debe introducir al menos una respuesta.'
 'Spielernamen einfügen': Jugador
 'Umfrage schließen': 'Cerrar encuesta'
 'Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?': 'Esta acción no se puede deshacer. ¿Está seguro?'
-Animateur-Team: Equipo de animación
+Animateur-Team: 'Equipo de animación'
 Entwickler: Desarrollador
 Community-Tools: Herramientas-comunitarias
 Posteingang: Recibidos
@@ -384,7 +384,7 @@ Icons: Iconos
 Ergebnisse: Resultados
 'Ergebnisse pro Seite': 'Resultados por página'
 Ja: Sí
-Nein: "No"
+Nein: 'No'
 Anwenden: Aplicar
 'Keine Ergebnisse': 'No hay resultados'
 'Deine Nachricht benötigt einen Titel sowie Inhalt.': 'Tu mensaje debe tener un título y un cuerpo.'
@@ -416,19 +416,19 @@ Offiziell: Oficial
 '{num} Seelenpunkte, Platz {rank}': '{num} puntos de alma, posición: <b>{rank}°</b>'
 'Zu meinem Eintrag springen': 'Ir a mi posición'
 'Diskussion aktualisieren': 'Actualizar la conversación'
-Support-Postfach: Contacto con el Soporte
+Support-Postfach: 'Contacto con el Soporte'
 'Du hast diese Aktion bereits zu oft durchgeführt. Warte eine Weile und versuche es dann erneut.': 'Estás intentando volver a hacer esto demasiado pronto. Inténtalo de nuevo en unos minutos.'
 'Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.': 'Puedes moderar en este foro, pero no tienes permisos regulares de lectura. Por lo tanto solo podrás ver temas en los que se haya reportado al menos un mensaje.'
 'Für diese Aktion hast du nicht genug MP.': 'No tienes suficientes PM para esta acción.'
 Ankündigungen: Anuncios
 Foren: Foros
-Kontaktliste: Lista de contactos
+Kontaktliste: 'Lista de contactos'
 STRG: CTRL
 'Es wurden keine Dokumente gefunden, die deiner Suchanfrage entsprechen.': 'No pudimos encontrar nada que coincidiera con tu búsqueda.'
 'Schon gewusst?': '¿Sabías que?'
 'Umfrage starten': 'Ver encuesta actual'
 'Alles als gelesen markieren': 'Marcar todo como leído'
-Weltforum: Foro Mundial
+Weltforum: 'Foro Mundial'
 'im-Kontext Übersetzung': 'Traducir MyHordes'
 'Mit dieser speziellen Sprache aktivierst du die Crowdin-Kontextübersetzung. Damit kannst du MyHordes direkt aus dem Spiel heraus übersetzen.': 'Este lenguaje en particular activa la traducción en contexto de Crowdin. Podrá traducir MyHordes directamente desde el juego.'
 'Spieler melden': 'Denunciar jugador'
@@ -438,13 +438,13 @@ Weltforum: Foro Mundial
 'Unangemessener Avatar': 'Avatar inapropiado'
 'Unangemessener Name': 'Nombre inapropiado'
 'Liste der Foren aktualisieren': 'Actualizar la lista de foros'
-Community-Management: Gestión de la comunidad
+Community-Management: 'Gestión de la comunidad'
 'Aktuelles Team': 'Equipo Actual'
 Unterstützung: Soporte
 Inaktive: Inactivos
 'Rechtliche Informationen': 'Información legal'
-Datenschutzerklärung: Política de privacidad
-Impressum: Aviso legal
+Datenschutzerklärung: 'Política de privacidad'
+Impressum: 'Aviso legal'
 'Das angeforderte Dokument wurde auf diesem Server nicht eingerichtet.': 'La URL solicitada no se encuentra en este servidor.'
 'Wenn du der Administrator dieses Servers bist, stelle das angeforderte Dokument an folgenden Orten im Dateisystem bereit:': 'Si usted es el administrador de este servidor, por favor proporcione el documento solicitado en la siguiente ubicación del sistema de archivos:'
 'Aktuelle Umfrage': 'Encuesta actual'
@@ -476,9 +476,9 @@ Antw.: Resp.
 Gesamt: Total
 'Bitte wähle einen Grund für deine Meldung aus.': 'Por favor seleccione un motivo para su denuncia.'
 'Sprache des Stadtnamens': 'Idioma del nombre del pueblo'
-Nutzungsbedingungen: Condiciones de uso
+Nutzungsbedingungen: 'Condiciones de uso'
 'Hier kannst du eine URL für eine Test- oder Entwicklungsumgebung hinterlegen (z.B. "localhost"). Du siehst dann einen zusätzlichen Button, der dich auf diese Umgebung weiterleitet. Diese URL sowie der zusätzliche Button sind ausschließlich für dich sichtbar.': 'Aquí puede ingresar una URL para un entorno de prueba o desarrollo (por ejemplo, "localhost"). Luego verá un botón adicional que lo redirigirá a este entorno. Esta URL y el botón adicional solo son visibles para usted.'
-Kopiert!: '¡Copiado!'
+Kopiert!: ¡Copiado!
 'Du kannst diese Aktion nicht ausführen, da du <strong>verbannt</strong> wurdest!': '¡Es imposible hacer eso si has sido <strong>desterrado de la comunidad</strong>!'
 'Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>{def} Verteidigungspunkt(e)</strong>.': 'Cada <strong>objeto de defensa</strong> colocado en el Almacén le da <strong>{def, select, 1 {1 punto} other {{def} puntos}} de defensa al pueblo</strong>.'
 'Eigenes Event organisieren': 'Organizar un evento'
@@ -501,7 +501,7 @@ Kopiert!: '¡Copiado!'
 'Neues Event': 'Nuevo evento'
 'Bist du sicher, dass du dieses Event löschen möchtest?': '¿Estás completamente seguro de querer eliminar este evento?'
 'Weitere Informationen und Regeln anzeigen.': 'Ver más información y las normas.'
-Event-Städte: Pueblos de evento
+Event-Städte: 'Pueblos de evento'
 'Hier kannst du Städte für dein Event anlegen, welche zusammen mit deinem Event gestartet werden. Dir stehen hierfür fast alle Optionen zur Verfügung, die auch Raben für die Erstellung von Städten haben.': 'Aquí puedes crear pueblos para tu evento, los cuales empezarán junto al evento. Tienes a tu disposición casi todas las configuraciones disponibles que tienen los Cuervos a la hora de crear pueblos.'
 'Deiner Kreativität sind somit keine Grenzen gesetzt!': '¡No hay límites para tu creatividad!'
 'Aktuell werden keine Städte mit dem Start des Events automatisch angelegt.': 'Actualmente, no se crean pueblos automáticamente con el inicio del evento.'
@@ -512,15 +512,15 @@ Event-Städte: Pueblos de evento
 'Stadt bearbeiten': 'Editar pueblo'
 'Stadtinstanz bereit': 'Instancia de pueblo lista'
 'Stadtinstanz beendet': 'Instancia de pueblo acabada'
-'Am Leben': 'Vivo'
+'Am Leben': Vivo
 'Zur Chronik': 'A las crónicas'
 'Allgemeine Event-Informationen': 'Información general del evento'
 'Hier kannst du allgemeine Optionen für dein Event, wie dessen Name, Beschreibung oder Startzeitpunkt festlegen.': 'Aquí puedes establecer las configuraciones básicas de tu evento, como su nombre, una descripción o la fecha de inicio. Tenga en cuenta que no puede programar un evento con más de 194 días de anticipación, de lo contrario, puede verse afectado por los cambios de temporada.'
 'Event bearbeiten': 'Editar evento'
 'Klicke hier, um eine Eventbeschreibung in {lang} hinzuzufügen.': 'Haz clic aquí para añadir una descripción sobre el evento en {lang}.'
 'Geplanter Startzeitpunkt': 'Hora de inicio prevista'
-Event-Titel: Título del evento
-Kurzbeschreibung: Descripción breve
+Event-Titel: 'Título del evento'
+Kurzbeschreibung: 'Descripción breve'
 'Beschreibung und Regeln des Events': 'Descripción y normas del evento'
 'Du musst mindestens eine Event-Beschreibung hinzufügen.': 'Debes añadirle al menos una descripción al evento.'
 'Du musst ein Startdatum für dein Event festlegen.': 'Necesitas establecer una fecha de inicio para tu evento.'
@@ -528,7 +528,7 @@ Kurzbeschreibung: Descripción breve
 'Account wechseln': 'Cambiar de cuenta'
 'Mehr Ergebnisse anzeigen': 'Ver más resultados'
 'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".': 'Utiliza "^" para buscar únicamente palabras que empiecen o terminen con una palabra concreta. Por ejemplo, "corto^" encontrará la palabra "ultracorto", pero no "cortísimo".'
-Inhaltsverzeichnis: Tabla de contenidos
+Inhaltsverzeichnis: 'Tabla de contenidos'
 'Du kannst vorerst keine weiteren Meldungen an die Raben senden.': 'No puedes denunciar más mensajes a los Cuervos por el momento.'
 'Bitte versuche es in einigen Minuten erneut.': 'Por favor, vuelve a intentarlo más tarde.'
 'Bitte versuche es in einigen Stunden erneut.': 'Por favor, inténtalo de nuevo en unas horas.'
@@ -539,3 +539,5 @@ Inhaltsverzeichnis: Tabla de contenidos
 'Dieser Spieler ist ein nicht-administratives Mitglied des Entwickler-Teams von MyHordes.': 'Este jugador es un desarrollador no-administrador del equipo de MyHordes.'
 'Private Foren': 'Foros privados'
 'Vielen Dank an diese Spieler für ihre künstlerischen Beiträge.': 'Gracias a estos jugadores por sus aportes artísticos.'
+'<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>{max}</strong> Verteidigungspunkte vergeben!': '<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>{max}</strong> Verteidigungspunkte vergeben!'
+'Auf {hostname}': 'Auf {hostname}'
