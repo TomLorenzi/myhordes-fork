@@ -29,8 +29,7 @@
             <div class="row-table">
                 <div class="row header">
                     <div class="cell padded rw-1 rw-sm-0">{{ 'ID'|trans({},'admin') }}</div>
-                    <div class="cell padded rw-1 rw-sm-0">{{ 'Lang.'|trans({},'admin') }}</div>
-                    <div class="cell padded rw-5 rw-sm-12">{{ 'Stadtname'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-6 rw-sm-12">{{ 'Stadtname'|trans({},'admin') }}</div>
                     <div class="cell padded rw-1 rw-sm-0">{{ 'Tag'|trans({},'admin') }}</div>
                     <div class="cell padded rw-2 rw-sm-0">{{ 'Pop.'|trans({},'admin') }}</div>
                     <div class="cell padded rw-2 rw-sm-0 right">{{ 'Aktionen'|trans({},'admin') }}</div>
@@ -41,12 +40,10 @@
                         <div class="cell padded rw-1 rw-sm-2 shrink-0" style="opacity: {{ town.scheduledFor > 'now'|to_date ? 0.5 : 1 }}">
                             <span class="hide-mobile">{{ town.id }}</span><span class="small hide-desktop">{{ town.id }}</span><br />
                         </div>
-                        <div class="cell padded rw-1 rw-sm-2 shrink-0" style="opacity: {{ town.scheduledFor > 'now'|to_date ? 0.5 : 1 }}">
+                        <div class="cell padded rw-6 rw-sm-8" style="opacity: {{ town.scheduledFor > 'now'|to_date ? 0.5 : 1 }}">
                             {% if town.language is not empty %}
-                                <span class="language"><img src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" /></span>
+                                <span class="language"><img src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" style="max-height:16px;" /></span>
                             {% endif %}
-                        </div>
-                        <div class="cell padded rw-5 rw-sm-8" style="opacity: {{ town.scheduledFor > 'now'|to_date ? 0.5 : 1 }}">
                             <img title="{{ town.type.label|trans({},'game') }}" src="{{ asset("build/images/towntypes/" ~ town.type.name ~ ".gif") }}" alt="" /> {{ town.name }}<br />
                             {% if town.attackFails >= 3 %}<div style="color: red">{{ 'Quarantäne'|trans({},'game') }}</div> {% endif %}
                             {% if town.rankingEntry.disabled %}<div class="bold" style="color: #ff8800">{{ 'Ranking-Ausschluss'|trans({},'game') }}</div> {% endif %}
