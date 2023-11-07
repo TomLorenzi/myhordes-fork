@@ -59,6 +59,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 #[AsCommand(
@@ -80,6 +81,7 @@ class MigrateCommand extends Command
     private PermissionHandler $perm;
     private CommandHelper $helper;
     private TwinoidHandler $twin;
+	private PdoSessionHandler $sessionHandler;
 
     protected static $git_script_repository = [
         'ce5c1810ee2bde2c10cc694e80955b110bbed010' => [ ['app:migrate', ['--calculate-score' => true] ] ],
@@ -139,7 +141,7 @@ class MigrateCommand extends Command
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
                                 RandomGenerator $rg, ConfMaster $conf,
                                 MazeMaker $maze, ParameterBagInterface $params, UserHandler $uh, PermissionHandler $p,
-                                UserFactory $uf, CommandHelper $helper, TwinoidHandler $twin)
+                                UserFactory $uf, CommandHelper $helper, TwinoidHandler $twin, PdoSessionHandler $sh)
     {
         $this->kernel = $kernel;
 
@@ -155,6 +157,8 @@ class MigrateCommand extends Command
 
         $this->helper = $helper;
         $this->twin = $twin;
+
+		$this->sessionHandler = $sh;
 
         parent::__construct();
     }
@@ -241,6 +245,8 @@ class MigrateCommand extends Command
             ->addOption('fix-thread-creation-date', null, InputOption::VALUE_NONE, 'Fix creation date of threads')
 			->addOption('fix-town-loot-log', null, InputOption::VALUE_NONE, 'Fix townLoot log entries')
 			->addOption('add-building-inventory', null, InputOption::VALUE_NONE, 'Add inventory to already created Building')
+
+			->addOption('create-session-table', null, InputOption::VALUE_NONE, 'Create session table to save them in DB (for loadbalancing)')
         ;
     }
 
@@ -1448,6 +1454,10 @@ class MigrateCommand extends Command
 			$this->helper->leChunk($output, Building::class, 500, ['inventory' => null], true, true, function(Building $b) {
 				$b->setInventory((new Inventory())->setBuilding($b));
 			}, true);
+		}
+
+		if ($input->getOption('create-session-table')) {
+			$this->sessionHandler->createTable();
 		}
 
         return 99;
