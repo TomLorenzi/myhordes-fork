@@ -88,7 +88,8 @@ class Extensions extends AbstractExtension implements GlobalsInterface
             new TwigFunction('help_lnk', [$this, 'help_lnk'], ['is_safe' => array('html')]),
             new TwigFunction('tooltip',  [$this, 'tooltip'], ['is_safe' => array('html')]),
             new TwigFunction('conf',     [$this, 'conf']),
-			new TwigFunction('hook', [ExtensionsRuntime::class, 'execute_hooks'], ['is_safe' => array('html')])
+			new TwigFunction('hook', [ExtensionsRuntime::class, 'execute_hooks'], ['is_safe' => array('html')]),
+			new TwigFunction('hostname', [$this, 'gethostname']),
         ];
     }
 
@@ -327,4 +328,8 @@ class Extensions extends AbstractExtension implements GlobalsInterface
 
         return $this->translator->trans($base, [], 'game', $lang);
     }
+
+	public function gethostname(): string {
+		return gethostname();
+	}
 }

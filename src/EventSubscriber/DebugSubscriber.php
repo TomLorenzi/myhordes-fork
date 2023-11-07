@@ -15,6 +15,12 @@ class DebugSubscriber implements EventSubscriberInterface
     public function onKernelResponse(ResponseEvent $event) {
         if ($event->getRequest()->isXmlHttpRequest())
             $event->getResponse()->headers->set('Symfony-Debug-Toolbar-Replace', 1);
+
+			$response = $event->getResponse();
+
+			$response->headers->add([
+				'X-Real-Server' => gethostname(),
+			]);
     }
 
     public function onKernelController(ControllerEvent $event) {

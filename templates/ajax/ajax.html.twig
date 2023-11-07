@@ -195,5 +195,7 @@
 
             }
         {% endif %}
+
+        document.getElementById('current_webserver').innerText = "{{ "Über {hostname}"|trans({'hostname': hostname()}, 'global') }}";
     </script>
 {% endblock %}
