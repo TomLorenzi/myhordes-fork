@@ -13,7 +13,7 @@
         {% set item_name = 'Schwache Seele' %}
     {% endif %}
     <h1>{{ item_name|trans({},'items') }} {% if item.broken %}<span class="broken">({{ 'Kaputt'|trans({},'items') }})</span>{% endif %} <img src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" alt="{{ item_name|trans({},'items') }}"></h1>
-    {{ item.prototype.description|trans({},'items') }}
+    {{ item.prototype.description|trans({},'items')|raw }}
     {% if item.prototype.hasProperty('is_water') and app.user.activeCitizen is not null and app.user.activeCitizen.hasStatus('hasdrunk') %}
         <div class="item-addendum">{{ 'Beachte: Du hast heute bereits getrunken und deine Aktionspunkte für diesen Tag bereits erhalten.'|trans({},'items') }}</div>
     {% endif %}

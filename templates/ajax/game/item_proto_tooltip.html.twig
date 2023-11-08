@@ -1,6 +1,6 @@
 <div class="tooltip item">
     <h1>{{ item.label|trans({},'items') }} <img src="{{ asset('build/images/item/item_' ~ item.icon ~ '.gif') }}" alt="{{ item.label|trans({},'items') }}"></h1>
-    {{ item.description|trans({},'items') }}
+    {{ item.description|trans({},'items')|raw }}
     {% if item.hasProperty('is_water') and app.user.activeCitizen is not null and app.user.activeCitizen.hasStatus('hasdrunk') %}
         <div class="item-addendum">{{ 'Beachte: Du hast heute bereits getrunken und deine Aktionspunkte für diesen Tag bereits erhalten.' }}</div>
     {% endif %}
