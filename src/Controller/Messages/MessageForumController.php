@@ -1088,7 +1088,7 @@ class MessageForumController extends MessageController
                 $q->andWhere( "{$d} < :date" )->setParameter('date', (new DateTime())->setTimestamp( $last ));
 
             foreach ($in as $k => $entry) $q->andWhere("{$t} LIKE :in{$k} ESCAPE '█'")->setParameter("in{$k}", "%{$entry}%");
-            foreach ($not_in as $k => $entry) $q->andWhere("t.title NOT LIKE :nin{$k} ESCAPE '█'")->setParameter("nin{$k}", "%{$entry}%");
+            foreach ($not_in as $k => $entry) $q->andWhere("{$t} NOT LIKE :nin{$k} ESCAPE '█'")->setParameter("nin{$k}", "%{$entry}%");
 
             foreach ($is as $k => $entry) {
                 $or = $q->expr()->orX()
@@ -1125,8 +1125,7 @@ class MessageForumController extends MessageController
 
         if ($search_titles && !empty($in)) {
 
-            /** @var QueryBuilder $queryBuilder */
-            $queryBuilder = $this->entity_manager->getRepository(Thread::class)->createQueryBuilder('t');
+			$queryBuilder = $this->entity_manager->getRepository(Thread::class)->createQueryBuilder('t');
 
             $queryBuilder->andWhere('t.hidden = false OR t.hidden IS NULL');
 
@@ -1143,8 +1142,7 @@ class MessageForumController extends MessageController
             foreach ($queryBuilder->getQuery()->execute() as $thread) if ($p = $thread->firstPost()) $result[] = $p;
         }
 
-        /** @var QueryBuilder $queryBuilder */
-        $queryBuilder = $this->entity_manager->getRepository(Post::class)->createQueryBuilder('p');
+		$queryBuilder = $this->entity_manager->getRepository(Post::class)->createQueryBuilder('p');
 
         $queryBuilder->andWhere('p.searchText IS NOT NULL');
         $queryBuilder->andWhere('p.hidden = false OR p.hidden IS NULL');
