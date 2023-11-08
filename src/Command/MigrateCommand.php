@@ -1449,7 +1449,7 @@ class MigrateCommand extends Command
 		}
 
 		if ($input->getOption('add-building-inventory')) {
-			$this->helper->leChunk($output, Building::class, 500, ['inventory' => null], true, true, function(Building $b) {
+			$this->helper->leChunk($output, Building::class, 500, ['inventory' => null], false, true, function(Building $b) {
 				$b->setInventory((new Inventory())->setBuilding($b));
 			}, true);
 		}
