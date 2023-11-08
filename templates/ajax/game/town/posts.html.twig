@@ -27,7 +27,12 @@
                         {{ post.date|format_datetime('medium', 'short') }}
                     {% endif %}
                 </i>
-                {% include "ajax/soul/playeravatar.html.twig" with {user: post.owner.user} only %}
+                {% set owner = post.owner %}
+                {% if post.owner is null %}
+                    {% set owner = 66 %}
+                {% endif %}
+
+                {% include "ajax/soul/playeravatar.html.twig" with {user: owner} only %}
                 <b>
                     {% if not post.owner or post.owner.user.name == 'Der Rabe' %}
                         {{ 'Der Rabe'|trans({},'global') }}
