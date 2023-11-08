@@ -3,6 +3,7 @@
 
 namespace App\EventSubscriber;
 
+use App\Entity\User;
 use App\Messages\Discord\DiscordMessage;
 use App\Service\ConfMaster;
 use App\Structures\MyHordesConf;
@@ -18,12 +19,14 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Throwable;
 
 class ExceptionSubscriber implements EventSubscriberInterface
 {
     private string $report_path;
     private string $version;
+	private TokenStorageInterface $tokenStorage;
 
     private ?string $discordEndpoint;
     private ?array $gitlabIssueMail;
@@ -34,6 +37,7 @@ class ExceptionSubscriber implements EventSubscriberInterface
         private readonly MailerInterface     $mail,
         private readonly MessageBusInterface $bus,
         private readonly ManagerRegistry     $mr,
+		private readonly TokenStorageInterface	$ts
     ) {
         $this->report_path = "{$params->get('kernel.project_dir')}/var/reports";
 
@@ -42,7 +46,8 @@ class ExceptionSubscriber implements EventSubscriberInterface
 
         $this->gitlabIssueMail['to']   = $conf->getGlobalConf()->get( MyHordesConf::CONF_FATAL_MAIL_TARGET, null );
         $this->gitlabIssueMail['from'] = $conf->getGlobalConf()->get( MyHordesConf::CONF_FATAL_MAIL_SOURCE, null );
-        $this->discordEndpoint = $conf->getGlobalConf()->get( MyHordesConf::CONF_FATAL_MAIL_DCHOOK, null );
+        $this->discordEndpoint = $conf->getGlobalConf()->get(MyHordesConf::CONF_FATAL_MAIL_DCHOOK, null );
+		$this->tokenStorage = $ts;
     }
 
     public function onKernelException(ExceptionEvent $event) {
@@ -55,6 +60,9 @@ class ExceptionSubscriber implements EventSubscriberInterface
         $discord_file = "{$report_path}/discord";
         $mail_file = "{$report_path}/mail";
 
+		/** @var User $user */
+		$user = $this->ts->getToken()->getUser();
+
         if (!file_exists($report_path)) mkdir( $report_path, 0777, true );
 
         if ($this->discordEndpoint && !file_exists($discord_file)) {
@@ -64,6 +72,8 @@ class ExceptionSubscriber implements EventSubscriberInterface
                 (new Client( $this->discordEndpoint ))
                     ->message(":sos: **Reporting an exception in MyHordes**\n" .
                               "```fix\n[{$event->getThrowable()->getMessage()}]\n```\n" .
+							  ($user !== null ? "User that thrown the exception: {$user->getUsername()}\n" : "") .
+							  "URL of the error: {$event->getRequest()->getPathInfo()}\n" .
                               "*{$event->getThrowable()->getFile()}*\nLine *{$event->getThrowable()->getLine()}*\n\n"
                     )
             ) );
@@ -71,7 +81,6 @@ class ExceptionSubscriber implements EventSubscriberInterface
         }
 
         if ($this->gitlabIssueMail['from'] && $this->gitlabIssueMail['to'] && !file_exists($mail_file)) {
-
             try {
                 $this->mail->send( (new Email())
                                        ->from( $this->gitlabIssueMail['from'] )
@@ -81,6 +90,8 @@ class ExceptionSubscriber implements EventSubscriberInterface
                                            "**Reporting an exception in MyHordes**\n" .
                                            "```\n[{$event->getThrowable()->getMessage()}]\n```\n" .
                                            "*{$event->getThrowable()->getFile()}*\nLine *{$event->getThrowable()->getLine()}*\n\n" .
+										   ($user !== null ? "User that thrown the exception: {$user->getUsername()}\n" : "") .
+										   "URL of the error: {$event->getRequest()->getPathInfo()}\n" .
                                            "See attached stack trace for more information.\n" .
                                            "/confidential\n/label ~Bug ~High ~Automatic"
                                        )
