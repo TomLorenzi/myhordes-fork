@@ -129,8 +129,8 @@ class AdminTownController extends AdminActionController
                 ->setFirstResult($pageSize * ($page - 1)) // set the offset
                 ->setMaxResults($pageSize)
                 ->getResult(),
-            'currentPage' => $page,
-            'pagesCount' => $pagesCount
+            'page' => $page,
+            'pages' => $pagesCount
         ]));
     }
 
