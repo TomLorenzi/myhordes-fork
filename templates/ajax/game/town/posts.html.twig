@@ -27,9 +27,10 @@
                         {{ post.date|format_datetime('medium', 'short') }}
                     {% endif %}
                 </i>
-                {% set owner = post.owner %}
                 {% if post.owner is null %}
                     {% set owner = 66 %}
+                {% else %}
+                    {% set owner = post.owner.user %}
                 {% endif %}
 
                 {% include "ajax/soul/playeravatar.html.twig" with {user: owner} only %}
