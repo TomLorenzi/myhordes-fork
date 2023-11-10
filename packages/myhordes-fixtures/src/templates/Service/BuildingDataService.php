@@ -578,7 +578,7 @@ class BuildingDataService implements FixtureProcessorInterface {
             ->isTemporary(0)->defense(0)->ap(300)->health(0)->blueprintLevel(4)->resources(["water_#00" => 30,"wood_beam_#00" => 15,"metal_beam_#00" => 10,])->orderBy(23)->commit();
         $container->add()->parentBuilding($small_building)
             ->icon('small_arma')->label('Reaktor')->description('Dieses furchterregende Konstrukt stammt aus einem sowjetischen U-Boot und sendet gleißende Blitze knisternder Elektrizität rund um die Stadt aus. Einziger Haken an der Sache: Es muss jeden Tag repariert werden. Falls es zerstört wird, würde die Stadt mitsamt der gesamten Umgebung augenblicklich ausradiert werden (inklusive euch). Das Schild am Reaktor besagt: sowjetische Bauweise, hergestellt in « вшивый ».')
-            ->isImpervious(true)->isTemporary(0)->defense(0)->ap(100)->health(250)->blueprintLevel(4)->resources(["pile_#00" => 10,"engine_#00" => 1,"electro_#00" => 4,"concrete_wall_#00" => 2,"metal_beam_#00" => 15,])->orderBy(24)->commit();
+            ->isImpervious(true)->isTemporary(0)->defense(500)->ap(100)->health(250)->blueprintLevel(4)->resources(["pile_#00" => 10,"engine_#00" => 1,"electro_#00" => 4,"concrete_wall_#00" => 2,"metal_beam_#00" => 15,])->orderBy(24)->commit();
 
         $container->add()
             ->icon('small_door_closed')->label('Portal')->description('Eine rustikal anmutende Konstruktion, mit der die Öffnung des Stadttors nach 23:40 erfolgreich verhindert werden kann (es dürfte äußerst selten vorkommen, dass das Tor danach nochmal geöffnet werden muss). Das Stadttor muss nichtsdestotrotz zusätzlich noch per Hand geschlossen werden.')
