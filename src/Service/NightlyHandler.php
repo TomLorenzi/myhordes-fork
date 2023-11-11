@@ -766,6 +766,8 @@ class NightlyHandler
 
         $weapons_are_active = $this->events->queryTownParameter( $town, BuildingValueQuery::NightWatcherWeaponsAllowed ) > 0;
 
+        $murderous_zombies = 0;
+
         shuffle($watchers);
         foreach ($watchers as $watcher) {
             $used_items = count( array_filter( $watcher->getCitizen()->getInventory()->getItems()->getValues(), fn(Item $i) => $i->getPrototype()->getWatchpoint() > 0 || $i->getPrototype()->getName() === 'chkspk_#00' ) );
@@ -792,6 +794,10 @@ class NightlyHandler
                 } else {
                     // We must give the nightwatch picto here, because the citizen dies and the additional picto stage does not execute for dead citizens
                     $this->picto_handler->give_picto($ctz, $picto_nightwatch);
+
+                    // The murdering zombie survives!
+                    $defBonus = max(0, $defBonus - 1);
+                    $murderous_zombies++;
                 }
 
                 // Remove all night watch items
@@ -853,6 +859,8 @@ class NightlyHandler
             $inactive_watcher->setSkipped(true);
             $this->entity_manager->persist($inactive_watcher);
         }
+
+        $total_watch_def = max(0, $total_watch_def - $murderous_zombies);
 
         if ($total_watch_def > 0 && $overflow > 0) {
             $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchersZombieStopped($town, min($overflow, $total_watch_def)));
