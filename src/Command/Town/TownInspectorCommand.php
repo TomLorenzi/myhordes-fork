@@ -21,6 +21,7 @@ use App\Service\Maps\MazeMaker;
 use App\Service\NightlyHandler;
 use App\Service\TownHandler;
 use App\Service\ZoneHandler;
+use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Symfony\Bundle\FrameworkBundle\Translation\Translator;

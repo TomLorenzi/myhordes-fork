@@ -22,6 +22,7 @@ use App\Structures\IdentifierSemantic;
 use DirectoryIterator;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
+use ReflectionProperty;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Helper\QuestionHelper;
@@ -32,6 +33,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ChoiceQuestion;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\HttpKernel\KernelInterface;
+use Symfony\Component\Uid\Uuid;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class CommandHelper
@@ -213,11 +215,21 @@ class CommandHelper
             if( !$fileInfo->isFile() || strtolower($fileInfo->getExtension()) !== 'php' ) continue;
             $class = "App\\Entity\\{$fileInfo->getBasename(".{$fileInfo->getExtension()}")}";
             if (!class_exists($class)) continue;
+
+            $id_type = null;
+            try {
+                $id_type = match((new ReflectionProperty($class, 'id'))->getType()->getName()) {
+                    'int' => '#id',
+                    Uuid::class => '4id',
+                    default => null
+                };
+            } catch (\Throwable $e) {}
+
             $this->_db[$class] = [
                 IdentifierSemantic::GuessMatch => [],
                 IdentifierSemantic::WeakMatch => [],
                 IdentifierSemantic::StrongMatch => [],
-                IdentifierSemantic::PerfectMatch => ['#id'],
+                IdentifierSemantic::PerfectMatch => $id_type ? [$id_type] : [],
                 IdentifierSemantic::LikelyMatch => [],
             ];
 
@@ -268,6 +280,7 @@ class CommandHelper
         $sem = new IdentifierSemantic();
         foreach ($this->resolverDatabase() as $class => &$config) {
             $repo = $this->entity_manager->getRepository($class);
+
             if ($repo === null) continue;
             foreach ($config as $strength => &$prop_list)
                 foreach ($prop_list as &$prop) {
@@ -277,13 +290,15 @@ class CommandHelper
                     if ($prop[0] === ':') list( $sys_trans, $prop ) = explode(':', substr($prop, 1));
 
                     $mod = '';
-                    if (in_array($prop[0], ['#','%'])) {
+                    if (in_array($prop[0], ['#','%','4'])) {
                         $mod = $prop[0];
                         $prop = substr($prop, 1);
                     }
 
                     if ($mod === '#' && is_numeric($id))
                         $e = $repo->findBy([$prop => (int)$id]);
+                    elseif ($mod === '4' && Uuid::isValid($id))
+                        $e = $repo->findBy([$prop => $id]);
                     elseif ( $sys_trans ) {
                         $e = $repo->findBy(['id' => array_map( fn(array $entity) => $entity['id'] ,array_filter( $repo->createQueryBuilder('e')->getQuery()->getResult(AbstractQuery::HYDRATE_ARRAY), function( array $entity ) use ($mod, $id, $prop, $sys_trans) {
                             $field = $this->trans->trans( $entity[$prop], [], $sys_trans, $this->language );
