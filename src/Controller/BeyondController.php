@@ -1293,7 +1293,7 @@ class BeyondController extends InventoryAwareController
      * @return Response
      */
     #[Route(path: 'api/beyond/desert/dig/{ext}', name: 'beyond_desert_dig_controller')]
-    public function desert_dig_api($ext = null): Response {
+    public function desert_dig_api(null|int|string $ext = null): Response {
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $citizen = $this->getActiveCitizen();
@@ -1310,6 +1310,7 @@ class BeyondController extends InventoryAwareController
             $target_citizens = [];
             foreach ($citizen->getValidLeadingEscorts() as $escort)
                 $target_citizens[] = $escort->getCitizen();
+            shuffle($target_citizens);
         } elseif (is_numeric($ext)) {
             /** @var Citizen|null $t */
             $t = $this->entity_manager->getRepository(Citizen::class)->find( (int)$ext );
