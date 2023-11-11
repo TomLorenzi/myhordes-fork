@@ -496,8 +496,10 @@ class MazeMaker
         $up_candidates = [];
         $up_position = null;
 
+        $close_room_count = 2;
+
         while (($room_count > 0 || $up_count > 0 || $down_count > 0) && !empty($room_candidates)) {
-            $place_down = $down_count > 0;
+            $place_down = $room_count === 0 && $down_count > 0;
             $place_up   = !$place_down && $up_count > 0;
 
             $eq_room_candidates = $room_candidates = array_filter( $room_candidates, function(RuinZone $r) use ($room_dist) {
@@ -514,7 +516,11 @@ class MazeMaker
                 $safeguard = 0; // Ensures there can never be an endless loop
                 do {
                     $safeguard++;
-                    $target_distance = mt_rand( $room_distance, $max_distance );
+                    $target_distance = match (true) {
+                        $level === 0 && $close_room_count > 0 && $lock_distance >= $room_distance => mt_rand( $room_distance, $lock_distance ),
+                        $room_count <= 1 => mt_rand( max($room_distance, $max_distance - 2), $max_distance ),
+                        default => mt_rand( $room_distance, $max_distance )
+                    };
                     $eq_room_candidates = array_filter( $room_candidates, fn(RuinZone $r) => $r->getDistance() === $target_distance );
                 } while (empty( $eq_room_candidates ) && $safeguard < 20);
                 if (empty($eq_room_candidates)) $eq_room_candidates = $room_candidates;
@@ -523,6 +529,7 @@ class MazeMaker
             /** @var RuinZone $room_corridor */
             $room_corridor = $place_down ? $cache[$origin[0]][$origin[1]] : $this->random->pick( $place_up && !empty($up_candidates) ? $up_candidates : $eq_room_candidates, 1 );
             $far = $room_corridor->getDistance() > $lock_distance;
+            if (!$far) $close_room_count--;
 
             // Determine possible locations for the door
             $valid_locations = [];
