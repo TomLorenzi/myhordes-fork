@@ -27,6 +27,14 @@ class RenderMapAction
         private readonly EventProxyService $proxy,
     ) { }
 
+    private function getPersonalZoneDiscoveryState(Zone $z, int $scout_level): int {
+        return max($z->getDiscoveryStatus() ?? Zone::DiscoveryStateNone, match(true) {
+            $scout_level <= 0 => Zone::DiscoveryStateNone,
+            $scout_level <= 2 => Zone::DiscoveryStatePast,
+            default => Zone::DiscoveryStateCurrent
+        });
+    }
+
     /**
      * @param Town|null $town
      * @param Citizen|null $activeCitizen
@@ -92,7 +100,14 @@ class RenderMapAction
                 && ( abs( $citizen_zone->getX() - $zone->getX() ) + abs( $citizen_zone->getY() - $zone->getY() ) ) < 4
             ) $local_zones[] = $zone;
 
-            if (!$admin && $zone->getDiscoveryStatus() <= Zone::DiscoveryStateNone) {
+            if ($admin || $scout_markings_global || $scout_markings_own) $current_zone['scoutLevel'] = min(3, $admin
+                ? $zone->getScoutLevel()
+                : ( ($scout_markings_global ? $zone->getScoutLevelFor( null ) : 0) + (($scout_markings_own && $activeCitizen) ? $zone->getScoutLevelFor( $activeCitizen ) : 0) )
+            );
+
+            $discovery_state = $this->getPersonalZoneDiscoveryState( $zone, $current_zone['scoutLevel'] ?? 0 );
+
+            if (!$admin && $discovery_state <= Zone::DiscoveryStateNone) {
                 if ($current_zone['s'] ?? false)
                     $zones[] = $current_zone;
                 continue;
@@ -103,8 +118,8 @@ class RenderMapAction
                 $current_zone['z'] = $zone->getZombies();
                 $current_zone['d'] = $this->zone_handler->getZoneDangerLevelNumber($zone, mt_rand(PHP_INT_MIN, PHP_INT_MAX), true);
             } else {
-                $current_zone['t'] = $zone->getDiscoveryStatus() >= Zone::DiscoveryStateCurrent;
-                if ($zone->getDiscoveryStatus() >= Zone::DiscoveryStateCurrent) {
+                $current_zone['t'] = $discovery_state >= Zone::DiscoveryStateCurrent;
+                if ($discovery_state >= Zone::DiscoveryStateCurrent) {
                     if ($zone->getZombieStatus() >= Zone::ZombieStateExact) {
                         $current_zone['z'] = $zone->getZombies();
                     }
@@ -153,10 +168,6 @@ class RenderMapAction
             elseif ($zone->isTownZone())
                 $current_zone['co'] = count( array_filter( $town->getCitizens()->getValues(), fn(Citizen $c) => $c->getAlive() && $c->getZone() === null ) );
 
-            if ($admin || $scout_markings_global || $scout_markings_own) $current_zone['scoutLevel'] = $admin
-                ? $zone->getScoutLevel()
-                : ( ($scout_markings_global ? $zone->getScoutLevelFor( null ) : 0) + (($scout_markings_own && $activeCitizen) ? $zone->getScoutLevelFor( $activeCitizen ) : 0) );
-
             $zones[] = $current_zone;
         }
 
@@ -169,12 +180,19 @@ class RenderMapAction
             'conf' => [
                 'scout' => ($admin || $scout_markings_global || $scout_markings_own)
             ],
-            'local' => array_map( function(Zone $z) use ($activeCitizen, $town, $citizen_zone, $scavenger_sense, $scout_sense) {
+            'local' => array_map( function(Zone $z) use ($activeCitizen, $town, $citizen_zone, $scavenger_sense, $scout_sense, $admin, $scout_markings_own, $scout_markings_global) {
                 $local = $citizen_zone === $z;
                 $adjacent = ( abs( $citizen_zone->getX() - $z->getX() ) + abs( $citizen_zone->getY() - $z->getY() ) ) <= 1;
+
+                $scout_level = 0;
+                if ($admin || $scout_markings_global || $scout_markings_own) $scout_level = min(3, $admin
+                    ? $z->getScoutLevel()
+                    : ( ($scout_markings_global ? $z->getScoutLevelFor( null ) : 0) + (($scout_markings_own && $activeCitizen) ? $z->getScoutLevelFor( $activeCitizen ) : 0) )
+                );
+
                 $obj = [
                     'xr' => $z->getX() - $citizen_zone->getX(), 'yr' => $z->getY() - $citizen_zone->getY(),
-                    'v' => $z->getDiscoveryStatus() > Zone::DiscoveryStateNone
+                    'v' => $this->getPersonalZoneDiscoveryState($z, $scout_level) > Zone::DiscoveryStateNone
                 ];
 
                 if ( $z->isTownZone() ) {
