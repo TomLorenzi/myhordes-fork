@@ -2335,8 +2335,10 @@ class AdminTownController extends AdminActionController
 
         if ($building->getAp() >= $building->getPrototype()->getAp())
             $events->buildingConstruction( $building, 'debug' );
-        elseif ($building->getAp() <= 0)
-            $events->buildingDestruction( $building, 'debug' );
+        elseif ($building->getAp() <= 0) {
+            $events->buildingDestruction($building, 'debug', false);
+            $events->buildingDestruction($building, 'debug', true);
+        }
 
         $this->entity_manager->persist($building);
         $this->entity_manager->persist($town);
@@ -2388,9 +2390,10 @@ class AdminTownController extends AdminActionController
 
         $building->setHp($hp);
 
-        if ($building->getHp() <= 0)
-            $events->buildingDestruction( $building, 'debug' );
-		else {
+        if ($building->getHp() <= 0) {
+            $events->buildingDestruction($building, 'debug', false);
+            $events->buildingDestruction($building, 'debug', true);
+        } else {
 			if($building->getPrototype()->getDefense() > 0) {
 				$newDef = min($building->getPrototype()->getDefense(), $building->getPrototype()->getDefense() * $building->getHp() / $building->getPrototype()->getHp());
 				$building->setDefense((int)floor($newDef));

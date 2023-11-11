@@ -30,6 +30,6 @@ class BuildingEffectData
     public int $waterDeducted = 0;
     public array $dailyProduceItems = [];
     public array $consumedItems = [];
-
+    public array $destroyed_buildings = [];
     public array $produceDailyBlueprint = [];
 }

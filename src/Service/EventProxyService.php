@@ -24,7 +24,9 @@ use App\Event\Game\Citizen\CitizenWorkshopOptionsData;
 use App\Event\Game\Citizen\CitizenWorkshopOptionsEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingCatapultItemTransformEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
+use App\Event\Game\Town\Basic\Buildings\BuildingDestroyedDuringAttackPostEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingDestructionEvent;
+use App\Event\Game\Town\Basic\Buildings\BuildingEffectEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPostAttackEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPreAttackEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingQueryNightwatchDefenseBonusEvent;
@@ -58,12 +60,13 @@ class EventProxyService
     /**
      * @param Building $building
      * @param string $method
+     * @param bool $post
      * @return void
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    public function buildingDestruction( Building $building, string $method = 'attack' ): void {
-        $this->ed->dispatch( $this->ef->gameEvent( BuildingDestructionEvent::class, $building->getTown() )->setup( $building, $method ) );
+    public function buildingDestruction( Building $building, string $method = 'attack', bool $post = false ): void {
+        $this->ed->dispatch( $this->ef->gameEvent( $post ? BuildingDestroyedDuringAttackPostEvent::class : BuildingDestructionEvent::class, $building->getTown() )->setup( $building, $method ) );
     }
 
     /**
@@ -82,13 +85,14 @@ class EventProxyService
      * @param Building $building
      * @param ?Building $upgraded
      * @param BuildingEffectStage $stage
-     * @return void
+     * @return Building[]
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    public function buildingEffect( Building $building, ?Building $upgraded, BuildingEffectStage $stage ): void {
+    public function buildingEffect( Building $building, ?Building $upgraded, BuildingEffectStage $stage ): array {
         /** @noinspection PhpUndefinedMethodInspection */
-        $this->ed->dispatch($this->ef->gameEvent($stage->eventClass(), $building->getTown() )->setup($building,$upgraded) );
+        $this->ed->dispatch($event = $this->ef->gameEvent($stage->eventClass(), $building->getTown() )->setup($building,$upgraded) );
+        return $event->destroyed_buildings;
     }
 
     /**

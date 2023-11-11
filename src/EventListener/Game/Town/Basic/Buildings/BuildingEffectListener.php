@@ -182,6 +182,9 @@ final class BuildingEffectListener implements ServiceSubscriberInterface
             if ($event->building->getHp() <= 0) {
                 $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->constructionsDestroy($event->town, $event->building->getPrototype(), $event->buildingDamage ) );
                 $this->getService(EventProxyService::class)->buildingDestruction( $event->building, 'attack' );
+                $db = $event->destroyed_buildings;
+                $db[] = $event->building;
+                $event->destroyed_buildings = $db;
             } else $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->constructionsDamage($event->town, $event->building->getPrototype(), $event->buildingDamage ) );
 
             $event->markModified();

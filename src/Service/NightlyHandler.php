@@ -55,6 +55,7 @@ class NightlyHandler
     private array $skip_infection = [];
     private bool $exec_firework = false;
     private ?Building $upgraded_building = null;
+    private array $destroyed_buildings = [];
     private bool $exec_reactor = false;
     private array $deferred_log_entries = [];
 
@@ -417,7 +418,7 @@ class NightlyHandler
     private function stage2_pre_attack_buildings(Town &$town){
         $this->log->info('<info>Processing building before the attack</info> ...');
         foreach ($town->getBuildings() as $building)
-            if ($building->getComplete()) $this->events->buildingEffect( $building, $this->upgraded_building, BuildingEffectStage::BeforeDailyUpgrade );
+            if ($building->getComplete()) $this->destroyed_buildings = array_merge($this->destroyed_buildings, $this->events->buildingEffect( $building, $this->upgraded_building, BuildingEffectStage::BeforeDailyUpgrade ));
     }
 
     private function stage2_vanish(Town $town) {
@@ -463,12 +464,12 @@ class NightlyHandler
         }
 
         foreach ($town->getBuildings() as $building)
-            if ($building->getComplete()) $this->events->buildingEffect( $building, $this->upgraded_building, BuildingEffectStage::BeforeAttack );
+            if ($building->getComplete()) $this->destroyed_buildings = array_merge($this->destroyed_buildings, $this->events->buildingEffect( $building, $this->upgraded_building, BuildingEffectStage::BeforeAttack ));
     }
 
     private function stage2_post_attack_buildings(Town &$town){
         foreach ($town->getBuildings() as $building)
-            if ($building->getComplete()) $this->events->buildingEffect( $building, $this->upgraded_building, BuildingEffectStage::BeforeDefaultEvents );
+            if ($building->getComplete()) $this->destroyed_buildings = array_merge($this->destroyed_buildings, $this->events->buildingEffect( $building, $this->upgraded_building, BuildingEffectStage::BeforeDefaultEvents ));
 
         foreach ($town->getBuildings() as $b) if ($b->getComplete()) {
             if ($b->getPrototype()->getTemp()){
@@ -491,7 +492,7 @@ class NightlyHandler
 
         if (!$town->findGazette( $town->getDay(), true )->getReactorExplosion())
             foreach ($town->getBuildings() as $building)
-                if ($building->getComplete()) $this->events->buildingEffect( $building, $this->upgraded_building, BuildingEffectStage::AfterAttack );
+                if ($building->getComplete()) $this->destroyed_buildings = array_merge($this->destroyed_buildings, $this->events->buildingEffect( $building, $this->upgraded_building, BuildingEffectStage::AfterAttack ));
     }
 
     private function stage2_day(Town $town) {
@@ -932,7 +933,8 @@ class NightlyHandler
                 if($target->getHp() <= 0){
                     $this->log->info("<info>{$target->getPrototype()->getLabel()}</info> is now destroyed !");
                     $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $target->getPrototype(), $realDamage ));
-                    $this->events->buildingDestruction( $target, 'attack' );
+                    $this->events->buildingDestruction( $target, 'attack', false );
+                    $this->destroyed_buildings[] = $target;
                 } else {
                     $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $target->getPrototype(), $realDamage ));
                 }
@@ -1691,9 +1693,12 @@ class NightlyHandler
 
     private function stage3_building_effects(Town $town) {
         $this->log->info('<info>Processing post-attack building functions</info> ...');
-        if (!$town->findGazette( $town->getDay(), true )->getReactorExplosion())
+        if (!$town->findGazette( $town->getDay(), true )->getReactorExplosion()) {
             foreach ($town->getBuildings() as $building)
-                if ($building->getComplete()) $this->events->buildingEffect( $building, $this->upgraded_building, BuildingEffectStage::AfterDayChange );
+                if ($building->getComplete()) $this->destroyed_buildings = array_merge($this->destroyed_buildings, $this->events->buildingEffect($building, $this->upgraded_building, BuildingEffectStage::AfterDayChange));
+            foreach ($this->destroyed_buildings as $building)
+                $this->events->buildingDestruction( $building, 'attack', true );
+        }
     }
 
     private function stage4_stranger(Town $town) {
