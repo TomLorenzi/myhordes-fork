@@ -68,13 +68,9 @@ class ForumCreatorCommand extends Command
 
     protected function interact(InputInterface $input, OutputInterface $output)
     {
-        $questions_asked = false;
-
         $helper = $this->getHelper('question');
-        while (empty($input->getArgument('Name'))) {
+        while (empty($input->getArgument('Name')))
             $input->setArgument('Name', $helper->ask($input, $output, new Question('Please enter the forum name: ')));
-            $questions_asked = true;
-        }
 
         while (empty($input->getArgument('Type')) && $input->getArgument('Type') !== '0') {
             $r = new ReflectionClass(Forum::class);
@@ -88,16 +84,14 @@ class ForumCreatorCommand extends Command
 
             if (($tt = $r->getConstant( "ForumType{$t}" )) !== false)
                 $input->setArgument('Type', "{$tt}");
-
-            $questions_asked = true;
         }
 
-        if ($questions_asked && empty($input->getOption('description'))) {
+        if (empty($input->getOption('description'))) {
             $str = $helper->ask($input, $output, new Question("If you want the forum to have a description, enter it now. Entering a description is optional.\n"));
             if (!empty($str)) $input->setOption('description', $str);
         }
 
-        if ($questions_asked && empty($input->getOption('icon'))) {
+        if (empty($input->getOption('icon'))) {
             $icons = ['- None -'];
             foreach (scandir("{$this->kernel->getProjectDir()}/assets/img/forum/banner") as $f)
                 if ($f !== '.' && $f !== '..' && $f !== 'bannerForumVoid.gif') $icons[] = $f;
@@ -106,6 +100,23 @@ class ForumCreatorCommand extends Command
             if (!empty($str) && $str !== '- None -') $input->setOption('icon', $str);
         }
 
+        if ($input->getOption('lang') === 'mu' && empty( $input->getOption('localize') )) {
+            $langs = [];
+            $langs_titles = [];
+            $langs_descs = [];
+            foreach (['de', 'en', 'fr', 'es'] as $lang) {
+                $str = $helper->ask($input, $output, new Question("Enter forum title for language '$lang' or leave empty to skip adding this language.\n"));
+                if (!empty($str)) {
+                    $langs[] = $lang;
+                    $langs_titles[] = $str;
+                    $langs_descs[] = $helper->ask($input, $output, new Question("Enter forum description for language '$lang' or leave empty to skip adding a description for this language.\n"));
+                }
+            }
+
+            $input->setOption( 'localize', $langs );
+            $input->setOption( 'localize-title', $langs_titles );
+            $input->setOption( 'localize-desc', $langs_descs );
+        }
     }
 
 
@@ -113,7 +124,7 @@ class ForumCreatorCommand extends Command
     {
         $langs = $input->getOption('localize');
         $langs_values = $input->getOption('localize-title');
-        $langs_descs = $input->getOption('localize-title');
+        $langs_descs = $input->getOption('localize-desc');
 
         if (count($langs) !== count($langs_values) || count($langs) !== count($langs_descs))
             throw new \Exception('Must use exactly one --localize-title and one --localize-desc for each --localize.');
