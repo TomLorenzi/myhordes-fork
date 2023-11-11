@@ -26,8 +26,6 @@ class ExceptionSubscriber implements EventSubscriberInterface
 {
     private string $report_path;
     private string $version;
-	private TokenStorageInterface $tokenStorage;
-
     private ?string $discordEndpoint;
     private ?array $gitlabIssueMail;
 
@@ -47,7 +45,6 @@ class ExceptionSubscriber implements EventSubscriberInterface
         $this->gitlabIssueMail['to']   = $conf->getGlobalConf()->get( MyHordesConf::CONF_FATAL_MAIL_TARGET, null );
         $this->gitlabIssueMail['from'] = $conf->getGlobalConf()->get( MyHordesConf::CONF_FATAL_MAIL_SOURCE, null );
         $this->discordEndpoint = $conf->getGlobalConf()->get(MyHordesConf::CONF_FATAL_MAIL_DCHOOK, null );
-		$this->tokenStorage = $ts;
     }
 
     public function onKernelException(ExceptionEvent $event) {
@@ -61,7 +58,7 @@ class ExceptionSubscriber implements EventSubscriberInterface
         $mail_file = "{$report_path}/mail";
 
 		/** @var User $user */
-		$user = $this->ts->getToken()->getUser();
+		$user = $this->ts->getToken()?->getUser();
 
         if (!file_exists($report_path)) mkdir( $report_path, 0777, true );
 
