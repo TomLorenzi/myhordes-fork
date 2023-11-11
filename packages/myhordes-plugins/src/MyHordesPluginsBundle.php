@@ -2,6 +2,7 @@
 
 namespace MyHordes\Plugins;
 
+use MyHordes\Plugins\DependencyInjection\Compiler\ConfigAssembly;
 use MyHordes\Plugins\DependencyInjection\Compiler\FixtureChain;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -15,6 +16,8 @@ class MyHordesPluginsBundle extends Bundle
         parent::build($container);
 
         $container->addCompilerPass( new FixtureChain() );
+        $container->addCompilerPass( new ConfigAssembly() );
+
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/Resources/config'));
         $loader->load('services.yaml');
 

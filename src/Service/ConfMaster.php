@@ -17,36 +17,30 @@ use DateInterval;
 use DateTime;
 use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
+use MyHordes\Plugins\Management\ConfigurationStorage;
 
 class ConfMaster
 {
-    private array $global;
-    private array $game_rules;
-
     private ?MyHordesConf $global_conf = null;
     private ?array $event_conf = null;
     private array $event_cache = [];
-
     private array $setting_cache = [];
 
     public function __construct(
-        array $global,
-        array $local,
-        array $rules,
-        array $rules_local,
-        private readonly array $events,
-        private readonly EntityManagerInterface $entityManager
-    ) {
-        $this->global = array_merge($global,$local);
-        $this->game_rules = array_replace_recursive($rules, $rules_local);
-    }
+        private readonly EntityManagerInterface $entityManager,
+        private readonly ConfigurationStorage $storage,
+    ) {}
 
     public function getGlobalConf(): MyHordesConf {
-        return $this->global_conf ?? ( $this->global_conf = (new MyHordesConf($this->global))->complete() );
+        return $this->global_conf ?? ( $this->global_conf = (new MyHordesConf($this->storage->getSegment('myhordes')))->complete() );
     }
 
     public function getTownConfiguration( Town $town ): TownConf {
-        $tc = new TownConf( [$this->game_rules['default'], $town->getDeriveConfigFrom() ? $this->game_rules[$town->getDeriveConfigFrom()] : [], $this->game_rules[$town->getType()->getName()]] );
+        $tc = new TownConf( [
+            $this->storage->getSegment('rules.default'),
+            $town->getDeriveConfigFrom() ? $this->storage->getSegment("rules.{$town->getDeriveConfigFrom()}", []) : [],
+            $this->storage->getSegment("rules.{$town->getType()->getName()}", [])
+        ] );
         if ($tc->complete()->get(TownSetting::AllowLocalConfiguration) && $town->getConf()) $tc->import( $town->getConf() );
         return $tc->complete();
     }
@@ -54,26 +48,30 @@ class ConfMaster
     public function getTownConfigurationByType( TownClass|string|null $town = null, bool $asPrivate = false ): TownConf {
         if (is_a( $town, TownClass::class )) $town = $town->getName();
         else $town = $town ?? 'default';
-        return (new TownConf( [$this->game_rules['default'], $this->game_rules[$town] ?? [], $asPrivate ? $this->game_rules['custom'] ?? [] : [] ] ))->complete();
+        return (new TownConf( [
+            $this->storage->getSegment('rules.default'),
+            $this->storage->getSegment("rules.$town", []),
+            $asPrivate ? $this->storage->getSegment('rules.custom', []) : []
+        ] ))->complete();
     }
 
     public function getEvent(string $name): EventConf {
-        return $this->event_cache[$name] ?? ($this->event_cache[$name] = isset($this->events[$name])
-            ? (new EventConf( $name, $this->events[$name]['conf'] ))->complete()
+        return $this->event_cache[$name] ?? ($this->event_cache[$name] = $this->storage->hasSegment("events.$name")
+            ? (new EventConf( $name, $this->storage->getSegment("events.$name.conf", []) ))->complete()
             : (new EventConf())->complete());
     }
 
     public function getEventScheduleByName(string $name, DateTime $curDate, ?DateTime &$begin = null, ?DateTime &$end = null, bool $lookAhead = false): bool {
-        if (!isset($this->events[$name]) || !isset($this->events[$name]['trigger'])) return false;
-        return $this->getEventSchedule( $this->events[$name]['trigger'], $curDate, $begin, $end, $lookAhead );
+        if (!$this->storage->hasSegment("events.$name") || !$this->storage->hasSegment("events.$name.trigger")) return false;
+        return $this->getEventSchedule( $this->storage->getSegment("events.$name.trigger", []), $curDate, $begin, $end, $lookAhead );
     }
 
     public function eventIsPublic(string $name): bool {
-        return isset($this->events[$name]) && ($this->events[$name]['public'] ?? false);
+        return $this->storage->getSegment( "events.$name.public", false );
     }
 
     public function getAllEvents(): array {
-        return $this->events;
+        return $this->storage->getSegment( 'events', [] );
     }
 
     public function getAllEventNames(): array {
@@ -167,7 +165,7 @@ class ConfMaster
         $curDate = $query_date ?? new DateTime();
 
         $conf = [];
-        foreach($this->events as $id => $config) {
+        foreach($this->storage->getSegment( 'events', [] ) as $id => $config) {
 
             if (empty($config['trigger'])) continue;
 
@@ -210,7 +208,7 @@ class ConfMaster
 
         while ($from < $to) {
 
-            foreach($this->events as $id => $conf) {
+            foreach($this->storage->getSegment( 'events', [] ) as $id => $conf) {
                 if (empty($conf['trigger'])) continue;
 
                 $this->getEventSchedule($conf['trigger'], $from, $begin, $end);

@@ -173,14 +173,17 @@ services:
       arguments: [ '@app.decoration.trans_dumper.inner' ]
       public: false
 
-    App\Service\ConfMaster:
-        public: true
-        arguments:
-            $global: '%myhordes%'
-            $local:  '%local%'
-            $rules:  '%rules%'
-            $rules_local:  '%rules_local%'
-            $events: '%events%'
+    App\Configuration\LegacyCoreConfigurationProvider:
+      tags: [ { name: 'myhordes.configuration.myhordes', priority: 0 } ]
+      arguments: ['%myhordes%', '%local%']
+
+    App\Configuration\LegacyRulesConfigurationProvider:
+      tags: [ { name: 'myhordes.configuration.rules', priority: 0 } ]
+      arguments: [ '%rules%', '%rules_local%' ]
+
+    App\Configuration\LegacyEventConfigurationProvider:
+      tags: [ { name: 'myhordes.configuration.events', priority: 0 } ]
+      arguments: ['%events%']
 
     Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler:
         arguments:
