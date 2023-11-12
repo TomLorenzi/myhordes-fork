@@ -4,7 +4,6 @@ parameters:
       trigger:
         type: datetime
         begin: 12-04 00:00
-        end: 12-05 00:00
       conf:
         name: 'Armageddon'
         priority: 10
@@ -18,7 +17,6 @@ parameters:
       trigger:
         type: datetime
         begin: 04-01 00:00
-        end: 04-02 00:00
       conf:
         name: '1. April'
         priority: 11

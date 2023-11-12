@@ -78,6 +78,15 @@ class ConfMaster
         return array_keys($this->getAllEvents());
     }
 
+    private function configToDate(string $dateString, \DateTimeInterface $current): ?\DateTime {
+        list($date, $time) = explode(' ', $dateString);
+        $date = explode('-', $date);
+        $time = explode(':', $time);
+        if (count($date) === 2) array_unshift($date,(int)$current->format('Y'));
+        if (count($date) !== 3) return null;
+        return (new DateTime())->setDate($date[0], $date[1], $date[2])->setTime($time[0], $time[1], 0);
+    }
+
     public function getEventSchedule(array $trigger, DateTime $curDate, ?DateTime &$begin = null, ?DateTime &$end = null, bool $lookAhead = false): bool {
         $begin = $end = null;
         if (empty($trigger['type'])) return false;
@@ -86,26 +95,19 @@ class ConfMaster
             case 'on':
                 return true;
             case 'datetime':
-                list($beginDate, $beginTime) = explode(' ', $trigger['begin']);
-                list($endDate, $endTime) = explode(' ', $trigger['end']);
+                if (!($begin = $this->configToDate($trigger['begin'], $curDate))) return false;
 
-                $beginDate = explode('-', $beginDate);
-                $endDate = explode('-', $endDate);
+                $end = match(true) {
+                    isset( $trigger['end'] )  => $this->configToDate($trigger['end'], $curDate),
+                    isset( $trigger['days'] ) => (clone $begin)->add( new DateInterval("P{$trigger['days']}D") ),
+                    default => (clone $begin)->add( new DateInterval("P1D") ),
+                };
+                if (!$end) return false;
 
-                $beginTime = explode(':', $beginTime);
-                $endTime = explode(':', $endTime);
-
-                if (count($beginDate) !== count($endDate) || count($beginDate) < 2 || count($beginDate) > 3) return false;
-                if (count($beginDate) === 2) {
-                    array_unshift($beginDate,(int)$curDate->format('Y'));
-                    array_unshift($endDate,(int)$curDate->format('Y'));
+                if ($begin < $curDate && $end < $curDate && $lookAhead) {
+                    $this->getEventSchedule($trigger, (new DateTime())->setDate((int)$curDate->format('Y') + 1, 1, 1), $begin, $end, false);
+                    return false;
                 }
-
-                $begin = (new DateTime())->setDate($beginDate[0], $beginDate[1], $beginDate[2])->setTime($beginTime[0], $beginTime[1], 0);
-                $end = (new DateTime())->setDate($endDate[0], $endDate[1], $endDate[2])->setTime($endTime[0], $endTime[1], 0);
-
-                if ($begin < $curDate && $end < $curDate && $lookAhead) return $this->getEventSchedule( $trigger, (new DateTime())->setDate((int)$curDate->format('Y') + 1, 1, 1), $begin, $end, false );
-
                 break;
             case 'easter':
                 $y = (int)$curDate->format('Y');

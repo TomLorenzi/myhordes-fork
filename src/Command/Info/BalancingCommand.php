@@ -120,7 +120,9 @@ class BalancingCommand extends LanguageCommand
         if (!$input->hasArgument('for')) throw new \Exception('Subject required.');
         $resolved = $this->helper->resolve_string( $input->getArgument('for') ?? '', $class, $label, $this->getHelper('question'), $input, $output);
         if (!$resolved) throw new \Exception('Subject invalid.');
-		$output->writeln("Your query has been resolved to <info>{$this->translate($resolved->getLabel(), 'game')}</info>");
+		if (method_exists( $resolved, 'getLabel' )) $output->writeln("Your query has been resolved to <info>{$this->translate($resolved->getLabel(), 'game')}</info>");
+		elseif (method_exists( $resolved, 'getName' )) $output->writeln("Your query has been resolved to <info>{$resolved->getName()}</info>");
+		else $output->writeln("Your query has been resolved to <info>{$resolved->getId()}</info>");
         /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $resolved;
     }

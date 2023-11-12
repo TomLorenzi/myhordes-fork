@@ -146,6 +146,9 @@
 			<div class="row">
 				<div class="padded cell rw-4 note note-lightest"><label for="activate-event">{{ 'Stadt-Event'|trans({},'admin') }}</label></div>
 				<div class="padded cell rw-8">
+                    {% if current_event is not null and current_event|length > 1 %}
+                        <span class="small">{{ current_event|map(e=>e.name)|join(', ') }}</span>
+                    {% endif %}
 					<select id="activate-event">
 						<option value="">{{ "Kein"|trans({}, 'global') }}</option>
 						{% for eventName,event in events %}

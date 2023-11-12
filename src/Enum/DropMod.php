@@ -13,6 +13,8 @@ enum DropMod: int
     case Infective = 51;
     case EventEaster = 101;
     case EventChristmas = 102;
+    case EventChristmasAlt1 = 1021;
+    case EventChristmasAlt2 = 1022;
     case EventStPatrick = 103;
     case EventHalloween = 104;
 
