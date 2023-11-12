@@ -100,10 +100,13 @@ class RenderMapAction
                 && ( abs( $citizen_zone->getX() - $zone->getX() ) + abs( $citizen_zone->getY() - $zone->getY() ) ) < 4
             ) $local_zones[] = $zone;
 
+            $raw = 0;
             if ($admin || $scout_markings_global || $scout_markings_own) $current_zone['scoutLevel'] = min(3, $admin
                 ? $zone->getScoutLevel()
-                : ( ($scout_markings_global ? $zone->getScoutLevelFor( null ) : 0) + (($scout_markings_own && $activeCitizen) ? $zone->getScoutLevelFor( $activeCitizen ) : 0) )
+                : ( ($scout_markings_global ? $zone->getScoutLevelFor( null ) : 0) + (($scout_markings_own && $activeCitizen) ? $zone->getScoutLevelFor( $activeCitizen, $raw ) : 0) )
             );
+
+            if ($raw > 0) $current_zone['fractional'] = true;
 
             $discovery_state = $this->getPersonalZoneDiscoveryState( $zone, $current_zone['scoutLevel'] ?? 0 );
 

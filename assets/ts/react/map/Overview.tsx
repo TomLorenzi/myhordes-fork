@@ -199,7 +199,7 @@ const MapOverviewZone = ( props: MapOverviewZoneProps ) => {
             <div className="overlay"/>
             { props.zone.tg && <div className={`tag tag-${props.zone.tg}`}/> }
             { props.zone.z && <div className="count">{props.zone.z}</div> }
-            { props.zone.scoutLevel && <div className={`scoutLevelMark scout-${props.zone.scoutLevel}`}/> }
+            { (props.zone.scoutLevel || props.zone.fractional) && <div className={`scoutLevelMark scout-${props.zone.scoutLevel}`}/> }
             { (props.zone.c ?? []).length > 0 && <div className="citizen_marker"/> }
             <MapOverviewZoneTooltip zone={props.zone} />
         </div>

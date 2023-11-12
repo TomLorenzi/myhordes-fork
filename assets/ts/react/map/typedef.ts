@@ -31,7 +31,8 @@ export interface MapZone extends MapCoordinate {
     g?: boolean,        // Global view
     s?: boolean,        // Contains a soul
     tg?: number,        // Tag Ref
-    scoutLevel?: number // Scout level
+    scoutLevel?: number  // Scout level
+    fractional?: boolean // Show scout level when at 0
 }
 
 export interface LocalZone {

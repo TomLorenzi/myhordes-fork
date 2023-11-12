@@ -409,11 +409,11 @@ class Zone
         ));
     }
 
-    public function getScoutLevelFor(?Citizen $citizen): int
+    public function getScoutLevelFor(?Citizen $citizen, ?int &$raw = null): int
     {
         if ($this->isTownZone()) return 0;
         return min(3, max(0,
-                          floor($this->getActivityMarkersFor( ZoneActivityMarkerType::ScoutVisit, $citizen ?? false )->count()/5) +
+                          floor(($raw = $this->getActivityMarkersFor( ZoneActivityMarkerType::ScoutVisit, $citizen ?? false )->count())/5) +
                           ($citizen === null ? $this->getActivityMarkersFor( ZoneActivityMarkerType::ScoutMarker )->count() : 0)
         ));
     }
