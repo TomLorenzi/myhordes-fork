@@ -44,6 +44,8 @@ class AwardTitleDataService implements FixtureProcessorInterface {
         $container->add()->title('Seelenverwerter')->unlockquantity(75)->associatedtag(':prosham:')->associatedpicto('r_jsham_#00')->commit();
         $container->add()->title('Mystischer Seher')->unlockquantity(150)->associatedtag(':prosham:')->associatedpicto('r_jsham_#00')->commit();
         $container->add()->title('Voodoo Sorceror')->unlockquantity(300)->associatedtag(':prosham:')->associatedpicto('r_jsham_#00')->commit();
+        $container->add()->title('Allwissender Schamane')->unlockquantity(800)->associatedtag(':prosham:')->associatedpicto('r_jsham_#00')->commit();
+        $container->add()->title('Anführer der verlorenen Seelen')->unlockquantity(1500)->associatedtag(':prosham:')->associatedpicto('r_jsham_#00')->commit();
         $container->add()->title('Yo, wir schaffen das!')->unlockquantity(10)->associatedtag(':protech:')->associatedpicto('r_jtech_#00')->commit();
         $container->add()->title('Kleiner Schraubendreher')->unlockquantity(25)->associatedtag(':protech:')->associatedpicto('r_jtech_#00')->commit();
         $container->add()->title('Schweizer Taschenmesser')->unlockquantity(75)->associatedtag(':protech:')->associatedpicto('r_jtech_#00')->commit();
@@ -140,6 +142,7 @@ class AwardTitleDataService implements FixtureProcessorInterface {
         $container->add()->title('Wachsam')->unlockquantity(120)->associatedtag(':watch:')->associatedpicto('r_guard_#00')->commit();
         $container->add()->title('Paranoid')->unlockquantity(200)->associatedtag(':watch:')->associatedpicto('r_guard_#00')->commit();
         $container->add()->title('Fels in der Brandung')->unlockquantity(400)->associatedtag(':watch:')->associatedpicto('r_guard_#00')->commit();
+        $container->add()->title('Uneinnehmbare Festung')->unlockquantity(600)->associatedtag(':watch:')->associatedpicto('r_guard_#00')->commit();
         $container->add()->title('Großer Baumeister')->unlockquantity(20)->associatedtag(':extreme:')->associatedpicto('r_wondrs_#00')->commit();
         $container->add()->title('Großer Architekt')->unlockquantity(50)->associatedtag(':extreme:')->associatedpicto('r_wondrs_#00')->commit();
         $container->add()->title('Freimauer')->unlockquantity(100)->associatedtag(':extreme:')->associatedpicto('r_wondrs_#00')->commit();
@@ -171,6 +174,8 @@ class AwardTitleDataService implements FixtureProcessorInterface {
         $container->add()->title('Es ist kleiner als im Katalog')->unlockquantity(30)->associatedtag(':brd:')->associatedpicto('r_ebpmv_#00')->commit();
         $container->add()->title('Freude der Stärke 8')->unlockquantity(40)->associatedtag(':brd:')->associatedpicto('r_ebpmv_#00')->commit();
         $container->add()->title('Bewahrer der Freuden')->unlockquantity(50)->associatedtag(':brd:')->associatedpicto('r_ebpmv_#00')->commit();
+        $container->add()->title('Ein bisschen näher an den Sternen')->unlockquantity(75)->associatedtag(':brd:')->associatedpicto('r_ebpmv_#00')->commit();
+        $container->add()->title('Himmel! Was werden die Nachbarn sagen?')->unlockquantity(100)->associatedtag(':brd:')->associatedpicto('r_ebpmv_#00')->commit();
         $container->add()->title('Das hast du nicht wirklich gebaut?')->unlockquantity(5)->associatedtag(':castle:')->associatedpicto('r_ebcstl_#00')->commit();
         $container->add()->title('Eimerhalter')->unlockquantity(10)->associatedtag(':castle:')->associatedpicto('r_ebcstl_#00')->commit();
         $container->add()->title('Sandverkäufer')->unlockquantity(15)->associatedtag(':castle:')->associatedpicto('r_ebcstl_#00')->commit();
@@ -179,6 +184,8 @@ class AwardTitleDataService implements FixtureProcessorInterface {
         $container->add()->title('Dauermitglied in Micky\'s Club')->unlockquantity(30)->associatedtag(':castle:')->associatedpicto('r_ebcstl_#00')->commit();
         $container->add()->title('Niemals ohne meinen Eimer')->unlockquantity(40)->associatedtag(':castle:')->associatedpicto('r_ebcstl_#00')->commit();
         $container->add()->title('Ein Korn fehlt noch')->unlockquantity(50)->associatedtag(':castle:')->associatedpicto('r_ebcstl_#00')->commit();
+        $container->add()->title('Mister Sandman ♫♪')->unlockquantity(75)->associatedtag(':castle:')->associatedpicto('r_ebcstl_#00')->commit();
+        $container->add()->title('Nutzt das Vergängliche')->unlockquantity(100)->associatedtag(':castle:')->associatedpicto('r_ebcstl_#00')->commit();
         $container->add()->title('Huldigt den Raben!')->unlockquantity(5)->associatedtag(':crow:')->associatedpicto('r_ebcrow_#00')->commit();
         $container->add()->title('Taube aus der Unterwelt')->unlockquantity(10)->associatedtag(':crow:')->associatedpicto('r_ebcrow_#00')->commit();
         $container->add()->title('Corvid-Spezialist')->unlockquantity(15)->associatedtag(':crow:')->associatedpicto('r_ebcrow_#00')->commit();
@@ -187,6 +194,8 @@ class AwardTitleDataService implements FixtureProcessorInterface {
         $container->add()->title('Vogel der schlechten Vorzeichen')->unlockquantity(30)->associatedtag(':crow:')->associatedpicto('r_ebcrow_#00')->commit();
         $container->add()->title('Kraaaah!')->unlockquantity(40)->associatedtag(':crow:')->associatedpicto('r_ebcrow_#00')->commit();
         $container->add()->title('Er war Leber ...')->unlockquantity(50)->associatedtag(':crow:')->associatedpicto('r_ebcrow_#00')->commit();
+        $container->add()->title('John Snow')->unlockquantity(75)->associatedtag(':crow:')->associatedpicto('r_ebcrow_#00')->commit();
+        $container->add()->title('Der Rabinator')->unlockquantity(100)->associatedtag(':crow:')->associatedpicto('r_ebcrow_#00')->commit();
         $container->add()->title('Hey wir können die Zombies von hier oben sehen')->unlockquantity(5)->associatedtag(':wheel:')->associatedpicto('r_ebgros_#00')->commit();
         $container->add()->title('Fröhlicher Hamster')->unlockquantity(10)->associatedtag(':wheel:')->associatedpicto('r_ebgros_#00')->commit();
         $container->add()->title('Showman aus der Anderen Welt!')->unlockquantity(15)->associatedtag(':wheel:')->associatedpicto('r_ebgros_#00')->commit();
@@ -195,6 +204,7 @@ class AwardTitleDataService implements FixtureProcessorInterface {
         $container->add()->title('Hier oben')->unlockquantity(30)->associatedtag(':wheel:')->associatedpicto('r_ebgros_#00')->commit();
         $container->add()->title('Auge der Wüste')->unlockquantity(40)->associatedtag(':wheel:')->associatedpicto('r_ebgros_#00')->commit();
         $container->add()->title('4000 Zombies starren uns an')->unlockquantity(50)->associatedtag(':wheel:')->associatedpicto('r_ebgros_#00')->commit();
+        $container->add()->title('Wir drehen frei!')->unlockquantity(75)->associatedtag(':wheel:')->associatedpicto('r_ebgros_#00')->commit();
         $container->add()->title('Durazell')->unlockquantity(15)->associatedtag(':batgun:')->associatedpicto('r_batgun_#00')->commit();
         $container->add()->title('Hüter der Heiligen Batterie')->unlockquantity(25)->associatedtag(':batgun:')->associatedpicto('r_batgun_#00')->commit();
         $container->add()->title('Der Batterienator')->unlockquantity(50)->associatedtag(':batgun:')->associatedpicto('r_batgun_#00')->commit();
@@ -277,6 +287,7 @@ class AwardTitleDataService implements FixtureProcessorInterface {
         $container->add()->title('Schlächter')->unlockquantity(4000)->associatedtag(':zombie:')->associatedpicto('r_killz_#00')->commit();
         $container->add()->title('Friedensstifter')->unlockquantity(6000)->associatedtag(':zombie:')->associatedpicto('r_killz_#00')->commit();
         $container->add()->title('Alptraum der Traumlosen')->unlockquantity(10000)->associatedtag(':zombie:')->associatedpicto('r_killz_#00')->commit();
+        $container->add()->title('Du nennst das ein Messer? DAS ist ein Messer!')->unlockquantity(15000)->associatedtag(':zombie:')->associatedpicto('r_killz_#00')->commit();
         $container->add()->title('Hans im Glück')->unlockquantity(5)->associatedtag(':chest:')->associatedpicto('r_chstxl_#00')->commit();
         $container->add()->title('Vierklettriges Kleeblatt')->unlockquantity(10)->associatedtag(':chest:')->associatedpicto('r_chstxl_#00')->commit();
         $container->add()->title('Fortuna')->unlockquantity(15)->associatedtag(':chest:')->associatedpicto('r_chstxl_#00')->commit();
@@ -342,6 +353,7 @@ class AwardTitleDataService implements FixtureProcessorInterface {
         $container->add()->title('Es war wirklich zu einfach.')->unlockquantity(10)->associatedtag(':hclms:')->associatedpicto('r_suhard_#00')->commit();
         $container->add()->title('Ich fresse Nägel und scheiße Kugeln!')->unlockquantity(20)->associatedtag(':hclms:')->associatedpicto('r_suhard_#00')->commit();
         $container->add()->title('Pandämonium? Hah. Einfach.')->unlockquantity(40)->associatedtag(':hclms:')->associatedpicto('r_suhard_#00')->commit();
+        $container->add()->title('Apostel des Pandämoniums')->unlockquantity(100)->associatedtag(':hclms:')->associatedpicto('r_suhard_#00')->commit();
         $container->add()->title('Teilweise verrottet')->unlockquantity(20)->associatedtag(':infect:')->associatedpicto('r_dinfec_#00')->commit();
         $container->add()->title('Virenschleuder')->unlockquantity(40)->associatedtag(':infect:')->associatedpicto('r_dinfec_#00')->commit();
         $container->add()->title('Gedärmeauskotzer')->unlockquantity(75)->associatedtag(':infect:')->associatedpicto('r_dinfec_#00')->commit();
@@ -372,6 +384,7 @@ class AwardTitleDataService implements FixtureProcessorInterface {
         $container->add()->title('Einarmiger Bandit')->unlockquantity(30)->associatedtag(':bgum:')->associatedpicto('r_bgum_#00')->commit();
         $container->add()->title('Seelenführer der Gemeinschaft')->unlockquantity(50)->associatedtag(':bgum:')->associatedpicto('r_bgum_#00')->commit();
         $container->add()->title('Charismatischer Prophet')->unlockquantity(100)->associatedtag(':bgum:')->associatedpicto('r_bgum_#00')->commit();
+        $container->add()->title('Liebling des Raben')->unlockquantity(150)->associatedtag(':bgum:')->associatedpicto('r_bgum_#00')->commit();
         $container->add()->title('Motivierter Messebesucher')->unlockquantity(1)->associatedtag(':fjv2:')->associatedpicto('r_fjv2_#00')->commit();
         $container->add()->title('Verdammt in Saarbrücken')->unlockquantity(1)->associatedtag(':fjvani:')->associatedpicto('r_fjvani_#00')->commit();
         $container->add()->title('FJV\'08 Kanonenfutter')->unlockquantity(1)->associatedtag(':fjv:')->associatedpicto('r_fjv_#00')->commit();
@@ -381,6 +394,10 @@ class AwardTitleDataService implements FixtureProcessorInterface {
         $container->add()->title('Seelenhändler')->unlockquantity(10)->associatedtag(':rrefer:')->associatedpicto('r_rrefer_#00')->commit();
         $container->add()->title('Sehr überzeugender Pate')->unlockquantity(15)->associatedtag(':rrefer:')->associatedpicto('r_rrefer_#00')->commit();
         $container->add()->title('Wüstenspekulant')->unlockquantity(20)->associatedtag(':rrefer:')->associatedpicto('r_rrefer_#00')->commit();
+        $container->add()->title('Seelentrader')->unlockquantity(25)->associatedtag(':rrefer:')->associatedpicto('r_rrefer_#00')->commit();
+        $container->add()->title('Scientologe')->unlockquantity(50)->associatedtag(':rrefer:')->associatedpicto('r_rrefer_#00')->commit();
+        $container->add()->title('Komm auf die dunkle Seite der Macht!')->unlockquantity(100)->associatedtag(':rrefer:')->associatedpicto('r_rrefer_#00')->commit();
+        $container->add()->title('Warren Buffet der Außenwelt')->unlockquantity(150)->associatedtag(':rrefer:')->associatedpicto('r_rrefer_#00')->commit();
         $container->add()->title('Held der Community!')->unlockquantity(1)->associatedtag(':comu:')->associatedpicto('r_comu_#00')->commit();
         $container->add()->title('Bringt Sachen ins Rollen!')->unlockquantity(1)->associatedtag(':comu2:')->associatedpicto('r_comu2_#00')->commit();
         $container->add()->title('Nobler Spender')->unlockquantity(10)->associatedtag(':share:')->associatedpicto('r_share_#00')->commit();
@@ -388,6 +405,8 @@ class AwardTitleDataService implements FixtureProcessorInterface {
         $container->add()->title('Samariter')->unlockquantity(50)->associatedtag(':share:')->associatedpicto('r_share_#00')->commit();
         $container->add()->title('Freigiebiger Bürger')->unlockquantity(100)->associatedtag(':share:')->associatedpicto('r_share_#00')->commit();
         $container->add()->title('Messias')->unlockquantity(150)->associatedtag(':share:')->associatedpicto('r_share_#00')->commit();
+        $container->add()->title('Mein Körper ist bereit!')->unlockquantity(250)->associatedtag(':share:')->associatedpicto('r_share_#00')->commit();
+        $container->add()->title('Ultimatives Opfer')->unlockquantity(400)->associatedtag(':share:')->associatedpicto('r_share_#00')->commit();
         $container->add()->title('Der Weihnachtsmann ist ein Schlawiner')->unlockquantity(10)->associatedtag(':santa:')->associatedpicto('r_santac_#00')->commit();
         $container->add()->title('Santa Klaus ist ein Schummler')->unlockquantity(25)->associatedtag(':santa:')->associatedpicto('r_santac_#00')->commit();
         $container->add()->title('Santa Klaus ist Abfall')->unlockquantity(50)->associatedtag(':santa:')->associatedpicto('r_santac_#00')->commit();
@@ -425,6 +444,11 @@ class AwardTitleDataService implements FixtureProcessorInterface {
         $container->add()->title('Licht in der Nacht')->unlockquantity(30)->associatedtag(':nuke:')->associatedpicto('r_dnucl_#00')->commit();
         $container->add()->title('RadioactiveMan')->unlockquantity(50)->associatedtag(':nuke:')->associatedpicto('r_dnucl_#00')->commit();
         $container->add()->title('Strahlender Bürger')->unlockquantity(60)->associatedtag(':nuke:')->associatedpicto('r_dnucl_#00')->commit();
+        $container->add()->title('Kabum! Der Reaktor mach KABUM!!!')->unlockquantity(80)->associatedtag(':nuke:')->associatedpicto('r_dnucl_#00')->commit();
+        $container->add()->title('Atompilzsammler')->unlockquantity(90)->associatedtag(':nuke:')->associatedpicto('r_dnucl_#00')->commit();
+        $container->add()->title('Bis auf die Seele verstrahlt')->unlockquantity(100)->associatedtag(':nuke:')->associatedpicto('r_dnucl_#00')->commit();
+        $container->add()->title('Ich steh auf Fusion!')->unlockquantity(120)->associatedtag(':nuke:')->associatedpicto('r_dnucl_#00')->commit();
+        $container->add()->title('Kung-Fu-Sion')->unlockquantity(150)->associatedtag(':nuke:')->associatedpicto('r_dnucl_#00')->commit();
         $container->add()->title('Hölle, das esse ich jeden Morgen.')->unlockquantity(50)->associatedtag(':pande:')->associatedpicto('r_pande_#00')->commit();
         $container->add()->title('Abonnent der Pandämoniumsauna')->unlockquantity(150)->associatedtag(':pande:')->associatedpicto('r_pande_#00')->commit();
         $container->add()->title('Pandämonium ist meine Liebe!')->unlockquantity(300)->associatedtag(':pande:')->associatedpicto('r_pande_#00')->commit();
@@ -442,12 +466,15 @@ class AwardTitleDataService implements FixtureProcessorInterface {
         $container->add()->title('Es ist der Tod der mich fürchten sollte!')->unlockquantity(1)->associatedtag(':derwin:')->associatedpicto('r_derwin_#00')->commit();
         $container->add()->title('Sandmann')->unlockquantity(10)->associatedtag(':sand:')->associatedpicto('r_sandb_#00')->commit();
         $container->add()->title('Sandy Maverick')->unlockquantity(50)->associatedtag(':sand:')->associatedpicto('r_sandb_#00')->commit();
+        $container->add()->title('Sandsteiniger')->unlockquantity(100)->associatedtag(':sand:')->associatedpicto('r_sandb_#00')->commit();
+        $container->add()->title('Sandkasten-Scharfschütze')->unlockquantity(250)->associatedtag(':sand:')->associatedpicto('r_sandb_#00')->commit();
         $container->add()->title('Wegweiser')->unlockquantity(300)->associatedtag(':noob:')->associatedpicto('r_guide_#00')->commit();
         $container->add()->title('Praktischer Begleiter')->unlockquantity(1000)->associatedtag(':noob:')->associatedpicto('r_guide_#00')->commit();
         $container->add()->title('Erleuchteter Anführer')->unlockquantity(2500)->associatedtag(':noob:')->associatedpicto('r_guide_#00')->commit();
         $container->add()->title('Erleuchteter Prediger')->unlockquantity(5000)->associatedtag(':noob:')->associatedpicto('r_guide_#00')->commit();
         $container->add()->title('Guru der Liebe')->unlockquantity(8000)->associatedtag(':noob:')->associatedpicto('r_guide_#00')->commit();
         $container->add()->title('Höret meine Stimme')->unlockquantity(15000)->associatedtag(':noob:')->associatedpicto('r_guide_#00')->commit();
+        $container->add()->title('Universelle Muse')->unlockquantity(30000)->associatedtag(':noob:')->associatedpicto('r_guide_#00')->commit();
         $container->add()->title('Zeuge des Armageddon')->unlockquantity(1)->associatedtag(':arma:')->associatedpicto('r_armag_#00')->commit();
         $container->add()->title('Ewiger Zweiter')->unlockquantity(5)->associatedtag(':last:')->associatedpicto('r_surgrp_#00')->commit();
         $container->add()->title('Ein Wächter stirbt, aber gibt niemals auf')->unlockquantity(10)->associatedtag(':last:')->associatedpicto('r_surgrp_#00')->commit();

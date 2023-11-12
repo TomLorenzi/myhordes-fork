@@ -907,7 +907,7 @@ Zonenmarkierer: Marqueur de zone
 'vor Angst erstarrt': 'Terrorisé(s)'
 'Du wirst heute Nacht sterben!': 'Vous mourrez ce soir !'
 'Das Bauwerk {plan} hat {damage} Punkte Schaden genommen.': 'Le bâtiment {plan} a subi {damage} points de dégâts.'
-'Das Bauwerk {plan} hat {damage} Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.': 'Le bâtiment {plan} a subi {damage} points de dégâts et a été totalement dévasté par les zombies !.'
+'Das Bauwerk {plan} hat {damage} Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.': 'Le bâtiment {plan} a subi {damage} points de dégâts et a été totalement dévasté par les zombies !'
 'Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...': 'En commençant à marcher, une douleur très vive s''empare de votre jambe. Vous tombez à terre en gémissant. Vous perdez une action...'
 'Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...': 'Certains <strong>états de santé</strong> de votre victime vous ont été transmis !'
 'Verlassener Bunker': 'Bunker abandonné'
@@ -2317,7 +2317,7 @@ Aktionen: Actions
 'Auszeichnung für die Mitglieder der Buddler-Liga, die beim Duell der Achter gewonnen haben!': 'Victoire en tant que Fouineur lors du Duel des Huit !'
 'Chef der Mauer': 'Chef-Rempart'
 Schaufelführer: Chef-Pelleteur
-'Ich bin ein Biest!': 'Je suis une bête !'
+'Ich bin ein Biest!': 'Chef-Bêbête'
 'DdA Beste Buddler': 'Fwinneur du DDH'
 Stadt/Stadttor: Ville/Portes
 'Duell der Achter': 'Duel des Huit'
