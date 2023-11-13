@@ -217,7 +217,7 @@
 								<div class="log-entry log-entry log-entry-type-8 log-entry-class-{{ log_complaint.on ? 1 : 3 }}">
 									<span class="log-part-time" style="width: 120px">{{ log_complaint.time|format_datetime('medium', 'short') }}</span>
 									<span class="log-part-content">
-												<span>{{ log_complaint.from.name }}</span> <i class="fa fa-arrow-right"></i> <span>{{ log_complaint.to.name }}</span>
+												<span>{{ log_complaint.from.name }}</span> <img alt=">" src="{{ asset('build/images/emotes/arrowright.gif') }}" /> <span>{{ log_complaint.to.name }}</span>
 												(<i>{{ log_complaint.reason.text|trans({}, 'game') }}</i>)
 											</span>
 								</div>

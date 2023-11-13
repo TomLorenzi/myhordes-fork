@@ -70,11 +70,11 @@
 					<div class="row">
 						<div class=" padded cell rw-4 note note-lightest"><b>{{ 'Aktionen'|trans({},'admin') }}</b></div>
 						<div class=" padded cell rw-8">
-							<button x-ex-action="{{ url('admin_town_manage', {action: 'ex_co+', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><i class="fa fa-door-open"></i><div class="tooltip">{{ 'Herauswerfen (ohne Verletzung)'|trans({},'admin') }}</div></button>
-							<button x-ex-action="{{ url('admin_town_manage', {action: 'ex_co-', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><i class="fa fa-door-closed"></i><div class="tooltip">{{ 'Herauswerfen (mit Verletzung)'|trans({},'admin') }}</div></button>
-							<button x-ex-action="{{ url('admin_town_manage', {action: 'ex_ref', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><img alt="+" src="{{ asset('build/images/assets/img/icons/small_more2.gif') }}" /><div class="tooltip">{{ 'Timer erhöhen (1min)'|trans({},'admin') }}</div></button>
+							<button x-ex-action="{{ url('admin_town_manage', {action: 'ex_co+', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline icon-only"><img alt="" src="{{ asset('build/images/icons/exit.gif') }}" /><div class="tooltip">{{ 'Herauswerfen (ohne Verletzung)'|trans({},'admin') }}</div></button>
+							<button x-ex-action="{{ url('admin_town_manage', {action: 'ex_co-', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline icon-only"><img alt="" src="{{ asset('build/images/emotes/wound.gif') }}" /><div class="tooltip">{{ 'Herauswerfen (mit Verletzung)'|trans({},'admin') }}</div></button>
+							<button x-ex-action="{{ url('admin_town_manage', {action: 'ex_ref', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline icon-only"><img alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}" /><div class="tooltip">{{ 'Timer erhöhen (1min)'|trans({},'admin') }}</div></button>
 							{% if app.environment == 'dev' %}
-								<button x-ex-action="{{ url('admin_town_manage', {action: 'ex_inf', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><img alt="+" src="{{ asset('build/images/beyond/more.gif') }}" /></i><div class="tooltip">{{ 'Timer erhöhen (24h)'|trans({},'admin') }}</div></button>
+								<button x-ex-action="{{ url('admin_town_manage', {action: 'ex_inf', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline icon-only"><img alt="+" src="{{ asset("build/images/item/item_alarm_on.gif") }}" /><div class="tooltip">{{ 'Timer erhöhen (24h)'|trans({},'admin') }}</div></button>
 							{% endif %}
 						</div>
 					</div>
@@ -84,7 +84,7 @@
 					<div class="row">
 						<div class="cell rw-12 padded">
 							{{ x.citizen.name }}
-							<button x-ex-action="{{ url('admin_town_manage', {action: 'ex_del', id: town.id}) }}" x-ex-session="{{ x.id }}" class="small inline float-right"><i class="fa fa-recycle"></i><div class="tooltip">{{ 'Löschen (ermöglicht erneutes Betreten der Ruine)'|trans({},'admin') }}</div></button>
+							<button x-ex-action="{{ url('admin_town_manage', {action: 'ex_del', id: town.id}) }}" x-ex-session="{{ x.id }}" class="small inline icon-only float-right"><img alt="x" src="{{ asset("build/images/heroskill/small_falsify.gif") }}" /><div class="tooltip">{{ 'Löschen (ermöglicht erneutes Betreten der Ruine)'|trans({},'admin') }}</div></button>
 						</div>
 					</div>
 				{% endfor %}
