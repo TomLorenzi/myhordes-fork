@@ -6,9 +6,6 @@
         {% if towns|length > 0 %}
             <div class="row-flex header">
                 <div class="cell padded rw-1 rw-sm-0 center">
-                    {{'Lang.'|trans({}, 'soul')}}
-                </div>
-                <div class="cell padded rw-1 rw-sm-0 center">
                     {{'Pos.'|trans({}, 'soul')}}
                 </div>
                 <div class="cell padded rw-6 rw-sm-10 center">
@@ -20,13 +17,15 @@
                 <div class="cell padded rw-2 center">
                     {{'Score'|trans({}, 'soul')}} <a class="help-button"><div class="tooltip help">{{ 'Dieser Zahl ist die Summe der überlebten Tagen aller Bürger in einer Stadt. Sie ist der Gradmesser für die Koordinations- und Kooperationsfähigkeit einer Stadt.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
                 </div>
+                <div class="cell padded rw-1 rw-sm-0 center">
+                    {{'Details'|trans({}, 'soul')}}
+                </div>
             </div>
             <div class="town-container">
                 {% set pos = 1 %}
                 {% for town in towns %}
                     <div class="row-flex stretch season_entry {% if pos is not odd %}even{% endif %} {% if played[town.id] is defined %}played{% endif %}">
                         {# @var town \src\Entity\TownRankingProxy #}
-                        <div class="cell rw-1 season_entry_td center"><img class="fit" style="max-width: 32px;" src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" /></div>
                         <div class="cell rw-1 season_entry_td center">
                             {% if pos <= range[0] %}
                                 <img alt="" src="{{ asset('build/images/emotes/legend.gif') }}" />
@@ -37,9 +36,12 @@
                             {% endif %}
                             {{ pos }}
                         </div>
-                        <div class="cell rw-6 season_entry_td left"><div class="inline-block"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" data-alt-src="{{ asset('build/images/icons/small_less.gif') }}" /><div class="tooltip help">{{ 'Die Liste der eingeschriebenen Spieler ansehen.'|trans({},'game') }}</div></div> {{ town.name }}</div>
+                        <div class="cell rw-6 season_entry_td left">
+                            <img style="max-height: 16px;" src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" /> {{ town.name }}
+                        </div>
                         <div class="cell rw-2 season_entry_td center" style="color: #f0d79e">{{ town.days }}</div>
                         <div class="cell rw-2 season_entry_td center"><strong>{{ town.score }}</strong></div>
+                        <div class="cell rw-1 season_entry_td center"><div class="inline-block"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" data-alt-src="{{ asset('build/images/icons/small_less.gif') }}" /><div class="tooltip help">{{ 'Die Liste der eingeschriebenen Spieler ansehen.'|trans({},'game') }}</div></div></div>
                     </div>
                     {% if pos <= range[0] %}
                         <div class="row-flex stretch season_entry_container" x-town-latest="">

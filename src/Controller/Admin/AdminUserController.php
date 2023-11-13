@@ -200,7 +200,7 @@ class AdminUserController extends AdminActionController
         return $this->render( 'ajax/admin/users/all_index.html.twig', $this->addDefaultTwigArgs("full_list", [
             'users' => $users,
             'limit' => $parser->get_int('limit', 50),
-            'page' => $parser->get_int('page', 0),
+            'current_page' => $parser->get_int('page', 0),
             'pages' => ceil($total_count / $parser->get_int('limit', 50)),
             'total' => $total_count,
             'filters' => $filter,

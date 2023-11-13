@@ -17,28 +17,36 @@
                 </li>
             </ul>
             <h5>{{ 'Liste aller Städte'|trans({},'admin') }}</h5>
-            <div class="rw-2">
-                {{ 'Seite {page}/{total}'|trans({'{page}': currentPage, '{total}': pagesCount}, 'admin') }}
-            </div>
-            <div class="rw-8">
-                {% if currentPage > 1 %}
-                <a class="link" x-ajax-href="{{ path('admin_old_town_list', {page: currentPage - 1}) }}"> « </a>
-                {% endif %}
-                {% for i in currentPage - 3..currentPage - 1 %}
-                    {% if i > 0 %}
-                        <a class="link" x-ajax-href="{{ path('admin_old_town_list', {page: i}) }}">{{ i }}</a>
+
+            <div class="row-flex">
+                <div id="pagenav-bottom" class="cell rw-12 padded center">
+                    {% if page > 1 %}
+                        <div class="forum-button" x-ajax-href="{{ path('admin_old_town_list', {page: 0}) }}"><img alt="" src="{{ asset('build/images/icons/small_prev.gif') }}" /></div>
+                        <div class="forum-button" x-ajax-href="{{ path('admin_old_town_list', {page: page - 1}) }}"><img alt="" src="{{ asset('build/images/icons/small_moveleft.gif') }}" /></div>
+                    {% else %}
+                        <div class="forum-button-disabled"><img alt="" src="{{ asset('build/images/icons/small_prev.gif') }}" /></div>
+                        <div class="forum-button-disabled"><img alt="" src="{{ asset('build/images/icons/small_moveleft.gif') }}" /></div>
                     {% endif %}
-                {% endfor %}
-                {{ currentPage }}
-                {% for i in currentPage + 1..currentPage + 3 %}
-                    {% if i <= pagesCount %}
-                        <a class="link" x-ajax-href="{{ path('admin_old_town_list', {page: i}) }}">{{ i }}</a>
+
+                    <div class="forum-button" x-forum-action="post-select-page">
+                        {{ 'Seite {page}/{pages}'|trans({'{page}': '<span class="current_page_marker">&nbsp;' ~ page ~ '</span>', '{pages}': pages},'global')|raw }}
+                        <div class="tooltip">
+                            {{ 'Zum Wechsein der Seite hier klicken'|trans({}, 'global') }}
+                        </div>
+                    </div>
+
+                    {% if page < pages %}
+                        <div class="forum-button" x-ajax-href="{{ path('admin_old_town_list', {page: page + 1}) }}"><img alt="" src="{{ asset('build/images/icons/small_move.gif') }}" /></div>
+                        <div class="forum-button" x-ajax-href="{{ path('admin_old_town_list', {page: pages}) }}"><img alt="" src="{{ asset('build/images/icons/small_next.gif') }}" /></div>
+                    {% else %}
+                        <div class="forum-button-disabled"><img alt="" src="{{ asset('build/images/icons/small_move.gif') }}" /></div>
+                        <div class="forum-button-disabled"><img alt="" src="{{ asset('build/images/icons/small_next.gif') }}" /></div>
                     {% endif %}
-                {% endfor %}
-                {% if currentPage < pagesCount %}
-                    <a class="link" x-ajax-href="{{ path('admin_old_town_list', {page: currentPage + 1}) }}"> » </a>
-                {% endif %}
+
+                    <div id="hidden-to-page-btn" class="forum-button" x-ajax-href="{{ path('admin_old_town_list', {page: 0}) }}" style="display:none;"></div>
+                </div>
             </div>
+
             <div class="row-table">
                 <div class="row header">
                     <div class="cell padded rw-1 rw-sm-0">{{ 'ID'|trans({},'admin') }}</div>
@@ -56,13 +64,13 @@
                                 {{ town.baseID }}
                             {% else %}
                                 {{ town.id }}
-                            {% endif %}<br />
-                            {% if town.language is not empty %}
-                                <span class="language"><img src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" /></span>
                             {% endif %}
                         </div>
                         <div class="cell padded rw-5 rw-sm-8">
-                            {{ town.name }}
+                            {% if town.language is not empty %}
+                                <span class="language"><img src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" style="max-height:16px;" /></span>
+                            {% endif %}
+                            <img title="{{ town.type.label|trans({},'game') }}" src="{{ asset("build/images/towntypes/" ~ town.type.name ~ ".gif") }}" alt="" /> {{ town.name }}<br />
                         </div>
                         <div class="cell padded rw-1 rw-sm-2 shrink-0">{{ town.days }}</div>
                         <div class="cell padded rw-1 rw-sm-4">
@@ -70,7 +78,7 @@
                         </div>
                         <div class="cell padded rw-1 rw-sm-4">{% if town.imported %}{{ 'Ja'|trans({}, 'admin') }}{% else %}{{ 'Nein'|trans({}, 'admin') }}{% endif %}</div>
                         <div class="cell padded rw-3 rw-sm-4 right">
-                            <button x-ajax-href="{{ path('admin_old_town_explorer', {id: town.id}) }}" class="small inline">{{ 'Details'|trans({},'admin') }}...</button>
+                            <button x-ajax-href="{{ path('admin_old_town_explorer', {id: town.id}) }}" class="small inline icon-only"><img src="{{ asset("build/images/heroskill/small_view.gif") }}" alt="" /></button>
                         </div>
                     </div>
                 {% endfor %}
@@ -83,5 +91,36 @@
 {% block js %}
     {{ parent() }}
     <script>
+        $.html.addEventListenerAll( '[x-forum-action="post-select-page"]', 'click', function(e,elem) {
+            e.preventDefault();
+            e.stopPropagation();
+            let pagMarker = elem.querySelector(".current_page_marker");
+            pagMarker.innerHTML = '<input type="text" name="page_to_go" class="page_to_go inline" style="width: 24px;margin: 0 5px" />';
+            elem.querySelector("input.page_to_go").focus();
+            $.html.addEventListenerAll('[x-forum-action="post-select-page"] input.page_to_go', 'click', function(e, elem){
+                e.preventDefault();
+                e.stopPropagation();
+            });
+            $.html.addEventListenerAll('[x-forum-action="post-select-page"] input.page_to_go', 'change', function(e, elem){
+                let to_page = parseInt( elem.value );
+                if (isNaN(to_page)) {
+                    return;
+                }
+                else if (to_page >= {{ pages }}) {
+                    to_page = {{ pages }};
+                }
+                else if (to_page <= 1) {
+                    to_page = 1;
+                }
+                to_page = parseInt(to_page);
+                const button = document.querySelector("div#hidden-to-page-btn");
+                let base_url = button.getAttribute("x-ajax-href");
+                let splitted_url = base_url.split('/');
+                splitted_url[splitted_url.length-1] = to_page;
+                let new_url = splitted_url.join("/");
+                button.setAttribute("x-ajax-href", new_url);
+                button.click();
+            });
+        });
     </script>
 {% endblock %}
