@@ -3,6 +3,7 @@
 namespace App\Twig;
 
 use App\Entity\Hook;
+use App\Hooks\HookRegistry;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Asset\Packages;
@@ -20,6 +21,7 @@ class ExtensionsRuntime implements RuntimeExtensionInterface {
 	protected Environment $twig;
 	protected TokenStorageInterface $token;
 	protected ContainerInterface $container;
+	protected HookRegistry $hookRegistry;
 
 	/**
 	 * @param TranslatorInterface    $translator
@@ -27,8 +29,11 @@ class ExtensionsRuntime implements RuntimeExtensionInterface {
 	 * @param Packages               $assets
 	 * @param EntityManagerInterface $entityManager
 	 * @param Environment            $twig
+	 * @param TokenStorageInterface  $token
+	 * @param ContainerInterface     $container
+	 * @param HookRegistry      	 $hookRegistry
 	 */
-	public function __construct(TranslatorInterface $translator, UrlGeneratorInterface $router, Packages $assets, EntityManagerInterface $entityManager, Environment $twig, TokenStorageInterface $token, ContainerInterface $container) {
+	public function __construct(TranslatorInterface $translator, UrlGeneratorInterface $router, Packages $assets, EntityManagerInterface $entityManager, Environment $twig, TokenStorageInterface $token, ContainerInterface $container, HookRegistry $hookRegistry) {
 		$this->translator = $translator;
 		$this->router = $router;
 		$this->assets = $assets;
@@ -36,26 +41,43 @@ class ExtensionsRuntime implements RuntimeExtensionInterface {
 		$this->twig = $twig;
 		$this->token = $token;
 		$this->container = $container;
+		$this->hookRegistry = $hookRegistry;
 	}
 
 	public function execute_hooks(string $hookName, ...$args): string {
 		$output = '';
 
-		$registeredHooks = $this->entityManager->getRepository(Hook::class)->findBy(['hookname' => $hookName, 'active' => true]);
+		$backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 1);
+		$this->hookRegistry->selectHook($hookName, $args, $backtrace[0]['file'], $backtrace[0]['line']);
+
+		$registeredHooks = $this->entityManager->getRepository(Hook::class)->findBy(['hookname' => $hookName]);
 		if (count($registeredHooks) === 0) return '';
 
-		usort($registeredHooks, fn($a, $b) => $b->getPosition() <=> $a->getPosition());
+		usort($registeredHooks, fn($a, $b) => $a->getPosition() <=> $b->getPosition());
 		$hookFunction = 'hook' . ucfirst($hookName);
 		foreach ($registeredHooks as $registeredHook) {
 
-			if (!class_exists($registeredHook->getClassname())) continue;
+			$this->hookRegistry->hookHandledBy($registeredHook->getClassname(), $registeredHook->getPosition(), $registeredHook->isActive());
+
+			if (!class_exists($registeredHook->getClassname())) {
+				continue;
+			}
 
 			$className = $registeredHook->getClassname();
 			$hook = new $className($this->translator, $this->router, $this->assets, $this->twig, $this->token, $this->container);
-			if (!is_callable([$hook, $hookFunction])) continue;
+
+			if (!is_callable([$hook, $hookFunction])) {
+				continue;
+			}
+
+			if (!$registeredHook->isActive()) {
+				continue;
+			}
 
 			$output .= $hook->{$hookFunction}($args);
+			$this->hookRegistry->hookWasCalled();
 		}
+		$this->hookRegistry->collect();
 		return $output;
 	}
 

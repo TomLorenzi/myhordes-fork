@@ -159,7 +159,7 @@
 
 	{# @var rootBuildings \App\Entity\BuildingPrototype[] #}
 	<div>
-		<button x-building-admin-action="unlockCheckedBuildings" class="inline"><i class="fa fa-unlock-alt"></i> Unlock checked buildings</button>
+		<button x-building-admin-action="unlockCheckedBuildings" class="inline"><img alt="" src="{{ asset('build/images/pictos/r_door.gif') }}" /> Unlock checked buildings</button>
 		<ul class="buildings-tabs tabs plain" x-tab-group="buildings" x-tab-control>
 			<li class="tab" x-tab-id="all">
 				<div class="tab-link">
@@ -183,7 +183,9 @@
 		<div x-tab-group="buildings" style="margin-top:31px" x-tab-id="type_{{ building.icon }}" x-tab-target class="buildings type_{{ building.icon }}">{{ _self.building_entry(building, true, 0, dictBuildings, availBuldings, workshopBonus, hpToAp) }}</div>
 	{% endfor %}
 
-	<button x-building-admin-action="unlockCheckedBuildings"><i class="fa fa-unlock-alt"></i> Unlock checked buildings</button>
+	<div style="margin-top:20px">
+		<button x-building-admin-action="unlockCheckedBuildings"><img alt="" src="{{ asset('build/images/pictos/r_door.gif') }}" /> Unlock checked buildings</button>
+	</div>
 
 {% endblock %}
 {% block js %}

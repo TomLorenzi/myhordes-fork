@@ -29,22 +29,22 @@
             <div class="row-table">
                 <div class="row header">
                     <div class="cell padded rw-1 rw-sm-0">{{ 'ID'|trans({},'admin') }}</div>
-                    <div class="cell padded rw-5 rw-sm-12">{{ 'Stadtname'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-6 rw-sm-12">{{ 'Stadtname'|trans({},'admin') }}</div>
                     <div class="cell padded rw-1 rw-sm-0">{{ 'Tag'|trans({},'admin') }}</div>
                     <div class="cell padded rw-2 rw-sm-0">{{ 'Pop.'|trans({},'admin') }}</div>
-                    <div class="cell padded rw-3 rw-sm-0 right">{{ 'Aktionen'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-2 rw-sm-0 right">{{ 'Aktionen'|trans({},'admin') }}</div>
                 </div>
                 {# @var towns \App\Entity\Town[] #}
                 {% for town in towns %}
                     <div class="row-flex wrap">
                         <div class="cell padded rw-1 rw-sm-2 shrink-0" style="opacity: {{ town.scheduledFor > 'now'|to_date ? 0.5 : 1 }}">
                             <span class="hide-mobile">{{ town.id }}</span><span class="small hide-desktop">{{ town.id }}</span><br />
-                            {% if town.language is not empty %}
-                                <span class="language"><img src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" /></span>
-                            {% endif %}
                         </div>
-                        <div class="cell padded rw-5 rw-sm-8" style="opacity: {{ town.scheduledFor > 'now'|to_date ? 0.5 : 1 }}">
-                            {{ town.name }}<br /><span class="small">{% if town.open %}<i class="fa fa-door-open"></i> {% endif %}{{ town.type.label|trans({},'game') }}</span>
+                        <div class="cell padded rw-6 rw-sm-8" style="opacity: {{ town.scheduledFor > 'now'|to_date ? 0.5 : 1 }}">
+                            {% if town.language is not empty %}
+                                <span class="language"><img src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" style="max-height:16px;" /></span>
+                            {% endif %}
+                            <img title="{{ town.type.label|trans({},'game') }}" src="{{ asset("build/images/towntypes/" ~ town.type.name ~ ".gif") }}" alt="" /> {{ town.name }}<br />
                             {% if town.attackFails >= 3 %}<div style="color: red">{{ 'Quarantäne'|trans({},'game') }}</div> {% endif %}
                             {% if town.rankingEntry.disabled %}<div class="bold" style="color: #ff8800">{{ 'Ranking-Ausschluss'|trans({},'game') }}</div> {% endif %}
                             {% if town.rankingEntry.event %}<div class="bold" style="color: #81b3e2">{{ 'Event-Stadt'|trans({},'ghost') }}</div> {% endif %}
@@ -53,7 +53,7 @@
                             <div class="cell padded rw-3 rw-sm-10 shrink-0">
                                 <div class="row-flex v-center">
                                     <div class="padded cell">
-                                        <i class="fa fa-clock"></i>
+                                        <img src="{{ asset("build/images/item/item_alarm_on.gif") }}" alt="" />
                                     </div>
                                     <div class="padded cell small">
                                         {{ town.scheduledFor|format_date('full') }}<br/>
@@ -64,12 +64,20 @@
                         {% else %}
                             <div class="cell padded rw-1 rw-sm-2 shrink-0">{{ town.day }}</div>
                             <div class="cell padded rw-2 rw-sm-8">
-                                {{ town.citizenCount }} / {{ town.population }} {% if town.citizenCount < town.population %}<i title="{{ 'Geöffnet'|trans({},'admin') }}" class="small fa fa-door-open"></i>{% endif %}<br />
-                                <span title="{{ 'Leben'|trans({},'admin') }}" class="small"><i class="fa fa-users"></i> {{ town.aliveCitizenCount }}</span> <span title="{{ 'Tot'|trans({},'admin') }}" class="small"><i class="fa fa-skull"></i> {{ town.citizenCount - town.aliveCitizenCount }}</span> <span title="{{ 'Getrennt'|trans({},'admin') }}" class="small"><i class="fa fa-user-slash"></i> {{ town.citizenCount - town.activeCitizenCount }}</span>
+                                {{ town.citizenCount }} / {{ town.population }} {% if town.citizenCount < town.population %}<img title="{{ 'Geöffnet'|trans({},'admin') }}" src="{{ asset("build/images/log/door_open.gif") }}" alt="" />{% endif %}<br />
+                                <span title="{{ 'Leben'|trans({},'admin') }}" class="small">
+                                    <img src="{{ asset("build/images/emotes/last.gif") }}" alt="" />{{ town.aliveCitizenCount }}
+                                </span>
+                                <span title="{{ 'Tot'|trans({},'admin') }}" class="small">
+                                    <img src="{{ asset("build/images/emotes/death.gif") }}" alt="" />{{ town.citizenCount - town.aliveCitizenCount }}
+                                </span>
+                                <span title="{{ 'Getrennt'|trans({},'admin') }}" class="small">
+                                    <img src="{{ asset("build/images/icons/escort_off.gif") }}" alt="" />{{ town.citizenCount - town.activeCitizenCount }}
+                                </span>
                             </div>
                         {% endif %}
-                        <div class="cell padded rw-3 rw-sm-4 right">
-                            <button x-ajax-href="{{ path('admin_town_dashboard', {id: town.id}) }}" class="small inline">{{ 'Details'|trans({},'admin') }}...</button>
+                        <div class="cell padded rw-2 rw-sm-4 right">
+                            <button x-ajax-href="{{ path('admin_town_dashboard', {id: town.id}) }}" class="small inline icon-only"><img src="{{ asset("build/images/heroskill/small_view.gif") }}" alt="" /></button>
                         </div>
                     </div>
                 {% endfor %}

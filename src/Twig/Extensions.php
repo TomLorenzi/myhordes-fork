@@ -82,14 +82,14 @@ class Extensions extends AbstractExtension implements GlobalsInterface
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('instance_of', [$this, 'instance_of']),
-            new TwigFunction('to_date',  [$this, 'create_date']),
-            new TwigFunction('help_btn', [$this, 'help_btn'], ['is_safe' => array('html')]),
-            new TwigFunction('help_lnk', [$this, 'help_lnk'], ['is_safe' => array('html')]),
-            new TwigFunction('tooltip',  [$this, 'tooltip'], ['is_safe' => array('html')]),
-            new TwigFunction('conf',     [$this, 'conf']),
-			new TwigFunction('hook', [ExtensionsRuntime::class, 'execute_hooks'], ['is_safe' => array('html')]),
-			new TwigFunction('hostname', [$this, 'gethostname']),
+            new TwigFunction('instance_of', 	[$this, 'instance_of']),
+            new TwigFunction('to_date',     	[$this, 'create_date']),
+            new TwigFunction('help_btn',  	[$this, 'help_btn'], ['is_safe' => array('html')]),
+            new TwigFunction('help_lnk',  	[$this, 'help_lnk'], ['is_safe' => array('html')]),
+            new TwigFunction('tooltip',   	[$this, 'tooltip'], ['is_safe' => array('html')]),
+            new TwigFunction('conf',      	[$this, 'conf']),
+			new TwigFunction('hook', 			[ExtensionsRuntime::class, 'execute_hooks'], ['is_safe' => array('html')]),
+			new TwigFunction('hostname',  	[$this, 'gethostname']),
         ];
     }
 

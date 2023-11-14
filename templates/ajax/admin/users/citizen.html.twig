@@ -34,7 +34,7 @@
                                     {{ other_life.town.name }}
                                 </div>
                                 <div class="padded cell grow-0 shrink-0">
-                                    <button {% if not is_granted("ROLE_ADMIN") or other_life.rankingEntry.confirmed %}disabled{% endif %} x-engage="{{ path('admin_users_citizen_engage', {id: user.id, cid: other_life.id}) }}"><i class="fa fa-recycle"></i></button>
+                                    <button class="small inline icon-only" {% if not is_granted("ROLE_ADMIN") or other_life.rankingEntry.confirmed %}disabled{% endif %} x-engage="{{ path('admin_users_citizen_engage', {id: user.id, cid: other_life.id}) }}"><img src="{{ asset("build/images/icons/escort_off.gif") }}" alt="" /></button>
                                 </div>
                             </div>
                         {% endif %}
@@ -103,22 +103,39 @@
                             {% if alive %}
                                 <div class="row">
                                 {% if is_granted("ROLE_CROW") %}
-                                <div class="cell padded rw-3">
-                                {% if is_granted("ROLE_ADMIN") %}
-                                    <button id="x-headshot"><img src="{{ asset('build/images/actions/bullets.gif') }}" alt="" /><span class="hide-md hide-sm">{{ 'Kopfschuss'|trans({}, 'admin') }}</span></button>
-                                {% endif %}
-                                    <button id="x-liver-eat"><img src="{{ asset('build/images/actions/canteen.gif') }}" alt="" /><span class="hide-md hide-sm">{{ 'Leber fressen'|trans({}, 'admin') }}</span></button>
-                                </div>
+                                    {% if is_granted("ROLE_ADMIN") %}
+                                        <div class="cell padded rw-2 text-center">
+                                            <button class="small inline text-center" id="x-headshot">
+                                                <img src="{{ asset('build/images/actions/bullets.gif') }}" alt="" /><br />
+                                                <span class="hide-md hide-sm">{{ 'Kopfschuss'|trans({}, 'admin') }}</span>
+                                            </button>
+                                        </div>
+                                    {% endif %}
+                                    <div class="cell padded rw-2 text-center">
+                                        <button class="small inline text-center" id="x-liver-eat">
+                                            <img src="{{ asset('build/images/actions/canteen.gif') }}" alt="" /><br />
+                                            <span class="hide-md hide-sm">{{ 'Leber fressen'|trans({}, 'admin') }}</span>
+                                        </button>
+                                    </div>
                                 {% endif %}
 
-                                <div class="cell padded rw-3">
-                                    <button {% if not is_granted("ROLE_ADMIN") %}disabled{% endif %} x-engage="{{ path('admin_users_citizen_engage', {id: user.id, cid: 0}) }}"><i class="fa fa-recycle"></i> <span class="hide-md hide-sm">{{ 'Entkoppeln'|trans({}, 'admin') }}</span></button>
+                                <div class="cell padded rw-2 text-center">
+                                    <button class="small inline text-center" {% if not is_granted("ROLE_ADMIN") %}disabled{% endif %} x-engage="{{ path('admin_users_citizen_engage', {id: user.id, cid: 0}) }}">
+                                        <img src="{{ asset("build/images/icons/escort_off.gif") }}" alt="" /><br />
+                                         <span class="hide-md hide-sm">{{ 'Entkoppeln'|trans({}, 'admin') }}</span>
+                                    </button>
                                 </div>
-                                <div class="cell padded rw-3">
-                                    <button id="x-pm"><img alt="" src="{{ asset('build/images/forum/edit.png') }}" /> <span class="hide-md hide-sm">{{ 'PM vom Raben'|trans({}, 'admin') }}</span></button>
+                                <div class="cell padded rw-2 text-center">
+                                    <button class="small inline text-center" id="x-pm">
+                                        <img alt="" src="{{ asset('build/images/building/small_crow.gif') }}" /><br />
+                                        <span class="hide-md hide-sm">{{ 'PM vom Raben'|trans({}, 'admin') }}</span>
+                                    </button>
                                 </div>
-                                <div class="cell padded rw-3">
-                                    <button x-ajax-href="{{ path("admin_town_dashboard", {id: town.id}) }}"><i class="fa fa-eye"></i> <span class="hide-md hide-sm">{{ 'Stadt ansehen'|trans({}, 'admin') }}</span></button>
+                                <div class="cell padded rw-2 text-center">
+                                    <button class="small inline text-center" x-ajax-href="{{ path("admin_town_dashboard", {id: town.id}) }}">
+                                        <img alt="" src="{{ asset('build/images/heroskill/small_view.gif') }}" /><br />
+                                        <span class="hide-md hide-sm">{{ 'Stadt ansehen'|trans({}, 'admin') }}</span>
+                                    </button>
                                 </div>
                                 </div>
 

@@ -188,3 +188,6 @@ services:
     Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler:
         arguments:
             - '%env(DATABASE_URL)%'
+
+    app.hooks_registry:
+        class: App\Hooks\HookRegistry

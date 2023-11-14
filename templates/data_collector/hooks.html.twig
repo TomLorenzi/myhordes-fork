@@ -1,0 +1,85 @@
+{# templates/data_collector/hook.html.twig #}
+{% extends '@WebProfiler/Profiler/layout.html.twig' %}
+
+{% block toolbar %}
+	{% set icon %}
+		{# this is the content displayed as a panel in the toolbar #}
+		<svg class="icon-tabler-fish-hook" style="width: 2em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+			<path d="M557.6 680.64c-8.272-2.816-13.6-11.872-13.6-22.032V576h100.528L831.2 296C791.296 236.16 684.384 80 644.528 16H361.696L175.04 296 361.696 576H464v82.608c0 44.592 26.992 83.888 67.856 97.76 36.192 12.288 67.504 51.04 57.712 101.408-12.56 64.736-89.92 91.872-140.832 49.92a88.064 88.064 0 0 1-26.88-97.968l-75.248-27.264c-39.568 109.28 39.728 225.232 156.752 225.232 190.992 0 231.808-266.832 54.24-327.072zM500.912 496l145.056-218.336-48.096-72.08L404.864 496h-0.352l-45.648-68.464L536.736 160h-96.064l-129.888 195.264-39.584-59.328C320.784 221.52 352.72 176 404.512 96h197.2c99.776 144 53.52 80.288 133.344 200-59.472 89.184-74.128 104-133.344 200h-100.784z" fill="#565D64"></path>
+		</svg>
+		<span class="sf-toolbar-value">Hooks ({{ collector.hooks|length }})</span>
+	{% endset %}
+
+	{% set text %}
+		{# this is the content displayed when hovering the mouse over
+           the toolbar panel #}
+		<b>{{ collector.hooks|length }} hooks have been called during the rendering of the page</b>
+		{% for name, hook in collector.hooks %}
+		<div class="sf-toolbar-info-piece">
+			<b>{{ name }}</b>
+			<span>{{ hook|length }}</span>
+		</div>
+		{% endfor %}
+	{% endset %}
+
+	{# the 'link' value set to 'false' means that this panel doesn't
+       show a section in the web profiler #}
+	{{ include('@WebProfiler/Profiler/toolbar_item.html.twig', { link: true }) }}
+{% endblock %}
+
+{% block head %}
+	{# Optional. Here you can link to or define your own CSS and JS contents. #}
+	{# Use {{ parent() }} to extend the default styles instead of overriding them. #}
+	{{ parent() }}
+{% endblock %}
+
+{% block menu %}
+	{# This left-hand menu appears when using the full-screen profiler. #}
+	<span class="label">
+        <span class="icon">
+			<svg class="icon-tabler-fish-hook" style="width: 2em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+				<path d="M557.6 680.64c-8.272-2.816-13.6-11.872-13.6-22.032V576h100.528L831.2 296C791.296 236.16 684.384 80 644.528 16H361.696L175.04 296 361.696 576H464v82.608c0 44.592 26.992 83.888 67.856 97.76 36.192 12.288 67.504 51.04 57.712 101.408-12.56 64.736-89.92 91.872-140.832 49.92a88.064 88.064 0 0 1-26.88-97.968l-75.248-27.264c-39.568 109.28 39.728 225.232 156.752 225.232 190.992 0 231.808-266.832 54.24-327.072zM500.912 496l145.056-218.336-48.096-72.08L404.864 496h-0.352l-45.648-68.464L536.736 160h-96.064l-129.888 195.264-39.584-59.328C320.784 221.52 352.72 176 404.512 96h197.2c99.776 144 53.52 80.288 133.344 200-59.472 89.184-74.128 104-133.344 200h-100.784z" fill="#565D64"></path>
+			</svg>
+		</span>
+        <strong>Hooks ({{ collector.hooks|length }})</strong>
+    </span>
+{% endblock %}
+
+{% block panel %}
+	{# Optional, for showing the most details. #}
+	<h2>Hooks</h2>
+	<p>{{ collector.hooks|length }} hooks have been called during the rendering of the page</p>
+	{% for name, calls in collector.hooks %}
+		<h2>{{ name }} ({{ calls|length }})</h2>
+		<table>
+			<thead>
+			<tr>
+				<th>Position</th>
+				<th>Handler</th>
+				<th>Enabled</th>
+				<th>Args</th>
+			</tr>
+			</thead>
+			<tbody>
+			{# use the profiler_dump() function to render the contents of dumped objects #}
+			{% for call in calls %}
+			{% for handler in call['handlers'] %}
+			<tr>
+				<td>
+					{{ handler['position'] }}
+				</td>
+				<td>
+					{{ handler['classname'] }}
+				</td>
+				<td>
+					{{ handler['active']|number_format  }}
+				</td>
+				<td>{{ dump(call['args']) }}</td>
+			</tr>
+			{% endfor %}
+			{% endfor %}
+			</tbody>
+
+		</table>
+	{% endfor %}
+{% endblock %}
