@@ -45,6 +45,7 @@ class CreateTownFromConfigAction
         array $header, array $rules,
         ?User $creator = null,
         ?array $userSlots = [],
+        bool $force_disable_incarnate = false
     ): object
     {
         $seed = $header['townSeed'] ?? -1;
@@ -104,7 +105,7 @@ class CreateTownFromConfigAction
             ? $header['townIncarnation'] ?? ($creator->getRightsElevation() < User::USER_LEVEL_CROW ? 'incarnate' : 'none')
             : 'none';
 
-        $incarnated = $incarnation === 'incarnate';
+        $incarnated = ($incarnation === 'incarnate') && !$force_disable_incarnate;
 
         if ($incarnated) {
             $citizen = $this->gameFactory->createCitizen($town, $creator, $error, $all);

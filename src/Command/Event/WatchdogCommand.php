@@ -72,7 +72,7 @@ class WatchdogCommand extends Command
             if (!$preset = $this->em->getRepository(CommunityEventTownPreset::class)->find($id)) continue;
 
             $output->write("Instancing town for preset <fg=yellow>{$preset->getId()}</> of event <fg=yellow>{$preset->getEvent()->getId()}</>...");
-            $result = ($this->createTownFromConfigAction)($preset->getHeader(), $preset->getRules(), creator: $preset->getEvent()->getOwner());
+            $result = ($this->createTownFromConfigAction)($preset->getHeader(), $preset->getRules(), creator: $preset->getEvent()->getOwner(), force_disable_incarnate: true);
             if ($result->hasError()) $output->writeln("<fg=red>Error {$result->error()}</> {$result->exception()?->getMessage()}");
             elseif (!$result->town()) $output->writeln("<fg=red>Could not obtain town instance!</>");
             else {
