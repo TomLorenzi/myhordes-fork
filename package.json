@@ -43,5 +43,5 @@
         "string.prototype.matchall": "4.0.10",
         "swagger-ui": "5.8.0"
     },
-    "packageManager": "yarn@4.0.0-rc.51"
+    "packageManager": "yarn@4.0.2"
 }
