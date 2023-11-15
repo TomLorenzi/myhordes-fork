@@ -87,8 +87,8 @@ class ExceptionSubscriber implements EventSubscriberInterface
                                            "**Reporting an exception in MyHordes**\n" .
                                            "```\n[{$event->getThrowable()->getMessage()}]\n```\n" .
                                            "*{$event->getThrowable()->getFile()}*\nLine *{$event->getThrowable()->getLine()}*\n\n" .
-										   ($user !== null ? "User that thrown the exception: {$user->getUsername()}\n" : "") .
-										   "URL of the error: {$event->getRequest()->getPathInfo()}\n" .
+										   ($user !== null ? "User that thrown the exception: {$user->getUsername()}\n\n" : "") .
+										   "URL of the error: {$event->getRequest()->getPathInfo()}\n\n" .
                                            "See attached stack trace for more information.\n" .
                                            "/confidential\n/label ~Bug ~High ~Automatic"
                                        )
