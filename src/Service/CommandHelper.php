@@ -55,10 +55,22 @@ class CommandHelper
         $this->language = $language;
     }
 
-    public function leChunk( OutputInterface $output, string $repository, int $chunkSize, array $filter, bool $manualChain, bool $alwaysPersist, callable $handler, bool $clearEM = false, ?callable $revitalize = null) {
+    public function leChunk(
+        OutputInterface $output,
+        string $repository,
+        int $chunkSize,
+        array $filter,
+        bool $manualChain,
+        bool $alwaysPersist,
+        callable $handler,
+        bool $clearEM = false,
+        ?callable $revitalize = null,
+        ?int $limit = null,
+    ) {
         if ($revitalize !== null) $revitalize();
 
-        $tc = $this->entity_manager->getRepository($repository)->count($filter);
+        $tc = min($limit ?? PHP_INT_MAX, $this->entity_manager->getRepository($repository)->count($filter));
+
         $tc_chunk = 0;
 
         $output->writeln("Processing <info>$tc</info> <comment>$repository</comment> entities...");
@@ -66,7 +78,7 @@ class CommandHelper
         $progress->start($tc);
 
         while ($tc_chunk < $tc) {
-            $entities = $this->entity_manager->getRepository($repository)->findBy($filter,['id' => 'ASC'], $chunkSize, $manualChain ? $tc_chunk : 0);
+            $entities = $this->entity_manager->getRepository($repository)->findBy($filter,['id' => 'ASC'], min($chunkSize, $tc - $tc_chunk), $manualChain ? $tc_chunk : 0);
             foreach ($entities as $entity) {
                 if ($handler($entity) or $alwaysPersist) $this->entity_manager->persist($entity);
                 $tc_chunk++;
