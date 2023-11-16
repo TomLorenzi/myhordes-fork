@@ -576,6 +576,12 @@ Gross: Big
 'Sehr gross': 'Very big'
 'Spielen in anderen Gemeinden': 'Playing in other communities'
 'Du kannst nur den Städten deiner Gemeinschaft beitreten.': 'You are only allowed to join towns from your community.'
+'Passwort-Login aktivieren': 'Enable password login'
+'Dein neues Passwort wurde dir per E-Mail zugeschickt.': 'Your new password will be sent to you by email.'
+Passwort-Login: Password login
+'Wenn du möchtest, kannst du dich zusätzlich auch direkt via MyHordes einloggen. Wenn du diese Option aktivierst, schicken wir dir ein Passwort zum Einloggen an deine E-Mail Adresse.': 'It is also possible to connect directly via MyHordes. By activating this option, a password will be sent to you by email.'
+'Aus Sicherheitsgründen muss dein Account über ein Passwort verfügen, um gelöscht werden zu können. Wenn du deinen Account löschen möchtest, aktiviere bitte zunächst den Passwort-Login.': 'For security reasons, your account must have a password in order to be deleted. If you want to be able to delete your account, first enable password login.'
+'Das Löschen deines Accounts geschieht mit einer Verzögerung von 24 - 48 Stunden. Wenn Du dich vor Ablauf dieser Frist erneut einloggst, wird die Löschung abgebrochen. Du kannst nach dem Löschen deines Accounts keinen neuen Account mit der gleichen E-Mail Adresse und/oder dem gleichen Eternaltwin Konto anlegen!': 'The account is deleted after a period of 24 to 48 hours. If you log back in before this time expires, the deletion will be undone. You will not be able to create a new account with the same email address and/or Eternaltwin account after deletion!'
 'Resourcen für Baustellen immer komplett anzeigen': 'Always display all resources for construction sites'
 'Für einige Baustellen werden viele verschiedene Arten von Ressourcen benötigt, so dass es schwierig ist, sie alle in einer Zeile anzuzeigen. Diese Option legt fest, ob die Resourcen immer vollständig angezeigt oder individuell ausklappbar sein sollen.': 'Some construction sites require many different types of resources, making it difficult to display them all in one row. This option controls whether the resources should always be fully displayed or individually expandable.'
 'Private Foren über Weltforen anzeigen': 'Display Private Forums above World Forums'

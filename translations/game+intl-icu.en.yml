@@ -1192,7 +1192,7 @@ Kantinenkoch: Cantine Cook
 'Meister Eintopf': 'Demi Chef de Partie'
 'Großer Wüstenkonditor': 'Mama''s Finest'
 'Begnadeter Wüstenkonditor': 'Under Chef'
-'Cooking Mama': 'Master Chef'
+'Cooking Mama': 'Cooking Papa'
 'Meisterhafter Kochlöffelschwinger': 'Pukka Chef'
 Amateur-Laborratte: Amateur Lab Rat
 'Kleiner Präparator': 'Potion Preparer'
@@ -1616,7 +1616,7 @@ Paranoid: Paranoid and Proud
 'Der Bruce Lee des Spachtels': 'Bruce Lee of the trowel'
 'Es ist Zeit für Kathedralen': 'The time for cathedrals has come'
 'Hast du nichts besseres zu tun?': 'Don''t you have better things to do?'
-'Hohepriesterin des Sonnentempels': 'High Priestess of the Sun Temple'
+'Hohepriesterin des Sonnentempels': 'High Priest of the Sun Temple'
 'Obelisk der heutigen Zeit!': 'Modern obelisk!'
 'Lebhafter Tribut': 'Standing ovation'
 'Wird in die Annalen eingehen': 'One for the books'
@@ -2404,10 +2404,6 @@ Tarnexperte: Camo Chief
 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> verbraucht.': 'After some DIY (thumb hammering, sweating, and colorful language), you have obtained a {item} (the object has been placed in the bank).<hr />You have used <strong>{ap} action point(s)</strong>.'
 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'After some DIY (thumb hammering, sweating, and colorful language), you have obtained a {item} (the object has been placed in the bank).<hr />You have used <strong>{cp} construction points</strong>.'
 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> und <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'After some DIY (thumb hammering, sweating, and colorful language), you have obtained a {item} (the object has been placed in the bank).<hr />You have used <strong>{ap} action point(s)</strong> and <strong>{cp} construction points</strong>.'
-Eventsieger: Event winner
-Eventteilnehmer: Eventteilnehmer
-'Auszeichnung für deinen Sieg in einem Community-Event, Glückwünsch!': 'Distinction obtained following your designation as winner of a community event, congrats!'
-'Auszeichnung für deine Teilnahme an einem Community-Event.': 'Distinction obtained following your participation in a community event.'
 'Du hast das Wasser aus {item} in den Brunnen geschüttet (<strong>+{water} Einheit(en)</strong>)': 'You have transferred the water from the {item} to the well (<strong>+{water} unit(s)</strong>)'
 Pfadfinder_f: Sneaky
 'Green Beret_f': 'Dune Ranger'
@@ -2859,10 +2855,26 @@ Wegweiser_f: Wegweiserin
 Dialyse_f: Dialysis
 'Chef der Mauer_f': 'Rampart Chief'
 Schaufelführer_f: Schaufelführerin
-'Ich bin ein Biest!_f': 'I am a beast!'
+'Ich bin ein Biest!_f': 'Chief Tamer'
 'DdA Beste Buddler_f': 'DoE Winning Scavenger'
 Tarnexperte_f: Tarnexpertin
 Ninja_f: Shadow Master
 AP: AP
 CP: CP
 MP: MP
+'Der Raum auf den Zinnen ist begrenzt! Aktuell haben <strong>{watchers} / {cap}</strong> Nachtwächter ihren Platz eingenommen.': 'Space on the Battlements is limited! Currently, <strong>{watchers} / {cap}</strong> watchmen are defending the city.'
+'<strong>Achtung:</strong> In der Bank fehlen Gegenstände, die benötigt werden, damit die Verteidigungsanlagen mit voller Stärke arbeiten können!': '<strong>Warning:</strong> The bank is missing crucial items needed for the defenses to work at full strength!'
+'{building} hat folgende Gegenstände verbraucht: {items}.': '{building} consumed the following items: {items}.'
+Schamanenkreis: Shamanic circle
+Eventsieger: Event winner
+Eventteilnehmer: Eventteilnehmer
+'Auszeichnung für deinen Sieg in einem Community-Event, Glückwünsch!': 'Distinction obtained following your designation as winner of a community event, congrats!'
+'Auszeichnung für deine Teilnahme an einem Community-Event.': 'Distinction obtained following your participation in a community event.'
+'Du hast {count} x {item} auf der öffentlichen Müllhalde abgeladen. <strong>Die Stadt hat {def} Verteidigungspunkt(e) dazugewonnen.</strong>': 'You threw {count} x {item} in the dump. <strong>The town has received {def} point(s) of defense!</strong>'
+'Was für ein Glück! Kurz nach dem Angriff wurden Baupläne in die Stadt geweht. Ihr erhaltet: {items}': '{items} has been discovered. It has been deposited in the bank.'
+'Du siehst nicht wirklich, wo du dich hier verstecken könntest...': 'You really don''t see where you could hide here...'
+'Egal, wie sehr du suchst, es erscheint offensichtlich, dass es an diesem Ort nur ein einziges geeignetes Versteck gibt. Entscheide selbst...': 'No matter how much you search, it seems obvious that this place contains only one suitable hiding place. Your turn to judge…'
+'Dieser Ort bietet Möglichkeiten zum Verstecken, wenn du kreativ genug bist.': 'This place offers opportunities for hiding if you are creative.'
+'Du beobachtest mehrere geeignete Verstecke, aber es wird nicht für jeden etwas dabei sein.': 'You spot several interesting hideouts, but there won''t be one for everyone.'
+'Es sollte nicht allzu schwer sein, diesen Ort zum Untertauchen auszunutzen.': 'It shouldn''t be too hard to take advantage of this place to hide.'
+'Es scheint, dass alle guten Verstecke bereits von deinen "Freunden" besetzt sind. Du musst also einen anderen Ort finden oder improvisieren...': 'It seems that all the good hideouts are already occupied. You''ll have to find another place, or improvise...'

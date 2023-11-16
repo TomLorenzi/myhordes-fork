@@ -464,9 +464,9 @@ Kopfschuss: Balle dans la tête
 'Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...': 'Rien de notable par ici pour se mettre à l''abri. Vous vous sentez un peu à découvert...'
 "Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.": "Cette zone semble n'offrir que quelques rares protections « naturelles » pour y passer la nuit. Il va falloir faire avec les moyens du bord."
 'Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.': 'En cherchant un peu, on doit bien pouvoir se cacher quelque part.'
-'An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...': 'Cet endroit permet de se cacher correctement pour qui voudrait y passer la nuit…'
-'In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.': 'Ce secteur permet de bien se planquer en cas de besoin.'
-'Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.': 'Ça semble être l''endroit idéal pour passer la nuit.'
+'An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...': 'L''endroit offre des cachettes correctes pour qui voudrait y passer la nuit…'
+'In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.': 'Ce secteur offre de bonnes planques en cas de besoin.'
+'Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.': 'Ça semble être l''endroit idéal pour passer la nuit, les possibilités de cachettes ne manquent pas.'
 'Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...': 'La présence de quelques zombies dans les environs est notamment particulièrement inquiétante...'
 'Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.': 'Le grand nombre de zombies qui rôde un peu partout ne va rien arranger aux choses : se planquer promet d''être difficile.'
 "Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?": "Vous estimez que vos chances de survie ici sont très faibles. Peut-être que vous aimez jouer à pile ou face ?"
@@ -1192,7 +1192,7 @@ Kantinenkoch: Cuistot de cantine
 'Meister Eintopf': 'Cordon bleu du village'
 'Großer Wüstenkonditor': 'Grand pâtissier du désert'
 'Begnadeter Wüstenkonditor': 'Maître pâtissier du désert'
-'Cooking Mama': 'Cooking-mama'
+'Cooking Mama': 'Cooking-papa'
 'Meisterhafter Kochlöffelschwinger': 'Expert de la cuillère'
 Amateur-Laborratte: Laborantin amateur
 'Kleiner Präparator': 'Petit préparateur'
@@ -1238,7 +1238,7 @@ Müllmann: Eboueur
 Entsorgungsfachmann: Expulseur de cadavres
 'SM Anhänger': 'Adepte SM'
 'SM Spezialist': 'Maître du PMV'
-'Nenn mich Herrin': 'Appelez-moi Maîtresse'
+'Nenn mich Herrin': 'Appelez-moi Maître'
 'Ich möchte dein Objekt sein.': 'Fais de moi ton objet'
 Stadtmetzger: 30 millions d'ennemis
 'Spezialität: Hundesteaks': 'Responsable d''extinctions'
@@ -1616,7 +1616,7 @@ Paranoid: Parano
 'Der Bruce Lee des Spachtels': 'Le Bruce Lee de la truelle'
 'Es ist Zeit für Kathedralen': 'Il est venu le temps des cathédrales'
 'Hast du nichts besseres zu tun?': 'Z''avez pas mieux à faire ?'
-'Hohepriesterin des Sonnentempels': 'Grande prêtresse du temple du soleil'
+'Hohepriesterin des Sonnentempels': 'Grand prêtre du temple du soleil'
 'Obelisk der heutigen Zeit!': 'Obélisque des temps modernes !'
 'Lebhafter Tribut': 'Vibrant hommage'
 'Wird in die Annalen eingehen': 'Restera dans les annales'
@@ -2855,20 +2855,26 @@ Wegweiser_f: Lanterne de jour
 Dialyse_f: Sans Foie ni Loi
 'Chef der Mauer_f': 'Cheffe-Rempart'
 Schaufelführer_f: Cheffe-Pelleteuse
-'Ich bin ein Biest!_f': 'Je suis une bête !'
+'Ich bin ein Biest!_f': 'Chef-Bêbête'
 'DdA Beste Buddler_f': 'Fwinneur du DDH'
 Tarnexperte_f: Cheffe-Camouflage
 Ninja_f: Maître des ombres
-AP: AP
-CP: CP
-MP: MP
+AP: PA
+CP: PC
+MP: PM
+'Der Raum auf den Zinnen ist begrenzt! Aktuell haben <strong>{watchers} / {cap}</strong> Nachtwächter ihren Platz eingenommen.': 'L''espace sur les remparts est limité ! À l’heure actuelle, <strong>{watchers} / {cap}</strong> veilleurs défendent la ville.'
+'<strong>Achtung:</strong> In der Bank fehlen Gegenstände, die benötigt werden, damit die Verteidigungsanlagen mit voller Stärke arbeiten können!': '<strong>Attention :</strong> la banque manque d''objets nécessaires afin que les défenses fonctionnent à plein régime!'
+'{building} hat folgende Gegenstände verbraucht: {items}.': '{building} a consommé les objets suivants : {items}.'
+Schamanenkreis: Cercle chamanique
 Eventsieger: Gagnant d'évènement
 Eventteilnehmer: Participant d'évènement
 'Auszeichnung für deinen Sieg in einem Community-Event, Glückwünsch!': 'Distinction obtenue suite à votre désignation comme vainqueur d''un événement communautaire, bravo !'
 'Auszeichnung für deine Teilnahme an einem Community-Event.': 'Distinction obtenue suite à votre participation à un événement communautaire.'
-'Es scheint, dass alle guten Verstecke bereits von deinen "Freunden" besetzt sind. Du musst also einen anderen Ort finden oder improvisieren...': 'Il semblerait que toutes les bonnes planques soient déjà occupées. Il va falloir trouver un autre endroit, ou improviser…'
+'Du hast {count} x {item} auf der öffentlichen Müllhalde abgeladen. <strong>Die Stadt hat {def} Verteidigungspunkt(e) dazugewonnen.</strong>': 'Vous avez jeté {count} {item} dans la décharge. <strong>La ville a reçu {def} point(s) de défense !</strong>'
+'Was für ein Glück! Kurz nach dem Angriff wurden Baupläne in die Stadt geweht. Ihr erhaltet: {items}': '{items} a été découvert. Cet objet a été déposé <span>à la banque</span>.'
 'Du siehst nicht wirklich, wo du dich hier verstecken könntest...': 'Vous ne voyez vraiment pas où vous pourriez vous cacher ici…'
-'Egal, wie sehr du suchst, es erscheint offensichtlich, dass es an diesem Ort nur ein einziges geeignetes Versteck gibt. Entscheide selbst...': 'Vous avez beau chercher, il paraît évident que cet endroit ne renferme qu''une seule cachette convenable. À vous de juger…'
+'Egal, wie sehr du suchst, es erscheint offensichtlich, dass es an diesem Ort nur ein einziges geeignetes Versteck gibt. Entscheide selbst...': 'Vous avez beau chercher, il paraît évident que cet endroit ne renferme qu''''une seule cachette convenable. À vous de juger…'
 'Dieser Ort bietet Möglichkeiten zum Verstecken, wenn du kreativ genug bist.': 'Cet endroit offre des possibilités pour se cacher si vous êtes créatif.'
-'Du beobachtest mehrere geeignete Verstecke, aber es wird nicht für jeden etwas dabei sein.': 'Vous repérez plusieurs planques intéressantes, mais il n''y en aura pas pour tout le monde.'
+'Du beobachtest mehrere geeignete Verstecke, aber es wird nicht für jeden etwas dabei sein.': 'Vous repérez plusieurs planques intéressantes, mais il n''''y en aura pas pour tout le monde.'
 'Es sollte nicht allzu schwer sein, diesen Ort zum Untertauchen auszunutzen.': 'Il ne devrait pas être trop dur de tirer profit de cet endroit pour vous planquer.'
+'Es scheint, dass alle guten Verstecke bereits von deinen "Freunden" besetzt sind. Du musst also einen anderen Ort finden oder improvisieren...': 'Il semblerait que toutes les bonnes planques soient déjà occupées. Il va falloir trouver un autre endroit, ou improviser…'

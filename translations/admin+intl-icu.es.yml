@@ -613,6 +613,13 @@ Wert: Valor
 'Keine Verifizierungsmails versenden': 'No enviar e-mails de verificación'
 'Spielen in anderen Gemeinden': 'Jugar en otras comunidades'
 'Das Spielen in anderen Gemeinden verbieten': 'Prohibir el juego en otras comunidades'
+'Markieren, um diese Baustelle zur Liste der freizuschaltenden Baustellen in der Stadt hinzuzufügen.': 'Haz clic en esta casilla para añadir esta obra a la lista de obras desbloqueadas.'
+'Markieren, um diese Baustelle freizuschalten.': 'Haz clic en esta casilla para desbloquear inmediatamente esta obra.'
+'Markieren, um diese Baustelle aus der Stadt zu entfernen.': 'Haz clic aquí para quitar esta obra del pueblo.'
+'Dieses Gebäude ist veraltet.': 'Esta obra está obsoleta.'
+'Level {current} / {max}': 'Nivel {current} / {max}'
+'Anzahl Level: {max}': 'Nivel máximo: {max}'
+'Gebäude-Effekt auslösen': 'Activar la acción nocturna'
 'Nicht gefunden.': 'No se encontró.'
 'Eintrag gefunden.': 'Entrada encontrada.'
 'Erfolgreich hinzugefügt.': 'Correctamente añadido.'
@@ -624,10 +631,3 @@ Account-IDs: IDs de cuentas
 Suche: Búsqueda
 Prüfen: Comprobar
 Entfernen: Eliminar
-'Markieren, um diese Baustelle zur Liste der freizuschaltenden Baustellen in der Stadt hinzuzufügen.': 'Markieren, um diese Baustelle zur Liste der freizuschaltenden Baustellen in der Stadt hinzuzufügen.'
-'Markieren, um diese Baustelle freizuschalten.': 'Markieren, um diese Baustelle freizuschalten.'
-'Markieren, um diese Baustelle aus der Stadt zu entfernen.': 'Markieren, um diese Baustelle aus der Stadt zu entfernen.'
-'Dieses Gebäude ist veraltet.': 'Dieses Gebäude ist veraltet.'
-'Level {current} / {max}': 'Level {current} / {max}'
-'Anzahl Level: {max}': 'Anzahl Level: {max}'
-'Gebäude-Effekt auslösen': 'Gebäude-Effekt auslösen'

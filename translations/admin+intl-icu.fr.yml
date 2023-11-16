@@ -255,7 +255,7 @@ Dauerhaft: Permanent
 'Stadtübergreifende Kommunikation verbieten': 'Communications hors de la ville (MPs)'
 'Kommentare verbieten': 'Commentaires'
 'Organisation in Gruppen verbieten': 'Organisation en groupe'
-'Spielen verbieten': 'Interdire le jeu'
+'Spielen verbieten': 'Interdire de jeu'
 'Diese Account-Beschränkung muss von einem anderen Moderator bestätigt werden, bevor sie aktiv wird.': 'Cette restriction de compte doit être confirmée par un autre modérateur avant qu''elle ne devienne active.'
 'Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.': 'La durée de la restriction ne compte qu''à partir du moment où elle est activée.'
 'Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.': 'Cette restriction de compte doit être confirmée par un administrateur avant qu''elle ne devienne active.'
@@ -611,6 +611,15 @@ Konfiguration: Configuration
 Option: Option
 Wert: Valeur
 'Keine Verifizierungsmails versenden': 'Ne pas envoyer d''e-mails de vérification'
+'Spielen in anderen Gemeinden': 'Jeu dans d’autres communautés'
+'Das Spielen in anderen Gemeinden verbieten': 'Interdire le jeu dans d’autres communautés'
+'Markieren, um diese Baustelle zur Liste der freizuschaltenden Baustellen in der Stadt hinzuzufügen.': 'Cochez cette case pour ajouter ce chantier à la liste des chantiers débloqués.'
+'Markieren, um diese Baustelle freizuschalten.': 'Cochez cette case pour immédiatement débloquer le chantier.'
+'Markieren, um diese Baustelle aus der Stadt zu entfernen.': 'Cliquez pour supprimer le chantier de la ville.'
+'Dieses Gebäude ist veraltet.': 'Ce chantier est obsolète.'
+'Level {current} / {max}': 'Niveau {current} / {max}'
+'Anzahl Level: {max}': 'Niveau max : {max}'
+'Gebäude-Effekt auslösen': 'Déclencher l''action nocturne'
 'Nicht gefunden.': 'Introuvable.'
 'Eintrag gefunden.': 'Entrée trouvée.'
 'Erfolgreich hinzugefügt.': 'Ajouté avec succès.'
@@ -622,12 +631,3 @@ Account-IDs: ID du compte
 Suche: Recherche
 Prüfen: Vérifier
 Entfernen: Supprimer
-'Spielen in anderen Gemeinden': 'Jeu dans d''autres communautés'
-'Das Spielen in anderen Gemeinden verbieten': 'Interdire le jeu dans d''autres communautés'
-'Markieren, um diese Baustelle zur Liste der freizuschaltenden Baustellen in der Stadt hinzuzufügen.': 'Cochez cette case pour ajouter ce chantier à la liste des chantiers débloqués.'
-'Markieren, um diese Baustelle freizuschalten.': 'Cochez cette case pour immédiatement débloquer le chantier.'
-'Markieren, um diese Baustelle aus der Stadt zu entfernen.': 'Cliquez pour supprimer le chantier de la ville.'
-'Dieses Gebäude ist veraltet.': 'Ce chantier est obsolète.'
-'Level {current} / {max}': 'Niveau {current} / {max}'
-'Anzahl Level: {max}': 'Niveau max: {max}'
-'Gebäude-Effekt auslösen': 'Déclencher l''action nocturne'

@@ -6,8 +6,8 @@
 '**Lösche den Cache** deines Browsers.': '**Videz le cache** de votre navigateur.'
 '**Lade die Seite noch einmal (je nach Browser, funktioniert das mit: CTRL + R oder F5).**': '**Rechargez la page (CTRL + R ou F5 suivant le navigateur).**'
 '**Lösche deine alten Lesezeichen**.': '**Supprimez vos anciens marques-pages**'
-"Vergewissere dich, dass du mindestens **Firefox** oder **Google Chrome** **benutzt**.": "Assurez-vous d’avoir au moins essayé avec **Firefox** ou **Google Chrome**."
-"**Safari, Opera, Internet Explorer** und andere Browser werden offiziell **nicht unterstützt**.": "**Safari, Opera, Internet Explorer** et les autres navigateurs **ne sont pas officiellement supportés**."
+"Vergewissere dich, dass du mindestens **Firefox** oder **Google Chrome**\n                    **benutzt**.": "Assurez-vous d’avoir au moins essayé avec **Firefox** ou **Google Chrome**."
+"**Safari, Opera, Internet Explorer** und andere Browser werden offiziell **nicht\n                    unterstützt**.": "**Safari, Opera, Internet Explorer** et les autres navigateurs **ne sont pas officiellement supportés**."
 'Eventuell auftretende Probleme kannst du auf unserem Supportportal melden: {error_url}': 'Vous pouvez signaler ce problème sur le support technique : {error_url}'
 'Bugs melden': 'Signaler un bug'
 'Error {code}': 'Erreur {code}'

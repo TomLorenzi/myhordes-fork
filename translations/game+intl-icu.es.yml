@@ -1192,7 +1192,7 @@ Kantinenkoch: Ayudante de cocina
 'Meister Eintopf': 'Cordon bleu del barrio'
 'Großer Wüstenkonditor': 'Cordon bleu del pueblo'
 'Begnadeter Wüstenkonditor': 'Cuchara-brava'
-'Cooking Mama': 'Cooking Mama'
+'Cooking Mama': 'Cooking Papa'
 'Meisterhafter Kochlöffelschwinger': 'Maestro Cocinero'
 Amateur-Laborratte: Laboratorista amateur
 'Kleiner Präparator': 'Laboratorista autodidacta'
@@ -1238,7 +1238,7 @@ Müllmann: Basurero
 Entsorgungsfachmann: Cañón lanzamuertos
 'SM Anhänger': 'Adepto del SM'
 'SM Spezialist': 'Amo de la COSA'
-'Nenn mich Herrin': 'Aprietame las esposas'
+'Nenn mich Herrin': 'Apriétame las esposas'
 'Ich möchte dein Objekt sein.': 'Quiero ser un objeto'
 Stadtmetzger: Amigo de los animales
 'Spezialität: Hundesteaks': 'Encargado de extinciones'
@@ -1616,7 +1616,7 @@ Paranoid: Paranoico
 'Der Bruce Lee des Spachtels': 'El Bruce Lee de la Espatula'
 'Es ist Zeit für Kathedralen': 'Ha llegado el momento de las catedrales'
 'Hast du nichts besseres zu tun?': '¿No tienes algo mejor que hacer?'
-'Hohepriesterin des Sonnentempels': 'Templo de la Suma Sacerdotisa del Sol'
+'Hohepriesterin des Sonnentempels': 'Templo del Sumo Sacerdote del Sol'
 'Obelisk der heutigen Zeit!': '¡Obelisco moderno!'
 'Lebhafter Tribut': 'Ovación de pié'
 'Wird in die Annalen eingehen': 'Uno para los libros'
@@ -2404,7 +2404,7 @@ Tarnexperte: Amo del Camuflaje
 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> verbraucht.': 'Con un poco de ingenio, has obtenido {item} (el objeto ha sido puesto en el Almacén).<hr />Has utilizado <strong>{ap} Punto(s) de Acción</strong>.'
 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'Con un poco de ingenio, has obtenido {item} (el objeto ha sido puesto en el Almacén).<hr />Has utilizado <strong>{cp} Punto(s) de Construcción</strong>.'
 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> und <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'Con un poco de ingenio, has obtenido {item} (el objeto ha sido puesto en el Almacén).<hr />Has utilizado <strong>{ap} Punto(s) de Acción</strong> y <strong>{cp}Punto(s) de Acción</strong>.'
-'Du hast das Wasser aus {item} in den Brunnen geschüttet (<strong>+{water} Einheit(en)</strong>)': 'Du hast das Wasser aus {item} in den Brunnen geschüttet (<strong>+{water} Einheit(en)</strong>)'
+'Du hast das Wasser aus {item} in den Brunnen geschüttet (<strong>+{water} Einheit(en)</strong>)': 'Has transferido el agua de {item} al Pozo (<strong>+{water} ración(es)</strong>)'
 Pfadfinder_f: Furtiva
 'Green Beret_f': 'Amante del riesgo'
 Schattenmann_f: Espíritu de las arenas
@@ -2417,17 +2417,17 @@ Wüstenspringmaus_f: Descubridor
 Wüstenfuchs_f: Maestra Excavadora
 'Ich sehe Alles!_f': 'Nada se me escapa'
 'Ein BMW? Kein Problem!_f': '¿Un BMW? ¡No hay problema!'
-'Où est Larchi ?_f': 'Où est Larchi ?'
+'Où est Larchi ?_f': '¿Dónde está Larchi?'
 Tierliebhaber_f: Amiga de los Animales
 Malteserzüchter_f: Maestra Domadora
 'Ich bändige Bestien_f': 'Domador de Bestias'
 'Nie ohne meinen Hund!_f': 'Manimal'
 'Hundewurst schmeckt gar nicht schlecht!_f': 'La comida para perros no sabe tan mal'
 'Meser (halb Mensch, halb Malteser)_f': 'Cinocéfalo'
-'Personalisierter Titel - Dompteur (T-ID: 1725642)_f': 'Título personalizado - Domadora (T-ID: 1725642)_f'
-Wurmfresser_f: Wurmfresserin
+'Personalisierter Titel - Dompteur (T-ID: 1725642)_f': 'Maestria en Labradoodles'
+Wurmfresser_f: Comensal de gusanos
 'Meister im Würmerfinden_f': 'Degustadora'
-'Gefräßiger Bürger_f': 'Gefräßige Bürgerin'
+'Gefräßiger Bürger_f': 'Paladar insaciable'
 Wüstenwurmzüchter_f: Devoradora de insectos
 'Ich brauche niemanden!_f': 'Omnívoro'
 'Heraklit der Außenwelt_f': 'Solo... estoy tan solo'
@@ -2443,7 +2443,7 @@ Seelenverwerter_f: Charlatana Profesional
 'Unermüdlicher Schrauber_f': 'Técnica inagotable'
 'Seele des Handwerks_f': 'TecnicoMecanoMegalomano'
 'Seele eines Profis_f': 'Alma de un profesional'
-'Personalisierter Titel - Techniker (T-ID: 631944)_f': 'Personalisierter Titel - Techniker (T-ID: 631944)'
+'Personalisierter Titel - Techniker (T-ID: 631944)_f': 'Nunca camines sin tus llaves'
 'Die Mauer_f': 'Defensor'
 Höllenwächter_f: Gran Guardiana
 Kerberos_f: Paladín
@@ -2451,27 +2451,27 @@ Kerberos_f: Paladín
 'Du kommst hier NICHT durch!_f': '¡Usted no entra!'
 Hekatoncheir_f: Habitante insuperable
 'Holy F***ing Iceberg_f': '¡Maldita sea, un Iceberg!'
-Kantinenkoch_f: Kantinenköchin
+Kantinenkoch_f: Ayudante de cocina
 'Kleiner Küchenchef_f': 'Cocinerilla'
 'Meister Eintopf_f': 'Cordon bleu del barrio'
-'Großer Wüstenkonditor_f': 'Große Wüstenkonditorin'
-'Begnadeter Wüstenkonditor_f': 'Begnadete Wüstenkonditorin'
+'Großer Wüstenkonditor_f': 'Cordón bleu del pueblo'
+'Begnadeter Wüstenkonditor_f': 'Cuchara-brava'
 'Cooking Mama_f': 'Cooking Mama'
 'Meisterhafter Kochlöffelschwinger_f': 'Maestra Cocinera'
-'Meisterkoch der Sterne_f': 'Meisterköchin der Sterne'
+'Meisterkoch der Sterne_f': 'MasterChef'
 Amateur-Laborratte_f: Laboratorista amateur
-'Kleiner Präparator_f': 'Kleine Präparatorin'
+'Kleiner Präparator_f': 'Laboratorista autodidacta'
 'Chemiker von um die Ecke_f': 'Química de barrio'
 Produkttester_f: Catadora de productos
 Wüstenstadt-Dealer_f: Distribuidora local
 'Ich koste alle meine Produkte_f': 'Pruebo todos mis productos'
 'Rauchts? Dann ist es meins._f': '¿Fumas? Este va por mi cuenta'
 'Offizieller AP-Versorger_f': 'Proveedora oficial de PA'
-'X-Men Leser_f': 'X-Men Leserin'
-'Aussergewöhnlicher Bürger_f': 'Aussergewöhnliche Bürgerin'
+'X-Men Leser_f': 'Fan de X-Men'
+'Aussergewöhnlicher Bürger_f': 'Habitante fuera de serie'
 Wunder_f: Prodigio
-'Werdender Superheld_f': 'Werdende Superheldin'
-Volksheld_f: Volksheldin
+'Werdender Superheld_f': 'Aspirante a superheroína'
+Volksheld_f: Heroína del pueblo
 Neo_f: Soy una leyenda
 'Erlöser der Menschheit_f': 'Salvadora de la humanidad'
 Außenweltlegende_f: Superhéroe
@@ -2481,10 +2481,10 @@ Außenweltlegende_f: Superhéroe
 Abstauber_f: Rastrilladora del vertedero
 Müllkind_f: Recolector de basura
 'Autonomer Müll_f': 'Investigador ingenioso'
-'Freier Bürger_f': 'Freie Bürgerin'
+'Freier Bürger_f': '¡Habitante libre!'
 'Alles für meinen Mund_f': 'Todo para mi boca'
 'Ich brauche niemanden_f': 'No necesito a nadie'
-'Unabhängiger Großeinsiedler_f': 'Unabhängiger Großeinsiedlerin'
+'Unabhängiger Großeinsiedler_f': 'Gran Eremita independiente'
 'Che Guevara der Wüste_f': 'Che Guevara del Ultramundo'
 Maulheld_f: Cleptómana
 Lump_f: Bandido
@@ -2492,35 +2492,35 @@ Schaumschläger_f: Pilla
 Dieb_f: Ratera
 Fantomas_f: Amante de lo ajeno
 'Ali Baba_f': 'Chorizo temible'
-Meisterdieb_f: Meisterdiebin
+Meisterdieb_f: Caco
 Kleptomane_f: Saqueadora
 'Dein Haus ist mein Haus_f': 'Tu casa es mi casa'
-Ästhet_f: Ästhetin
-Schaufenstergestalter_f: Schaufenstergestalterin
+Ästhet_f: Coqueta
+Schaufenstergestalter_f: Habitante de buen gusto
 Innenarchitekt_f: Decoradora de interiores
 Möbelgourmet_f: Decorador con estilo
 'Ordnung muss sein!_f': 'Maestro de la estética'
 'Ein schöneres Leben_f': 'El estilo es eterno...'
 'Großer E-KEA Katalog_f': 'Bienvenidos al palacio. '
-Plünderer_f: Plünderin
+Plünderer_f: Saqueadora
 Aasgeier_f: Buitre
 Hyäne_f: Carroñero
 'Wegelagerer post mortem_f': 'Ladrona post-mortem'
 'Hungriger Schakal_f': 'Chacal'
 'Kojote der kargen Steppen_f': 'Canalla'
-Fingerschmied_f: Fingerschmiedin
+Fingerschmied_f: Rata Infame
 'Nein, das Ding fasse ich nicht an._f': 'Regador Ocasional'
-Leichenhygieniker_f: Leichenhygienikerin
+Leichenhygieniker_f: '¿Un chorrito más señora?'
 'Ich liebe den Geruch von gewaschenen Leichen am Morgen._f': 'Amo el olor a Cadaver remojado por la mañana'
-Müllmann_f: Müllfrau
-'Erfahrener Müllmann_f': 'Erfahrene Müllfrau'
-Entsorgungsfachmann_f: Entsorgungsfachfrau
-Maccabees-Vertreiber_f: Maccabees-Vertreiberin
+Müllmann_f: Basurera
+'Erfahrener Müllmann_f': 'Lanzadora de cadáveres'
+Entsorgungsfachmann_f: Especialista en eliminación de residuos
+Maccabees-Vertreiber_f: Repelente de Macchabees
 'SM Anhänger_f': 'Adepta del SM'
 'SM Spezialist_f': 'Ama de la COSA'
 'Nenn mich Herrin_f': 'Aprietame las esposas'
 'Ich möchte dein Objekt sein._f': 'Quiero ser un objeto'
-Stadtmetzger_f: Stadtmetzgerin
+Stadtmetzger_f: Amiga de los animales
 'Spezialität: Hundesteaks_f': 'Encargado de extinciones'
 'Miezi? Jaaaa, komm her..._f': 'Amenaza del mundo animal'
 'Fleisch ist mein Gemüse_f': 'Especialidad: Puré de gato'
@@ -2532,10 +2532,10 @@ Paranoid_f: Paranoico
 'Fels in der Brandung_f': 'La roca!'
 'Großer Baumeister_f': 'Constructora idealista'
 'Großer Architekt_f': 'Constructora visionaria'
-Freimauer_f: Freimauerin
-Terraformingspezialist_f: Terraformingspezialistin
-'Allmächtiger Schöpfer_f': 'Allmächtige Schöpferin'
-'Archi-Mädlicher Illustrator von Pi_f': 'Archi-Mädliche Illustratorin von Pi'
+Freimauer_f: Masona
+Terraformingspezialist_f: Moreu de Zombinoia
+'Allmächtiger Schöpfer_f': 'Albañila Dominguera'
+'Archi-Mädlicher Illustrator von Pi_f': 'Ilustradora archi-maid de Pi'
 "Muad'Dib_f": "Muad'Dib"
 'Am 7. Tag erschuf er den Fleischkäfig_f': '¡Y al séptimo día, no descansó!'
 'Bauherr ohne Sinn und Verstand_f': 'Obrera Amateur'
@@ -2562,7 +2562,7 @@ Terraformingspezialist_f: Terraformingspezialistin
 'Freude der Stärke 8_f': 'Felicidad de magnitud 8'
 'Bewahrer der Freuden_f': 'Guardiana de los placeres'
 'Das hast du nicht wirklich gebaut?_f': '¿Realmente has construido eso?'
-Eimerhalter_f: Eimerhalterin
+Eimerhalter_f: Guardiana de las focas
 Sandverkäufer_f: Vendedora de Arena
 'Martinet am Strand_f': 'Martini en la playa'
 'Ein Spiel für echte Kinder_f': '¡Un verdadero juego de niños!'
@@ -2571,14 +2571,14 @@ Sandverkäufer_f: Vendedora de Arena
 'Ein Korn fehlt noch_f': 'Todavia falta un grano'
 'Huldigt den Raben!_f': '¡Gloria al cuervo!'
 'Taube aus der Unterwelt_f': 'Paloma del Ultramundo'
-Corvid-Spezialist_f: Spécialiste des corvidés
+Corvid-Spezialist_f: Especialista en córvidos
 'Phoenix des Unterholzes_f': 'Fénix del Ultramundo'
 'Edit Piaf_f': 'Edit Piaf'
 'Vogel der schlechten Vorzeichen_f': 'Ave de mal augurio'
 Kraaaah!_f: '¡Wraaaaahh!'
 'Er war Leber ..._f': 'Era una calavera...'
 'Hey wir können die Zombies von hier oben sehen_f': '¡Puedo ver a los zombies desde aquí arriba!'
-'Fröhlicher Hamster_f': 'Fröhliche Hamsterin'
+'Fröhlicher Hamster_f': 'Hámster feliz'
 'Showman aus der Anderen Welt!_f': '¡Empresaria del Ultramundo!'
 '5. Rad am Wagen_f': 'Quinta rueda de la caravana'
 'Mir ist schwindelig_f': 'Estoy mareado'
@@ -2586,24 +2586,24 @@ Kraaaah!_f: '¡Wraaaaahh!'
 'Auge der Wüste_f': 'Ojo del Ultramundo'
 '4000 Zombies starren uns an_f': '4000 zombies nos miran'
 Durazell_f: Lanzador de Pilas
-'Hüter der Heiligen Batterie_f': 'Hüterin der Heiligen Batterie'
+'Hüter der Heiligen Batterie_f': 'Cañón de Pilas'
 'Der Batterienator_f': 'La generadora de batería'
 'Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!_f': '¿Es un pajaro? Es un avion? No, ¡es el súper lanzapilas!'
 'Aufgeladen und kampfbereit_f': 'Amplificada y lista para rodar'
 'Hey! Willst du meine... Batterie sehen?_f': 'Oye, oye, ¿quieres ver mi... pila?'
 Maurerlehrling_f: Obrero
-Maurer_f: Maurerin
+Maurer_f: Urbanista
 Polier_f: Jefa de construcción
 Baustellenleiter_f: Maestra constructora
 'Architekt (title)_f': Arquitecta
-Meisterarchitekt_f: Meisterarchitektin
+Meisterarchitekt_f: Magnata del ladrillo
 'Oscar Niemeyer_f': 'Ramsés del siglo XXI'
 'Zement & Garfunkel_f': 'Cemento y Garfunkle'
 'Menschliche Ameisenkolonie_f': 'La hormiga humana'
 'Arbeiterhelm und Kupferstiefel_f': '¿La Gran Muralla de qué?'
 'Arbeit ist Gesundheit_f': 'El trabajo es salud'
 'Bob der Baumeister_f': 'Bob el constructor'
-Spachtler_f: Spachtlerin
+Spachtler_f: Manitas hábiles
 'Gewissenhafter Maurer_f': 'Reparadora aficionada'
 'Meisterwerke in Gefahr_f': 'Reparador arriesgado'
 'Ein Flicken und alles ist wie neu_f': 'Ponga cinta adhesiva allí.'
@@ -2613,58 +2613,58 @@ Pisa-Geraderichter_f: La reparadora
 'Ein Riss? Welcher Riss?_f': '¿Una grieta? ¿Qué grieta?'
 'Das braucht noch 10 Jahre!_f': '¡Eso llevara otros 10 años!'
 Kettensägenmassaker_f: Masacre de la motosierra
-Fleisch-Schuldner_f: Fleisch-Schuldnerin
+Fleisch-Schuldner_f: No hay nada a lo que no me pueda llevar esta motosierra...
 'Bruce Campbell_f': 'Bruce Campbell'
 Hobby-Heimwerker_f: Reparadora Dominguera
 Techniker_f: Técnica
-'Meisterbastler _f': Meisterbastlerin
+'Meisterbastler _f': Manitas hábiles
 'Sowas wirft man doch nicht weg!_f': 'Ingeniero Espacial'
 'Mac Gyver der Außenwelt_f': 'Reparador Supremo'
 'Super Soaker_f': 'Pistolero de agua'
-Wasserwaffen-Spezialist_f: Wasserwaffen-Spezialistin
+Wasserwaffen-Spezialist_f: Especialista con armas de agua
 Hydraulik-Engineering_f: Ingeniero Hidráulico
 'Abstieg der Atlanteaner_f': 'Descendiente de los Atlantes'
 Archäologielehrling_f: Fuerzudo del desierto
 Archäologe_f: Sonja de las arenas
 Grabungsleiter_f: Mujer Caterpillar
-'Großer Löcherbuddler_f': 'Große Löcherbuddlerin'
+'Großer Löcherbuddler_f': 'Excavadora de agujeros grandes'
 Riesenmaulwurf_f: Rata del desierto
-'Furchtloser Camper_f': 'Furchtlose Camperin'
+'Furchtloser Camper_f': 'Campista inquebrantable'
 'Waisenkind der Wüste_f': 'Huérfano del desierto'
 'Unglaubliche Entschlossenheit_f': 'Increíble determinación'
-'Der letzte Überlebende_f': 'Die letzte Überlebende'
+'Der letzte Überlebende_f': 'La última superviviente'
 'Ich gehe alleine._f': 'Voy solo.'
 'Neil Armstrong der Außenwelt_f': 'Neil Armstrong del Ultramundo'
-'Lebensmüder Kundschafter_f': 'Lebensmüde Kundschafterin'
-'Draufgängerischer Expeditionsreisender_f': 'Draufgängerische Expeditionsreisenderin'
-Nervenkitzelsucher_f: Nervenkitzelsucherin
+'Lebensmüder Kundschafter_f': 'Caminante del Horizonte'
+'Draufgängerischer Expeditionsreisender_f': 'Exploradora impetuosísima'
+Nervenkitzelsucher_f: Expedicionaria
 'Christopher Kolumbus_f': 'Cristobal Colón'
 'Bis zur Unendlichkeit... und noch viel weiter!_f': '¡Hasta el infinito y más allá!'
 'Indiana Jones und die Ruinen der Aussenwelt_f': 'Indiana Jones y las ruinas del Ultramundo'
 'Wenn ich das nur vorher gewusst hätte..._f': '¡Mamá, no me dejes aquí!'
-'Verwegener Wanderer_f': 'Verwegener Wandererin'
-Tunnelblicker_f: Tunnelblickerin
+'Verwegener Wanderer_f': 'Exploradora por accidente'
+Tunnelblicker_f: Exploradora de ruinas
 'Im Irrgarten_f': 'Ruina Man'
 'Inklusive Kompass_f': 'Brújula andante'
-'Begrabener Freiwilliger_f': 'Begrabene Freiwillige'
+'Begrabener Freiwilliger_f': 'Voluntaria enterrada'
 'Tomb Raider_f': 'Tomb Raider'
 Labyrinth-Gollum_f: Master del Laberinto
-'Labyrinth-Meister MB_f': 'Labyrinth-Meisterin MB'
+'Labyrinth-Meister MB_f': 'No me llames juniora'
 "Wo klemmt's?_f": "Ganzúa"
 Dietrich_f: Hijo de cerrajero
 'Sesam, öffne dich..._f': 'Con o sin llaves, yo entro'
-Türöffner_f: Türöffnerin
-Gentleman-Einbrecher_f: Lady-Einbrecherin
+Türöffner_f: Ábrete Sésamo
+Gentleman-Einbrecher_f: Abridora de puertas
 Schlüsseldienst_f: Terror de las puertas
 Zerberus_f: Cerbero
-'Meister der Schlüssel_f': 'Meisterin der Schlüssel'
-Brutalo_f: Brutala
-Verstümmler_f: Verstümmlerin
+'Meister der Schlüssel_f': 'Gran maestra de llaves'
+Brutalo_f: Brutal
+Verstümmler_f: Mutiladora
 Killer_f: Exterminador
-Kadaverentsorger_f: Kadaverentsorgerin
-Vernichter_f: Vernichterin
-Schlächter_f: Schlächterin
-Friedensstifter_f: Friedensstifterin
+Kadaverentsorger_f: Descuartizadora
+Vernichter_f: Aniquiladora
+Schlächter_f: Masacradora
+Friedensstifter_f: Pacificadora
 'Alptraum der Traumlosen_f': 'Mordedor de muertos'
 'Hans im Glück_f': 'Golpe de Suerte'
 'Vierklettriges Kleeblatt_f': 'Maestro del Azar'
@@ -2674,55 +2674,55 @@ Fortuna_f: Afortunado
 'Money for Nothing_f': 'Dinero para Nada'
 'Ultimate Fighter_f': 'Golpeador de zombies'
 'Wilde Bestie_f': 'Bestia salvaje'
-'Rambos Großvater_f': 'Rambos Großmutter'
+'Rambos Großvater_f': 'Antepasada de Rambo'
 'Absolut keine Angst!_f': '¡No tengas miedo en absoluto!'
-'Barhändiger Stripper_f': 'Barhändige Stripperin'
-'Stürmischer Kundschafter_f': 'Stürmische Kundschafterin'
-'Furchtloser Abenteurer_f': 'Furchtlose Abenteurerin'
-'Wagemutiger Trapper_f': 'Wagemutige Trapperin'
-Wikinger_f: Wikingerfrau
-Außenweltreiseführer_f: Außenweltreiseführerin
+'Barhändiger Stripper_f': 'Stripper con las manos desnudas'
+'Stürmischer Kundschafter_f': 'Exploradora Impetuosa'
+'Furchtloser Abenteurer_f': 'Viajera sin miedo'
+'Wagemutiger Trapper_f': 'Guía del Ultramundo'
+Wikinger_f: Aventurera Temeraria
+Außenweltreiseführer_f: Dora la Exploradora
 'Ich habe die Erde umrundet... zweimal!_f': 'He dado la vuelta al mundo ... ¡dos veces!'
 'Internet Explorer_f': 'Internet Explorer'
 'Ich hab sogar das Klo abgesucht!_f': '¡Incluso busqué en el baño!'
 'Sind wir schon da?_f': '¿Ya llegamos?'
-Außenweltschläfer_f: Außenweltschläferin
+Außenweltschläfer_f: Campista suicida
 'Allein in dieser Welt_f': 'Carpa diem'
-'Der mit den Zombies tanzt_f': 'Die mit den Zombies tanzt'
+'Der mit den Zombies tanzt_f': 'Carnada para zombies'
 'Ich sehe überall Tote!_f': '¡Desafío aceptado!'
 'Ich komme heute Nacht nicht heim..._f': 'Todo terreno'
-'Ein Mann gegen die Außenwelt_f': 'Eine Frau gegen die Außenwelt'
+'Ein Mann gegen die Außenwelt_f': '¡Fuera de mi camino!'
 Stadtallergie_f: Soy alérgico a algo en el pueblo.
 'Wo ich hinguck, seh ich Gegend._f': '¿Entonces supongo que no estamos esperando a Bob?'
-'Runaway Michael_f': 'Runaway Michael'
+'Runaway Michael_f': 'Sin techo ni dientes'
 'Ohne Dach oder Leber_f': 'Sin techo ni hígado'
 'Neugieriger Leser_f': 'Lectora curiosa'
 'Eifriger Leser_f': 'Cuentacuentos'
-Wüstenhistoriker_f: Wüstenhistorikerin
-Bibliothekar_f: Bibliothekarin
-Archivar_f: Archivarin
-Erinnerungsträger_f: Erinnerungsträgerin
+Wüstenhistoriker_f: Historiadora del Ultramundo
+Bibliothekar_f: Bibliotecaria
+Archivar_f: Maestra Rolista
+Erinnerungsträger_f: Coleccionista de Recuerdos
 'Erinnerungen an die Zivilisation_f': 'Memoria de la civilización'
 'Twinoid ist tabu_f': 'Me siento bien'
 'Keine Macht den Drogen_f': 'Me basto y me sobro'
 'Sowas fasse ICH nicht an_f': 'Limpio de polvo y paja'
 'Vorbild für die Jugend_f': 'Yo sé cuidar mi cuerpo'
 'Champions nehmen keine Drogen!_f': 'Ejemplo para los jóvenes'
-Medikamentetester_f: Medikamentetesterin
+Medikamentetester_f: Conejilla de Indias
 Laborratte_f: Rata de laboratorio
 'Pille palle, 3 Tage wach!_f': '¡Probador de productos!'
 'Timothy Leary_f': '¿Qué quieres decir con que estos no son caramelos?'
 'Ich sehe ein Blauuuuuuues Tal_f': '¡¡¡El cielo se está cayendo!!!'
-Menschenfleischliebhaber_f: Menschenfleischliebhaberin
+Menschenfleischliebhaber_f: Devoradora de mujeres
 Hannibalfan_f: Fan de Hannibal
-Totmacher_f: Totmacherin
+Totmacher_f: Devoradora de habitantes
 'Jeffrey Dahmer_f': 'Jeffrey Dahmer'
 'Fast schon ein Zombie..._f': 'Aspirante a zombi...'
 "Schmeckt am besten wenn's noch schreit!_f": "Es mejor cuando gritan."
 'Die Macht der Proteine_f': 'Lleno de proteínas.'
 'Nackt und Zerfleischt_f': 'Caníbal del Holocausto'
 Zombieliebling_f: Favorito de los zombies
-'Letzter Überlebender_f': 'Letzte Überlebende'
+'Letzter Überlebender_f': 'Última Superviviente'
 Unzerstörbar_f: Indestructible
 'Allein gegen die Horde_f': '¡Solo contra la Horda!'
 "Chuck Norris' Ebenbild_f": "Igual a Chuck Norris"
@@ -2732,46 +2732,46 @@ Unzerstörbar_f: Indestructible
 'Pandämonium? Hah. Einfach._f': '¿Pandemonio? Ahh, Facil'
 'Teilweise verrottet_f': 'Parcialmente putrefacto'
 Virenschleuder_f: Esparcidor de virus
-Gedärmeauskotzer_f: Gedärmeauskotzerin
+Gedärmeauskotzer_f: Escupidora de sangre y bilis
 Seuchenherd_f: Foco Epidémico
 'Ich habe Magenschmerzen..._f': 'Tengo dolor de estómago...'
-'Verirrter Ausflügler_f': 'Verirrte Ausflüglerin'
+'Verirrter Ausflügler_f': 'Caminante perdido'
 'Nächtlicher Spaziergänger_f': 'Holgazana Nocturna'
 'Mir ist kalt hier draußen..._f': 'Tengo frio aquí...'
 'Vertrauenswürdiger Bürger_f': 'Compañera de confianza'
-'Sehr erfahrener Bürger_f': 'Sehr erfahrene Bürgerin'
+'Sehr erfahrener Bürger_f': 'Inspiración para el pueblo'
 'Vorbild für das Volk_f': 'Jugador experimentado'
 'Richtwert der Gemeinschaft_f': 'Modelo para la comunidad'
 'Berühmter Veteran_f': 'Ilustre veterano'
 Anfängerleiche_f: Cadáver de principiante
-Rabenfreund_f: Rabenfreundin
-Dehydrationskollege_f: Dehydrationskollegin
+Rabenfreund_f: Amiga de los cuervos
+Dehydrationskollege_f: Colega de la deshidratación
 'Lebender Mythos_f': 'Héroe urbano'
 'Ich bin eine Legende_f': 'El Salvador del Pueblo'
 'Hör auf mich, wenn du überleben möchtest_f': 'Sígueme si quieres sobrevivir'
-'Netter Kerl_f': 'Nette Tante'
-'Zeuge der großen Verseuchung_f': 'Zeugin der großen Verseuchung'
-'Alter Hase_f': 'Alte Häsin'
+'Netter Kerl_f': 'Buena chica'
+'Zeuge der großen Verseuchung_f': 'Testigo de la Gran Contaminación'
+'Alter Hase_f': 'Probadora beta'
 'Jedes Los gewinnt_f': 'Compañero de comunidad'
-Zinker_f: Zinkerin
+Zinker_f: Espíritu de la comunidad
 Bingo_f: Bingo
 'Sudoku ist anders_f': 'Cadáver animado'
 'Siebenseitiger Würfel_f': 'Hiperactivista comunitario'
-'Einarmiger Bandit_f': 'Einarmige Banditin'
-'Seelenführer der Gemeinschaft_f': 'Seelenführerin der Gemeinschaft'
-'Charismatischer Prophet_f': 'Charismatische Prophetin'
-'Motivierter Messebesucher_f': 'Motivierte Messebesucherin'
+'Einarmiger Bandit_f': '¡Ganadora de corazón!'
+'Seelenführer der Gemeinschaft_f': 'Guía del alma comunitaria'
+'Charismatischer Prophet_f': 'Profeta carismática'
+'Motivierter Messebesucher_f': 'Aficionada motivada al festival de las hordas'
 'Verdammt in Saarbrücken_f': 'Rastreador friki'
 "FJV'08 Kanonenfutter_f": "Carne de cañón FJV'08"
 'Kleiner Guru_f': 'Especialista en reasignación de fondos'
 'Überzeugender Guru_f': 'Traficante de habitantes'
-Frischfleischhändler_f: Frischfleischhändlerin
-Seelenhändler_f: Seelenhändlerin
-'Sehr überzeugender Pate_f': 'Sehr überzeugende Patin'
-Wüstenspekulant_f: Wüstenspekulantin
-'Held der Community!_f': 'Heldin der Community!'
+Frischfleischhändler_f: Comercianta de carne fresca
+Seelenhändler_f: Vendedora de almas
+'Sehr überzeugender Pate_f': 'Patrocinadora muy convincente'
+Wüstenspekulant_f: Especuladora del Ultramundo
+'Held der Community!_f': '¡En el fondo!'
 'Bringt Sachen ins Rollen!_f': '¡Hacer que las cosas sucedan!'
-'Nobler Spender_f': 'Noble Spenderin'
+'Nobler Spender_f': 'Alma noble'
 'Immer zur Stelle_f': 'Alma caritativa'
 Samariter_f: Apoyo social
 'Freigiebiger Bürger_f': 'Samaritana'
@@ -2785,84 +2785,96 @@ Messias_f: Mesías
 'Hast Du mal Feuer?_f': '¿Tienes fuego?'
 'Medium mit Preisnachlass_f': 'Medium principiante'
 'Amophilis Psychotropes_f': 'Medium profesional'
-'Blauer Feuerspucker_f': 'Blauer Feuerspuckerin'
+'Blauer Feuerspucker_f': 'Pescadora de Almas'
 'I see dead people 0_0_f': 'Veo gente muerta'
 'Soul Man_f': 'Mujer de Alma'
-Lebenssammler_f: Lebenssammlerin
-'Schnitter der Aussenwelt_f': 'Schnitterin der Aussenwelt'
+Lebenssammler_f: No cruces los arroyos
+'Schnitter der Aussenwelt_f': 'No le tengo miedo a ningún fantasma'
 'Bei meiner Seel_f': 'Carne débil'
 'Für immer und seelich_f': 'Simple Mortal'
 'Noble Seele_f': 'Alma digna'
 Beseelt_f: Inspirado
-Reinkarnator_f: Reinkarnatorin
+Reinkarnator_f: Reencarnator X
 'Göttliche Seele_f': 'Alma Divina'
 Open-chakra_f: Chakra-Man
 Tausend-und-ein-Leben_f: Mil y Una Vidas
 Buddha_f: El Inmortal
-'Ich bin ein Gott! Ich werde ewig leben!_f': 'Ich bin eine Göttin! Ich werde ewig leben!'
+'Ich bin ein Gott! Ich werde ewig leben!_f': '¡Soy una diosa! ¡Viviré por siempre!'
 'Eine Stadt sie zu knechten!_f': '¡Un pueblo para gobernarlos!'
-'Verrückter Skeptiker_f': 'Verrückte Skeptikerin'
-Seelenknipser_f: Seelenknipserin
-'Wächter der Seelen_f': 'Wächterin der Seelen'
+'Verrückter Skeptiker_f': 'Capataza'
+Seelenknipser_f: Capataza Espiritista
+'Wächter der Seelen_f': 'Guardiana de las Almas'
 'Die Wahrheit ist irgendwo da draußen_f': 'La verdad está ahí fuera en algún lugar'
 'Ich glaube!_f': '¡Yo Creo!'
 Sektenmitglied_f: Miembro de la secta
-'Kosmischer Anführer_f': 'Kosmische Anführerin'
+'Kosmischer Anführer_f': 'Lideresa cósmica'
 'Rauch? Welcher Rauch?_f': '¿Humo? ¿Qué humo?'
-Leckstopper_f: Leckstopperin
+Leckstopper_f: Taponadora de fugas
 'Licht in der Nacht_f': 'Luz en la noche'
-RadioactiveMan_f: RadioactiveWoman
-'Strahlender Bürger_f': 'Strahlende Bürgerin'
+RadioactiveMan_f: Mujer radiactiva
+'Strahlender Bürger_f': 'Habitante radiante'
 'Hölle, das esse ich jeden Morgen._f': '¿Infierno? Desayuno esto todas las mañanas'
-'Abonnent der Pandämoniumsauna_f': 'Abonnentin der Pandämoniumsauna'
+'Abonnent der Pandämoniumsauna_f': 'Suscriptora en el Sauna Pandemonio'
 'Pandämonium ist meine Liebe!_f': '¡Pandemonio mi amor!'
-'Luzifers Tanzpartner_f': 'Luzifers Tanzpartnerin'
-'Ultimativer Horden-Erkunder_f': 'Ultimative Horden-Erkunderin'
+'Luzifers Tanzpartner_f': 'La pareja de baile de Lucifer'
+'Ultimativer Horden-Erkunder_f': 'Exploradora hordiana definitiva'
 'Irische Taschen sind prall gefüllt!_f': '¡Los bolsillos irlandeses están llenos hasta el tope!'
 'Wo ist mein Topf voll Gold, diebische Elster!_f': '¿Dónde está mi olla de oro, escurridizo ladrón?'
-'Dieser Kobold ist unaufhaltbar._f': 'Diese Koboldin ist unaufhaltbar.'
-'Verbrennt ihn! Sieh nach ob seine Asche grün wird!_f': 'Verbrennt sie! Sieh nach ob ihre Asche grün wird!'
+'Dieser Kobold ist unaufhaltbar._f': 'Esta duende es imparable.'
+'Verbrennt ihn! Sieh nach ob seine Asche grün wird!_f': '¡Quémala, mira si sus cenizas se vuelven verdes!'
 'Ein Wohnwagen ohne Räder???_f': '¿¿¿Una caravana sin ruedas???'
 'Mitglied des Roten Kreuzes_f': 'Miembro de la Cruz Roja'
 'Ich bin geheilt_f': 'Estoy curado'
 'Keine Fehler hi&e%12;r_f': 'Sin bugs a&q%12;uí'
-'Patient Null_f': 'Patientin Null'
+'Patient Null_f': 'Paciente cero'
 'Es ist der Tod der mich fürchten sollte!_f': '¡Es la muerte la que debería tenerme miedo!'
-Sandmann_f: Sandfrau
+Sandmann_f: Mujer de la arena
 'Sandy Maverick_f': 'Sandy Maverick'
-Wegweiser_f: Wegweiserin
-'Praktischer Begleiter_f': 'Praktische Begleiterin'
-'Erleuchteter Anführer_f': 'Erleuchtete Anführerin'
-'Erleuchteter Prediger_f': 'Erleuchtete Predigerin'
+Wegweiser_f: Linterna de luz diurna
+'Praktischer Begleiter_f': 'Compañera de bolsillo'
+'Erleuchteter Anführer_f': 'Guía iluminada'
+'Erleuchteter Prediger_f': 'Predicadora iluminada'
 'Guru der Liebe_f': 'Gurú del amor'
 'Höret meine Stimme_f': 'Escucha mi voz'
-'Zeuge des Armageddon_f': 'Zeugin des Armageddon'
-'Ewiger Zweiter_f': 'Ewige Zweite'
-'Ein Wächter stirbt, aber gibt niemals auf_f': 'Eine Wächterin stirbt, aber gibt niemals auf'
-'Der Zweitletzte Mohikaner_f': 'Die Zweitletzte Mohikanerin'
+'Zeuge des Armageddon_f': 'Testigo de Armagedón'
+'Ewiger Zweiter_f': 'Eterno segundo'
+'Ein Wächter stirbt, aber gibt niemals auf_f': 'La guarda puede morir, ¡pero nunca se rinde!'
+'Der Zweitletzte Mohikaner_f': 'El segundo último de las mohicanas'
 'Faaaaaaaast, ach verdammt_f': 'Casi!!!, ah no, ¡maldita sea!'
 'Bis zum Ende und einen Schritt weiter_f': 'Todo el camino hasta el final y un poco más lejos'
 'Schließt die Ränke und haltet durch_f': '¡Cierra filas y aguanta!'
 'Hallo... ist da draußen jemand?_f': '¿Hola, hay alguien ahí afuera?'
 'Haltet eure Position!_f': '¡Mantenga sus posiciones!'
 'Nur ein Finger_f': '¡Solo un dedo!'
-'Plünderer der Schnapsläden_f': 'Plünderin der Schnapsläden'
+'Plünderer der Schnapsläden_f': 'Ladrona de la licorería.'
 'Hennessy Highwayman_f': 'Salteador de tabernas'
 'Barney Gumble der Außenwelt_f': 'Barney Gumble del Ultramundo'
 'Fass das Saufen lieber sein_f': 'Absenta de beber la próxima vez, ¿eh?'
 'Gib mir was zu saufen oder es knallt!_f': '¡Dame un trago o el perro sufrira las consecuencias!'
 'Alles unter 55% ist Wasser_f': 'Si son menos de 55 tragos, ¡es agua!'
 Dialyse_f: Diálisis
-'Chef der Mauer_f': 'Chefin der Mauer'
-Schaufelführer_f: Schaufelführerin
+'Chef der Mauer_f': 'Jefa de muralla'
+Schaufelführer_f: Pala de cabeza
 'Ich bin ein Biest!_f': '¡Soy una fiera!'
 'DdA Beste Buddler_f': 'DdO Mejor Excavador'
-Tarnexperte_f: Tarnexpertin
+Tarnexperte_f: Ama del Camuflaje
 Ninja_f: Maestro de la oscuridad
-AP: AP
-CP: CP
-MP: MP
-Eventsieger: Ganador del evento
+AP: PA
+CP: PC
+MP: PM
+'Der Raum auf den Zinnen ist begrenzt! Aktuell haben <strong>{watchers} / {cap}</strong> Nachtwächter ihren Platz eingenommen.': '¡El espacio en las almenas es limitado! Ahora mismo, <strong>{watchers} / {cap}</strong> valerosos centinelas están defendiendo el pueblo.'
+'<strong>Achtung:</strong> In der Bank fehlen Gegenstände, die benötigt werden, damit die Verteidigungsanlagen mit voller Stärke arbeiten können!': '<strong>Precaución:</strong> ¡Al Almacén le faltan objetos imprescindibles para que las defensas funcionen a pleno rendimiento!'
+'{building} hat folgende Gegenstände verbraucht: {items}.': '{building} ha gastado los siguientes objetos: {items}.'
+Schamanenkreis: Círculo Chamánico
+Eventsieger: Ganador de evento
 Eventteilnehmer: Participante del evento
 'Auszeichnung für deinen Sieg in einem Community-Event, Glückwünsch!': 'Distinción obtenida tras su designación como ganador de un evento comunitario, ¡enhorabuena!'
 'Auszeichnung für deine Teilnahme an einem Community-Event.': 'Distinción obtenida tras su participación en un evento comunitario.'
+'Du hast {count} x {item} auf der öffentlichen Müllhalde abgeladen. <strong>Die Stadt hat {def} Verteidigungspunkt(e) dazugewonnen.</strong>': 'Has tirado {count} {item} al vertedero público. <strong>¡El pueblo ha conseguido con ello {def} punto(s) de defensa!</strong>'
+'Was für ein Glück! Kurz nach dem Angriff wurden Baupläne in die Stadt geweht. Ihr erhaltet: {items}': 'El {items} ha sido descubierto. Ha sido depositado en el Almacén'
+'Du siehst nicht wirklich, wo du dich hier verstecken könntest...': 'Realmente no ves dónde podrías esconderte aquí...'
+'Egal, wie sehr du suchst, es erscheint offensichtlich, dass es an diesem Ort nur ein einziges geeignetes Versteck gibt. Entscheide selbst...': 'Por mucho que busques, parece obvio que en este lugar hay un solo escondite aceptable. Es tu turno de juzgar...'
+'Dieser Ort bietet Möglichkeiten zum Verstecken, wenn du kreativ genug bist.': 'Este lugar ofrece oportunidades para esconderse si eres ingenioso.'
+'Du beobachtest mehrere geeignete Verstecke, aber es wird nicht für jeden etwas dabei sein.': 'Localizas varios escondites interesantes, pero no habrá sitio para todo el mundo.'
+'Es sollte nicht allzu schwer sein, diesen Ort zum Untertauchen auszunutzen.': 'No debería ser muy difícil aprovechar este lugar para esconderse.'
+'Es scheint, dass alle guten Verstecke bereits von deinen "Freunden" besetzt sind. Du musst also einen anderen Ort finden oder improvisieren...': 'Parece que todos los escondites buenos ya están ocupados. Tendrás que encontrar otro lugar, o improvisar...'
