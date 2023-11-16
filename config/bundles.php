@@ -19,5 +19,5 @@ return [
     MyHordes\Fixtures\MyHordesFixturesBundle::class => ['all' => true],
     MyHordes\Prime\MyHordesPrimeBundle::class => ['all' => true],
     Zenstruck\ScheduleBundle\ZenstruckScheduleBundle::class => ['all' => true],
-    Sentry\SentryBundle\SentryBundle::class => ['prod' => true],
+    Sentry\SentryBundle\SentryBundle::class => ['all' => true],
 ];
