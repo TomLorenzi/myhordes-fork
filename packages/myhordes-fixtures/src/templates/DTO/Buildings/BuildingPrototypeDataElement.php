@@ -63,7 +63,7 @@ class BuildingPrototypeDataElement extends Element implements LabeledIconElement
                 ->setBlueprint( $this->blueprintLevel ?? 0 )
                 ->setDefense( $this->defense ?? 0 )
                 ->setIcon( $this->icon )
-                ->setHp( $this->health ?? $this->ap ?? 0 )
+                ->setHp( $this->health ?: $this->ap ?: 0 )
                 ->setImpervious( $this->isImpervious ?? false )
                 ->setOrderBy( $this->orderBy ?? 0 );
 

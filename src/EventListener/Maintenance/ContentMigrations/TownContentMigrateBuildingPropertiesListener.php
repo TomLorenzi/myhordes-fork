@@ -43,13 +43,27 @@ class TownContentMigrateBuildingPropertiesListener extends TownContentMigrationL
             $ap = $building->getPrototype()->getAp();
             if ($building->getAp() > $ap) {
                 $event->debug( "Clamping building <fg=green>{$building->getId()}</> AP ({$building->getAp()}) to prototype <fg=green>[{$building->getPrototype()->getId()}]</> <fg=yellow>{$building->getPrototype()->getLabel()}</> value of <fg=green>{$ap}</>" );
-                $em->persist($building->setAp( $building->getPrototype()->getAp() ) );
+                $em->persist($building->setAp( $ap ) );
             }
 
             $hp = $building->getPrototype()->getHp() ?: $building->getPrototype()->getAp();
             if ($building->getHp() > $hp) {
                 $event->debug( "Clamping building <fg=green>{$building->getId()}</> HP ({$building->getHp()}) to prototype <fg=green>[{$building->getPrototype()->getId()}]</> <fg=yellow>{$building->getPrototype()->getLabel()}</> value of <fg=green>{$hp}</>" );
-                $em->persist($building->setHp( $building->getPrototype()->getHp() ) );
+                $em->persist($building->setHp( $hp ) );
+            } elseif ($building->getComplete() && $building->getHp() === 0) {
+                $event->debug( "Setting missing HP value of building <fg=green>{$building->getId()}</> (<fg=yellow>{$building->getPrototype()->getLabel()}</>) to <fg=green>{$hp}</>" );
+                $em->persist($building->setHp( $hp ) );
+            }
+
+            if ($building->getComplete()) {
+                $calculated_def = (int)floor( min(
+                    $building->getPrototype()->getDefense(),
+                    $building->getPrototype()->getDefense() * $building->getHp() / $hp
+                ) );
+                if ($calculated_def !== $building->getDefense()) {
+                    $event->debug( "Updating building <fg=green>{$building->getId()}</> (<fg=yellow>{$building->getPrototype()->getLabel()}</>) defense ({$building->getDefense()}) to <fg=yellow>{$calculated_def}</>" );
+                    $em->persist($building->setDefense( $calculated_def ) );
+                }
             }
 
             if ($building->getLevel() > $building->getPrototype()->getMaxLevel()) {

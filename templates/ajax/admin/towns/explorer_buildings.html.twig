@@ -8,7 +8,7 @@
 		{# @var building \App\Entity\BuildingPrototype #}
 		{# @var fromTown \App\Entity\Building #}
 		{% if fromTown is defined or building.blueprint < 6 %}
-		<div class="building row {% if not buildable %}locked{% elseif (fromTown is defined and fromTown.complete) %}complete{% endif %} {% if n > 0 %}lv-{{ min(n,6) }}{% else %}root{% endif %}">
+		<div class="building row {% if not buildable %}locked{% endif %} {% if (fromTown is defined and fromTown.complete) %}complete{% endif %} {% if n > 0 %}lv-{{ min(n,6) }}{% else %}root{% endif %}">
 			<div class="type_indicator"></div>
 			<div class="building_row">
 				<div class="building_info cell">

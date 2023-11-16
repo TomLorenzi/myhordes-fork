@@ -64,7 +64,7 @@
             {% set has_vote = canvote and not building.complete %}
         {# end Firefox #}
         {% set empty = (not buildable) or (building.complete and not needs_repair) %}
-        <div class="building {% if not buildable %}locked{% elseif building.complete %}complete{% endif %} {% if building == votedBuilding %}voted{% endif %} {% if n > 0 %}lv-{{ min(n,6) }}{% else %}root{% endif %}{% if empty %} empty{% endif %}">
+        <div class="building {% if not buildable %}locked{% endif %} {% if building.complete %}complete{% endif %} {% if building == votedBuilding %}voted{% endif %} {% if n > 0 %}lv-{{ min(n,6) }}{% else %}root{% endif %}{% if empty %} empty{% endif %}">
             <div class="type_indicator"></div>
             <div class="building_row">
                 <div class="building_info cell {% if has_vote %}has_vote{% endif %}">
