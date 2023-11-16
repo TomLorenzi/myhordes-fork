@@ -40,13 +40,15 @@ class TownContentMigrateBuildingPropertiesListener extends TownContentMigrationL
 
         foreach ($event->town->getBuildings() as $building) {
 
-            if ($building->getAp() > $building->getPrototype()->getAp()) {
-                $event->debug( "Clamping building <fg=green>{$building->getId()}</> AP ({$building->getAp()}) to prototype <fg=green>[{$building->getPrototype()->getId()}]</> <fg=yellow>{$building->getPrototype()->getLabel()}</> value of <fg=green>{$building->getPrototype()->getAp()}</>" );
+            $ap = $building->getPrototype()->getAp();
+            if ($building->getAp() > $ap) {
+                $event->debug( "Clamping building <fg=green>{$building->getId()}</> AP ({$building->getAp()}) to prototype <fg=green>[{$building->getPrototype()->getId()}]</> <fg=yellow>{$building->getPrototype()->getLabel()}</> value of <fg=green>{$ap}</>" );
                 $em->persist($building->setAp( $building->getPrototype()->getAp() ) );
             }
 
-            if ($building->getHp() > $building->getPrototype()->getHp()) {
-                $event->debug( "Clamping building <fg=green>{$building->getId()}</> HP ({$building->getHp()}) to prototype <fg=green>[{$building->getPrototype()->getId()}]</> <fg=yellow>{$building->getPrototype()->getLabel()}</> value of <fg=green>{$building->getPrototype()->getHp()}</>" );
+            $hp = $building->getPrototype()->getHp() ?: $building->getPrototype()->getAp();
+            if ($building->getHp() > $hp) {
+                $event->debug( "Clamping building <fg=green>{$building->getId()}</> HP ({$building->getHp()}) to prototype <fg=green>[{$building->getPrototype()->getId()}]</> <fg=yellow>{$building->getPrototype()->getLabel()}</> value of <fg=green>{$hp}</>" );
                 $em->persist($building->setHp( $building->getPrototype()->getHp() ) );
             }
 
