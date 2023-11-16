@@ -38,6 +38,7 @@
         "phpdocumentor/reflection-docblock": "5.3.0",
         "phpstan/phpdoc-parser": "^1.13",
         "scienta/doctrine-json-functions": "^5.2",
+        "sentry/sentry-symfony": "^4.12",
         "shivas/versioning-bundle": "dev-master",
         "symfony/apache-pack": "1.0.1",
         "symfony/asset": "6.3.0",
@@ -110,7 +111,8 @@
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
             "symfony/flex": true,
-            "wikimedia/composer-merge-plugin": true
+            "wikimedia/composer-merge-plugin": true,
+            "php-http/discovery": true
         }
     },
     "autoload": {
