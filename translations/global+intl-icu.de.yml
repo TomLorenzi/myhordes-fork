@@ -465,7 +465,7 @@ Kopfzeile: Kopfzeile
 'Netzwerkfehler. Bitte prüfe deine Internetverbindung.': 'Netzwerkfehler. Bitte prüfe deine Internetverbindung.'
 'Link wurde in die Zwischenablage kopiert.': 'Link wurde in die Zwischenablage kopiert.'
 'Link konnte nicht kopiert werden.': 'Link konnte nicht kopiert werden.'
-'MyHordes ist <i>Open Source</i> und jeder ist zur <b>Mitwirkung</b> eingeladen. Du findest den Quellcode bei {gitlab} und kannst dort auch Fehler melden.': 'MyHordes ist <i>Open Source</i> und jeder ist zur <b>Mitwirkung</b> eingeladen. Du findest den Quellcode bei {gitlab} und kannst dort auch Fehler melden.'
+'MyHordes ist <i>Open Source</i> und jeder ist zur <b>Mitwirkung</b> eingeladen. Du findest den Quellcode bei {gitlab} und kannst dort auch Fehler melden.': 'Wenn ihr Fehler melden oder Verbesserungen vorschlagen möchtet, besucht das MyHordes-Projekt auf {gitlab}. Wenn ihr dem Projekt beitreten möchtet, schreibt einfach dem Technischen Support!'
 'Das kannst du nicht tun, während du einen Benutzer impersonifizierst.': 'Das kannst du nicht tun, während du einen Benutzer impersonifizierst.'
 'Dieser Bürger verwendet in der aktuellen Stadt einen alternativen Spitznamen.': 'Dieser Bürger verwendet in der aktuellen Stadt einen alternativen Spitznamen.'
 "Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.\n                                            <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>": "Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.\n                                            <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>"
@@ -529,6 +529,8 @@ Kurzbeschreibung: Kurzbeschreibung
 'Mehr Ergebnisse anzeigen': 'Mehr Ergebnisse anzeigen'
 'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".': 'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".'
 Inhaltsverzeichnis: Inhaltsverzeichnis
+'Das Geschlecht deines Titels.': 'Das Geschlecht deines Titels.'
+'Bevorzugte Pronomen (Titel)': 'Bevorzugte Pronomen (Titel)'
 'Du kannst vorerst keine weiteren Meldungen an die Raben senden.': 'Du kannst vorerst keine weiteren Meldungen an die Raben senden.'
 'Bitte versuche es in einigen Minuten erneut.': 'Bitte versuche es in einigen Minuten erneut.'
 'Bitte versuche es in einigen Stunden erneut.': 'Bitte versuche es in einigen Stunden erneut.'
@@ -537,3 +539,5 @@ Inhaltsverzeichnis: Inhaltsverzeichnis
 'Dieser Spieler ist ein nicht-administratives Mitglied des Entwickler-Teams von MyHordes.': 'Dieser Spieler ist ein nicht-administratives Mitglied des Entwickler-Teams von MyHordes.'
 'Private Foren': 'Private Foren'
 'Vielen Dank an diese Spieler für ihre künstlerischen Beiträge.': 'Vielen Dank an diese Spieler für ihre künstlerischen Beiträge.'
+'<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>{max}</strong> Verteidigungspunkte vergeben!': '<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>{max}</strong> Verteidigungspunkte vergeben!'
+'Auf {hostname}': 'Auf {hostname}'
