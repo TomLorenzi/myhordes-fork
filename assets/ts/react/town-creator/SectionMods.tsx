@@ -58,6 +58,10 @@ export const TownCreatorSectionMods = () => {
                           globals.setOption('rules.features.shaman', v);
                           globals.setOption('rules.disabled_jobs.<>.shaman', v === "normal" || v === "none");
                           globals.setOption('rules.disabled_roles.<>.shaman', v === "job" || v === "none");
+                          if (v === "job" || v === "both") {
+                              globals.setOption('head.customJobs', true);
+                              globals.setOption('head.customConstructions', true);
+                          }
                           mods.shaman_buildings.job.forEach( b => {
                               globals.setOption(`rules.disabled_buildings.<>.${b}`, v === "normal" || v === "none");
                               globals.setOption(`rules.unlocked_buildings.<>.${b}`, false );
