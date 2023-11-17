@@ -54,7 +54,9 @@ class LanguageSubscriber implements EventSubscriberInterface
     public function applyLanguage(ControllerEvent $event) {
         /** @var User $user */
         $user = $this->security->getUser();
-        if ($user?->getLanguage() && $event->getRequest()->getLocale() !== $user?->getLanguage())
+		if ($user === null) return;
+
+        if ($user->getLanguage() && $event->getRequest()->getLocale() !== $user?->getLanguage())
             $event->getRequest()->getSession()->set('_user_lang', $user->getLanguage());
 
 		$path = $event->getRequest()->getPathInfo();
