@@ -235,7 +235,7 @@ class LogTemplateHandler
                     $transParams['{'.$typeEntry['name'].'}'] = "<div class='ap'>{$variables[$typeEntry['name']]}</div>";
                 }   
                 elseif ($typeEntry['type'] === 'chat') {
-                    $transParams['{'.$typeEntry['name'].'}'] = $variables[$typeEntry['name']];
+                    $transParams['{'.$typeEntry['name'].'}'] = htmlentities($variables[$typeEntry['name']]);
                 }
                 elseif ($typeEntry['type'] === 'item') {
                     $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), false, $variables['broken'] ?? false ), 'tool' );
