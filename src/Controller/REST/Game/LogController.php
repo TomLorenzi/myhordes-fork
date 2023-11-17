@@ -222,7 +222,7 @@ class LogController extends CustomAbstractCoreController
      */
     #[Route(path: '/town', name: 'town', methods: ['GET'])]
     #[Route(path: '/citizen/{id}', name: 'town_citizen', methods: ['GET'])]
-    #[GateKeeperProfile(only_alive: true, only_with_profession: true, only_in_town: true)]
+    #[GateKeeperProfile(only_with_profession: true, only_in_town: true)]
     #[Toaster]
     public function town(Request $request, EntityManagerInterface $em, UserHandler $userHandler, ?Citizen $citizen = null): JsonResponse {
 

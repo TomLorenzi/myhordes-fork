@@ -9,7 +9,7 @@ class LogDataService implements FixtureProcessorInterface {
 
     public function process(array &$data): void
     {
-        $data = array_replace_recursive($data, [
+        $data = array_merge_recursive($data, [
             ['text'=>'{citizen} hat der Stadt folgendes gespendet: {item}', 'name'=>'bankGive', 'type'=>LogEntryTemplate::TypeBank, 'class'=>LogEntryTemplate::ClassNone, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'],['type'=>"item",'name'=>'item'])],
             ['text'=>'{dogname}, der stinkende Köter von {citizen}, hat folgendes in die Bank gebracht: {item}', 'name'=>'bankGiveTamer', 'type'=>LogEntryTemplate::TypeBank, 'class'=>LogEntryTemplate::ClassNone, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"dogname",'name'=>'dogname'],['type'=>"citizen",'name'=>'citizen'],['type'=>"item",'name'=>'item'])],
             ['text'=>'{citizen} hat seinen Hund mit {count} Gegenständen in die Stadt geschickt.', 'name'=>'beyondTamerSend', 'type'=>LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassInfo, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'],['type'=>"num",'name'=>'count'])],

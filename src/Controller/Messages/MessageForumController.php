@@ -929,7 +929,7 @@ class MessageForumController extends MessageController
         $other_forums_raw = $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) ? array_filter($this->perm->getForumsWithPermission($this->getUser(), ForumUsagePermissions::PermissionModerate), fn(Forum $f) => $f !== $forum ) : [];
         $other_forums = [];
 
-        foreach ( array_merge( [$user->getLanguage()], array_filter($this->generatedLangsCodes, function(string $s) use ($user) { return $s !== $user->getLanguage(); }) ) as $lang )
+        foreach ( array_merge( [$user->getLanguage()], array_filter(array_merge($this->generatedLangsCodes, ['mu']), function(string $s) use ($user) { return $s !== $user->getLanguage(); }) ) as $lang )
             $other_forums[ $this->translator->trans('Weltforum', [], 'global', $lang) . " [$lang]"] = array_filter( $other_forums_raw, function(Forum $f) use($lang) { return $f->getTown() === null && $f->getWorldForumLanguage() === $lang; } );
 
         $other_forums[ $this->translator->trans('Weltforen', [], 'global') ] = array_filter( $other_forums_raw, fn(Forum $f) => $f->getTown() === null && $f->getWorldForumLanguage() === null );
