@@ -39,7 +39,7 @@
                                 </div>
                             {% endif %}
                             {% if select_main_soul %}
-                                <button data-fetch="{{ path('soul_import_confirm_api', {id: soul.id}) }}" data-fetch-method="post" data-fetch-load="{{ path('soul_import') }}" data-fetch-message-text="{{ 'Diese Seele wurde erfolgreich als deine Hauptseele registriert!'|trans({},'soul') }}" data-confirm="{{ 'Bist du sicher, dass du diese Seele als deine Hauptseele festlegen willst. Dieser Vorgang kann nicht rückgängig gemacht werden!'|trans({},'soul') }}" class="inline small">
+                                <button data-fetch="{{ path('soul_import_confirm_api', {id: soul.id}) }}" data-fetch-payload="{{ {main: true}|json_encode }}" data-fetch-method="post" data-fetch-load="{{ path('soul_import') }}" data-fetch-message-text="{{ 'Diese Seele wurde erfolgreich als deine Hauptseele registriert!'|trans({},'soul') }}" data-confirm="{{ 'Bist du sicher, dass du diese Seele als deine Hauptseele festlegen willst. Dieser Vorgang kann nicht rückgängig gemacht werden!'|trans({},'soul') }}" class="inline small">
                                     <img alt="" src="{{ asset('build/images/icons/small_hero_up.gif') }}" />{{ 'Als Hauptseele wählen'|trans({},'soul') }}
                                     <div class="tooltip">
                                         {{ 'Legt diese Seele als Hauptseele fest und importiert Seelenpunkte und Heldenerfahrung.'|trans({},'soul') }}<br />
