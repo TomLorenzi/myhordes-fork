@@ -511,10 +511,62 @@
 
             document.getElementById('pm-conversation-list').addEventListener('scroll', fun_conv_loader_control);
 
+            const answer = ( action, id, quote, quoteName ) => {
+
+                const fun_apply_action = (editor) => {
+                    if (!action || !id) return;
+
+                    const content = document.querySelector('.pm-message [data-message-id="' + id + '"]')?.innerHTML;
+                    if (content) {
+                        editor.value += (action === "cite" ? '[quote' + (quote && quoteName ? ('=' + quoteName + ':' + quote) : '') + ']' : '') + $.html.twinoParser.parseFrom( content, $.html.twinoParser.OpModeQuote ) + (action === "cite" ? '[/quote]' : '') + "\n";
+                        editor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
+                    }
+                }
+
+                const existing_editor = document.getElementById('global-pm-forum-editor-text');
+                if (existing_editor) {
+                    fun_apply_action(existing_editor);
+                    return;
+                }
+
+                const selected_thread = document.querySelector('ul.pm-conversation-list>li[x-editor].selected');
+                let list = document.querySelector('#gpm-forum-content>ul');
+                let editor = document.getElementById('global-pm-forum-editor');
+                if (!editor || !selected_thread || !list) return;
+
+                document.getElementById('pm-forum-actions-container').classList.add('hidden');
+                document.getElementById('pm-new-thread-controls').classList.add('hidden');
+
+                editor.innerText = '';
+                document.getElementById('pm-user-selector').classList.remove('hidden');
+                document.getElementById('pm-og-display').classList.add('hidden');
+                if (document.getElementById('pm-sender-selector')) document.getElementById('pm-sender-selector').classList.remove('hidden');
+
+                document.getElementById('pm-forum-editor-container').classList.remove('hidden');
+                document.getElementById('pm-forum-editor-header').innerHTML = '<i class="fa fa-spin fa-circle-notch"></i> {{ 'Wird geladen...'|trans({},'global')|e('js') }}';
+
+                let temp = document.createElement('div');
+                temp.innerHTML = '{{ _self.pm_preview(app.user)|e('js') }}';
+                const list_fc = list.firstChild;
+                while (temp.firstChild) list.insertBefore(temp.firstChild, list_fc);
+
+                if (editor) $.ajax.background().load( editor, selected_thread.getAttribute('x-editor'), false, {}, function() {
+                    document.getElementById('pm-forum-editor-header').innerText = '{{ 'Antworten'|trans({},'global')|e('js') }}';
+
+                    $.html.forEach('#global-pm-forum-editor-text', e => {
+                        fun_apply_action(e);
+                        e.focus()
+                    });
+                } );
+            }
+
             const fun_msg_events = function() {
                 $.html.addEventListenerAll('ul.group-conversation>li div[x-unveil]', 'click', function(e,elem) {
                     document.querySelector('[x-domain="m-d"][x-identifier="' + elem.getAttribute('x-unveil') + '"]').classList.remove('collapsed');
                 });
+
+                $.html.addEventListenerAll('[data-action="copy"][data-post-id],[data-action="cite"][data-post-id]', 'click', (e,elem) => answer( elem.dataset.action, elem.dataset.postId, elem.dataset.citeFrom, elem.dataset.citeName ));
+
                 $.html.addEventListenerAll('ul.group-conversation>li .pm-button[x-report-url]', 'click', function(e,elem) {
                     let form = $.html.createElement('<div class="modal-form" id="modal-form" />');
                     form.append($.html.createElement( '<p class="small bold"></p>', '{{ 'Bist du sicher, dass du diesen Post an die Moderatoren melden willst?'|trans({},'global')|e('js') }}' ));
@@ -670,34 +722,7 @@
                 } );
             });
 
-            $.html.addEventListenerAll('[x-pm-action="answer-single"]', 'click', function () {
-
-                const selected_thread = document.querySelector('ul.pm-conversation-list>li[x-editor].selected');
-                let list = document.querySelector('#gpm-forum-content>ul');
-                let editor = document.getElementById('global-pm-forum-editor');
-                if (!editor || !selected_thread || !list) return;
-
-                document.getElementById('pm-forum-actions-container').classList.add('hidden');
-                document.getElementById('pm-new-thread-controls').classList.add('hidden');
-
-                editor.innerText = '';
-                document.getElementById('pm-user-selector').classList.remove('hidden');
-                document.getElementById('pm-og-display').classList.add('hidden');
-                if (document.getElementById('pm-sender-selector')) document.getElementById('pm-sender-selector').classList.remove('hidden');
-
-                document.getElementById('pm-forum-editor-container').classList.remove('hidden');
-                document.getElementById('pm-forum-editor-header').innerHTML = '<i class="fa fa-spin fa-circle-notch"></i> {{ 'Wird geladen...'|trans({},'global')|e('js') }}';
-
-                let temp = document.createElement('div');
-                temp.innerHTML = '{{ _self.pm_preview(app.user)|e('js') }}';
-                const list_fc = list.firstChild;
-                while (temp.firstChild) list.insertBefore(temp.firstChild, list_fc);
-
-                if (editor) $.ajax.background().load( editor, selected_thread.getAttribute('x-editor'), false, {}, function() {
-                    document.getElementById('pm-forum-editor-header').innerText = '{{ 'Antworten'|trans({},'global')|e('js') }}';
-                    $.html.forEach('#global-pm-forum-editor-text', e => e.focus());
-                } );
-            });
+            $.html.addEventListenerAll('[x-pm-action="answer-single"]', 'click', ()=>answer(null,null));
 
             $.html.addEventListenerAll('[x-pm-action="show-users"]', 'click', function () {
                 const selected_thread = document.querySelector('ul.pm-conversation-list>li[x-editor].selected');
