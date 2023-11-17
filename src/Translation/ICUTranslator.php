@@ -85,7 +85,7 @@ class ICUTranslator implements TranslatorInterface, TranslatorBagInterface, Loca
         $converter = new MarkdownConverter($environment);
         $string = $converter->convert($string);
         $string = preg_replace('#<p>(.*)</p>#i', '$1', $string);
-        $string = html_entity_decode($string);
+        //$string = html_entity_decode($string);
 
         return trim($string);
 
