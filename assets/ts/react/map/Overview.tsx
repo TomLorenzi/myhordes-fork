@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import {
+    LocalZone,
     MapCoordinate,
     MapGeometry, MapOverviewGridProps,
     MapOverviewParentProps,
@@ -93,7 +94,8 @@ const MapOverviewRoutePainter = ( props: MapOverviewParentProps ) => {
 }
 
 type MapOverviewZoneTooltipProps = {
-    zone: MapZone
+    zone: MapZone,
+    local: LocalZone|null
 }
 
 const MapOverviewZoneTooltip = ( props: MapOverviewZoneTooltipProps ) => {
@@ -114,6 +116,8 @@ const MapOverviewZoneTooltip = ( props: MapOverviewZoneTooltipProps ) => {
         };
     }, [horror])
 
+    const displayLocalDistance = props.local && (props.local.x !== 0 || props.local.y !== 0) && (props.local.x !== props.zone.x || props.local.y !== props.zone.y);
+
     return (
         <Tooltip additionalClasses="tooltip-map"
                  onShowTooltip={ () => (Math.random() > 0.98) && setHorror( getHorrorValue() ) }
@@ -131,12 +135,22 @@ const MapOverviewZoneTooltip = ( props: MapOverviewZoneTooltipProps ) => {
                         <div className="cell rw-6 left">{globals.strings.zone}</div>
                         <div className="cell rw-6 right">[{props.zone.x} / {props.zone.y}]</div>
                     </div>
-                    <div className="row">
-                        <div className="cell rw-6 left">{globals.strings.distance}</div>
-                        <div className="cell rw-6 right">
-                            <div className="ap">{ Math.abs( props.zone.x ) + Math.abs( props.zone.y ) }</div>
+                    { (!displayLocalDistance || props.zone.x !== 0 || props.zone.x !== 0 ) && (
+                        <div className="row">
+                            <div className="cell rw-9 left">{displayLocalDistance ? globals.strings.distanceTown : globals.strings.distance}</div>
+                            <div className="cell rw-3 right">
+                                <div className="ap">{ Math.abs( props.zone.x ) + Math.abs( props.zone.y ) }</div>
+                            </div>
                         </div>
-                    </div>
+                    ) }
+                    { displayLocalDistance && (props.local.x !== 0 || props.local.y !== 0) && (
+                        <div className="row">
+                            <div className="cell rw-9 left">{globals.strings.distanceSelf}</div>
+                            <div className="cell rw-3 right">
+                                <div className="ap">{ Math.abs( props.zone.x - props.local.x ) + Math.abs( props.zone.y - props.local.y ) }</div>
+                            </div>
+                        </div>
+                    ) }
                     { (props.zone.c ?? []).length > 0 && (
                         <div className="row">
                             { props.zone.c.map((c,i)=><div key={i} className="cell ro-6 rw-6 right">{c}</div>) }
@@ -162,6 +176,7 @@ type MapOverviewZoneProps = {
     key: string,
     geo: MapGeometry,
     zone: MapZone,
+    local: LocalZone|null
     conf: RuntimeMapSettings,
     wrapDispatcher: (RuntimeMapStateAction)=>void
 }
@@ -201,7 +216,7 @@ const MapOverviewZone = ( props: MapOverviewZoneProps ) => {
             { props.zone.z && <div className="count">{props.zone.z}</div> }
             { (props.zone.scoutLevel || props.zone.fractional) && <div className={`scoutLevelMark scout-${props.zone.scoutLevel}`}/> }
             { (props.zone.c ?? []).length > 0 && <div className="citizen_marker"/> }
-            <MapOverviewZoneTooltip zone={props.zone} />
+            <MapOverviewZoneTooltip zone={props.zone} local={props.local} />
         </div>
     )
 }
@@ -224,7 +239,7 @@ const MapOverviewGrid = React.memo(( props: MapOverviewGridProps ) => {
                 gridTemplateRows: `repeat(${cell_num_y}, ${cell_size})`
             }}>
                 {Object.entries(cache).map(([k,z]) =>
-                    <MapOverviewZone key={k} geo={props.map.geo}
+                    <MapOverviewZone key={k} geo={props.map.geo} local={(props.map.local ?? []).filter(v => v.xr === 0 && v.yr === 0)[0] ?? null}
                                      zone={z as MapZone} conf={props.settings}
                                      wrapDispatcher={props.wrapDispatcher}
                     />)}

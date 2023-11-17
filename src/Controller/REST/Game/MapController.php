@@ -45,6 +45,8 @@ class MapController extends CustomAbstractCoreController
         return new JsonResponse([
             'zone' => $this->translator->trans('Zone', [], 'game'),
             'distance' => $this->translator->trans('Entfernung', [], 'game'),
+            'distanceSelf' => $this->translator->trans('Entfernung von hier', [], 'game'),
+            'distanceTown' => $this->translator->trans('Entfernung zur Stadt', [], 'game'),
             'danger' => [
                 $this->translator->trans('Isolierte Zombies', [], 'game'),
                 $this->translator->trans('Die Zombies verstümmeln', [], 'game'),
