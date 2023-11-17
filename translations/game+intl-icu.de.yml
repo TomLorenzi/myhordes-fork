@@ -1415,7 +1415,7 @@ Sektenmitglied: Sektenmitglied
 'Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!': 'Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!'
 'Aufgeladen und kampfbereit': 'Aufgeladen und kampfbereit'
 'Hey! Willst du meine... Batterie sehen?': 'Hey! Willst du meine... Batterie sehen?'
-'Meister der Schlüssel': 'Schlüsselmeister'
+'Meister der Schlüssel': Schlüsselmeister
 'Es war wirklich zu einfach.': 'Es war wirklich zu einfach.'
 'Ich fresse Nägel und scheiße Kugeln!': 'Ich fresse Nägel und scheiße Kugeln!'
 'Pandämonium? Hah. Einfach.': 'Pandämonium? Hah. Einfach.'
@@ -1678,7 +1678,7 @@ Riesenmaulwurf: Riesenmaulwurf
 'Begrabener Freiwilliger': 'Begrabener Freiwilliger'
 'Tomb Raider': 'Tomb Raider'
 Labyrinth-Gollum: Labyrinth-Gollum
-'Labyrinth-Meister MB': 'Labyrinth-Meister'
+'Labyrinth-Meister MB': Labyrinth-Meister
 'Gontran Happiness': 'Gontran Happiness'
 'Lucky 7': 'Lucky 7'
 'Money for Nothing': 'Money for Nothing'
@@ -2932,3 +2932,5 @@ Sandkasten-Scharfschütze_f: Sandkasten-Scharfschützin
 'Du beobachtest mehrere geeignete Verstecke, aber es wird nicht für jeden etwas dabei sein.': 'Du beobachtest mehrere geeignete Verstecke, aber es wird nicht für jeden etwas dabei sein.'
 'Es sollte nicht allzu schwer sein, diesen Ort zum Untertauchen auszunutzen.': 'Es sollte nicht allzu schwer sein, diesen Ort zum Untertauchen auszunutzen.'
 'Es scheint, dass alle guten Verstecke bereits von deinen "Freunden" besetzt sind. Du musst also einen anderen Ort finden oder improvisieren...': 'Es scheint, dass alle guten Verstecke bereits von deinen "Freunden" besetzt sind. Du musst also einen anderen Ort finden oder improvisieren...'
+'Entfernung von hier': 'Entfernung von hier'
+'Entfernung zur Stadt': 'Entfernung zur Stadt'
