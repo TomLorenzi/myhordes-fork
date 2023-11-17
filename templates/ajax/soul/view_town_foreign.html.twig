@@ -11,7 +11,7 @@
         <div class="cell padded header rw-10 ro-1 rw-md-12 ro-md-0">
             <div class="row">
                 <div class="cell padded rw-4">
-                    <button class='inline' x-ajax-href="{{path('soul_visit', {id: user.id})}}"><img src="{{asset('build/images/soul/small_back.gif')}}" alt ="" /> {{'Zurück'|trans({}, 'global')}}</button>
+                    <button class='inline' x-ajax-href="{{path('soul_visit', {id: user.id})}}"><img src="{{asset('build/images/icons/small_back.gif')}}" alt ="" /> {{'Zurück'|trans({}, 'global')}}</button>
                 </div>
             </div>
             {% include 'ajax/soul/view_town_content.html.twig' with {'return_to': self_path, 'base_path': path('soul_visit', {id: user.id}), 'user_name': user.name} %}
