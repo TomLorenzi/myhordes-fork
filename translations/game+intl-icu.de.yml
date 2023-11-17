@@ -1175,7 +1175,7 @@ Wüstenwurmzüchter: Wüstenwurmzüchter
 'Schlimmer Finger': 'Schlimmer Finger'
 Seelenverwerter: Seelenverwerter
 'Mystischer Seher': 'Mystischer Seher'
-'Voodoo Sorceror': 'Voodoo Sorceror'
+'Voodoo Sorceror': Voodoopriester
 'Yo, wir schaffen das!': 'Yo, wir schaffen das!'
 'Kleiner Schraubendreher': 'Kleiner Schraubendreher'
 'Schweizer Taschenmesser': 'Schweizer Taschenmesser'
@@ -1192,7 +1192,7 @@ Kantinenkoch: Kantinenkoch
 'Meister Eintopf': 'Meister Eintopf'
 'Großer Wüstenkonditor': 'Großer Wüstenkonditor'
 'Begnadeter Wüstenkonditor': 'Begnadeter Wüstenkonditor'
-'Cooking Mama': 'Cooking Mama'
+'Cooking Mama': 'Cooking Papa'
 'Meisterhafter Kochlöffelschwinger': 'Meisterhafter Kochlöffelschwinger'
 Amateur-Laborratte: Amateur-Laborratte
 'Kleiner Präparator': 'Kleiner Präparator'
@@ -1238,7 +1238,7 @@ Müllmann: Müllmann
 Entsorgungsfachmann: Entsorgungsfachmann
 'SM Anhänger': 'SM Anhänger'
 'SM Spezialist': 'SM Spezialist'
-'Nenn mich Herrin': 'Nenn mich Herrin'
+'Nenn mich Herrin': 'Nenn mich Herr'
 'Ich möchte dein Objekt sein.': 'Ich möchte dein Objekt sein.'
 Stadtmetzger: Stadtmetzger
 'Spezialität: Hundesteaks': 'Spezialität: Hundesteaks'
@@ -1415,7 +1415,7 @@ Sektenmitglied: Sektenmitglied
 'Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!': 'Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!'
 'Aufgeladen und kampfbereit': 'Aufgeladen und kampfbereit'
 'Hey! Willst du meine... Batterie sehen?': 'Hey! Willst du meine... Batterie sehen?'
-'Meister der Schlüssel': 'Meister der Schlüssel'
+'Meister der Schlüssel': Schlüsselmeister
 'Es war wirklich zu einfach.': 'Es war wirklich zu einfach.'
 'Ich fresse Nägel und scheiße Kugeln!': 'Ich fresse Nägel und scheiße Kugeln!'
 'Pandämonium? Hah. Einfach.': 'Pandämonium? Hah. Einfach.'
@@ -1586,7 +1586,7 @@ Wählen: Wählen
 'Wir machen Fortschritte.': 'Wir machen Fortschritte.'
 'Das Ende ist nah.': 'Das Ende ist nah.'
 'Die Revolte steht bevor!': 'Die Revolte steht bevor!'
-'Meisterkoch der Sterne': 'Meisterkoch der Sterne'
+'Meisterkoch der Sterne': 'Tim Mälzer der Außenwelt'
 'Ich koste alle meine Produkte': 'Ich koste alle meine Produkte'
 'Rauchts? Dann ist es meins.': 'Rauchts? Dann ist es meins.'
 'Mein Name ist Nobody': 'Mein Name ist Nobody'
@@ -1596,7 +1596,7 @@ Wählen: Wählen
 'Alles für meinen Mund': 'Alles für meinen Mund'
 'Ich brauche niemanden': 'Ich brauche niemanden'
 'Unabhängiger Großeinsiedler': 'Unabhängiger Großeinsiedler'
-'Che Guevara der Wüste': 'Che Guevara der Wüste'
+'Che Guevara der Wüste': 'Wüsten-Che Guevara'
 'Ein schöneres Leben': 'Ein schöneres Leben'
 'Großer E-KEA Katalog': 'Großer E-KEA Katalog'
 Maccabees-Vertreiber: Maccabees-Vertreiber
@@ -1616,7 +1616,7 @@ Paranoid: Paranoid
 'Der Bruce Lee des Spachtels': 'Der Bruce Lee des Spachtels'
 'Es ist Zeit für Kathedralen': 'Es ist Zeit für Kathedralen'
 'Hast du nichts besseres zu tun?': 'Hast du nichts besseres zu tun?'
-'Hohepriesterin des Sonnentempels': 'Hohepriesterin des Sonnentempels'
+'Hohepriesterin des Sonnentempels': 'Hohepriester des Sonnentempels'
 'Obelisk der heutigen Zeit!': 'Obelisk der heutigen Zeit!'
 'Lebhafter Tribut': 'Lebhafter Tribut'
 'Wird in die Annalen eingehen': 'Wird in die Annalen eingehen'
@@ -1669,7 +1669,7 @@ Fleisch-Schuldner: Fleisch-Schuldner
 'Bruce Campbell': 'Bruce Campbell'
 Wasserwaffen-Spezialist: Wasserwaffen-Spezialist
 Hydraulik-Engineering: Hydraulik-Engineering
-'Abstieg der Atlanteaner': 'Abstieg der Atlanteaner'
+'Abstieg der Atlanteaner': 'Nachfahre von Atlantis'
 'Großer Löcherbuddler': 'Großer Löcherbuddler'
 Riesenmaulwurf: Riesenmaulwurf
 'Ich gehe alleine.': 'Ich gehe alleine.'
@@ -1678,7 +1678,7 @@ Riesenmaulwurf: Riesenmaulwurf
 'Begrabener Freiwilliger': 'Begrabener Freiwilliger'
 'Tomb Raider': 'Tomb Raider'
 Labyrinth-Gollum: Labyrinth-Gollum
-'Labyrinth-Meister MB': 'Labyrinth-Meister MB'
+'Labyrinth-Meister MB': Labyrinth-Meister
 'Gontran Happiness': 'Gontran Happiness'
 'Lucky 7': 'Lucky 7'
 'Money for Nothing': 'Money for Nothing'
@@ -1719,7 +1719,7 @@ Messias: Messias
 Lebenssammler: Lebenssammler
 'Schnitter der Aussenwelt': 'Schnitter der Aussenwelt'
 'Mitglied des Roten Kreuzes': 'Mitglied des Roten Kreuzes'
-'Es ist der Tod der mich fürchten sollte!': 'Es ist der Tod der mich fürchten sollte!'
+'Es ist der Tod der mich fürchten sollte!': 'Angst vor dem Tod? Der Sensenmann sollte MICH fürchten!'
 Sandmann: Sandmann
 'Sandy Maverick': 'Sandy Maverick'
 Wegweiser: Wegweiser
@@ -2404,7 +2404,533 @@ Tarnexperte: Tarnexperte
 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> verbraucht.': 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> verbraucht.'
 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{cp} Baupunkt(e)</strong> verbraucht.'
 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> und <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> und <strong>{cp} Baupunkt(e)</strong> verbraucht.'
+'Du hast das Wasser aus {item} in den Brunnen geschüttet (<strong>+{water} Einheit(en)</strong>)': 'Du hast das Wasser aus {item} in den Brunnen geschüttet (<strong>+{water} Einheit(en)</strong>)'
+Pfadfinder_f: Pfadfinderin
+'Green Beret_f': 'Green Beret'
+Schattenmann_f: Schattenfrau
+Wüstenphantom_f: Wüstenphantom
+'Solid Snake war gestern..._f': 'Solid Snake war gestern...'
+'Der unsichtbare Mann_f': 'Die unsichtbare Frau'
+Sandarbeiter_f: Sandarbeiterin
+Wüstenspringmaus_f: Wüstenspringmaus
+'Großer Ameisenbär_f': 'Großer Ameisenbär'
+Wüstenfuchs_f: Wüstenfüchsin
+'Ich sehe Alles!_f': 'Ich sehe Alles!'
+'Ein BMW? Kein Problem!_f': 'Ein BMW? Kein Problem!'
+'Où est Larchi ?_f': 'Où est Larchi ?'
+Tierliebhaber_f: Tierliebhaberin
+Malteserzüchter_f: Malteserzüchterin
+'Ich bändige Bestien_f': 'Ich bändige Bestien'
+'Nie ohne meinen Hund!_f': 'Nie ohne meinen Hund!'
+'Hundewurst schmeckt gar nicht schlecht!_f': 'Hundewurst schmeckt gar nicht schlecht!'
+'Meser (halb Mensch, halb Malteser)_f': 'Meser (halb Mensch, halb Malteser)'
+'Personalisierter Titel - Dompteur (T-ID: 1725642)_f': 'Personalisierter Titel - Dompteur (T-ID: 1725642)'
+Wurmfresser_f: Wurmfresserin
+'Meister im Würmerfinden_f': 'Meisterin im Würmerfinden'
+'Gefräßiger Bürger_f': 'Gefräßige Bürgerin'
+Wüstenwurmzüchter_f: Wüstenwurmzüchterin
+'Ich brauche niemanden!_f': 'Ich brauche niemanden!'
+'Heraklit der Außenwelt_f': 'Heraklit der Außenwelt'
+'Gepanzerter Fakir_f': 'Gepanzerte Fakirin'
+'Diplomierter Scharlatan_f': 'Diplomierter Scharlatan'
+'Schlimmer Finger_f': 'Schlimmer Finger'
+Seelenverwerter_f: Seelenverwerterin
+'Mystischer Seher_f': 'Mystische Seherin'
+'Voodoo Sorceror_f': 'Voodoo Sorceror'
+'Yo, wir schaffen das!_f': 'Yo, wir schaffen das!'
+'Kleiner Schraubendreher_f': 'Kleiner Schraubendreher'
+'Schweizer Taschenmesser_f': 'Schweizer Taschenmesser'
+'Unermüdlicher Schrauber_f': 'Unermüdliche Schrauberin'
+'Seele des Handwerks_f': 'Seele des Handwerks'
+'Seele eines Profis_f': 'Seele eines Profis'
+'Personalisierter Titel - Techniker (T-ID: 631944)_f': 'Personalisierter Titel - Techniker (T-ID: 631944)'
+'Die Mauer_f': 'Die Mauer'
+Höllenwächter_f: Höllenwächterin
+Kerberos_f: Kerberos
+'Die letzte Verteidigungslinie_f': 'Die letzte Verteidigungslinie'
+'Du kommst hier NICHT durch!_f': 'Du kommst hier NICHT durch!'
+Hekatoncheir_f: Hekatoncheir
+'Holy F***ing Iceberg_f': 'Holy F***ing Iceberg'
+Kantinenkoch_f: Kantinenköchin
+'Kleiner Küchenchef_f': 'Kleine Küchenchefin'
+'Meister Eintopf_f': 'Meister Eintopf'
+'Großer Wüstenkonditor_f': 'Große Wüstenkonditorin'
+'Begnadeter Wüstenkonditor_f': 'Begnadete Wüstenkonditorin'
+'Cooking Mama_f': 'Cooking Mama'
+'Meisterhafter Kochlöffelschwinger_f': 'Meisterhafte Kochlöffelschwingerin'
+'Meisterkoch der Sterne_f': 'Meisterköchin der Sterne'
+Amateur-Laborratte_f: Amateur-Laborratte
+'Kleiner Präparator_f': 'Kleine Präparatorin'
+'Chemiker von um die Ecke_f': 'Chemikerin von um die Ecke'
+Produkttester_f: Produkttesterin
+Wüstenstadt-Dealer_f: Wüstenstadt-Dealerin
+'Ich koste alle meine Produkte_f': 'Ich koste alle meine Produkte'
+'Rauchts? Dann ist es meins._f': 'Rauchts? Dann ist es meins.'
+'Offizieller AP-Versorger_f': 'Offizielle AP-Versorgerin'
+'X-Men Leser_f': 'X-Men Leserin'
+'Aussergewöhnlicher Bürger_f': 'Aussergewöhnliche Bürgerin'
+Wunder_f: Wunder
+'Werdender Superheld_f': 'Werdende Superheldin'
+Volksheld_f: Volksheldin
+Neo_f: Neo
+'Erlöser der Menschheit_f': 'Erlöserin der Menschheit'
+Außenweltlegende_f: Außenweltlegende
+'Messie der verlorenen Welt_f': 'Messie der verlorenen Welt'
+'Mein Name ist Nobody_f': 'Mein Name ist Nobody'
+'Ein Sternbild trägt meinen Namen_f': 'Ein Sternbild trägt meinen Namen'
+Abstauber_f: Abstauberin
+Müllkind_f: Müllkind
+'Autonomer Müll_f': 'Autonomer Müll'
+'Freier Bürger_f': 'Freie Bürgerin'
+'Alles für meinen Mund_f': 'Alles für meinen Mund'
+'Ich brauche niemanden_f': 'Ich brauche niemanden'
+'Unabhängiger Großeinsiedler_f': 'Unabhängiger Großeinsiedlerin'
+'Che Guevara der Wüste_f': 'Che Guevara der Wüste'
+Maulheld_f: Maulheldin
+Lump_f: Lump
+Schaumschläger_f: Schaumschlägerin
+Dieb_f: Diebin
+Fantomas_f: Fantomas
+'Ali Baba_f': 'Ali Baba'
+Meisterdieb_f: Meisterdiebin
+Kleptomane_f: Kleptomanin
+'Dein Haus ist mein Haus_f': 'Dein Haus ist mein Haus'
+Ästhet_f: Ästhetin
+Schaufenstergestalter_f: Schaufenstergestalterin
+Innenarchitekt_f: Innenarchitektin
+Möbelgourmet_f: Möbelgourmet
+'Ordnung muss sein!_f': 'Ordnung muss sein!'
+'Ein schöneres Leben_f': 'Ein schöneres Leben'
+'Großer E-KEA Katalog_f': 'Großer E-KEA Katalog'
+Plünderer_f: Plünderin
+Aasgeier_f: Aasgeier
+Hyäne_f: Hyäne
+'Wegelagerer post mortem_f': 'Wegelagererin post mortem'
+'Hungriger Schakal_f': 'Hungriger Schakal'
+'Kojote der kargen Steppen_f': 'Kojote der kargen Steppen'
+Fingerschmied_f: Fingerschmiedin
+'Nein, das Ding fasse ich nicht an._f': 'Nein, das Ding fasse ich nicht an.'
+Leichenhygieniker_f: Leichenhygienikerin
+'Ich liebe den Geruch von gewaschenen Leichen am Morgen._f': 'Ich liebe den Geruch von gewaschenen Leichen am Morgen.'
+Müllmann_f: Müllfrau
+'Erfahrener Müllmann_f': 'Erfahrene Müllfrau'
+Entsorgungsfachmann_f: Entsorgungsfachfrau
+Maccabees-Vertreiber_f: Maccabees-Vertreiberin
+'SM Anhänger_f': 'SM Anhängerin'
+'SM Spezialist_f': 'SM Spezialistin'
+'Nenn mich Herrin_f': 'Nenn mich Herrin'
+'Ich möchte dein Objekt sein._f': 'Ich möchte dein Objekt sein.'
+Stadtmetzger_f: Stadtmetzgerin
+'Spezialität: Hundesteaks_f': 'Spezialität: Hundesteaks'
+'Miezi? Jaaaa, komm her..._f': 'Miezi? Jaaaa, komm her...'
+'Fleisch ist mein Gemüse_f': 'Fleisch ist mein Gemüse'
+'Immer ein Auge offen_f': 'Immer ein Auge offen'
+'Mit offenen Augen schlafen? Kein Problem!_f': 'Mit offenen Augen schlafen? Kein Problem!'
+'Immer alles im Blick_f': 'Immer alles im Blick'
+Wachsam_f: Wachsam
+Paranoid_f: Paranoid
+'Fels in der Brandung_f': 'Fels in der Brandung'
+'Großer Baumeister_f': 'Große Baumeisterin'
+'Großer Architekt_f': 'Große Architektin'
+Freimauer_f: Freimauerin
+Terraformingspezialist_f: Terraformingspezialistin
+'Allmächtiger Schöpfer_f': 'Allmächtige Schöpferin'
+'Archi-Mädlicher Illustrator von Pi_f': 'Archi-Mädliche Illustratorin von Pi'
+"Muad'Dib_f": "Muad'Dib"
+'Am 7. Tag erschuf er den Fleischkäfig_f': 'Am 7. Tag erschuf sie den Fleischkäfig'
+'Bauherr ohne Sinn und Verstand_f': 'Bauherrin ohne Sinn und Verstand'
+'Erbauer der verlorenen Zeit_f': 'Erbauerin der verlorenen Zeit'
+'Erleuchteter Baumeister_f': 'Erleuchteter Baumeisterin'
+'Maurer aus Leidenschaft_f': 'Maurerin aus Leidenschaft'
+'Das Unnütze mit dem Angenehmen verbinden_f': 'Das Unnütze mit dem Angenehmen verbinden'
+'Verrückter Architekten-Visionär_f': 'Verrückte Architekten-Visionärin'
+'Ich habe einen Plan_f': 'Ich habe einen Plan'
+'Hirnverbrannter Baumeister_f': 'Hirnverbrannte Baumeisterin'
+'Meister der Nutzlosigkeit_f': 'Meisterin der Nutzlosigkeit'
+'Vereister Ingenieur_f': 'Vereiste Ingenieurin'
+'Wundervoll nutzlos_f': 'Wundervoll nutzlos'
+'Der Bruce Lee des Spachtels_f': 'Der Bruce Lee des Spachtels'
+'Es ist Zeit für Kathedralen_f': 'Es ist Zeit für Kathedralen'
+'Hast du nichts besseres zu tun?_f': 'Hast du nichts besseres zu tun?'
+'Hohepriesterin des Sonnentempels_f': 'Hohepriesterin des Sonnentempels'
+'Huldigt den riesigen KVF!_f': 'Huldigt den riesigen KVF!'
+'Obelisk der heutigen Zeit!_f': 'Obelisk der heutigen Zeit!'
+'Lebhafter Tribut_f': 'Lebhafter Tribut'
+'Wird in die Annalen eingehen_f': 'Wird in die Annalen eingehen'
+'Extra viel Liebe_f': 'Extra viel Liebe'
+'Es ist kleiner als im Katalog_f': 'Es ist kleiner als im Katalog'
+'Freude der Stärke 8_f': 'Freude der Stärke 8'
+'Bewahrer der Freuden_f': 'Bewahrerin der Freuden'
+'Das hast du nicht wirklich gebaut?_f': 'Das hast du nicht wirklich gebaut?'
+Eimerhalter_f: Eimerhalterin
+Sandverkäufer_f: Sandverkäuferin
+'Martinet am Strand_f': 'Martinet am Strand'
+'Ein Spiel für echte Kinder_f': 'Ein Spiel für echte Kinder'
+"Dauermitglied in Micky's Club_f": "Dauermitglied in Micky's Club"
+'Niemals ohne meinen Eimer_f': 'Niemals ohne meinen Eimer'
+'Ein Korn fehlt noch_f': 'Ein Korn fehlt noch'
+'Huldigt den Raben!_f': 'Huldigt den Raben!'
+'Taube aus der Unterwelt_f': 'Taube aus der Unterwelt'
+Corvid-Spezialist_f: Corvid-Spezialistin
+'Phoenix des Unterholzes_f': 'Phoenix des Unterholzes'
+'Edit Piaf_f': 'Edit Piaf'
+'Vogel der schlechten Vorzeichen_f': 'Vogel der schlechten Vorzeichen'
+Kraaaah!_f: Kraaaah!
+'Er war Leber ..._f': 'Er war Leber ...'
+'Hey wir können die Zombies von hier oben sehen_f': 'Hey wir können die Zombies von hier oben sehen'
+'Fröhlicher Hamster_f': 'Fröhliche Hamsterin'
+'Showman aus der Anderen Welt!_f': 'Showwoman aus der Anderen Welt!'
+'5. Rad am Wagen_f': '5. Rad am Wagen'
+'Mir ist schwindelig_f': 'Mir ist schwindelig'
+'Hier oben_f': 'Hier oben'
+'Auge der Wüste_f': 'Auge der Wüste'
+'4000 Zombies starren uns an_f': '4000 Zombies starren uns an'
+Durazell_f: Durazell
+'Hüter der Heiligen Batterie_f': 'Hüterin der Heiligen Batterie'
+'Der Batterienator_f': 'Die Batterienatorin'
+'Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!_f': 'Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!'
+'Aufgeladen und kampfbereit_f': 'Aufgeladen und kampfbereit'
+'Hey! Willst du meine... Batterie sehen?_f': 'Hey! Willst du meine... Batterie sehen?'
+Maurerlehrling_f: Maurerlehrling
+Maurer_f: Maurerin
+Polier_f: Polierin
+Baustellenleiter_f: Baustellenleiterin
+'Architekt (title)_f': Architektin
+Meisterarchitekt_f: Meisterarchitektin
+'Oscar Niemeyer_f': 'Oscar Niemeyer'
+'Zement & Garfunkel_f': 'Zement & Garfunkel'
+'Menschliche Ameisenkolonie_f': 'Menschliche Ameisenkolonie'
+'Arbeiterhelm und Kupferstiefel_f': 'Arbeiterhelm und Kupferstiefel'
+'Arbeit ist Gesundheit_f': 'Arbeit ist Gesundheit'
+'Bob der Baumeister_f': 'Bob der Baumeister'
+Spachtler_f: Spachtlerin
+'Gewissenhafter Maurer_f': 'Gewissenhafte Maurerin'
+'Meisterwerke in Gefahr_f': 'Meisterwerke in Gefahr'
+'Ein Flicken und alles ist wie neu_f': 'Ein Flicken und alles ist wie neu'
+Pisa-Geraderichter_f: Pisa-Geraderichterin
+'Großer Renovator_f': 'Große Renovatorin'
+'Ein Patch, kein Spiel_f': 'Ein Patch, kein Spiel'
+'Ein Riss? Welcher Riss?_f': 'Ein Riss? Welcher Riss?'
+'Das braucht noch 10 Jahre!_f': 'Das braucht noch 10 Jahre!'
+Kettensägenmassaker_f: Kettensägenmassaker
+Fleisch-Schuldner_f: Fleisch-Schuldnerin
+'Bruce Campbell_f': 'Bruce Campbell'
+Hobby-Heimwerker_f: Hobby-Heimwerkerin
+Techniker_f: Technikerin
+'Meisterbastler _f': Meisterbastlerin
+'Sowas wirft man doch nicht weg!_f': 'Sowas wirft man doch nicht weg!'
+'Mac Gyver der Außenwelt_f': 'Mac Gyver der Außenwelt'
+'Super Soaker_f': 'Super Soaker'
+Wasserwaffen-Spezialist_f: Wasserwaffen-Spezialistin
+Hydraulik-Engineering_f: Hydraulik-Engineering
+'Abstieg der Atlanteaner_f': 'Abstieg der Atlanteaner'
+Archäologielehrling_f: Archäologielehrling
+Archäologe_f: Archäologin
+Grabungsleiter_f: Grabungsleiterin
+'Großer Löcherbuddler_f': 'Große Löcherbuddlerin'
+Riesenmaulwurf_f: Riesenmaulwurf
+'Furchtloser Camper_f': 'Furchtlose Camperin'
+'Waisenkind der Wüste_f': 'Waisenkind der Wüste'
+'Unglaubliche Entschlossenheit_f': 'Unglaubliche Entschlossenheit'
+'Der letzte Überlebende_f': 'Die letzte Überlebende'
+'Ich gehe alleine._f': 'Ich gehe alleine.'
+'Neil Armstrong der Außenwelt_f': 'Neil Armstrong der Außenwelt'
+'Lebensmüder Kundschafter_f': 'Lebensmüde Kundschafterin'
+'Draufgängerischer Expeditionsreisender_f': 'Draufgängerische Expeditionsreisenderin'
+Nervenkitzelsucher_f: Nervenkitzelsucherin
+'Christopher Kolumbus_f': 'Christopher Kolumbus'
+'Bis zur Unendlichkeit... und noch viel weiter!_f': 'Bis zur Unendlichkeit... und noch viel weiter!'
+'Indiana Jones und die Ruinen der Aussenwelt_f': 'Indiana Jones und die Ruinen der Aussenwelt'
+'Wenn ich das nur vorher gewusst hätte..._f': 'Wenn ich das nur vorher gewusst hätte...'
+'Verwegener Wanderer_f': 'Verwegener Wandererin'
+Tunnelblicker_f: Tunnelblickerin
+'Im Irrgarten_f': 'Im Irrgarten'
+'Inklusive Kompass_f': 'Inklusive Kompass'
+'Begrabener Freiwilliger_f': 'Begrabene Freiwillige'
+'Tomb Raider_f': 'Tomb Raider'
+Labyrinth-Gollum_f: Labyrinth-Gollum
+'Labyrinth-Meister MB_f': 'Labyrinth-Meisterin MB'
+"Wo klemmt's?_f": "Wo klemmt's?"
+Dietrich_f: Dietrich
+'Sesam, öffne dich..._f': 'Sesam, öffne dich...'
+Türöffner_f: Türöffnerin
+Gentleman-Einbrecher_f: Lady-Einbrecherin
+Schlüsseldienst_f: Schlüsseldienst
+Zerberus_f: Zerberus
+'Meister der Schlüssel_f': 'Meisterin der Schlüssel'
+Brutalo_f: Brutala
+Verstümmler_f: Verstümmlerin
+Killer_f: Killer
+Kadaverentsorger_f: Kadaverentsorgerin
+Vernichter_f: Vernichterin
+Schlächter_f: Schlächterin
+Friedensstifter_f: Friedensstifterin
+'Alptraum der Traumlosen_f': 'Alptraum der Traumlosen'
+'Hans im Glück_f': 'Hans im Glück'
+'Vierklettriges Kleeblatt_f': 'Vierklettriges Kleeblatt'
+Fortuna_f: Fortuna
+'Gontran Happiness_f': 'Gontran Happiness'
+'Lucky 7_f': 'Lucky 7'
+'Money for Nothing_f': 'Money for Nothing'
+'Ultimate Fighter_f': 'Ultimate Fighter'
+'Wilde Bestie_f': 'Wilde Bestie'
+'Rambos Großvater_f': 'Rambos Großmutter'
+'Absolut keine Angst!_f': 'Absolut keine Angst!'
+'Barhändiger Stripper_f': 'Barhändige Stripperin'
+'Stürmischer Kundschafter_f': 'Stürmische Kundschafterin'
+'Furchtloser Abenteurer_f': 'Furchtlose Abenteurerin'
+'Wagemutiger Trapper_f': 'Wagemutige Trapperin'
+Wikinger_f: Wikingerfrau
+Außenweltreiseführer_f: Außenweltreiseführerin
+'Ich habe die Erde umrundet... zweimal!_f': 'Ich habe die Erde umrundet... zweimal!'
+'Internet Explorer_f': 'Internet Explorer'
+'Ich hab sogar das Klo abgesucht!_f': 'Ich hab sogar das Klo abgesucht!'
+'Sind wir schon da?_f': 'Sind wir schon da?'
+Außenweltschläfer_f: Außenweltschläferin
+'Allein in dieser Welt_f': 'Allein in dieser Welt'
+'Der mit den Zombies tanzt_f': 'Die mit den Zombies tanzt'
+'Ich sehe überall Tote!_f': 'Ich sehe überall Tote!'
+'Ich komme heute Nacht nicht heim..._f': 'Ich komme heute Nacht nicht heim...'
+'Ein Mann gegen die Außenwelt_f': 'Eine Frau gegen die Außenwelt'
+Stadtallergie_f: Stadtallergie
+'Wo ich hinguck, seh ich Gegend._f': 'Wo ich hinguck, seh ich Gegend.'
+'Runaway Michael_f': 'Runaway Michael'
+'Ohne Dach oder Leber_f': 'Ohne Dach oder Leber'
+'Neugieriger Leser_f': 'Neugierige Leserin'
+'Eifriger Leser_f': 'Eifrige Leserin'
+Wüstenhistoriker_f: Wüstenhistorikerin
+Bibliothekar_f: Bibliothekarin
+Archivar_f: Archivarin
+Erinnerungsträger_f: Erinnerungsträgerin
+'Erinnerungen an die Zivilisation_f': 'Erinnerungen an die Zivilisation'
+'Twinoid ist tabu_f': 'Twinoid ist tabu'
+'Keine Macht den Drogen_f': 'Keine Macht den Drogen'
+'Sowas fasse ICH nicht an_f': 'Sowas fasse ICH nicht an'
+'Vorbild für die Jugend_f': 'Vorbild für die Jugend'
+'Champions nehmen keine Drogen!_f': 'Champions nehmen keine Drogen!'
+Medikamentetester_f: Medikamentetesterin
+Laborratte_f: Laborratte
+'Pille palle, 3 Tage wach!_f': 'Pille palle, 3 Tage wach!'
+'Timothy Leary_f': 'Timothy Leary'
+'Ich sehe ein Blauuuuuuues Tal_f': 'Ich sehe ein Blauuuuuuues Tal'
+Menschenfleischliebhaber_f: Menschenfleischliebhaberin
+Hannibalfan_f: Hannibalfan
+Totmacher_f: Totmacherin
+'Jeffrey Dahmer_f': 'Jeffrey Dahmer'
+'Fast schon ein Zombie..._f': 'Fast schon ein Zombie...'
+"Schmeckt am besten wenn's noch schreit!_f": "Schmeckt am besten wenn's noch schreit!"
+'Die Macht der Proteine_f': 'Die Macht der Proteine'
+'Nackt und Zerfleischt_f': 'Nackt und Zerfleischt'
+Zombieliebling_f: Zombieliebling
+'Letzter Überlebender_f': 'Letzte Überlebende'
+Unzerstörbar_f: Unzerstörbar
+'Allein gegen die Horde_f': 'Allein gegen die Horde'
+"Chuck Norris' Ebenbild_f": "Chuck Norris' Ebenbild"
+'Ich bin in der Hölle aufgewachsen._f': 'Ich bin in der Hölle aufgewachsen.'
+'Es war wirklich zu einfach._f': 'Es war wirklich zu einfach.'
+'Ich fresse Nägel und scheiße Kugeln!_f': 'Ich fresse Nägel und scheiße Kugeln!'
+'Pandämonium? Hah. Einfach._f': 'Pandämonium? Hah. Einfach.'
+'Teilweise verrottet_f': 'Teilweise verrottet'
+Virenschleuder_f: Virenschleuder
+Gedärmeauskotzer_f: Gedärmeauskotzerin
+Seuchenherd_f: Seuchenherd
+'Ich habe Magenschmerzen..._f': 'Ich habe Magenschmerzen...'
+'Verirrter Ausflügler_f': 'Verirrte Ausflüglerin'
+'Nächtlicher Spaziergänger_f': 'Nächtliche Spaziergängerin'
+'Mir ist kalt hier draußen..._f': 'Mir ist kalt hier draußen...'
+'Vertrauenswürdiger Bürger_f': 'Vertrauenswürdige Bürgerin'
+'Sehr erfahrener Bürger_f': 'Sehr erfahrene Bürgerin'
+'Vorbild für das Volk_f': 'Vorbild für das Volk'
+'Richtwert der Gemeinschaft_f': 'Richtwert der Gemeinschaft'
+'Berühmter Veteran_f': 'Berühmter Veteran'
+Anfängerleiche_f: Anfängerleiche
+Rabenfreund_f: Rabenfreundin
+Dehydrationskollege_f: Dehydrationskollegin
+'Lebender Mythos_f': 'Lebender Mythos'
+'Ich bin eine Legende_f': 'Ich bin eine Legende'
+'Hör auf mich, wenn du überleben möchtest_f': 'Hör auf mich, wenn du überleben möchtest'
+'Netter Kerl_f': 'Nette Tante'
+'Zeuge der großen Verseuchung_f': 'Zeugin der großen Verseuchung'
+'Alter Hase_f': 'Alte Häsin'
+'Jedes Los gewinnt_f': 'Jedes Los gewinnt'
+Zinker_f: Zinkerin
+Bingo_f: Bingo
+'Sudoku ist anders_f': 'Sudoku ist anders'
+'Siebenseitiger Würfel_f': 'Siebenseitiger Würfel'
+'Einarmiger Bandit_f': 'Einarmige Banditin'
+'Seelenführer der Gemeinschaft_f': 'Seelenführerin der Gemeinschaft'
+'Charismatischer Prophet_f': 'Charismatische Prophetin'
+'Motivierter Messebesucher_f': 'Motivierte Messebesucherin'
+'Verdammt in Saarbrücken_f': 'Verdammt in Saarbrücken'
+"FJV'08 Kanonenfutter_f": "FJV'08 Kanonenfutter"
+'Kleiner Guru_f': 'Kleiner Guru'
+'Überzeugender Guru_f': 'Überzeugender Guru'
+Frischfleischhändler_f: Frischfleischhändlerin
+Seelenhändler_f: Seelenhändlerin
+'Sehr überzeugender Pate_f': 'Sehr überzeugende Patin'
+Wüstenspekulant_f: Wüstenspekulantin
+'Held der Community!_f': 'Heldin der Community!'
+'Bringt Sachen ins Rollen!_f': 'Bringt Sachen ins Rollen!'
+'Nobler Spender_f': 'Noble Spenderin'
+'Immer zur Stelle_f': 'Immer zur Stelle'
+Samariter_f: Samariter
+'Freigiebiger Bürger_f': 'Freigiebige Bürgerin'
+Messias_f: Messias
+'Der Weihnachtsmann ist ein Schlawiner_f': 'Der Weihnachtsmann ist ein Schlawiner'
+'Santa Klaus ist ein Schummler_f': 'Santa Klaus ist ein Schummler'
+'Santa Klaus ist Abfall_f': 'Santa Klaus ist Abfall'
+'Santa Klaus ist Abschaum_f': 'Santa Klaus ist Abschaum'
+'Hängt Santa Klaus!_f': 'Hängt Santa Klaus!'
+'Treffen der 4. Art_f': 'Treffen der 4. Art'
+'Hast Du mal Feuer?_f': 'Hast Du mal Feuer?'
+'Medium mit Preisnachlass_f': 'Medium mit Preisnachlass'
+'Amophilis Psychotropes_f': 'Amophilis Psychotropes'
+'Blauer Feuerspucker_f': 'Blauer Feuerspuckerin'
+'I see dead people 0_0_f': 'I see dead people 0_0'
+'Soul Man_f': 'Soul Woman'
+Lebenssammler_f: Lebenssammlerin
+'Schnitter der Aussenwelt_f': 'Schnitterin der Aussenwelt'
+'Bei meiner Seel_f': 'Bei meiner Seel'
+'Für immer und seelich_f': 'Für immer und seelich'
+'Noble Seele_f': 'Noble Seele'
+Beseelt_f: Beseelt
+Reinkarnator_f: Reinkarnatorin
+'Göttliche Seele_f': 'Göttliche Seele'
+Open-chakra_f: Open-chakra
+Tausend-und-ein-Leben_f: Tausend-und-ein-Leben
+Buddha_f: Buddha
+'Ich bin ein Gott! Ich werde ewig leben!_f': 'Ich bin eine Göttin! Ich werde ewig leben!'
+'Eine Stadt sie zu knechten!_f': 'Eine Stadt sie zu knechten!'
+'Verrückter Skeptiker_f': 'Verrückte Skeptikerin'
+Seelenknipser_f: Seelenknipserin
+'Wächter der Seelen_f': 'Wächterin der Seelen'
+'Die Wahrheit ist irgendwo da draußen_f': 'Die Wahrheit ist irgendwo da draußen'
+'Ich glaube!_f': 'Ich glaube!'
+Sektenmitglied_f: Sektenmitglied
+'Kosmischer Anführer_f': 'Kosmische Anführerin'
+'Rauch? Welcher Rauch?_f': 'Rauch? Welcher Rauch?'
+Leckstopper_f: Leckstopperin
+'Licht in der Nacht_f': 'Licht in der Nacht'
+RadioactiveMan_f: RadioactiveWoman
+'Strahlender Bürger_f': 'Strahlende Bürgerin'
+'Hölle, das esse ich jeden Morgen._f': 'Hölle, das esse ich jeden Morgen.'
+'Abonnent der Pandämoniumsauna_f': 'Abonnentin der Pandämoniumsauna'
+'Pandämonium ist meine Liebe!_f': 'Pandämonium ist meine Liebe!'
+'Luzifers Tanzpartner_f': 'Luzifers Tanzpartnerin'
+'Ultimativer Horden-Erkunder_f': 'Ultimative Horden-Erkunderin'
+'Irische Taschen sind prall gefüllt!_f': 'Irische Taschen sind prall gefüllt!'
+'Wo ist mein Topf voll Gold, diebische Elster!_f': 'Wo ist mein Topf voll Gold, diebische Elster!'
+'Dieser Kobold ist unaufhaltbar._f': 'Diese Koboldin ist unaufhaltbar.'
+'Verbrennt ihn! Sieh nach ob seine Asche grün wird!_f': 'Verbrennt sie! Sieh nach ob ihre Asche grün wird!'
+'Ein Wohnwagen ohne Räder???_f': 'Ein Wohnwagen ohne Räder???'
+'Mitglied des Roten Kreuzes_f': 'Mitglied des Roten Kreuzes'
+'Ich bin geheilt_f': 'Ich bin geheilt'
+'Keine Fehler hi&e%12;r_f': 'Keine Fehler hi&e%12;r'
+'Patient Null_f': 'Patientin Null'
+'Es ist der Tod der mich fürchten sollte!_f': 'Es ist der Tod der mich fürchten sollte!'
+Sandmann_f: Sandfrau
+'Sandy Maverick_f': 'Sandy Maverick'
+Wegweiser_f: Wegweiserin
+'Praktischer Begleiter_f': 'Praktische Begleiterin'
+'Erleuchteter Anführer_f': 'Erleuchtete Anführerin'
+'Erleuchteter Prediger_f': 'Erleuchtete Predigerin'
+'Guru der Liebe_f': 'Guru der Liebe'
+'Höret meine Stimme_f': 'Höret meine Stimme'
+'Zeuge des Armageddon_f': 'Zeugin des Armageddon'
+'Ewiger Zweiter_f': 'Ewige Zweite'
+'Ein Wächter stirbt, aber gibt niemals auf_f': 'Eine Wächterin stirbt, aber gibt niemals auf'
+'Der Zweitletzte Mohikaner_f': 'Die Zweitletzte Mohikanerin'
+'Faaaaaaaast, ach verdammt_f': 'Faaaaaaaast, ach verdammt'
+'Bis zum Ende und einen Schritt weiter_f': 'Bis zum Ende und einen Schritt weiter'
+'Schließt die Ränke und haltet durch_f': 'Schließt die Ränke und haltet durch'
+'Hallo... ist da draußen jemand?_f': 'Hallo... ist da draußen jemand?'
+'Haltet eure Position!_f': 'Haltet eure Position!'
+'Nur ein Finger_f': 'Nur ein Finger'
+'Plünderer der Schnapsläden_f': 'Plünderin der Schnapsläden'
+'Hennessy Highwayman_f': 'Hennessy Highwayman'
+'Barney Gumble der Außenwelt_f': 'Barney Gumble der Außenwelt'
+'Fass das Saufen lieber sein_f': 'Fass das Saufen lieber sein'
+'Gib mir was zu saufen oder es knallt!_f': 'Gib mir was zu saufen oder es knallt!'
+'Alles unter 55% ist Wasser_f': 'Alles unter 55% ist Wasser'
+Dialyse_f: Dialyse
+'Chef der Mauer_f': 'Chefin der Mauer'
+Schaufelführer_f: Schaufelführerin
+'Ich bin ein Biest!_f': 'Ich bin ein Biest!'
+'DdA Beste Buddler_f': 'DdA Beste Buddler'
+Tarnexperte_f: Tarnexpertin
+Ninja_f: Ninja
+AP: AP
+CP: CP
+MP: MP
+'Der Raum auf den Zinnen ist begrenzt! Aktuell haben <strong>{watchers} / {cap}</strong> Nachtwächter ihren Platz eingenommen.': 'Der Raum auf den Zinnen ist begrenzt! Aktuell haben <strong>{watchers} / {cap}</strong> Nachtwächter ihren Platz eingenommen.'
+'<strong>Achtung:</strong> In der Bank fehlen Gegenstände, die benötigt werden, damit die Verteidigungsanlagen mit voller Stärke arbeiten können!': '<strong>Achtung:</strong> In der Bank fehlen Gegenstände, die benötigt werden, damit die Verteidigungsanlagen mit voller Stärke arbeiten können!'
+'{building} hat folgende Gegenstände verbraucht: {items}.': '{building} hat folgende Gegenstände verbraucht: {items}.'
+Schamanenkreis: Schamanenkreis
 Eventsieger: Eventsieger
 Eventteilnehmer: Eventteilnehmer
 'Auszeichnung für deinen Sieg in einem Community-Event, Glückwünsch!': 'Auszeichnung für deinen Sieg in einem Community-Event, Glückwünsch!'
 'Auszeichnung für deine Teilnahme an einem Community-Event.': 'Auszeichnung für deine Teilnahme an einem Community-Event.'
+'Allwissender Schamane': 'Allwissender Schamane'
+'Allwissender Schamane_f': 'Allwissende Schamanin'
+'Anführer der verlorenen Seelen': 'Anführer der verlorenen Seelen'
+'Anführer der verlorenen Seelen_f': 'Anführerin der verlorenen Seelen'
+'Uneinnehmbare Festung': 'Uneinnehmbare Festung'
+'Uneinnehmbare Festung_f': 'Uneinnehmbare Festung'
+'Ein bisschen näher an den Sternen': 'Ein bisschen näher an den Sternen'
+'Ein bisschen näher an den Sternen_f': 'Ein bisschen näher an den Sternen'
+'Himmel! Was werden die Nachbarn sagen?': 'Himmel! Was werden die Nachbarn sagen?'
+'Himmel! Was werden die Nachbarn sagen?_f': 'Himmel! Was werden die Nachbarn sagen?'
+'Mister Sandman ♫♪': 'Mister Sandman ♫♪'
+'Mister Sandman ♫♪_f': 'Misses Sandman ♫♪'
+'Nutzt das Vergängliche': 'Nutzt das Vergängliche'
+'Nutzt das Vergängliche_f': 'Nutzt das Vergängliche'
+'John Snow': 'John Snow'
+'John Snow_f': 'John Snow'
+'Der Rabinator': 'Der Rabinator'
+'Der Rabinator_f': 'Die Rabinatorin'
+'Wir drehen frei!': 'Wir drehen frei!'
+'Wir drehen frei!_f': 'Wir drehen frei!'
+'Du nennst das ein Messer? DAS ist ein Messer!': 'Du nennst das ein Messer? DAS ist ein Messer!'
+'Du nennst das ein Messer? DAS ist ein Messer!_f': 'Du nennst das ein Messer? DAS ist ein Messer!'
+'Apostel des Pandämoniums': 'Apostel des Pandämoniums'
+'Apostel des Pandämoniums_f': 'Apostel des Pandämoniums'
+'Liebling des Raben': 'Liebling des Raben'
+'Liebling des Raben_f': 'Liebling des Raben'
+Seelentrader: Seelentrader
+Seelentrader_f: Seelentraderin
+Scientologe: Scientologe
+Scientologe_f: Scientologin
+'Komm auf die dunkle Seite der Macht!': 'Komm auf die dunkle Seite der Macht!'
+'Komm auf die dunkle Seite der Macht!_f': 'Komm auf die dunkle Seite der Macht!'
+'Warren Buffet der Außenwelt': 'Warren Buffet der Außenwelt'
+'Warren Buffet der Außenwelt_f': 'Warren Buffet der Außenwelt'
+'Mein Körper ist bereit!': 'Mein Körper ist bereit!'
+'Mein Körper ist bereit!_f': 'Mein Körper ist bereit!'
+'Ultimatives Opfer': 'Ultimatives Opfer'
+'Ultimatives Opfer_f': 'Ultimatives Opfer'
+'Kabum! Der Reaktor mach KABUM!!!': 'Kabum! Der Reaktor mach KABUM!!!'
+'Kabum! Der Reaktor mach KABUM!!!_f': 'Kabum! Der Reaktor mach KABUM!!!'
+Atompilzsammler: Atompilzsammler
+Atompilzsammler_f: Atompilzsammlerin
+'Bis auf die Seele verstrahlt': 'Bis auf die Seele verstrahlt'
+'Bis auf die Seele verstrahlt_f': 'Bis auf die Seele verstrahlt'
+'Ich steh auf Fusion!': 'Ich steh auf Fusion!'
+'Ich steh auf Fusion!_f': 'Ich steh auf Fusion!'
+Kung-Fu-Sion: Kung-Fu-Sion
+Kung-Fu-Sion_f: Kung-Fu-Sion
+Sandsteiniger: Sandsteiniger
+Sandsteiniger_f: Sandsteinigerin
+Sandkasten-Scharfschütze: Sandkasten-Scharfschütze
+Sandkasten-Scharfschütze_f: Sandkasten-Scharfschützin
+'Universelle Muse': 'Universelle Muse'
+'Universelle Muse_f': 'Universelle Muse'
+'Du hast {count} x {item} auf der öffentlichen Müllhalde abgeladen. <strong>Die Stadt hat {def} Verteidigungspunkt(e) dazugewonnen.</strong>': 'Du hast {count} x {item} auf der öffentlichen Müllhalde abgeladen. <strong>Die Stadt hat {def} Verteidigungspunkt(e) dazugewonnen.</strong>'
+'Was für ein Glück! Kurz nach dem Angriff wurden Baupläne in die Stadt geweht. Ihr erhaltet: {items}': 'Was für ein Glück! Kurz nach dem Angriff wurden Baupläne in die Stadt geweht. Ihr erhaltet: {items}'
+'Du siehst nicht wirklich, wo du dich hier verstecken könntest...': 'Du siehst nicht wirklich, wo du dich hier verstecken könntest...'
+'Egal, wie sehr du suchst, es erscheint offensichtlich, dass es an diesem Ort nur ein einziges geeignetes Versteck gibt. Entscheide selbst...': 'Egal, wie sehr du suchst, es erscheint offensichtlich, dass es an diesem Ort nur ein einziges geeignetes Versteck gibt. Entscheide selbst...'
+'Dieser Ort bietet Möglichkeiten zum Verstecken, wenn du kreativ genug bist.': 'Dieser Ort bietet Möglichkeiten zum Verstecken, wenn du kreativ genug bist.'
+'Du beobachtest mehrere geeignete Verstecke, aber es wird nicht für jeden etwas dabei sein.': 'Du beobachtest mehrere geeignete Verstecke, aber es wird nicht für jeden etwas dabei sein.'
+'Es sollte nicht allzu schwer sein, diesen Ort zum Untertauchen auszunutzen.': 'Es sollte nicht allzu schwer sein, diesen Ort zum Untertauchen auszunutzen.'
+'Es scheint, dass alle guten Verstecke bereits von deinen "Freunden" besetzt sind. Du musst also einen anderen Ort finden oder improvisieren...': 'Es scheint, dass alle guten Verstecke bereits von deinen "Freunden" besetzt sind. Du musst also einen anderen Ort finden oder improvisieren...'
+'Entfernung von hier': 'Entfernung von hier'
+'Entfernung zur Stadt': 'Entfernung zur Stadt'
