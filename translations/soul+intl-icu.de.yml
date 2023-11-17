@@ -576,6 +576,12 @@ Gross: Gross
 'Sehr gross': 'Sehr gross'
 'Spielen in anderen Gemeinden': 'Spielen in anderen Gemeinden'
 'Du kannst nur den Städten deiner Gemeinschaft beitreten.': 'Du kannst nur den Städten deiner Gemeinschaft beitreten.'
+'Passwort-Login aktivieren': 'Passwort-Login aktivieren'
+'Dein neues Passwort wurde dir per E-Mail zugeschickt.': 'Dein neues Passwort wurde dir per E-Mail zugeschickt.'
+Passwort-Login: Passwort-Login
+'Wenn du möchtest, kannst du dich zusätzlich auch direkt via MyHordes einloggen. Wenn du diese Option aktivierst, schicken wir dir ein Passwort zum Einloggen an deine E-Mail Adresse.': 'Wenn du möchtest, kannst du dich zusätzlich auch direkt via MyHordes einloggen. Wenn du diese Option aktivierst, schicken wir dir ein Passwort zum Einloggen an deine E-Mail Adresse.'
+'Aus Sicherheitsgründen muss dein Account über ein Passwort verfügen, um gelöscht werden zu können. Wenn du deinen Account löschen möchtest, aktiviere bitte zunächst den Passwort-Login.': 'Aus Sicherheitsgründen muss dein Account über ein Passwort verfügen, um gelöscht werden zu können. Wenn du deinen Account löschen möchtest, aktiviere bitte zunächst den Passwort-Login.'
+'Das Löschen deines Accounts geschieht mit einer Verzögerung von 24 - 48 Stunden. Wenn Du dich vor Ablauf dieser Frist erneut einloggst, wird die Löschung abgebrochen. Du kannst nach dem Löschen deines Accounts keinen neuen Account mit der gleichen E-Mail Adresse und/oder dem gleichen Eternaltwin Konto anlegen!': 'Das Löschen deines Accounts geschieht mit einer Verzögerung von 24 - 48 Stunden. Wenn Du dich vor Ablauf dieser Frist erneut einloggst, wird die Löschung abgebrochen. Du kannst nach dem Löschen deines Accounts keinen neuen Account mit der gleichen E-Mail Adresse und/oder dem gleichen Eternaltwin Konto anlegen!'
 'Resourcen für Baustellen immer komplett anzeigen': 'Resourcen für Baustellen immer komplett anzeigen'
 'Für einige Baustellen werden viele verschiedene Arten von Ressourcen benötigt, so dass es schwierig ist, sie alle in einer Zeile anzuzeigen. Diese Option legt fest, ob die Resourcen immer vollständig angezeigt oder individuell ausklappbar sein sollen.': 'Für einige Baustellen werden viele verschiedene Arten von Ressourcen benötigt, so dass es schwierig ist, sie alle in einer Zeile anzuzeigen. Diese Option legt fest, ob die Resourcen immer vollständig angezeigt oder individuell ausklappbar sein sollen.'
 'Private Foren über Weltforen anzeigen': 'Private Foren über Weltforen anzeigen'
