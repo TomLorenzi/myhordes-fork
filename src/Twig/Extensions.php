@@ -330,6 +330,6 @@ class Extensions extends AbstractExtension implements GlobalsInterface
     }
 
 	public function gethostname(): string {
-		return gethostname();
+		return getenv('LOAD_HOST') ?: gethostname();
 	}
 }

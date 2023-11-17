@@ -196,6 +196,6 @@
             }
         {% endif %}
 
-        document.getElementById('current_webserver').innerText = "{{ "Auf {hostname}"|trans({'hostname': hostname()}, 'global') }}";
+        document.getElementById('current_webserver').innerHTML = "{{ "Auf {hostname}"|trans({'hostname': '<pre>' ~ hostname() ~ '</pre>'}, 'global')|raw }}";
     </script>
 {% endblock %}

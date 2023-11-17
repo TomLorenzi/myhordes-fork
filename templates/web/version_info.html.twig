@@ -38,5 +38,6 @@
             </{{ link is not null ? 'a' : 'div' }}>
         </div>
     </div>
+    <div id="current_webserver">{{ "Auf {hostname}"|trans({'hostname': '<pre>' ~ hostname() ~ '</pre>'}, 'global')|raw }}</div>
 {% endif %}
 {% endapply %}
