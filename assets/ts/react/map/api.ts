@@ -4,6 +4,8 @@ import {MapData, MapRoute} from "./typedef";
 export type RuntimeMapStrings = {
     zone: string,
     distance: string,
+    distanceTown: string,
+    distanceSelf: string,
     danger: string[],
     tags: string[],
     mark: string,
