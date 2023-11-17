@@ -577,6 +577,12 @@ Gross: Grande
 'Sehr gross': 'Muy grande'
 'Spielen in anderen Gemeinden': 'Jugar en otras comunidades'
 'Du kannst nur den Städten deiner Gemeinschaft beitreten.': 'Solo está permitido jugar en pueblos de su comunidad.'
+'Passwort-Login aktivieren': 'Activar inicio de sesión con contraseña'
+'Dein neues Passwort wurde dir per E-Mail zugeschickt.': 'Tu nueva contraseña ha sido enviada al correo electrónico.'
+Passwort-Login: Iniciar sesión con contraseña
+'Wenn du möchtest, kannst du dich zusätzlich auch direkt via MyHordes einloggen. Wenn du diese Option aktivierst, schicken wir dir ein Passwort zum Einloggen an deine E-Mail Adresse.': 'También es posible conectarse directamente a través de MyHordes. Al activar esta opción, se le enviará una contraseña por correo electrónico.'
+'Aus Sicherheitsgründen muss dein Account über ein Passwort verfügen, um gelöscht werden zu können. Wenn du deinen Account löschen möchtest, aktiviere bitte zunächst den Passwort-Login.': 'Por razones de seguridad, tu cuenta debe tener una contraseña para poder ser eliminada. Si desea poder eliminar tu cuenta, primero habilita el inicio de sesión con contraseña.'
+'Das Löschen deines Accounts geschieht mit einer Verzögerung von 24 - 48 Stunden. Wenn Du dich vor Ablauf dieser Frist erneut einloggst, wird die Löschung abgebrochen. Du kannst nach dem Löschen deines Accounts keinen neuen Account mit der gleichen E-Mail Adresse und/oder dem gleichen Eternaltwin Konto anlegen!': 'La cuenta se eliminará definitivamente después de un período de 24 a 48 horas. Si vuelves a iniciar sesión antes de que expire este tiempo, la eliminación de la cuenta se deshará. ¡No podrás crear una nueva cuenta con la misma dirección de correo electrónico y/o cuenta Eternaltwin después de la eliminación!'
 'Resourcen für Baustellen immer komplett anzeigen': 'Mostrar siempre los recursos para las obras en su totalidad'
 'Für einige Baustellen werden viele verschiedene Arten von Ressourcen benötigt, so dass es schwierig ist, sie alle in einer Zeile anzuzeigen. Diese Option legt fest, ob die Resourcen immer vollständig angezeigt oder individuell ausklappbar sein sollen.': 'Algunas obras requieren muchos tipos diferentes de recursos, por lo que resulta difícil mostrarlos todos en una fila. Esta opción controla si los recursos deben mostrarse siempre en su totalidad o ampliarse individualmente.'
 'Private Foren über Weltforen anzeigen': 'Mostrar foros privados encima de foros mundiales'
