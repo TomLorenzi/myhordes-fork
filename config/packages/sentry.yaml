@@ -7,6 +7,8 @@ when@prod:
           traces_sample_rate: 0.1
           environment: '%env(SENTRY_ENV)%'
           release: '%env(SENTRY_VER)%'
+          integrations:
+            - 'Sentry\Integration\IgnoreErrorsIntegration'
 
     monolog:
         handlers:
@@ -18,6 +20,13 @@ when@prod:
     services:
       Monolog\Processor\PsrLogMessageProcessor:
         tags: { name: monolog.processor, handler: sentry }
+      Sentry\Integration\IgnoreErrorsIntegration:
+        arguments:
+          $options:
+            ignore_exceptions:
+              - App\Exception\DynamicAjaxResetException
+              - Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+              - Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException
 
 when@dev:
   sentry:
@@ -28,6 +37,8 @@ when@dev:
       traces_sample_rate: 0.5
       environment: '%env(SENTRY_ENV)%'
       release: '%env(SENTRY_VER)%'
+      integrations:
+        - 'Sentry\Integration\IgnoreErrorsIntegration'
 
   monolog:
     handlers:
@@ -39,3 +50,8 @@ when@dev:
   services:
     Monolog\Processor\PsrLogMessageProcessor:
       tags: { name: monolog.processor, handler: sentry }
+    Sentry\Integration\IgnoreErrorsIntegration:
+      arguments:
+        $options:
+          ignore_exceptions:
+            - App\Exception\DynamicAjaxResetException
