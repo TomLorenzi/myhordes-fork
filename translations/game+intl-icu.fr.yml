@@ -1431,7 +1431,7 @@ RadioactiveMan: RadioactiveMan
 'Luzifers Tanzpartner': 'Partenaire de danse de Lucifer'
 'Ultimativer Horden-Erkunder': 'Ultime explorateur Hordien'
 'Irische Taschen sind prall gefüllt!': 'Les poches irlandaises sont blindées!'
-'Wo ist mein Topf voll Gold, diebische Elster!': 'Où est mon pot d''or, maudit voleur!'
+'Wo ist mein Topf voll Gold, diebische Elster!': 'Où est mon pot d’or, maudit voleur ?'
 'Dieser Kobold ist unaufhaltbar.': 'Ce lutin est imparable!'
 'Verbrennt ihn! Sieh nach ob seine Asche grün wird!': 'Brûlez-le, voyez si ses cendres deviennent vertes!'
 'Ein Wohnwagen ohne Räder???': 'Une caravane sans roues ???'
@@ -1565,7 +1565,7 @@ Anzeigen: Plaintes
 'Grund:': 'Raison :'
 Wählen: Sélectionner
 'Beta-Tester der neuen Zeit': 'Beta-testeur next gen'
-'Keine Fehler hi&e%12;r': 'Plus d&amp;apos;erreurs ici'
+'Keine Fehler hi&e%12;r': 'Plus d&apos;erreurs ici'
 'Patient Null': 'Patient Zéro'
 'Vom Turm aus hast du eine guten Überblick über die Wüste. Du musterst die Umgebung, versuchst die Zombies zu zählen und ihre Bewegungsrichtung vorauszuberechnen... <br />Nachdem du einige Minuten die Lage gecheckt hast, schreibst du deine Ergebnisse in das <strong>Wachturmregister</strong>.<hr />Zusammen mit den Informationen der anderen Bürger sollten wir eine korrekte Angriffsschätzung bekommen.': 'Du haut de la tour, vous examinez le désert environnant, puis tentez de compter les zombies présents, pour enfin essayer de prévoir leurs déplacements... <br />Après quelques minutes d''intense réflexion, vous consignez ces informations dans le <strong>registre de la Tour de Guet</strong>.<hr />Avec ces informations et celles d''autres citoyens, on devrait pouvoir faire une estimation correcte de l''attaque...'
 'Auf den Aufstand hinarbeiten': 'Préparer une insurrection'
@@ -1716,7 +1716,7 @@ Messias: Messie
 'Santa Klaus ist ein Schummler': 'Le Père Noël est un filou'
 'Santa Klaus ist Abfall': 'Le Père Noël est une ordure'
 'Santa Klaus ist Abschaum': 'Le Père Noël est une raclure'
-'Hängt Santa Klaus!': 'Pendez le Père Noël !'
+'Hängt Santa Klaus!': 'Pendez le Père Noël !'
 Lebenssammler: Collectionneur de vie
 'Schnitter der Aussenwelt': 'Faucheur de l''outre-monde'
 'Mitglied des Roten Kreuzes': 'Membre de la Croix Rouge'
@@ -2656,7 +2656,7 @@ Dietrich_f: Une petite tranche de Vachette ?
 'Sesam, öffne dich..._f': 'Sésame, bouge ton c...'
 Türöffner_f: Dentiste serrurière
 Gentleman-Einbrecher_f: Dame Cambrioleuse
-Schlüsseldienst_f: Capitaine Crochet
+Schlüsseldienst_f: Schlüsseldienst
 Zerberus_f: Cerbère de la porte
 'Meister der Schlüssel_f': 'Maîtresse des clés'
 Brutalo_f: Grosse brute
@@ -2753,90 +2753,90 @@ Dehydrationskollege_f: Concitoyenne déshydratée
 'Netter Kerl_f': 'Good Gal'
 'Zeuge der großen Verseuchung_f': 'Témoin de la Grande Contamination'
 'Alter Hase_f': 'Grande ancienne'
-'Jedes Los gewinnt_f': 'Jedes Los gewinnt'
+'Jedes Los gewinnt_f': 'Compagnonne de la communauté'
 Zinker_f: Animée de bonnes intentions
-Bingo_f: Bingo
-'Sudoku ist anders_f': 'Sudoku ist anders'
-'Siebenseitiger Würfel_f': 'Siebenseitiger Würfel'
+Bingo_f: Animal social
+'Sudoku ist anders_f': 'Défunte animée'
+'Siebenseitiger Würfel_f': 'Hyper-activiste communautaire'
 'Einarmiger Bandit_f': 'Gagnante dans l''âme !'
 'Seelenführer der Gemeinschaft_f': 'Guide des âmes communautaires'
 'Charismatischer Prophet_f': 'Prophète charismatique'
 'Motivierter Messebesucher_f': 'Festivalière hordienne motivée'
-'Verdammt in Saarbrücken_f': 'Verdammt in Saarbrücken'
-"FJV'08 Kanonenfutter_f": "FJV'08 Kanonenfutter"
-'Kleiner Guru_f': 'Kleiner Guru'
-'Überzeugender Guru_f': 'Überzeugender Guru'
+'Verdammt in Saarbrücken_f': 'Traqueuse de geeks'
+"FJV'08 Kanonenfutter_f": "Chair à canon du FJV'08"
+'Kleiner Guru_f': 'Détourneuse de fonds'
+'Überzeugender Guru_f': 'Trafiquante de citoyens'
 Frischfleischhändler_f: Négociante en chair fraîche
 Seelenhändler_f: Marchande d'âmes
 'Sehr überzeugender Pate_f': 'Marraine très convaincante'
 Wüstenspekulant_f: Spéculatrice du désert
 'Held der Community!_f': 'Dedans jusqu''au cou !'
-'Bringt Sachen ins Rollen!_f': 'Bringt Sachen ins Rollen!'
+'Bringt Sachen ins Rollen!_f': 'Fais bouger les choses!'
 'Nobler Spender_f': 'Âme noble'
-'Immer zur Stelle_f': 'Immer zur Stelle'
-Samariter_f: Samariter
+'Immer zur Stelle_f': 'Donatrice universelle'
+Samariter_f: Assistante sociale
 'Freigiebiger Bürger_f': 'Citoyenne qui tombe à pic'
-Messias_f: Messias
-'Der Weihnachtsmann ist ein Schlawiner_f': 'Der Weihnachtsmann ist ein Schlawiner'
-'Santa Klaus ist ein Schummler_f': 'Santa Klaus ist ein Schummler'
-'Santa Klaus ist Abfall_f': 'Santa Klaus ist Abfall'
-'Santa Klaus ist Abschaum_f': 'Santa Klaus ist Abschaum'
-'Hängt Santa Klaus!_f': 'Hängt Santa Klaus!'
-'Treffen der 4. Art_f': 'Treffen der 4. Art'
-'Hast Du mal Feuer?_f': 'Hast Du mal Feuer?'
-'Medium mit Preisnachlass_f': 'Medium mit Preisnachlass'
-'Amophilis Psychotropes_f': 'Amophilis Psychotropes'
+Messias_f: Messie
+'Der Weihnachtsmann ist ein Schlawiner_f': 'La Mère Noël est une coquine'
+'Santa Klaus ist ein Schummler_f': 'La Mère Noël est une filoute'
+'Santa Klaus ist Abfall_f': 'La Mère Noël est une ordure'
+'Santa Klaus ist Abschaum_f': 'La Mère Noël est une raclure'
+'Hängt Santa Klaus!_f': 'Pendez La Mère Noël !'
+'Treffen der 4. Art_f': 'Rencontre du 4ème type'
+'Hast Du mal Feuer?_f': 'Vous avez du feu ?'
+'Medium mit Preisnachlass_f': 'Médium au rabais'
+'Amophilis Psychotropes_f': 'Amophilis psychotropes'
 'Blauer Feuerspucker_f': 'Cracheuse de flamme bleue'
 'I see dead people 0_0_f': 'I see dead people 0_0'
 'Soul Man_f': 'Aspi-rituel'
 Lebenssammler_f: Collectionneuse de vie
 'Schnitter der Aussenwelt_f': 'Faucheuse de l''outre-monde'
-'Bei meiner Seel_f': 'Bei meiner Seel'
+'Bei meiner Seel_f': 'Leerd''âmeuse nauséabonde'
 'Für immer und seelich_f': 'Für immer und seelich'
-'Noble Seele_f': 'Noble Seele'
-Beseelt_f: Beseelt
+'Noble Seele_f': 'Âme digne'
+Beseelt_f: Spider-Ame
 Reinkarnator_f: Réincarnator
-'Göttliche Seele_f': 'Göttliche Seele'
+'Göttliche Seele_f': 'Âme divine'
 Open-chakra_f: Open-chakra
-Tausend-und-ein-Leben_f: Tausend-und-ein-Leben
-Buddha_f: Buddha
+Tausend-und-ein-Leben_f: Mille et une vie
+Buddha_f: Bouddha
 'Ich bin ein Gott! Ich werde ewig leben!_f': 'Cheffe-Ascète'
-'Eine Stadt sie zu knechten!_f': 'Eine Stadt sie zu knechten!'
+'Eine Stadt sie zu knechten!_f': 'Une ville pour les gouverner tous!'
 'Verrückter Skeptiker_f': 'Septicis-mite aïgu'
 Seelenknipser_f: Agnos-tic
 'Wächter der Seelen_f': 'Veille avec les Scouts'
-'Die Wahrheit ist irgendwo da draußen_f': 'Die Wahrheit ist irgendwo da draußen'
-'Ich glaube!_f': 'Ich glaube!'
-Sektenmitglied_f: Sektenmitglied
+'Die Wahrheit ist irgendwo da draußen_f': 'La vérité est ailleurs'
+'Ich glaube!_f': 'I''m a believer'
+Sektenmitglied_f: Membre de la secte
 'Kosmischer Anführer_f': 'Marraine cosmique'
-'Rauch? Welcher Rauch?_f': 'Rauch? Welcher Rauch?'
+'Rauch? Welcher Rauch?_f': 'De la fumée ? Quelle fumée ?'
 Leckstopper_f: Colmateuse de fuite
-'Licht in der Nacht_f': 'Licht in der Nacht'
+'Licht in der Nacht_f': 'Lumière dans la nuit'
 RadioactiveMan_f: RadioactiveWoman
 'Strahlender Bürger_f': 'Citoyenne rayonnante'
-'Hölle, das esse ich jeden Morgen._f': 'Hölle, das esse ich jeden Morgen.'
+'Hölle, das esse ich jeden Morgen._f': 'L''enfer, j''en mange un peu chaque matin'
 'Abonnent der Pandämoniumsauna_f': 'Abonnée au sauna du pandémonium'
-'Pandämonium ist meine Liebe!_f': 'Pandämonium ist meine Liebe!'
+'Pandämonium ist meine Liebe!_f': 'Pandémonium mon amour!'
 'Luzifers Tanzpartner_f': 'Partenaire de danse de Lucifer'
 'Ultimativer Horden-Erkunder_f': 'Ultime exploratrice Hordienne'
-'Irische Taschen sind prall gefüllt!_f': 'Irische Taschen sind prall gefüllt!'
-'Wo ist mein Topf voll Gold, diebische Elster!_f': 'Wo ist mein Topf voll Gold, diebische Elster!'
+'Irische Taschen sind prall gefüllt!_f': 'Les poches irlandaises sont blindées!'
+'Wo ist mein Topf voll Gold, diebische Elster!_f': 'Où est mon pot d’or, maudite voleuse ?'
 'Dieser Kobold ist unaufhaltbar._f': 'Cette lutine est imparable!'
 'Verbrennt ihn! Sieh nach ob seine Asche grün wird!_f': 'Brûlez-la, voyez si ses cendres deviennent vertes!'
-'Ein Wohnwagen ohne Räder???_f': 'Ein Wohnwagen ohne Räder???'
-'Mitglied des Roten Kreuzes_f': 'Mitglied des Roten Kreuzes'
-'Ich bin geheilt_f': 'Ich bin geheilt'
-'Keine Fehler hi&e%12;r_f': 'Keine Fehler hi&e%12;r'
+'Ein Wohnwagen ohne Räder???_f': 'Une caravane sans roues ???'
+'Mitglied des Roten Kreuzes_f': 'Membre de la Croix Rouge'
+'Ich bin geheilt_f': 'Je suis guérie'
+'Keine Fehler hi&e%12;r_f': 'Plus d&apos;erreurs ici'
 'Patient Null_f': 'Patiente Zéro'
 'Es ist der Tod der mich fürchten sollte!_f': 'La mort a peur de moi !'
 Sandmann_f: Ensableuse
-'Sandy Maverick_f': 'Sandy Maverick'
+'Sandy Maverick_f': 'Franc-tireuse sablonneuse'
 Wegweiser_f: Lanterne de jour
 'Praktischer Begleiter_f': 'Compagnonne de poche'
 'Erleuchteter Anführer_f': 'Guide éclairée'
 'Erleuchteter Prediger_f': 'Prêcheuse illuminée'
-'Guru der Liebe_f': 'Guru der Liebe'
-'Höret meine Stimme_f': 'Höret meine Stimme'
+'Guru der Liebe_f': 'Love Gourou'
+'Höret meine Stimme_f': 'Écoutez ma voix'
 'Zeuge des Armageddon_f': 'Témoin de l''Armageddon'
 'Ewiger Zweiter_f': 'Éternelle seconde'
 'Ein Wächter stirbt, aber gibt niemals auf_f': 'La garde meurt, mais ne se rend pas !'
@@ -2844,7 +2844,7 @@ Wegweiser_f: Lanterne de jour
 'Faaaaaaaast, ach verdammt_f': 'Eeeeeeeet ben non'
 'Bis zum Ende und einen Schritt weiter_f': 'Jusqu''au bout, et même un peu moins loin'
 'Schließt die Ränke und haltet durch_f': 'Serrez les rangs... et les fesses...'
-'Hallo... ist da draußen jemand?_f': 'Vous êtes là les copains?'
+'Hallo... ist da draußen jemand?_f': 'Vous êtes là les copines ?'
 'Haltet eure Position!_f': 'Tenez vos positions !'
 'Nur ein Finger_f': 'Juste un doigt !'
 'Plünderer der Schnapsläden_f': 'Pilier de comptoir'
@@ -2886,45 +2886,45 @@ Eventteilnehmer: Participant d'évènement
 'Nutzt das Vergängliche': 'Exploit de l''éphèmère'
 'Nutzt das Vergängliche_f': 'Exploit de l''éphèmère'
 'John Snow': 'John Snow'
-'John Snow_f': 'John Snow'
-'Der Rabinator': 'Der Rabinator'
-'Der Rabinator_f': 'Die Rabinatorin'
-'Wir drehen frei!': 'Wir drehen frei!'
-'Wir drehen frei!_f': 'Wir drehen frei!'
-'Du nennst das ein Messer? DAS ist ein Messer!': 'Du nennst das ein Messer? DAS ist ein Messer!'
-'Du nennst das ein Messer? DAS ist ein Messer!_f': 'Du nennst das ein Messer? DAS ist ein Messer!'
-'Apostel des Pandämoniums': 'Apostel des Pandämoniums'
-'Apostel des Pandämoniums_f': 'Apostel des Pandämoniums'
-'Liebling des Raben': 'Liebling des Raben'
-'Liebling des Raben_f': 'Liebling des Raben'
-Seelentrader: Seelentrader
+'John Snow_f': 'Margaret Ann Bulkley'
+'Der Rabinator': 'Le Corbeausier'
+'Der Rabinator_f': 'La Corbeautière'
+'Wir drehen frei!': 'En roue libre'
+'Wir drehen frei!_f': 'En roue libre'
+'Du nennst das ein Messer? DAS ist ein Messer!': 'T''appelles ça un couteau ? ÇA c''est un couteau !'
+'Du nennst das ein Messer? DAS ist ein Messer!_f': 'T''appelles ça un couteau ? ÇA c''est un couteau !'
+'Apostel des Pandämoniums': 'Apôtre du Pandémonium'
+'Apostel des Pandämoniums_f': 'Apôtresse du Pandémonium'
+'Liebling des Raben': 'Favori du Corbeau'
+'Liebling des Raben_f': 'Favorite du Corbeau'
+Seelentrader: Trader très efficace
 Seelentrader_f: Seelentraderin
-Scientologe: Scientologe
-Scientologe_f: Scientologin
-'Komm auf die dunkle Seite der Macht!': 'Komm auf die dunkle Seite der Macht!'
-'Komm auf die dunkle Seite der Macht!_f': 'Komm auf die dunkle Seite der Macht!'
-'Warren Buffet der Außenwelt': 'Warren Buffet der Außenwelt'
-'Warren Buffet der Außenwelt_f': 'Warren Buffet der Außenwelt'
-'Mein Körper ist bereit!': 'Mein Körper ist bereit!'
-'Mein Körper ist bereit!_f': 'Mein Körper ist bereit!'
-'Ultimatives Opfer': 'Ultimatives Opfer'
-'Ultimatives Opfer_f': 'Ultimatives Opfer'
-'Kabum! Der Reaktor mach KABUM!!!': 'Kabum! Der Reaktor mach KABUM!!!'
-'Kabum! Der Reaktor mach KABUM!!!_f': 'Kabum! Der Reaktor mach KABUM!!!'
-Atompilzsammler: Atompilzsammler
-Atompilzsammler_f: Atompilzsammlerin
-'Bis auf die Seele verstrahlt': 'Bis auf die Seele verstrahlt'
-'Bis auf die Seele verstrahlt_f': 'Bis auf die Seele verstrahlt'
-'Ich steh auf Fusion!': 'Ich steh auf Fusion!'
-'Ich steh auf Fusion!_f': 'Ich steh auf Fusion!'
-Kung-Fu-Sion: Kung-Fu-Sion
-Kung-Fu-Sion_f: Kung-Fu-Sion
-Sandsteiniger: Sandsteiniger
-Sandsteiniger_f: Sandsteinigerin
-Sandkasten-Scharfschütze: Sandkasten-Scharfschütze
-Sandkasten-Scharfschütze_f: Sandkasten-Scharfschützin
-'Universelle Muse': 'Universelle Muse'
-'Universelle Muse_f': 'Universelle Muse'
+Scientologe: Persuadotron-powa
+Scientologe_f: Persuadotron-powa
+'Komm auf die dunkle Seite der Macht!': 'Passe du côté obscur !'
+'Komm auf die dunkle Seite der Macht!_f': 'Passe du côté obscur !'
+'Warren Buffet der Außenwelt': 'Golden Glaouis'
+'Warren Buffet der Außenwelt_f': 'Golden Glaouis'
+'Mein Körper ist bereit!': 'Prenez mon corps !'
+'Mein Körper ist bereit!_f': 'Prenez mon corps !'
+'Ultimatives Opfer': 'Sacrifice ultime'
+'Ultimatives Opfer_f': 'Sacrifice ultime'
+'Kabum! Der Reaktor mach KABUM!!!': 'Boum ! Quand notre réacteur fait Boum !'
+'Kabum! Der Reaktor mach KABUM!!!_f': 'Boum ! Quand notre réacteur fait Boum !'
+Atompilzsammler: Cueilleur de champignons atomiques
+Atompilzsammler_f: Cueilleuse de champignons atomiques
+'Bis auf die Seele verstrahlt': 'Irradié jusque dans l''âme'
+'Bis auf die Seele verstrahlt_f': 'Irradiée jusque dans l''âme'
+'Ich steh auf Fusion!': 'La fission ça m''éclate !'
+'Ich steh auf Fusion!_f': 'La fission ça m''éclate !'
+Kung-Fu-Sion: Fiiii-ssion
+Kung-Fu-Sion_f: Fiiii-ssion
+Sandsteiniger: Lapidations de Noël
+Sandsteiniger_f: Lapidations de Noël
+Sandkasten-Scharfschütze: Sniper des bacs à sable
+Sandkasten-Scharfschütze_f: Snipeuse des bacs à sable
+'Universelle Muse': 'Inspirateur universel'
+'Universelle Muse_f': 'Inspiratrice universelle'
 'Du hast {count} x {item} auf der öffentlichen Müllhalde abgeladen. <strong>Die Stadt hat {def} Verteidigungspunkt(e) dazugewonnen.</strong>': 'Vous avez jeté {count} {item} dans la décharge. <strong>La ville a reçu {def} point(s) de défense !</strong>'
 'Was für ein Glück! Kurz nach dem Angriff wurden Baupläne in die Stadt geweht. Ihr erhaltet: {items}': '{items} a été découvert. Cet objet a été déposé <span>à la banque</span>.'
 'Du siehst nicht wirklich, wo du dich hier verstecken könntest...': 'Vous ne voyez vraiment pas où vous pourriez vous cacher ici…'
@@ -2933,5 +2933,5 @@ Sandkasten-Scharfschütze_f: Sandkasten-Scharfschützin
 'Du beobachtest mehrere geeignete Verstecke, aber es wird nicht für jeden etwas dabei sein.': 'Vous repérez plusieurs planques intéressantes, mais il n''''y en aura pas pour tout le monde.'
 'Es sollte nicht allzu schwer sein, diesen Ort zum Untertauchen auszunutzen.': 'Il ne devrait pas être trop dur de tirer profit de cet endroit pour vous planquer.'
 'Es scheint, dass alle guten Verstecke bereits von deinen "Freunden" besetzt sind. Du musst also einen anderen Ort finden oder improvisieren...': 'Il semblerait que toutes les bonnes planques soient déjà occupées. Il va falloir trouver un autre endroit, ou improviser…'
-'Entfernung von hier': 'Entfernung von hier'
-'Entfernung zur Stadt': 'Entfernung zur Stadt'
+'Entfernung von hier': 'Distance d''ici'
+'Entfernung zur Stadt': 'Distance à la ville'
