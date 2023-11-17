@@ -466,7 +466,7 @@ Kopfzeile: Cabecera
 'Netzwerkfehler. Bitte prüfe deine Internetverbindung.': 'Error de red. Por favor revise tu conexión a internet.'
 'Link wurde in die Zwischenablage kopiert.': 'El enlace se ha copiado en el portapapeles.'
 'Link konnte nicht kopiert werden.': 'No se pudo copiar el enlace.'
-'MyHordes ist <i>Open Source</i> und jeder ist zur <b>Mitwirkung</b> eingeladen. Du findest den Quellcode bei {gitlab} und kannst dort auch Fehler melden.': 'Si desea crear problemas o sugerir cambios, MyHordes está disponible en {gitlab}. Si quieres unirte al proyecto, ¡escríbenos al Soporte Técnico!'
+'MyHordes ist <i>Open Source</i> und jeder ist zur <b>Mitwirkung</b> eingeladen. Du findest den Quellcode bei {gitlab} und kannst dort auch Fehler melden.': 'Wenn ihr Fehler melden oder Verbesserungen vorschlagen möchtet, besucht das MyHordes-Projekt auf {gitlab}. Wenn ihr dem Projekt beitreten möchtet, schreibt einfach dem Technischen Support!'
 'Das kannst du nicht tun, während du einen Benutzer impersonifizierst.': 'No se puede hacer esto mientras esté conectado como otro usuario.'
 'Dieser Bürger verwendet in der aktuellen Stadt einen alternativen Spitznamen.': 'Este habitante utiliza un apodo alternativo en el pueblo actual.'
 "Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.\n                                            <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>": "La gran cantidad de montones de tierra y basura que hay por ahí son un indicio de que probablemente no quede nada por encontrar aquí.\n                                                    <p><em>Sin embargo, si lo desea, puede seguir cavando y desenterrando algunos materiales inferiores para los distintos sitios de construcción del pueblo.</em></p>"
@@ -530,6 +530,8 @@ Kurzbeschreibung: Descripción breve
 'Mehr Ergebnisse anzeigen': 'Ver más resultados'
 'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".': 'Utiliza "^" para buscar únicamente palabras que empiecen o terminen con una palabra concreta. Por ejemplo, "corto^" encontrará la palabra "ultracorto", pero no "cortísimo".'
 Inhaltsverzeichnis: Tabla de contenidos
+'Das Geschlecht deines Titels.': 'El género de tu título.'
+'Bevorzugte Pronomen (Titel)': 'Preferencia de pronombre (título)'
 'Du kannst vorerst keine weiteren Meldungen an die Raben senden.': 'No puedes denunciar más mensajes a los Cuervos por el momento.'
 'Bitte versuche es in einigen Minuten erneut.': 'Por favor, vuelve a intentarlo más tarde.'
 'Bitte versuche es in einigen Stunden erneut.': 'Por favor, inténtalo de nuevo en unas horas.'
@@ -538,3 +540,5 @@ Inhaltsverzeichnis: Tabla de contenidos
 'Dieser Spieler ist ein nicht-administratives Mitglied des Entwickler-Teams von MyHordes.': 'Este jugador es un desarrollador no-administrador del equipo de MyHordes.'
 'Private Foren': 'Foros privados'
 'Vielen Dank an diese Spieler für ihre künstlerischen Beiträge.': 'Gracias a estos jugadores por sus aportes artísticos.'
+'<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>{max}</strong> Verteidigungspunkte vergeben!': '<strong>Importante:</strong> ¡Los objetos de defensa pueden aportar un máximo de <strong>{max}</strong> puntos de defensas!'
+'Auf {hostname}': 'Auf {hostname}'
