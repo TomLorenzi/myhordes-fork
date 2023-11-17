@@ -429,7 +429,7 @@ class NightlyHandler
         foreach ($town->getCitizens() as $citizen)
             if ($citizen->getAlive() && $citizen->getZone() && $this->citizen_handler->hasStatusEffect( $citizen, $camp_d )) {
                 $zone = $citizen->getZone();
-                $cp_ok = $this->zone_handler->check_cp($zone);
+                $cp_ok = $this->zone_handler->isZoneUnderControl($zone);
 
                 $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> was at <info>{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}</info> and died while camping!");
                 $this->kill_wrap($citizen, $cod, false, 0, true, $town->getDay());

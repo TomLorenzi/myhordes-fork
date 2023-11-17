@@ -1365,7 +1365,7 @@ class BeyondController extends InventoryAwareController
         //    $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
         //) > 0;
 
-        //if (!$this->zone_handler->check_cp( $zone ) && !$scout)
+        //if (!$this->zone_handler->isZoneUnderControl( $zone ) && !$scout)
         //    return AjaxResponse::error( self::ErrorZoneBlocked );
         if ($zone->getX() === 0 && $zone->getY() === 0)
             return AjaxResponse::error( self::ErrorNotDiggable );
