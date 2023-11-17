@@ -288,7 +288,9 @@
                 {% if message.hidden %}
                     <div class="crowmsg">{{ 'Der Rabe hat diese Nachricht zerrissen.'|trans({},'game') }}</div>
                 {% else %}
-                    {{ message.text|replace({'{lang}': (app.request.locale|e('html_attr')|split('_', 2))[0] })|raw }}
+                    <div data-message-id="{{ message.id }}">
+                        {{ message.text|replace({'{lang}': (app.request.locale|e('html_attr')|split('_', 2))[0] })|raw }}
+                    </div>
                 {% endif %}
                 {% if message.modMessage %}
                     <div class="modAnnounce">{{ message.modMessage }}</div>
@@ -322,8 +324,16 @@
                         <i class="fa fa-eye"></i><div class="tooltip forum-tooltip">{{'Einblenden'|trans({}, 'global')}}</div>
                     </a>
                 {% endif %}
-                {% if message.sender != app.user and message.senderGroup is empty and not message.hidden %}
-                    &nbsp;<a class="pm-button" x-report-url="{{ path('pm_report_post_controller', {pid: message.id}) }}"><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"><div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div></a>
+                {% if not message.hidden %}
+                    [ <a class="pm-button" data-action="copy" data-post-id="{{ message.id }}">{{ 'Kopieren'|trans({},'global') }}</a> ]
+                    {% if message.senderGroup and message.senderGroup.anon %}
+                        &nbsp;[ <a class="pm-button" data-action="cite" data-post-id="{{ message.id }}">{{ 'Zitieren'|trans({},'global') }}</a> ]
+                    {% else %}
+                        &nbsp;[ <a class="pm-button" data-action="cite" data-cite-name="{{ message.sender.name }}" data-cite-from="{{ message.sender.id }}" data-post-id="{{ message.id }}">{{ 'Zitieren'|trans({},'global') }}</a> ]
+                    {% endif %}
+                {% endif %}
+                {% if message.senderGroup is empty and not message.hidden and message.sender != app.user %}
+                    &nbsp;&nbsp;[ <a class="pm-button" x-report-url="{{ path('pm_report_post_controller', {pid: message.id}) }}"><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"><div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div></a> ]
                 {% endif %}
             </div>
         </div>
