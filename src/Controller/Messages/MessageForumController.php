@@ -257,10 +257,14 @@ class MessageForumController extends MessageController
 
         $forum_sections = array_unique( array_filter( array_map( fn(Forum $f) => $f->getWorldForumLanguage(), $forums ) ) );
         usort( $forum_sections, function(string $a, string $b) {
-            if ($a === $b) return 0;
-            if ($a === $this->getUserLanguage()) return -1;
-            if ($b === $this->getUserLanguage()) return 1;
-            return $a <=> $b;
+            return match(true) {
+                $a === $b => 0,
+                $a === $this->getUserLanguage() => -1,
+                $b === $this->getUserLanguage() => 1,
+                $a === 'mu' => -1,
+                $b === 'mu' => 1,
+                default => $a <=> $b
+            };
         } );
 
         return $this->render( 'ajax/forum/list.html.twig', $this->addDefaultTwigArgs(null, [
@@ -1184,10 +1188,14 @@ class MessageForumController extends MessageController
 
         $forum_sections = array_unique( array_filter( array_map( fn(Forum $f) => $f->getWorldForumLanguage(), $forums ) ) );
         usort( $forum_sections, function(string $a, string $b) {
-            if ($a === $b) return 0;
-            if ($a === $this->getUserLanguage()) return -1;
-            if ($b === $this->getUserLanguage()) return 1;
-            return $a <=> $b;
+            return match(true) {
+                $a === $b => 0,
+                $a === $this->getUserLanguage() => -1,
+                $b === $this->getUserLanguage() => 1,
+                $a === 'mu' => -1,
+                $b === 'mu' => 1,
+                default => $a <=> $b
+            };
         } );
 
         return $this->render( 'ajax/forum/search.html.twig', [
