@@ -49,12 +49,15 @@
                 <div class="row">
                     <div class="cell padded rw-5 rw-sm-12">
                         <div class="row-table citizens-list">
-                            <div class="row header">
+                            <div class="row-flex header">
                                 <div class="padded cell left rw-12">{{ 'Bürger'|trans({},'game') }}</div>
+                                {% if is_granted("ROLE_ADMIN") %}
+                                    <div class="padded cell"><label><input data-distribute-to="*" type="checkbox"/></label></div>
+                                {% endif %}
                             </div>
                             {% for citizen in town.citizens|sort((a,b) => b.day <=> a.day) %}
                                 {# @var \App\Entity\Citizen citizen  #}
-                                <div class="row-flex stretch pointer" style="max-height: 100px;">
+                                <div class="row-flex stretch" style="max-height: 100px;">
                                     {% include 'ajax/soul/playeravatar.html.twig' with {user: citizen.user, small: true, background: true, classes: ['cell','factor-0'], attributes: {style: 'flex-basis: 92px;', ('x-ajax-href'): url('admin_users_citizen_view', {id: citizen.user.id})}} only %}
                                     <div class="cell factor-0 citizen-dead" style="flex-basis: 8px;" x-ajax-href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">&nbsp;</div>
                                     
@@ -64,6 +67,12 @@
                                             <b class="citizen-name">{{ citizen.name }}</b>
                                         </a>&nbsp;
                                     </div>
+
+                                    {% if is_granted("ROLE_ADMIN") %}
+                                        <div class="padded cell">
+                                            <label><input data-distribute-to="{{ citizen.id }}" type="checkbox"/></label>
+                                        </div>
+                                    {% endif %}
                                 </div>
                             {% endfor %}
                         </div>
@@ -82,7 +91,7 @@
                             </label>
                             <input type="number" id="numberPicto" value="1"/>
                             <br />
-                            <button id="givebtn">{{'Vergeben!'|trans({}, 'admin')}}</button>
+                            <button id="givebtn" disabled>{{'Vergeben!'|trans({}, 'admin')}}</button>
                         </div>
                         <br />
                         {% endif %}
@@ -110,21 +119,44 @@
 
            {% if is_granted("ROLE_ADMIN") %}
 
-            let givebtn = document.getElementById("givebtn");
-            if (givebtn) givebtn.addEventListener('click', function(){
-                let number = document.getElementById("numberPicto").value;
-                if(isNaN(number)) number = 1;
+                let givebtn = document.getElementById("givebtn");
+                if (givebtn) givebtn.addEventListener('click', function(){
+                    let number = document.getElementById("numberPicto").value;
+                    if(isNaN(number)) number = 1;
 
-                let picto = document.getElementById('selectPicto').value;
+                    let picto = document.getElementById('selectPicto').value;
+                    let to = [];
+                    $.html.forEach('[data-distribute-to]:not([data-distribute-to="*"])', v => {
+                        if (v.checked) to.push(parseInt(v.dataset.distributeTo));
+                    });
 
-                $.ajax.easySend('{{ path('admin_town_give_picto', {id: town.id}) }}', {
-                        prototype: picto, number: number
-                    },
-                    function () {
-                        $.ajax.load(null, '{{ path('admin_old_town_explorer', {id: town.id, tab: "citizens"}) }}', true);
+                    if (to.length === 0) return;
+
+                    $.ajax.easySend('{{ path('admin_town_give_picto', {id: town.id}) }}', {
+                            'prototype': picto, number, to,
+                        },
+                        function () {
+                            $.ajax.load(null, '{{ path('admin_old_town_explorer', {id: town.id, tab: "citizens"}) }}', true);
+                        }
+                    );
+                });
+
+                $.html.addEventListenerAll('[data-distribute-to]', 'click', (e,elem) => {
+                    if (elem.dataset.distributeTo === '*') {
+                        $.html.forEach('[data-distribute-to]:not([data-distribute-to="*"])', v => v.checked = elem.checked);
+                        document.getElementById('givebtn').toggleAttribute('disabled', !elem.checked)
+                    } else {
+                        const star = document.querySelector('[data-distribute-to="*"]');
+                        let match = true, one = false;
+                        $.html.forEach('[data-distribute-to]:not([data-distribute-to="*"])', v => {
+                            match = match &= (v.checked === elem.checked);
+                            one |= v.checked;
+                        });
+                        star.checked = elem.checked;
+                        star.indeterminate = !match;
+                        document.getElementById('givebtn').toggleAttribute('disabled', !one)
                     }
-                );
-            });
+                })
 
             {% endif %}
         })();

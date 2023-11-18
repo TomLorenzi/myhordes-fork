@@ -1880,6 +1880,7 @@ class AdminTownController extends AdminActionController
 
         $prototype_id = $parser->get('prototype');
         $number = $parser->get('number', 1);
+        $to = $parser->get_array( 'to' );
 
         /** @var PictoPrototype $pictoPrototype */
         $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->find($prototype_id);
@@ -1887,6 +1888,8 @@ class AdminTownController extends AdminActionController
         foreach ($town->getCitizens() as $citizen) {
             /** @var Citizen $citizen */
             // if(!$citizen->getAlive()) continue;
+
+            if (!in_array( $citizen->getId(), $to )) continue;
 
             $picto = $this->entity_manager->getRepository(Picto::class)->findByUserAndTownAndPrototype($citizen->getUser(), $town, $pictoPrototype);
             if (null === $picto) {
