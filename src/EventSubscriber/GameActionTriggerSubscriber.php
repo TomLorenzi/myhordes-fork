@@ -44,8 +44,10 @@ class GameActionTriggerSubscriber implements EventSubscriberInterface
         if ($user && $event->getRequest()->attributes->get('_domain_recorded', false)) {
             $this->anti_cheat->recordConnection($user, $event->getRequest());
             $this->em->persist( $user->setLastActionTimestamp( new DateTime() ) );
-            if ($user->getActiveCitizen()?->getAlive())
+            if ($user->getActiveCitizen()?->getAlive()) {
+                $this->em->persist($user->getActiveCitizen()->setLastActionTimestamp(time()));
                 $this->citizenHandler->inflictStatus($user->getActiveCitizen(), 'tg_chk_active');
+            }
             try { $this->em->flush(); } catch (Throwable) {}
         }
 
