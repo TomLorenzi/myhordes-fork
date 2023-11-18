@@ -568,7 +568,6 @@ Bildformat: Format d'image
 'Gib den neuen Namen deiner Koalition ein.': 'Entrez le nouveau nom de votre coalition.'
 'Du hast den Namen deiner Koalition erfolgreich geändert.': 'Vous avez réussi à changer le nom de votre coalition.'
 'Diese Animation beinhaltet zu viele Einzelbilder, daher kann der Server sie nicht auf die erforderliche Größe zuschneiden.': 'Cette animation contient trop d''images, le serveur ne peut donc pas la recadrer à la taille requise.'
-'Wenn du ein animiertes Bild mit einer Auflösung größer als 200×200 Pixel hochlädst, darf dieses aus nicht mehr als 256': 'Si vous téléchargez une image animée avec une résolution supérieure à 200×200 pixels, elle ne doit pas dépasser 256 frames d''animation.'
 'Schriftgröße im Forum': 'Taille de la police dans le forum'
 Normal: Normale
 'Sehr klein': 'Très petit'
@@ -589,3 +588,4 @@ Passwort-Login: Connexion par mot de passe
 'Diese Option steuert, ob Private Foren in denen du Mitglied bist in der Forenliste über oder unter den Weltforen angezeigt werden. Unabhängig von dieser Einstellung wird das Stadtforum deiner aktuellen Stadt immer ganz oben angezeigt.': 'Cette option détermine si les forums privés auxquels vous avez accès sont affichés au-dessus ou en dessous des forums mondiaux dans la liste des forums. Indépendamment de ce paramètre, le forum de votre ville actuelle sera toujours affiché en haut.'
 'Twinoid existiert nicht mehr.': 'Twinoid n''existe plus.'
 'Aufgrund der Schließung von Hordes und Twinoid am 2. November 2023 ist es nicht länger möglich, neue Seelen zu importieren oder die Daten bereits importierter Seelen zu aktualisieren.': 'En raison de la fermeture de Hordes et Twinoid le 2 novembre 2023, il n''est plus possible d''importer de nouvelles âmes ni de mettre à jour les données des âmes déjà importées.'
+'Wenn du ein animiertes Bild mit einer Auflösung größer als 200×200 Pixel hochlädst, darf dieses aus nicht mehr als 256 Einzelbilder umfassen.': 'Si vous téléchargez une image animée avec une résolution supérieure à 200×200 pixels, elle ne doit pas dépasser 256 frames d''animation.'
