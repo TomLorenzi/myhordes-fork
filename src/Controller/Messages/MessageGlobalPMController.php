@@ -383,15 +383,17 @@ class MessageGlobalPMController extends MessageController
         $num = max(5,min(30,$p->get_int('num', 30)));
 
         $query = $p->get('filter');
+        $user_filter = $p->get_num('user', 0);
+        if ($user_filter <= 0) $user_filter = null;
 
         if (!empty($group_filter))
             $this->render_group_associations( $em->getRepository(UserGroupAssociation::class)->findByUserAssociation($this->getUser(), $group_filter,
-                    $skip['g'] ?? [], $num+1, $set === 'archive', $query), $entries );
+                    $skip['g'] ?? [], $num+1, $set === 'archive', $query, $user_filter), $entries );
 
-        if ($set === 'announcements' || $set === 'archive')
+        if ($set === 'announcements' || ($set === 'archive'))
             $this->render_announcements( $em->getRepository(Announcement::class)->findByLang($this->getUserLanguage(),
                                                                                          $skip['a'] ?? [], $num+1, $set === 'archive', $query), $entries );
-        if ($set === 'inbox' && $query === null) {
+        if ($set === 'inbox' && $query === null && $user_filter <= 0) {
             if (empty($skip['d'])) $this->render_directNotifications($this->entity_manager->getRepository(GlobalPrivateMessage::class)->getDirectPMsByUser($this->getUser(), 0, 1), $entries);
         }
 
