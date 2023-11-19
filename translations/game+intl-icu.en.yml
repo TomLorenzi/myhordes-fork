@@ -1670,7 +1670,7 @@ Fleisch-Schuldner: There ain't nothing I can't take this chainsaw to...
 'Bruce Campbell': 'Bruce Campbell'
 Wasserwaffen-Spezialist: H2Operative
 Hydraulik-Engineering: Hydraulics Engineer
-'Abstieg der Atlanteaner': 'Nachfahre von Atlantis'
+'Abstieg der Atlanteaner': 'Atlantean Ancestry'
 'Großer Löcherbuddler': 'Indiana Jones'
 Riesenmaulwurf: Desert Rat
 'Ich gehe alleine.': 'I walk alone.'
@@ -1720,7 +1720,7 @@ Messias: All you need is love... and Hero days
 Lebenssammler: Don't cross the streams
 'Schnitter der Aussenwelt': 'I ain''t afraid of no ghost'
 'Mitglied des Roten Kreuzes': 'Member of the Red Cross'
-'Es ist der Tod der mich fürchten sollte!': 'Angst vor dem Tod? Der Sensenmann sollte MICH fürchten!'
+'Es ist der Tod der mich fürchten sollte!': 'It is death that should be afraid of me!'
 Sandmann: Sandman
 'Sandy Maverick': 'Sandy Maverick'
 Wegweiser: Daylight Lantern
@@ -2438,11 +2438,11 @@ Wüstenwurmzüchter_f: Rat Roaster
 Seelenverwerter_f: Soul Recycler
 'Mystischer Seher_f': 'Divine Mystic'
 'Voodoo Sorceror_f': 'Voodoo Sorceror'
-'Yo, wir schaffen das!_f': 'Yo, wir schaffen das!'
+'Yo, wir schaffen das!_f': 'I''ll let myself in...'
 'Kleiner Schraubendreher_f': 'The BRD Screwdriver Combo'
 'Schweizer Taschenmesser_f': 'Swiss Army Knife'
 'Unermüdlicher Schrauber_f': 'Tireless tumbler tickler'
-'Seele des Handwerks_f': 'Seele des Handwerks'
+'Seele des Handwerks_f': 'TechnicoMecanoMegalo'
 'Seele eines Profis_f': 'Soul of the professional'
 'Personalisierter Titel - Techniker (T-ID: 631944)_f': 'Never walks without her keys'
 'Die Mauer_f': 'Defender'
@@ -2470,10 +2470,10 @@ Wüstenstadt-Dealer_f: Local Dealer
 'Offizieller AP-Versorger_f': 'Official AP Provider'
 'X-Men Leser_f': 'Comic book fan'
 'Aussergewöhnlicher Bürger_f': 'Extraordinary citizen'
-Wunder_f: Wunder
+Wunder_f: Prodigy
 'Werdender Superheld_f': 'Superheroine in training'
 Volksheld_f: Volksheldin
-Neo_f: Neo
+Neo_f: I'm Batwoman
 'Erlöser der Menschheit_f': 'Saviour of Citizenkind'
 Außenweltlegende_f: Legend of the World Beyond
 'Messie der verlorenen Welt_f': 'Lost World Messiah'
@@ -2492,44 +2492,44 @@ Lump_f: Artful Dodger
 Schaumschläger_f: Schaumschlägerin
 Dieb_f: Diebin
 Fantomas_f: Rusty Ryan
-'Ali Baba_f': 'Ali Baba'
+'Ali Baba_f': 'Debbie Ocean'
 Meisterdieb_f: Meisterdiebin
 Kleptomane_f: Kleptomanin
-'Dein Haus ist mein Haus_f': 'Dein Haus ist mein Haus'
+'Dein Haus ist mein Haus_f': 'Your home is my home'
 Ästhet_f: Ästhetin
 Schaufenstergestalter_f: Schaufenstergestalterin
 Innenarchitekt_f: Innenarchitektin
-Möbelgourmet_f: Möbelgourmet
-'Ordnung muss sein!_f': 'Ordnung muss sein!'
-'Ein schöneres Leben_f': 'Ein schöneres Leben'
-'Großer E-KEA Katalog_f': 'Großer E-KEA Katalog'
+Möbelgourmet_f: Marquee Master
+'Ordnung muss sein!_f': 'Aesthetics Experta'
+'Ein schöneres Leben_f': 'Style is eternal...'
+'Großer E-KEA Katalog_f': 'Welcome to the palace.'
 Plünderer_f: Plünderin
 Aasgeier_f: Aasgeier
-Hyäne_f: Hyäne
+Hyäne_f: Hyena
 'Wegelagerer post mortem_f': 'Post-mortem Pickpocket'
-'Hungriger Schakal_f': 'Hungriger Schakal'
-'Kojote der kargen Steppen_f': 'Kojote der kargen Steppen'
+'Hungriger Schakal_f': 'Hungry Jackal'
+'Kojote der kargen Steppen_f': 'Fleet-footed Coyote'
 Fingerschmied_f: Fingerschmiedin
-'Nein, das Ding fasse ich nicht an._f': 'Nein, das Ding fasse ich nicht an.'
+'Nein, das Ding fasse ich nicht an._f': 'Silver Showerer'
 Leichenhygieniker_f: Leichenhygienikerin
-'Ich liebe den Geruch von gewaschenen Leichen am Morgen._f': 'Ich liebe den Geruch von gewaschenen Leichen am Morgen.'
+'Ich liebe den Geruch von gewaschenen Leichen am Morgen._f': 'Platinum Showerer'
 Müllmann_f: Müllfrau
 'Erfahrener Müllmann_f': 'Erfahrene Müllfrau'
 Entsorgungsfachmann_f: Entsorgungsfachfrau
 Maccabees-Vertreiber_f: Maccabees-Vertreiberin
 'SM Anhänger_f': 'SM Anhängerin'
 'SM Spezialist_f': 'SM Spezialistin'
-'Nenn mich Herrin_f': 'Nenn mich Herrin'
-'Ich möchte dein Objekt sein._f': 'Ich möchte dein Objekt sein.'
+'Nenn mich Herrin_f': 'Attach the nipple clamps!'
+'Ich möchte dein Objekt sein._f': 'Bring out the gimp!'
 Stadtmetzger_f: Stadtmetzgerin
-'Spezialität: Hundesteaks_f': 'Spezialität: Hundesteaks'
-'Miezi? Jaaaa, komm her..._f': 'Miezi? Jaaaa, komm her...'
-'Fleisch ist mein Gemüse_f': 'Fleisch ist mein Gemüse'
-'Immer ein Auge offen_f': 'Immer ein Auge offen'
-'Mit offenen Augen schlafen? Kein Problem!_f': 'Mit offenen Augen schlafen? Kein Problem!'
-'Immer alles im Blick_f': 'Immer alles im Blick'
-Wachsam_f: Wachsam
-Paranoid_f: Paranoid
+'Spezialität: Hundesteaks_f': 'Anyone for a fat-cat-kebab?'
+'Miezi? Jaaaa, komm her..._f': 'Scourge of the animal kingdom...'
+'Fleisch ist mein Gemüse_f': 'If we''re meant to eat vegetables, why are animals so tasty?'
+'Immer ein Auge offen_f': 'One Eye Open'
+'Mit offenen Augen schlafen? Kein Problem!_f': 'Both Eyes Open'
+'Immer alles im Blick_f': 'Long-sighted'
+Wachsam_f: Uber-Aware
+Paranoid_f: Paranoid and Proud
 'Fels in der Brandung_f': 'Fels in der Brandung'
 'Großer Baumeister_f': 'Große Baumeisterin'
 'Großer Architekt_f': 'Große Architektin'
@@ -2537,35 +2537,35 @@ Freimauer_f: Freimauerin
 Terraformingspezialist_f: Terraformingspezialistin
 'Allmächtiger Schöpfer_f': 'Allmächtige Schöpferin'
 'Archi-Mädlicher Illustrator von Pi_f': 'Archi-Mädliche Illustratorin von Pi'
-"Muad'Dib_f": "Muad'Dib"
+"Muad'Dib_f": "Three rivers dam... That's adorable."
 'Am 7. Tag erschuf er den Fleischkäfig_f': 'Am 7. Tag erschuf sie den Fleischkäfig'
 'Bauherr ohne Sinn und Verstand_f': 'Bauherrin ohne Sinn und Verstand'
 'Erbauer der verlorenen Zeit_f': 'Erbauerin der verlorenen Zeit'
 'Erleuchteter Baumeister_f': 'Erleuchteter Baumeisterin'
 'Maurer aus Leidenschaft_f': 'Maurerin aus Leidenschaft'
-'Das Unnütze mit dem Angenehmen verbinden_f': 'Das Unnütze mit dem Angenehmen verbinden'
+'Das Unnütze mit dem Angenehmen verbinden_f': 'Chiefess DIY'
 'Verrückter Architekten-Visionär_f': 'Verrückte Architekten-Visionärin'
-'Ich habe einen Plan_f': 'Ich habe einen Plan'
+'Ich habe einen Plan_f': 'I have a plan'
 'Hirnverbrannter Baumeister_f': 'Hirnverbrannte Baumeisterin'
 'Meister der Nutzlosigkeit_f': 'Meisterin der Nutzlosigkeit'
 'Vereister Ingenieur_f': 'Vereiste Ingenieurin'
-'Wundervoll nutzlos_f': 'Wundervoll nutzlos'
+'Wundervoll nutzlos_f': 'Wonderfully futile'
 'Der Bruce Lee des Spachtels_f': 'Der Bruce Lee des Spachtels'
-'Es ist Zeit für Kathedralen_f': 'Es ist Zeit für Kathedralen'
-'Hast du nichts besseres zu tun?_f': 'Hast du nichts besseres zu tun?'
-'Hohepriesterin des Sonnentempels_f': 'Hohepriesterin des Sonnentempels'
-'Huldigt den riesigen KVF!_f': 'Huldigt den riesigen KVF!'
-'Obelisk der heutigen Zeit!_f': 'Obelisk der heutigen Zeit!'
-'Lebhafter Tribut_f': 'Lebhafter Tribut'
-'Wird in die Annalen eingehen_f': 'Wird in die Annalen eingehen'
-'Extra viel Liebe_f': 'Extra viel Liebe'
-'Es ist kleiner als im Katalog_f': 'Es ist kleiner als im Katalog'
-'Freude der Stärke 8_f': 'Freude der Stärke 8'
+'Es ist Zeit für Kathedralen_f': 'The time for cathedrals has come'
+'Hast du nichts besseres zu tun?_f': 'Don''t you have better things to do?'
+'Hohepriesterin des Sonnentempels_f': 'High Priestess of the Sun Temple'
+'Huldigt den riesigen KVF!_f': 'BRDs for everyone! The people demand BRDs'
+'Obelisk der heutigen Zeit!_f': 'Modern obelisk!'
+'Lebhafter Tribut_f': 'Standing ovation'
+'Wird in die Annalen eingehen_f': 'One for the books'
+'Extra viel Liebe_f': 'Extra large love'
+'Es ist kleiner als im Katalog_f': 'It was smaller on the catalog'
+'Freude der Stärke 8_f': 'Happiness of magnitude 8'
 'Bewahrer der Freuden_f': 'Bewahrerin der Freuden'
-'Das hast du nicht wirklich gebaut?_f': 'Das hast du nicht wirklich gebaut?'
+'Das hast du nicht wirklich gebaut?_f': 'You really built that?'
 Eimerhalter_f: Eimerhalterin
 Sandverkäufer_f: Sandverkäuferin
-'Martinet am Strand_f': 'Martinet am Strand'
+'Martinet am Strand_f': 'Martine at the beach'
 'Ein Spiel für echte Kinder_f': 'A real children''s game!'
 "Dauermitglied in Micky's Club_f": "Permanent member of the Mickey Club"
 'Niemals ohne meinen Eimer_f': 'Never without my bucket'
@@ -2603,7 +2603,7 @@ Meisterarchitekt_f: Meisterarchitektin
 'Menschliche Ameisenkolonie_f': 'The human ant'
 'Arbeiterhelm und Kupferstiefel_f': 'The Great Wall of what?'
 'Arbeit ist Gesundheit_f': 'Pyramid shmyramid'
-'Bob der Baumeister_f': 'Bob der Baumeister'
+'Bob der Baumeister_f': 'I''m working on the Sagrada'
 Spachtler_f: Spachtlerin
 'Gewissenhafter Maurer_f': 'All-round Handywoman'
 'Meisterwerke in Gefahr_f': 'Masterpieces in Peril'
@@ -2619,7 +2619,7 @@ Fleisch-Schuldner_f: Fleisch-Schuldnerin
 Hobby-Heimwerker_f: Hobby-Heimwerkerin
 Techniker_f: Technikerin
 'Meisterbastler _f': Meisterbastlerin
-'Sowas wirft man doch nicht weg!_f': 'Sowas wirft man doch nicht weg!'
+'Sowas wirft man doch nicht weg!_f': 'Craftswoman'
 'Mac Gyver der Außenwelt_f': 'MacGyver of the World beyond'
 'Super Soaker_f': 'Super Soaker'
 Wasserwaffen-Spezialist_f: H2Operative
@@ -2642,89 +2642,89 @@ Nervenkitzelsucher_f: Nervenkitzelsucherin
 'Christopher Kolumbus_f': 'Desert Shackleton'
 'Bis zur Unendlichkeit... und noch viel weiter!_f': 'To infinity and beyond!'
 'Indiana Jones und die Ruinen der Aussenwelt_f': 'Indiana Jones and the ruins of the World Beyond'
-'Wenn ich das nur vorher gewusst hätte..._f': 'Wenn ich das nur vorher gewusst hätte...'
+'Wenn ich das nur vorher gewusst hätte..._f': 'Sneaky Voyager'
 'Verwegener Wanderer_f': 'Tunnel Visionary'
 Tunnelblicker_f: Tunnelblickerin
 'Im Irrgarten_f': 'Compass Included'
-'Inklusive Kompass_f': 'Inklusive Kompass'
+'Inklusive Kompass_f': 'Buried Voluntarily'
 'Begrabener Freiwilliger_f': 'Tombstone Toppler'
-'Tomb Raider_f': 'Tomb Raider'
-Labyrinth-Gollum_f: Labyrinth-Gollum
+'Tomb Raider_f': 'Gollum of the Labyrinths'
+Labyrinth-Gollum_f: Labyrinth Mistress PhD
 'Labyrinth-Meister MB_f': 'Don''t call me Junior'
-"Wo klemmt's?_f": "Wo klemmt's?"
-Dietrich_f: Dietrich
-'Sesam, öffne dich..._f': 'Sesam, öffne dich...'
+"Wo klemmt's?_f": "Key hee hee!"
+Dietrich_f: How about some Chubb-ly?
+'Sesam, öffne dich..._f': 'Sesame, shift your A...'
 Türöffner_f: Türöffnerin
 Gentleman-Einbrecher_f: Lady-Einbrecherin
 Schlüsseldienst_f: Schlüsseldienst
-Zerberus_f: Zerberus
+Zerberus_f: Shim Surgeoness
 'Meister der Schlüssel_f': 'Grand Key Master'
 Brutalo_f: Brutala
 Verstümmler_f: Verstümmlerin
-Killer_f: Killer
+Killer_f: Corpse Crusher
 Kadaverentsorger_f: Kadaverentsorgerin
 Vernichter_f: Vernichterin
 Schlächter_f: Schlächterin
 Friedensstifter_f: Friedensstifterin
-'Alptraum der Traumlosen_f': 'Alptraum der Traumlosen'
-'Hans im Glück_f': 'Hans im Glück'
-'Vierklettriges Kleeblatt_f': 'Vierklettriges Kleeblatt'
-Fortuna_f: Fortuna
-'Gontran Happiness_f': 'Gontran Happiness'
+'Alptraum der Traumlosen_f': 'Go ahead, make my day!'
+'Hans im Glück_f': 'The name''s Nataniela Fortu'
+'Vierklettriges Kleeblatt_f': 'Do you feel lucky, punk?'
+Fortuna_f: Windfall Catcher
+'Gontran Happiness_f': 'Jacklyn Pott'
 'Lucky 7_f': 'Lucky 7'
 'Money for Nothing_f': 'Money for Nothing'
 'Ultimate Fighter_f': 'Ultimate Fighter'
-'Wilde Bestie_f': 'Wilde Bestie'
+'Wilde Bestie_f': 'Wild Beast'
 'Rambos Großvater_f': 'Rambo''s ancestor'
-'Absolut keine Angst!_f': 'Absolut keine Angst!'
+'Absolut keine Angst!_f': 'Not even afraid!'
 'Barhändiger Stripper_f': 'Bare-handed stripper'
 'Stürmischer Kundschafter_f': 'Dora the Explorer'
 'Furchtloser Abenteurer_f': 'Fearless adventurer'
 'Wagemutiger Trapper_f': 'Guide to the World Beyond'
 Wikinger_f: Wikingerfrau
 Außenweltreiseführer_f: Außenweltreiseführerin
-'Ich habe die Erde umrundet... zweimal!_f': 'Ich habe die Erde umrundet... zweimal!'
+'Ich habe die Erde umrundet... zweimal!_f': 'I''ve been round the world... Twice!'
 'Internet Explorer_f': 'Internet Explorer'
-'Ich hab sogar das Klo abgesucht!_f': 'Ich hab sogar das Klo abgesucht!'
-'Sind wir schon da?_f': 'Sind wir schon da?'
+'Ich hab sogar das Klo abgesucht!_f': 'I''ve even dug through a public toilet!'
+'Sind wir schon da?_f': 'Are we there yet?'
 Außenweltschläfer_f: Außenweltschläferin
-'Allein in dieser Welt_f': 'Allein in dieser Welt'
+'Allein in dieser Welt_f': 'Alone in the Dark'
 'Der mit den Zombies tanzt_f': 'Dances with zombies'
-'Ich sehe überall Tote!_f': 'Ich sehe überall Tote!'
-'Ich komme heute Nacht nicht heim..._f': 'Ich komme heute Nacht nicht heim...'
+'Ich sehe überall Tote!_f': 'I see dead people - everywhere!'
+'Ich komme heute Nacht nicht heim..._f': 'Don''t wait up...'
 'Ein Mann gegen die Außenwelt_f': 'Eine Frau gegen die Außenwelt'
-Stadtallergie_f: Stadtallergie
-'Wo ich hinguck, seh ich Gegend._f': 'Wo ich hinguck, seh ich Gegend.'
+Stadtallergie_f: I'm allergic to something in town.
+'Wo ich hinguck, seh ich Gegend._f': 'So I guess we''re not waiting for Bobbie?'
 'Runaway Michael_f': 'Runaway Michael'
-'Ohne Dach oder Leber_f': 'Ohne Dach oder Leber'
+'Ohne Dach oder Leber_f': 'Without a roof or a tooth.'
 'Neugieriger Leser_f': 'Neugierige Leserin'
 'Eifriger Leser_f': 'Eifrige Leserin'
 Wüstenhistoriker_f: Wüstenhistorikerin
 Bibliothekar_f: Bibliothekarin
 Archivar_f: Archivarin
 Erinnerungsträger_f: Erinnerungsträgerin
-'Erinnerungen an die Zivilisation_f': 'Erinnerungen an die Zivilisation'
-'Twinoid ist tabu_f': 'Twinoid ist tabu'
-'Keine Macht den Drogen_f': 'Keine Macht den Drogen'
-'Sowas fasse ICH nicht an_f': 'Sowas fasse ICH nicht an'
-'Vorbild für die Jugend_f': 'Vorbild für die Jugend'
-'Champions nehmen keine Drogen!_f': 'Champions nehmen keine Drogen!'
+'Erinnerungen an die Zivilisation_f': 'Memory of civilization'
+'Twinoid ist tabu_f': 'Twinoid is taboo'
+'Keine Macht den Drogen_f': 'Happy as Laurence'
+'Sowas fasse ICH nicht an_f': 'Never touch the stuff, me.'
+'Vorbild für die Jugend_f': 'Just Say No!'
+'Champions nehmen keine Drogen!_f': 'Winners don''t use drugs!'
 Medikamentetester_f: Medikamentetesterin
-Laborratte_f: Laborratte
-'Pille palle, 3 Tage wach!_f': 'Pille palle, 3 Tage wach!'
-'Timothy Leary_f': 'Timothy Leary'
-'Ich sehe ein Blauuuuuuues Tal_f': 'Ich sehe ein Blauuuuuuues Tal'
+Laborratte_f: Lab Rat
+'Pille palle, 3 Tage wach!_f': 'Product Tester!'
+'Timothy Leary_f': 'What do you mean these ain''t skittles'
+'Ich sehe ein Blauuuuuuues Tal_f': 'The sky is falling!!!'
 Menschenfleischliebhaber_f: Menschenfleischliebhaberin
-Hannibalfan_f: Hannibalfan
+Hannibalfan_f: Dr Death's Dietician
 Totmacher_f: Totmacherin
-'Jeffrey Dahmer_f': 'Jeffrey Dahmer'
+'Jeffrey Dahmer_f': 'Lunches like Anna'
 'Fast schon ein Zombie..._f': 'Fast schon ein Zombie...'
-"Schmeckt am besten wenn's noch schreit!_f": "Schmeckt am besten wenn's noch schreit!"
-'Die Macht der Proteine_f': 'Die Macht der Proteine'
-'Nackt und Zerfleischt_f': 'Nackt und Zerfleischt'
-Zombieliebling_f: Zombieliebling
+"Schmeckt am besten wenn's noch schreit!_f": "It's better when they scream."
+'Die Macht der Proteine_f': 'Full of protein.'
+'Nackt und Zerfleischt_f': 'Holocaust cannibals'
+Zombieliebling_f: Zombie favourite
 'Letzter Überlebender_f': 'Letzte Überlebende'
-Unzerstörbar_f: Unzerstörbar
+Unzerstörbar_f: Dances with Hordes
 'Allein gegen die Horde_f': 'Me vs. the Horde!'
 "Chuck Norris' Ebenbild_f": "Equal to Chuck Norris"
 'Ich bin in der Hölle aufgewachsen._f': 'Hell is a walk in the park.'
@@ -2755,14 +2755,14 @@ Dehydrationskollege_f: Dehydrationskollegin
 'Alter Hase_f': 'Alte Häsin'
 'Jedes Los gewinnt_f': 'Community Companion'
 Zinker_f: Zinkerin
-Bingo_f: Bingo
-'Sudoku ist anders_f': 'Sudoku ist anders'
-'Siebenseitiger Würfel_f': 'Siebenseitiger Würfel'
+Bingo_f: Social Animal
+'Sudoku ist anders_f': 'Animated Corpse'
+'Siebenseitiger Würfel_f': 'Community Über-Activist'
 'Einarmiger Bandit_f': 'Winner at heart!'
 'Seelenführer der Gemeinschaft_f': 'Community Soul Guide'
 'Charismatischer Prophet_f': 'Charismatic prophet'
 'Motivierter Messebesucher_f': 'Motivated Hordian festival-goer'
-'Verdammt in Saarbrücken_f': 'Verdammt in Saarbrücken'
+'Verdammt in Saarbrücken_f': 'Geeks tracker'
 "FJV'08 Kanonenfutter_f": "FJV'08 cannon fodder"
 'Kleiner Guru_f': 'Fund re-allocation specialist'
 'Überzeugender Guru_f': 'Citizen trafficker'
@@ -2776,7 +2776,7 @@ Wüstenspekulant_f: Wüstenspekulantin
 'Immer zur Stelle_f': 'Charitable Soul'
 Samariter_f: Social Support
 'Freigiebiger Bürger_f': 'Samaritan'
-Messias_f: Messias
+Messias_f: All you need is love... and Hero days
 'Der Weihnachtsmann ist ein Schlawiner_f': 'Father Christmas is a little rascal'
 'Santa Klaus ist ein Schummler_f': 'Santa is a crook'
 'Santa Klaus ist Abfall_f': 'Old Saint Nick is a little **it'
@@ -2806,27 +2806,27 @@ Buddha_f: Buddha
 Seelenknipser_f: Seelenknipserin
 'Wächter der Seelen_f': 'Watches with Scouts'
 'Die Wahrheit ist irgendwo da draußen_f': 'The truth is elsewhere'
-'Ich glaube!_f': 'Ich glaube!'
-Sektenmitglied_f: Sektenmitglied
+'Ich glaube!_f': 'I''m a believer'
+Sektenmitglied_f: Sect Member
 'Kosmischer Anführer_f': 'Cosmic Sponsor'
-'Rauch? Welcher Rauch?_f': 'Rauch? Welcher Rauch?'
+'Rauch? Welcher Rauch?_f': 'Smoke? What smoke?'
 Leckstopper_f: Leckstopperin
-'Licht in der Nacht_f': 'Licht in der Nacht'
+'Licht in der Nacht_f': 'Light in the night'
 RadioactiveMan_f: RadioactiveWoman
 'Strahlender Bürger_f': 'Radiant citizen'
-'Hölle, das esse ich jeden Morgen._f': 'Hölle, das esse ich jeden Morgen.'
+'Hölle, das esse ich jeden Morgen._f': 'Hell? I eat a little bit of it for breakfast'
 'Abonnent der Pandämoniumsauna_f': 'Regular at the Pandemonium Sauna'
-'Pandämonium ist meine Liebe!_f': 'Pandämonium ist meine Liebe!'
+'Pandämonium ist meine Liebe!_f': 'Hardcore my love!'
 'Luzifers Tanzpartner_f': 'Lucifer''s dance partner'
 'Ultimativer Horden-Erkunder_f': 'Ultimate Hordian Explorer'
-'Irische Taschen sind prall gefüllt!_f': 'Irische Taschen sind prall gefüllt!'
-'Wo ist mein Topf voll Gold, diebische Elster!_f': 'Wo ist mein Topf voll Gold, diebische Elster!'
+'Irische Taschen sind prall gefüllt!_f': 'Irish pockets are bulging!'
+'Wo ist mein Topf voll Gold, diebische Elster!_f': 'Where''s my pot of gold, thieving pikey!'
 'Dieser Kobold ist unaufhaltbar._f': 'This leprechaun is unstoppable.'
 'Verbrennt ihn! Sieh nach ob seine Asche grün wird!_f': 'Burn her, see if her ashes turn green!'
-'Ein Wohnwagen ohne Räder???_f': 'Ein Wohnwagen ohne Räder???'
-'Mitglied des Roten Kreuzes_f': 'Mitglied des Roten Kreuzes'
-'Ich bin geheilt_f': 'Ich bin geheilt'
-'Keine Fehler hi&e%12;r_f': 'Keine Fehler hi&e%12;r'
+'Ein Wohnwagen ohne Räder???_f': 'A caravan with no wheels???'
+'Mitglied des Roten Kreuzes_f': 'Member of the Red Cross'
+'Ich bin geheilt_f': 'I am healed'
+'Keine Fehler hi&e%12;r_f': 'No bugs h&e%12;re'
 'Patient Null_f': 'Patient Zero'
 'Es ist der Tod der mich fürchten sollte!_f': 'It is death that should be afraid of me!'
 Sandmann_f: Sandfrau
@@ -2835,31 +2835,31 @@ Wegweiser_f: Wegweiserin
 'Praktischer Begleiter_f': 'Pocket Companion'
 'Erleuchteter Anführer_f': 'Illuminated Guide'
 'Erleuchteter Prediger_f': 'Enlightened Preacher'
-'Guru der Liebe_f': 'Guru der Liebe'
-'Höret meine Stimme_f': 'Höret meine Stimme'
+'Guru der Liebe_f': 'Love guru'
+'Höret meine Stimme_f': 'Listen to my voice'
 'Zeuge des Armageddon_f': 'Armageddon Witness'
 'Ewiger Zweiter_f': 'Eternally second'
 'Ein Wächter stirbt, aber gibt niemals auf_f': 'The guard may perish, but she never gives up!'
 'Der Zweitletzte Mohikaner_f': 'The second last of the Mohicans'
-'Faaaaaaaast, ach verdammt_f': 'Faaaaaaaast, ach verdammt'
-'Bis zum Ende und einen Schritt weiter_f': 'Bis zum Ende und einen Schritt weiter'
-'Schließt die Ränke und haltet durch_f': 'Schließt die Ränke und haltet durch'
-'Hallo... ist da draußen jemand?_f': 'Hallo... ist da draußen jemand?'
-'Haltet eure Position!_f': 'Haltet eure Position!'
-'Nur ein Finger_f': 'Nur ein Finger'
+'Faaaaaaaast, ach verdammt_f': 'Allllllmooooooost, ah nope, damn it!'
+'Bis zum Ende und einen Schritt weiter_f': 'All the way to the end and a bit further'
+'Schließt die Ränke und haltet durch_f': 'Close ranks and hold on!'
+'Hallo... ist da draußen jemand?_f': 'Hello... Is there anybody out there?'
+'Haltet eure Position!_f': 'Hold your positions!'
+'Nur ein Finger_f': 'Just one finger!'
 'Plünderer der Schnapsläden_f': 'Pilager of the liquor store.'
-'Hennessy Highwayman_f': 'Hennessy Highwayman'
+'Hennessy Highwayman_f': 'Tavern robber'
 'Barney Gumble der Außenwelt_f': 'Barney Gumble der Außenwelt'
-'Fass das Saufen lieber sein_f': 'Fass das Saufen lieber sein'
-'Gib mir was zu saufen oder es knallt!_f': 'Gib mir was zu saufen oder es knallt!'
-'Alles unter 55% ist Wasser_f': 'Alles unter 55% ist Wasser'
-Dialyse_f: Dialyse
+'Fass das Saufen lieber sein_f': 'Absinthe from drinking next time eh?!'
+'Gib mir was zu saufen oder es knallt!_f': 'Gimme a drink or the dog gets it!'
+'Alles unter 55% ist Wasser_f': 'If it''s under 55 proof it''s water!'
+Dialyse_f: Dialysis
 'Chef der Mauer_f': 'Rampart Chief'
 Schaufelführer_f: Schaufelführerin
-'Ich bin ein Biest!_f': 'Ich bin ein Biest!'
-'DdA Beste Buddler_f': 'DdA Beste Buddler'
+'Ich bin ein Biest!_f': 'Chiefess Tamer'
+'DdA Beste Buddler_f': 'DoE Winning Scavenger'
 Tarnexperte_f: Tarnexpertin
-Ninja_f: Ninja
+Ninja_f: Shadow Master
 AP: AP
 CP: CP
 MP: MP
@@ -2871,60 +2871,60 @@ Eventsieger: Event winner
 Eventteilnehmer: Eventteilnehmer
 'Auszeichnung für deinen Sieg in einem Community-Event, Glückwünsch!': 'Distinction obtained following your designation as winner of a community event, congrats!'
 'Auszeichnung für deine Teilnahme an einem Community-Event.': 'Distinction obtained following your participation in a community event.'
-'Allwissender Schamane': 'Allwissender Schamane'
-'Allwissender Schamane_f': 'Allwissende Schamanin'
-'Anführer der verlorenen Seelen': 'Anführer der verlorenen Seelen'
-'Anführer der verlorenen Seelen_f': 'Anführerin der verlorenen Seelen'
-'Uneinnehmbare Festung': 'Uneinnehmbare Festung'
-'Uneinnehmbare Festung_f': 'Uneinnehmbare Festung'
-'Ein bisschen näher an den Sternen': 'Ein bisschen näher an den Sternen'
-'Ein bisschen näher an den Sternen_f': 'Ein bisschen näher an den Sternen'
-'Himmel! Was werden die Nachbarn sagen?': 'Himmel! Was werden die Nachbarn sagen?'
-'Himmel! Was werden die Nachbarn sagen?_f': 'Himmel! Was werden die Nachbarn sagen?'
+'Allwissender Schamane': 'Omniscient Shaman'
+'Allwissender Schamane_f': 'Omniscient Shamaness'
+'Anführer der verlorenen Seelen': 'Guide of lost souls'
+'Anführer der verlorenen Seelen_f': 'Guide of lost souls'
+'Uneinnehmbare Festung': 'Impenetrable Fortress'
+'Uneinnehmbare Festung_f': 'Impenetrable Fortress'
+'Ein bisschen näher an den Sternen': 'A little closer to the stars'
+'Ein bisschen näher an den Sternen_f': 'A little closer to the stars'
+'Himmel! Was werden die Nachbarn sagen?': 'Heavens! What will the neighbours say?'
+'Himmel! Was werden die Nachbarn sagen?_f': 'Heavens! What will the neighbours say?'
 'Mister Sandman ♫♪': 'Mister Sandman ♫♪'
-'Mister Sandman ♫♪_f': 'Misses Sandman ♫♪'
-'Nutzt das Vergängliche': 'Nutzt das Vergängliche'
-'Nutzt das Vergängliche_f': 'Nutzt das Vergängliche'
+'Mister Sandman ♫♪_f': 'Miss Sandman ♫♪'
+'Nutzt das Vergängliche': 'Exploit the ephemeral'
+'Nutzt das Vergängliche_f': 'Exploit the ephemeral'
 'John Snow': 'John Snow'
-'John Snow_f': 'John Snow'
-'Der Rabinator': 'Der Rabinator'
-'Der Rabinator_f': 'Die Rabinatorin'
-'Wir drehen frei!': 'Wir drehen frei!'
-'Wir drehen frei!_f': 'Wir drehen frei!'
-'Du nennst das ein Messer? DAS ist ein Messer!': 'Du nennst das ein Messer? DAS ist ein Messer!'
-'Du nennst das ein Messer? DAS ist ein Messer!_f': 'Du nennst das ein Messer? DAS ist ein Messer!'
-'Apostel des Pandämoniums': 'Apostel des Pandämoniums'
-'Apostel des Pandämoniums_f': 'Apostel des Pandämoniums'
-'Liebling des Raben': 'Liebling des Raben'
-'Liebling des Raben_f': 'Liebling des Raben'
-Seelentrader: Seelentrader
-Seelentrader_f: Seelentraderin
-Scientologe: Scientologe
-Scientologe_f: Scientologin
-'Komm auf die dunkle Seite der Macht!': 'Komm auf die dunkle Seite der Macht!'
-'Komm auf die dunkle Seite der Macht!_f': 'Komm auf die dunkle Seite der Macht!'
-'Warren Buffet der Außenwelt': 'Warren Buffet der Außenwelt'
-'Warren Buffet der Außenwelt_f': 'Warren Buffet der Außenwelt'
-'Mein Körper ist bereit!': 'Mein Körper ist bereit!'
-'Mein Körper ist bereit!_f': 'Mein Körper ist bereit!'
+'John Snow_f': 'Margaret Ann Bulkley'
+'Der Rabinator': 'The crowinator'
+'Der Rabinator_f': 'The crowinator'
+'Wir drehen frei!': 'Freewheeling'
+'Wir drehen frei!_f': 'Freewheeling'
+'Du nennst das ein Messer? DAS ist ein Messer!': 'Call that a knife? THAT''s a knife!'
+'Du nennst das ein Messer? DAS ist ein Messer!_f': 'Call that a knife? THAT''s a knife!'
+'Apostel des Pandämoniums': 'Hardcore Apostle'
+'Apostel des Pandämoniums_f': 'Hardcore Apostle'
+'Liebling des Raben': 'Crow''s Favourite'
+'Liebling des Raben_f': 'Crow''s Favourite'
+Seelentrader: Top trader
+Seelentrader_f: Top trader
+Scientologe: Persuadotron
+Scientologe_f: Persuadotron
+'Komm auf die dunkle Seite der Macht!': 'Come to the dark side!'
+'Komm auf die dunkle Seite der Macht!_f': 'Come to the dark side!'
+'Warren Buffet der Außenwelt': 'Golden Glaoui'
+'Warren Buffet der Außenwelt_f': 'Golden Glaoui'
+'Mein Körper ist bereit!': 'Take my body!'
+'Mein Körper ist bereit!_f': 'Take my body!'
 'Ultimatives Opfer': 'Ultimate Sacrifice'
 'Ultimatives Opfer_f': 'Ultimate Sacrifice'
-'Kabum! Der Reaktor mach KABUM!!!': 'Kabum! Der Reaktor mach KABUM!!!'
-'Kabum! Der Reaktor mach KABUM!!!_f': 'Kabum! Der Reaktor mach KABUM!!!'
-Atompilzsammler: Atompilzsammler
-Atompilzsammler_f: Atompilzsammlerin
-'Bis auf die Seele verstrahlt': 'Bis auf die Seele verstrahlt'
-'Bis auf die Seele verstrahlt_f': 'Bis auf die Seele verstrahlt'
-'Ich steh auf Fusion!': 'Ich steh auf Fusion!'
-'Ich steh auf Fusion!_f': 'Ich steh auf Fusion!'
-Kung-Fu-Sion: Kung-Fu-Sion
-Kung-Fu-Sion_f: Kung-Fu-Sion
-Sandsteiniger: Sandsteiniger
-Sandsteiniger_f: Sandsteinigerin
-Sandkasten-Scharfschütze: Sandkasten-Scharfschütze
-Sandkasten-Scharfschütze_f: Sandkasten-Scharfschützin
-'Universelle Muse': 'Universelle Muse'
-'Universelle Muse_f': 'Universelle Muse'
+'Kabum! Der Reaktor mach KABUM!!!': 'Boom! When the reactor goes BOOM!!!'
+'Kabum! Der Reaktor mach KABUM!!!_f': 'Boom! When the reactor goes BOOM!!!'
+Atompilzsammler: Atomic mushroom muncher
+Atompilzsammler_f: Atomic mushroom muncher
+'Bis auf die Seele verstrahlt': 'Irradiated right to the soul'
+'Bis auf die Seele verstrahlt_f': 'Irradiated right to the soul'
+'Ich steh auf Fusion!': 'I fricken love fission'
+'Ich steh auf Fusion!_f': 'I fricken love fission'
+Kung-Fu-Sion: Fiiii-ssion
+Kung-Fu-Sion_f: Fiiii-ssion
+Sandsteiniger: Christmas Stonings... over here!
+Sandsteiniger_f: Christmas Stonings... over here!
+Sandkasten-Scharfschütze: Sandstorm Sniper
+Sandkasten-Scharfschütze_f: Sandstorm Sniper
+'Universelle Muse': 'Mr Motivator'
+'Universelle Muse_f': 'Miss Motivator'
 'Du hast {count} x {item} auf der öffentlichen Müllhalde abgeladen. <strong>Die Stadt hat {def} Verteidigungspunkt(e) dazugewonnen.</strong>': 'You threw {count} x {item} in the dump. <strong>The town has received {def} point(s) of defense!</strong>'
 'Was für ein Glück! Kurz nach dem Angriff wurden Baupläne in die Stadt geweht. Ihr erhaltet: {items}': '{items} has been discovered. It has been deposited in the bank.'
 'Du siehst nicht wirklich, wo du dich hier verstecken könntest...': 'You really don''t see where you could hide here...'
