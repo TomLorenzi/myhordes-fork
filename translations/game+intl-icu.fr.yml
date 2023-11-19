@@ -2639,7 +2639,7 @@ Riesenmaulwurf_f: Taupe géante
 'Lebensmüder Kundschafter_f': 'Exploratrice vraiment impétueuse'
 'Draufgängerischer Expeditionsreisender_f': 'Expéditionnaire au long cours'
 Nervenkitzelsucher_f: Au-delà du réel
-'Christopher Kolumbus_f': 'Christopher Kolumbus'
+'Christopher Kolumbus_f': 'Desroches du désert'
 'Bis zur Unendlichkeit... und noch viel weiter!_f': 'Vers l''infini et au-delà !'
 'Indiana Jones und die Ruinen der Aussenwelt_f': 'Sydney Fox et les ruines de l''outre-monde'
 'Wenn ich das nur vorher gewusst hätte..._f': 'Si j''aurais su, j''aurais po v''nue'
@@ -2933,5 +2933,5 @@ Sandkasten-Scharfschütze_f: Snipeuse des bacs à sable
 'Du beobachtest mehrere geeignete Verstecke, aber es wird nicht für jeden etwas dabei sein.': 'Vous repérez plusieurs planques intéressantes, mais il n''''y en aura pas pour tout le monde.'
 'Es sollte nicht allzu schwer sein, diesen Ort zum Untertauchen auszunutzen.': 'Il ne devrait pas être trop dur de tirer profit de cet endroit pour vous planquer.'
 'Es scheint, dass alle guten Verstecke bereits von deinen "Freunden" besetzt sind. Du musst also einen anderen Ort finden oder improvisieren...': 'Il semblerait que toutes les bonnes planques soient déjà occupées. Il va falloir trouver un autre endroit, ou improviser…'
-'Entfernung von hier': 'Distance d''ici'
-'Entfernung zur Stadt': 'Distance à la ville'
+'Entfernung von hier': 'Distance depuis ici'
+'Entfernung zur Stadt': 'Distance de la ville'
