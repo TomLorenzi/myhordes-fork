@@ -21,6 +21,7 @@ customElements.define('hordes-user-search', class HordesUserSearchElement extend
             title: this.dataset.title ?? null,
             exclude: this.dataset.exclude ? this.dataset.exclude.split(',').filter(s=>s).map(s=>parseInt(s)) : [],
             clearOnCallback: parseInt( this.dataset.clear ?? '1' ) !== 0,
+            callbackOnClear: parseInt( this.dataset.notifyClear ?? '0' ) !== 0,
             acceptCSVListSearch: parseInt( this.dataset.list ?? '0' ) !== 0,
             withSelf: parseInt( this.dataset.self ?? '0' ) !== 0,
             withFriends: parseInt( this.dataset.friends ?? '1' ) !== 0,
@@ -30,7 +31,7 @@ customElements.define('hordes-user-search', class HordesUserSearchElement extend
     }
 
     protected static observedAttributeNames() {
-        return ['data-title','data-exclude','data-clear','data-list','data-self','data-friends','data-alias'];
+        return ['data-title','data-exclude','data-clear','data-list','data-self','data-friends','data-alias','data-notify-clear'];
     }
 
 }, {  });

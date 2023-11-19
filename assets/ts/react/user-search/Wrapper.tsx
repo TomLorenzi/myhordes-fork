@@ -33,12 +33,22 @@ export class HordesUserSearchBar {
 
     public mount(parent: HTMLElement, props: {  }): any {
         if (!this.#_root) this.#_root = createRoot(parent);
+
+        if (!('value' in parent))
+            Object.defineProperty(parent, 'value', {
+                value: null,
+                writable: true
+            });
+
         this.#_root.render(
             <UserSearchBar
                 {...props}
-                callback={u => parent.dispatchEvent(new CustomEvent("hordes-user-search-callback", {
-                    bubbles: false, cancelable: true, detail: u
-                }))}
+                callback={u => {
+                    (parent as HTMLInputElement).value = u;
+                    parent.dispatchEvent(new CustomEvent("hordes-user-search-callback", {
+                        bubbles: false, cancelable: true, detail: u
+                    }))
+                }}
             />);
     }
 
@@ -51,11 +61,12 @@ export class HordesUserSearchBar {
 }
 
 export const UserSearchBar = (
-    {title, callback, exclude, clearOnCallback, acceptCSVListSearch, withSelf, withFriends, withAlias, context}: {
+    {title, callback, exclude, clearOnCallback, callbackOnClear, acceptCSVListSearch, withSelf, withFriends, withAlias, context}: {
         title?: string,
         callback: (UserResponses)=>void,
         exclude?: number[],
         clearOnCallback?: boolean
+        callbackOnClear?: boolean
         acceptCSVListSearch?: boolean,
         withSelf?: boolean,
         withFriends?: boolean,
@@ -87,6 +98,8 @@ export const UserSearchBar = (
         if (clearOnCallback) {
             input.current.value = '';
             setResult([]);
+        } else if (d.length === 1 && d[0]?.name) {
+            input.current.value = d[0].name;
         }
         callback(d);
     }
@@ -121,7 +134,10 @@ export const UserSearchBar = (
             return;
         }
 
-        if (s.length < 3) setResult([]);
+        if (s.length < 3) {
+            setResult([]);
+            if (callbackOnClear) execCallback([]);
+        }
         else apiRef.current.from('find')
             .withoutLoader()
             .request().before(()=>setSearching(true)).post(

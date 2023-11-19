@@ -8,6 +8,7 @@ use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
 use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 use Exception;
 
@@ -39,27 +40,46 @@ class UserGroupAssociationRepository extends ServiceEntityRepository
         return $this->count( ['association' => array_map(fn(UserGroupAssociation $a) => $a->getAssociation(), $owned_groups)] );
     }
 
-    /**
-     * @param User $user
-     * @param null $association
-     * @param array $skip
-     * @param int $limit
-     * @param bool $archive
-     * @return int|mixed|string
-     */
-    public function findByUserAssociation( User $user, $association = null, array $skip = [], int $limit = 0, bool $archive = false, ?string $filter = null ) {
+    private function filter_query(User|int $user, $association = null, bool $archive = false, ?string $filter = null): QueryBuilder {
         $qb = $this->createQueryBuilder('u')->select('u')->leftJoin('u.association', 'g')
             ->andWhere('u.user = :user')->setParameter('user', $user)
-            ->andWhere('u.bref = :arch')->setParameter('arch', $archive)
-            ->orderBy('u.priority', 'DESC')
-            ->addOrderBy('g.ref2', 'DESC')->addOrderBy('u.id', 'DESC');
-
+            ->andWhere('u.bref = :arch')->setParameter('arch', $archive);
         if ($filter !== null)
             $qb->andWhere('g.name LIKE :filter')->setParameter('filter', "%{$filter}%");
 
         if (is_array($association))
             $qb->andWhere('u.associationType IN (:assoc)')->setParameter('assoc', $association);
         elseif ($association !== null) $qb->andWhere('u.associationType = :assoc')->setParameter('assoc', $association);
+
+        return $qb;
+    }
+
+    /**
+     * @param User $user
+     * @param null $association
+     * @param array $skip
+     * @param int $limit
+     * @param bool $archive
+     * @param string|null $filter
+     * @param int|null $user_id
+     * @return int|mixed|string
+     */
+    public function findByUserAssociation( User $user, $association = null, array $skip = [], int $limit = 0, bool $archive = false, ?string $filter = null, ?int $user_id = null ) {
+        $group_wl = null;
+        if ($user_id !== null)
+            $group_wl = $this->filter_query($user_id, $association, $archive, $filter)
+                ->andWhere('u.associationType != :mod')->setParameter('mod', UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember)
+                ->select('g.id')->getQuery()->getSingleColumnResult();
+
+        $qb = $this->filter_query( $user, $association, $archive, $filter )
+            ->orderBy('u.priority', 'DESC')
+            ->addOrderBy('g.ref2', 'DESC')->addOrderBy('u.id', 'DESC');
+
+        if ($group_wl !== null)
+            $qb->andWhere('g.id IN (:wl)')->setParameter('wl', $group_wl);
+
+        if ($filter !== null)
+            $qb->andWhere('g.name LIKE :filter')->setParameter('filter', "%{$filter}%");
 
         if (!empty($skip)) $qb->andWhere('u.id NOT IN (:skip)')->setParameter('skip', $skip);
         if ($limit > 0) $qb->setMaxResults( $limit );

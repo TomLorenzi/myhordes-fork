@@ -47,14 +47,28 @@
                         {% endif %}
                         <li class="tab" x-tab-id="archive"><div class="tab-link"><img src="{{ asset("build/images/icons/small_archive.gif") }}" alt="" /><span class="hide-sm hide-md hide-lg hide-elg"> {{ 'Archiv'|trans({},'global') }}</span></div></li>
                     </ul>
-                    <div class="row-flex hidden" id="conv_search_bar">
-                        <div class="padded cell"><label for="conv_list_filter"><img alt="" src="{{ asset('build/images/forum/search.png') }}" /></label></div>
-                        <div class="padded cell grow-1"><input type="text" id="conv_list_filter" placeholder="{{ 'Nachricht suchen...'|trans({},'global') }}" /></div>
-                        <div class="tooltip help">
-                            {{ 'Gib hier den Titel einer Nachricht ein, um danach zu suchen.'|trans({},'global') }}<br />
-                            <b>{{ 'Beachte: Die Suchfunktion durchsucht nur den aktuell gewählten Tab (Posteingang oder Archiv).'|trans({},'global') }}</b>
+                    <div id="conv_search_bar" class="hidden">
+                        <div class="row-flex">
+                            <div class="padded cell"><label for="conv_list_filter"><img alt="" src="{{ asset('build/images/forum/search.png') }}" /></label></div>
+                            <div class="padded cell grow-1">
+                                <input type="text" id="conv_list_filter" placeholder="{{ 'Nachricht suchen...'|trans({},'global') }}" />
+                                <div class="tooltip help">
+                                    {{ 'Gib hier den Titel einer Nachricht ein, um danach zu suchen.'|trans({},'global') }}<br />
+                                    <b>{{ 'Beachte: Die Suchfunktion durchsucht nur den aktuell gewählten Tab (Posteingang oder Archiv).'|trans({},'global') }}</b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-flex" id="search-by-user-bar">
+                            <div class="padded cell"><label for="conv_list_filter"><img alt="" src="{{ asset('build/images/icons/small_user.gif') }}" /></label></div>
+                            <div class="padded cell grow-1">
+                                <hordes-user-search data-context="forum-search" data-self="0" data-clear="0" id="conv_list_filter_user"
+                                                    data-notify-clear="1"
+                                                    data-title="{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}">
+                                </hordes-user-search>
+                            </div>
                         </div>
                     </div>
+
                     <div class="forum-note" style="border-bottom: none;">
                         <b><span><img alt=">" src="{{ asset('build/images/icons/thread.png') }}" /></span> {{ 'Konversationen'|trans({},'global') }}</b>
                     </div>
@@ -287,12 +301,20 @@
             let core_list_path = '{{ path('pm_list') }}';
 
             const filter_entry = document.getElementById('conv_list_filter');
-            const init_conv_list = function() {
-                const list = document.getElementById('pm-conversation-list');
-                list.innerHTML = '<div class="center small"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Lade Unterhaltungen ...'|trans({},'global') }}</div>';
+            const filter_entry_users = document.getElementById('conv_list_filter_user');
+            const filter_settings = () => {
+                if (document.getElementById('conv_search_bar').classList.contains('hidden'))
+                    return {};
 
                 let filter = filter_entry.value;
                 if (filter.length <= 3) filter = null;
+                let user = document.getElementById('search-by-user-bar').classList.contains('hidden') ? null : (filter_entry_users.value ?? [])[0]?.id ?? null;
+                return {filter,user};
+            }
+
+            const init_conv_list = function() {
+                const list = document.getElementById('pm-conversation-list');
+                list.innerHTML = '<div class="center small"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Lade Unterhaltungen ...'|trans({},'global') }}</div>';
 
                 let target = document.getElementById('gpm-forum-content');
                 target.innerText = '';
@@ -302,7 +324,7 @@
                 document.getElementById('pm-forum-editor-container').classList.add('hidden');
                 document.getElementById('pm-user-list-container').classList.add('hidden');
 
-                $.ajax.background().load( list, core_list_path, false, {num: 30, filter: filter}, function() {
+                $.ajax.background().load( list, core_list_path, false, {num: 30, ...filter_settings()}, function() {
                     let conv_list_content = document.querySelector('#pm-conversation-list>ul');
                     conv_list_more = document.querySelector('#pm-conversation-list>.pm-endless-more');
                     fun_conv_events();
@@ -327,6 +349,7 @@
                     {% endif %}
                     case 'archive': core_list_path = '{{ path('pm_list', {set: 'archive'}) }}'; break;
                 }
+                document.getElementById('search-by-user-bar').classList.toggle( 'hidden', ['announcements','forum','support'].includes(e.detail.tab) )
                 init_conv_list();
             });
 
@@ -345,6 +368,7 @@
             }
             filter_entry.addEventListener('input', filter_function);
             filter_entry.addEventListener('blur', filter_function);
+            filter_entry_users.addEventListener('hordes-user-search-callback', () => init_conv_list())
 
             const fun_conv_events = function() {
                 $.html.addEventListenerAll('ul.pm-conversation-list>li[x-title][x-endpoint]', 'click', function(e,elem) {
@@ -420,7 +444,7 @@
                 });
 
                 let container = document.createElement( 'div' );
-                $.ajax.background().load( container, core_list_path, false, {num: 10, skip: skip}, function() {
+                $.ajax.background().load( container, core_list_path, false, {num: 10, skip, ...filter_settings()}, function() {
                     let messages = container.querySelector('ul.pm-conversation-list');
                     let more = container.querySelector('.pm-endless-more');
 
@@ -678,11 +702,15 @@
             });
 
             $.html.addEventListenerAll('[x-pm-action="search"]', 'click', function () {
-                document.getElementById('conv_search_bar').classList.toggle('hidden');
-                document.getElementById('conv_list_filter').value = '';
-                if (!document.getElementById('conv_search_bar').classList.contains('hidden'))
+                const bar = document.getElementById('conv_search_bar');
+                bar.classList.toggle('hidden');
+                if (!bar.classList.contains('hidden'))
                     document.getElementById('conv_list_filter').focus();
                 filter_function();
+
+                const opts = filter_settings();
+                if (bar.classList.contains('hidden') || opts.user || opts.filter)
+                    init_conv_list();
             });
 
             $.html.addEventListenerAll('[x-pm-action="new-single"]', 'click', function () {
