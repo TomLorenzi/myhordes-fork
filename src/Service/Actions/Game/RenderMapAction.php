@@ -50,12 +50,24 @@ class RenderMapAction
         $town = $town ?? $activeCitizen?->getTown();
         $zones = []; $range_x = [PHP_INT_MAX,PHP_INT_MIN]; $range_y = [PHP_INT_MAX,PHP_INT_MIN];
 
+        foreach ($town->getZones() as $zone) {
+            $x = $zone->getX();
+            $y = $zone->getY();
+
+            $range_x = [ min($range_x[0], $x), max($range_x[1], $x) ];
+            $range_y = [ min($range_y[0], $y), max($range_y[1], $y) ];
+        }
+
         $citizen_is_shaman = $admin ||
             ($this->citizen_handler->hasRole($activeCitizen, 'shaman')
                 || $activeCitizen->getProfession()->getName() == 'shaman');
 
         $soul_zones_ids = $citizen_is_shaman
-            ? array_map(function(Zone $z) { return $z->getId(); },$this->zone_handler->getSoulZones( $town ) )
+            ? array_map(function(Zone $z) use ($range_x, $range_y) {
+                $x = max($range_x[0] + 1, min($z->getX() + ($z->getSoulPositionOffset() % 2), $range_x[1]));
+                $y = max($range_y[0], min($z->getY() - floor( $z->getSoulPositionOffset() / 2 ), $range_y[1] - 1));
+                return "$x|$y";
+            }, $this->zone_handler->getSoulZones( $town ) )
             : [];
 
         $upgraded_map = $this->town_handler->getBuilding($town, 'item_electro_#00', true) !== null || $admin;
@@ -84,15 +96,13 @@ class RenderMapAction
             $x = $zone->getX();
             $y = $zone->getY();
 
-            $range_x = [ min($range_x[0], $x), max($range_x[1], $x) ];
-            $range_y = [ min($range_y[0], $y), max($range_y[1], $y) ];
-
             $current_zone = ['x' => $x, 'y' => $y];
 
             if ($admin)
                 $current_zone['id'] = $zone->getId();
 
-            if ( in_array( $zone->getId(), $soul_zones_ids) )
+            //$zone->setScoutEstimationOffset()
+            if ( in_array( "{$zone->getX()}|{$zone->getY()}", $soul_zones_ids) )
                 $current_zone['s'] = true;
 
             if ($citizen_zone !== null
