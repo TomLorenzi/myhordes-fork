@@ -32,7 +32,7 @@ class ItemPropertyDataService implements FixtureProcessorInterface {
             'pet_dog_#00'                => [ 'defence', 'pet', 'esc_fixed', 'lock' ],
             'plate_#00'                  => [ 'impoundable', 'defence', 'deco' ],
             'plate_raw_#00'              => [ 'impoundable' ],
-            'torch_#00'                  => [ 'impoundable', 'defence', 'weapon', 'nw_ikea', 'nw_armory', 'prevent_night', 'deco' ],
+            'torch_#00'                  => [ 'impoundable', 'defence', 'weapon', 'nw_ikea', 'nw_armory', 'prevent_night' ],
             'tekel_#00'                  => [ 'defence', 'lock', 'pet' ],
             'trestle_#00'                => [ 'impoundable', 'defence' ],
             'table_#00'                  => [ 'impoundable', 'defence', 'nw_ikea' ],
