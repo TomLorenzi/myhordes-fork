@@ -102,6 +102,9 @@ class Zone
     #[ORM\Column]
     private int $playerDeaths = 0;
 
+    #[ORM\Column]
+    private int $soulPositionOffset = 0;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -678,6 +681,18 @@ class Zone
     public function setPlayerDeaths(int $playerDeaths): self
     {
         $this->playerDeaths = $playerDeaths;
+
+        return $this;
+    }
+
+    public function getSoulPositionOffset(): ?int
+    {
+        return $this->soulPositionOffset;
+    }
+
+    public function setSoulPositionOffset(int $soulPositionOffset): static
+    {
+        $this->soulPositionOffset = $soulPositionOffset;
 
         return $this;
     }
