@@ -43,6 +43,7 @@ final class CitizenDeathListener implements ServiceSubscriberInterface
             $soulItem = $this->getService(ItemFactory::class)->createItem( "soul_blue_#00");
             $soulItem->setFirstPick(true);
             $this->getService(InventoryHandler::class)->forceMoveItem($spawnZone->getFloor(), $soulItem);
+            $spawnZone->setSoulPositionOffset( mt_rand(0,3) );
         }
     }
 

@@ -64,8 +64,8 @@ class RenderMapAction
 
         $soul_zones_ids = $citizen_is_shaman
             ? array_map(function(Zone $z) use ($range_x, $range_y) {
-                $x = max($range_x[0], min($z->getX() - ($z->getSoulPositionOffset() % 2), $range_x[1]));
-                $y = max($range_y[0], min($z->getY() + floor( $z->getSoulPositionOffset() / 2 ), $range_y[1]));
+                $x = max($range_x[0] + 1, min($z->getX() + ($z->getSoulPositionOffset() % 2), $range_x[1]));
+                $y = max($range_y[0], min($z->getY() - floor( $z->getSoulPositionOffset() / 2 ), $range_y[1] - 1));
                 return "$x|$y";
             }, $this->zone_handler->getSoulZones( $town ) )
             : [];

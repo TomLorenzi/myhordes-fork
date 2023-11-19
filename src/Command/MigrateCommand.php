@@ -136,6 +136,7 @@ class MigrateCommand extends Command
         '9ba59c2c0d9474987f99a0e039009d2dab6a8656' => [ ['app:migrate', ['--repair-permissions' => true] ] ],
 		'a8ddaec85455e9ab14b1ac91b7e1b7e232ad03c9' => [ ['app:migrate', ['--fix-town-loot-log' => true] ] ],
 		'7ef3c511bb2f0c7a9504853cd7ea0daee0c37253' => [ ['app:migrate', ['--add-building-inventory' => true] ] ],
+		'348648aa18ba42e3ede0b5330275176cec60a27d' => [ ['app:migrate', ['--shuffle-zone-soul-offset' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -245,6 +246,7 @@ class MigrateCommand extends Command
             ->addOption('fix-thread-creation-date', null, InputOption::VALUE_NONE, 'Fix creation date of threads')
 			->addOption('fix-town-loot-log', null, InputOption::VALUE_NONE, 'Fix townLoot log entries')
 			->addOption('add-building-inventory', null, InputOption::VALUE_NONE, 'Add inventory to already created Building')
+			->addOption('shuffle-zone-soul-offset', null, InputOption::VALUE_NONE, 'Add inventory to already created Building')
         ;
     }
 
@@ -1453,6 +1455,12 @@ class MigrateCommand extends Command
 				$b->setInventory((new Inventory())->setBuilding($b));
 			}, true);
 		}
+
+        if ($input->getOption('shuffle-zone-soul-offset')) {
+            $this->helper->leChunk($output, Zone::class, 500, [], true, true, function(Zone $z) {
+                $z->setSoulPositionOffset( mt_rand(0,3) );
+            }, true);
+        }
 
         return 99;
     }
