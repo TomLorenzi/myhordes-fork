@@ -466,7 +466,7 @@ Kopfzeile: Cabecera
 'Netzwerkfehler. Bitte prüfe deine Internetverbindung.': 'Error de red. Por favor revise tu conexión a internet.'
 'Link wurde in die Zwischenablage kopiert.': 'El enlace se ha copiado en el portapapeles.'
 'Link konnte nicht kopiert werden.': 'No se pudo copiar el enlace.'
-'MyHordes ist <i>Open Source</i> und jeder ist zur <b>Mitwirkung</b> eingeladen. Du findest den Quellcode bei {gitlab} und kannst dort auch Fehler melden.': 'Wenn ihr Fehler melden oder Verbesserungen vorschlagen möchtet, besucht das MyHordes-Projekt auf {gitlab}. Wenn ihr dem Projekt beitreten möchtet, schreibt einfach dem Technischen Support!'
+'MyHordes ist <i>Open Source</i> und jeder ist zur <b>Mitwirkung</b> eingeladen. Du findest den Quellcode bei {gitlab} und kannst dort auch Fehler melden.': 'Si deseas notificar sobre problemas o sugerir cambios, MyHordes está disponible en {gitlab}. Si quieres unirte al proyecto, ¡escríbanos al Soporte Técnico!'
 'Das kannst du nicht tun, während du einen Benutzer impersonifizierst.': 'No se puede hacer esto mientras esté conectado como otro usuario.'
 'Dieser Bürger verwendet in der aktuellen Stadt einen alternativen Spitznamen.': 'Este habitante utiliza un apodo alternativo en el pueblo actual.'
 "Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.\n                                            <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>": "La gran cantidad de montones de tierra y basura que hay por ahí son un indicio de que probablemente no quede nada por encontrar aquí.\n                                                    <p><em>Sin embargo, si lo desea, puede seguir cavando y desenterrando algunos materiales inferiores para los distintos sitios de construcción del pueblo.</em></p>"
@@ -541,4 +541,4 @@ Inhaltsverzeichnis: Tabla de contenidos
 'Private Foren': 'Foros privados'
 'Vielen Dank an diese Spieler für ihre künstlerischen Beiträge.': 'Gracias a estos jugadores por sus aportes artísticos.'
 '<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>{max}</strong> Verteidigungspunkte vergeben!': '<strong>Importante:</strong> ¡Los objetos de defensa pueden aportar un máximo de <strong>{max}</strong> puntos de defensas!'
-'Auf {hostname}': 'Auf {hostname}'
+'Auf {hostname}': 'En {hostname}'
