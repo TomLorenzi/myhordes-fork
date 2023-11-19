@@ -6,7 +6,8 @@ window.RufflePlayer.config = {
     "contextMenu": false,
     "autoplay": "on",
     'unmuteOverlay': "hidden",
-    "preloader": false
+    "preloader": false,
+    "frameRate": 25
 }
 /*window.RufflePlayer.config.publicPath = "/build/ruffle";
 window.RufflePlayer.config.contextMenu = false;*/
