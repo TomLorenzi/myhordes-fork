@@ -2407,7 +2407,7 @@ Tarnexperte: Amo del Camuflaje
 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> und <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'Con un poco de ingenio, has obtenido {item} (el objeto ha sido puesto en el Almacén).<hr />Has utilizado <strong>{ap} Punto(s) de Acción</strong> y <strong>{cp}Punto(s) de Acción</strong>.'
 'Du hast das Wasser aus {item} in den Brunnen geschüttet (<strong>+{water} Einheit(en)</strong>)': 'Has transferido el agua de {item} al Pozo (<strong>+{water} ración(es)</strong>)'
 Pfadfinder_f: Furtiva
-'Green Beret_f': 'Green Beret'
+'Green Beret_f': 'Amante del riesgo'
 Schattenmann_f: Espíritu de las arenas
 Wüstenphantom_f: Wüstenphantom
 'Solid Snake war gestern..._f': 'Solid Snake war gestern...'
@@ -2424,7 +2424,7 @@ Malteserzüchter_f: Maestra Domadora
 'Ich bändige Bestien_f': 'Ich bändige Bestien'
 'Nie ohne meinen Hund!_f': 'Nie ohne meinen Hund!'
 'Hundewurst schmeckt gar nicht schlecht!_f': 'Hundewurst schmeckt gar nicht schlecht!'
-'Meser (halb Mensch, halb Malteser)_f': 'Meser (halb Mensch, halb Malteser)'
+'Meser (halb Mensch, halb Malteser)_f': 'Cinocéfala'
 'Personalisierter Titel - Dompteur (T-ID: 1725642)_f': 'Maestria en Labradoodles'
 Wurmfresser_f: Comensal de gusanos
 'Meister im Würmerfinden_f': 'Degustadora'
