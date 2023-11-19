@@ -258,8 +258,9 @@ class TownHandler
      * Returns whether the town has unlocked Urbanism capabilities
      * @return boolean
      */
-    public function hasUrbanism() {
-        return !!$this->getBuilding( $town, 'small_strategy_#01', true );
+    public function hasUrbanism(CitizenHome $home) {
+        $town = $home->getCitizen()->getTown();
+        return !!$this->getBuilding($town, 'small_urban_#00', true );
     }
 
     /**

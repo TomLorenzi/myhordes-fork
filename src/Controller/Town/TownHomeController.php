@@ -226,7 +226,7 @@ class TownHomeController extends TownController
         $town = $citizen->getTown();
         $home = $citizen->getHome();
         
-        $has_urbanism = $th->hasUrbanism();
+        $has_urbanism = $th->hasUrbanism($home);
 
         // Get the next upgrade level for the house
         $home_next_level = $em->getRepository( CitizenHomePrototype::class )->findOneByLevel(
@@ -431,7 +431,7 @@ class TownHomeController extends TownController
         $town = $citizen->getTown();
         $home = $citizen->getHome();
 
-        $has_urbanism = $th->hasUrbanism();
+        $has_urbanism = $th->hasUrbanism($home);
 
         // Can't do it when the town is devastated
         if ($town->getDevastated()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
