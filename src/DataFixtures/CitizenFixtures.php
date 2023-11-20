@@ -224,7 +224,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
             } else {
 
                 if ($entity->getResourcesUrbanism()) $entity->getResourcesUrbanism()->getEntries()->clear();
-                else $entity->setResourcesUrbanism( (new ItemGroup())->setName( "hu_{$level}_res" ) );
+                else $entity->setResourcesUrbanism( (new ItemGroup())->setName( "hu_{$level}_ures" ) );
 
                 foreach ( $entry['resources_urbanism'] as $item => $count ) {
 
