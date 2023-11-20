@@ -43,8 +43,7 @@ class HookExecutor {
 		$this->hookRegistry = $hookRegistry;
 	}
 
-	public function execute_hooks(string $hookName, ...$args): string {
-		$args = $args[0];
+	public function execute_hooks(string $hookName, array $args = []): string {
 		$output = '';
 
 		$backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 1);

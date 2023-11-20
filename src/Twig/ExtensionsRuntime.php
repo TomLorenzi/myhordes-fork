@@ -15,8 +15,11 @@ class ExtensionsRuntime implements RuntimeExtensionInterface {
 	}
 
 	public function execute_hooks(string $hookName, ...$args): string {
-		dump($args);
-		return $this->hookExecutor->execute_hooks($hookName, $args);
+		$hookArgs = [];
+		foreach ($args as $argName => $arg) {
+			$hookArgs[$argName] = $arg;
+		}
+		return $this->hookExecutor->execute_hooks($hookName, $hookArgs);
 	}
 
 
