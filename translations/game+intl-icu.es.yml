@@ -1176,7 +1176,7 @@ Wüstenwurmzüchter: Devorador de insectos
 'Schlimmer Finger': 'Charlatán Amateur'
 Seelenverwerter: Charlatán Profesional
 'Mystischer Seher': 'Reciclador de almas'
-'Voodoo Sorceror': Voodoopriester
+'Voodoo Sorceror': Hechicero vudú
 'Yo, wir schaffen das!': 'Bricoloco'
 'Kleiner Schraubendreher': 'Destornillador Humano'
 'Schweizer Taschenmesser': 'Mascafierros'
@@ -1416,7 +1416,7 @@ Sektenmitglied: Miembro de la secta
 'Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!': '¿Es un pajaro? Es un avion? No, ¡es el súper lanzapilas!'
 'Aufgeladen und kampfbereit': 'Amplificada y lista para rodar'
 'Hey! Willst du meine... Batterie sehen?': 'Oye, oye, ¿quieres ver mi... pila?'
-'Meister der Schlüssel': Schlüsselmeister
+'Meister der Schlüssel': Gran Maestro de Llaves
 'Es war wirklich zu einfach.': 'Es demasiado fácil.'
 'Ich fresse Nägel und scheiße Kugeln!': '¡Como clavos y cago balas!'
 'Pandämonium? Hah. Einfach.': '¿Pandemonio? Ahh, Facil'
@@ -1587,7 +1587,7 @@ Wählen: Elegir
 'Wir machen Fortschritte.': 'Estamos progresando.'
 'Das Ende ist nah.': 'El Fin se acerca.'
 'Die Revolte steht bevor!': '¡La insurrección está a punto de ocurrir!'
-'Meisterkoch der Sterne': 'Tim Mälzer der Außenwelt'
+'Meisterkoch der Sterne': 'MasterChef'
 'Ich koste alle meine Produkte': 'Pruebo todos mis productos'
 'Rauchts? Dann ist es meins.': '¿Fumas? Este va por mi cuenta'
 'Mein Name ist Nobody': 'Mi nombre es ninguno'
@@ -1597,7 +1597,7 @@ Wählen: Elegir
 'Alles für meinen Mund': 'Todo para mi boca'
 'Ich brauche niemanden': 'No necesito a nadie'
 'Unabhängiger Großeinsiedler': 'Gran Eremita independiente'
-'Che Guevara der Wüste': 'Wüsten-Che Guevara'
+'Che Guevara der Wüste': 'Che Guevara del Ultramundo'
 'Ein schöneres Leben': 'El estilo es eterno...'
 'Großer E-KEA Katalog': 'Bienvenidos al palacio. '
 Maccabees-Vertreiber: Repelente de Macchabees
@@ -1670,7 +1670,7 @@ Fleisch-Schuldner: No hay nada a lo que no me pueda llevar esta motosierra...
 'Bruce Campbell': 'Bruce Campbell'
 Wasserwaffen-Spezialist: Especialista con armas de agua
 Hydraulik-Engineering: Ingeniero Hidráulico
-'Abstieg der Atlanteaner': 'Nachfahre von Atlantis'
+'Abstieg der Atlanteaner': 'Descendiente de los Atlantes'
 'Großer Löcherbuddler': 'Excavadora de agujeros grandes'
 Riesenmaulwurf: Rata del desierto
 'Ich gehe alleine.': 'Voy solo.'
@@ -1679,7 +1679,7 @@ Riesenmaulwurf: Rata del desierto
 'Begrabener Freiwilliger': 'Voluntario enterrado'
 'Tomb Raider': 'Tomb Raider'
 Labyrinth-Gollum: Master del Laberinto
-'Labyrinth-Meister MB': Labyrinth-Meister
+'Labyrinth-Meister MB': No me llames junior
 'Gontran Happiness': 'Bestia salvaje'
 'Lucky 7': '7 de la Suerte'
 'Money for Nothing': 'Dinero para Nada'
@@ -1720,7 +1720,7 @@ Messias: Mesías
 Lebenssammler: No cruces los arroyos
 'Schnitter der Aussenwelt': 'No le tengo miedo a ningún fantasma'
 'Mitglied des Roten Kreuzes': 'Miembro de la Cruz Roja'
-'Es ist der Tod der mich fürchten sollte!': 'Angst vor dem Tod? Der Sensenmann sollte MICH fürchten!'
+'Es ist der Tod der mich fürchten sollte!': '¡Es la muerte la que debería tenerme miedo!'
 Sandmann: Hombre de la arena
 'Sandy Maverick': 'Sandy Maverick'
 Wegweiser: Linterna de luz diurna
@@ -2409,45 +2409,45 @@ Tarnexperte: Amo del Camuflaje
 Pfadfinder_f: Furtiva
 'Green Beret_f': 'Amante del riesgo'
 Schattenmann_f: Espíritu de las arenas
-Wüstenphantom_f: Wüstenphantom
-'Solid Snake war gestern..._f': 'Solid Snake war gestern...'
+Wüstenphantom_f: Más fuerte que Sam Fisher
+'Solid Snake war gestern..._f': 'Ayer fue Serpiente Sólida...'
 'Der unsichtbare Mann_f': 'La mujer invisible'
 Sandarbeiter_f: Husmeadora
-Wüstenspringmaus_f: Wüstenspringmaus
-'Großer Ameisenbär_f': 'Großer Ameisenbär'
+Wüstenspringmaus_f: Descubridora
+'Großer Ameisenbär_f': 'Jefa Excavadora'
 Wüstenfuchs_f: Maestra Excavadora
-'Ich sehe Alles!_f': 'Ich sehe Alles!'
-'Ein BMW? Kein Problem!_f': 'Ein BMW? Kein Problem!'
+'Ich sehe Alles!_f': 'Nada se me escapa'
+'Ein BMW? Kein Problem!_f': '¿Un BMW? ¡No hay problema!'
 'Où est Larchi ?_f': '¿Dónde está Larchi?'
 Tierliebhaber_f: Amiga de los Animales
 Malteserzüchter_f: Maestra Domadora
-'Ich bändige Bestien_f': 'Ich bändige Bestien'
-'Nie ohne meinen Hund!_f': 'Nie ohne meinen Hund!'
-'Hundewurst schmeckt gar nicht schlecht!_f': 'Hundewurst schmeckt gar nicht schlecht!'
+'Ich bändige Bestien_f': 'Domadora de Bestias'
+'Nie ohne meinen Hund!_f': 'Manimal'
+'Hundewurst schmeckt gar nicht schlecht!_f': 'La comida para perros no sabe tan mal'
 'Meser (halb Mensch, halb Malteser)_f': 'Cinocéfala'
 'Personalisierter Titel - Dompteur (T-ID: 1725642)_f': 'Maestria en Labradoodles'
 Wurmfresser_f: Comensal de gusanos
 'Meister im Würmerfinden_f': 'Degustadora'
 'Gefräßiger Bürger_f': 'Paladar insaciable'
 Wüstenwurmzüchter_f: Devoradora de insectos
-'Ich brauche niemanden!_f': 'Ich brauche niemanden!'
-'Heraklit der Außenwelt_f': 'Heraklit der Außenwelt'
+'Ich brauche niemanden!_f': 'Omnívora'
+'Heraklit der Außenwelt_f': 'Sola... estoy tan sola'
 'Gepanzerter Fakir_f': 'Ermitaña Experimentada'
-'Diplomierter Scharlatan_f': 'Diplomierter Scharlatan'
-'Schlimmer Finger_f': 'Schlimmer Finger'
+'Diplomierter Scharlatan_f': 'Aborigen curiosa'
+'Schlimmer Finger_f': 'Charlatana Amateur'
 Seelenverwerter_f: Charlatana Profesional
 'Mystischer Seher_f': 'Recicladora de almas'
 'Voodoo Sorceror_f': 'Hechicero vudú'
-'Yo, wir schaffen das!_f': 'Yo, wir schaffen das!'
-'Kleiner Schraubendreher_f': 'Kleiner Schraubendreher'
-'Schweizer Taschenmesser_f': 'Schweizer Taschenmesser'
+'Yo, wir schaffen das!_f': 'Bricoloca'
+'Kleiner Schraubendreher_f': 'Destornillador Humano'
+'Schweizer Taschenmesser_f': 'Mascafierros'
 'Unermüdlicher Schrauber_f': 'Técnica inagotable'
-'Seele des Handwerks_f': 'Seele des Handwerks'
-'Seele eines Profis_f': 'Seele eines Profis'
+'Seele des Handwerks_f': 'TecnicaMecanaMegalomana'
+'Seele eines Profis_f': 'Alma de una profesional'
 'Personalisierter Titel - Techniker (T-ID: 631944)_f': 'Nunca camines sin tus llaves'
-'Die Mauer_f': 'Die Mauer'
+'Die Mauer_f': 'Defensora'
 Höllenwächter_f: Gran Guardiana
-Kerberos_f: Kerberos
+Kerberos_f: Paladina
 'Die letzte Verteidigungslinie_f': 'Die letzte Verteidigungslinie'
 'Du kommst hier NICHT durch!_f': 'Du kommst hier NICHT durch!'
 Hekatoncheir_f: Hekatoncheir
