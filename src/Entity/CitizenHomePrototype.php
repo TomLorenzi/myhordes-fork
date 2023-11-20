@@ -103,10 +103,6 @@ class CitizenHomePrototype
 
         return $this;
     }
-    public function getFullAp(): ?int
-    {
-        return $this->ap + $this->apUrbanism;
-    }
     public function getResources(): ?ItemGroup
     {
         return $this->resources;
@@ -126,22 +122,6 @@ class CitizenHomePrototype
         $this->resourcesUrbanism = $resourcesUrbanism;
 
         return $this;
-    }
-    public function getResourcesAndResourcesUrbanism(): ?ItemGroup
-    {
-        if(isset($this->resources_and_urbanism)) return $this->resources_and_urbanism;
-        $required_items = $this->getResources();
-        if(!$required_items) {
-            $required_items = $this->getResourcesUrbanism();
-        }
-        else {
-            foreach($this->getResourcesUrbanism() as $resource => $quantity) {
-                if($required_items[$resource]) $required_items[$resource] += $quantity;
-                else $required_items[$resource] = $quantity;
-            }
-        }
-        $this->resources_and_urbanism = $required_items;
-        return $this->resources_and_urbanism;
     }
     public function getRequiredBuilding(): ?BuildingPrototype
     {

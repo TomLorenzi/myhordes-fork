@@ -245,8 +245,8 @@ class TownHomeController extends TownController
                 'tab' => 'build',
 
                 'next_level' => $home_next_level,
-                'next_level_ap' => $has_urbanism ? $home_next_level->getAp() : $home_next_level->getFullAp(),
-                'next_level_resources' => $has_urbanism ? $home_next_level->getResources() : $home_next_level->getResourcesAndResourcesUrbanism(),
+                'next_level_ap' => $has_urbanism ? $home_next_level->getApUrbanism() : $home_next_level->getAp(),
+                'next_level_resources' => $has_urbanism ? $home_next_level->getResourcesUrbanism() : $home_next_level->getResources(),
                 'next_level_req' => $home_next_level_requirement,
                 'devastated' => $town->getDevastated(),
             ], $this->house_partial_upgrade_args(), $this->house_partial_complaints_args())
@@ -441,7 +441,7 @@ class TownHomeController extends TownController
         $next = $em->getRepository(CitizenHomePrototype::class)->findOneBy( ['level' => $home->getPrototype()->getLevel() + 1] );
         if (!$next) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         
-        $required_ap = $has_urbanism ? $next->getAp() : $next->getFullAp();
+        $required_ap = $has_urbanism ? $next->getApUrbanism() : $next->getAp();
 
         // Make sure the citizen is not tired
         if ($ch->isTired( $citizen ) || $citizen->getAp() < $required_ap) return AjaxResponse::error( ErrorHelper::ErrorNoAP );
@@ -456,7 +456,7 @@ class TownHomeController extends TownController
 
         // Fetch upgrade resources; fail if they are missing
         $items = [];
-        $required_items = $has_urbanism ? $next->getResources() : $next->getResourcesAndResourcesUrbanism();
+        $required_items = $has_urbanism ? $next->getResourcesUrbanism() : $next->getResources();
         if ($required_items) {
             $items = $ih->fetchSpecificItems( [$home->getChest(),$citizen->getInventory()], $required_items );
             if (!$items)  return AjaxResponse::error( ErrorHelper::ErrorItemsMissing );
