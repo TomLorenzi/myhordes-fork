@@ -103,7 +103,7 @@ class CitizenHomePrototype
 
         return $this;
     }
-    public function getApAndApUrbanism(): ?int
+    public function getFullAp(): ?int
     {
         return $this->ap + $this->apUrbanism;
     }

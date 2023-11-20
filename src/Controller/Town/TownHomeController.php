@@ -226,7 +226,7 @@ class TownHomeController extends TownController
         $town = $citizen->getTown();
         $home = $citizen->getHome();
         
-        $has_urbanism = $th->hasUrbanism($home);
+        $has_urbanism = $th->hasUrbanism($town);
 
         // Get the next upgrade level for the house
         $home_next_level = $em->getRepository( CitizenHomePrototype::class )->findOneByLevel(
@@ -245,7 +245,7 @@ class TownHomeController extends TownController
                 'tab' => 'build',
 
                 'next_level' => $home_next_level,
-                'next_level_ap' => $has_urbanism ? $home_next_level->getAp() : $home_next_level->getApAndApUrbanism(),
+                'next_level_ap' => $has_urbanism ? $home_next_level->getAp() : $home_next_level->getFullAp(),
                 'next_level_resources' => $has_urbanism ? $home_next_level->getResources() : $home_next_level->getResourcesAndResourcesUrbanism(),
                 'next_level_req' => $home_next_level_requirement,
                 'devastated' => $town->getDevastated(),
@@ -431,7 +431,7 @@ class TownHomeController extends TownController
         $town = $citizen->getTown();
         $home = $citizen->getHome();
 
-        $has_urbanism = $th->hasUrbanism($home);
+        $has_urbanism = $th->hasUrbanism($town);
 
         // Can't do it when the town is devastated
         if ($town->getDevastated()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -441,7 +441,7 @@ class TownHomeController extends TownController
         $next = $em->getRepository(CitizenHomePrototype::class)->findOneBy( ['level' => $home->getPrototype()->getLevel() + 1] );
         if (!$next) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         
-        $required_ap = $has_urbanism ? $next->getAp() : $next->getApAndApUrbanism();
+        $required_ap = $has_urbanism ? $next->getAp() : $next->getFullAp();
 
         // Make sure the citizen is not tired
         if ($ch->isTired( $citizen ) || $citizen->getAp() < $required_ap) return AjaxResponse::error( ErrorHelper::ErrorNoAP );
