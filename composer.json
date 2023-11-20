@@ -16,7 +16,7 @@
         "ext-mbstring": "*",
         "ext-simplexml": "*",
         "adbario/php-dot-notation": "^3.3",
-        "brainbox-et/etwin-api-client": "0.1.1",
+        "brainbox-et/etwin-api-client": "@dev",
         "clue/graph": "0.9.3",
         "composer/semver": "^3.4",
         "doctrine/annotations": "2.0.1",

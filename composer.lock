@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3711bd6b3be3d1796120a42c4e6e8086",
+    "content-hash": "85ab117aab2911f9d6ec093440343c67",
     "packages": [
         {
             "name": "adbario/php-dot-notation",
@@ -130,16 +130,10 @@
         {
             "name": "brainbox-et/etwin-api-client",
             "version": "0.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://gitlab.com/eternal-twin/etwin-php-api-client.git",
-                "reference": "328852bbac603e8f59faf92e09d8fcd43145b816"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/eternal-twin%2Fetwin-php-api-client/repository/archive.zip?sha=328852bbac603e8f59faf92e09d8fcd43145b816",
-                "reference": "328852bbac603e8f59faf92e09d8fcd43145b816",
-                "shasum": ""
+                "type": "path",
+                "url": "packages/myhordes-etwin-api-client",
+                "reference": "578f80a0cf89c14cd704aee652169bc93882df82"
             },
             "require": {
                 "ext-json": "*",
@@ -151,7 +145,6 @@
                     "EternalTwinClient\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "CC-BY-SA-4.0"
             ],
@@ -162,10 +155,9 @@
                 }
             ],
             "description": "PHP-based client to connect to the EternalTwin API",
-            "support": {
-                "issues": "https://gitlab.com/api/v4/projects/22259222/issues"
-            },
-            "time": "2021-09-10T15:46:21+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "clue/graph",
@@ -2972,7 +2964,7 @@
         },
         {
             "name": "myhordes/fixtures",
-            "version": "dev-master-v2.0",
+            "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-fixtures",
@@ -3010,7 +3002,7 @@
         },
         {
             "name": "myhordes/plugins",
-            "version": "dev-master-v2.0",
+            "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-plugins",
@@ -13288,6 +13280,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "brainbox-et/etwin-api-client": 20,
         "myhordes/fixtures": 20,
         "myhordes/plugins": 20,
         "shivas/versioning-bundle": 20

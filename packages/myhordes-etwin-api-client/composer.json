@@ -1,0 +1,23 @@
+{
+    "name": "brainbox-et/etwin-api-client",
+    "description": "PHP-based client to connect to the EternalTwin API",
+    "type": "library",
+    "version": "0.1.1",
+    "license": "CC-BY-SA-4.0",
+    "authors": [
+        {
+            "name": "Benjamin Behrendt",
+            "email": "behrendt@isg.cs.uni-magdeburg.de"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.4",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "EternalTwinClient\\": "src/"
+        }
+    }
+}
