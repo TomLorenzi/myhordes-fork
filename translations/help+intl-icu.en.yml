@@ -893,3 +893,6 @@ Teams: Communities
 'Kann ich mein Team wechseln?': 'Can I change my community?'
 'Du kannst dein Team jederzeit wechseln, solange die Anzahl der Städte in deinem alten Team das Limit für fremde Städte nicht übersteigt.': 'You can change your community at any time as long as the number of towns in your old community does not exceed the limit for foreign towns.'
 'Um dein Team nach Erreichen dieses Limits zu wechseln, kannst du <strong>in begründeten Fällen</strong> den Technischen Support kontaktieren.': 'To change your community after reaching this limit, you can <strong>in justified cases</strong> contact the Technical Support.'
+'In <strong>Pandämoniumsstädten</strong> tauchen die Ghule von Anfang an auf.': 'In <strong>Hardcore</strong> towns, ghouls may appear from the very first day.'
+'In einer Stadt kann es auch mehrere Ghule geben, wenn es der Gemeinschaft nicht gelungen ist, den ersten Ghul umzubringen.': 'There may be more than one ghoul in town if the citizens did not successfully kill the first ghoul.'
+'Tauchen die Ghule von Anfang an auf.': 'The ghouls appear from the beginning.'

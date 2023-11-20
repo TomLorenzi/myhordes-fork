@@ -1176,7 +1176,7 @@ Wüstenwurmzüchter: crwdns64136:0crwdne64136:0
 'Schlimmer Finger': 'crwdns64144:0crwdne64144:0'
 Seelenverwerter: crwdns64146:0crwdne64146:0
 'Mystischer Seher': 'crwdns64148:0crwdne64148:0'
-'Voodoo Sorceror': 'crwdns202868:0crwdne202868:0'
+'Voodoo Sorceror': crwdns202902:0crwdne202902:0
 'Yo, wir schaffen das!': 'crwdns64152:0crwdne64152:0'
 'Kleiner Schraubendreher': 'crwdns64154:0crwdne64154:0'
 'Schweizer Taschenmesser': 'crwdns64156:0crwdne64156:0'
@@ -1193,7 +1193,7 @@ Kantinenkoch: crwdns64174:0crwdne64174:0
 'Meister Eintopf': 'crwdns64178:0crwdne64178:0'
 'Großer Wüstenkonditor': 'crwdns64180:0crwdne64180:0'
 'Begnadeter Wüstenkonditor': 'crwdns64182:0crwdne64182:0'
-'Cooking Mama': 'crwdns64184:0crwdne64184:0'
+'Cooking Mama': 'crwdns202904:0crwdne202904:0'
 'Meisterhafter Kochlöffelschwinger': 'crwdns64186:0crwdne64186:0'
 Amateur-Laborratte: crwdns64188:0crwdne64188:0
 'Kleiner Präparator': 'crwdns64190:0crwdne64190:0'
@@ -1239,7 +1239,7 @@ Müllmann: crwdns64266:0crwdne64266:0
 Entsorgungsfachmann: crwdns64270:0crwdne64270:0
 'SM Anhänger': 'crwdns64272:0crwdne64272:0'
 'SM Spezialist': 'crwdns64274:0crwdne64274:0'
-'Nenn mich Herrin': 'crwdns64276:0crwdne64276:0'
+'Nenn mich Herrin': 'crwdns202906:0crwdne202906:0'
 'Ich möchte dein Objekt sein.': 'crwdns64278:0crwdne64278:0'
 Stadtmetzger: crwdns64280:0crwdne64280:0
 'Spezialität: Hundesteaks': 'crwdns64282:0crwdne64282:0'
@@ -1416,7 +1416,7 @@ Sektenmitglied: crwdns64616:0crwdne64616:0
 'Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!': 'crwdns64624:0crwdne64624:0'
 'Aufgeladen und kampfbereit': 'crwdns64626:0crwdne64626:0'
 'Hey! Willst du meine... Batterie sehen?': 'crwdns64628:0crwdne64628:0'
-'Meister der Schlüssel': 'crwdns202870:0crwdne202870:0'
+'Meister der Schlüssel': crwdns202908:0crwdne202908:0
 'Es war wirklich zu einfach.': 'crwdns64632:0crwdne64632:0'
 'Ich fresse Nägel und scheiße Kugeln!': 'crwdns64634:0crwdne64634:0'
 'Pandämonium? Hah. Einfach.': 'crwdns64636:0crwdne64636:0'
@@ -1587,7 +1587,7 @@ Wählen: crwdns64924:0crwdne64924:0
 'Wir machen Fortschritte.': 'crwdns64966:0crwdne64966:0'
 'Das Ende ist nah.': 'crwdns64968:0crwdne64968:0'
 'Die Revolte steht bevor!': 'crwdns64970:0crwdne64970:0'
-'Meisterkoch der Sterne': 'crwdns202872:0crwdne202872:0'
+'Meisterkoch der Sterne': 'crwdns202910:0crwdne202910:0'
 'Ich koste alle meine Produkte': 'crwdns64974:0crwdne64974:0'
 'Rauchts? Dann ist es meins.': 'crwdns64976:0crwdne64976:0'
 'Mein Name ist Nobody': 'crwdns64978:0crwdne64978:0'
@@ -1597,7 +1597,7 @@ Wählen: crwdns64924:0crwdne64924:0
 'Alles für meinen Mund': 'crwdns64986:0crwdne64986:0'
 'Ich brauche niemanden': 'crwdns64988:0crwdne64988:0'
 'Unabhängiger Großeinsiedler': 'crwdns64990:0crwdne64990:0'
-'Che Guevara der Wüste': 'crwdns202874:0crwdne202874:0'
+'Che Guevara der Wüste': 'crwdns202912:0crwdne202912:0'
 'Ein schöneres Leben': 'crwdns64994:0crwdne64994:0'
 'Großer E-KEA Katalog': 'crwdns64996:0crwdne64996:0'
 Maccabees-Vertreiber: crwdns64998:0crwdne64998:0
@@ -1617,7 +1617,7 @@ Paranoid: crwdns65002:0crwdne65002:0
 'Der Bruce Lee des Spachtels': 'crwdns65026:0crwdne65026:0'
 'Es ist Zeit für Kathedralen': 'crwdns65028:0crwdne65028:0'
 'Hast du nichts besseres zu tun?': 'crwdns65030:0crwdne65030:0'
-'Hohepriesterin des Sonnentempels': 'crwdns65032:0crwdne65032:0'
+'Hohepriesterin des Sonnentempels': 'crwdns202914:0crwdne202914:0'
 'Obelisk der heutigen Zeit!': 'crwdns65034:0crwdne65034:0'
 'Lebhafter Tribut': 'crwdns65036:0crwdne65036:0'
 'Wird in die Annalen eingehen': 'crwdns65038:0crwdne65038:0'
@@ -1670,7 +1670,7 @@ Fleisch-Schuldner: crwdns65130:0crwdne65130:0
 'Bruce Campbell': 'crwdns65132:0crwdne65132:0'
 Wasserwaffen-Spezialist: crwdns65134:0crwdne65134:0
 Hydraulik-Engineering: crwdns65136:0crwdne65136:0
-'Abstieg der Atlanteaner': 'crwdns202876:0crwdne202876:0'
+'Abstieg der Atlanteaner': 'crwdns202916:0crwdne202916:0'
 'Großer Löcherbuddler': 'crwdns65140:0crwdne65140:0'
 Riesenmaulwurf: crwdns65142:0crwdne65142:0
 'Ich gehe alleine.': 'crwdns65144:0crwdne65144:0'
@@ -1679,7 +1679,7 @@ Riesenmaulwurf: crwdns65142:0crwdne65142:0
 'Begrabener Freiwilliger': 'crwdns65150:0crwdne65150:0'
 'Tomb Raider': 'crwdns65152:0crwdne65152:0'
 Labyrinth-Gollum: crwdns65154:0crwdne65154:0
-'Labyrinth-Meister MB': 'crwdns202878:0crwdne202878:0'
+'Labyrinth-Meister MB': crwdns202918:0crwdne202918:0
 'Gontran Happiness': 'crwdns65158:0crwdne65158:0'
 'Lucky 7': 'crwdns65160:0crwdne65160:0'
 'Money for Nothing': 'crwdns65162:0crwdne65162:0'
@@ -1720,7 +1720,7 @@ Messias: crwdns65222:0crwdne65222:0
 Lebenssammler: crwdns65232:0crwdne65232:0
 'Schnitter der Aussenwelt': 'crwdns65234:0crwdne65234:0'
 'Mitglied des Roten Kreuzes': 'crwdns65236:0crwdne65236:0'
-'Es ist der Tod der mich fürchten sollte!': 'crwdns202880:0crwdne202880:0'
+'Es ist der Tod der mich fürchten sollte!': 'crwdns202920:0crwdne202920:0'
 Sandmann: crwdns65240:0crwdne65240:0
 'Sandy Maverick': 'crwdns65242:0crwdne65242:0'
 Wegweiser: crwdns65244:0crwdne65244:0
@@ -2405,7 +2405,533 @@ Tarnexperte: crwdns136973:0crwdne136973:0
 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> verbraucht.': 'crwdns202663:0{item}crwdnd202663:0{ap}crwdne202663:0'
 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'crwdns202665:0{item}crwdnd202665:0{cp}crwdne202665:0'
 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> und <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'crwdns202667:0{item}crwdnd202667:0{ap}crwdnd202667:0{cp}crwdne202667:0'
+'Du hast das Wasser aus {item} in den Brunnen geschüttet (<strong>+{water} Einheit(en)</strong>)': 'crwdns202922:0{item}crwdnd202922:0{water}crwdne202922:0'
+Pfadfinder_f: crwdns202924:0crwdne202924:0
+'Green Beret_f': 'crwdns202926:0crwdne202926:0'
+Schattenmann_f: crwdns202928:0crwdne202928:0
+Wüstenphantom_f: crwdns202930:0crwdne202930:0
+'Solid Snake war gestern..._f': 'crwdns202932:0crwdne202932:0'
+'Der unsichtbare Mann_f': 'crwdns202934:0crwdne202934:0'
+Sandarbeiter_f: crwdns202936:0crwdne202936:0
+Wüstenspringmaus_f: crwdns202938:0crwdne202938:0
+'Großer Ameisenbär_f': 'crwdns202940:0crwdne202940:0'
+Wüstenfuchs_f: crwdns202942:0crwdne202942:0
+'Ich sehe Alles!_f': 'crwdns202944:0crwdne202944:0'
+'Ein BMW? Kein Problem!_f': 'crwdns202946:0crwdne202946:0'
+'Où est Larchi ?_f': 'crwdns202948:0crwdne202948:0'
+Tierliebhaber_f: crwdns202950:0crwdne202950:0
+Malteserzüchter_f: crwdns202952:0crwdne202952:0
+'Ich bändige Bestien_f': 'crwdns202954:0crwdne202954:0'
+'Nie ohne meinen Hund!_f': 'crwdns202956:0crwdne202956:0'
+'Hundewurst schmeckt gar nicht schlecht!_f': 'crwdns202958:0crwdne202958:0'
+'Meser (halb Mensch, halb Malteser)_f': 'crwdns202960:0crwdne202960:0'
+'Personalisierter Titel - Dompteur (T-ID: 1725642)_f': 'crwdns202962:0crwdne202962:0'
+Wurmfresser_f: crwdns202964:0crwdne202964:0
+'Meister im Würmerfinden_f': 'crwdns202966:0crwdne202966:0'
+'Gefräßiger Bürger_f': 'crwdns202968:0crwdne202968:0'
+Wüstenwurmzüchter_f: crwdns202970:0crwdne202970:0
+'Ich brauche niemanden!_f': 'crwdns202972:0crwdne202972:0'
+'Heraklit der Außenwelt_f': 'crwdns202974:0crwdne202974:0'
+'Gepanzerter Fakir_f': 'crwdns202976:0crwdne202976:0'
+'Diplomierter Scharlatan_f': 'crwdns202978:0crwdne202978:0'
+'Schlimmer Finger_f': 'crwdns202980:0crwdne202980:0'
+Seelenverwerter_f: crwdns202982:0crwdne202982:0
+'Mystischer Seher_f': 'crwdns202984:0crwdne202984:0'
+'Voodoo Sorceror_f': 'crwdns202986:0crwdne202986:0'
+'Yo, wir schaffen das!_f': 'crwdns202988:0crwdne202988:0'
+'Kleiner Schraubendreher_f': 'crwdns202990:0crwdne202990:0'
+'Schweizer Taschenmesser_f': 'crwdns202992:0crwdne202992:0'
+'Unermüdlicher Schrauber_f': 'crwdns202994:0crwdne202994:0'
+'Seele des Handwerks_f': 'crwdns202996:0crwdne202996:0'
+'Seele eines Profis_f': 'crwdns202998:0crwdne202998:0'
+'Personalisierter Titel - Techniker (T-ID: 631944)_f': 'crwdns203000:0crwdne203000:0'
+'Die Mauer_f': 'crwdns203002:0crwdne203002:0'
+Höllenwächter_f: crwdns203004:0crwdne203004:0
+Kerberos_f: crwdns203006:0crwdne203006:0
+'Die letzte Verteidigungslinie_f': 'crwdns203008:0crwdne203008:0'
+'Du kommst hier NICHT durch!_f': 'crwdns203010:0crwdne203010:0'
+Hekatoncheir_f: crwdns203012:0crwdne203012:0
+'Holy F***ing Iceberg_f': 'crwdns203014:0crwdne203014:0'
+Kantinenkoch_f: crwdns203016:0crwdne203016:0
+'Kleiner Küchenchef_f': 'crwdns203018:0crwdne203018:0'
+'Meister Eintopf_f': 'crwdns203020:0crwdne203020:0'
+'Großer Wüstenkonditor_f': 'crwdns203022:0crwdne203022:0'
+'Begnadeter Wüstenkonditor_f': 'crwdns203024:0crwdne203024:0'
+'Cooking Mama_f': 'crwdns203026:0crwdne203026:0'
+'Meisterhafter Kochlöffelschwinger_f': 'crwdns203028:0crwdne203028:0'
+'Meisterkoch der Sterne_f': 'crwdns203030:0crwdne203030:0'
+Amateur-Laborratte_f: crwdns203032:0crwdne203032:0
+'Kleiner Präparator_f': 'crwdns203034:0crwdne203034:0'
+'Chemiker von um die Ecke_f': 'crwdns203036:0crwdne203036:0'
+Produkttester_f: crwdns203038:0crwdne203038:0
+Wüstenstadt-Dealer_f: crwdns203040:0crwdne203040:0
+'Ich koste alle meine Produkte_f': 'crwdns203042:0crwdne203042:0'
+'Rauchts? Dann ist es meins._f': 'crwdns203044:0crwdne203044:0'
+'Offizieller AP-Versorger_f': 'crwdns203046:0crwdne203046:0'
+'X-Men Leser_f': 'crwdns203048:0crwdne203048:0'
+'Aussergewöhnlicher Bürger_f': 'crwdns203050:0crwdne203050:0'
+Wunder_f: crwdns203052:0crwdne203052:0
+'Werdender Superheld_f': 'crwdns203054:0crwdne203054:0'
+Volksheld_f: crwdns203056:0crwdne203056:0
+Neo_f: crwdns203058:0crwdne203058:0
+'Erlöser der Menschheit_f': 'crwdns203060:0crwdne203060:0'
+Außenweltlegende_f: crwdns203062:0crwdne203062:0
+'Messie der verlorenen Welt_f': 'crwdns203064:0crwdne203064:0'
+'Mein Name ist Nobody_f': 'crwdns203066:0crwdne203066:0'
+'Ein Sternbild trägt meinen Namen_f': 'crwdns203068:0crwdne203068:0'
+Abstauber_f: crwdns203070:0crwdne203070:0
+Müllkind_f: crwdns203072:0crwdne203072:0
+'Autonomer Müll_f': 'crwdns203074:0crwdne203074:0'
+'Freier Bürger_f': 'crwdns203076:0crwdne203076:0'
+'Alles für meinen Mund_f': 'crwdns203078:0crwdne203078:0'
+'Ich brauche niemanden_f': 'crwdns203080:0crwdne203080:0'
+'Unabhängiger Großeinsiedler_f': 'crwdns203082:0crwdne203082:0'
+'Che Guevara der Wüste_f': 'crwdns203084:0crwdne203084:0'
+Maulheld_f: crwdns203086:0crwdne203086:0
+Lump_f: crwdns203088:0crwdne203088:0
+Schaumschläger_f: crwdns203090:0crwdne203090:0
+Dieb_f: crwdns203092:0crwdne203092:0
+Fantomas_f: crwdns203094:0crwdne203094:0
+'Ali Baba_f': 'crwdns203096:0crwdne203096:0'
+Meisterdieb_f: crwdns203098:0crwdne203098:0
+Kleptomane_f: crwdns203100:0crwdne203100:0
+'Dein Haus ist mein Haus_f': 'crwdns203102:0crwdne203102:0'
+Ästhet_f: crwdns203104:0crwdne203104:0
+Schaufenstergestalter_f: crwdns203106:0crwdne203106:0
+Innenarchitekt_f: crwdns203108:0crwdne203108:0
+Möbelgourmet_f: crwdns203110:0crwdne203110:0
+'Ordnung muss sein!_f': 'crwdns203112:0crwdne203112:0'
+'Ein schöneres Leben_f': 'crwdns203114:0crwdne203114:0'
+'Großer E-KEA Katalog_f': 'crwdns203116:0crwdne203116:0'
+Plünderer_f: crwdns203118:0crwdne203118:0
+Aasgeier_f: crwdns203120:0crwdne203120:0
+Hyäne_f: crwdns203122:0crwdne203122:0
+'Wegelagerer post mortem_f': 'crwdns203124:0crwdne203124:0'
+'Hungriger Schakal_f': 'crwdns203126:0crwdne203126:0'
+'Kojote der kargen Steppen_f': 'crwdns203128:0crwdne203128:0'
+Fingerschmied_f: crwdns203130:0crwdne203130:0
+'Nein, das Ding fasse ich nicht an._f': 'crwdns203132:0crwdne203132:0'
+Leichenhygieniker_f: crwdns203134:0crwdne203134:0
+'Ich liebe den Geruch von gewaschenen Leichen am Morgen._f': 'crwdns203136:0crwdne203136:0'
+Müllmann_f: crwdns203138:0crwdne203138:0
+'Erfahrener Müllmann_f': 'crwdns203140:0crwdne203140:0'
+Entsorgungsfachmann_f: crwdns203142:0crwdne203142:0
+Maccabees-Vertreiber_f: crwdns203144:0crwdne203144:0
+'SM Anhänger_f': 'crwdns203146:0crwdne203146:0'
+'SM Spezialist_f': 'crwdns203148:0crwdne203148:0'
+'Nenn mich Herrin_f': 'crwdns203150:0crwdne203150:0'
+'Ich möchte dein Objekt sein._f': 'crwdns203152:0crwdne203152:0'
+Stadtmetzger_f: crwdns203154:0crwdne203154:0
+'Spezialität: Hundesteaks_f': 'crwdns203156:0crwdne203156:0'
+'Miezi? Jaaaa, komm her..._f': 'crwdns203158:0crwdne203158:0'
+'Fleisch ist mein Gemüse_f': 'crwdns203160:0crwdne203160:0'
+'Immer ein Auge offen_f': 'crwdns203162:0crwdne203162:0'
+'Mit offenen Augen schlafen? Kein Problem!_f': 'crwdns203164:0crwdne203164:0'
+'Immer alles im Blick_f': 'crwdns203166:0crwdne203166:0'
+Wachsam_f: crwdns203168:0crwdne203168:0
+Paranoid_f: crwdns203170:0crwdne203170:0
+'Fels in der Brandung_f': 'crwdns203172:0crwdne203172:0'
+'Großer Baumeister_f': 'crwdns203174:0crwdne203174:0'
+'Großer Architekt_f': 'crwdns203176:0crwdne203176:0'
+Freimauer_f: crwdns203178:0crwdne203178:0
+Terraformingspezialist_f: crwdns203180:0crwdne203180:0
+'Allmächtiger Schöpfer_f': 'crwdns203182:0crwdne203182:0'
+'Archi-Mädlicher Illustrator von Pi_f': 'crwdns203184:0crwdne203184:0'
+"Muad'Dib_f": "crwdns203186:0crwdne203186:0"
+'Am 7. Tag erschuf er den Fleischkäfig_f': 'crwdns203188:0crwdne203188:0'
+'Bauherr ohne Sinn und Verstand_f': 'crwdns203190:0crwdne203190:0'
+'Erbauer der verlorenen Zeit_f': 'crwdns203192:0crwdne203192:0'
+'Erleuchteter Baumeister_f': 'crwdns203194:0crwdne203194:0'
+'Maurer aus Leidenschaft_f': 'crwdns203196:0crwdne203196:0'
+'Das Unnütze mit dem Angenehmen verbinden_f': 'crwdns203198:0crwdne203198:0'
+'Verrückter Architekten-Visionär_f': 'crwdns203200:0crwdne203200:0'
+'Ich habe einen Plan_f': 'crwdns203202:0crwdne203202:0'
+'Hirnverbrannter Baumeister_f': 'crwdns203204:0crwdne203204:0'
+'Meister der Nutzlosigkeit_f': 'crwdns203206:0crwdne203206:0'
+'Vereister Ingenieur_f': 'crwdns203208:0crwdne203208:0'
+'Wundervoll nutzlos_f': 'crwdns203210:0crwdne203210:0'
+'Der Bruce Lee des Spachtels_f': 'crwdns203212:0crwdne203212:0'
+'Es ist Zeit für Kathedralen_f': 'crwdns203214:0crwdne203214:0'
+'Hast du nichts besseres zu tun?_f': 'crwdns203216:0crwdne203216:0'
+'Hohepriesterin des Sonnentempels_f': 'crwdns203218:0crwdne203218:0'
+'Huldigt den riesigen KVF!_f': 'crwdns203220:0crwdne203220:0'
+'Obelisk der heutigen Zeit!_f': 'crwdns203222:0crwdne203222:0'
+'Lebhafter Tribut_f': 'crwdns203224:0crwdne203224:0'
+'Wird in die Annalen eingehen_f': 'crwdns203226:0crwdne203226:0'
+'Extra viel Liebe_f': 'crwdns203228:0crwdne203228:0'
+'Es ist kleiner als im Katalog_f': 'crwdns203230:0crwdne203230:0'
+'Freude der Stärke 8_f': 'crwdns203232:0crwdne203232:0'
+'Bewahrer der Freuden_f': 'crwdns203234:0crwdne203234:0'
+'Das hast du nicht wirklich gebaut?_f': 'crwdns203236:0crwdne203236:0'
+Eimerhalter_f: crwdns203238:0crwdne203238:0
+Sandverkäufer_f: crwdns203240:0crwdne203240:0
+'Martinet am Strand_f': 'crwdns203242:0crwdne203242:0'
+'Ein Spiel für echte Kinder_f': 'crwdns203244:0crwdne203244:0'
+"Dauermitglied in Micky's Club_f": "crwdns203246:0crwdne203246:0"
+'Niemals ohne meinen Eimer_f': 'crwdns203248:0crwdne203248:0'
+'Ein Korn fehlt noch_f': 'crwdns203250:0crwdne203250:0'
+'Huldigt den Raben!_f': 'crwdns203252:0crwdne203252:0'
+'Taube aus der Unterwelt_f': 'crwdns203254:0crwdne203254:0'
+Corvid-Spezialist_f: crwdns203256:0crwdne203256:0
+'Phoenix des Unterholzes_f': 'crwdns203258:0crwdne203258:0'
+'Edit Piaf_f': 'crwdns203260:0crwdne203260:0'
+'Vogel der schlechten Vorzeichen_f': 'crwdns203262:0crwdne203262:0'
+Kraaaah!_f: crwdns203264:0crwdne203264:0
+'Er war Leber ..._f': 'crwdns203266:0crwdne203266:0'
+'Hey wir können die Zombies von hier oben sehen_f': 'crwdns203268:0crwdne203268:0'
+'Fröhlicher Hamster_f': 'crwdns203270:0crwdne203270:0'
+'Showman aus der Anderen Welt!_f': 'crwdns203272:0crwdne203272:0'
+'5. Rad am Wagen_f': 'crwdns203274:0crwdne203274:0'
+'Mir ist schwindelig_f': 'crwdns203276:0crwdne203276:0'
+'Hier oben_f': 'crwdns203278:0crwdne203278:0'
+'Auge der Wüste_f': 'crwdns203280:0crwdne203280:0'
+'4000 Zombies starren uns an_f': 'crwdns203282:0crwdne203282:0'
+Durazell_f: crwdns203284:0crwdne203284:0
+'Hüter der Heiligen Batterie_f': 'crwdns203286:0crwdne203286:0'
+'Der Batterienator_f': 'crwdns203288:0crwdne203288:0'
+'Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!_f': 'crwdns203290:0crwdne203290:0'
+'Aufgeladen und kampfbereit_f': 'crwdns203292:0crwdne203292:0'
+'Hey! Willst du meine... Batterie sehen?_f': 'crwdns203294:0crwdne203294:0'
+Maurerlehrling_f: crwdns203296:0crwdne203296:0
+Maurer_f: crwdns203298:0crwdne203298:0
+Polier_f: crwdns203300:0crwdne203300:0
+Baustellenleiter_f: crwdns203302:0crwdne203302:0
+'Architekt (title)_f': crwdns203304:0crwdne203304:0
+Meisterarchitekt_f: crwdns203306:0crwdne203306:0
+'Oscar Niemeyer_f': 'crwdns203308:0crwdne203308:0'
+'Zement & Garfunkel_f': 'crwdns203310:0crwdne203310:0'
+'Menschliche Ameisenkolonie_f': 'crwdns203312:0crwdne203312:0'
+'Arbeiterhelm und Kupferstiefel_f': 'crwdns203314:0crwdne203314:0'
+'Arbeit ist Gesundheit_f': 'crwdns203316:0crwdne203316:0'
+'Bob der Baumeister_f': 'crwdns203318:0crwdne203318:0'
+Spachtler_f: crwdns203320:0crwdne203320:0
+'Gewissenhafter Maurer_f': 'crwdns203322:0crwdne203322:0'
+'Meisterwerke in Gefahr_f': 'crwdns203324:0crwdne203324:0'
+'Ein Flicken und alles ist wie neu_f': 'crwdns203326:0crwdne203326:0'
+Pisa-Geraderichter_f: crwdns203328:0crwdne203328:0
+'Großer Renovator_f': 'crwdns203330:0crwdne203330:0'
+'Ein Patch, kein Spiel_f': 'crwdns203332:0crwdne203332:0'
+'Ein Riss? Welcher Riss?_f': 'crwdns203334:0crwdne203334:0'
+'Das braucht noch 10 Jahre!_f': 'crwdns203336:0crwdne203336:0'
+Kettensägenmassaker_f: crwdns203338:0crwdne203338:0
+Fleisch-Schuldner_f: crwdns203340:0crwdne203340:0
+'Bruce Campbell_f': 'crwdns203342:0crwdne203342:0'
+Hobby-Heimwerker_f: crwdns203344:0crwdne203344:0
+Techniker_f: crwdns203346:0crwdne203346:0
+'Meisterbastler _f': crwdns203348:0crwdne203348:0
+'Sowas wirft man doch nicht weg!_f': 'crwdns203350:0crwdne203350:0'
+'Mac Gyver der Außenwelt_f': 'crwdns203352:0crwdne203352:0'
+'Super Soaker_f': 'crwdns203354:0crwdne203354:0'
+Wasserwaffen-Spezialist_f: crwdns203356:0crwdne203356:0
+Hydraulik-Engineering_f: crwdns203358:0crwdne203358:0
+'Abstieg der Atlanteaner_f': 'crwdns203360:0crwdne203360:0'
+Archäologielehrling_f: crwdns203362:0crwdne203362:0
+Archäologe_f: crwdns203364:0crwdne203364:0
+Grabungsleiter_f: crwdns203366:0crwdne203366:0
+'Großer Löcherbuddler_f': 'crwdns203368:0crwdne203368:0'
+Riesenmaulwurf_f: crwdns203370:0crwdne203370:0
+'Furchtloser Camper_f': 'crwdns203372:0crwdne203372:0'
+'Waisenkind der Wüste_f': 'crwdns203374:0crwdne203374:0'
+'Unglaubliche Entschlossenheit_f': 'crwdns203376:0crwdne203376:0'
+'Der letzte Überlebende_f': 'crwdns203378:0crwdne203378:0'
+'Ich gehe alleine._f': 'crwdns203380:0crwdne203380:0'
+'Neil Armstrong der Außenwelt_f': 'crwdns203382:0crwdne203382:0'
+'Lebensmüder Kundschafter_f': 'crwdns203384:0crwdne203384:0'
+'Draufgängerischer Expeditionsreisender_f': 'crwdns203386:0crwdne203386:0'
+Nervenkitzelsucher_f: crwdns203388:0crwdne203388:0
+'Christopher Kolumbus_f': 'crwdns203390:0crwdne203390:0'
+'Bis zur Unendlichkeit... und noch viel weiter!_f': 'crwdns203392:0crwdne203392:0'
+'Indiana Jones und die Ruinen der Aussenwelt_f': 'crwdns203394:0crwdne203394:0'
+'Wenn ich das nur vorher gewusst hätte..._f': 'crwdns203396:0crwdne203396:0'
+'Verwegener Wanderer_f': 'crwdns203398:0crwdne203398:0'
+Tunnelblicker_f: crwdns203400:0crwdne203400:0
+'Im Irrgarten_f': 'crwdns203402:0crwdne203402:0'
+'Inklusive Kompass_f': 'crwdns203404:0crwdne203404:0'
+'Begrabener Freiwilliger_f': 'crwdns203406:0crwdne203406:0'
+'Tomb Raider_f': 'crwdns203408:0crwdne203408:0'
+Labyrinth-Gollum_f: crwdns203410:0crwdne203410:0
+'Labyrinth-Meister MB_f': 'crwdns203412:0crwdne203412:0'
+"Wo klemmt's?_f": "crwdns203414:0crwdne203414:0"
+Dietrich_f: crwdns203416:0crwdne203416:0
+'Sesam, öffne dich..._f': 'crwdns203418:0crwdne203418:0'
+Türöffner_f: crwdns203420:0crwdne203420:0
+Gentleman-Einbrecher_f: crwdns203422:0crwdne203422:0
+Schlüsseldienst_f: crwdns203424:0crwdne203424:0
+Zerberus_f: crwdns203426:0crwdne203426:0
+'Meister der Schlüssel_f': 'crwdns203428:0crwdne203428:0'
+Brutalo_f: crwdns203430:0crwdne203430:0
+Verstümmler_f: crwdns203432:0crwdne203432:0
+Killer_f: crwdns203434:0crwdne203434:0
+Kadaverentsorger_f: crwdns203436:0crwdne203436:0
+Vernichter_f: crwdns203438:0crwdne203438:0
+Schlächter_f: crwdns203440:0crwdne203440:0
+Friedensstifter_f: crwdns203442:0crwdne203442:0
+'Alptraum der Traumlosen_f': 'crwdns203444:0crwdne203444:0'
+'Hans im Glück_f': 'crwdns203446:0crwdne203446:0'
+'Vierklettriges Kleeblatt_f': 'crwdns203448:0crwdne203448:0'
+Fortuna_f: crwdns203450:0crwdne203450:0
+'Gontran Happiness_f': 'crwdns203452:0crwdne203452:0'
+'Lucky 7_f': 'crwdns203454:0crwdne203454:0'
+'Money for Nothing_f': 'crwdns203456:0crwdne203456:0'
+'Ultimate Fighter_f': 'crwdns203458:0crwdne203458:0'
+'Wilde Bestie_f': 'crwdns203460:0crwdne203460:0'
+'Rambos Großvater_f': 'crwdns203462:0crwdne203462:0'
+'Absolut keine Angst!_f': 'crwdns203464:0crwdne203464:0'
+'Barhändiger Stripper_f': 'crwdns203466:0crwdne203466:0'
+'Stürmischer Kundschafter_f': 'crwdns203468:0crwdne203468:0'
+'Furchtloser Abenteurer_f': 'crwdns203470:0crwdne203470:0'
+'Wagemutiger Trapper_f': 'crwdns203472:0crwdne203472:0'
+Wikinger_f: crwdns203474:0crwdne203474:0
+Außenweltreiseführer_f: crwdns203476:0crwdne203476:0
+'Ich habe die Erde umrundet... zweimal!_f': 'crwdns203478:0crwdne203478:0'
+'Internet Explorer_f': 'crwdns203480:0crwdne203480:0'
+'Ich hab sogar das Klo abgesucht!_f': 'crwdns203482:0crwdne203482:0'
+'Sind wir schon da?_f': 'crwdns203486:0crwdne203486:0'
+Außenweltschläfer_f: crwdns203488:0crwdne203488:0
+'Allein in dieser Welt_f': 'crwdns203490:0crwdne203490:0'
+'Der mit den Zombies tanzt_f': 'crwdns203492:0crwdne203492:0'
+'Ich sehe überall Tote!_f': 'crwdns203494:0crwdne203494:0'
+'Ich komme heute Nacht nicht heim..._f': 'crwdns203496:0crwdne203496:0'
+'Ein Mann gegen die Außenwelt_f': 'crwdns203498:0crwdne203498:0'
+Stadtallergie_f: crwdns203500:0crwdne203500:0
+'Wo ich hinguck, seh ich Gegend._f': 'crwdns203502:0crwdne203502:0'
+'Runaway Michael_f': 'crwdns203504:0crwdne203504:0'
+'Ohne Dach oder Leber_f': 'crwdns203506:0crwdne203506:0'
+'Neugieriger Leser_f': 'crwdns203508:0crwdne203508:0'
+'Eifriger Leser_f': 'crwdns203510:0crwdne203510:0'
+Wüstenhistoriker_f: crwdns203512:0crwdne203512:0
+Bibliothekar_f: crwdns203514:0crwdne203514:0
+Archivar_f: crwdns203516:0crwdne203516:0
+Erinnerungsträger_f: crwdns203518:0crwdne203518:0
+'Erinnerungen an die Zivilisation_f': 'crwdns203520:0crwdne203520:0'
+'Twinoid ist tabu_f': 'crwdns203522:0crwdne203522:0'
+'Keine Macht den Drogen_f': 'crwdns203524:0crwdne203524:0'
+'Sowas fasse ICH nicht an_f': 'crwdns203526:0crwdne203526:0'
+'Vorbild für die Jugend_f': 'crwdns203528:0crwdne203528:0'
+'Champions nehmen keine Drogen!_f': 'crwdns203530:0crwdne203530:0'
+Medikamentetester_f: crwdns203532:0crwdne203532:0
+Laborratte_f: crwdns203534:0crwdne203534:0
+'Pille palle, 3 Tage wach!_f': 'crwdns203536:0crwdne203536:0'
+'Timothy Leary_f': 'crwdns203538:0crwdne203538:0'
+'Ich sehe ein Blauuuuuuues Tal_f': 'crwdns203540:0crwdne203540:0'
+Menschenfleischliebhaber_f: crwdns203542:0crwdne203542:0
+Hannibalfan_f: crwdns203544:0crwdne203544:0
+Totmacher_f: crwdns203546:0crwdne203546:0
+'Jeffrey Dahmer_f': 'crwdns203548:0crwdne203548:0'
+'Fast schon ein Zombie..._f': 'crwdns203550:0crwdne203550:0'
+"Schmeckt am besten wenn's noch schreit!_f": "crwdns203552:0crwdne203552:0"
+'Die Macht der Proteine_f': 'crwdns203554:0crwdne203554:0'
+'Nackt und Zerfleischt_f': 'crwdns203556:0crwdne203556:0'
+Zombieliebling_f: crwdns203558:0crwdne203558:0
+'Letzter Überlebender_f': 'crwdns203560:0crwdne203560:0'
+Unzerstörbar_f: crwdns203562:0crwdne203562:0
+'Allein gegen die Horde_f': 'crwdns203564:0crwdne203564:0'
+"Chuck Norris' Ebenbild_f": "crwdns203566:0crwdne203566:0"
+'Ich bin in der Hölle aufgewachsen._f': 'crwdns203568:0crwdne203568:0'
+'Es war wirklich zu einfach._f': 'crwdns203570:0crwdne203570:0'
+'Ich fresse Nägel und scheiße Kugeln!_f': 'crwdns203572:0crwdne203572:0'
+'Pandämonium? Hah. Einfach._f': 'crwdns203574:0crwdne203574:0'
+'Teilweise verrottet_f': 'crwdns203576:0crwdne203576:0'
+Virenschleuder_f: crwdns203578:0crwdne203578:0
+Gedärmeauskotzer_f: crwdns203580:0crwdne203580:0
+Seuchenherd_f: crwdns203582:0crwdne203582:0
+'Ich habe Magenschmerzen..._f': 'crwdns203584:0crwdne203584:0'
+'Verirrter Ausflügler_f': 'crwdns203586:0crwdne203586:0'
+'Nächtlicher Spaziergänger_f': 'crwdns203588:0crwdne203588:0'
+'Mir ist kalt hier draußen..._f': 'crwdns203590:0crwdne203590:0'
+'Vertrauenswürdiger Bürger_f': 'crwdns203592:0crwdne203592:0'
+'Sehr erfahrener Bürger_f': 'crwdns203594:0crwdne203594:0'
+'Vorbild für das Volk_f': 'crwdns203596:0crwdne203596:0'
+'Richtwert der Gemeinschaft_f': 'crwdns203598:0crwdne203598:0'
+'Berühmter Veteran_f': 'crwdns203600:0crwdne203600:0'
+Anfängerleiche_f: crwdns203602:0crwdne203602:0
+Rabenfreund_f: crwdns203604:0crwdne203604:0
+Dehydrationskollege_f: crwdns203606:0crwdne203606:0
+'Lebender Mythos_f': 'crwdns203608:0crwdne203608:0'
+'Ich bin eine Legende_f': 'crwdns203610:0crwdne203610:0'
+'Hör auf mich, wenn du überleben möchtest_f': 'crwdns203612:0crwdne203612:0'
+'Netter Kerl_f': 'crwdns203614:0crwdne203614:0'
+'Zeuge der großen Verseuchung_f': 'crwdns203616:0crwdne203616:0'
+'Alter Hase_f': 'crwdns203618:0crwdne203618:0'
+'Jedes Los gewinnt_f': 'crwdns203620:0crwdne203620:0'
+Zinker_f: crwdns203622:0crwdne203622:0
+Bingo_f: crwdns203624:0crwdne203624:0
+'Sudoku ist anders_f': 'crwdns203626:0crwdne203626:0'
+'Siebenseitiger Würfel_f': 'crwdns203628:0crwdne203628:0'
+'Einarmiger Bandit_f': 'crwdns203630:0crwdne203630:0'
+'Seelenführer der Gemeinschaft_f': 'crwdns203632:0crwdne203632:0'
+'Charismatischer Prophet_f': 'crwdns203634:0crwdne203634:0'
+'Motivierter Messebesucher_f': 'crwdns203636:0crwdne203636:0'
+'Verdammt in Saarbrücken_f': 'crwdns203638:0crwdne203638:0'
+"FJV'08 Kanonenfutter_f": "crwdns203640:0crwdne203640:0"
+'Kleiner Guru_f': 'crwdns203642:0crwdne203642:0'
+'Überzeugender Guru_f': 'crwdns203644:0crwdne203644:0'
+Frischfleischhändler_f: crwdns203646:0crwdne203646:0
+Seelenhändler_f: crwdns203648:0crwdne203648:0
+'Sehr überzeugender Pate_f': 'crwdns203650:0crwdne203650:0'
+Wüstenspekulant_f: crwdns203652:0crwdne203652:0
+'Held der Community!_f': 'crwdns203654:0crwdne203654:0'
+'Bringt Sachen ins Rollen!_f': 'crwdns203656:0crwdne203656:0'
+'Nobler Spender_f': 'crwdns203658:0crwdne203658:0'
+'Immer zur Stelle_f': 'crwdns203660:0crwdne203660:0'
+Samariter_f: crwdns203662:0crwdne203662:0
+'Freigiebiger Bürger_f': 'crwdns203664:0crwdne203664:0'
+Messias_f: crwdns203666:0crwdne203666:0
+'Der Weihnachtsmann ist ein Schlawiner_f': 'crwdns203668:0crwdne203668:0'
+'Santa Klaus ist ein Schummler_f': 'crwdns203670:0crwdne203670:0'
+'Santa Klaus ist Abfall_f': 'crwdns203672:0crwdne203672:0'
+'Santa Klaus ist Abschaum_f': 'crwdns203674:0crwdne203674:0'
+'Hängt Santa Klaus!_f': 'crwdns203676:0crwdne203676:0'
+'Treffen der 4. Art_f': 'crwdns203678:0crwdne203678:0'
+'Hast Du mal Feuer?_f': 'crwdns203680:0crwdne203680:0'
+'Medium mit Preisnachlass_f': 'crwdns203682:0crwdne203682:0'
+'Amophilis Psychotropes_f': 'crwdns203684:0crwdne203684:0'
+'Blauer Feuerspucker_f': 'crwdns203686:0crwdne203686:0'
+'I see dead people 0_0_f': 'crwdns203688:0crwdne203688:0'
+'Soul Man_f': 'crwdns203690:0crwdne203690:0'
+Lebenssammler_f: crwdns203692:0crwdne203692:0
+'Schnitter der Aussenwelt_f': 'crwdns203694:0crwdne203694:0'
+'Bei meiner Seel_f': 'crwdns203696:0crwdne203696:0'
+'Für immer und seelich_f': 'crwdns203698:0crwdne203698:0'
+'Noble Seele_f': 'crwdns203700:0crwdne203700:0'
+Beseelt_f: crwdns203702:0crwdne203702:0
+Reinkarnator_f: crwdns203704:0crwdne203704:0
+'Göttliche Seele_f': 'crwdns203706:0crwdne203706:0'
+Open-chakra_f: crwdns203708:0crwdne203708:0
+Tausend-und-ein-Leben_f: crwdns203710:0crwdne203710:0
+Buddha_f: crwdns203712:0crwdne203712:0
+'Ich bin ein Gott! Ich werde ewig leben!_f': 'crwdns203714:0crwdne203714:0'
+'Eine Stadt sie zu knechten!_f': 'crwdns203716:0crwdne203716:0'
+'Verrückter Skeptiker_f': 'crwdns203718:0crwdne203718:0'
+Seelenknipser_f: crwdns203720:0crwdne203720:0
+'Wächter der Seelen_f': 'crwdns203722:0crwdne203722:0'
+'Die Wahrheit ist irgendwo da draußen_f': 'crwdns203724:0crwdne203724:0'
+'Ich glaube!_f': 'crwdns203726:0crwdne203726:0'
+Sektenmitglied_f: crwdns203728:0crwdne203728:0
+'Kosmischer Anführer_f': 'crwdns203730:0crwdne203730:0'
+'Rauch? Welcher Rauch?_f': 'crwdns203732:0crwdne203732:0'
+Leckstopper_f: crwdns203734:0crwdne203734:0
+'Licht in der Nacht_f': 'crwdns203736:0crwdne203736:0'
+RadioactiveMan_f: crwdns203738:0crwdne203738:0
+'Strahlender Bürger_f': 'crwdns203740:0crwdne203740:0'
+'Hölle, das esse ich jeden Morgen._f': 'crwdns203742:0crwdne203742:0'
+'Abonnent der Pandämoniumsauna_f': 'crwdns203744:0crwdne203744:0'
+'Pandämonium ist meine Liebe!_f': 'crwdns203746:0crwdne203746:0'
+'Luzifers Tanzpartner_f': 'crwdns203748:0crwdne203748:0'
+'Ultimativer Horden-Erkunder_f': 'crwdns203750:0crwdne203750:0'
+'Irische Taschen sind prall gefüllt!_f': 'crwdns203752:0crwdne203752:0'
+'Wo ist mein Topf voll Gold, diebische Elster!_f': 'crwdns203754:0crwdne203754:0'
+'Dieser Kobold ist unaufhaltbar._f': 'crwdns203756:0crwdne203756:0'
+'Verbrennt ihn! Sieh nach ob seine Asche grün wird!_f': 'crwdns203758:0crwdne203758:0'
+'Ein Wohnwagen ohne Räder???_f': 'crwdns203760:0crwdne203760:0'
+'Mitglied des Roten Kreuzes_f': 'crwdns203762:0crwdne203762:0'
+'Ich bin geheilt_f': 'crwdns203764:0crwdne203764:0'
+'Keine Fehler hi&e%12;r_f': 'crwdns203766:0%12crwdne203766:0'
+'Patient Null_f': 'crwdns203768:0crwdne203768:0'
+'Es ist der Tod der mich fürchten sollte!_f': 'crwdns203770:0crwdne203770:0'
+Sandmann_f: crwdns203772:0crwdne203772:0
+'Sandy Maverick_f': 'crwdns203774:0crwdne203774:0'
+Wegweiser_f: crwdns203776:0crwdne203776:0
+'Praktischer Begleiter_f': 'crwdns203778:0crwdne203778:0'
+'Erleuchteter Anführer_f': 'crwdns203780:0crwdne203780:0'
+'Erleuchteter Prediger_f': 'crwdns203782:0crwdne203782:0'
+'Guru der Liebe_f': 'crwdns203784:0crwdne203784:0'
+'Höret meine Stimme_f': 'crwdns203786:0crwdne203786:0'
+'Zeuge des Armageddon_f': 'crwdns203788:0crwdne203788:0'
+'Ewiger Zweiter_f': 'crwdns203790:0crwdne203790:0'
+'Ein Wächter stirbt, aber gibt niemals auf_f': 'crwdns203792:0crwdne203792:0'
+'Der Zweitletzte Mohikaner_f': 'crwdns203794:0crwdne203794:0'
+'Faaaaaaaast, ach verdammt_f': 'crwdns203796:0crwdne203796:0'
+'Bis zum Ende und einen Schritt weiter_f': 'crwdns203798:0crwdne203798:0'
+'Schließt die Ränke und haltet durch_f': 'crwdns203800:0crwdne203800:0'
+'Hallo... ist da draußen jemand?_f': 'crwdns203802:0crwdne203802:0'
+'Haltet eure Position!_f': 'crwdns203804:0crwdne203804:0'
+'Nur ein Finger_f': 'crwdns203806:0crwdne203806:0'
+'Plünderer der Schnapsläden_f': 'crwdns203808:0crwdne203808:0'
+'Hennessy Highwayman_f': 'crwdns203810:0crwdne203810:0'
+'Barney Gumble der Außenwelt_f': 'crwdns203812:0crwdne203812:0'
+'Fass das Saufen lieber sein_f': 'crwdns203814:0crwdne203814:0'
+'Gib mir was zu saufen oder es knallt!_f': 'crwdns203816:0crwdne203816:0'
+'Alles unter 55% ist Wasser_f': 'crwdns203818:0crwdne203818:0'
+Dialyse_f: crwdns203820:0crwdne203820:0
+'Chef der Mauer_f': 'crwdns203822:0crwdne203822:0'
+Schaufelführer_f: crwdns203824:0crwdne203824:0
+'Ich bin ein Biest!_f': 'crwdns203826:0crwdne203826:0'
+'DdA Beste Buddler_f': 'crwdns203828:0crwdne203828:0'
+Tarnexperte_f: crwdns203830:0crwdne203830:0
+Ninja_f: crwdns203832:0crwdne203832:0
+AP: crwdns203834:0crwdne203834:0
+CP: crwdns203836:0crwdne203836:0
+MP: crwdns203838:0crwdne203838:0
+'Der Raum auf den Zinnen ist begrenzt! Aktuell haben <strong>{watchers} / {cap}</strong> Nachtwächter ihren Platz eingenommen.': 'crwdns203840:0{watchers}crwdnd203840:0{cap}crwdne203840:0'
+'<strong>Achtung:</strong> In der Bank fehlen Gegenstände, die benötigt werden, damit die Verteidigungsanlagen mit voller Stärke arbeiten können!': 'crwdns203842:0crwdne203842:0'
+'{building} hat folgende Gegenstände verbraucht: {items}.': 'crwdns203844:0{building}crwdnd203844:0{items}crwdne203844:0'
+Schamanenkreis: crwdns203846:0crwdne203846:0
 Eventsieger: crwdns202688:0crwdne202688:0
 Eventteilnehmer: crwdns202690:0crwdne202690:0
 'Auszeichnung für deinen Sieg in einem Community-Event, Glückwünsch!': 'crwdns202692:0crwdne202692:0'
 'Auszeichnung für deine Teilnahme an einem Community-Event.': 'crwdns202694:0crwdne202694:0'
+'Allwissender Schamane': 'crwdns203848:0crwdne203848:0'
+'Allwissender Schamane_f': 'crwdns203850:0crwdne203850:0'
+'Anführer der verlorenen Seelen': 'crwdns203852:0crwdne203852:0'
+'Anführer der verlorenen Seelen_f': 'crwdns203854:0crwdne203854:0'
+'Uneinnehmbare Festung': 'crwdns203856:0crwdne203856:0'
+'Uneinnehmbare Festung_f': 'crwdns203858:0crwdne203858:0'
+'Ein bisschen näher an den Sternen': 'crwdns203860:0crwdne203860:0'
+'Ein bisschen näher an den Sternen_f': 'crwdns203862:0crwdne203862:0'
+'Himmel! Was werden die Nachbarn sagen?': 'crwdns203864:0crwdne203864:0'
+'Himmel! Was werden die Nachbarn sagen?_f': 'crwdns203866:0crwdne203866:0'
+'Mister Sandman ♫♪': 'crwdns203868:0crwdne203868:0'
+'Mister Sandman ♫♪_f': 'crwdns203870:0crwdne203870:0'
+'Nutzt das Vergängliche': 'crwdns203872:0crwdne203872:0'
+'Nutzt das Vergängliche_f': 'crwdns203874:0crwdne203874:0'
+'John Snow': 'crwdns203876:0crwdne203876:0'
+'John Snow_f': 'crwdns203878:0crwdne203878:0'
+'Der Rabinator': 'crwdns203880:0crwdne203880:0'
+'Der Rabinator_f': 'crwdns203882:0crwdne203882:0'
+'Wir drehen frei!': 'crwdns203884:0crwdne203884:0'
+'Wir drehen frei!_f': 'crwdns203886:0crwdne203886:0'
+'Du nennst das ein Messer? DAS ist ein Messer!': 'crwdns203888:0crwdne203888:0'
+'Du nennst das ein Messer? DAS ist ein Messer!_f': 'crwdns203890:0crwdne203890:0'
+'Apostel des Pandämoniums': 'crwdns203892:0crwdne203892:0'
+'Apostel des Pandämoniums_f': 'crwdns203894:0crwdne203894:0'
+'Liebling des Raben': 'crwdns203896:0crwdne203896:0'
+'Liebling des Raben_f': 'crwdns203898:0crwdne203898:0'
+Seelentrader: crwdns203900:0crwdne203900:0
+Seelentrader_f: crwdns203902:0crwdne203902:0
+Scientologe: crwdns203904:0crwdne203904:0
+Scientologe_f: crwdns203906:0crwdne203906:0
+'Komm auf die dunkle Seite der Macht!': 'crwdns203908:0crwdne203908:0'
+'Komm auf die dunkle Seite der Macht!_f': 'crwdns203910:0crwdne203910:0'
+'Warren Buffet der Außenwelt': 'crwdns203912:0crwdne203912:0'
+'Warren Buffet der Außenwelt_f': 'crwdns203914:0crwdne203914:0'
+'Mein Körper ist bereit!': 'crwdns203916:0crwdne203916:0'
+'Mein Körper ist bereit!_f': 'crwdns203918:0crwdne203918:0'
+'Ultimatives Opfer': 'crwdns203920:0crwdne203920:0'
+'Ultimatives Opfer_f': 'crwdns203922:0crwdne203922:0'
+'Kabum! Der Reaktor mach KABUM!!!': 'crwdns203924:0crwdne203924:0'
+'Kabum! Der Reaktor mach KABUM!!!_f': 'crwdns203926:0crwdne203926:0'
+Atompilzsammler: crwdns203928:0crwdne203928:0
+Atompilzsammler_f: crwdns203930:0crwdne203930:0
+'Bis auf die Seele verstrahlt': 'crwdns203932:0crwdne203932:0'
+'Bis auf die Seele verstrahlt_f': 'crwdns203934:0crwdne203934:0'
+'Ich steh auf Fusion!': 'crwdns203936:0crwdne203936:0'
+'Ich steh auf Fusion!_f': 'crwdns203938:0crwdne203938:0'
+Kung-Fu-Sion: crwdns203940:0crwdne203940:0
+Kung-Fu-Sion_f: crwdns203942:0crwdne203942:0
+Sandsteiniger: crwdns203944:0crwdne203944:0
+Sandsteiniger_f: crwdns203946:0crwdne203946:0
+Sandkasten-Scharfschütze: crwdns203948:0crwdne203948:0
+Sandkasten-Scharfschütze_f: crwdns203950:0crwdne203950:0
+'Universelle Muse': 'crwdns203952:0crwdne203952:0'
+'Universelle Muse_f': 'crwdns203954:0crwdne203954:0'
+'Du hast {count} x {item} auf der öffentlichen Müllhalde abgeladen. <strong>Die Stadt hat {def} Verteidigungspunkt(e) dazugewonnen.</strong>': 'crwdns203956:0{count}crwdnd203956:0{item}crwdnd203956:0{def}crwdne203956:0'
+'Was für ein Glück! Kurz nach dem Angriff wurden Baupläne in die Stadt geweht. Ihr erhaltet: {items}': 'crwdns203958:0{items}crwdne203958:0'
+'Du siehst nicht wirklich, wo du dich hier verstecken könntest...': 'crwdns203960:0crwdne203960:0'
+'Egal, wie sehr du suchst, es erscheint offensichtlich, dass es an diesem Ort nur ein einziges geeignetes Versteck gibt. Entscheide selbst...': 'crwdns203962:0crwdne203962:0'
+'Dieser Ort bietet Möglichkeiten zum Verstecken, wenn du kreativ genug bist.': 'crwdns203964:0crwdne203964:0'
+'Du beobachtest mehrere geeignete Verstecke, aber es wird nicht für jeden etwas dabei sein.': 'crwdns203966:0crwdne203966:0'
+'Es sollte nicht allzu schwer sein, diesen Ort zum Untertauchen auszunutzen.': 'crwdns203968:0crwdne203968:0'
+'Es scheint, dass alle guten Verstecke bereits von deinen "Freunden" besetzt sind. Du musst also einen anderen Ort finden oder improvisieren...': 'crwdns203970:0crwdne203970:0'
+'Entfernung von hier': 'crwdns203972:0crwdne203972:0'
+'Entfernung zur Stadt': 'crwdns203974:0crwdne203974:0'
