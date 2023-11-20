@@ -1885,6 +1885,7 @@ class TownController extends InventoryAwareController
         if ($home->getRecycling() >= $recycleAP) {
             $resources = [];
             for ($l = $home->getPrototype()->getLevel(); $l >= 0; $l--) {
+                // Purposefully ignore getResourcesUrbanism for recycling
                 $prototype = $this->entity_manager->getRepository(CitizenHomePrototype::class)->findOneByLevel( $l );
                 if ($prototype && $prototype->getResources())
                     foreach ($home->getPrototype()->getResources()->getEntries() as $entry)

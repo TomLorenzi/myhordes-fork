@@ -27,8 +27,12 @@ class CitizenHomePrototype
     private $defense;
     #[ORM\Column(type: 'integer')]
     private $ap;
+    #[ORM\Column(type: 'integer')]
+    private $apUrbanism;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\ItemGroup', cascade: ['persist'])]
     private $resources;
+    #[ORM\ManyToOne(targetEntity: 'App\Entity\ItemGroup', cascade: ['persist'])]
+    private $resourcesUrbanism;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\BuildingPrototype')]
     private $requiredBuilding;
     #[ORM\Column(type: 'boolean')]
@@ -89,6 +93,16 @@ class CitizenHomePrototype
 
         return $this;
     }
+    public function getApUrbanism(): ?int
+    {
+        return $this->apUrbanism;
+    }
+    public function setApUrbanism(int $apUrbanism): self
+    {
+        $this->apUrbanism = $apUrbanism;
+
+        return $this;
+    }
     public function getResources(): ?ItemGroup
     {
         return $this->resources;
@@ -96,6 +110,16 @@ class CitizenHomePrototype
     public function setResources(?ItemGroup $resources): self
     {
         $this->resources = $resources;
+
+        return $this;
+    }
+    public function getResourcesUrbanism(): ?ItemGroup
+    {
+        return $this->resourcesUrbanism;
+    }
+    public function setResourcesUrbanism(?ItemGroup $resourcesUrbanism): self
+    {
+        $this->resourcesUrbanism = $resourcesUrbanism;
 
         return $this;
     }

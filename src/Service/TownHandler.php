@@ -255,6 +255,14 @@ class TownHandler
     private array $building_list_cache = [];
 
     /**
+     * Returns whether the town has unlocked Urbanism capabilities
+     * @return boolean
+     */
+    public function hasUrbanism(Town $town) {
+        return !!$this->getBuilding($town, 'small_urban_#00', true );
+    }
+
+    /**
      * Return a list of buildings available in town
      *
      * @param Town $town The town we're looking the building into
