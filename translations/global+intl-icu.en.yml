@@ -465,7 +465,7 @@ Kopfzeile: Header
 'Netzwerkfehler. Bitte prüfe deine Internetverbindung.': 'Network error. Please check your internet connection.'
 'Link wurde in die Zwischenablage kopiert.': 'Link has been copied to the clipboard.'
 'Link konnte nicht kopiert werden.': 'Link could not be copied.'
-'MyHordes ist <i>Open Source</i> und jeder ist zur <b>Mitwirkung</b> eingeladen. Du findest den Quellcode bei {gitlab} und kannst dort auch Fehler melden.': 'If you want to create issues or suggest changes, MyHordes is available on {gitlab}. If you want to join the project, just write to the Technical Support!'
+'MyHordes ist <i>Open Source</i> und jeder ist zur <b>Mitwirkung</b> eingeladen. Du findest den Quellcode bei {gitlab} und kannst dort auch Fehler melden.': 'If you wish to open a ticket or make a suggestion, MyHordes is available on {gitlab}. If you wish to join the project, simply write to the Technical Support!'
 'Das kannst du nicht tun, während du einen Benutzer impersonifizierst.': 'You can''t do that while impersonating another user.'
 'Dieser Bürger verwendet in der aktuellen Stadt einen alternativen Spitznamen.': 'This citizen is using an alternative nickname in the current town.'
 "Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.\n                                            <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>": "The number of mounds of earth and debris show that there is doubtless not much left here to find. <p><em>You can continue searching for poor quality resources for construction sites though...</em></p>"
@@ -540,3 +540,4 @@ Inhaltsverzeichnis: Table of Contents
 'Private Foren': 'Private Forums'
 'Vielen Dank an diese Spieler für ihre künstlerischen Beiträge.': 'Thanks to these players for their artistic contributions.'
 '<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>{max}</strong> Verteidigungspunkte vergeben!': '<strong>Important:</strong> Defensive objects can award a maximum of <strong>{max}</strong> defense points!'
+'Auf {hostname}': 'On {hostname}'

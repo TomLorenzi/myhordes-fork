@@ -1175,7 +1175,7 @@ Wüstenwurmzüchter: Devorador de insectos
 'Schlimmer Finger': 'Charlatán Amateur'
 Seelenverwerter: Charlatán Profesional
 'Mystischer Seher': 'Reciclador de almas'
-'Voodoo Sorceror': 'Hechicero vudú'
+'Voodoo Sorceror': Voodoopriester
 'Yo, wir schaffen das!': 'Bricoloco'
 'Kleiner Schraubendreher': 'Destornillador Humano'
 'Schweizer Taschenmesser': 'Mascafierros'
@@ -1415,7 +1415,7 @@ Sektenmitglied: Miembro de la secta
 'Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!': '¿Es un pajaro? Es un avion? No, ¡es el súper lanzapilas!'
 'Aufgeladen und kampfbereit': 'Amplificada y lista para rodar'
 'Hey! Willst du meine... Batterie sehen?': 'Oye, oye, ¿quieres ver mi... pila?'
-'Meister der Schlüssel': 'Gran maestro de llaves'
+'Meister der Schlüssel': Schlüsselmeister
 'Es war wirklich zu einfach.': 'Es demasiado fácil.'
 'Ich fresse Nägel und scheiße Kugeln!': '¡Como clavos y cago balas!'
 'Pandämonium? Hah. Einfach.': '¿Pandemonio? Ahh, Facil'
@@ -1586,7 +1586,7 @@ Wählen: Elegir
 'Wir machen Fortschritte.': 'Estamos progresando.'
 'Das Ende ist nah.': 'El Fin se acerca.'
 'Die Revolte steht bevor!': '¡La insurrección está a punto de ocurrir!'
-'Meisterkoch der Sterne': 'MasterChef'
+'Meisterkoch der Sterne': 'Tim Mälzer der Außenwelt'
 'Ich koste alle meine Produkte': 'Pruebo todos mis productos'
 'Rauchts? Dann ist es meins.': '¿Fumas? Este va por mi cuenta'
 'Mein Name ist Nobody': 'Mi nombre es ninguno'
@@ -1596,7 +1596,7 @@ Wählen: Elegir
 'Alles für meinen Mund': 'Todo para mi boca'
 'Ich brauche niemanden': 'No necesito a nadie'
 'Unabhängiger Großeinsiedler': 'Gran Eremita independiente'
-'Che Guevara der Wüste': 'Che Guevara del Ultramundo'
+'Che Guevara der Wüste': 'Wüsten-Che Guevara'
 'Ein schöneres Leben': 'El estilo es eterno...'
 'Großer E-KEA Katalog': 'Bienvenidos al palacio. '
 Maccabees-Vertreiber: Repelente de Macchabees
@@ -1669,7 +1669,7 @@ Fleisch-Schuldner: No hay nada a lo que no me pueda llevar esta motosierra...
 'Bruce Campbell': 'Bruce Campbell'
 Wasserwaffen-Spezialist: Especialista con armas de agua
 Hydraulik-Engineering: Ingeniero Hidráulico
-'Abstieg der Atlanteaner': 'Descendiente de los Atlantes'
+'Abstieg der Atlanteaner': 'Nachfahre von Atlantis'
 'Großer Löcherbuddler': 'Excavadora de agujeros grandes'
 Riesenmaulwurf: Rata del desierto
 'Ich gehe alleine.': 'Voy solo.'
@@ -1678,7 +1678,7 @@ Riesenmaulwurf: Rata del desierto
 'Begrabener Freiwilliger': 'Voluntario enterrado'
 'Tomb Raider': 'Tomb Raider'
 Labyrinth-Gollum: Master del Laberinto
-'Labyrinth-Meister MB': 'No me llames junior'
+'Labyrinth-Meister MB': Labyrinth-Meister
 'Gontran Happiness': 'Bestia salvaje'
 'Lucky 7': '7 de la Suerte'
 'Money for Nothing': 'Dinero para Nada'
@@ -1719,7 +1719,7 @@ Messias: Mesías
 Lebenssammler: No cruces los arroyos
 'Schnitter der Aussenwelt': 'No le tengo miedo a ningún fantasma'
 'Mitglied des Roten Kreuzes': 'Miembro de la Cruz Roja'
-'Es ist der Tod der mich fürchten sollte!': '¡Es la muerte la que debería tenerme miedo!'
+'Es ist der Tod der mich fürchten sollte!': 'Angst vor dem Tod? Der Sensenmann sollte MICH fürchten!'
 Sandmann: Hombre de la arena
 'Sandy Maverick': 'Sandy Maverick'
 Wegweiser: Linterna de luz diurna
@@ -2870,6 +2870,60 @@ Eventsieger: Ganador de evento
 Eventteilnehmer: Participante del evento
 'Auszeichnung für deinen Sieg in einem Community-Event, Glückwünsch!': 'Distinción obtenida tras su designación como ganador de un evento comunitario, ¡enhorabuena!'
 'Auszeichnung für deine Teilnahme an einem Community-Event.': 'Distinción obtenida tras su participación en un evento comunitario.'
+'Allwissender Schamane': 'Allwissender Schamane'
+'Allwissender Schamane_f': 'Allwissende Schamanin'
+'Anführer der verlorenen Seelen': 'Anführer der verlorenen Seelen'
+'Anführer der verlorenen Seelen_f': 'Anführerin der verlorenen Seelen'
+'Uneinnehmbare Festung': 'Uneinnehmbare Festung'
+'Uneinnehmbare Festung_f': 'Uneinnehmbare Festung'
+'Ein bisschen näher an den Sternen': 'Ein bisschen näher an den Sternen'
+'Ein bisschen näher an den Sternen_f': 'Ein bisschen näher an den Sternen'
+'Himmel! Was werden die Nachbarn sagen?': 'Himmel! Was werden die Nachbarn sagen?'
+'Himmel! Was werden die Nachbarn sagen?_f': 'Himmel! Was werden die Nachbarn sagen?'
+'Mister Sandman ♫♪': 'Mister Sandman ♫♪'
+'Mister Sandman ♫♪_f': 'Misses Sandman ♫♪'
+'Nutzt das Vergängliche': 'Nutzt das Vergängliche'
+'Nutzt das Vergängliche_f': 'Nutzt das Vergängliche'
+'John Snow': 'John Snow'
+'John Snow_f': 'John Snow'
+'Der Rabinator': 'Der Rabinator'
+'Der Rabinator_f': 'Die Rabinatorin'
+'Wir drehen frei!': 'Wir drehen frei!'
+'Wir drehen frei!_f': 'Wir drehen frei!'
+'Du nennst das ein Messer? DAS ist ein Messer!': 'Du nennst das ein Messer? DAS ist ein Messer!'
+'Du nennst das ein Messer? DAS ist ein Messer!_f': 'Du nennst das ein Messer? DAS ist ein Messer!'
+'Apostel des Pandämoniums': 'Apostel des Pandämoniums'
+'Apostel des Pandämoniums_f': 'Apostel des Pandämoniums'
+'Liebling des Raben': 'Liebling des Raben'
+'Liebling des Raben_f': 'Liebling des Raben'
+Seelentrader: Seelentrader
+Seelentrader_f: Seelentraderin
+Scientologe: Scientologe
+Scientologe_f: Scientologin
+'Komm auf die dunkle Seite der Macht!': 'Komm auf die dunkle Seite der Macht!'
+'Komm auf die dunkle Seite der Macht!_f': 'Komm auf die dunkle Seite der Macht!'
+'Warren Buffet der Außenwelt': 'Warren Buffet der Außenwelt'
+'Warren Buffet der Außenwelt_f': 'Warren Buffet der Außenwelt'
+'Mein Körper ist bereit!': 'Mein Körper ist bereit!'
+'Mein Körper ist bereit!_f': 'Mein Körper ist bereit!'
+'Ultimatives Opfer': 'Ultimatives Opfer'
+'Ultimatives Opfer_f': 'Ultimatives Opfer'
+'Kabum! Der Reaktor mach KABUM!!!': 'Kabum! Der Reaktor mach KABUM!!!'
+'Kabum! Der Reaktor mach KABUM!!!_f': 'Kabum! Der Reaktor mach KABUM!!!'
+Atompilzsammler: Atompilzsammler
+Atompilzsammler_f: Atompilzsammlerin
+'Bis auf die Seele verstrahlt': 'Bis auf die Seele verstrahlt'
+'Bis auf die Seele verstrahlt_f': 'Bis auf die Seele verstrahlt'
+'Ich steh auf Fusion!': 'Ich steh auf Fusion!'
+'Ich steh auf Fusion!_f': 'Ich steh auf Fusion!'
+Kung-Fu-Sion: Kung-Fu-Sion
+Kung-Fu-Sion_f: Kung-Fu-Sion
+Sandsteiniger: Sandsteiniger
+Sandsteiniger_f: Sandsteinigerin
+Sandkasten-Scharfschütze: Sandkasten-Scharfschütze
+Sandkasten-Scharfschütze_f: Sandkasten-Scharfschützin
+'Universelle Muse': 'Universelle Muse'
+'Universelle Muse_f': 'Universelle Muse'
 'Du hast {count} x {item} auf der öffentlichen Müllhalde abgeladen. <strong>Die Stadt hat {def} Verteidigungspunkt(e) dazugewonnen.</strong>': 'Has tirado {count} {item} al vertedero público. <strong>¡El pueblo ha conseguido con ello {def} punto(s) de defensa!</strong>'
 'Was für ein Glück! Kurz nach dem Angriff wurden Baupläne in die Stadt geweht. Ihr erhaltet: {items}': 'El {items} ha sido descubierto. Ha sido depositado en el Almacén'
 'Du siehst nicht wirklich, wo du dich hier verstecken könntest...': 'Realmente no ves dónde podrías esconderte aquí...'
@@ -2878,3 +2932,5 @@ Eventteilnehmer: Participante del evento
 'Du beobachtest mehrere geeignete Verstecke, aber es wird nicht für jeden etwas dabei sein.': 'Localizas varios escondites interesantes, pero no habrá sitio para todo el mundo.'
 'Es sollte nicht allzu schwer sein, diesen Ort zum Untertauchen auszunutzen.': 'No debería ser muy difícil aprovechar este lugar para esconderse.'
 'Es scheint, dass alle guten Verstecke bereits von deinen "Freunden" besetzt sind. Du musst also einen anderen Ort finden oder improvisieren...': 'Parece que todos los escondites buenos ya están ocupados. Tendrás que encontrar otro lugar, o improvisar...'
+'Entfernung von hier': 'Entfernung von hier'
+'Entfernung zur Stadt': 'Entfernung zur Stadt'

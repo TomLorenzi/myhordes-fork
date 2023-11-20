@@ -6,8 +6,8 @@
 '**Lösche den Cache** deines Browsers.': '**Limpia la caché** de tu navegador.'
 '**Lade die Seite noch einmal (je nach Browser, funktioniert das mit: CTRL + R oder F5).**': '**Recargué la página (dependiendo de su navegador, esto funciona con: CTRL + R o F5).**'
 '**Lösche deine alten Lesezeichen**.': '**Borré sus antiguos marcadores**.'
-"Vergewissere dich, dass du mindestens **Firefox** oder **Google Chrome**\n                    **benutzt**.": "Asegúrese de que utiliza al menos **Firefox** o **Google Chrome**.\n                    **Uso**."
-"**Safari, Opera, Internet Explorer** und andere Browser werden offiziell **nicht\n                    unterstützt**.": "**Safari, Opera, Internet Explorer** y otros navegadores no son oficialmente **soportados**."
+'Vergewissere dich, dass du mindestens **Firefox** oder **Google Chrome** **benutzt**.': 'Por favor, asegúrese de usar **Firefox** o **Google Chrome**.'
+'**Safari, Opera, Internet Explorer** und andere Browser werden offiziell **nicht unterstützt**.': '**Safari, Opera, Internet Explorer** u otros navegadores **no son oficialmente compatibles**.'
 'Eventuell auftretende Probleme kannst du auf unserem Supportportal melden: {error_url}': 'Puede informarnos de cualquier problema en nuestro portal de asistencia: {error_url}'
 'Bugs melden': 'Informar de un error'
 'Error {code}': 'Error {code}'

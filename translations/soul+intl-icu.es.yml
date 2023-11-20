@@ -567,7 +567,6 @@ Bildformat: Formato de imagen
 'Gib den neuen Namen deiner Koalition ein.': 'Introduce el nuevo nombre de la alianza.'
 'Du hast den Namen deiner Koalition erfolgreich geändert.': 'Has cambiado correctamente el nombre de tu alianza.'
 'Diese Animation beinhaltet zu viele Einzelbilder, daher kann der Server sie nicht auf die erforderliche Größe zuschneiden.': 'Esta animación contiene demasiados fotogramas, por lo cual el servidor no puede recortarla al tamaño requerido.'
-'Wenn du ein animiertes Bild mit einer Auflösung größer als 200×200 Pixel hochlädst, darf dieses aus nicht mehr als 256': 'Si subes una imagen animada con una resolución superior a 200×200 píxeles, no debe de tener más de 256 fotogramas.'
 'Schriftgröße im Forum': 'Tamaño de fuente del foro'
 Normal: Normal
 'Sehr klein': 'Muy pequeño'
@@ -588,3 +587,4 @@ Passwort-Login: Iniciar sesión con contraseña
 'Diese Option steuert, ob Private Foren in denen du Mitglied bist in der Forenliste über oder unter den Weltforen angezeigt werden. Unabhängig von dieser Einstellung wird das Stadtforum deiner aktuellen Stadt immer ganz oben angezeigt.': 'Esta opción determina si los foros privados a los que tiene acceso se muestran encima o debajo de los foros mundiales en la lista de foros. Independientemente de esta configuración, el foro de tu ciudad actual siempre se mostrará en la parte superior.'
 'Twinoid existiert nicht mehr.': 'Twinoid dejó de funcionar.'
 'Aufgrund der Schließung von Hordes und Twinoid am 2. November 2023 ist es nicht länger möglich, neue Seelen zu importieren oder die Daten bereits importierter Seelen zu aktualisieren.': 'Debido al cierre de Zombinoia y Twinoid el 2 de noviembre de 2023, ya no es posible importar nuevas almas ni es posible actualizar los datos de almas ya importadas.'
+'Wenn du ein animiertes Bild mit einer Auflösung größer als 200×200 Pixel hochlädst, darf dieses aus nicht mehr als 256 Einzelbilder umfassen.': 'Si subes una imagen animada con una resolución superior a 200×200 píxeles, no debe de tener más de 256 fotogramas.'
