@@ -95,7 +95,7 @@ class CitizenHomePrototype
     }
     public function getApUrbanism(): ?int
     {
-        return $this->ap;
+        return $this->apUrbanism;
     }
     public function setApUrbanism(int $apUrbanism): self
     {
