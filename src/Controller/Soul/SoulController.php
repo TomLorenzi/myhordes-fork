@@ -48,6 +48,7 @@ use App\Service\ConfMaster;
 use App\Service\CrowService;
 use App\Service\ErrorHelper;
 use App\Service\EternalTwinHandler;
+use App\Service\HookExecutor;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\RandomGenerator;
@@ -110,9 +111,9 @@ class SoulController extends CustomAbstractController
     protected Packages $asset;
     protected CrowService $crow;
 
-    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf, CitizenHandler $ch, InventoryHandler $ih, KernelInterface $kernel, CrowService $crow)
+    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf, CitizenHandler $ch, InventoryHandler $ih, KernelInterface $kernel, CrowService $crow, HookExecutor $hookExecutor)
     {
-        parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
+        parent::__construct($conf, $em, $tk, $ch, $ih, $translator, $hookExecutor);
         $this->user_factory = $uf;
         $this->asset = $a;
         $this->user_handler = $uh;

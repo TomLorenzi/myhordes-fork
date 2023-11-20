@@ -19,6 +19,7 @@ use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\EternalTwinHandler;
+use App\Service\HookExecutor;
 use App\Service\InventoryHandler;
 use App\Service\JSONRequestParser;
 use App\Service\Media\ImageService;
@@ -81,9 +82,9 @@ class WebController extends CustomAbstractController
 
     private RegisterNewTokenAction $tokenizer;
 
-    public function __construct(VersionManager $v, KernelInterface $k, EntityManagerInterface $e, TranslatorInterface $translator, ConfMaster $conf, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih, RegisterNewTokenAction $tt)
+    public function __construct(VersionManager $v, KernelInterface $k, EntityManagerInterface $e, TranslatorInterface $translator, ConfMaster $conf, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih, RegisterNewTokenAction $tt, HookExecutor $hookExecutor)
     {
-        parent::__construct($conf, $e, $tk, $ch, $ih, $translator);
+        parent::__construct($conf, $e, $tk, $ch, $ih, $translator, $hookExecutor);
         $this->version_manager = $v;
         $this->kernel = $k;
         $this->tokenizer = $tt;

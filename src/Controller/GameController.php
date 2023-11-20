@@ -25,6 +25,7 @@ use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\GazetteService;
+use App\Service\HookExecutor;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
@@ -57,9 +58,9 @@ class GameController extends CustomAbstractController
 
     public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth,
                                 TimeKeeperService $tk, CitizenHandler $ch, UserHandler $uh, TownHandler $th,
-                                ConfMaster $conf, PictoHandler $ph, InventoryHandler $ih, GazetteService $gs)
+                                ConfMaster $conf, PictoHandler $ph, InventoryHandler $ih, GazetteService $gs, HookExecutor $hookExecutor)
     {
-        parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
+        parent::__construct($conf, $em, $tk, $ch, $ih, $translator, $hookExecutor);
         $this->logTemplateHandler = $lth;
         $this->user_handler = $uh;
         $this->town_handler = $th;

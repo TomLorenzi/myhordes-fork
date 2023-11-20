@@ -21,6 +21,7 @@ use App\Service\ErrorHelper;
 use App\Service\EventProxyService;
 use App\Service\GameFactory;
 use App\Service\GameProfilerService;
+use App\Service\HookExecutor;
 use App\Service\InventoryHandler;
 use App\Service\PictoHandler;
 use App\Service\ItemFactory;
@@ -76,9 +77,9 @@ class ExplorationController extends InventoryAwareController implements HookedIn
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, TimeKeeperService $tk,
         DeathHandler $dh, PictoHandler $ph, TranslatorInterface $translator, GameFactory $gf, RandomGenerator $rg,
         ItemFactory $if, ZoneHandler $zh, LogTemplateHandler $lh, ConfMaster $conf, Packages $a, UserHandler $uh,
-        CrowService $armbrust, TownHandler $th, DoctrineCacheService $doctrineCache, EventProxyService $events)
+        CrowService $armbrust, TownHandler $th, DoctrineCacheService $doctrineCache, EventProxyService $events, HookExecutor $hookExecutor)
     {
-        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust, $th, $a, $doctrineCache, $events);
+        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust, $th, $a, $doctrineCache, $events, $hookExecutor);
         $this->game_factory = $gf;
         $this->item_factory = $if;
         $this->zone_handler = $zh;

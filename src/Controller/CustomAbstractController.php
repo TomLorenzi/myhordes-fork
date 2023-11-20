@@ -9,6 +9,7 @@ use App\Entity\Quote;
 use App\Entity\UserSwapPivot;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
+use App\Service\HookExecutor;
 use App\Service\InventoryHandler;
 use App\Service\TimeKeeperService;
 use App\Structures\EventConf;
@@ -28,14 +29,16 @@ class CustomAbstractController extends CustomAbstractCoreController {
     protected TimeKeeperService $time_keeper;
     protected CitizenHandler $citizen_handler;
     protected InventoryHandler $inventory_handler;
+	protected HookExecutor $hookExecutor;
 
-    public function __construct(ConfMaster $conf, EntityManagerInterface $em, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih, TranslatorInterface $translator) {
+    public function __construct(ConfMaster $conf, EntityManagerInterface $em, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih, TranslatorInterface $translator, HookExecutor $hookExecutor) {
         parent::__construct($conf, $translator);
 
         $this->entity_manager = $em;
         $this->time_keeper = $tk;
         $this->citizen_handler = $ch;
         $this->inventory_handler = $ih;
+		$this->hookExecutor = $hookExecutor;
     }
 
     private static int $flash_message_count = 0;

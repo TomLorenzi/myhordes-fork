@@ -13,6 +13,7 @@ use App\Entity\Town;
 use App\Entity\User;
 use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
+use App\Service\HookExecutor;
 use App\Service\HTMLService;
 use App\Service\InventoryHandler;
 use App\Service\PermissionHandler;
@@ -55,9 +56,9 @@ class MessageController extends CustomAbstractController
     protected PermissionHandler $perm;
     protected UserHandler $userHandler;
 
-    public function __construct(HTMLService $html, RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em, InventoryHandler $ih, TimeKeeperService $tk, PermissionHandler $p, ConfMaster $conf, CitizenHandler $ch, UserHandler $uh)
+    public function __construct(HTMLService $html, RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em, InventoryHandler $ih, TimeKeeperService $tk, PermissionHandler $p, ConfMaster $conf, CitizenHandler $ch, UserHandler $uh, HookExecutor $hookExecutor)
     {
-        parent::__construct($conf, $em, $tk, $ch, $ih, $t);
+        parent::__construct($conf, $em, $tk, $ch, $ih, $t, $hookExecutor);
         $this->asset = $a;
         $this->rand = $r;
         $this->perm = $p;

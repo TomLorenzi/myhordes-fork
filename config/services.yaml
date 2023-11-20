@@ -103,8 +103,8 @@ services:
         - { name: monolog.logger, channel: admin }
 
     App\Command\DebugCommand:
-        arguments:
-            $translator: '@app.decoration.translator.inner'
+      arguments:
+        $translator: '@app.decoration.translator.inner'
 
     App\Command\Debug\CouncilTestCommand:
       arguments:

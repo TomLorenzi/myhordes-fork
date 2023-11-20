@@ -23,6 +23,7 @@ use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\GameFactory;
 use App\Service\GameProfilerService;
+use App\Service\HookExecutor;
 use App\Service\InventoryHandler;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
@@ -51,9 +52,9 @@ class GhostController extends CustomAbstractController
     const ErrorWrongTownPassword          = ErrorHelper::BaseGhostErrors + 1;
     private GameProfilerService $gps;
 
-    public function __construct(EntityManagerInterface $em, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf, CitizenHandler $ch, InventoryHandler $ih, GameProfilerService $gps)
+    public function __construct(EntityManagerInterface $em, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf, CitizenHandler $ch, InventoryHandler $ih, GameProfilerService $gps, HookExecutor $hookExecutor)
     {
-        parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
+        parent::__construct($conf, $em, $tk, $ch, $ih, $translator, $hookExecutor);
         $this->gps = $gps;
         $this->user_handler = $uh;
     }

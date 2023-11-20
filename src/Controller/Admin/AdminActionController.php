@@ -21,6 +21,7 @@ use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\CrowService;
 use App\Service\ErrorHelper;
+use App\Service\HookExecutor;
 use App\Service\InventoryHandler;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
@@ -78,9 +79,9 @@ class AdminActionController extends CustomAbstractController
         ];
     }
 
-    public function __construct(EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $lth, TranslatorInterface $translator, ZoneHandler $zh, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih, UserHandler $uh, CrowService $crow, AdminLog $adminLogger, UrlGeneratorInterface $urlGenerator, AdminHandler $adminHandler, TownHandler $townHandler)
+    public function __construct(EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $lth, TranslatorInterface $translator, ZoneHandler $zh, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih, UserHandler $uh, CrowService $crow, AdminLog $adminLogger, UrlGeneratorInterface $urlGenerator, AdminHandler $adminHandler, TownHandler $townHandler, HookExecutor $hookExecutor)
     {
-        parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
+        parent::__construct($conf, $em, $tk, $ch, $ih, $translator, $hookExecutor);
         $this->logTemplateHandler = $lth;
         $this->zone_handler = $zh;
         $this->user_handler = $uh;

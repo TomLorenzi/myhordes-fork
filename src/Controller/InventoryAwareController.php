@@ -47,6 +47,7 @@ use App\Service\DeathHandler;
 use App\Service\DoctrineCacheService;
 use App\Service\ErrorHelper;
 use App\Service\EventProxyService;
+use App\Service\HookExecutor;
 use App\Service\InventoryHandler;
 use App\Service\PictoHandler;
 use App\Service\JSONRequestParser;
@@ -102,9 +103,9 @@ class InventoryAwareController extends CustomAbstractController
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, DeathHandler $dh, PictoHandler $ph,
         TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf,
         ZoneHandler $zh, UserHandler $uh, CrowService $armbrust, TownHandler $th, Packages $asset, DoctrineCacheService $doctrineCache,
-        EventProxyService $events)
+        EventProxyService $events, HookExecutor $hookExecutor)
     {
-        parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
+        parent::__construct($conf, $em, $tk, $ch, $ih, $translator, $hookExecutor);
         $this->action_handler = $ah;
         $this->picto_handler = $ph;
         $this->log = $lt;

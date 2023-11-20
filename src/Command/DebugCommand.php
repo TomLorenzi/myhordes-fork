@@ -18,11 +18,9 @@ use App\Entity\TownRankingProxy;
 use App\Entity\TwinoidImport;
 use App\Entity\User;
 use App\Entity\ZombieEstimation;
-use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
 use App\Service\CommandHelper;
 use App\Service\ConfMaster;
-use App\Service\ErrorHelper;
 use App\Service\GameFactory;
 use App\Service\GameProfilerService;
 use App\Service\InventoryHandler;
@@ -38,9 +36,8 @@ use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 use Symfony\Component\Console\Attribute\AsCommand;
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
@@ -48,8 +45,6 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Symfony\Component\Validator\Constraints\Date;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[AsCommand(
     name: 'app:debug',
@@ -63,20 +58,19 @@ class DebugCommand extends LanguageCommand
     private EntityManagerInterface $entity_manager;
     private CitizenHandler $citizen_handler;
     private RandomGenerator $randomizer;
-    private TranslatorInterface $trans;
+    private Translator $trans;
     private InventoryHandler $inventory_handler;
     private ItemFactory $item_factory;
     private UserPasswordHasherInterface $encoder;
     private ConfMaster $conf;
     private TownHandler $townHandler;
     private TwinoidHandler $twin;
-    private UserHandler $user_handler;
     private GameProfilerService $gps;
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
-                                RandomGenerator $rg, CitizenHandler $ch, TranslatorInterface $translator, InventoryHandler $ih,
+                                RandomGenerator $rg, CitizenHandler $ch, Translator $translator, InventoryHandler $ih,
                                 ItemFactory $if, UserPasswordHasherInterface $passwordEncoder, ConfMaster $c,
-                                TownHandler $th, CommandHelper $h, TwinoidHandler $t, UserHandler $uh, GameProfilerService $gps)
+                                TownHandler $th, CommandHelper $h, TwinoidHandler $t, GameProfilerService $gps)
     {
         $this->kernel = $kernel;
 
@@ -92,7 +86,6 @@ class DebugCommand extends LanguageCommand
         $this->townHandler = $th;
         $this->helper = $h;
         $this->twin = $t;
-        $this->user_handler = $uh;
         $this->gps = $gps;
 
         parent::__construct();
