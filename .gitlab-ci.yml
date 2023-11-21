@@ -21,7 +21,7 @@ variables:
   MARIADB_RANDOM_ROOT_PASSWORD: 'yes'
 
   # MH environment variables
-  # DATABASE_URL: mysql://myhordes-ci:Sullen.Vindicate9.Untruth@mariadb:3306/myhordes
+  DATABASE_URL: mysql://myhordes-ci:Sullen.Vindicate9.Untruth@mariadb:3306/myhordes
   DATABASE_DBNAME: myhordes
   DATABASE_HOST: mariadb
   DATABASE_PORT: 3306
