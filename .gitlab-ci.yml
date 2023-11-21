@@ -62,6 +62,7 @@ build:
         - composer.lock
         - yarn.lock
         - assets/**/*
+        - .gitlab-ci.yml
 
 translate:
   stage: test-translate
