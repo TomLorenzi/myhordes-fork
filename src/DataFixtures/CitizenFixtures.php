@@ -185,7 +185,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
 
             $entity->setLevel($level)
                 ->setAp( $entry['ap'] )
-                ->setApUrbanism( $entry['ap_urbanism'] )
+                ->setApUrbanism( $entry['ap_urbanism'] ?? 0 )
                 ->setIcon( $entry['icon'] )
                 ->setAllowSubUpgrades( $entry['upgrades'] )
                 ->setDefense( $entry['def'] )
