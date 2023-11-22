@@ -1049,6 +1049,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
      */
     public function getDependencies(): array
     {
+		dump("ActionFixtures::getDependencies");
+		dump([ ItemFixtures::class, RecipeFixtures::class, CitizenFixtures::class ]);
         return [ ItemFixtures::class, RecipeFixtures::class, CitizenFixtures::class ];
     }
 }
