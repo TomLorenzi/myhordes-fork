@@ -379,7 +379,11 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 			$causeOfDeath = $manager->getRepository(CauseOfDeath::class)->findOneBy( ['ref' => $data[0]] );
 
 			if (!$causeOfDeath) {
-				throw new EntityNotFoundException("The Cause of Death with reference {$data[0]} does not exists.");
+				$all = $manager->getRepository(CauseOfDeath::class)->findBy([], ['ref' => 'asc']);
+				$list = "";
+				foreach ($all as $one)
+					$list .= "{$one->getRef()} :: {$one->getLabel()}\n";
+				throw new EntityNotFoundException("The Cause of Death with reference {$data[0]} does not exists.\nExisting Causes : $list");
 			}
 
             $result->setName( $id )->setCause( $causeOfDeath );
