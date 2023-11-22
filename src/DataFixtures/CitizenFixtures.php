@@ -464,6 +464,6 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
 
     public function getDependencies(): array
     {
-        return [ RecipeFixtures::class, ItemFixtures::class ];
+        return [ RecipeFixtures::class ];
     }
 }
