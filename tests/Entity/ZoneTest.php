@@ -50,6 +50,7 @@ final class ZoneTest extends KernelTestCase
 
         $schemaTool = new SchemaTool($this->entityManager);
         $schemaTool->createSchema($this->entityManager->getMetadataFactory()->getAllMetadata());
+		dump($this->entityManager->getMetadataFactory()->getAllMetadata());
     }
 
 
