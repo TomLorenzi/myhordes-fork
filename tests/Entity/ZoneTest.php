@@ -16,6 +16,7 @@ use App\Entity\ZoneActivityMarker;
 use App\Enum\ZoneActivityMarkerType;
 use DateTime;
 use Doctrine\ORM\Tools\SchemaTool;
+use Doctrine\ORM\Tools\ToolsException;
 use LogicException;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
@@ -30,9 +31,14 @@ final class ZoneTest extends KernelTestCase
     private $entityManager;
 
 
-    protected function setUp(): void
+	/**
+	 * @throws ToolsException
+	 */
+	protected function setUp(): void
     {
-        $kernel = self::bootKernel();
+        $kernel = self::bootKernel([
+			'debug'       => false,
+		]);
 
         if ('test' !== $kernel->getEnvironment()) {
             throw new LogicException('Execution only in Test environment possible!');

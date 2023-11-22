@@ -23,6 +23,10 @@ class GameFactoryTest extends KernelTestCase
             'debug'       => false,
         ]);
 
+		if ('test' !== $kernel->getEnvironment()) {
+			throw new LogicException('Execution only in Test environment possible!');
+		}
+
         $this->entityManager = $kernel->getContainer()
             ->get('doctrine')
             ->getManager();
