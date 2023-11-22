@@ -94,6 +94,6 @@ class HeroSkillFixtures extends Fixture implements DependentFixtureInterface {
     }
 
 	public function getDependencies(): array {
-		return [ActionFixtures::class];
+		return [ActionFixtures::class, ItemFixtures::class];
 	}
 }
