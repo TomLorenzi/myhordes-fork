@@ -375,7 +375,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 $out->writeln( "\t\t\t<comment>Create</comment> effect <info>death/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             }
 
-            $result->setName( $id )->setCause(  $manager->getRepository(CauseOfDeath::class)->findOneBy( ['ref' => $data[0]] ));
+            $result->setName( $id )->setCause( $manager->getRepository(CauseOfDeath::class)->findOneBy( ['ref' => $data[0]] ));
             $manager->persist( $cache[$id] = $result );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>death/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 

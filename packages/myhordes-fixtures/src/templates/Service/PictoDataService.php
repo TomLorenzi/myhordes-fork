@@ -9,7 +9,7 @@ class PictoDataService implements FixtureProcessorInterface {
 
     public function process(array &$data): void
     {
-        $data = array_replace_recursive($data, [
+        $data = array_merge_recursive($data, [
             [
                 'label' => 'Heldentaten',
                 'description' => 'Anzahl deiner wirklich außergewöhnlichen Heldentaten.',
