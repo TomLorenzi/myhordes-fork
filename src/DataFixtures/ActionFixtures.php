@@ -47,6 +47,7 @@ use App\Entity\SpecialActionPrototype;
 use App\Enum\ItemPoisonType;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
+use Doctrine\ORM\EntityNotFoundException;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -375,7 +376,13 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 $out->writeln( "\t\t\t<comment>Create</comment> effect <info>death/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             }
 
-            $result->setName( $id )->setCause( $manager->getRepository(CauseOfDeath::class)->findOneBy( ['ref' => $data[0]] ));
+			$causeOfDeath = $manager->getRepository(CauseOfDeath::class)->findOneBy( ['ref' => $data[0]] );
+
+			if (!$causeOfDeath) {
+				throw new EntityNotFoundException("The Cause of Death with reference {$data[0]} does not exists.");
+			}
+
+            $result->setName( $id )->setCause( $causeOfDeath );
             $manager->persist( $cache[$id] = $result );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>death/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 
