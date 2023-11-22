@@ -28,7 +28,7 @@ class CitizenHomePrototype
     #[ORM\Column(type: 'integer')]
     private $ap;
     #[ORM\Column(type: 'integer')]
-    private $apUrbanism;
+    private $apUrbanism = 0;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\ItemGroup', cascade: ['persist'])]
     private $resources;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\ItemGroup', cascade: ['persist'])]
