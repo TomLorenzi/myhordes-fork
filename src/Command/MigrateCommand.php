@@ -355,7 +355,7 @@ class MigrateCommand extends Command
 
         if ($input->getOption('install-db')) {
 
-            $output->writeln("\n\n=== <info>Creating database and loading static content (Environment: {$this->kernel->getEnvironment()}</info> ===\n");
+            $output->writeln("\n\n=== <info>Creating database and loading static content (Environment: {$this->kernel->getEnvironment()})</info> ===\n");
 
             if (!$this->helper->capsule( 'doctrine:database:create --if-not-exists', $output )) {
                 $output->writeln("<error>Unable to create database.</error>");
