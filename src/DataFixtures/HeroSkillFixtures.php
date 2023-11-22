@@ -8,6 +8,7 @@ use App\Entity\HeroicActionPrototype;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\ItemPrototype;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
 use MyHordes\Plugins\Fixtures\HeroSkill;
@@ -15,7 +16,7 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
 use Symfony\Component\Console\Helper\ProgressBar;
 
-class HeroSkillFixtures extends Fixture {
+class HeroSkillFixtures extends Fixture implements DependentFixtureInterface {
 
     private HeroSkill $heroSkill;
 
@@ -91,4 +92,8 @@ class HeroSkillFixtures extends Fixture {
         $this->insertHeroSkills($manager, $output);
         $output->writeln("");
     }
+
+	public function getDependencies(): array {
+		return [ActionFixtures::class];
+	}
 }
