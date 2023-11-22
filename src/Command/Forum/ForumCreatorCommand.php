@@ -87,7 +87,7 @@ class ForumCreatorCommand extends Command
         }
 
         if (empty($input->getOption('description'))) {
-            $str = $helper->ask($input, $output, new Question("If you want the forum to have a description, enter it now. Entering a description is optional.\n"));
+            $str = $helper->ask($input, $output, new Question("If you want the forum to have a description, enter it now. Entering a description is optional.\n", ""));
             if (!empty($str)) $input->setOption('description', $str);
         }
 
@@ -105,11 +105,11 @@ class ForumCreatorCommand extends Command
             $langs_titles = [];
             $langs_descs = [];
             foreach (['de', 'en', 'fr', 'es'] as $lang) {
-                $str = $helper->ask($input, $output, new Question("Enter forum title for language '$lang' or leave empty to skip adding this language.\n"));
+                $str = $helper->ask($input, $output, new Question("Enter forum title for language '$lang' or leave empty to skip adding this language.\n", ""));
                 if (!empty($str)) {
                     $langs[] = $lang;
                     $langs_titles[] = $str;
-                    $langs_descs[] = $helper->ask($input, $output, new Question("Enter forum description for language '$lang' or leave empty to skip adding a description for this language.\n"));
+                    $langs_descs[] = $helper->ask($input, $output, new Question("Enter forum description for language '$lang' or leave empty to skip adding a description for this language.\n", ""));
                 }
             }
 
