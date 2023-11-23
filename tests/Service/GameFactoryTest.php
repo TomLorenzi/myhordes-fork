@@ -10,6 +10,7 @@ use App\Service\GameProfilerService;
 use App\Service\RandomGenerator;
 use App\Structures\TownSetup;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Tools\SchemaTool;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Translation\Translator;
 
@@ -30,6 +31,9 @@ class GameFactoryTest extends KernelTestCase
         $this->entityManager = $kernel->getContainer()
             ->get('doctrine')
             ->getManager();
+
+		$schemaTool = new SchemaTool($this->entityManager);
+		$schemaTool->updateSchema($this->entityManager->getMetadataFactory()->getAllMetadata());
     }
 
     public function testTownCreation()
