@@ -51,6 +51,9 @@ class GameFactoryTest extends KernelTestCase
         $gameFactory = $container->get(GameFactory::class);
         $random = $container->get(RandomGenerator::class);
 
+		$schemaTool = new SchemaTool($this->entityManager);
+		$schemaTool->updateSchema($this->entityManager->getMetadataFactory()->getAllMetadata());
+
         // We try to create a 100 towns
         for ($i = 0; $i < 100 ; $i++) {
 
