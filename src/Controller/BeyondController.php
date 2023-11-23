@@ -275,7 +275,7 @@ class BeyondController extends InventoryAwareController
             $ruin_capacity = $zone->getBuildingCampingCapacity();
 
             if($zone->getPrototype() && $ruin_capacity !== -1) {
-                $zone_capacity = max(0, min(5, $zone->getBuildingCampingCapacity() - $zone->getPreviousCampers($citizen)));
+                $zone_capacity = max(0, min(5, $zone->getBuildingCampingCapacity() - $this->entity_manager->getRepository(Zone::class)->findPreviousCampersCount($citizen)));
 
                 // Ruin capacity Information
                 $camping_capacity = match($zone_capacity) {
