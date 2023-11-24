@@ -29,6 +29,7 @@ variables:
   DATABASE_PASSWORD: Sullen.Vindicate9.Untruth
   DATABASE_DRIVER: pdo_mysql
   DATABASE_VERSION: 11.0.2
+  APP_ENV: test
   XDEBUG_MODE: coverage
 
 stages:
@@ -91,6 +92,7 @@ translate:
   variables:
     CROWDIN_API_TOKEN: $CROWDIN_API_TOKEN
     CROWDIN_PROJECT_ID: $CROWDIN_PROJECT_ID
+    APP_ENV: translation
 
 translate-next:
   stage: test-translate
@@ -119,6 +121,7 @@ translate-next:
   variables:
     CROWDIN_API_TOKEN: $CROWDIN_API_TOKEN
     CROWDIN_PROJECT_ID: $CROWDIN_PROJECT_ID
+    APP_ENV: translation_next
 
 # Run our tests
 # If Xdebug was installed you can generate a coverage report and see code coverage metrics.
@@ -128,7 +131,7 @@ test:
     - build
   script:
     # Install a DB
-    - php bin/console app:migrate -i -vvv
+    - php bin/console app:migrate -i -vvv -e test
     # Run tests
     - vendor/bin/phpunit # --coverage-text --colors=never
   cache:

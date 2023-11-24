@@ -51,15 +51,12 @@ class GameFactoryTest extends KernelTestCase
         $gameFactory = $container->get(GameFactory::class);
         $random = $container->get(RandomGenerator::class);
 
-		$schemaTool = new SchemaTool($this->entityManager);
-		$schemaTool->updateSchema($this->entityManager->getMetadataFactory()->getAllMetadata());
-
-        // We try to create a 100 towns
+        // We try to create 100 towns
         for ($i = 0; $i < 100 ; $i++) {
 
             $lang =  $random->pick(['en', 'fr', 'de', 'es', 'multi']);
             $type = $random->pick(['small', 'remote', 'panda', 'invalid']);
-            // Let's try to create a french remote town with a generated name and 40 citizens in it
+            // Let's try to create a random town with a generated name and 40 citizens in it
             $town = $gameFactory->createTown(new TownSetup( $type, language: $lang, population: 40));
 
             if ($type !== "invalid")
