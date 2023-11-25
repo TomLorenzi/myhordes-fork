@@ -225,24 +225,6 @@ class Zone
         ksort($campers);
         return $campers;
     }
-    /**
-     * Amount of campers before the specified citizen
-     * If the citizen is not currently hidden,
-     * corresponds to the total amount of campers
-     */
-    public function getPreviousCampers(Citizen $citizen): int {
-        $previous_campers = 0;
-        $zone_campers = $this->getCampers();
-        foreach ($zone_campers as $camper) {
-            if ($camper !== $citizen) {
-                $previous_campers++;
-            }
-            else {
-                break;
-            }
-        }
-        return $previous_campers;
-    }
     public function getBuildingCampingCapacity(): int {
         // No building
         $ruin = $this->getPrototype();

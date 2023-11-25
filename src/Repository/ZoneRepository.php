@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Town;
 use App\Entity\Zone;
+use App\Entity\Citizen;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\NonUniqueResultException;
@@ -46,6 +47,32 @@ class ZoneRepository extends ServiceEntityRepository
                 ->andWhere('z.y = :py')->setParameter('py', $y)
                 ->getQuery()
                 ->getOneOrNullResult();
+        } catch (NonUniqueResultException $e) {
+            return null;
+        }
+    }
+
+    public function findPreviousCampersCount(Citizen $citizen): ?int {
+        if(!$citizen->getTown()) { return 0; }
+        if(!$citizen->getZone()) { return 0; }
+
+        try {
+            $query = $this->createQueryBuilder('z')
+                ->select('count(c.id) as count')
+                ->innerJoin("z.citizens", "c")
+                ->andWhere('z.town = :t')->setParameter('t', $citizen->getTown())
+                ->andWhere('z.x = :px')->setParameter('px', $citizen->getZone()->getX())
+                ->andWhere('z.y = :py')->setParameter('py', $citizen->getZone()->getY())
+                ->andWhere("c.campingTimestamp > 0");
+
+            // Get hidden before citizen if he's already hidden
+            if($citizen->getCampingTimestamp() > 0) {
+                $query = $query
+                    ->andWhere("c.campingTimestamp < :current")
+                    ->setParameter("current", $citizen->getCampingTimestamp());
+            }
+
+            return $query->getQuery()->getSingleScalarResult();
         } catch (NonUniqueResultException $e) {
             return null;
         }

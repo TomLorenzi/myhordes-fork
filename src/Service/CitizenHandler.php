@@ -598,7 +598,7 @@ class CitizenHandler
 		$has_scout_protection = $this->inventory_handler->countSpecificItems(
 			$citizen->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
 		) > 0;
-        $previous_campers = $zone->getPreviousCampers($citizen);
+        $previous_campers = $this->entity_manager->getRepository(Zone::class)->findPreviousCampersCount($citizen);
 
 		$chance = [
 			'previous' => 0,
@@ -657,8 +657,9 @@ class CitizenHandler
 
 		// Other campers on the zone
 		if ($previous_campers > 0) {
-			$crowdChances = [0,-10,-30,-50,-70];
-			$cc = $crowdChances[ min(count($crowdChances) - 1, max(0, $previous_campers - 2))]; // -1 because we must not count ourselves AND we ignore the first camper.
+            // Map previous_campers to a camping malus
+			$crowdChances = [0,0,-10,-30,-50,-70];
+			$cc = $crowdChances[ min(count($crowdChances) - 1, max(0, $previous_campers))];
 			$chance["campers"] = $cc;
 		}
 
@@ -718,7 +719,7 @@ class CitizenHandler
         // No building to hide inside
         if(!$ruin) return false;
 
-        $previous_campers = $zone->getPreviousCampers($citizen);
+        $previous_campers = $this->entity_manager->getRepository(Zone::class)->findPreviousCampersCount($citizen);
         $capacity = $zone->getBuildingCampingCapacity();
 
         return $capacity < 0 || $previous_campers < $capacity;
