@@ -408,7 +408,7 @@ class MigrateCommand extends Command
 
                 if ($result) {
                     $num = (int)$this->getHelper('question')->ask($input, $output, new Question(
-                        "Enter season number (default: 15): ", "15"
+                        "Enter season number (default: 16): ", "16"
                     ) );
                     $subnum = (int)$this->getHelper('question')->ask($input, $output, new Question(
                         "Enter sub-season number (default: 0): ", "0"

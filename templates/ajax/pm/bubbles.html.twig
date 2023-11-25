@@ -231,7 +231,7 @@
                     {% if group_owner %}
                         &nbsp;
                         <a class="pm-button pointer {% if message.pinned%}hidden{% endif %}" x-message-id="{{ message.id }}" x-pin-state="1" x-pin-url="{{ path('pm_pin_post_controller', {pid: message.id, action: 1}) }}">
-                            <i class="fa fa-map-pin"></i><div class="tooltip forum-tooltip">{{'Anpinnen'|trans({}, 'global')}}</div>
+                            <img alt="pin" src="{{ asset('build/images/icons/pin3.png') }}"><div class="tooltip forum-tooltip">{{'Anpinnen'|trans({}, 'global')}}</div>
                         </a>
                         <a class="pm-button pointer {% if not message.pinned%}hidden{% endif %}" x-message-id="{{ message.id }}" x-pin-state="0" x-pin-url="{{ path('pm_pin_post_controller', {pid: message.id, action: 0}) }}">
                             <img alt="X" src="{{ asset('build/images/icons/small_remove.gif') }}" /><div class="tooltip forum-tooltip">{{'Pin entfernen'|trans({}, 'global')}}</div>
@@ -262,7 +262,7 @@
 {% macro bubble_group(message, last, group_owner = false) %}
     {# @var message App\Entity\GlobalPrivateMessage #}
     <li x-domain="m-d" x-identifier="{{ message.id }}" class="{% if message.sender == app.user %}own{% endif %} {% if message.id > last %}new{% endif %} {% if message.collapsed or (message.senderGroup is empty and app.user|related(message.sender,constant('App\\Entity\\SocialRelation::SocialRelationTypeBlock'))) %}collapsed{% endif %}">
-        <div x-unveil="{{ message.id }}" class="unveil pointer"><i class="fa fa-eye-slash"></i> {{ 'Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.'|trans({'{user}': '<strong>' ~ message.sender.name ~ '</strong>'}, 'global')|raw }}</div>
+        <div x-unveil="{{ message.id }}" class="unveil pointer"><img alt="" src="{{ asset('build/images/icons/hide.gif') }}"> {{ 'Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.'|trans({'{user}': '<strong>' ~ message.sender.name ~ '</strong>'}, 'global')|raw }}</div>
         {% include "ajax/soul/playeravatar.html.twig" with {
             user: (message.senderGroup and message.senderGroup.anon) ? message.senderGroup : message.sender,
             gpm: true
@@ -311,17 +311,16 @@
                 {% if group_owner and not message.hidden %}
                     &nbsp;
                     <a class="pm-button {% if message.pinned%}hidden{% endif %}" x-message-id="{{ message.id }}" x-pin-state="1" x-pin-url="{{ path('pm_pin_post_controller', {pid: message.id, action: 1}) }}">
-                        <i class="fa fa-map-pin"></i><div class="tooltip forum-tooltip">{{'Anpinnen'|trans({}, 'global')}}</div>
+                        <img alt="" src="{{ asset('build/images/icons/pin3.png') }}" style="height:12px"><div class="tooltip forum-tooltip">{{'Anpinnen'|trans({}, 'global')}}</div>
                     </a>
                     <a class="pm-button {% if not message.pinned%}hidden{% endif %}" x-message-id="{{ message.id }}" x-pin-state="0" x-pin-url="{{ path('pm_pin_post_controller', {pid: message.id, action: 0}) }}">
                         <img alt="X" src="{{ asset('build/images/icons/small_remove.gif') }}" /><div class="tooltip forum-tooltip">{{'Pin entfernen'|trans({}, 'global')}}</div>
                     </a>
-                    &nbsp;
                     <a class="pm-button {% if message.collapsed%}hidden{% endif %}" x-message-id="{{ message.id }}" x-collapse-state="1" x-collapse-url="{{ path('pm_collapse_post_controller', {pid: message.id, action: 1}) }}">
-                        <i class="fa fa-eye-slash"></i><div class="tooltip forum-tooltip">{{'Ausblenden'|trans({}, 'global')}}</div>
+                        <img alt="" src="{{ asset('build/images/icons/hide.gif') }}" style="height:12px"><div class="tooltip forum-tooltip">{{'Ausblenden'|trans({}, 'global')}}</div>
                     </a>
                     <a class="pm-button {% if not message.collapsed%}hidden{% endif %}" x-message-id="{{ message.id }}" x-collapse-state="0" x-collapse-url="{{ path('pm_collapse_post_controller', {pid: message.id, action: 0}) }}">
-                        <i class="fa fa-eye"></i><div class="tooltip forum-tooltip">{{'Einblenden'|trans({}, 'global')}}</div>
+                        <img alt="" src="{{ asset('build/images/icons/show.gif') }}" style="height:12px"><div class="tooltip forum-tooltip">{{'Einblenden'|trans({}, 'global')}}</div>
                     </a>
                 {% endif %}
                 {% if not message.hidden %}
