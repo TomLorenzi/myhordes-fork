@@ -90,6 +90,7 @@ Encore
     .addEntry('app', './assets/js/app.js')
     .addEntry( 'prime', `./${prime_asset_path}/js/prime.js`)
     .addEntry('fa', './assets/js/fa.js')
+    .addEntry('service', './assets/ts/v2/service.ts')
 
     .addEntry('swagger', './assets/js/swagger.js')
 
@@ -106,7 +107,7 @@ Encore
 
     // will require an extra script tag for runtime.js
     // but, you probably want this, unless you're building a single-page app
-    .enableSingleRuntimeChunk()
+    .disableSingleRuntimeChunk()
 
     /*
      * FEATURE CONFIG

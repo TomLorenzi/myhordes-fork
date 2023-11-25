@@ -2,6 +2,9 @@
     "beberlei/assert": {
         "version": "v3.3.2"
     },
+    "bentools/webpush-bundle": {
+        "version": "0.11"
+    },
     "brainbox-et/etwin-api-client": {
         "version": "dev-master"
     },

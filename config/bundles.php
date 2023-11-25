@@ -20,4 +20,5 @@ return [
     MyHordes\Prime\MyHordesPrimeBundle::class => ['all' => true],
     Zenstruck\ScheduleBundle\ZenstruckScheduleBundle::class => ['all' => true],
     Sentry\SentryBundle\SentryBundle::class => ['all' => true],
+    BenTools\WebPushBundle\WebPushBundle::class => ['all' => true],
 ];

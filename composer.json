@@ -16,6 +16,7 @@
         "ext-mbstring": "*",
         "ext-simplexml": "*",
         "adbario/php-dot-notation": "^3.3",
+        "bentools/webpush-bundle": "^0.11.0",
         "brainbox-et/etwin-api-client": "@dev",
         "clue/graph": "0.9.3",
         "composer/semver": "^3.4",
