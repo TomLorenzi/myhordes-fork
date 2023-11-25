@@ -195,7 +195,7 @@ Zonenregister: Registro de la Zona
 'Das Stadtregister steht nicht zur Verfügung.': 'El Registro del Pueblo (donde todas las acciones de los habitantes quedan registradas) no es accesible cuando estás en el Ultramundo...'
 'Herzlichen Glückwunsch, du bist TOT!': '¡Felicidades, HAS MUERTO!'
 'Du hast {sp} Seelenpunkte gewonnen!': '¡Has ganado {sp} Puntos de Alma!'
-'Du hast folgende Auszeichnungen verliehen bekommen:': 'Has ganado las Distinciones:'
+'Du hast folgende Auszeichnungen verliehen bekommen:': 'Has conseguido las siguientes Distinciones:'
 'Begrüße den Tod wie es sich gehört...': 'Recibe la muerte como se debe...'
 'Der Tod in "MyHordes" ist nicht weiter schlimm!': '¡La vida no suele dar otra oportunidad, pero MyHordes sí!'
 'Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!': 'Puedes reencarnarte en otro pueblo Leyenda cuantas veces quieras ¡Usa diferentes estrategias, experimenta!'
@@ -391,8 +391,8 @@ Drogenabhängigkeit: Falta de estimulantes
 'Stück für Stück hat dich die Krankheit von innen her aufgefressen... Die Infektionssymptome waren auch nicht mehr zu übersehen: eiternde Wunden, Hematome, faulendes Fleisch... Nach mehreren Stunden Leiden hast du den Tod schließlich als Erleichterung empfunden.': 'Poco a poco la enfermedad te devoraba por dentro... Los síntomas de la infección ya no podían pasarse por alto: heridas supurantes, hematomas, carne podrida... Después de varias horas de sufrimiento, finalmente sentiste la muerte como un alivio.'
 Zyanid: Suicidio por ingestión de cianuro
 'Du dachtest dir: "Bevor ich noch eine weitere Minute mit diesen Losern verbringe, kürze ich das Ganze ein wenig ab...". Was soll''s? Einen Tag mehr oder weniger, was macht das schon für einen Unterschied...': 'En vez de seguir viviendo con esa banda de "losers", preferiste simplificarte la vida... acortándola un poco. Al fin y al cabo, un día más, un día menos... '
-'Ermordung durch Gift': 'Asesinato por veneno'
-'Sorglos hast du dieses Produkt runtergeschluckt... Das darin enthaltene Gift hat nur wenige Sekunden gebraucht, um über dein Blutkreislaufsystem zum Herzen zu gelangen. Du hast dein Bewusstsein verloren. Atemstillstand und Herzversagen haben dir dann den Rest gegeben. Du wurdest vergifet!! Wie hinterhältig!': 'Tragaste este producto sin cuidado... El veneno que contenía solo tardó unos segundos en llegar al corazón a través de su sistema circulatorio. Has perdido la conciencia. El paro respiratorio y la insuficiencia cardíaca hicieron el resto. ¡¡Has sido envenenado!! ¡Qué astuto!'
+'Ermordung durch Gift': '¡Asesinato por envenenamiento!'
+'Sorglos hast du dieses Produkt runtergeschluckt... Das darin enthaltene Gift hat nur wenige Sekunden gebraucht, um über dein Blutkreislaufsystem zum Herzen zu gelangen. Du hast dein Bewusstsein verloren. Atemstillstand und Herzversagen haben dir dann den Rest gegeben. Du wurdest vergifet!! Wie hinterhältig!': 'Tragaste este producto sin cuidado... El veneno que contenía solo tardó unos segundos en llegar al corazón a través de tu sistema circulatorio. Has perdido la conciencia. El paro respiratorio y la insuficiencia cardíaca hicieron el resto. ¡¡Has sido envenenado!! ¡Qué astuto!'
 'Argh!! Es scheint, als ob sich ein Ghul unter die Einwohner gemischt hätte! Völlig ahnungs- und wehrlos wurdest du von etwas oder jemandem angefallen und übel vermöbelt. Als er dann seine fauligen Zähne in deinen Hals schlug warst du noch bei Bewusstsein... Doch du hattest nur noch einen Gedanken: Wer war das?': '¡¡Argh!! ¡Parece que un mutante se ha mezclado con los habitantes! Completamente desprevenido e indefenso, fuiste atacado por algo o alguien y te golpeó brutalmente. Cuando te mordió la garganta con sus dientes podridos aún estabas consciente... Pero solo tenías un pensamiento: ¿Quién era ese?'
 Aggression: '¡Mutante aniquilado en el ataque!'
 'Du wurdest übel zusammengeschlagen und bist an deinen inneren Verletzungen gestorben... Dir gings eh nicht mehr so gut, dein Immunsystem war bereits geschwächt, da steckt man Schläge nicht mehr so einfach weg. So ein Mist aber auch, mit deiner besonderen Fähigkeit hättest du in deiner Stadt noch ein Weilchen Furcht und Schrecken verbreiten können...': 'Recibiste una fuerte paliza y moriste a causa de tus heridas internas... De todos modos, no te sentías tan bien, tu sistema inmunológico ya estaba debilitado, por lo que ya no puedes aguantar un golpe. Qué fastidio, con tu habilidad especial podrías haber esparcido el miedo y el horror en tu pueblo por un tiempo...'
@@ -414,7 +414,7 @@ Kopfschuss: Tiro en la cabeza
 'Dieses beeindruckende Gebäude erstreckt sich auf mehrere Hundert Meter. Es enthält zahlreiche Räume, die größtenteils eingestürzt sind. Die große Anzahl an Einschusslöchern in den Wänden und die improvisierten Barrikaden lassen vermuten, dass das Gebäude vor einiger Zeit Schauplatz heftiger Gefechte gewesen ist.': 'Este impresionante edificio se extiende por varios cientos de metros. Posee numerosas habitaciones, la mayoría de las cuales se han derrumbado casi por completo. La gran cantidad de agujeros de bala en las paredes y las barricadas improvisadas sugieren que el edificio fue escenario de feroces combates hace ya un tiempo.'
 'Die Farbe der am Bunkereingang gepinselten Zahl ist fast vollständig abgeblättert, aber es handelt sich wahrscheinlich um den Bunker 14. Im Inneren liegen überall verweste Leichen herum. Scheint so, als ob der Schließmechanismus versagt hätte. Das kommt vor.': 'El número en la puerta no se distingue bien... Pero se puede notar que se trata del <strong>Refugio 14</strong>. Viendo el estado de los cadáveres en su interior, todo indica que el sistema de cierre del Portal <strong>no funcionó correctamente</strong>. Suele pasar...'
 'Das Atomic Cafe ist (oder war) der Ort, an dem man sein sollte: Ein verblichenes Plakat lädt Sie zum Sommerfest am 2. Mai 2010 ein: Hawaiianisches Thema, Preis für den bestangezogenen (halbnackten Mädchen + Jungs) DJ Dave ab 13.00 Uhr, kostenloses BBQ, Biergarten mit verbessertem Look, Partyspiele, Live-Fußball, Cocktails, £2 Flaschenbier, £2 Alcopop, £1 Tequila... Beteiligen Sie sich!': 'El lugar de moda en el desierto, famoso por la Toro-Cola, la especialidad de la casa preparada con hormonas animales.'
-'Früher wäre dies sicherlich einer der trendigsten Joints auf der M25 gewesen, mit verwässerten Getränken, dem Aroma von abgestandener Pisse und toten Ratten auf der Bar. Sie müssen seit Jahren der erste Mensch sein, der hier einen Fuß hinein gesetzt hat.': 'En una época, fue una parada oblitoria en en la A-667. Apreciado por su variedad de carnes, a pesar de su olor a orina y las ratas muertas en los rincones. Es una pena que ya no haya restaurantes así...'
+'Früher wäre dies sicherlich einer der trendigsten Joints auf der M25 gewesen, mit verwässerten Getränken, dem Aroma von abgestandener Pisse und toten Ratten auf der Bar. Sie müssen seit Jahren der erste Mensch sein, der hier einen Fuß hinein gesetzt hat.': 'En una época, fue una parada obligatoria en la A-667. Apreciado por su variedad de carnes, a pesar de su olor a orina y las ratas muertas en los rincones. Es una pena que ya no haya restaurantes así...'
 'Ein Kombi, der sich in einen Kleintransporter verkeilt hat. Der großen Anzahl an verkohlten Leichen nach zu urteilen, hat hier ein Unfall eine richtig große Karambolage verursacht.': 'Un modelo común de <strong>automóvil familiar</strong> empotrado en otro modelo común de <strong>furgoneta</strong>... Este choque debió provocar un <strong>accidente</strong> de gran envergadura a juzgar por la cadena de coches semi-destruidos que se encuentran alrededor.'
 'Diese Bar ist hinter einem kleinen Hügel an einer solchen Stelle versteckt, dass man leicht direkt daran vorbeigehen könnte, ohne es zu merken. Der Innenraum ist mit unzähligen Schwarzweiß-Portraits und Fotos geschmückt. Auf den Bildern ist oft ein Typ in gestreifter Pyjama-Kleidung zu sehen, der neben verschiedenen anderen Personen steht.': 'Este extraño bar se encuentra detrás de una colina y nadie se había dado cuenta de su existencia. El interior está decorado con muchísimas fotos en blanco y negro, en todas ellas hay un hombre vestido con un traje a rayas junto a diversas personas.'
 "Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: 'Plündern Sie uns bevor es andere tun!'": "Un paraíso para los amantes de las tuercas y destornilladores... Su eslogan sigue siendo vigente: « Más barato, imposible »"
@@ -686,7 +686,7 @@ Minute(n): Minuto(s)
 Sekunde(n): Segundo(s)
 'vor {time}': 'hace {time}'
 'Der Weihnachtsmann wurde dabei beobachtet, wie er {item} von {victim} gestohlen hat': 'Papá Noel ha sido visto robándole {item} a {victim} ¡Tal vez se lo ha regalado a otro habitante!'
-'Wenn du eine zusätzliche Nacht geblieben wärst, hättest du auch die folgenden Preise gewinnen können:': 'Si hubieras resisitido una noche extra, habrías ganado las siguientes Distinciones:'
+'Wenn du eine zusätzliche Nacht geblieben wärst, hättest du auch die folgenden Preise gewinnen können:': 'Si hubieses resistido una noche más, habrías conseguido las siguientes Distinciones:'
 'Mein Rucksack': 'Mi Mochila'
 'Dieser Bürger wurde noch nie gesehen...': 'No ha sido visto últimamente...'
 'Der Bürger wurde zuletzt {time} gesehen.': 'ha sido visto por última vez <strong>{time}</strong>.'
@@ -782,7 +782,7 @@ Senden: Enviar
 'Stadt im {direction} in {km} Entfernung': 'El pueblo está a {km} hacia el {direction} '
 'Position:': 'Posición:'
 'Akteneinsicht wird beantragt...': 'Se requiere acceso a los archivos...'
-'Protokolle werden analysiert...': 'Los Logs están siendo analizados...'
+'Protokolle werden analysiert...': 'Las entradas están siendo analizadas...'
 'Überwachungsapparat wird ausgewertet...': 'Realizando monitoreo del sistema...'
 'Belastende Beweise werden übermittelt...': 'La evidencia está siendo recolectada...'
 'Klicke hier, um für diesen Bürger zu stimmen.': 'Haz click aquí para votar por este habitante.'
@@ -958,10 +958,10 @@ Hinterhältigkeit: Traidor
 'Die "Tipp-Ex" Fähigkeit wird noch besser! Ab sofort kannst du pro Partie (Stadt) noch mehr Registereinträge fälschen! Du kannst ab sofort 4 Mal pro Partie einen Registereintrag unkenntlich machen.': 'Duplica el efecto de manipulador (en vez tachar 2 líneas podrás tachar 4).'
 'Sobald diese neue Heldenfähigkeit aktiviert wurde, spürst du beim nächsten Zombieangriff keinen Durst, keine Drogenabhängigkeit und keine Infektion (nur eine Nacht lang gültig). Verhindert auch Ghulverhungern (Hungerbalken steigt trotzdem).': 'Te protege de morir durante un ataque zombie por infección, sed o adicción.'
 'Süße Rache': 'Venganza sórdida'
-'Solltest du am dritten Tag oder an einem späteren Zeitpunkt verbannt werden, bekommst du automatisch etwas Gift geschenkt, das du nach Belieben einsetzen kannst... Tja, man hätte dich besser nicht ärgern sollen!': 'Si eres desterrado el día 3 o posteriores automáticamente recibes dos frasco veneno (puede usarse para envenenar la comida y el agua).'
+'Solltest du am dritten Tag oder an einem späteren Zeitpunkt verbannt werden, bekommst du automatisch etwas Gift geschenkt, das du nach Belieben einsetzen kannst... Tja, man hätte dich besser nicht ärgern sollen!': 'Si te destierran el día 3 o posteriores, recibirás automáticamente dos frascos de veneno para que así tengas la oportunidad de vengarte... Y sí, ¡no deberían haberse metido contigo!'
 Proficamper: Campista Experto
 'Die Nachteile, die bei wiederholtem Campen auftreten, fallen bei dir nicht mehr so stark aus: Somit kannst du in einer Stadt öfter campen.': 'Reduce las penalizaciones por acampar repetidamente.'
-'Erfahrener Junkie': 'Medicina Preventiva'
+'Erfahrener Junkie': 'Primeros Auxilios'
 'Du beginnst jede neue Stadt mit einer Ration Paracetoid 7g in deinem Rucksack.': 'Comienzas la partida con un Paracetoid 7g.'
 Bürgermeister: Alcalde
 'Du kannst Privatstädte gründen (nach deinem nächsten Tod, auf der Seite "Spielen").': 'Te da la capacidad de crear pueblos privados.'
@@ -1706,7 +1706,7 @@ Unzerstörbar: Indestructible
 'Mir ist kalt hier draußen...': 'Tengo frio aquí...'
 Anfängerleiche: Cadáver de principiante
 Rabenfreund: Amigo de los cuervos
-Dehydrationskollege: Colega de la deshidratacion
+Dehydrationskollege: Colega de la deshidratación
 Seelenhändler: Vendedor de almas
 'Sehr überzeugender Pate': 'Patrocinador muy convincente'
 Wüstenspekulant: Especulador del Ultramundo
@@ -2118,14 +2118,14 @@ Ranking-Ausschluss: Exclusión de clasificación
 '{citizen} hat <strong>{count} Haufen Schutt</strong> mithilfe von {item} bereinigt.': '{citizen} limpió <strong>{count} montones de escombros</strong> usando {item}.'
 'Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).': 'Esta acción es posible gracias a un edificio en el pueblo (solo los héroes pueden usarlo).'
 'Durch die Lüftungsschächte klettern (in)': 'Trepar por la aeración'
-'Durch die Lüftungsschächte klettern (out)': 'Trepar por la aeración'
+'Durch die Lüftungsschächte klettern (out)': 'Trepar por el ducto de ventilación'
 'Höchstens {nw_defense}': "\n              {nw_defense, plural,\n                =0 {¡Ninguno!}\n                other {Por lo menos #}\n              }\n          "
 'Dieser Bürger': "Según las malas lenguas, el habitante {citizen}:"
 'Dieser Bürger ist nicht in der Stadt sei und hat <strong>sein Haus nicht gegen Einbrecher geschützt</strong>...': "no está en el pueblo y <strong>no ha protegido su vivienda contra los ladrones</strong>..."
 'In der (<strong>leeren</strong>) Zone graben': 'Escarbar (<strong>zona agotada</strong>)'
 'Tod durch die Apokalypse': 'Muerte por el apocalipsis'
 'Eine Katastrophe apokalyptischen Ausmaßes hat dich, deine Stadt und alles in der Umgebung hinweggefegt. Es ist, als hätte jemand die gesamte Welt... gereinigt.': 'Una catástrofe de proporciones apocalípticas te ha arrasado a ti, a tu pueblo y a todo lo que te rodea. Es como si alguien hubiera... limpiado el mundo entero.'
-'Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.': 'Los habitantes ocasionales informan de un extraño fenómeno en el cielo... Deberías comprobar los suministros de alcohol en el banco.'
+'Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.': 'Los habitantes ocasionales informan de un extraño fenómeno en el cielo... Deberías comprobar los suministros de alcohol en el Almacén.'
 'Einige Bürger haben berichtet, während ihrer Abschätzung ein rotes Blitzen am Horizont gesehen zu haben.': 'Algunos habitantes han informado haber visto un destello rojo en el horizonte durante su evaluación.'
 'Ein Großteil der Bürger, die heute auf dem Wachturm waren, haben ein lautes Grollen in der Ferne vernommen.': 'La mayoría de los habitantes que estaban hoy en la atalaya escucharon un fuerte estruendo en la distancia.'
 'Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...': 'Comentario adicional a la estimación de hoy: el cielo se ha vuelto rojo sangre. Eso no se ve bien gente...'
@@ -2226,7 +2226,7 @@ Löschen: Borrar
 'Als du durch das Fenster blickst, stellst du fest, dass das Haus von {citizen} keinerlei interessante Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst. Nichts, was der Mühe wert wäre.': 'Husmeando por la ventana, parece que la casa de {citizen} no contiene ningún objeto interesante. Trapos, mucho polvo y una rata muerta. Nada que valga la pena. '
 'Alarm (Bürger {citizen})': 'Alarma (de {citizen})'
 '{citizen} hat bei dir daheim den Alarm ausgelöst, als er (sie) um {time} versuchte bei dir einzubrechen!': '¡El habitante {citizen} ha activado la Alarma Rudimentaria a las {time} mientas intentaba entrar a tu casa!'
-'Als Ghul solltest du jeden Tag einen anderen Spieler auffressen.': 'Como Mutante, puedes devorar a otro habítante una vez al día para saciar tu hambre de carne humana.'
+'Als Ghul solltest du jeden Tag einen anderen Spieler auffressen.': 'Como Mutante, puedes devorar a otro habitante una vez al día para saciar tu hambre de carne humana.'
 'Die in das Gebäude investierten APs zählten <strong>50% mehr</strong> (Sklaverei).': 'Los PAs invertidos en esta construcción valen <strong>50% más</strong> (esclavitud).'
 '{citizen} hat an dem Bauprojekt {plan} mitgearbeitet (Sklaverei: +50% AP).': '{citizen} ha trabajado en la construcción {plan} (Esclavitud: +50% PA).'
 '{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).': '{citizen} ha reparado la construcción {plan} (Esclavitud: +50% PA).'
@@ -2278,7 +2278,7 @@ Verbannten-Ratgeber: Guía de los desterrados
 'Die Zeichen sind klar; eine Horde von Zombies bewegt sich schlurfend auf die Stadt zu. Du schätzt, dass sie um Mitternacht eintreffen wird.': 'Las señales son claras: Una turba de zombies se aproxima al pueblo. Parece que llegarán a la medianoche.'
 'Außerdem berichten unsere Späher, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...': 'Además, nuestros vigilantes informan que han visto a un Extraño Misterioso rondando por el pueblo...'
 'Heute Nacht wird ein Angriff stattfinden, selbst wenn die Stadt noch keine Einwohnerzahl von {population} erreicht hat.': 'Esta noche habrá un Ataque Zombie, incluso si el pueblo tiene menos de {population} habitantes antes de la medianoche.'
-'Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.': 'Llegó el día, aún tienes tiempo para preparar la defensa el pueblo.'
+'Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.': 'Llegó el día, aún tienes tiempo para preparar las defensas del pueblo.'
 'Dank deines Kostüms konntest du {item} von {victim} stehlen, <strong>ohne erkannt zu werden</strong>.<hr/>Ho ho ho.': 'Gracias a tu <strong>disfraz</strong>, lograste arrebatarle {item} a {victim} <strong>y nadie vio nada</strong>.<hr />Ho ho ho.'
 'Dank deines Kostüms konntest du {item} von {victim} stehlen, <strong>ohne erkannt zu werden</strong>.<hr/>Was für ein guter Morgen!': 'Gracias a tu <strong>disfraz</strong>, lograste arrebatarle {item} a {victim} <strong>y nadie vio nada</strong>.<hr />¡Buenos días para ti!'
 'Du kannst diese Aktion nicht durchführen, während in der Stadt <strong>Chaos</strong> herrscht.': 'Es imposible hacer esto en tiempos de <strong>Caos</strong>.'
@@ -2354,7 +2354,7 @@ Stadt/Stadttor: Pueblo/Portal
 'Über dieses Treppenhaus kannst du ein anderes Stockwerk dieser Ruine betreten.': 'Al tomar esta escalera, puede acceder a otro piso de esta ruina.'
 'Ein einzelner Zombie ist in die Stadt eingedrungen!': '¡Un solo zombie ha penetrado en el pueblo!'
 '{citizen} hat soeben gemeldet, dass das Stadttor automatisch geschlossen wurde.': '{citizen} nos comenta que las puertas se han cerrado automáticamente.'
-'{num} ehemalige Mitbürger, deren Leichen wir gestern noch entsorgt haben, haben uns heute einen Besuch abgestattet. Wie grotesk!': '{num} antiguos ciudadanos nos han visitado durante el ataque, y eso qué nos habíamos librado de sus cuerpos hace poco... ¡Qué grotesco!'
+'{num} ehemalige Mitbürger, deren Leichen wir gestern noch entsorgt haben, haben uns heute einen Besuch abgestattet. Wie grotesk!': '{num} antiguos habitantes nos han visitado durante el ataque, y eso qué nos habíamos librado de sus cuerpos hace poco... ¡Qué grotesco!'
 'Wir haben heute <i class="dagger">†</i> {citizen} wiedererkannt. Seine Leiche hatten wir gestern erst weggeworfen!': '¡Podíamos reconocer a <i class="dagger">†</i> {citizen}, cuyo cadáver había sido sacado fuera ayer! Ahh la amistad...'
 'Du hast Glück gehabt. Die Zombies wurden noch einmal von den Verteidigungsanlagen der Stadt aufgehalten!': 'De la que os salváis. ¡Los zombies fueron detenidos una vez más por las defensas del pueblo!'
 'Mit deinem letzten Aufbäumen vor dem Tod ist es dir gelungen, die Zombies alt aussehen zu lassen! Bravo!': 'Con un último y valiente esfuerzo habéis conseguido sobrepasar a los zombies. ¡Bravo!'
@@ -2868,7 +2868,7 @@ MP: PM
 '{building} hat folgende Gegenstände verbraucht: {items}.': '{building} ha gastado los siguientes objetos: {items}.'
 Schamanenkreis: Círculo Chamánico
 Eventsieger: Ganador de evento
-Eventteilnehmer: Participante del evento
+Eventteilnehmer: Participante de evento
 'Auszeichnung für deinen Sieg in einem Community-Event, Glückwünsch!': 'Distinción obtenida tras su designación como ganador de un evento comunitario, ¡enhorabuena!'
 'Auszeichnung für deine Teilnahme an einem Community-Event.': 'Distinción obtenida tras su participación en un evento comunitario.'
 'Allwissender Schamane': 'Allwissender Schamane'
