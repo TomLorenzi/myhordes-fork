@@ -24,6 +24,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Environment;
 
@@ -60,6 +61,7 @@ class SecurityController extends CustomAbstractCoreController
      * @return JsonResponse
      */
     #[Route(path: '/account', name: 'delete_account', methods: ['DELETE'])]
+    #[IsGranted('ROLE_NATURAL')]
     public function delete_account(
         EntityManagerInterface $em,
         TokenStorageInterface $token,

@@ -74,6 +74,7 @@ use Symfony\Component\RateLimiter\RateLimiterFactory;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Validator\Constraints;
 use Symfony\Component\Validator\Validation;
@@ -1182,7 +1183,7 @@ class SoulController extends CustomAbstractController
 
         }
 
-        if (!empty($new_email)) {
+        if (!empty($new_email) && $this->isGranted('ROLE_NATURAL')) {
             if ($this->entity_manager->getRepository(User::class)->findOneByMail( $new_email ))
                 return AjaxResponse::error(UserFactory::ErrorMailExists);
 
@@ -1193,7 +1194,7 @@ class SoulController extends CustomAbstractController
             if (!$this->user_factory->announceValidationToken($this->user_factory->ensureValidation($user, UserPendingValidation::ChangeEmailValidation, true)))
                 return AjaxResponse::error(ErrorHelper::ErrorSendingEmail);
             $change = true;
-        } else if (!empty($confirm_token)) {
+        } elseif (!empty($confirm_token) && $this->isGranted('ROLE_NATURAL')) {
             if (($pending = $this->entity_manager->getRepository(UserPendingValidation::class)->findOneByTokenAndUserandType(
                     $confirm_token, $user, UserPendingValidation::ChangeEmailValidation)) === null) {
                 return AjaxResponse::error(self::ErrorUserConfirmToken);
@@ -1238,6 +1239,7 @@ class SoulController extends CustomAbstractController
      * @return Response
      */
     #[Route(path: 'api/soul/settings/resend_token_email', name: 'api_soul_resend_token_email')]
+    #[IsGranted('ROLE_NATURAL')]
     public function soul_settings_resend_token_email(): Response
     {
         $user = $this->getUser();
@@ -1253,6 +1255,7 @@ class SoulController extends CustomAbstractController
      * @return Response
      */
     #[Route(path: 'api/soul/settings/cancel_token_email', name: 'api_soul_cancel_email_token')]
+    #[IsGranted('ROLE_NATURAL')]
     public function soul_settings_cancel_token_email(): Response
     {
         $user = $this->getUser();

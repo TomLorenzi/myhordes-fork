@@ -517,6 +517,9 @@ class PublicController extends CustomAbstractController
         if ($myhordes_user && $myhordes_user->getEternalID())
             throw new DynamicAjaxResetException(Request::createFromGlobals());
 
+        if (!$userHandler->hasRole($myhordes_user, 'ROLE_NATURAL'))
+            throw new DynamicAjaxResetException(Request::createFromGlobals());
+
         if (empty($code) || !$etwin->isReady()) {
             $this->addFlash('error', $translator->trans('Fehler bei der Datenübertragung.', [], 'login'));
             throw new DynamicAjaxResetException(Request::createFromGlobals());
@@ -732,7 +735,7 @@ class PublicController extends CustomAbstractController
         // Case C - Account linking
         elseif ($myhordes_user !== null && $session->has('_etwin_user') && $session->get('_etwin_local') === $myhordes_user->getId()) {
 
-            if ($myhordes_user->getEternalID()) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+            if ($myhordes_user->getEternalID() || !$userHandler->hasRole($myhordes_user, 'ROLE_NATURAL')) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
             if (empty($password) || !$pass->isPasswordValid( $myhordes_user, $password ))
                 return AjaxResponse::error( SoulController::ErrorUserEditPasswordIncorrect );

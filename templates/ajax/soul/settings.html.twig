@@ -3,7 +3,7 @@
 {% block soul_content %}
     <div class="row">
 
-        {% if et_ready and app.user.eternalID is null %}
+        {% if et_ready and app.user.eternalID is null and is_granted('ROLE_NATURAL') %}
             <div class="cell rw-12 padded">
                 <h5>{{ 'Über EternalTwin einloggen'|trans({},'login') }}</h5>
                 <div class="eternalMergeBanner">
@@ -413,6 +413,7 @@
             </div>
 
             <div x-tab-target x-tab-group="user-settings-tabs" x-tab-id="security">
+                {% if is_granted('ROLE_NATURAL') %}
                     <h5>{{ 'Login und Sicherheit'|trans({},'soul') }}</h5>
                     <div class="row">
                         <div class="cell padded rw-4 rw-sm-12">
@@ -460,6 +461,7 @@
                             </div>
                         </div>
                     {% endif %}
+                {% endif %}
                     {% if app.user.password is not null %}
                         <div class="row">
                             <div class="cell padded rw-4 rw-sm-12">
@@ -511,26 +513,26 @@
                         </div>
                     </div>
 
-                    <h5>{{ 'Account löschen'|trans({},'soul') }}</h5>
-                    {% if app.user.password is null %}
-                        <div class="note note-warning">{{ 'Aus Sicherheitsgründen muss dein Account über ein Passwort verfügen, um gelöscht werden zu können. Wenn du deinen Account löschen möchtest, aktiviere bitte zunächst den Passwort-Login.'|trans({},'soul') }}</div>
-                    {% else %}
-                        <form class="row">
-                            <div class="padded cell rw-4">
-                                <div class="note note-lightest"><label for="acc_del_input">{{ 'Aktuelles Passwort'|trans({},'login') }}</label></div>
-                            </div>
-                            <div class="padded cell rw-4"><input id="acc_del_input" name="pw" type="password" /></div>
-                            <div class="padded cell rw-4"><button data-fetch="{{ path('rest_user_security_delete_account') }}"
-                                                                  data-fetch-method="delete"
-                                                                  data-fetch-load="{{ path('soul_settings') }}"
-                                                                  data-fetch-confirm="{{ 'Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!'|trans({},'soul') }}"
-                                                                  data-fetch-message="message"
-                                ><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /> {{ 'Meinen Account löschen'|trans({},'soul') }}</button></div>
-                        </form>
-                        <div class="note note-warning">{{ 'Das Löschen deines Accounts geschieht mit einer Verzögerung von 24 - 48 Stunden. Wenn Du dich vor Ablauf dieser Frist erneut einloggst, wird die Löschung abgebrochen. Du kannst nach dem Löschen deines Accounts keinen neuen Account mit der gleichen E-Mail Adresse und/oder dem gleichen Eternaltwin Konto anlegen!'|trans({},'soul') }}</div>
-
+                    {% if is_granted('ROLE_NATURAL') %}
+                        <h5>{{ 'Account löschen'|trans({},'soul') }}</h5>
+                        {% if app.user.password is null %}
+                            <div class="note note-warning">{{ 'Aus Sicherheitsgründen muss dein Account über ein Passwort verfügen, um gelöscht werden zu können. Wenn du deinen Account löschen möchtest, aktiviere bitte zunächst den Passwort-Login.'|trans({},'soul') }}</div>
+                        {% else %}
+                            <form class="row">
+                                <div class="padded cell rw-4">
+                                    <div class="note note-lightest"><label for="acc_del_input">{{ 'Aktuelles Passwort'|trans({},'login') }}</label></div>
+                                </div>
+                                <div class="padded cell rw-4"><input id="acc_del_input" name="pw" type="password" /></div>
+                                <div class="padded cell rw-4"><button data-fetch="{{ path('rest_user_security_delete_account') }}"
+                                                                      data-fetch-method="delete"
+                                                                      data-fetch-load="{{ path('soul_settings') }}"
+                                                                      data-fetch-confirm="{{ 'Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!'|trans({},'soul') }}"
+                                                                      data-fetch-message="message"
+                                    ><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /> {{ 'Meinen Account löschen'|trans({},'soul') }}</button></div>
+                            </form>
+                            <div class="note note-warning">{{ 'Das Löschen deines Accounts geschieht mit einer Verzögerung von 24 - 48 Stunden. Wenn Du dich vor Ablauf dieser Frist erneut einloggst, wird die Löschung abgebrochen. Du kannst nach dem Löschen deines Accounts keinen neuen Account mit der gleichen E-Mail Adresse und/oder dem gleichen Eternaltwin Konto anlegen!'|trans({},'soul') }}</div>
+                        {% endif %}
                     {% endif %}
-
                 </div>
 
             {% if show_importer %}
