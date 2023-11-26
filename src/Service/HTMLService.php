@@ -66,7 +66,7 @@ class HTMLService {
                 'p'  => [],
             ],
             'core_rp' => [
-                'div' => [ 'class', 'x-a', 'x-b' ],
+                'div' => [ 'class' ],
             ],
             'extended' => [
                 'blockquote' => [],
