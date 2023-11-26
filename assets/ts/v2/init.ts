@@ -1,13 +1,16 @@
-import {getPushServiceRegistration, registerForPushNotifications} from "./push";
+declare global {
+    interface Window { transferTable: Array<any>; }
+}
 
-let worker: ServiceWorkerRegistration = null;
-let transferTable = [];
+window.transferTable = window.transferTable || [];
 
-export function serviceWorkerCall(request: string): Promise<any> {
+export function serviceWorkerCall(request: string, args: object = {}): Promise<any> {
     return new Promise<any>((resolve,reject) => {
-        if (!worker) reject(null);
-        transferTable.push(resolve);
-        worker.active.postMessage({request, to: `${transferTable.length - 1}`});
+        navigator.serviceWorker.ready.then(worker => {
+            if (!worker) reject(null);
+            window.transferTable.push(resolve);
+            worker.active.postMessage({...args, request, to: `${window.transferTable.length - 1}`});
+        })
     })
 }
 
@@ -18,16 +21,11 @@ async function initLive() {
 
 async function initOnceLoaded() {
 
-    document.querySelector('footer').addEventListener('click', () => {
-        registerForPushNotifications();
-        getPushServiceRegistration()
-            .then(s => console.log(s))
-            .catch(e => console.error('no reg', e));
-    })
-
 }
 
 async function initServiceWorker(): Promise<boolean> {
+    window.transferTable = [];
+
     if (!('serviceWorker' in navigator)) {
         console.error('No service worker support detected.')
         return false;
@@ -43,17 +41,17 @@ async function initServiceWorker(): Promise<boolean> {
         scope: "/"
     });
 
-    worker = await navigator.serviceWorker.ready;
+    const worker = await navigator.serviceWorker.ready;
     navigator.serviceWorker.addEventListener('message', e => {
         console.log(e);
         switch (e.data.request) {
             case 'response':
                 const id = parseInt( e.data.to as string );
-                const callback = transferTable[id] ?? null;
+                const callback = window.transferTable[id] ?? null;
                 if (callback) {
                     callback(JSON.parse(e.data.payload));
-                    transferTable[id] = null;
-                }
+                    window.transferTable[id] = null;
+                } else console.warn(`Did not find callback "${id}" in callback table:`, window.transferTable)
                 break;
         }
     })

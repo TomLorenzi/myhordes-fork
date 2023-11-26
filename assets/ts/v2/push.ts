@@ -26,7 +26,10 @@ export async function registerForPushNotifications() {
 //}
 
 export async function getPushServiceRegistration(): Promise<PushSubscription> {
-    const subscription = await serviceWorkerCall('pushSubscription');
+    const key = ((document.getRootNode() as Document).firstElementChild as HTMLElement)?.dataset?.vapidKey as string;
+    if (!key) return null;
+
+    const subscription = await serviceWorkerCall('pushSubscription', {key});
     if (!subscription) throw Error("Could not get subscription from service worker.");
     else return subscription;
 }

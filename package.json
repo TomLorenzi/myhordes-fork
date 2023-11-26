@@ -33,6 +33,7 @@
         "@ruffle-rs/ruffle": "0.1.0-nightly.2023.11.24",
         "@types/react-dom": "18.2.17",
         "buffer": "6.0.3",
+        "js-md5": "^0.8.3",
         "latest-createjs": "1.0.24",
         "process": "0.11.10",
         "prop-types": "15.8.1",

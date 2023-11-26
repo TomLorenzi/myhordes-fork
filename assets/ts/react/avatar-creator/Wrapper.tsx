@@ -1,12 +1,10 @@
 import * as React from "react";
 import { createRoot } from "react-dom/client";
 
-import Components, {ReactData} from "../index";
 import {AvatarCreatorAPI, ResponseIndex, ResponseMedia} from "./api";
-import {ChangeEvent, MouseEventHandler, useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
+import {useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
 import {TranslationStrings} from "./strings";
 import {Global} from "../../defaults";
-import {number} from "prop-types";
 import {Tooltip} from "../tooltip/Wrapper";
 
 declare var $: Global;

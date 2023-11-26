@@ -6395,6 +6395,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"js-md5@npm:^0.8.3":
+  version: 0.8.3
+  resolution: "js-md5@npm:0.8.3"
+  checksum: f7e41e95f8e5eb5eeb43085bec3832ae3dfe0020c42fcca5a4efe571213391a9e9594db31bd34624b7280af4f1f12c751b6a50074a15346ecf40a0d54115d77f
+  languageName: node
+  linkType: hard
+
 "js-tokens@npm:^3.0.0 || ^4.0.0, js-tokens@npm:^4.0.0":
   version: 4.0.0
   resolution: "js-tokens@npm:4.0.0"
@@ -8826,6 +8833,7 @@ __metadata:
     favicons: "npm:^7.0.2"
     favicons-webpack-plugin: "npm:^6.0.0"
     file-loader: "npm:6.2.0"
+    js-md5: "npm:^0.8.3"
     latest-createjs: "npm:1.0.24"
     less: "npm:4.2.0"
     less-loader: "npm:11.1.3"

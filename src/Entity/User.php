@@ -192,6 +192,9 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     #[ORM\Column(length: 2, nullable: true)]
     private ?string $team = null;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: NotificationSubscription::class, orphanRemoval: true)]
+    private Collection $notificationSubscriptions;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -206,6 +209,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         $this->friends = new ArrayCollection();
         $this->mutedForums = new ArrayCollection();
         $this->teamTickets = new ArrayCollection();
+        $this->notificationSubscriptions = new ArrayCollection();
     }
     public function getId(): ?int
     {
@@ -1146,6 +1150,36 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     public function setTeam(?string $team): self
     {
         $this->team = $team;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, NotificationSubscription>
+     */
+    public function getNotificationSubscriptions(): Collection
+    {
+        return $this->notificationSubscriptions;
+    }
+
+    public function addNotificationSubscription(NotificationSubscription $notificationSubscription): static
+    {
+        if (!$this->notificationSubscriptions->contains($notificationSubscription)) {
+            $this->notificationSubscriptions->add($notificationSubscription);
+            $notificationSubscription->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNotificationSubscription(NotificationSubscription $notificationSubscription): static
+    {
+        if ($this->notificationSubscriptions->removeElement($notificationSubscription)) {
+            // set the owning side to null (unless already changed)
+            if ($notificationSubscription->getUser() === $this) {
+                $notificationSubscription->setUser(null);
+            }
+        }
 
         return $this;
     }
