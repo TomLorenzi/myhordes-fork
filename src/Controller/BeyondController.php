@@ -1325,12 +1325,11 @@ class BeyondController extends InventoryAwareController
         foreach ($target_citizens as $target_citizen)
             try {
                 $timer = $target_citizen->getCurrentDigTimer();
-                if (!$timer) $timer = (new DigTimer())->setZone( $zone )->setCitizen( $target_citizen );
-                else if (!$allow_redig || $timer->getTimestamp() > new DateTime()) {
+                if ($timer && (!$allow_redig || $timer->getTimestamp() > new DateTime())) {
                     if (count($target_citizens) === 1)
                         return AjaxResponse::error( self::ErrorNotDiggable );
                     else continue;
-                }
+                } elseif (!$timer) $timer = (new DigTimer())->setZone( $zone )->setCitizen( $target_citizen );
 
                 $timer->setPassive( false )->setTimestamp( new DateTime('-1sec') )->setNonAutomatic(true);
                 $this->entity_manager->persist( $target_citizen );
