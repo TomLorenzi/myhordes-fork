@@ -54,7 +54,7 @@ class ProcessLocationRequirement extends AtomRequirementProcessor
             if ($data->maxZombies !== null && $zombies > $data->maxZombies) return false;
 
             if ($data->minLevel !== null && $zone->getImprovementLevel() < $data->minLevel) return false;
-            if ($data->maxLevel !== null && $zone->getImprovementLevel() > $data->maxLevel) return false;
+            if ($data->maxLevel !== null && $zone->getImprovementLevel() >= $data->maxLevel) return false;
 
             if ($data->isControlled !== null && $data->isControlled !== ($cp >= $zombies)) return false;
             if ($data->isTempControlled !== null && $data->isTempControlled !== !!$cache->em->getRepository( EscapeTimer::class )->findActiveByCitizen( $cache->citizen )) return false;
