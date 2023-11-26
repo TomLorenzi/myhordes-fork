@@ -124,6 +124,9 @@
 							<img alt="{{ citizen.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.profession.icon ~ '.gif') }}" />
 							<a class="link" href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">
 								<b class="citizen-name">{{ citizen.name }}</b>
+                                {% if citizen.alias and citizen.alias != citizen.user.name %}
+                                    <b class="citizen-name">[<i>{{ citizen.user.name }}</i>]</b>
+                                {% endif %}
 							</a>&nbsp;
 							{% for role in citizen.roles %}
 								<img src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" alt="{{ role.label|trans({},'game') }}">&nbsp;
