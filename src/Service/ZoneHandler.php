@@ -78,7 +78,7 @@ class ZoneHandler
 
         if ($eject) {
             $citizen = $ex->getCitizen();
-            $ruinZone = $this->entity_manager->getRepository(RuinZone::class)->findOneByPosition($citizen->getZone(), $ex->getX(), $ex->getY());
+            $ruinZone = $this->entity_manager->getRepository(RuinZone::class)->findOneByPosition($citizen->getZone(), $ex->getX(), $ex->getY(), $ex->getZ());
 
             foreach ($citizen->getInventory()->getItems() as $item)
                 if (!$item->getEssential())
