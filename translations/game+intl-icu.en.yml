@@ -684,7 +684,7 @@ Kreuzigung: Crucifixion
 Stunde(n): hour(s)
 Minute(n): minute(s)
 Sekunde(n): second(s)
-'vor {time}': 'at {time}'
+'vor {time}': '{time} ago'
 'Der Weihnachtsmann wurde dabei beobachtet, wie er {item} von {victim} gestohlen hat': 'Santa was seen stealing {item} from {victim}'
 'Wenn du eine zusätzliche Nacht geblieben wärst, hättest du auch die folgenden Preise gewinnen können:': 'If you had survived an extra night, you could have won the following distinctions:'
 'Mein Rucksack': 'My Inventory'
