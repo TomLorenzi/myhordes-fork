@@ -1753,7 +1753,8 @@ class AdminTownController extends AdminActionController
             }
             if(($flag & TownRankingProxy::DISABLE_PICTOS) === TownRankingProxy::DISABLE_PICTOS) {
                 foreach ($this->entity_manager->getRepository(Picto::class)->findNotPendingByUserAndTown($citizen->getUser(), $town_proxy) as $picto)
-                    $this->entity_manager->persist($picto->setDisabled($citizen->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $town_proxy->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS)));
+                    if (!$picto->isManual())
+                        $this->entity_manager->persist($picto->setDisabled($citizen->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $town_proxy->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS)));
             }
         }
 
@@ -1851,7 +1852,8 @@ class AdminTownController extends AdminActionController
         }
         if(($flag & CitizenRankingProxy::DISABLE_PICTOS) === CitizenRankingProxy::DISABLE_PICTOS) {
             foreach ($this->entity_manager->getRepository(Picto::class)->findNotPendingByUserAndTown($citizen_proxy->getUser(), $town_proxy) as $picto)
-                $this->entity_manager->persist($picto->setDisabled($citizen_proxy->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS)));
+                if (!$picto->isManual())
+                    $this->entity_manager->persist($picto->setDisabled($citizen_proxy->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS)));
         }
 
         $this->entity_manager->flush();
@@ -1898,15 +1900,15 @@ class AdminTownController extends AdminActionController
                     ->setPersisted(2)
                     ->setUser($citizen->getUser());
                 if (is_a($town, Town::class))
-                    $picto->setOld($town->getSeason() === null)->setTown($town)->setDisabled( $town->getRankingEntry()->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS) || $citizen->getRankingEntry()->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) );
+                    $picto->setOld($town->getSeason() === null)->setTown($town);
                 else
-                    $picto->setTownEntry($town)->setDisabled($town->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $citizen->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS));
+                    $picto->setTownEntry($town);
                 $citizen->getUser()->addPicto($picto);
-                $this->entity_manager->persist($citizen->getUser());
             }
 
-            $picto->setCount($picto->getCount() + $number);
+            $picto->setCount($picto->getCount() + $number)->setDisabled(false)->setManual(true);
 
+            $this->entity_manager->persist($citizen->getUser());
             $this->entity_manager->persist($picto);
         }
 
