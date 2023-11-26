@@ -78,9 +78,9 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('drink_tl1')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('thirst1', true) )->commit();
         $requirement_container->add()->identifier('drink_tl2')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('thirst2', true) )->commit();
 
-        $requirement_container->add()->identifier('not_yet_dice')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_dice', false) )->text_key('once_a_day')->commit();
-        $requirement_container->add()->identifier('not_yet_card')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_cards', false) )->text_key('once_a_day')->commit();
-        $requirement_container->add()->identifier('not_yet_teddy')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_teddy', false) )->text_key('once_a_day')->commit();
+        $requirement_container->add()->identifier('not_yet_dice')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_dice', false) )->text_key('once_a_day')->commit();
+        $requirement_container->add()->identifier('not_yet_card')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_cards', false) )->text_key('once_a_day')->commit();
+        $requirement_container->add()->identifier('not_yet_teddy')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_teddy', false) )->text_key('once_a_day')->commit();
 
         $requirement_container->add()->identifier('not_yet_guitar')->type( Requirement::MessageOnFail )->add( (new StatusRequirement())->status('tg_guitar', false) )->text('Vorsicht, zu viel Musik ist schädlich, und einer deiner Mitbürger hat dieses Instrument heute bereits benutzt. Deine Ohren würden das nicht überleben.')->commit();
         $requirement_container->add()->identifier('not_yet_beta')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_betadrug', false) )->commit();
@@ -95,7 +95,7 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('not_yet_immune')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_shaman_immune', false) )->commit();
         $requirement_container->add()->identifier('immune')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_shaman_immune', true) )->commit();
 
-        $requirement_container->add()->identifier('eat_ap')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('haseaten', false) )->text_key('once_a_day')->commit();
+        $requirement_container->add()->identifier('eat_ap')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('haseaten', false) )->text_key('once_a_day')->commit();
 
         $requirement_container->add()->identifier('drug_1')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('drugged', false) )->commit();
         $requirement_container->add()->identifier('drug_2')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('drugged', true) )->commit();
@@ -193,8 +193,8 @@ class ActionDataService implements FixtureProcessorInterface {
 
         //<editor-fold desc="ConfigRequirements">
         $requirement_container->add()->identifier('feature_camping')->type( Requirement::HideOnFail )->add( (new ConfigRequirement())->config(TownConf::CONF_FEATURE_CAMPING, true) )->commit();
-        $requirement_container->add()->identifier('during_christmas')->type( Requirement::HideOnFail )->add( (new ConfigRequirement())->event('christmas') )->text_key('not_in_event')->commit();
-        $requirement_container->add()->identifier('must_be_aprils_fools')->type( Requirement::HideOnFail )->add( (new ConfigRequirement())->event('afools') )->text_key('not_in_event')->commit();
+        $requirement_container->add()->identifier('during_christmas')->type( Requirement::CrossOnFail )->add( (new ConfigRequirement())->event('christmas') )->text_key('not_in_event')->commit();
+        $requirement_container->add()->identifier('must_be_aprils_fools')->type( Requirement::CrossOnFail )->add( (new ConfigRequirement())->event('afools') )->text_key('not_in_event')->commit();
         //</editor-fold>
 
         //<editor-fold desc="ItemRequirements">
