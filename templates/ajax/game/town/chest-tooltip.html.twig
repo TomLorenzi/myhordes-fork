@@ -1,12 +1,12 @@
 <div class="tooltip normal">
     {% if not hidden[citizen.id] or not citizen.alive %}
-        {% if citizen.home.chest.items|length == 0 %}
+        {% if citizen.home.chest.items|filter(i => i.prototype.hideInForeignChest == false)|length == 0 %}
             <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
         {% else %}
             <em>{{ 'Truhe'|trans({},'game') }}</em><br />
         {% endif %}
         <ul class="inventory borderless">
-            {% for item in citizen.home.chest.items %}
+            {% for item in citizen.home.chest.items|filter(i => i.prototype.hideInForeignChest == false) %}
                 {# @var \App\Entity\Item item #}
                 {% if (citizen == me or not item.prototype.hideInForeignChest) %}
                     {% embed "ajax/game/item.html.twig" with {'item': item, 'no_tooltip': true} %}{% endembed %}
