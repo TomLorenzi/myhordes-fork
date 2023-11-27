@@ -77,11 +77,11 @@
                 </div>
                 <div class="cell rw-3 rw-md-2 small citizen-box content-center-horizontal content-center-vertical link undecorated" x-ajax-href="{{ path('town_visit', {id: citizen.infos.id}) }}">
                     {% if not hidden[citizen.infos.id] %}
-                        {% if citizen.infos.home.chest.items|length == 0 %}
+                        {% if citizen.infos.home.chest.items|filter(i => i.prototype.hideInForeignChest == false)|length == 0 %}
                             <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
                         {% endif %}
                         <ul class="inventory borderless">
-                            {% for item in citizen.infos.home.chest.items %}
+                            {% for item in citizen.infos.home.chest.items|filter(i => i.prototype.hideInForeignChest == false) %}
                                 {# @var \App\Entity\Item item #}
                                 {% if (citizen == me or not item.prototype.hideInForeignChest) %}
                                     {% embed "ajax/game/item.html.twig" with {'item': item} %}{% endembed %}

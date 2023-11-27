@@ -180,11 +180,11 @@
                     </div>
                 {% else %}
                     <div class="padded cell factor-0 hide-md hide-sm small citizen-box" style="flex-basis: 155px;" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">
-                        {% if citizen.home.chest.items|length == 0 %}
+                        {% if citizen.home.chest.items|filter(i => i.prototype.hideInForeignChest == false)|length == 0 %}
                             <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
                         {% endif %}
                         <ul class="inventory borderless">
-                            {% for item in citizen.home.chest.items %}
+                            {% for item in citizen.home.chest.items|filter(i => i.prototype.hideInForeignChest == false) %}
                                 {# @var \App\Entity\Item item #}
                                 {% if (citizen == me or not item.prototype.hideInForeignChest) %}
                                     {% embed "ajax/game/item.html.twig" with {'item': item, 'no_id': true} %}{% endembed %}
