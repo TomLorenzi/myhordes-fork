@@ -2473,7 +2473,7 @@ Wüstenstadt-Dealer_f: Distribuidora local
 Wunder_f: Wunder
 'Werdender Superheld_f': 'Aspirante a superheroína'
 Volksheld_f: Heroína del pueblo
-Neo_f: Neo
+Neo_f: Soy una leyenda
 'Erlöser der Menschheit_f': 'Salvadora de la humanidad'
 Außenweltlegende_f: Außenweltlegende
 'Messie der verlorenen Welt_f': 'Messie der verlorenen Welt'
@@ -2886,15 +2886,15 @@ Eventteilnehmer: Participante de evento
 'Nutzt das Vergängliche': 'Nutzt das Vergängliche'
 'Nutzt das Vergängliche_f': 'Nutzt das Vergängliche'
 'John Snow': 'John Snow'
-'John Snow_f': 'John Snow'
-'Der Rabinator': 'Der Rabinator'
-'Der Rabinator_f': 'Die Rabinatorin'
+'John Snow_f': 'Margaret Ann Bulkley'
+'Der Rabinator': 'El cuervinador'
+'Der Rabinator_f': 'La cuervinador'
 'Wir drehen frei!': 'Wir drehen frei!'
 'Wir drehen frei!_f': 'Wir drehen frei!'
 'Du nennst das ein Messer? DAS ist ein Messer!': 'Du nennst das ein Messer? DAS ist ein Messer!'
 'Du nennst das ein Messer? DAS ist ein Messer!_f': 'Du nennst das ein Messer? DAS ist ein Messer!'
-'Apostel des Pandämoniums': 'Apostel des Pandämoniums'
-'Apostel des Pandämoniums_f': 'Apostel des Pandämoniums'
+'Apostel des Pandämoniums': 'Apóstol del Pandemonio'
+'Apostel des Pandämoniums_f': 'Apóstol del Pandemonio'
 'Liebling des Raben': 'Liebling des Raben'
 'Liebling des Raben_f': 'Liebling des Raben'
 Seelentrader: Seelentrader
@@ -2921,10 +2921,10 @@ Kung-Fu-Sion: Kung-Fu-Sion
 Kung-Fu-Sion_f: Kung-Fu-Sion
 Sandsteiniger: Sandsteiniger
 Sandsteiniger_f: Sandsteinigerin
-Sandkasten-Scharfschütze: Sandkasten-Scharfschütze
-Sandkasten-Scharfschütze_f: Sandkasten-Scharfschützin
-'Universelle Muse': 'Universelle Muse'
-'Universelle Muse_f': 'Universelle Muse'
+Sandkasten-Scharfschütze: Francotirador aislado
+Sandkasten-Scharfschütze_f: Francotiradora aislada
+'Universelle Muse': 'Sr. Inspirador'
+'Universelle Muse_f': 'Sra. Inspiradora'
 'Du hast {count} x {item} auf der öffentlichen Müllhalde abgeladen. <strong>Die Stadt hat {def} Verteidigungspunkt(e) dazugewonnen.</strong>': 'Has tirado {count} {item} al vertedero público. <strong>¡El pueblo ha conseguido con ello {def} punto(s) de defensa!</strong>'
 'Was für ein Glück! Kurz nach dem Angriff wurden Baupläne in die Stadt geweht. Ihr erhaltet: {items}': 'El {items} ha sido descubierto. Ha sido depositado en el Almacén'
 'Du siehst nicht wirklich, wo du dich hier verstecken könntest...': 'Realmente no ves dónde podrías esconderte aquí...'
@@ -2934,4 +2934,4 @@ Sandkasten-Scharfschütze_f: Sandkasten-Scharfschützin
 'Es sollte nicht allzu schwer sein, diesen Ort zum Untertauchen auszunutzen.': 'No debería ser muy difícil aprovechar este lugar para esconderse.'
 'Es scheint, dass alle guten Verstecke bereits von deinen "Freunden" besetzt sind. Du musst also einen anderen Ort finden oder improvisieren...': 'Parece que todos los escondites buenos ya están ocupados. Tendrás que encontrar otro lugar, o improvisar...'
 'Entfernung von hier': 'Distancia desde aquí'
-'Entfernung zur Stadt': 'Distancia de la ciudad'
+'Entfernung zur Stadt': 'Distancia desde el pueblo'
