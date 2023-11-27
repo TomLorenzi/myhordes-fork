@@ -1,4 +1,4 @@
-Wassergraben: Great Moat
+Wassergraben: Great Moats
 'Großer Graben': 'Great Pit'
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.': 'The Great Pit gives an additional 23 defence points.'
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.': 'The Great Pit gives an additional 44 defence points.'
@@ -6,7 +6,7 @@ Wassergraben: Great Moat
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.': 'The Great Pit gives an additional 109 defence points.'
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.': 'The Great Pit gives an additional 160 defence points.'
 Rasierklingenmauer: Grater
-Pfahlgraben: Spiked Pit
+Pfahlgraben: Spiked pit
 Köder: Bait
 Stacheldraht: Barbed Wire
 'Weiterentwickelte Stadtmauer': 'Wall Upgrade v2'
@@ -22,7 +22,7 @@ Betonschicht: Concrete Reinforcement
 'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.': 'The Evolutive Wall gives an additional 235 defence points.'
 'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.': 'The Evolutive Wall gives an additional 315 defence points.'
 'Verstärkende Balken': 'Metal Patches'
-Zombiereibe: Zombie Grater
+Zombiereibe: Zombie-shredder
 Fallgruben: Old-school traps
 Holzzaun: Small Fence
 Sperrholz: Plywood
@@ -345,7 +345,7 @@ Hammam: Hammam
 'Huldigt den Raben! Gelobt sei deine Milde und deine erhabene Austrahlung! Befreie uns vom Spam und vergib uns unsere Trollenbeiträge so wie auch wir vergeben anderen Trollen. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': 'Glory to the Crow! Glory be to their lenience and benevolence! Deliver us from spam and pardon our trolling as we forgive those who have trolled against us. This wonder shines by the light of its uselessness alone: its construction earns a rare distinction for all the citizens still in town.'
 'Es ist wirklich eine enorme und beeindruckente Konstruktion. Ihr habt eure kostbarsten Materialien an dieses verdammte Ding verschwendet, und denoch seid ihr irgendwie stolz darauf. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': 'It is indeed a vast and beautiful creation, youve also sunk the best part of our resources into the damn thing, but for some reason youre proud of it. This wonder shines by the light of its uselessness alone: its construction earns a rare distinction for all the citizens still in town.'
 'Wenn es eines gibt, woran hier wahrlich kein Mangel herrscht, dann ist es Sand. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': 'If theres one thing were not short of here, its sand. This wonder shines by the light of its uselessness alone: its construction earns a rare distinction for all the citizens still in town.'
-'Dieses furchterregende Konstrukt stammt aus einem sowjetischen U-Boot und sendet gleißende Blitze knisternder Elektrizität rund um die Stadt aus. Einziger Haken an der Sache: Es muss jeden Tag repariert werden. Falls es zerstört wird, würde die Stadt mitsamt der gesamten Umgebung augenblicklich ausradiert werden (inklusive euch). Das Schild am Reaktor besagt: sowjetische Bauweise, hergestellt in « вшивый ».': 'This terrifying building came from a soviet submarine and sends powerful bolts of electricity arcing around the town with a deafening crackle. The only "hitch" is that it has to be repaired daily. If it is destroyed, the town and its surroundings are instantly vaporized, wiping everything off the map (where youll be). The label reads: soviet design, assembled in « вшивый ».'
+'Dieses furchterregende Konstrukt stammt aus einem sowjetischen U-Boot und sendet gleißende Blitze knisternder Elektrizität rund um die Stadt aus. Einziger Haken an der Sache: Es muss jeden Tag repariert werden. Falls es zerstört wird, würde die Stadt mitsamt der gesamten Umgebung augenblicklich ausradiert werden (inklusive euch). Das Schild am Reaktor besagt: sowjetische Bauweise, hergestellt in « вшивый ».': 'This terrifying building came from a soviet submarine and sends powerful bolts of electricity arcing around the town with a deafening crackle. The only "hitch" is that it has to be repaired daily. If it is destroyed, the town and its surroundings are instantly vaporized, wiping everything off the map (where you''ll be). The label reads: soviet design, assembled in « вшивый ».'
 'Das Fundament ist die Grundvoraussetzung für "Absurde Projekte" (das sind langwierige und anstrengende Bauten, die jedoch für die Stadt mehr als nützlich sind).': 'Foundations allow "Extreme Projects" to be completed (projects which take a long time to complete, but which have very powerful results).'
 'Das Stadttor schließt sich selbsttätig um 23:59 anstatt 23:30.': 'The gates close automatically at 23h59 instead of 23h30.'
 'Dieser äußerst leistungsstarke Kolbenmotor schließt und verriegelt das Stadttor eine halbe Stunde vor Mitternacht. Nach der Schließung kann das Tor nicht mehr geöffnet werden.': 'This system uses powerful motorised pistons to automatically close the gates and prevent them from opening again half an hour before the attack.'
