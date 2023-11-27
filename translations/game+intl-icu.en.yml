@@ -75,7 +75,7 @@ Zombies: Zombies
 'Qualität der Abschätzung': 'Estimation quality:'
 'Abschätzung verbessern': 'Scan the surroundings'
 'Morgige Abschätzung': 'TOMORROW''S ATTACK'
-"Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.": "Wow, you can see pretty much everything from here! It's just a shame that this \"everything\" is limited to an empty sandy desert. However, if you take a closer look, you can count the zombies that are crawling towards the city."
+"Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.": "Wow, you can see pretty much everything from here! It's just a shame that this \"everything\" is limited to an empty sandy desert. However, if you take a closer look, you can count the zombies that are crawling towards town."
 'Tag {day}': 'Day {day}'
 Rucksack: Rucksack
 Truhe: Chest
@@ -515,7 +515,7 @@ Grundbefestigungsmauer: Basic Defences
 Verteidigungsgegenstände: Defensive Objects
 Nachtwächter: Watchmen
 'Anmerkung: Verteidigungsgegenstände (Holzplatten etc...) müssen in der Bank abgelegt werden.': 'Note: Defensive objects (wooden boards, etc.) should be placed in the Bank.'
-'Auf der Müllhalde kannst du Gegenstände aus der Bank verwenden, um temporär die Verteidigung der Stadt zu verbessern.': 'This place allows you to sacrifice objects from the bank to <strong>temporarily</strong> improve the city''s defense.'
+'Auf der Müllhalde kannst du Gegenstände aus der Bank verwenden, um temporär die Verteidigung der Stadt zu verbessern.': 'This place allows you to sacrifice objects from the bank to <strong>temporarily</strong> improve the town''s defenses.'
 'Jeder so zerstörte Gegenstand kostet dich {ap}.': 'Each item destroyed this way will cost you {ap}.'
 'Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.': 'Due to your banishment you can no longer use the dump.'
 'Gesamt: {def}': 'Total: {def}'
@@ -684,7 +684,7 @@ Kreuzigung: Crucifixion
 Stunde(n): hour(s)
 Minute(n): minute(s)
 Sekunde(n): second(s)
-'vor {time}': 'at {time}'
+'vor {time}': '{time} ago'
 'Der Weihnachtsmann wurde dabei beobachtet, wie er {item} von {victim} gestohlen hat': 'Santa was seen stealing {item} from {victim}'
 'Wenn du eine zusätzliche Nacht geblieben wärst, hättest du auch die folgenden Preise gewinnen können:': 'If you had survived an extra night, you could have won the following distinctions:'
 'Mein Rucksack': 'My Inventory'
@@ -1032,7 +1032,7 @@ Beschreibung: Description
 'Die Zombies verstümmeln': Pack of Zombies
 'Horde der Zombies': Horde of Zombies
 Mark.: Mark.
-'Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.': 'You are in a Private Town. There are some special rules for this type of city.'
+'Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.': 'You are in a Private Town. There are some special rules for this type of town.'
 Einrichtung: Home Improvements
 'Dies ist eine offizielle Nachricht.': 'This is an official message.'
 'Lade Forum...': 'Loading forum ...'
@@ -1064,7 +1064,7 @@ Quarantäne: Quarantine
 'Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...': 'eat human flesh to reduce your Hunger slightly.'
 'Du kannst etwas essen, um deine Erschöpfung zu lindern.': 'You can eat something to relieve your exhaustion.'
 'Du hast bereits etwas gegessen und getrunken. Dir bleiben nur noch Drogen und Alkohol!': 'You have already eaten and drunk something. You only have drugs and alcohol left!'
-'Der letzte Tote in dieser Stadt!': 'The last dead man in this city!'
+'Der letzte Tote in dieser Stadt!': 'The last citizen to die in this town!'
 'Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.': 'The last dead person will only receive a reward if they have survived 5 full days.'
 'Mit den anderen Bürgern reden...': 'Speak to the other citizens in your town and get organized if you want to survive...'
 "Lesen und Nutzen des Forums sind in 'MyHordes' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.": "Reading and chatting on the forums is critical in 'MyHordes'! That's where all the important decisions are made, by the community itself."
@@ -1506,7 +1506,7 @@ Expeditionen: Expeditions
 'Wiedergeburt: Wähle einen Beruf': 'Rebirth: Choose a Profession'
 'Klick hier, um mehr über diesen Beruf zu erfahren...': 'Click here to learn more about this profession ...'
 'Zur zeit in der Stadt': 'Currently in town'
-'Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.': 'The citizens of this city have chosen the professions listed below.'
+'Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.': 'The citizens of this town have chosen the professions listed below.'
 Hilfe: Help
 Einstellungen: Settings
 'Ranglisten der Saison': 'Season''s Rankings'
@@ -1729,11 +1729,11 @@ Wegweiser: Daylight Lantern
 'Erleuchteter Prediger': 'Enlightened Preacher'
 'Guru der Liebe': 'Love guru'
 'Höret meine Stimme': 'Listen to my voice'
-'Deine Stadt "{town}" wurde von einem Administrator negiert. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.': 'Your city "{town}" has been cancelled by an administrator. The city will not appear in the ranking or on your soul and you will not get soul points or awards for it.'
-'Deine Stadt "{town}" wurde automatisch negiert, da sie sich nicht rechtzeitig gefüllt hat. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.': 'Your city "{town}" was automatically cancelled because it did not fill up in time. The city will not appear in the ranking or on your soul and you will not get soul points or awards for it.'
-'Deine Stadt "{town}" befindet sich aufgrund eines technischen Problems in Quarantäne. Die Administratoren sind bereits informiert. Während sich die Stadt in Quarantäne befindet kannst du normal weiter spielen, allerdings fällt der nächtliche Angriff aus und es findet kein Tageswechsel statt. Sobald das Problem behoben und die Quarantäne aufgehoben ist, wirst du benachrichtigt.': 'Your city "{town}" is under quarantine due to a technical problem. The administrators have already been informed. While the city is in quarantine, you can continue to play normally, but the nightly attack is canceled and the day does not change. You will be notified as soon as the problem is resolved and the quarantine is lifted.'
-'Die Quarantäne in deiner Stadt "{town}" wurde aufgehoben. Ab sofort findet der nächtliche Angriff wieder zur gewohnten Zeit statt.': 'The quarantine in your city "{town}" has been lifted. From now on, the nightly attack will take place again at the usual time.'
-'Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.': 'Unfortunately, the sands of the desert have already covered up the existence of your city... The community has died out.'
+'Deine Stadt "{town}" wurde von einem Administrator negiert. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.': 'Your town "{town}" has been cancelled by an administrator. This town will not appear in the rankings or on your soul and you will not get any soul points or awards for it.'
+'Deine Stadt "{town}" wurde automatisch negiert, da sie sich nicht rechtzeitig gefüllt hat. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.': 'Your town "{town}" was automatically cancelled because it did not fill up in time. This town will not appear in the rankings or on your soul and you will not get any soul points or awards for it.'
+'Deine Stadt "{town}" befindet sich aufgrund eines technischen Problems in Quarantäne. Die Administratoren sind bereits informiert. Während sich die Stadt in Quarantäne befindet kannst du normal weiter spielen, allerdings fällt der nächtliche Angriff aus und es findet kein Tageswechsel statt. Sobald das Problem behoben und die Quarantäne aufgehoben ist, wirst du benachrichtigt.': 'Your town "{town}" is under quarantine due to a technical problem. The administrators have already been informed. While the town is in quarantine, you can continue to play normally, but the nightly attack is canceled and the day does not change. You will be notified as soon as the problem is resolved and the quarantine is lifted.'
+'Die Quarantäne in deiner Stadt "{town}" wurde aufgehoben. Ab sofort findet der nächtliche Angriff wieder zur gewohnten Zeit statt.': 'The quarantine in your town "{town}" has been lifted. From now on, the nightly attack will take place again at the usual time.'
+'Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.': 'Unfortunately, the desert''s sands have already covered up the existence of your town... The community has died out.'
 (Allein): (alone)
 '(Mit Eskorte)': '(with your escort)'
 'Du hast dich in einen {role} verwandelt!': 'You have been transformed into a {role}!'
@@ -1746,8 +1746,8 @@ Wegweiser: Daylight Lantern
 'Ein Moderator hat deinen Thread "{threadname}" im Forum "{forumname}" entfernt. Grund: "{reason}".': 'A moderator removed your thread "{threadname}" in the forum "{forumname}". Reason: "{reason}".'
 'Ein Moderator hat einen deiner Posts aus dem Thread "{threadname}" im Forum "{forumname}" entfernt. Grund: "{reason}" {link_post}': 'A moderator removed one of your posts from the thread "{threadname}" in the forum "{forumname}". Reason: "{reason}" {link_post}'
 'Ein Moderator hat einen deiner Posts aus dem Thread "{threadname}" im Forum "{forumname}" editiert. Grund: "{reason}" {link_post}': 'A moderator edited one of your posts from the thread "{threadname}" in the forum "{forumname}". Reason: "{reason}" {link_post}'
-'Ein Moderator hat eine deiner Stadt-Nachrichten aus dem Thread "{threadname}" entfernt. Grund: "{reason}"': 'A moderator removed one of your city messages from the thread "{threadname}". Reason: "{reason}"'
-'Ein Moderator hat eine deiner Stadt-Nachrichten aus dem Thread "{threadname}" editiert. Grund: "{reason}"': 'A moderator edited one of your city messages from the thread "{threadname}". Reason: "{reason}"'
+'Ein Moderator hat eine deiner Stadt-Nachrichten aus dem Thread "{threadname}" entfernt. Grund: "{reason}"': 'A moderator removed one of your town messages from the thread "{threadname}". Reason: "{reason}"'
+'Ein Moderator hat eine deiner Stadt-Nachrichten aus dem Thread "{threadname}" editiert. Grund: "{reason}"': 'A moderator edited one of your town messages from the thread "{threadname}". Reason: "{reason}"'
 'Ein Moderator hat eine deiner Privatnachrichten aus dem Thread "{threadname}" entfernt. Grund: "{reason}"': 'A moderator removed one of your private messages from the message "{threadname}". Reason: "{reason}"'
 'Ein Moderator hat eine deiner Privatnachrichten aus dem Thread "{threadname}" editiert. Grund: "{reason}"': 'A moderator edited one of your private messages from the message "{threadname}". Reason: "{reason}"'
 'Ein Moderator hat deinen Account mit einer Forensperre belegt. Grund: "{reason}". Dauer: {duration}': 'A moderator has placed a forum ban on your account. Reason: "{reason}". Duration: {duration}'
@@ -1769,7 +1769,7 @@ Verletzt: Injured
 '... Auf jeden Fall kamen {zombies} Zombies durch unsere Verteidigungen und griffen Bürger an!': '... however, {zombies} zombies made it through our defenses and pounced on the citizens!'
 'Wir konnte alle Zombies erfolgreich abwehren. Die Nachtwätcher haben eine saubere Arbeit geleistet!': 'No zombies got through. The watchmen courageously defended the town!'
 'Es ist kein Nachtwächter da, um die Stadt zu verteidigen.': 'There were no watchman present to defend the town.'
-'Da keine lebendigen Bürger beim Angriff in der Stadt waren, wurde sie von den Zombies vollständig zerstört...': 'For lack of living people, the city was totally devastated by the passage of zombies...'
+'Da keine lebendigen Bürger beim Angriff in der Stadt waren, wurde sie von den Zombies vollständig zerstört...': 'For lack of people still alive, the town was totally devastated by the passage of zombies...'
 'Die Nachtwächter der letzten nacht zeigten unglaublichen Mut, es ist nur schade, dass die Zombies offensichtlich mit etwas anderem beschäftigt waren!': 'Last night''s watchmen showed incredible courage, it''s just a shame the zombies were clearly busy doing something else!'
 'Nachtwächter {citizen} hat sein Bestes gegeben, aber dieser Angriff hat ihn schwer verängstigt...': 'The watcher {citizen} fought his best, but this attack left a look of terror on his face...'
 'Verdammt! Nachtwächter {citizen} wurde von Zombies überrumpelt und verwundet...': 'Oh no! The watchman {citizen} was injured during the attack...'
@@ -2240,9 +2240,9 @@ Revolution!: Insurrection!
 'Vor dir siehst du die glimmenden Überreste einer Barrikade. In der Ferne ertöhnen Jubelschreie und Sirenenrufe.': 'Before you lie the smoldering remains of a barricade. In the distance, cheers and siren calls resound.'
 'Die Verbannten der Stadt wollten sich nicht länger unterdrücken lassen und haben eine Revolution angezettelt! Die bisherigen Anführer der Stadt wurden entmachtet und die Revolutionäre haben die Kontrolle übernommen.': 'The shunned of the city no longer wanted to be oppressed and have started a revolution! The previous leaders of the city have been ousted and the revolutionaries have taken control.'
 'Du bist nun frei.': 'You are now free.'
-'Erlöst von den Fesseln der Verbannung kannst du nun zusammen mit den anderen Revolutionären das Schicksal der Stadt bestimmen.': 'Released from the shackles of banishment, you can now determine the fate of the city together with the other revolutionaries.'
+'Erlöst von den Fesseln der Verbannung kannst du nun zusammen mit den anderen Revolutionären das Schicksal der Stadt bestimmen.': 'Released from the shackles of banishment, you can now determine the fate of the town together with the other revolutionaries.'
 'Du bist nun verbannt.': 'You are now shunned.'
-'Die Revolutionäre haben die Führung in der Stadt übernommen und die vormals freien Bürger erfahren nun selbst das bittere Schicksal der Verbannung.': 'The revolutionaries have taken control of the city and the formerly free citizens are now experiencing the bitter fate of banishment themselves.'
+'Die Revolutionäre haben die Führung in der Stadt übernommen und die vormals freien Bürger erfahren nun selbst das bittere Schicksal der Verbannung.': 'The revolutionaries have taken control of the town and the formerly free citizens are now experiencing the bitter fate of banishment themselves.'
 'Schau dir am besten gleich den {revolution_help} an.': 'It''s best to take a look at the {revolution_help} right now.'
 Verbannten-Ratgeber: Banishment Guide
 'Dort findest du alle Informationen über den Aufstand und dessen Folgen.': 'There you will find all the information about this insurrection and its consequences.'
@@ -2390,7 +2390,7 @@ Tarnexperte: Camo Chief
 'Dein Community-Event "{eventName}" wurde von einem Moderator verifiziert und kann nun zum geplanten Zeitpunkt starten.': 'Your community event "{eventName}" has been verified by a moderator and can now start at the scheduled time.'
 'Dein Community-Event "{eventName}" wurde von einem Moderator gelöscht.': 'Your community event "{eventName}" has been deleted by a moderator.'
 'Schon von Weitem hört man Jubelschreie und Freudenrufe durch die Gassen schallen. Niemand hätte es für Möglich gehalten...': 'Even from afar, you can hear cheers and shouts of joy echoing through the alleys. No one would have thought it possible...'
-'Nach der Fertigstellung des Altars ist der Rabe in deiner gottverlassenen Stadt erschienen und hat in seiner unendlichen Gnade alle Verbannungen aufgehoben.': 'After the completion of the altar, The Crow appeared in your godforsaken city and, in His infinite mercy, lifted all the banishments.'
+'Nach der Fertigstellung des Altars ist der Rabe in deiner gottverlassenen Stadt erschienen und hat in seiner unendlichen Gnade alle Verbannungen aufgehoben.': 'After the completion of the altar, The Crow appeared in your godforsaken town and, in His infinite mercy, lifted all the banishments.'
 'Der Rabe hat dir eine zweite Chance gewährt und dich von den Fesseln der Verbannung erlöst. Wie wirst du deine neugewonnene Freiheit nutzen?': 'The Crow has granted you a second chance and released you from the shackles of banishment. How will you use your newfound freedom?'
 'Wenn du dich nur genug anstrengst, kannst du möglicherweise etwas mit in dein nächstes Leben nehmen ...': 'If you just try hard enough, you may be able to take something with you into your next life ...'
 'Das Ende deines Lebens in <strong>{town}</strong>': 'The end of your life in <strong>{town}</strong>'
@@ -2868,7 +2868,7 @@ MP: MP
 '{building} hat folgende Gegenstände verbraucht: {items}.': '{building} consumed the following items: {items}.'
 Schamanenkreis: Shamanic circle
 Eventsieger: Event winner
-Eventteilnehmer: Eventteilnehmer
+Eventteilnehmer: Event participant
 'Auszeichnung für deinen Sieg in einem Community-Event, Glückwünsch!': 'Distinction obtained following your designation as winner of a community event, congrats!'
 'Auszeichnung für deine Teilnahme an einem Community-Event.': 'Distinction obtained following your participation in a community event.'
 'Allwissender Schamane': 'Omniscient Shaman'
