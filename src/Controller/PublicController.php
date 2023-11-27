@@ -517,7 +517,7 @@ class PublicController extends CustomAbstractController
         if ($myhordes_user && $myhordes_user->getEternalID())
             throw new DynamicAjaxResetException(Request::createFromGlobals());
 
-        if (!$userHandler->hasRole($myhordes_user, 'ROLE_NATURAL'))
+        if ($myhordes_user && !$userHandler->hasRole($myhordes_user, 'ROLE_NATURAL'))
             throw new DynamicAjaxResetException(Request::createFromGlobals());
 
         if (empty($code) || !$etwin->isReady()) {
