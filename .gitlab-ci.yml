@@ -21,14 +21,14 @@ variables:
   MARIADB_RANDOM_ROOT_PASSWORD: 'yes'
 
   # MH environment variables
-  DATABASE_URL: mysql://myhordes-ci:Sullen.Vindicate9.Untruth@mariadb:3306/myhordes
+  DATABASE_URL: mysql://myhordes-ci:Sullen.Vindicate9.Untruth@mariadb:3306/myhordes?serverVersion=11.2.2-MariaDB
   DATABASE_DBNAME: myhordes
   DATABASE_HOST: mariadb
   DATABASE_PORT: 3306
   DATABASE_USER: myhordes-ci
   DATABASE_PASSWORD: Sullen.Vindicate9.Untruth
   DATABASE_DRIVER: pdo_mysql
-  DATABASE_VERSION: 11.0.2
+  DATABASE_VERSION: 11.2.2-MariaDB
   APP_ENV: test
   XDEBUG_MODE: coverage
 
