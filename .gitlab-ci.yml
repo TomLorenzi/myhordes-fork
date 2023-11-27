@@ -29,7 +29,6 @@ variables:
   DATABASE_PASSWORD: Sullen.Vindicate9.Untruth
   DATABASE_DRIVER: pdo_mysql
   DATABASE_VERSION: 11.2.2-MariaDB
-  APP_ENV: test
   XDEBUG_MODE: coverage
 
 stages:
@@ -130,8 +129,6 @@ test:
   dependencies:
     - build
   script:
-    - echo $APP_ENV
-    - echo $DATABASE_URL
     # Install a DB
     - php bin/console app:migrate -i -vvv
     # Run tests
