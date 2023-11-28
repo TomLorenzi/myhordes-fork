@@ -2448,13 +2448,13 @@ Seelenverwerter_f: Charlatana Profesional
 'Die Mauer_f': 'Defensora'
 Höllenwächter_f: Gran Guardiana
 Kerberos_f: Paladina
-'Die letzte Verteidigungslinie_f': 'Die letzte Verteidigungslinie'
-'Du kommst hier NICHT durch!_f': 'Du kommst hier NICHT durch!'
-Hekatoncheir_f: Hekatoncheir
-'Holy F***ing Iceberg_f': 'Holy F***ing Iceberg'
+'Die letzte Verteidigungslinie_f': 'Última escudera'
+'Du kommst hier NICHT durch!_f': '¡Usted no entra!'
+Hekatoncheir_f: Habitante insuperable
+'Holy F***ing Iceberg_f': '¡Maldita sea, un Iceberg!'
 Kantinenkoch_f: Ayudante de cocina
 'Kleiner Küchenchef_f': 'Cocinerilla'
-'Meister Eintopf_f': 'Meister Eintopf'
+'Meister Eintopf_f': 'Cordon bleu del barrio'
 'Großer Wüstenkonditor_f': 'Cordón bleu del pueblo'
 'Begnadeter Wüstenkonditor_f': 'Cuchara-brava'
 'Cooking Mama_f': 'Cooking Mama'
@@ -2465,8 +2465,8 @@ Amateur-Laborratte_f: Amateur-Laborratte
 'Chemiker von um die Ecke_f': 'Química de barrio'
 Produkttester_f: Catadora de productos
 Wüstenstadt-Dealer_f: Distribuidora local
-'Ich koste alle meine Produkte_f': 'Ich koste alle meine Produkte'
-'Rauchts? Dann ist es meins._f': 'Rauchts? Dann ist es meins.'
+'Ich koste alle meine Produkte_f': 'Pruebo todos mis productos'
+'Rauchts? Dann ist es meins._f': '¿Fumas? Este va por mi cuenta'
 'Offizieller AP-Versorger_f': 'Proveedora oficial de PA'
 'X-Men Leser_f': 'Fan de X-Men'
 'Aussergewöhnlicher Bürger_f': 'Habitante fuera de serie'
@@ -2475,36 +2475,36 @@ Wunder_f: Wunder
 Volksheld_f: Heroína del pueblo
 Neo_f: Soy una leyenda
 'Erlöser der Menschheit_f': 'Salvadora de la humanidad'
-Außenweltlegende_f: Außenweltlegende
+Außenweltlegende_f: Superheroína
 'Messie der verlorenen Welt_f': 'Messie der verlorenen Welt'
-'Mein Name ist Nobody_f': 'Mein Name ist Nobody'
-'Ein Sternbild trägt meinen Namen_f': 'Ein Sternbild trägt meinen Namen'
+'Mein Name ist Nobody_f': 'Mi nombre es ninguna'
+'Ein Sternbild trägt meinen Namen_f': 'Una constelación lleva mi nombre'
 Abstauber_f: Rastrilladora del vertedero
-Müllkind_f: Müllkind
-'Autonomer Müll_f': 'Autonomer Müll'
+Müllkind_f: Recolectora de basura
+'Autonomer Müll_f': 'Investigadora ingeniosa'
 'Freier Bürger_f': '¡Habitante libre!'
-'Alles für meinen Mund_f': 'Alles für meinen Mund'
-'Ich brauche niemanden_f': 'Ich brauche niemanden'
+'Alles für meinen Mund_f': 'Todo para mi boca'
+'Ich brauche niemanden_f': 'No necesito a nadie'
 'Unabhängiger Großeinsiedler_f': 'Gran Eremita independiente'
 'Che Guevara der Wüste_f': 'Che Guevara del Ultramundo'
 Maulheld_f: Cleptómana
-Lump_f: Lump
+Lump_f: Bandida
 Schaumschläger_f: Pilla
 Dieb_f: Ratera
 Fantomas_f: Fantomas
-'Ali Baba_f': 'Ali Baba'
+'Ali Baba_f': 'Choriza temible'
 Meisterdieb_f: Caco
 Kleptomane_f: Saqueadora
-'Dein Haus ist mein Haus_f': 'Dein Haus ist mein Haus'
+'Dein Haus ist mein Haus_f': 'Tu casa es mi casa'
 Ästhet_f: Coqueta
 Schaufenstergestalter_f: Habitante de buen gusto
 Innenarchitekt_f: Decoradora de interiores
-Möbelgourmet_f: Möbelgourmet
-'Ordnung muss sein!_f': 'Ordnung muss sein!'
-'Ein schöneres Leben_f': 'Ein schöneres Leben'
-'Großer E-KEA Katalog_f': 'Großer E-KEA Katalog'
+Möbelgourmet_f: Decoradora con estilo
+'Ordnung muss sein!_f': 'Maestra de la estética'
+'Ein schöneres Leben_f': 'El estilo es eterno...'
+'Großer E-KEA Katalog_f': 'Bienvenidas al palacio. '
 Plünderer_f: Saqueadora
-Aasgeier_f: Aasgeier
+Aasgeier_f: Buitre
 Hyäne_f: Hyäne
 'Wegelagerer post mortem_f': 'Ladrona post-mortem'
 'Hungriger Schakal_f': 'Hungriger Schakal'
