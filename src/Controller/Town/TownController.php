@@ -1888,7 +1888,7 @@ class TownController extends InventoryAwareController
                 // Purposefully ignore getResourcesUrbanism for recycling
                 $prototype = $this->entity_manager->getRepository(CitizenHomePrototype::class)->findOneByLevel( $l );
                 if ($prototype && $prototype->getResources())
-                    foreach ($home->getPrototype()->getResources()->getEntries() as $entry)
+                    foreach ($prototype->getResources()->getEntries() as $entry)
                         if (!isset($resources[$entry->getPrototype()->getName()])) $resources[$entry->getPrototype()->getName()] = $entry->getChance();
                         else $resources[$entry->getPrototype()->getName()] += $entry->getChance();
             }
@@ -1896,21 +1896,31 @@ class TownController extends InventoryAwareController
             $item_list = [];
             $item_list_p = [];
 
-            $has_recycled = false;
-            shuffle($resources);
-            foreach ($resources as $item_name => &$count) {
-                $count = min($recycleReturn, (int)floor($count * 0.4));
-                $recycleReturn -= $count;
-                if ($count > 0) {
-                    $has_recycled = true;
-                    $p = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($item_name);
-                    if (!$p) continue;
-                    $item_list_p[] = ['item' => $p, 'count' => $count];
-                    $item_list[] = "<span class='tool'><img alt='' src='{$asset->getUrl( "build/images/item/item_{$p->getIcon()}.gif" )}'> {$this->translator->trans($p->getLabel(), [], 'items')}" . ($count > 1 ? " x $count" : '') . "</span>";
-                }
-                for ($i = 0 ; $i < $count; $i++)
-                    $this->inventory_handler->forceMoveItem( $citizen->getTown()->getBank(), $if->createItem($item_name));
-            }
+			$resources = [];
+			for ($l = $home->getPrototype()->getLevel(); $l >= 0; $l--) {
+				// Purposefully ignore getResourcesUrbanism for recycling
+				$prototype = $this->entity_manager->getRepository(CitizenHomePrototype::class)->findOneByLevel( $l );
+				if ($prototype && $prototype->getResources())
+					foreach ($prototype->getResources()->getEntries() as $entry)
+						for($i = 0 ; $i < $entry->getChance() ; $i++)
+							$resources[] = $entry->getPrototype()->getName();
+			}
+
+			sort($resources);
+			$recovered = $this->random_generator->pick($resources, mt_rand(1, $recycleReturn), true);
+			$has_recycled = (count($recovered) > 0);
+			foreach ($recovered as $protoName) {
+				$p = $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $protoName]);
+				if (!$p) continue;
+				if (isset($item_list_p[$p->getName()])) $item_list_p[$p->getName()]['count'] += 1;
+				else $item_list_p[$p->getName()] = ['item' => $p, 'count' => 1];
+			}
+
+			foreach ($item_list_p as $item) {
+				$item_list[] = "<span class='tool'><img alt='' src='{$asset->getUrl( "build/images/item/item_{$item['item']->getIcon()}.gif" )}'> {$this->translator->trans($item['item']->getLabel(), [], 'items')}" . ($item['count'] > 1 ? " x {$item['count']}" : '') . "</span>";
+				for ($i = 0 ; $i < $item['count']; $i++)
+					$this->inventory_handler->forceMoveItem( $citizen->getTown()->getBank(), $if->createItem($item['item']->getName()));
+			}
 
             foreach ($home->getChest()->getItems() as $item)
                 $this->inventory_handler->forceMoveItem($citizen->getTown()->getBank(), $item);
