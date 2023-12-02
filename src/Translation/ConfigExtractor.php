@@ -20,7 +20,7 @@ class ConfigExtractor implements ExtractorInterface
     protected TranslationConfigGlobal $config;
 
     private ?MessageCatalogue $catalogue = null;
-    protected static $has_been_run = false;
+    protected static bool $has_been_run = false;
 
     public function __construct(EntityManagerInterface $em, ConfMaster $confMaster, TranslationConfigGlobal $config, TranslationService $trans)
     {
@@ -30,7 +30,8 @@ class ConfigExtractor implements ExtractorInterface
         $this->catalogue = $config->skipExistingMessages() ? $trans->getMessageSubCatalogue(bundle: false, locale: 'de') : null;
     }
 
-    private function insert(MessageCatalogue &$c, string $message, string $domain, string $file) {
+    private function insert(MessageCatalogue &$c, string $message, string $domain, string $file): void
+    {
         if (!empty($message) && !$this->catalogue?->has( $message, $domain )) {
             $c->set($message, $this->prefix . $message, $domain);
             $this->config->add_source_for($message,$domain,'config',$file);
@@ -40,7 +41,7 @@ class ConfigExtractor implements ExtractorInterface
     /**
      * @inheritDoc
      */
-    public function extract($resource, MessageCatalogue $c)
+    public function extract($resource, MessageCatalogue $c): void
     {
         if (!$this->config->useConfig()) return;
 
@@ -60,7 +61,7 @@ class ConfigExtractor implements ExtractorInterface
     /**
      * @inheritDoc
      */
-    public function setPrefix(string $prefix)
+    public function setPrefix(string $prefix): void
     {
         $this->prefix = $prefix;
     }

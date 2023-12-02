@@ -95,7 +95,7 @@ class UpdateTranslationsCommand extends Command
 
                 if (!$input->getOption('core')) {
                     $this->conf_trans->setBlacklistedPackages(null)->setSkipExistingMessages(true);
-                    $this->getCommandExecutor( 'app:translation:bundle', $lang, 'MyHordesPrimeBundle' )($output);
+                    $this->getCommandExecutor( 'translation:extract', $lang, 'MyHordesPrimeBundle' )($output);
                 }
             } catch (Exception $e) {
                 $output->writeln("Error: <error>{$e->getMessage()}</error>");

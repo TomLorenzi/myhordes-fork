@@ -23,13 +23,11 @@ use Symfony\Component\Console\Question\Question;
 )]
 class UserCreateCommand extends Command
 {
-    private $entityManager;
-    private $userFactory;
-
-    public function __construct(EntityManagerInterface $em, UserFactory $uf)
+    public function __construct(
+        private readonly EntityManagerInterface $entityManager,
+        private readonly UserFactory $userFactory,
+    )
     {
-        $this->entityManager = $em;
-        $this->userFactory = $uf;
         parent::__construct();
     }
 
@@ -46,7 +44,7 @@ class UserCreateCommand extends Command
             ->addOption('elevated', null, InputOption::VALUE_REQUIRED, 'Will set the elevation level.');
     }
 
-    protected function interact(InputInterface $input, OutputInterface $output)
+    protected function interact(InputInterface $input, OutputInterface $output): void
     {
         $password = $input->getArgument('password');
         while (empty($password)) {

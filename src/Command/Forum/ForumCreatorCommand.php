@@ -66,7 +66,7 @@ class ForumCreatorCommand extends Command
         ;
     }
 
-    protected function interact(InputInterface $input, OutputInterface $output)
+    protected function interact(InputInterface $input, OutputInterface $output): void
     {
         $helper = $this->getHelper('question');
         while (empty($input->getArgument('Name')))
