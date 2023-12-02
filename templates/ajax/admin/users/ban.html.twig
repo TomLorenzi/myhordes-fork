@@ -107,7 +107,7 @@
                                     </div>
                                     <div class="cell rw-2 rw-md-4 rw-sm-6 padded"><span class="small">{{ restriction.created|format_datetime('medium', 'short') }}</span></div>
                                     <div class="cell rw-2 rw-md-4 rw-sm-6 padded">
-                                        {% if is_granted('ROLE_ADMIN') and restriction.active %}
+                                        {% if (is_granted('ROLE_ADMIN') and restriction.active) or (restriction.moderator == app.user and restriction.confirmedBy|filter(c => c != restriction.moderator) is empty) %}
                                             <span class="small pointer" data-toggle-duration-for="{{ restriction.id }}">
                                                 {% if restriction.originalDuration < 0 %}<b>∞</b>{% else %}{{ '{d} Tage'|trans({'{d}': (restriction.originalDuration/86400)|round},'admin') }}{% endif %}
                                             </span>
