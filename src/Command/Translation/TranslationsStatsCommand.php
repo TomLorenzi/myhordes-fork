@@ -20,6 +20,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Translation\Dumper\FileDumper;
 use Symfony\Component\Translation\Loader\FileLoader;
 use Symfony\Component\Translation\MessageCatalogue;
@@ -31,17 +32,13 @@ use Symfony\Component\Translation\MessageCatalogueInterface;
 )]
 class TranslationsStatsCommand extends Command
 {
-    private ConfMaster $confMaster;
-
-    private ContainerInterface $container;
-    private ParameterBagInterface $param;
-
-    public function __construct(ParameterBagInterface $param, ContainerInterface $container, ConfMaster $confMaster)
+    public function __construct(
+        private readonly ConfMaster $confMaster,
+        private readonly ContainerInterface $container,
+        private readonly ParameterBagInterface $param,
+        private readonly KernelInterface $kernel,
+    )
     {
-        $this->container = $container;
-        $this->param = $param;
-        $this->confMaster = $confMaster;
-
         parent::__construct();
     }
 
@@ -54,10 +51,9 @@ class TranslationsStatsCommand extends Command
         ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function executeForDirectory(InputInterface $input, OutputInterface $output, string $directory): void {
         $known_domains = [];
-        foreach (new DirectoryIterator("{$this->param->get('kernel.project_dir')}/translations") as $fileInfo) {
+        foreach (new DirectoryIterator($directory) as $fileInfo) {
             /** @var SplFileInfo $fileInfo */
             if ($fileInfo->isFile()) $known_domains[ explode('+', explode('.', $fileInfo->getFilename())[0])[0] ] = true;
         }
@@ -114,15 +110,23 @@ class TranslationsStatsCommand extends Command
                 $messages = $file_loader->load( $file, $lang, $domain );
 
                 $states = [];
-                foreach ( array_keys( $messages->all($domain) ) as $key ) {
+                foreach ( $messages->all($domain) as $key => $message ) {
                     $state = 'translated';
                     $used = true;
+                    $explicit_state = false;
                     foreach ( ($messages->getMetadata($key, $domain)['notes'] ?? []) as $note ) {
-                        if ($note['category'] === 'state')
+                        if ($note['category'] === 'state') {
                             $state = $note['content'] ?: 'translated';
+                            $explicit_state = true;
+                        }
                         if ($note['category'] === 'from' && $note['content'] === '[unused]')
                             $used = false;
                     }
+
+                    if (!$explicit_state) $state = match(true) {
+                        $key === $message => 'dubious',
+                        default => 'translated'
+                    };
 
                     if (!$used) continue;
                     $known_states[$state] = true;
@@ -178,6 +182,18 @@ class TranslationsStatsCommand extends Command
             $table->render();
 
         }
+    }
+
+    protected function execute(InputInterface $input, OutputInterface $output): int
+    {
+        $output->writeln('<fg=yellow>=== Core translations ===</>');
+        $this->executeForDirectory( $input, $output, "{$this->param->get('kernel.project_dir')}/translations" );
+
+        try {
+            $foundBundle = $this->kernel->getBundle('MyHordesPrimeBundle');
+            $output->writeln("\n<fg=yellow>=== Prime translations ===</>");
+            $this->executeForDirectory( $input, $output, "{$foundBundle->getPath()}/Resources/translations" );
+        } catch (\InvalidArgumentException $e) {}
 
         return 0;
     }
