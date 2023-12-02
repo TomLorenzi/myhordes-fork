@@ -690,7 +690,13 @@ class MessageForumController extends MessageController
         if ($post->getOwner()->getId() === 67 && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionPostAsAnim | ForumUsagePermissions::PermissionEditPost))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
-        if ((($post->getOwner() !== $user && $post->getOwner()->getId() !== 66) || !$post->isEditable()) && !$anim_permissions && !$mod_permissions && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionEditPost) )
+        if ((($post->getOwner() !== $user && !in_array($post->getOwner()->getId(), [66, 67])) || !$post->isEditable()) && !$anim_permissions && !$mod_permissions && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionEditPost) )
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        if ($post->getOwner()->getId() === 66 && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionPostAsCrow))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        if ($post->getOwner()->getId() === 67 && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionPostAsAnim))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if (($thread->getLocked() || $thread->getHidden() || ($post !== $thread->lastPost(false) && $post !== $thread->firstPost(true))) && !$mod_permissions && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate))
@@ -751,11 +757,12 @@ class MessageForumController extends MessageController
 
         if (!$insight->editable || ($title !== null && $title !== $parser->trimmed('title'))) $post->setEditingMode(Post::EditorLocked);
 
-        if ($user !== $post->getOwner()) {
-            $post
-                ->setEditingMode(Post::EditorLocked)
-                ->setLastAdminActionBy($user);
-            if ($post->getOriginalText() === null && $post->getOwner()->getId() !== 66)
+        if ($user !== $post->getOwner() && !in_array($post->getOwner()->getId(), [66, 67])) {
+            if (!$anim_permissions)
+                $post
+                    ->setEditingMode(Post::EditorLocked)
+                    ->setLastAdminActionBy($user);
+            if ($post->getOriginalText() === null)
                 $post->setOriginalText($old_text);
 
             $notification = $crow->createPM_moderation( $post->getOwner(),
