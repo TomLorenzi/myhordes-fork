@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\NotificationSubscriptionType;
 use App\Enum\UserSetting;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -1155,11 +1156,16 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     }
 
     /**
-     * @return Collection<int, NotificationSubscription>
+     * @return Collection<int, NotificationSubscription>|PersistentCollection<int, NotificationSubscription>
      */
-    public function getNotificationSubscriptions(): Collection
+    public function getNotificationSubscriptions(): Collection|PersistentCollection
     {
         return $this->notificationSubscriptions;
+    }
+
+    public function getNotificationSubscriptionsFor(NotificationSubscriptionType $type): Collection
+    {
+        return $this->notificationSubscriptions->matching( (new Criteria())->andWhere( new Comparison( 'type', Comparison::EQ, $type ) ) );
     }
 
     public function addNotificationSubscription(NotificationSubscription $notificationSubscription): static

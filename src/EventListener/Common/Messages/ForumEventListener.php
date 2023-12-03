@@ -9,10 +9,12 @@ use App\Entity\ForumUsagePermissions;
 use App\Entity\SocialRelation;
 use App\Entity\Town;
 use App\Entity\User;
+use App\Enum\NotificationSubscriptionType;
 use App\Enum\UserSetting;
 use App\Event\Common\Messages\Forum\ForumMessageNewPostEvent;
 use App\Event\Common\Messages\Forum\ForumMessageNewThreadEvent;
 use App\EventListener\ContainerTypeTrait;
+use App\Messages\WebPush\WebPushMessage;
 use App\Service\CrowService;
 use App\Service\PermissionHandler;
 use App\Service\PictoHandler;
@@ -21,7 +23,9 @@ use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
+use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Contracts\Service\ServiceSubscriberInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[AsEventListener(event: ForumMessageNewThreadEvent::class, method: 'queueMentions', priority: 0)]
 #[AsEventListener(event: ForumMessageNewPostEvent::class, method: 'queueMentions', priority: 0)]
@@ -38,7 +42,9 @@ final class ForumEventListener implements ServiceSubscriberInterface
     public static function getSubscribedServices(): array
     {
         return [
+            MessageBusInterface::class,
             EntityManagerInterface::class,
+            TranslatorInterface::class,
             UserHandler::class,
             PermissionHandler::class,
             CrowService::class,
@@ -64,7 +70,25 @@ final class ForumEventListener implements ServiceSubscriberInterface
                 ->andWhere( Criteria::expr()->lt('num', 10) )
         );
 
-        foreach ($subscriptions as $s) $this->getService(EntityManagerInterface::class)->persist($s->setNum($s->getNum() + 1));
+        foreach ($subscriptions as $s) {
+            $this->getService(EntityManagerInterface::class)->persist($s->setNum($s->getNum() + 1));
+
+            // Dispatch WebPush notifications
+            $subscribed_user = $s->getUser();
+            $lang = $subscribed_user->getLanguage() ?? 'en';
+            foreach ( $subscribed_user->getNotificationSubscriptionsFor(NotificationSubscriptionType::WebPush) as $subscription )
+                $this->getService(MessageBusInterface::class)->dispatch(
+                    new WebPushMessage($subscription,
+                        title: $this->getService(TranslatorInterface::class)->trans('Neue Antwort in abonnierter Diskussion', [], 'global', $lang ),
+                        body: $this->getService(TranslatorInterface::class)->trans('{player} hat auf die Diskussion "{threadname}" im Forum "{forumname}" geantwortet.', [
+                            'player' => $event->post->getOwner(),
+                            'threadname' => $event->post->getThread()->getTranslatable() ? $this->getService(TranslatorInterface::class)->trans($event->post->getThread()->getTitle(), [], 'game', $lang) : $event->post->getThread()->getTitle(),
+                            'forumname' => $event->post->getThread()->getForum()->getLocalizedTitle( $lang )
+                        ], 'global', $lang ),
+                        avatar: $event->post->getOwner()->getAvatar()?->getId()
+                    )
+                );
+        }
         if (!empty($subscriptions)) try { $this->getService(EntityManagerInterface::class)->flush(); } catch (\Throwable) {}
 	}
 
@@ -81,6 +105,7 @@ final class ForumEventListener implements ServiceSubscriberInterface
         }
     }
 
+
     public function queueMentions(ForumMessageNewPostEvent|ForumMessageNewThreadEvent $event): void {
         $has_notif = false;
 
@@ -91,6 +116,22 @@ final class ForumEventListener implements ServiceSubscriberInterface
             foreach ( $event->insight->taggedUsers as $tagged_user )
                 if ( $this->should_notify( $user, $tagged_user, $forum->getTown() ) && $this->getService(PermissionHandler::class)->checkEffectivePermissions( $tagged_user, $forum, ForumUsagePermissions::PermissionReadThreads ) ) {
                     $this->getService(EntityManagerInterface::class)->persist( $this->getService(CrowService::class)->createPM_mentionNotification( $tagged_user, $event->post ) );
+
+                    // Dispatch WebPush notifications
+                    $lang = $tagged_user->getLanguage() ?? 'en';
+                    foreach ( $tagged_user->getNotificationSubscriptionsFor(NotificationSubscriptionType::WebPush) as $subscription )
+                        $this->getService(MessageBusInterface::class)->dispatch(
+                            new WebPushMessage($subscription,
+                                title: $this->getService(TranslatorInterface::class)->trans('Du wurdest erwähnt', [], 'global', $lang ),
+                                body: $this->getService(TranslatorInterface::class)->trans('{player} hat dich auf MyHordes in einem Post unter "{threadname}" im Forum "{forumname}" erwähnt.', [
+                                    'player' => $user,
+                                    'threadname' => $event->post->getThread()->getTranslatable() ? $this->getService(TranslatorInterface::class)->trans($event->post->getThread()->getTitle(), [], 'game', $lang) : $event->post->getThread()->getTitle(),
+                                    'forumname' => $forum->getLocalizedTitle( $lang )
+                                ], 'global', $lang ),
+                                avatar: $user->getAvatar()?->getId()
+                            )
+                        );
+
                     $has_notif = true;
                 }
 

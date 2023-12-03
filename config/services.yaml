@@ -102,6 +102,12 @@ services:
       tags:
         - { name: monolog.logger, channel: admin }
 
+  # Some classes need the fully featured translator class instead of
+  # just the interface, in order to set a locale
+    App\Messages\WebPush\WebPushMessageHandler:
+      arguments:
+        $uri: '%base_uri%'
+
     App\Command\DebugCommand:
       arguments:
         $translator: '@app.decoration.translator.inner'

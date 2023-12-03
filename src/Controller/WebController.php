@@ -6,6 +6,7 @@ use App\Annotations\GateKeeperProfile;
 use App\Controller\Admin\AdminActionController;
 use App\Controller\CustomAbstractController;
 use App\Entity\AdminAction;
+use App\Entity\Avatar;
 use App\Entity\Award;
 use App\Entity\ExternalApp;
 use App\Entity\MarketingCampaign;
@@ -517,23 +518,28 @@ class WebController extends CustomAbstractController
      * @param int $uid
      * @param string $name
      * @param string $ext
+     * @param bool $wu
      * @return Response
      */
-    #[Route(path: '/cdn/avatar/{uid<\d+>}/{name}.{ext<[\w\d]+>}', requirements: ['name' => '[0123456789abcdef]{32}'], condition: '!request.isXmlHttpRequest()', name: 'app_web_avatar_legacy')]
-    #[Route(path: '/cdn/avatars/{uid<\d+>}/{name}.{ext<[\w\d]+>}', requirements: ['name' => '[0123456789abcdef]{32}'], condition: '!request.isXmlHttpRequest()', name: 'app_web_avatar')]
-    public function avatar(int $uid, string $name, string $ext): Response
+    #[Route(path: '/cdn/avatar/{uid<\d+>}/{name}.{ext<[\w\d]+>}', name: 'app_web_avatar_legacy', requirements: ['name' => '[0123456789abcdef]{32}'], defaults: ['wu' => true], condition: '!request.isXmlHttpRequest()')]
+    #[Route(path: '/cdn/avatars/{uid<\d+>}/{name}.{ext<[\w\d]+>}', name: 'app_web_avatar', requirements: ['name' => '[0123456789abcdef]{32}'], defaults: ['wu' => true], condition: '!request.isXmlHttpRequest()')]
+    #[Route(path: '/cdn/avatars/notifications/{uid<\d+>}/{name}.{ext<[\w\d]+>}', name: 'app_web_avatar_for_webpush', requirements: ['name' => '[0123456789abcdef]{32}'], defaults: ['wu' => false], condition: '!request.isXmlHttpRequest()')]
+    public function avatar(int $uid, string $name, string $ext, bool $wu): Response
     {
         if ($r = $this->check_cache($name)) return $r;
 
-        /** @var User $user */
-        $user = $this->entity_manager->getRepository(User::class)->find( $uid );
-        if (!$user || !$user->getAvatar()) return $this->cdn_fallback( "avatar/{$uid}/{$name}.{$ext}" );
-        if (($user->getAvatar()->getFilename() !== $name && $user->getAvatar()->getSmallName() !== $name))
-            return $this->cdn_fallback( "avatar/{$uid}/{$name}.{$ext}" );
-        if ($user->getAvatar()->getFormat() !== $ext)
-            return $this->redirectToRoute( 'app_web_avatar', ['uid' => $uid, 'name' => $name, 'ext' => $user->getAvatar()->getFormat()] );
+        if ($wu) {
+            $avatar = $this->entity_manager->getRepository(User::class)->find( $uid )?->getAvatar();
+        } else $avatar = $this->entity_manager->getRepository(Avatar::class)->find( $uid );
 
-        $target = ($user->getAvatar()->getFilename() === $name || !$user->getAvatar()->getSmallImage()) ? $user->getAvatar()->getImage() : $user->getAvatar()->getSmallImage();
+        if (!$avatar) return $this->cdn_fallback( "avatar/{$uid}/{$name}.{$ext}" );
+
+        if (($avatar->getFilename() !== $name && $avatar->getSmallName() !== $name))
+            return $this->cdn_fallback( "avatar/{$uid}/{$name}.{$ext}" );
+        if ($avatar->getFormat() !== $ext)
+            return $this->redirectToRoute( $wu ? 'app_web_avatar' : 'app_web_avatar_for_webpush', ['uid' => $uid, 'name' => $name, 'ext' => $avatar->getFormat()] );
+
+        $target = ($avatar->getFilename() === $name || !$avatar->getSmallImage()) ? $avatar->getImage() : $avatar->getSmallImage();
         return $this->image_output($target, $name, $ext, "{$uid}-{$name}-{$ext}");
     }
 

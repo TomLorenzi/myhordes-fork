@@ -1,4 +1,5 @@
 parameters:
+  base_uri: https://myhordes.de
   local: []
   myhordes:
     nightly:
