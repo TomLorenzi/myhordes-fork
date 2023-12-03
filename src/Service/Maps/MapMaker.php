@@ -296,7 +296,7 @@ class MapMaker
             $total_zombies += $zone->getZombies();
             $killedZombies += ($zone->getInitialZombies() - $zone->getZombies());
 
-            $despair = (int)floor(max(0,( $zone->getInitialZombies() - $zone->getZombies() - 1 ) / 2));
+            $despair = (int)floor(max(0,( ($zone->getInitialZombies() - $zone->getZombies()) - 1 ) / 2));
             if (!isset($zone_db[$zone->getX()])) $zone_db[$zone->getX()] = [];
             $zone_db[$zone->getX()][$zone->getY()] = $zone->getZombies();
             $despair_db[$zone->getX()][$zone->getY()] = $despair;

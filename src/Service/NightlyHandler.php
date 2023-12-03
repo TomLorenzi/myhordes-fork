@@ -1368,7 +1368,7 @@ class NightlyHandler
         $this->log->debug('Spreading zombies ...');
         $this->map->dailyZombieSpawn($town);
 
-        if (!$town->findGazette( $town->getDay(), true )->getFireworksExplosion())
+        if ($town->findGazette( $town->getDay(), true )->getFireworksExplosion())
             // Kill zombies around the town (all at 1km, none beyond 10km)
             foreach ($town->getZones() as $zone) {
                 $km = $this->zone_handler->getZoneKm($zone);
