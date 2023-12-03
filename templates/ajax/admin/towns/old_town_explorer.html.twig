@@ -65,6 +65,9 @@
                                         <img alt="{{ 'Tot!'|trans({},'game') }}" src="{{ asset('build/images/professions/death.gif') }}" />
                                         <a class="link" href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">
                                             <b class="citizen-name">{{ citizen.name }}</b>
+                                            {% if citizen.alias and citizen.alias != citizen.user.name %}
+                                                <b class="citizen-name">[<i>{{ citizen.user.name }}</i>]</b>
+                                            {% endif %}
                                         </a>&nbsp;
                                     </div>
 
