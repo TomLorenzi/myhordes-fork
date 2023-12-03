@@ -8,12 +8,15 @@ use App\Entity\CitizenRole;
 use App\Entity\Item;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
+use App\Entity\Post;
 use App\Entity\RuinZone;
 use App\Entity\Town;
 use App\Entity\Zone;
 use App\Enum\EventStages\BuildingEffectStage;
 use App\Enum\EventStages\BuildingValueQuery;
 use App\Enum\ScavengingActionType;
+use App\Event\Common\Messages\Forum\ForumMessageNewPostEvent;
+use App\Event\Common\Messages\Forum\ForumMessageNewThreadEvent;
 use App\Event\Game\Actions\CustomActionProcessorEvent;
 use App\Event\Game\Citizen\CitizenPostDeathEvent;
 use App\Event\Game\Citizen\CitizenQueryDigChancesEvent;
@@ -35,6 +38,7 @@ use App\Event\Game\Town\Basic\Buildings\BuildingQueryTownRoleEnabledEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingUpgradePostAttackEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingUpgradePreAttackEvent;
 use App\Structures\FriendshipActionTarget;
+use App\Structures\HTMLParserInsight;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -176,5 +180,9 @@ class EventProxyService
         $message = $event->message;
         $remove = $event->remove;
         $execute_info_cache = $event->execute_info_cache;
+    }
+
+    public function forumNewPostEvent( Post $post, HTMLParserInsight $insight, bool $new_thread = false ): void {
+        $this->ed->dispatch( ($new_thread ? new ForumMessageNewThreadEvent() : new ForumMessageNewPostEvent())->setup( $post, $insight ) );
     }
 }

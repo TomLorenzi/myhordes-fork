@@ -2,7 +2,6 @@
 
 namespace App\Event;
 
-use App\Event\Game\GameEvent;
 use Symfony\Component\EventDispatcher\Debug\WrappedListener;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 
@@ -10,8 +9,8 @@ class SelectiveEventDispatcher extends EventDispatcher
 {
     public function callListeners(iterable $listeners, string $eventName, object $event): void
     {
-        // Implement our own logic for GameEvent types
-        if (is_a($event, GameEvent::class))
+        // Implement our own logic for Event types
+        if (is_a($event, Event::class))
             foreach ($listeners as $listener) {
                 // If we're getting a wrapped listener in the dev environment, it must be unwrapped first
                 $unwrapped = is_a($listener, WrappedListener::class) ? $listener->getWrappedListener() : $listener;

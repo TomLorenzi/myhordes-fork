@@ -3,7 +3,6 @@
 namespace App\Controller\Messages;
 
 use App\Annotations\GateKeeperProfile;
-use App\Command\Info\ResolveCommand;
 use App\Entity\AccountRestriction;
 use App\Entity\AdminDeletion;
 use App\Entity\AdminReport;
@@ -29,10 +28,10 @@ use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
 use App\Service\CrowService;
 use App\Service\ErrorHelper;
+use App\Service\EventProxyService;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\Locksmith;
-use App\Service\PictoHandler;
 use App\Service\RateLimitingFactoryProvider;
 use App\Structures\HTMLParserInsight;
 use DateTime;
@@ -277,26 +276,16 @@ class MessageForumController extends MessageController
         ] ));
     }
 
-    protected function should_notify( User $from, User $to, ?Town $town ): bool {
-        if ($from === $to) return false;
-        $setting = $to->getSetting( UserSetting::NotifyMeWhenMentioned );
-        switch ($setting) {
-            case 0: return false;                       // Never
-            case 1: if (!$town) return false; break;    // Only town
-            case 3: if ($town)  return false; break;    // Only global
-        }
-        if ($this->userHandler->checkRelation($to,$from,SocialRelation::SocialRelationTypeBlock)) return false;
-        return true;
-    }
-
     /**
      * @param int $id
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
+     * @param RateLimitingFactoryProvider $rateLimiter
+     * @param EventProxyService $proxy
      * @return Response
      */
     #[Route(path: 'api/forum/{id<\d+>}/post', name: 'forum_new_thread_controller')]
-    public function new_thread_api(int $id, JSONRequestParser $parser, EntityManagerInterface $em, RateLimitingFactoryProvider $rateLimiter, CrowService $crow): Response {
+    public function new_thread_api(int $id, JSONRequestParser $parser, EntityManagerInterface $em, RateLimitingFactoryProvider $rateLimiter, EventProxyService $proxy): Response {
 
         /** @var Forum $forum */
         $forum = $em->getRepository(Forum::class)->find($id);
@@ -389,15 +378,7 @@ class MessageForumController extends MessageController
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
-        $has_notif = false;
-        if (count($insight->taggedUsers) <= ($forum->getTown() ? 10 : 5) )
-            foreach ( $insight->taggedUsers as $tagged_user )
-                if ( $this->should_notify( $user, $tagged_user, $forum->getTown() ) && $this->perm->checkEffectivePermissions( $tagged_user, $forum, ForumUsagePermissions::PermissionReadThreads ) ) {
-                    $this->entity_manager->persist( $crow->createPM_mentionNotification( $tagged_user, $post ) );
-                    $has_notif = true;
-                }
-        if ($has_notif) try { $this->entity_manager->flush(); } catch (\Throwable) {}
-
+        $proxy->forumNewPostEvent( $post, $insight, new_thread: true );
         return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $id, 'tid' => $thread->getId()])] );
     }
 
@@ -499,11 +480,11 @@ class MessageForumController extends MessageController
      * @param int $tid
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
-     * @param PictoHandler $ph
+     * @param EventProxyService $proxy
      * @return Response
      */
     #[Route(path: 'api/forum/{fid<\d+>}/{tid<\d+>}/post', name: 'forum_new_post_controller')]
-    public function new_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, PictoHandler $ph, CrowService $crow): Response {
+    public function new_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, EventProxyService $proxy): Response {
         $user = $this->getUser();
 
         $thread = $em->getRepository(Thread::class)->find( $tid );
@@ -517,11 +498,9 @@ class MessageForumController extends MessageController
         if ($this->userHandler->isRestricted( $user, AccountRestriction::RestrictionForum ) || $this->isLimitedDuringAttack($forum))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
-        $mod_post = false;
         if (!$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionCreatePost )) {
-            if ($thread->hasReportedPosts(false) && $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) )
-                $mod_post = true;
-            else return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+            if (!($thread->hasReportedPosts(false) && $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) ))
+                return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
         }
 
         if (($thread->getLocked() || $thread->getHidden()) && !$this->perm->isPermitted($permissions, ForumUsagePermissions::PermissionModerate))
@@ -579,24 +558,6 @@ class MessageForumController extends MessageController
         if (!$insight->editable) $post->setEditingMode(Post::EditorLocked);
 
         $thread->addPost($post)->setLastPost( $post->getDate() );
-        if ($forum->getTown()) {
-            /** @var Citizen $current_citizen */
-            $current_citizen = $this->entity_manager->getRepository(Citizen::class)->findOneBy(['user' => $user, 'town' => $forum->getTown(), 'alive' => true]);
-            if ($current_citizen) {
-                // Give picto if the post is in the town forum
-                $ph->give_picto($current_citizen, 'r_forum_#00');
-            }
-        }
-
-        /** @var ForumThreadSubscription[] $subscriptions */
-        $subscriptions = $em->getRepository(ForumThreadSubscription::class)->matching(
-            (new Criteria())
-                ->andWhere( Criteria::expr()->neq('user', $user) )
-                ->andWhere( Criteria::expr()->eq('thread', $thread) )
-                ->andWhere( Criteria::expr()->lt('num', 10) )
-        );
-
-        foreach ($subscriptions as $s) $em->persist($s->setNum($s->getNum() + 1));
 
         try {
             $em->persist($thread);
@@ -608,14 +569,7 @@ class MessageForumController extends MessageController
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
-        $has_notif = false;
-        if (!$mod_post && count($insight->taggedUsers) <= ($forum->getTown() ? 10 : 5) )
-            foreach ( $insight->taggedUsers as $tagged_user )
-                if ( $this->should_notify( $user, $tagged_user, $forum->getTown() ) && $this->perm->checkEffectivePermissions( $tagged_user, $forum, ForumUsagePermissions::PermissionReadThreads ) ) {
-                    $this->entity_manager->persist( $crow->createPM_mentionNotification( $tagged_user, $post ) );
-                    $has_notif = true;
-                }
-        if ($has_notif) try { $this->entity_manager->flush(); } catch (\Throwable) {}
+        $proxy->forumNewPostEvent( $post, $insight );
 
         return AjaxResponse::success( true, ['url' =>
             $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])
@@ -1580,8 +1534,7 @@ class MessageForumController extends MessageController
                     return AjaxResponse::success();
                 }
                 catch (Exception $e) {
-                    throw $e;
-                    //return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+                    return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
                 }
 
             case 'undelete':
