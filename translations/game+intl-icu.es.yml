@@ -2447,7 +2447,7 @@ Seelenverwerter_f: Charlatana Profesional
 'Die Mauer_f': 'Defensora'
 Höllenwächter_f: Gran Guardiana
 Kerberos_f: Paladina
-'Die letzte Verteidigungslinie_f': 'Último escudero'
+'Die letzte Verteidigungslinie_f': 'Última escudera'
 'Du kommst hier NICHT durch!_f': '¡Usted no entra!'
 Hekatoncheir_f: Habitante insuperable
 'Holy F***ing Iceberg_f': '¡Maldita sea, un Iceberg!'
@@ -2474,62 +2474,62 @@ Wunder_f: Prodigio
 Volksheld_f: Heroína del pueblo
 Neo_f: Soy una leyenda
 'Erlöser der Menschheit_f': 'Salvadora de la humanidad'
-Außenweltlegende_f: Superhéroe
+Außenweltlegende_f: Superheroína
 'Messie der verlorenen Welt_f': 'Mesías del Mundo Perdido'
-'Mein Name ist Nobody_f': 'Mi nombre es ninguno'
+'Mein Name ist Nobody_f': 'Mi nombre es ninguna'
 'Ein Sternbild trägt meinen Namen_f': 'Una constelación lleva mi nombre'
 Abstauber_f: Rastrilladora del vertedero
-Müllkind_f: Recolector de basura
-'Autonomer Müll_f': 'Investigador ingenioso'
+Müllkind_f: Recolectora de basura
+'Autonomer Müll_f': 'Investigadora ingeniosa'
 'Freier Bürger_f': '¡Habitante libre!'
 'Alles für meinen Mund_f': 'Todo para mi boca'
 'Ich brauche niemanden_f': 'No necesito a nadie'
 'Unabhängiger Großeinsiedler_f': 'Gran Eremita independiente'
 'Che Guevara der Wüste_f': 'Che Guevara del Ultramundo'
 Maulheld_f: Cleptómana
-Lump_f: Bandido
+Lump_f: Bandida
 Schaumschläger_f: Pilla
 Dieb_f: Ratera
 Fantomas_f: Amante de lo ajeno
-'Ali Baba_f': 'Chorizo temible'
+'Ali Baba_f': 'Choriza temible'
 Meisterdieb_f: Caco
 Kleptomane_f: Saqueadora
 'Dein Haus ist mein Haus_f': 'Tu casa es mi casa'
 Ästhet_f: Coqueta
 Schaufenstergestalter_f: Habitante de buen gusto
 Innenarchitekt_f: Decoradora de interiores
-Möbelgourmet_f: Decorador con estilo
-'Ordnung muss sein!_f': 'Maestro de la estética'
+Möbelgourmet_f: Decoradora con estilo
+'Ordnung muss sein!_f': 'Maestra de la estética'
 'Ein schöneres Leben_f': 'El estilo es eterno...'
-'Großer E-KEA Katalog_f': 'Bienvenidos al palacio. '
+'Großer E-KEA Katalog_f': 'Bienvenidas al palacio. '
 Plünderer_f: Saqueadora
 Aasgeier_f: Buitre
-Hyäne_f: Carroñero
+Hyäne_f: Carroñera
 'Wegelagerer post mortem_f': 'Ladrona post-mortem'
-'Hungriger Schakal_f': 'Chacal'
+'Hungriger Schakal_f': 'Chacal hambrienta'
 'Kojote der kargen Steppen_f': 'Canalla'
 Fingerschmied_f: Rata Infame
-'Nein, das Ding fasse ich nicht an._f': 'Regador Ocasional'
+'Nein, das Ding fasse ich nicht an._f': 'Regadora Ocasional'
 Leichenhygieniker_f: '¿Un chorrito más señora?'
-'Ich liebe den Geruch von gewaschenen Leichen am Morgen._f': 'Amo el olor a Cadaver remojado por la mañana'
+'Ich liebe den Geruch von gewaschenen Leichen am Morgen._f': 'Amo el olor a Cadáver remojado por la mañana'
 Müllmann_f: Basurera
 'Erfahrener Müllmann_f': 'Lanzadora de cadáveres'
 Entsorgungsfachmann_f: Especialista en eliminación de residuos
 Maccabees-Vertreiber_f: Repelente de Macchabees
 'SM Anhänger_f': 'Adepta del SM'
 'SM Spezialist_f': 'Ama de la COSA'
-'Nenn mich Herrin_f': 'Aprietame las esposas'
+'Nenn mich Herrin_f': 'Apriétame las esposas'
 'Ich möchte dein Objekt sein._f': 'Quiero ser un objeto'
 Stadtmetzger_f: Amiga de los animales
-'Spezialität: Hundesteaks_f': 'Encargado de extinciones'
-'Miezi? Jaaaa, komm her..._f': 'Amenaza del mundo animal'
-'Fleisch ist mein Gemüse_f': 'Especialidad: Puré de gato'
-'Immer ein Auge offen_f': 'Un ojo abierto'
-'Mit offenen Augen schlafen? Kein Problem!_f': 'Dos ojos abiertos'
-'Immer alles im Blick_f': 'Largavista'
-Wachsam_f: Consciente
-Paranoid_f: Paranoico
-'Fels in der Brandung_f': 'La roca!'
+'Spezialität: Hundesteaks_f': 'Spezialität: Hundesteaks'
+'Miezi? Jaaaa, komm her..._f': 'Miezi? Jaaaa, komm her...'
+'Fleisch ist mein Gemüse_f': 'Fleisch ist mein Gemüse'
+'Immer ein Auge offen_f': 'Immer ein Auge offen'
+'Mit offenen Augen schlafen? Kein Problem!_f': 'Mit offenen Augen schlafen? Kein Problem!'
+'Immer alles im Blick_f': 'Immer alles im Blick'
+Wachsam_f: Wachsam
+Paranoid_f: Paranoica
+'Fels in der Brandung_f': 'Fels in der Brandung'
 'Großer Baumeister_f': 'Constructora idealista'
 'Großer Architekt_f': 'Constructora visionaria'
 Freimauer_f: Masona
