@@ -499,18 +499,22 @@ class AdminTownController extends AdminActionController
 	}
 
 	/**
-  * @param int $id The internal ID of the town
+  * @param Town $town
   * @return Response
   */
  #[Route(path: 'jx/admin/town/estimations/{id<\d+>}', name: 'admin_town_estimations')]
- public function town_explorer_estimations(int $id): Response {
-		/** @var Town $town */
-		$town = $this->entity_manager->getRepository(Town::class)->find($id);
-		if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
+ public function town_explorer_estimations(Town $town, EventProxyService $proxy): Response {
+        $maxAttacks = [];
+        foreach ($town->getZombieEstimations() as $estimation) {
+            $day = $estimation->getDay();
+            $alive_citizens = $town->getCitizens()->filter( fn(Citizen $c) => $c->getAlive() || $c->getDayOfDeath() >= $day )->count();
+            $maxAttacks[$day] = [ $alive_citizens, $proxy->queryTownParameter( $town, BuildingValueQuery::MaxActiveZombies, [$alive_citizens, $day] ) ];
+        }
 
 		return $this->render('ajax/admin/towns/explorer_estimations.html.twig', $this->addDefaultTwigArgs(null, array_merge([
 			'town' => $town,
 			'day' => $town->getDay(),
+            'active' => $maxAttacks,
 			'tab' => "estimations",
 		])));
 	}

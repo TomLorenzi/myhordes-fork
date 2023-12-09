@@ -9,14 +9,17 @@ class BuildingQueryTownParameterData
 
     /**
      * @param BuildingValueQuery $query
+     * @param mixed|null $arg
      * @return BuildingQueryTownParameterData
      * @noinspection PhpDocSignatureInspection
      */
-    public function setup( BuildingValueQuery $query ): void {
+    public function setup( BuildingValueQuery $query, mixed $arg = null ): void {
         $this->query = $query;
+        $this->arg = $arg;
     }
 
     public readonly BuildingValueQuery $query;
+    public readonly mixed $arg;
 
     public float|int $value = 0;
 }

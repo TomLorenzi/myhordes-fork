@@ -9,6 +9,7 @@
 			<div class="cell rw-2 rw-sm-12 padded">{{ 'Angriff'|trans({},'admin') }}</div>
 			<div class="cell rw-2 rw-sm-0 padded">{{ 'Bereich Min'|trans({},'admin') }}</div>
 			<div class="cell rw-2 rw-sm-0 padded">{{ 'Bereich Max'|trans({},'admin') }}</div>
+			<div class="cell rw-2 rw-sm-0 padded">{{ 'Max. Aktive Zombies'|trans({},'admin') }}</div>
 		</div>
 		{% for est in town.zombieEstimations %}
 			<div class="row {% if est.day == town.day %}bold{% endif %}">
@@ -19,6 +20,12 @@
 					<div class="padded cell rw-2 rw-sm-4">{{ est.zombies }}</div>
 					<div class="padded cell rw-2 rw-sm-4">{{ est.offsetMin }}%</div>
 					<div class="padded cell rw-2 rw-sm-4">{{ est.offsetMax }}%</div>
+					<div class="padded cell rw-2 rw-sm-4">
+                        {{ active[est.day][1] }}
+                        <div class="tooltip">
+                            {{ 'Bei {citizens} Bürgern in der Stadt'|trans({citizens: active[est.day][0]},'game') }}
+                        </div>
+                    </div>
 				{% endif %}
 			</div>
 		{% endfor %}

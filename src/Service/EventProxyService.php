@@ -155,8 +155,8 @@ class EventProxyService
 		return $event->nightwatchInfo;
 	}
 
-    public function queryTownParameter( Town $town, BuildingValueQuery $query ): float|int {
-        $this->ed->dispatch( $event = $this->ef->gameEvent( BuildingQueryTownParameterEvent::class, $town )->setup( $query ) );
+    public function queryTownParameter( Town $town, BuildingValueQuery $query, mixed $arg = null ): float|int {
+        $this->ed->dispatch( $event = $this->ef->gameEvent( BuildingQueryTownParameterEvent::class, $town )->setup( $query, $arg ) );
         return $event->value;
     }
 

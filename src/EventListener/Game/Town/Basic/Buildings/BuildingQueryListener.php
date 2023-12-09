@@ -4,6 +4,7 @@
 namespace App\EventListener\Game\Town\Basic\Buildings;
 
 use App\Entity\ItemPrototype;
+use App\Entity\Town;
 use App\Enum\EventStages\BuildingValueQuery;
 use App\Event\Game\Town\Basic\Buildings\BuildingCatapultItemTransformEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingQueryNightwatchDefenseBonusEvent;
@@ -76,6 +77,18 @@ final class BuildingQueryListener implements ServiceSubscriberInterface
             $event->defense = (int)floor( $event->defense * (1.0+$single) );
     }
 
+    private function calculateMaxActiveZombies(Town|int $town, int $day): int {
+        $targets = 0;
+        if (is_int($town))
+            $targets = $town;
+        else
+            foreach ($town->getCitizens() as $citizen)
+                if ($citizen->getAlive() && !$citizen->getZone())
+                    $targets++;
+
+        return round( $day * max(1.0, $day / 10) ) * $targets;
+    }
+
     public function onQueryTownParameter( BuildingQueryTownParameterEvent $event ): void {
         $event->value = match ($event->query) {
             BuildingValueQuery::GuardianDefenseBonus => $this->getService(TownHandler::class)->getBuilding($event->town, 'small_watchmen_#00', true) ? 10 : 5,
@@ -115,6 +128,9 @@ final class BuildingQueryListener implements ServiceSubscriberInterface
                 default => 0.25,
             },
             BuildingValueQuery::NightlyRedSoulPenalty => 0.04,
+            BuildingValueQuery::MaxActiveZombies => is_array($event->arg)
+                ? $this->calculateMaxActiveZombies(is_int( $event->arg[0] ?? null ) ? $event->arg[0] : $event->town, is_int( $event->arg[1] ?? null ) ? $event->arg[1] : $event->town->getDay() )
+                : $this->calculateMaxActiveZombies(is_int( $event->arg ) ? $event->arg : $event->town, $event->town->getDay() )
         };
     }
 

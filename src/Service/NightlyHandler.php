@@ -1009,20 +1009,11 @@ class NightlyHandler
 					
 		
         shuffle($targets);
-		
-        $attack_day = $town->getDay();
-		if ($attack_day <= 3) $max_active = round($zombies*0.5*mt_rand(90,140)/100); 
-		elseif ($attack_day <= 14) $max_active = $attack_day * 15;
-		elseif ($attack_day <= 18) $max_active = ($attack_day + 4)*15;
-		elseif ($attack_day <= 23) $max_active = ($attack_day + 5)*15;
-		else                       $max_active = ($attack_day + 6)*15;
-		
-		
-		//$in_town = $town->getChaos() ? max(10,count($targets)) : count($targets);
+
+        $max_active = $this->events->queryTownParameter( $town, BuildingValueQuery::MaxActiveZombies, count($targets) );
 		$in_town = min(10, ceil(count($targets) * 0.85));
 		
 		$attacking = min($max_active, $overflow);
-
 		$targets = $this->random->pick($targets, $in_town, true);
 
         $this->log->debug("<info>{$attacking}</info> Zombies are attacking <info>" . count($targets) . "</info> citizens!");
