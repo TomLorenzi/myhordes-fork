@@ -3,16 +3,12 @@
 
 namespace App\EventListener\Common\Social;
 
-use App\Entity\ForumUsagePermissions;
 use App\Enum\NotificationSubscriptionType;
 use App\Enum\UserSetting;
 use App\Event\Common\Social\FriendEvent;
 use App\EventListener\ContainerTypeTrait;
 use App\Messages\WebPush\WebPushMessage;
 use App\Service\CrowService;
-use App\Service\PermissionHandler;
-use App\Service\PictoHandler;
-use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
@@ -34,8 +30,6 @@ final class SocialEventListener implements ServiceSubscriberInterface
             MessageBusInterface::class,
             EntityManagerInterface::class,
             TranslatorInterface::class,
-            UserHandler::class,
-            PermissionHandler::class,
             CrowService::class,
         ];
     }
