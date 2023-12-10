@@ -24,8 +24,8 @@ use Zenstruck\ScheduleBundle\Attribute\AsScheduledTask;
     name: 'app:event:watchdog',
     description: 'Performs maintenance tasks on community events.'
 )]
-#[AsScheduledTask('12 0 * * *', arguments: '--create-towns', description: 'Create upcoming community event towns')]
-#[AsScheduledTask('18 0 * * *', arguments: '--auto-end', description: 'Conclude finished community events.')]
+#[AsScheduledTask('12 0 * * *', description: 'Create upcoming community event towns', arguments: '--create-towns')]
+#[AsScheduledTask('18 0 * * *', description: 'Conclude finished community events.', arguments: '--auto-end')]
 class WatchdogCommand extends Command
 {
 

@@ -24,17 +24,13 @@ use App\Service\ConfMaster;
 use App\Service\CrowService;
 use App\Service\GameEventService;
 use App\Service\GameFactory;
-use App\Service\GameProfilerService;
 use App\Service\GazetteService;
 use App\Service\Locksmith;
 use App\Service\NightlyHandler;
 use App\Service\Statistics\UserStatCollectionService;
 use App\Service\TownHandler;
 use App\Service\UserHandler;
-use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
-use App\Structures\TownConf;
-use App\Structures\TownSetup;
 use DateTime;
 use DateTimeImmutable;
 use DirectoryIterator;
@@ -75,7 +71,6 @@ class CronCommand extends Command implements SelfSchedulingCommand
     private CrowService $crowService;
     private CommandHelper $helper;
     private ParameterBagInterface $params;
-    private GameProfilerService $gps;
     private Environment $twig;
     private AdminHandler $adminHandler;
     private UserStatCollectionService $userStats;
@@ -88,7 +83,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
                                 EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator,
                                 ConfMaster $conf, AntiCheatService $acs, GameFactory $gf, UserHandler $uh, GazetteService $gs,
                                 TownHandler $th, CrowService $cs, CommandHelper $helper, ParameterBagInterface $params,
-                                GameProfilerService $gps, AdminHandler $adminHandler, UserStatCollectionService $us, GameEventService $gameEvents)
+                                AdminHandler $adminHandler, UserStatCollectionService $us, GameEventService $gameEvents)
     {
         $this->kernel = $kernel;
         $this->twig = $twig;
@@ -106,7 +101,6 @@ class CronCommand extends Command implements SelfSchedulingCommand
         $this->crowService = $cs;
         $this->helper = $helper;
         $this->params = $params;
-        $this->gps = $gps;
         $this->adminHandler = $adminHandler;
         $this->userStats = $us;
         $this->gameEvents = $gameEvents;
@@ -382,63 +376,6 @@ class CronCommand extends Command implements SelfSchedulingCommand
         return true;
     }
 
-    protected function module_ensure_towns(): bool {
-        // Let's check if there is enough opened town
-        $openTowns = $this->entityManager->getRepository(Town::class)->findOpenTown();
-
-        $count = [];
-        $langs = $this->conf->get( MyHordesConf::CONF_TOWNS_AUTO_LANG, [] );
-        foreach ($langs as $lang) $count[$lang] = [];
-        foreach ($openTowns as $openTown) {
-            if (!isset($count[$openTown->getLanguage()])) continue;
-            if (!isset($count[$openTown->getLanguage()][$openTown->getType()->getName()])) $count[$openTown->getLanguage()][$openTown->getType()->getName()] = 0;
-            $count[$openTown->getLanguage()][$openTown->getType()->getName()]++;
-        }
-
-        $minOpenTown = [
-            'small'  => $this->conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_SMALL, 1 ),
-            'remote' => $this->conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_REMOTE, 1 ),
-            'panda'  => $this->conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_PANDA, 1 ),
-            'custom' => $this->conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_CUSTOM, 0 ),
-        ];
-
-        $created_towns = false;
-        foreach ($langs as $lang)
-            foreach ($minOpenTown as $type => $min) {
-                $current = $count[$lang][$type] ?? 0;
-                while ($current < $min) {
-
-                    $current_events = $this->conf_master->getCurrentEvents();
-                    $name_changers = array_values(
-                        array_map( fn(EventConf $e) => $e->get( EventConf::EVENT_MUTATE_NAME ), array_filter($current_events,fn(EventConf $e) => $e->active() && $e->get( EventConf::EVENT_MUTATE_NAME )))
-                    );
-
-                    $this->entityManager->persist($newTown = $this->gameFactory->createTown(
-                        new TownSetup( $type, language: $lang, nameMutator: $name_changers[0] ?? null )
-                    ));
-                    $this->entityManager->flush();
-
-                    $this->gps->recordTownCreated( $newTown, null, 'cron' );
-                    $this->entityManager->flush();
-
-
-                    if (!empty(array_filter($current_events,fn(EventConf $e) => $e->active()))) {
-                        if (!$this->townHandler->updateCurrentEvents($newTown, $current_events))
-                            $this->entityManager->clear();
-                        else {
-                            $this->entityManager->persist($newTown);
-                            $this->entityManager->flush();
-                        }
-                    }
-
-                    $created_towns = true;
-                    $current++;
-                }
-            }
-
-        return $created_towns;
-    }
-
     protected function task_host(InputInterface $input, OutputInterface $output): int {
         // Host task
         $output->writeln( "MyHordes CronJob Interface", OutputInterface::VERBOSITY_VERBOSE );
@@ -454,9 +391,6 @@ class CronCommand extends Command implements SelfSchedulingCommand
 
         $clear_ran = $this->module_run_clear();
         $output->writeln( "Cleanup Crew: <info>" . ($clear_ran ? 'Complete' : 'Not scheduled') . "</info>", OutputInterface::VERBOSITY_VERBOSE );
-
-        $town_maker_ran = $this->module_ensure_towns();
-        $output->writeln( "Town creator: <info>" . ($town_maker_ran ? 'Complete' : 'Not scheduled') . "</info>", OutputInterface::VERBOSITY_VERBOSE );
 
         $event_notifier_ran = $this->module_event_notifications();
         $output->writeln( "Event notifications: <info>" . ($event_notifier_ran ? 'Complete' : 'Not scheduled') . "</info>", OutputInterface::VERBOSITY_VERBOSE );
