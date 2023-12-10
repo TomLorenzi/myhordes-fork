@@ -248,6 +248,7 @@ class LogDataService implements FixtureProcessorInterface {
 
             ['text'=>'{player} hat dich in einem Post unter "{threadname}" im Forum "{forumname}" erwähnt. {link_post}', 'name'=>'gpm_post_notification', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"user",'name'=>'player'],['type'=>"string",'name'=>'threadname'], ['type'=>"string",'name'=>'forumname'], ['type'=>"link_post",'name'=>'link_post'])],
             ['text'=>'{player} hat dich als "Freund" hinzugefügt.', 'name'=>'gpm_friend_notification', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"user",'name'=>'player'])],
+            ['text'=>'{player} hat deine Freundschaftserklärung erwidert.', 'name'=>'gpm_friend_reverse_notification', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"user",'name'=>'player'])],
         ]);
     }
 }

@@ -265,9 +265,9 @@ class CrowService {
      * @param User $receiver
      * @return GlobalPrivateMessage
      */
-    public function createPM_friendNotification(User $receiver, User $sender): GlobalPrivateMessage
+    public function createPM_friendNotification(User $receiver, User $sender, bool $revert = false): GlobalPrivateMessage
     {
-        $template = $this->em->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gpm_friend_notification']);
+        $template = $this->em->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $revert ? 'gpm_friend_reverse_notification' : 'gpm_friend_notification']);
 
         return (new GlobalPrivateMessage())
             ->setTemplate( $template )

@@ -48,6 +48,7 @@ use App\Service\ConfMaster;
 use App\Service\CrowService;
 use App\Service\ErrorHelper;
 use App\Service\EternalTwinHandler;
+use App\Service\EventProxyService;
 use App\Service\HookExecutor;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
@@ -1608,7 +1609,7 @@ class SoulController extends CustomAbstractController
      */
     #[Route(path: 'api/soul/friend/{action}', name: 'soul_friend_control')]
     #[GateKeeperProfile(allow_during_attack: true)]
-    public function api_friend_control(int $action, JSONRequestParser $parser) {
+    public function api_friend_control(int $action, JSONRequestParser $parser, EventProxyService $proxy) {
         if ($action !== 0 && $action !== 1) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $id = $parser->get("id");
@@ -1620,6 +1621,9 @@ class SoulController extends CustomAbstractController
         if ($action && $this->user_handler->checkRelation($this->getUser(), $user,SocialRelation::SocialRelationTypeBlock, true))
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
+        if ($action && $this->getUser()->getFriends()->contains( $user )) return AjaxResponse::success();
+        if (!$action && !$this->getUser()->getFriends()->contains( $user )) return AjaxResponse::success();
+
         if ($action) {
             $this->getUser()->addFriend($user);
             $ignoreRelation = $this->entity_manager->getRepository( SocialRelation::class )->findOneBy( ['owner' => $this->getUser(), 'related' => $user, 'type' => SocialRelation::SocialRelationTypeNotInterested ] );
@@ -1629,6 +1633,8 @@ class SoulController extends CustomAbstractController
 
         $this->entity_manager->persist($this->getUser());
         $this->entity_manager->flush();
+
+        $proxy->friendListUpdatedEvent( $this->getUser(), $user, !!$action );
 
         if ($action && $user->getSetting( UserSetting::NotifyMeOnFriendRequest )) {
             $this->entity_manager->persist( $this->crow->createPM_friendNotification( $user, $this->getUser() ) );
