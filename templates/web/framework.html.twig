@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html prefix="og: http://ogp.me/ns#" lang="{{ app.request.locale|e('html_attr') }}" class="lang-base-{{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}" x-ajax-landing="{{ ajax_landing }}" data-ticket="{{ ticket }}" data-service-worker="{{ asset('build/service.js') }}" data-vapid-key="{{ bentools_webpush.server_key }}">
+<html prefix="og: http://ogp.me/ns#" lang="{{ app.request.locale|e('html_attr') }}" class="lang-base-{{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}" x-ajax-landing="{{ ajax_landing }}" data-ticket="{{ ticket }}" data-service-worker="{{ absolute_url(asset('service/service.js', 'service-package')) }}" data-vapid-key="{{ bentools_webpush.server_key }}">
 <head>
     {% block html_head %}
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>

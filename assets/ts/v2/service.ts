@@ -1,3 +1,5 @@
+import Console from "./debug";
+
 const scope = (self as unknown as ServiceWorkerGlobalScope);
 
 let pushSubscriptionOptions: PushSubscriptionOptionsInit = {
@@ -7,7 +9,7 @@ let pushSubscriptionOptions: PushSubscriptionOptionsInit = {
 let pushSubscription: PushSubscription = null;
 
 function respond( event: ExtendableMessageEvent, payload: any ) {
-    console.log('responding to', event, 'with', payload)
+    Console.log('Responding to', event, 'with', payload)
     event.source.postMessage({
         request: 'response',
         to: event.data.to,
@@ -29,7 +31,7 @@ scope.addEventListener('push', (e) => {
 })
 
 scope.addEventListener('message', e => {
-    console.log(e);
+    Console.log('From client', e.data);
     switch (e.data.request) {
         // Respond to "ping" with "pong"
         case 'ping':
@@ -50,7 +52,7 @@ scope.addEventListener('message', e => {
                 scope.registration.pushManager.subscribe(pushSubscriptionOptions)
                     .then(s => respond(e, pushSubscription = s))
                     .catch(error => {
-                        console.error(error);
+                        Console.error(error);
                         respond(e, null)
                     });
             }

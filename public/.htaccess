@@ -48,11 +48,6 @@ DirectoryIndex index.php
     RewriteCond %{ENV:REDIRECT_STATUS} =""
     RewriteRule ^index\.php(?:/(.*)|$) %{ENV:BASE}/$1 [R=301,L]
 
-    # Check if maintenance mode is active
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{CONTEXT_DOCUMENT_ROOT}/maintenance/.active -f
-    RewriteRule ^ %{ENV:BASE}/maintenance/offline.php [L]
-
     # If the requested filename exists, simply serve it.
     # We only want to let Apache serve files and not directories.
     # Rewrite all other queries to the front controller.
