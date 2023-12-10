@@ -20,6 +20,7 @@ use App\Entity\UserGroupAssociation;
 use App\Response\AjaxResponse;
 use App\Service\CrowService;
 use App\Service\ErrorHelper;
+use App\Service\EventProxyService;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
 use App\Service\PermissionHandler;
@@ -1167,10 +1168,11 @@ class MessageGlobalPMController extends MessageController
      * @param EntityManagerInterface $em
      * @param UserHandler $userHandler
      * @param PermissionHandler $perm
+     * @param EventProxyService $proxy
      * @return Response
      */
     #[Route(path: 'api/pm/post', name: 'pm_new_thread_controller')]
-    public function new_thread_api(JSONRequestParser $parser, EntityManagerInterface $em, UserHandler $userHandler, PermissionHandler $perm): Response {
+    public function new_thread_api(JSONRequestParser $parser, EntityManagerInterface $em, UserHandler $userHandler, PermissionHandler $perm, EventProxyService $proxy): Response {
 
         $user = $this->getUser();
         if ($this->userHandler->isRestricted( $user, AccountRestriction::RestrictionGlobalCommunication ))
@@ -1196,7 +1198,7 @@ class MessageGlobalPMController extends MessageController
                     $official_group = $this->entity_manager->getRepository(OfficialGroup::class)->find( (int)$id );
                     if (!$official_group || !$this->perm->userInGroup($user, $official_group->getUsergroup()))
                         return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-                    return $this->new_og_thread_api($parser,$em,$perm,(int)$id,$users);
+                    return $this->new_og_thread_api($parser,$em,$perm,$proxy,(int)$id,$users);
             }
         }
 
@@ -1262,6 +1264,8 @@ class MessageGlobalPMController extends MessageController
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
+        $proxy->globalPrivateMessageNewPostEvent( $post, $insight, true );
+
         if (!empty($blocked_users)) {
             if (count($blocked_users) === 1)
                 $this->addFlash('error', $this->translator->trans('{user} hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.',['{user}' => $blocked_users[0]->getName()],'global'));
@@ -1278,12 +1282,13 @@ class MessageGlobalPMController extends MessageController
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
      * @param PermissionHandler $perm
+     * @param EventProxyService $proxy
      * @param int|null $overwrite_og
      * @param User[]|null $overwrite_user
      * @return Response
      */
     #[Route(path: 'api/pm/og_post', name: 'pm_new_og_thread_controller')]
-    public function new_og_thread_api(JSONRequestParser $parser, EntityManagerInterface $em, PermissionHandler $perm, ?int $overwrite_og = null, ?array $overwrite_user = null): Response {
+    public function new_og_thread_api(JSONRequestParser $parser, EntityManagerInterface $em, PermissionHandler $perm, EventProxyService $proxy, ?int $overwrite_og = null, ?array $overwrite_user = null): Response {
         if (!$parser->has_all(['title','content'], true) || ( !$parser->has('og') && !$overwrite_og ))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
@@ -1334,6 +1339,8 @@ class MessageGlobalPMController extends MessageController
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException );
         }
 
+        $proxy->globalPrivateMessageNewPostEvent( $post, $insight, true );
+
         return AjaxResponse::success( true , ['url' => $this->generateUrl('pm_view')] );
     }
 
@@ -1342,11 +1349,10 @@ class MessageGlobalPMController extends MessageController
      * @param int $id
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
-     * @param UserHandler $userHandler
      * @return Response
      */
     #[Route(path: 'api/pm/{id<\d+>}/answer', name: 'pm_new_post_controller')]
-    public function new_post_api(int $id, JSONRequestParser $parser, EntityManagerInterface $em, UserHandler $userHandler): Response {
+    public function new_post_api(int $id, JSONRequestParser $parser, EntityManagerInterface $em, EventProxyService $proxy): Response {
 
         $user = $this->getUser();
 
@@ -1405,6 +1411,8 @@ class MessageGlobalPMController extends MessageController
         } catch (\Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
+
+        $proxy->globalPrivateMessageNewPostEvent( $post, $insight, false );
 
         return AjaxResponse::success( true , ['url' => $this->generateUrl('pm_view')] );
     }

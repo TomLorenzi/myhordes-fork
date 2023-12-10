@@ -17,6 +17,7 @@ enum UserSetting: string {
     case LimitTownListSize              = 'limit-town-lists';
     case NotifyMeWhenMentioned          = 'notify-on-mention-mode';
     case NotifyMeOnFriendRequest        = 'notify-on-friend-request';
+    case NotifyMeOnPM                   = 'notify-on-pm';
     case ReorderActionButtonsBeyond     = 'reorder-action-buttons-beyond';
     case ReorderTownLocationButtons     = 'reorder-location-buttons-town';
     case DistinctionTop3     = 'distinctions-top-3';
@@ -53,6 +54,7 @@ enum UserSetting: string {
             UserSetting::LimitTownListSize             => true,
             UserSetting::NotifyMeWhenMentioned         => 0, // 0 = Disabled, 1 = Towns Only, 2 = Everywhere, 3 = Global Only
             UserSetting::NotifyMeOnFriendRequest       => true,
+            UserSetting::NotifyMeOnPM                  => true,
             UserSetting::ReorderActionButtonsBeyond    => false,
             UserSetting::ReorderTownLocationButtons    => true,
             UserSetting::DistinctionTop3               => [null,null,null],

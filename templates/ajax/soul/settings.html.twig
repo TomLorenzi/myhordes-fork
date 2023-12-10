@@ -634,6 +634,11 @@
                                     {{help_btn('Zum Schutz vor Spam wirst du unabhängig von dieser Einstellung keine Benachrichtigung erhalten, wenn in einem Post mehr als 5 Spieler (10 in Stadtforen) markiert sind.'|trans({}, 'soul'))}}
                                 </div>
                             </div>
+                            <div class="padded cell rw-12">
+                                <div class="note note-lightest">
+                                    <input x-setting {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeOnPM") ) %}checked{% endif%} type="checkbox" id="setting_notify_on_pm">&nbsp;<label for="setting_notify_on_pm">{{'Push-Benachrichrichtigung über neue private Nachrichten erhalten'|trans({}, 'soul')}}</label>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="cell rw-12">
@@ -955,6 +960,7 @@
                     town10: document.getElementById('setting_limit_town_size').checked,
                     notify: document.getElementById('setting_notify_on_mention').value,
                     notifyFriend: document.getElementById('setting_notify_on_friend').checked,
+                    notifyPM: document.getElementById('setting_notify_on_pm').checked,
                     beyondAltLayout: document.getElementById('setting_reorder-action-buttons-beyond').checked,
                     townAltLayout: document.getElementById('setting_reorder-location-buttons-town').checked,
                     privateForumsOnTop: document.getElementById('setting_private-forums-on-top').checked,

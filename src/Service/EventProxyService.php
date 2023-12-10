@@ -5,6 +5,7 @@ namespace App\Service;
 use App\Entity\Building;
 use App\Entity\Citizen;
 use App\Entity\CitizenRole;
+use App\Entity\GlobalPrivateMessage;
 use App\Entity\Item;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
@@ -18,6 +19,8 @@ use App\Enum\EventStages\BuildingValueQuery;
 use App\Enum\ScavengingActionType;
 use App\Event\Common\Messages\Forum\ForumMessageNewPostEvent;
 use App\Event\Common\Messages\Forum\ForumMessageNewThreadEvent;
+use App\Event\Common\Messages\GlobalPrivateMessage\GPMessageNewPostEvent;
+use App\Event\Common\Messages\GlobalPrivateMessage\GPMessageNewThreadEvent;
 use App\Event\Common\Social\FriendEvent;
 use App\Event\Game\Actions\CustomActionProcessorEvent;
 use App\Event\Game\Citizen\CitizenPostDeathEvent;
@@ -186,6 +189,10 @@ class EventProxyService
 
     public function forumNewPostEvent( Post $post, HTMLParserInsight $insight, bool $new_thread = false ): void {
         $this->ed->dispatch( ($new_thread ? new ForumMessageNewThreadEvent() : new ForumMessageNewPostEvent())->setup( $post, $insight ) );
+    }
+
+    public function globalPrivateMessageNewPostEvent( GlobalPrivateMessage $post, HTMLParserInsight $insight, bool $new_thread = false ): void {
+        $this->ed->dispatch( ($new_thread ? new GPMessageNewThreadEvent() : new GPMessageNewPostEvent())->setup( $post, $insight ) );
     }
 
     public function friendListUpdatedEvent( User $actor, User $subject, bool $added ): void {

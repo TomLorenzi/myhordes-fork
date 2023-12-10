@@ -1063,6 +1063,7 @@ class SoulController extends CustomAbstractController
         $user->setSetting( UserSetting::LimitTownListSize, (bool)$parser->get('town10', true) );
         $user->setSetting( UserSetting::NotifyMeWhenMentioned, (int)$parser->get('notify', 0) );
         $user->setSetting( UserSetting::NotifyMeOnFriendRequest, (bool)$parser->get('notifyFriend', true) );
+        $user->setSetting( UserSetting::NotifyMeOnPM, (bool)$parser->get('notifyPM', true) );
         $user->setSetting( UserSetting::ReorderActionButtonsBeyond, (bool)$parser->get('beyondAltLayout', false) );
         $user->setSetting( UserSetting::ReorderTownLocationButtons, (bool)$parser->get('townAltLayout', true) );
         $user->setSetting( UserSetting::PrivateForumsOnTop, (bool)$parser->get('privateForumsOnTop', true) );
