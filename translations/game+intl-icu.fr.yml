@@ -2550,7 +2550,7 @@ Terraformingspezialist_f: Spécialiste en terraformation
 'Meister der Nutzlosigkeit_f': 'Maîtresse de l''inutilité'
 'Vereister Ingenieur_f': 'Ingénieure complètement givrée'
 'Wundervoll nutzlos_f': 'Merveilleusement futile'
-'Der Bruce Lee des Spachtels_f': 'Le Bruce Lee de la truelle'
+'Der Bruce Lee des Spachtels_f': 'La Cynthia Rothrock de la truelle'
 'Es ist Zeit für Kathedralen_f': 'Il est venu le temps des cathédrales'
 'Hast du nichts besseres zu tun?_f': 'Z''avez pas mieux à faire ?'
 'Hohepriesterin des Sonnentempels_f': 'Grande prêtresse du temple du soleil'
@@ -2624,7 +2624,7 @@ Techniker_f: Technicienne
 'Super Soaker_f': 'Pistolereau'
 Wasserwaffen-Spezialist_f: Spécialiste en pistolets à eau
 Hydraulik-Engineering_f: Ingénierie hydraulique
-'Abstieg der Atlanteaner_f': 'Descendant des atlantes'
+'Abstieg der Atlanteaner_f': 'Descendante des atlantes'
 Archäologielehrling_f: Forçate du désert
 Archäologe_f: Ouvrière des sables
 Grabungsleiter_f: Découvreuse de bâtiments
@@ -2935,4 +2935,4 @@ Sandkasten-Scharfschütze_f: Snipeuse des bacs à sable
 'Es scheint, dass alle guten Verstecke bereits von deinen "Freunden" besetzt sind. Du musst also einen anderen Ort finden oder improvisieren...': 'Il semblerait que toutes les bonnes planques soient déjà occupées. Il va falloir trouver un autre endroit, ou improviser…'
 'Entfernung von hier': 'Distance depuis ici'
 'Entfernung zur Stadt': 'Distance de la ville'
-'Bei {citizens} Bürgern in der Stadt': 'Bei {citizens} Bürgern in der Stadt'
+'Bei {citizens} Bürgern in der Stadt': 'Avec {citizens} citoyens dans la ville'
