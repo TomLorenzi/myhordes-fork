@@ -1011,7 +1011,7 @@ class NightlyHandler
         shuffle($targets);
 
         $max_active = $this->events->queryTownParameter( $town, BuildingValueQuery::MaxActiveZombies, count($targets) );
-		$in_town = min(10, ceil(count($targets) * 0.85));
+		$in_town = min(10, ceil(count($targets) * 1.0));
 		
 		$attacking = min($max_active, $overflow);
 		$targets = $this->random->pick($targets, $in_town, true);
