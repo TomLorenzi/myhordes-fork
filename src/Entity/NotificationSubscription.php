@@ -47,6 +47,9 @@ class NotificationSubscription implements UserSubscriptionInterface
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
+    #[ORM\Column]
+    private bool $expired = false;
+
     public function getId(): ?Uuid
     {
         return $this->id;
@@ -162,5 +165,17 @@ class NotificationSubscription implements UserSubscriptionInterface
             NotificationSubscriptionType::WebPush => md5( $this->getEndpoint() ),
             default => ''
         };
+    }
+
+    public function isExpired(): bool
+    {
+        return $this->expired;
+    }
+
+    public function setExpired(bool $expired): static
+    {
+        $this->expired = $expired;
+
+        return $this;
     }
 }

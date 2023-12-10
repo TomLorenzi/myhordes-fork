@@ -8848,6 +8848,7 @@ __metadata:
     swagger-ui: "npm:5.10.3"
     ts-loader: "npm:9.5.1"
     typescript: "npm:5.3.2"
+    ua-parser-js: "npm:1.0.37"
     webpack: "npm:5.89.0"
     webpack-cli: "npm:5.1.4"
     webpack-notifier: "npm:1.15.0"
@@ -10104,6 +10105,13 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 73c8bad74e732d93211c9d77f28b03307e2f5fc6a0afc73f4b783261ab567686a16d6ae958bdaef383a00be1b0b8c8b6741dd6ca3d13af4963fa7e47456d49c7
+  languageName: node
+  linkType: hard
+
+"ua-parser-js@npm:1.0.37":
+  version: 1.0.37
+  resolution: "ua-parser-js@npm:1.0.37"
+  checksum: dac8cf82a55b2e097bd2286954e01454c4cfcf23c9d9b56961ce94bda3cec5a38ca536e6e84c20a4000a9d4b4a4abcbd98ec634ccebe21be36595ea3069126e4
   languageName: node
   linkType: hard
 

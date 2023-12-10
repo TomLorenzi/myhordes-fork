@@ -40,8 +40,32 @@ class NotificationManagerController extends AbstractController
         return new JsonResponse([
             'strings' => [
                 'common' => [
-
+                    'infoText1' => $trans->trans('Wenn du möchtest, kannst du auch dann Benachrichtigungen auf deinen Computer oder Smartphone bekommen, wenn du gerade nicht auf MyHordes unterwegs bist. So bist du immer auf dem neusten Stand und kannst keine wichtigen Meldungen mehr verpassen!', [], 'global'),
+                    'infoText2' => $trans->trans('Um diese Funktion zu verwenden, musst du MyHordes die Erlaubnis geben, dir Benachrichtigungen auf dein Gerät zu schicken. Klicke auf "Benachrichtigungen auf diesem Gerät erhalten" und bestätige die Sicherheitsabfrage deines Browsers, um diese Funktion zu aktivieren.', [], 'global'),
+                    'infoText3' => $trans->trans('Wenn du keine weiteren Benachrichtigungen erhalten möchtest, kannst du diese Funktion jederzeit vollständig oder für einzelne Geräte deaktivieren.', [], 'global'),
+                    'unsupported' => $trans->trans('Dieses Gerät unterstützt keine Push-Benachrichtigungen.', [], 'global')
                 ],
+                'actions' => [
+                    'add' => $trans->trans('Benachrichtigungen auf diesem Gerät erhalten', [], 'global'),
+                    'registered' => $trans->trans('Dieses Gerät ist jetzt registriert und kann von MyHordes Benachrichtigungen empfangen.', [], 'global'),
+                    'removed' => $trans->trans('Gerät erfolgreich entfernt. Du wirst nun keine weiteren Benachrichtigungen auf diesem Gerät erhalten.', [], 'global'),
+                    'edit' => $trans->trans('Bitte gib eine neue Beschreibung für dieses Gerät ein.', [], 'global'),
+                    'test_ok' => $trans->trans('Die Nachricht wurde erfolgreich übermittelt und sollte in Kürze auf dem entsprechenden Gerät erscheinen.', [], 'global'),
+                    'test_expired' => $trans->trans('Es sieht so aus als ob MyHordes keine Berechtigung mehr hat, Nachrichten an dieses Gerät zu senden. Möglicherweise musst du dieses Gerät entfernen und die Einrichtung darauf erneut ausführen.', [], 'global'),
+                    'test_error' => $trans->trans('Beim Senden der Nachricht ist ein Fehler aufgetreten. Fehlercode: {code}.', [], 'global'),
+                ],
+                'table' => [
+                    'none' => $trans->trans('Es sind keine Empfänger für Benachrichtigungen registriert.', [], 'global'),
+                    'device' => $trans->trans('Gerät', [], 'global'),
+                    'edit' => $trans->trans('Beschreibung bearbeiten', [], 'global'),
+                    'edit_icon' => $assets->getUrl('build/images/forum/edit.png'),
+                    'remove' => $trans->trans('Gerät entfernen', [], 'global'),
+                    'remove_icon' => $assets->getUrl('build/images/icons/small_trash_red.png'),
+                    'test' => $trans->trans('Testnachricht senden', [], 'global'),
+                    'test_icon' => $assets->getUrl('build/images/icons/small_talk.gif'),
+                    'expired' => $trans->trans('Berechtigung zurückgezogen!', [], 'global'),
+                    'expired_icon' => $assets->getUrl('build/images/icons/warning_anim.gif'),
+                ]
             ]
         ]);
     }
@@ -50,7 +74,8 @@ class NotificationManagerController extends AbstractController
         return [
             'id' => $subscription->getId(),
             'hash' => $subscription->getSubscriptionHash(),
-            'desc' => $subscription->getDescription()
+            'desc' => $subscription->getDescription(),
+            'expired' => $subscription->isExpired(),
         ];
     }
 
@@ -70,7 +95,7 @@ class NotificationManagerController extends AbstractController
     #[Route(path: '/webpush', name: 'put_webpush', defaults: ['type' => NotificationSubscriptionType::WebPush->value], methods: ['PUT'])]
     public function put(NotificationSubscriptionType $type, EntityManagerInterface $em, JSONRequestParser $parser, ValidatorInterface $validator): JsonResponse {
 
-        $desc = $parser->get('desc');
+        $desc = $parser->trimmed('desc', '' ) ?: 'WebPush';
         $payload = $parser->get_array('payload');
 
         $valid = match ($type) {
@@ -121,6 +146,21 @@ class NotificationManagerController extends AbstractController
         return new JsonResponse(['subscription' => $this->renderNotifications( $subscription )]);
     }
 
+    #[Route(path: '/webpush/{id}', name: 'edit_webpush', defaults: ['type' => NotificationSubscriptionType::WebPush->value], methods: ['PATCH'])]
+    public function edit(NotificationSubscriptionType $type, NotificationSubscription $subscription, JSONRequestParser $parser, EntityManagerInterface $em): JsonResponse {
+
+        if ($subscription->getType() !== $type || $subscription->getUser() !== $this->getUser())
+            return new JsonResponse(status: Response::HTTP_NOT_FOUND);
+
+        $desc = $parser->trimmed('desc', '' );
+        if (!$desc) return new JsonResponse(status: Response::HTTP_BAD_REQUEST);
+
+        $em->persist( $subscription->setDescription( mb_substr($desc, 0, 160) ) );
+        $em->flush();
+
+        return new JsonResponse(['subscription' => $this->renderNotifications( $subscription )]);
+    }
+
     #[Route(path: '/webpush/{id}', name: 'delete_webpush', defaults: ['type' => NotificationSubscriptionType::WebPush->value], methods: ['DELETE'])]
     public function delete(NotificationSubscriptionType $type, EntityManagerInterface $em, NotificationSubscription $subscription): JsonResponse {
 
@@ -135,13 +175,13 @@ class NotificationManagerController extends AbstractController
     }
 
     #[Route(path: '/webpush/{id}/test', name: 'test_webpush', defaults: ['type' => NotificationSubscriptionType::WebPush->value], methods: ['POST'])]
-    public function test(NotificationSubscriptionType $type, NotificationSubscription $subscription, PushMessageSender $sender): JsonResponse {
+    public function test(NotificationSubscriptionType $type, NotificationSubscription $subscription, PushMessageSender $sender, TranslatorInterface $trans): JsonResponse {
 
         if ($subscription->getType() !== $type || $subscription->getUser() !== $this->getUser())
             return new JsonResponse(status: Response::HTTP_NOT_FOUND);
 
-        $notification = new PushNotification('Test message!', [
-            PushNotification::BODY => 'This is a test message.'
+        $notification = new PushNotification($trans->trans('Testbenachrichtiung', [], 'global'), [
+            PushNotification::BODY => $trans->trans('Hallo! Ich bin eine Testbenachrichtigung von MyHordes.', [], 'global')
         ]);
 
         $response = null;

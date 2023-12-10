@@ -1163,9 +1163,11 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         return $this->notificationSubscriptions;
     }
 
-    public function getNotificationSubscriptionsFor(NotificationSubscriptionType $type): Collection
+    public function getNotificationSubscriptionsFor(NotificationSubscriptionType $type, bool $include_expired = false): Collection
     {
-        return $this->notificationSubscriptions->matching( (new Criteria())->andWhere( new Comparison( 'type', Comparison::EQ, $type ) ) );
+        $criteria = (new Criteria())->andWhere( new Comparison( 'type', Comparison::EQ, $type ) );
+        if (!$include_expired) $criteria->andWhere( new Comparison( 'expired', Comparison::EQ, false ) );
+        return $this->notificationSubscriptions->matching( $criteria );
     }
 
     public function addNotificationSubscription(NotificationSubscription $notificationSubscription): static

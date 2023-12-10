@@ -52,10 +52,21 @@ readonly class WebPushMessageHandler
         // Only process WebPush subscriptions
         if ($subscription?->getType() !== NotificationSubscriptionType::WebPush) return;
 
+        // We do not process expired subscriptions
+        if ($subscription->isExpired()) return;
+
         // Push notification to subscriber service
-        $this->sender->push(
+        $response = null;
+        $responses = $this->sender->push(
             (new PushNotification("MyHordes: {$message->title}", $this->buildPayload( $message )))->createMessage(),
             [$subscription]
         );
+        foreach ($responses as $r) $response = $r;
+
+        // If the subscription is expired, blacklist it
+        if ($response?->isExpired()) {
+            $this->em->persist( $subscription->setExpired( true ) );
+            $this->em->flush();
+        }
     }
 }

@@ -23,6 +23,7 @@ export type NotificationSubscription = {
     id: string,
     hash: string,
     desc: string|null,
+    expired: boolean
 }
 
 export class NotificationManagerAPI {
@@ -54,6 +55,11 @@ export class NotificationManagerAPI {
                 console.error(e);
                 return false;
             });
+    }
+
+    public edit( type: string, id: string, desc: string ): Promise<ResponseSingle> {
+        return this.fetch.from(`/${type}/${id}`)
+            .request().patch({desc}) as Promise<ResponseSingle>;
     }
 
     public test( type: string, id: string ): Promise<ResponseTest> {
