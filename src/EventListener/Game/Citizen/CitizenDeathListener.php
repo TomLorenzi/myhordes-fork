@@ -11,6 +11,7 @@ use App\Service\ItemFactory;
 use App\Service\RandomGenerator;
 use App\Structures\Math;
 use App\Structures\TownConf;
+use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Contracts\Service\ServiceSubscriberInterface;
@@ -29,7 +30,8 @@ final class CitizenDeathListener implements ServiceSubscriberInterface
         return [
             InventoryHandler::class,
             ItemFactory::class,
-            RandomGenerator::class
+            RandomGenerator::class,
+            EntityManagerInterface::class
         ];
     }
 
@@ -43,7 +45,7 @@ final class CitizenDeathListener implements ServiceSubscriberInterface
             $soulItem = $this->getService(ItemFactory::class)->createItem( "soul_blue_#00");
             $soulItem->setFirstPick(true);
             $this->getService(InventoryHandler::class)->forceMoveItem($spawnZone->getFloor(), $soulItem);
-            $spawnZone->setSoulPositionOffset( mt_rand(0,3) );
+            $this->getService(EntityManagerInterface::class)->persist( $spawnZone->setSoulPositionOffset( mt_rand(0,3) ) );
         }
     }
 
