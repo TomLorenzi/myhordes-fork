@@ -1504,7 +1504,7 @@ class ActionHandler
         }
 
         if ($spread_poison->poisoned())
-            $item->setPoison($spread_poison->mix( $spread_poison ));
+            $item?->setPoison($spread_poison->mix( $spread_poison ));
 
         if ($kill_by_poison && $citizen->getAlive()) {
             $this->death_handler->kill( $citizen, CauseOfDeath::Poison, $r );
