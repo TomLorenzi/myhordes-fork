@@ -86,7 +86,7 @@ final class BuildingQueryListener implements ServiceSubscriberInterface
                 if ($citizen->getAlive() && !$citizen->getZone())
                     $targets++;
 
-        return round( $day * max(1.0, $day / 10) ) * $targets;
+        return round( $day * max(1.0, $day / 10) ) * max(15, $targets);
     }
 
     public function onQueryTownParameter( BuildingQueryTownParameterEvent $event ): void {
