@@ -493,7 +493,6 @@ class TownHandler
 		$redsouls = $this->get_red_soul_count($town);
 		$red_soul_penality = $this->proxy->queryTownParameter( $town, BuildingValueQuery::NightlyRedSoulPenalty );
 		$soulFactor = min(1 + ($red_soul_penality * $redsouls), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
-		dump("We have $redsouls red souls, the penalty is $red_soul_penality, the global factor is $soulFactor");
         $min = round($min * $soulFactor);
         $max = round($max * $soulFactor);
 
