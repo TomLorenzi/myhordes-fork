@@ -2,12 +2,12 @@
 
 namespace App\Event\Game\Items;
 
-use App\Event\Game\GameEvent;
+use App\Event\Game\GameInteractionEvent;
 
 /**
  * @property-read TransferItemData $data
  * @mixin TransferItemData
  */
-class TransferItemEvent extends GameEvent {
+class TransferItemEvent extends GameInteractionEvent {
     protected static function configuration(): string { return TransferItemData::class; }
 }

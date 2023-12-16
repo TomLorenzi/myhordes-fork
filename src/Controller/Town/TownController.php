@@ -72,8 +72,8 @@ use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
-use Psr\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -792,7 +792,7 @@ class TownController extends InventoryAwareController
      * @return Response
      */
     #[Route(path: 'api/town/visit/{id}/item', name: 'town_visit_item_controller')]
-    public function item_visit_api(int $id, JSONRequestParser $parser, EntityManagerInterface $em): Response {
+    public function item_visit_api(int $id, JSONRequestParser $parser, EntityManagerInterface $em, EventFactory $ef, EventDispatcherInterface $ed): Response {
         if ($id === $this->getActiveCitizen()->getId())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
@@ -813,7 +813,7 @@ class TownController extends InventoryAwareController
 
         $up_inv   = ($direction === 'down' || $c->getAlive()) ? $ac->getInventory() : $ac->getHome()->getChest();
         $down_inv = $c->getHome()->getChest();
-        return $this->generic_item_api( $up_inv, $down_inv, false, $parser);
+        return $this->generic_item_api( $up_inv, $down_inv, false, $parser, $ef, $ed);
     }
 
     /**
@@ -895,7 +895,7 @@ class TownController extends InventoryAwareController
      * @return Response
      */
     #[Route(path: 'api/town/bank/item', name: 'town_bank_item_controller')]
-    public function item_bank_api(JSONRequestParser $parser): Response {
+    public function item_bank_api(JSONRequestParser $parser, EventFactory $ef, EventDispatcherInterface $ed): Response {
         $item_id = $parser->get_int('item', -1);
         $direction = $parser->get('direction', '');
 
@@ -909,7 +909,7 @@ class TownController extends InventoryAwareController
         $up_inv   = $this->getActiveCitizen()->getInventory();
         $down_inv = $this->getActiveCitizen()->getTown()->getBank();
 
-        return $this->generic_item_api( $up_inv, $down_inv, true, $parser);
+        return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $ef, $ed);
     }
 
     /**

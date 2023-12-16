@@ -18,6 +18,7 @@ use App\Service\CrowService;
 use App\Service\DeathHandler;
 use App\Service\DoctrineCacheService;
 use App\Service\ErrorHelper;
+use App\Service\EventFactory;
 use App\Service\EventProxyService;
 use App\Service\GameFactory;
 use App\Service\GameProfilerService;
@@ -39,7 +40,10 @@ use DateInterval;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -331,21 +335,26 @@ class ExplorationController extends InventoryAwareController implements HookedIn
 
     /**
      * @param JSONRequestParser $parser
+     * @param EventFactory $ef
+     * @param EventDispatcherInterface $ed
      * @return Response
      */
     #[Route(path: 'api/beyond/explore/item', name: 'beyond_ruin_item_controller')]
-    public function item_explore_api(JSONRequestParser $parser): Response {
+    public function item_explore_api(JSONRequestParser $parser, EventFactory $ef, EventDispatcherInterface $ed): Response {
         $ex = $this->getActiveCitizen()->activeExplorerStats();
         //$down_inv = $ex->getInRoom() ? $this->getCurrentRuinZone()->getRoomFloor() : $this->getCurrentRuinZone()->getFloor();
         $down_inv = $this->getCurrentRuinZone()->getFloor();
         $up_inv   = $this->getActiveCitizen()->getInventory();
 
-        return $this->generic_item_api( $up_inv, $down_inv, true, $parser);
+        return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $ef, $ed);
     }
 
     /**
      * @param GameProfilerService $gps
+     * @param EventProxyService $proxyService
      * @return Response
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     #[Route(path: 'api/beyond/explore/scavenge', name: 'beyond_ruin_scavenge_controller')]
     public function scavenge_explore_api(GameProfilerService $gps, EventProxyService $proxyService): Response {

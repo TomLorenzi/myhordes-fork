@@ -25,6 +25,7 @@ use App\Event\Game\Citizen\CitizenQueryNightwatchDefenseEvent;
 use App\Event\Game\Citizen\CitizenQueryNightwatchInfoEvent;
 use App\Event\Game\Citizen\CitizenWorkshopOptionsData;
 use App\Event\Game\Citizen\CitizenWorkshopOptionsEvent;
+use App\Event\Game\GameInteractionEvent;
 use App\Event\Game\Items\TransferItemEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingCatapultItemTransformEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
@@ -193,8 +194,9 @@ class EventProxyService
      * @noinspection PhpDocMissingThrowsInspection
      */
     public function transferItem( Citizen $actor, Item $item, ?Inventory $from = null, ?Inventory $to = null, TransferItemModality $modality = TransferItemModality::None, array $options = [] ): int {
-        $this->ed->dispatch( $event = $this->ef->gameEvent( TransferItemEvent::class, $actor->getTown() )->setup( $item, $actor, $from, $to, $modality, $options ) );
-        return $event->error_code;
+        $this->ed->dispatch( $event = $this->ef->gameInteractionEvent( TransferItemEvent::class, $actor )->setup( $item, $actor, $from, $to, $modality, $options ) );
+        if (!$event->isPropagationStopped()) $this->ed->dispatch( $event, GameInteractionEvent::class );
+        return $event->getErrorCode() ?? InventoryHandler::ErrorNone;
     }
 
     /**

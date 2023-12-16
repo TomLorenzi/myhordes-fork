@@ -96,7 +96,7 @@ class CitizenHandler
         return $this->hasStatusEffect( $citizen, ['tg_meta_wound','wound1','wound2','wound3','wound4','wound5','wound6'], false );
     }
 
-    public function inflictWound( Citizen &$citizen ): ?CitizenStatus {
+    public function inflictWound( Citizen $citizen ): ?CitizenStatus {
         if ($this->isWounded($citizen)) return null;
         // $ap_above_6 = $citizen->getAp() - $this->getMaxAP( $citizen );
         $citizen->addStatus( $status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName(

@@ -40,6 +40,7 @@ use App\Enum\AdminReportSpecification;
 use App\Enum\Game\TransferItemModality;
 use App\Enum\Game\TransferItemOption;
 use App\Enum\TownRevisionType;
+use App\Event\Game\Items\TransferItemEvent;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
@@ -48,6 +49,7 @@ use App\Service\CrowService;
 use App\Service\DeathHandler;
 use App\Service\DoctrineCacheService;
 use App\Service\ErrorHelper;
+use App\Service\EventFactory;
 use App\Service\EventProxyService;
 use App\Service\HookExecutor;
 use App\Service\InventoryHandler;
@@ -64,6 +66,7 @@ use App\Structures\FriendshipActionTarget;
 use App\Structures\ItemRequest;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
+use App\Traits\Controller\EventChainProcessor;
 use App\Translation\T;
 use DateTime;
 use Doctrine\ORM\AbstractQuery;
@@ -72,6 +75,7 @@ use Doctrine\ORM\Query\Expr\Join;
 use Exception;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\RateLimiter\RateLimiterFactory;
 use Symfony\Contracts\Cache\ItemInterface;
@@ -86,6 +90,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class InventoryAwareController extends CustomAbstractController
     implements HookedInterfaceController
 {
+    use EventChainProcessor;
+
     protected DeathHandler $death_handler;
     protected ActionHandler $action_handler;
     protected PictoHandler $picto_handler;
@@ -609,7 +615,7 @@ class InventoryAwareController extends CustomAbstractController
         return AjaxResponse::success( );
     }
 
-    public function generic_item_api(Inventory $up_target, Inventory $down_target, bool $allow_down_all, JSONRequestParser $parser, Citizen $citizen = null, $hide = false, ?int &$processed = null): AjaxResponse {
+    public function generic_item_api(Inventory $up_target, Inventory $down_target, bool $allow_down_all, JSONRequestParser $parser, EventFactory $ef, EventDispatcherInterface $ed, Citizen $citizen = null, $hide = false, ?int &$processed = null): AjaxResponse {
         $item_id = $parser->get_int('item', -1);
         $direction = $parser->get('direction', '');
         $allowed_directions = ['up','down'];
@@ -707,150 +713,14 @@ class InventoryAwareController extends CustomAbstractController
                 }
 
                 if(!$dead){
-                    if (($error = $this->events->transferItem(
-                            $citizen, $current_item,
-                            $inv_source, $inv_target,
-                            $bank_theft ? TransferItemModality::BankTheft : TransferItemModality::None,
-                            $this->getTownConf()->get(TownConf::CONF_MODIFIER_CARRY_EXTRA_BAG, false) ? [ TransferItemOption::AllowExtraBag ] : []
-                        )) === InventoryHandler::ErrorNone) {
+                    if (($error = $this->processEventChainUsing( $ef, $ed, $this->entity_manager,
+                                                                 $ef->gameInteractionEvent( TransferItemEvent::class )->setup($current_item, $citizen, $inv_source, $inv_target, match (true) {
+                                                                     $bank_theft => TransferItemModality::BankTheft,
+                                                                     $hide => TransferItemModality::HideItem,
+                                                                     default => TransferItemModality::None
+                                                                 }, $this->getTownConf()->get(TownConf::CONF_MODIFIER_CARRY_EXTRA_BAG, false) ? [ TransferItemOption::AllowExtraBag ] : [] )
+                            , autoFlush: false, error_messages: $error_messages )) === null) {
 
-                        if ($bank_up !== null) {
-
-                            if ($bank_theft) {
-
-                                if ($this->random_generator->chance(0.6)) {
-                                    $this->entity_manager->persist( $this->log->bankItemStealLog( $citizen, $current_item->getPrototype(), false, $current_item->getBroken() ) );
-                                    $this->addFlash('error',$this->translator->trans('Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!', [], "game"));
-                                } else {
-                                    $this->entity_manager->persist( $this->log->bankItemStealLog( $citizen, $current_item->getPrototype(), true, $current_item->getBroken() ) );
-                                    $this->addFlash('notice',$this->translator->trans('Du hast soeben {item} aus der Bank gestohlen. Dein Name wird nicht im Register erscheinen...', ['{item}' => $this->log->wrap($this->log->iconize($current_item), 'tool')], "game"));
-                                }
-
-                            } else {
-                                $this->entity_manager->persist( $this->log->bankItemLog( $target_citizen, $current_item->getPrototype(), !$bank_up, $current_item->getBroken() ) );
-                                if ($bank_up)
-                                    $this->addFlash('notice',$this->translator->trans('Du hast soeben folgenden Gegenstand aus der Bank genommen: {item}. <strong>Sei nicht zu gierig</strong> oder deine Mitbürger könnten dich für einen <strong>Egoisten</strong> halten...', ['{item}' => $this->log->wrap($this->log->iconize($current_item), 'tool')], "game"));
-                            }
-                        }
-                        if ($floor_up !== null) {
-                            if($floor_up && $current_item->getPrototype()->getName() == 'soul_blue_#00' && $current_item->getFirstPick()) {
-                                $current_item->setFirstPick(false);
-                                // In the "Job" version of the shaman, the one that pick a blue soul for the 1st time gets the "r_collec" picto
-                                if ($this->getTownConf()->is(TownConf::CONF_FEATURE_SHAMAN_MODE, ['job', 'both'], "normal"))
-                                    $this->picto_handler->give_picto($target_citizen, "r_collec2_#00");
-                                $this->entity_manager->persist($current_item);
-                            }
-                            if (!$hide && !$current_item->getHidden()) $this->entity_manager->persist( $this->log->beyondItemLog( $target_citizen, $current_item->getPrototype(), !$floor_up, $current_item->getBroken(), false ) );
-                            elseif ($hide && !$floor_up) {
-                                $others = false;
-                                if (!$target_citizen->getTown()->getChaos() && $target_citizen->getZone()) foreach ($target_citizen->getZone()->getCitizens() as $c) if (!$c->getBanished()) $others = true;
-                                if ($others)
-                                    $this->entity_manager->persist( $this->log->beyondItemLog( $target_citizen, $current_item->getPrototype(), !$floor_up, $current_item->getBroken(), true ) );
-                            }
-                        }
-                        if ($steal_up !== null) {
-
-                            $this->citizen_handler->inflictStatus($target_citizen, 'tg_steal');
-                            $victim_home = $steal_up ? $inv_source->getHome() : $inv_target->getHome();
-
-                            // Give picto steal
-                            $pictoName = "r_theft_#00";
-                            if(!$victim_home->getCitizen()->getAlive())
-                                $pictoName = "r_plundr_#00";
-
-                            $isSanta = false;
-                            $isLeprechaun = false;
-                            $hasExplodingDoormat = false;
-
-                            if ($this->inventory_handler->countSpecificItems($citizen->getInventory(), "christmas_suit_full_#00") > 0){
-                                if($victim_home->getCitizen()->getAlive()
-                                    && $this->entity_manager->getRepository(EventActivationMarker::class)->findOneBy(['town' => $citizen->getTown(), 'active' => true, 'event' => 'christmas']))
-                                    $pictoName = "r_santac_#00";
-                                $isSanta = true;
-                            }
-
-                            if ($this->inventory_handler->countSpecificItems($citizen->getInventory(), "leprechaun_suit_#00") > 0){
-                                if($victim_home->getCitizen()->getAlive()
-                                    && $this->entity_manager->getRepository(EventActivationMarker::class)->findOneBy(['town' => $citizen->getTown(), 'active' => true, 'event' => 'stpatrick']))
-                                    $pictoName = "r_lepre_#00";
-                                $isLeprechaun = true;
-                            }
-
-                            if ($this->inventory_handler->countSpecificItems($victim_home->getChest(), "trapma_#00") > 0)
-                                $hasExplodingDoormat = true;
-
-                            $this->picto_handler->give_picto($citizen, $pictoName);
-
-                            $alarm = ($this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(
-                                    $victim_home,
-                                    $this->doctrineCache->getEntityByIdentifier(CitizenHomeUpgradePrototype::class, 'alarm' ) ) && $victim_home->getCitizen()->getAlive());
-
-                            if($steal_up) {
-                                if ($hasExplodingDoormat && $victim_home->getCitizen()->getAlive()) {
-
-                                    if ($this->citizen_handler->isWounded($citizen)) {
-                                        $this->death_handler->kill($citizen, CauseOfDeath::ExplosiveDoormat);
-                                        $this->entity_manager->persist($this->log->citizenDeath( $citizen ) );
-                                    }
-                                    else {
-                                        $this->citizen_handler->inflictWound( $citizen );
-                                        $dm = $this->inventory_handler->fetchSpecificItems($victim_home->getChest(), [new ItemRequest('trapma_#00')]);
-                                        if (!empty($dm)) $this->inventory_handler->forceRemoveItem(array_pop($dm));
-                                    }
-    
-                                    $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
-                                    if ($citizen->getAlive()) {
-                                        $this->addFlash( 'notice',
-                                                         $this->translator->trans('Huch! Scheint, als würde dein Mitbürger nicht wollen, dass jemand seine Sachen durchstöbert. Unter deinen Füßen ist etwas explodiert und hat dich gegen die Wand geschleudert. Du wurdest verletzt!', ['victim' => $victim_home->getCitizen()->getName()], 'game') .
-                                                         "<hr/>" .
-                                                         $this->translator->trans('Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.', ['victim' => $victim_home->getCitizen()->getName(), '{item}' => "<strong><img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$current_item->getPrototype()->getIcon()}.gif" )}'> {$this->translator->trans($current_item->getPrototype()->getLabel(),[],'items')}</strong>"], 'game')
-                                        );
-                                    } else {
-                                        $this->addFlash( 'notice',
-                                                         $this->translator->trans('Tja, das hast du davon bei einem paranoiden Pyromanen einbrechen zu wollen. Deine Einzelteile besprenkeln nun seine vier Wände. Das ist lange nicht so spaßig, wie es klingt: Irgendjemand wird hier putzen müssen.', ['victim' => $victim_home->getCitizen()->getName()], 'game')
-                                        );
-                                    }
-
-                                } elseif ($isSanta || $isLeprechaun) {
-                                    $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item->getPrototype(), $steal_up, $isSanta, $current_item->getBroken(), $isLeprechaun ) );
-                                    $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken(), false )->setAdminOnly(true) );
-                                    $this->addFlash( 'notice', $this->translator->trans($isSanta ? 'Dank deines Kostüms konntest du {item} von {victim} stehlen, <strong>ohne erkannt zu werden</strong>.<hr/>Ho ho ho.' : 'Dank deines Kostüms konntest du {item} von {victim} stehlen, <strong>ohne erkannt zu werden</strong>.<hr/>Was für ein guter Morgen!', [
-                                        '{victim}' => $victim_home->getCitizen()->getName(),
-                                        '{item}' => $this->log->wrap($this->log->iconize($current_item))], 'game') );
-                                } elseif ($alarm) {
-                                    $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
-                                    $this->addFlash( 'notice', $this->translator->trans('Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.', ['victim' => $victim_home->getCitizen()->getName(), '{item}' => "<strong><img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$current_item->getPrototype()->getIcon()}.gif" )}'> {$this->translator->trans($current_item->getPrototype()->getLabel(),[],'items')}</strong>"], 'game'));
-                                    //$this->citizen_handler->inflictStatus( $citizen, 'terror' );
-                                    //$this->addFlash( 'notice', $this->translator->trans('{victim}s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!', ['{victim}' => $victim_home->getCitizen()->getName()], 'game') );
-                                } elseif ($this->random_generator->chance(0.5) || !$victim_home->getCitizen()->getAlive()) {
-                                    if ($victim_home->getCitizen()->getAlive()){
-                                        $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
-                                        $this->addFlash( 'notice', $this->translator->trans('Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.', ['victim' => $victim_home->getCitizen()->getName(), '{item}' => "<strong><img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$current_item->getPrototype()->getIcon()}.gif" )}'> {$this->translator->trans($current_item->getPrototype()->getLabel(),[],'items')}</strong>"], 'game'));
-                                    } else {
-                                        $this->entity_manager->persist( $this->log->townLoot( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
-                                        $this->addFlash( 'notice', $this->translator->trans('Du hast dir folgenden Gegenstand unter den Nagel gerissen: {item}. Dein kleiner Hausbesuch bei † {victim} ist allerdings aufgeflogen...<hr /><strong>Dieser Gegenstand wurde in deiner Truhe abgelegt.</strong>', ['{item}' => $this->log->wrap($this->log->iconize($current_item)), '{victim}' => $victim_home->getCitizen()->getName()], 'game') );
-                                    }
-                                } else {
-                                    $this->addFlash( 'notice', $this->translator->trans('Es ist dir gelungen, {item} von {victim} zu stehlen <strong>ohne entdeckt zu werden</strong>. Nicht schlecht!', [
-                                        '{victim}' => $victim_home->getCitizen(),
-                                        '{item}' => $this->log->wrap($this->log->iconize($current_item))
-                                    ], 'game') );
-                                }
-    
-                                $this->crow->postAsPM( $victim_home->getCitizen(), '', '', PrivateMessage::TEMPLATE_CROW_THEFT, $current_item->getPrototype()->getId() );
-                            } else {
-                                $messages = [ $this->translator->trans('Du hast den(die,das) {item} bei {victim} abgelegt...', ['{item}' => "<strong><img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$current_item->getPrototype()->getIcon()}.gif" )}'> {$this->translator->trans($current_item->getPrototype()->getLabel(),[],'items')}</strong>",  '{victim}' => "<strong>{$victim_home->getCitizen()->getName()}</strong>"], 'game')];
-                                if ( !$isSanta && !$isLeprechaun && ($this->random_generator->chance(0.1) || $alarm) ) {
-                                    $messages[] = $this->translator->trans('Du bist bei deiner Aktion aufgeflogen! <strong>Deine Mitbürger wissen jetz Bescheid!</strong>', [], 'game');
-                                    $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
-                                }
-
-                                $this->addFlash( 'notice', implode('<hr/>', $messages) );
-                            }
-
-                            $intrusion = $this->entity_manager->getRepository(HomeIntrusion::class)->findOneBy(['intruder' => $citizen, 'victim' => $victim_home->getCitizen()]);
-                            if ($intrusion) $this->entity_manager->remove($intrusion);
-                        }
                         if(!$floor_up && $hide) {
                             $has_hidden = true;
                             $current_item->setHidden(true);

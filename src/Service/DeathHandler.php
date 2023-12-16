@@ -58,7 +58,7 @@ class DeathHandler
      * @param int|CauseOfDeath $cod
      * @param array|null $remove
      */
-    public function kill(Citizen &$citizen, CauseOfDeath|int $cod, ?array &$remove = null): void {
+    public function kill(Citizen $citizen, CauseOfDeath|int $cod, ?array &$remove = null): void {
         $handle_em = $remove === null;
         $remove = [];
         if (!$citizen->getAlive()) return;

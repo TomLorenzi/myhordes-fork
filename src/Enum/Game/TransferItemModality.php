@@ -8,4 +8,5 @@ enum TransferItemModality
     case Tamer;
     case Impound;
     case BankTheft;
+    case HideItem;
 }

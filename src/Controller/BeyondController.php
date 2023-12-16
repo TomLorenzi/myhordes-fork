@@ -36,6 +36,7 @@ use App\Service\CrowService;
 use App\Service\DeathHandler;
 use App\Service\DoctrineCacheService;
 use App\Service\ErrorHelper;
+use App\Service\EventFactory;
 use App\Service\EventProxyService;
 use App\Service\GameFactory;
 use App\Service\GameProfilerService;
@@ -60,6 +61,7 @@ use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -544,10 +546,12 @@ class BeyondController extends InventoryAwareController
 
     /**
      * @param JSONRequestParser $parser
+     * @param EventFactory $ef
+     * @param EventDispatcherInterface $ed
      * @return Response
      */
     #[Route(path: 'api/beyond/bury_rucksack', name: 'beyond_bury_rucksack_controller', condition: '')]
-    public function bury_rucksack_api(JSONRequestParser $parser): Response {
+    public function bury_rucksack_api(JSONRequestParser $parser, EventFactory $ef, EventDispatcherInterface $ed): Response {
 
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
@@ -568,7 +572,7 @@ class BeyondController extends InventoryAwareController
 
         if (!$this->zone_handler->isZoneUnderControl( $this->getActiveCitizen()->getZone() ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
             $this->addFlash('collapse', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!', [], 'game'));
-        $r = $this->generic_item_api( $up_inv, $down_inv, true, $parser, $citizen, $hide_items, $processed);
+        $r = $this->generic_item_api( $up_inv, $down_inv, true, $parser, $ef, $ed, $citizen, $hide_items, $processed);
         if ($r->isSuccessResponse() && $hide_items && $processed > 0) {
             if (!$hide_success)
                 $this->addFlash('notice', $this->translator->trans('Ein oder mehrere nicht-verbannte Bürger in der Umgebung haben dich dabei beobachtet.<hr/>Du hast 2 Aktionspunkte verbraucht.', [], 'game'));
@@ -1144,7 +1148,7 @@ class BeyondController extends InventoryAwareController
      * @return Response
      */
     #[Route(path: 'api/beyond/desert/item', name: 'beyond_desert_item_controller')]
-    public function item_desert_api(JSONRequestParser $parser): Response {
+    public function item_desert_api(JSONRequestParser $parser, EventFactory $ef, EventDispatcherInterface $ed): Response {
         $down_inv = $this->getActiveCitizen()->getZone()->getFloor();
         $escort = $parser->get_int('escort', null);
 
@@ -1168,7 +1172,7 @@ class BeyondController extends InventoryAwareController
                 ? $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game')
                 : $this->translator->trans('Die Tarnung von {name} ist aufgeflogen!', ['name' => $citizen], 'game')
             );
-        return $this->generic_item_api( $up_inv, $down_inv, $escort === null, $parser, $this->getActiveCitizen());
+        return $this->generic_item_api( $up_inv, $down_inv, $escort === null, $parser, $ef, $ed, $this->getActiveCitizen());
     }
 
     /**

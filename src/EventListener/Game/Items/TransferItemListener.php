@@ -4,9 +4,15 @@
 namespace App\EventListener\Game\Items;
 
 use App\Controller\Town\TownController;
+use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
+use App\Entity\CitizenHomeUpgrade;
+use App\Entity\CitizenHomeUpgradePrototype;
+use App\Entity\EventActivationMarker;
+use App\Entity\HomeIntrusion;
 use App\Entity\Inventory;
 use App\Entity\Item;
+use App\Entity\PrivateMessage;
 use App\Enum\Game\TransferItemModality;
 use App\Enum\Game\TransferItemOption;
 use App\Enum\Game\TransferItemType;
@@ -14,15 +20,29 @@ use App\Event\Game\Items\TransferItemEvent;
 use App\EventListener\ContainerTypeTrait;
 use App\Service\BankAntiAbuseService;
 use App\Service\CitizenHandler;
+use App\Service\CrowService;
+use App\Service\DeathHandler;
+use App\Service\DoctrineCacheService;
 use App\Service\InventoryHandler;
+use App\Service\LogTemplateHandler;
+use App\Service\PictoHandler;
+use App\Service\RandomGenerator;
+use App\Structures\ItemRequest;
+use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
+use Symfony\Component\Asset\Package;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Contracts\Service\ServiceSubscriberInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[AsEventListener(event: TransferItemEvent::class, method: 'onValidateItemTransfer', priority: 100)]
 #[AsEventListener(event: TransferItemEvent::class, method: 'onTriggerBankLockUpdate', priority: 90)]
 #[AsEventListener(event: TransferItemEvent::class, method: 'onTransferItem', priority: 0)]
+#[AsEventListener(event: TransferItemEvent::class, method: 'onPostCreateBeyondLogEntries', priority: -10)]
+#[AsEventListener(event: TransferItemEvent::class, method: 'onPostHandleBankInteraction', priority: -11)]
+#[AsEventListener(event: TransferItemEvent::class, method: 'onPostHandleCitizenTheft', priority: -12)]
+#[AsEventListener(event: TransferItemEvent::class, method: 'onPostHandleSoulPickup', priority: -100)]
 final class TransferItemListener implements ServiceSubscriberInterface
 {
     use ContainerTypeTrait;
@@ -37,6 +57,15 @@ final class TransferItemListener implements ServiceSubscriberInterface
             EntityManagerInterface::class,
             InventoryHandler::class,
             CitizenHandler::class,
+            PictoHandler::class,
+            RandomGenerator::class,
+            LogTemplateHandler::class,
+            BankAntiAbuseService::class,
+            TranslatorInterface::class,
+            DoctrineCacheService::class,
+            DeathHandler::class,
+            CrowService::class,
+            Package::class
         ];
     }
 
@@ -97,7 +126,7 @@ final class TransferItemListener implements ServiceSubscriberInterface
 
     public function onValidateItemTransfer( TransferItemEvent $event ): void {
         // If a previous event invocation has already set an error code, cancel execution
-        if ($event->error_code !== InventoryHandler::ErrorNone) return;
+        if ($event->hasError()) return;
 
         // Get transfer options
         $opt_enforce_placement = in_array( TransferItemOption::EnforcePlacement, $event->options );
@@ -106,18 +135,18 @@ final class TransferItemListener implements ServiceSubscriberInterface
 
         // Block Transfer if citizen is hiding
         if ($event->actor->getZone() && $event->modality !== TransferItemModality::Impound && !$opt_enforce_placement && $event->actor->hasAnyStatus('tg_hide', 'tg_tomb')) {
-            $event->error_code = InventoryHandler::ErrorTransferBlocked;
+            $event->pushError(InventoryHandler::ErrorTransferBlocked);
             return;
         }
 
         // Check if the source is valid
         if ($event->item->getInventory() && ( !$event->from || $event->from->getId() !== $event->item->getInventory()->getId() ) ) {
-            $event->error_code = InventoryHandler::ErrorInvalidTransfer;
+            $event->pushError(InventoryHandler::ErrorInvalidTransfer);
             return;
         }
 
         if (!$this->transferType($event->item, $event->actor, $event->to, $event->from, $type_to, $type_from )) {
-            $event->error_code = $event->item->getEssential() ? InventoryHandler::ErrorEssentialItemBlocked : InventoryHandler::ErrorInvalidTransfer;
+            $event->pushError($event->item->getEssential() ? InventoryHandler::ErrorEssentialItemBlocked : InventoryHandler::ErrorInvalidTransfer);
             return;
         }
 
@@ -127,7 +156,7 @@ final class TransferItemListener implements ServiceSubscriberInterface
 
         // Check inventory size
         if (!$opt_enforce_placement && ($event->to && ($max_size = $this->getService(InventoryHandler::class)->getSize($event->to)) > 0 && count($event->to->getItems()) >= $max_size ) ) {
-            $event->error_code = InventoryHandler::ErrorInventoryFull;
+            $event->pushError(InventoryHandler::ErrorInventoryFull);
             return;
         }
 
@@ -141,7 +170,7 @@ final class TransferItemListener implements ServiceSubscriberInterface
             if ( $type_to->isRucksack() )
                 foreach ($bag_item_groups as $bag_item_group)
                     if (in_array($event->item->getPrototype()->getName(), $bag_item_group) && $event->to->hasAnyItem( ...$bag_item_group ) ) {
-                        $event->error_code = InventoryHandler::ErrorExpandBlocked;
+                        $event->pushError(InventoryHandler::ErrorExpandBlocked);
                         return;
                     }
         }
@@ -153,7 +182,7 @@ final class TransferItemListener implements ServiceSubscriberInterface
             $type_to->isRucksack() &&
             $this->getService(InventoryHandler::class)->countHeavyItems($event->to)
         ) {
-            $event->error_code = InventoryHandler::ErrorHeavyLimitHit;
+            $event->pushError(InventoryHandler::ErrorHeavyLimitHit);
             return;
         }
 
@@ -162,7 +191,7 @@ final class TransferItemListener implements ServiceSubscriberInterface
         if( $type_to->isRucksack() && $event->to->getCitizen() && in_array($event->item->getPrototype()->getName(), $soul_names) && !$event->to->getCitizen()->hasRole("shaman") && $event->to->getCitizen()->getProfession()->getName() !== "shaman"){
             foreach($soul_names as $soul_name) {
                 if ($this->getService(InventoryHandler::class)->countSpecificItems($event->to, $soul_name) > 0) {
-                    $event->error_code = InventoryHandler::ErrorTooManySouls;
+                    $event->pushError(InventoryHandler::ErrorTooManySouls);
                     return;
                 }
             }
@@ -170,14 +199,14 @@ final class TransferItemListener implements ServiceSubscriberInterface
 
         // Prevent undroppable items
         if ($type_from === TransferItemType::Escort && ($event->item->getEssential() || $event->item->getPrototype()->hasProperty('esc_fixed'))) {
-            $event->error_code = InventoryHandler::ErrorEscortDropForbidden;
+            $event->pushError(InventoryHandler::ErrorEscortDropForbidden);
             return;
         }
 
         // Check bank abuse
         if ($type_from === TransferItemType::Bank) {
             if ($event->actor->getBanished()) {
-                $event->error_code = InventoryHandler::ErrorBankBlocked;
+                $event->pushError(InventoryHandler::ErrorBankBlocked);
                 return;
             }
 
@@ -187,7 +216,7 @@ final class TransferItemListener implements ServiceSubscriberInterface
             //Bank Anti abuse system
             if (!$this->getService(BankAntiAbuseService::class)->allowedToTake($event->actor))
             {
-                $event->error_code = InventoryHandler::ErrorBankLimitHit;
+                $event->pushError(InventoryHandler::ErrorBankLimitHit);
                 return;
             }
 
@@ -197,14 +226,14 @@ final class TransferItemListener implements ServiceSubscriberInterface
 
         // Can't deposit items in the home of a dead citizen
         if ( $type_to === TransferItemType::Steal && !$event->to->getHome()->getCitizen()->getAlive()) {
-            $event->error_code = InventoryHandler::ErrorInvalidTransfer;
+            $event->pushError(InventoryHandler::ErrorInvalidTransfer);
             return;
         }
 
         if ($type_from === TransferItemType::Steal || $type_to === TransferItemType::Steal) {
 
             if ($type_to === TransferItemType::Steal && $event->actor->getTown()->getChaos() ) {
-                $event->error_code = TownController::ErrorTownChaos;
+                $event->pushError(TownController::ErrorTownChaos);
                 return;
             }
 
@@ -215,49 +244,215 @@ final class TransferItemListener implements ServiceSubscriberInterface
 
                 // Check house protection
                 if ($ch->houseIsProtected( $victim )) {
-                    $event->error_code = InventoryHandler::ErrorStealBlocked;
+                    $event->pushError(InventoryHandler::ErrorStealBlocked);
                     return;
                 }
 
                 // Check for un-stealable item
                 if ($event->item->getPrototype()->getName() === 'trapma_#00' && $type_from === TransferItemType::Steal) {
-                    $event->error_code = InventoryHandler::ErrorUnstealableItem;
+                    $event->pushError(InventoryHandler::ErrorUnstealableItem);
                     return;
                 }
             }
         }
 
         if ($type_from === TransferItemType::Spawn && $type_to === TransferItemType::Tamer && $event->modality !== TransferItemModality::None && (!$event->actor->getZone() || !$event->actor->getZone()->isTownZone()) ) {
-            $event->error_code = InventoryHandler::ErrorInvalidTransfer;
+            $event->pushError(InventoryHandler::ErrorInvalidTransfer);
             return;
         }
 
         if ($type_from === TransferItemType::Rucksack && $type_to === TransferItemType::Tamer && $event->modality !== TransferItemModality::Tamer && $event->modality !== TransferItemModality::Impound) {
-            $event->error_code = InventoryHandler::ErrorInvalidTransfer;
+            $event->pushError(InventoryHandler::ErrorInvalidTransfer);
             return;
         }
 
         if ($type_from === TransferItemType::Impound && $type_to === TransferItemType::Tamer && $event->modality !== TransferItemModality::Impound) {
-            $event->error_code = InventoryHandler::ErrorInvalidTransfer;
-            return;
+            $event->pushError(InventoryHandler::ErrorInvalidTransfer);
+            //return;
         }
-
-        $event->error_code = InventoryHandler::ErrorNone;
     }
 
     public function onTriggerBankLockUpdate( TransferItemEvent $event ): void {
         if ($event->invokeBankLock) {
             $this->getService(BankAntiAbuseService::class)->increaseBankCount($event->actor);
-            $event->markModified();
+            $event->markModified()->shouldPersist();
         }
     }
 
     public function onTransferItem( TransferItemEvent $event ): void {
-        if ($event->error_code === InventoryHandler::ErrorNone) {
-            if ($event->to)
-                $this->getService(InventoryHandler::class)->forceMoveItem( $event->to, $event->item );
+        if (!$event->hasError()) {
+            if ($event->to) {
+                $this->getService(InventoryHandler::class)->forceMoveItem($event->to, $event->item);
+                $event->item->setHidden($event->modality === TransferItemModality::HideItem && $event->type_to === TransferItemType::Local);
+            }
             else $this->getService(InventoryHandler::class)->forceRemoveItem( $event->item );
-            $event->markModified();
+            $event->markModified()->shouldPersist();
+        } else $event->stopPropagation();
+    }
+
+    public function onPostCreateBeyondLogEntries( TransferItemEvent $event ): void {
+        // Item log for picking up or dropping items in the world beyond
+        if (
+            ($event->type_from === TransferItemType::Local || $event->type_to === TransferItemType::Local) &&
+            $target_citizen = $event->type_from === TransferItemType::Local ? $event->to?->getCitizen() : $event->from?->getCitizen()
+        ) {
+            $hide = $event->modality === TransferItemModality::HideItem;
+
+            // We're not trying to hide an item and the item isn't already hidden
+            if (!$hide && !$event->item->getHidden()) {
+                $this->getService(EntityManagerInterface::class)->persist($this->getService(LogTemplateHandler::class)->beyondItemLog($target_citizen, $event->item->getPrototype(), $event->type_to === TransferItemType::Local, $event->item->getBroken(), false));
+                $event->markModified()->shouldPersist();
+            }
+            // We're trying to hide an item
+            elseif ($hide && $event->type_to === TransferItemType::Local) {
+                $others = false;
+                if (!$event->town->getChaos() && $target_citizen->getZone()) foreach ($target_citizen->getZone()->getCitizens() as $c) if (!$c->getBanished()) $others = true;
+                if ($others) {
+                    $this->getService(EntityManagerInterface::class)->persist($this->getService(LogTemplateHandler::class)->beyondItemLog($target_citizen, $event->item->getPrototype(), true, $event->item->getBroken(), true));
+                    $event->markModified()->shouldPersist();
+                }
+            }
+        }
+    }
+
+    public function onPostHandleBankInteraction( TransferItemEvent $event ): void {
+        if ($event->type_from === TransferItemType::Bank || $event->type_to === TransferItemType::Bank) {
+
+            if ($event->modality === TransferItemModality::BankTheft) {
+                if ($this->getService(RandomGenerator::class)->chance(0.6)) {
+                    $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->bankItemStealLog( $event->actor, $event->item->getPrototype(), false, $event->item->getBroken() ) );
+                    $event->pushMessage($this->getService(TranslatorInterface::class)->trans('Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!', [], "game"), 'error');
+                } else {
+                    $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->bankItemStealLog( $event->actor, $event->item->getPrototype(), true, $event->item->getBroken() ) );
+                    $event->pushMessage($this->getService(TranslatorInterface::class)->trans('Du hast soeben {item} aus der Bank gestohlen. Dein Name wird nicht im Register erscheinen...', ['item' => $this->getService(LogTemplateHandler::class)->wrap($this->getService(LogTemplateHandler::class)->iconize($event->item), 'tool')], "game"));
+                }
+            } else {
+                $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->bankItemLog( $event->actor, $event->item->getPrototype(), $event->type_to === TransferItemType::Bank, $event->item->getBroken() ) );
+                if ($event->type_from === TransferItemType::Bank)
+                    $event->pushMessage($this->getService(TranslatorInterface::class)->trans('Du hast soeben folgenden Gegenstand aus der Bank genommen: {item}. <strong>Sei nicht zu gierig</strong> oder deine Mitbürger könnten dich für einen <strong>Egoisten</strong> halten...', ['item' => $this->getService(LogTemplateHandler::class)->wrap($this->getService(LogTemplateHandler::class)->iconize($event->item), 'tool')], "game"));
+            }
+
+            $event->markModified()->shouldPersist();
+        }
+    }
+
+    public function onPostHandleCitizenTheft( TransferItemEvent $event ): void {
+        if ($event->type_from === TransferItemType::Steal || $event->type_to === TransferItemType::Steal) {
+
+            $victim_home = $event->type_from === TransferItemType::Steal ? $event->from->getHome() : $event->to->getHome();
+            if (!$victim_home) return;
+
+            $this->getService(CitizenHandler::class)->inflictStatus($event->actor, 'tg_steal');
+
+            // Give picto steal
+            $pictoName = $victim_home->getCitizen()->getAlive() ? "r_theft_#00" : "r_plundr_#00";
+
+            $isSanta = false;
+            $isLeprechaun = false;
+            $hasExplodingDoormat = false;
+
+            if ($this->getService(InventoryHandler::class)->countSpecificItems($event->actor->getInventory(), 'christmas_suit_full_#00') > 0) {
+                if (
+                    $victim_home->getCitizen()->getAlive() &&
+                    $this->getService(EntityManagerInterface::class)->getRepository(EventActivationMarker::class)->findOneBy(['town' => $event->town, 'active' => true, 'event' => 'christmas'])
+                ) $pictoName = "r_santac_#00";
+                $isSanta = true;
+            } elseif ($this->getService(InventoryHandler::class)->countSpecificItems($event->actor->getInventory(), 'leprechaun_suit_#00') > 0){
+                if(
+                    $victim_home->getCitizen()->getAlive() &&
+                    $this->getService(EntityManagerInterface::class)->getRepository(EventActivationMarker::class)->findOneBy(['town' => $event->town, 'active' => true, 'event' => 'stpatrick'])
+                ) $pictoName = "r_lepre_#00";
+                $isLeprechaun = true;
+            }
+
+            if ($this->getService(InventoryHandler::class)->countSpecificItems($victim_home->getChest(), "trapma_#00") > 0)
+                $hasExplodingDoormat = true;
+
+            $this->getService(PictoHandler::class)->give_picto($event->actor, $pictoName);
+
+            $alarm = ($this->getService(EntityManagerInterface::class)->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(
+                    $victim_home,
+                    $this->getService(DoctrineCacheService::class)->getEntityByIdentifier(CitizenHomeUpgradePrototype::class, 'alarm' ) ) && $victim_home->getCitizen()->getAlive());
+
+            if ($event->type_from === TransferItemType::Steal) {
+                if ($hasExplodingDoormat && $victim_home->getCitizen()->getAlive()) {
+
+                    if ($this->getService(CitizenHandler::class)->isWounded($event->actor)) {
+                        $this->getService(DeathHandler::class)->kill($event->actor, CauseOfDeath::ExplosiveDoormat);
+                        $this->getService(EntityManagerInterface::class)->persist($this->getService(LogTemplateHandler::class)->citizenDeath( $event->actor ) );
+                    }
+                    else {
+                        $this->getService(CitizenHandler::class)->inflictWound( $event->actor );
+                        $dm = $this->getService(InventoryHandler::class)->fetchSpecificItems($victim_home->getChest(), [new ItemRequest('trapma_#00')]);
+                        if (!empty($dm)) $this->getService(InventoryHandler::class)->forceRemoveItem(array_pop($dm));
+                    }
+
+                    $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->townSteal( $victim_home->getCitizen(), $event->actor, $event->item->getPrototype(), true, false, $event->item->getBroken() ) );
+                    if ($event->actor->getAlive()) {
+                        $event->pushMessage($this->getService(TranslatorInterface::class)->trans('Huch! Scheint, als würde dein Mitbürger nicht wollen, dass jemand seine Sachen durchstöbert. Unter deinen Füßen ist etwas explodiert und hat dich gegen die Wand geschleudert. Du wurdest verletzt!', ['victim' => $victim_home->getCitizen()->getName()], 'game') .
+                                         "<hr/>" .
+                                         $this->getService(TranslatorInterface::class)->trans('Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.', ['victim' => $victim_home->getCitizen()->getName(), '{item}' => "<strong><img alt='' src='{$this->getService(Package::class)->getUrl( "build/images/item/item_{$event->item->getPrototype()->getIcon()}.gif" )}'> {$this->getService(TranslatorInterface::class)->trans($event->item->getPrototype()->getLabel(),[],'items')}</strong>"], 'game')
+                        );
+                    } else {
+                        $event->pushMessage($this->getService(TranslatorInterface::class)->trans('Tja, das hast du davon bei einem paranoiden Pyromanen einbrechen zu wollen. Deine Einzelteile besprenkeln nun seine vier Wände. Das ist lange nicht so spaßig, wie es klingt: Irgendjemand wird hier putzen müssen.', ['victim' => $victim_home->getCitizen()->getName()], 'game'));
+                    }
+
+                } elseif ($isSanta || $isLeprechaun) {
+                    $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->townSteal( $victim_home->getCitizen(), null, $event->item->getPrototype(), true, $isSanta, $event->item->getBroken(), $isLeprechaun ) );
+                    $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->townSteal( $victim_home->getCitizen(), $event->actor, $event->item->getPrototype(), true, false, $event->item->getBroken(), false )->setAdminOnly(true) );
+                    $event->pushMessage( $this->getService(TranslatorInterface::class)->trans($isSanta ? 'Dank deines Kostüms konntest du {item} von {victim} stehlen, <strong>ohne erkannt zu werden</strong>.<hr/>Ho ho ho.' : 'Dank deines Kostüms konntest du {item} von {victim} stehlen, <strong>ohne erkannt zu werden</strong>.<hr/>Was für ein guter Morgen!', [
+                        '{victim}' => $victim_home->getCitizen()->getName(),
+                        '{item}' => $this->getService(LogTemplateHandler::class)->wrap($this->getService(LogTemplateHandler::class)->iconize($event->item))], 'game') );
+                } elseif ($alarm) {
+                    $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->townSteal( $victim_home->getCitizen(), $event->actor, $event->item->getPrototype(), true, false, $event->item->getBroken() ) );
+                    $event->pushMessage( $this->getService(TranslatorInterface::class)->trans('Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.', ['victim' => $victim_home->getCitizen()->getName(), '{item}' => "<strong><img alt='' src='{$this->getService(Package::class)->getUrl( "build/images/item/item_{$event->item->getPrototype()->getIcon()}.gif" )}'> {$this->getService(TranslatorInterface::class)->trans($event->item->getPrototype()->getLabel(),[],'items')}</strong>"], 'game'));
+                    //$this->getService(CitizenHandler::class)->inflictStatus( $event->actor, 'terror' );
+                    //$event->pushMessage($this->getService(TranslatorInterface::class)->trans('{victim}s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!', ['{victim}' => $victim_home->getCitizen()->getName()], 'game') );
+                } elseif ($this->getService(RandomGenerator::class)->chance(0.5) || !$victim_home->getCitizen()->getAlive()) {
+                    if ($victim_home->getCitizen()->getAlive()){
+                        $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->townSteal( $victim_home->getCitizen(), $event->actor, $event->item->getPrototype(), true, false, $event->item->getBroken() ) );
+                        $event->pushMessage($this->getService(TranslatorInterface::class)->trans('Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.', ['victim' => $victim_home->getCitizen()->getName(), '{item}' => "<strong><img alt='' src='{$this->getService(Package::class)->getUrl( "build/images/item/item_{$event->item->getPrototype()->getIcon()}.gif" )}'> {$this->getService(TranslatorInterface::class)->trans($event->item->getPrototype()->getLabel(),[],'items')}</strong>"], 'game'));
+                    } else {
+                        $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->townLoot( $victim_home->getCitizen(), $event->actor, $event->item->getPrototype(), true, false, $event->item->getBroken() ) );
+                        $event->pushMessage($this->getService(TranslatorInterface::class)->trans('Du hast dir folgenden Gegenstand unter den Nagel gerissen: {item}. Dein kleiner Hausbesuch bei † {victim} ist allerdings aufgeflogen...<hr /><strong>Dieser Gegenstand wurde in deiner Truhe abgelegt.</strong>', ['{item}' => $this->getService(LogTemplateHandler::class)->wrap($this->getService(LogTemplateHandler::class)->iconize($event->item)), '{victim}' => $victim_home->getCitizen()->getName()], 'game') );
+                    }
+                } else {
+                    $event->pushMessage($this->getService(TranslatorInterface::class)->trans('Es ist dir gelungen, {item} von {victim} zu stehlen <strong>ohne entdeckt zu werden</strong>. Nicht schlecht!', [
+                        '{victim}' => $victim_home->getCitizen(),
+                        '{item}' => $this->getService(LogTemplateHandler::class)->wrap($this->getService(LogTemplateHandler::class)->iconize($event->item))
+                    ], 'game') );
+                }
+
+                $this->getService(CrowService::class)->postAsPM( $victim_home->getCitizen(), '', '', PrivateMessage::TEMPLATE_CROW_THEFT, $event->item->getPrototype()->getId() );
+            } else {
+                $messages = [ $this->getService(TranslatorInterface::class)->trans('Du hast den(die,das) {item} bei {victim} abgelegt...', ['{item}' => "<strong><img alt='' src='{$this->getService(Package::class)->getUrl( "build/images/item/item_{$event->item->getPrototype()->getIcon()}.gif" )}'> {$this->getService(TranslatorInterface::class)->trans($event->item->getPrototype()->getLabel(),[],'items')}</strong>",  '{victim}' => "<strong>{$victim_home->getCitizen()->getName()}</strong>"], 'game')];
+                if ( !$isSanta && !$isLeprechaun && ($this->getService(RandomGenerator::class)->chance(0.1) || $alarm) ) {
+                    $messages[] = $this->getService(TranslatorInterface::class)->trans('Du bist bei deiner Aktion aufgeflogen! <strong>Deine Mitbürger wissen jetz Bescheid!</strong>', [], 'game');
+                    $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->townSteal( $victim_home->getCitizen(), $event->actor, $event->item->getPrototype(), false, false, $event->item->getBroken() ) );
+                }
+
+                $event->pushMessage(implode('<hr/>', $messages));
+            }
+
+            $intrusion = $this->getService(EntityManagerInterface::class)->getRepository(HomeIntrusion::class)->findOneBy(['intruder' => $event->actor, 'victim' => $victim_home->getCitizen()]);
+            if ($intrusion) $this->getService(EntityManagerInterface::class)->remove($intrusion);
+
+            $event->markModified()->shouldPersist();
+        }
+    }
+
+    public function onPostHandleSoulPickup( TransferItemEvent $event ): void {
+        if ($event->type_to->isRucksack() && $event->to->getCitizen() && $event->item->getPrototype()->getName() == 'soul_blue_#00' && $event->item->getFirstPick()) {
+            // Set first pick to false
+            $event->item->setFirstPick(false);
+
+            // In the "Job" version of the shaman, the one that pick a blue soul for the 1st time gets the "r_collec" picto
+            if ($event->townConfig->is(TownConf::CONF_FEATURE_SHAMAN_MODE, ['job', 'both'], "normal"))
+                $this->getService(PictoHandler::class)->give_picto($event->to->getCitizen(), "r_collec2_#00");
+
+            // Persist item
+            $this->getService(EntityManagerInterface::class)->persist($event->item);
+            $event->markModified()->shouldPersist();
         }
     }
 }
