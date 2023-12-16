@@ -40,7 +40,7 @@ verlassen: 'ha salido del'
 'Für dieses Gebäude fehlen Baumaterialien.': 'Nos faltan recursos en el Almacén para iniciar las obras.'
 'Du hast heute bereits eine Verbesserung deines Hauses vorgenommen.': 'Ya has hecho eso hoy... Espera a <strong>mañana</strong> para intentarlo de nuevo.'
 'Dieser Gegenstand ist außerhalb deiner Reichweite.': 'Este objeto está fuera de tu alcance.'
-'Du hast keinen Platz mehr für diesen Gegenstand!': 'No es posible coger este objeto, tu baúl está lleno.'
+'Du hast keinen Platz mehr für diesen Gegenstand!': '¡No hay suficiente espacio para este objeto!'
 'Du kannst keinen weiteren schweren Gegenstand tragen!': 'Solo puedes llevar contigo un objeto voluminoso y un contenedor a la vez.'
 'Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.': 'Esta acción está bloqueada durante <strong>15 minutos aproximadamente</strong> (protección anti-abusos).<hr /><strong>Atención: Si intentas repetir esta acción al final del plazo, ¡la duración del bloqueo será prolongada!</strong>'
 'Du hast heute schon <strong>einen Diebstahl</strong> begangen.': 'Ya has entrado en una casa ajena hoy.'
@@ -604,7 +604,7 @@ Event-Auszeichnungen: Reconocimiento de la Comunidad
 'Wunderwerk: Sandschloss': 'Maravilla: Castillo de arena'
 'Das hast du nicht wirklich gebaut?': '¿Realmente has construido eso?'
 'Wunderwerk: Riesiger KVF': 'Maravilla: COSA gigante'
-'Huldigt den Riesigen KVF!': '¡Gloria la COSA gigante!'
+'Huldigt den Riesigen KVF!': '¡Gloria a la COSA gigante!'
 'Wunderwerk: Rad des Schreckens': 'Maravilla: Gran Noria de Znarf'
 'Sieh nur, man kann von da oben die Zombies sehen!': 'Increíble, ¡desde aquí los zombies se ven como hormiguitas!'
 'Wunderwerk: Statue des Raben': 'Maravilla: Estatua del Cuervo'
@@ -1016,7 +1016,7 @@ Niemand: Nada
 'Alle freigeschalteten Vorteile anzeigen': 'Ver las ventajas que he ganado'
 'Die letzte Zeitung lesen': 'Leer el último Boletín'
 'Du hast bisher:': 'Has acumulado:'
-'{days} Tage': '{days} Dias'
+'{days} Tage': '{days} Días'
 'im Heldenmodus gespielt': 'de Modo Héroe'
 Fähigkeit: Poder
 Beschreibung: Detalles
@@ -1043,7 +1043,7 @@ Alle: Todas
 'Du kannst eine Ration Wasser trinken.': 'Bebe una ración de agua para recuperarte. '
 'Die Liste der eingeschriebenen Spieler ansehen.': 'Ver la lista de habitantes inscritos.'
 Quarantäne: Cuarentena
-'Komm zurück zu meiner Seele': 'Vuelve a tu alma'
+'Komm zurück zu meiner Seele': 'Volver a tu alma'
 'Es sind nicht mehr genügend Einwohner in der Stadt. Der Zombieangriff und die Wiederherstellung der AP wurden auf morgen Abend verschoben.': 'Todavía no hay suficientes habitantes en el pueblo. El ataque zombie y la restauración de PAs se han pospuesto hasta mañana.'
 'Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "{reason}"': 'Has recibido una nueva denuncia anónima: "{reason}"'
 'Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "{reason}"': '¡Buenas Noticias! La siguiente denuncia ha sido retirada: "{reason}"'
@@ -1435,7 +1435,7 @@ RadioactiveMan: Hombre radiactivo
 'Dieser Kobold ist unaufhaltbar.': 'Este duende es imparable.'
 'Verbrennt ihn! Sieh nach ob seine Asche grün wird!': '¡Quémalo, mira si sus cenizas se vuelven verdes!'
 'Ein Wohnwagen ohne Räder???': '¿¿¿Una caravana sin ruedas???'
-'Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.': 'Toda la zona está cubierta por una <strong>vegetación putrefacta</strong>, con <strong>arena</strong> y <strong>chatarra</strong> de todo tipo. Estás seguro de que algo se esconde aquí, pero habría que despejar todo el terreno para empezar una veradera búsqueda...'
+'Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.': 'Toda la zona está cubierta por una <strong>vegetación putrefacta</strong>, con <strong>arena</strong> y <strong>chatarra</strong> de todo tipo. Estás seguro de que algo se esconde aquí, pero habría que despejar todo el terreno para empezar una verdadera búsqueda...'
 HAZ-Gewinner: Ganador del CTP
 'Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.': '¡Premio honorario dado al ganador de "Curando tu Pictofilia"!'
 'Kernsammler (job)': Recolector de Almas
@@ -1619,7 +1619,7 @@ Paranoid: Paranoico
 'Hast du nichts besseres zu tun?': '¿No tienes algo mejor que hacer?'
 'Hohepriesterin des Sonnentempels': 'Templo del Sumo Sacerdote del Sol'
 'Obelisk der heutigen Zeit!': '¡Obelisco moderno!'
-'Lebhafter Tribut': 'Ovación de pié'
+'Lebhafter Tribut': 'Ovación de pie'
 'Wird in die Annalen eingehen': 'Uno para los libros'
 'Extra viel Liebe': 'Amor extra grande'
 'Es ist kleiner als im Katalog': 'Era más pequeño en el catálogo.'
@@ -1881,7 +1881,7 @@ Reiseleiter-Ratgeber: Guía del Guía del Ultramundo
 'Diebstahlsversuche können nur <strong>während der Nacht</strong> unternommen werden: Sie haben eine reduzierte Erfolgschance und jeder Fehlschlag wird im Register vermerkt!': 'Los intentos de robo solo se pueden realizar <strong>durante la noche</strong>: sus probabilidades de éxito son reducidas ¡y todo caso descubierto aparecerá en el Registro!'
 'Achtung! Deinen Mitbürgern wird das gar nicht gefallen.': '¡Cuidado, a tus vecinos no les va a gustar eso!'
 'Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!': '¡Tu intento de robo ha fallado! ¡Has sido visto!'
-'Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>{townname}</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.': "Al estar muerto, es muy probable que el cuerpo de {citizen} haya sido contaminado con bacterias infecciosas de <em>{townname}</em>. Hay que empaparlo o arrojarlo lejos, esperando que no vuelva a ponerse de pie para atacar a sus antiguos compañeros..."
+'Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>{townname}</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.': "\n            {ref__icu, select,\n                on {\n                    {ref__gender, select,\n                        female {Al estar muerta, es muy probable que el cuerpo de {citizen} haya sido contaminado con bacterias infecciosas provenientes de <em>{townname}</em>. Hay que empaparlo, arrojarlo lejos o reducirlo a cenizas, esperando que no vuelva a ponerse de pie para atacar a lo que alguna vez fueron sus antiguos compañeros...}\n                        other {Al estar muerto, es muy probable que el cuerpo de {citizen} haya sido contaminado con bacterias infecciosas provenientes de <em>{townname}</em>. Hay que empaparlo, arrojarlo lejos o reducirlo a cenizas, esperando que no vuelva a ponerse de pie para atacar a lo que alguna vez fueron sus antiguos compañeros...}\n                    }\n                }\n            other {Al estar muerto/a, es muy probable que el cuerpo de {citizen} haya sido contaminado con bacterias infecciosas provenientes de <em>{townname}</em>. Hay que empaparlo, arrojarlo lejos o reducirlo a cenizas, esperando que no vuelva a ponerse de pie para atacar a lo que alguna vez fueron sus antiguos compañeros...}\n            }\n        "
 'Diese Aktion ist während der <strong>Chaosperiode</strong> night erlaubt!': '¡No es posible hacer eso en periodo de <strong>caos</strong>!'
 'Die Bürger der Stadt haben entschieden, {citizen} zu kreuzigen! Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses gegessen!': '¡Los habitantes han decidido <strong>CRUCIFICAR a {citizen}</strong>! ¡La cruz de chocolate fue comida durante este trágico evento!'
 'Hängt {user}!': '¡Cuelga a {user}!'
