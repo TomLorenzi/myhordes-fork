@@ -37,6 +37,8 @@ use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZoneTag;
 use App\Enum\AdminReportSpecification;
+use App\Enum\Game\TransferItemModality;
+use App\Enum\Game\TransferItemOption;
 use App\Enum\TownRevisionType;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
@@ -607,7 +609,7 @@ class InventoryAwareController extends CustomAbstractController
         return AjaxResponse::success( );
     }
 
-    public function generic_item_api(Inventory &$up_target, Inventory &$down_target, bool $allow_down_all, JSONRequestParser $parser, InventoryHandler $handler, Citizen $citizen = null, $hide = false, ?int &$processed = null): AjaxResponse {
+    public function generic_item_api(Inventory $up_target, Inventory $down_target, bool $allow_down_all, JSONRequestParser $parser, Citizen $citizen = null, $hide = false, ?int &$processed = null): AjaxResponse {
         $item_id = $parser->get_int('item', -1);
         $direction = $parser->get('direction', '');
         $allowed_directions = ['up','down'];
@@ -705,9 +707,11 @@ class InventoryAwareController extends CustomAbstractController
                 }
 
                 if(!$dead){
-                    if (($error = $handler->transferItem(
-                            $citizen,
-                            $current_item, $inv_source, $inv_target, $bank_theft ? InventoryHandler::ModalityBankTheft : InventoryHandler::ModalityNone, $this->getTownConf()->get(TownConf::CONF_MODIFIER_CARRY_EXTRA_BAG, false)
+                    if (($error = $this->events->transferItem(
+                            $citizen, $current_item,
+                            $inv_source, $inv_target,
+                            $bank_theft ? TransferItemModality::BankTheft : TransferItemModality::None,
+                            $this->getTownConf()->get(TownConf::CONF_MODIFIER_CARRY_EXTRA_BAG, false) ? [ TransferItemOption::AllowExtraBag ] : []
                         )) === InventoryHandler::ErrorNone) {
 
                         if ($bank_up !== null) {

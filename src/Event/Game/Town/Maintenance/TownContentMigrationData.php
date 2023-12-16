@@ -2,10 +2,6 @@
 
 namespace App\Event\Game\Town\Maintenance;
 
-use App\Entity\Building;
-use App\Entity\ItemPrototype;
-use App\Entity\Season;
-use App\Event\Game\Town\Basic\Buildings\BuildingEffectEvent;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class TownContentMigrationData

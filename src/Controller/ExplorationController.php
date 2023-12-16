@@ -331,17 +331,16 @@ class ExplorationController extends InventoryAwareController implements HookedIn
 
     /**
      * @param JSONRequestParser $parser
-     * @param InventoryHandler $handler
      * @return Response
      */
     #[Route(path: 'api/beyond/explore/item', name: 'beyond_ruin_item_controller')]
-    public function item_explore_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
+    public function item_explore_api(JSONRequestParser $parser): Response {
         $ex = $this->getActiveCitizen()->activeExplorerStats();
         //$down_inv = $ex->getInRoom() ? $this->getCurrentRuinZone()->getRoomFloor() : $this->getCurrentRuinZone()->getFloor();
         $down_inv = $this->getCurrentRuinZone()->getFloor();
         $up_inv   = $this->getActiveCitizen()->getInventory();
 
-        return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler);
+        return $this->generic_item_api( $up_inv, $down_inv, true, $parser);
     }
 
     /**
@@ -396,8 +395,8 @@ class ExplorationController extends InventoryAwareController implements HookedIn
             $item = $this->item_factory->createItem($prototype, false, $prototype->hasProperty("found_poisoned") && $this->random_generator->chance(0.90));
             $gps->recordItemFound( $prototype, $citizen, $ruinZone->getZone()->getPrototype() );
             $noPlaceLeftMsg = "";
-            // $inventoryDest = $this->inventory_handler->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getRoomFloor()]);
-            $inventoryDest = $this->inventory_handler->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getFloor()]);
+            // $inventoryDest = $proxyService->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getRoomFloor()]);
+            $inventoryDest = $proxyService->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getFloor()]);
             if ($inventoryDest === $ruinZone->getFloor())
                 $noPlaceLeftMsg = "<hr />" . $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
 
@@ -433,7 +432,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
      * @return Response
      */
     #[Route(path: 'api/beyond/explore/imprint', name: 'beyond_ruin_imprint_controller')]
-    public function imprint_explore_api(InventoryHandler $handler): Response {
+    public function imprint_explore_api(InventoryHandler $handler, EventProxyService $proxy): Response {
         $citizen = $this->getActiveCitizen();
         $ex = $citizen->activeExplorerStats();
         $ruinZone = $this->getCurrentRuinZone();
@@ -448,7 +447,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
             return AjaxResponse::error( InventoryHandler::ErrorInventoryFull );
 
         $item = $this->item_factory->createItem($ruinZone->getPrototype()->getKeyImprint());
-        $this->inventory_handler->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getFloor()]);
+        $proxy->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getFloor()]);
 
         $this->addFlash( 'notice', $this->translator->trans( 'Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst {item}!', [
                 '{item}' => "<span class='tool'><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $item->getPrototype()->getIcon() . '.gif' )}'> {$this->translator->trans($item->getPrototype()->getLabel(), [], 'items')}</span>"

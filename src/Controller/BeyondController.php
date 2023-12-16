@@ -25,6 +25,7 @@ use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
 use App\Entity\ZoneTag;
 use App\Enum\EventStages\BuildingValueQuery;
+use App\Enum\Game\TransferItemOption;
 use App\Enum\ScavengingActionType;
 use App\Enum\ZoneActivityMarkerType;
 use App\Response\AjaxResponse;
@@ -480,12 +481,12 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @param InventoryHandler $handler
+     * @param EventProxyService $proxy
      * @param GameProfilerService $gps
      * @return Response
      */
     #[Route(path: 'api/beyond/trash', name: 'beyond_trash_controller', condition: '')]
-    public function trash_api(InventoryHandler $handler, GameProfilerService $gps): Response {
+    public function trash_api(EventProxyService $proxy, GameProfilerService $gps): Response {
 
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
@@ -515,9 +516,12 @@ class BeyondController extends InventoryAwareController
         $item = $this->item_factory->createItem($proto);
         $gps->recordItemFound( $proto, $citizen, null, 'trash' );
 
-        if (($error = $handler->transferItem(
-            $citizen,
-            $item,$inv_source, $inv_target, InventoryHandler::ModalityAllowMultiHeavy
+
+
+        if (($error = $proxy->transferItem(
+            $citizen, $item,
+            $inv_source, $inv_target,
+            options: [ TransferItemOption::AllowMultiHeavy ]
         )) === InventoryHandler::ErrorNone) {
 
             $trashlock->increment();
@@ -540,11 +544,10 @@ class BeyondController extends InventoryAwareController
 
     /**
      * @param JSONRequestParser $parser
-     * @param InventoryHandler $handler
      * @return Response
      */
     #[Route(path: 'api/beyond/bury_rucksack', name: 'beyond_bury_rucksack_controller', condition: '')]
-    public function bury_rucksack_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
+    public function bury_rucksack_api(JSONRequestParser $parser): Response {
 
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
@@ -565,7 +568,7 @@ class BeyondController extends InventoryAwareController
 
         if (!$this->zone_handler->isZoneUnderControl( $this->getActiveCitizen()->getZone() ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
             $this->addFlash('collapse', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!', [], 'game'));
-        $r = $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler, $citizen, $hide_items, $processed);
+        $r = $this->generic_item_api( $up_inv, $down_inv, true, $parser, $citizen, $hide_items, $processed);
         if ($r->isSuccessResponse() && $hide_items && $processed > 0) {
             if (!$hide_success)
                 $this->addFlash('notice', $this->translator->trans('Ein oder mehrere nicht-verbannte Bürger in der Umgebung haben dich dabei beobachtet.<hr/>Du hast 2 Aktionspunkte verbraucht.', [], 'game'));
@@ -1138,11 +1141,10 @@ class BeyondController extends InventoryAwareController
 
     /**
      * @param JSONRequestParser $parser
-     * @param InventoryHandler $handler
      * @return Response
      */
     #[Route(path: 'api/beyond/desert/item', name: 'beyond_desert_item_controller')]
-    public function item_desert_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
+    public function item_desert_api(JSONRequestParser $parser): Response {
         $down_inv = $this->getActiveCitizen()->getZone()->getFloor();
         $escort = $parser->get_int('escort', null);
 
@@ -1166,7 +1168,7 @@ class BeyondController extends InventoryAwareController
                 ? $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game')
                 : $this->translator->trans('Die Tarnung von {name} ist aufgeflogen!', ['name' => $citizen], 'game')
             );
-        return $this->generic_item_api( $up_inv, $down_inv, $escort === null, $parser, $handler, $this->getActiveCitizen());
+        return $this->generic_item_api( $up_inv, $down_inv, $escort === null, $parser, $this->getActiveCitizen());
     }
 
     /**
@@ -1417,7 +1419,7 @@ class BeyondController extends InventoryAwareController
                     $gps->recordItemFound( $prototype, $citizen, $zone->getPrototype() );
                     $noPlaceLeftMsg = "";
                     if ($item) {
-                        $inventoryDest = $this->inventory_handler->placeItem( $citizen, $item, [ $citizen->getInventory(), $zone->getFloor() ] );
+                        $inventoryDest = $proxyService->placeItem( $citizen, $item, [ $citizen->getInventory(), $zone->getFloor() ] );
                         if($inventoryDest === $zone->getFloor()){
                             $this->entity_manager->persist($this->log->beyondItemLog($citizen, $item->getPrototype(), true));
                             $noPlaceLeftMsg = "<hr />" . $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');

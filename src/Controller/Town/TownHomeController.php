@@ -364,14 +364,13 @@ class TownHomeController extends TownController
 
     /**
      * @param JSONRequestParser $parser
-     * @param InventoryHandler $handler
      * @return Response
      */
     #[Route(path: 'api/town/house/item', name: 'town_house_item_controller')]
-    public function item_house_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
+    public function item_house_api(JSONRequestParser $parser): Response {
         $up_inv   = $this->getActiveCitizen()->getInventory();
         $down_inv = $this->getActiveCitizen()->getHome()->getChest();
-        return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler);
+        return $this->generic_item_api( $up_inv, $down_inv, true, $parser);
     }
 
     /**

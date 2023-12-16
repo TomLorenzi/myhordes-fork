@@ -16,14 +16,17 @@ trait ContainerTypeTrait
      * @param string $service The name of the service class.
      * @psalm-param class-string<T> $service
      *
-     * @return object The service class.
+     * @return null|object The service class.
      * @psalm-return T
      *
      * @template T as object
-     * @throws ContainerExceptionInterface
-     * @throws NotFoundExceptionInterface
      */
-    protected function getService(string $service): object {
-        return $this->container->get($service);
+    protected function getService(string $service): ?object {
+        try {
+            return $this->container->get($service);
+        } catch (\Throwable $t) {
+            return null;
+        }
+
     }
 }

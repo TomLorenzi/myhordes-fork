@@ -5,6 +5,7 @@ namespace App\Service;
 use App\Entity\Building;
 use App\Entity\Citizen;
 use App\Entity\CitizenRole;
+use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
@@ -13,6 +14,8 @@ use App\Entity\Town;
 use App\Entity\Zone;
 use App\Enum\EventStages\BuildingEffectStage;
 use App\Enum\EventStages\BuildingValueQuery;
+use App\Enum\Game\TransferItemModality;
+use App\Enum\Game\TransferItemOption;
 use App\Enum\ScavengingActionType;
 use App\Event\Game\Actions\CustomActionProcessorEvent;
 use App\Event\Game\Citizen\CitizenPostDeathEvent;
@@ -22,6 +25,7 @@ use App\Event\Game\Citizen\CitizenQueryNightwatchDefenseEvent;
 use App\Event\Game\Citizen\CitizenQueryNightwatchInfoEvent;
 use App\Event\Game\Citizen\CitizenWorkshopOptionsData;
 use App\Event\Game\Citizen\CitizenWorkshopOptionsEvent;
+use App\Event\Game\Items\TransferItemEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingCatapultItemTransformEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingDestroyedDuringAttackPostEvent;
@@ -176,5 +180,37 @@ class EventProxyService
         $message = $event->message;
         $remove = $event->remove;
         $execute_info_cache = $event->execute_info_cache;
+    }
+
+    /**
+     * @param Citizen $actor
+     * @param Item $item
+     * @param Inventory|null $from
+     * @param Inventory|null $to
+     * @param TransferItemModality $modality
+     * @param TransferItemOption[] $options
+     * @return int
+     * @noinspection PhpDocMissingThrowsInspection
+     */
+    public function transferItem( Citizen $actor, Item $item, ?Inventory $from = null, ?Inventory $to = null, TransferItemModality $modality = TransferItemModality::None, array $options = [] ): int {
+        $this->ed->dispatch( $event = $this->ef->gameEvent( TransferItemEvent::class, $actor->getTown() )->setup( $item, $actor, $from, $to, $modality, $options ) );
+        return $event->error_code;
+    }
+
+    /**
+     * @param Citizen $actor
+     * @param Item $item
+     * @param Inventory[] $inventories
+     * @param bool $force
+     * @return Inventory|null
+     */
+    public function placeItem( Citizen $actor, Item $item, array $inventories, bool $force = false ): ?Inventory {
+        foreach ($inventories as $inventory)
+            if ($inventory && $this->transferItem( $actor, $item, to: $inventory ) === InventoryHandler::ErrorNone)
+                return $inventory;
+        if ($force) foreach (array_reverse($inventories) as $inventory)
+            if ($inventory && $this->transferItem( $actor, $item, to: $inventory, options: [TransferItemOption::EnforcePlacement] ) === InventoryHandler::ErrorNone)
+                return $inventory;
+        return null;
     }
 }

@@ -544,11 +544,11 @@ class CitizenHandler
             list($action,$proto) = $entry;
 
             if ($action < 0) foreach ($this->inventory_handler->fetchSpecificItems( $inventory, [new ItemRequest($proto->getName(),1,null,null)] ) as $item)
-                $this->inventory_handler->transferItem($citizen,$item,$inventory,$null);
+                $this->events->transferItem($citizen,$item,$inventory);
             if ($action > 0) {
                 $item = $this->item_factory->createItem( $proto );
                 $item->setEssential(true);
-                $this->inventory_handler->transferItem($citizen,$item,$null,$inventory);
+                $this->events->transferItem($citizen, $item, to: $inventory);
             }
         }
 

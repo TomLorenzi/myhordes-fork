@@ -24,6 +24,7 @@ use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
+use App\Service\EventProxyService;
 use App\Service\GazetteService;
 use App\Service\HookExecutor;
 use App\Service\InventoryHandler;
@@ -238,11 +239,11 @@ class GameController extends CustomAbstractController
      * @param JSONRequestParser $parser
      * @param ItemFactory $if
      * @param ConfMaster $cf
-     * @param TranslatorInterface $translator
+     * @param EventProxyService $proxy
      * @return Response
      */
     #[Route(path: 'api/game/job', name: 'api_jobcenter')]
-    public function job_select_api(JSONRequestParser $parser, ItemFactory $if, ConfMaster $cf, TranslatorInterface $translator): Response {
+    public function job_select_api(JSONRequestParser $parser, ItemFactory $if, ConfMaster $cf, EventProxyService $proxy): Response {
 
         $citizen = $this->getActiveCitizen();
         if ($citizen->getProfession()->getName() !== CitizenProfession::DEFAULT)
@@ -274,7 +275,7 @@ class GameController extends CustomAbstractController
 
             if ($this->user_handler->checkFeatureUnlock( $citizen->getUser(), 'f_cam', true ) ) {
                 $item = ($if->createItem( "photo_3_#00" ))->setEssential(true);
-                $this->inventory_handler->transferItem($citizen,$item,$null,$inventory);
+                $proxy->transferItem($citizen, $item, to: $inventory);
             }
 
 			/** @var HeroSkillPrototype $skill */
@@ -288,7 +289,7 @@ class GameController extends CustomAbstractController
                         // Only give the APAG via Hero XP if it is not unlocked via Soul Inventory
                         if (!$this->user_handler->checkFeatureUnlock( $citizen->getUser(), 'f_cam', false ) ) {
                             $item = ($if->createItem( "photo_3_#00" ))->setEssential(true);
-                            $this->inventory_handler->transferItem($citizen,$item,$null,$inventory);
+                            $proxy->transferItem($citizen, $item, to: $inventory);
                         }
                         break;
                 }
@@ -321,7 +322,7 @@ class GameController extends CustomAbstractController
 
         if ($this->user_handler->checkFeatureUnlock( $citizen->getUser(), 'f_alarm', true ) ) {
             $item = ($if->createItem( "alarm_off_#00" ))->setEssential(true);
-            $this->inventory_handler->transferItem($citizen,$item,$null,$inventory);
+            $proxy->transferItem($citizen, $item, to: $inventory);
         }
 
         if ($this->user_handler->checkFeatureUnlock( $citizen->getUser(), 'f_arma', true ) ) {
@@ -353,7 +354,7 @@ class GameController extends CustomAbstractController
 
         $chest = $citizen->getHome()->getChest();
         foreach ($item_spawns as $spawn)
-            $this->inventory_handler->placeItem($citizen, $if->createItem($this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $spawn])), [$chest]);
+            $proxy->placeItem($citizen, $if->createItem($this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $spawn])), [$chest]);
         try {
             $this->entity_manager->persist( $chest );
             $this->entity_manager->flush();
