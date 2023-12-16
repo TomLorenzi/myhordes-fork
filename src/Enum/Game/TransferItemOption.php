@@ -2,10 +2,9 @@
 
 namespace App\Enum\Game;
 
-enum TransferItemOption: int
+enum TransferItemOption
 {
-    case None = 0;
-    case EnforcePlacement = 3;
-    case AllowMultiHeavy  = 5;
-    case AllowExtraBag  = 10;
+    case EnforcePlacement;
+    case AllowMultiHeavy;
+    case AllowExtraBag;
 }
