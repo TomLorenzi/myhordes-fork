@@ -675,10 +675,13 @@ class InventoryAwareController extends CustomAbstractController
 
         $processed = max(0, $item_count - count($errors));
 
-        if (count($errors) < $item_count || ($item_count === 0 && empty($error))) {
+        if (empty($errors) || count($errors) < $item_count || ($item_count === 0 && empty($error))) {
             return AjaxResponse::success();
-        } else if (count($errors) > 0)
+        } else {
+            if (!empty($error_messages))
+                return AjaxResponse::errorMessage( implode('<hr/>', $error_messages) );
             return AjaxResponse::error($errors[0]);
+        }
     }
 
     public function generic_recipe_api(JSONRequestParser $parser, ActionHandler $handler, ?callable $trigger_after = null): Response {

@@ -16,9 +16,9 @@ class ProcessInventorySpaceRequirement extends AtomRequirementProcessor
 
         $inventoryHandler = $this->container->get(InventoryHandler::class);
 
-        $inv_full = $inventoryHandler->getFreeSize( $cache->citizen->getInventory() ) < $data->space;
+        $inv_full = $data->ignoreInventory || ($inventoryHandler->getFreeSize( $cache->citizen->getInventory() ) < $data->space);
         $trunk_full = ($data->considerTrunk && $cache->citizen->getZone() === null)
-            ? ($inventoryHandler->getFreeSize( $cache->citizen->getHome()->getChest() ) <= $data->space)
+            ? ($inventoryHandler->getFreeSize( $cache->citizen->getHome()->getChest() ) < $data->space)
             : null;
 
         if ($inv_full && $trunk_full === true) {

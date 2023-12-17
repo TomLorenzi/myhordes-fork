@@ -1,6 +1,7 @@
 <?php
 namespace App\Service;
 
+use App\Entity\ActionCounter;
 use App\Entity\Building;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
@@ -1206,7 +1207,12 @@ class NightlyHandler
 
             $this->log->debug("Removing volatile counters for citizen <info>{$citizen->getUser()->getUsername()}</info>...");
             $citizen->setWalkingDistance(0);
-            $this->citizen_handler->setAP($citizen,false,$this->citizen_handler->getMaxAP( $citizen ),0);
+
+            // AP deduction
+            $loan = min($citizen->getSpecificActionCounterValue(ActionCounter::ActionTypeSpecialActionAPLoan), 1);
+            $this->citizen_handler->setAP($citizen,false,max(1, $this->citizen_handler->getMaxAP( $citizen ) - $loan) ,0);
+            if ($loan > 0) $this->crow->postAsPM($citizen, '', '', PrivateMessage::TEMPLATE_CROW_REDUCED_AP_REGEN);
+
             $this->citizen_handler->setBP($citizen,false,$this->citizen_handler->getMaxBP( $citizen ),0);
             $this->citizen_handler->setPM($citizen,false,$this->citizen_handler->getMaxPM( $citizen ));
             foreach ($citizen->getActionCounters() as $counter)

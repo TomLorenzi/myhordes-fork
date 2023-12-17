@@ -19,7 +19,7 @@
             </div>
         </div>
         {% for citizen in citizens|sort((a,b) => (a.infos.alive == b.infos.alive) ? ((a.infos.alive) ? (a.infos.alias != null ? a.infos.alias : a.infos.name)|lower <=> (b.infos.alias != null ? b.infos.alias : b.infos.name)|lower : (b.infos.survivedDays <=> a.infos.survivedDays ?: b.infos.rankingEntry.end <=> a.infos.rankingEntry.end)) : b.infos.alive <=> a.infos.alive) %}
-            <div class="row-flex stretch{% if citizen.infos == me%} me{% endif %}">
+            <div class="row-flex stretch{% if citizen.infos == me%} me{% endif %} {{ hook('additionalCitizenRowClass', citizen.infos) }}">
                 <div class="cell factor-0 citizen-{{ citizen.infos.alive ? (citizen.infos.online ? 'online' : 'offline') : 'dead' }} link" style="flex-basis: 8px;" x-ajax-href="{{ path('town_visit', {id: citizen.infos.id}) }}">&nbsp;</div>
                 <div class="cell factor-0 content-center-vertical link" x-ajax-href="{{ path('town_visit', {id: citizen.infos.id}) }}">
                         <img alt="{{ citizen.infos.home.prototype.level }}" src="{{ asset('build/images/home/' ~ citizen.infos.home.prototype.icon ~ '.gif') }}" />

@@ -39,6 +39,7 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('can_use_friendship')->type(Requirement::HideOnFail)->add( (new FeatureRequirement())->feature('f_share') )->commit();
         $requirement_container->add()->identifier('hunter_no_followers')->type( Requirement::MessageOnFail )->text('Du kannst die <strong>Tarnkleidung</strong> nicht benutzen, wenn du {escortCount} Personen im Schlepptau hast...')->add( (new EscortRequirement())->maxFollowers(0) )->commit();
         $requirement_container->add()->identifier('room_for_item')->type( Requirement::MessageOnFail )->add( (new InventorySpaceRequirement()) )->commit();
+        $requirement_container->add()->identifier('room_for_item_in_chest')->type( Requirement::MessageOnFail )->add( (new InventorySpaceRequirement())->ignoreInventory(true)->container(false) )->commit();
         $requirement_container->add()->identifier('guard_tower_not_max')->type( Requirement::MessageOnFail )->add( (new CustomClassRequirement())->requirement(GuardTowerUseIsNotMaxed::class) )->commit();
 
         $requirement_container->add()->identifier('vote_shaman_needed')->type( Requirement::HideOnFail )->add( (new CustomClassRequirement())->requirement(RoleVote::class)->args(['needed' => 'shaman']) )->commit();

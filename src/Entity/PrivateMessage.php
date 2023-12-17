@@ -22,6 +22,7 @@ class PrivateMessage
     const TEMPLATE_CROW_NIGHTWATCH_TERROR  = 10;
     const TEMPLATE_CROW_INTRUSION          = 11;
     const TEMPLATE_CROW_BANISHMENT         = 12;
+    const TEMPLATE_CROW_REDUCED_AP_REGEN   = 13;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]

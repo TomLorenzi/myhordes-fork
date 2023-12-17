@@ -92,8 +92,8 @@ class MessageTownMessageController extends MessageController
 
                 if (!$item) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-                if (in_array($item->getPrototype()->getName(), ['bagxl_#00', 'bag_#00', 'cart_#00', 'pocket_belt_#00']))
-                    // We cannot send bag expansion
+                // Check if item is blacklisted from being sent via post
+                if ($item->getPrototype()->hasProperty('no_post'))
                     return AjaxResponse::errorMessage( $this->translator->trans('Du kannst kein(en) {item} per Post versenden.',
                         ['item' => "<span class='tool'><img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$item->getPrototype()->getIcon()}.gif" )}'> {$this->translator->trans($item->getPrototype()->getLabel(), [], 'items')}</span>"], 'game') );
 
@@ -398,6 +398,10 @@ class MessageTownMessageController extends MessageController
                     if (!empty($item_list)) $messages[] = $this->translator->trans( 'Die folgenden Gegenstände wurden aus deinem Inventar entfernt: {item_list}', ['item_list' => $item_list], 'game' );
 
                     $post->setText( $this->html->prepareEmotes($post->getText(), $this->getUser(), $citizen->getTown()) . implode(' ', $messages) );
+                    break;
+                case PrivateMessage::TEMPLATE_CROW_REDUCED_AP_REGEN:
+                    $thread->setTitle( $this->translator->trans('Du bist erschöpft!', [], 'game') );
+                    $post->setText( $this->html->prepareEmotes($post->getText(), $this->getUser(), $citizen->getTown()) . $this->translator->trans( 'Du hast dich gestern so sehr verausgabt, dass du in der Nacht nicht genug Kraft schöpfen konntest, um deine Aktionspunkte vollständig zu regenerieren.', [], 'game' ) );
                     break;
                 default:
                     $post->setText($this->html->prepareEmotes($post->getText(), $this->getUser(), $citizen->getTown()));

@@ -150,6 +150,9 @@ class TownHomeController extends TownController
                     case PrivateMessage::TEMPLATE_CROW_BANISHMENT:
                         $thread->setTitle( $this->translator->trans('Du wurdest verbannt', [], 'game') );
                         break;
+                    case PrivateMessage::TEMPLATE_CROW_REDUCED_AP_REGEN:
+                        $thread->setTitle( $this->translator->trans('Du bist erschöpft!', [], 'game') );
+                        break;
 
                     default: break;
                 }

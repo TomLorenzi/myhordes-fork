@@ -83,7 +83,7 @@
             {% else %}
                 {% set citizen = citizenInfo.citizen %}
                 {# @var \App\Entity\Citizen citizen  #}
-                <div class="row-flex stretch pointer{% if citizen == me%} me{% endif %}" style="max-height: 100px;">
+                <div class="row-flex stretch pointer{% if citizen == me%} me{% endif %} {{ hook('additionalCitizenRowClass', citizen) }}" style="max-height: 100px;">
                 {% include "ajax/soul/playeravatar.html.twig" with {user: citizen.user, small: true, background: true, classes: ['cell','factor-0','hide-md','hide-sm'], attributes: {style: 'flex-basis: 92px', 'x-ajax-href': path('town_visit', {id: citizen.id}) }} only %}
                 <div class="cell factor-0 citizen-{{ citizen.alive ? (citizen.online ? 'online' : 'offline') : 'dead' }}" style="flex-basis: 8px;" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">&nbsp;</div>
                 
