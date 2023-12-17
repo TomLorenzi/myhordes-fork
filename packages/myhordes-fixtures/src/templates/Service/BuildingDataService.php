@@ -240,7 +240,7 @@ class BuildingDataService implements FixtureProcessorInterface {
         $container->add()
             ->icon('small_refine')->label('Werkstatt')->description('Die Entwicklung einer jeden Stadt hängt vom Bau einer verdreckten Werkstatt ab. Sie ist die Voraussetzung für alle weiter entwickelten Gebäude.')
             ->isTemporary(0)->defense(0)->ap(25)->blueprintLevel(0)->resources(["wood2_#00" => 10,"metal_#00" => 8,])->orderBy(3)
-            ->voteLevel(5)
+            ->voteLevel(5)->baseVoteText('Ermöglicht die Umwandlung von Objekten, mit etwas Anstrengung.')
             ->upgradeTexts([
                                'Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.',
                                'Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.',
@@ -386,7 +386,7 @@ class BuildingDataService implements FixtureProcessorInterface {
         $container->add()->parentBuilding($item_tagger)
             ->icon('small_gather')->label('Forschungsturm')->description('Mit dem Forschungsturm können in bereits "abgesuchten" Wüstenzonen jeden Tag neue Gegenstände gefunden werden! Der Forschungsturm versetzt dich in die Lage, jene anormalen meteorologischen Phänomene aufzuzeichnen und auszuwerten, die sich nachts in der Wüste abspielen. Die entsprechenden Fundstellen werden anschließend in der Zeitung veröffentlicht.')
             ->isTemporary(0)->defense(0)->ap(30)->blueprintLevel(1)->resources(["electro_#00" => 1,"wood_beam_#00" => 3,"metal_beam_#00" => 1,"table_#00" => 1,])->orderBy(4)
-            ->voteLevel(5)
+            ->voteLevel(5)->baseVoteText('Zeigt die Windrichtung in der Zeitung an.')
             ->upgradeTexts([
                                'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.',
                                'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 49%.',
@@ -465,7 +465,7 @@ class BuildingDataService implements FixtureProcessorInterface {
         $container->add()->parentBuilding($item_tagger)
             ->icon('small_novlamps')->label('Straßenbeleuchtung')->description('Selbst in der tiefsten Nacht erlaubt dir der fahle Schein der Laternenmasten, deine Ausgrabungen in der Wüste fortzusetzen. Keine Ausreden mehr, um früh ins Bett zu gehen.')
             ->isTemporary(0)->defense(0)->ap(25)->blueprintLevel(1)->resources(["meca_parts_#00" => 2,"lens_#00" => 2,"diode_#00" => 2,"metal_beam_#00" => 10,"wire_#00" => 1, "pile_#00" => 5])->orderBy(16)
-            ->voteLevel(2)
+            ->voteLevel(2)->baseVoteText('Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert.')
             ->upgradeTexts([
                                /* 'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.', */
                                'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.',
