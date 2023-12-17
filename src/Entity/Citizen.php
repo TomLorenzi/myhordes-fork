@@ -234,6 +234,17 @@ class Citizen
             if ($status->getName() === $status_name) return true;
         return false;
     }
+
+    public function hasAnyStatus(string ...$status_names): bool
+    {
+        return !empty(array_intersect( $status_names, $this->getStatus()->map( fn(CitizenStatus $s) => $s->getName() )->toArray() ));
+    }
+
+    public function hasAllStatus(string ...$status_names): bool
+    {
+        return count(array_intersect( $status_names, $this->getStatus()->map( fn(CitizenStatus $s) => $s->getName() )->toArray() )) === count($status_names);
+    }
+
     public function getProfession(): ?CitizenProfession
     {
         return $this->profession;

@@ -6,6 +6,7 @@ use App\Entity\Item;
 use App\Event\Game\GameInteractionEvent;
 use App\Event\Traits\FlashMessageTrait;
 use App\Event\Traits\ItemProducerTrait;
+use App\Service\EventProxyService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\LogTemplateHandler;
@@ -27,7 +28,7 @@ final class CommonEffectListener implements ServiceSubscriberInterface
     {
         return [
             ItemFactory::class,
-            InventoryHandler::class,
+            EventProxyService::class,
             TranslatorInterface::class,
             LogTemplateHandler::class,
         ];
@@ -46,9 +47,8 @@ final class CommonEffectListener implements ServiceSubscriberInterface
             $event->addItem( $this->container->get(ItemFactory::class)->createItem( $prototype ) );
 
         foreach ($event->getCreatedInstances() as $item)
-            if (($error = $this->container->get(InventoryHandler::class)->transferItem(
-                    $event->citizen,
-                    $item,null, $event->citizen->getInventory()
+            if (($error = $this->container->get(EventProxyService::class)->transferItem(
+                    $event->citizen, $item, to: $event->citizen->getInventory()
                 )) !== InventoryHandler::ErrorNone) {
 
                 $event->pushErrorCode( $error )->cancelPersist()->stopPropagation();

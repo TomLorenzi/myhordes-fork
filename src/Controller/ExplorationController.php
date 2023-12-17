@@ -18,6 +18,7 @@ use App\Service\CrowService;
 use App\Service\DeathHandler;
 use App\Service\DoctrineCacheService;
 use App\Service\ErrorHelper;
+use App\Service\EventFactory;
 use App\Service\EventProxyService;
 use App\Service\GameFactory;
 use App\Service\GameProfilerService;
@@ -39,7 +40,10 @@ use DateInterval;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -331,22 +335,26 @@ class ExplorationController extends InventoryAwareController implements HookedIn
 
     /**
      * @param JSONRequestParser $parser
-     * @param InventoryHandler $handler
+     * @param EventFactory $ef
+     * @param EventDispatcherInterface $ed
      * @return Response
      */
     #[Route(path: 'api/beyond/explore/item', name: 'beyond_ruin_item_controller')]
-    public function item_explore_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
+    public function item_explore_api(JSONRequestParser $parser, EventFactory $ef, EventDispatcherInterface $ed): Response {
         $ex = $this->getActiveCitizen()->activeExplorerStats();
         //$down_inv = $ex->getInRoom() ? $this->getCurrentRuinZone()->getRoomFloor() : $this->getCurrentRuinZone()->getFloor();
         $down_inv = $this->getCurrentRuinZone()->getFloor();
         $up_inv   = $this->getActiveCitizen()->getInventory();
 
-        return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler);
+        return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $ef, $ed);
     }
 
     /**
      * @param GameProfilerService $gps
+     * @param EventProxyService $proxyService
      * @return Response
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     #[Route(path: 'api/beyond/explore/scavenge', name: 'beyond_ruin_scavenge_controller')]
     public function scavenge_explore_api(GameProfilerService $gps, EventProxyService $proxyService): Response {
@@ -396,8 +404,8 @@ class ExplorationController extends InventoryAwareController implements HookedIn
             $item = $this->item_factory->createItem($prototype, false, $prototype->hasProperty("found_poisoned") && $this->random_generator->chance(0.90));
             $gps->recordItemFound( $prototype, $citizen, $ruinZone->getZone()->getPrototype() );
             $noPlaceLeftMsg = "";
-            // $inventoryDest = $this->inventory_handler->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getRoomFloor()]);
-            $inventoryDest = $this->inventory_handler->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getFloor()]);
+            // $inventoryDest = $proxyService->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getRoomFloor()]);
+            $inventoryDest = $proxyService->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getFloor()]);
             if ($inventoryDest === $ruinZone->getFloor())
                 $noPlaceLeftMsg = "<hr />" . $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
 
@@ -433,7 +441,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
      * @return Response
      */
     #[Route(path: 'api/beyond/explore/imprint', name: 'beyond_ruin_imprint_controller')]
-    public function imprint_explore_api(InventoryHandler $handler): Response {
+    public function imprint_explore_api(InventoryHandler $handler, EventProxyService $proxy): Response {
         $citizen = $this->getActiveCitizen();
         $ex = $citizen->activeExplorerStats();
         $ruinZone = $this->getCurrentRuinZone();
@@ -448,7 +456,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
             return AjaxResponse::error( InventoryHandler::ErrorInventoryFull );
 
         $item = $this->item_factory->createItem($ruinZone->getPrototype()->getKeyImprint());
-        $this->inventory_handler->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getFloor()]);
+        $proxy->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getFloor()]);
 
         $this->addFlash( 'notice', $this->translator->trans( 'Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst {item}!', [
                 '{item}' => "<span class='tool'><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $item->getPrototype()->getIcon() . '.gif' )}'> {$this->translator->trans($item->getPrototype()->getLabel(), [], 'items')}</span>"

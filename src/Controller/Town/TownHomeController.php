@@ -22,6 +22,7 @@ use App\Service\ActionHandler;
 use App\Service\AdminHandler;
 use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
+use App\Service\EventFactory;
 use App\Service\InventoryHandler;
 use App\Service\JSONRequestParser;
 use App\Service\TownHandler;
@@ -29,6 +30,7 @@ use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Common\Collections\Criteria;
 use Exception;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -364,14 +366,15 @@ class TownHomeController extends TownController
 
     /**
      * @param JSONRequestParser $parser
-     * @param InventoryHandler $handler
+     * @param EventFactory $ef
+     * @param EventDispatcherInterface $ed
      * @return Response
      */
     #[Route(path: 'api/town/house/item', name: 'town_house_item_controller')]
-    public function item_house_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
+    public function item_house_api(JSONRequestParser $parser, EventFactory $ef, EventDispatcherInterface $ed): Response {
         $up_inv   = $this->getActiveCitizen()->getInventory();
         $down_inv = $this->getActiveCitizen()->getHome()->getChest();
-        return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler);
+        return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $ef, $ed);
     }
 
     /**

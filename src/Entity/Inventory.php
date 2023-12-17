@@ -172,4 +172,14 @@ class Inventory
 
         return $this;
     }
+
+    public function hasAnyItem(string ...$item_names): bool
+    {
+        return !empty(array_intersect( $item_names, $this->getItems()->map( fn(Item $i) => $i->getPrototype()->getName() )->toArray() ));
+    }
+
+    public function hasAllItems(string ...$item_names): bool
+    {
+        return count(array_intersect( $item_names, $this->getItems()->map( fn(Item $i) => $i->getPrototype()->getName() )->toArray() )) === count($item_names);
+    }
 }
