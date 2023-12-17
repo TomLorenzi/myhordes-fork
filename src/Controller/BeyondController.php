@@ -572,11 +572,16 @@ class BeyondController extends InventoryAwareController
 
         if (!$this->zone_handler->isZoneUnderControl( $this->getActiveCitizen()->getZone() ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
             $this->addFlash('collapse', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!', [], 'game'));
-        $r = $this->generic_item_api( $up_inv, $down_inv, true, $parser, $ef, $ed, $citizen, $hide_items, $processed);
-        if ($r->isSuccessResponse() && $hide_items && $processed > 0) {
+        $r = $this->generic_item_api( $up_inv, $down_inv, true, $parser, $ef, $ed, $citizen, true, $processed);
+        if ($r->isSuccessResponse() && $processed > 0) {
             if (!$hide_success)
                 $this->addFlash('notice', $this->translator->trans('Ein oder mehrere nicht-verbannte Bürger in der Umgebung haben dich dabei beobachtet.<hr/>Du hast 2 Aktionspunkte verbraucht.', [], 'game'));
-            else $this->addFlash('notice', $this->translator->trans('Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.', [], 'game'));
+            else {
+                $this->citizen_handler->setAP($citizen, true, -2);
+                $citizen->getZone()?->setItemsHiddenAt( new \DateTimeImmutable() );
+                $this->entity_manager->persist($citizen);
+                $this->addFlash('notice', $this->translator->trans('Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.', [], 'game'));
+            }
 
         } elseif ($r->isSuccessResponse() && !$hide_items && $processed > 0)
             $this->addFlash('notice', $this->translator->trans('Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...', [], 'game'));
