@@ -96,13 +96,13 @@ Weiter: crwdns68430:0crwdne68430:0
 "Die Stunde des Angriffs rückt näher und näher... Du kannst noch so viel in dein Funkgerät schreien, es wird niemand mehr kommen...\nIm Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen Lebens noch einmal Revue passieren... Wer weiß, vielleicht hast du schon morgen selbst Appetit auf Menschenfleisch?": "crwdns68464:0crwdne68464:0"
 Standortansicht: crwdns68466:0crwdne68466:0
 'Sobald du die Stadt verlässt, ist die Karte dein einziges Hilfsmittel, um dich in der Außenwelt zu orientieren.': 'crwdns68468:0crwdne68468:0'
-'Klicke auf die grünen Pfeile <strong>[1]</strong>, um in die gewünschte Richtung zu gehen.': 'crwdns68470:0[1]crwdne68470:0'
-'Durch Drücken des Kartenknopfes <strong>[2]</strong> erhältst du eine Gesamtansicht deiner Welt.': 'crwdns68472:0[2]crwdne68472:0'
+'Klicke auf die grünen Pfeile <strong>[1]</strong>, um in die gewünschte Richtung zu gehen.': 'crwdns68470:0crwdne68470:0'
+'Durch Drücken des Kartenknopfes <strong>[2]</strong> erhältst du eine Gesamtansicht deiner Welt.': 'crwdns68472:0crwdne68472:0'
 'Die Weltkarte': 'crwdns68474:0crwdne68474:0'
-'Das grün leuchtende Feld <strong>[1]</strong> zeigt deine aktuelle Position.': 'crwdns68476:0[1]crwdne68476:0'
-'Orange, rot oder blau markierte Felder <strong>[2]</strong> weisen auf Zombiepräsenz hin. Wenn du in diesen Sektoren allein unterwegs bist, ist höchste Vorsicht geboten!': 'crwdns68478:0[2]crwdne68478:0'
-'Der Mark.-Knopf <strong>[3]</strong> zeigt alle von dir oder von anderen Spieler gesetzten Wegmarken an. Diese können zum Markieren von gefährlichen Zonen gesetzt werden, oder aber, um auf wichtige Gegenstände hinzuweisen.': 'crwdns68480:0[3]crwdne68480:0'
-'Der Expeditionsknopf <strong>[4]</strong> zeigt alle geplanten Expeditionen an.': 'crwdns68482:0[4]crwdne68482:0'
+'Das grün leuchtende Feld <strong>[1]</strong> zeigt deine aktuelle Position.': 'crwdns68476:0crwdne68476:0'
+'Orange, rot oder blau markierte Felder <strong>[2]</strong> weisen auf Zombiepräsenz hin. Wenn du in diesen Sektoren allein unterwegs bist, ist höchste Vorsicht geboten!': 'crwdns68478:0crwdne68478:0'
+'Der Mark.-Knopf <strong>[3]</strong> zeigt alle von dir oder von anderen Spieler gesetzten Wegmarken an. Diese können zum Markieren von gefährlichen Zonen gesetzt werden, oder aber, um auf wichtige Gegenstände hinzuweisen.': 'crwdns68480:0crwdne68480:0'
+'Der Expeditionsknopf <strong>[4]</strong> zeigt alle geplanten Expeditionen an.': 'crwdns68482:0crwdne68482:0'
 Zonentypen: crwdns68484:0crwdne68484:0
 'Es handelt sich um eine unerforschte Zone, die weder von dir, noch von sonst wem besucht wurde.': 'crwdns68486:0crwdne68486:0'
 'Diese Zone wurde in den letzten Tagen schon einmal erforscht. Da heute allerdings noch niemand da war, <strong>weißt du nicht, ob sich dort Zombies aufhalten</strong>...': 'crwdns68488:0crwdne68488:0'
@@ -742,7 +742,7 @@ Nutzungsbedingungen: crwdns69748:0crwdne69748:0
 'Du darfst keine <strong>automatischen Skripte zum regelmäßigen Datenabgleich</strong> mit der API verwenden (Cron, automatisierte Tasks...),': 'crwdns69756:0crwdne69756:0'
 'Verwendest du Grafiken oder sonstige Inhalte von MyHordes, musst du auf die Quelle sowie die entsprechenden Rechte des Autors / Künstlers verweisten.': 'crwdns69758:0crwdne69758:0'
 '<strong>MIT ANDEREN SPIELERN REDEN:</strong> Die meisten Spielfragen werden oder wurden meistens schon in den <span x-ajax-href="{url_forums}">Foren</span> beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.': 'crwdns69760:0{url_forums}crwdne69760:0'
-'Die Schaltflächen <strong>[5]</strong> ermöglichen das Herein- und Herauszoomen der Ansicht': 'crwdns69762:0[5]crwdne69762:0'
+'Die Schaltflächen <strong>[5]</strong> ermöglichen das Herein- und Herauszoomen der Ansicht': 'crwdns69762:0crwdne69762:0'
 'Alle deine Gegenstände werden <strong>in der Truhe</strong> aufbewahrt. Klick auf einen <strong>Gegenstand</strong>, um ihn mitzunehmen...': 'crwdns69764:0crwdne69764:0'
 'Ausgerüstete Gegenstände werden in deinem <strong>Rucksack</strong> aufbewahrt.': 'crwdns69766:0crwdne69766:0'
 'Wenn du einen Gegenstand gegen einen anderen aus deiner Truhe tauschen möchtest, brauchst du ihn nur anzuklicken.': 'crwdns69768:0crwdne69768:0'
@@ -907,3 +907,4 @@ Teams: crwdns168383:0crwdne168383:0
 'Ein Nachtwächter hat eine Chance <strong>eine Verletzung oder Angststarre</strong> zu erleiden, oder sogar von den attackierenden Zombies getötet zu werden. Die Stadt gegen eine Horde angreifender Zombies zu verteidigen ist kein Zuckerschlecken, also sieh dich vor!': 'crwdns204358:0crwdne204358:0'
 'Du kannst deinen Posten bis kurz vor dem Angriff verlassen.': 'crwdns204360:0crwdne204360:0'
 'Im Laufe des 5. Tages oder früher gestorben = kein Gewinn': 'crwdns204362:0crwdne204362:0'
+'Sobald du eine Seele in die Stadt gebracht hast, muss sie gereinigt werden. Hierfür ist das Gebäude Seelenreinigungsquelle erforderlich. <strong>Denk daran dass eine gequälte Seele bei jedem Angriff Unglück bringt, auch wenn sie in der Stadt ist!</strong>': 'crwdns204370:0crwdne204370:0'
