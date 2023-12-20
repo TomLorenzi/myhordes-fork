@@ -924,6 +924,38 @@ export default class TwinoAlikeParser {
         do { c = container_node.firstChild; } while (delete_empty(c));
         do { c = container_node.lastChild; }  while (delete_empty(c));
 
+        // Properly nest orphaned LIs
+        let orphan = null;
+        while (orphan = container_node.querySelector('*:not(ul):not(ol)>li')) {
+            console.log(orphan);
+            const new_parent = document.createElement('ul');
+            let next_sibling = null;
+
+            // Remove tailing BRs and concat additional LIs
+            let did_concat = false;
+            do {
+                did_concat = false;
+
+                // Trim line breaks and white spaces
+                while (
+                    orphan.nextSibling !== null && (
+                        (orphan.nextSibling.nodeType === Node.TEXT_NODE && orphan.nextSibling.textContent.trim().length === 0) ||
+                        (orphan.nextSibling.nodeType === Node.ELEMENT_NODE && orphan.nextSibling.tagName === 'BR')
+                    )
+                ) orphan.nextSibling.remove();
+
+                // Concat following LIs into the same UL
+                while ((next_sibling = orphan.nextSibling) && next_sibling.nodeType === Node.ELEMENT_NODE && next_sibling.tagName === 'LI') {
+                    new_parent.appendChild(next_sibling);
+                    did_concat = true;
+                }
+            } while (did_concat);
+
+            // Place the new list right before the triggering LI and move the LI inside
+            orphan.parentElement.insertBefore( new_parent, orphan );
+            new_parent.insertBefore( orphan, new_parent.firstElementChild );
+        }
+
         TwinoAlikeParser.processPlayerNames( container_node );
         if (playerCacheRefreshing) window.clearTimeout(playerCacheRefreshing);
         if ($.html.twinoParser.AjaxUrl !== '') {
