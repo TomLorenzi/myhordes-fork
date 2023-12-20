@@ -719,6 +719,33 @@ class AdminTownController extends AdminActionController
         ]));
     }
 
+	/**
+	 * @param int $id Town ID
+	 * @param JSONRequestParser $parser
+	 * @return Response
+	 */
+	#[Route(path: 'api/admin/town/old/{id}/get_citizen_infos', name: 'get_old_citizen_infos', requirements: ['id' => '\d+'])]
+	#[IsGranted('ROLE_ADMIN')]
+	#[AdminLogProfile(enabled: true)]
+	public function get_old_citizen_infos(int $id, JSONRequestParser  $parser): Response{
+		$town = $this->entity_manager->getRepository(TownRankingProxy::class)->find($id);
+		if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+		$citizen_id = $parser->get('citizen_id', -1);
+		$citizen = $this->entity_manager->getRepository(CitizenRankingProxy::class)->find($citizen_id);
+
+		if(!$citizen || $citizen->getTown() !== $town)
+			return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+		$pictos = $this->renderView("ajax/admin/towns/distinctions.html.twig", [
+			'pictos' => $this->entity_manager->getRepository(Picto::class)->findPictoByUserAndTown($citizen->getUser(), $citizen->getTown()),
+		]);
+
+		return AjaxResponse::success(true, [
+			'pictos' => $pictos,
+		]);
+	}
+
     /**
      * @param int $id The ID of the town
      * @param string $action The action to perform

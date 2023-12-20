@@ -159,7 +159,7 @@ class PictoRepository extends ServiceEntityRepository
      * @param Town|TownRankingProxy|null $town
      * @return Picto[]
      */
-    public function findPictoByUserAndTown(User $user, $town): array
+    public function findPictoByUserAndTown(User $user, Town|TownRankinAddegProxy|null $town): array
     {
         return $this->createQueryBuilder('i')
             ->andWhere('i.user = :val')->setParameter('val', $user)

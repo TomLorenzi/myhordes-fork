@@ -57,7 +57,7 @@
                             </div>
                             {% for citizen in town.citizens|sort((a,b) => b.day <=> a.day) %}
                                 {# @var \App\Entity\Citizen citizen  #}
-                                <div class="row-flex stretch" style="max-height: 100px;">
+                                <div x-citizen-id="{{ citizen.id }}" class="row-flex stretch citizen-main pointer" style="max-height: 100px;">
                                     {% include 'ajax/soul/playeravatar.html.twig' with {user: citizen.user, small: true, background: true, classes: ['cell','factor-0'], attributes: {style: 'flex-basis: 92px;', ('x-ajax-href'): url('admin_users_citizen_view', {id: citizen.user.id})}} only %}
                                     <div class="cell factor-0 citizen-dead" style="flex-basis: 8px;" x-ajax-href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">&nbsp;</div>
                                     
@@ -76,6 +76,13 @@
                                             <label><input data-distribute-to="{{ citizen.id }}" type="checkbox"/></label>
                                         </div>
                                     {% endif %}
+                                </div>
+                                <div x-citizen-id="{{ citizen.id }}" class="row hidden citizen-details">
+                                    <div class="cell rw-12">
+                                        <div class="row">
+                                            <div class="padded cell rw-12 soul"><div class="invTargetPictos"></div></div>
+                                        </div>
+                                    </div>
                                 </div>
                             {% endfor %}
                         </div>
@@ -160,6 +167,30 @@
                         document.getElementById('givebtn').toggleAttribute('disabled', !one)
                     }
                 })
+
+                $.html.addEventListenerAll('.citizen-main[x-citizen-id]', 'click',  (e,elem) => {
+                    if (e.target.tagName === 'INPUT') return;
+                    const details = document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"]');
+
+                    if (details.classList.contains('hidden')) {
+                        $.html.forEach('.citizen-details[x-citizen-id]', elem => elem.classList.add('hidden'));
+                        details.classList.remove('hidden');
+
+                        const refresh = () => {
+                            $.ajax.easySend('{{ url('get_old_citizen_infos', {id: town.id}) }}', {'citizen_id': elem.getAttribute('x-citizen-id')}, data => {
+                                document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetPictos').innerHTML = data.pictos;
+                                let tooltips = document.querySelectorAll('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetPictos .tooltip');
+                                for(let i = 0 ; i < tooltips.length ; i++)
+                                    $.html.handleTooltip(tooltips[i]);
+
+                            });
+                        };
+                        refresh();
+                    } else {
+                        $.html.forEach('.citizen-details[x-citizen-id]', elem => elem.classList.add('hidden'));
+                        document.querySelector(".citizen-details[x-citizen-id] .invTargetPictos").innerHTML = '';
+                    }
+                });
 
             {% endif %}
         })();
