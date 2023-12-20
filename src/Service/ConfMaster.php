@@ -78,13 +78,21 @@ class ConfMaster
         return array_keys($this->getAllEvents());
     }
 
-    private function configToDate(string $dateString, \DateTimeInterface $current): ?\DateTime {
+    private function configToDate(string $dateString, \DateTimeInterface $current, \DateTimeInterface $assumeAfter = null): ?\DateTime {
         list($date, $time) = explode(' ', $dateString);
         $date = explode('-', $date);
         $time = explode(':', $time);
-        if (count($date) === 2) array_unshift($date,(int)$current->format('Y'));
+        if (count($date) === 2) {
+            array_unshift($date, (int)$current->format('Y'));
+            $year_guessed = true;
+        } else $year_guessed = false;
         if (count($date) !== 3) return null;
-        return (new DateTime())->setDate($date[0], $date[1], $date[2])->setTime($time[0], $time[1], 0);
+        $date = (new DateTime())->setDate($date[0], $date[1], $date[2])->setTime($time[0], $time[1], 0);
+        if ($assumeAfter && $date < $assumeAfter) {
+            if ($year_guessed) $date->modify('+1year');
+            else return null;
+        }
+        return $date;
     }
 
     public function getEventSchedule(array $trigger, DateTime $curDate, ?DateTime &$begin = null, ?DateTime &$end = null, bool $lookAhead = false): bool {
@@ -98,7 +106,7 @@ class ConfMaster
                 if (!($begin = $this->configToDate($trigger['begin'], $curDate))) return false;
 
                 $end = match(true) {
-                    isset( $trigger['end'] )  => $this->configToDate($trigger['end'], $curDate),
+                    isset( $trigger['end'] )  => $this->configToDate($trigger['end'], $curDate, $begin),
                     isset( $trigger['days'] ) => (clone $begin)->add( new DateInterval("P{$trigger['days']}D") ),
                     default => (clone $begin)->add( new DateInterval("P1D") ),
                 };
