@@ -75,6 +75,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Contracts\Cache\TagAwareCacheInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Validator\Constraints;
 use Symfony\Component\Validator\Validation;
@@ -1374,11 +1375,12 @@ class SoulController extends CustomAbstractController
      * @return Response
      */
     #[Route(path: 'api/soul/unsubscribe', name: 'api_unsubscribe')]
-    public function unsubscribe_api(JSONRequestParser $parser, SessionInterface $session): Response {
+    public function unsubscribe_api(JSONRequestParser $parser, SessionInterface $session, TagAwareCacheInterface $gameCachePool): Response {
         $this->user_handler->confirmNextDeath( $this->getUser(), $parser->get('lastwords', '') );
 
         if ($session->has('_town_lang')) {
             $session->remove('_town_lang');
+            $gameCachePool->invalidateTags(['distinction_ranking']);
             return AjaxResponse::success()->setAjaxControl(AjaxResponse::AJAX_CONTROL_RESET);
         } else return AjaxResponse::success();
     }

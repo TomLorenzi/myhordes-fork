@@ -46,6 +46,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
+use Symfony\Contracts\Cache\TagAwareCacheInterface;
 use Twig\Environment;
 use Zenstruck\ScheduleBundle\Schedule\SelfSchedulingCommand;
 use Zenstruck\ScheduleBundle\Schedule\Task\CommandTask;
@@ -78,12 +79,14 @@ class CronCommand extends Command implements SelfSchedulingCommand
     private GameEventService $gameEvents;
 
     private array $db;
+    private TagAwareCacheInterface $cache;
 
     public function __construct(array $db, KernelInterface $kernel, Environment $twig,
                                 EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator,
                                 ConfMaster $conf, AntiCheatService $acs, GameFactory $gf, UserHandler $uh, GazetteService $gs,
                                 TownHandler $th, CrowService $cs, CommandHelper $helper, ParameterBagInterface $params,
-                                AdminHandler $adminHandler, UserStatCollectionService $us, GameEventService $gameEvents)
+                                AdminHandler $adminHandler, UserStatCollectionService $us, GameEventService $gameEvents,
+                                TagAwareCacheInterface $gameCachePool)
     {
         $this->kernel = $kernel;
         $this->twig = $twig;
@@ -104,6 +107,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
         $this->adminHandler = $adminHandler;
         $this->userStats = $us;
         $this->gameEvents = $gameEvents;
+        $this->cache = $gameCachePool;
 
         $this->db = $db;
         parent::__construct();
@@ -271,6 +275,10 @@ class CronCommand extends Command implements SelfSchedulingCommand
             );
 
             $this->updateHeaderStats();
+            try {
+                $this->cache->invalidateTags(['daily']);
+            } catch (\Throwable $e) {}
+
 
             $datemod = $this->conf->get(MyHordesConf::CONF_NIGHTLY_DATEMOD, 'tomorrow');
             if ($datemod !== 'never') {
