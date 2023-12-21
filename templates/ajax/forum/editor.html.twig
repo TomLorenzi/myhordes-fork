@@ -14,305 +14,333 @@
 
 {% block ajax_base %}
     <div class="{% if type != 'global-pm' %}forum-editor{% else %}pm-editor{% endif %}">
-        {% if type != 'global-pm' and type != 'numb' %}
-            <div class="forum-editor-header">
-                {% if tid is null %}
-                    <i>{{ 'Neuer Thread'|trans({},'global') }}</i>
-                {% elseif pid is null %}
-                    <i>{{ 'Neuer Post'|trans({},'global') }}</i>
-                {% else %}
-                    <i>{{ 'Bearbeiten'|trans({},'global') }}</i>
-                {% endif %}
-                <b>
-                {{ username }}
-                </b>
-            </div>
-        {% endif %}
-        {% if tid is null or (edit_title is defined and edit_title is not null) %}
-            <div class="row">
-                {% if type != 'global-pm' and type != 'numb' %}
-                    <div class="cell rw-3 padded">
-                        <label for="{{ type }}-forum-editor-title">{{ 'Titel'|trans({},'global') }}</label>
-                    </div>
-                    {% if tags is defined and tags is not empty and (current_tag is not defined or current_tag is empty) %}
-                        <div class="cell rw-5 rw-sm-9 padded">
-                            <input type="text" id="{{ type }}-forum-editor-title" {% if edit_title is defined and edit_title is not null %}value="{{ edit_title }}"{% endif%} />
-                        </div>
-                        <div class="cell rw-4 rw-sm-12 padded">
-                            <span class="small pointer" id="{{ type }}-forum-editor-tag-toggle">{{ 'Tag hinzufügen (optional)'|trans({},'global') }}</span>
-                        </div>
+            {% if type != 'global-pm' and type != 'numb' %}
+                <div class="forum-editor-header">
+                    {% if tid is null %}
+                        <i>{{ 'Neuer Thread'|trans({},'global') }}</i>
+                    {% elseif pid is null %}
+                        <i>{{ 'Neuer Post'|trans({},'global') }}</i>
                     {% else %}
-                        <div class="cell rw-9 padded">
-                            <input type="text" id="{{ type }}-forum-editor-title" {% if edit_title is defined and edit_title is not null %}value="{{ edit_title }}"{% endif%} />
-                        </div>
+                        <i>{{ 'Bearbeiten'|trans({},'global') }}</i>
                     {% endif %}
-
-                {% endif %}
-                {% if type == "changelog" or type == "announcement" %}
-                    {% if type == "changelog" %}
+                    <b>
+                        {{ username }}
+                    </b>
+                </div>
+            {% endif %}
+            {% if tid is null or (edit_title is defined and edit_title is not null) %}
+                <div class="row">
+                    {% if type != 'global-pm' and type != 'numb' %}
                         <div class="cell rw-3 padded">
-                            <label for="{{ type }}-forum-editor-version">{{ 'Version'|trans({},'global') }}</label>
+                            <label for="{{ type }}-forum-editor-title">{{ 'Titel'|trans({},'global') }}</label>
+                        </div>
+                        {% if tags is defined and tags is not empty and (current_tag is not defined or current_tag is empty) %}
+                            <div class="cell rw-5 rw-sm-9 padded">
+                                <input type="text" id="{{ type }}-forum-editor-title" {% if edit_title is defined and edit_title is not null %}value="{{ edit_title }}"{% endif%} />
+                            </div>
+                            <div class="cell rw-4 rw-sm-12 padded">
+                                <span class="small pointer" id="{{ type }}-forum-editor-tag-toggle">{{ 'Tag hinzufügen (optional)'|trans({},'global') }}</span>
+                            </div>
+                        {% else %}
+                            <div class="cell rw-9 padded">
+                                <input type="text" id="{{ type }}-forum-editor-title" {% if edit_title is defined and edit_title is not null %}value="{{ edit_title }}"{% endif%} />
+                            </div>
+                        {% endif %}
+
+                    {% endif %}
+                    {% if type == "changelog" or type == "announcement" %}
+                        {% if type == "changelog" %}
+                            <div class="cell rw-3 padded">
+                                <label for="{{ type }}-forum-editor-version">{{ 'Version'|trans({},'global') }}</label>
+                            </div>
+                            <div class="cell rw-9 padded">
+                                <input type="text" id="{{ type }}-forum-editor-version" />
+                            </div>
+                        {% endif %}
+                        <div class="cell rw-3 padded">
+                            <label for="{{ type }}-forum-editor-lang">{{ 'Sprache'|trans({},'global') }}</label>
                         </div>
                         <div class="cell rw-9 padded">
-                            <input type="text" id="{{ type }}-forum-editor-version" />
+                            <select id="{{ type }}-forum-editor-lang"></select>
                         </div>
                     {% endif %}
-                    <div class="cell rw-3 padded">
-                        <label for="{{ type }}-forum-editor-lang">{{ 'Sprache'|trans({},'global') }}</label>
-                    </div>
-                    <div class="cell rw-9 padded">
-                        <select id="{{ type }}-forum-editor-lang"></select>
-                    </div>
-                {% endif %}
-            </div>
-        {% endif %}
-        {% if tags is defined and tags is not empty %}
-            <div class="row {% if current_tag is not defined or current_tag is empty %}hidden{% endif %}" id="{{ type }}-forum-editor-tag-row">
-                {% if type != 'global-pm' and type != 'numb' %}
-                    <div class="cell rw-3 padded">
-                        <label for="{{ type }}-forum-editor-tag">{{ 'Tag'|trans({},'forum') }}</label>
-                    </div>
-                    <div class="cell rw-9 padded">
-                        <select id="{{ type }}-forum-editor-tag">
-                            <option value="-none-"></option>
-                            {% for tag in tags %}
-                                <option {% if current_tag is defined and current_tag == tag%}selected{% endif%} value="{{ tag.name }}">{{ tag.label|trans({},'global') }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                {% endif %}
-                {% if type == "changelog" or type == "announcement" %}
-                    {% if type == "changelog" %}
+                </div>
+            {% endif %}
+            {% if tags is defined and tags is not empty %}
+                <div class="row {% if current_tag is not defined or current_tag is empty %}hidden{% endif %}" id="{{ type }}-forum-editor-tag-row">
+                    {% if type != 'global-pm' and type != 'numb' %}
+                        <div class="cell rw-3 padded">
+                            <label for="{{ type }}-forum-editor-tag">{{ 'Tag'|trans({},'forum') }}</label>
+                        </div>
+                        <div class="cell rw-9 padded">
+                            <select id="{{ type }}-forum-editor-tag">
+                                <option value="-none-"></option>
+                                {% for tag in tags %}
+                                    <option {% if current_tag is defined and current_tag == tag%}selected{% endif%} value="{{ tag.name }}">{{ tag.label|trans({},'global') }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    {% endif %}
+                    {% if type == "changelog" or type == "announcement" %}
+                        {% if type == "changelog" %}
+                            <div class="cell rw-4 padded">
+                                <label for="{{ type }}-forum-editor-version">{{ 'Version'|trans({},'global') }}</label>
+                            </div>
+                            <div class="cell rw-8 padded">
+                                <input type="text" id="{{ type }}-forum-editor-version" />
+                            </div>
+                        {% endif %}
                         <div class="cell rw-4 padded">
-                            <label for="{{ type }}-forum-editor-version">{{ 'Version'|trans({},'global') }}</label>
+                            <label for="{{ type }}-forum-editor-lang">{{ 'Sprache'|trans({},'global') }}</label>
                         </div>
                         <div class="cell rw-8 padded">
-                            <input type="text" id="{{ type }}-forum-editor-version" />
+                            <select id="{{ type }}-forum-editor-lang"></select>
                         </div>
                     {% endif %}
-                    <div class="cell rw-4 padded">
-                        <label for="{{ type }}-forum-editor-lang">{{ 'Sprache'|trans({},'global') }}</label>
-                    </div>
-                    <div class="cell rw-8 padded">
-                        <select id="{{ type }}-forum-editor-lang"></select>
-                    </div>
-                {% endif %}
-            </div>
-        {% endif %}
-        <div class="row classic-editor">
-            <div class="padded cell rw-12">
-                {% if type != 'global-pm' %}
-                    <label class="small pointer" id="{{ preview_name }}_toggle">{{ 'Vorschau'|trans({},'global') }}</label>
-                    <div translate="no" id="{{ preview_name }}"></div>
-                    <br />
-                {% endif %}
-                <label for="{{ type }}-forum-editor-text">{{ 'Deine Nachricht'|trans({},'global') }}</label>
-                <a class="float-right" x-non-extended id="{{ type }}-forum-editor-extend" href="#">{{ 'Zum erweiterten Editor wechseln'|trans({},'global') }}</a>
-                <div x-extended class="forum-button-bar">
-                    <div x-forum-action="edit" x-text-wrap-node="b" x-control-shortcut="b" class="forum-button"><i class="fa fa-bold"></i><span class="forum-button-tooltip">{{ 'Fett'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="i" x-control-shortcut="i" class="forum-button"><i class="fa fa-italic"></i><span class="forum-button-tooltip">{{ 'Kursiv'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="u" x-control-shortcut="u" class="forum-button"><i class="fa fa-underline"></i><span class="forum-button-tooltip">{{ 'Unterstreichen'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="s" x-control-shortcut="s" class="forum-button"><i class="fa fa-strikethrough"></i><span class="forum-button-tooltip">{{ 'Durchstreichen'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="big" x-control-shortcut="+" class="forum-button"><i class="fa fa-expand-alt"></i><span class="forum-button-tooltip">{{ 'Groß'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="bad" class="forum-button"><i class="fas fa-tint"></i><span class="forum-button-tooltip">{{ 'Verräter'|trans({},'global') }}</span></div>
-                    <div x-forum-action="modal" x-text-modal-node="link" x-text-wrap-node="k" x-control-shortcut="k" class="forum-button"><i class="fa fa-link"></i><span class="forum-button-tooltip">{{ 'Link einfügen'|trans({},'global') }}</span></div>
-                    {% if permission.format_admin() or permission.format_oracle() %}
-                        <div x-forum-action="modal" x-text-modal-node="image" class="forum-button"><i class="fa fa-image"></i><span class="forum-button-tooltip">{{ 'Bild einfügen'|trans({},'global') }}</span></div>
+                </div>
+            {% endif %}
+            <div class="row classic-editor">
+                <div class="padded cell rw-12">
+                    {% if type != 'global-pm' %}
+                        <label class="small pointer" id="{{ preview_name }}_toggle">{{ 'Vorschau'|trans({},'global') }}</label>
+                        <div translate="no" id="{{ preview_name }}"></div>
+                        <br />
                     {% endif %}
-                    {% if permission.format_admin() %}
-                        <div x-forum-action="edit" x-text-wrap-node="admannounce" class="forum-button"><i class="fas fa-bullhorn"></i><span class="forum-button-tooltip">{{ 'Admin Ankündigung'|trans({},'global') }}</span></div>
-                    {% endif %}
-                    {% if permission.format_mod() %}
-                        <div x-forum-action="edit" x-text-wrap-node="modannounce" class="forum-button"><i class="fas fa-gavel"></i><span class="forum-button-tooltip">{{ 'Mod Ankündigung'|trans({},'global') }}</span></div>
-                    {% endif %}
-                    {% if permission.format_oracle() %}
-                        <div x-forum-action="edit" x-text-wrap-node="announce" class="forum-button"><i class="fas fa-rss"></i><span class="forum-button-tooltip">{{ 'Orakel Ankündigung'|trans({},'global') }}</span></div>
-                    {% endif %}
-                    <div x-forum-action="edit" x-text-insert-list-node="*" class="forum-button"><i class="fa fa-star-of-life"></i><span class="forum-button-tooltip">{{ 'Listenpunkt'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-insert-list-node="0" class="forum-button"><i class="fa fa-list-ol"></i><span class="forum-button-tooltip">{{ 'Num. Listenpunkt'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="quote" class="forum-button"><i class="fa fa-quote-left"></i><span class="forum-button-tooltip">{{ 'Zitat'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="spoiler" class="forum-button"><i class="fa fa-eye-slash"></i><span class="forum-button-tooltip">{{ 'Spoiler'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="aparte" x-control-shortcut="-" class="forum-button"><i class="fas fa-compress-alt"></i><span class="forum-button-tooltip">{{ 'Vertraulich'|trans({},'global') }}</span></div>
-                    {% if app.user|has_unlocked('f_glory') %}
-                        <div x-forum-action="edit" x-text-wrap-node="glory" class="forum-button"><i class="fa fa-crown"></i><span class="forum-button-tooltip">{{ 'Ruhm'|trans({},'global') }}</span></div>
-                    {% endif %}
-                    <div x-forum-action="edit" x-text-wrap-node="code" class="forum-button"><i class="fa fa-code"></i><span class="forum-button-tooltip">{{ 'Code'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-insert-node="hr" class="forum-button"><i class="fa fa-grip-lines"></i><span class="forum-button-tooltip">{{ 'Linie'|trans({},'global') }}</span></div>
-                    <div x-forum-action="modal" x-text-modal-node="rp" class="forum-button"><i class="fas fa-scroll"></i><span class="forum-button-tooltip">{{ 'Rollenspiel'|trans({},'global') }}</span></div>
-                    <div x-forum-action="modal" x-text-modal-node="collapse" class="forum-button"><i class="fas fa-square-caret-down"></i><span class="forum-button-tooltip">{{ 'Einklappen'|trans({},'global') }}</span></div>
-                    {% if permission.format_oracle() and type == 'forum' %}
-                        <div x-forum-action="modal" x-text-modal-node="poll" class="forum-button"><i class="fa fa-poll"></i><span class="forum-button-tooltip">{{ 'Umfrage einfügen'|trans({},'global') }}</span></div>
-                    {% endif %}
+                    <label for="{{ type }}-forum-editor-text">{{ 'Deine Nachricht'|trans({},'global') }}</label>
+                    <a class="float-right" x-non-extended id="{{ type }}-forum-editor-extend" href="#">{{ 'Zum erweiterten Editor wechseln'|trans({},'global') }}</a>
+                    <div x-extended class="forum-button-bar">
+                        <div x-forum-action="edit" x-text-wrap-node="b" x-control-shortcut="b" class="forum-button"><i class="fa fa-bold"></i><span class="forum-button-tooltip">{{ 'Fett'|trans({},'global') }}</span></div>
+                        <div x-forum-action="edit" x-text-wrap-node="i" x-control-shortcut="i" class="forum-button"><i class="fa fa-italic"></i><span class="forum-button-tooltip">{{ 'Kursiv'|trans({},'global') }}</span></div>
+                        <div x-forum-action="edit" x-text-wrap-node="u" x-control-shortcut="u" class="forum-button"><i class="fa fa-underline"></i><span class="forum-button-tooltip">{{ 'Unterstreichen'|trans({},'global') }}</span></div>
+                        <div x-forum-action="edit" x-text-wrap-node="s" x-control-shortcut="s" class="forum-button"><i class="fa fa-strikethrough"></i><span class="forum-button-tooltip">{{ 'Durchstreichen'|trans({},'global') }}</span></div>
+                        <div x-forum-action="edit" x-text-wrap-node="big" x-control-shortcut="+" class="forum-button"><i class="fa fa-expand-alt"></i><span class="forum-button-tooltip">{{ 'Groß'|trans({},'global') }}</span></div>
+                        <div x-forum-action="edit" x-text-wrap-node="bad" class="forum-button"><i class="fas fa-tint"></i><span class="forum-button-tooltip">{{ 'Verräter'|trans({},'global') }}</span></div>
+                        <div x-forum-action="modal" x-text-modal-node="link" x-text-wrap-node="k" x-control-shortcut="k" class="forum-button"><i class="fa fa-link"></i><span class="forum-button-tooltip">{{ 'Link einfügen'|trans({},'global') }}</span></div>
+                        {% if permission.format_admin() or permission.format_oracle() %}
+                            <div x-forum-action="modal" x-text-modal-node="image" class="forum-button"><i class="fa fa-image"></i><span class="forum-button-tooltip">{{ 'Bild einfügen'|trans({},'global') }}</span></div>
+                        {% endif %}
+                        {% if permission.format_admin() %}
+                            <div x-forum-action="edit" x-text-wrap-node="admannounce" class="forum-button"><i class="fas fa-bullhorn"></i><span class="forum-button-tooltip">{{ 'Admin Ankündigung'|trans({},'global') }}</span></div>
+                        {% endif %}
+                        {% if permission.format_mod() %}
+                            <div x-forum-action="edit" x-text-wrap-node="modannounce" class="forum-button"><i class="fas fa-gavel"></i><span class="forum-button-tooltip">{{ 'Mod Ankündigung'|trans({},'global') }}</span></div>
+                        {% endif %}
+                        {% if permission.format_oracle() %}
+                            <div x-forum-action="edit" x-text-wrap-node="announce" class="forum-button"><i class="fas fa-rss"></i><span class="forum-button-tooltip">{{ 'Orakel Ankündigung'|trans({},'global') }}</span></div>
+                        {% endif %}
+                        <div x-forum-action="edit" x-text-insert-list-node="*" class="forum-button"><i class="fa fa-star-of-life"></i><span class="forum-button-tooltip">{{ 'Listenpunkt'|trans({},'global') }}</span></div>
+                        <div x-forum-action="edit" x-text-insert-list-node="0" class="forum-button"><i class="fa fa-list-ol"></i><span class="forum-button-tooltip">{{ 'Num. Listenpunkt'|trans({},'global') }}</span></div>
+                        <div x-forum-action="edit" x-text-wrap-node="quote" class="forum-button"><i class="fa fa-quote-left"></i><span class="forum-button-tooltip">{{ 'Zitat'|trans({},'global') }}</span></div>
+                        <div x-forum-action="edit" x-text-wrap-node="spoiler" class="forum-button"><i class="fa fa-eye-slash"></i><span class="forum-button-tooltip">{{ 'Spoiler'|trans({},'global') }}</span></div>
+                        <div x-forum-action="edit" x-text-wrap-node="aparte" x-control-shortcut="-" class="forum-button"><i class="fas fa-compress-alt"></i><span class="forum-button-tooltip">{{ 'Vertraulich'|trans({},'global') }}</span></div>
+                        {% if app.user|has_unlocked('f_glory') %}
+                            <div x-forum-action="edit" x-text-wrap-node="glory" class="forum-button"><i class="fa fa-crown"></i><span class="forum-button-tooltip">{{ 'Ruhm'|trans({},'global') }}</span></div>
+                        {% endif %}
+                        <div x-forum-action="edit" x-text-wrap-node="code" class="forum-button"><i class="fa fa-code"></i><span class="forum-button-tooltip">{{ 'Code'|trans({},'global') }}</span></div>
+                        <div x-forum-action="edit" x-text-insert-node="hr" class="forum-button"><i class="fa fa-grip-lines"></i><span class="forum-button-tooltip">{{ 'Linie'|trans({},'global') }}</span></div>
+                        <div x-forum-action="modal" x-text-modal-node="rp" class="forum-button"><i class="fas fa-scroll"></i><span class="forum-button-tooltip">{{ 'Rollenspiel'|trans({},'global') }}</span></div>
+                        <div x-forum-action="modal" x-text-modal-node="collapse" class="forum-button"><i class="fas fa-square-caret-down"></i><span class="forum-button-tooltip">{{ 'Einklappen'|trans({},'global') }}</span></div>
+                        {% if permission.format_oracle() and type == 'forum' %}
+                            <div x-forum-action="modal" x-text-modal-node="poll" class="forum-button"><i class="fa fa-poll"></i><span class="forum-button-tooltip">{{ 'Umfrage einfügen'|trans({},'global') }}</span></div>
+                        {% endif %}
 
-                    <div class="forum-toggle" style="max-width: 200px; vertical-align: top;">
-                        <div class="row-flex toggle-target">
-                            <div class="cell"><div x-forum-action="toggle" x-text-modal-node="@" class="forum-button"><i class="fas fa-user"></i><span class="forum-button-tooltip">{{ 'Spielernamen einfügen'|trans({},'global') }}</span></div></div>
-                            <div class="cell hidden">
-                                <div id="{{ type }}-editor-add-friend-list-container" class="add-users-list-container">
-                                    <div style="margin-right: 5px;" x-forum-action="friendlist" x-text-modal-node="@" class="forum-button" id="{{ type }}-editor-open-friendlist">
-                                        <i class="fas fa-address-book"></i><span class="forum-button-tooltip">{{ 'Kontaktliste'|trans({},'global') }}</span>
-                                    </div>
-                                    <div id="{{ type }}-editor-add-friend-list" class="add-users-list" style="display: none;">
-                                        {% embed "ajax/soul/users_list.html.twig" with {
-                                            'var': '',
-                                            'single_entry': false,
-                                            'users': app.user.friends,
-                                            'route': ''
-                                        } %}{% endembed %}
+                        <div class="forum-toggle" style="max-width: 200px; vertical-align: top;">
+                            <div class="row-flex toggle-target">
+                                <div class="cell"><div x-forum-action="toggle" x-text-modal-node="@" class="forum-button"><i class="fas fa-user"></i><span class="forum-button-tooltip">{{ 'Spielernamen einfügen'|trans({},'global') }}</span></div></div>
+                                <div class="cell hidden">
+                                    <div id="{{ type }}-editor-add-friend-list-container" class="add-users-list-container">
+                                        <div style="margin-right: 5px;" x-forum-action="friendlist" x-text-modal-node="@" class="forum-button" id="{{ type }}-editor-open-friendlist">
+                                            <i class="fas fa-address-book"></i><span class="forum-button-tooltip">{{ 'Kontaktliste'|trans({},'global') }}</span>
+                                        </div>
+                                        <div id="{{ type }}-editor-add-friend-list" class="add-users-list" style="display: none;">
+                                            {% embed "ajax/soul/users_list.html.twig" with {
+                                                'var': '',
+                                                'single_entry': false,
+                                                'users': app.user.friends,
+                                                'route': ''
+                                            } %}{% endembed %}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="cell hidden">
-                                <hordes-user-search
-                                        id="{{ type }}-editor-users-list"
-                                        data-alias="{{ (alias is defined and alias) ? '1' : '0' }}"
-                                        data-title="{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}"
-                                        data-self="1" data-friends="1"
-                                ></hordes-user-search>
-                            </div>
-                            <div class="cell hidden">
-                                <div style="margin-left: 5px;" x-forum-action="toggle" x-text-modal-node="@" class="forum-button" id="{{ type }}-editor-add-users-close">
-                                    <img alt="X" src="{{ asset('build/images/icons/small_remove.gif') }}" /><span class="forum-button-tooltip">{{ 'Abbrechen'|trans({},'global') }}</span>
+                                <div class="cell hidden">
+                                    <hordes-user-search
+                                            id="{{ type }}-editor-users-list"
+                                            data-alias="{{ (alias is defined and alias) ? '1' : '0' }}"
+                                            data-title="{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}"
+                                            data-self="1" data-friends="1"
+                                    ></hordes-user-search>
+                                </div>
+                                <div class="cell hidden">
+                                    <div style="margin-left: 5px;" x-forum-action="toggle" x-text-modal-node="@" class="forum-button" id="{{ type }}-editor-add-users-close">
+                                        <img alt="X" src="{{ asset('build/images/icons/small_remove.gif') }}" /><span class="forum-button-tooltip">{{ 'Abbrechen'|trans({},'global') }}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <textarea tabindex="0" id="{{ type }}-forum-editor-text" {% if type == 'global-pm' %}style="min-height: 90px; height: 90px;"{% endif %}></textarea>
+                <textarea tabindex="0" id="{{ type }}-forum-editor-text" {% if type == 'global-pm' %}style="min-height: 90px; height: 90px;"{% endif %}></textarea>
 
-            <div class="row">
-                <div x-extended class="padded cell rw-12">
-                    <ul class="tabs plain no-bottom-margin" x-tab-group="forum-classic-editor-toolbox" x-tab-control>
-                        <li class="tab" x-tab-id="emotes"><div class="tab-link"><img alt="" src="{{ asset('build/images/forum/smile.gif') }}"></div></li>
-                        <li class="tab" x-tab-id="games"><div class="tab-link"><img alt="" src="{{ asset('build/images/item/item_dice.gif') }}"></div></li>
+                <div class="row">
+                    <div x-extended class="padded cell rw-12">
+                        <ul class="tabs plain no-bottom-margin" x-tab-group="forum-classic-editor-toolbox" x-tab-control>
+                            <li class="tab" x-tab-id="emotes"><div class="tab-link"><img alt="" src="{{ asset('build/images/forum/smile.gif') }}"></div></li>
+                            <li class="tab" x-tab-id="games"><div class="tab-link"><img alt="" src="{{ asset('build/images/item/item_dice.gif') }}"></div></li>
+                            {% if town_controls %}
+                                <li class="tab" x-tab-id="rp_player"><div class="tab-link"><img alt="" src="{{ asset('build/images/forum/rp.png') }}"></div></li>
+                            {% endif %}
+                            {% if snippets is not empty %}
+                                {% for lang in langsCodes %}
+                                    <li class="tab" x-tab-id="mod-snip-{{ lang }}"><div class="tab-link"><img alt="mod" src="{{ asset('build/images/assets/img/icons/mod.png') }}" /> <span class="small">{{ lang }}</span></div></li>
+                                {% endfor %}
+                            {% endif %}
+                        </ul>
+                        {% set emote_lang = (app.request.locale|e('html_attr')|split('_', 2))[0] %}
+                        {% if not emote_lang in langsCodes %}
+                            {% set emote_lang = 'en' %}
+                        {% endif %}
+                        <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="emotes" x-tab-target>
+                            <div class="forum-button-bar">
+                                {% for tag,url in emotes|sort((a,b) => a.orderIndex <=> b.orderIndex) %}
+                                    <div x-forum-action="edit" x-text-emote="{% if url['i18n'] %}{{ asset(url['display']|replace({'{lang}': emote_lang})) }}{% else %}{{ asset(url['display']) }}{% endif %}" x-text-insert-emote="{{ tag }}" class="forum-button-inline"><img alt="{{ tag }}" src="{% if url['i18n'] %}{{ asset(url['display']|replace({'{lang}': emote_lang })) }}{% else %}{{ asset(url['display']) }}{% endif %}"></div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="games" x-tab-target>
+                            <div class="forum-button-bar">
+                                <div x-forum-action="edit" x-text-insert-node="d4" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice4.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="d6" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice6.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="d8" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice8.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="d10" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice10.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="d12" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice12.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="d20" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice20.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="d100" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice100.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="{{ 'letter'|trans({}, 'forum') }}" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/lta.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="{{ 'consonant'|trans({}, 'forum') }}" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltc.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="{{ 'vowel'|trans({}, 'forum') }}" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltv.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="{{ 'rps'|trans({}, 'forum') }}" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/rps.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="{{ 'coin'|trans({}, 'forum') }}" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/coin.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="{{ 'card'|trans({}, 'forum') }}" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/card.png') }}"></div>
+                            </div>
+                        </div>
                         {% if town_controls %}
-                            <li class="tab" x-tab-id="rp_player"><div class="tab-link"><img alt="" src="{{ asset('build/images/forum/rp.png') }}"></div></li>
+                            <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="rp_player" x-tab-target>
+                                <div class="row">
+                                    <div class="cell rw-11 rw-lg-10 rw-sm-8">
+                                        <div class="forum-button-bar">
+                                            <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},any" class="forum-button-inline"><img alt="" src="{{ asset('build/images/icons/small_human.gif') }}"></div>
+                                            <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},hero" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/hero.gif') }}"></div>
+                                            <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},dead" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/death.gif') }}"></div>
+                                            <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},shunned" class="forum-button-inline"><img alt="" src="{{ asset('build/images/icons/banished.gif') }}"></div>
+                                            <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},basic" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/basic.gif') }}"></div>
+                                            <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},hunter" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/vest.gif') }}"></div>
+                                            <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},collec" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/dig.gif') }}"></div>
+                                            <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},guardian" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/shield.gif') }}"></div>
+                                            <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},survivalist" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/book.gif') }}"></div>
+                                            <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},tamer" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/tamer.gif') }}"></div>
+                                            <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},tech" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/tech.gif') }}"></div>
+                                            <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},shaman" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/shaman.gif') }}"></div>
+                                            <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},none" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/looser.gif') }}"></div>
+                                        </div>
+                                    </div>
+                                    <div class="cell rw-1 rw-lg-2 rw-sm-4">
+                                        <a class="help-button">{{ 'Hilfe'|trans({},'global') }}
+                                            <div class="tooltip help">
+                                                <h1>{{ 'Zufälliger Bürger'|trans({},'game') }}</h1>
+                                                <em>
+                                                    {% trans from 'game' %}
+                                                        Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
+                                                        Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.
+                                                    {% endtrans %}
+                                                </em>
+                                                <em>
+                                                    {% trans from 'game' %}
+                                                    Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:
+                                                    {% endtrans %}<code>{rnduser,tamer,1}</code>
+                                                </em>
+
+                                            </div>
+
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         {% endif %}
                         {% if snippets is not empty %}
                             {% for lang in langsCodes %}
-                                <li class="tab" x-tab-id="mod-snip-{{ lang }}"><div class="tab-link"><img alt="mod" src="{{ asset('build/images/assets/img/icons/mod.png') }}" /> <span class="small">{{ lang }}</span></div></li>
-                            {% endfor %}
-                        {% endif %}
-                    </ul>
-                    {% set emote_lang = (app.request.locale|e('html_attr')|split('_', 2))[0] %}
-                    {% if not emote_lang in langsCodes %}
-                        {% set emote_lang = 'en' %}
-                    {% endif %}
-                    <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="emotes" x-tab-target>
-                        <div class="forum-button-bar">
-                            {% for tag,url in emotes|sort((a,b) => a.orderIndex <=> b.orderIndex) %}
-                                <div x-forum-action="edit" x-text-emote="{% if url['i18n'] %}{{ asset(url['display']|replace({'{lang}': emote_lang})) }}{% else %}{{ asset(url['display']) }}{% endif %}" x-text-insert-emote="{{ tag }}" class="forum-button-inline"><img alt="{{ tag }}" src="{% if url['i18n'] %}{{ asset(url['display']|replace({'{lang}': emote_lang })) }}{% else %}{{ asset(url['display']) }}{% endif %}"></div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="games" x-tab-target>
-                        <div class="forum-button-bar">
-                            <div x-forum-action="edit" x-text-insert-node="d4" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice4.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="d6" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice6.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="d8" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice8.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="d10" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice10.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="d12" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice12.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="d20" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice20.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="d100" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice100.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="{{ 'letter'|trans({}, 'forum') }}" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/lta.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="{{ 'consonant'|trans({}, 'forum') }}" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltc.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="{{ 'vowel'|trans({}, 'forum') }}" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltv.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="{{ 'rps'|trans({}, 'forum') }}" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/rps.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="{{ 'coin'|trans({}, 'forum') }}" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/coin.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="{{ 'card'|trans({}, 'forum') }}" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/card.png') }}"></div>
-                        </div>
-                    </div>
-                    {% if town_controls %}
-                        <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="rp_player" x-tab-target>
-                            <div class="row">
-                                <div class="cell rw-11 rw-lg-10 rw-sm-8">
-                                    <div class="forum-button-bar">
-                                        <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},any" class="forum-button-inline"><img alt="" src="{{ asset('build/images/icons/small_human.gif') }}"></div>
-                                        <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},hero" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/hero.gif') }}"></div>
-                                        <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},dead" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/death.gif') }}"></div>
-                                        <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},shunned" class="forum-button-inline"><img alt="" src="{{ asset('build/images/icons/banished.gif') }}"></div>
-                                        <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},basic" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/basic.gif') }}"></div>
-                                        <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},hunter" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/vest.gif') }}"></div>
-                                        <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},collec" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/dig.gif') }}"></div>
-                                        <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},guardian" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/shield.gif') }}"></div>
-                                        <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},survivalist" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/book.gif') }}"></div>
-                                        <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},tamer" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/tamer.gif') }}"></div>
-                                        <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},tech" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/tech.gif') }}"></div>
-                                        <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},shaman" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/shaman.gif') }}"></div>
-                                        <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},none" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/looser.gif') }}"></div>
-                                    </div>
-                                </div>
-                                <div class="cell rw-1 rw-lg-2 rw-sm-4">
-                                    <a class="help-button">{{ 'Hilfe'|trans({},'global') }}
-                                        <div class="tooltip help">
-                                            <h1>{{ 'Zufälliger Bürger'|trans({},'game') }}</h1>
-                                            <em>
-                                                {% trans from 'game' %}
-                                                    Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
-                                                    Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.
-                                                {% endtrans %}
-                                            </em>
-                                            <em>
-                                                {% trans from 'game' %}
-                                                Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:
-                                                {% endtrans %}<code>{rnduser,tamer,1}</code>
-                                            </em>
-
-                                        </div>
-
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    {% endif %}
-                    {% if snippets is not empty %}
-                        {% for lang in langsCodes %}
-                            <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="mod-snip-{{ lang }}" x-tab-target>
-                                {% for snippet in snippets %}
-                                    {# @var snippet \App\Entity\ForumModerationSnippet #}
-                                    {% if snippet.lang == lang %}
-                                        <div class="row">
-                                            {% set current_snippet = lang == app.user.language ? ('%%' ~ snippet.short) : ('%' ~ lang ~ '%' ~ snippet.short) %}
-                                            <div class="cell padded rw-3"><span class="small" style="color: white">
+                                <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="mod-snip-{{ lang }}" x-tab-target>
+                                    {% for snippet in snippets %}
+                                        {# @var snippet \App\Entity\ForumModerationSnippet #}
+                                        {% if snippet.lang == lang %}
+                                            <div class="row">
+                                                {% set current_snippet = lang == app.user.language ? ('%%' ~ snippet.short) : ('%' ~ lang ~ '%' ~ snippet.short) %}
+                                                <div class="cell padded rw-3"><span class="small" style="color: white">
                                                     <strong class="pointer" x-forum-action="edit" x-text-insert-raw="{{ current_snippet }}">{{ current_snippet }}</strong>
                                                 </span></div>
-                                            <div class="cell padded rw-9"><span class="small pointer" x-forum-action="edit" x-text-insert-raw="{{ current_snippet }}" style="display:block; font-size: 0.8em;">{{ snippet.text }}</span></div>
-                                        </div>
-                                    {% endif %}
-                                {% endfor %}
+                                                <div class="cell padded rw-9"><span class="small pointer" x-forum-action="edit" x-text-insert-raw="{{ current_snippet }}" style="display:block; font-size: 0.8em;">{{ snippet.text }}</span></div>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="row forum-editor-send">
+                <div class="padded cell rw-12 right">
+                    {% if forum and (permission.alt_post_mode()) and pid is null %}
+                        <div id="crowpost" class="forum-checkbox">
+                            <div>
+                                <input class="forum-checkbox" type="radio" id="radio-user" name="post-type" value="USER" x-display-as="{{ app.user.name }}" {% if app.user.postAsDefault != "DEV" %}checked{% endif %}>
+                                {% if permission.post_as_animacteur() %}
+                                    <input class="forum-checkbox" type="radio" id="radio-anim" name="post-type" value="ANIM" x-display-as="{{ 'Animateur'|trans({},'admin') }}">
+                                {% endif %}
+                                {% if permission.post_as_crow() %}
+                                    <input class="forum-checkbox" type="radio" id="radio-crow" name="post-type" value="CROW" x-display-as="{{ 'Der Rabe'|trans({},'global') }}">
+                                {% endif %}
+                                {% if permission.post_as_dev() %}
+                                    <input class="forum-checkbox" type="radio" id="radio-dev" name="post-type" value="DEV" x-display-as="{{ 'Entwickler'|trans({},'global') }}" {% if app.user.postAsDefault == "DEV" %}checked{% endif %}>
+                                {% endif %}
                             </div>
-                        {% endfor %}
+                            <span id="crow_answer_content">{% if not permission.post_as_dev() or app.user.postAsDefault != "DEV" %}{{ app.user.name }}{% else %}{{ 'Dev'|trans({},'global') }}{% endif %}</span>
+                        </div>
+                    {% endif %}
+                    {% if type != 'numb' %}
+                        <div x-forum-action="send" x-control-shortcut="enter" class="forum-button" tabindex="0"><span class="forum-button-tooltip">{{ 'Absenden'|trans({},'global') }}</span>{{ 'Absenden'|trans({},'global') }}</div>
                     {% endif %}
                 </div>
             </div>
         </div>
-        <div class="row forum-editor-send">
-            <div class="padded cell rw-12 right">
-                {% if forum and (permission.alt_post_mode()) and pid is null %}
-                    <div id="crowpost" class="forum-checkbox">
-                        <div>
-                            <input class="forum-checkbox" type="radio" id="radio-user" name="post-type" value="USER" x-display-as="{{ app.user.name }}" {% if app.user.postAsDefault != "DEV" %}checked{% endif %}>
-                            {% if permission.post_as_animacteur() %}
-                                <input class="forum-checkbox" type="radio" id="radio-anim" name="post-type" value="ANIM" x-display-as="{{ 'Animateur'|trans({},'admin') }}">
-                            {% endif %}
-                            {% if permission.post_as_crow() %}
-                                <input class="forum-checkbox" type="radio" id="radio-crow" name="post-type" value="CROW" x-display-as="{{ 'Der Rabe'|trans({},'global') }}">
-                            {% endif %}
-                            {% if permission.post_as_dev() %}
-                                <input class="forum-checkbox" type="radio" id="radio-dev" name="post-type" value="DEV" x-display-as="{{ 'Entwickler'|trans({},'global') }}" {% if app.user.postAsDefault == "DEV" %}checked{% endif %}>
-                            {% endif %}
-                        </div>
-                        <span id="crow_answer_content">{% if not permission.post_as_dev() or app.user.postAsDefault != "DEV" %}{{ app.user.name }}{% else %}{{ 'Dev'|trans({},'global') }}{% endif %}</span>
-                    </div>
-                {% endif %}
-                {% if type != 'numb' %}
-                    <div x-forum-action="send" x-control-shortcut="enter" class="forum-button" tabindex="0"><span class="forum-button-tooltip">{{ 'Absenden'|trans({},'global') }}</span>{{ 'Absenden'|trans({},'global') }}</div>
-                {% endif %}
-            </div>
-        </div>
-    </div>
+    <hordes-twino-editor
+        data-context="{{ type }}"
+        data-username="{{ username }}"
+        {% if type != 'global-pm' and type != 'numb' %}
+            {% if tid is null %}
+                data-header="{{ 'Neuer Thread'|trans({},'global') }}"
+            {% elseif pid is null %}
+                data-header="{{ 'Neuer Post'|trans({},'global') }}"
+            {% else %}
+                data-header="{{ 'Bearbeiten'|trans({},'global') }}"
+            {% endif %}
+        {% endif %}
+
+        {% if current_tag is defined and current_tag is not empty %}
+            data-default-tag="{{ current_tag }}"
+        {% endif %}
+        {% if edit_title is defined and edit_title is not null %}
+            data-default-title="{{ edit_title }}"
+        {% endif %}
+
+        {% if tid is null or (edit_title is defined and edit_title is not null) and type != 'global-pm' and type != 'numb' %}
+            data-feature-title="1"
+        {% endif %}
+        {% if tags is defined and tags is not empty and type != 'global-pm' and type != 'numb' %}
+            data-feature-tags="1"
+        {% endif %}
+
+    />
 {% endblock %}
 {% block js %}
     <script>
