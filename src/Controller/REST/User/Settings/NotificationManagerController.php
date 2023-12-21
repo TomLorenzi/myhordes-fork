@@ -234,8 +234,8 @@ class NotificationManagerController extends AbstractController
 
         $code = $response?->getStatusCode() ?? -1;
         return new JsonResponse([
-            'status' => $code >= 200 && $code <= 299,
-            'success' => $response?->isSuccessFul() ?? false,
+            'status' => $code,
+            'success' => $code >= 200 && $code <= 299,
             'expired' => $response?->isExpired() ?? false
         ]);
     }
