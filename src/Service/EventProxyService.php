@@ -5,6 +5,7 @@ namespace App\Service;
 use App\Entity\Building;
 use App\Entity\Citizen;
 use App\Entity\CitizenRole;
+use App\Entity\Inventory;
 use App\Entity\GlobalPrivateMessage;
 use App\Entity\Item;
 use App\Entity\ItemAction;
@@ -16,6 +17,8 @@ use App\Entity\User;
 use App\Entity\Zone;
 use App\Enum\EventStages\BuildingEffectStage;
 use App\Enum\EventStages\BuildingValueQuery;
+use App\Enum\Game\TransferItemModality;
+use App\Enum\Game\TransferItemOption;
 use App\Enum\ScavengingActionType;
 use App\Event\Common\Messages\Forum\ForumMessageNewPostEvent;
 use App\Event\Common\Messages\Forum\ForumMessageNewThreadEvent;
@@ -30,6 +33,8 @@ use App\Event\Game\Citizen\CitizenQueryNightwatchDefenseEvent;
 use App\Event\Game\Citizen\CitizenQueryNightwatchInfoEvent;
 use App\Event\Game\Citizen\CitizenWorkshopOptionsData;
 use App\Event\Game\Citizen\CitizenWorkshopOptionsEvent;
+use App\Event\Game\GameInteractionEvent;
+use App\Event\Game\Items\TransferItemEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingCatapultItemTransformEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingDestroyedDuringAttackPostEvent;
@@ -164,8 +169,8 @@ class EventProxyService
 		return $event->nightwatchInfo;
 	}
 
-    public function queryTownParameter( Town $town, BuildingValueQuery $query ): float|int {
-        $this->ed->dispatch( $event = $this->ef->gameEvent( BuildingQueryTownParameterEvent::class, $town )->setup( $query ) );
+    public function queryTownParameter( Town $town, BuildingValueQuery $query, mixed $arg = null ): float|int {
+        $this->ed->dispatch( $event = $this->ef->gameEvent( BuildingQueryTownParameterEvent::class, $town )->setup( $query, $arg ) );
         return $event->value;
     }
 
@@ -197,5 +202,38 @@ class EventProxyService
 
     public function friendListUpdatedEvent( User $actor, User $subject, bool $added ): void {
         $this->ed->dispatch( (new FriendEvent())->setup( $added, $actor, $subject ) );
+    }
+
+    /**
+     * @param Citizen $actor
+     * @param Item $item
+     * @param Inventory|null $from
+     * @param Inventory|null $to
+     * @param TransferItemModality $modality
+     * @param TransferItemOption[] $options
+     * @return int
+     * @noinspection PhpDocMissingThrowsInspection
+     */
+    public function transferItem( Citizen $actor, Item $item, ?Inventory $from = null, ?Inventory $to = null, TransferItemModality $modality = TransferItemModality::None, array $options = [] ): int {
+        $this->ed->dispatch( $event = $this->ef->gameInteractionEvent( TransferItemEvent::class, $actor )->setup( $item, $actor, $from, $to, $modality, $options ) );
+        if (!$event->isPropagationStopped()) $this->ed->dispatch( $event, GameInteractionEvent::class );
+        return $event->getErrorCode() ?? InventoryHandler::ErrorNone;
+    }
+
+    /**
+     * @param Citizen $actor
+     * @param Item $item
+     * @param Inventory[] $inventories
+     * @param bool $force
+     * @return Inventory|null
+     */
+    public function placeItem( Citizen $actor, Item $item, array $inventories, bool $force = false ): ?Inventory {
+        foreach ($inventories as $inventory)
+            if ($inventory && $this->transferItem( $actor, $item, to: $inventory ) === InventoryHandler::ErrorNone)
+                return $inventory;
+        if ($force) foreach (array_reverse($inventories) as $inventory)
+            if ($inventory && $this->transferItem( $actor, $item, to: $inventory, options: [TransferItemOption::EnforcePlacement] ) === InventoryHandler::ErrorNone)
+                return $inventory;
+        return null;
     }
 }

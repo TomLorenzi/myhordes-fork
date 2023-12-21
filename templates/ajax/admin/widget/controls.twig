@@ -66,6 +66,7 @@
             }
 
             document.querySelectorAll('{{ selector|e('js') }}').forEach(element => {
+                if (element.getAttribute('x-id') !== "")
                 switch (element.getAttribute('x-target')) {
                     case 'chest'   : targets.chest.push(parseInt(element.getAttribute('x-id'))); break;
                     case 'rucksack': targets.rucksack.push(parseInt(element.getAttribute('x-id'))); break;

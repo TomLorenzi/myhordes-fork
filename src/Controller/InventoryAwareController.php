@@ -12,13 +12,10 @@ use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenRankingProxy;
-use App\Entity\EventActivationMarker;
-use App\Entity\ExpeditionRoute;
 use App\Entity\FoundRolePlayText;
 use App\Entity\HelpNotificationMarker;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\HomeActionPrototype;
-use App\Entity\HomeIntrusion;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemAction;
@@ -26,18 +23,15 @@ use App\Entity\ItemCategory;
 use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
-use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\PrivateMessage;
 use App\Entity\Recipe;
 use App\Entity\RuinZone;
 use App\Entity\SpecialActionPrototype;
-use App\Entity\TownLogEntry;
-use App\Entity\ZombieEstimation;
-use App\Entity\Zone;
-use App\Entity\ZoneTag;
 use App\Enum\AdminReportSpecification;
-use App\Enum\TownRevisionType;
+use App\Enum\Game\TransferItemModality;
+use App\Enum\Game\TransferItemOption;
+use App\Event\Game\Items\TransferItemEvent;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
@@ -46,6 +40,7 @@ use App\Service\CrowService;
 use App\Service\DeathHandler;
 use App\Service\DoctrineCacheService;
 use App\Service\ErrorHelper;
+use App\Service\EventFactory;
 use App\Service\EventProxyService;
 use App\Service\HookExecutor;
 use App\Service\InventoryHandler;
@@ -59,9 +54,9 @@ use App\Service\UserHandler;
 use App\Service\ZoneHandler;
 use App\Structures\BankItem;
 use App\Structures\FriendshipActionTarget;
-use App\Structures\ItemRequest;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
+use App\Traits\Controller\EventChainProcessor;
 use App\Translation\T;
 use DateTime;
 use Doctrine\ORM\AbstractQuery;
@@ -69,11 +64,11 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Expr\Join;
 use Exception;
 use Symfony\Component\Asset\Packages;
-use Symfony\Component\Cache\Adapter\FilesystemAdapter;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\RateLimiter\RateLimiterFactory;
-use Symfony\Contracts\Cache\ItemInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Throwable;
 
 /**
  * Class InventoryAwareController
@@ -84,6 +79,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class InventoryAwareController extends CustomAbstractController
     implements HookedInterfaceController
 {
+    use EventChainProcessor;
+
     protected DeathHandler $death_handler;
     protected ActionHandler $action_handler;
     protected PictoHandler $picto_handler;
@@ -165,7 +162,7 @@ class InventoryAwareController extends CustomAbstractController
             $action = $this->doctrineCache->getEntityByIdentifier(HeroicActionPrototype::class, $record['action'] ?? '');
             if ($citizen && $action)
                 $this->addFlash('popup-general', $this->renderView('ajax/game/notifications/hero_donation.html.twig', [
-                    'citizen' => $citizen, 'action' => $action]
+                                                                                                                        'citizen' => $citizen, 'action' => $action]
                 ));
 
             $this->entity_manager->persist(
@@ -186,12 +183,12 @@ class InventoryAwareController extends CustomAbstractController
 
         switch ($definition->getSpawner()) {
             case ItemTargetDefinition::ItemSelectionType: case ItemTargetDefinition::ItemSelectionTypePoison:
-                foreach ($inventories as &$inv)
-                    foreach ($inv->getItems() as &$item)
-                        if ($this->action_handler->targetDefinitionApplies($item,$definition))
-                            $targets[] = [ $item->getId(), $this->translator->trans( $item->getPrototype()->getLabel(), [], 'items' ), "build/images/item/item_{$item->getPrototype()->getIcon()}.gif" ];
+            foreach ($inventories as &$inv)
+                foreach ($inv->getItems() as &$item)
+                    if ($this->action_handler->targetDefinitionApplies($item,$definition))
+                        $targets[] = [ $item->getId(), $this->translator->trans( $item->getPrototype()->getLabel(), [], 'items' ), "build/images/item/item_{$item->getPrototype()->getIcon()}.gif" ];
 
-                break;
+            break;
             case ItemTargetDefinition::ItemTypeSelectionType:
                 if ($definition->getTag())
                     foreach ($this->inventory_handler->resolveItemProperties($definition->getTag()) as &$prop)
@@ -211,19 +208,19 @@ class InventoryAwareController extends CustomAbstractController
                 break;
             case ItemTargetDefinition::ItemCitizenType: case ItemTargetDefinition::ItemCitizenVoteType:
 
-                foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
-                    if ($citizen->getAlive() && $citizen != $this->getActiveCitizen())
-                        $targets[] = [ $citizen->getId(), $citizen->getName(), "build/images/professions/{$citizen->getProfession()->getIcon()}.gif" ];
+            foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
+                if ($citizen->getAlive() && $citizen != $this->getActiveCitizen())
+                    $targets[] = [ $citizen->getId(), $citizen->getName(), "build/images/professions/{$citizen->getProfession()->getIcon()}.gif" ];
 
-                break;
+            break;
             case ItemTargetDefinition::ItemCitizenOnZoneType: case ItemTargetDefinition::ItemCitizenOnZoneSBType:
 
-                foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
-                    if ($citizen->getAlive() && $citizen != $this->getActiveCitizen() && $citizen->getZone() === $this->getActiveCitizen()->getZone()) {
-                        if ($definition->getSpawner() !== ItemTargetDefinition::ItemCitizenOnZoneSBType || $citizen->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast() === null || $citizen->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast()->getTimestamp() < (time() - 1800))
-                            $targets[] = [ $citizen->getId(), $citizen->getName(), "build/images/professions/{$citizen->getProfession()->getIcon()}.gif" ];
-                    }
-                break;
+            foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
+                if ($citizen->getAlive() && $citizen != $this->getActiveCitizen() && $citizen->getZone() === $this->getActiveCitizen()->getZone()) {
+                    if ($definition->getSpawner() !== ItemTargetDefinition::ItemCitizenOnZoneSBType || $citizen->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast() === null || $citizen->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast()->getTimestamp() < (time() - 1800))
+                        $targets[] = [ $citizen->getId(), $citizen->getName(), "build/images/professions/{$citizen->getProfession()->getIcon()}.gif" ];
+                }
+            break;
             case ItemTargetDefinition::ItemFriendshipType:
 
                 foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
@@ -274,21 +271,21 @@ class InventoryAwareController extends CustomAbstractController
         foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'icon' => $a->getIcon(), 'action' => $a->getAction(), 'renderer' => null, 'targets' => $a->getAction()->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getAction()->getTarget() ) : null, 'target_mode' => $a->getAction()->getTarget() ? $a->getAction()->getTarget()->getSpawner() : 0, 'crossed' => false ];
         foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'icon' => $c->getIcon(), 'action' => $c->getAction(), 'renderer' => null, 'targets' => null, 'target_mode' => 0, 'crossed' => true ];
         return $ret;
-        
+
     }
 
     protected function getCampingActions(): array {
-      $ret = [];
-      if (!$this->getTownConf()->get(TownConf::CONF_FEATURE_CAMPING, false)) return $ret;
+        $ret = [];
+        if (!$this->getTownConf()->get(TownConf::CONF_FEATURE_CAMPING, false)) return $ret;
 
-      $this->action_handler->getAvailableCampingActions( $this->getActiveCitizen(), $available, $crossed );
+        $this->action_handler->getAvailableCampingActions( $this->getActiveCitizen(), $available, $crossed );
 
-      foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'item' => null, 'action' => $a, 'renderer' => null, 'targets' => null, 'crossed' => false ];
-      foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'item' => null, 'action' => $c, 'renderer' => null, 'targets' => null, 'crossed' => true ];
+        foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'item' => null, 'action' => $a, 'renderer' => null, 'targets' => null, 'crossed' => false ];
+        foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'item' => null, 'action' => $c, 'renderer' => null, 'targets' => null, 'crossed' => true ];
 
-      usort($ret, fn($a,$b) => $a['id'] <=> $b['id']);
+        usort($ret, fn($a,$b) => $a['id'] <=> $b['id']);
 
-      return $ret;
+        return $ret;
     }
 
     protected function getHomeActions(): array {
@@ -558,9 +555,9 @@ class InventoryAwareController extends CustomAbstractController
 
             $this->citizen_handler->setAP($aggressor, true, -$ap);
             $this->addFlash('notice',
-                $this->translator->trans('Mit aller Gewalt greifst du {citizen} an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt {citizen} eine schwere Verletzung davon.', ['{citizen}' => $defender->getName()], 'game')
-                . "<hr />" .
-                $this->translator->trans('Plötzlich sackt {citizen} in sich zusammen, seine Augen drehen sich nach hinten, und mit einem schauerhaften Gurgeln löst sich sein ganzer Körper vor deinen Augen auf und hinterlässt nur den üblen Geruch von Tod und Verwesung! Es gibt keinen Zweifel mehr: {citizen} war ein Ghul!!', ['{citizen}' => $defender->getName()], 'game')
+                            $this->translator->trans('Mit aller Gewalt greifst du {citizen} an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt {citizen} eine schwere Verletzung davon.', ['{citizen}' => $defender->getName()], 'game')
+                            . "<hr />" .
+                            $this->translator->trans('Plötzlich sackt {citizen} in sich zusammen, seine Augen drehen sich nach hinten, und mit einem schauerhaften Gurgeln löst sich sein ganzer Körper vor deinen Augen auf und hinterlässt nur den üblen Geruch von Tod und Verwesung! Es gibt keinen Zweifel mehr: {citizen} war ein Ghul!!', ['{citizen}' => $defender->getName()], 'game')
             );
             $this->entity_manager->persist($this->log->citizenAttack($aggressor, $defender, true));
             $this->death_handler->kill($defender, CauseOfDeath::GhulBeaten);
@@ -581,12 +578,12 @@ class InventoryAwareController extends CustomAbstractController
             $this->entity_manager->persist($this->log->citizenAttack($aggressor, $defender, $wound));
             if ($wound) {
                 $this->addFlash('notice',
-                    $this->translator->trans('Mit aller Gewalt greifst du {citizen} an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt {citizen} eine schwere Verletzung davon.', ['{citizen}' => '<span>' . $defender->getName() . '</span>'], 'game')
+                                $this->translator->trans('Mit aller Gewalt greifst du {citizen} an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt {citizen} eine schwere Verletzung davon.', ['{citizen}' => '<span>' . $defender->getName() . '</span>'], 'game')
                 );
                 $this->citizen_handler->inflictWound($defender);
             } else {
                 $this->addFlash('notice',
-                    $this->translator->trans('Mit aller Gewalt greifst du {citizen} an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.', ['{citizen}' => '<span>' . $defender->getName() . '</span>'], 'game')
+                                $this->translator->trans('Mit aller Gewalt greifst du {citizen} an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.', ['{citizen}' => '<span>' . $defender->getName() . '</span>'], 'game')
                 );
             }
 
@@ -607,7 +604,7 @@ class InventoryAwareController extends CustomAbstractController
         return AjaxResponse::success( );
     }
 
-    public function generic_item_api(Inventory &$up_target, Inventory &$down_target, bool $allow_down_all, JSONRequestParser $parser, InventoryHandler $handler, Citizen $citizen = null, $hide = false, ?int &$processed = null): AjaxResponse {
+    public function generic_item_api(Inventory $up_target, Inventory $down_target, bool $allow_down_all, JSONRequestParser $parser, EventFactory $ef, EventDispatcherInterface $ed, Citizen $citizen = null, $hide = false, ?int &$processed = null): AjaxResponse {
         $item_id = $parser->get_int('item', -1);
         $direction = $parser->get('direction', '');
         $allowed_directions = ['up','down'];
@@ -633,258 +630,58 @@ class InventoryAwareController extends CustomAbstractController
             }
         }
 
-        if (in_array($direction, $allowed_directions)) {
+        if (!in_array($direction, $allowed_directions))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-            $inv_source = $direction === 'up' ? $down_target : $up_target;
-            $inv_target = $direction !== 'up' ? $down_target : $up_target;
+        $inv_source = $direction === 'up' ? $down_target : $up_target;
+        $inv_target = $direction !== 'up' ? $down_target : $up_target;
 
-            $items = [];
-            if ($direction !== 'down-all') {
-                $item = $this->entity_manager->getRepository(Item::class)->find( $item_id );
-                if ($item && $item->getInventory()) $items = [$item];
-            } else{
-                $items = array_filter($citizen->getInventory()->getItems()->getValues(), function(Item $i) use ($carrier_items, $drop_carriers) {
-                    return ($drop_carriers || !in_array($i->getPrototype()->getName(), $carrier_items)) && !$i->getEssential();
-                });
-            }
-
-            $bank_up = null;
-            if ($inv_source->getTown()) $bank_up = true;
-            if ($inv_target->getTown()) $bank_up = false;
-            $bank_theft = $parser->get_int('theft', 0) > 0;
-
-            if ($bank_theft && (!$this->conf->getTownConfiguration($citizen->getTown())->isNightMode() ))
-                return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
-
-            $floor_up = null;
-            if ($inv_source->getZone() || $inv_source->getRuinZone() || $inv_source->getRuinZoneRoom() ) $floor_up = true;
-            if ($inv_target->getZone() || $inv_target->getRuinZone() || $inv_target->getRuinZoneRoom() ) $floor_up = false;
-
-            $steal_up = null;
-            if ($inv_source->getHome() && $inv_source->getHome()->getId() !== $citizen->getHome()->getId()) $steal_up = true;
-            if ($inv_target->getHome() && $inv_target->getHome()->getId() !== $citizen->getHome()->getId()) $steal_up = false;
-
-            $errors = [];
-            $item_count = count($items);
-            $dead = false;
-
-            if ($steal_up === true && $citizen->getSpecificActionCounterValue(ActionCounter::ActionTypeSendPMItem, $inv_source->getHome()->getCitizen()->getId()) > 0)
-                return AjaxResponse::error(InventoryHandler::ErrorTransferStealPMBlock);
-
-            $target_citizen = $inv_target->getCitizen() ?? $inv_source->getCitizen() ?? $citizen;
-
-            $has_hidden = false;
-            /** @var Item $current_item */
-            foreach ($items as $current_item){
-                if($floor_up && ($this->citizen_handler->hasStatusEffect($target_citizen, 'tg_tomb') || $this->citizen_handler->hasStatusEffect($target_citizen, 'tg_hide'))) {
-                    $errors[] = InventoryHandler::ErrorTransferBlocked;
-                    break;
-                }
-
-                if ($steal_up === false && in_array($current_item->getPrototype()->getName(), $carrier_items)) {
-                    $errors[] = InventoryHandler::ErrorTransferStealDropInvalid;
-                    break;
-                }
-
-                if ($current_item->getPrototype()->getName() == 'soul_red_#00' && $floor_up) {
-                    // We pick a read soul in the World Beyond
-                    if ( $target_citizen && !$this->citizen_handler->hasStatusEffect($target_citizen, "tg_shaman_immune") ) {
-                        $dead = true;
-
-                        // Produce logs
-                        $this->entity_manager->persist( $this->log->beyondItemLog( $target_citizen, $current_item->getPrototype(), false, $current_item->getBroken(), false ) );
-
-                        // He is not immune, he dies.
-                        $this->death_handler->kill( $target_citizen, CauseOfDeath::Haunted );
-                        $this->entity_manager->persist( $this->log->citizenDeath( $target_citizen ) );
-
-                        // The red soul vanishes too
-                        $this->inventory_handler->forceRemoveItem($current_item);
-                    } elseif ( !$target_citizen->hasRole('shaman') && $target_citizen->getProfession()->getName() !== 'shaman' && $this->citizen_handler->hasStatusEffect($target_citizen, "tg_shaman_immune"))
-                        $this->addFlash('notice', $this->translator->trans('Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.', [], "game"));
-                }
-
-                if(!$dead){
-                    if (($error = $handler->transferItem(
-                            $citizen,
-                            $current_item, $inv_source, $inv_target, $bank_theft ? InventoryHandler::ModalityBankTheft : InventoryHandler::ModalityNone, $this->getTownConf()->get(TownConf::CONF_MODIFIER_CARRY_EXTRA_BAG, false)
-                        )) === InventoryHandler::ErrorNone) {
-
-                        if ($bank_up !== null) {
-
-                            if ($bank_theft) {
-
-                                if ($this->random_generator->chance(0.6)) {
-                                    $this->entity_manager->persist( $this->log->bankItemStealLog( $citizen, $current_item->getPrototype(), false, $current_item->getBroken() ) );
-                                    $this->addFlash('error',$this->translator->trans('Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!', [], "game"));
-                                } else {
-                                    $this->entity_manager->persist( $this->log->bankItemStealLog( $citizen, $current_item->getPrototype(), true, $current_item->getBroken() ) );
-                                    $this->addFlash('notice',$this->translator->trans('Du hast soeben {item} aus der Bank gestohlen. Dein Name wird nicht im Register erscheinen...', ['{item}' => $this->log->wrap($this->log->iconize($current_item), 'tool')], "game"));
-                                }
-
-                            } else {
-                                $this->entity_manager->persist( $this->log->bankItemLog( $target_citizen, $current_item->getPrototype(), !$bank_up, $current_item->getBroken() ) );
-                                if ($bank_up)
-                                    $this->addFlash('notice',$this->translator->trans('Du hast soeben folgenden Gegenstand aus der Bank genommen: {item}. <strong>Sei nicht zu gierig</strong> oder deine Mitbürger könnten dich für einen <strong>Egoisten</strong> halten...', ['{item}' => $this->log->wrap($this->log->iconize($current_item), 'tool')], "game"));
-                            }
-                        }
-                        if ($floor_up !== null) {
-                            if($floor_up && $current_item->getPrototype()->getName() == 'soul_blue_#00' && $current_item->getFirstPick()) {
-                                $current_item->setFirstPick(false);
-                                // In the "Job" version of the shaman, the one that pick a blue soul for the 1st time gets the "r_collec" picto
-                                if ($this->getTownConf()->is(TownConf::CONF_FEATURE_SHAMAN_MODE, ['job', 'both'], "normal"))
-                                    $this->picto_handler->give_picto($target_citizen, "r_collec2_#00");
-                                $this->entity_manager->persist($current_item);
-                            }
-                            if (!$hide && !$current_item->getHidden()) $this->entity_manager->persist( $this->log->beyondItemLog( $target_citizen, $current_item->getPrototype(), !$floor_up, $current_item->getBroken(), false ) );
-                            elseif ($hide && !$floor_up) {
-                                $others = false;
-                                if (!$target_citizen->getTown()->getChaos() && $target_citizen->getZone()) foreach ($target_citizen->getZone()->getCitizens() as $c) if (!$c->getBanished()) $others = true;
-                                if ($others)
-                                    $this->entity_manager->persist( $this->log->beyondItemLog( $target_citizen, $current_item->getPrototype(), !$floor_up, $current_item->getBroken(), true ) );
-                            }
-                        }
-                        if ($steal_up !== null) {
-
-                            $this->citizen_handler->inflictStatus($target_citizen, 'tg_steal');
-                            $victim_home = $steal_up ? $inv_source->getHome() : $inv_target->getHome();
-
-                            // Give picto steal
-                            $pictoName = "r_theft_#00";
-                            if(!$victim_home->getCitizen()->getAlive())
-                                $pictoName = "r_plundr_#00";
-
-                            $isSanta = false;
-                            $isLeprechaun = false;
-                            $hasExplodingDoormat = false;
-
-                            if ($this->inventory_handler->countSpecificItems($citizen->getInventory(), "christmas_suit_full_#00") > 0){
-                                if($victim_home->getCitizen()->getAlive()
-                                    && $this->entity_manager->getRepository(EventActivationMarker::class)->findOneBy(['town' => $citizen->getTown(), 'active' => true, 'event' => 'christmas']))
-                                    $pictoName = "r_santac_#00";
-                                $isSanta = true;
-                            }
-
-                            if ($this->inventory_handler->countSpecificItems($citizen->getInventory(), "leprechaun_suit_#00") > 0){
-                                if($victim_home->getCitizen()->getAlive()
-                                    && $this->entity_manager->getRepository(EventActivationMarker::class)->findOneBy(['town' => $citizen->getTown(), 'active' => true, 'event' => 'stpatrick']))
-                                    $pictoName = "r_lepre_#00";
-                                $isLeprechaun = true;
-                            }
-
-                            if ($this->inventory_handler->countSpecificItems($victim_home->getChest(), "trapma_#00") > 0)
-                                $hasExplodingDoormat = true;
-
-                            $this->picto_handler->give_picto($citizen, $pictoName);
-
-                            $alarm = ($this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(
-                                    $victim_home,
-                                    $this->doctrineCache->getEntityByIdentifier(CitizenHomeUpgradePrototype::class, 'alarm' ) ) && $victim_home->getCitizen()->getAlive());
-
-                            if($steal_up) {
-                                if ($hasExplodingDoormat && $victim_home->getCitizen()->getAlive()) {
-
-                                    if ($this->citizen_handler->isWounded($citizen)) {
-                                        $this->death_handler->kill($citizen, CauseOfDeath::ExplosiveDoormat);
-                                        $this->entity_manager->persist($this->log->citizenDeath( $citizen ) );
-                                    }
-                                    else {
-                                        $this->citizen_handler->inflictWound( $citizen );
-                                        $dm = $this->inventory_handler->fetchSpecificItems($victim_home->getChest(), [new ItemRequest('trapma_#00')]);
-                                        if (!empty($dm)) $this->inventory_handler->forceRemoveItem(array_pop($dm));
-                                    }
-    
-                                    $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
-                                    if ($citizen->getAlive()) {
-                                        $this->addFlash( 'notice',
-                                                         $this->translator->trans('Huch! Scheint, als würde dein Mitbürger nicht wollen, dass jemand seine Sachen durchstöbert. Unter deinen Füßen ist etwas explodiert und hat dich gegen die Wand geschleudert. Du wurdest verletzt!', ['victim' => $victim_home->getCitizen()->getName()], 'game') .
-                                                         "<hr/>" .
-                                                         $this->translator->trans('Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.', ['victim' => $victim_home->getCitizen()->getName(), '{item}' => "<strong><img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$current_item->getPrototype()->getIcon()}.gif" )}'> {$this->translator->trans($current_item->getPrototype()->getLabel(),[],'items')}</strong>"], 'game')
-                                        );
-                                    } else {
-                                        $this->addFlash( 'notice',
-                                                         $this->translator->trans('Tja, das hast du davon bei einem paranoiden Pyromanen einbrechen zu wollen. Deine Einzelteile besprenkeln nun seine vier Wände. Das ist lange nicht so spaßig, wie es klingt: Irgendjemand wird hier putzen müssen.', ['victim' => $victim_home->getCitizen()->getName()], 'game')
-                                        );
-                                    }
-
-                                } elseif ($isSanta || $isLeprechaun) {
-                                    $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item->getPrototype(), $steal_up, $isSanta, $current_item->getBroken(), $isLeprechaun ) );
-                                    $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken(), false )->setAdminOnly(true) );
-                                    $this->addFlash( 'notice', $this->translator->trans($isSanta ? 'Dank deines Kostüms konntest du {item} von {victim} stehlen, <strong>ohne erkannt zu werden</strong>.<hr/>Ho ho ho.' : 'Dank deines Kostüms konntest du {item} von {victim} stehlen, <strong>ohne erkannt zu werden</strong>.<hr/>Was für ein guter Morgen!', [
-                                        '{victim}' => $victim_home->getCitizen()->getName(),
-                                        '{item}' => $this->log->wrap($this->log->iconize($current_item))], 'game') );
-                                } elseif ($alarm) {
-                                    $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
-                                    $this->addFlash( 'notice', $this->translator->trans('Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.', ['victim' => $victim_home->getCitizen()->getName(), '{item}' => "<strong><img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$current_item->getPrototype()->getIcon()}.gif" )}'> {$this->translator->trans($current_item->getPrototype()->getLabel(),[],'items')}</strong>"], 'game'));
-                                    //$this->citizen_handler->inflictStatus( $citizen, 'terror' );
-                                    //$this->addFlash( 'notice', $this->translator->trans('{victim}s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!', ['{victim}' => $victim_home->getCitizen()->getName()], 'game') );
-                                } elseif ($this->random_generator->chance(0.5) || !$victim_home->getCitizen()->getAlive()) {
-                                    if ($victim_home->getCitizen()->getAlive()){
-                                        $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
-                                        $this->addFlash( 'notice', $this->translator->trans('Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.', ['victim' => $victim_home->getCitizen()->getName(), '{item}' => "<strong><img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$current_item->getPrototype()->getIcon()}.gif" )}'> {$this->translator->trans($current_item->getPrototype()->getLabel(),[],'items')}</strong>"], 'game'));
-                                    } else {
-                                        $this->entity_manager->persist( $this->log->townLoot( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
-                                        $this->addFlash( 'notice', $this->translator->trans('Du hast dir folgenden Gegenstand unter den Nagel gerissen: {item}. Dein kleiner Hausbesuch bei † {victim} ist allerdings aufgeflogen...<hr /><strong>Dieser Gegenstand wurde in deiner Truhe abgelegt.</strong>', ['{item}' => $this->log->wrap($this->log->iconize($current_item)), '{victim}' => $victim_home->getCitizen()->getName()], 'game') );
-                                    }
-                                } else {
-                                    $this->addFlash( 'notice', $this->translator->trans('Es ist dir gelungen, {item} von {victim} zu stehlen <strong>ohne entdeckt zu werden</strong>. Nicht schlecht!', [
-                                        '{victim}' => $victim_home->getCitizen(),
-                                        '{item}' => $this->log->wrap($this->log->iconize($current_item))
-                                    ], 'game') );
-                                }
-    
-                                $this->crow->postAsPM( $victim_home->getCitizen(), '', '', PrivateMessage::TEMPLATE_CROW_THEFT, $current_item->getPrototype()->getId() );
-                            } else {
-                                $messages = [ $this->translator->trans('Du hast den(die,das) {item} bei {victim} abgelegt...', ['{item}' => "<strong><img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$current_item->getPrototype()->getIcon()}.gif" )}'> {$this->translator->trans($current_item->getPrototype()->getLabel(),[],'items')}</strong>",  '{victim}' => "<strong>{$victim_home->getCitizen()->getName()}</strong>"], 'game')];
-                                if ( !$isSanta && !$isLeprechaun && ($this->random_generator->chance(0.1) || $alarm) ) {
-                                    $messages[] = $this->translator->trans('Du bist bei deiner Aktion aufgeflogen! <strong>Deine Mitbürger wissen jetz Bescheid!</strong>', [], 'game');
-                                    $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
-                                }
-
-                                $this->addFlash( 'notice', implode('<hr/>', $messages) );
-                            }
-
-                            $intrusion = $this->entity_manager->getRepository(HomeIntrusion::class)->findOneBy(['intruder' => $citizen, 'victim' => $victim_home->getCitizen()]);
-                            if ($intrusion) $this->entity_manager->remove($intrusion);
-                        }
-                        if(!$floor_up && $hide) {
-                            $has_hidden = true;
-                            $current_item->setHidden(true);
-                        } else {
-                            $current_item->setHidden(false);
-                        }
-                        if ($current_item->getInventory())
-                            $this->entity_manager->persist($current_item);
-                        else $this->entity_manager->remove($current_item);
-
-                    } else {
-                        if ($error === InventoryHandler::ErrorBankTheftFailed)
-                            $this->entity_manager->persist( $this->log->bankItemStealLog( $citizen, $current_item->getPrototype(), false, $current_item->getBroken() ) );
-                        $errors[] = $error;
-                    }
-                }
-            }
-
-            if ($has_hidden) {
-                $this->citizen_handler->setAP($citizen, true, -2);
-                $citizen->getZone()?->setItemsHiddenAt( new \DateTimeImmutable() );
-                $this->entity_manager->persist($citizen);
-            }
-
-            try {
-                $this->entity_manager->flush();
-            } catch (Exception $e) {
-                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-            }
-
-            $processed = max(0, $item_count - count($errors));
-
-            if (count($errors) < $item_count || ($item_count === 0 && empty($error))) {
-                return AjaxResponse::success();
-            } else if (count($errors) > 0)
-                return AjaxResponse::error($errors[0]);
+        $items = [];
+        if ($direction !== 'down-all') {
+            $item = $this->entity_manager->getRepository(Item::class)->find( $item_id );
+            if ($item && $item->getInventory()) $items = [$item];
+        } else{
+            $items = array_filter($citizen->getInventory()->getItems()->getValues(), function(Item $i) use ($carrier_items, $drop_carriers) {
+                return ($drop_carriers || !in_array($i->getPrototype()->getName(), $carrier_items)) && !$i->getEssential();
+            });
         }
-        return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $bank_theft = $parser->get_int('theft', 0) > 0;
+
+        $errors = [];
+        $item_count = count($items);
+
+        $target_citizen = $inv_target->getCitizen() ?? $inv_source->getCitizen() ?? $citizen;
+
+        /** @var Item $current_item */
+        foreach ($items as $current_item) if ($citizen->getAlive() && $target_citizen->getAlive()) {
+
+            if (($error = $this->processEventChainUsing( $ef, $ed, $this->entity_manager,
+                                                         $ef->gameInteractionEvent( TransferItemEvent::class )->setup($current_item, $citizen, $inv_source, $inv_target, match (true) {
+                                                             $bank_theft => TransferItemModality::BankTheft,
+                                                             $hide => TransferItemModality::HideItem,
+                                                             default => TransferItemModality::None
+                                                         }, $this->getTownConf()->get(TownConf::CONF_MODIFIER_CARRY_EXTRA_BAG, false) ? [ TransferItemOption::AllowExtraBag ] : [] )
+                    , autoFlush: false, error_messages: $error_messages )) !== null)
+
+                $errors[] = $error;
+        }
+
+        try {
+            $this->entity_manager->flush();
+        } catch (Throwable $t) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        $processed = max(0, $item_count - count($errors));
+
+        if (empty($errors) || count($errors) < $item_count || ($item_count === 0 && empty($error))) {
+            return AjaxResponse::success();
+        } else {
+            if (!empty($error_messages))
+                return AjaxResponse::errorMessage( implode('<hr/>', $error_messages) );
+            return AjaxResponse::error($errors[0]);
+        }
     }
 
     public function generic_recipe_api(JSONRequestParser $parser, ActionHandler $handler, ?callable $trigger_after = null): Response {
@@ -961,14 +758,14 @@ class InventoryAwareController extends CustomAbstractController
 
         switch ($target->getSpawner()) {
             case ItemTargetDefinition::ItemSelectionType: case ItemTargetDefinition::ItemSelectionTypePoison:
-                $return = $this->entity_manager->getRepository(Item::class)->find( (int)$id );
-                if (!$return) return false;
+            $return = $this->entity_manager->getRepository(Item::class)->find( (int)$id );
+            if (!$return) return false;
 
-                foreach ($inventories as $inventory)
-                    if ($inventory->getItems()->contains( $return ))
-                        return true;
+            foreach ($inventories as $inventory)
+                if ($inventory->getItems()->contains( $return ))
+                    return true;
 
-                return false;
+            return false;
             case ItemTargetDefinition::ItemTypeSelectionType:
                 $return = $this->entity_manager->getRepository(ItemPrototype::class)->find( (int)$id );
                 if (!$return) return false;
@@ -981,22 +778,22 @@ class InventoryAwareController extends CustomAbstractController
                 }
                 return true;
             case ItemTargetDefinition::ItemCitizenType: case ItemTargetDefinition::ItemCitizenVoteType:
-                $return = $this->entity_manager->getRepository(Citizen::class)->find( (int)$id );
-                if (!$return->getAlive() || $return->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId()) {
-                    $return = null;
-                    return false;
-                }
-                return true;
+            $return = $this->entity_manager->getRepository(Citizen::class)->find( (int)$id );
+            if (!$return->getAlive() || $return->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId()) {
+                $return = null;
+                return false;
+            }
+            return true;
             case ItemTargetDefinition::ItemCitizenOnZoneType: case ItemTargetDefinition::ItemCitizenOnZoneSBType:
-                $return = $this->entity_manager->getRepository(Citizen::class)->find( (int)$id );
-                if (!$return->getAlive() || $return->getZone() !== $this->getActiveCitizen()->getZone()) {
-                    $return = null;
-                    return false;
-                } else if ( $target->getSpawner() === ItemTargetDefinition::ItemCitizenOnZoneSBType && $return->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast() !== null && $return->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast()->getTimestamp() >= (time() - 1800) ) {
-                    $return = null;
-                    return false;
-                }
-                return true;
+            $return = $this->entity_manager->getRepository(Citizen::class)->find( (int)$id );
+            if (!$return->getAlive() || $return->getZone() !== $this->getActiveCitizen()->getZone()) {
+                $return = null;
+                return false;
+            } else if ( $target->getSpawner() === ItemTargetDefinition::ItemCitizenOnZoneSBType && $return->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast() !== null && $return->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast()->getTimestamp() >= (time() - 1800) ) {
+                $return = null;
+                return false;
+            }
+            return true;
             case ItemTargetDefinition::ItemFriendshipType:
                 $action = null;
                 $player = null;
@@ -1174,65 +971,65 @@ class InventoryAwareController extends CustomAbstractController
     }
 
     public function generic_camping_action_api(JSONRequestParser $parser): Response {
-      if (!$this->getTownConf()->get(TownConf::CONF_FEATURE_CAMPING, false))
-          return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+        if (!$this->getTownConf()->get(TownConf::CONF_FEATURE_CAMPING, false))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-      $action_id = (int)$parser->get('action', -1);
+        $action_id = (int)$parser->get('action', -1);
 
-      /** @var Item|ItemPrototype|null $target */
-      $target = null;
-      /** @var CampingActionPrototype|null $heroic */
-      $camping = ($action_id < 0) ? null : $this->entity_manager->getRepository(CampingActionPrototype::class)->find( $action_id );
+        /** @var Item|ItemPrototype|null $target */
+        $target = null;
+        /** @var CampingActionPrototype|null $heroic */
+        $camping = ($action_id < 0) ? null : $this->entity_manager->getRepository(CampingActionPrototype::class)->find( $action_id );
 
-      if ( !$camping ) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-      $citizen = $this->getActiveCitizen();
+        if ( !$camping ) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        $citizen = $this->getActiveCitizen();
 
-      $zone = $citizen->getZone();
-      if ($zone && $zone->getX() === 0 && $zone->getY() === 0 ) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+        $zone = $citizen->getZone();
+        if ($zone && $zone->getX() === 0 && $zone->getY() === 0 ) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-      $item = null;
-      if (($error = $this->action_handler->execute( $citizen, $item, $target, $camping->getAction(), $msg, $remove )) === ActionHandler::ErrorNone) {
+        $item = null;
+        if (($error = $this->action_handler->execute( $citizen, $item, $target, $camping->getAction(), $msg, $remove )) === ActionHandler::ErrorNone) {
 
-        switch($camping->getName()){
-            case 'cm_campsite_improve':
-                $this->entity_manager->persist($this->log->beyondCampingImprovement($citizen));
-                break;
-            case 'cm_campsite_hide':
-            case 'cm_campsite_tomb':
-                // Remove citizen from escort
-                foreach ($citizen->getLeadingEscorts() as $escorted_citizen) {
-                    $escorted_citizen->getCitizen()->getEscortSettings()->setLeader( null );
-                    $this->entity_manager->persist($escorted_citizen);
-                }
+            switch($camping->getName()){
+                case 'cm_campsite_improve':
+                    $this->entity_manager->persist($this->log->beyondCampingImprovement($citizen));
+                    break;
+                case 'cm_campsite_hide':
+                case 'cm_campsite_tomb':
+                    // Remove citizen from escort
+                    foreach ($citizen->getLeadingEscorts() as $escorted_citizen) {
+                        $escorted_citizen->getCitizen()->getEscortSettings()->setLeader( null );
+                        $this->entity_manager->persist($escorted_citizen);
+                    }
 
-                if ($citizen->getEscortSettings()) $this->entity_manager->remove($citizen->getEscortSettings());
-                $citizen->setEscortSettings(null);
+                    if ($citizen->getEscortSettings()) $this->entity_manager->remove($citizen->getEscortSettings());
+                    $citizen->setEscortSettings(null);
 
-                $this->entity_manager->persist($this->log->beyondCampingHide($citizen));
-                break;
-            case 'cm_campsite_unhide':
-            case 'cm_campsite_untomb':
-                $this->entity_manager->persist($this->log->beyondCampingUnhide($citizen));
-                break;
+                    $this->entity_manager->persist($this->log->beyondCampingHide($citizen));
+                    break;
+                case 'cm_campsite_unhide':
+                case 'cm_campsite_untomb':
+                    $this->entity_manager->persist($this->log->beyondCampingUnhide($citizen));
+                    break;
+            }
+
+            $this->entity_manager->persist($citizen);
+            foreach ($remove as $remove_entry)
+                $this->entity_manager->remove($remove_entry);
+            try {
+                $this->entity_manager->flush();
+            } catch (Exception $e) {
+                return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+            }
+
+            if ($msg) $this->addFlash( 'notice', $msg );
+        } elseif ($error === ActionHandler::ErrorActionForbidden) {
+            if (!empty($msg)) $msg = $this->translator->trans($msg, [], 'game');
+            return AjaxResponse::error($error, ['message' => $msg]);
         }
+        else return AjaxResponse::error( $error );
 
-        $this->entity_manager->persist($citizen);
-        foreach ($remove as $remove_entry)
-            $this->entity_manager->remove($remove_entry);
-        try {
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
-        }
-
-        if ($msg) $this->addFlash( 'notice', $msg );
-      } elseif ($error === ActionHandler::ErrorActionForbidden) {
-        if (!empty($msg)) $msg = $this->translator->trans($msg, [], 'game');
-        return AjaxResponse::error($error, ['message' => $msg]);
-      }
-      else return AjaxResponse::error( $error );
-
-      return AjaxResponse::success();
+        return AjaxResponse::success();
     }
 
     public function generic_action_api(JSONRequestParser $parser, ?callable $trigger_after = null, ?Citizen $base_citizen = null): Response {
@@ -1301,7 +1098,7 @@ class InventoryAwareController extends CustomAbstractController
             }
 
             if ($msg) $this->addFlash( 'notice', $msg );
-            
+
             if($text = $this->entity_manager->getRepository(FoundRolePlayText::class)->findNextUnreadText($this->getUser())){
                 /** @var FoundRolePlayText $text */
                 $url = $this->generateUrl("soul_rp", ['page' => 1, 'id' => $text->getId()]);
@@ -1370,7 +1167,7 @@ class InventoryAwareController extends CustomAbstractController
                 AdminReportSpecification::CitizenTownComment => "A town comment has been reported.",
                 default => '[invalid]'
             }, $proxy, $newReport, "This is report #{$report_count}." );
-        } catch (\Throwable $e) {}
+        } catch (Throwable $e) {}
 
         $message = $this->translator->trans('Du hast die Nachricht von {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...', ['{username}' => '<span>' . $proxy->getUser()->getName() . '</span>'], 'game');
         $this->addFlash('notice', $message);

@@ -58,7 +58,7 @@ class DeathHandler
      * @param int|CauseOfDeath $cod
      * @param array|null $remove
      */
-    public function kill(Citizen &$citizen, CauseOfDeath|int $cod, ?array &$remove = null): void {
+    public function kill(Citizen $citizen, CauseOfDeath|int $cod, ?array &$remove = null): void {
         $handle_em = $remove === null;
         $remove = [];
         if (!$citizen->getAlive()) return;
@@ -118,7 +118,7 @@ class DeathHandler
             $zone = null;
             $citizen->getHome()->setHoldsBody( true );
             if ($this->conf->getTownConfiguration( $citizen->getTown() )->get(TownConf::CONF_MODIFIER_BONES_IN_TOWN, false))
-                $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem('bone_meat_#00'),
+                $this->events->placeItem( $citizen, $this->item_factory->createItem('bone_meat_#00'),
                     [$citizen->getHome()->getChest(),$citizen->getTown()->getBank()]
                 );
         }
@@ -132,7 +132,7 @@ class DeathHandler
                         $this->item_factory->createItem('bone_meat_#00')
                     );
                 else
-                    $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem('bone_meat_#00'), [$zone->getFloor()], true);
+                    $this->events->placeItem( $citizen, $this->item_factory->createItem('bone_meat_#00'), [$zone->getFloor()], true);
             }
 
             $citizen->setZone(null);
@@ -144,7 +144,7 @@ class DeathHandler
         }
 
         if($citizen->getBanished()){
-            $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem('banned_note_#00'), [$citizen->getHome()->getChest()], true);
+            $this->events->placeItem( $citizen, $this->item_factory->createItem('banned_note_#00'), [$citizen->getHome()->getChest()], true);
         }
 
         $citizen->setCauseOfDeath($cod);

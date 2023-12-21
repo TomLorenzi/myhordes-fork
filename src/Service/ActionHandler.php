@@ -41,6 +41,7 @@ use App\Entity\TownLogEntry;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Enum\ActionHandler\ActionValidity;
+use App\Enum\Game\TransferItemModality;
 use App\Enum\ItemPoisonType;
 use App\Service\Actions\Game\AtomProcessors\Require\AtomRequirementProcessor;
 use App\Service\Maps\MazeMaker;
@@ -648,7 +649,7 @@ class ActionHandler
                         if ($target_result->getPoison() !== null) $target->setPoison( $target_result->getPoison() );
                     }
                 } elseif (is_a($target, ItemPrototype::class)) {
-                    if ($i = $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ), [ $citizen->getInventory(), $floor_inventory ], true)) {
+                    if ($i = $this->proxyService->placeItem( $citizen, $this->item_factory->createItem( $target ), [ $citizen->getInventory(), $floor_inventory ], true)) {
                         if ($i !== $citizen->getInventory())
                             $execute_info_cache['message'][] = $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
                         $execute_info_cache['items_spawn'][] = $target;
@@ -696,7 +697,7 @@ class ActionHandler
                     }
 
                     if ($proto) {
-                        if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $proto ), $targetInv, $force)) {
+                        if ($this->proxyService->placeItem( $citizen, $this->item_factory->createItem( $proto ), $targetInv, $force)) {
                             $execute_info_cache['items_spawn'][] = $proto;
                             if(!$citizen->getZone())
                                 $tags[] = "inside";
@@ -1054,7 +1055,7 @@ class ActionHandler
                             $execute_info_cache["size"] = ($freeSize = $this->inventory_handler->getFreeSize($bank)) > 0 ? $freeSize : 0;
                         } else {
                             foreach ( $citizen->getInventory()->getItems() as $target_item ) if ($target_item !== $item) {
-                                if ($this->inventory_handler->transferItem($citizen, $target_item, $source, $bank, InventoryHandler::ModalityTamer) === InventoryHandler::ErrorNone) {
+                                if ($this->proxyService->transferItem($citizen, $target_item, $source, $bank, TransferItemModality::Tamer) === InventoryHandler::ErrorNone) {
                                     $success_count++;
                                     if ($create_log) $this->entity_manager->persist($this->log->bankItemTamerLog($citizen, $target_item->getPrototype(), $target_item->getBroken()));
                                 }
@@ -1504,7 +1505,7 @@ class ActionHandler
         }
 
         if ($spread_poison->poisoned())
-            $item->setPoison($spread_poison->mix( $spread_poison ));
+            $item?->setPoison($spread_poison->mix( $spread_poison ));
 
         if ($kill_by_poison && $citizen->getAlive()) {
             $this->death_handler->kill( $citizen, CauseOfDeath::Poison, $r );
@@ -1672,7 +1673,7 @@ class ActionHandler
             $citizen->getSpecificActionCounter(ActionCounter::ActionTypeSpecialActionTech)->increment();
 
         $new_item = $this->random_generator->pickItemPrototypeFromGroup( $recipe->getResult(), $this->conf->getTownConfiguration( $citizen->getTown() ), $this->conf->getCurrentEvents( $citizen->getTown() ) );
-        $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $new_item ) , $target_inv, true );
+        $this->proxyService->placeItem( $citizen, $this->item_factory->createItem( $new_item ) , $target_inv, true );
         $this->gps->recordRecipeExecuted( $recipe, $citizen, $new_item );
 
         if (in_array($recipe->getType(), $workshop_types))

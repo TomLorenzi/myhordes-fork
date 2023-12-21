@@ -41,17 +41,17 @@ final class BuildingUpgradeListener implements ServiceSubscriberInterface
         $event->defenseIncrement = match ($event->building->getPrototype()->getName()) {
             'small_gather_#00'  => [0,13,21,32,33,51][ $event->building->getLevel() ] ?? 0,
             'item_home_def_#00' => [0,30,35,50,65,80][ $event->building->getLevel() ] ?? 0,
-            default => 0
+            default => $event->defenseIncrement
         };
 
         $event->defenseMultiplier = match ($event->building->getPrototype()->getName()) {
             'item_tube_#00' => [0, 0.8, 1.6, 2.4, 3.2, 4][ $event->building->getLevel() ] ?? 1.0,
-            default => 1.0
+            default => $event->defenseMultiplier
         };
 
         $event->waterIncrement = match ($event->building->getPrototype()->getName()) {
             'small_water_#00'  => [5,20,20,30,30,40][ $event->building->getLevel() ] ?? 0,
-            default => 0
+            default => $event->waterIncrement
         };
     }
 

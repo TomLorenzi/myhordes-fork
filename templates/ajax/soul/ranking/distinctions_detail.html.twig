@@ -66,6 +66,13 @@
                 </div>
             {% endif %}
         </div>
+        {% if created %}
+            <div class="row">
+                <div class="small cell rw-12 padded right">
+                    {{ created|format_datetime('medium', 'short') }}
+                </div>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
 

@@ -78,7 +78,7 @@ class ZoneHandler
 
         if ($eject) {
             $citizen = $ex->getCitizen();
-            $ruinZone = $this->entity_manager->getRepository(RuinZone::class)->findOneByPosition($citizen->getZone(), $ex->getX(), $ex->getY());
+            $ruinZone = $this->entity_manager->getRepository(RuinZone::class)->findOneByPosition($citizen->getZone(), $ex->getX(), $ex->getY(), $ex->getZ());
 
             foreach ($citizen->getInventory()->getItems() as $item)
                 if (!$item->getEssential())
@@ -302,7 +302,7 @@ class ZoneHandler
 
                     $item = $this->item_factory->createItem($item_prototype);
                     $this->gps->recordItemFound( $item_prototype, $current_citizen, null );
-                    if ($inventoryDest = $this->inventory_handler->placeItem( $current_citizen, $item, [ $current_citizen->getInventory(), $executable_timer->getZone()->getFloor() ] )) {
+                    if ($inventoryDest = $this->proxy->placeItem( $current_citizen, $item, [ $current_citizen->getInventory(), $executable_timer->getZone()->getFloor() ] )) {
                         if($inventoryDest->getId() === $executable_timer->getZone()->getFloor()->getId()){
                             $this->entity_manager->persist($this->log->beyondItemLog($current_citizen, $item->getPrototype(), true));
                             if ($active && $current_citizen->getEscortSettings() && $current_citizen->getEscortSettings()->getLeader() && $current_citizen->getEscortSettings()->getLeader() === $active)

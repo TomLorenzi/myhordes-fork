@@ -19,7 +19,7 @@
             </div>
         </div>
         {% for citizen in citizens|sort((a,b) => (a.infos.alive == b.infos.alive) ? ((a.infos.alive) ? (a.infos.alias != null ? a.infos.alias : a.infos.name)|lower <=> (b.infos.alias != null ? b.infos.alias : b.infos.name)|lower : (b.infos.survivedDays <=> a.infos.survivedDays ?: b.infos.rankingEntry.end <=> a.infos.rankingEntry.end)) : b.infos.alive <=> a.infos.alive) %}
-            <div class="row-flex stretch{% if citizen.infos == me%} me{% endif %}">
+            <div class="row-flex stretch{% if citizen.infos == me%} me{% endif %} {{ hook('additionalCitizenRowClass', citizen.infos) }}">
                 <div class="cell factor-0 citizen-{{ citizen.infos.alive ? (citizen.infos.online ? 'online' : 'offline') : 'dead' }} link" style="flex-basis: 8px;" x-ajax-href="{{ path('town_visit', {id: citizen.infos.id}) }}">&nbsp;</div>
                 <div class="cell factor-0 content-center-vertical link" x-ajax-href="{{ path('town_visit', {id: citizen.infos.id}) }}">
                         <img alt="{{ citizen.infos.home.prototype.level }}" src="{{ asset('build/images/home/' ~ citizen.infos.home.prototype.icon ~ '.gif') }}" />
@@ -77,11 +77,11 @@
                 </div>
                 <div class="cell rw-3 rw-md-2 small citizen-box content-center-horizontal content-center-vertical link undecorated" x-ajax-href="{{ path('town_visit', {id: citizen.infos.id}) }}">
                     {% if not hidden[citizen.infos.id] %}
-                        {% if citizen.infos.home.chest.items|length == 0 %}
+                        {% if citizen.infos.home.chest.items|filter(i => i.prototype.hideInForeignChest == false)|length == 0 %}
                             <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
                         {% endif %}
                         <ul class="inventory borderless">
-                            {% for item in citizen.infos.home.chest.items %}
+                            {% for item in citizen.infos.home.chest.items|filter(i => i.prototype.hideInForeignChest == false) %}
                                 {# @var \App\Entity\Item item #}
                                 {% if (citizen == me or not item.prototype.hideInForeignChest) %}
                                     {% embed "ajax/game/item.html.twig" with {'item': item} %}{% endembed %}

@@ -39,6 +39,7 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('can_use_friendship')->type(Requirement::HideOnFail)->add( (new FeatureRequirement())->feature('f_share') )->commit();
         $requirement_container->add()->identifier('hunter_no_followers')->type( Requirement::MessageOnFail )->text('Du kannst die <strong>Tarnkleidung</strong> nicht benutzen, wenn du {escortCount} Personen im Schlepptau hast...')->add( (new EscortRequirement())->maxFollowers(0) )->commit();
         $requirement_container->add()->identifier('room_for_item')->type( Requirement::MessageOnFail )->add( (new InventorySpaceRequirement()) )->commit();
+        $requirement_container->add()->identifier('room_for_item_in_chest')->type( Requirement::MessageOnFail )->add( (new InventorySpaceRequirement())->ignoreInventory(true)->container(false) )->commit();
         $requirement_container->add()->identifier('guard_tower_not_max')->type( Requirement::MessageOnFail )->add( (new CustomClassRequirement())->requirement(GuardTowerUseIsNotMaxed::class) )->commit();
 
         $requirement_container->add()->identifier('vote_shaman_needed')->type( Requirement::HideOnFail )->add( (new CustomClassRequirement())->requirement(RoleVote::class)->args(['needed' => 'shaman']) )->commit();
@@ -78,9 +79,9 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('drink_tl1')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('thirst1', true) )->commit();
         $requirement_container->add()->identifier('drink_tl2')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('thirst2', true) )->commit();
 
-        $requirement_container->add()->identifier('not_yet_dice')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_dice', false) )->text_key('once_a_day')->commit();
-        $requirement_container->add()->identifier('not_yet_card')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_cards', false) )->text_key('once_a_day')->commit();
-        $requirement_container->add()->identifier('not_yet_teddy')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_teddy', false) )->text_key('once_a_day')->commit();
+        $requirement_container->add()->identifier('not_yet_dice')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_dice', false) )->text_key('once_a_day')->commit();
+        $requirement_container->add()->identifier('not_yet_card')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_cards', false) )->text_key('once_a_day')->commit();
+        $requirement_container->add()->identifier('not_yet_teddy')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_teddy', false) )->text_key('once_a_day')->commit();
 
         $requirement_container->add()->identifier('not_yet_guitar')->type( Requirement::MessageOnFail )->add( (new StatusRequirement())->status('tg_guitar', false) )->text('Vorsicht, zu viel Musik ist schädlich, und einer deiner Mitbürger hat dieses Instrument heute bereits benutzt. Deine Ohren würden das nicht überleben.')->commit();
         $requirement_container->add()->identifier('not_yet_beta')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_betadrug', false) )->commit();
@@ -95,7 +96,7 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('not_yet_immune')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_shaman_immune', false) )->commit();
         $requirement_container->add()->identifier('immune')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_shaman_immune', true) )->commit();
 
-        $requirement_container->add()->identifier('eat_ap')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('haseaten', false) )->text_key('once_a_day')->commit();
+        $requirement_container->add()->identifier('eat_ap')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('haseaten', false) )->text_key('once_a_day')->commit();
 
         $requirement_container->add()->identifier('drug_1')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('drugged', false) )->commit();
         $requirement_container->add()->identifier('drug_2')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('drugged', true) )->commit();
@@ -105,6 +106,7 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('is_wounded')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_meta_wound', true) )->commit();
         $requirement_container->add()->identifier('is_not_wounded')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_meta_wound', false) )->commit();
         $requirement_container->add()->identifier('is_not_wounded_hands')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('wound2', false) )->commit();
+        $requirement_container->clone('is_not_wounded_hands')->identifier('is_not_wounded_hands_repair')->type( Requirement::MessageOnFail )->text('Mit deiner verletzten Hand bist du eigentlich nicht in der Lage, etwas zu halten. Trotzdem versuchst du dich hartnäckig in filigraner Reparaturarbeit, stößt dir dabei aber die Hand, was dir viele unnötige Schmerzen bereitet. Vielleicht solltest du stattdessen nach einem Weg suchen, dich selbst zu heilen.')->commit();
         $requirement_container->add()->identifier('is_not_bandaged')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('healed', false) )->commit();
 
         $requirement_container->add()->identifier('is_wounded_h')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_meta_wound', true) )->commit();
@@ -193,8 +195,8 @@ class ActionDataService implements FixtureProcessorInterface {
 
         //<editor-fold desc="ConfigRequirements">
         $requirement_container->add()->identifier('feature_camping')->type( Requirement::HideOnFail )->add( (new ConfigRequirement())->config(TownConf::CONF_FEATURE_CAMPING, true) )->commit();
-        $requirement_container->add()->identifier('during_christmas')->type( Requirement::HideOnFail )->add( (new ConfigRequirement())->event('christmas') )->text_key('not_in_event')->commit();
-        $requirement_container->add()->identifier('must_be_aprils_fools')->type( Requirement::HideOnFail )->add( (new ConfigRequirement())->event('afools') )->text_key('not_in_event')->commit();
+        $requirement_container->add()->identifier('during_christmas')->type( Requirement::CrossOnFail )->add( (new ConfigRequirement())->event('christmas') )->text_key('not_in_event')->commit();
+        $requirement_container->add()->identifier('must_be_aprils_fools')->type( Requirement::CrossOnFail )->add( (new ConfigRequirement())->event('afools') )->text_key('not_in_event')->commit();
         //</editor-fold>
 
         //<editor-fold desc="ItemRequirements">
@@ -849,8 +851,8 @@ class ActionDataService implements FixtureProcessorInterface {
                 'home_store_plus'  => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['home' => ['store' => 1]], ['picto' => ['r_hbuild_#00']], ['message' => ['text' => 'Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: <strong>{home_storage}</strong>.']] ] ],
                 'home_store_plus2' => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['home' => ['store' => 2]], ['picto' => ['r_hbuild_#00']], ['message' => ['text' => 'Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: <strong>{home_storage}</strong>.']] ] ],
 
-                'repair_1' => [ 'label' => 'Reparieren mit', 'at00' => true, 'target' => ['broken' => true], 'meta' => [ 'min_1_ap', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ 'minus_1ap', 'consume_item', 'repair_target', ['picto' => ['r_repair_#00'] ] ], 'message' => 'Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.' ],
-                'repair_2' => [ 'label' => 'Reparieren mit', 'at00' => true, 'target' => ['broken' => true], 'meta' => [ 'min_1_ap', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ 'minus_1ap', ['item' => ['consume' => false, 'morph' => 'repair_kit_part_#00'], 'picto' => ['r_repair_#00'] ], 'repair_target' ], 'message' => 'Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.' ],
+                'repair_1' => [ 'label' => 'Reparieren mit', 'at00' => true, 'target' => ['broken' => true], 'meta' => [ 'min_1_ap', 'not_tired', 'is_not_wounded_hands_repair' ], 'result' => [ 'minus_1ap', 'consume_item', 'repair_target', ['picto' => ['r_repair_#00'] ] ], 'message' => 'Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.' ],
+                'repair_2' => [ 'label' => 'Reparieren mit', 'at00' => true, 'target' => ['broken' => true], 'meta' => [ 'min_1_ap', 'not_tired', 'is_not_wounded_hands_repair' ], 'result' => [ 'minus_1ap', ['item' => ['consume' => false, 'morph' => 'repair_kit_part_#00'], 'picto' => ['r_repair_#00'] ], 'repair_target' ], 'message' => 'Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.' ],
                 'poison_1' => [ 'label' => 'Vergiften mit', 'at00' => true,  'target' => ['type' => ItemTargetDefinition::ItemSelectionTypePoison, 'property' => 'can_poison', 'poison' => false], 'meta' => [ ],               'result' => [ 'consume_item', 'poison_target' ], 'message' => 'Du hast {target} mit {item} kombiniert und {target} erzeugt.{hr}Achtung: Du hast {target} vergiftet. Es ist <strong>nahezu unmöglich, es vom Original zu unterscheiden</strong>, sei also vorsichtig... Es liegt ganz an dir, was du damit jetzt tun möchtest.' ],
                 'poison_2' => [ 'label' => 'Vergiften mit', 'at00' => true,  'target' => ['type' => ItemTargetDefinition::ItemSelectionTypePoison, 'property' => 'can_poison', 'poison' => false], 'meta' => [ ],               'result' => [ 'consume_item', 'poison_infect_target' ], 'message' => 'Du hast {target} mit {item} kombiniert und {target} erzeugt.{hr}Achtung: Du hast {target} vergiftet. Es ist <strong>nahezu unmöglich, es vom Original zu unterscheiden</strong>, sei also vorsichtig... Es liegt ganz an dir, was du damit jetzt tun möchtest.' ],
 

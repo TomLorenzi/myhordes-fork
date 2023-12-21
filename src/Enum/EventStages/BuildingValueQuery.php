@@ -25,4 +25,6 @@ enum BuildingValueQuery {
     case MaxItemDefense;
     case ScoutMarkingsEnabled;
     case BeyondTeleportRadius;
+
+    case MaxActiveZombies;
 }

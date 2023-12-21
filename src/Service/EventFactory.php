@@ -4,6 +4,7 @@
 namespace App\Service;
 
 
+use App\Entity\Citizen;
 use App\Entity\Town;
 use App\Entity\User;
 use App\Event\Game\GameEvent;
@@ -42,13 +43,9 @@ class EventFactory implements ServiceSubscriberInterface
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    public function gameInteractionEvent(string $class): GameInteractionEvent {
-        $security = $this->container->get(Security::class);
+    public function gameInteractionEvent(string $class, ?Citizen $citizen = null): GameInteractionEvent {
         $conf = $this->container->get(ConfMaster::class);
-
-        /** @var User $user */
-        $user = $security->getUser();
-        $citizen = $user->getActiveCitizen();
+        $citizen ??= $this->container->get(Security::class)->getUser()->getActiveCitizen();
 
         return new $class(
             $citizen,

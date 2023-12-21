@@ -15,6 +15,12 @@ class HookDataService implements FixtureProcessorInterface {
 				'active' => true,
 				'position' => 0
 			],
+            'additionalCitizenRowClassCore' => [
+                'hookname' => 'additionalCitizenRowClass',
+                'classname' => "App\\Hooks\\ClassHooks",
+                'active' => true,
+                'position' => 0
+            ],
 			'dumpDisplayItemsCore' => [
 				'hookname' => 'dumpDisplayItems',
 				'classname' => "App\\Hooks\\DumpHooks",

@@ -296,7 +296,7 @@ class MapMaker
             $total_zombies += $zone->getZombies();
             $killedZombies += ($zone->getInitialZombies() - $zone->getZombies());
 
-            $despair = floor(max(0,( $zone->getInitialZombies() - $zone->getZombies() - 1 ) / 2));
+            $despair = (int)floor(max(0,( ($zone->getInitialZombies() - $zone->getZombies()) - 1 ) / 2));
             if (!isset($zone_db[$zone->getX()])) $zone_db[$zone->getX()] = [];
             $zone_db[$zone->getX()][$zone->getY()] = $zone->getZombies();
             $despair_db[$zone->getX()][$zone->getY()] = $despair;
@@ -428,11 +428,14 @@ class MapMaker
             $fun_cycle($c == 0, $d >= 2);
 
         foreach ($town->getZones() as &$zone) {
-            if ($zone->getX() === 0 && $zone->getY() === 0) continue;
+            if ($zone->isTownZone()) continue;
 
             $zombies = max( 0, $zone_db[$zone->getX()][$zone->getY()] );
-            $zone->setZombies( $zone->isTownZone() ? 0 : max(0, floor($zombies - $despair_db[$zone->getX()][$zone->getY()] )));
-            $zone->setInitialZombies( $zone->isTownZone() ? 0 : $zombies );
+            $zone->setZombies( $despair_db[$zone->getX()][$zone->getY()] >= 1
+                                   ? max(0, $zombies - $despair_db[$zone->getX()][$zone->getY()])
+                                   : $zombies
+            );
+            $zone->setInitialZombies( $zombies );
             $zone->setPlayerDeaths(0 );
         }
     }

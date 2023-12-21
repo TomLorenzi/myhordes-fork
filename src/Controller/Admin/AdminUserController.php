@@ -1069,7 +1069,12 @@ class AdminUserController extends AdminActionController
         $a = $this->entity_manager->getRepository(AccountRestriction::class)->find($bid);
         if ($a === null || $a->getUser()->getId() !== $uid) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         if (!$parser->has('duration', true)) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        if (!$this->user_handler->hasRole( $this->getUser(), 'ROLE_ADMIN' )) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+        if (
+            !$this->user_handler->hasRole( $this->getUser(), 'ROLE_ADMIN' ) && (
+                $a->getModerator() !== $this->getUser() ||
+                $a->getConfirmedBy()->filter( fn(User $u) => $u !== $this->getUser() )->count() > 0
+            )
+        ) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         if (!$a->getActive() || $a->getExpires() && $a->getExpires() < new \DateTime()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 

@@ -96,7 +96,7 @@ class CitizenHandler
         return $this->hasStatusEffect( $citizen, ['tg_meta_wound','wound1','wound2','wound3','wound4','wound5','wound6'], false );
     }
 
-    public function inflictWound( Citizen &$citizen ): ?CitizenStatus {
+    public function inflictWound( Citizen $citizen ): ?CitizenStatus {
         if ($this->isWounded($citizen)) return null;
         // $ap_above_6 = $citizen->getAp() - $this->getMaxAP( $citizen );
         $citizen->addStatus( $status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName(
@@ -544,11 +544,11 @@ class CitizenHandler
             list($action,$proto) = $entry;
 
             if ($action < 0) foreach ($this->inventory_handler->fetchSpecificItems( $inventory, [new ItemRequest($proto->getName(),1,null,null)] ) as $item)
-                $this->inventory_handler->transferItem($citizen,$item,$inventory,$null);
+                $this->events->transferItem($citizen,$item,$inventory);
             if ($action > 0) {
                 $item = $this->item_factory->createItem( $proto );
                 $item->setEssential(true);
-                $this->inventory_handler->transferItem($citizen,$item,$null,$inventory);
+                $this->events->transferItem($citizen, $item, to: $inventory);
             }
         }
 

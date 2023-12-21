@@ -16,7 +16,7 @@
         {% for citizen in citizens|sort((a,b) => (a.alive == b.alive) ? ((a.alive) ? (a.alias != null ? a.alias : a.name)|lower <=> (b.alias != null ? b.alias : b.name)|lower : (b.survivedDays <=> a.survivedDays ?: b.rankingEntry.end <=> a.rankingEntry.end)) : b.alive <=> a.alive) %}
             {# @var \App\Entity\Citizen citizen  #}
             {% if citizen.alive %}
-            <div class="row {% if citizen == me%} me{% endif %}">
+            <div class="row {% if citizen == me%} me{% endif %} {{ hook('additionalCitizenRowClass', citizen) }}">
                 <div class="padded cell rw-1 rw-md-2">
                         <img alt="{{ citizen.home.prototype.level }}" src="{{ asset('build/images/home/' ~ citizen.home.prototype.icon ~ '.gif') }}" />
                 </div>

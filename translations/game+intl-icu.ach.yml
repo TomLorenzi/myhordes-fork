@@ -917,7 +917,7 @@ Zonenmarkierer: crwdns63602:0crwdne63602:0
 'Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...': 'crwdns63626:0crwdne63626:0'
 'Verlassenes Hospital': 'crwdns63628:0crwdne63628:0'
 'Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...': 'crwdns63630:0crwdne63630:0'
-'[nichts]': 'crwdns63632:0[nichts]crwdne63632:0'
+'[nichts]': 'crwdns63632:0crwdne63632:0'
 Seelenpunkte: crwdns63634:0crwdne63634:0
 'Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.': 'crwdns63636:0crwdne63636:0'
 "Und wieder 'ne Leiche weniger! {citizen} wurde von † {disposed} entsorgt!": "crwdns136208:0{disposed}crwdnd136208:0{citizen}crwdne136208:0"
@@ -2935,3 +2935,6 @@ Sandkasten-Scharfschütze_f: crwdns203950:0crwdne203950:0
 'Es scheint, dass alle guten Verstecke bereits von deinen "Freunden" besetzt sind. Du musst also einen anderen Ort finden oder improvisieren...': 'crwdns203970:0crwdne203970:0'
 'Entfernung von hier': 'crwdns203972:0crwdne203972:0'
 'Entfernung zur Stadt': 'crwdns203974:0crwdne203974:0'
+'Bei {citizens} Bürgern in der Stadt': 'crwdns204366:0{citizens}crwdne204366:0'
+'Du bist erschöpft!': 'crwdns204372:0crwdne204372:0'
+'Du hast dich gestern so sehr verausgabt, dass du in der Nacht nicht genug Kraft schöpfen konntest, um deine Aktionspunkte vollständig zu regenerieren.': 'crwdns204374:0crwdne204374:0'

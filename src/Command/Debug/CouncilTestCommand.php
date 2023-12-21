@@ -66,7 +66,7 @@ class CouncilTestCommand extends Command
         ;
     }
 
-    protected function interact(InputInterface $input, OutputInterface $output) {
+    protected function interact(InputInterface $input, OutputInterface $output): void {
         $valid_nodes = array_filter( (new ReflectionClass(CouncilEntryTemplate::class))->getConstants(), function($value, $key) {
             return !($value < 990000 || $value > 999999 || !str_starts_with( $key, 'CouncilNodeRoot' ));
         }, ARRAY_FILTER_USE_BOTH );

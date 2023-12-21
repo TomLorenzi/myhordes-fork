@@ -161,7 +161,7 @@
             {% for type, section in sections %}
                 <li class="tab" x-tab-id="section_{{ type }}">
                     <div class="tab-link">
-                        <span class="hide-lg hide-md hide-sm">{{ section ? section : 'Werkstatt'|trans({},'buildings') }}</span>
+                        <span>{{ section ? section : 'Werkstatt'|trans({},'buildings') }}</span>
                     </div>
                 </li>
             {% endfor %}

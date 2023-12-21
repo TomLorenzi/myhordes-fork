@@ -490,8 +490,9 @@ class TownHandler
         $min = round($est->getTargetMin() - ($est->getTargetMin() * $offsetMin / 100));
         $max = round($est->getTargetMax() + ($est->getTargetMax() * $offsetMax / 100));
 
-        $soulFactor = min(1 + (0.04 * $this->get_red_soul_count($town)), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
-
+		$redsouls = $this->get_red_soul_count($town);
+		$red_soul_penality = $this->proxy->queryTownParameter( $town, BuildingValueQuery::NightlyRedSoulPenalty );
+		$soulFactor = min(1 + ($red_soul_penality * $redsouls), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
         $min = round($min * $soulFactor);
         $max = round($max * $soulFactor);
 

@@ -55,7 +55,8 @@ class DatabaseExtractor implements ExtractorInterface
         $this->conf = $conf;
     }
 
-    private function insert(MessageCatalogue &$c, string $message, string $domain, string $class) {
+    private function insert(MessageCatalogue &$c, string $message, string $domain, string $class): void
+    {
         if (!empty($message)) {
             $c->set($message, $this->prefix . $message, $domain);
             $this->config->add_source_for($message,$domain,'db',str_replace('App\\Entity\\', '', $class));
@@ -66,7 +67,7 @@ class DatabaseExtractor implements ExtractorInterface
     /**
      * @inheritDoc
      */
-    public function extract($resource, MessageCatalogue $c)
+    public function extract($resource, MessageCatalogue $c): void
     {
         if (!$this->config->useDatabase()) return;
 
@@ -88,7 +89,7 @@ class DatabaseExtractor implements ExtractorInterface
     /**
      * @inheritDoc
      */
-    public function setPrefix(string $prefix)
+    public function setPrefix(string $prefix): void
     {
         $this->prefix = $prefix;
     }

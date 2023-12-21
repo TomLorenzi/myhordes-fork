@@ -1,6 +1,7 @@
 <?php
 namespace App\Service;
 
+use App\Entity\ActionCounter;
 use App\Entity\Building;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
@@ -397,8 +398,10 @@ class NightlyHandler
 
             if ($citizen->getStatus()->contains( $status_infected ) && !$ghoul) {
                 $this->log->debug( "Citizen <info>{$citizen->getUser()->getUsername()}</info> has <info>{$status_infected->getLabel()}</info>." );
-                if ($this->random->chance($this->conf->getTownConfiguration($town)->get( TownConf::CONF_MODIFIER_INFECT_DEATH, 0.5 ))) $this->kill_wrap( $citizen, $cod_infect, true, 0, false, $town->getDay()+1 );
-                continue;
+                if ($this->random->chance($this->conf->getTownConfiguration($town)->get( TownConf::CONF_MODIFIER_INFECT_DEATH, 0.5 ))) {
+                    $this->kill_wrap( $citizen, $cod_infect, true, 0, false, $town->getDay()+1 );
+                    continue;
+                    }
             }
 
             if ($citizen->getStatus()->contains( $status_addicted ) && !$citizen->getStatus()->contains( $status_drugged )) {
@@ -1009,20 +1012,11 @@ class NightlyHandler
 					
 		
         shuffle($targets);
-		
-        $attack_day = $town->getDay();
-		if ($attack_day <= 3) $max_active = round($zombies*0.5*mt_rand(90,140)/100); 
-		elseif ($attack_day <= 14) $max_active = $attack_day * 15;
-		elseif ($attack_day <= 18) $max_active = ($attack_day + 4)*15;
-		elseif ($attack_day <= 23) $max_active = ($attack_day + 5)*15;
-		else                       $max_active = ($attack_day + 6)*15;
-		
-		
-		//$in_town = $town->getChaos() ? max(10,count($targets)) : count($targets);
-		$in_town = min(10, ceil(count($targets) * 0.85));
+
+        $max_active = $this->events->queryTownParameter( $town, BuildingValueQuery::MaxActiveZombies, count($targets) );
+		$in_town = min(10, ceil(count($targets) * 1.0));
 		
 		$attacking = min($max_active, $overflow);
-
 		$targets = $this->random->pick($targets, $in_town, true);
 
         $this->log->debug("<info>{$attacking}</info> Zombies are attacking <info>" . count($targets) . "</info> citizens!");
@@ -1213,7 +1207,12 @@ class NightlyHandler
 
             $this->log->debug("Removing volatile counters for citizen <info>{$citizen->getUser()->getUsername()}</info>...");
             $citizen->setWalkingDistance(0);
-            $this->citizen_handler->setAP($citizen,false,$this->citizen_handler->getMaxAP( $citizen ),0);
+
+            // AP deduction
+            $loan = min($citizen->getSpecificActionCounterValue(ActionCounter::ActionTypeSpecialActionAPLoan), 1);
+            $this->citizen_handler->setAP($citizen,false,max(1, $this->citizen_handler->getMaxAP( $citizen ) - $loan) ,0);
+            if ($loan > 0) $this->crow->postAsPM($citizen, '', '', PrivateMessage::TEMPLATE_CROW_REDUCED_AP_REGEN);
+
             $this->citizen_handler->setBP($citizen,false,$this->citizen_handler->getMaxBP( $citizen ),0);
             $this->citizen_handler->setPM($citizen,false,$this->citizen_handler->getMaxPM( $citizen ));
             foreach ($citizen->getActionCounters() as $counter)
@@ -1368,7 +1367,7 @@ class NightlyHandler
         $this->log->debug('Spreading zombies ...');
         $this->map->dailyZombieSpawn($town);
 
-        if (!$town->findGazette( $town->getDay(), true )->getFireworksExplosion())
+        if ($town->findGazette( $town->getDay(), true )->getFireworksExplosion())
             // Kill zombies around the town (all at 1km, none beyond 10km)
             foreach ($town->getZones() as $zone) {
                 $km = $this->zone_handler->getZoneKm($zone);

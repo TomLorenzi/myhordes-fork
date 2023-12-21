@@ -39,6 +39,10 @@ class Picto
     private $disabled = false;
     #[ORM\Column(type: 'boolean')]
     private $old = false;
+
+    #[ORM\Column]
+    private bool $manual = false;
+
     public function __construct() {}
     public function getId(): ?int
     {
@@ -132,6 +136,18 @@ class Picto
     public function setOld(bool $old): self
     {
         $this->old = $old;
+
+        return $this;
+    }
+
+    public function isManual(): bool
+    {
+        return $this->manual;
+    }
+
+    public function setManual(bool $manual): static
+    {
+        $this->manual = $manual;
 
         return $this;
     }

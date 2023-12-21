@@ -26,7 +26,7 @@ class FixtureChainTestCommand extends Command
         parent::__construct();
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setHelp('Processes a fixture chain.')

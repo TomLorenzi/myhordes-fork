@@ -9,6 +9,7 @@ use App\Entity\ItemPrototype;
 use App\Event\Game\Town\Basic\Well\WellInsertionCheckEvent;
 use App\Event\Game\Town\Basic\Well\WellInsertionExecuteEvent;
 use App\Service\ErrorHelper;
+use App\Service\EventProxyService;
 use App\Service\InventoryHandler;
 use App\Service\LogTemplateHandler;
 use App\Structures\ItemRequest;
@@ -37,7 +38,7 @@ final class WellInsertionCommonListener implements ServiceSubscriberInterface
     public static function getSubscribedServices(): array
     {
         return [
-            InventoryHandler::class,
+            EventProxyService::class,
             EntityManagerInterface::class,
             LogTemplateHandler::class,
         ];
@@ -100,9 +101,9 @@ final class WellInsertionCommonListener implements ServiceSubscriberInterface
                 $this->container->get(EntityManagerInterface::class)->persist( $event->check->consumable );
                 break;
             default:
-                if (($error = $this->container->get(InventoryHandler::class)->transferItem(
-                        $event->citizen,
-                        $event->check->consumable, $event->check->consumable->getInventory(), null
+                if (($error = $this->container->get(EventProxyService::class)->transferItem(
+                        $event->citizen, $event->check->consumable,
+                        $event->check->consumable->getInventory()
                     )) !== InventoryHandler::ErrorNone) $event->pushErrorCode( $error )->stopPropagation();
         }
 

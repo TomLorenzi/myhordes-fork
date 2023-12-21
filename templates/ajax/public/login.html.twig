@@ -80,11 +80,11 @@
                     <form id="login-form">
                         <div class="row">
                             <div class="cell padded-small rw-4 rw-md-12"><b><label for="login-name">{% trans from 'login' %}Spielername{% endtrans %}</label></b></div>
-                            <div class="cell padded-small rw-8 rw-md-12"><input name="login_user" id="login-name" type="text" /></div>
+                            <div class="cell padded-small rw-8 rw-md-12"><input name="login_user" id="login-name" type="text" autocomplete="username" /></div>
                         </div>
                         <div class="row">
                             <div class="cell padded-small rw-4 rw-md-12"><b><label for="login-password">{% trans from 'login' %}Passwort{% endtrans %}</label></b></div>
-                            <div class="cell padded-small rw-8 rw-md-12"><input name="login_pass" id="login-password" type="password" /></div>
+                            <div class="cell padded-small rw-8 rw-md-12"><input name="login_pass" id="login-password" type="password" autocomplete="current-password" /></div>
                         </div>
                         <div class="row">
                             <div class="cell padded-small rw-4 rw-md-8"><b><label for="remember_me">{% trans from 'login' %}Angemeldet bleiben{% endtrans %}</label></b></div>

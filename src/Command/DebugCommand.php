@@ -18,9 +18,11 @@ use App\Entity\TownRankingProxy;
 use App\Entity\TwinoidImport;
 use App\Entity\User;
 use App\Entity\ZombieEstimation;
+use App\Enum\EventStages\BuildingValueQuery;
 use App\Service\CitizenHandler;
 use App\Service\CommandHelper;
 use App\Service\ConfMaster;
+use App\Service\EventProxyService;
 use App\Service\GameFactory;
 use App\Service\GameProfilerService;
 use App\Service\InventoryHandler;
@@ -66,11 +68,12 @@ class DebugCommand extends LanguageCommand
     private TownHandler $townHandler;
     private TwinoidHandler $twin;
     private GameProfilerService $gps;
+	private EventProxyService $events;
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
                                 RandomGenerator $rg, CitizenHandler $ch, Translator $translator, InventoryHandler $ih,
                                 ItemFactory $if, UserPasswordHasherInterface $passwordEncoder, ConfMaster $c,
-                                TownHandler $th, CommandHelper $h, TwinoidHandler $t, GameProfilerService $gps)
+                                TownHandler $th, CommandHelper $h, TwinoidHandler $t, GameProfilerService $gps, EventProxyService $eps)
     {
         $this->kernel = $kernel;
 
@@ -87,6 +90,7 @@ class DebugCommand extends LanguageCommand
         $this->helper = $h;
         $this->twin = $t;
         $this->gps = $gps;
+		$this->events = $eps;
 
         parent::__construct();
     }
@@ -613,7 +617,9 @@ class DebugCommand extends LanguageCommand
             $this->entity_manager->persist($est);
             $this->entity_manager->flush();
 
-            $soulFactor = min(1 + (0.04 * $this->townHandler->get_red_soul_count($town)), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
+			$redsouls = $this->townHandler->get_red_soul_count($town);
+			$red_soul_penality = $this->events->queryTownParameter( $town, BuildingValueQuery::NightlyRedSoulPenalty );
+			$soulFactor = min(1 + ($red_soul_penality * $redsouls), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
 
             $output->writeln("Attack for day {$est->getDay()} : <info>{$est->getZombies()}</info>, soul factor is <info>$soulFactor</info>, real attack will be <info>" . ($est->getZombies() * $soulFactor) . "</info>");
 

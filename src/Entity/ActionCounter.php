@@ -29,6 +29,7 @@ class ActionCounter
     const ActionTypeSpecialActionTech	= 16;
     const ActionTypeSpecialActionSurv	= 17;
     const ActionTypeSpecialActionHunter	= 18;
+    const ActionTypeSpecialActionAPLoan	= 19;
     const PerGameActionTypes = [
         self::ActionTypeRemoveLog,
 		self::ActionTypePool

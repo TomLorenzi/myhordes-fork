@@ -65,6 +65,8 @@ services:
         public: true
     App\Service\HookExecutor:
         public: true
+    App\Service\ConfMaster:
+      public: true
 
     # This aliases the classes used by the translation tool commands
     translation.tools.loader:

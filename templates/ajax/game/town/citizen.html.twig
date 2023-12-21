@@ -83,7 +83,7 @@
             {% else %}
                 {% set citizen = citizenInfo.citizen %}
                 {# @var \App\Entity\Citizen citizen  #}
-                <div class="row-flex stretch pointer{% if citizen == me%} me{% endif %}" style="max-height: 100px;">
+                <div class="row-flex stretch pointer{% if citizen == me%} me{% endif %} {{ hook('additionalCitizenRowClass', citizen) }}" style="max-height: 100px;">
                 {% include "ajax/soul/playeravatar.html.twig" with {user: citizen.user, small: true, background: true, classes: ['cell','factor-0','hide-md','hide-sm'], attributes: {style: 'flex-basis: 92px', 'x-ajax-href': path('town_visit', {id: citizen.id}) }} only %}
                 <div class="cell factor-0 citizen-{{ citizen.alive ? (citizen.online ? 'online' : 'offline') : 'dead' }}" style="flex-basis: 8px;" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">&nbsp;</div>
                 
@@ -180,11 +180,11 @@
                     </div>
                 {% else %}
                     <div class="padded cell factor-0 hide-md hide-sm small citizen-box" style="flex-basis: 155px;" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">
-                        {% if citizen.home.chest.items|length == 0 %}
+                        {% if citizen.home.chest.items|filter(i => i.prototype.hideInForeignChest == false)|length == 0 %}
                             <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
                         {% endif %}
                         <ul class="inventory borderless">
-                            {% for item in citizen.home.chest.items %}
+                            {% for item in citizen.home.chest.items|filter(i => i.prototype.hideInForeignChest == false) %}
                                 {# @var \App\Entity\Item item #}
                                 {% if (citizen == me or not item.prototype.hideInForeignChest) %}
                                     {% embed "ajax/game/item.html.twig" with {'item': item, 'no_id': true} %}{% endembed %}

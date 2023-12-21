@@ -2,85 +2,25 @@
 
 namespace App\Controller\Soul;
 
-use App\Annotations\GateKeeperProfile;
-use App\Controller\CustomAbstractController;
-use App\Entity\AccountRestriction;
-use App\Entity\AdminReport;
-use App\Entity\Announcement;
-use App\Entity\AntiSpamDomains;
-use App\Entity\Award;
-use App\Entity\CauseOfDeath;
-use App\Entity\Changelog;
-use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
-use App\Entity\ExternalApp;
-use App\Entity\FeatureUnlock;
-use App\Entity\FeatureUnlockPrototype;
-use App\Entity\ForumPollAnswer;
-use App\Entity\FoundRolePlayText;
-use App\Entity\GlobalPoll;
-use App\Entity\HeroSkillPrototype;
-use App\Entity\OfficialGroup;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
-use App\Entity\RememberMeTokens;
-use App\Entity\ShoutboxEntry;
-use App\Entity\ShoutboxReadMarker;
-use App\Entity\SocialRelation;
-use App\Entity\Statistic;
 use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
-use App\Entity\TwinoidImport;
 use App\Entity\User;
-use App\Entity\RolePlayTextPage;
 use App\Entity\Season;
-use App\Entity\UserDescription;
-use App\Entity\UserGroupAssociation;
-use App\Entity\UserPendingValidation;
-use App\Entity\UserReferLink;
-use App\Entity\UserSponsorship;
-use App\Enum\AdminReportSpecification;
-use App\Enum\DomainBlacklistType;
-use App\Enum\StatisticType;
-use App\Enum\UserSetting;
-use App\Response\AjaxResponse;
-use App\Service\ConfMaster;
-use App\Service\CrowService;
-use App\Service\ErrorHelper;
-use App\Service\EternalTwinHandler;
-use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
-use App\Service\RandomGenerator;
-use App\Service\RateLimitingFactoryProvider;
-use App\Service\UserFactory;
-use App\Service\UserHandler;
-use App\Service\AdminHandler;
-use App\Service\CitizenHandler;
-use App\Service\InventoryHandler;
-use App\Service\TimeKeeperService;
-use App\Structures\MyHordesConf;
+use ArrayHelpers\Arr;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\AbstractQuery;
-use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\ORM\QueryBuilder;
-use Exception;
-use Symfony\Component\Asset\Packages;
-use Symfony\Component\Cache\Adapter\FilesystemAdapter;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Cache\Adapter\FilesystemTagAwareAdapter;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Symfony\Component\HttpKernel\KernelInterface;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Symfony\Component\RateLimiter\RateLimiterFactory;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Routing\Exception\RouteNotFoundException;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Contracts\Cache\ItemInterface;
-use Symfony\Contracts\Translation\TranslatorInterface;
-use Symfony\Component\Validator\Constraints;
-use Symfony\Component\Validator\Validation;
+use Symfony\Contracts\Cache\TagAwareCacheInterface;
 
 /**
  * @method User getUser
@@ -231,7 +171,7 @@ class SoulRankingController extends SoulController
      * @return Response
      */
     #[Route(path: '/jx/soul/ranking/distinctions/{season<\d+|c|all|myh|a>}', name: 'soul_season_distinction_overview')]
-    public function soul_season_distinction_overview(JSONRequestParser $parser, $season = null): Response
+    public function soul_season_distinction_overview(JSONRequestParser $parser, TagAwareCacheInterface $gameCachePool, $season = null): Response
     {
         $user = $this->getUser();
 
@@ -248,12 +188,12 @@ class SoulRankingController extends SoulController
             ->orWhere(Criteria::expr()->gt('subNumber', 14))
         );
 
-
-        $cache = new FilesystemAdapter();
+        $created = null;
 
         try {
-            $ranking = $cache->get("mh_distinction_ranking_$seasonId", function (ItemInterface $item) use ($currentSeason) {
-                $item->expiresAfter(43200);
+            $key = "mh_app_distinction_ranking_$seasonId";
+            $ranking = $gameCachePool->get($key, function (ItemInterface $item) use ($currentSeason, $gameCachePool) {
+                $item->expiresAfter(43200)->tag(['daily','ranking','distinction_ranking']);
 
                 $add_season_filters = function (QueryBuilder $q) use ($currentSeason): QueryBuilder {
                     if ($currentSeason === 'myh')
@@ -267,7 +207,7 @@ class SoulRankingController extends SoulController
                     return $q;
                 };
 
-                return array_map( fn(PictoPrototype $p) => [
+                $data = array_map( fn(PictoPrototype $p) => [
                     'prototype' => $p->getId(),
                     'ranking' => $add_season_filters($this->entity_manager->createQueryBuilder()
                         ->from(Picto::class, 'p')
@@ -293,7 +233,16 @@ class SoulRankingController extends SoulController
                         ->getQuery()->getResult(AbstractQuery::HYDRATE_SCALAR_COLUMN)],
                     ['rare' => 'DESC', 'priority' => 'DESC', 'id' => 'ASC']
                 ) );
+
+                return [
+                    'payload' => $data,
+                    'created' => time(),
+                ];
             }/*, INF*/);
+
+            $created = Arr::get( $ranking, 'created' );
+            $ranking = Arr::get( $ranking, 'payload', $ranking );
+
         } catch (\Throwable $e) {
             $ranking = [];
         }
@@ -317,7 +266,8 @@ class SoulRankingController extends SoulController
             'soloType' => 'distinctions',
             'townTypes' => $this->entity_manager->getRepository(TownClass::class)->findBy(['ranked' => true], ['orderBy' => 'ASC']),
             'currentType' => 0,
-            'ranking' => $ranking
+            'ranking' => $ranking,
+            'created' => $created ? (new DateTime())->setTimestamp($created) : null,
         ]) );
     }
 
@@ -329,7 +279,7 @@ class SoulRankingController extends SoulController
      * @return Response
      */
     #[Route(path: '/jx/soul/ranking/distinctions/detail/{id}/{season<\d+|c|all|myh|a>}', name: 'soul_season_distinction_detail')]
-    public function soul_season_distinction_detail(PictoPrototype $prototype, JSONRequestParser $parser, $season = null): Response
+    public function soul_season_distinction_detail(PictoPrototype $prototype, JSONRequestParser $parser, TagAwareCacheInterface $gameCachePool, $season = null): Response
     {
         $user = $this->getUser();
 
@@ -357,12 +307,12 @@ class SoulRankingController extends SoulController
 
         if ($total_count <= 0) return $this->redirectToRoute('soul_season_distinction_overview');
 
-        $cache = new FilesystemAdapter();
+        $created = null;
 
         try {
-            $ranking = $cache->get("mh_distinction_ranking_{$seasonId}_{$prototype->getId()}", function (ItemInterface $item) use ($currentSeason, $prototype) {
-                $item->expiresAfter(43200);
-
+            $ranking = $gameCachePool->get("mh_app_distinction_ranking_{$seasonId}_{$prototype->getId()}", function (ItemInterface $item) use ($currentSeason, $prototype, $gameCachePool) {
+                $item->expiresAfter(43200)->tag(['daily','ranking','distinction_ranking']);
+                
                 $add_season_filters = function (QueryBuilder $q) use ($currentSeason): QueryBuilder {
                     if ($currentSeason === 'myh')
                         $q->andWhere('t.imported = false')->andWhere('p.old = false');
@@ -375,7 +325,7 @@ class SoulRankingController extends SoulController
                     return $q;
                 };
 
-                return $add_season_filters($this->entity_manager->createQueryBuilder()
+                $data = $add_season_filters($this->entity_manager->createQueryBuilder()
                     ->from(Picto::class, 'p')
                     ->select('u.id as user', 'SUM(p.count) as count')
                     ->where('p.prototype = :proto')->setParameter('proto', $prototype)
@@ -387,7 +337,15 @@ class SoulRankingController extends SoulController
                     ->orderBy('count', 'DESC')
                     ->setMaxResults(35)
                 )->getQuery()->getResult(AbstractQuery::HYDRATE_ARRAY);
+
+                return [
+                    'payload' => $data,
+                    'created' => time(),
+                ];
             });
+
+            $created = Arr::get( $ranking, 'created' );
+            $ranking = Arr::get( $ranking, 'payload', $ranking );
         } catch (\Throwable $e) {
             $ranking = [];
         }
@@ -405,6 +363,7 @@ class SoulRankingController extends SoulController
             'soloType' => 'distinctions',
             'townTypes' => $this->entity_manager->getRepository(TownClass::class)->findBy(['ranked' => true], ['orderBy' => 'ASC']),
             'currentType' => 0,
+            'created' => $created ? (new DateTime())->setTimestamp($created) : null,
             'picto' => [
                 'prototype' => $prototype,
                 'ranking' => $ranking

@@ -44,7 +44,7 @@ class LanguageCommand extends Command
     }
 
 
-    protected function initialize(InputInterface $input, OutputInterface $output)
+    protected function initialize(InputInterface $input, OutputInterface $output): void
     {
         $this->helper->setLanguage( $this->locale = $input->getOption('lang') );
     }

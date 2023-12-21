@@ -51,8 +51,8 @@
 				{%- endif -%}
 			{%- endmacro -%}
 
-			{% set value      = _self.render_value( conf_self.raw[setting] ) %}
-			{% set value_comp = conf_compare is not null ? _self.render_value( conf_compare.raw[setting] ) : '' %}
+			{% set value      = conf_self.raw[setting] is defined ? _self.render_value( conf_self.raw[setting] ) : '' %}
+			{% set value_comp = (conf_compare is not null and conf_compare.raw[setting] is defined) ? _self.render_value( conf_compare.raw[setting] ) : '' %}
 
 			{% for n,key in shown_keys %}
 				{% if not loop.last %}

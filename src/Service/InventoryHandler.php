@@ -28,27 +28,12 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class InventoryHandler
 {
-    private ContainerInterface $container;
-    private EntityManagerInterface $entity_manager;
-    private ItemFactory $item_factory;
-    private BankAntiAbuseService $bankAbuseService;
-    private UserHandler $user_handler;
-    private ConfMaster $conf;
-    private RandomGenerator $rand;
-
-    private DoctrineCacheService $doctrineCache;
-
-    public function __construct( ContainerInterface $c, EntityManagerInterface $em, ItemFactory $if, BankAntiAbuseService $bankAntiAbuseService, UserHandler $uh, ConfMaster $cm, RandomGenerator $r, DoctrineCacheService $doctrineCache)
-    {
-        $this->entity_manager = $em;
-        $this->item_factory = $if;
-        $this->container = $c;
-        $this->bankAbuseService = $bankAntiAbuseService;
-        $this->user_handler = $uh;
-        $this->conf = $cm;
-        $this->rand = $r;
-        $this->doctrineCache = $doctrineCache;
-    }
+    public function __construct(
+        private readonly EntityManagerInterface $entity_manager,
+        private readonly ItemFactory $item_factory,
+        private readonly UserHandler $user_handler,
+        private readonly DoctrineCacheService $doctrineCache,
+    ) {}
 
     public function getSize( Inventory $inventory ): int {
         if ($inventory->getCitizen()) {
@@ -226,13 +211,6 @@ class InventoryHandler
         return $return;
     }
 
-    public function fetchHeavyItems(Inventory $inventory) {
-        $items = [];
-        foreach ($inventory->getItems() as $item)
-            if ($item->getPrototype()->getHeavy()) $items[] = $item;
-        return $items;
-    }
-
     public function countHeavyItems(Inventory $inventory): int {
         $c = 0;
         foreach ($inventory->getItems() as $item)
@@ -245,86 +223,6 @@ class InventoryHandler
         foreach ($inventory->getItems() as $item)
             if ($item->getEssential()) $c += $item->getCount();
         return $c;
-    }
-
-    const TransferTypeUnknown  = 0;
-    const TransferTypeSpawn    = 1;
-    const TransferTypeConsume  = 2;
-    const TransferTypeRucksack = 3;
-    const TransferTypeBank     = 4;
-    const TransferTypeHome     = 5;
-    const TransferTypeSteal    = 6;
-    const TransferTypeLocal    = 7;
-    const TransferTypeEscort   = 8;
-    const TransferTypeTamer    = 9;
-    const TransferTypeImpound  = 10;
-
-    protected function validateTransferTypes( Item &$item, int $target, int $source ): bool {
-        $valid_types = [
-            self::TransferTypeSpawn => [ self::TransferTypeRucksack, self::TransferTypeBank, self::TransferTypeHome, self::TransferTypeLocal, self::TransferTypeTamer ],
-            self::TransferTypeRucksack => [ self::TransferTypeBank, self::TransferTypeLocal, self::TransferTypeHome, self::TransferTypeConsume, self::TransferTypeSteal, self::TransferTypeTamer ],
-            self::TransferTypeBank => [ self::TransferTypeRucksack, self::TransferTypeConsume ],
-            self::TransferTypeHome => [ self::TransferTypeRucksack, self::TransferTypeConsume ],
-            self::TransferTypeSteal => [ self::TransferTypeRucksack, self::TransferTypeHome ],
-            self::TransferTypeLocal => [ self::TransferTypeRucksack, self::TransferTypeEscort, self::TransferTypeConsume ],
-            self::TransferTypeEscort => [ self::TransferTypeLocal, self::TransferTypeConsume ],
-            self::TransferTypeImpound => [ self::TransferTypeTamer ],
-        ];
-
-        // Essential items can not be transferred; only allow spawn and consume
-        if ($item->getEssential() && $source !== self::TransferTypeSpawn && $target !== self::TransferTypeConsume)
-            return false;
-
-        return isset($valid_types[$source]) && in_array($target, $valid_types[$source]);
-    }
-
-    protected function singularTransferType( ?Citizen $citizen, ?Inventory $inventory ): int {
-        if (!$citizen || !$inventory) return self::TransferTypeUnknown;
-
-        $citizen_is_at_home = $citizen->getZone() === null;
-
-        // Check if the inventory belongs to a town, and if the town is the same town as that of the citizen
-        if ($inventory->getTown() && $inventory->getTown()->getId() === $citizen->getTown()->getId())
-            return $citizen_is_at_home ? self::TransferTypeBank : self::TransferTypeTamer;
-
-        // Check if the inventory belongs to a house, and if the house is owned by the citizen
-        if ($inventory->getHome() && $inventory->getHome()->getId() === $citizen->getHome()->getId())
-            return $citizen_is_at_home ? self::TransferTypeHome : self::TransferTypeTamer;
-
-        // Check if the inventory belongs to a house, and if the house is owned by a different citizen of the same town
-        if ($inventory->getHome() && $inventory->getHome()->getId() !== $citizen->getHome()->getId() && $inventory->getHome()->getCitizen()->getTown()->getId() === $citizen->getTown()->getId())
-            return $citizen_is_at_home ? self::TransferTypeSteal : self::TransferTypeUnknown;
-
-        // Check if the inventory belongs directly to the citizen
-        if ($inventory->getCitizen() && $inventory->getCitizen()->getId() === $citizen->getId())
-            return self::TransferTypeRucksack;
-
-        // Check if the inventory belongs directly to the citizen
-        if ($inventory->getCitizen() && $inventory->getCitizen()->getId() !== $citizen->getId() &&
-            $inventory->getCitizen()->getEscortSettings() && $inventory->getCitizen()->getEscortSettings()->getLeader() &&
-            $inventory->getCitizen()->getEscortSettings()->getLeader()->getId() === $citizen->getId() &&
-            $inventory->getCitizen()->getEscortSettings()->getAllowInventoryAccess())
-            return self::TransferTypeEscort;
-
-        // Check if the inventory belongs to the citizens current zone
-        if ($inventory->getZone() && !$citizen_is_at_home &&
-            $inventory->getZone()->getId() === $citizen->getZone()->getId() && !$citizen->activeExplorerStats())
-            return self::TransferTypeLocal;
-
-        // Check if the inventory belongs to the citizens current ruin zone
-        if ($inventory->getRuinZone() && !$citizen_is_at_home &&
-            $inventory->getRuinZone()->getZone()->getId() === $citizen->getZone()->getId() &&
-            ($ex = $citizen->activeExplorerStats()) && /*!$ex->getInRoom() &&*/
-            $ex->getX() === $inventory->getRuinZone()->getX() && $ex->getY() === $inventory->getRuinZone()->getY()  )
-            return self::TransferTypeLocal;
-
-        return self::TransferTypeUnknown;
-    }
-
-    protected function transferType( Item &$item, Citizen &$citizen, ?Inventory &$target, ?Inventory &$source, ?int &$target_type, ?int &$source_type): bool {
-        $source_type = !$source ? self::TransferTypeSpawn   : $this->singularTransferType( $citizen, $source );
-        $target_type = !$target ? self::TransferTypeConsume : $this->singularTransferType( $citizen, $target );
-        return $this->validateTransferTypes($item, $target_type, $source_type);
     }
 
     const ErrorNone = 0;
@@ -346,147 +244,6 @@ class InventoryHandler
     const ErrorTransferStealPMBlock = ErrorHelper::BaseInventoryErrors + 16;
     const ErrorTransferStealDropInvalid = ErrorHelper::BaseInventoryErrors + 17;
 
-    const ModalityNone             = 0;
-    const ModalityTamer            = 1;
-    const ModalityImpound          = 2;
-    const ModalityEnforcePlacement = 3;
-    const ModalityBankTheft        = 4;
-    const ModalityAllowMultiHeavy  = 5;
-
-    public function transferItem( ?Citizen &$actor, Item &$item, ?Inventory $from, ?Inventory $to, $modality = self::ModalityNone, $allow_extra_bag = false): int {
-        // Block Transfer if citizen is hiding
-        if ($actor->getZone() && $modality !== self::ModalityImpound && $modality !== self::ModalityEnforcePlacement && ($actor->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_hide' )) || $actor->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' )))) {
-            return self::ErrorTransferBlocked;
-        }
-
-        // Check if the source is valid
-        if ($item->getInventory() && ( !$from || $from->getId() !== $item->getInventory()->getId() ) )
-            return self::ErrorInvalidTransfer;
-
-        if (!$this->transferType($item, $actor, $to, $from, $type_to, $type_from ))
-            return $item->getEssential() ? self::ErrorEssentialItemBlocked : self::ErrorInvalidTransfer;
-
-        // Check inventory size
-        if ($modality !== self::ModalityEnforcePlacement && ($to && ($max_size = $this->getSize($to)) > 0 && count($to->getItems()) >= $max_size ) ) return self::ErrorInventoryFull;
-
-        // Check exp_b items already in inventory
-        if (!$allow_extra_bag && $modality !== self::ModalityEnforcePlacement){
-            if (($type_to === self::TransferTypeRucksack || $type_to === self::TransferTypeEscort) &&
-              (in_array($item->getPrototype()->getName(), ['bagxl_#00', 'bag_#00', 'cart_#00']) &&
-              (
-                !empty($this->fetchSpecificItems( $to, [ new ItemRequest( 'bagxl_#00' ) ] )) ||
-                !empty($this->fetchSpecificItems( $to, [ new ItemRequest( 'bag_#00' ) ] )) ||
-                !empty($this->fetchSpecificItems( $to, [ new ItemRequest( 'cart_#00' ) ] ))
-              ))) {
-              return self::ErrorExpandBlocked;
-            } else if (($type_to === self::TransferTypeRucksack || $type_to === self::TransferTypeEscort) &&
-                $item->getPrototype()->getName() == "pocket_belt_#00" &&
-                !empty($this->fetchSpecificItems( $to, [ new ItemRequest( 'pocket_belt_#00' ) ] ))) {
-                return self::ErrorExpandBlocked;
-            }
-        }
-
-        // Check Heavy item limit
-        if ($modality !== self::ModalityAllowMultiHeavy && $item->getPrototype()->getHeavy() &&
-            ($type_to === self::TransferTypeRucksack || $type_to === self::TransferTypeEscort) &&
-            $this->countHeavyItems($to)
-        ) return self::ErrorHeavyLimitHit;
-
-        // Check Soul limit
-        $soul_names = array("soul_blue_#00", "soul_blue_#01", "soul_red_#00", "soul_yellow_#00");
-        if( ($type_to === self::TransferTypeRucksack || $type_to === self::TransferTypeEscort) && $to->getCitizen() && in_array($item->getPrototype()->getName(), $soul_names) && !$to->getCitizen()->hasRole("shaman") && $to->getCitizen()->getProfession()->getName() !== "shaman"){
-            foreach($soul_names as $soul_name) {
-                if($this->countSpecificItems($to, $soul_name) > 0) {
-                    return self::ErrorTooManySouls;
-                }
-            }
-        }
-
-        if ($type_from === self::TransferTypeEscort) {
-            // Prevent undroppable items
-            if ($item->getEssential() || $item->getPrototype()->hasProperty('esc_fixed')) return self::ErrorEscortDropForbidden;
-        }
-
-        if ($type_from === self::TransferTypeBank) {
-            if ($actor->getBanished()) return self::ErrorBankBlocked;
-
-            //Bank Anti abuse system
-            if (!$this->bankAbuseService->allowedToTake($actor))
-            {
-                $this->bankAbuseService->increaseBankCount($actor);
-                return InventoryHandler::ErrorBankLimitHit;
-            }
-
-            $this->bankAbuseService->increaseBankCount($actor);
-
-            //if ($modality === self::ModalityBankTheft && $this->rand->chance(0.6667))
-            //    return InventoryHandler::ErrorBankTheftFailed;
-        }
-
-        if ( $type_to === self::TransferTypeSteal && !$to->getHome()->getCitizen()->getAlive())
-            return self::ErrorInvalidTransfer;
-
-        if ($type_from === self::TransferTypeSteal || $type_to === self::TransferTypeSteal) {
-
-            if ($type_to === self::TransferTypeSteal && $actor->getTown()->getChaos() )
-                return TownController::ErrorTownChaos;
-
-            $victim = $type_from === self::TransferTypeSteal ? $from->getHome()->getCitizen() : $to->getHome()->getCitizen();
-            if ($victim->getAlive()) {
-                $ch = $this->container->get(CitizenHandler::class);
-                if ($ch->houseIsProtected( $victim )) return self::ErrorStealBlocked;
-                if ($item->getPrototype()->getName() === 'trapma_#00' && $type_from === self::TransferTypeSteal)
-                    return self::ErrorUnstealableItem;
-            }
-        }
-
-        if ($type_from === self::TransferTypeSpawn && $type_to === self::TransferTypeTamer && $modality !== self::ModalityNone && (!$actor->getZone() || !$actor->getZone()->isTownZone()) )
-            return self::ErrorInvalidTransfer;
-
-        if ($type_from === self::TransferTypeRucksack && $type_to === self::TransferTypeTamer && $modality !== self::ModalityTamer && $modality !== self::ModalityImpound)
-            return self::ErrorInvalidTransfer;
-
-        if ($type_from === self::TransferTypeImpound && $type_to === self::TransferTypeTamer && $modality !== self::ModalityImpound)
-            return self::ErrorInvalidTransfer;
-
-        if ($to)
-            $this->forceMoveItem( $to, $item );
-        else $this->forceRemoveItem( $item );
-
-        return self::ErrorNone;
-    }
-
-    /**
-     * @param Citizen $citizen
-     * @param Item $item
-     * @param Inventory[] $inventories
-     * @param bool $force
-     * @return Inventory|null
-     */
-    public function placeItem( Citizen $citizen, Item $item, array $inventories, bool $force = false ): ?Inventory {
-        $source = null;
-        foreach ($inventories as $inventory)
-            if ($inventory && $this->transferItem( $citizen, $item, $source, $inventory ) === self::ErrorNone)
-                return $inventory;
-        if ($force) foreach (array_reverse($inventories) as $inventory)
-            if ($inventory && $this->transferItem( $citizen, $item, $source, $inventory, self::ModalityEnforcePlacement ) === self::ErrorNone)
-                return $inventory;
-        return null;
-    }
-
-    /**
-     * @param Citizen $citizen
-     * @param Inventory $source
-     * @param Item $item
-     * @param Inventory[] $inventories
-     * @return bool
-     */
-    public function moveItem( Citizen $citizen, Inventory $source, Item $item, array $inventories ): bool {
-        foreach ($inventories as $inventory)
-            if ($this->transferItem( $citizen, $item, $source, $inventory ) == self::ErrorNone)
-                return true;
-        return false;
-    }
 
     public function forceMoveItem( Inventory $to, Item $item, int $count = 1 ): Item {
         if ($item->getInventory() && $item->getInventory()->getId() === $to->getId())

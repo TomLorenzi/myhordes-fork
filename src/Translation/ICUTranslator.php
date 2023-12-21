@@ -96,7 +96,7 @@ class ICUTranslator implements TranslatorInterface, TranslatorBagInterface, Loca
         return $this->_decorated->getCatalogue($locale);
     }
 
-    public function setLocale(string $locale)
+    public function setLocale(string $locale): void
     {
         $this->_decorated->setLocale($locale);
     }
