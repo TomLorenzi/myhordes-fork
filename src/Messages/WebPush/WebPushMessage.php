@@ -9,6 +9,7 @@ use Symfony\Component\Uid\Uuid;
 readonly class WebPushMessage implements AsyncMessageInterface
 {
     public Uuid $subscription;
+    public \DateTimeImmutable $timestamp;
 
     public function __construct(
         NotificationSubscription $subscription,
@@ -17,5 +18,6 @@ readonly class WebPushMessage implements AsyncMessageInterface
         public ?int $avatar = null,
     ) {
         $this->subscription = $subscription->getId();
+        $this->timestamp = new \DateTimeImmutable('now');
     }
 }

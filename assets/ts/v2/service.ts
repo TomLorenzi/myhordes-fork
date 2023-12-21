@@ -27,7 +27,10 @@ scope.addEventListener('activate', () => {
 
 scope.addEventListener('push', (e) => {
     const data = e.data?.json() ?? null;
-    if (data?.title && data?.options?.body) scope.registration.showNotification(data.title, data.options);
+    if (data?.title && data?.options?.body) {
+        // Do not display test notifications
+        if (!data?.options?.data?.test) scope.registration.showNotification(data.title, data.options);
+    }
 })
 
 scope.addEventListener('message', e => {

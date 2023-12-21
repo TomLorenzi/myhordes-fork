@@ -45,7 +45,7 @@ export class NotificationManagerAPI {
     }
 
     public put( type: string, payload: object, desc: string|null = null ): Promise<ResponseSingle> {
-        return this.fetch.from(`/${type}`)
+        return this.fetch.from(`/${type}`).withErrorMessages()
             .request().put({ desc,payload }) as Promise<ResponseSingle>;
     }
 

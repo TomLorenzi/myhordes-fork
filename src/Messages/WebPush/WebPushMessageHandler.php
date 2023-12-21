@@ -8,6 +8,7 @@ use App\Enum\NotificationSubscriptionType;
 use BenTools\WebPushBundle\Model\Message\PushNotification;
 use BenTools\WebPushBundle\Sender\PushMessageSender;
 use Doctrine\ORM\EntityManagerInterface;
+use Minishlink\WebPush\Encryption;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -26,6 +27,7 @@ readonly class WebPushMessageHandler
     private function buildPayload( WebPushMessage $message ): array {
         $payload = [
             PushNotification::BODY => $message->body,
+            PushNotification::TIMESTAMP => $message->timestamp->getTimestamp(),
             PushNotification::BADGE => $this->uri . $this->asset->getUrl('build/favicon/android-chrome-72x72.png'),
         ];
 
@@ -57,10 +59,12 @@ readonly class WebPushMessageHandler
 
         // Push notification to subscriber service
         $response = null;
-        $responses = $this->sender->push(
-            (new PushNotification("MyHordes: {$message->title}", $this->buildPayload( $message )))->createMessage(),
-            [$subscription]
-        );
+        $responses = $this->sender
+            ->setMaxPaddingLength(min($subscription->getMaxPaddingLength() ?? Encryption::MAX_PAYLOAD_LENGTH, Encryption::MAX_PAYLOAD_LENGTH))
+            ->push(
+                (new PushNotification("MyHordes: {$message->title}", $this->buildPayload( $message )))->createMessage(),
+                [$subscription]
+            );
         foreach ($responses as $r) $response = $r;
 
         // If the subscription is expired, blacklist it

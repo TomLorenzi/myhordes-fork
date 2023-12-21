@@ -8,8 +8,10 @@ use App\Enum\NotificationSubscriptionType;
 use App\Service\JSONRequestParser;
 use ArrayHelpers\Arr;
 use BenTools\WebPushBundle\Model\Message\PushNotification;
+use BenTools\WebPushBundle\Model\Response\PushResponse;
 use BenTools\WebPushBundle\Sender\PushMessageSender;
 use Doctrine\ORM\EntityManagerInterface;
+use Minishlink\WebPush\Encryption;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -93,7 +95,7 @@ class NotificationManagerController extends AbstractController
     }
 
     #[Route(path: '/webpush', name: 'put_webpush', defaults: ['type' => NotificationSubscriptionType::WebPush->value], methods: ['PUT'])]
-    public function put(NotificationSubscriptionType $type, EntityManagerInterface $em, JSONRequestParser $parser, ValidatorInterface $validator): JsonResponse {
+    public function put(NotificationSubscriptionType $type, EntityManagerInterface $em, JSONRequestParser $parser, ValidatorInterface $validator, PushMessageSender $sender, TranslatorInterface $trans): JsonResponse {
 
         $desc = $parser->trimmed('desc', '' ) ?: 'WebPush';
         $payload = $parser->get_array('payload');
@@ -111,8 +113,8 @@ class NotificationManagerController extends AbstractController
                     new Length(min: 1, max: 256)
                 ] )->count() === 0 &&
                 (!Arr::has($payload, 'content-encoding') || $validator->validate( Arr::get($payload, 'content-encoding', ''), [
-                    new Length(min: 1, max: 256)
-                ] )->count() === 0)
+                        new Length(min: 1, max: 256)
+                    ] )->count() === 0)
         };
 
         if (!$valid) return new JsonResponse(status: Response::HTTP_BAD_REQUEST);
@@ -141,9 +143,48 @@ class NotificationManagerController extends AbstractController
             'subscriptionHash' => $hash
         ]) > 0) return new JsonResponse(status: Response::HTTP_CONFLICT);
 
-        $em->persist( $subscription->setSubscriptionHash( $hash )->setUser( $this->getUser() ) );
-        $em->flush();
-        return new JsonResponse(['subscription' => $this->renderNotifications( $subscription )]);
+        $subscription->setSubscriptionHash( $hash );
+
+        $response = null;
+
+        $notification = new PushNotification('Test Notification', [
+            PushNotification::DATA => ['test' => true]
+        ]);
+
+        $attempt_encryption_padding = [
+            0,
+            1024,
+            2048,
+            2847,                                           // Max encryption for Firefox mobile
+            Encryption::MAX_COMPATIBILITY_PAYLOAD_LENGTH,   // Compatibility encryption padding
+            Encryption::MAX_PAYLOAD_LENGTH,                 // Default encryption padding
+        ];
+
+        $use_padding = null;
+        $code = -2;
+        while (!empty($attempt_encryption_padding)) {
+            $use_padding = array_pop($attempt_encryption_padding);
+            $responses = $sender
+                ->setMaxPaddingLength($use_padding)
+                ->push( $notification->createMessage(), [$subscription] );
+            foreach ($responses as $r) $response = $r;
+
+            $code = $response?->getStatusCode() ?? -1;
+            // Got PAYLOAD TOO LARGE error; attempt using smaller encryption padding
+            if ($code === PushResponse::PAYLOAD_SIZE_TOO_LARGE) continue;
+            else break;
+        }
+
+        if ($code >= 200 && $code <= 299) {
+            $em->persist( $subscription->setMaxPaddingLength($use_padding)->setSubscriptionHash( $hash )->setUser( $this->getUser() ) );
+            $em->flush();
+            return new JsonResponse(['subscription' => $this->renderNotifications( $subscription )]);
+        } else return new JsonResponse([
+            'error' => 'message',
+            'message' => $trans->trans('Bei der Kommunikation mit deinem Gerät ist ein Fehler aufgetreten. Fehlercode: {code}. Bitte versuche es zu einem späteren Zeitpunkt erneut.', [
+                'code' => $code
+            ], 'global')
+        ], status: Response::HTTP_INTERNAL_SERVER_ERROR);
     }
 
     #[Route(path: '/webpush/{id}', name: 'edit_webpush', defaults: ['type' => NotificationSubscriptionType::WebPush->value], methods: ['PATCH'])]
@@ -185,7 +226,10 @@ class NotificationManagerController extends AbstractController
         ]);
 
         $response = null;
-        $responses = $sender->push( $notification->createMessage(), [$subscription] );
+        $responses = $sender
+            ->setMaxPaddingLength(min($subscription->getMaxPaddingLength() ?? Encryption::MAX_PAYLOAD_LENGTH, Encryption::MAX_PAYLOAD_LENGTH))
+            ->push( $notification->createMessage(), [$subscription] );
+
         foreach ($responses as $r) $response = $r;
 
         return new JsonResponse([

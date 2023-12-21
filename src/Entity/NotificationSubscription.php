@@ -50,6 +50,9 @@ class NotificationSubscription implements UserSubscriptionInterface
     #[ORM\Column]
     private bool $expired = false;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $maxPaddingLength = null;
+
     public function getId(): ?Uuid
     {
         return $this->id;
@@ -175,6 +178,18 @@ class NotificationSubscription implements UserSubscriptionInterface
     public function setExpired(bool $expired): static
     {
         $this->expired = $expired;
+
+        return $this;
+    }
+
+    public function getMaxPaddingLength(): ?int
+    {
+        return $this->maxPaddingLength;
+    }
+
+    public function setMaxPaddingLength(?int $maxPaddingLength): static
+    {
+        $this->maxPaddingLength = $maxPaddingLength;
 
         return $this;
     }
