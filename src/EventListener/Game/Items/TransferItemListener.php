@@ -306,7 +306,7 @@ final class TransferItemListener implements ServiceSubscriberInterface
     }
 
     public function onPreHandleSoulPickup( TransferItemEvent $event ): void {
-        if ($event->type_to->isRucksack() && $event->item->getPrototype()->getName() == 'soul_red_#00') {
+        if ($event->type_to->isRucksack() && $event->item->getPrototype()->getName() == 'soul_red_#00' && $event->to->getCitizen()?->getZone()) {
             $target_citizen = $event->to->getCitizen();
 
             // We pick a read soul in the World Beyond
