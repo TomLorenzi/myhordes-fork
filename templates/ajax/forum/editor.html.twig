@@ -326,9 +326,6 @@
             {% endif %}
         {% endif %}
 
-        {% if current_tag is defined and current_tag is not empty %}
-            data-default-tag="{{ current_tag }}"
-        {% endif %}
         {% if edit_title is defined and edit_title is not null %}
             data-default-title="{{ edit_title }}"
         {% endif %}
@@ -338,6 +335,18 @@
         {% endif %}
         {% if tags is defined and tags is not empty and type != 'global-pm' and type != 'numb' %}
             data-feature-tags="1"
+            data-tags="{{ tags|map(t => t.name ~ ':' ~ t.label|trans({},'global'))|join(',') }}"
+            {% if current_tag is defined and current_tag is not empty %}
+                data-default-tag="{{ current_tag }}"
+            {% endif %}
+        {% endif %}
+
+        {% if type == "changelog" or type == "announcement" %}
+            data-feature-version="1" data-feature-language="1"
+        {% endif %}
+
+        {% if type != 'global-pm' %}
+            data-feature-preview="1"
         {% endif %}
 
     />

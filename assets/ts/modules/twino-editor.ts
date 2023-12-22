@@ -15,15 +15,16 @@ customElements.define('hordes-twino-editor', class HordesTwinoEditorElement exte
             context: this.dataset.context ?? 'forum',
             header: this.dataset.header ?? null,
             username: this.dataset.username ?? null,
+            tags: Object.fromEntries((this.dataset.tags ?? '').split(',').map((s:string) => s.split(':'))),
             features: [],
             defaultFields: {},
         };
 
         for (const prop in this.dataset)
             if (prop.startsWith('default') && prop.length > 7)
-                data.defaultFields[prop.slice(0,1).toLowerCase() + prop.slice(1)] = this.dataset[prop];
+                data.defaultFields[prop.slice(7,8).toLowerCase() + prop.slice(8)] = this.dataset[prop];
             else if (prop.startsWith('feature') && prop.length > 7 && parseInt(this.dataset[prop]) > 0)
-                data.features.push(prop.slice(0,1).toLowerCase() + prop.slice(1));
+                data.features.push(prop.slice(7,8).toLowerCase() + prop.slice(8));
 
         return data;
     }
