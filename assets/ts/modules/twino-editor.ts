@@ -16,7 +16,8 @@ customElements.define('hordes-twino-editor', class HordesTwinoEditorElement exte
             header: this.dataset.header ?? null,
             username: this.dataset.username ?? null,
             tags: Object.fromEntries((this.dataset.tags ?? '').split(',').map((s:string) => s.split(':'))),
-            features: [],
+            features: (this.dataset.feature ?? '').split(','),
+            controls: (this.dataset.control ?? '').split(','),
             defaultFields: {},
         };
 
@@ -25,6 +26,8 @@ customElements.define('hordes-twino-editor', class HordesTwinoEditorElement exte
                 data.defaultFields[prop.slice(7,8).toLowerCase() + prop.slice(8)] = this.dataset[prop];
             else if (prop.startsWith('feature') && prop.length > 7 && parseInt(this.dataset[prop]) > 0)
                 data.features.push(prop.slice(7,8).toLowerCase() + prop.slice(8));
+            else if (prop.startsWith('control') && prop.length > 7 && parseInt(this.dataset[prop]) > 0)
+                data.controls.push(prop.slice(7,8).toLowerCase() + prop.slice(8));
 
         return data;
     }

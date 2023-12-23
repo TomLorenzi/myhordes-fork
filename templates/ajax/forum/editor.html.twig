@@ -349,6 +349,25 @@
             data-feature-preview="1"
         {% endif %}
 
+        data-control="extended"
+        {% if app.user|has_unlocked('f_glory') %}
+            data-control-glory="1"
+        {% endif %}
+        {% if permission.format_admin() or permission.format_oracle() %}
+            data-control-image="1"
+            {% if permission.format_admin() %}
+                data-control-admin="1"
+            {% endif %}
+            {% if permission.format_oracle() %}
+                data-control-oracle="1"
+                {% if type == "forum" %}
+                    data-control-poll="1"
+                {% endif %}
+            {% endif %}
+        {% endif %}
+        {% if permission.format_mod() %}
+            data-control-mod="1"
+        {% endif %}
     />
 {% endblock %}
 {% block js %}

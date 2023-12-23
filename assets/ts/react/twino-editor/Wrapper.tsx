@@ -5,12 +5,13 @@ import {ChangeEvent, MouseEventHandler, useContext, useEffect, useLayoutEffect, 
 import {TranslationStrings} from "./strings";
 import {Const, Global} from "../../defaults";
 import {v4 as uuidv4} from 'uuid';
-import {ControlButtonNodeWrap} from "./Controls";
+import {ControlButtonNodeWrap, TwinoEditorControls} from "./Controls";
 
 declare var $: Global;
 declare var c: Const;
 
 type Feature = "tags"|"title"|"version"|"language"|"preview"|"compact"
+type Control = "core"|"extended"|"image"|"admin"|"mod"|"oracle"|"glory"|"poll"
 
 interface HeaderConfig {
     header: string|null,
@@ -21,6 +22,7 @@ interface HeaderConfig {
 type HTMLConfig = HeaderConfig & {
     context: string,
     features: Feature[],
+    controls: Control[]
     defaultFields: object
 }
 
@@ -28,6 +30,7 @@ type FieldChangeEventTrigger = ( field: string, value: string|number|null, old_v
 type FieldMutator = ( field: string, value: string|number|null ) => void
 type FieldReader = ( field: string ) => string|number|null
 type FeatureCheck = ( feature: Feature ) => boolean
+type ControlCheck = ( control: Control ) => boolean
 
 type TwinoEditorGlobals = {
     //api: NotificationManagerAPI,
@@ -36,6 +39,7 @@ type TwinoEditorGlobals = {
     setField: FieldMutator,
     getField: FieldReader,
     isEnabled: FeatureCheck,
+    allowControl: ControlCheck,
     selection: {
         start: number,
         end: number,
@@ -106,6 +110,7 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
     const getField = (f: string): number|string|null => fields[f] ?? null;
 
     const isEnabled = (f:Feature): boolean => props.features.includes(f);
+    const controlAllowed = (c:Control): boolean => props.controls.includes(c);
 
     return (
         <Globals.Provider value={{
@@ -113,6 +118,7 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
             setField: (f:string,v:string|number|null) => setField(f,v),
             getField: (f:string) => getField(f),
             isEnabled: (f:Feature) => isEnabled(f),
+            allowControl: (c:Control) => controlAllowed(c),
             selection: selection.current,
         }}>
             <div className={ props.context === 'global-pm' ? 'pm-editor' : 'forum-editor' }>
@@ -230,29 +236,6 @@ const TwinoEditorPreview = ({html}: {html:string}) => {
             Vorschau
         </label>
         <div translate="no" className="twino-editor-preview" dangerouslySetInnerHTML={{__html: html}}/>
-    </>
-}
-
-const TwinoEditorControls = () => {
-
-    const globals = useContext(Globals);
-
-    const [showControls, setShowControls] = useState( !globals.isEnabled('compact') )
-
-    return <>
-        {!showControls && <a className="float-right pointer" onClick={() => setShowControls(true)}>
-            Zum erweiterten Editor wechseln</a>
-        }
-        {showControls && <>
-            <div className="forum-button-bar">
-                <ControlButtonNodeWrap node="b" label="Fett" fa="bold" control="b" />
-                <ControlButtonNodeWrap node="i" label="Kursiv" fa="italic" control="i" />
-                <ControlButtonNodeWrap node="u" label="Unterstreichen" fa="underline" control="u" />
-                <ControlButtonNodeWrap node="s" label="Durchstreichen" fa="strikethrough" control="s" />
-                <ControlButtonNodeWrap node="big" label="Groß" fa="expand-alt" control="+" />
-                <ControlButtonNodeWrap node="bad" label="Verräter" fa="tint" />
-            </div>
-        </>}
     </>
 }
 
