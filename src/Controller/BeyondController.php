@@ -580,6 +580,7 @@ class BeyondController extends InventoryAwareController
                 $this->citizen_handler->setAP($citizen, true, -2);
                 $citizen->getZone()?->setItemsHiddenAt( new \DateTimeImmutable() );
                 $this->entity_manager->persist($citizen);
+                $this->entity_manager->flush();
                 $this->addFlash('notice', $this->translator->trans('Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.', [], 'game'));
             }
 
