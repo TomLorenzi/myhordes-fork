@@ -26,6 +26,9 @@ export const TwinoEditorControls = () => {
                     </> }
                 </div>
                 <div className="forum-button-bar-section">
+                    <ControlButtonInsertLink />
+                </div>
+                <div className="forum-button-bar-section">
                     { globals.allowControl('extended') && <>
                         <ControlButtonNodeWrap node="quote" label="Zital" fa="quote-left" block={true} />
                         <ControlButtonNodeWrap node="spoiler" label="Spoiler" fa="eye-slash" block={true} />
@@ -57,12 +60,17 @@ type ControlButtonDefinition = {
     fa:string,
     label: string,
     control?: string|null,
-    content?: any|null,
+    children?: any|null,
 }
 
 type BaseNodeDefinition = {
     node: string,
-    block?: boolean
+    block?: boolean,
+}
+
+type ExtendedNodeDefinition = {
+    valueCallback?: (string)=>string|null,
+    contentCallback?: (string)=>string|null,
 }
 
 type StandaloneNodeDefinition = BaseNodeDefinition & {
@@ -71,12 +79,15 @@ type StandaloneNodeDefinition = BaseNodeDefinition & {
     multiline?: boolean
 }
 
-const ControlButton = ({fa, label, control, handler, content = null}: ControlButtonDefinition & {handler: ()=>void}) => {
+const ControlButton = ({fa, label, control, handler, children = null}: ControlButtonDefinition & {handler: ()=>void|boolean}) => {
     const button = useRef<HTMLDivElement>();
     const dialog = useRef<HTMLDialogElement>()
 
     const wrapped_handler = () => {
         if (!dialog.current) handler();
+        else {
+            dialog.current.showModal();
+        }
     }
 
     useLayoutEffect(() => {
@@ -90,9 +101,21 @@ const ControlButton = ({fa, label, control, handler, content = null}: ControlBut
         e.stopPropagation();
         wrapped_handler()
     }}>
-        { content && <dialog ref={dialog}>
-
-        </dialog> }
+        { children && <dialog ref={dialog}>
+            <div className="modal-title">{label}</div>
+            <div className="modal-content">{children}</div>
+            <div className="modal-actions">
+                <div className="modal-button small inline" onClick={() => {
+                    const l = handler();
+                    if (l !== false) dialog.current.close();
+                }}>
+                    Einfügen
+                </div>
+                <div className="modal-button small inline" onClick={() => dialog.current.close()}>
+                    Abbrechen
+                </div>
+            </div>
+        </dialog>}
         <i className={`fa fa-${fa}`}/>
         <span className="forum-button-tooltip">
             <div className="center">
@@ -107,7 +130,7 @@ const ControlButton = ({fa, label, control, handler, content = null}: ControlBut
     </div>
 }
 
-export const ControlButtonNodeWrap = ({fa, label, node, control = null, block = false}: ControlButtonDefinition & BaseNodeDefinition ) => {
+const ControlButtonNodeWrap = ({fa, label, node, control = null, block = false, contentCallback = null, valueCallback = null, children = null}: ControlButtonDefinition & BaseNodeDefinition & ExtendedNodeDefinition & {children?: any|null} ) => {
 
     const globals = useContext(Globals);
 
@@ -115,11 +138,16 @@ export const ControlButtonNodeWrap = ({fa, label, node, control = null, block = 
         const body = `${globals.getField('body') ?? ''}`;
         const selection = [globals.selection.start,globals.selection.end]
 
-        const open = `[${node}]`;
+        const rawSelection = body.slice(selection[0],selection[1]);
+        const value = valueCallback ? valueCallback(rawSelection) : null;
+        const content = contentCallback ? contentCallback(rawSelection) : null;
+
+        const open = `[${node}${value ? `=${value}` : ''}]`;
         const close = `[/${node}]`;
 
         // Check if the current selection is already wrapped in the desired tag
         if (
+            value === null && content === null &&
             body.slice( Math.max(0,selection[0] - open.length), selection[0] ) === open &&
             body.slice( selection[1], selection[1] + close.length ) === close
         ) {
@@ -127,6 +155,7 @@ export const ControlButtonNodeWrap = ({fa, label, node, control = null, block = 
             globals.selection.update( selection[0] - open.length, selection[1] - open.length )
             // Check if the current selection starts and ends with the desired tag
         } else if (
+            value === null && content === null &&
             body.slice( selection[0], selection[0] + open.length ) === open &&
             body.slice( Math.max(0, selection[1] - close.length), selection[1] ) === close
         ) {
@@ -136,15 +165,15 @@ export const ControlButtonNodeWrap = ({fa, label, node, control = null, block = 
         } else {
             const opt_nl = block ? "\n" : '';
             const before = block ? body.slice(0,selection[0]).trimEnd() : body.slice(0,selection[0]);
-            const text = body.slice(selection[0],selection[1]);
+            const text = content ?? rawSelection;
             const after = block ? body.slice(selection[1]).trimStart() : body.slice(selection[1]);
             globals.setField('body', `${before}${opt_nl}${open}${text}${close}${opt_nl}${after}`);
             globals.selection.update( before.length + open.length + opt_nl.length, before.length + text.length + open.length + opt_nl.length )
         }
-    }}/>
+    }}>{children}</ControlButton>
 };
 
-export const ControlButtonNodeInsert = ({fa, label, node, control = null, block = false, closes = false, curley = false, multiline = false}: ControlButtonDefinition & StandaloneNodeDefinition ) => {
+const ControlButtonNodeInsert = ({fa, label, node, control = null, block = false, closes = false, curley = false, multiline = false}: ControlButtonDefinition & StandaloneNodeDefinition ) => {
 
     const globals = useContext(Globals);
 
@@ -171,3 +200,9 @@ export const ControlButtonNodeInsert = ({fa, label, node, control = null, block 
         globals.selection.update( before.length + (multiline ? 0 : insert.length) + opt_nl_before.length, before.length + text.length + insert.length + opt_nl_before.length )
     }}/>
 };
+
+const ControlButtonInsertLink = () => {
+    return <ControlButtonNodeWrap node="link" label="Link einfügen" control="k" fa="link" valueCallback={s=>s}>
+        <div>TEST</div>
+    </ControlButtonNodeWrap>
+}

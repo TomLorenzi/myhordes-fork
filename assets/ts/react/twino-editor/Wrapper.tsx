@@ -5,7 +5,7 @@ import {ChangeEvent, MouseEventHandler, useContext, useEffect, useLayoutEffect, 
 import {TranslationStrings} from "./strings";
 import {Const, Global} from "../../defaults";
 import {v4 as uuidv4} from 'uuid';
-import {ControlButtonNodeWrap, TwinoEditorControls} from "./Controls";
+import {TwinoEditorControls} from "./Controls";
 
 declare var $: Global;
 declare var c: Const;
