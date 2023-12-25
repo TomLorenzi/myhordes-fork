@@ -28,13 +28,18 @@ export const TwinoEditorControls = () => {
                 </div>
                 <div className="forum-button-bar-section">
                     <ControlButtonInsertLink />
+                    { globals.allowControl('image') && <>
+                        <ControlButtonInsertImage />
+                    </> }
                 </div>
                 <div className="forum-button-bar-section">
                     { globals.allowControl('extended') && <>
-                        <ControlButtonNodeWrap node="quote" label="Zital" fa="quote-left" block={true} />
+                        <ControlButtonInsertWithAttribute node="quote" label="Zital" fa="quote-left" block={true} dialogTitle="Wer?" attribute="Spielernamen eingeben" />
                         <ControlButtonNodeWrap node="spoiler" label="Spoiler" fa="eye-slash" block={true} />
                         <ControlButtonNodeWrap node="aparte" label="Vertraulich" fa="compress-alt" block={true} />
                         <ControlButtonNodeWrap node="code" label="Code" fa="code" block={true} />
+                        <ControlButtonInsertWithAttribute node="rp" label="Rollenspiel" fa="scroll" block={true} dialogTitle="Wer?" attribute="Spielernamen eingeben" />
+                        <ControlButtonInsertWithAttribute node="collapse" label="Einklappen" fa="square-caret-down" block={true} dialogTitle="Eingeklappte Sektion hinzufügen"  attribute="Kopfzeile" />
                     </> }
                     { globals.allowControl('glory') && <>
                         <ControlButtonNodeWrap node="glory" label="Ruhm" fa="crown" block={true} />
@@ -80,7 +85,7 @@ type StandaloneNodeDefinition = BaseNodeDefinition & {
     multiline?: boolean
 }
 
-const ControlButton = ({fa, label, control, handler, dialogHandler, children = null}: ControlButtonDefinition & {handler: ()=>void|boolean, dialogHandler?: (boolean)=>void|boolean}) => {
+const ControlButton = ({fa, label, control, handler, dialogHandler, children = null, dialogTitle = null}: ControlButtonDefinition & {handler: ()=>void|boolean, dialogHandler?: (boolean)=>void|boolean, dialogTitle?: string|null}) => {
     const button = useRef<HTMLDivElement>();
     const dialog = useRef<HTMLDialogElement>()
 
@@ -122,7 +127,7 @@ const ControlButton = ({fa, label, control, handler, dialogHandler, children = n
             </span>
         </div>
         {children && <dialog ref={dialog}>
-            <div className="modal-title">{label}</div>
+            <div className="modal-title">{dialogTitle ?? label}</div>
             <form method="dialog" onKeyDown={e => {
                 if (e.key === "enter") confirmDialog();
             }}>
@@ -151,15 +156,17 @@ const ControlButtonNodeWrap = ({
                                    contentCallback = null,
                                    valueCallback = null,
                                    children = null,
-                                   dialogHandler = null
+                                   dialogHandler = null,
+                                   dialogTitle = null,
                                }: ControlButtonDefinition & BaseNodeDefinition & ExtendedNodeDefinition & {
     children?: any | null
-    dialogHandler?: (boolean)=>void|boolean
+    dialogHandler?: (boolean)=>void|boolean,
+    dialogTitle?: string|null
 }) => {
 
     const globals = useContext(Globals);
 
-    return <ControlButton {...{fa, label, control, dialogHandler}} handler={() => {
+    return <ControlButton {...{fa, label, control, dialogHandler, dialogTitle}} handler={() => {
         const body = `${globals.getField('body') ?? ''}`;
         const selection = [globals.selection.start, globals.selection.end]
 
@@ -226,7 +233,7 @@ const ControlButtonNodeInsert = ({fa, label, node, control = null, block = false
     }}/>
 };
 
-const ControlButtonInsertLink = () => {
+const ControlButtonInsertURL = ({node, block, fa, label, control, dialogTitle = null, urlField, textField}: BaseNodeDefinition & ControlButtonDefinition & {dialogTitle?: string|null, urlField: string|null, textField: string|null}) => {
 
     const globals = useContext(Globals);
 
@@ -237,38 +244,47 @@ const ControlButtonInsertLink = () => {
         return link.match(/^https?:\/\/(\w+:?\w*)?(\S+)(:\d+)?(?:\/|\/([\w#!:.?+=&%\-\/]))?$/) !== null;
     }
 
-    return <ControlButtonNodeWrap node="link" label="Link einfügen" control="k" fa="link"
-                                  valueCallback={()=>link.current.value} contentCallback={()=>text.current.value}
+    return <ControlButtonNodeWrap {...{node,label,control,fa,block,dialogTitle}}
+                                  valueCallback={()=>(link.current ?? text.current).value} contentCallback={s=>(text.current && link.current) ? text.current.value : s}
                                   dialogHandler={(post) => {
                                       if (!post) {
                                           const s = `${globals.getField('body')}`.slice(globals.selection.start, globals.selection.end).trim();
-                                          if (s && checkLink(s)) {
-                                              text.current.value = '';
-                                              text.current.focus();
-                                              link.current.value = s;
-                                          } else {
-                                              text.current.value = s;
-                                              link.current.value = '';
-                                              (s ? link : text).current.focus();
-                                          }
+                                          if (text.current && link.current) {
+                                              if (s && checkLink(s)) {
+                                                  text.current.value = '';
+                                                  text.current.focus();
+                                                  link.current.value = s;
+                                              } else {
+                                                  text.current.value = s;
+                                                  link.current.value = '';
+                                                  (s ? link : text).current.focus();
+                                              }
+                                          } else (text.current ?? link.current).value = '';
 
                                           return true;
                                       } else {
-                                            if (checkLink(text.current.value) && !checkLink(link.current.value))
-                                                link.current.value = text.current.value;
+                                          if (text.current && link.current && checkLink(text.current.value) && !checkLink(link.current.value))
+                                              link.current.value = text.current.value;
 
-                                            if (!text.current.value) text.current.value = link.current.value;
+                                          if (link.current && text.current && !text.current.value) text.current.value = link.current.value;
 
-                                            return checkLink(link.current.value);
+                                          return !link.current || checkLink(link.current.value);
                                       }
                                   }}
     >
-        <div className="modal-form" id="modal-form">
-            <label htmlFor={`${globals.uuid}-form-link-text`}>Link-Text</label>
-            <input type="text" ref={text} id={`${globals.uuid}-form-link-text`}/>
-
-            <label htmlFor={`${globals.uuid}-form-link-link`}>Link-URL</label>
-            <input type="url" ref={link} id={`${globals.uuid}-form-link-link`}/>
+        <div className="modal-form">
+            { textField && <>
+                <label htmlFor={`${globals.uuid}-form-url-text`}>{textField}</label>
+                <input type="text" ref={text} id={`${globals.uuid}-form-url-text`}/>
+            </>}
+            { urlField && <>
+                <label htmlFor={`${globals.uuid}-form-url-link`}>{urlField}</label>
+                <input type="url" ref={link} id={`${globals.uuid}-form-url-link`}/>
+            </>}
         </div>
     </ControlButtonNodeWrap>
 }
+
+const ControlButtonInsertLink = () => <ControlButtonInsertURL node="link" label="Link einfügen" control="k" fa="link" urlField="Link-URL" textField="Link-Text"/>
+const ControlButtonInsertImage = () => <ControlButtonInsertURL node="image" label="Bild einfügen" fa="image" block={true} urlField="Bild-URL" textField="Bildtitel"/>
+const ControlButtonInsertWithAttribute = ({node, fa, control = null, label, block = false, attribute, dialogTitle = null}: BaseNodeDefinition & ControlButtonDefinition & {attribute:string, dialogTitle?: string|null}) => <ControlButtonInsertURL {...{node,label,fa,block,control,dialogTitle}} urlField={null} textField={attribute}/>
