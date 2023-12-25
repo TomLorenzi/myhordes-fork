@@ -88,6 +88,7 @@ type StandaloneNodeDefinition = BaseNodeDefinition & {
 const ControlButton = ({fa, label, control, handler, dialogHandler, children = null, dialogTitle = null}: ControlButtonDefinition & {handler: ()=>void|boolean, dialogHandler?: (boolean)=>void|boolean, dialogTitle?: string|null}) => {
     const button = useRef<HTMLDivElement>();
     const dialog = useRef<HTMLDialogElement>()
+    const form = useRef<HTMLFormElement>()
 
     const wrapped_handler = () => {
         if (!dialog.current) handler();
@@ -104,6 +105,7 @@ const ControlButton = ({fa, label, control, handler, dialogHandler, children = n
     })
 
     const confirmDialog = () => {
+        if (!form.current.checkValidity()) return;
         const l = (dialogHandler === null || dialogHandler(true) !== false) && handler() !== false;
         if (l) dialog.current.close();
     }
@@ -128,7 +130,7 @@ const ControlButton = ({fa, label, control, handler, dialogHandler, children = n
         </div>
         {children && <dialog ref={dialog}>
             <div className="modal-title">{dialogTitle ?? label}</div>
-            <form method="dialog" onKeyDown={e => {
+            <form method="dialog" ref={form} onKeyDown={e => {
                 if (e.key === "enter") confirmDialog();
             }}>
                 <div className="modal-content">{children}</div>
