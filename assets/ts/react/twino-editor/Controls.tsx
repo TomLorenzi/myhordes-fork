@@ -1,6 +1,7 @@
 import * as React from "react";
 import {useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
 import {Globals} from "./Wrapper";
+import controls from "../map/Controls";
 
 export const TwinoEditorControls = () => {
 
@@ -79,14 +80,15 @@ type StandaloneNodeDefinition = BaseNodeDefinition & {
     multiline?: boolean
 }
 
-const ControlButton = ({fa, label, control, handler, children = null}: ControlButtonDefinition & {handler: ()=>void|boolean}) => {
+const ControlButton = ({fa, label, control, handler, dialogHandler, children = null}: ControlButtonDefinition & {handler: ()=>void|boolean, dialogHandler?: (boolean)=>void|boolean}) => {
     const button = useRef<HTMLDivElement>();
     const dialog = useRef<HTMLDialogElement>()
 
     const wrapped_handler = () => {
         if (!dialog.current) handler();
         else {
-            dialog.current.showModal();
+            if (dialogHandler && dialogHandler(false) !== false)
+                dialog.current.showModal();
         }
     }
 
@@ -96,49 +98,72 @@ const ControlButton = ({fa, label, control, handler, children = null}: ControlBu
         return () => button.current.removeEventListener('controlActionTriggered', callHandler);
     })
 
-    return <div className="forum-button" ref={button} data-receive-control-event={control} onClick={e => {
-        e.preventDefault();
-        e.stopPropagation();
-        wrapped_handler()
-    }}>
-        { children && <dialog ref={dialog}>
+    const confirmDialog = () => {
+        const l = (dialogHandler === null || dialogHandler(true) !== false) && handler() !== false;
+        if (l) dialog.current.close();
+    }
+
+    return <div className="forum-button-component">
+        <div className="forum-button" ref={button} data-receive-control-event={control} onClick={e => {
+            e.preventDefault();
+            e.stopPropagation();
+            wrapped_handler()
+        }}>
+            <i className={`fa fa-${fa}`}/>
+            <span className="forum-button-tooltip">
+                <div className="center">
+                    <div>{label}</div>
+                    {control !== null && <div className="keyboard">
+                        <kbd>{navigator.platform.indexOf("Mac") === 0 ? '⌘' : 'STRG'}</kbd>
+                        <span>&nbsp;+&nbsp;</span>
+                        <kbd>{control.toUpperCase()}</kbd>
+                    </div>}
+                </div>
+            </span>
+        </div>
+        {children && <dialog ref={dialog}>
             <div className="modal-title">{label}</div>
-            <div className="modal-content">{children}</div>
-            <div className="modal-actions">
-                <div className="modal-button small inline" onClick={() => {
-                    const l = handler();
-                    if (l !== false) dialog.current.close();
-                }}>
-                    Einfügen
+            <form method="dialog" onKeyDown={e => {
+                if (e.key === "enter") confirmDialog();
+            }}>
+                <div className="modal-content">{children}</div>
+                <div className="modal-actions">
+                    <button className="modal-button small inline" onClick={() => confirmDialog()}>
+                        Einfügen
+                    </button>
+                    <div className="modal-button small inline" onClick={() => dialog.current.close()}>
+                        Abbrechen
+                    </div>
                 </div>
-                <div className="modal-button small inline" onClick={() => dialog.current.close()}>
-                    Abbrechen
-                </div>
-            </div>
+            </form>
         </dialog>}
-        <i className={`fa fa-${fa}`}/>
-        <span className="forum-button-tooltip">
-            <div className="center">
-                <div>{label}</div>
-                { control !== null && <div className="keyboard">
-                    <kbd>{navigator.platform.indexOf("Mac") === 0 ? '⌘' : 'STRG'}</kbd>
-                    <span>&nbsp;+&nbsp;</span>
-                    <kbd>{control.toUpperCase()}</kbd>
-                </div>}
-            </div>
-        </span>
     </div>
+
+    return
 }
 
-const ControlButtonNodeWrap = ({fa, label, node, control = null, block = false, contentCallback = null, valueCallback = null, children = null}: ControlButtonDefinition & BaseNodeDefinition & ExtendedNodeDefinition & {children?: any|null} ) => {
+const ControlButtonNodeWrap = ({
+                                   fa,
+                                   label,
+                                   node,
+                                   control = null,
+                                   block = false,
+                                   contentCallback = null,
+                                   valueCallback = null,
+                                   children = null,
+                                   dialogHandler = null
+                               }: ControlButtonDefinition & BaseNodeDefinition & ExtendedNodeDefinition & {
+    children?: any | null
+    dialogHandler?: (boolean)=>void|boolean
+}) => {
 
     const globals = useContext(Globals);
 
-    return <ControlButton {...{fa,label,control}} handler={() => {
+    return <ControlButton {...{fa, label, control, dialogHandler}} handler={() => {
         const body = `${globals.getField('body') ?? ''}`;
-        const selection = [globals.selection.start,globals.selection.end]
+        const selection = [globals.selection.start, globals.selection.end]
 
-        const rawSelection = body.slice(selection[0],selection[1]);
+        const rawSelection = body.slice(selection[0], selection[1]);
         const value = valueCallback ? valueCallback(rawSelection) : null;
         const content = contentCallback ? contentCallback(rawSelection) : null;
 
@@ -148,10 +173,10 @@ const ControlButtonNodeWrap = ({fa, label, node, control = null, block = false, 
         // Check if the current selection is already wrapped in the desired tag
         if (
             value === null && content === null &&
-            body.slice( Math.max(0,selection[0] - open.length), selection[0] ) === open &&
-            body.slice( selection[1], selection[1] + close.length ) === close
+            body.slice(Math.max(0, selection[0] - open.length), selection[0]) === open &&
+            body.slice(selection[1], selection[1] + close.length) === close
         ) {
-            globals.setField('body', `${body.slice(0,selection[0] - open.length)}${body.slice(selection[0],selection[1])}${body.slice(selection[1]+close.length)}`);
+            globals.setField('body', `${body.slice(0, selection[0] - open.length)}${body.slice(selection[0], selection[1])}${body.slice(selection[1] + close.length)}`);
             globals.selection.update( selection[0] - open.length, selection[1] - open.length )
             // Check if the current selection starts and ends with the desired tag
         } else if (
@@ -202,7 +227,48 @@ const ControlButtonNodeInsert = ({fa, label, node, control = null, block = false
 };
 
 const ControlButtonInsertLink = () => {
-    return <ControlButtonNodeWrap node="link" label="Link einfügen" control="k" fa="link" valueCallback={s=>s}>
-        <div>TEST</div>
+
+    const globals = useContext(Globals);
+
+    const text = useRef<HTMLInputElement>()
+    const link = useRef<HTMLInputElement>()
+
+    const checkLink = (link:string): boolean => {
+        return link.match(/^https?:\/\/(\w+:?\w*)?(\S+)(:\d+)?(?:\/|\/([\w#!:.?+=&%\-\/]))?$/) !== null;
+    }
+
+    return <ControlButtonNodeWrap node="link" label="Link einfügen" control="k" fa="link"
+                                  valueCallback={()=>link.current.value} contentCallback={()=>text.current.value}
+                                  dialogHandler={(post) => {
+                                      if (!post) {
+                                          const s = `${globals.getField('body')}`.slice(globals.selection.start, globals.selection.end).trim();
+                                          if (s && checkLink(s)) {
+                                              text.current.value = '';
+                                              text.current.focus();
+                                              link.current.value = s;
+                                          } else {
+                                              text.current.value = s;
+                                              link.current.value = '';
+                                              (s ? link : text).current.focus();
+                                          }
+
+                                          return true;
+                                      } else {
+                                            if (checkLink(text.current.value) && !checkLink(link.current.value))
+                                                link.current.value = text.current.value;
+
+                                            if (!text.current.value) text.current.value = link.current.value;
+
+                                            return checkLink(link.current.value);
+                                      }
+                                  }}
+    >
+        <div className="modal-form" id="modal-form">
+            <label htmlFor={`${globals.uuid}-form-link-text`}>Link-Text</label>
+            <input type="text" ref={text} id={`${globals.uuid}-form-link-text`}/>
+
+            <label htmlFor={`${globals.uuid}-form-link-link`}>Link-URL</label>
+            <input type="url" ref={link} id={`${globals.uuid}-form-link-link`}/>
+        </div>
     </ControlButtonNodeWrap>
 }

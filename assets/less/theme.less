@@ -201,11 +201,13 @@ x-message {
 
   div#modal-actions, div.modal-actions {
     text-align: left; padding: 3px;
+    display: flex; column-gap: 4px;
   }
 }
 
 dialog {
   .modal();
+  position: fixed; padding: 0;
   &::backdrop { .modal-backdrop(); }
 }
 
