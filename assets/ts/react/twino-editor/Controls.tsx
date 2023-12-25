@@ -2,6 +2,7 @@ import * as React from "react";
 import {useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
 import {Globals} from "./Wrapper";
 import controls from "../map/Controls";
+import {UserSearchBar} from "../user-search/Wrapper";
 
 export const TwinoEditorControls = () => {
 
@@ -27,6 +28,7 @@ export const TwinoEditorControls = () => {
                     </> }
                 </div>
                 <div className="forum-button-bar-section">
+                    <ControlButtonInsertPlayer/>
                     <ControlButtonInsertLink />
                     { globals.allowControl('image') && <>
                         <ControlButtonInsertImage />
@@ -85,7 +87,7 @@ type StandaloneNodeDefinition = BaseNodeDefinition & {
     multiline?: boolean
 }
 
-const ControlButton = ({fa, label, control, handler, dialogHandler, children = null, dialogTitle = null}: ControlButtonDefinition & {handler: ()=>void|boolean, dialogHandler?: (boolean)=>void|boolean, dialogTitle?: string|null}) => {
+const ControlButton = ({fa, label, control = null, handler, dialogHandler = null, children = null, dialogTitle = null, manualConfirm = true}: ControlButtonDefinition & {handler: ()=>void|boolean, dialogHandler?: (boolean)=>void|boolean, dialogTitle?: string|null, manualConfirm?: boolean}) => {
     const button = useRef<HTMLDivElement>();
     const dialog = useRef<HTMLDialogElement>()
     const form = useRef<HTMLFormElement>()
@@ -93,7 +95,7 @@ const ControlButton = ({fa, label, control, handler, dialogHandler, children = n
     const wrapped_handler = () => {
         if (!dialog.current) handler();
         else {
-            if (dialogHandler && dialogHandler(false) !== false)
+            if (!dialogHandler || dialogHandler(false) !== false)
                 dialog.current.showModal();
         }
     }
@@ -132,12 +134,14 @@ const ControlButton = ({fa, label, control, handler, dialogHandler, children = n
             <div className="modal-title">{dialogTitle ?? label}</div>
             <form method="dialog" ref={form} onKeyDown={e => {
                 if (e.key === "enter") confirmDialog();
-            }}>
+            }} onSubmit={() => confirmDialog()}>
                 <div className="modal-content">{children}</div>
                 <div className="modal-actions">
-                    <button className="modal-button small inline" onClick={() => confirmDialog()}>
-                        Einfügen
-                    </button>
+                    { manualConfirm && <>
+                        <button className="modal-button small inline" onClick={() => confirmDialog()}>
+                            Einfügen
+                        </button>
+                    </>}
                     <div className="modal-button small inline" onClick={() => dialog.current.close()}>
                         Abbrechen
                     </div>
@@ -235,14 +239,68 @@ const ControlButtonNodeInsert = ({fa, label, node, control = null, block = false
     }}/>
 };
 
-const ControlButtonInsertURL = ({node, block, fa, label, control, dialogTitle = null, urlField, textField}: BaseNodeDefinition & ControlButtonDefinition & {dialogTitle?: string|null, urlField: string|null, textField: string|null}) => {
+const ControlButtonInsertPlayer = () => {
+
+    const globals = useContext(Globals);
+
+    const parent = useRef<HTMLDivElement>()
+    const selected = useRef<{id: number, name: string}>();
+
+    return <ControlButton fa="user" label="Spieler" dialogTitle="Spieler auswählen" manualConfirm={false} handler={() => {
+        if (!selected.current) return;
+
+        const insert = `@${selected.current.name}:${selected.current.id}`;
+        const body = `${globals.getField('body') ?? ''}`;
+
+        let before = body.slice(0, globals.selection.start);
+        if (before !== '' && !before.slice(-1).match(/\s/))
+            before = `${before} `;
+
+        let after = body.slice(globals.selection.start);
+        if (after !== '' && !after.slice(0,1).match(/\s/))
+            after = ` ${after}`;
+
+        globals.setField('body', `${before}${insert}${after}`);
+        globals.selection.update(before.length, before.length + insert.length)
+    }}>
+        <div ref={parent}>
+            <UserSearchBar
+                withAlias={globals.isEnabled('alias')}
+                title="Gib den Namen des Spielers ein."
+                withSelf={true} withFriends={true}
+                callback={e => {
+                    selected.current = e[0] ?? null;
+                    (parent.current.closest('form') as HTMLFormElement).requestSubmit();
+                }}
+                clearOnCallback={true}
+            />
+        </div>
+
+    </ControlButton>
+
+}
+
+const ControlButtonInsertURL = ({
+                                    node,
+                                    block,
+                                    fa,
+                                    label,
+                                    control,
+                                    dialogTitle = null,
+                                    urlField,
+                                    textField
+                                }: BaseNodeDefinition & ControlButtonDefinition & {
+    dialogTitle?: string | null,
+    urlField: string | null,
+    textField: string | null
+}) => {
 
     const globals = useContext(Globals);
 
     const text = useRef<HTMLInputElement>()
     const link = useRef<HTMLInputElement>()
 
-    const checkLink = (link:string): boolean => {
+    const checkLink = (link: string): boolean => {
         return link.match(/^https?:\/\/(\w+:?\w*)?(\S+)(:\d+)?(?:\/|\/([\w#!:.?+=&%\-\/]))?$/) !== null;
     }
 

@@ -18,6 +18,7 @@ customElements.define('hordes-twino-editor', class HordesTwinoEditorElement exte
             tags: Object.fromEntries((this.dataset.tags ?? '').split(',').map((s:string) => s.split(':'))),
             features: (this.dataset.feature ?? '').split(','),
             controls: (this.dataset.control ?? '').split(','),
+            withAlias: parseInt(this.dataset.alias ?? "0") !== 0,
             defaultFields: {},
         };
 

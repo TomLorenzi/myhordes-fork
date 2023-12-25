@@ -330,6 +330,10 @@
             data-default-title="{{ edit_title }}"
         {% endif %}
 
+        {% if (alias is defined and alias) %}
+            data-feature-alias="1"
+        {% endif %}
+
         {% if tid is null or (edit_title is defined and edit_title is not null) and type != 'global-pm' and type != 'numb' %}
             data-feature-title="1"
         {% endif %}

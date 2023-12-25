@@ -10,7 +10,7 @@ import {TwinoEditorControls} from "./Controls";
 declare var $: Global;
 declare var c: Const;
 
-type Feature = "tags"|"title"|"version"|"language"|"preview"|"compact"
+type Feature = "tags"|"title"|"version"|"language"|"preview"|"compact"|"alias"
 type Control = "core"|"extended"|"image"|"admin"|"mod"|"oracle"|"glory"|"poll"
 
 interface HeaderConfig {
@@ -23,7 +23,7 @@ type HTMLConfig = HeaderConfig & {
     context: string,
     features: Feature[],
     controls: Control[]
-    defaultFields: object
+    defaultFields: object,
 }
 
 type FieldChangeEventTrigger = ( field: string, value: string|number|null, old_value: string|number|null, is_default: boolean ) => void
@@ -276,8 +276,6 @@ const TwinoEditorEditor = ({fixed, controlTrigger}: {fixed: boolean, controlTrig
             shouldFocus.current = false;
         }
     })
-
-    console.log('repaint');
 
     return <textarea ref={textArea}
         value={globals.getField('body') ?? ''}
