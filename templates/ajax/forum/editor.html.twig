@@ -315,7 +315,7 @@
         </div>
     <hordes-twino-editor
         data-context="{{ type ~ (town_controls ? '-tc' : '') }}"
-        data-pm-mode="{{ type }}"
+        data-pm-mode="{{ type == 'global-pm' ? '1' : '0' }}"
         data-username="{{ username }}"
         {% if type != 'global-pm' and type != 'numb' %}
             {% if tid is null %}
