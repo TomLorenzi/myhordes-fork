@@ -21,6 +21,7 @@ interface HeaderConfig {
 
 type HTMLConfig = HeaderConfig & {
     context: string,
+    pm: boolean,
     features: Feature[],
     controls: Control[]
     defaultFields: object,
@@ -79,8 +80,13 @@ export class HordesTwinoEditor {
 
 const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEventTrigger } ) => {
 
+    const cache = $.client.config.scopedEditorCache.get() ?? ['',''];
+    const cache_value = (cache[0] ?? '_') === props.context ? cache[1] : null;
+
     const uuid = useRef(uuidv4());
-    const [fields, setFields] = useState({...props.defaultFields});
+    const [fields, setFields] = useState({
+        ...props.defaultFields,
+    });
 
     const selection = useRef({
         start: 0,
@@ -90,16 +96,20 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
 
     const me = useRef<HTMLDivElement>(null);
 
+    const convertToHTML = (twino:string) => $.html.twinoParser.parseToString(twino, s => [null, s], {autoLinks: $.client.config.autoParseLinks.get()});
+    const convertToTwino = (html:string) => $.html.twinoParser.parseFrom(html, $.html.twinoParser.OpModeRaw);
+
     const setField = (field: string, value: string|number) => {
         const current = fields[field] ?? null;
         if (current !== value) {
             let new_fields = {...fields};
             props.onFieldChanged(field, new_fields[field] = value, current, value === (props.defaultFields[field] ?? null));
 
-            // Changing the body also changes the HTML
+            // Changing the body also changes the HTML and invokes the cache
             if (field === 'body') {
+                $.client.config.scopedEditorCache.set([props.context, value]);
                 const current_html = fields['html'] ?? null;
-                const html = $.html.twinoParser.parseToString(`${value}`, s => [null, s], {autoLinks: $.client.config.autoParseLinks.get()});
+                const html = convertToHTML(`${value}`);
                 props.onFieldChanged('html', new_fields['html'] = html, current, html === (props.defaultFields['html'] ?? null));
             }
 
@@ -112,6 +122,12 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
     const isEnabled = (f:Feature): boolean => props.features.includes(f);
     const controlAllowed = (c:Control): boolean => props.controls.includes(c);
 
+    useLayoutEffect(() => {
+        if (getField('body') && !getField('html')) setField('html', convertToHTML( `${getField('body')}` ));
+        else if (!getField('body') && getField('html')) setField('body', convertToTwino( `${getField('html')}` ));
+        else if (!getField('body') && !getField('html') && cache_value) setField('body', cache_value );
+    }, []);
+
     return (
         <Globals.Provider value={{
             uuid: uuid.current,
@@ -121,19 +137,19 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
             allowControl: (c:Control) => controlAllowed(c),
             selection: selection.current,
         }}>
-            <div className={ props.context === 'global-pm' ? 'pm-editor' : 'forum-editor' }>
+            <div className={ props.pm ? 'pm-editor' : 'forum-editor' }>
                 { props.header && <TwinoEditorHeader {...props} /> }
                 <TwinoEditorFields tags={props.tags}/>
                 <div className="row classic-editor classic-editor-react" ref={me}>
                     <div className="padded cell rw-12">
                         {isEnabled("preview") && <TwinoEditorPreview
-                            html={`${getField("html") ?? $.html.twinoParser.parseFrom(`${getField('body') ?? ''}`, $.html.twinoParser.OpModeRaw) ?? ''}`}/>}
+                            html={`${getField("html") ?? convertToTwino(`${getField('body') ?? ''}`) ?? ''}`}/>}
                         <label htmlFor={`${uuid.current}-editor`}>Deine Nachricht</label>
                         <TwinoEditorControls/>
                     </div>
                     <div className="padded cell rw-12">
                         <TwinoEditorEditor
-                            fixed={props.context === 'global-pm'}
+                            fixed={props.pm}
                             controlTrigger={ s => {
                                 const list = me.current?.querySelectorAll(`[data-receive-control-event="${s}"]`);
                                 list.forEach(e => e.dispatchEvent( new CustomEvent('controlActionTriggered', { bubbles: false }) ));

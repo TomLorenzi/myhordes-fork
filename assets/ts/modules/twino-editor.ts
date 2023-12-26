@@ -12,13 +12,13 @@ customElements.define('hordes-twino-editor', class HordesTwinoEditorElement exte
 
     protected generateProps(): object {
         let data = {
+            pm: parseInt(this.dataset.pmMode ?? "0") !== 0,
             context: this.dataset.context ?? 'forum',
             header: this.dataset.header ?? null,
             username: this.dataset.username ?? null,
             tags: Object.fromEntries((this.dataset.tags ?? '').split(',').map((s:string) => s.split(':'))),
             features: (this.dataset.feature ?? '').split(','),
             controls: (this.dataset.control ?? '').split(','),
-            withAlias: parseInt(this.dataset.alias ?? "0") !== 0,
             defaultFields: {},
         };
 
