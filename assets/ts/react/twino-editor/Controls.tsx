@@ -1,8 +1,32 @@
 import * as React from "react";
 import {useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
 import {Globals} from "./Wrapper";
-import controls from "../map/Controls";
 import {UserSearchBar} from "../user-search/Wrapper";
+import {Tab, TabbedSection} from "../tab-list/TabList";
+
+type ControlButtonDefinition = {
+    fa:string,
+    label: string,
+    control?: string|null,
+    children?: any|null,
+}
+
+type BaseNodeDefinition = {
+    node: string,
+    block?: boolean,
+}
+
+type ExtendedNodeDefinition = {
+    valueCallback?: (string)=>string|null,
+    contentCallback?: (string)=>string|null,
+}
+
+type StandaloneNodeDefinition = BaseNodeDefinition & {
+    closes?: boolean,
+    curley?: boolean,
+    multiline?: boolean
+}
+
 
 export const TwinoEditorControls = () => {
 
@@ -64,27 +88,13 @@ export const TwinoEditorControls = () => {
     </>
 }
 
-type ControlButtonDefinition = {
-    fa:string,
-    label: string,
-    control?: string|null,
-    children?: any|null,
-}
+export const TwinoEditorControlsTabList = () => {
 
-type BaseNodeDefinition = {
-    node: string,
-    block?: boolean,
-}
+    return <TabbedSection>
+        <Tab title="Emotes" id="emotes"><TabSection section="emotes"/></Tab>
+        <Tab title="RP" id="rp"><TabSection section="rp"/></Tab>
+    </TabbedSection>
 
-type ExtendedNodeDefinition = {
-    valueCallback?: (string)=>string|null,
-    contentCallback?: (string)=>string|null,
-}
-
-type StandaloneNodeDefinition = BaseNodeDefinition & {
-    closes?: boolean,
-    curley?: boolean,
-    multiline?: boolean
 }
 
 const ControlButton = ({fa, label, control = null, handler, dialogHandler = null, children = null, dialogTitle = null, manualConfirm = true}: ControlButtonDefinition & {handler: ()=>void|boolean, dialogHandler?: (boolean)=>void|boolean, dialogTitle?: string|null, manualConfirm?: boolean}) => {
@@ -348,3 +358,14 @@ const ControlButtonInsertURL = ({
 const ControlButtonInsertLink = () => <ControlButtonInsertURL node="link" label="Link einfügen" control="k" fa="link" urlField="Link-URL" textField="Link-Text"/>
 const ControlButtonInsertImage = () => <ControlButtonInsertURL node="image" label="Bild einfügen" fa="image" block={true} urlField="Bild-URL" textField="Bildtitel"/>
 const ControlButtonInsertWithAttribute = ({node, fa, control = null, label, block = false, attribute, dialogTitle = null}: BaseNodeDefinition & ControlButtonDefinition & {attribute:string, dialogTitle?: string|null}) => <ControlButtonInsertURL {...{node,label,fa,block,control,dialogTitle}} urlField={null} textField={attribute}/>
+
+const TabSection = ({section}: {section:string}) => {
+    useEffect(() => {
+        console.log('mounted', section);
+    }, []);
+
+    return <div className="lightbox">
+        <div className="loading"></div>
+        <div>{section}</div>
+    </div>
+}

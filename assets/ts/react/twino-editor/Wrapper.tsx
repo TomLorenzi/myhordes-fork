@@ -5,7 +5,7 @@ import {ChangeEvent, MouseEventHandler, useContext, useEffect, useLayoutEffect, 
 import {TranslationStrings} from "./strings";
 import {Const, Global} from "../../defaults";
 import {v4 as uuidv4} from 'uuid';
-import {TwinoEditorControls} from "./Controls";
+import {TwinoEditorControls, TwinoEditorControlsTabList} from "./Controls";
 
 declare var $: Global;
 declare var c: Const;
@@ -156,6 +156,9 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
                                 return list.length > 0;
                             } }
                         />
+                    </div>
+                    <div className="padded cell rw-12">
+                        <TwinoEditorControlsTabList/>
                     </div>
                 </div>
             </div>
