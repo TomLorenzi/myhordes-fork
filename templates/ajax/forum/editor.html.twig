@@ -316,7 +316,7 @@
     <hordes-twino-editor
         data-context="{{ type ~ (town_controls ? '-tc' : '') }}"
         data-pm-mode="{{ type == 'global-pm' ? '1' : '0' }}"
-        data-username="{{ username }}"
+        data-username="{{ username }}" data-user="{{ app.user.id }}"
         {% if type != 'global-pm' and type != 'numb' %}
             {% if tid is null %}
                 data-header="{{ 'Neuer Thread'|trans({},'global') }}"
@@ -358,6 +358,9 @@
         {% if app.user|has_unlocked('f_glory') %}
             data-control-glory="1"
         {% endif %}
+        {% if town_controls %}
+            data-control-rp="1"
+        {% endif %}
         {% if permission.format_admin() or permission.format_oracle() %}
             data-control-image="1"
             {% if permission.format_admin() %}
@@ -372,6 +375,9 @@
         {% endif %}
         {% if permission.format_mod() %}
             data-control-mod="1"
+        {% endif %}
+        {% if permission.format_admin() or permission.format_oracle() or permission.format_mod() %}
+            data-control-snippet="1"
         {% endif %}
     />
 {% endblock %}
