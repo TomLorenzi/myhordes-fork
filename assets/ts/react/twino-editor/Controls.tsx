@@ -1,12 +1,14 @@
 import * as React from "react";
-import {useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
+import {ReactElement, useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
 import {Globals} from "./Wrapper";
 import {UserSearchBar} from "../user-search/Wrapper";
-import {Tab, TabbedSection} from "../tab-list/TabList";
+import {Tab, TabbedSection, TabProps} from "../tab-list/TabList";
+import {Emote, Snippet} from "./api";
 
 type ControlButtonDefinition = {
-    fa:string,
-    label: string,
+    fa?:string,
+    img?:string,
+    label?: string,
     control?: string|null,
     children?: any|null,
 }
@@ -23,7 +25,7 @@ type ExtendedNodeDefinition = {
 
 type StandaloneNodeDefinition = BaseNodeDefinition & {
     closes?: boolean,
-    curley?: boolean,
+    curley?: null|boolean,
     multiline?: boolean
 }
 
@@ -88,16 +90,25 @@ export const TwinoEditorControls = () => {
     </>
 }
 
-export const TwinoEditorControlsTabList = () => {
+export const TwinoEditorControlsTabList = ({emotes,snippets}: {emotes: null|Array<Emote>, snippets: null|Array<Snippet>}) => {
 
-    return <TabbedSection>
-        <Tab title="Emotes" id="emotes"><TabSection section="emotes"/></Tab>
-        <Tab title="RP" id="rp"><TabSection section="rp"/></Tab>
+    const globals = useContext(Globals);
+
+    const langList = snippets?.map( v=>v.lang ) ?? [];
+
+    return <TabbedSection mountOnlyActive={true} keepInactiveMounted={true}>
+        <Tab title="Emotes" id="emotes"><EmoteTabSection emotes={emotes}/></Tab>
+        <Tab title="Games" id="games"><GameTabSection/></Tab>
+        <Tab title="RP" id="rp" if={ globals.allowControl('rp') }><RPTabSection/></Tab>
+        <Tab title="FR" id="mod_fr" if={ langList.includes('fr') }><ModTabSection snippets={snippets?.filter(v => v.lang === 'fr') ?? []}/></Tab>
+        <Tab title="EN" id="mod_en" if={ langList.includes('en') }><ModTabSection snippets={snippets?.filter(v => v.lang === 'en') ?? []}/></Tab>
+        <Tab title="DE" id="mod_de" if={ langList.includes('de') }><ModTabSection snippets={snippets?.filter(v => v.lang === 'de') ?? []}/></Tab>
+        <Tab title="ES" id="mod_es" if={ langList.includes('es') }><ModTabSection snippets={snippets?.filter(v => v.lang === 'es') ?? []}/></Tab>
     </TabbedSection>
 
 }
 
-const ControlButton = ({fa, label, control = null, handler, dialogHandler = null, children = null, dialogTitle = null, manualConfirm = true}: ControlButtonDefinition & {handler: ()=>void|boolean, dialogHandler?: (boolean)=>void|boolean, dialogTitle?: string|null, manualConfirm?: boolean}) => {
+const ControlButton = ({fa = null, img = null, label = null, control = null, handler, dialogHandler = null, children = null, dialogTitle = null, manualConfirm = true}: ControlButtonDefinition & {handler: ()=>void|boolean, dialogHandler?: (boolean)=>void|boolean, dialogTitle?: string|null, manualConfirm?: boolean}) => {
     const button = useRef<HTMLDivElement>();
     const dialog = useRef<HTMLDialogElement>()
     const form = useRef<HTMLFormElement>()
@@ -128,17 +139,18 @@ const ControlButton = ({fa, label, control = null, handler, dialogHandler = null
             e.stopPropagation();
             wrapped_handler()
         }}>
-            <i className={`fa fa-${fa}`}/>
-            <span className="forum-button-tooltip">
+            {fa && <i className={`fa fa-${fa}`}/>}
+            {img && <img alt="" src={img}/>}
+            {(label || control) && <span className="forum-button-tooltip">
                 <div className="center">
-                    <div>{label}</div>
+                    {label && <div>{label}</div>}
                     {control !== null && <div className="keyboard">
                         <kbd>{navigator.platform.indexOf("Mac") === 0 ? '⌘' : 'STRG'}</kbd>
                         <span>&nbsp;+&nbsp;</span>
                         <kbd>{control.toUpperCase()}</kbd>
                     </div>}
                 </div>
-            </span>
+            </span>}
         </div>
         {children && <dialog ref={dialog}>
             <div className="modal-title">{dialogTitle ?? label}</div>
@@ -147,8 +159,8 @@ const ControlButton = ({fa, label, control = null, handler, dialogHandler = null
             }} onSubmit={() => confirmDialog()}>
                 <div className="modal-content">{children}</div>
                 <div className="modal-actions">
-                    { manualConfirm && <>
-                        <button className="modal-button small inline" onClick={() => confirmDialog()}>
+                    {manualConfirm && <>
+                    <button className="modal-button small inline" onClick={() => confirmDialog()}>
                             Einfügen
                         </button>
                     </>}
@@ -159,8 +171,6 @@ const ControlButton = ({fa, label, control = null, handler, dialogHandler = null
             </form>
         </dialog>}
     </div>
-
-    return
 }
 
 const ControlButtonNodeWrap = ({
@@ -221,15 +231,15 @@ const ControlButtonNodeWrap = ({
     }}>{children}</ControlButton>
 };
 
-const ControlButtonNodeInsert = ({fa, label, node, control = null, block = false, closes = false, curley = false, multiline = false}: ControlButtonDefinition & StandaloneNodeDefinition ) => {
+const ControlButtonNodeInsert = ({fa = null, img = null, label = null, node, control = null, block = false, closes = false, curley = false, multiline = false}: ControlButtonDefinition & StandaloneNodeDefinition ) => {
 
     const globals = useContext(Globals);
 
-    return <ControlButton {...{fa,label,control}} handler={() => {
+    return <ControlButton {...{fa,img,label,control}} handler={() => {
         const body = `${globals.getField('body') ?? ''}`;
         const selection = [globals.selection.start,globals.selection.end]
 
-        const insert = curley ? `{${node}} ` : `[${node}] `;
+        const insert = curley === null ? node : (curley ? `{${node}} ` : `[${node}] `);
 
         const opt_nl_before = (block && selection[0] > 0) ? "\n" : '';
         const opt_nl_inner = closes ? "\n" : '';
@@ -359,11 +369,70 @@ const ControlButtonInsertLink = () => <ControlButtonInsertURL node="link" label=
 const ControlButtonInsertImage = () => <ControlButtonInsertURL node="image" label="Bild einfügen" fa="image" block={true} urlField="Bild-URL" textField="Bildtitel"/>
 const ControlButtonInsertWithAttribute = ({node, fa, control = null, label, block = false, attribute, dialogTitle = null}: BaseNodeDefinition & ControlButtonDefinition & {attribute:string, dialogTitle?: string|null}) => <ControlButtonInsertURL {...{node,label,fa,block,control,dialogTitle}} urlField={null} textField={attribute}/>
 
-const TabSection = ({section}: {section:string}) => {
+const EmoteTabSection = ({emotes}: {emotes: null|Array<Emote>}) => {
+    return <div className="lightbox">
+        {emotes === null && <div className="loading"/>}
+        {emotes !== null && <div className="forum-button-grid">
+            { emotes.sort((a,b) => a.orderIndex - b.orderIndex).map( emote => <React.Fragment key={emote.tag}>
+                <ControlButtonNodeInsert node={emote.tag} img={emote.url} curley={null} />
+            </React.Fragment>) }
+        </div>}
+    </div>
+}
+
+const GameTabSection = () => {
+    const [games, setGames] = useState<Array<Emote>>(null);
+
+    const globals = useContext(Globals);
+
     useEffect(() => {
-        console.log('mounted', section);
+        globals.api.games(globals.uid).then( r => setGames( Object.values(r.result) ) );
     }, []);
 
+    return <div className="lightbox">
+        { games === null && <div className="loading"/>}
+        { games !== null && <div className="forum-button-grid">
+            {games.sort((a,b) => a.orderIndex - b.orderIndex).map(emote => <React.Fragment key={emote.tag}>
+                <ControlButtonNodeInsert node={emote.tag} img={emote.url} curley={null}/>
+            </React.Fragment>)}
+        </div>}
+    </div>
+}
+
+const RPTabSection = () => {
+    const [rp, setRP] = useState<Array<Emote>>(null);
+
+    const globals = useContext(Globals);
+
+    useEffect(() => {
+        globals.api.rp(globals.uid).then( r => setRP( Object.values(r.result) ) );
+    }, []);
+
+    return <div className="lightbox">
+        { rp === null && <div className="loading"/>}
+        { rp !== null && <div className="forum-button-grid">
+            {rp.sort((a,b) => a.orderIndex - b.orderIndex).map(emote => <React.Fragment key={emote.tag}>
+                <ControlButtonNodeInsert node={emote.tag} img={emote.url} curley={null}/>
+            </React.Fragment>)}
+        </div>}
+    </div>
+}
+
+const ModTabSection = ({snippets}: {snippets: Array<Snippet>}) => {
+    const globals = useContext(Globals);
+
+    return <div className="lightbox">
+        { snippets.map(snippet => <div className="row" key={snippet.key} style={{fontSize: '0.8em'}}>
+            <div className="padded cell rw-3 rw-md-12"><strong className="pointer" onClick={() => {
+                const body = `${globals.getField('body')}`;
+                globals.setField('body', `${body.slice( 0, globals.selection.start )}${snippet.value}${body.slice( globals.selection.start )}` );
+            }}>{ snippet.key }</strong></div>
+            <div className="padded cell rw-9 rw-md-12"><span className="small" style={{fontSize: '0.8em'}}>{ snippet.value }</span></div>
+        </div>) }
+    </div>
+}
+
+const TabSection = ({section}: { section: string }) => {
     return <div className="lightbox">
         <div className="loading"></div>
         <div>{section}</div>

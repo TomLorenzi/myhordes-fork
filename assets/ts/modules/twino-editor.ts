@@ -15,6 +15,7 @@ customElements.define('hordes-twino-editor', class HordesTwinoEditorElement exte
             pm: parseInt(this.dataset.pmMode ?? "0") !== 0,
             context: this.dataset.context ?? 'forum',
             header: this.dataset.header ?? null,
+            user: parseInt(this.dataset.user ?? "0"),
             username: this.dataset.username ?? null,
             tags: Object.fromEntries((this.dataset.tags ?? '').split(',').map((s:string) => s.split(':'))),
             features: (this.dataset.feature ?? '').split(','),

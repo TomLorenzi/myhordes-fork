@@ -6,16 +6,18 @@ import {TranslationStrings} from "./strings";
 import {Const, Global} from "../../defaults";
 import {v4 as uuidv4} from 'uuid';
 import {TwinoEditorControls, TwinoEditorControlsTabList} from "./Controls";
+import {EmoteResponse, TwinoEditorAPI} from "./api";
 
 declare var $: Global;
 declare var c: Const;
 
 type Feature = "tags"|"title"|"version"|"language"|"preview"|"compact"|"alias"
-type Control = "core"|"extended"|"image"|"admin"|"mod"|"oracle"|"glory"|"poll"
+type Control = "core"|"extended"|"image"|"admin"|"mod"|"oracle"|"glory"|"poll"|"rp"|"snippet"
 
 interface HeaderConfig {
     header: string|null,
     username: string|null,
+    user: number
     tags: {[index:string]: string},
 }
 
@@ -34,7 +36,8 @@ type FeatureCheck = ( feature: Feature ) => boolean
 type ControlCheck = ( control: Control ) => boolean
 
 type TwinoEditorGlobals = {
-    //api: NotificationManagerAPI,
+    api: TwinoEditorAPI,
+    uid: number,
     //strings: TranslationStrings,
     uuid: string,
     setField: FieldMutator,
@@ -87,6 +90,7 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
     const [fields, setFields] = useState({
         ...props.defaultFields,
     });
+    const fieldRef = useRef(fields);
 
     const selection = useRef({
         start: 0,
@@ -94,26 +98,41 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
         update: (s,e) => {}
     });
 
+    const apiRef = useRef<TwinoEditorAPI>(new TwinoEditorAPI());
+
     const me = useRef<HTMLDivElement>(null);
 
-    const convertToHTML = (twino:string) => $.html.twinoParser.parseToString(twino, s => [null, s], {autoLinks: $.client.config.autoParseLinks.get()});
+    const [emotes, setEmotes] = useState<EmoteResponse>(null);
+    const emoteRef = useRef<EmoteResponse>(null);
+
+    const emoteResolver = (s:string): [string|null,string] => {
+        const e = emotes ?? emoteRef.current ?? null;
+        if (e === null) return [null,s];
+        s = e.mock[s] ?? s;
+        return [e.result[s]?.url ?? null, s];
+    }
+
+    const convertToHTML = (twino:string) => $.html.twinoParser.parseToString(twino, s => emoteResolver(s), {autoLinks: $.client.config.autoParseLinks.get()});
     const convertToTwino = (html:string) => $.html.twinoParser.parseFrom(html, $.html.twinoParser.OpModeRaw);
 
     const setField = (field: string, value: string|number) => {
-        const current = fields[field] ?? null;
+        const current = fieldRef.current[field] ?? null;
+
+        // Replace snippets
+        if (field === 'body' && emotes?.snippets) value = `${value}`.replace( /%(\w*?)%(\w+)/, (match:string, lang:string, short:string) => emotes.snippets.list[lang === emotes.snippets.base ? `%%${short}` : match]?.value ?? match )
+
         if (current !== value) {
-            let new_fields = {...fields};
+            let new_fields = {...fieldRef.current};
             props.onFieldChanged(field, new_fields[field] = value, current, value === (props.defaultFields[field] ?? null));
 
             // Changing the body also changes the HTML and invokes the cache
             if (field === 'body') {
                 $.client.config.scopedEditorCache.set([props.context, value]);
-                const current_html = fields['html'] ?? null;
                 const html = convertToHTML(`${value}`);
                 props.onFieldChanged('html', new_fields['html'] = html, current, html === (props.defaultFields['html'] ?? null));
             }
 
-            setFields(new_fields);
+            setFields({...fieldRef.current = new_fields});
         }
     }
 
@@ -121,6 +140,14 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
 
     const isEnabled = (f:Feature): boolean => props.features.includes(f);
     const controlAllowed = (c:Control): boolean => props.controls.includes(c);
+
+    useEffect(() => {
+        apiRef.current.emotes(props.user).then(data => {
+            setEmotes({...emoteRef.current = data});
+            const updateParsed = convertToHTML( fieldRef.current['body'] ?? '' );
+            if (updateParsed !== (fieldRef.current['html'] ?? '')) setField('html', updateParsed);
+        })
+    }, []);
 
     useLayoutEffect(() => {
         if (getField('body') && !getField('html')) setField('html', convertToHTML( `${getField('body')}` ));
@@ -130,6 +157,8 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
 
     return (
         <Globals.Provider value={{
+            api: apiRef.current,
+            uid: props.user,
             uuid: uuid.current,
             setField: (f:string,v:string|number|null) => setField(f,v),
             getField: (f:string) => getField(f),
@@ -149,6 +178,7 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
                     </div>
                     <div className="padded cell rw-12">
                         <TwinoEditorEditor
+                            body={ `${fieldRef.current['body'] ?? getField('body') ?? ''}` }
                             fixed={props.pm}
                             controlTrigger={ s => {
                                 const list = me.current?.querySelectorAll(`[data-receive-control-event="${s}"]`);
@@ -158,7 +188,10 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
                         />
                     </div>
                     <div className="padded cell rw-12">
-                        <TwinoEditorControlsTabList/>
+                        <TwinoEditorControlsTabList
+                            emotes={ emoteRef.current === null ? null : Object.values(emoteRef.current.result) }
+                            snippets={ emoteRef.current === null ? null : Object.values( emoteRef.current.snippets?.list ?? {} ) }
+                        />
                     </div>
                 </div>
             </div>
@@ -258,7 +291,7 @@ const TwinoEditorPreview = ({html}: {html:string}) => {
     </>
 }
 
-const TwinoEditorEditor = ({fixed, controlTrigger}: {fixed: boolean, controlTrigger?: null|((s:string) => boolean)}) => {
+const TwinoEditorEditor = ({body, fixed, controlTrigger}: {body: string, fixed: boolean, controlTrigger?: null|((s:string) => boolean)}) => {
     const textArea = useRef<HTMLTextAreaElement>(null);
     const globals = useContext(Globals);
 
@@ -297,7 +330,7 @@ const TwinoEditorEditor = ({fixed, controlTrigger}: {fixed: boolean, controlTrig
     })
 
     return <textarea ref={textArea}
-        value={globals.getField('body') ?? ''}
+        value={body}
         tabIndex={0} id={`${globals.uuid}-editor`} style={fixed ? {height: '90px', minHeight: '90px'} : {}}
         onInput={e => globals.setField('body', e.currentTarget.value)}
         onKeyDown={e => {
