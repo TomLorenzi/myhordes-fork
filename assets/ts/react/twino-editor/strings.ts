@@ -1,29 +1,55 @@
 export type TranslationStrings = {
+    header: {
+        title: string
+        tag: string
+        add_tag: string
+        no_tag: string
+        version: string
+        language: string
+    },
+    sections: {
+        preview: string,
+        message: string,
+    },
     common: {
-        infoText1: string
-        infoText2: string
-        infoText3: string
-        unsupported: string
-    },
-    actions: {
-        add: string,
-        registered: string
-        removed: string
-        edit: string
-        test_ok: string
-        test_expired: string
-        test_error: string
-    },
-    table: {
-        none: string
-        device: string
-        edit: string
-        edit_icon: string
-        remove: string
-        remove_icon: string
-        test: string
-        test_icon: string
-        expired: string
-        expired_icon: string
+        insert: string,
+        abort: string,
+        ctrl: string,
+    }
+    controls: {
+        b: string,
+        i: string,
+        u: string,
+        s: string,
+        c: string,
+        big: string,
+        bad: string,
+        link: string,
+        "link-url": string,
+        "link-text": string,
+        image: string,
+        "image-url": string,
+        "image-text": string,
+        admannounce: string,
+        modannounce: string,
+        announce: string,
+        '*': string,
+        '0': string,
+        quote: string,
+        spoiler: string,
+        aparte: string,
+        glory: string,
+        code: string,
+        hr: string,
+        rp: string,
+        collapse: string,
+        poll: string,
+        '@': string,
+        '@-dialog': string,
+        '@-placeholder': string,
+        emotes_img: string,
+        games_img: string,
+        rp_img: string,
+        mod_img: string,
     }
 }

@@ -2,20 +2,12 @@
 
 namespace App\Controller\REST\User\Soul;
 
-use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractCoreController;
 use App\Entity\Award;
-use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\Emotes;
 use App\Entity\ForumModerationSnippet;
-use App\Entity\Picto;
-use App\Entity\PictoPrototype;
 use App\Entity\User;
-use App\Enum\UserSetting;
-use App\Service\JSONRequestParser;
-use App\Service\UserHandler;
-use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Cache\InvalidArgumentException;
 use Symfony\Component\Security\Core\Role\RoleHierarchyInterface;
@@ -40,9 +32,60 @@ class EditorController extends CustomAbstractCoreController
     public function index(Packages $assets): JsonResponse {
         return new JsonResponse([
             'strings' => [
-                'common' => [
-                    'header' => $this->translator->trans('Statistiken', [], 'global'),
+                'header' => [
+                    'title' => $this->translator->trans('Titel', [], 'global'),
+                    'tag' => $this->translator->trans('Tag', [], 'forum'),
+                    'add_tag' => $this->translator->trans('Tag hinzufügen (optional)', [], 'global'),
+                    'no_tag' => $this->translator->trans('Kein Tag', [], 'global'),
+                    'version' => $this->translator->trans('Version', [], 'global'),
+                    'language' => $this->translator->trans('Sprache', [], 'global'),
                 ],
+                'sections' => [
+                    'preview' => $this->translator->trans('Vorschau', [], 'global'),
+                    'message' => $this->translator->trans('Deine Nachricht', [], 'global'),
+                ],
+                'common' => [
+                    'insert' => $this->translator->trans('Einfügen', [], 'global'),
+                    'abort' => $this->translator->trans('Abbrechen', [], 'global'),
+                    'ctrl' => $this->translator->trans('STRG', [], 'global'),
+                ],
+                'controls' => [
+                    'b' => $this->translator->trans('Fett', [], 'global'),
+                    'i' => $this->translator->trans('Kursiv', [], 'global'),
+                    'u' => $this->translator->trans('Unterstreichen', [], 'global'),
+                    's' => $this->translator->trans('Durchstreichen', [], 'global'),
+                    'c' => $this->translator->trans('Keine Formatierung', [], 'global'),
+                    'big' => $this->translator->trans('Groß', [], 'global'),
+                    'bad' => $this->translator->trans('Verräter', [], 'global'),
+                    'link' => $this->translator->trans('Link einfügen', [], 'global'),
+                    'link-url' => $this->translator->trans('Link-URL', [], 'global'),
+                    'link-text' => $this->translator->trans('Link-Text', [], 'global'),
+                    'image' => $this->translator->trans('Bild einfügen', [], 'global'),
+                    'image-url' => $this->translator->trans('Bild-URL', [], 'global'),
+                    'image-text' => $this->translator->trans('Bildtitel', [], 'global'),
+                    'admannounce' => $this->translator->trans('Admin Ankündigung', [], 'global'),
+                    'modannounce' => $this->translator->trans('Mod Ankündigung', [], 'global'),
+                    'announce' => $this->translator->trans('Orakel Ankündigung', [], 'global'),
+                    '*' => $this->translator->trans('Listenpunkt', [], 'global'),
+                    '0' => $this->translator->trans('Num. Listenpunkt', [], 'global'),
+                    'quote' => $this->translator->trans('Zitat', [], 'global'),
+                    'spoiler' => $this->translator->trans('Spoiler', [], 'global'),
+                    'aparte' => $this->translator->trans('Vertraulich', [], 'global'),
+                    'glory' => $this->translator->trans('Ruhm', [], 'global'),
+                    'code' => $this->translator->trans('Code', [], 'global'),
+                    'hr' => $this->translator->trans('Linie', [], 'global'),
+                    'rp' => $this->translator->trans('Rollenspiel', [], 'global'),
+                    'collapse' => $this->translator->trans('Einklappen', [], 'global'),
+                    'poll' => $this->translator->trans('Umfrage einfügen', [], 'global'),
+                    '@' => $this->translator->trans('Spielernamen einfügen', [], 'global'),
+                    '@-dialog' => $this->translator->trans('Spieler auswählen', [], 'global'),
+                    '@-placeholder' => $this->translator->trans('Gib den Namen des Spielers ein', [], 'global'),
+
+                    'emotes_img' => $assets->getUrl('build/images/forum/smile.gif'),
+                    'games_img' => $assets->getUrl('build/images/item/item_dice.gif'),
+                    'rp_img' => $assets->getUrl('build/images/forum/rp.png'),
+                    'mod_img' => $assets->getUrl('build/images/assets/img/icons/mod.png'),
+                ]
             ],
         ]);
     }

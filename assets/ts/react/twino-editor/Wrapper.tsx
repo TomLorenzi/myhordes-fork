@@ -38,7 +38,7 @@ type ControlCheck = ( control: Control ) => boolean
 type TwinoEditorGlobals = {
     api: TwinoEditorAPI,
     uid: number,
-    //strings: TranslationStrings,
+    strings: null|TranslationStrings,
     uuid: string,
     setField: FieldMutator,
     getField: FieldReader,
@@ -87,6 +87,7 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
     const cache_value = (cache[0] ?? '_') === props.context ? cache[1] : null;
 
     const uuid = useRef(uuidv4());
+    const [strings, setStrings] = useState<TranslationStrings>(null);
     const [fields, setFields] = useState({
         ...props.defaultFields,
     });
@@ -142,6 +143,7 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
     const controlAllowed = (c:Control): boolean => props.controls.includes(c);
 
     useEffect(() => {
+        apiRef.current.index().then(data => setStrings(data.strings));
         apiRef.current.emotes(props.user).then(data => {
             setEmotes({...emoteRef.current = data});
             const updateParsed = convertToHTML( fieldRef.current['body'] ?? '' );
@@ -156,46 +158,51 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
     }, []);
 
     return (
-        <Globals.Provider value={{
-            api: apiRef.current,
-            uid: props.user,
-            uuid: uuid.current,
-            setField: (f:string,v:string|number|null) => setField(f,v),
-            getField: (f:string) => getField(f),
-            isEnabled: (f:Feature) => isEnabled(f),
-            allowControl: (c:Control) => controlAllowed(c),
-            selection: selection.current,
-        }}>
-            <div className={ props.pm ? 'pm-editor' : 'forum-editor' }>
-                { props.header && <TwinoEditorHeader {...props} /> }
-                <TwinoEditorFields tags={props.tags}/>
-                <div className="row classic-editor classic-editor-react" ref={me}>
-                    <div className="padded cell rw-12">
-                        {isEnabled("preview") && <TwinoEditorPreview
-                            html={`${getField("html") ?? convertToTwino(`${getField('body') ?? ''}`) ?? ''}`}/>}
-                        <label htmlFor={`${uuid.current}-editor`}>Deine Nachricht</label>
-                        <TwinoEditorControls/>
-                    </div>
-                    <div className="padded cell rw-12">
-                        <TwinoEditorEditor
-                            body={ `${fieldRef.current['body'] ?? getField('body') ?? ''}` }
-                            fixed={props.pm}
-                            controlTrigger={ s => {
-                                const list = me.current?.querySelectorAll(`[data-receive-control-event="${s}"]`);
-                                list.forEach(e => e.dispatchEvent( new CustomEvent('controlActionTriggered', { bubbles: false }) ));
-                                return list.length > 0;
-                            } }
-                        />
-                    </div>
-                    <div className="padded cell rw-12">
-                        <TwinoEditorControlsTabList
-                            emotes={ emoteRef.current === null ? null : Object.values(emoteRef.current.result) }
-                            snippets={ emoteRef.current === null ? null : Object.values( emoteRef.current.snippets?.list ?? {} ) }
-                        />
+        <>
+            { strings === null && <div className="loading"/> }
+            { strings !== null && <Globals.Provider value={{
+                api: apiRef.current,
+                uid: props.user,
+                uuid: uuid.current,
+                setField: (f:string,v:string|number|null) => setField(f,v),
+                getField: (f:string) => getField(f),
+                isEnabled: (f:Feature) => isEnabled(f),
+                allowControl: (c:Control) => controlAllowed(c),
+                selection: selection.current,
+                strings
+            }}>
+                <div className={ props.pm ? 'pm-editor' : 'forum-editor' }>
+                    { props.header && <TwinoEditorHeader {...props} /> }
+                    <TwinoEditorFields tags={props.tags}/>
+                    <div className="row classic-editor classic-editor-react" ref={me}>
+                        <div className="padded cell rw-12">
+                            {isEnabled("preview") && <TwinoEditorPreview
+                                html={`${getField("html") ?? convertToTwino(`${getField('body') ?? ''}`) ?? ''}`}/>}
+                            <br/>
+                            <label className="small" htmlFor={`${uuid.current}-editor`}>{ strings.sections.message }</label>
+                            <TwinoEditorControls/>
+                        </div>
+                        <div className="padded cell rw-12">
+                            <TwinoEditorEditor
+                                body={ `${fieldRef.current['body'] ?? getField('body') ?? ''}` }
+                                fixed={props.pm}
+                                controlTrigger={ s => {
+                                    const list = me.current?.querySelectorAll(`[data-receive-control-event="${s}"]`);
+                                    list.forEach(e => e.dispatchEvent( new CustomEvent('controlActionTriggered', { bubbles: false }) ));
+                                    return list.length > 0;
+                                } }
+                            />
+                        </div>
+                        <div className="padded cell rw-12">
+                            <TwinoEditorControlsTabList
+                                emotes={ emoteRef.current === null ? null : Object.values(emoteRef.current.result) }
+                                snippets={ emoteRef.current === null ? null : Object.values( emoteRef.current.snippets?.list ?? {} ) }
+                            />
+                        </div>
                     </div>
                 </div>
-            </div>
-        </Globals.Provider>
+            </Globals.Provider> }
+        </>
     )
 };
 
@@ -215,7 +222,7 @@ const TwinoEditorFields = ({tags}: {tags: { [index: string]: string }}) => {
         { globals.isEnabled("title") &&
             <div className="row-flex v-center">
                 <div className="cell rw-3 padded">
-                    <label htmlFor={`${globals.uuid}-title`}>Titel</label>
+                    <label htmlFor={`${globals.uuid}-title`}>{globals.strings.header.title}</label>
                 </div>
                 <div className={`cell ${ globals.isEnabled("tags") && !globals.getField('tag') && !showTagDropdown ? 'rw-5 rw-sm-9' : 'rw-9' } padded`}>
                     <input type="text" id={`${globals.uuid}-title`}
@@ -226,7 +233,7 @@ const TwinoEditorFields = ({tags}: {tags: { [index: string]: string }}) => {
                 { globals.isEnabled("tags") && !globals.getField('tag') && !showTagDropdown &&
                     <div className="cell rw-4 rw-sm-12 padded">
                     <span className="small pointer" onClick={() => setShowTagDropdown(true)}>
-                        Tag hinzufügen (optional)
+                        { globals.strings.header.add_tag }
                     </span>
                     </div>
                 }
@@ -235,14 +242,14 @@ const TwinoEditorFields = ({tags}: {tags: { [index: string]: string }}) => {
         { globals.isEnabled("tags") && showTagDropdown &&
             <div className="row-flex v-center">
                 <div className="cell rw-3 padded">
-                    <label htmlFor={`${globals.uuid}-tags`}>Tag</label>
+                    <label htmlFor={`${globals.uuid}-tags`}>{ globals.strings.header.tag }</label>
                 </div>
                 <div className="cell rw-9 padded">
                     <select id={`${globals.uuid}-tags`}
                            defaultValue={ globals.getField('tag') }
                            onChange={v => globals.setField('tag', v.target.value)}
                     >
-                        <option value="-none-">[ Kein Tag ]</option>
+                        <option value="-none-">[ { globals.strings.header.no_tag } ]</option>
                         { Object.entries(tags).map( ([k,v]) => <option key={k} value={k}>{v}</option> ) }
                     </select>
                 </div>
@@ -251,7 +258,7 @@ const TwinoEditorFields = ({tags}: {tags: { [index: string]: string }}) => {
         { globals.isEnabled("version") &&
             <div className="row-flex v-center">
                 <div className="cell rw-3 padded">
-                    <label htmlFor={`${globals.uuid}-version`}>Version</label>
+                    <label htmlFor={`${globals.uuid}-version`}>{ globals.strings.header.version }</label>
                 </div>
                 <div className="cell rw-9 padded">
                     <input type="text" id={`${globals.uuid}-version`}
@@ -264,7 +271,7 @@ const TwinoEditorFields = ({tags}: {tags: { [index: string]: string }}) => {
         {globals.isEnabled("language") &&
             <div className="row-flex v-center">
                 <div className="cell rw-3 padded">
-                    <label htmlFor={`${globals.uuid}-language`}>Sprache</label>
+                    <label htmlFor={`${globals.uuid}-language`}>{ globals.strings.header.language }</label>
                 </div>
                 <div className="cell rw-9 padded">
                     <select id={`${globals.uuid}-language`}
@@ -280,12 +287,13 @@ const TwinoEditorFields = ({tags}: {tags: { [index: string]: string }}) => {
 }
 
 const TwinoEditorPreview = ({html}: {html:string}) => {
+    const globals = useContext(Globals)
 
     const [displayPreview, setDisplayPreview] = useState(true);
 
     return <>
         <label className="small pointer" onClick={() => setDisplayPreview(!displayPreview)}>
-            Vorschau
+            { globals.strings.sections.preview }
         </label>
         <div translate="no" className="twino-editor-preview" dangerouslySetInnerHTML={{__html: html}}/>
     </>

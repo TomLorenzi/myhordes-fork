@@ -2,7 +2,7 @@ import * as React from "react";
 import {ReactElement, useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
 import {Globals} from "./Wrapper";
 import {UserSearchBar} from "../user-search/Wrapper";
-import {Tab, TabbedSection, TabProps} from "../tab-list/TabList";
+import {Tab, TabbedSection, TabGroup, TabProps} from "../tab-list/TabList";
 import {Emote, Snippet} from "./api";
 
 type ControlButtonDefinition = {
@@ -43,14 +43,14 @@ export const TwinoEditorControls = () => {
         {showControls && <>
             <div className="forum-button-bar">
                 <div className="forum-button-bar-section">
-                    <ControlButtonNodeWrap node="b" label="Fett" fa="bold" control="b" />
-                    <ControlButtonNodeWrap node="i" label="Kursiv" fa="italic" control="i" />
-                    <ControlButtonNodeWrap node="u" label="Unterstreichen" fa="underline" control="u" />
-                    <ControlButtonNodeWrap node="s" label="Durchstreichen" fa="strikethrough" control="s" />
+                    <ControlButtonNodeWrap node="b" label={globals.strings.controls.b} fa="bold" control="b" />
+                    <ControlButtonNodeWrap node="i" label={globals.strings.controls.i} fa="italic" control="i" />
+                    <ControlButtonNodeWrap node="u" label={globals.strings.controls.u} fa="underline" control="u" />
+                    <ControlButtonNodeWrap node="s" label={globals.strings.controls.s} fa="strikethrough" control="s" />
                     { globals.allowControl('extended') && <>
-                        <ControlButtonNodeWrap node="big" label="Groß" fa="expand-alt" control="+" />
-                        <ControlButtonNodeWrap node="bad" label="Verräter" fa="tint" />
-                        <ControlButtonNodeWrap node="c" label="Keine Formatierung" fa="text-slash" />
+                        <ControlButtonNodeWrap node="big" label={globals.strings.controls.big} fa="expand-alt" control="+" />
+                        <ControlButtonNodeWrap node="bad" label={globals.strings.controls.bad} fa="tint" />
+                        <ControlButtonNodeWrap node="c" label={globals.strings.controls.c} fa="text-slash" />
                     </> }
                 </div>
                 <div className="forum-button-bar-section">
@@ -62,28 +62,28 @@ export const TwinoEditorControls = () => {
                 </div>
                 <div className="forum-button-bar-section">
                     { globals.allowControl('extended') && <>
-                        <ControlButtonInsertWithAttribute node="quote" label="Zital" fa="quote-left" block={true} dialogTitle="Wer?" attribute="Spielernamen eingeben" />
-                        <ControlButtonNodeWrap node="spoiler" label="Spoiler" fa="eye-slash" block={true} />
-                        <ControlButtonNodeWrap node="aparte" label="Vertraulich" fa="compress-alt" block={true} />
-                        <ControlButtonNodeWrap node="code" label="Code" fa="code" block={true} />
-                        <ControlButtonInsertWithAttribute node="rp" label="Rollenspiel" fa="scroll" block={true} dialogTitle="Wer?" attribute="Spielernamen eingeben" />
-                        <ControlButtonInsertWithAttribute node="collapse" label="Einklappen" fa="square-caret-down" block={true} dialogTitle="Eingeklappte Sektion hinzufügen"  attribute="Kopfzeile" />
+                        <ControlButtonInsertWithAttribute node="quote" label={globals.strings.controls.quote} fa="quote-left" block={true} dialogTitle="Wer?" attribute="Spielernamen eingeben" />
+                        <ControlButtonNodeWrap node="spoiler" label={globals.strings.controls.spoiler} fa="eye-slash" block={true} />
+                        <ControlButtonNodeWrap node="aparte" label={globals.strings.controls.aparte} fa="compress-alt" block={true} />
+                        <ControlButtonNodeWrap node="code" label={globals.strings.controls.code} fa="code" block={true} />
+                        <ControlButtonInsertWithAttribute node="rp" label={globals.strings.controls.rp} fa="scroll" block={true} dialogTitle="Wer?" attribute="Spielernamen eingeben" />
+                        <ControlButtonInsertWithAttribute node="collapse" label={globals.strings.controls.collapse} fa="square-caret-down" block={true} dialogTitle="Eingeklappte Sektion hinzufügen"  attribute="Kopfzeile" />
                     </> }
                     { globals.allowControl('glory') && <>
-                        <ControlButtonNodeWrap node="glory" label="Ruhm" fa="crown" block={true} />
+                        <ControlButtonNodeWrap node="glory" label={globals.strings.controls.glory} fa="crown" block={true} />
                     </> }
                 </div>
                 <div className="forum-button-bar-section">
                     { globals.allowControl('extended') && <>
-                        <ControlButtonNodeInsert node="*" label="Listenpunkt" fa="star-of-life" block={true} control="." multiline={true} />
-                        <ControlButtonNodeInsert node="0" label="Num. Listenpunkt" fa="list-ol" block={true} control="1" multiline={true} />
-                        <ControlButtonNodeInsert node="hr" label="Linie" fa="grip-lines" block={true} closes={true} curley={true} control="-" />
+                        <ControlButtonNodeInsert node="*" label={globals.strings.controls["*"]} fa="star-of-life" block={true} control="." multiline={true} />
+                        <ControlButtonNodeInsert node="0" label={globals.strings.controls["0"]} fa="list-ol" block={true} control="1" multiline={true} />
+                        <ControlButtonNodeInsert node="hr" label={globals.strings.controls.hr} fa="grip-lines" block={true} closes={true} curley={true} control="-" />
                     </> }
                 </div>
                 <div className="forum-button-bar-section">
-                    { globals.allowControl('admin') && <ControlButtonNodeWrap node="admannounce" label="Admin Ankündigung" fa="bullhorn" block={true} /> }
-                    { globals.allowControl('mod') && <ControlButtonNodeWrap node="modannounce" label="Mod Ankündigung" fa="gavel" block={true} /> }
-                    { globals.allowControl('oracle') && <ControlButtonNodeWrap node="announce" label="Orakel Ankündigung" fa="rss" block={true} /> }
+                    { globals.allowControl('admin') && <ControlButtonNodeWrap node="admannounce" label={globals.strings.controls.admannounce} fa="bullhorn" block={true} /> }
+                    { globals.allowControl('mod') && <ControlButtonNodeWrap node="modannounce" label={globals.strings.controls.modannounce} fa="gavel" block={true} /> }
+                    { globals.allowControl('oracle') && <ControlButtonNodeWrap node="announce" label={globals.strings.controls.announce} fa="rss" block={true} /> }
                 </div>
             </div>
         </>}
@@ -97,18 +97,22 @@ export const TwinoEditorControlsTabList = ({emotes,snippets}: {emotes: null|Arra
     const langList = snippets?.map( v=>v.lang ) ?? [];
 
     return <TabbedSection mountOnlyActive={true} keepInactiveMounted={true}>
-        <Tab title="Emotes" id="emotes"><EmoteTabSection emotes={emotes}/></Tab>
-        <Tab title="Games" id="games"><GameTabSection/></Tab>
-        <Tab title="RP" id="rp" if={ globals.allowControl('rp') }><RPTabSection/></Tab>
-        <Tab title="FR" id="mod_fr" if={ langList.includes('fr') }><ModTabSection snippets={snippets?.filter(v => v.lang === 'fr') ?? []}/></Tab>
-        <Tab title="EN" id="mod_en" if={ langList.includes('en') }><ModTabSection snippets={snippets?.filter(v => v.lang === 'en') ?? []}/></Tab>
-        <Tab title="DE" id="mod_de" if={ langList.includes('de') }><ModTabSection snippets={snippets?.filter(v => v.lang === 'de') ?? []}/></Tab>
-        <Tab title="ES" id="mod_es" if={ langList.includes('es') }><ModTabSection snippets={snippets?.filter(v => v.lang === 'es') ?? []}/></Tab>
+        <Tab icon={ globals.strings.controls.emotes_img } id="emotes"><EmoteTabSection emotes={emotes}/></Tab>
+        <Tab icon={ globals.strings.controls.games_img } id="games"><GameTabSection/></Tab>
+        <Tab icon={ globals.strings.controls.rp_img } id="rp" if={ globals.allowControl('rp') }><RPTabSection/></Tab>
+        <TabGroup id="mod" icon={ globals.strings.controls.mod_img } if={ langList.length > 0 }>
+            <Tab title="FR" id="mod_fr" if={ langList.includes('fr') }><ModTabSection snippets={snippets?.filter(v => v.lang === 'fr') ?? []}/></Tab>
+            <Tab title="EN" id="mod_en" if={ langList.includes('en') }><ModTabSection snippets={snippets?.filter(v => v.lang === 'en') ?? []}/></Tab>
+            <Tab title="DE" id="mod_de" if={ langList.includes('de') }><ModTabSection snippets={snippets?.filter(v => v.lang === 'de') ?? []}/></Tab>
+            <Tab title="ES" id="mod_es" if={ langList.includes('es') }><ModTabSection snippets={snippets?.filter(v => v.lang === 'es') ?? []}/></Tab>
+        </TabGroup>
     </TabbedSection>
 
 }
 
 const ControlButton = ({fa = null, img = null, label = null, control = null, handler, dialogHandler = null, children = null, dialogTitle = null, manualConfirm = true}: ControlButtonDefinition & {handler: ()=>void|boolean, dialogHandler?: (boolean)=>void|boolean, dialogTitle?: string|null, manualConfirm?: boolean}) => {
+    const globals = useContext(Globals);
+
     const button = useRef<HTMLDivElement>();
     const dialog = useRef<HTMLDialogElement>()
     const form = useRef<HTMLFormElement>()
@@ -145,7 +149,7 @@ const ControlButton = ({fa = null, img = null, label = null, control = null, han
                 <div className="center">
                     {label && <div>{label}</div>}
                     {control !== null && <div className="keyboard">
-                        <kbd>{navigator.platform.indexOf("Mac") === 0 ? '⌘' : 'STRG'}</kbd>
+                        <kbd>{navigator.platform.indexOf("Mac") === 0 ? '⌘' : globals.strings.common.ctrl}</kbd>
                         <span>&nbsp;+&nbsp;</span>
                         <kbd>{control.toUpperCase()}</kbd>
                     </div>}
@@ -160,12 +164,12 @@ const ControlButton = ({fa = null, img = null, label = null, control = null, han
                 <div className="modal-content">{children}</div>
                 <div className="modal-actions">
                     {manualConfirm && <>
-                    <button className="modal-button small inline" onClick={() => confirmDialog()}>
-                            Einfügen
+                        <button className="modal-button small inline" onClick={() => confirmDialog()}>
+                            {globals.strings.common.insert}
                         </button>
                     </>}
                     <div className="modal-button small inline" onClick={() => dialog.current.close()}>
-                        Abbrechen
+                        {globals.strings.common.abort}
                     </div>
                 </div>
             </form>
@@ -266,7 +270,7 @@ const ControlButtonInsertPlayer = () => {
     const parent = useRef<HTMLDivElement>()
     const selected = useRef<{id: number, name: string}>();
 
-    return <ControlButton fa="user" label="Spieler" dialogTitle="Spieler auswählen" manualConfirm={false} handler={() => {
+    return <ControlButton fa="user" label={globals.strings.controls["@"]} dialogTitle={globals.strings.controls["@-dialog"]} manualConfirm={false} handler={() => {
         if (!selected.current) return;
 
         const insert = `@${selected.current.name}:${selected.current.id}`;
@@ -286,7 +290,7 @@ const ControlButtonInsertPlayer = () => {
         <div ref={parent}>
             <UserSearchBar
                 withAlias={globals.isEnabled('alias')}
-                title="Gib den Namen des Spielers ein."
+                title={globals.strings.controls["@-placeholder"]}
                 withSelf={true} withFriends={true}
                 callback={e => {
                     selected.current = e[0] ?? null;
@@ -365,8 +369,20 @@ const ControlButtonInsertURL = ({
     </ControlButtonNodeWrap>
 }
 
-const ControlButtonInsertLink = () => <ControlButtonInsertURL node="link" label="Link einfügen" control="k" fa="link" urlField="Link-URL" textField="Link-Text"/>
-const ControlButtonInsertImage = () => <ControlButtonInsertURL node="image" label="Bild einfügen" fa="image" block={true} urlField="Bild-URL" textField="Bildtitel"/>
+const ControlButtonInsertLink = () => {
+    const globals = useContext(Globals)
+    return <ControlButtonInsertURL node="link" label={globals.strings.controls.link} control="k" fa="link"
+                                   urlField={globals.strings.controls["link-url"]}
+                                   textField={globals.strings.controls["link-text"]}
+    />
+}
+const ControlButtonInsertImage = () => {
+    const globals = useContext(Globals);
+    return <ControlButtonInsertURL node="image" label={globals.strings.controls.image} fa="image" block={true}
+                                   urlField={globals.strings.controls["image-url"]}
+                                   textField={globals.strings.controls["image-text"]}
+    />
+}
 const ControlButtonInsertWithAttribute = ({node, fa, control = null, label, block = false, attribute, dialogTitle = null}: BaseNodeDefinition & ControlButtonDefinition & {attribute:string, dialogTitle?: string|null}) => <ControlButtonInsertURL {...{node,label,fa,block,control,dialogTitle}} urlField={null} textField={attribute}/>
 
 const EmoteTabSection = ({emotes}: {emotes: null|Array<Emote>}) => {
@@ -425,7 +441,7 @@ const ModTabSection = ({snippets}: {snippets: Array<Snippet>}) => {
     snippets.forEach( s => { if (!roles.includes(s.role)) roles.push(s.role) } )
 
     return <div className="lightbox">
-        { roles.sort((a,b) => a.localeCompare(b)).map( role => <>
+        { roles.sort((a,b) => a.localeCompare(b)).map( role => <React.Fragment key={role}>
             { roles.length > 1 && <div className="padded cell rw-12">
                 <div className="row-flex gap v-center">
                     <div className="cell factor-0"><strong><span className="small">{ role }</span></strong></div>
@@ -439,7 +455,7 @@ const ModTabSection = ({snippets}: {snippets: Array<Snippet>}) => {
                 }}>{ snippet.key }</strong></div>
                 <div className="padded cell rw-9 rw-md-12"><span className="small" style={{fontSize: '0.8em'}}>{ snippet.value }</span></div>
             </div>) }
-        </>) }
+        </React.Fragment>) }
 
     </div>
 }
