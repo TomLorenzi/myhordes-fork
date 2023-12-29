@@ -11,6 +11,7 @@ use App\Entity\CitizenRankingProxy;
 use App\Entity\FeatureUnlock;
 use App\Entity\FeatureUnlockPrototype;
 use App\Entity\Forum;
+use App\Entity\ForumModerationSnippet;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\FoundRolePlayText;
 use App\Entity\GitVersions;
@@ -247,6 +248,8 @@ class MigrateCommand extends Command
 			->addOption('fix-town-loot-log', null, InputOption::VALUE_NONE, 'Fix townLoot log entries')
 			->addOption('add-building-inventory', null, InputOption::VALUE_NONE, 'Add inventory to already created Building')
 			->addOption('shuffle-zone-soul-offset', null, InputOption::VALUE_NONE, 'Add inventory to already created Building')
+
+            ->addOption('set-snippet-role', null, InputOption::VALUE_NONE, 'Sets empty snippet roles to CROW')
         ;
     }
 
@@ -1459,6 +1462,12 @@ class MigrateCommand extends Command
         if ($input->getOption('shuffle-zone-soul-offset')) {
             $this->helper->leChunk($output, Zone::class, 500, [], true, true, function(Zone $z) {
                 $z->setSoulPositionOffset( mt_rand(0,3) );
+            }, true);
+        }
+
+        if ($input->getOption('set-snippet-role')) {
+            $this->helper->leChunk($output, ForumModerationSnippet::class, 10, [], true, false, function(ForumModerationSnippet $f) {
+                if (empty($f->getRole())) $f->setRole('ROLE_CROW');
             }, true);
         }
 
