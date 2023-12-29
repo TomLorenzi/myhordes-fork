@@ -4,16 +4,18 @@
     <div class="row-table">
         <div class="row header">
             <div class="padded cell rw-3">{{ 'ID'|trans({},'admin') }}</div>
-            <div class="padded cell rw-8">{{ 'Inhalt'|trans({},'admin') }}</div>
+            <div class="padded cell rw-2">{{ 'Rolle'|trans({},'admin') }}</div>
+            <div class="padded cell rw-6">{{ 'Inhalt'|trans({},'admin') }}</div>
         </div>
         {% for snippet in snippets|sort((a, b) => a.lang == b.lang ? a.short <=> b.short : a.lang <=> b.lang) %}
             <div class="row">
                 {# @var snippet \App\Entity\ForumModerationSnippet #}
                 <div class="padded cell rw-1"><i>{{ snippet.lang }}</i></div>
                 <div class="padded cell rw-2"><strong>{{ snippet.short }}</strong></div>
-                <div class="padded cell rw-8"><span class="small">{{ snippet.text }}</span></div>
+                <div class="padded cell rw-2"><span class="small">{{ snippet.role }}</span></div>
+                <div class="padded cell rw-6"><span class="small">{{ snippet.text }}</span></div>
                 <div class="padded cell rw-1 right">
-                    <button data-purpose="edit" data-snippet-id="{{ snippet.id }}" data-snippet-lang="{{ snippet.lang }}" data-snippet="{{ snippet.text }}" data-snippet-short="{{ snippet.short }}" class="small inline"><img alt="" src="{{ asset('build/images/forum/edit.png') }}" /></button>
+                    <button data-purpose="edit" data-snippet-id="{{ snippet.id }}" data-snippet-lang="{{ snippet.lang }}" data-snippet="{{ snippet.text }}" data-snippet-short="{{ snippet.short }}" data-snippet-role="{{ snippet.role }}" class="small inline"><img alt="" src="{{ asset('build/images/forum/edit.png') }}" /></button>
                     <button data-purpose="cancel" data-snippet-id="{{ snippet.id }}" class="small inline hidden"><img alt="X" src="{{ asset('build/images/icons/small_remove.gif') }}" /></button>
                     <button x-delete-snippet-url="{{ path('admin_reports_remove_snippet', {id: snippet.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></button>
                 </div>
@@ -25,12 +27,19 @@
     <h5 class="hidden" id="snipped_header_edit" data-default="{{ 'Kurztext bearbeiten ({name})'|trans({},'admin') }}"></h5>
     <div class="form">
         <div class="row">
-            <div class="cell padded rw-3 note note-lightest">{{ 'ID'|trans({},'admin')}}</div>
+            <div class="cell padded rw-3 note note-lightest">{{ 'ID'|trans({},'admin')}} & {{ 'Rolle'|trans({},'admin')}}</div>
             <div class="cell padded rw-1">
                 <input id="snippet_preset_id" type="hidden" value="-1" />
                 <label><select id="snippet_lang"><option>DE</option><option>EN</option><option>FR</option><option>ES</option></select></label>
             </div>
-            <div class="cell padded rw-8">
+            <div class="cell padded rw-2">
+                <label><select id="snippet_role">
+                    {% for role in available_roles %}
+                        <option value="{{ role }}">{{ role|replace({'ROLE_': ''}) }}</option>
+                    {% endfor %}
+                </select></label>
+            </div>
+            <div class="cell padded rw-6">
                 <label><input id="snippet_name" type="text" value="" placeholder="{{ 'ID eingeben'|trans({},'admin') }}" /></label>
             </div>
         </div>
@@ -55,6 +64,7 @@
                     edit: parseInt(document.getElementById('snippet_preset_id').value),
                     id: document.getElementById('snippet_name').value,
                     lang: document.getElementById('snippet_lang').value,
+                    role: document.getElementById('snippet_role').value,
                     content: document.getElementById('numb-forum-editor-text').value,
                 },
                 function () {
@@ -72,6 +82,7 @@
             document.getElementById('snippet_preset_id').value = elem.dataset.snippetId;
             document.getElementById('snippet_lang').value = elem.dataset.snippetLang.toUpperCase();
             document.getElementById('snippet_name').value = elem.dataset.snippetShort;
+            document.getElementById('snippet_role').value = elem.dataset.snippetRole;
 
             document.getElementById('numb-forum-editor-text').scrollIntoView();
             document.getElementById('numb-forum-editor-text').dispatchEvent( new Event('input', {

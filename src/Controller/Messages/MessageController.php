@@ -156,7 +156,7 @@ class MessageController extends CustomAbstractController
     /**
      * @return Response
      */
-    #[Route(path: 'jx/admin/numb/editor', name: 'admin_numb_editor')]
+    #[Route(path: 'jx/admin/com/numb/editor', name: 'admin_numb_editor')]
     public function admin_numb_editor(): Response {
         $user = $this->getUser();
 

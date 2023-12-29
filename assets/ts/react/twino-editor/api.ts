@@ -27,7 +27,8 @@ export type Emote = {
 export type Snippet = {
     key: string,
     value: string,
-    lang: string
+    lang: string,
+    role: string,
 }
 
 export class TwinoEditorAPI {

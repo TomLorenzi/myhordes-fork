@@ -15,8 +15,10 @@ use App\Entity\User;
 use App\Enum\UserSetting;
 use App\Service\JSONRequestParser;
 use App\Service\UserHandler;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Cache\InvalidArgumentException;
+use Symfony\Component\Security\Core\Role\RoleHierarchyInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -57,12 +59,13 @@ class EditorController extends CustomAbstractCoreController
         User $user,
         EntityManagerInterface $em,
         Packages $assets,
+        RoleHierarchyInterface $roles,
         TagAwareCacheInterface $gameCachePool
     ): JsonResponse {
 
         if ($user !== $this->getUser()) return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
-        $results = $gameCachePool->get("mh_app_unlocks_emotes_{$user->getId()}_{$user->getLanguage()}", function (ItemInterface $item) use ($user, $em) {
+        $emotes = $gameCachePool->get("mh_app_unlocks_emotes_{$user->getId()}_{$user->getLanguage()}", function (ItemInterface $item) use ($user, $em) {
 
             $item->expiresAfter(360)->tag(["user-{$user->getId()}-emote-unlocks",'emote-unlocks']);
 
@@ -95,20 +98,21 @@ class EditorController extends CustomAbstractCoreController
         });
 
         $snippets = [];
-        if ($this->isGranted('ROLE_ELEVATED')) {
-            $entities = $em->getRepository(ForumModerationSnippet::class)->findAll();
+        if ($this->isGranted('ROLE_ELEVATED') || $this->isGranted('ROLE_ANIMAC')) {
+            $entities = $em->getRepository(ForumModerationSnippet::class)->findBy( ['role' => [...$roles->getReachableRoleNames( $user->getRoles() ), '*']] );
             foreach ($entities as $snippet) {
                 $key = $snippet->getLang() === $user->getLanguage() ? "%%{$snippet->getShort()}" : "%{$snippet->getLang()}%{$snippet->getShort()}";
                 $snippets[$key] = [
                     'lang' => $snippet->getLang(),
                     'key' => $key,
-                    'value' => $snippet->getText()
+                    'value' => $snippet->getText(),
+                    'role' => str_replace('ROLE_', '', $snippet->getRole()),
                 ];
             }
         }
 
         return new JsonResponse([
-            'result' => array_map(fn(array $a) => array_merge($a, ['url' => $assets->getUrl( $a['path'] )]), $results),
+            'result' => array_map(fn(array $a) => array_merge($a, ['url' => $assets->getUrl( $a['path'] )]), $emotes),
             'mock' => array_filter([
                 ':)' => ':smile:',
                 '=)' => ':smile:',
@@ -209,7 +213,7 @@ class EditorController extends CustomAbstractCoreController
                 '🤬' => ':rage:',
 
                 '=>' => ':arrowright:',
-            ], fn(string $v) => array_key_exists( $v, $results )),
+            ], fn(string $v) => array_key_exists( $v, $emotes )),
             'snippets' => empty($snippets) ? null : [
                 'base' => $user->getLanguage(),
                 'list' => $snippets,

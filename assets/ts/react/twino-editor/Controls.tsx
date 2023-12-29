@@ -421,14 +421,26 @@ const RPTabSection = () => {
 const ModTabSection = ({snippets}: {snippets: Array<Snippet>}) => {
     const globals = useContext(Globals);
 
+    const roles: string[] = [];
+    snippets.forEach( s => { if (!roles.includes(s.role)) roles.push(s.role) } )
+
     return <div className="lightbox">
-        { snippets.map(snippet => <div className="row" key={snippet.key} style={{fontSize: '0.8em'}}>
-            <div className="padded cell rw-3 rw-md-12"><strong className="pointer" onClick={() => {
-                const body = `${globals.getField('body')}`;
-                globals.setField('body', `${body.slice( 0, globals.selection.start )}${snippet.value}${body.slice( globals.selection.start )}` );
-            }}>{ snippet.key }</strong></div>
-            <div className="padded cell rw-9 rw-md-12"><span className="small" style={{fontSize: '0.8em'}}>{ snippet.value }</span></div>
-        </div>) }
+        { roles.sort((a,b) => a.localeCompare(b)).map( role => <>
+            { roles.length > 1 && <div className="padded cell rw-12">
+                <div className="row-flex gap v-center">
+                    <div className="cell factor-0"><strong><span className="small">{ role }</span></strong></div>
+                    <div className="cell grow-1"><hr/></div>
+                </div>
+            </div> }
+            { snippets.filter(snippet => snippet.role === role).map(snippet => <div className="row" key={snippet.key} style={{fontSize: '0.8em'}}>
+                <div className="padded cell rw-3 rw-md-12"><strong className="pointer" onClick={() => {
+                    const body = `${globals.getField('body')}`;
+                    globals.setField('body', `${body.slice( 0, globals.selection.start )}${snippet.value}${body.slice( globals.selection.start )}` );
+                }}>{ snippet.key }</strong></div>
+                <div className="padded cell rw-9 rw-md-12"><span className="small" style={{fontSize: '0.8em'}}>{ snippet.value }</span></div>
+            </div>) }
+        </>) }
+
     </div>
 }
 
