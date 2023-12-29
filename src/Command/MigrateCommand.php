@@ -138,6 +138,7 @@ class MigrateCommand extends Command
 		'a8ddaec85455e9ab14b1ac91b7e1b7e232ad03c9' => [ ['app:migrate', ['--fix-town-loot-log' => true] ] ],
 		'7ef3c511bb2f0c7a9504853cd7ea0daee0c37253' => [ ['app:migrate', ['--add-building-inventory' => true] ] ],
 		'348648aa18ba42e3ede0b5330275176cec60a27d' => [ ['app:migrate', ['--shuffle-zone-soul-offset' => true] ] ],
+		'7721bb3d28475c7c4fc6e474b579762c06fc4e8e' => [ ['app:migrate', ['--set-snippet-role' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
