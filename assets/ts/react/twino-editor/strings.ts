@@ -15,6 +15,8 @@ export type TranslationStrings = {
         insert: string,
         abort: string,
         ctrl: string,
+        enter: string,
+        send: string,
     }
     controls: {
         b: string,

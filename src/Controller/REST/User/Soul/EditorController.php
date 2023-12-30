@@ -48,6 +48,8 @@ class EditorController extends CustomAbstractCoreController
                     'insert' => $this->translator->trans('Einfügen', [], 'global'),
                     'abort' => $this->translator->trans('Abbrechen', [], 'global'),
                     'ctrl' => $this->translator->trans('STRG', [], 'global'),
+                    'enter' => $this->translator->trans('ENTER', [], 'global'),
+                    'send' => $this->translator->trans('Absenden', [], 'global'),
                 ],
                 'controls' => [
                     'b' => $this->translator->trans('Fett', [], 'global'),

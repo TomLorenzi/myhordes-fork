@@ -16,11 +16,12 @@ type TabPropsGroup = TabProps & {
     children: ReactElement<TabPropsLeaf>[],
 }
 
-export const TabbedSection = ( {defaultTab, children, mountOnlyActive, keepInactiveMounted}: {
+export const TabbedSection = ( {defaultTab, children, mountOnlyActive, keepInactiveMounted, className}: {
     defaultTab?: string,
     children: (ReactElement<TabProps>)[],
     mountOnlyActive?: boolean
-    keepInactiveMounted?: boolean
+    keepInactiveMounted?: boolean,
+    className?: string,
 } ) => {
     const [selected, setSelected] = useState<string>(children.find(t => t.props.id === (defaultTab ?? 'default'))?.props?.id ?? children[0]?.props.id ?? null);
     const [group, setGroup] = useState<string>(null);
@@ -145,7 +146,7 @@ export const TabbedSection = ( {defaultTab, children, mountOnlyActive, keepInact
     }, [group]);
 
     return <>
-        <ul className="tabs plain" ref={me}>
+        <ul className={`tabs plain ${className}`} ref={me}>
             {children.filter(t => (typeof t.props['if'] === "undefined") || t.props['if']).map(t => <React.Fragment key={t.props.id}>
                 {getType(t) === "Tab" && renderTab(t) }
                 {getType(t) === "TabGroup" && (t as ReactElement<TabPropsGroup>).props.children.length > 0 && <>
@@ -171,9 +172,9 @@ export const TabbedSection = ( {defaultTab, children, mountOnlyActive, keepInact
         </ul>
         {mountOnlyActive && !keepInactiveMounted && leafs.find(t => t.props.id === selected)}
         {!mountOnlyActive && leafs.map(t => <div key={t.props.id}
-                                                 className={selected === t.props.id ? '' : 'hidden'}>{t}</div>)}
+                                                 className={selected === t.props.id ? 'opt-tab-container' : 'opt-tab-container hidden'}>{t}</div>)}
         {mountOnlyActive && keepInactiveMounted && leafs.filter(t => mounted.includes(t.props.id)).map(t => <div
-            key={t.props.id} className={selected === t.props.id ? '' : 'hidden'}>{t}</div>)}
+            key={t.props.id} className={selected === t.props.id ? 'opt-tab-container' : 'opt-tab-container hidden'}>{t}</div>)}
     </>
 }
 

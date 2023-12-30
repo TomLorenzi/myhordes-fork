@@ -96,7 +96,7 @@ export const TwinoEditorControlsTabList = ({emotes,snippets}: {emotes: null|Arra
 
     const langList = snippets?.map( v=>v.lang ) ?? [];
 
-    return <TabbedSection mountOnlyActive={true} keepInactiveMounted={true}>
+    return <TabbedSection mountOnlyActive={true} keepInactiveMounted={true} className="no-bottom-margin">
         <Tab icon={ globals.strings.controls.emotes_img } id="emotes"><EmoteTabSection emotes={emotes}/></Tab>
         <Tab icon={ globals.strings.controls.games_img } id="games"><GameTabSection/></Tab>
         <Tab icon={ globals.strings.controls.rp_img } id="rp" if={ globals.allowControl('rp') }><RPTabSection/></Tab>

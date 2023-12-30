@@ -98,7 +98,7 @@ class FetchBuilder {
     private use_cache: boolean = false;
     private send_token: boolean = false;
 
-    constructor(url: string, params: URLSearchParams|null, f_then: (Response) => Promise<any>, f_catch: (any) => Promise<any>) {
+    constructor(url: string, headers: object|null, params: URLSearchParams|null, f_then: (Response) => Promise<any>, f_catch: (any) => Promise<any>) {
         this.url = url;
         this.params = params;
         this.f_then = f_then;
@@ -110,7 +110,8 @@ class FetchBuilder {
             credentials: 'same-origin',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                ...(headers ?? {})
             },
             redirect: 'follow'
         }
@@ -171,6 +172,7 @@ class FetchOptions {
     public error_messages: boolean = true;
     public loader: boolean = true;
     public body_success: boolean = false;
+    public add_xhr_header: boolean = false;
 }
 
 class FetchOptionBuilder {
@@ -194,6 +196,9 @@ class FetchOptionBuilder {
     public withLoader(): FetchOptionBuilder { this.options.loader = true; return this; }
     public withoutLoader(): FetchOptionBuilder { this.options.loader = false; return this; }
 
+    public withXHRHeader(): FetchOptionBuilder { this.options.add_xhr_header = true; return this; }
+    public withoutXHRHeader(): FetchOptionBuilder { this.options.add_xhr_header = false; return this; }
+
     public bodyDeterminesSuccess(b: boolean = true): FetchOptionBuilder { this.options.body_success = b; return this; }
 
     public param( name: string, value: any, condition: boolean = true ) {
@@ -205,7 +210,15 @@ class FetchOptionBuilder {
     }
 
     public request(): FetchBuilder {
-        return new FetchBuilder( this.url, this.queryParams, (r: Response) => this.processor(r, this.options), r => this.error_handler(r, this.options) );
+        return new FetchBuilder(
+            this.url,
+            this.options.add_xhr_header ? {
+                'X-Requested-With': 'XMLHttpRequest'
+            }: null,
+            this.queryParams,
+            (r: Response) => this.processor(r, this.options),
+            r => this.error_handler(r, this.options)
+        );
     }
 }
 
@@ -300,6 +313,12 @@ export class Fetch {
     public from( endpoint: string ) {
         const e = this.remove_slashes( endpoint );
         return new FetchOptionBuilder( e ? `${this.rest}/${e}` : this.rest,
+            (r,opt) => this.preprocess_response(r,opt),
+            (e,opt) => this.process_network_failure(e,opt) );
+    }
+
+    public fromEndpoint( ) {
+        return new FetchOptionBuilder( this.rest,
             (r,opt) => this.preprocess_response(r,opt),
             (e,opt) => this.process_network_failure(e,opt) );
     }

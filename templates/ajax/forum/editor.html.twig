@@ -379,6 +379,50 @@
         {% if permission.format_admin() or permission.format_oracle() or permission.format_mod() %}
             data-control-snippet="1"
         {% endif %}
+
+        {% if forum and (permission.alt_post_mode()) and pid is null %}
+            data-with-role-user="{{ app.user.name }}"
+            data-default-role="{{ app.user.postAsDefault }}"
+            {% if permission.post_as_animacteur() %}
+                data-with-role-anim="{{ 'Animateur'|trans({},'admin') }}"
+            {% endif %}
+            {% if permission.post_as_crow() %}
+                data-with-role-crow="{{ 'Der Rabe'|trans({},'global') }}"
+            {% endif %}
+            {% if permission.post_as_dev() %}
+                data-with-role-dev="{{ 'Entwickler'|trans({},'global') }}"
+            {% endif %}
+        {% endif %}
+
+        {% if not forum and tid is null and type == "global-pm" %}
+
+        {% endif %}
+
+        {% if not forum %}
+            {# recipient MISSING #}
+            {# items MISSING #}
+            {# users MISSING #}
+            {# sender MISSING #}
+            {# og MISSING #}
+
+            {% if target_url is not empty %}
+                data-target-url="{{ path(target_url, target_data) }}"
+                data-target-map="html:content,type,tid,title,recipient,users,items,role:sender,og,version,lang"
+                data-default-type="{{ type }}"
+                {% if tid is not null %}
+                    data-default-tid="{{ tid }}"
+                {% endif %}
+            {% endif %}
+        {% else %}
+            {% if tid is null %}
+                data-target-url="{{ path('forum_new_thread_controller', {id: fid}) }}"
+            {% elseif (pid is null) %}
+                data-target-url="{{ path('forum_new_post_controller', {fid: fid, tid: tid}) }}"
+            {% else %}
+                data-target-url="{{ path('forum_edit_post_controller', {fid: fid, tid: tid, pid: pid}) }}"
+            {% endif %}
+            data-target-map="html:text,role:type,title,tag"
+        {% endif %}
     />
 {% endblock %}
 {% block js %}

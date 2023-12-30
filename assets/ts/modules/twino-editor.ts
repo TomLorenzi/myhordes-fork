@@ -20,6 +20,18 @@ customElements.define('hordes-twino-editor', class HordesTwinoEditorElement exte
             tags: Object.fromEntries((this.dataset.tags ?? '').split(',').map((s:string) => s.split(':'))),
             features: (this.dataset.feature ?? '').split(','),
             controls: (this.dataset.control ?? '').split(','),
+            target: this.dataset.targetUrl ? {
+                url: this.dataset.targetUrl,
+                method: this.dataset.targetMethod ?? 'post',
+                map: this.dataset.targetMap
+                    ? Object.fromEntries(this.dataset.targetMap.split(',').map((s:string) => {
+                        let elems = s.split(':');
+                        if (elems.length === 1) elems.push(elems[0]);
+                        return elems;
+                    }))
+                    : null,
+            } : null,
+            roles: {},
             defaultFields: {},
         };
 
@@ -30,6 +42,8 @@ customElements.define('hordes-twino-editor', class HordesTwinoEditorElement exte
                 data.features.push(prop.slice(7,8).toLowerCase() + prop.slice(8));
             else if (prop.startsWith('control') && prop.length > 7 && parseInt(this.dataset[prop]) > 0)
                 data.controls.push(prop.slice(7,8).toLowerCase() + prop.slice(8));
+            else if (prop.startsWith('withRole') && prop.length > 8)
+                data.roles[prop.slice(8).toUpperCase()] = this.dataset[prop];
 
         return data;
     }

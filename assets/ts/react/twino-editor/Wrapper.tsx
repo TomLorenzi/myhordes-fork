@@ -1,12 +1,13 @@
 import * as React from "react";
 import { createRoot } from "react-dom/client";
 
-import {ChangeEvent, MouseEventHandler, useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
+import {useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
 import {TranslationStrings} from "./strings";
 import {Const, Global} from "../../defaults";
 import {v4 as uuidv4} from 'uuid';
 import {TwinoEditorControls, TwinoEditorControlsTabList} from "./Controls";
 import {EmoteResponse, TwinoEditorAPI} from "./api";
+import {Fetch} from "../../v2/fetch";
 
 declare var $: Global;
 declare var c: Const;
@@ -26,10 +27,17 @@ type HTMLConfig = HeaderConfig & {
     pm: boolean,
     features: Feature[],
     controls: Control[]
+    roles?: {[index:string]: string},
+    target?: {
+        url: string,
+        method?: string,
+        map?: {[index:string]: string}
+    }|null
     defaultFields: object,
 }
 
 type FieldChangeEventTrigger = ( field: string, value: string|number|null, old_value: string|number|null, is_default: boolean ) => void
+type SubmitEventTrigger = ( fields: {[index:string]: string}, response?: any ) => void
 type FieldMutator = ( field: string, value: string|number|null ) => void
 type FieldReader = ( field: string ) => string|number|null
 type FeatureCheck = ( feature: Feature ) => boolean
@@ -68,9 +76,20 @@ export class HordesTwinoEditor {
         }) )
     }
 
+    private onSubmit( fields: {[index:string]: string}, response: any = null ): void {
+        this.#_parent.dispatchEvent( new CustomEvent('submit', {
+            bubbles: false,
+            detail: { fields, response: response ?? null }
+        }) )
+    }
+
     public mount(parent: HTMLElement, props: HTMLConfig): void {
         if (!this.#_root) this.#_root = createRoot(this.#_parent = parent);
-        this.#_root.render( <TwinoEditorWrapper onFieldChanged={(f:string,v:string|number|null,v0:string|number|null,d:boolean) => this.onFieldChanged(f,v,v0,d)} {...props} /> );
+        this.#_root.render( <TwinoEditorWrapper
+            {...props}
+            onFieldChanged={(f:string,v:string|number|null,v0:string|number|null,d:boolean) => this.onFieldChanged(f,v,v0,d)}
+            onSubmit={(fields, response) => this.onSubmit(fields, response)}
+        /> );
     }
 
     public unmount(parent: HTMLElement): void {
@@ -81,7 +100,7 @@ export class HordesTwinoEditor {
     }
 }
 
-const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEventTrigger } ) => {
+const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEventTrigger, onSubmit: SubmitEventTrigger } ) => {
 
     const cache = $.client.config.scopedEditorCache.get() ?? ['',''];
     const cache_value = (cache[0] ?? '_') === props.context ? cache[1] : null;
@@ -142,6 +161,28 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
     const isEnabled = (f:Feature): boolean => props.features.includes(f);
     const controlAllowed = (c:Control): boolean => props.controls.includes(c);
 
+    const submit = () => {
+        if (!props.target) {
+            $.client.config.scopedEditorCache.set(['','']);
+            props.onSubmit({...fieldRef.current});
+        } else {
+            let submissionData = {};
+            if (props.target?.map) Object.entries(props.target.map).forEach(([field,property]) => {
+                if (fieldRef.current.hasOwnProperty( field )) submissionData[ property ] = fieldRef.current[ field ];
+            }); else submissionData = {...fieldRef.current};
+
+            (new Fetch( props.target.url, false )).fromEndpoint()
+                .bodyDeterminesSuccess(true)
+                .withLoader()
+                .withXHRHeader()
+                .request().method( props.target.method ?? 'post', submissionData )
+                .then(r => {
+                    $.client.config.scopedEditorCache.set(['','']);
+                    props.onSubmit({...fieldRef.current}, r);
+                })
+        }
+    }
+
     useEffect(() => {
         apiRef.current.index().then(data => setStrings(data.strings));
         apiRef.current.emotes(props.user).then(data => {
@@ -171,69 +212,89 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
                 selection: selection.current,
                 strings
             }}>
-                <div className={ props.pm ? 'pm-editor' : 'forum-editor' }>
-                    { props.header && <TwinoEditorHeader {...props} /> }
+                <div className={props.pm ? 'pm-editor' : 'forum-editor'}>
+                    {props.header && <TwinoEditorHeader {...props} />}
                     <TwinoEditorFields tags={props.tags}/>
                     <div className="row classic-editor classic-editor-react" ref={me}>
                         <div className="padded cell rw-12">
                             {isEnabled("preview") && <TwinoEditorPreview
                                 html={`${getField("html") ?? convertToTwino(`${getField('body') ?? ''}`) ?? ''}`}/>}
                             <br/>
-                            <label className="small" htmlFor={`${uuid.current}-editor`}>{ strings.sections.message }</label>
+                            <label className="small"
+                                   htmlFor={`${uuid.current}-editor`}>{strings.sections.message}</label>
                             <TwinoEditorControls/>
                         </div>
                         <div className="padded cell rw-12">
                             <TwinoEditorEditor
-                                body={ `${fieldRef.current['body'] ?? getField('body') ?? ''}` }
+                                body={`${fieldRef.current['body'] ?? getField('body') ?? ''}`}
                                 fixed={props.pm}
-                                controlTrigger={ s => {
+                                controlTrigger={s => {
                                     const list = me.current?.querySelectorAll(`[data-receive-control-event="${s}"]`);
-                                    list.forEach(e => e.dispatchEvent( new CustomEvent('controlActionTriggered', { bubbles: false }) ));
+                                    list.forEach(e => e.dispatchEvent(new CustomEvent('controlActionTriggered', {bubbles: false})));
                                     return list.length > 0;
-                                } }
+                                }}
                             />
                         </div>
                         <div className="padded cell rw-12">
                             <TwinoEditorControlsTabList
-                                emotes={ emoteRef.current === null ? null : Object.values(emoteRef.current.result) }
-                                snippets={ emoteRef.current === null ? null : Object.values( emoteRef.current.snippets?.list ?? {} ) }
+                                emotes={emoteRef.current === null ? null : Object.values(emoteRef.current.result)}
+                                snippets={emoteRef.current === null ? null : Object.values(emoteRef.current.snippets?.list ?? {})}
                             />
                         </div>
                     </div>
+                    <div className="row-flex v-center right">
+                        { Object.values(props.roles).length > 0 && <>
+                            <div className="padded cell">
+                                <label><select value={getField('role')} onChange={e => setField('role', e.target.value)}>
+                                    { Object.entries(props.roles).map( ([role,name]) => <option key={ role } value={ role }>{ name }</option> ) }
+                                </select></label>
+                            </div>
+                        </>}
+                        <div className="padded cell">
+                            <div className="forum-button" tabIndex={0} onClick={() => submit()}>
+                                <span className="forum-button-tooltip">
+                                    <div className="center">{strings.common.send}</div>
+                                    <div className="keyboard"><kbd>{strings.common.ctrl}</kbd> + <kbd>{strings.common.enter}</kbd></div>
+                                </span>
+                                {strings.common.send}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </Globals.Provider> }
+            </Globals.Provider>}
         </>
     )
 };
 
-const TwinoEditorHeader = ({header, username}: HeaderConfig ) => {
+const TwinoEditorHeader = ({header, username}: HeaderConfig) => {
     return <div className="forum-editor-header">
-        <i>{ header }</i>
-        <b>{ username }</b>
+        <i>{header}</i>
+        <b>{username}</b>
     </div>
 };
 
-const TwinoEditorFields = ({tags}: {tags: { [index: string]: string }}) => {
+const TwinoEditorFields = ({tags}: { tags: { [index: string]: string } }) => {
     const globals = useContext(Globals)
 
-    const [showTagDropdown, setShowTagDropdown] = useState( !!globals.getField('tag') );
+    const [showTagDropdown, setShowTagDropdown] = useState(!!globals.getField('tag'));
 
     return <div>
-        { globals.isEnabled("title") &&
+        {globals.isEnabled("title") &&
             <div className="row-flex v-center">
                 <div className="cell rw-3 padded">
                     <label htmlFor={`${globals.uuid}-title`}>{globals.strings.header.title}</label>
                 </div>
-                <div className={`cell ${ globals.isEnabled("tags") && !globals.getField('tag') && !showTagDropdown ? 'rw-5 rw-sm-9' : 'rw-9' } padded`}>
+                <div
+                    className={`cell ${globals.isEnabled("tags") && !globals.getField('tag') && !showTagDropdown ? 'rw-5 rw-sm-9' : 'rw-9'} padded`}>
                     <input type="text" id={`${globals.uuid}-title`}
                            defaultValue={globals.getField('title')}
                            onChange={v => globals.setField('title', v.target.value)}
                     />
                 </div>
-                { globals.isEnabled("tags") && !globals.getField('tag') && !showTagDropdown &&
+                {globals.isEnabled("tags") && !globals.getField('tag') && !showTagDropdown &&
                     <div className="cell rw-4 rw-sm-12 padded">
                     <span className="small pointer" onClick={() => setShowTagDropdown(true)}>
-                        { globals.strings.header.add_tag }
+                        {globals.strings.header.add_tag}
                     </span>
                     </div>
                 }
