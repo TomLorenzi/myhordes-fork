@@ -59,7 +59,13 @@ type TwinoEditorGlobals = {
     }
 }
 
-
+type TwinoContentImport = {
+    body?: string,
+    html?: string,
+    wrap?: [string,string],
+    insert?: boolean,
+    opmode?: number,
+}
 
 export const Globals = React.createContext<TwinoEditorGlobals>(null);
 
@@ -68,6 +74,8 @@ export class HordesTwinoEditor {
 
     #_root = null;
     #_parent = null;
+    #_detail_cache = null;
+    #_content_import: (TwinoContentImport) => void = v=>this.#_detail_cache = v;
 
     private onFieldChanged( field: string, value: string|number|null, old_value: string|number|null, is_default: boolean ): void {
         this.#_parent.dispatchEvent( new CustomEvent('change', {
@@ -84,11 +92,23 @@ export class HordesTwinoEditor {
     }
 
     public mount(parent: HTMLElement, props: HTMLConfig): void {
-        if (!this.#_root) this.#_root = createRoot(this.#_parent = parent);
+        if (!this.#_root) {
+            this.#_root = createRoot(this.#_parent = parent);
+            this.#_parent.addEventListener('import', e => {
+                this.#_content_import(e.detail);
+            })
+        }
         this.#_root.render( <TwinoEditorWrapper
             {...props}
             onFieldChanged={(f:string,v:string|number|null,v0:string|number|null,d:boolean) => this.onFieldChanged(f,v,v0,d)}
             onSubmit={(fields, response) => this.onSubmit(fields, response)}
+            connectImport={ callback => {
+                this.#_content_import = callback;
+                if (this.#_detail_cache) {
+                    callback(this.#_detail_cache);
+                    this.#_detail_cache = null;
+                }
+            } }
         /> );
     }
 
@@ -96,11 +116,13 @@ export class HordesTwinoEditor {
         if (this.#_root) {
             this.#_root.unmount();
             this.#_root = null;
+            this.#_detail_cache = null;
+            this.#_content_import = v=>this.#_detail_cache = v;
         }
     }
 }
 
-const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEventTrigger, onSubmit: SubmitEventTrigger } ) => {
+const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEventTrigger, onSubmit: SubmitEventTrigger, connectImport: (any)=>void } ) => {
 
     const cache = $.client.config.scopedEditorCache.get() ?? ['',''];
     const cache_value = (cache[0] ?? '_') === props.context ? cache[1] : null;
@@ -133,7 +155,7 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
     }
 
     const convertToHTML = (twino:string) => $.html.twinoParser.parseToString(twino, s => emoteResolver(s), {autoLinks: $.client.config.autoParseLinks.get()});
-    const convertToTwino = (html:string) => $.html.twinoParser.parseFrom(html, $.html.twinoParser.OpModeRaw);
+    const convertToTwino = (html:string,opmode:number = null) => $.html.twinoParser.parseFrom(html, opmode ?? $.html.twinoParser.OpModeRaw);
 
     const setField = (field: string, value: string|number) => {
         const current = fieldRef.current[field] ?? null;
@@ -162,14 +184,37 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
     const controlAllowed = (c:Control): boolean => props.controls.includes(c);
 
     const submit = () => {
+        let html = null;
+        const div = document.createElement('div');
+        div.innerHTML = fieldRef.current.html ?? '';
+
+        // remove proxies
+        let proxies = div.querySelectorAll('[x-foxy-proxy]');
+        for (let j = 0; j < proxies.length; j++) {
+            if (!proxies[j].parentNode) continue;
+            proxies[j].parentNode.insertBefore(document.createTextNode(proxies[j].getAttribute('x-foxy-proxy')), proxies[j]);
+            proxies[j].parentNode.removeChild(proxies[j]);
+        }
+
+        html = div.innerHTML;
+
         if (!props.target) {
             $.client.config.scopedEditorCache.set(['','']);
-            props.onSubmit({...fieldRef.current});
+            props.onSubmit({...fieldRef.current, html });
         } else {
             let submissionData = {};
+
+            const check = (field: string, value: string): boolean => {
+                switch (field) {
+                    case 'role': return props.roles.hasOwnProperty(value);
+                    default: return value !== '' && value !== null && value !== undefined;
+                }
+            }
+
             if (props.target?.map) Object.entries(props.target.map).forEach(([field,property]) => {
-                if (fieldRef.current.hasOwnProperty( field )) submissionData[ property ] = fieldRef.current[ field ];
-            }); else submissionData = {...fieldRef.current};
+                if ( field === 'html') submissionData[ property ] = html;
+                else if (fieldRef.current.hasOwnProperty( field ) && check( field, fieldRef.current[ field ] )) submissionData[ property ] = fieldRef.current[ field ];
+            }); else submissionData = {...fieldRef.current, html };
 
             (new Fetch( props.target.url, false )).fromEndpoint()
                 .bodyDeterminesSuccess(true)
@@ -184,6 +229,25 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
     }
 
     useEffect(() => {
+        props.connectImport( (t:TwinoContentImport) => {
+            let body = null;
+            if (t.html)
+                body = convertToTwino( t.html, t.opmode );
+            else if (t.body)
+                body = t.body;
+
+            if (body !== null) {
+                body = ((t.wrap ?? ['',''])[0] ?? '') + body + ((t.wrap ?? ['',''])[1] ?? '');
+
+                if (t.insert) {
+                    const prev = `${fieldRef.current.body ?? ''}`;
+                    setField('body', prev.slice( 0, selection.current.start ) + body + prev.slice( selection.current.end ) )
+                }
+                else setField('body', body);
+            }
+
+        } );
+
         apiRef.current.index().then(data => setStrings(data.strings));
         apiRef.current.emotes(props.user).then(data => {
             setEmotes({...emoteRef.current = data});

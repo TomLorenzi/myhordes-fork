@@ -313,6 +313,7 @@
                 </div>
             </div>
         </div>
+    <!--
     <hordes-twino-editor
         data-context="{{ type ~ (town_controls ? '-tc' : '') }}"
         data-pm-mode="{{ type == 'global-pm' ? '1' : '0' }}"
@@ -394,10 +395,6 @@
             {% endif %}
         {% endif %}
 
-        {% if not forum and tid is null and type == "global-pm" %}
-
-        {% endif %}
-
         {% if not forum %}
             {# recipient MISSING #}
             {# items MISSING #}
@@ -424,6 +421,7 @@
             data-target-map="html:text,role:type,title,tag"
         {% endif %}
     />
+    -->
 {% endblock %}
 {% block js %}
     <script>
