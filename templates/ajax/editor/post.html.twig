@@ -1,48 +1,18 @@
 {% extends "ajax/ajax_plain.html.twig" %}
-
-{# @var permission \App\Structures\ForumPermissionAccessor #}
-
 {% block ajax_base %}
-    <hordes-twino-editor
-        data-context="{{ "forum" ~ (town_controls ? '-tc' : '') }}"
-        data-pm-mode="0"
-        data-username="{{ username }}" data-user="{{ app.user.id }}"
-        data-header="{{ pid is not null ? 'Bearbeiten'|trans({},'global') : 'Neuer Post'|trans({},'global') }}"
-        data-feature-alias="{{ alias ? 1 : 0 }}"
-        data-feature-title="{{ edit_title ? 1 : 0 }}"
-        data-default-title="{{ edit_title }}"
-        data-feature-preview="1"
-        data-redirect-after-submit="1"
-
-        data-target-url="{{ pid is not null ? path('forum_edit_post_controller', {fid: fid, tid: tid, pid: pid}) : path('forum_new_post_controller', {fid: fid, tid: tid}) }}"
-        data-target-map="html:text,role:type,title,tag"
-
-        data-feature-tags="{{ tags is not empty ? 1 : 0 }}"
-        data-tags="{{ tags|map(t => t.name ~ ':' ~ t.label|trans({},'global'))|join(',') }}"
-        data-default-tag="{{ current_tag }}"
-
-        data-control="extended"
-        data-control-glory="{{ app.user|has_unlocked('f_glory') ? 1 : 0 }}"
-        data-control-rp="{{ town_controls ? 1 : 0 }}"
-        data-control-image="{{ (permission.format_admin() or permission.format_oracle()) ? 1 : 0 }}"
-        data-control-admin="{{ permission.format_admin() ? 1 : 0 }}"
-        data-control-oracle="{{ permission.format_oracle() ? 1 : 0 }}"
-        data-control-poll="{{ permission.format_oracle() ? 1 : 0 }}"
-        data-control-mod="{{ permission.format_mod() ? 1 : 0 }}"
-        data-control-snippet="{{ (permission.format_admin() or permission.format_oracle() or permission.format_mod()) ? 1 : 0 }}"
-
-        {% if permission.alt_post_mode() and pid is null %}
-            data-with-role-user="{{ app.user.name }}"
-            data-default-role="{{ app.user.postAsDefault }}"
-            {% if permission.post_as_animacteur() %}
-                data-with-role-anim="{{ 'Animateur'|trans({},'admin') }}"
-            {% endif %}
-            {% if permission.post_as_crow() %}
-                data-with-role-crow="{{ 'Der Rabe'|trans({},'global') }}"
-            {% endif %}
-            {% if permission.post_as_dev() %}
-                data-with-role-dev="{{ 'Entwickler'|trans({},'global') }}"
-            {% endif %}
-        {% endif %}
-    ></hordes-twino-editor>
+    {% from 'ajax/editor/base/forum-editor.html.twig' import forumEditor as editor %}
+    {{ editor(
+        app.user,
+        username,
+        permission,
+        alias,
+        pid is not null ? 'Bearbeiten'|trans({},'global') : 'Neuer Post'|trans({},'global'),
+        town_controls,
+        edit_title,
+        edit_title,
+        pid is null,
+        pid is not null ? path('forum_edit_post_controller', {fid: fid, tid: tid, pid: pid}) : path('forum_new_post_controller', {fid: fid, tid: tid}),
+        tags,
+        current_tag,
+    ) }}
 {% endblock %}

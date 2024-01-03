@@ -1,39 +1,15 @@
 {% extends "ajax/ajax_plain.html.twig" %}
-
-{# @var permission \App\Structures\ForumPermissionAccessor #}
-
 {% block ajax_base %}
-    <hordes-twino-editor
-        id="{{ uuid }}"
-        data-context="announcement"
-        data-pm-mode="0"
-        data-username="{{ app.user.name }}" data-user="{{ app.user.id }}"
-        data-header="{{ 'Neue Ankündigung'|trans({},'admin') }}"
-        data-feature-title="1"
-        data-feature-language="1"
-        data-feature-preview="1"
-
-        data-control="extended"
-        {% if app.user|has_unlocked('f_glory') %}
-            data-control-glory="1"
-        {% endif %}
-        {% if permission.format_admin() or permission.format_oracle() %}
-            data-control-image="1"
-            {% if permission.format_admin() %}
-                data-control-admin="1"
-            {% endif %}
-            {% if permission.format_oracle() %}
-                data-control-oracle="1"
-            {% endif %}
-        {% endif %}
-        {% if permission.format_mod() %}
-            data-control-mod="1"
-        {% endif %}
-
-        data-target-url="{{ path('admin_changelog_new_announcement') }}"
-        data-target-map="html:content,title,language:lang"
-        data-redirect-after-submit="1"
-    ></hordes-twino-editor>
+    {% from 'ajax/editor/base/announcement-editor.html.twig' import announcementEditor as editor %}
+    {{ editor(
+        uuid,
+        app.user,
+        permission,
+        'announcement',
+        'Neue Ankündigung'|trans({},'admin'),
+        false,
+        path('admin_changelog_new_announcement')
+    ) }}
 {% endblock %}
 {% block js %}
     <script>

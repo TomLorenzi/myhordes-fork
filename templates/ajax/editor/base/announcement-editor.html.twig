@@ -1,0 +1,48 @@
+{% macro announcementEditor(
+    uuid,
+    user,
+    permission,
+    context,
+    header,
+    enable_version,
+    target_url,
+    ) %}
+    {# @var permission \App\Structures\ForumPermissionAccessor #}
+    {# @var user \App\Entity\User #}
+    <hordes-twino-editor
+        {% if uuid %}
+            id="{{ uuid }}"
+        {% endif %}
+        data-context="{{ context }}"
+        data-pm-mode="0"
+        data-username="{{ user.name }}" data-user="{{ user.id }}"
+        data-header="{{ header }}"
+
+        data-feature-title="1"
+        {% if enable_version %}
+            data-feature-version="1"
+        {% endif %}
+        data-feature-language="1"
+        data-feature-preview="1"
+        data-control="extended"
+        {% if user|has_unlocked('f_glory') %}
+            data-control-glory="1"
+        {% endif %}
+        {% if permission.format_admin() or permission.format_oracle() %}
+            data-control-image="1"
+            {% if permission.format_admin() %}
+                data-control-admin="1"
+            {% endif %}
+            {% if permission.format_oracle() %}
+                data-control-oracle="1"
+            {% endif %}
+        {% endif %}
+        {% if permission.format_mod() %}
+            data-control-mod="1"
+        {% endif %}
+
+        data-target-url="{{ target_url }}"
+        data-target-map="{{ 'html:content,title,' ~ (enable_version ? 'version,' : '') ~ 'language:lang' }}"
+        data-redirect-after-submit="1"
+    ></hordes-twino-editor>
+{% endmacro %}
