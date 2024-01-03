@@ -37,7 +37,7 @@ type HTMLConfig = HeaderConfig & {
 }
 
 type FieldChangeEventTrigger = ( field: string, value: string|number|null, old_value: string|number|null, is_default: boolean ) => void
-type SubmitEventTrigger = ( fields: {[index:string]: string}, response?: any ) => void
+type SubmitEventTrigger = ( fields: {[index:string]: string|number}, response?: any ) => void
 type FieldMutator = ( field: string, value: string|number|null ) => void
 type FieldReader = ( field: string ) => string|number|null
 type FeatureCheck = ( feature: Feature ) => boolean
@@ -84,7 +84,7 @@ export class HordesTwinoEditor {
         }) )
     }
 
-    private onSubmit( fields: {[index:string]: string}, response: any = null ): void {
+    private onSubmit( fields: {[index:string]: string|number}, response: any = null ): void {
         this.#_parent.dispatchEvent( new CustomEvent('submit', {
             bubbles: false,
             detail: { fields, response: response ?? null }
@@ -129,10 +129,10 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
 
     const uuid = useRef(uuidv4());
     const [strings, setStrings] = useState<TranslationStrings>(null);
-    const [fields, setFields] = useState({
+    const [fields, setFields] = useState<{[index:string]: string|number}>({
         ...props.defaultFields,
     });
-    const fieldRef = useRef(fields);
+    const fieldRef = useRef<{[index:string]: string|number}>(fields);
 
     const selection = useRef({
         start: 0,
@@ -186,7 +186,7 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
     const submit = () => {
         let html = null;
         const div = document.createElement('div');
-        div.innerHTML = fieldRef.current.html ?? '';
+        div.innerHTML = `${fieldRef.current.html ?? ''}`;
 
         // remove proxies
         let proxies = div.querySelectorAll('[x-foxy-proxy]');
@@ -204,7 +204,7 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
         } else {
             let submissionData = {};
 
-            const check = (field: string, value: string): boolean => {
+            const check = (field: string, value: string|number): boolean => {
                 switch (field) {
                     case 'role': return props.roles.hasOwnProperty(value);
                     default: return value !== '' && value !== null && value !== undefined;
@@ -251,7 +251,7 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
         apiRef.current.index().then(data => setStrings(data.strings));
         apiRef.current.emotes(props.user).then(data => {
             setEmotes({...emoteRef.current = data});
-            const updateParsed = convertToHTML( fieldRef.current['body'] ?? '' );
+            const updateParsed = convertToHTML( `${fieldRef.current['body'] ?? ''}` );
             if (updateParsed !== (fieldRef.current['html'] ?? '')) setField('html', updateParsed);
         })
     }, []);
