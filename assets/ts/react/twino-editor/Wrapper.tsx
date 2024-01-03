@@ -23,6 +23,7 @@ interface HeaderConfig {
 }
 
 type HTMLConfig = HeaderConfig & {
+    id: string|null,
     context: string,
     pm: boolean,
     features: Feature[],
@@ -34,6 +35,7 @@ type HTMLConfig = HeaderConfig & {
         map?: {[index:string]: string}
     }|null
     defaultFields: {[index:string]: string|number},
+    redirectAfterSubmit: string|boolean
 }
 
 type FieldChangeEventTrigger = ( field: string, value: string|number|null, old_value: string|number|null, is_default: boolean ) => void
@@ -134,7 +136,7 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
     const cache = $.client.config.scopedEditorCache.get() ?? ['',''];
     const cache_value = (cache[0] ?? '_') === props.context ? cache[1] : null;
 
-    const uuid = useRef(uuidv4());
+    const uuid = useRef(props.id ?? uuidv4());
     const [strings, setStrings] = useState<TranslationStrings>(null);
     const [fields, setFields] = useState<{[index:string]: string|number}>({
         ...props.defaultFields,
@@ -231,6 +233,10 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
                 .then(r => {
                     $.client.config.scopedEditorCache.set(['','']);
                     props.onSubmit({...fieldRef.current}, r);
+                    if (props.redirectAfterSubmit === true) {
+                        const url = r.url ?? r.redirect ?? null;
+                        if (url) $.ajax.load( null, url, true );
+                    } else if (props.redirectAfterSubmit) $.ajax.load( null, props.redirectAfterSubmit as string, true );
                 })
         }
     }

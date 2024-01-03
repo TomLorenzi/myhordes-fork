@@ -39,6 +39,7 @@ export default class HordesTwinoEditorElement extends Shim<HordesTwinoEditor> {
 
     protected generateProps(): object {
         let data = {
+            id: this.getAttribute('id') ?? null,
             pm: parseInt(this.dataset.pmMode ?? "0") !== 0,
             context: this.dataset.context ?? 'forum',
             header: this.dataset.header ?? null,
@@ -60,6 +61,7 @@ export default class HordesTwinoEditorElement extends Shim<HordesTwinoEditor> {
             } : null,
             roles: {},
             defaultFields: {},
+            redirectAfterSubmit: this.dataset.redirectAfterSubmit === "1" ? true : (this.dataset.redirectAfterSubmit ?? false)
         };
 
         for (const prop in this.dataset)

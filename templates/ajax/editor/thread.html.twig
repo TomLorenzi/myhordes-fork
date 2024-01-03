@@ -4,7 +4,6 @@
 
 {% block ajax_base %}
     <hordes-twino-editor
-        id="{{ uuid }}"
         data-context="{{ "forum" ~ (town_controls ? '-tc' : '') }}"
         data-pm-mode="0"
         data-username="{{ username }}" data-user="{{ app.user.id }}"
@@ -12,6 +11,8 @@
         data-feature-alias="{{ alias ? 1 : 0 }}"
         data-feature-title="1"
         data-feature-preview="1"
+        data-redirect-after-submit="1"
+
         data-target-url="{{ path('forum_new_thread_controller', {id: fid}) }}"
         data-target-map="html:text,role:type,title,tag"
 
@@ -41,14 +42,5 @@
                 data-with-role-dev="{{ 'Entwickler'|trans({},'global') }}"
             {% endif %}
         {% endif %}
-    />
-{% endblock %}
-{% block js %}
-    <script>
-        (function() {
-            document.getElementById('{{ uuid }}').addEventListener('submit', e => {
-                if (e.detail?.response?.url) $.ajax.load( null, e.detail?.response?.url, true );
-            })
-        })();
-    </script>
+    ></hordes-twino-editor>
 {% endblock %}

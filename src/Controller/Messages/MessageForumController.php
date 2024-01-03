@@ -951,7 +951,6 @@ class MessageForumController extends MessageController
         ) : [];
 
         return $this->render( 'ajax/editor/thread.html.twig', [
-            'uuid' => Uuid::v4(),
             'fid' => $forum->getId(),
             'permission' => $this->getPermissionObject( $permissions ),
             'username' => $town_citizen?->getName() ?? $user->getName(),
@@ -1261,7 +1260,6 @@ class MessageForumController extends MessageController
         else $tags = [];
 
         return $this->render( 'ajax/editor/post.html.twig', [
-            'uuid' => Uuid::v4(),
             'fid' => $forum->getId(),
             'tid' => $thread->getId(),
             'pid' => $pid,
