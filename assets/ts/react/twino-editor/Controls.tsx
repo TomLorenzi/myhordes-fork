@@ -100,7 +100,7 @@ export const TwinoEditorControlsTabList = ({emotes,snippets}: {emotes: null|Arra
         <Tab icon={ globals.strings.controls.emotes_img } id="emotes"><EmoteTabSection emotes={emotes}/></Tab>
         <Tab icon={ globals.strings.controls.games_img } id="games"><GameTabSection/></Tab>
         <Tab icon={ globals.strings.controls.rp_img } id="rp" if={ globals.allowControl('rp') }><RPTabSection/></Tab>
-        <TabGroup id="mod" icon={ globals.strings.controls.mod_img } if={ langList.length > 0 }>
+        <TabGroup id="mod" icon={ globals.strings.controls.mod_img } if={ globals.allowControl('snippet') && langList.length > 0 }>
             <Tab title="FR" id="mod_fr" if={ langList.includes('fr') }><ModTabSection snippets={snippets?.filter(v => v.lang === 'fr') ?? []}/></Tab>
             <Tab title="EN" id="mod_en" if={ langList.includes('en') }><ModTabSection snippets={snippets?.filter(v => v.lang === 'en') ?? []}/></Tab>
             <Tab title="DE" id="mod_de" if={ langList.includes('de') }><ModTabSection snippets={snippets?.filter(v => v.lang === 'de') ?? []}/></Tab>

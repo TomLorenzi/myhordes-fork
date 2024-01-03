@@ -12,7 +12,7 @@ import {Fetch} from "../../v2/fetch";
 declare var $: Global;
 declare var c: Const;
 
-type Feature = "tags"|"title"|"version"|"language"|"preview"|"compact"|"alias"
+type Feature = "tags"|"title"|"version"|"language"|"preview"|"compact"|"alias"|"passive"
 type Control = "core"|"extended"|"image"|"admin"|"mod"|"oracle"|"glory"|"poll"|"rp"|"snippet"
 
 interface HeaderConfig {
@@ -33,7 +33,7 @@ type HTMLConfig = HeaderConfig & {
         method?: string,
         map?: {[index:string]: string}
     }|null
-    defaultFields: object,
+    defaultFields: {[index:string]: string|number},
 }
 
 type FieldChangeEventTrigger = ( field: string, value: string|number|null, old_value: string|number|null, is_default: boolean ) => void
@@ -75,13 +75,19 @@ export class HordesTwinoEditor {
     #_root = null;
     #_parent = null;
     #_detail_cache = null;
+    #_values: {[index:string]: string|number} = {};
     #_content_import: (TwinoContentImport) => void = v=>this.#_detail_cache = v;
 
+    public getValue(field: string): string|number|null {
+        return this.#_values[field] ?? null;
+    }
+
     private onFieldChanged( field: string, value: string|number|null, old_value: string|number|null, is_default: boolean ): void {
+        this.#_values[field] = value;
         this.#_parent.dispatchEvent( new CustomEvent('change', {
             bubbles: false,
             detail: { field, value, old_value, is_default }
-        }) )
+        }) );
     }
 
     private onSubmit( fields: {[index:string]: string|number}, response: any = null ): void {
@@ -98,6 +104,7 @@ export class HordesTwinoEditor {
                 this.#_content_import(e.detail);
             })
         }
+        this.#_values = props.defaultFields;
         this.#_root.render( <TwinoEditorWrapper
             {...props}
             onFieldChanged={(f:string,v:string|number|null,v0:string|number|null,d:boolean) => this.onFieldChanged(f,v,v0,d)}
@@ -314,15 +321,18 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
                                 </select></label>
                             </div>
                         </>}
-                        <div className="padded cell">
-                            <div className="forum-button" tabIndex={0} onClick={() => submit()}>
+                        { !isEnabled('passive') && <>
+                            <div className="padded cell">
+                                <div className="forum-button" tabIndex={0} onClick={() => submit()}>
                                 <span className="forum-button-tooltip">
                                     <div className="center">{strings.common.send}</div>
-                                    <div className="keyboard"><kbd>{strings.common.ctrl}</kbd> + <kbd>{strings.common.enter}</kbd></div>
+                                    <div
+                                        className="keyboard"><kbd>{strings.common.ctrl}</kbd> + <kbd>{strings.common.enter}</kbd></div>
                                 </span>
-                                {strings.common.send}
+                                    {strings.common.send}
+                                </div>
                             </div>
-                        </div>
+                        </>}
                     </div>
                 </div>
             </Globals.Provider>}
@@ -345,7 +355,7 @@ const TwinoEditorFields = ({tags}: { tags: { [index: string]: string } }) => {
     return <div>
         {globals.isEnabled("title") &&
             <div className="row-flex v-center">
-                <div className="cell rw-3 padded">
+            <div className="cell rw-3 padded">
                     <label htmlFor={`${globals.uuid}-title`}>{globals.strings.header.title}</label>
                 </div>
                 <div

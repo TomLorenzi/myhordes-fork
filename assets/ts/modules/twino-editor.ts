@@ -7,8 +7,35 @@
 import {Shim} from "../react";
 import {HordesTwinoEditor} from "../react/twino-editor/Wrapper";
 
-// Define web component <hordes-twino-editor />
-customElements.define('hordes-twino-editor', class HordesTwinoEditorElement extends Shim<HordesTwinoEditor> {
+export default class HordesTwinoEditorElement extends Shim<HordesTwinoEditor> {
+
+    public value(field: string): string|number|boolean {
+        return this.nestedObject().getValue( field );
+    }
+
+    public get html(): string {
+        return `${this.value('html') ?? ''}`;
+    }
+
+    public set html(value: string) {
+        this.dispatchEvent(new CustomEvent('import', {
+            bubbles: false,
+            cancelable: false,
+            detail: { html: value }
+        }));
+    }
+
+    public get twino(): string {
+        return `${this.value('body') ?? ''}`;
+    }
+
+    public set twino(value: string) {
+        this.dispatchEvent(new CustomEvent('import', {
+            bubbles: false,
+            cancelable: false,
+            detail: { body: value }
+        }));
+    }
 
     protected generateProps(): object {
         let data = {
@@ -52,4 +79,7 @@ customElements.define('hordes-twino-editor', class HordesTwinoEditorElement exte
         return new HordesTwinoEditor();
     }
 
-}, {  });
+}
+
+// Define web component <hordes-twino-editor />
+customElements.define('hordes-twino-editor', HordesTwinoEditorElement, {  });

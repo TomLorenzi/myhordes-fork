@@ -152,29 +152,4 @@ class MessageController extends CustomAbstractController
 
         return new ForumPermissionAccessor($p, $this->perm);
     }
-
-    /**
-     * @return Response
-     */
-    #[Route(path: 'jx/admin/com/numb/editor', name: 'admin_numb_editor')]
-    public function admin_numb_editor(): Response {
-        $user = $this->getUser();
-
-        return $this->render( 'ajax/forum/editor.html.twig', [
-            'fid' => null,
-            'tid' => null,
-            'pid' => null,
-
-            'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionOwn ),
-            'snippets' => [],
-            'emotes' => $this->getEmotesByUser($user,true),
-
-            'forum' => false,
-            'type' => 'numb',
-            'username' => $user->getName(),
-            'target_url' => '',
-            'town_controls' => false,
-            'langsCodes' => $this->generatedLangsCodes
-        ] );
-    }
 }
