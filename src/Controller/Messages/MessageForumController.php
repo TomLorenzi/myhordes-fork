@@ -950,7 +950,7 @@ class MessageForumController extends MessageController
             fn(ThreadTag $tag) => $tag->getPermissionMap() === null || $this->perm->isPermitted( $permissions, $tag->getPermissionMap() )
         ) : [];
 
-        return $this->render( 'ajax/editor/thread.html.twig', [
+        return $this->render( 'ajax/editor/forum-thread.html.twig', [
             'fid' => $forum->getId(),
             'permission' => $this->getPermissionObject( $permissions ),
             'username' => $town_citizen?->getName() ?? $user->getName(),
@@ -1259,7 +1259,7 @@ class MessageForumController extends MessageController
             ) : [];
         else $tags = [];
 
-        return $this->render( 'ajax/editor/post.html.twig', [
+        return $this->render( 'ajax/editor/forum-post.html.twig', [
             'fid' => $forum->getId(),
             'tid' => $thread->getId(),
             'pid' => $pid,
