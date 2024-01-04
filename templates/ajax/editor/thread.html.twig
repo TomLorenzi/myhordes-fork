@@ -1,6 +1,6 @@
 {% extends "ajax/ajax_plain.html.twig" %}
+{% from 'ajax/editor/base/forum-editor.html.twig' import forumEditor as editor %}
 {% block ajax_base %}
-    {% from 'ajax/editor/base/forum-editor.html.twig' import forumEditor as editor %}
     {{ editor(
         app.user,
         username,

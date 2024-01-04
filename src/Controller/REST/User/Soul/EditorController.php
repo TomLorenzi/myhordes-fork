@@ -18,6 +18,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Cache\ItemInterface;
 use Symfony\Contracts\Cache\TagAwareCacheInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[Route(path: '/rest/v1/user/soul/editor', name: 'rest_user_soul_editor_', condition: "request.headers.get('Accept') === 'application/json'")]
 #[IsGranted('ROLE_USER')]
@@ -50,6 +51,7 @@ class EditorController extends CustomAbstractCoreController
                     'ctrl' => $this->translator->trans('STRG', [], 'global'),
                     'enter' => $this->translator->trans('ENTER', [], 'global'),
                     'send' => $this->translator->trans('Absenden', [], 'global'),
+                    'help' => $this->translator->trans('Hilfe', [], 'global'),
                 ],
                 'controls' => [
                     'b' => $this->translator->trans('Fett', [], 'global'),
@@ -315,7 +317,8 @@ class EditorController extends CustomAbstractCoreController
     public function list_rp(
         User $user,
         EntityManagerInterface $em,
-        Packages $assets
+        Packages $assets,
+        TranslatorInterface $trans,
     ): JsonResponse {
 
         if ($user !== $this->getUser()) return new JsonResponse([], Response::HTTP_FORBIDDEN);
@@ -340,11 +343,19 @@ class EditorController extends CustomAbstractCoreController
 
         return new JsonResponse([
             'result' => array_merge($result, array_map( fn(string $k, string $v, int $o) => [
-                'tag' => $k === '' ? '{einwohner}' :  "{einwohner,$k}",
+                'tag' => $k === '' ? '{citizen}' :  "{citizen,$k}",
                 'path' => "build/images/{$v}.gif",
                 'url' => $assets->getUrl( "build/images/{$v}.gif" ),
                 'orderIndex' => $o
-            ], array_keys($data), array_values($data), array_keys(array_values($data)) ))
+            ], array_keys($data), array_values($data), array_keys(array_values($data)) )),
+            'help' => <<<HELP
+                <h1>{$trans->trans('Zufälliger Bürger', [], 'game')}</h1>
+                <em>{$trans->trans('Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen. Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.', [], 'game')}</em>
+                <em>
+                    {$trans->trans('Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:', [], 'game')}
+                    <code>{citizen,tamer,1}</code>
+                </em>
+            HELP,
         ]);
 
     }

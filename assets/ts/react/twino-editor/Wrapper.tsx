@@ -33,6 +33,7 @@ type HTMLConfig = HeaderConfig & {
         url: string,
         method?: string,
         map?: {[index:string]: string}
+        include?: {[index:string]: string}
     }|null
     defaultFields: {[index:string]: string|number},
     redirectAfterSubmit: string|boolean
@@ -224,6 +225,12 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
                 if ( field === 'html') submissionData[ property ] = html;
                 else if (fieldRef.current.hasOwnProperty( field ) && check( field, fieldRef.current[ field ] )) submissionData[ property ] = fieldRef.current[ field ];
             }); else submissionData = {...fieldRef.current, html };
+
+            if (props.target.include) Object.entries(props.target.include).forEach(([field,selector]) => {
+                const elem = document.querySelector(selector);
+                const asArray = field.slice(-2) === '[]';
+                if (elem) submissionData[ asArray ? field.slice(0,-2) : field ] = asArray ? (elem as HTMLInputElement).value.split(',').filter(s => s !== '') : (elem as HTMLInputElement).value;
+            });
 
             (new Fetch( props.target.url, false )).fromEndpoint()
                 .bodyDeterminesSuccess(true)

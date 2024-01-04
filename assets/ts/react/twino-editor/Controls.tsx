@@ -4,6 +4,7 @@ import {Globals} from "./Wrapper";
 import {UserSearchBar} from "../user-search/Wrapper";
 import {Tab, TabbedSection, TabGroup, TabProps} from "../tab-list/TabList";
 import {Emote, Snippet} from "./api";
+import {Tooltip} from "../tooltip/Wrapper";
 
 type ControlButtonDefinition = {
     fa?:string,
@@ -417,31 +418,47 @@ const GameTabSection = () => {
 
 const RPTabSection = () => {
     const [rp, setRP] = useState<Array<Emote>>(null);
+    const [help, setHelp] = useState<string>(null);
 
     const globals = useContext(Globals);
 
     useEffect(() => {
-        globals.api.rp(globals.uid).then( r => setRP( Object.values(r.result) ) );
+        globals.api.rp(globals.uid).then( r => {
+            setRP(Object.values(r.result));
+            setHelp(r.help ?? null);
+        } );
     }, []);
 
     return <div className="lightbox">
         { rp === null && <div className="loading"/>}
-        { rp !== null && <div className="forum-button-grid">
-            {rp.sort((a,b) => a.orderIndex - b.orderIndex).map(emote => <React.Fragment key={emote.tag}>
-                <ControlButtonNodeInsert node={emote.tag} img={emote.url} curley={null}/>
-            </React.Fragment>)}
+        { rp !== null && <div className="row-flex">
+            <div className="cell factor-1">
+                <div className="forum-button-grid">
+                    {rp.sort((a, b) => a.orderIndex - b.orderIndex).map(emote => <React.Fragment key={emote.tag}>
+                        <ControlButtonNodeInsert node={emote.tag} img={emote.url} curley={null}/>
+                    </React.Fragment>)}
+                </div>
+            </div>
+            { help && <div className="cell factor-0">
+                <a className="help-button">
+                    {globals.strings.common.help}
+                    <Tooltip additionalClasses="help" html={help}/>
+                </a>
+            </div>}
         </div>}
     </div>
 }
 
-const ModTabSection = ({snippets}: {snippets: Array<Snippet>}) => {
+const ModTabSection = ({snippets}: { snippets: Array<Snippet> }) => {
     const globals = useContext(Globals);
 
     const roles: string[] = [];
-    snippets.forEach( s => { if (!roles.includes(s.role)) roles.push(s.role) } )
+    snippets.forEach(s => {
+        if (!roles.includes(s.role)) roles.push(s.role)
+    })
 
     return <div className="lightbox">
-        { roles.sort((a,b) => a.localeCompare(b)).map( role => <React.Fragment key={role}>
+        {roles.sort((a,b) => a.localeCompare(b)).map( role => <React.Fragment key={role}>
             { roles.length > 1 && <div className="padded cell rw-12">
                 <div className="row-flex gap v-center">
                     <div className="cell factor-0"><strong><span className="small">{ role }</span></strong></div>

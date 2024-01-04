@@ -58,6 +58,7 @@ export default class HordesTwinoEditorElement extends Shim<HordesTwinoEditor> {
                         return elems;
                     }))
                     : null,
+                include: Object.fromEntries((this.dataset.targetInclude ?? '').split(',').map((s:string) => s.split(':'))),
             } : null,
             roles: {},
             defaultFields: {},

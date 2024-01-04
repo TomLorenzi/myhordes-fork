@@ -12,6 +12,7 @@
     tags,
     default_tag
     ) %}
+    {% from 'ajax/editor/base/core-permissions.html.twig' import core_permissions %}
     {# @var permission \App\Structures\ForumPermissionAccessor #}
     {# @var user \App\Entity\User #}
     <hordes-twino-editor
@@ -35,15 +36,9 @@
         {% if default_tag %}
             data-default-tag="{{ default_tag }}"
         {%- endif %}
-        data-control="extended"
-        data-control-glory="{{ user|has_unlocked('f_glory') ? 1 : 0 }}"
+
+        {{ core_permissions(user,permission,"extended",true,true) }}
         data-control-rp="{{ town_controls ? 1 : 0 }}"
-        data-control-image="{{ (permission.format_admin() or permission.format_oracle()) ? 1 : 0 }}"
-        data-control-admin="{{ permission.format_admin() ? 1 : 0 }}"
-        data-control-oracle="{{ permission.format_oracle() ? 1 : 0 }}"
-        data-control-poll="{{ permission.format_oracle() ? 1 : 0 }}"
-        data-control-mod="{{ permission.format_mod() ? 1 : 0 }}"
-        data-control-snippet="{{ (permission.format_admin() or permission.format_oracle() or permission.format_mod()) ? 1 : 0 }}"
 
         {% if permission.alt_post_mode() and alt_post_mode %}
             data-with-role-user="{{ user.name }}"

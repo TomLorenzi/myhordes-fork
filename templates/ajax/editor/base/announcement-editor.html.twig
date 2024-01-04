@@ -9,6 +9,7 @@
     ) %}
     {# @var permission \App\Structures\ForumPermissionAccessor #}
     {# @var user \App\Entity\User #}
+    {% from 'ajax/editor/base/core-permissions.html.twig' import core_permissions %}
     <hordes-twino-editor
         {% if uuid %}
             id="{{ uuid }}"
@@ -24,22 +25,8 @@
         {% endif %}
         data-feature-language="1"
         data-feature-preview="1"
-        data-control="extended"
-        {% if user|has_unlocked('f_glory') %}
-            data-control-glory="1"
-        {% endif %}
-        {% if permission.format_admin() or permission.format_oracle() %}
-            data-control-image="1"
-            {% if permission.format_admin() %}
-                data-control-admin="1"
-            {% endif %}
-            {% if permission.format_oracle() %}
-                data-control-oracle="1"
-            {% endif %}
-        {% endif %}
-        {% if permission.format_mod() %}
-            data-control-mod="1"
-        {% endif %}
+
+        {{ core_permissions(user,permission) }}
 
         data-target-url="{{ target_url }}"
         data-target-map="{{ 'html:content,title,' ~ (enable_version ? 'version,' : '') ~ 'language:lang' }}"

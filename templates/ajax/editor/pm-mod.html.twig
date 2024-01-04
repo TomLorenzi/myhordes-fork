@@ -1,0 +1,16 @@
+{% extends "ajax/ajax_plain.html.twig" %}
+{% from 'ajax/editor/base/core-permissions.html.twig' import core_permissions %}
+{% from 'ajax/editor/base/pm-editor.html.twig' import pmEditor as editor %}
+{% block ajax_base %}
+    {{ editor(
+        type,
+        null,
+        app.user,
+        username,
+        'PM vom Raben'|trans({},'admin'),
+        true,
+        'recipient:#pmidrecipient',
+        path('admin_send_pm_controller'),
+        core_permissions( null, permission, null, false, true )
+    ) }}
+{% endblock %}

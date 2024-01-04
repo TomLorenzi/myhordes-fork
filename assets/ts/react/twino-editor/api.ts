@@ -7,6 +7,7 @@ export type ResponseIndex = {
 
 export type EmoteListResponse = {
     result: {[index:string]: Emote}
+    help?: string
 }
 
 export type EmoteResponse = EmoteListResponse & {

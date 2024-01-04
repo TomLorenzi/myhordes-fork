@@ -17,6 +17,7 @@ export type TranslationStrings = {
         ctrl: string,
         enter: string,
         send: string,
+        help: string,
     }
     controls: {
         b: string,

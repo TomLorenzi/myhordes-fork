@@ -1,6 +1,6 @@
 {% extends "ajax/ajax_plain.html.twig" %}
+{% from 'ajax/editor/base/announcement-editor.html.twig' import announcementEditor as editor %}
 {% block ajax_base %}
-    {% from 'ajax/editor/base/announcement-editor.html.twig' import announcementEditor as editor %}
     {{ editor(
         null,
         app.user,

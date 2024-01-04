@@ -130,7 +130,7 @@
     if(replybtn) replybtn.addEventListener('click', function(e){
         e.preventDefault();
         replybtn.style.display = "none";
-        $.ajax.no_history().load( document.getElementById('pm-forum-editor'), '{{ path('home_answer_post_editor_controller', {tid: thread.id}) }}', false )
+        $.ajax.no_history().load( document.getElementById('pm-forum-editor'), '{{ path('home_answer_post_editor_controller', {id: thread.id}) }}', false )
     });
 
     $.html.addEventListenerAll('[x-forum-action="report-post"]', 'click', function(e,elem) {
