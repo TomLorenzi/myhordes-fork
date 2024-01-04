@@ -14,6 +14,7 @@ declare var c: Const;
 
 type Feature = "tags"|"title"|"version"|"language"|"preview"|"compact"|"alias"|"passive"
 type Control = "core"|"extended"|"image"|"admin"|"mod"|"oracle"|"glory"|"poll"|"rp"|"snippet"
+type Skin = "forum"|"pm"
 
 interface HeaderConfig {
     header: string|null,
@@ -27,7 +28,8 @@ type HTMLConfig = HeaderConfig & {
     context: string,
     pm: boolean,
     features: Feature[],
-    controls: Control[]
+    controls: Control[],
+    skin: Skin,
     roles?: {[index:string]: string},
     target?: {
         url: string,
@@ -145,6 +147,8 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
     });
     const fieldRef = useRef<{[index:string]: string|number}>(fields);
 
+    const [expanded, setExpanded] = useState<boolean>(props.skin !== 'pm');
+
     const selection = useRef({
         start: 0,
         end: 0,
@@ -183,8 +187,8 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
                 $.client.config.scopedEditorCache.set([props.context, value]);
                 const html = convertToHTML(`${value}`);
                 props.onFieldChanged('html', new_fields['html'] = html, current, html === (props.defaultFields['html'] ?? null));
-                if (props.previewSelector) (document.querySelector(props.previewSelector) ?? {}).innerHTML = html;
-            } else if (field === 'html') (document.querySelector(props.previewSelector) ?? {}).innerHTML = value;
+                if (props.previewSelector) (document.querySelector(props.previewSelector) ?? {innerHTML:''}).innerHTML = html;
+            } else if (field === 'html') (document.querySelector(props.previewSelector) ?? {innerHTML:''}).innerHTML = value as string;
 
             setFields({...fieldRef.current = new_fields});
         }
@@ -298,24 +302,30 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
                 selection: selection.current,
                 strings
             }}>
-                <div className={props.pm ? 'pm-editor' : 'forum-editor'}>
+                <div className={`${props.skin}-editor`}>
                     {props.header && <TwinoEditorHeader {...props} />}
                     <TwinoEditorFields tags={props.tags}/>
                     <div className="row classic-editor classic-editor-react" ref={me}>
+                        {isEnabled("preview") && <div className="padded cell rw-12">
+                            <TwinoEditorPreview
+                                html={`${getField("html") ?? convertToTwino(`${getField('body') ?? ''}`) ?? ''}`}/>
+                        </div>}
                         <div className="padded cell rw-12">
-                            {isEnabled("preview") && <>
-                                <TwinoEditorPreview
-                                    html={`${getField("html") ?? convertToTwino(`${getField('body') ?? ''}`) ?? ''}`}/>
-                                <br/>
-                                <label className="small"
-                                       htmlFor={`${uuid.current}-editor`}>{strings.sections.message}</label>
-                            </>}
-                            <TwinoEditorControls/>
+                            <div className="row">
+                                <div className="cell rw-6 rw-md-12">
+                                    <label className="small"
+                                           htmlFor={`${uuid.current}-editor`}>{strings.sections.message}</label>
+                                </div>
+                                {!expanded && <div className="cell rw-6 rw-md-12 right">
+                                    <span className="pointer small" onClick={()=>setExpanded(true)}>{strings.common.expand}</span>
+                                </div>}
+                            </div>
+                            <div className={expanded ? '' : 'hidden'}><TwinoEditorControls/></div>
                         </div>
                         <div className="padded cell rw-12">
                         <TwinoEditorEditor
                                 body={`${fieldRef.current['body'] ?? getField('body') ?? ''}`}
-                                fixed={props.pm}
+                                fixed={props.skin === "pm"}
                                 controlTrigger={s => {
                                     if (s === 'enter') submit();
                                     else {
@@ -326,7 +336,7 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
                                 }}
                             />
                         </div>
-                        <div className="padded cell rw-12">
+                        <div className={`padded cell rw-12 ${expanded ? '' : 'hidden'}`}>
                             <TwinoEditorControlsTabList
                                 emotes={emoteRef.current === null ? null : Object.values(emoteRef.current.result)}
                                 snippets={emoteRef.current === null ? null : Object.values(emoteRef.current.snippets?.list ?? {})}
@@ -458,7 +468,7 @@ const TwinoEditorEditor = ({body, fixed, controlTrigger}: {body: string, fixed: 
     const textArea = useRef<HTMLTextAreaElement>(null);
     const globals = useContext(Globals);
 
-    const shouldFocus = useRef(false);
+    const shouldFocus = useRef(true);
 
     useEffect(() => {
         const onSelectionChange = () => {

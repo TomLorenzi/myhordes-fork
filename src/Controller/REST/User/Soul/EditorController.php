@@ -52,6 +52,7 @@ class EditorController extends CustomAbstractCoreController
                     'enter' => $this->translator->trans('ENTER', [], 'global'),
                     'send' => $this->translator->trans('Absenden', [], 'global'),
                     'help' => $this->translator->trans('Hilfe', [], 'global'),
+                    'expand' => $this->translator->trans('Zum erweiterten Editor wechseln', [], 'global'),
                 ],
                 'controls' => [
                     'b' => $this->translator->trans('Fett', [], 'global'),

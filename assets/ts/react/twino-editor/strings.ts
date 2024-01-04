@@ -18,6 +18,7 @@ export type TranslationStrings = {
         enter: string,
         send: string,
         help: string,
+        expand: string,
     }
     controls: {
         b: string,

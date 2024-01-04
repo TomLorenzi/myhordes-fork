@@ -61,6 +61,7 @@ export default class HordesTwinoEditorElement extends Shim<HordesTwinoEditor> {
                 include: Object.fromEntries((this.dataset.targetInclude ?? '').split(',').map((s:string) => s.split(':'))),
             } : null,
             roles: {},
+            skin: this.dataset.skin ?? 'forum',
             defaultFields: {},
             redirectAfterSubmit: this.dataset.redirectAfterSubmit === "1" ? true : (this.dataset.redirectAfterSubmit ?? false),
             previewSelector: this.dataset.preview
