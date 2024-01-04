@@ -194,7 +194,10 @@
                                                             data-self="1" data-exclude=""
                                         ></hordes-user-search>
                                     </div>
-                                    <div class="padded cell rw-8 ro-4"><ul id="pm-selected-users"></ul></div>
+                                    <div class="padded cell rw-8 ro-4">
+                                        <input type="hidden" id="pm-selected-user-list" >
+                                        <ul id="pm-selected-users"></ul>
+                                    </div>
                                 </div>
                             </div>
                             {% if official_groups is not empty %}
@@ -209,7 +212,6 @@
                                             {% endfor %}
                                         </select>
                                     </div>
-                                    <div class="padded cell rw-8 ro-4"><ul id="pm-selected-users"></ul></div>
                                 </div>
                             </div>
                             {% endif %}
@@ -699,6 +701,11 @@
                     $.html.forEach('#pm-selected-users>li[x-soul-id]', e => skip.push(parseInt(e.getAttribute('x-soul-id'))));
                     document.getElementById('pm-users-search').dataset.exclude = skip.join(',');
                 });
+                let list = [];
+                $.html.forEach('#pm-selected-users>li[x-soul-id]', function(elem) {
+                    list.push( parseInt(elem.getAttribute('x-soul-id')) );
+                });
+                document.getElementById('pm-selected-user-list').value = list.join(',');
             });
 
             $.html.addEventListenerAll('[x-pm-action="search"]', 'click', function () {
@@ -921,6 +928,7 @@
                                     let li = document.createElement("li");
                                     li.setAttribute("x-soul-id", "{{ command[1]|e('js') }}");
                                     document.getElementById("pm-selected-users").appendChild(li);
+                                    document.getElementById("pm-selected-user-list").value = "{{ command[1]|e('js') }}";
 
                                     $.html.forEach('#global-pm-forum-editor-title', e => e.focus());
                                 } );

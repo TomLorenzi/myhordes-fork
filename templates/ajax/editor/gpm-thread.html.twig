@@ -1,0 +1,29 @@
+{% extends "ajax/ajax_plain.html.twig" %}
+{% from 'ajax/editor/base/core-permissions.html.twig' import core_permissions %}
+{% block ajax_base %}
+    <hordes-twino-editor
+        id="{{ uuid }}"
+        data-context="global-pm"
+        data-pm-mode="1"
+        data-username="{{ app.user.name }}" data-user="{{ app.user.id }}"
+
+        {{ core_permissions(app.user,permission,"extended",false,true) }}
+
+        data-preview="#pm-editor-preview"
+
+        data-target-url="{{ path('pm_new_thread_controller') }}"
+        data-target-map="html:content"
+        data-target-include="title:#global-pm-forum-editor-title,sender:#pm-account-select,users[]:#pm-selected-user-list"
+    ></hordes-twino-editor>
+{% endblock %}
+{% block js %}
+    <script>
+        (() => {
+            document.getElementById('{{ uuid }}').addEventListener('submit', e => {
+                let selected = document.querySelector('.pm-conversation-list>li.selected');
+                if (selected) selected.click();
+                else $.ajax.load( document.getElementById('post-office-content'), e.detail.response.url );
+            })
+        })();
+    </script>
+{% endblock %}

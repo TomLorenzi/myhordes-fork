@@ -36,7 +36,8 @@ type HTMLConfig = HeaderConfig & {
         include?: {[index:string]: string}
     }|null
     defaultFields: {[index:string]: string|number},
-    redirectAfterSubmit: string|boolean
+    redirectAfterSubmit: string|boolean,
+    previewSelector?: string,
 }
 
 type FieldChangeEventTrigger = ( field: string, value: string|number|null, old_value: string|number|null, is_default: boolean ) => void
@@ -182,7 +183,8 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
                 $.client.config.scopedEditorCache.set([props.context, value]);
                 const html = convertToHTML(`${value}`);
                 props.onFieldChanged('html', new_fields['html'] = html, current, html === (props.defaultFields['html'] ?? null));
-            }
+                if (props.previewSelector) (document.querySelector(props.previewSelector) ?? {}).innerHTML = html;
+            } else if (field === 'html') (document.querySelector(props.previewSelector) ?? {}).innerHTML = value;
 
             setFields({...fieldRef.current = new_fields});
         }
@@ -301,21 +303,26 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
                     <TwinoEditorFields tags={props.tags}/>
                     <div className="row classic-editor classic-editor-react" ref={me}>
                         <div className="padded cell rw-12">
-                            {isEnabled("preview") && <TwinoEditorPreview
-                                html={`${getField("html") ?? convertToTwino(`${getField('body') ?? ''}`) ?? ''}`}/>}
-                            <br/>
-                            <label className="small"
-                                   htmlFor={`${uuid.current}-editor`}>{strings.sections.message}</label>
+                            {isEnabled("preview") && <>
+                                <TwinoEditorPreview
+                                    html={`${getField("html") ?? convertToTwino(`${getField('body') ?? ''}`) ?? ''}`}/>
+                                <br/>
+                                <label className="small"
+                                       htmlFor={`${uuid.current}-editor`}>{strings.sections.message}</label>
+                            </>}
                             <TwinoEditorControls/>
                         </div>
                         <div className="padded cell rw-12">
-                            <TwinoEditorEditor
+                        <TwinoEditorEditor
                                 body={`${fieldRef.current['body'] ?? getField('body') ?? ''}`}
                                 fixed={props.pm}
                                 controlTrigger={s => {
-                                    const list = me.current?.querySelectorAll(`[data-receive-control-event="${s}"]`);
-                                    list.forEach(e => e.dispatchEvent(new CustomEvent('controlActionTriggered', {bubbles: false})));
-                                    return list.length > 0;
+                                    if (s === 'enter') submit();
+                                    else {
+                                        const list = me.current?.querySelectorAll(`[data-receive-control-event="${s}"]`);
+                                        list.forEach(e => e.dispatchEvent(new CustomEvent('controlActionTriggered', {bubbles: false})));
+                                        return list.length > 0;
+                                    }
                                 }}
                             />
                         </div>
@@ -490,7 +497,7 @@ const TwinoEditorEditor = ({body, fixed, controlTrigger}: {body: string, fixed: 
         tabIndex={0} id={`${globals.uuid}-editor`} style={fixed ? {height: '90px', minHeight: '90px'} : {}}
         onInput={e => globals.setField('body', e.currentTarget.value)}
         onKeyDown={e => {
-            if (controlTrigger && (e.ctrlKey || e.metaKey)) {
+            if (controlTrigger && (e.ctrlKey || e.metaKey) && (!e.shiftKey)) {
                 if (controlTrigger(e.key.toLowerCase())) {
                     e.preventDefault();
                     e.stopPropagation();

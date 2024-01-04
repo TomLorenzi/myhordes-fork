@@ -62,7 +62,8 @@ export default class HordesTwinoEditorElement extends Shim<HordesTwinoEditor> {
             } : null,
             roles: {},
             defaultFields: {},
-            redirectAfterSubmit: this.dataset.redirectAfterSubmit === "1" ? true : (this.dataset.redirectAfterSubmit ?? false)
+            redirectAfterSubmit: this.dataset.redirectAfterSubmit === "1" ? true : (this.dataset.redirectAfterSubmit ?? false),
+            previewSelector: this.dataset.preview
         };
 
         for (const prop in this.dataset)
