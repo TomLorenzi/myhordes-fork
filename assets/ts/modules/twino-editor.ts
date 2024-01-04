@@ -40,7 +40,6 @@ export default class HordesTwinoEditorElement extends Shim<HordesTwinoEditor> {
     protected generateProps(): object {
         let data = {
             id: this.getAttribute('id') ?? null,
-            pm: parseInt(this.dataset.pmMode ?? "0") !== 0,
             context: this.dataset.context ?? 'forum',
             header: this.dataset.header ?? null,
             user: parseInt(this.dataset.user ?? "0"),

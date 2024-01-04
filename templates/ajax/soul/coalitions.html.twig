@@ -65,7 +65,7 @@
                 <h5>{{ 'Shoutbox der Koalition'|trans({},'soul') }}</h5>
                 <div class="row-flex">
                     <div class="cell padded-small grow-1">
-                        <label><input type="text" id="shoutbox_chat" maxlength="256" /></label>
+                        <hordes-twino-editor id="shoutbox_chat" data-user="{{ app.user.id }}" data-context="shoutbox" data-skin="line" data-control="core" data-feature-passive="1"></hordes-twino-editor>
                     </div>
                     <div class="cell padded-small">
                         <button id="shoutbox_send">{{ 'Absenden'|trans({},'soul') }}</button>
@@ -187,8 +187,6 @@
 {% block js %}
     {{parent()}}
     <script>
-        $.html.forEach('#shoutbox_chat', e => e.focus());
-
         {% if membership is not null %}
             document.getElementById('users-search')?.addEventListener('hordes-user-search-callback', e => {
                 $.ajax.easySend( '{{ path('soul_invite_coalition', {id: '0000000000000000000000'}) }}'.replace('0000000000000000000000', e.detail[0].id), {},
@@ -249,8 +247,7 @@
             let fun_send_working = false;
             const fun_send_shout = function() {
                 let box = document.getElementById('shoutbox_chat');
-                if (!box.value || fun_send_working) return;
-                box.setAttribute('disabled','disabled');
+                if (!box.html || fun_send_working) return;
 
                 let button = document.getElementById('shoutbox_send');
                 button.setAttribute('disabled','disabled');
@@ -260,18 +257,16 @@
 
                 fun_send_working = true;
 
-                $.ajax.no_loader().easySend( '{{ path('soul_shout_coalition') }}', {text: $.html.twinoParser.parseToString(box.value, s => [null,s], {autoLinks: $.client.config.autoParseLinks.get()})},
+                $.ajax.no_loader().easySend( '{{ path('soul_shout_coalition') }}', {text: box.html},
                     () => {
                         fun_refresh(true, () => {
-                            box.value = '';
-                            box.removeAttribute('disabled');
+                            box.twino = '';
                             button.removeAttribute('disabled');
                             ref.removeAttribute('disabled');
                             fun_send_working = false;
                         });
                     }, null,  (data) => {
                         $.html.selectErrorMessage( data.error, {}, c.errors, data )
-                        box.removeAttribute('disabled');
                         button.removeAttribute('disabled');
                         ref.removeAttribute('disabled');
                         fun_send_working = false;
@@ -279,10 +274,8 @@
             };
 
             $.html.addEventListenerAll('#shoutbox_send', 'click', fun_send_shout);
-            $.html.addEventListenerAll('#shoutbox_chat', 'keypress', e => e.key === "Enter" ? fun_send_shout() : null)
             $.html.addEventListenerAll('#shoutbox_refresh', 'click', function() {
                 let box = document.getElementById('shoutbox_chat');
-                box.setAttribute('disabled','disabled');
                 let button = document.getElementById('shoutbox_send');
                 button.setAttribute('disabled','disabled');
                 let ref = document.getElementById('shoutbox_refresh');
@@ -290,8 +283,7 @@
                 fun_send_working = true;
 
                 fun_refresh(true, () => {
-                    box.value = '';
-                    box.removeAttribute('disabled');
+                    box.twino = '';
                     button.removeAttribute('disabled');
                     ref.removeAttribute('disabled');
                     fun_send_working = false;

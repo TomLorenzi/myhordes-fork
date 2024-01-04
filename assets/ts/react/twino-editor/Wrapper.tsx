@@ -14,7 +14,7 @@ declare var c: Const;
 
 type Feature = "tags"|"title"|"version"|"language"|"preview"|"compact"|"alias"|"passive"
 type Control = "core"|"extended"|"image"|"admin"|"mod"|"oracle"|"glory"|"poll"|"rp"|"snippet"
-type Skin = "forum"|"pm"
+type Skin = "forum"|"pm"|"line"
 
 interface HeaderConfig {
     header: string|null,
@@ -58,6 +58,7 @@ type TwinoEditorGlobals = {
     getField: FieldReader,
     isEnabled: FeatureCheck,
     allowControl: ControlCheck,
+    skin: Skin,
     selection: {
         start: number,
         end: number,
@@ -257,9 +258,9 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
     useEffect(() => {
         props.connectImport( (t:TwinoContentImport) => {
             let body = null;
-            if (t.html)
+            if ((t.html ?? null) !== null)
                 body = convertToTwino( t.html, t.opmode );
-            else if (t.body)
+            else if ((t.body ?? null) !== null)
                 body = t.body;
 
             if (body !== null) {
@@ -300,30 +301,33 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
                 isEnabled: (f:Feature) => isEnabled(f),
                 allowControl: (c:Control) => controlAllowed(c),
                 selection: selection.current,
-                strings
+                strings,
+                skin: props.skin,
             }}>
                 <div className={`${props.skin}-editor`}>
                     {props.header && <TwinoEditorHeader {...props} />}
                     <TwinoEditorFields tags={props.tags}/>
                     <div className="row classic-editor classic-editor-react" ref={me}>
-                        {isEnabled("preview") && <div className="padded cell rw-12">
+                        {isEnabled("preview") && <div className={`${props.skin !== 'line' ? 'padded' : ''} cell rw-12`}>
                             <TwinoEditorPreview
                                 html={`${getField("html") ?? convertToTwino(`${getField('body') ?? ''}`) ?? ''}`}/>
                         </div>}
-                        <div className="padded cell rw-12">
-                            <div className="row">
+
+                        <div className={props.skin !== 'line' ? "padded cell rw-12" : 'overlay-controls'}>
+                            {props.skin !== 'line' && <div className="row">
                                 <div className="cell rw-6 rw-md-12">
                                     <label className="small"
                                            htmlFor={`${uuid.current}-editor`}>{strings.sections.message}</label>
                                 </div>
                                 {!expanded && <div className="cell rw-6 rw-md-12 right">
-                                    <span className="pointer small" onClick={()=>setExpanded(true)}>{strings.common.expand}</span>
+                                    <span className="pointer small"
+                                          onClick={() => setExpanded(true)}>{strings.common.expand}</span>
                                 </div>}
-                            </div>
+                            </div>}
                             <div className={expanded ? '' : 'hidden'}><TwinoEditorControls/></div>
                         </div>
-                        <div className="padded cell rw-12">
-                        <TwinoEditorEditor
+                        <div className={`${props.skin !== 'line' ? 'padded' : 'overlay-central'} cell rw-12`}>
+                            <TwinoEditorEditor
                                 body={`${fieldRef.current['body'] ?? getField('body') ?? ''}`}
                                 fixed={props.skin === "pm"}
                                 controlTrigger={s => {
@@ -336,18 +340,20 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
                                 }}
                             />
                         </div>
-                        <div className={`padded cell rw-12 ${expanded ? '' : 'hidden'}`}>
+                        {props.skin !== 'line' && <div className={`padded cell rw-12 ${expanded ? '' : 'hidden'}`}>
                             <TwinoEditorControlsTabList
                                 emotes={emoteRef.current === null ? null : Object.values(emoteRef.current.result)}
                                 snippets={emoteRef.current === null ? null : Object.values(emoteRef.current.snippets?.list ?? {})}
                             />
-                        </div>
+                        </div> }
+
                     </div>
                     <div className="row-flex v-center right">
-                        { Object.values(props.roles).length > 0 && <>
+                        {Object.values(props.roles).length > 0 && <>
                             <div className="padded cell">
-                                <label><select value={getField('role')} onChange={e => setField('role', e.target.value)}>
-                                    { Object.entries(props.roles).map( ([role,name]) => <option key={ role } value={ role }>{ name }</option> ) }
+                                <label><select value={getField('role')}
+                                               onChange={e => setField('role', e.target.value)}>
+                                    {Object.entries(props.roles).map( ([role,name]) => <option key={ role } value={ role }>{ name }</option> ) }
                                 </select></label>
                             </div>
                         </>}
@@ -465,10 +471,10 @@ const TwinoEditorPreview = ({html}: {html:string}) => {
 }
 
 const TwinoEditorEditor = ({body, fixed, controlTrigger}: {body: string, fixed: boolean, controlTrigger?: null|((s:string) => boolean)}) => {
-    const textArea = useRef<HTMLTextAreaElement>(null);
+    const textArea = useRef<HTMLTextAreaElement|HTMLInputElement|any>(null);
     const globals = useContext(Globals);
 
-    const shouldFocus = useRef(true);
+    const shouldFocus = useRef(globals.skin !== 'line');
 
     useEffect(() => {
         const onSelectionChange = () => {
@@ -483,7 +489,7 @@ const TwinoEditorEditor = ({body, fixed, controlTrigger}: {body: string, fixed: 
     });
 
     useLayoutEffect(() => {
-        globals.selection.update = (s:number, e:number) => {
+        globals.selection.update = (s: number, e: number) => {
             globals.selection.start = s;
             globals.selection.end = e;
             shouldFocus.current = true;
@@ -496,23 +502,39 @@ const TwinoEditorEditor = ({body, fixed, controlTrigger}: {body: string, fixed: 
 
     useLayoutEffect(() => {
         if (shouldFocus.current) {
-            textArea.current.setSelectionRange( globals.selection.start, globals.selection.end );
+            textArea.current.setSelectionRange(globals.selection.start, globals.selection.end);
             textArea.current.focus();
             shouldFocus.current = false;
         }
     })
 
-    return <textarea ref={textArea}
-        value={body}
-        tabIndex={0} id={`${globals.uuid}-editor`} style={fixed ? {height: '90px', minHeight: '90px'} : {}}
-        onInput={e => globals.setField('body', e.currentTarget.value)}
-        onKeyDown={e => {
-            if (controlTrigger && (e.ctrlKey || e.metaKey) && (!e.shiftKey)) {
-                if (controlTrigger(e.key.toLowerCase())) {
-                    e.preventDefault();
-                    e.stopPropagation();
+    return globals.skin === "line"
+        ? <input
+            type="text" value={body}
+            ref={textArea}
+            tabIndex={0} id={`${globals.uuid}-editor`}
+            onInput={e => globals.setField('body', e.currentTarget.value)}
+            onKeyDown={e => {
+                if (controlTrigger && (e.ctrlKey || e.metaKey) && (!e.shiftKey)) {
+                    if (controlTrigger(e.key.toLowerCase())) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
                 }
-            }
-        }}
-    />
+            }}
+        />
+        : <textarea ref={textArea}
+            value={body}
+            tabIndex={0} id={`${globals.uuid}-editor`}
+            style={fixed ? {height: '90px', minHeight: '90px'} : {}}
+            onInput={e => globals.setField('body', e.currentTarget.value)}
+            onKeyDown={e => {
+                if (controlTrigger && (e.ctrlKey || e.metaKey) && (!e.shiftKey)) {
+                    if (controlTrigger(e.key.toLowerCase())) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+                }
+            }}
+        />
 }

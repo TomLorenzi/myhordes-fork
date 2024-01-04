@@ -145,7 +145,7 @@ const ControlButton = ({fa = null, img = null, label = null, control = null, han
         if (l) dialog.current.close();
     }
 
-    return <div className="forum-button-component">
+    return <div tabIndex={0} className="forum-button-component">
         <div className="forum-button" ref={button} data-receive-control-event={control} onClick={e => {
             e.preventDefault();
             e.stopPropagation();
