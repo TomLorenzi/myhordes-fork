@@ -249,7 +249,7 @@ class TwinoConverterToBlocks {
         }
 
         if (pollspace && ['ul','li','q','desc'].indexOf(match.nodeType()) === -1)
-            return [true, []];
+            return [false, []];
 
         switch (match.nodeType()) {
             case 'b': case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li':

@@ -208,6 +208,11 @@ x-message {
 dialog {
   .modal();
   position: fixed; padding: 0; overflow: visible;
+  &>div:first-child {
+    display: flex; flex-direction: column; max-height: 100vh;
+    &>.modal-title { flex-grow: 0; flex-shrink: 0 }
+    &>:not(.modal-title) { flex-grow: 0; flex-shrink: 1; overflow: scroll }
+  }
   &::backdrop { .modal-backdrop(); }
 }
 

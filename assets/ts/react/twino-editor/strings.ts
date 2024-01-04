@@ -48,6 +48,14 @@ export type TranslationStrings = {
         rp: string,
         collapse: string,
         poll: string,
+        "poll-help": string,
+        "poll-question": string,
+        "poll-answer": string,
+        "poll-answer-add": string,
+        "poll-info": string,
+        "poll-info-add": string,
+        "poll-optional": string,
+        "poll-need-answer": string,
         '@': string,
         '@-dialog': string,
         '@-placeholder': string,
@@ -55,5 +63,8 @@ export type TranslationStrings = {
         games_img: string,
         rp_img: string,
         mod_img: string,
+        help_img: string,
+        answer_img: string,
+        info_img: string,
     }
 }

@@ -5,6 +5,10 @@ import {UserSearchBar} from "../user-search/Wrapper";
 import {Tab, TabbedSection, TabGroup, TabProps} from "../tab-list/TabList";
 import {Emote, Snippet} from "./api";
 import {Tooltip} from "../tooltip/Wrapper";
+import {v4 as uuidv4} from "uuid";
+import {Global} from "../../defaults";
+
+declare var $: Global;
 
 type ControlButtonDefinition = {
     fa?:string,
@@ -80,6 +84,9 @@ export const TwinoEditorControls = () => {
                         <ControlButtonNodeInsert node="0" label={globals.strings.controls["0"]} fa="list-ol" block={true} control="1" multiline={true} />
                         <ControlButtonNodeInsert node="hr" label={globals.strings.controls.hr} fa="grip-lines" block={true} closes={true} curley={true} control="-" />
                     </> }
+                    { globals.allowControl('poll') && <>
+                        <ControlButtonInsertPoll />
+                    </> }
                 </div>
                 <div className="forum-button-bar-section">
                     { globals.allowControl('admin') && <ControlButtonNodeWrap node="admannounce" label={globals.strings.controls.admannounce} fa="bullhorn" block={true} /> }
@@ -130,7 +137,7 @@ const ControlButton = ({fa = null, img = null, label = null, control = null, han
         const callHandler = (e:CustomEvent) => wrapped_handler();
         button.current.addEventListener('controlActionTriggered', callHandler);
         return () => button.current.removeEventListener('controlActionTriggered', callHandler);
-    })
+    }, [])
 
     const confirmDialog = () => {
         if (!form.current.checkValidity()) return;
@@ -157,7 +164,7 @@ const ControlButton = ({fa = null, img = null, label = null, control = null, han
                 </div>
             </span>}
         </div>
-        {children && <dialog ref={dialog}>
+        {children && <dialog ref={dialog}><div>
             <div className="modal-title">{dialogTitle ?? label}</div>
             <form method="dialog" ref={form} onKeyDown={e => {
                 if (e.key === "enter") confirmDialog();
@@ -165,7 +172,7 @@ const ControlButton = ({fa = null, img = null, label = null, control = null, han
                 <div className="modal-content">{children}</div>
                 <div className="modal-actions">
                     {manualConfirm && <>
-                        <button className="modal-button small inline" onClick={() => confirmDialog()}>
+                        <button type="button" className="modal-button small inline" onClick={() => confirmDialog()}>
                             {globals.strings.common.insert}
                         </button>
                     </>}
@@ -174,7 +181,7 @@ const ControlButton = ({fa = null, img = null, label = null, control = null, han
                     </div>
                 </div>
             </form>
-        </dialog>}
+        </div></dialog>}
     </div>
 }
 
@@ -330,32 +337,32 @@ const ControlButtonInsertURL = ({
     }
 
     return <ControlButtonNodeWrap {...{node,label,control,fa,block,dialogTitle}}
-                                  valueCallback={()=>(link.current ?? text.current).value} contentCallback={s=>(text.current && link.current) ? text.current.value : s}
-                                  dialogHandler={(post) => {
-                                      if (!post) {
-                                          const s = `${globals.getField('body')}`.slice(globals.selection.start, globals.selection.end).trim();
-                                          if (text.current && link.current) {
-                                              if (s && checkLink(s)) {
-                                                  text.current.value = '';
-                                                  text.current.focus();
-                                                  link.current.value = s;
-                                              } else {
-                                                  text.current.value = s;
-                                                  link.current.value = '';
-                                                  (s ? link : text).current.focus();
-                                              }
-                                          } else (text.current ?? link.current).value = '';
+        valueCallback={()=>(link.current ?? text.current).value} contentCallback={s=>(text.current && link.current) ? text.current.value : s}
+        dialogHandler={(post) => {
+            if (!post) {
+                const s = `${globals.getField('body')}`.slice(globals.selection.start, globals.selection.end).trim();
+                if (text.current && link.current) {
+                    if (s && checkLink(s)) {
+                        text.current.value = '';
+                        text.current.focus();
+                        link.current.value = s;
+                    } else {
+                        text.current.value = s;
+                        link.current.value = '';
+                        (s ? link : text).current.focus();
+                    }
+                } else (text.current ?? link.current).value = '';
 
-                                          return true;
-                                      } else {
-                                          if (text.current && link.current && checkLink(text.current.value) && !checkLink(link.current.value))
-                                              link.current.value = text.current.value;
+                return true;
+            } else {
+                if (text.current && link.current && checkLink(text.current.value) && !checkLink(link.current.value))
+                    link.current.value = text.current.value;
 
-                                          if (link.current && text.current && !text.current.value) text.current.value = link.current.value;
+                if (link.current && text.current && !text.current.value) text.current.value = link.current.value;
 
-                                          return !link.current || checkLink(link.current.value);
-                                      }
-                                  }}
+                return !link.current || checkLink(link.current.value);
+            }
+        }}
     >
         <div className="modal-form">
             { textField && <>
@@ -384,7 +391,154 @@ const ControlButtonInsertImage = () => {
                                    textField={globals.strings.controls["image-text"]}
     />
 }
-const ControlButtonInsertWithAttribute = ({node, fa, control = null, label, block = false, attribute, dialogTitle = null}: BaseNodeDefinition & ControlButtonDefinition & {attribute:string, dialogTitle?: string|null}) => <ControlButtonInsertURL {...{node,label,fa,block,control,dialogTitle}} urlField={null} textField={attribute}/>
+
+type InfoEntry = {
+    t: "a"|"i",
+    n: number,
+    v: string,
+    id: string,
+}
+
+const ControlButtonInsertPoll = () => {
+    const globals = useContext(Globals);
+
+    const [question, setQuestion] = useState<string>("");
+    const [fields, setFields] = useState<InfoEntry[]>([]);
+
+    const make_content = () => {
+        let r = `\n`;
+        if (question.trim().length > 0) r += `[q]${question.trim()}[/q]\n`
+        r += fields.filter(f => f.v.trim().length > 0).map(f => f.t === 'a' ? `[*] ${f.v.trim()}` : `[desc]${f.v.trim()}[/desc]`).join(`\n`);
+        return r + `\n`;
+    }
+
+    const build_nums = (v:InfoEntry[]): InfoEntry[] => {
+        let a = 0, i = 0;
+        v.forEach(f => f.n = f.t === "a" ? a++ : i++);
+        return v;
+    }
+
+    return <ControlButtonNodeWrap node="poll" label={globals.strings.controls.poll} fa="poll" block={true}
+        contentCallback={()=>make_content()}
+        dialogHandler={(post) => {
+            if (!post) {
+                setFields([]);
+                setQuestion( `${globals.getField('body')}`.slice(globals.selection.start, globals.selection.end).trim() )
+            } else {
+                if ( fields.filter(f => f.t === "a" && f.v.trim().length > 0).length === 0 ) {
+                    $.html.error(globals.strings.controls["poll-need-answer"]);
+                    return false;
+                }
+                return true;
+            }
+        }}
+    >
+        <div className="modal-form">
+            <div className="row">
+                <div className="padded cell rw-12">
+                    <div className="note note-critical">{globals.strings.controls["poll-help"]}</div>
+                </div>
+            </div>
+
+            <div className="row">
+                <div className="cell padded rw-12">
+                    <div className="row-flex gap v-center">
+                        <div className="cell factor-0">
+                            <img alt="[Q]" src={globals.strings.controls.help_img}/>
+                        </div>
+                        <div className="cell factor-1">
+                            <label htmlFor={`${globals.uuid}-poll-q`}>{globals.strings.controls["poll-question"]}</label>
+                        </div>
+                    </div>
+                    <input type="text" id={`${globals.uuid}-poll-q`} value={question}
+                           onChange={e => setQuestion(e.target.value)}/>
+                </div>
+            </div>
+
+            {fields.map((f, i) => <div className="row" key={f.id}>
+                <div className="padded cell rw-12">
+                    <div className="row-flex gap v-center">
+                        <div className="cell factor-0">
+                            <img alt={f.t.toUpperCase()}
+                                 src={f.t === "a" ? globals.strings.controls.answer_img : globals.strings.controls.info_img}/>
+                        </div>
+                        <div className="cell factor-1">
+                            <div className="row-flex v-center gap">
+                                <div className="cell factor-1">
+                                    <label htmlFor={`${globals.uuid}-poll-${f.id}`}>
+                                        {f.t === "a" ? globals.strings.controls["poll-answer"] : globals.strings.controls["poll-info"]}
+                                        &nbsp;
+                                        {f.n + 1}
+                                        &nbsp;
+                                        {(f.t !== "a" || f.n > 0) ? globals.strings.controls["poll-optional"] : ''}
+                                    </label>
+                                </div>
+                                {i > 0 &&
+                                    <div className="cell factor-0"><span className="small pointer" onClick={() => {
+                                        setFields(build_nums([...fields.slice(0,i-1),f,fields[i-1],...fields.slice(i+1)]));
+                                    }}>🡱</span></div>
+                                }
+                                {i < (fields.length-1) &&
+                                    <div className="cell factor-0"><span className="small pointer" onClick={() => {
+                                        setFields(build_nums([...fields.slice(0,i),fields[i+1],f,...fields.slice(i+2)]));
+                                    }}>🡳</span></div>
+                                }
+                                <div className="cell factor-0"><span className="small pointer" onClick={() => {
+                                    setFields(build_nums([...fields.slice(0,i),...fields.slice(i+1)]));
+                                }}>×</span></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <input type="text" id={`${globals.uuid}-poll-${f.id}`} value={f.v}
+                           onChange={e => {
+                               const v = [...fields];
+                               v[i].v = e.target.value;
+                               setFields(v);
+                           }}/>
+                </div>
+            </div>)}
+
+            <div className="row-flex gap">
+                <div className="cell">
+                    <button type="button" className="small inline" onClick={() => {
+                        const v = [...fields];
+                        v.push({
+                            id: uuidv4(),
+                            v: "",
+                            t: "a",
+                            n: fields.filter(f => f.t === "a").length
+                        });
+                        setFields(v);
+                    }}>{globals.strings.controls["poll-answer-add"]}</button>
+                </div>
+                <div className="cell">
+                    <button type="button" className="small inline" onClick={() => {
+                        const v = [...fields];
+                        v.push({
+                            id: uuidv4(),
+                            v: "",
+                            t: "i",
+                            n: fields.filter(f => f.t === "i").length
+                        })
+                        setFields(v);
+                    }}>{globals.strings.controls["poll-info-add"]}</button>
+                </div>
+            </div>
+        </div>
+    </ControlButtonNodeWrap>
+}
+const ControlButtonInsertWithAttribute = ({
+                                              node,
+                                              fa,
+                                              control = null,
+                                              label,
+                                              block = false,
+                                              attribute,
+                                              dialogTitle = null
+                                          }: BaseNodeDefinition & ControlButtonDefinition & {
+    attribute: string,
+    dialogTitle?: string|null}) => <ControlButtonInsertURL {...{node,label,fa,block,control,dialogTitle}} urlField={null} textField={attribute}/>
 
 const EmoteTabSection = ({emotes}: {emotes: null|Array<Emote>}) => {
     return <div className="lightbox">
