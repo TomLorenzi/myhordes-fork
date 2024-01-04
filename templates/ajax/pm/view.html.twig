@@ -543,13 +543,22 @@
                     if (!action || !id) return;
 
                     const content = document.querySelector('.pm-message [data-message-id="' + id + '"]')?.innerHTML;
-                    if (content) {
-                        editor.value += (action === "cite" ? '[quote' + (quote && quoteName ? ('=' + quoteName + ':' + quote) : '') + ']' : '') + $.html.twinoParser.parseFrom( content, $.html.twinoParser.OpModeQuote ) + (action === "cite" ? '[/quote]' : '') + "\n";
-                        editor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
-                    }
+                    if (content)
+                        editor.dispatchEvent(new CustomEvent('import', {
+                            bubbles: false,
+                            cancelable: false,
+                            detail: {
+                                html: content,
+                                insert: true,
+                                wrap: [
+                                    (action === "cite" ? '[quote' + (quote && quoteName ? ('=' + quoteName + ':' + quote) : '') + ']' : ''),
+                                    (action === "cite" ? '[/quote]' : '')
+                                ],
+                                opmode: $.html.twinoParser.OpModeQuote }
+                        }));
                 }
 
-                const existing_editor = document.getElementById('global-pm-forum-editor-text');
+                const existing_editor = document.querySelector('#global-pm-forum-editor hordes-twino-editor');
                 if (existing_editor) {
                     fun_apply_action(existing_editor);
                     return;
@@ -579,10 +588,9 @@
                 if (editor) $.ajax.background().load( editor, selected_thread.getAttribute('x-editor'), false, {}, function() {
                     document.getElementById('pm-forum-editor-header').innerText = '{{ 'Antworten'|trans({},'global')|e('js') }}';
 
-                    $.html.forEach('#global-pm-forum-editor-text', e => {
-                        fun_apply_action(e);
-                        e.focus()
-                    });
+                    $.html.forEach('#global-pm-forum-editor hordes-twino-editor', e =>
+                        fun_apply_action(e)
+                    );
                 } );
             }
 
