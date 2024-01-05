@@ -7,7 +7,7 @@
 import {HordesNotificationManager} from "../react/notification-manager/Wrapper";
 import {Shim} from "../react";
 
-// Define web component <hordes-avatar-creator />
+// Define web component <hordes-notification-manager />
 customElements.define('hordes-notification-manager', class HordesNotificationManagerElement extends Shim<HordesNotificationManager> {
 
     protected generateProps(): object {

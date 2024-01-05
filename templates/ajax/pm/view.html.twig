@@ -194,7 +194,10 @@
                                                             data-self="1" data-exclude=""
                                         ></hordes-user-search>
                                     </div>
-                                    <div class="padded cell rw-8 ro-4"><ul id="pm-selected-users"></ul></div>
+                                    <div class="padded cell rw-8 ro-4">
+                                        <input type="hidden" id="pm-selected-user-list" >
+                                        <ul id="pm-selected-users"></ul>
+                                    </div>
                                 </div>
                             </div>
                             {% if official_groups is not empty %}
@@ -209,7 +212,6 @@
                                             {% endfor %}
                                         </select>
                                     </div>
-                                    <div class="padded cell rw-8 ro-4"><ul id="pm-selected-users"></ul></div>
                                 </div>
                             </div>
                             {% endif %}
@@ -541,13 +543,22 @@
                     if (!action || !id) return;
 
                     const content = document.querySelector('.pm-message [data-message-id="' + id + '"]')?.innerHTML;
-                    if (content) {
-                        editor.value += (action === "cite" ? '[quote' + (quote && quoteName ? ('=' + quoteName + ':' + quote) : '') + ']' : '') + $.html.twinoParser.parseFrom( content, $.html.twinoParser.OpModeQuote ) + (action === "cite" ? '[/quote]' : '') + "\n";
-                        editor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
-                    }
+                    if (content)
+                        editor.dispatchEvent(new CustomEvent('import', {
+                            bubbles: false,
+                            cancelable: false,
+                            detail: {
+                                html: content,
+                                insert: true,
+                                wrap: [
+                                    (action === "cite" ? '[quote' + (quote && quoteName ? ('=' + quoteName + ':' + quote) : '') + ']' : ''),
+                                    (action === "cite" ? '[/quote]' : '')
+                                ],
+                                opmode: $.html.twinoParser.OpModeQuote }
+                        }));
                 }
 
-                const existing_editor = document.getElementById('global-pm-forum-editor-text');
+                const existing_editor = document.querySelector('#global-pm-forum-editor hordes-twino-editor');
                 if (existing_editor) {
                     fun_apply_action(existing_editor);
                     return;
@@ -577,10 +588,9 @@
                 if (editor) $.ajax.background().load( editor, selected_thread.getAttribute('x-editor'), false, {}, function() {
                     document.getElementById('pm-forum-editor-header').innerText = '{{ 'Antworten'|trans({},'global')|e('js') }}';
 
-                    $.html.forEach('#global-pm-forum-editor-text', e => {
-                        fun_apply_action(e);
-                        e.focus()
-                    });
+                    $.html.forEach('#global-pm-forum-editor hordes-twino-editor', e =>
+                        fun_apply_action(e)
+                    );
                 } );
             }
 
@@ -699,6 +709,11 @@
                     $.html.forEach('#pm-selected-users>li[x-soul-id]', e => skip.push(parseInt(e.getAttribute('x-soul-id'))));
                     document.getElementById('pm-users-search').dataset.exclude = skip.join(',');
                 });
+                let list = [];
+                $.html.forEach('#pm-selected-users>li[x-soul-id]', function(elem) {
+                    list.push( parseInt(elem.getAttribute('x-soul-id')) );
+                });
+                document.getElementById('pm-selected-user-list').value = list.join(',');
             });
 
             $.html.addEventListenerAll('[x-pm-action="search"]', 'click', function () {
@@ -921,6 +936,7 @@
                                     let li = document.createElement("li");
                                     li.setAttribute("x-soul-id", "{{ command[1]|e('js') }}");
                                     document.getElementById("pm-selected-users").appendChild(li);
+                                    document.getElementById("pm-selected-user-list").value = "{{ command[1]|e('js') }}";
 
                                     $.html.forEach('#global-pm-forum-editor-title', e => e.focus());
                                 } );

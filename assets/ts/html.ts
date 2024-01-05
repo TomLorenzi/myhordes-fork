@@ -1,6 +1,7 @@
 import {Const, Global} from "./defaults";
 
 import TwinoAlikeParser from "./twino"
+import HordesTwinoEditorElement from "./modules/twino-editor";
 
 declare var $: Global;
 declare var c: Const;
@@ -91,12 +92,17 @@ export default class HTML {
     serializeForm(form: ParentNode): object {
         let data: object = {};
 
-        const input_fields = form.querySelectorAll('input,select') as NodeListOf<HTMLInputElement|HTMLSelectElement>;
+        const input_fields = form.querySelectorAll('input,select,hordes-twino-editor') as NodeListOf<HTMLInputElement|HTMLSelectElement|HordesTwinoEditorElement>;
         for (let i = 0; i < input_fields.length; i++) {
             const node = input_fields[i];
             const node_name = node.getAttribute('name') ?? node.getAttribute('id');
+            const node_type = node.dataset['type'] ?? node.getAttribute('type') ?? 'text';
 
-            if (node_name)
+            // Do not enter react parents!
+            const blacklisted = node.closest('hordes-twino-editor');
+            if (blacklisted && blacklisted !== node) continue;
+
+            if (node_name) {
                 switch (node.nodeName) {
                     case 'INPUT':
                         data[node_name] = node.getAttribute('type') != 'checkbox'
@@ -106,7 +112,17 @@ export default class HTML {
                     case 'SELECT':
                         data[node_name] = (node as HTMLSelectElement).value;
                         break;
+                    case 'HORDES-TWINO-EDITOR':
+                        data[node_name] = node_type === "twino" ? (node as HordesTwinoEditorElement).twino : (node as HordesTwinoEditorElement).html;
+                        break;
                 }
+
+                switch (node_type) {
+                    case 'number':
+                        data[node_name] = parseFloat( data[node_name] );
+                        break;
+                }
+            }
 
         }
 

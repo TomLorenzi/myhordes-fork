@@ -84,3 +84,5 @@ customElements.define('hordes-tooltip', class HordesTooltipElement extends Shim<
     }
 
 }, {  });
+
+require('./twino-editor')

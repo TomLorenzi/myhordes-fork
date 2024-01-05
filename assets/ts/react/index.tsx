@@ -197,6 +197,10 @@ export abstract class Shim<ReactType extends ShimLoader> extends HTMLElement {
     protected abstract generateInstance(): ReactType;
     protected static observedAttributeNames(): string[] { return []; };
 
+    protected nestedObject(): ReactType|null {
+        return this.initialized;
+    }
+
     protected selfMount(data: object = {}): void {
         this.initialized?.mount(this, { ...this.data, ...data } );
     }

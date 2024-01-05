@@ -350,7 +350,7 @@ class LogController extends CustomAbstractCoreController
         if ($active_citizen->getZone() !== $zone) return new JsonResponse([], Response::HTTP_NOT_ACCEPTABLE);
 
         $message = $parser->get('msg', null);
-        if (!$message || mb_strlen($message) < 2 || !$html->htmlPrepare($this->getUser(), 0, ['core_rp'], $message, $active_citizen->getTown(), $insight) || $insight->text_length < 2 || $insight->text_length > 256 )
+        if (!$message || mb_strlen($message) < 2 || !$html->htmlPrepare($this->getUser(), 0, ['core_rp','core_rp_town'], $message, $active_citizen->getTown(), $insight) || $insight->text_length < 2 || $insight->text_length > 256 )
             return new JsonResponse(['error' => BeyondController::ErrorChatMessageInvalid], Response::HTTP_NOT_ACCEPTABLE);
 
         $message = $html->htmlDistort( $message,

@@ -37,6 +37,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Uid\Uuid;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -1088,22 +1089,9 @@ class MessageGlobalPMController extends MessageController
         if ($em->getRepository(UserGroupAssociation::class)->countRecentRecipients($this->getUser()) > 100)
             return $this->render( 'ajax/pm/non-editor.html.twig');
 
-        return $this->render( 'ajax/forum/editor.html.twig', [
-            'fid' => null,
-            'tid' => null,
-            'pid' => null,
-
+        return $this->render( 'ajax/editor/gpm-thread.html.twig', [
+            'uuid' => Uuid::v4(),
             'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionCreateThread ),
-            'snippets' => $this->isGranted('ROLE_CROW') ? $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll() : [],
-
-            'emotes' => $this->getEmotesByUser($this->getUser(),true),
-            'username' => $this->getUser()->getName(),
-            'forum' => false,
-            'town_controls' => null,
-
-            'type' => 'global-pm',
-            'target_url' => 'pm_new_thread_controller',
-            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 
@@ -1113,23 +1101,9 @@ class MessageGlobalPMController extends MessageController
      */
     #[Route(path: 'jx/pm/create-og-editor', name: 'pm_og_thread_editor_controller')]
     public function editor_pm_og_thread_api(EntityManagerInterface $em): Response {
-
-        return $this->render( 'ajax/forum/editor.html.twig', [
-            'fid' => null,
-            'tid' => null,
-            'pid' => null,
-
+        return $this->render( 'ajax/editor/gpm-og.html.twig', [
+            'uuid' => Uuid::v4(),
             'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionCreateThread ),
-            'snippets' => $this->isGranted('ROLE_CROW') ? $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll() : [],
-
-            'emotes' => $this->getEmotesByUser($this->getUser(),true),
-            'username' => $this->getUser()->getName(),
-            'forum' => false,
-            'town_controls' => null,
-
-            'type' => 'global-og-pm',
-            'target_url' => 'pm_new_og_thread_controller',
-            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 
@@ -1143,23 +1117,10 @@ class MessageGlobalPMController extends MessageController
         if ($this->userHandler->isRestricted($this->getUser(), AccountRestriction::RestrictionGlobalCommunication))
             return new Response("");
 
-        return $this->render( 'ajax/forum/editor.html.twig', [
-            'fid' => null,
-            'tid' => null,
-            'pid' => null,
-
+        return $this->render( 'ajax/editor/gpm-post.html.twig', [
+            'uuid' => Uuid::v4(),
+            'tid' => $id,
             'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionCreatePost ),
-            'snippets' => $this->isGranted('ROLE_CROW') ? $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll() : [],
-
-            'emotes' => $this->getEmotesByUser($this->getUser(),true),
-            'username' => $this->getUser()->getName(),
-            'forum' => false,
-            'town_controls' => null,
-
-            'type' => 'global-pm',
-            'target_url'  => 'pm_new_post_controller',
-            'target_data' => ['id' => $id],
-            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 

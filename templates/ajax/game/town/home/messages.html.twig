@@ -93,6 +93,7 @@
                 <div class="cell padded rw-2"><span class="small">{% trans from 'game'%}Empfänger:{% endtrans %}</span></div>
                 <div class="cell padded rw-6">
                     <input type="text" id="pmrecipient" disabled {% if dest_citizen is not null %}value="{{dest_citizen.name}}"{% endif %} />
+                    <input type="hidden" id="item-rec" value="" />
                     <input type="hidden" id="pmidrecipient" {% if dest_citizen is not null %}value="{{dest_citizen.id}}"{% endif %}/>
                 </div>
                 {% if dest_citizen is null %}
@@ -285,6 +286,13 @@
                         sent.appendChild(this);
                     else
                         keep.appendChild(this)
+
+                    const sent_items = sent.querySelectorAll(".item[x-item-id]");
+                    let target_payload = [];
+                    for (let i = 0; i < sent_items.length; i++)
+                        target_payload.push(sent_items[i].attributes['x-item-id'].value);
+                    document.getElementById('item-rec').value = target_payload.join(',')
+
                     if(sent.childElementCount > 1)
                         document.querySelector("#sent-items .category").style.display = "none";
                     else

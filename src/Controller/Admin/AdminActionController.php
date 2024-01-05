@@ -74,8 +74,9 @@ class AdminActionController extends CustomAbstractController
     public static function getCommunityActions(): array {
         return [
             ['name' => T::__('Dashboard', 'admin'),  'route' => 'admin_dashboard'],
-            ['name' => T::__('Kampagnen', 'admin'),   'route' => 'admin_campaigns'],
+            ['name' => T::__('Kampagnen', 'admin'),  'route' => 'admin_campaigns'],
             ['name' => T::__('Zukunft', 'admin'),    'route' => 'admin_changelogs'],
+            ['name' => T::__('Kurztexte', 'admin'),  'route' => 'admin_reports_snippets'],
         ];
     }
 

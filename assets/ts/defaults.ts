@@ -11,6 +11,7 @@ export interface Global {
 }
 
 export interface Const {
+    langs: object,
     errors: object,
     taptut: string
 }

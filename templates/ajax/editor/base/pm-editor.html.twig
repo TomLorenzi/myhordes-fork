@@ -1,0 +1,36 @@
+{% macro pmEditor(
+    type,
+    tid,
+    user,
+    username,
+    header,
+    enable_title,
+    enable_include,
+    url,
+    additional = ""
+    ) %}
+    {% from 'ajax/editor/base/core-permissions.html.twig' import core_permissions %}
+    {# @var user \App\Entity\User #}
+    <hordes-twino-editor
+        data-context="{{ type ~ '-tc' }}"
+        data-username="{{ username }}" data-user="{{ user.id }}"
+        data-header="{{ header }}"
+        data-feature-alias="1"
+        {% if enable_title %}
+            data-feature-title="1"
+        {% endif %}
+        data-feature-preview="1"
+        {{ core_permissions(user,null,"extended") }}
+        data-control-rp="1"
+        data-redirect-after-submit="1"
+
+        data-target-url="{{ url }}"
+        data-target-map="html:content,type,title,tid"
+        data-default-type="{{ type }}"
+        {% if tid %}data-default-tid="{{ tid }}"{% endif %}
+        {% if enable_include %}
+            data-target-include="{{ enable_include }}"
+        {% endif %}
+        {{ additional }}
+    ></hordes-twino-editor>
+{% endmacro %}

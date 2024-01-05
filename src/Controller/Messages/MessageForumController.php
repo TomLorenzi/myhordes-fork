@@ -39,12 +39,14 @@ use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\QueryBuilder;
 use Exception;
+use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Uid\Uuid;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -927,43 +929,33 @@ class MessageForumController extends MessageController
     }
 
     /**
-     * @param int $id
+     * @param Forum $forum
      * @param EntityManagerInterface $em
      * @return Response
      */
     #[Route(path: 'jx/forum/{id<\d+>}/editor', name: 'forum_thread_editor_controller')]
-    public function editor_thread_api(int $id, EntityManagerInterface $em): Response {
-        $forum = $em->getRepository(Forum::class)->find($id);
+    public function editor_thread_api(Forum $forum, EntityManagerInterface $em): Response {
+
         $user = $this->getUser();
         $permissions = $this->perm->getEffectivePermissions( $user, $forum );
 
-        if (!$forum || !$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionCreateThread ) || $this->isLimitedDuringAttack($forum))
+        if (!$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionCreateThread ) || $this->isLimitedDuringAttack($forum))
             return new Response('', 200, ['X-AJAX-Control' => 'reload']);
 
-        $town = $forum->getTown();
-        $town_citizen = $town ? $user->getCitizenFor( $town ) : null;
+        $town_citizen = $forum->getTown() ? $user->getCitizenFor( $forum->getTown() ) : null;
 
-        $username = $town_citizen ? $town_citizen->getName() : $user->getName();
         $is_heroic = !$forum->getTown() || ( $town_citizen && $town_citizen->getAlive() && $town_citizen->getProfession()->getHeroic() );
 
         $tags = ($this->userHandler->hasSkill($user, 'writer') && $is_heroic) ? array_filter( $forum->getAllowedTags()->getValues(),
             fn(ThreadTag $tag) => $tag->getPermissionMap() === null || $this->perm->isPermitted( $permissions, $tag->getPermissionMap() )
         ) : [];
 
-        return $this->render( 'ajax/forum/editor.html.twig', [
-            'fid' => $id,
-            'tid' => null,
-            'pid' => null,
-
+        return $this->render( 'ajax/editor/forum-thread.html.twig', [
+            'fid' => $forum->getId(),
             'permission' => $this->getPermissionObject( $permissions ),
-            'snippets' => $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsCrow ) ? $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll() : [],
-
-            'emotes' => $this->getEmotesByUser($user,true),
-            'username' => $username,
-            'forum' => true,
+            'username' => $town_citizen?->getName() ?? $user->getName(),
             'town_controls' => $forum->getTown() !== null,
             'tags' => $tags,
-            'langsCodes' => $this->generatedLangsCodes,
             'alias' => !!$town_citizen
         ] );
     }
@@ -1214,19 +1206,24 @@ class MessageForumController extends MessageController
     }
 
     /**
-     * @param int $fid
-     * @param int $tid
+     * @param Forum $forum
+     * @param Thread $thread
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
      * @return Response
      */
     #[Route(path: 'jx/forum/{fid<\d+>}/{tid<\d+>}/editor', name: 'forum_post_editor_controller')]
-    public function editor_post_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser): Response {
-        $user = $this->getUser();
-        $forum = $em->getRepository(Forum::class)->find($fid);
+    public function editor_post_api(
+        #[MapEntity(id: 'fid')]
+        Forum $forum,
+        #[MapEntity(id: 'tid')]
+        Thread $thread,
+        EntityManagerInterface $em, JSONRequestParser $parser): Response
+    {
 
-        $thread = $em->getRepository( Thread::class )->find( $tid );
-        if ($thread === null || $thread->getForum()->getId() !== $fid) return new Response('');
+        $user = $this->getUser();
+
+        if ($thread->getForum() !== $forum) return new Response('');
 
         $permissions = $this->perm->getEffectivePermissions( $user, $thread->getForum() );
         if (!$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionCreatePost )) {
@@ -1252,10 +1249,8 @@ class MessageForumController extends MessageController
                 return new Response('');
         }
 
-        $town = $forum->getTown();
-        $town_citizen = $town ? $user->getCitizenFor( $town ) : null;
+        $town_citizen = $forum->getTown() ? $user->getCitizenFor( $forum->getTown() ) : null;
 
-        $username = $town_citizen ? $town_citizen->getName() : $user->getName();
         $is_heroic = !$forum->getTown() || ( $town_citizen && $town_citizen->getAlive() && $town_citizen->getProfession()->getHeroic() );
 
         if ($post !== null && $thread->firstPost(true) === $post && !$thread->getTranslatable())
@@ -1264,23 +1259,19 @@ class MessageForumController extends MessageController
             ) : [];
         else $tags = [];
 
-        return $this->render( 'ajax/forum/editor.html.twig', [
-            'fid' => $fid,
-            'tid' => $tid,
+        return $this->render( 'ajax/editor/forum-post.html.twig', [
+            'fid' => $forum->getId(),
+            'tid' => $thread->getId(),
             'pid' => $pid,
 
             'edit_title' => ($post !== null && $post === $thread->firstPost(true) && !$thread->getTranslatable()) ? $thread->getTitle() : null,
 
             'permission' => $this->getPermissionObject( $permissions ),
-            'snippets' => $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsCrow ) ? $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll() : [],
 
-            'emotes' => $this->getEmotesByUser($user,true),
-            'username' => $username,
-            'forum' => true,
-            'town_controls' => $thread->getForum()->getTown() !== null,
+            'username' => $town_citizen?->getName() ?? $user->getName(),
+            'town_controls' => !!$forum->getTown(),
             'tags' => $tags,
-            'current_tag' => $thread->getTag(),
-            'langsCodes' => $this->generatedLangsCodes,
+            'current_tag' => $thread->getTag()?->getName() ?? '',
             'alias' => !!$town_citizen
         ] );
     }

@@ -24,6 +24,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Uid\Uuid;
 
 /**
  * @method User getUser
@@ -171,27 +172,12 @@ class MessageAnnouncementController extends MessageController
      */
     #[Route(path: 'jx/admin/changelogs/c/editor', name: 'admin_new_changelog_editor_controller')]
     public function admin_new_changelog_editor_controller(): Response {
-        $user = $this->getUser();
-
-        if ($this->isGranted('ROLE_ADMIN')) $p = ForumUsagePermissions::PermissionOwn;
-        elseif ($this->isGranted('ROLE_CROW')) $p = ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingModerator;
-        else $p = ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingOracle;
-
-        return $this->render( 'ajax/forum/editor.html.twig', [
-            'fid' => null,
-            'tid' => null,
-            'pid' => null,
-
-            'permission' => $this->getPermissionObject( $p ),
-            'snippets' => [],
-            'emotes' => $this->getEmotesByUser($user,true),
-
-            'forum' => false,
-            'type' => 'changelog',
-            'username' => $user->getName(),
-            'target_url' => 'admin_changelog_new_changelog',
-            'town_controls' => false,
-            'langsCodes' => $this->generatedLangsCodes
+        return $this->render( 'ajax/editor/changelog.html.twig', [
+            'permission' => $this->getPermissionObject( match(true) {
+                $this->isGranted('ROLE_ADMIN') => ForumUsagePermissions::PermissionOwn,
+                $this->isGranted('ROLE_CROW') => ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingModerator,
+                default => ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingOracle,
+            } ),
         ] );
     }
 
@@ -200,27 +186,13 @@ class MessageAnnouncementController extends MessageController
      */
     #[Route(path: 'jx/admin/com/changelogs/a/editor', name: 'admin_new_announcement_editor_controller')]
     public function admin_new_announcement_editor_controller(): Response {
-        $user = $this->getUser();
-
-        if ($this->isGranted('ROLE_ADMIN')) $p = ForumUsagePermissions::PermissionOwn;
-        elseif ($this->isGranted('ROLE_CROW')) $p = ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingModerator;
-        else $p = ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingOracle;
-
-        return $this->render( 'ajax/forum/editor.html.twig', [
-            'fid' => null,
-            'tid' => null,
-            'pid' => null,
-
-            'permission' => $this->getPermissionObject( $p ),
-            'snippets' => [],
-            'emotes' => $this->getEmotesByUser($user,true),
-
-            'forum' => false,
-            'type' => 'announcement',
-            'username' => $user->getName(),
-            'target_url' => 'admin_changelog_new_announcement',
-            'town_controls' => false,
-            'langsCodes' => $this->generatedLangsCodes
+        return $this->render( 'ajax/editor/announcement.html.twig', [
+            'uuid' => Uuid::v4(),
+            'permission' => $this->getPermissionObject( match(true) {
+                $this->isGranted('ROLE_ADMIN') => ForumUsagePermissions::PermissionOwn,
+                $this->isGranted('ROLE_CROW') => ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingModerator,
+                default => ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingOracle,
+            } ),
         ] );
     }
 

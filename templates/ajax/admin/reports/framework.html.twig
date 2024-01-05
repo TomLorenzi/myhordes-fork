@@ -8,15 +8,17 @@
     <div class="row">
 
         <div class="cell rw-12">
-            <ul class="tabs plain">
-                <li {{ {tab: true, selected: tab == 'posts'}|classes }} x-ajax-href="{{ path('admin_reports_forum_posts') }}"><div class="tab-link">{% trans from 'admin' %}Forum{% endtrans %}</div></li>
-                <li {{ {tab: true, selected: tab == 'pn'}|classes }} x-ajax-href="{{ path('admin_reports_town') }}"><div class="tab-link">{% trans from 'admin' %}Private Nachrichten (Stadt){% endtrans %}</div></li>
-                <li {{ {tab: true, selected: tab == 'gpn'}|classes }} x-ajax-href="{{ path('admin_reports_global') }}"><div class="tab-link">{% trans from 'admin' %}Private Nachrichten (Global){% endtrans %}</div></li>
-                <li {{ {tab: true, selected: tab == 'woh'}|classes }} x-ajax-href="{{ path('admin_reports_blackboard') }}"><div class="tab-link">{% trans from 'admin' %}Schwarzes Brett{% endtrans %}</div></li>
-                <li {{ {tab: true, selected: tab == 'citizen'}|classes }} x-ajax-href="{{ path('admin_reports_citizen') }}"><div class="tab-link">{% trans from 'admin' %}Bürgertexte{% endtrans %}</div></li>
-                <li {{ {tab: true, selected: tab == 'users'}|classes }} x-ajax-href="{{ path('admin_reports_user') }}"><div class="tab-link">{% trans from 'admin' %}Accounts{% endtrans %}</div></li>
-                <li {{ {tab: true, selected: tab == 'short'}|classes }} x-ajax-href="{{ path('admin_reports_snippets') }}"><div class="tab-link">{% trans from 'admin' %}Kurztexte{% endtrans %}</div></li>
-            </ul>
+            {% if is_granted('ROLE_CROW') %}
+                <ul class="tabs plain">
+                    <li {{ {tab: true, selected: tab == 'posts'}|classes }} x-ajax-href="{{ path('admin_reports_forum_posts') }}"><div class="tab-link">{% trans from 'admin' %}Forum{% endtrans %}</div></li>
+                    <li {{ {tab: true, selected: tab == 'pn'}|classes }} x-ajax-href="{{ path('admin_reports_town') }}"><div class="tab-link">{% trans from 'admin' %}Private Nachrichten (Stadt){% endtrans %}</div></li>
+                    <li {{ {tab: true, selected: tab == 'gpn'}|classes }} x-ajax-href="{{ path('admin_reports_global') }}"><div class="tab-link">{% trans from 'admin' %}Private Nachrichten (Global){% endtrans %}</div></li>
+                    <li {{ {tab: true, selected: tab == 'woh'}|classes }} x-ajax-href="{{ path('admin_reports_blackboard') }}"><div class="tab-link">{% trans from 'admin' %}Schwarzes Brett{% endtrans %}</div></li>
+                    <li {{ {tab: true, selected: tab == 'citizen'}|classes }} x-ajax-href="{{ path('admin_reports_citizen') }}"><div class="tab-link">{% trans from 'admin' %}Bürgertexte{% endtrans %}</div></li>
+                    <li {{ {tab: true, selected: tab == 'users'}|classes }} x-ajax-href="{{ path('admin_reports_user') }}"><div class="tab-link">{% trans from 'admin' %}Accounts{% endtrans %}</div></li>
+                    <li {{ {tab: true, selected: tab == 'short'}|classes }} x-ajax-href="{{ path('admin_reports_snippets') }}"><div class="tab-link">{% trans from 'admin' %}Kurztexte{% endtrans %}</div></li>
+                </ul>
+            {% endif %}
 
             {% block content %}{% endblock %}
         </div>
