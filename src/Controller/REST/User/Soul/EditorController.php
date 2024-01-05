@@ -311,6 +311,7 @@ class EditorController extends CustomAbstractCoreController
             'd100' => 'dice100',
             'letter' => 'lta',
             'consonant' => 'ltc',
+            'vowel' => 'ltv',
             'rps' => 'rps',
             'coin' => 'coin',
             'card' => 'card',
