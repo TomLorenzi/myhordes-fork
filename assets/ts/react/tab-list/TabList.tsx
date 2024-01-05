@@ -13,6 +13,7 @@ type TabPropsLeaf = TabProps & {
 }
 
 type TabPropsGroup = TabProps & {
+    group: string,
     children: ReactElement<TabPropsLeaf>[],
 }
 
@@ -27,11 +28,7 @@ export const TabbedSection = ( {defaultTab, children, mountOnlyActive, keepInact
     const [group, setGroup] = useState<string>(null);
     const [mounted, setMounted] = useState<string[]>([selected].filter(v => v !== null))
 
-    const getType = (v: ReactElement<any>) => v.type === null ? null : (
-        typeof v.type === "string" ? v.type : (
-            (v.type as Function).name
-        )
-    );
+    const getType = (v: ReactElement<any>) => v.props.group ? 'TabGroup' : 'Tab';
 
     const renderTab = (t: ReactElement<TabProps>, hidden: boolean = false, inGroup: string|null = null) =>
         <li data-group={inGroup ?? ''} key={t.props.id} style={hidden ? {display: 'none'} : {}} className={`tab ${selected === t.props.id ? 'selected' : ''}`}>
