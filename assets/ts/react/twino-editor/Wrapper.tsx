@@ -12,21 +12,26 @@ import {Fetch} from "../../v2/fetch";
 declare var $: Global;
 declare var c: Const;
 
-type Feature = "tags"|"title"|"version"|"language"|"preview"|"compact"|"alias"|"passive"
-type Control = "core"|"extended"|"image"|"admin"|"mod"|"oracle"|"glory"|"poll"|"rp"|"snippet"
+type Feature = "tags"|"title"|"version"|"language"|"preview"|"alias"|"passive"
+type Control = "core"|"extended"|"emote"|"image"|"admin"|"mod"|"oracle"|"glory"|"poll"|"game"|"rp"|"snippet"
 type Skin = "forum"|"pm"|"line"
 
 interface HeaderConfig {
-    header: string|null,
-    username: string|null,
-    user: number
-    tags: {[index:string]: string},
+    header?: string|null,
+    username?: string|null,
+    user?: number|null
+    tags?: {[index:string]: string}|null,
+}
+
+interface EditorConfig {
+    maxLength?: number|null,
+    placeholder?: string|null,
+    enterKeyHint?: 'enter'|'done'|'go'|'next'|'previous'|'search'|'send'|null
 }
 
 type HTMLConfig = HeaderConfig & {
-    id: string|null,
+    id?: string|null,
     context: string,
-    pm: boolean,
     features: Feature[],
     controls: Control[],
     skin: Skin,
@@ -37,9 +42,10 @@ type HTMLConfig = HeaderConfig & {
         map?: {[index:string]: string}
         include?: {[index:string]: string}
     }|null
-    defaultFields: {[index:string]: string|number},
-    redirectAfterSubmit: string|boolean,
+    defaultFields?: {[index:string]: string|number},
+    redirectAfterSubmit?: string|boolean,
     previewSelector?: string,
+    editorPrefs: EditorConfig,
 }
 
 type FieldChangeEventTrigger = ( field: string, value: string|number|null, old_value: string|number|null, is_default: boolean ) => void
@@ -111,7 +117,7 @@ export class HordesTwinoEditor {
                 this.#_content_import(e.detail);
             })
         }
-        this.#_values = props.defaultFields;
+        this.#_values = props.defaultFields ?? {};
         this.#_root.render( <TwinoEditorWrapper
             {...props}
             onFieldChanged={(f:string,v:string|number|null,v0:string|number|null,d:boolean) => this.onFieldChanged(f,v,v0,d)}
@@ -136,7 +142,7 @@ export class HordesTwinoEditor {
     }
 }
 
-const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEventTrigger, onSubmit: SubmitEventTrigger, connectImport: (any)=>void } ) => {
+export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEventTrigger, onSubmit?: SubmitEventTrigger, connectImport?: (any)=>void } ) => {
 
     const cache = $.client.config.scopedEditorCache.get() ?? ['',''];
     const cache_value = (cache[0] ?? '_') === props.context ? cache[1] : null;
@@ -144,7 +150,7 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
     const uuid = useRef(props.id ?? uuidv4());
     const [strings, setStrings] = useState<TranslationStrings>(null);
     const [fields, setFields] = useState<{[index:string]: string|number}>({
-        ...props.defaultFields,
+        ...props.defaultFields ?? {},
     });
     const fieldRef = useRef<{[index:string]: string|number}>(fields);
 
@@ -163,7 +169,11 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
     const [emotes, setEmotes] = useState<EmoteResponse>(null);
     const emoteRef = useRef<EmoteResponse>(null);
 
+    const isEnabled = (f:Feature): boolean => props.features.includes(f);
+    const controlAllowed = (c:Control): boolean => props.controls.includes(c);
+
     const emoteResolver = (s:string): [string|null,string] => {
+        if (!controlAllowed('emote')) return [null,s];
         const e = emotes ?? emoteRef.current ?? null;
         if (e === null) return [null,s];
         s = e.mock[s] ?? s;
@@ -181,13 +191,13 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
 
         if (current !== value) {
             let new_fields = {...fieldRef.current};
-            props.onFieldChanged(field, new_fields[field] = value, current, value === (props.defaultFields[field] ?? null));
+            props.onFieldChanged(field, new_fields[field] = value, current, value === ((props.defaultFields ?? {})[field] ?? null));
 
             // Changing the body also changes the HTML and invokes the cache
             if (field === 'body') {
                 $.client.config.scopedEditorCache.set([props.context, value]);
                 const html = convertToHTML(`${value}`);
-                props.onFieldChanged('html', new_fields['html'] = html, current, html === (props.defaultFields['html'] ?? null));
+                props.onFieldChanged('html', new_fields['html'] = html, current, html === ((props.defaultFields ?? {})['html'] ?? null));
                 if (props.previewSelector) (document.querySelector(props.previewSelector) ?? {innerHTML:''}).innerHTML = html;
             } else if (field === 'html') (document.querySelector(props.previewSelector) ?? {innerHTML:''}).innerHTML = value as string;
 
@@ -196,9 +206,6 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
     }
 
     const getField = (f: string): number|string|null => fields[f] ?? null;
-
-    const isEnabled = (f:Feature): boolean => props.features.includes(f);
-    const controlAllowed = (c:Control): boolean => props.controls.includes(c);
 
     const submit = () => {
         let html = null;
@@ -217,13 +224,13 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
 
         if (!props.target) {
             $.client.config.scopedEditorCache.set(['','']);
-            props.onSubmit({...fieldRef.current, html });
+            if (props.onSubmit) props.onSubmit({...fieldRef.current, html });
         } else {
             let submissionData = {};
 
             const check = (field: string, value: string|number): boolean => {
                 switch (field) {
-                    case 'role': return props.roles.hasOwnProperty(value);
+                    case 'role': return props.roles && props.roles.hasOwnProperty(value);
                     default: return value !== '' && value !== null && value !== undefined;
                 }
             }
@@ -256,31 +263,34 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
     }
 
     useEffect(() => {
-        props.connectImport( (t:TwinoContentImport) => {
-            let body = null;
-            if ((t.html ?? null) !== null)
-                body = convertToTwino( t.html, t.opmode );
-            else if ((t.body ?? null) !== null)
-                body = t.body;
+        if (props.connectImport)
+            props.connectImport( (t:TwinoContentImport) => {
+                let body = null;
+                if ((t.html ?? null) !== null)
+                    body = convertToTwino( t.html, t.opmode );
+                else if ((t.body ?? null) !== null)
+                    body = t.body;
 
-            if (body !== null) {
-                body = ((t.wrap ?? ['',''])[0] ?? '') + body + ((t.wrap ?? ['',''])[1] ?? '');
+                if (body !== null) {
+                    body = ((t.wrap ?? ['',''])[0] ?? '') + body + ((t.wrap ?? ['',''])[1] ?? '');
 
-                if (t.insert) {
-                    const prev = `${fieldRef.current.body ?? ''}`;
-                    setField('body', prev.slice( 0, selection.current.start ) + body + prev.slice( selection.current.end ) )
+                    if (t.insert) {
+                        const prev = `${fieldRef.current.body ?? ''}`;
+                        setField('body', prev.slice( 0, selection.current.start ) + body + prev.slice( selection.current.end ) )
+                    }
+                    else setField('body', body);
                 }
-                else setField('body', body);
-            }
 
-        } );
+            } );
 
         apiRef.current.index().then(data => setStrings(data.strings));
-        apiRef.current.emotes(props.user).then(data => {
-            setEmotes({...emoteRef.current = data});
-            const updateParsed = convertToHTML( `${fieldRef.current['body'] ?? ''}` );
-            if (updateParsed !== (fieldRef.current['html'] ?? '')) setField('html', updateParsed);
-        })
+        if (controlAllowed('emote') || controlAllowed('snippet'))
+            apiRef.current.emotes(props.user).then(data => {
+                setEmotes({...emoteRef.current = data});
+                const updateParsed = convertToHTML( `${fieldRef.current['body'] ?? ''}` );
+                if (updateParsed !== (fieldRef.current['html'] ?? '')) setField('html', updateParsed);
+            })
+        else setEmotes( emoteRef.current = { mock: {}, snippets: null, result: {}} )
     }, []);
 
     useLayoutEffect(() => {
@@ -324,12 +334,12 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
                                           onClick={() => setExpanded(true)}>{strings.common.expand}</span>
                                 </div>}
                             </div>}
-                            <div className={expanded ? '' : 'hidden'}><TwinoEditorControls/></div>
+                            <div className={expanded ? '' : 'hidden'}><TwinoEditorControls emotes={emoteRef.current === null ? null : Object.values(emoteRef.current.result)}/></div>
                         </div>
                         <div className={`${props.skin !== 'line' ? 'padded' : 'overlay-central'} cell rw-12`}>
                             <TwinoEditorEditor
                                 body={`${fieldRef.current['body'] ?? getField('body') ?? ''}`}
-                                fixed={props.skin === "pm"}
+                                fixed={props.skin === "pm"} prefs={props.editorPrefs}
                                 controlTrigger={s => {
                                     if (s === 'enter') submit();
                                     else {
@@ -349,7 +359,7 @@ const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEv
 
                     </div>
                     <div className="row-flex v-center right">
-                        {Object.values(props.roles).length > 0 && <>
+                        {Object.values(props.roles ?? []).length > 0 && <>
                             <div className="padded cell">
                                 <label><select value={getField('role')}
                                                onChange={e => setField('role', e.target.value)}>
@@ -470,7 +480,7 @@ const TwinoEditorPreview = ({html}: {html:string}) => {
     </>
 }
 
-const TwinoEditorEditor = ({body, fixed, controlTrigger}: {body: string, fixed: boolean, controlTrigger?: null|((s:string) => boolean)}) => {
+const TwinoEditorEditor = ({body, fixed, controlTrigger, prefs}: {body: string, fixed: boolean, controlTrigger?: null|((s:string) => boolean), prefs: EditorConfig}) => {
     const textArea = useRef<HTMLTextAreaElement|HTMLInputElement|any>(null);
     const globals = useContext(Globals);
 
@@ -510,8 +520,8 @@ const TwinoEditorEditor = ({body, fixed, controlTrigger}: {body: string, fixed: 
 
     return globals.skin === "line"
         ? <input
-            type="text" value={body}
-            ref={textArea}
+            type="text" value={body} maxLength={prefs.maxLength} placeholder={prefs.placeholder}
+            ref={textArea} enterKeyHint={prefs.enterKeyHint}
             tabIndex={0} id={`${globals.uuid}-editor`}
             onInput={e => globals.setField('body', e.currentTarget.value)}
             onKeyDown={e => {
@@ -524,7 +534,7 @@ const TwinoEditorEditor = ({body, fixed, controlTrigger}: {body: string, fixed: 
             }}
         />
         : <textarea ref={textArea}
-            value={body}
+            value={body} maxLength={prefs.maxLength} placeholder={prefs.placeholder}
             tabIndex={0} id={`${globals.uuid}-editor`}
             style={fixed ? {height: '90px', minHeight: '90px'} : {}}
             onInput={e => globals.setField('body', e.currentTarget.value)}

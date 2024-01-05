@@ -5,6 +5,7 @@ import {LogAPI, LogEntry} from "./api";
 import {TranslationStrings} from "./strings";
 import {Tooltip} from "../tooltip/Wrapper";
 import {Global} from "../../defaults";
+import {TwinoEditorWrapper} from "../twino-editor/Wrapper";
 
 declare var $: Global;
 
@@ -290,27 +291,31 @@ const HordesLogDaySelector = ({selectedDay, days, setDay}: {selectedDay: number,
 const HordesChatContainer = ({refresh, zone}: {refresh: ()=>void, zone: number}) => {
 
     const globals = useContext(Globals);
-    const input = useRef<HTMLInputElement>();
 
     const [loading, setLoading] = useState<boolean>(false);
+    const currentText = useRef<string>('');
+    const currentImport = useRef<(any)=>void>();
 
     const sendMessage = () => {
         setLoading(true);
-        globals.api.chat( zone, $.html.twinoParser.parseToString( input.current.value, s => [null,s], {autoLinks: $.client.config.autoParseLinks.get()} ) )
+        globals.api.chat( zone, currentText.current )
             .then( v => {
                 setLoading(false);
                 if (v.success) {
-                    input.current.value = '';
+                    if (currentImport.current) currentImport.current({body: ''})
                     refresh();
                 }
             } ).catch(() => setLoading(false));
     }
 
     return <div className="row-flex gap my stretch" data-disabled={loading ? 'disabled' : ''}>
-        <div className="cell grow-1">
-            <label><input enterKeyHint="send"
-                onKeyDown={e => e.key === "Enter" && sendMessage()}
-                ref={input} type="text" placeholder={globals.strings?.chat.placeholder}/></label>
+        <div className="cell grow-1" onKeyDown={e => e.key === "Enter" && sendMessage()}>
+            <TwinoEditorWrapper context="logChat" features={['passive']} controls={['core','game','rp']} skin="line" editorPrefs={{placeholder: globals.strings?.chat.placeholder}}
+                                onFieldChanged={(f,v)=>{
+                                    if (f === "html") currentText.current = v as string;
+                                }}
+                                connectImport={ v => currentImport.current = v }
+            />
         </div>
         <div className="cell grow-0">
             <button onClick={()=>sendMessage()}>{globals.strings?.chat.send}</button>

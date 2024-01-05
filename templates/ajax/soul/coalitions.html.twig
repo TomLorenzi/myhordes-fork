@@ -65,7 +65,7 @@
                 <h5>{{ 'Shoutbox der Koalition'|trans({},'soul') }}</h5>
                 <div class="row-flex">
                     <div class="cell padded-small grow-1">
-                        <hordes-twino-editor id="shoutbox_chat" data-user="{{ app.user.id }}" data-context="shoutbox" data-skin="line" data-control="core" data-feature-passive="1"></hordes-twino-editor>
+                        <hordes-twino-editor id="shoutbox_chat" data-context="shoutbox" data-skin="line" data-control="core,game" data-feature-passive="1" maxlength="256"></hordes-twino-editor>
                     </div>
                     <div class="cell padded-small">
                         <button id="shoutbox_send">{{ 'Absenden'|trans({},'soul') }}</button>
@@ -274,6 +274,7 @@
             };
 
             $.html.addEventListenerAll('#shoutbox_send', 'click', fun_send_shout);
+            $.html.addEventListenerAll('#shoutbox_chat', 'keypress', e => e.key === "Enter" ? fun_send_shout() : null)
             $.html.addEventListenerAll('#shoutbox_refresh', 'click', function() {
                 let box = document.getElementById('shoutbox_chat');
                 let button = document.getElementById('shoutbox_send');

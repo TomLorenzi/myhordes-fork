@@ -107,22 +107,27 @@ class EditorController extends CustomAbstractCoreController
     }
 
     /**
-     * @param User $user
+     * @param int|null $id
+     * @param User|null $user
      * @param EntityManagerInterface $em
      * @param Packages $assets
+     * @param RoleHierarchyInterface $roles
+     * @param TagAwareCacheInterface $gameCachePool
      * @return JsonResponse
      * @throws InvalidArgumentException
      */
+    #[Route(path: '/me/unlocks/emotes', name: 'list_emotes_me', methods: ['GET'])]
     #[Route(path: '/{id}/unlocks/emotes', name: 'list_emotes', methods: ['GET'])]
     public function list_emotes(
-        User $user,
+        ?int $id,
+        ?User $user,
         EntityManagerInterface $em,
         Packages $assets,
         RoleHierarchyInterface $roles,
         TagAwareCacheInterface $gameCachePool
     ): JsonResponse {
-
-        if ($user !== $this->getUser()) return new JsonResponse([], Response::HTTP_FORBIDDEN);
+        if ($id === null) $user = $this->getUser();
+        elseif ($user !== $this->getUser()) return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
         $emotes = $gameCachePool->get("mh_app_unlocks_emotes_{$user->getId()}_{$user->getLanguage()}", function (ItemInterface $item) use ($user, $em) {
 
@@ -281,17 +286,20 @@ class EditorController extends CustomAbstractCoreController
     }
 
     /**
-     * @param User $user
+     * @param int|null $id
+     * @param User|null $user
      * @param Packages $assets
      * @return JsonResponse
      */
+    #[Route(path: '/me/unlocks/games', name: 'list_games_me', methods: ['GET'])]
     #[Route(path: '/{id}/unlocks/games', name: 'list_games', methods: ['GET'])]
     public function list_games(
-        User $user,
+        ?int $id,
+        ?User $user,
         Packages $assets
     ): JsonResponse {
-
-        if ($user !== $this->getUser()) return new JsonResponse([], Response::HTTP_FORBIDDEN);
+        if ($id === null) $user = $this->getUser();
+        elseif ($user !== $this->getUser()) return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
         $data = [
             'd4' => 'dice4',
@@ -320,20 +328,24 @@ class EditorController extends CustomAbstractCoreController
     }
 
     /**
-     * @param User $user
+     * @param int|null $id
+     * @param User|null $user
      * @param EntityManagerInterface $em
      * @param Packages $assets
+     * @param TranslatorInterface $trans
      * @return JsonResponse
      */
+    #[Route(path: '/me/unlocks/rp', name: 'list_rp_me', methods: ['GET'])]
     #[Route(path: '/{id}/unlocks/rp', name: 'list_rp', methods: ['GET'])]
     public function list_rp(
-        User $user,
+        ?int $id,
+        ?User $user,
         EntityManagerInterface $em,
         Packages $assets,
         TranslatorInterface $trans,
     ): JsonResponse {
-
-        if ($user !== $this->getUser()) return new JsonResponse([], Response::HTTP_FORBIDDEN);
+        if ($id === null) $user = $this->getUser();
+        elseif ($user !== $this->getUser()) return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
         $professions = $em->getRepository(CitizenProfession::class)->findAll();
 

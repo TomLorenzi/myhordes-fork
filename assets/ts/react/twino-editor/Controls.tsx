@@ -34,79 +34,103 @@ type StandaloneNodeDefinition = BaseNodeDefinition & {
     multiline?: boolean
 }
 
+type OverlayTypes = 'emotes'|'games'|'rp';
 
-export const TwinoEditorControls = () => {
+
+export const TwinoEditorControls = ({emotes}: {emotes: null|Array<Emote>}) => {
 
     const globals = useContext(Globals);
 
-    const [showControls, setShowControls] = useState( !globals.isEnabled('compact') )
+    const [showOverlay, setShowOverlay] = useState<boolean>(false)
+    const [current, setCurrent] = useState<OverlayTypes|null>(null)
+    const [mounted, setMounted] = useState<OverlayTypes[]>([])
+
+    const select = (s:OverlayTypes) => {
+        setShowOverlay( !showOverlay || s !== current )
+        setCurrent(s);
+        if (!mounted.includes(s)) setMounted([...mounted,s]);
+    }
+
+    const sectionButton = (s:OverlayTypes, src: string) => {
+        return <div tabIndex={0} className="forum-button-component">
+            <div className={`forum-button ${showOverlay && current === s ? 'active' : ''}`} onClick={() => select(s)}>
+                <img alt="" src={src}/>
+            </div>
+        </div>
+    }
 
     return <>
-        {!showControls && <a className="float-right pointer" onClick={() => setShowControls(true)}>
-            Zum erweiterten Editor wechseln</a>
-        }
-        {showControls && <>
-            <div className="forum-button-bar">
-                <div className="forum-button-bar-section">
-                    <ControlButtonNodeWrap node="b" label={globals.strings.controls.b} fa="bold" control="b" />
-                    <ControlButtonNodeWrap node="i" label={globals.strings.controls.i} fa="italic" control="i" />
-                    <ControlButtonNodeWrap node="u" label={globals.strings.controls.u} fa="underline" control="u" />
-                    <ControlButtonNodeWrap node="s" label={globals.strings.controls.s} fa="strikethrough" control="s" />
-                    { globals.allowControl('extended') && <>
-                        <ControlButtonNodeWrap node="big" label={globals.strings.controls.big} fa="expand-alt" control="+" />
-                        <ControlButtonNodeWrap node="bad" label={globals.strings.controls.bad} fa="tint" />
-                        <ControlButtonNodeWrap node="c" label={globals.strings.controls.c} fa="text-slash" />
-                    </> }
-                </div>
-                <div className="forum-button-bar-section">
+        <div className="forum-button-bar">
+            <div onClick={()=>setShowOverlay(false)} className="forum-button-bar-section">
+                <ControlButtonNodeWrap node="b" label={globals.strings.controls.b} fa="bold" control="b"/>
+                <ControlButtonNodeWrap node="i" label={globals.strings.controls.i} fa="italic" control="i" />
+                <ControlButtonNodeWrap node="u" label={globals.strings.controls.u} fa="underline" control="u" />
+                <ControlButtonNodeWrap node="s" label={globals.strings.controls.s} fa="strikethrough" control="s" />
+                { globals.allowControl('extended') && <>
+                    <ControlButtonNodeWrap node="big" label={globals.strings.controls.big} fa="expand-alt" control="+" />
+                    <ControlButtonNodeWrap node="bad" label={globals.strings.controls.bad} fa="tint" />
+                </> }
+                <ControlButtonNodeWrap node="c" label={globals.strings.controls.c} fa="text-slash" />
+            </div>
+            <div onClick={()=>setShowOverlay(false)} className="forum-button-bar-section">
+                { globals.allowControl('extended') && <>
                     <ControlButtonInsertPlayer/>
                     <ControlButtonInsertLink />
-                    { globals.allowControl('image') && <>
-                        <ControlButtonInsertImage />
-                    </> }
-                </div>
-                <div className="forum-button-bar-section">
-                    { globals.allowControl('extended') && <>
-                        <ControlButtonInsertWithAttribute node="quote" label={globals.strings.controls.quote} fa="quote-left" block={true} dialogTitle="Wer?" attribute="Spielernamen eingeben" />
-                        <ControlButtonNodeWrap node="spoiler" label={globals.strings.controls.spoiler} fa="eye-slash" block={true} />
-                        <ControlButtonNodeWrap node="aparte" label={globals.strings.controls.aparte} fa="compress-alt" block={true} />
-                        <ControlButtonNodeWrap node="code" label={globals.strings.controls.code} fa="code" block={true} />
-                        <ControlButtonInsertWithAttribute node="rp" label={globals.strings.controls.rp} fa="scroll" block={true} dialogTitle="Wer?" attribute="Spielernamen eingeben" />
-                        <ControlButtonInsertWithAttribute node="collapse" label={globals.strings.controls.collapse} fa="square-caret-down" block={true} dialogTitle="Eingeklappte Sektion hinzufügen"  attribute="Kopfzeile" />
-                    </> }
-                    { globals.allowControl('glory') && <>
-                        <ControlButtonNodeWrap node="glory" label={globals.strings.controls.glory} fa="crown" block={true} />
-                    </> }
-                </div>
-                <div className="forum-button-bar-section">
-                    { globals.allowControl('extended') && <>
-                        <ControlButtonNodeInsert node="*" label={globals.strings.controls["*"]} fa="star-of-life" block={true} control="." multiline={true} />
-                        <ControlButtonNodeInsert node="0" label={globals.strings.controls["0"]} fa="list-ol" block={true} control="1" multiline={true} />
-                        <ControlButtonNodeInsert node="hr" label={globals.strings.controls.hr} fa="grip-lines" block={true} closes={true} curley={true} control="-" />
-                    </> }
-                    { globals.allowControl('poll') && <>
-                        <ControlButtonInsertPoll />
-                    </> }
-                </div>
-                <div className="forum-button-bar-section">
-                    { globals.allowControl('admin') && <ControlButtonNodeWrap node="admannounce" label={globals.strings.controls.admannounce} fa="bullhorn" block={true} /> }
-                    { globals.allowControl('mod') && <ControlButtonNodeWrap node="modannounce" label={globals.strings.controls.modannounce} fa="gavel" block={true} /> }
-                    { globals.allowControl('oracle') && <ControlButtonNodeWrap node="announce" label={globals.strings.controls.announce} fa="rss" block={true} /> }
-                </div>
+                </> }
+                { globals.allowControl('image') && <>
+                    <ControlButtonInsertImage />
+                </> }
             </div>
-        </>}
+            <div onClick={()=>setShowOverlay(false)} className="forum-button-bar-section">
+                { globals.allowControl('extended') && <>
+                    <ControlButtonInsertWithAttribute node="quote" label={globals.strings.controls.quote} fa="quote-left" block={true} dialogTitle="Wer?" attribute="Spielernamen eingeben" />
+                    <ControlButtonNodeWrap node="spoiler" label={globals.strings.controls.spoiler} fa="eye-slash" block={true} />
+                    <ControlButtonNodeWrap node="aparte" label={globals.strings.controls.aparte} fa="compress-alt" block={true} />
+                    <ControlButtonNodeWrap node="code" label={globals.strings.controls.code} fa="code" block={true} />
+                    <ControlButtonInsertWithAttribute node="rp" label={globals.strings.controls.rp} fa="scroll" block={true} dialogTitle="Wer?" attribute="Spielernamen eingeben" />
+                    <ControlButtonInsertWithAttribute node="collapse" label={globals.strings.controls.collapse} fa="square-caret-down" block={true} dialogTitle="Eingeklappte Sektion hinzufügen"  attribute="Kopfzeile" />
+                </> }
+                { globals.allowControl('glory') && <>
+                    <ControlButtonNodeWrap node="glory" label={globals.strings.controls.glory} fa="crown" block={true} />
+                </> }
+            </div>
+            <div onClick={()=>setShowOverlay(false)} className="forum-button-bar-section">
+                { globals.allowControl('extended') && <>
+                    <ControlButtonNodeInsert node="*" label={globals.strings.controls["*"]} fa="star-of-life" block={true} control="." multiline={true} />
+                    <ControlButtonNodeInsert node="0" label={globals.strings.controls["0"]} fa="list-ol" block={true} control="1" multiline={true} />
+                    <ControlButtonNodeInsert node="hr" label={globals.strings.controls.hr} fa="grip-lines" block={true} closes={true} curley={true} control="-" />
+                </> }
+                { globals.allowControl('poll') && <>
+                    <ControlButtonInsertPoll />
+                </> }
+            </div>
+            <div onClick={()=>setShowOverlay(false)} className="forum-button-bar-section">
+                { globals.allowControl('admin') && <ControlButtonNodeWrap node="admannounce" label={globals.strings.controls.admannounce} fa="bullhorn" block={true} /> }
+                { globals.allowControl('mod') && <ControlButtonNodeWrap node="modannounce" label={globals.strings.controls.modannounce} fa="gavel" block={true} /> }
+                { globals.allowControl('oracle') && <ControlButtonNodeWrap node="announce" label={globals.strings.controls.announce} fa="rss" block={true} /> }
+            </div>
+            {globals.skin === "line" && <div className="forum-button-bar-section">
+                { globals.allowControl('emote') && sectionButton('emotes', globals.strings.controls.emotes_img) }
+                { globals.allowControl('game') && sectionButton('games', globals.strings.controls.games_img) }
+                { globals.allowControl('rp') && sectionButton('rp', globals.strings.controls.rp_img) }
+            </div>}
+        </div>
+        {globals.skin === "line" &&
+            <TwinoEditorControlsTabListOverlay show={showOverlay} current={current} mounted={mounted} emotes={emotes}/>}
     </>
 }
 
-export const TwinoEditorControlsTabList = ({emotes,snippets}: {emotes: null|Array<Emote>, snippets: null|Array<Snippet>}) => {
-
+export const TwinoEditorControlsTabList = ({emotes, snippets}: {
+    emotes: null | Array<Emote>,
+    snippets: null | Array<Snippet>
+}) => {
     const globals = useContext(Globals);
 
-    const langList = snippets?.map( v=>v.lang ) ?? [];
+    const langList = snippets?.map(v => v.lang) ?? [];
 
     return <TabbedSection mountOnlyActive={true} keepInactiveMounted={true} className="no-bottom-margin">
-        <Tab icon={ globals.strings.controls.emotes_img } id="emotes"><EmoteTabSection emotes={emotes}/></Tab>
-        <Tab icon={ globals.strings.controls.games_img } id="games"><GameTabSection/></Tab>
+        <Tab icon={globals.strings.controls.emotes_img} id="emotes" if={ globals.allowControl('emote') }><EmoteTabSection emotes={emotes}/></Tab>
+        <Tab icon={ globals.strings.controls.games_img } id="games" if={ globals.allowControl('game') }><GameTabSection/></Tab>
         <Tab icon={ globals.strings.controls.rp_img } id="rp" if={ globals.allowControl('rp') }><RPTabSection/></Tab>
         <TabGroup id="mod" icon={ globals.strings.controls.mod_img } if={ globals.allowControl('snippet') && langList.length > 0 }>
             <Tab title="FR" id="mod_fr" if={ langList.includes('fr') }><ModTabSection snippets={snippets?.filter(v => v.lang === 'fr') ?? []}/></Tab>
@@ -115,7 +139,16 @@ export const TwinoEditorControlsTabList = ({emotes,snippets}: {emotes: null|Arra
             <Tab title="ES" id="mod_es" if={ langList.includes('es') }><ModTabSection snippets={snippets?.filter(v => v.lang === 'es') ?? []}/></Tab>
         </TabGroup>
     </TabbedSection>
+}
 
+const TwinoEditorControlsTabListOverlay = ({emotes,show,current,mounted}: {emotes: null|Array<Emote>, show: boolean, current: OverlayTypes|null, mounted: OverlayTypes[]}) => {
+    const globals = useContext(Globals);
+
+    return <div className={`overlay-controls layered ${show ? 'active' : 'inactive'}`}>
+        { mounted.includes('emotes') && <div className={current === 'emotes' ? '' : 'hidden'}><EmoteTabSection emotes={emotes}/></div> }
+        { mounted.includes('games') && <div className={current === 'games' ? '' : 'hidden'}><GameTabSection/></div> }
+        { mounted.includes('rp') && <div className={current === 'rp' ? '' : 'hidden'}><RPTabSection/></div> }
+    </div>
 }
 
 const ControlButton = ({fa = null, img = null, label = null, control = null, handler, dialogHandler = null, children = null, dialogTitle = null, manualConfirm = true}: ControlButtonDefinition & {handler: ()=>void|boolean, dialogHandler?: (boolean)=>void|boolean, dialogTitle?: string|null, manualConfirm?: boolean}) => {
@@ -148,7 +181,6 @@ const ControlButton = ({fa = null, img = null, label = null, control = null, han
     return <div tabIndex={0} className="forum-button-component">
         <div className="forum-button" ref={button} data-receive-control-event={control} onClick={e => {
             e.preventDefault();
-            e.stopPropagation();
             wrapped_handler()
         }}>
             {fa && <i className={`fa fa-${fa}`}/>}
@@ -164,7 +196,7 @@ const ControlButton = ({fa = null, img = null, label = null, control = null, han
                 </div>
             </span>}
         </div>
-        {children && <dialog ref={dialog}><div>
+        {children && <dialog ref={dialog}>
             <div className="modal-title">{dialogTitle ?? label}</div>
             <form method="dialog" ref={form} onKeyDown={e => {
                 if (e.key === "enter") confirmDialog();
@@ -181,7 +213,7 @@ const ControlButton = ({fa = null, img = null, label = null, control = null, han
                     </div>
                 </div>
             </form>
-        </div></dialog>}
+        </dialog>}
     </div>
 }
 
@@ -364,15 +396,17 @@ const ControlButtonInsertURL = ({
             }
         }}
     >
-        <div className="modal-form">
-            { textField && <>
-                <label htmlFor={`${globals.uuid}-form-url-text`}>{textField}</label>
-                <input type="text" ref={text} id={`${globals.uuid}-form-url-text`}/>
-            </>}
-            { urlField && <>
-                <label htmlFor={`${globals.uuid}-form-url-link`}>{urlField}</label>
-                <input type="url" ref={link} id={`${globals.uuid}-form-url-link`}/>
-            </>}
+        <div className="flex">
+            <div className="modal-form">
+                {textField && <>
+                    <label htmlFor={`${globals.uuid}-form-url-text`}>{textField}</label>
+                    <input type="text" ref={text} id={`${globals.uuid}-form-url-text`}/>
+                </>}
+                {urlField && <>
+                    <label htmlFor={`${globals.uuid}-form-url-link`}>{urlField}</label>
+                    <input type="url" ref={link} id={`${globals.uuid}-form-url-link`}/>
+                </>}
+            </div>
         </div>
     </ControlButtonNodeWrap>
 }
@@ -419,110 +453,113 @@ const ControlButtonInsertPoll = () => {
     }
 
     return <ControlButtonNodeWrap node="poll" label={globals.strings.controls.poll} fa="poll" block={true}
-        contentCallback={()=>make_content()}
-        dialogHandler={(post) => {
-            if (!post) {
-                setFields([]);
-                setQuestion( `${globals.getField('body')}`.slice(globals.selection.start, globals.selection.end).trim() )
-            } else {
-                if ( fields.filter(f => f.t === "a" && f.v.trim().length > 0).length === 0 ) {
-                    $.html.error(globals.strings.controls["poll-need-answer"]);
-                    return false;
-                }
-                return true;
-            }
-        }}
+                                  contentCallback={() => make_content()}
+                                  dialogHandler={(post) => {
+                                      if (!post) {
+                                          setFields([]);
+                                          setQuestion(`${globals.getField('body')}`.slice(globals.selection.start, globals.selection.end).trim())
+                                      } else {
+                                          if (fields.filter(f => f.t === "a" && f.v.trim().length > 0).length === 0) {
+                                              $.html.error(globals.strings.controls["poll-need-answer"]);
+                                              return false;
+                                          }
+                                          return true;
+                                      }
+                                  }}
     >
-        <div className="modal-form">
-            <div className="row">
-                <div className="padded cell rw-12">
-                    <div className="note note-critical">{globals.strings.controls["poll-help"]}</div>
-                </div>
-            </div>
-
-            <div className="row">
-                <div className="cell padded rw-12">
-                    <div className="row-flex gap v-center">
-                        <div className="cell factor-0">
-                            <img alt="[Q]" src={globals.strings.controls.help_img}/>
-                        </div>
-                        <div className="cell factor-1">
-                            <label htmlFor={`${globals.uuid}-poll-q`}>{globals.strings.controls["poll-question"]}</label>
-                        </div>
+        <div className="flex">
+            <div className="modal-form">
+                <div className="row">
+                    <div className="padded cell rw-12">
+                        <div className="note note-critical">{globals.strings.controls["poll-help"]}</div>
                     </div>
-                    <input type="text" id={`${globals.uuid}-poll-q`} value={question}
-                           onChange={e => setQuestion(e.target.value)}/>
                 </div>
-            </div>
 
-            {fields.map((f, i) => <div className="row" key={f.id}>
-                <div className="padded cell rw-12">
-                    <div className="row-flex gap v-center">
-                        <div className="cell factor-0">
-                            <img alt={f.t.toUpperCase()}
-                                 src={f.t === "a" ? globals.strings.controls.answer_img : globals.strings.controls.info_img}/>
-                        </div>
-                        <div className="cell factor-1">
-                            <div className="row-flex v-center gap">
-                                <div className="cell factor-1">
-                                    <label htmlFor={`${globals.uuid}-poll-${f.id}`}>
-                                        {f.t === "a" ? globals.strings.controls["poll-answer"] : globals.strings.controls["poll-info"]}
-                                        &nbsp;
-                                        {f.n + 1}
-                                        &nbsp;
-                                        {(f.t !== "a" || f.n > 0) ? globals.strings.controls["poll-optional"] : ''}
-                                    </label>
-                                </div>
-                                {i > 0 &&
-                                    <div className="cell factor-0"><span className="small pointer" onClick={() => {
-                                        setFields(build_nums([...fields.slice(0,i-1),f,fields[i-1],...fields.slice(i+1)]));
-                                    }}>🡱</span></div>
-                                }
-                                {i < (fields.length-1) &&
-                                    <div className="cell factor-0"><span className="small pointer" onClick={() => {
-                                        setFields(build_nums([...fields.slice(0,i),fields[i+1],f,...fields.slice(i+2)]));
-                                    }}>🡳</span></div>
-                                }
-                                <div className="cell factor-0"><span className="small pointer" onClick={() => {
-                                    setFields(build_nums([...fields.slice(0,i),...fields.slice(i+1)]));
-                                }}>×</span></div>
+                <div className="row">
+                    <div className="cell padded rw-12">
+                        <div className="row-flex gap v-center">
+                            <div className="cell factor-0">
+                                <img alt="[Q]" src={globals.strings.controls.help_img}/>
                             </div>
-
+                            <div className="cell factor-1">
+                                <label
+                                    htmlFor={`${globals.uuid}-poll-q`}>{globals.strings.controls["poll-question"]}</label>
+                            </div>
                         </div>
+                        <input type="text" id={`${globals.uuid}-poll-q`} value={question}
+                               onChange={e => setQuestion(e.target.value)}/>
                     </div>
-                    <input type="text" id={`${globals.uuid}-poll-${f.id}`} value={f.v}
-                           onChange={e => {
-                               const v = [...fields];
-                               v[i].v = e.target.value;
-                               setFields(v);
-                           }}/>
                 </div>
-            </div>)}
 
-            <div className="row-flex gap">
-                <div className="cell">
-                    <button type="button" className="small inline" onClick={() => {
-                        const v = [...fields];
-                        v.push({
-                            id: uuidv4(),
-                            v: "",
-                            t: "a",
-                            n: fields.filter(f => f.t === "a").length
-                        });
-                        setFields(v);
-                    }}>{globals.strings.controls["poll-answer-add"]}</button>
-                </div>
-                <div className="cell">
-                    <button type="button" className="small inline" onClick={() => {
-                        const v = [...fields];
-                        v.push({
-                            id: uuidv4(),
-                            v: "",
-                            t: "i",
-                            n: fields.filter(f => f.t === "i").length
-                        })
-                        setFields(v);
-                    }}>{globals.strings.controls["poll-info-add"]}</button>
+                {fields.map((f, i) => <div className="row" key={f.id}>
+                    <div className="padded cell rw-12">
+                        <div className="row-flex gap v-center">
+                            <div className="cell factor-0">
+                                <img alt={f.t.toUpperCase()}
+                                     src={f.t === "a" ? globals.strings.controls.answer_img : globals.strings.controls.info_img}/>
+                            </div>
+                            <div className="cell factor-1">
+                                <div className="row-flex v-center gap">
+                                    <div className="cell factor-1">
+                                        <label htmlFor={`${globals.uuid}-poll-${f.id}`}>
+                                            {f.t === "a" ? globals.strings.controls["poll-answer"] : globals.strings.controls["poll-info"]}
+                                            &nbsp;
+                                            {f.n + 1}
+                                            &nbsp;
+                                            {(f.t !== "a" || f.n > 0) ? globals.strings.controls["poll-optional"] : ''}
+                                        </label>
+                                    </div>
+                                    {i > 0 &&
+                                        <div className="cell factor-0"><span className="small pointer" onClick={() => {
+                                            setFields(build_nums([...fields.slice(0, i - 1), f, fields[i - 1], ...fields.slice(i + 1)]));
+                                        }}>🡱</span></div>
+                                    }
+                                    {i < (fields.length - 1) &&
+                                        <div className="cell factor-0"><span className="small pointer" onClick={() => {
+                                            setFields(build_nums([...fields.slice(0, i), fields[i + 1], f, ...fields.slice(i + 2)]));
+                                        }}>🡳</span></div>
+                                    }
+                                    <div className="cell factor-0"><span className="small pointer" onClick={() => {
+                                        setFields(build_nums([...fields.slice(0, i), ...fields.slice(i + 1)]));
+                                    }}>×</span></div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <input type="text" id={`${globals.uuid}-poll-${f.id}`} value={f.v}
+                               onChange={e => {
+                                   const v = [...fields];
+                                   v[i].v = e.target.value;
+                                   setFields(v);
+                               }}/>
+                    </div>
+                </div>)}
+
+                <div className="row-flex gap">
+                    <div className="cell">
+                        <button type="button" className="small inline" onClick={() => {
+                            const v = [...fields];
+                            v.push({
+                                id: uuidv4(),
+                                v: "",
+                                t: "a",
+                                n: fields.filter(f => f.t === "a").length
+                            });
+                            setFields(v);
+                        }}>{globals.strings.controls["poll-answer-add"]}</button>
+                    </div>
+                    <div className="cell">
+                        <button type="button" className="small inline" onClick={() => {
+                            const v = [...fields];
+                            v.push({
+                                id: uuidv4(),
+                                v: "",
+                                t: "i",
+                                n: fields.filter(f => f.t === "i").length
+                            })
+                            setFields(v);
+                        }}>{globals.strings.controls["poll-info-add"]}</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -538,15 +575,17 @@ const ControlButtonInsertWithAttribute = ({
                                               dialogTitle = null
                                           }: BaseNodeDefinition & ControlButtonDefinition & {
     attribute: string,
-    dialogTitle?: string|null}) => <ControlButtonInsertURL {...{node,label,fa,block,control,dialogTitle}} urlField={null} textField={attribute}/>
+    dialogTitle?: string | null
+}) => <ControlButtonInsertURL {...{node, label, fa, block, control, dialogTitle}} urlField={null}
+                              textField={attribute}/>
 
-const EmoteTabSection = ({emotes}: {emotes: null|Array<Emote>}) => {
+const EmoteTabSection = ({emotes}: { emotes: null | Array<Emote> }) => {
     return <div className="lightbox">
         {emotes === null && <div className="loading"/>}
         {emotes !== null && <div className="forum-button-grid">
-            { emotes.sort((a,b) => a.orderIndex - b.orderIndex).map( emote => <React.Fragment key={emote.tag}>
-                <ControlButtonNodeInsert node={emote.tag} img={emote.url} curley={null} />
-            </React.Fragment>) }
+            {emotes.sort((a, b) => a.orderIndex - b.orderIndex).map(emote => <React.Fragment key={emote.tag}>
+                <ControlButtonNodeInsert node={emote.tag} img={emote.url} curley={null}/>
+            </React.Fragment>)}
         </div>}
     </div>
 }
@@ -557,13 +596,13 @@ const GameTabSection = () => {
     const globals = useContext(Globals);
 
     useEffect(() => {
-        globals.api.games(globals.uid).then( r => setGames( Object.values(r.result) ) );
+        globals.api.games(globals.uid).then(r => setGames(Object.values(r.result)));
     }, []);
 
     return <div className="lightbox">
-        { games === null && <div className="loading"/>}
-        { games !== null && <div className="forum-button-grid">
-            {games.sort((a,b) => a.orderIndex - b.orderIndex).map(emote => <React.Fragment key={emote.tag}>
+        {games === null && <div className="loading"/>}
+        {games !== null && <div className="forum-button-grid">
+            {games.sort((a, b) => a.orderIndex - b.orderIndex).map(emote => <React.Fragment key={emote.tag}>
                 <ControlButtonNodeInsert node={emote.tag} img={emote.url} curley={null}/>
             </React.Fragment>)}
         </div>}
@@ -577,15 +616,15 @@ const RPTabSection = () => {
     const globals = useContext(Globals);
 
     useEffect(() => {
-        globals.api.rp(globals.uid).then( r => {
+        globals.api.rp(globals.uid).then(r => {
             setRP(Object.values(r.result));
             setHelp(r.help ?? null);
-        } );
+        });
     }, []);
 
     return <div className="lightbox">
-        { rp === null && <div className="loading"/>}
-        { rp !== null && <div className="row-flex">
+        {rp === null && <div className="loading"/>}
+        {rp !== null && <div className="row-flex">
             <div className="cell factor-1">
                 <div className="forum-button-grid">
                     {rp.sort((a, b) => a.orderIndex - b.orderIndex).map(emote => <React.Fragment key={emote.tag}>
@@ -593,7 +632,7 @@ const RPTabSection = () => {
                     </React.Fragment>)}
                 </div>
             </div>
-            { help && <div className="cell factor-0">
+            {help && <div className="cell factor-0">
                 <a className="help-button">
                     {globals.strings.common.help}
                     <Tooltip additionalClasses="help" html={help}/>
@@ -612,21 +651,26 @@ const ModTabSection = ({snippets}: { snippets: Array<Snippet> }) => {
     })
 
     return <div className="lightbox">
-        {roles.sort((a,b) => a.localeCompare(b)).map( role => <React.Fragment key={role}>
-            { roles.length > 1 && <div className="padded cell rw-12">
+        {roles.sort((a, b) => a.localeCompare(b)).map(role => <React.Fragment key={role}>
+            {roles.length > 1 && <div className="padded cell rw-12">
                 <div className="row-flex gap v-center">
-                    <div className="cell factor-0"><strong><span className="small">{ role }</span></strong></div>
-                    <div className="cell grow-1"><hr/></div>
+                    <div className="cell factor-0"><strong><span className="small">{role}</span></strong></div>
+                    <div className="cell grow-1">
+                        <hr/>
+                    </div>
                 </div>
-            </div> }
-            { snippets.filter(snippet => snippet.role === role).map(snippet => <div className="row" key={snippet.key} style={{fontSize: '0.8em'}}>
+            </div>}
+            {snippets.filter(snippet => snippet.role === role).map(snippet => <div className="row" key={snippet.key}
+                                                                                   style={{fontSize: '0.8em'}}>
                 <div className="padded cell rw-3 rw-md-12"><strong className="pointer" onClick={() => {
                     const body = `${globals.getField('body')}`;
-                    globals.setField('body', `${body.slice( 0, globals.selection.start )}${snippet.value}${body.slice( globals.selection.start )}` );
-                }}>{ snippet.key }</strong></div>
-                <div className="padded cell rw-9 rw-md-12"><span className="small" style={{fontSize: '0.8em'}}>{ snippet.value }</span></div>
-            </div>) }
-        </React.Fragment>) }
+                    globals.setField('body', `${body.slice(0, globals.selection.start)}${snippet.value}${body.slice(globals.selection.start)}`);
+                }}>{snippet.key}</strong></div>
+                <div className="padded cell rw-9 rw-md-12"><span className="small"
+                                                                 style={{fontSize: '0.8em'}}>{snippet.value}</span>
+                </div>
+            </div>)}
+        </React.Fragment>)}
 
     </div>
 }

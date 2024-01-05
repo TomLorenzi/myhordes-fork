@@ -23,7 +23,7 @@ export const TabbedSection = ( {defaultTab, children, mountOnlyActive, keepInact
     keepInactiveMounted?: boolean,
     className?: string,
 } ) => {
-    const [selected, setSelected] = useState<string>(children.find(t => t.props.id === (defaultTab ?? 'default'))?.props?.id ?? children[0]?.props.id ?? null);
+    const [selected, setSelected] = useState<string>(children.find(t => t.props.id === (defaultTab ?? 'default'))?.props?.id ?? (children.filter(t => typeof t.props['if'] === "undefined" || t.props['if']))[0]?.props.id ?? null);
     const [group, setGroup] = useState<string>(null);
     const [mounted, setMounted] = useState<string[]>([selected].filter(v => v !== null))
 

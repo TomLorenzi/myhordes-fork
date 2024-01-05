@@ -42,7 +42,7 @@ export default class HordesTwinoEditorElement extends Shim<HordesTwinoEditor> {
             id: this.getAttribute('id') ?? null,
             context: this.dataset.context ?? 'forum',
             header: this.dataset.header ?? null,
-            user: parseInt(this.dataset.user ?? "0"),
+            user: this.dataset.user ? parseInt(this.dataset.user ?? "0") : null,
             username: this.dataset.username ?? null,
             tags: Object.fromEntries((this.dataset.tags ?? '').split(',').map((s:string) => s.split(':'))),
             features: (this.dataset.feature ?? '').split(','),
@@ -63,7 +63,12 @@ export default class HordesTwinoEditorElement extends Shim<HordesTwinoEditor> {
             skin: this.dataset.skin ?? 'forum',
             defaultFields: {},
             redirectAfterSubmit: this.dataset.redirectAfterSubmit === "1" ? true : (this.dataset.redirectAfterSubmit ?? false),
-            previewSelector: this.dataset.preview
+            previewSelector: this.dataset.preview,
+            editorPrefs: {
+                maxLength: parseInt(this.getAttribute('maxlength')),
+                placeholder: this.getAttribute('placeholder'),
+                enterKeyHint: this.getAttribute('enterkeyhint') ?? (this.dataset.skin === 'line' ? 'send' : 'enter')
+            }
         };
 
         for (const prop in this.dataset)
