@@ -379,8 +379,6 @@ class HTMLService {
                         elseif ($c->getProfession()->getName() !== $profession) return false;
                     }
 
-                    dump($c);
-
                     if ($group !== null) {
                         if ($cache['citizen'][$group] !== null && $c->getId() !== $cache['citizen'][$group]) return false;
                         if ($c->getId() === $cache['citizen'][$group]) return true;
