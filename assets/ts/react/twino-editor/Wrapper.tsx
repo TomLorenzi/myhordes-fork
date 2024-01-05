@@ -197,7 +197,7 @@ export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldC
         return [e.result[s]?.url ?? null, s];
     }
 
-    const convertToHTML = (twino:string) => $.html.twinoParser.parseToString(twino, s => emoteResolver(s), {autoLinks: $.client.config.autoParseLinks.get()});
+    const convertToHTML = (twino:string,update = (s:string) => {console.warn('no processor.')}) => $.html.twinoParser.parseToString(twino, s => emoteResolver(s), {autoLinks: $.client.config.autoParseLinks.get()}, update);
     const convertToTwino = (html:string,opmode:number = null) => $.html.twinoParser.parseFrom(html, opmode ?? $.html.twinoParser.OpModeRaw);
 
     const setField = (field: string, value: string|number) => {
@@ -213,9 +213,16 @@ export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldC
             // Changing the body also changes the HTML and invokes the cache
             if (field === 'body') {
                 $.client.config.scopedEditorCache.set([props.context, value]);
-                const html = convertToHTML(`${value}`);
-                props.onFieldChanged('html', new_fields['html'] = html, current, html === ((props.defaultFields ?? {})['html'] ?? null));
-                if (props.previewSelector) (document.querySelector(props.previewSelector) ?? {innerHTML:''}).innerHTML = html;
+
+                const update = (s:string) => {
+                    props.onFieldChanged('html', s, current, s === ((props.defaultFields ?? {})['html'] ?? null));
+                    if (props.previewSelector) (document.querySelector(props.previewSelector) ?? {innerHTML:''}).innerHTML = s;
+                }
+                update(new_fields['html'] = convertToHTML(`${value}`, s => {
+                    update(s);
+                    setFields({...fieldRef.current,html: s});
+                }));
+
             } else if (field === 'html') (document.querySelector(props.previewSelector) ?? {innerHTML:''}).innerHTML = value as string;
 
             setFields({...fieldRef.current = new_fields});
@@ -292,8 +299,10 @@ export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldC
         if (controlAllowed('emote') || controlAllowed('snippet'))
             apiRef.current.emotes(props.user).then(data => {
                 setEmotes({...emoteRef.current = data});
-                const updateParsed = convertToHTML( `${fieldRef.current['body'] ?? ''}` );
-                if (updateParsed !== (fieldRef.current['html'] ?? '')) setField('html', updateParsed);
+                const update = (s:string) => {
+                    if (s !== (fieldRef.current['html'] ?? '')) setField('html', s);
+                }
+                update( convertToHTML( `${fieldRef.current['body'] ?? ''}` , update) );
             })
         else setEmotes( emoteRef.current = { mock: {}, snippets: null, result: {}} )
     }, []);

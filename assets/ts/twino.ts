@@ -556,7 +556,6 @@ export default class TwinoAlikeParser {
 
     public readonly OpModeRaw        = 0x1;
     public readonly OpModeQuote      = 0x2;
-    public AjaxUrl = "";
 
     private static lego(blocks: Array<TwinoInterimBlock>, elem: HTMLElement): void {
         for (let i = 0; i < blocks.length; i++) {
@@ -879,7 +878,7 @@ export default class TwinoAlikeParser {
         } );
     }
 
-    parseTo( text: string, target: HTMLElement, resolver: emoteResolver, options: TwinoClientOptions = {} ): void {
+    parseTo( text: string, target: HTMLElement, resolver: emoteResolver, options: TwinoClientOptions = {}, targetCallback = (s:string)=>{} ): void {
 
         let container_node = document.createElement('p');
         container_node.innerText = TwinoAlikeParser.preprocessText( text );
@@ -958,37 +957,37 @@ export default class TwinoAlikeParser {
 
         TwinoAlikeParser.processPlayerNames( container_node );
         if (playerCacheRefreshing) window.clearTimeout(playerCacheRefreshing);
-        if ($.html.twinoParser.AjaxUrl !== '') {
-            const missing_ids: Array<number> = Object.entries( playerCache.id ).filter( ([,cache]) => cache === null ).map( ([id]) => parseInt(id) );
-            const missing_names: Array<string> = Object.entries( playerCache.name ).filter( ([,cache]) => cache === null ).map( ([name]) => name );
 
-            if (missing_ids.length > 0 || missing_names.length > 0) {
-                playerCacheRefreshing = window.setTimeout(() => {
-                    $.ajax.background().easySend($.html.twinoParser.AjaxUrl, {
-                        names: missing_names, ids: missing_ids
-                    }, (data) => {
+        const missing_ids: Array<number> = Object.entries( playerCache.id ).filter( ([,cache]) => cache === null ).map( ([id]) => parseInt(id) );
+        const missing_names: Array<string> = Object.entries( playerCache.name ).filter( ([,cache]) => cache === null ).map( ([name]) => name );
 
-                        (data as unknown as { data: Array<playerCacheEntry> })?.data?.forEach( player => {
-                            playerCache.name[ player.queryName ] = player;
-                            if (player.id > 0) playerCache.id[ player.id ] = player;
-                        } );
+        if (missing_ids.length > 0 || missing_names.length > 0) {
+            playerCacheRefreshing = window.setTimeout(() => {
+                $.ajax.background().easySend((document.querySelector('base[href]').getAttribute('href') ?? '') + '/jx/soul/exists' , {
+                    names: missing_names, ids: missing_ids
+                }, (data) => {
 
-                        missing_ids.forEach( id => { if (!playerCache.id[id]) delete playerCache.id[id] } );
-                        missing_names.forEach( name => { if (!playerCache.name[name]) delete playerCache.name[name] } );
-                        playerCacheRefreshing = null;
-                        TwinoAlikeParser.processPlayerNames( target );
-                    }, {}, () => playerCacheRefreshing = null);
-                }, 1000);
-            }
+                    (data as unknown as { data: Array<playerCacheEntry> })?.data?.forEach( player => {
+                        playerCache.name[ player.queryName ] = player;
+                        if (player.id > 0) playerCache.id[ player.id ] = player;
+                    } );
+
+                    missing_ids.forEach( id => { if (!playerCache.id[id]) delete playerCache.id[id] } );
+                    missing_names.forEach( name => { if (!playerCache.name[name]) delete playerCache.name[name] } );
+                    playerCacheRefreshing = null;
+                    TwinoAlikeParser.processPlayerNames( target );
+                    if (targetCallback) targetCallback(target.innerHTML);
+                }, {}, () => playerCacheRefreshing = null);
+            }, 1000);
         }
 
         while ((c = container_node.firstChild))
             target.appendChild(c);
     }
 
-    parseToString( text: string, resolver: emoteResolver, options: TwinoClientOptions = {} ): string {
+    parseToString( text: string, resolver: emoteResolver, options: TwinoClientOptions = {}, targetCallback = (s:string)=>{} ): string {
         let proxy = document.createElement( 'div' );
-        this.parseTo( text, proxy, resolver, options );
+        this.parseTo( text, proxy, resolver, options, targetCallback );
         return proxy.innerHTML;
     }
 

@@ -77,7 +77,7 @@ export default class HordesTwinoEditorElement extends Shim<HordesTwinoEditor> {
             redirectAfterSubmit: this.dataset.redirectAfterSubmit === "1" ? true : (this.dataset.redirectAfterSubmit ?? false),
             previewSelector: this.dataset.preview,
             editorPrefs: {
-                maxLength: parseInt(this.getAttribute('maxlength')),
+                maxLength: this.getAttribute('maxlength') ? parseInt(this.getAttribute('maxlength')) : null,
                 placeholder: this.getAttribute('placeholder'),
                 enterKeyHint: this.getAttribute('enterkeyhint') ?? (this.dataset.skin === 'line' ? 'send' : 'enter')
             }
