@@ -306,14 +306,15 @@ final class TransferItemListener implements ServiceSubscriberInterface
     }
 
     public function onPreHandleSoulPickup( TransferItemEvent $event ): void {
-        if ($event->type_to->isRucksack() && $event->item->getPrototype()->getName() == 'soul_red_#00') {
+        if ($event->type_to->isRucksack() && $event->item->getPrototype()->getName() == 'soul_red_#00' && $event->to->getCitizen()?->getZone()) {
             $target_citizen = $event->to->getCitizen();
 
             // We pick a read soul in the World Beyond
             if ( $target_citizen && !$this->getService(CitizenHandler::class)->hasStatusEffect($target_citizen, "tg_shaman_immune") ) {
 
                 // Produce logs
-                $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->beyondItemLog( $target_citizen, $event->item->getPrototype(), false, $event->item->getBroken(), false ) );
+                if (!in_array(TransferItemOption::Silent, $event->options))
+                    $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->beyondItemLog( $target_citizen, $event->item->getPrototype(), false, $event->item->getBroken(), false ) );
 
                 // He is not immune, he dies.
                 $this->getService(DeathHandler::class)->kill( $target_citizen, CauseOfDeath::Haunted );
@@ -352,7 +353,8 @@ final class TransferItemListener implements ServiceSubscriberInterface
 
             // We're not trying to hide an item and the item isn't already hidden
             if (!$hide && !$event->item->getHidden()) {
-                $this->getService(EntityManagerInterface::class)->persist($this->getService(LogTemplateHandler::class)->beyondItemLog($target_citizen, $event->item->getPrototype(), $event->type_to === TransferItemType::Local, $event->item->getBroken(), false));
+                if (!in_array(TransferItemOption::Silent, $event->options))
+                    $this->getService(EntityManagerInterface::class)->persist($this->getService(LogTemplateHandler::class)->beyondItemLog($target_citizen, $event->item->getPrototype(), $event->type_to === TransferItemType::Local, $event->item->getBroken(), false));
                 $event->markModified()->shouldPersist();
             }
             // We're trying to hide an item
@@ -379,7 +381,8 @@ final class TransferItemListener implements ServiceSubscriberInterface
                     $event->pushMessage($this->getService(TranslatorInterface::class)->trans('Du hast soeben {item} aus der Bank gestohlen. Dein Name wird nicht im Register erscheinen...', ['item' => $this->getService(LogTemplateHandler::class)->wrap($this->getService(LogTemplateHandler::class)->iconize($event->item), 'tool')], "game"));
                 }
             } else {
-                $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->bankItemLog( $event->actor, $event->item->getPrototype(), $event->type_to === TransferItemType::Bank, $event->item->getBroken() ) );
+                if (!in_array(TransferItemOption::Silent, $event->options))
+                    $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->bankItemLog( $event->actor, $event->item->getPrototype(), $event->type_to === TransferItemType::Bank, $event->item->getBroken() ) );
                 if ($event->type_from === TransferItemType::Bank)
                     $event->pushMessage($this->getService(TranslatorInterface::class)->trans('Du hast soeben folgenden Gegenstand aus der Bank genommen: {item}. <strong>Sei nicht zu gierig</strong> oder deine Mitbürger könnten dich für einen <strong>Egoisten</strong> halten...', ['item' => $this->getService(LogTemplateHandler::class)->wrap($this->getService(LogTemplateHandler::class)->iconize($event->item), 'tool')], "game"));
             }

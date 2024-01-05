@@ -225,14 +225,15 @@ class EventProxyService
      * @param Item $item
      * @param Inventory[] $inventories
      * @param bool $force
+     * @param bool $silent
      * @return Inventory|null
      */
-    public function placeItem( Citizen $actor, Item $item, array $inventories, bool $force = false ): ?Inventory {
+    public function placeItem( Citizen $actor, Item $item, array $inventories, bool $force = false, bool $silent = false ): ?Inventory {
         foreach ($inventories as $inventory)
-            if ($inventory && $this->transferItem( $actor, $item, to: $inventory ) === InventoryHandler::ErrorNone)
+            if ($inventory && $this->transferItem( $actor, $item, to: $inventory, options: $silent ? [TransferItemOption::Silent] : [] ) === InventoryHandler::ErrorNone)
                 return $inventory;
         if ($force) foreach (array_reverse($inventories) as $inventory)
-            if ($inventory && $this->transferItem( $actor, $item, to: $inventory, options: [TransferItemOption::EnforcePlacement] ) === InventoryHandler::ErrorNone)
+            if ($inventory && $this->transferItem( $actor, $item, to: $inventory, options: $silent ? [TransferItemOption::EnforcePlacement, TransferItemOption::Silent] : [TransferItemOption::EnforcePlacement] ) === InventoryHandler::ErrorNone)
                 return $inventory;
         return null;
     }

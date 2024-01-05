@@ -660,7 +660,7 @@ Stadtwächter: Centinela
 'Anzahl der Nächte, die du als Stadtwächter überlebt hast.': 'Cantidad de noches que sobreviviste como Centinela.'
 'Gerankte Stadt': 'Habitante prestigioso'
 'Anzahl der Städte, in denen Du mitgespielt hast, die es in einer vergangenen Saison ins Ranking geschafft haben.': 'Cantidad de veces en que has participado en pueblos presentes en una clasificación anterior.'
-'Legendäre Stadt': 'Ciudadano legendario'
+'Legendäre Stadt': 'Habitante legendario'
 'Anzahl der Städte, in denen Du mitgespielt hast, die in einer vergangenen Saison als Erste abgeschnitten haben.': 'Cantidad de pueblos colocados en el primer lugar en una clasificación anterior.'
 'Teilnehmende Stadt': 'Pueblo participante'
 'Anzahl der Städte, die in der Top-35-Rangliste einer vergangenen Saison vertreten waren.': 'Cantidad de pueblos representadas en las primeras 35 clasificaciones de la temporada pasada'
@@ -2602,7 +2602,7 @@ Meisterarchitekt_f: Magnata del ladrillo
 'Menschliche Ameisenkolonie_f': 'La hormiga humana'
 'Arbeiterhelm und Kupferstiefel_f': '¿La Gran Muralla de qué?'
 'Arbeit ist Gesundheit_f': 'El trabajo es salud'
-'Bob der Baumeister_f': 'Bob el constructor'
+'Bob der Baumeister_f': 'Wendy la constructora'
 Spachtler_f: Manitas hábiles
 'Gewissenhafter Maurer_f': 'Reparadora aficionada'
 'Meisterwerke in Gefahr_f': 'Reparadora arriesgada'
@@ -2618,9 +2618,9 @@ Fleisch-Schuldner_f: No hay nada a lo que no me pueda llevar esta motosierra...
 Hobby-Heimwerker_f: Reparadora Dominguera
 Techniker_f: Técnica
 'Meisterbastler _f': Manitas hábiles
-'Sowas wirft man doch nicht weg!_f': 'Ingeniero Espacial'
-'Mac Gyver der Außenwelt_f': 'Reparador Supremo'
-'Super Soaker_f': 'Pistolero de agua'
+'Sowas wirft man doch nicht weg!_f': 'Ingeniera Espacial'
+'Mac Gyver der Außenwelt_f': 'Reparadora Suprema'
+'Super Soaker_f': 'Pistolera de agua'
 Wasserwaffen-Spezialist_f: Especialista con armas de agua
 Hydraulik-Engineering_f: Ingeniera Hidráulica
 'Abstieg der Atlanteaner_f': 'Descendiente de los Atlantes'
@@ -2640,11 +2640,11 @@ Riesenmaulwurf_f: Rata del desierto
 Nervenkitzelsucher_f: Expedicionaria
 'Christopher Kolumbus_f': 'Cristobal Colón'
 'Bis zur Unendlichkeit... und noch viel weiter!_f': '¡Hasta el infinito y más allá!'
-'Indiana Jones und die Ruinen der Aussenwelt_f': 'Indiana Jones y las ruinas del Ultramundo'
+'Indiana Jones und die Ruinen der Aussenwelt_f': 'Lara Croft y las ruinas del Ultramundo'
 'Wenn ich das nur vorher gewusst hätte..._f': '¡Mamá, no me dejes aquí!'
 'Verwegener Wanderer_f': 'Exploradora por accidente'
 Tunnelblicker_f: Exploradora de ruinas
-'Im Irrgarten_f': 'Ruina Man'
+'Im Irrgarten_f': 'Ruina Woman'
 'Inklusive Kompass_f': 'Brújula andante'
 'Begrabener Freiwilliger_f': 'Voluntaria enterrada'
 'Tomb Raider_f': 'Tomb Raider'
@@ -2660,7 +2660,7 @@ Zerberus_f: Cerbero
 'Meister der Schlüssel_f': 'Gran maestra de llaves'
 Brutalo_f: Brutal
 Verstümmler_f: Mutiladora
-Killer_f: Exterminador
+Killer_f: Exterminadora
 Kadaverentsorger_f: Descuartizadora
 Vernichter_f: Aniquiladora
 Schlächter_f: Masacradora
@@ -2936,4 +2936,4 @@ Sandkasten-Scharfschütze_f: Francotiradora aislada
 'Entfernung zur Stadt': 'Distancia desde el pueblo'
 'Bei {citizens} Bürgern in der Stadt': 'Con {citizens} habitantes en el pueblo'
 'Du bist erschöpft!': '¡Estás agotado!'
-'Du hast dich gestern so sehr verausgabt, dass du in der Nacht nicht genug Kraft schöpfen konntest, um deine Aktionspunkte vollständig zu regenerieren.': 'Ayer estabas tan agotado que no pudiste recuperar fuerzas suficientes durante la noche para regenerar completamente tus puntos de acción.'
+'Du hast dich gestern so sehr verausgabt, dass du in der Nacht nicht genug Kraft schöpfen konntest, um deine Aktionspunkte vollständig zu regenerieren.': 'Ayer estabas tan agotado colgando una guirnalda que no pudiste recuperar tus fuerzas correctamente durante la noche para regenerar completamente tus Puntos de Acción.'

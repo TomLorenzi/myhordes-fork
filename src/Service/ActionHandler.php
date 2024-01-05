@@ -1640,11 +1640,13 @@ class ActionHandler
         $remove = [];
         $workshop_types = [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific, Recipe::WorkshopTypeTechSpecific];
 
+        $silent = false;
         if (in_array($recipe->getType(), $workshop_types)) {
             $have_saw  = $this->inventory_handler->countSpecificItems( $c_inv, $this->entity_manager->getRepository( ItemPrototype::class )->findOneBy(['name' => 'saw_tool_#00']), false, false ) > 0;
             $have_manu = $this->town_handler->getBuilding($town, 'small_factory_#00', true) !== null;
 
             $ap = $penalty + (3 - ($have_saw ? 1 : 0) - ($have_manu ? 1 : 0));
+            $silent = true;
         } else $ap = $penalty;
 
         if ( in_array($recipe->getType(), $workshop_types) && (($citizen->getAp() + $citizen->getBp()) < $ap || $this->citizen_handler->isTired( $citizen )) )
@@ -1673,7 +1675,7 @@ class ActionHandler
             $citizen->getSpecificActionCounter(ActionCounter::ActionTypeSpecialActionTech)->increment();
 
         $new_item = $this->random_generator->pickItemPrototypeFromGroup( $recipe->getResult(), $this->conf->getTownConfiguration( $citizen->getTown() ), $this->conf->getCurrentEvents( $citizen->getTown() ) );
-        $this->proxyService->placeItem( $citizen, $this->item_factory->createItem( $new_item ) , $target_inv, true );
+        $this->proxyService->placeItem( $citizen, $this->item_factory->createItem( $new_item ) , $target_inv, true, $silent );
         $this->gps->recordRecipeExecuted( $recipe, $citizen, $new_item );
 
         if (in_array($recipe->getType(), $workshop_types))

@@ -38,6 +38,7 @@ final class WellInsertionCommonListener implements ServiceSubscriberInterface
     public static function getSubscribedServices(): array
     {
         return [
+            InventoryHandler::class,
             EventProxyService::class,
             EntityManagerInterface::class,
             LogTemplateHandler::class,

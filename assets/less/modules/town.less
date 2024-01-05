@@ -361,6 +361,27 @@ div.town-banner {
   }
 }
 
+.citizens-votes-list {
+  line-height: 20px;
+  .row.header {
+    font-weight: bold;
+    background: linear-gradient(to top, #643b25 0%, rgba(100, 59, 37, 0) 50%, rgba(100, 59, 37, 0) 100%);
+    font-size: 1.2rem;
+    border-bottom: 2px solid #ddab76;
+  }
+
+  .row:not(.header) {
+    &:hover {
+      outline: 1px solid #EFDBAB;
+    }
+    font-style: italic;
+  }
+
+  .row.me {
+    background-color: #423f54 !important;
+  }
+}
+
 #rows-send {
   display: none;
 }

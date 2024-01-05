@@ -7,4 +7,5 @@ enum TransferItemOption
     case EnforcePlacement;
     case AllowMultiHeavy;
     case AllowExtraBag;
+    case Silent;
 }
