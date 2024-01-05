@@ -116,8 +116,8 @@ class EditorController extends CustomAbstractCoreController
      * @return JsonResponse
      * @throws InvalidArgumentException
      */
-    #[Route(path: '/me/unlocks/emotes', name: 'list_emotes_me', methods: ['GET'])]
-    #[Route(path: '/{id}/unlocks/emotes', name: 'list_emotes', methods: ['GET'])]
+    #[Route(path: '/me/unlocks/{context}/emotes', name: 'list_emotes_me', methods: ['GET'])]
+    #[Route(path: '/{id}/unlocks/{context}/emotes', name: 'list_emotes', methods: ['GET'])]
     public function list_emotes(
         ?int $id,
         ?User $user,
@@ -291,8 +291,8 @@ class EditorController extends CustomAbstractCoreController
      * @param Packages $assets
      * @return JsonResponse
      */
-    #[Route(path: '/me/unlocks/games', name: 'list_games_me', methods: ['GET'])]
-    #[Route(path: '/{id}/unlocks/games', name: 'list_games', methods: ['GET'])]
+    #[Route(path: '/me/unlocks/{context}/games', name: 'list_games_me', methods: ['GET'])]
+    #[Route(path: '/{id}/unlocks/{context}/games', name: 'list_games', methods: ['GET'])]
     public function list_games(
         ?int $id,
         ?User $user,
@@ -329,16 +329,18 @@ class EditorController extends CustomAbstractCoreController
 
     /**
      * @param int|null $id
+     * @param string $context
      * @param User|null $user
      * @param EntityManagerInterface $em
      * @param Packages $assets
      * @param TranslatorInterface $trans
      * @return JsonResponse
      */
-    #[Route(path: '/me/unlocks/rp', name: 'list_rp_me', methods: ['GET'])]
-    #[Route(path: '/{id}/unlocks/rp', name: 'list_rp', methods: ['GET'])]
+    #[Route(path: '/me/unlocks/{context}/rp', name: 'list_rp_me', methods: ['GET'])]
+    #[Route(path: '/{id}/unlocks/{context}/rp', name: 'list_rp', methods: ['GET'])]
     public function list_rp(
         ?int $id,
+        string $context,
         ?User $user,
         EntityManagerInterface $em,
         Packages $assets,
@@ -365,6 +367,8 @@ class EditorController extends CustomAbstractCoreController
             'shunned' => 'icons/banished',
         ];
 
+        if ($context === 'logChat') $data['zone'] = 'icons/item_map';
+
         return new JsonResponse([
             'result' => array_merge($result, array_map( fn(string $k, string $v, int $o) => [
                 'tag' => $k === '' ? '{citizen}' :  "{citizen,$k}",
@@ -384,4 +388,42 @@ class EditorController extends CustomAbstractCoreController
 
     }
 
+    /**
+     * @param int|null $id
+     * @param string $context
+     * @param User|null $user
+     * @param EntityManagerInterface $em
+     * @param Packages $assets
+     * @param TranslatorInterface $trans
+     * @return JsonResponse
+     */
+    #[Route(path: '/me/unlocks/shoutbox/rp', name: 'list_rp_coa_me', methods: ['GET'], priority: 1)]
+    #[Route(path: '/{id}/unlocks/shoutbox/rp', name: 'list_coa_rp', methods: ['GET'], priority: 1)]
+    public function list_rp_coa(
+        ?int $id,
+        ?User $user,
+        Packages $assets,
+        TranslatorInterface $trans,
+    ): JsonResponse {
+        if ($id === null) $user = $this->getUser();
+        elseif ($user !== $this->getUser()) return new JsonResponse([], Response::HTTP_FORBIDDEN);
+
+        return new JsonResponse([
+                                    'result' => [[
+                                        'tag' => '{coalition}',
+                                        'path' => "build/images/icons/small_human.gif",
+                                        'url' => $assets->getUrl( "build/images/icons/small_human.gif" ),
+                                        'orderIndex' => 0
+                                    ]],
+                                    'help' => <<<HELP
+                <h1>{$trans->trans('Zufälliges Koalitionsmitglied', [], 'game')}</h1>
+                <em>{$trans->trans('Hiermit kannst du den Namen eines zufälligen Mitglieds deiner Koalition in deinen Post anfügen.', [], 'game')}</em>
+                <em>
+                    {$trans->trans('Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:', [], 'game')}
+                    <code>{coalition,1}</code>
+                </em>
+            HELP,
+                                ]);
+
+    }
 }

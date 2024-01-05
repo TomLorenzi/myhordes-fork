@@ -486,7 +486,7 @@ class SoulCoalitionController extends SoulController
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $text = $parser->trimmed('text', '');
-        if (!$html->htmlPrepare( $user, 0, ['core_rp'],  $text, null, $insight ) || $insight->text_length < 2 || $insight->text_length > 256)
+        if (!$html->htmlPrepare( $user, 0, ['core_rp','core_rp_coa'],  $text, null, $insight ) || $insight->text_length < 2 || $insight->text_length > 256)
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         $shoutbox = $this->user_handler->getShoutbox($user);

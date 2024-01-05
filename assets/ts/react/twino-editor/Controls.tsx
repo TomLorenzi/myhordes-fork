@@ -598,7 +598,7 @@ const GameTabSection = () => {
     const globals = useContext(Globals);
 
     useEffect(() => {
-        globals.api.games(globals.uid).then(r => setGames(Object.values(r.result)));
+        globals.api.games(globals.uid,globals.context).then(r => setGames(Object.values(r.result)));
     }, []);
 
     return <div className="lightbox">
@@ -618,7 +618,7 @@ const RPTabSection = () => {
     const globals = useContext(Globals);
 
     useEffect(() => {
-        globals.api.rp(globals.uid).then(r => {
+        globals.api.rp(globals.uid,globals.context).then(r => {
             setRP(Object.values(r.result));
             setHelp(r.help ?? null);
         });

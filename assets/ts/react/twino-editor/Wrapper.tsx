@@ -58,6 +58,7 @@ type ControlCheck = ( control: Control ) => boolean
 type TwinoEditorGlobals = {
     api: TwinoEditorAPI,
     uid: number,
+    context: string,
     strings: null|TranslationStrings,
     uuid: string,
     setField: FieldMutator,
@@ -297,7 +298,7 @@ export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldC
 
         apiRef.current.index().then(data => setStrings(data.strings));
         if (controlAllowed('emote') || controlAllowed('snippet'))
-            apiRef.current.emotes(props.user).then(data => {
+            apiRef.current.emotes(props.user,props.context).then(data => {
                 setEmotes({...emoteRef.current = data});
                 const update = (s:string) => {
                     if (s !== (fieldRef.current['html'] ?? '')) setField('html', s);
@@ -321,6 +322,7 @@ export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldC
             { strings !== null && <Globals.Provider value={{
                 api: apiRef.current,
                 uid: props.user,
+                context: props.context,
                 uuid: uuid.current,
                 setField: (f:string,v:string|number|null) => setField(f,v),
                 getField: (f:string) => getField(f),

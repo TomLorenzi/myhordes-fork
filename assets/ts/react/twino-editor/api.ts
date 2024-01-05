@@ -45,18 +45,18 @@ export class TwinoEditorAPI {
             .request().withCache().get() as Promise<ResponseIndex>;
     }
 
-    public emotes( user: number|null ): Promise<EmoteResponse> {
-        return this.fetch.from(`/${user ?? 'me'}/unlocks/emotes`)
+    public emotes( user: number|null, context: string = 'common' ): Promise<EmoteResponse> {
+        return this.fetch.from(`/${user ?? 'me'}/unlocks/${context}/emotes`)
             .request().get() as Promise<EmoteResponse>;
     }
 
-    public games( user: number|null ): Promise<EmoteListResponse> {
-        return this.fetch.from(`/${user ?? 'me'}/unlocks/games`)
+    public games( user: number|null, context: string = 'common' ): Promise<EmoteListResponse> {
+        return this.fetch.from(`/${user ?? 'me'}/unlocks/${context}/games`)
             .request().get() as Promise<EmoteListResponse>;
     }
 
-    public rp( user: number|null ): Promise<EmoteListResponse> {
-        return this.fetch.from(`/${user ?? 'me'}/unlocks/rp`)
+    public rp( user: number|null, context: string = 'common' ): Promise<EmoteListResponse> {
+        return this.fetch.from(`/${user ?? 'me'}/unlocks/${context}/rp`)
             .request().get() as Promise<EmoteListResponse>;
     }
 }

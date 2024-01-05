@@ -364,6 +364,7 @@ class TwinoConverterToBlocks {
                 listspace = false;
         }
 
+        let attribs = null;
         switch ( match.nodeType() ) {
             case 'hr': blocks.push( new TwinoInterimBlock( '', match.nodeType()) ); break;
             case 'br': blocks.push( listspace ? new TwinoInterimBlock() : new TwinoInterimBlock( '', match.nodeType()) ); break;
@@ -385,10 +386,15 @@ class TwinoConverterToBlocks {
             case 'carte': case 'card': case 'skat': case 'blatt': case 'carta': case 'karte':
                 blocks.push( new TwinoInterimBlock( '???', 'div', 'card') ); break;
             case 'citizen': case 'rnduser': case 'user': case 'spieler': case 'habitant': case 'habitante': case'einwohner':
-                let attribs = match.nodeInfo() ? match.nodeInfo().split(',') : [];
+                attribs = match.nodeInfo() ? match.nodeInfo().split(',') : [];
                 if (!attribs[0]) attribs[0] = 'any';
                 if (!attribs[1]) attribs[1] = '0';
                 blocks.push( new TwinoInterimBlock( attribs[1] === '0' ? '???' : '??? [' + attribs[1] + ']', 'div', 'citizen', [['x-a', attribs[0]], ['x-b', attribs[1]]]) );
+                break;
+            case 'coalition':
+                attribs = match.nodeInfo() ? match.nodeInfo().split(',') : [];
+                if (!attribs[0]) attribs[0] = '0';
+                blocks.push( new TwinoInterimBlock( '???', 'div', 'coalition', [['x-b', attribs[0]]]) );
                 break;
             case '@':
                 let id = match.nodeInfo() ? match.nodeInfo() : 'auto';
