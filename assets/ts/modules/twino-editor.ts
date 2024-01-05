@@ -17,7 +17,19 @@ export default class HordesTwinoEditorElement extends Shim<HordesTwinoEditor> {
         return `${this.value('html') ?? ''}`;
     }
 
+    public get preview(): string {
+        return `${this.value('preview') ?? ''}`;
+    }
+
     public set html(value: string) {
+        this.dispatchEvent(new CustomEvent('import', {
+            bubbles: false,
+            cancelable: false,
+            detail: { html: value }
+        }));
+    }
+
+    public set preview(value: string) {
         this.dispatchEvent(new CustomEvent('import', {
             bubbles: false,
             cancelable: false,

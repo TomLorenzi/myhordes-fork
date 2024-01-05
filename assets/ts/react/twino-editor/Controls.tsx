@@ -59,6 +59,8 @@ export const TwinoEditorControls = ({emotes}: {emotes: null|Array<Emote>}) => {
         </div>
     }
 
+    const overlay_mode = globals.skin === "line" || globals.skin === "textarea";
+
     return <>
         <div className="forum-button-bar">
             <div onClick={()=>setShowOverlay(false)} className="forum-button-bar-section">
@@ -109,13 +111,13 @@ export const TwinoEditorControls = ({emotes}: {emotes: null|Array<Emote>}) => {
                 { globals.allowControl('mod') && <ControlButtonNodeWrap node="modannounce" label={globals.strings.controls.modannounce} fa="gavel" block={true} /> }
                 { globals.allowControl('oracle') && <ControlButtonNodeWrap node="announce" label={globals.strings.controls.announce} fa="rss" block={true} /> }
             </div>
-            {globals.skin === "line" && <div className="forum-button-bar-section">
+            {overlay_mode && <div className="forum-button-bar-section">
                 { globals.allowControl('emote') && sectionButton('emotes', globals.strings.controls.emotes_img) }
                 { globals.allowControl('game') && sectionButton('games', globals.strings.controls.games_img) }
                 { globals.allowControl('rp') && sectionButton('rp', globals.strings.controls.rp_img) }
             </div>}
         </div>
-        {globals.skin === "line" &&
+        {overlay_mode &&
             <TwinoEditorControlsTabListOverlay show={showOverlay} current={current} mounted={mounted} emotes={emotes}/>}
     </>
 }

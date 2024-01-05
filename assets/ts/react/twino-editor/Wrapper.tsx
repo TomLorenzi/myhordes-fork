@@ -14,7 +14,7 @@ declare var c: Const;
 
 type Feature = "tags"|"title"|"version"|"language"|"preview"|"alias"|"passive"
 type Control = "core"|"extended"|"emote"|"image"|"admin"|"mod"|"oracle"|"glory"|"poll"|"game"|"rp"|"snippet"
-type Skin = "forum"|"pm"|"line"
+type Skin = "forum"|"pm"|"line"|"textarea"
 
 interface HeaderConfig {
     header?: string|null,
@@ -92,7 +92,9 @@ export class HordesTwinoEditor {
     #_content_import: (TwinoContentImport) => void = v=>this.#_detail_cache = v;
 
     public getValue(field: string): string|number|null {
-        return this.#_values[field] ?? null;
+        if (field === 'html') return deproxify( (this.#_values['html'] as string) ?? '' );
+        else if (field === 'preview') return this.#_values['html'] ?? null;
+        else return this.#_values[field] ?? null;
     }
 
     private onFieldChanged( field: string, value: string|number|null, old_value: string|number|null, is_default: boolean ): void {
@@ -140,6 +142,21 @@ export class HordesTwinoEditor {
             this.#_content_import = v=>this.#_detail_cache = v;
         }
     }
+}
+
+const deproxify = (s: string): string => {
+    const div = document.createElement('div');
+    div.innerHTML = s;
+
+    // remove proxies
+    let proxies = div.querySelectorAll('[x-foxy-proxy]');
+    for (let j = 0; j < proxies.length; j++) {
+        if (!proxies[j].parentNode) continue;
+        proxies[j].parentNode.insertBefore(document.createTextNode(proxies[j].getAttribute('x-foxy-proxy')), proxies[j]);
+        proxies[j].parentNode.removeChild(proxies[j]);
+    }
+
+    return div.innerHTML;
 }
 
 export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldChangeEventTrigger, onSubmit?: SubmitEventTrigger, connectImport?: (any)=>void } ) => {
@@ -208,19 +225,7 @@ export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldC
     const getField = (f: string): number|string|null => fields[f] ?? null;
 
     const submit = () => {
-        let html = null;
-        const div = document.createElement('div');
-        div.innerHTML = `${fieldRef.current.html ?? ''}`;
-
-        // remove proxies
-        let proxies = div.querySelectorAll('[x-foxy-proxy]');
-        for (let j = 0; j < proxies.length; j++) {
-            if (!proxies[j].parentNode) continue;
-            proxies[j].parentNode.insertBefore(document.createTextNode(proxies[j].getAttribute('x-foxy-proxy')), proxies[j]);
-            proxies[j].parentNode.removeChild(proxies[j]);
-        }
-
-        html = div.innerHTML;
+        const html = deproxify( `${fieldRef.current.html ?? ''}` );
 
         if (!props.target) {
             $.client.config.scopedEditorCache.set(['','']);
@@ -299,6 +304,8 @@ export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldC
         else if (!getField('body') && !getField('html') && cache_value) setField('body', cache_value );
     }, []);
 
+    const padded = props.skin !== 'line' && props.skin !== 'textarea';
+
     return (
         <>
             { strings === null && <div className="loading"/> }
@@ -318,13 +325,13 @@ export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldC
                     {props.header && <TwinoEditorHeader {...props} />}
                     <TwinoEditorFields tags={props.tags}/>
                     <div className="row classic-editor classic-editor-react" ref={me}>
-                        {isEnabled("preview") && <div className={`${props.skin !== 'line' ? 'padded' : ''} cell rw-12`}>
+                        {isEnabled("preview") && <div className={`${padded ? 'padded' : ''} cell rw-12`}>
                             <TwinoEditorPreview
                                 html={`${getField("html") ?? convertToTwino(`${getField('body') ?? ''}`) ?? ''}`}/>
                         </div>}
 
-                        <div className={props.skin !== 'line' ? "padded cell rw-12" : 'overlay-controls'}>
-                            {props.skin !== 'line' && <div className="row">
+                        <div className={padded ? "padded cell rw-12" : 'overlay-controls'}>
+                            {padded && <div className="row">
                                 <div className="cell rw-6 rw-md-12">
                                     <label className="small"
                                            htmlFor={`${uuid.current}-editor`}>{strings.sections.message}</label>
@@ -336,10 +343,10 @@ export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldC
                             </div>}
                             <div className={expanded ? '' : 'hidden'}><TwinoEditorControls emotes={emoteRef.current === null ? null : Object.values(emoteRef.current.result)}/></div>
                         </div>
-                        <div className={`${props.skin !== 'line' ? 'padded' : 'overlay-central'} cell rw-12`}>
+                        <div className={`${padded ? 'padded' : 'overlay-central'} cell rw-12`}>
                             <TwinoEditorEditor
                                 body={`${fieldRef.current['body'] ?? getField('body') ?? ''}`}
-                                fixed={props.skin === "pm"} prefs={props.editorPrefs}
+                                fixed={props.skin === "pm" || props.skin === "textarea"} prefs={props.editorPrefs}
                                 controlTrigger={s => {
                                     if (s === 'enter') submit();
                                     else {
@@ -350,7 +357,7 @@ export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldC
                                 }}
                             />
                         </div>
-                        {props.skin !== 'line' && <div className={`padded cell rw-12 ${expanded ? '' : 'hidden'}`}>
+                        {padded && <div className={`padded cell rw-12 ${expanded ? '' : 'hidden'}`}>
                             <TwinoEditorControlsTabList
                                 emotes={emoteRef.current === null ? null : Object.values(emoteRef.current.result)}
                                 snippets={emoteRef.current === null ? null : Object.values(emoteRef.current.snippets?.list ?? {})}
@@ -484,7 +491,7 @@ const TwinoEditorEditor = ({body, fixed, controlTrigger, prefs}: {body: string, 
     const textArea = useRef<HTMLTextAreaElement|HTMLInputElement|any>(null);
     const globals = useContext(Globals);
 
-    const shouldFocus = useRef(globals.skin !== 'line');
+    const shouldFocus = useRef(globals.skin !== 'line' && globals.skin !== 'textarea');
 
     useEffect(() => {
         const onSelectionChange = () => {
