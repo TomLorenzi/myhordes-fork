@@ -499,35 +499,19 @@ class MessageTownMessageController extends MessageController
     }
 
     /**
-     * @param int $tid
-     * @param EntityManagerInterface $em
+     * @param PrivateMessageThread $thread
      * @return Response
      */
-    #[Route(path: 'jx/town/house/pm/{tid<\d+>}/editor', name: 'home_answer_post_editor_controller')]
-    public function home_answer_editor_post_api(int $tid, EntityManagerInterface $em): Response {
+    #[Route(path: 'jx/town/house/pm/{id<\d+>}/editor', name: 'home_answer_post_editor_controller')]
+    public function home_answer_editor_post_api(PrivateMessageThread $thread): Response {
         $user = $this->getUser();
 
         if ($this->userHandler->isRestricted($user, AccountRestriction::RestrictionTownCommunication))
             return new Response("");
 
-        $thread = $em->getRepository( PrivateMessageThread::class )->find( $tid );
-        if ($thread === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
-        return $this->render( 'ajax/forum/editor.html.twig', [
-            'fid' => null,
-            'tid' => $tid,
-            'pid' => null,
-
-            'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionCreatePost ),
-            'snippets' => [],
-            'emotes' => $this->getEmotesByUser($user,true),
-
-            'forum' => false,
+        return $this->render( 'ajax/editor/pm-post.html.twig', [
+            'tid' => $thread->getId(),
             'username' => $user->getActiveCitizen()->getName(),
-            'type' => 'pm',
-            'target_url' => 'town_house_send_pm_controller',
-            'town_controls' => true,
-            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 
@@ -535,31 +519,16 @@ class MessageTownMessageController extends MessageController
      * @param string $type
      * @return Response
      */
-    #[Route(path: 'jx/town/house/pm/{type}/editor', name: 'home_new_post_editor_controller')]
+    #[Route(path: 'jx/town/house/pm/{type<pm|global>}/editor', name: 'home_new_post_editor_controller')]
     public function home_new_editor_post_api(string $type): Response {
         $user = $this->getUser();
 
         if ($this->userHandler->isRestricted($user, AccountRestriction::RestrictionTownCommunication))
             return new Response("");
 
-        $allowed_types = ['pm', 'global'];
-        if(!in_array($type, $allowed_types)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
-        return $this->render( 'ajax/forum/editor.html.twig', [
-            'fid' => null,
-            'tid' => null,
-            'pid' => null,
-
-            'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionWrite ),
-            'snippets' => [],
-
-            'emotes' => $this->getEmotesByUser($user,true),
-            'forum' => false,
+        return $this->render( 'ajax/editor/pm-thread.html.twig', [
             'username' => $user->getActiveCitizen()->getName(),
             'type' => $type,
-            'target_url' => 'town_house_send_pm_controller',
-            'town_controls' => true,
-            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 
@@ -567,28 +536,14 @@ class MessageTownMessageController extends MessageController
      * @param string $type
      * @return Response
      */
-    #[Route(path: 'jx/admin/pm/{type}/editor', name: 'admin_pm_editor_controller')]
+    #[Route(path: 'jx/admin/pm/{type<pm|global>}/editor', name: 'admin_pm_editor_controller')]
     public function admin_pm_new_editor_post_api(string $type): Response {
         $user = $this->getUser();
 
-        $allowed_types = ['pm', 'global'];
-        if(!in_array($type, $allowed_types)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
-        return $this->render( 'ajax/forum/editor.html.twig', [
-            'fid' => null,
-            'tid' => null,
-            'pid' => null,
-
+        return $this->render( 'ajax/editor/pm-mod.html.twig', [
             'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionOwn ),
-            'snippets' => [],
-
-            'emotes' => $this->getEmotesByUser($user,true),
-            'forum' => false,
             'username' => $user->getName(),
-            'type' => $type,
-            'target_url' => 'admin_send_pm_controller',
-            'town_controls' => true,
-            'langsCodes' => $this->generatedLangsCodes
+            'type' => $type
         ] );
     }
 

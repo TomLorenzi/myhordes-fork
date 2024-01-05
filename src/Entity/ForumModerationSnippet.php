@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 
 #[ORM\Entity(repositoryClass: ForumModerationSnippetRepository::class)]
 #[Table]
+#[ORM\Index(columns: ['role'], name: 'forum_mod_snippet_role_idx')]
 #[UniqueConstraint(name: 'forum_mod_snippet_unique', columns: ['lang', 'short'])]
 class ForumModerationSnippet
 {
@@ -22,6 +23,10 @@ class ForumModerationSnippet
     private $short;
     #[ORM\Column(type: 'text')]
     private $text;
+
+    #[ORM\Column(length: 32)]
+    private string $role = 'ROLE_CROW';
+
     public function getId(): ?int
     {
         return $this->id;
@@ -53,6 +58,18 @@ class ForumModerationSnippet
     public function setText(string $text): self
     {
         $this->text = $text;
+
+        return $this;
+    }
+
+    public function getRole(): string
+    {
+        return $this->role;
+    }
+
+    public function setRole(string $role): static
+    {
+        $this->role = $role;
 
         return $this;
     }

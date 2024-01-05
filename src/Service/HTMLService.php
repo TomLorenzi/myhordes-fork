@@ -66,7 +66,7 @@ class HTMLService {
                 'p'  => [],
             ],
             'core_rp' => [
-                'div' => [ 'class' ],
+                'div' => [ 'class', 'x-a', 'x-b' ],
             ],
             'extended' => [
                 'blockquote' => [],
@@ -96,9 +96,11 @@ class HTMLService {
                 'div.class' => [
                     'dice-4', 'dice-6', 'dice-8', 'dice-10', 'dice-12', 'dice-20', 'dice-100',
                     'letter-a', 'letter-v', 'letter-c',
-                    'rps', 'coin', 'card', 'citizen'
+                    'rps', 'coin', 'card'
                 ],
             ],
+            'core_rp_town' => [ 'div.class' => ['citizen'] ],
+            'core_rp_coa' => [ 'div.class' => ['coalition'] ],
             'glory' => [ 'div.class' => [ 'glory' ] ],
             'extended' => [
                 'div.class' => [
@@ -291,7 +293,7 @@ class HTMLService {
 
         $emotes = array_keys($this->get_emotes(false, $user));
 
-        $cache = [ 'citizen' => [] ];
+        $cache = [ 'citizen' => [], 'coalition' => [] ];
 
         $sys_urls = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_URLS, []);
         $replace_urls = [];
@@ -347,9 +349,9 @@ class HTMLService {
             },
             '//div[@class=\'citizen\']'   => function (DOMNode $d) use ($user,$town,&$cache,&$insight) {
                 $insight->editable = false;
-                $profession = $d->attributes->getNamedItem('x-a') ? $d->attributes->getNamedItem('x-a')->nodeValue : null;
+                $profession = $d->attributes->getNamedItem('x-a')?->nodeValue ?? null;
                 if ($profession === 'any') $profession = null;
-                $group      = is_numeric($d->attributes->getNamedItem('x-b')->nodeValue) ? (int)$d->attributes->getNamedItem('x-b')->nodeValue : null;
+                $group = is_numeric($d->attributes->getNamedItem('x-b')?->nodeValue) ? (int)$d->attributes->getNamedItem('x-b')?->nodeValue : null;
 
                 if ($town === null) {
                     $d->nodeValue = '???';
@@ -359,7 +361,7 @@ class HTMLService {
                 if ($group === null || $group <= 0) $group = null;
                 elseif (!isset( $cache['citizen'][$group] )) $cache['citizen'][$group] = null;
 
-                $valid = array_filter( $town->getCitizens()->getValues(), function(Citizen $c) use ($profession,$group,&$cache) {
+                $valid = array_filter( $town->getCitizens()->getValues(), function(Citizen $c) use ($profession,$group,&$cache,$user) {
                     if (!$c->getAlive() && ($profession !== 'dead')) return false;
                     if ( $c->getAlive() && ($profession === 'dead')) return false;
 
@@ -369,7 +371,11 @@ class HTMLService {
                         } elseif ($profession === 'shunned') {
                             if (!$c->getBanished()) return false;
                         }
-                        elseif ($profession === 'shaman' && $c->getProfession()->getName() !== $profession && !$c->hasRole('shaman')) return false;
+                        elseif ($profession === 'shaman') {
+                            if ($c->getProfession()->getName() !== $profession && !$c->hasRole('shaman')) return false; }
+                        elseif ($profession === 'zone') {
+                            if (!$c->getZone() || $user->getActiveCitizen()->getZone() !== $c->getZone()) return false;
+                        }
                         elseif ($c->getProfession()->getName() !== $profession) return false;
                     }
 
@@ -391,6 +397,31 @@ class HTMLService {
                 $cc = $this->rand->pick($valid);
                 if ($group !== null) $cache['citizen'][$group] = $cc->getId();
                 $d->nodeValue = $cc->getName();
+            },
+            '//div[@class=\'coalition\']'   => function (DOMNode $d) use ($user,$town,&$cache,&$insight) {
+                $insight->editable = false;
+
+                $group = is_numeric($d->attributes->getNamedItem('x-b')?->nodeValue) ? (int)$d->attributes->getNamedItem('x-b')?->nodeValue : null;
+                if ($group === null || $group <= 0) $group = null;
+
+                $u = null;
+                if ($group !== null && !empty($cache['coalition'][$group])) $u = $cache['coalition'][$group];
+                else {
+                    $coa_members = [...$this->userHandler->getAllOtherCoalitionMembers($user),$user];
+                    $coa_members = array_filter($coa_members, fn(User $u) => !in_array( $u, $cache['coalition'] ));
+
+                    if (!$coa_members) {
+                        $d->nodeValue = '???';
+                        return;
+                    }
+
+                    /** @var User $u */
+                    $u = $this->rand->pick($coa_members);
+                    if ($group !== null) $cache['coalition'][$group] = $u;
+
+                }
+
+                $d->nodeValue = $u->getName();
             },
             // A citizen ref node
             '//div[@class=\'cref\']|//span[@class=\'quoteauthor\']' => function (DOMElement $user_ref) use ($user, &$insight) {

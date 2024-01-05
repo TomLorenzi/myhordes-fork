@@ -31,6 +31,7 @@ use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Security\Core\Role\RoleHierarchyInterface;
+use Symfony\Contracts\Cache\TagAwareCacheInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class UserHandler
@@ -45,29 +46,16 @@ class UserHandler
     const ErrorAvatarInsufficientCompression = ErrorHelper::BaseAvatarErrors +  7;
     const ErrorAvatarTooManyFrames = ErrorHelper::BaseAvatarErrors + 8;
 
-    const ImageProcessingForceImagick = 0;
-    const ImageProcessingPreferImagick = 1;
-    const ImageProcessingDisableImagick = 2;
-
-
-    private EntityManagerInterface $entity_manager;
-    private RoleHierarchyInterface $roles;
-    private ContainerInterface $container;
-    private CrowService $crow;
-    private TranslatorInterface $translator;
-    private ConfMaster $conf;
-    private DoctrineCacheService $doctrineCache;
-
-    public function __construct( EntityManagerInterface $em, RoleHierarchyInterface $roles,ContainerInterface $c, CrowService $crow, TranslatorInterface  $translator, ConfMaster $conf, DoctrineCacheService $doctrineCache)
-    {
-        $this->entity_manager = $em;
-        $this->container = $c;
-        $this->roles = $roles;
-        $this->crow = $crow;
-        $this->translator = $translator;
-        $this->conf = $conf;
-        $this->doctrineCache = $doctrineCache;
-    }
+    public function __construct(
+        private EntityManagerInterface $entity_manager,
+        private RoleHierarchyInterface $roles,
+        private ContainerInterface $container,
+        private CrowService $crow,
+        private ConfMaster $conf,
+        private DoctrineCacheService $doctrineCache,
+        private TagAwareCacheInterface $gameCachePool
+    )
+    { }
 
     public function fetchSoulPoints(User $user, bool $all = true, bool $useCached = false): int {
         if ($useCached) return $all ? $user->getAllSoulPoints() : $user->getSoulPoints();
@@ -313,6 +301,10 @@ class UserHandler
             $this->entity_manager->remove($r);
         }
 
+        try {
+            if (!empty($award_awards) || !empty($remove_awards))
+                $this->gameCachePool->invalidateTags(["user-{$user->getId()}-emote-unlocks"]);
+        } catch (\Throwable $t) {}
 
     }
 

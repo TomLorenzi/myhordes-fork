@@ -1,0 +1,34 @@
+{% macro announcementEditor(
+    uuid,
+    user,
+    permission,
+    context,
+    header,
+    enable_version,
+    target_url,
+    ) %}
+    {# @var permission \App\Structures\ForumPermissionAccessor #}
+    {# @var user \App\Entity\User #}
+    {% from 'ajax/editor/base/core-permissions.html.twig' import core_permissions %}
+    <hordes-twino-editor
+        {% if uuid %}
+            id="{{ uuid }}"
+        {% endif %}
+        data-context="{{ context }}"
+        data-username="{{ user.name }}" data-user="{{ user.id }}"
+        data-header="{{ header }}"
+
+        data-feature-title="1"
+        {% if enable_version %}
+            data-feature-version="1"
+        {% endif %}
+        data-feature-language="1"
+        data-feature-preview="1"
+
+        {{ core_permissions(user,permission) }}
+
+        data-target-url="{{ target_url }}"
+        data-target-map="{{ 'html:content,title,' ~ (enable_version ? 'version,' : '') ~ 'language:lang' }}"
+        data-redirect-after-submit="1"
+    ></hordes-twino-editor>
+{% endmacro %}

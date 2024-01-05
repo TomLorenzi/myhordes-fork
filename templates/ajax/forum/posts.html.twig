@@ -516,14 +516,20 @@
                 let content = document.querySelector('[x-post-content-id="' + elem.getAttribute('x-post-id') + '"]');
                 let author = content.getAttribute('x-post-content-author');
                 let author_id = parseInt(content.getAttribute('x-post-content-author-id'));
-                let textEditor = document.getElementById("forum-forum-editor-text");
                 const quote = elem.getAttribute('x-forum-action') === 'quote-post';
 
-                if(textEditor.value !== '' && !textEditor.value.endsWith("\n")) textEditor.value += "\n";
-
-                textEditor.value += (quote ? (author ? ('[quote=' + (author_id > 0 ? author.replace(/[^\p{L}\d_-]/gu, '') : author) + (author_id > 0 ? (':' + author_id) : '') + ']') : '[quote]') : '') + $.html.twinoParser.parseFrom( content.innerHTML, $.html.twinoParser.OpModeQuote ) + (quote ? '[/quote]' : '') + "\n";
-                textEditor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
-                textEditor.focus();
+                document.querySelector("#forum-forum-editor hordes-twino-editor")?.dispatchEvent(new CustomEvent('import', {
+                    bubbles: false,
+                    cancelable: false,
+                    detail: {
+                        html: content?.innerHTML ?? '',
+                        insert: true,
+                        wrap: [
+                            (quote ? (author ? ('[quote=' + (author_id > 0 ? author.replace(/[^\p{L}\d_-]/gu, '') : author) + (author_id > 0 ? (':' + author_id) : '') + ']') : '[quote]') : ''),
+                            (quote ? "[/quote]\n" : "\n")
+                        ],
+                        opmode: $.html.twinoParser.OpModeQuote }
+                }));
             };
 
             if (editor && editor.innerHTML === "") {
@@ -535,12 +541,11 @@
             let editor = get_forum_editor();
 
             let fun_edit = function() {
-                let content = document.querySelector('[x-post-content-id="' + postID + '"]');
-                let textEditor = document.getElementById("forum-forum-editor-text");
-                if (!textEditor) return;
-                textEditor.value = $.html.twinoParser.parseFrom( content.innerHTML, twinoOpMode );
-                textEditor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
-                textEditor.focus();
+                document.querySelector("#forum-forum-editor hordes-twino-editor")?.dispatchEvent(new CustomEvent('import', {
+                    bubbles: false,
+                    cancelable: false,
+                    detail: { html: document.querySelector('[x-post-content-id="' + postID + '"]')?.innerHTML ?? '', opmode: twinoOpMode }
+                }));
             };
 
             let wrapper = document.querySelector('[x-post-wrapper-id="' + postID + '"]');
@@ -628,7 +633,6 @@
             $.html.forEach('[x-forum-action="answer"],[x-forum-action="sub"],[x-forum-action="unsub"]', e => e.remove());
             $.ajax.no_history().load( get_forum_editor(), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false, {}, function() {
                 get_forum_editor().scrollIntoView();
-                document.getElementById("forum-forum-editor-text").focus();
             } );
         } );
 

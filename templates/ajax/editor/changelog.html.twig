@@ -1,0 +1,13 @@
+{% extends "ajax/ajax_plain.html.twig" %}
+{% from 'ajax/editor/base/announcement-editor.html.twig' import announcementEditor as editor %}
+{% block ajax_base %}
+    {{ editor(
+        null,
+        app.user,
+        permission,
+        'changelog',
+        'Neue Update'|trans({},'admin'),
+        true,
+        path('admin_changelog_new_changelog')
+    ) }}
+{% endblock %}
