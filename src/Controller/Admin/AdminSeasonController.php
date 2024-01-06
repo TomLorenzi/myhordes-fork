@@ -11,7 +11,7 @@ use App\Service\JSONRequestParser;
 use App\Service\RandomGenerator;
 use App\Translation\T;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route(path: '/', condition: 'request.isXmlHttpRequest()')]

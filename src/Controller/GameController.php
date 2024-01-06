@@ -40,7 +40,7 @@ use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**

@@ -22,7 +22,7 @@ use App\Service\ErrorHelper;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\PermissionHandler;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Role\RoleHierarchyInterface;
 

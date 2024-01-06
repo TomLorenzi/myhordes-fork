@@ -17,7 +17,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 #[Route(path: '/rest/v1/user/soul/distinctions', name: 'rest_user_soul_distinctions_', condition: "request.headers.get('Accept') === 'application/json'")]
 #[IsGranted('ROLE_USER')]

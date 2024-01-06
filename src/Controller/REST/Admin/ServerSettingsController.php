@@ -18,7 +18,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 #[Route(path: '/rest/v1/admin/settings', name: 'rest_admin_settings_', condition: "request.headers.get('Accept') === 'application/json'")]
 #[IsGranted('ROLE_ADMIN')]

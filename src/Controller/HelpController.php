@@ -11,7 +11,7 @@ use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 #[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
 #[GateKeeperProfile(allow_during_attack: true)]

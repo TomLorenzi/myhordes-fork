@@ -25,7 +25,7 @@ use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\MessageBusInterface;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use function App\Controller\REST\User\mb_strlen;
 use function App\Controller\REST\User\str_contains;

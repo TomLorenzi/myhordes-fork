@@ -9,7 +9,7 @@ use App\Enum\DomainBlacklistType;
 use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Response;
 
 #[Route(path: '/', condition: 'request.isXmlHttpRequest()')]

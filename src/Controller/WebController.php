@@ -45,7 +45,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\EventListener\AbstractSessionListener;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\HttpKernel\Log\DebugLoggerInterface;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Cache\ItemInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;

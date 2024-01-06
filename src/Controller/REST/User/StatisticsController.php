@@ -6,7 +6,7 @@ use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractCoreController;
 use App\Service\Statistics\UserStatCollectionService;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 #[Route(path: '/rest/v1/user-stats', name: 'rest_user_stats_lgc_', condition: "request.headers.get('Accept') === 'application/json'")]
 #[Route(path: '/rest/v1/user/stats', name: 'rest_user_stats_', condition: "request.headers.get('Accept') === 'application/json'")]
