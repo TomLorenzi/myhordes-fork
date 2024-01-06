@@ -55,13 +55,9 @@ parameters:
           spacing: 4
           total: 15
           min: 5
-        room_distance: 5
-        room_spacing: 4
-        lock_distance: 10
         item_fillrate: 7
         max_distance: 10
         floors: 2
-        dig_chance: 0.55
         plan_limits:
           unusual: -1
           rare: -1

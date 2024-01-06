@@ -175,6 +175,17 @@ class TownCreatorController extends CustomAbstractCoreController
                     'map_ruins' => $this->translator->trans('Anzahl Ruinen', [], 'ghost'),
                     'map_e_ruins' => $this->translator->trans('Anzahl Begehbare Ruinen', [], 'ghost'),
 
+                    'explorable' => $this->translator->trans('Größe der Begehbaren Ruinen', [], 'ghost'),
+                    'explorable_presets' => [
+                        ['value' => 'classic', 'label' => $this->translator->trans('Eine Etage', [], 'ghost')],
+                        ['value' => 'normal', 'label' => $this->translator->trans('Zwei Etagen', [], 'ghost')],
+                        ['value' => 'large', 'label' => $this->translator->trans('Drei Etagen', [], 'ghost')],
+                        ['value' => '_custom', 'label' => $this->translator->trans('Eigene Einstellung', [], 'ghost')]
+                    ],
+                    'explorable_floors' => $this->translator->trans('Etagen', [], 'ghost'),
+                    'explorable_rooms' => $this->translator->trans('Anzahl Räume', [], 'ghost'),
+                    'explorable_min_rooms' => $this->translator->trans('Mindestanzahl an Räumen pro Etage', [], 'ghost'),
+
                     'attacks' => $this->translator->trans('Stärke der Angriffe', [], 'ghost'),
                     'attacks_presets' => [
                         ['value' => 'easy',   'label' => $this->translator->trans('Leichte Angriffe', [], 'ghost')],
@@ -423,8 +434,8 @@ class TownCreatorController extends CustomAbstractCoreController
      * @param SanitizeTownConfigAction $sanitizeTownConfigAction
      * @return JsonResponse
      */
-    #[Route(path: '/town-rules/{id}', name: 'town-rules', methods: ['GET'], defaults: ['private' => false])]
-    #[Route(path: '/town-rules/private/{id}', name: 'private-town-rules', methods: ['GET'], defaults: ['private' => true])]
+    #[Route(path: '/town-rules/{id}', name: 'town-rules', defaults: ['private' => false], methods: ['GET'])]
+    #[Route(path: '/town-rules/private/{id}', name: 'private-town-rules', defaults: ['private' => true], methods: ['GET'])]
     public function town_type_rules(TownClass $townClass, bool $private, SanitizeTownConfigAction $sanitizeTownConfigAction): JsonResponse {
         if ($townClass->getHasPreset()) {
 
@@ -446,6 +457,7 @@ class TownCreatorController extends CustomAbstractCoreController
      * @param EntityManagerInterface $em
      * @param UserHandler $userHandler
      * @return JsonResponse
+     * @throws Exception
      */
     #[Route(path: '/create-town', name: 'create-town', methods: ['POST'])]
     public function create_town(JSONRequestParser        $parser,
@@ -503,8 +515,8 @@ class TownCreatorController extends CustomAbstractCoreController
      * @param SanitizeTownConfigAction $sanitizeTownConfigAction
      * @return JsonResponse
      */
-    #[Route(path: '/template', name: 'create-template', methods: ['PUT'], defaults: ['create' => true])]
-    #[Route(path: '/template/{id}', name: 'update-template', methods: ['PATCH'], defaults: ['create' => false])]
+    #[Route(path: '/template', name: 'create-template', defaults: ['create' => true], methods: ['PUT'])]
+    #[Route(path: '/template/{id}', name: 'update-template', defaults: ['create' => false], methods: ['PATCH'])]
     public function save_template(
         bool $create,
         ?TownRulesTemplate $template,
@@ -566,6 +578,7 @@ class TownCreatorController extends CustomAbstractCoreController
 
     /**
      * @param TownRulesTemplate $template
+     * @param SanitizeTownConfigAction $sanitizer
      * @return JsonResponse
      */
     #[Route(path: '/template/{id}', name: 'load-template', methods: ['GET'])]
