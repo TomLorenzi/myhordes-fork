@@ -54,10 +54,8 @@ class NightlyHandler
     private array $cleanup = [];
     private array $skip_reanimation = [];
     private array $skip_infection = [];
-    private bool $exec_firework = false;
     private ?Building $upgraded_building = null;
     private array $destroyed_buildings = [];
-    private bool $exec_reactor = false;
     private array $deferred_log_entries = [];
 
     private EntityManagerInterface $entity_manager;
