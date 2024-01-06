@@ -185,7 +185,7 @@ class InventoryAwareController extends CustomAbstractController
             case ItemTargetDefinition::ItemSelectionType: case ItemTargetDefinition::ItemSelectionTypePoison:
             foreach ($inventories as &$inv)
                 foreach ($inv->getItems() as &$item)
-                    if ($this->action_handler->targetDefinitionApplies($item,$definition))
+                    if ($this->action_handler->targetDefinitionApplies($item,$definition,true))
                         $targets[] = [ $item->getId(), $this->translator->trans( $item->getPrototype()->getLabel(), [], 'items' ), "build/images/item/item_{$item->getPrototype()->getIcon()}.gif" ];
 
             break;
