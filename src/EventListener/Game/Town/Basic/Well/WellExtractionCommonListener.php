@@ -144,7 +144,8 @@ final class WellExtractionCommonListener implements ServiceSubscriberInterface
         $em->persist( $counter->increment( $event->check->trying_to_take ) );
         $event->town->setWell( max(0,$event->town->getWell() - $event->check->trying_to_take) );
         for ($i = 0; $i < $event->check->trying_to_take; ++$i)
-            $ba->increaseBankCount( $event->citizen );
+            if (($i + $event->check->already_taken) > 0)
+                $ba->increaseBankCount( $event->citizen );
 
         $em->persist( $event->citizen );
         $em->persist( $event->town );
