@@ -464,7 +464,7 @@ class TownHandler
         }
 
         if($has_counsel)
-            $total_def += 20 * $count;
+            $total_def += 15 * $count;
 
         return $total_def;
     }
