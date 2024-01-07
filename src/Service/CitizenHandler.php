@@ -667,7 +667,7 @@ class CitizenHandler
 		$camping_datetime = new DateTime();
 		if ($citizen->getCampingTimestamp() > 0)
 			$camping_datetime->setTimestamp( $citizen->getCampingTimestamp() );
-		if ($config->isNightMode())
+		if ($config->isNightMode(ignoreNightModeConfig: true))
 			$chance['night'] = 10;
 
 		// Zone distance
