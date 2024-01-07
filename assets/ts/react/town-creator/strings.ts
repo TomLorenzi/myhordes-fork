@@ -112,6 +112,8 @@ export type TranslationStrings = {
         explorable_floors: string,
         explorable_rooms: string,
         explorable_min_rooms: string,
+        explorable_space_x: string,
+        explorable_space_y: string,
 
         position: string,
         position_presets: {value: string, label: string}[],

@@ -35,6 +35,7 @@ use App\Entity\UserGroupAssociation;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
+use App\Enum\Configuration\TownSetting;
 use App\Enum\UserSetting;
 use App\Service\CommandHelper;
 use App\Service\ConfMaster;
@@ -949,7 +950,7 @@ class MigrateCommand extends Command
                         $spawn_zone->setPrototype($spawning_ruin);
                         
                         $this->maze->setTargetZone($spawn_zone);
-                        $spawn_zone->setExplorableFloors($this->conf->getTownConfiguration($town)->get(TownConf::CONF_EXPLORABLES_FLOORS, 1));
+                        $spawn_zone->setExplorableFloors($this->conf->getTownConfiguration($town)->get(TownSetting::ERuinSpaceFloors));
                         $this->maze->createField();
                         $this->maze->generateCompleteMaze( $spawn_zone );
                     }

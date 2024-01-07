@@ -8,6 +8,7 @@ use App\Entity\CitizenWatch;
 use App\Entity\RuinZonePrototype;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
+use App\Enum\Configuration\TownSetting;
 use App\Enum\ScavengingActionType;
 use App\Event\Game\Citizen\CitizenQueryNightwatchDeathChancesEvent;
 use App\Event\Game\Citizen\CitizenQueryDigChancesEvent;
@@ -206,7 +207,7 @@ final class CitizenChanceQueryListener implements ServiceSubscriberInterface
                 // TODO: Re-implement how items are generated in an e-ruin
 
                 $digs = ($event->ruinZone?->getDigs() ?? 0) + 1;
-                $chance = 1.0 / ( 1.0 + ( $digs / max( 1, $event->townConfig->get(TownConf::CONF_EXPLORABLES_ITEM_RATE, 11) - ($digs/3.0) ) ) ) + $event->citizen->getProfession()->getDigBonus();
+                $chance = 1.0 / ( 1.0 + ( $digs / max( 1, $event->townConfig->get(TownSetting::ERuinItemFillrate) - ($digs/3.0) ) ) ) + $event->citizen->getProfession()->getDigBonus();
                 //$chance = $event->townConfig->get(TownConf::CONF_EXPLORABLES_DIG_CHANCE, 0.55) + $event->citizen->getProfession()->getDigBonus();
 
                 if ($this->getService(CitizenHandler::class)->hasStatusEffect( $event->citizen, 'wound5' )) $chance -= 0.2;

@@ -21,23 +21,14 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class MapMaker
 {
-    private EntityManagerInterface $entity_manager;
-    private RandomGenerator $random;
-    private ConfMaster $conf;
-    private MazeMaker $maze_maker;
-    private InventoryHandler $inventory_handler;
-    private ItemFactory $item_factory;
-
-    public function __construct(EntityManagerInterface $em, RandomGenerator $r, ConfMaster $c, MazeMaker $m,
-                                InventoryHandler $ih, ItemFactory $if)
-    {
-        $this->entity_manager = $em;
-        $this->random = $r;
-        $this->conf = $c;
-        $this->maze_maker = $m;
-        $this->inventory_handler = $ih;
-        $this->item_factory = $if;
-    }
+    public function __construct(
+        private readonly EntityManagerInterface $entity_manager,
+        private readonly RandomGenerator $random,
+        private readonly ConfMaster $conf,
+        private readonly MazeMaker $maze_maker,
+        private readonly InventoryHandler $inventory_handler,
+        private readonly ItemFactory $item_factory
+    ) { }
 
     public function createMap( Town $town ): void {
         $conf = $this->conf->getTownConfiguration( $town );
@@ -157,13 +148,13 @@ class MapMaker
             $spawning_ruin = array_pop($explorable_ruins);
             if (!$spawning_ruin) continue;
 
-            $maxDistance = $conf->get(TownConf::CONF_EXPLORABLES_MAX_DISTANCE, 100);
+            $maxDistance = $conf->get(TownSetting::ERuinMaxDistanceFromTown);
             $spawn_zone = $this->random->pickLocationBetweenFromList($zone_list, $spawning_ruin->getMinDistance(), $maxDistance, ['prototype_id' => null]);
 
             if ($spawn_zone) {
                 $spawn_zone->setPrototype($spawning_ruin);
                 $this->maze_maker->setTargetZone($spawn_zone);
-                $spawn_zone->setExplorableFloors($conf->get(TownConf::CONF_EXPLORABLES_FLOORS, 1));
+                $spawn_zone->setExplorableFloors($conf->get(TownSetting::ERuinSpaceFloors));
                 $this->maze_maker->createField();
                 $this->maze_maker->generateCompleteMaze();
             }

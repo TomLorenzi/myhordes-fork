@@ -4,6 +4,7 @@ namespace App\Enum;
 
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
+use App\Enum\Configuration\TownSetting;
 use App\Structures\TownConf;
 
 enum ZoneActivityMarkerType: int {
@@ -46,9 +47,9 @@ enum ZoneActivityMarkerType: int {
 
     public function configuredLimit( TownConf $conf ): int {
         return match($this) {
-            ZoneActivityMarkerType::ExplorableBlueprintU => $conf->get( TownConf::CONF_EXPLORABLES_PLAN_LIMIT_U, -1 ),
-            ZoneActivityMarkerType::ExplorableBlueprintR => $conf->get( TownConf::CONF_EXPLORABLES_PLAN_LIMIT_R, -1 ),
-            ZoneActivityMarkerType::ExplorableBlueprintE => $conf->get( TownConf::CONF_EXPLORABLES_PLAN_LIMIT_E, -1 ),
+            ZoneActivityMarkerType::ExplorableBlueprintU => $conf->get( TownSetting::ERuinBPUnusual ),
+            ZoneActivityMarkerType::ExplorableBlueprintR => $conf->get( TownSetting::ERuinBPRare ),
+            ZoneActivityMarkerType::ExplorableBlueprintE => $conf->get( TownSetting::ERuinBPEpic ),
             ZoneActivityMarkerType::ScavengeBlueprintBag => $conf->get( TownConf::CONF_SCAVENGING_PLAN_LIMIT_B, -1 ),
             default => -1
         };

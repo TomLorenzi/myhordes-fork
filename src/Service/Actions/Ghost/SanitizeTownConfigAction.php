@@ -91,15 +91,25 @@ class SanitizeTownConfigAction
         }
 
         // Explorable ruins with more than 3 floors need CROW permissions
-        if ($rules['explorable_ruin_params']['floors'] ?? 0 > 3) {
+        if ($rules['explorable_ruin_params']['space']['floors'] ?? 0 > 3) {
             $elevation = max($elevation, User::USER_LEVEL_CROW);
-            if ($trimTo < User::USER_LEVEL_CROW) $rules['explorable_ruin_params']['floors'] = 3;
+            if ($trimTo < User::USER_LEVEL_CROW) $rules['explorable_ruin_params']['space']['floors'] = 3;
         }
 
         // Explorable ruins with more than 20 rooms need CROW permissions
         if ($rules['explorable_ruin_params']['room_config']['total'] ?? 0 > 20) {
             $elevation = max($elevation, User::USER_LEVEL_CROW);
             if ($trimTo < User::USER_LEVEL_CROW) $rules['explorable_ruin_params']['room_config']['total'] = 20;
+        }
+
+        // Explorable ruins with custom resolution need CROW permissions
+        if (($rules['explorable_ruin_params']['space']['x'] ?? 13) !== 13) {
+            $elevation = max($elevation, User::USER_LEVEL_CROW);
+            if ($trimTo < User::USER_LEVEL_CROW) $rules['explorable_ruin_params']['space']['x'] = 13;
+        }
+        if (($rules['explorable_ruin_params']['space']['y'] ?? 13) !== 13) {
+            $elevation = max($elevation, User::USER_LEVEL_CROW);
+            if ($trimTo < User::USER_LEVEL_CROW) $rules['explorable_ruin_params']['space']['y'] = 13;
         }
 
         // Maps with non-standard town position need CROW permissions
@@ -210,15 +220,13 @@ class SanitizeTownConfigAction
             'stranger_citizen_limit',
             'stranger_day_limit',
 
-            'explorable_ruin_params.complexity',
-            'explorable_ruin_params.convolution',
-            'explorable_ruin_params.cruelty',
             'explorable_ruin_params.max_distance',
             'explorable_ruin_params.plan_limits',
             'explorable_ruin_params.zombies',
             'explorable_ruin_params.room_config.lock',
             'explorable_ruin_params.room_config.distance',
             'explorable_ruin_params.room_config.spacing',
+            'explorable_ruin_params.space.ox',
 
             'features.last_death',
             'features.last_death_day',
@@ -313,10 +321,11 @@ class SanitizeTownConfigAction
 
         if ($explorable_preset) {
             $conf['explorable_ruin_params'] = $conf['explorable_ruin_params'] ?? [];
+            $conf['explorable_ruin_params']['space'] = $conf['explorable_ruin_params']['space'] ?? [];
             $conf['explorable_ruin_params']['room_config'] = $conf['explorable_ruin_params']['room_config'] ?? [];
             switch ($explorable_preset) {
                 case 'classic':
-                    $conf['explorable_ruin_params']['floors'] = 1;
+                    $conf['explorable_ruin_params']['space']['floors'] = 1;
                     $conf['explorable_ruin_params']['room_config']['min'] = 10;
                     $conf['explorable_ruin_params']['room_config']['total'] = 10;
                     break;
@@ -324,10 +333,19 @@ class SanitizeTownConfigAction
                     unset($conf['explorable_ruin_params']);
                     break;
                 case 'large':
-                    $conf['explorable_ruin_params']['floors'] = 3;
+                    $conf['explorable_ruin_params']['space']['floors'] = 3;
                     $conf['explorable_ruin_params']['room_config']['min'] = 6;
                     $conf['explorable_ruin_params']['room_config']['total'] = 20;
                     break;
+            }
+
+            $area = ($conf['explorable_ruin_params']['space']['x'] ?? 13) * ($conf['explorable_ruin_params']['space']['x'] ?? 13);
+            if ($area !== 169) {
+                $factor = max($area/169,0.1);
+                $conf['explorable_ruin_params']['zombies'] = [
+                    'initial' => (int)ceil(($conf['explorable_ruin_params']['zombies']['initial'] ?? 10) * $factor),
+                    'daily' => (int)ceil(($conf['explorable_ruin_params']['zombies']['daily'] ?? 5) * $factor),
+                ];
             }
         }
 
@@ -459,9 +477,18 @@ class SanitizeTownConfigAction
         // Ensure explorable ruin config is correct
         if (!is_int( $rules['explorable_ruin_params']['room_config']['total'] ?? 'x' )) unset( $rules['explorable_ruin_params']['room_config']['total'] );
         if (!is_int( $rules['explorable_ruin_params']['room_config']['min'] ?? 'x' )) unset( $rules['explorable_ruin_params']['room_config']['min'] );
-        if (!is_int( $rules['explorable_ruin_params']['floors'] ?? 'x' )) unset( $rules['explorable_ruin_params']['floors'] );
-        if (( $rules['explorable_ruin_params']['floors'] ?? 2 ) > 5 || ( $rules['explorable_ruin_params']['floors'] ?? 2 ) < 1) $rules['explorable_ruin_params']['floors'] = 2;
-        if ( ($rules['explorable_ruin_params']['floors'] ?? 0) * ($rules['explorable_ruin_params']['room_config']['min'] ?? 0) > ( $rules['explorable_ruin_params']['room_config']['total'] ?? 0 ) ) {
+        if (!is_int( $rules['explorable_ruin_params']['space']['floors'] ?? 'x' )) unset( $rules['explorable_ruin_params']['space']['floors'] );
+        if (!is_int( $rules['explorable_ruin_params']['space']['x'] ?? 'x' )) unset( $rules['explorable_ruin_params']['space']['x'] );
+        if (!is_int( $rules['explorable_ruin_params']['space']['y'] ?? 'x' )) unset( $rules['explorable_ruin_params']['space']['y'] );
+        if ($rules['explorable_ruin_params']['space'] ?? null) {
+            $rules['explorable_ruin_params']['space']['ox'] = (int)ceil(($rules['explorable_ruin_params']['space']['x'] ?? 13) / 2.0);
+            if ( ($rules['explorable_ruin_params']['space']['x'] ?? 13) > 25 ) $rules['explorable_ruin_params']['space']['x'] = 25;
+            if ( ($rules['explorable_ruin_params']['space']['y'] ?? 13) > 25 ) $rules['explorable_ruin_params']['space']['y'] = 25;
+            if ( ($rules['explorable_ruin_params']['space']['x'] ?? 13) < 8 ) $rules['explorable_ruin_params']['space']['x'] = 8;
+            if ( ($rules['explorable_ruin_params']['space']['y'] ?? 13) < 8 ) $rules['explorable_ruin_params']['space']['y'] = 8;
+        }
+        if (( $rules['explorable_ruin_params']['space']['floors'] ?? 2 ) > 5 || ( $rules['explorable_ruin_params']['space']['floors'] ?? 2 ) < 1) $rules['explorable_ruin_params']['space']['floors'] = 2;
+        if ( ($rules['explorable_ruin_params']['space']['floors'] ?? 0) * ($rules['explorable_ruin_params']['room_config']['min'] ?? 0) > ( $rules['explorable_ruin_params']['room_config']['total'] ?? 0 ) ) {
             unset($rules['explorable_ruin_params']);
         };
         

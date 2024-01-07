@@ -168,11 +168,11 @@ export const TownCreatorSectionDifficulty = () => {
                           onChange={e => {
                               const v =  (e.target as HTMLSelectElement).value;
                               if (v === '_custom') {
-                                  if (!globals.getOption('rules.explorable_ruin_params.floors')) globals.setOption('rules.explorable_ruin_params.floors', 2);
+                                  if (!globals.getOption('rules.explorable_ruin_params.space.floors')) globals.setOption('rules.explorable_ruin_params.space.floors', 2);
                                   if (!globals.getOption('rules.explorable_ruin_params.room_config.total')) globals.setOption('rules.explorable_ruin_params.room_config.total', 15);
                                   if (!globals.getOption('rules.explorable_ruin_params.room_config.min')) globals.setOption('rules.explorable_ruin_params.room_config.min', 5);
                               } else {
-                                  globals.removeOption('rules.explorable_ruin_params.floors');
+                                  globals.removeOption('rules.explorable_ruin_params.space.floors');
                                   globals.removeOption('rules.explorable_ruin_params.room_config.total');
                                   globals.removeOption('rules.explorable_ruin_params.room_config.min');
                               }
@@ -182,9 +182,15 @@ export const TownCreatorSectionDifficulty = () => {
             />
             { globals.getOption( 'rules.explorablePreset' ) === '_custom' && (
                 <AtLeast elevation="crow">
-                    <OptionFreeText type="number" value={ globals.getOption( 'rules.explorable_ruin_params.floors' ) as string ?? '2' } propName="explorable_ruin_params.floors"
+                    <OptionFreeText type="number" value={ globals.getOption( 'rules.explorable_ruin_params.space.floors' ) as string ?? '2' } propName="explorable_ruin_params.space.floors"
                                     inputArgs={{min: 1, max: 5}} propTitle={ difficulty.explorable_floors }
 
+                    />
+                    <OptionFreeText type="number" value={ globals.getOption( 'rules.explorable_ruin_params.space.x' ) as string ?? '13' } propName={'explorable_ruin_params.space.x'}
+                                    inputArgs={{min: 8, max: 25}} propTitle={ difficulty.explorable_space_x }
+                    />
+                    <OptionFreeText type="number" value={ globals.getOption( 'rules.explorable_ruin_params.space.y' ) as string ?? '13' } propName={'explorable_ruin_params.space.y'}
+                                    inputArgs={{min: 8, max: 25}} propTitle={ difficulty.explorable_space_y }
                     />
                     <OptionFreeText type="number" value={ globals.getOption( 'rules.explorable_ruin_params.room_config.total' ) as string ?? '15' } propName={'explorable_ruin_params.room_config.total'}
                                     inputArgs={{min: 1, max: 50}} propTitle={ difficulty.explorable_rooms }

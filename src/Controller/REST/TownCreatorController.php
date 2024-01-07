@@ -185,6 +185,8 @@ class TownCreatorController extends CustomAbstractCoreController
                     'explorable_floors' => $this->translator->trans('Etagen', [], 'ghost'),
                     'explorable_rooms' => $this->translator->trans('Anzahl Räume', [], 'ghost'),
                     'explorable_min_rooms' => $this->translator->trans('Mindestanzahl an Räumen pro Etage', [], 'ghost'),
+                    'explorable_space_x' => $this->translator->trans('Kartenbreite', [], 'ghost'),
+                    'explorable_space_y' => $this->translator->trans('Kartenhöhe', [], 'ghost'),
 
                     'attacks' => $this->translator->trans('Stärke der Angriffe', [], 'ghost'),
                     'attacks_presets' => [
