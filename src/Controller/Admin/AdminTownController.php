@@ -41,6 +41,7 @@ use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Enum\Configuration\TownSetting;
 use App\Enum\EventStages\BuildingEffectStage;
 use App\Enum\EventStages\BuildingValueQuery;
 use App\Enum\ItemPoisonType;
@@ -2596,7 +2597,7 @@ class AdminTownController extends AdminActionController
         {
 
             $mazeMaker->setTargetZone($zone);
-            $zone->setExplorableFloors($conf->get(TownConf::CONF_EXPLORABLES_FLOORS, 1));
+            $zone->setExplorableFloors($conf->get(TownSetting::ERuinSpaceFloors));
 
             $mazeMaker->createField();
             $mazeMaker->generateCompleteMaze();

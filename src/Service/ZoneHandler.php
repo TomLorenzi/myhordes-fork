@@ -20,6 +20,7 @@ use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
 use App\Entity\ZonePrototype;
+use App\Enum\Configuration\TownSetting;
 use App\Enum\ScavengingActionType;
 use App\Enum\ZoneActivityMarkerType;
 use App\Structures\EventConf;
@@ -215,9 +216,11 @@ class ZoneHandler
                         $timer->setTimestamp(
                             (new DateTime())->setTimestamp(
                                 $timer->getTimestamp()->getTimestamp()
-                            )->add(DateInterval::createFromDateString($conf->get( $timer->getCitizen()->getProfession()->getName() === 'collec' ?
-                                                      TownConf::CONF_TIMES_DIG_COLLEC :
-                                                      TownConf::CONF_TIMES_DIG_NORMAL, '+2hour'))) );
+                            )->add(DateInterval::createFromDateString(
+                                $conf->get( $timer->getCitizen()->getProfession()->getName() === 'collec'
+                                                ? TownSetting::TimingDiggingCollector
+                                                : TownSetting::TimingDiggingDefault
+                                ))) );
 
                     } catch (Exception $e) {
                         $timer->setTimestamp( new DateTime('+1min') );

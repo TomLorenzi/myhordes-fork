@@ -2,10 +2,12 @@
 
 namespace App\Service\Actions\Ghost;
 
+use Adbar\Dot;
 use App\Entity\BuildingPrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\TownClass;
 use App\Entity\User;
+use App\Enum\Configuration\TownSetting;
 use App\Service\ConfMaster;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -89,6 +91,28 @@ class SanitizeTownConfigAction
             if ($trimTo < User::USER_LEVEL_CROW) $rules['map']['min'] = $rules['map']['max'] = 27;
         }
 
+        // Explorable ruins with more than 3 floors need CROW permissions
+        if ($rules['explorable_ruin_params']['space']['floors'] ?? 0 > 3) {
+            $elevation = max($elevation, User::USER_LEVEL_CROW);
+            if ($trimTo < User::USER_LEVEL_CROW) $rules['explorable_ruin_params']['space']['floors'] = 3;
+        }
+
+        // Explorable ruins with more than 20 rooms need CROW permissions
+        if ($rules['explorable_ruin_params']['room_config']['total'] ?? 0 > 20) {
+            $elevation = max($elevation, User::USER_LEVEL_CROW);
+            if ($trimTo < User::USER_LEVEL_CROW) $rules['explorable_ruin_params']['room_config']['total'] = 20;
+        }
+
+        // Explorable ruins with custom resolution need CROW permissions
+        if (($rules['explorable_ruin_params']['space']['x'] ?? 13) !== 13) {
+            $elevation = max($elevation, User::USER_LEVEL_CROW);
+            if ($trimTo < User::USER_LEVEL_CROW) $rules['explorable_ruin_params']['space']['x'] = 13;
+        }
+        if (($rules['explorable_ruin_params']['space']['y'] ?? 13) !== 13) {
+            $elevation = max($elevation, User::USER_LEVEL_CROW);
+            if ($trimTo < User::USER_LEVEL_CROW) $rules['explorable_ruin_params']['space']['y'] = 13;
+        }
+
         // Maps with non-standard town position need CROW permissions
         if (($rules['map']['margin'] ?? 0.25) !== 0.25) {
             $elevation = max($elevation, User::USER_LEVEL_CROW);
@@ -137,6 +161,16 @@ class SanitizeTownConfigAction
             if ($trimTo < User::USER_LEVEL_CROW) unset($rules['features']['free_from_teams']);
         }
 
+        // Changed timing settings require CROW permissions
+        if ( ($rules['times']['exploration']['collec'] !== TownSetting::TimingExplorationCollector->default()) ) {
+            $elevation = max($elevation, User::USER_LEVEL_CROW);
+            if ($trimTo < User::USER_LEVEL_CROW) unset($rules['times']['exploration']['collec']);
+        }
+        if ( ($rules['times']['exploration']['normal'] !== TownSetting::TimingExplorationDefault->default()) ) {
+            $elevation = max($elevation, User::USER_LEVEL_CROW);
+            if ($trimTo < User::USER_LEVEL_CROW) unset($rules['times']['exploration']['normal']);
+        }
+
         return $elevation;
     }
 
@@ -181,47 +215,73 @@ class SanitizeTownConfigAction
     }
 
     public function sanitize_config(array $conf): array {
-        static $unset_props = [
-            'ruin_items', 'zone_items', 'explorable_ruin_params', 'map_params',
+        static $unset = [
+            'ruin_items',
+            'zone_items',
+            'map_params',
             'allow_local_conf',
-            'bank_abuse', 'spiritual_guide', 'times',
-            'distribute_items', 'distribution_distance',
+            'bank_abuse',
+            'spiritual_guide',
+            'times',
+            'distribute_items',
+            'distribution_distance',
             'instant_pictos',
-            'open_town_grace', 'population',
-            'stranger_citizen_limit', 'stranger_day_limit',
+            'open_town_grace',
+            'population',
+            'stranger_citizen_limit',
+            'stranger_day_limit',
+
+            'explorable_ruin_params.max_distance',
+            'explorable_ruin_params.plan_limits',
+            'explorable_ruin_params.zombies',
+            'explorable_ruin_params.room_config.lock',
+            'explorable_ruin_params.room_config.distance',
+            'explorable_ruin_params.room_config.spacing',
+            'explorable_ruin_params.space.ox',
+
+            'features.last_death',
+            'features.last_death_day',
+            'features.survival_picto',
+            'features.words_of_heros',
+            'features.escort.max',
+
+            'modifiers.assemble_items_from_floor',
+            'modifiers.citizen_attack',
+            'modifiers.complaints',
+            'modifiers.destroy_defense_objects_attack',
+            'modifiers.ghoul_infection_begin',
+            'modifiers.ghoul_infection_next',
+            'modifiers.hide_home_upgrade',
+            'modifiers.infection_death_chance',
+            'modifiers.massive_respawn_factor',
+            'modifiers.meaty_bones_within_town',
+            'modifiers.preview_item_assemblage',
+            'modifiers.red_soul_max_factor',
+            'modifiers.sandball_nastyness',
+            'modifiers.watchtower_estimation_offset',
+            'modifiers.watchtower_estimation_threshold',
+            'modifiers.wind_distance',
+            'modifiers.wound_terror_penalty',
+            'modifiers.camping',
+            'modifiers.generosity',
+            'modifiers.guard_tower',
         ];
 
-        static $unset_features = [
-            'last_death', 'last_death_day', 'survival_picto', 'words_of_heros'
-        ];
-
-        static $unset_modules = [
-            'assemble_items_from_floor', 'citizen_attack',
-            'complaints', 'destroy_defense_objects_attack', 'ghoul_infection_begin', 'ghoul_infection_next', 'hide_home_upgrade',
-            'infection_death_chance', 'massive_respawn_factor', 'meaty_bones_within_town',
-            'preview_item_assemblage', 'red_soul_max_factor', 'sandball_nastyness',
-            'watchtower_estimation_offset', 'watchtower_estimation_threshold', 'wind_distance',
-            'wound_terror_penalty', 'camping', 'generosity', 'guard_tower'
-        ];
-
-        foreach ($unset_props as $prop) unset ($conf[$prop]);
-        foreach ($unset_features as $prop) unset ($conf['features'][$prop]);
-        foreach ($unset_modules as $prop) unset ($conf['modifiers'][$prop]);
-
-        unset( $conf['features']['escort']['max'] );
-
-        return $conf;
+        $dot = new Dot($conf);
+        $dot->delete($unset);
+        return $dot->all();
     }
 
     public function sanitize_outgoing_config(array $conf): array {
-        static $unset_props = [
-            'well', 'map', 'ruins'
+        static $unset = [
+            'well',
+            'map',
+            'ruins'
         ];
 
-        $conf = $this->sanitize_config( $conf );
-
-        foreach ($unset_props as $prop) unset ($conf[$prop]);
-        return $conf;
+        $dot = new Dot($this->sanitize_config( $conf ));
+        $dot->delete($unset);
+        return $dot->all();
     }
 
     public function sanitize_incoming_config(array $conf, TownClass $base): array {
@@ -229,6 +289,9 @@ class SanitizeTownConfigAction
 
         $map_preset = $conf['mapPreset'] ?? null;
         unset( $conf['mapPreset'] );
+
+        $explorable_preset = $conf['explorablePreset'] ?? null;
+        unset( $conf['explorablePreset'] );
 
         $map_margin_preset = $conf['mapMarginPreset'] ?? null;
         unset( $conf['mapMarginPreset'] );
@@ -239,6 +302,9 @@ class SanitizeTownConfigAction
 
         $well_preset = $conf['wellPreset'] ?? null;
         unset( $conf['wellPreset'] );
+
+        $exploration_timing_preset = $conf['explorableTimingPreset'] ?? null;
+        unset( $conf['explorableTimingPreset'] );
 
         if ($map_preset) {
             $conf['map'] = $conf['map'] ?? [];
@@ -264,6 +330,36 @@ class SanitizeTownConfigAction
                     $conf['ruins'] = 30;
                     $conf['explorable_ruins'] = ($tc['explorable_ruins'] ?? 1) + 1;
                     break;
+            }
+        }
+
+        if ($explorable_preset) {
+            $conf['explorable_ruin_params'] = $conf['explorable_ruin_params'] ?? [];
+            $conf['explorable_ruin_params']['space'] = $conf['explorable_ruin_params']['space'] ?? [];
+            $conf['explorable_ruin_params']['room_config'] = $conf['explorable_ruin_params']['room_config'] ?? [];
+            switch ($explorable_preset) {
+                case 'classic':
+                    $conf['explorable_ruin_params']['space']['floors'] = 1;
+                    $conf['explorable_ruin_params']['room_config']['min'] = 10;
+                    $conf['explorable_ruin_params']['room_config']['total'] = 10;
+                    break;
+                case 'normal':
+                    unset($conf['explorable_ruin_params']);
+                    break;
+                case 'large':
+                    $conf['explorable_ruin_params']['space']['floors'] = 3;
+                    $conf['explorable_ruin_params']['room_config']['min'] = 6;
+                    $conf['explorable_ruin_params']['room_config']['total'] = 20;
+                    break;
+            }
+
+            $area = ($conf['explorable_ruin_params']['space']['x'] ?? 13) * ($conf['explorable_ruin_params']['space']['x'] ?? 13);
+            if ($area !== 169) {
+                $factor = max($area/169,0.1);
+                $conf['explorable_ruin_params']['zombies'] = [
+                    'initial' => (int)ceil(($conf['explorable_ruin_params']['zombies']['initial'] ?? 10) * $factor),
+                    'daily' => (int)ceil(($conf['explorable_ruin_params']['zombies']['daily'] ?? 5) * $factor),
+                ];
             }
         }
 
@@ -321,6 +417,29 @@ class SanitizeTownConfigAction
             }
         }
 
+        if ($exploration_timing_preset) {
+            $conf['times'] = $conf['times'] ?? [];
+            $conf['times']['exploration'] = $conf['times']['exploration'] ?? [];
+            switch ($exploration_timing_preset) {
+                case 'low':
+                    $conf['times']['exploration']['normal'] = '+3min';
+                    $conf['times']['exploration']['collec'] = '+5min30sec';
+                case 'normal':
+                    $tc = $this->conf->getTownConfigurationByType( TownClass::DEFAULT )->getData();
+                    $conf['times']['exploration']['normal'] = $tc['times']['exploration']['normal'] ?? '+5min';
+                    $conf['times']['exploration']['collec'] = $tc['times']['exploration']['collec'] ?? '+7min30sec';
+                    break;
+                case 'long':
+                    $conf['times']['exploration']['normal'] = '+6min';
+                    $conf['times']['exploration']['collec'] = '+8min';
+                    break;
+                case 'extra-long':
+                    $conf['times']['exploration']['normal'] = '+8min';
+                    $conf['times']['exploration']['collec'] = '+11min30sec';
+                    break;
+            }
+        }
+
         return $conf;
     }
 
@@ -374,7 +493,8 @@ class SanitizeTownConfigAction
         if (!is_int( $head['townSeed'] ?? 'x' ) || (int)$head['townSeed'] <= 0) unset( $head['townSeed'] );
 
         // Ensure map min/max is between 10 and 35
-        if (!is_int( $rules['map']['min'] ?? 'x' )) unset( $rules['map']['min'] ); if (!is_int( $rules['map']['max'] ?? 'x' )) unset( $rules['map']['max'] );
+        if (!is_int( $rules['map']['min'] ?? 'x' )) unset( $rules['map']['min'] );
+        if (!is_int( $rules['map']['max'] ?? 'x' )) unset( $rules['map']['max'] );
         if ( ($rules['map']['min'] ?? 10) < 10 ) $rules['map']['min'] = 10; if ( ($rules['map']['max'] ?? 10) < 10 ) $rules['map']['max'] = 10;
         if ( ($rules['map']['min'] ?? 10) > 35 ) $rules['map']['min'] = 35; if ( ($rules['map']['max'] ?? 10) > 35 ) $rules['map']['max'] = 35;
         if ( ($rules['map']['min'] ?? 0) > ($rules['map']['max'] ?? 0) ) $rules['map']['min'] = $rules['map']['max'];
@@ -392,6 +512,24 @@ class SanitizeTownConfigAction
         if ( ($rules['explorable_ruins'] ?? 0) < 0 ) $rules['explorable_ruins'] = 0;
         if ( ($rules['explorable_ruins'] ?? 0) > 5 ) $rules['explorable_ruins'] = 5;
 
+        // Ensure explorable ruin config is correct
+        if (!is_int( $rules['explorable_ruin_params']['room_config']['total'] ?? 'x' )) unset( $rules['explorable_ruin_params']['room_config']['total'] );
+        if (!is_int( $rules['explorable_ruin_params']['room_config']['min'] ?? 'x' )) unset( $rules['explorable_ruin_params']['room_config']['min'] );
+        if (!is_int( $rules['explorable_ruin_params']['space']['floors'] ?? 'x' )) unset( $rules['explorable_ruin_params']['space']['floors'] );
+        if (!is_int( $rules['explorable_ruin_params']['space']['x'] ?? 'x' )) unset( $rules['explorable_ruin_params']['space']['x'] );
+        if (!is_int( $rules['explorable_ruin_params']['space']['y'] ?? 'x' )) unset( $rules['explorable_ruin_params']['space']['y'] );
+        if ($rules['explorable_ruin_params']['space'] ?? null) {
+            $rules['explorable_ruin_params']['space']['ox'] = (int)ceil(($rules['explorable_ruin_params']['space']['x'] ?? 13) / 2.0);
+            if ( ($rules['explorable_ruin_params']['space']['x'] ?? 13) > 25 ) $rules['explorable_ruin_params']['space']['x'] = 25;
+            if ( ($rules['explorable_ruin_params']['space']['y'] ?? 13) > 25 ) $rules['explorable_ruin_params']['space']['y'] = 25;
+            if ( ($rules['explorable_ruin_params']['space']['x'] ?? 13) < 8 ) $rules['explorable_ruin_params']['space']['x'] = 8;
+            if ( ($rules['explorable_ruin_params']['space']['y'] ?? 13) < 8 ) $rules['explorable_ruin_params']['space']['y'] = 8;
+        }
+        if (( $rules['explorable_ruin_params']['space']['floors'] ?? 2 ) > 5 || ( $rules['explorable_ruin_params']['space']['floors'] ?? 2 ) < 1) $rules['explorable_ruin_params']['space']['floors'] = 2;
+        if ( ($rules['explorable_ruin_params']['space']['floors'] ?? 0) * ($rules['explorable_ruin_params']['room_config']['min'] ?? 0) > ( $rules['explorable_ruin_params']['room_config']['total'] ?? 0 ) ) {
+            unset($rules['explorable_ruin_params']);
+        };
+        
         // Ensure well min/max is above 0
         if (!is_int( $rules['well']['min'] ?? 'x' )) unset( $rules['well']['min'] ); if (!is_int( $rules['well']['max'] ?? 'x' )) unset( $rules['well']['max'] );
         if ( ($rules['well']['min'] ?? 0) < 0 ) $rules['well']['min'] = 0; if ( ($rules['well']['max'] ?? 0) < 0 ) $rules['well']['max'] = 0;

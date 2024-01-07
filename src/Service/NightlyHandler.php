@@ -1398,7 +1398,7 @@ class NightlyHandler
 
         $reco_counter = [0,0];
 
-        $maze_zeds = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_EXPLORABLES_ZOMBIES_DAY, 5);
+        $maze_zeds = $this->conf->getTownConfiguration($town)->get(TownSetting::ERuinZombiesDaily);
         $wind_dist = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WIND_DISTANCE, 2);
 
         foreach ($town->getZones() as $zone) {

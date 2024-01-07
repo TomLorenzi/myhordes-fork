@@ -46,22 +46,19 @@ parameters:
           depleted: 0.35
 
       explorable_ruin_params:
-        complexity: 0.9
-        convolution: 0.2
-        cruelty: 0.06
         room_config:
           lock: 10
           distance: 5
           spacing: 4
           total: 15
           min: 5
-        room_distance: 5
-        room_spacing: 4
-        lock_distance: 10
         item_fillrate: 7
         max_distance: 10
-        floors: 2
-        dig_chance: 0.55
+        space:
+          floors: 2
+          x: 13
+          y: 13
+          ox: 7
         plan_limits:
           unusual: -1
           rare: -1

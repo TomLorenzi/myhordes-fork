@@ -24,6 +24,7 @@ use App\Entity\RuinExplorerStats;
 use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
 use App\Entity\ZoneTag;
+use App\Enum\Configuration\TownSetting;
 use App\Enum\EventStages\BuildingValueQuery;
 use App\Enum\Game\TransferItemOption;
 use App\Enum\ScavengingActionType;
@@ -759,9 +760,10 @@ class BeyondController extends InventoryAwareController
         $this->citizen_handler->setAP( $citizen, true, -1 );
 
         $citizen->addExplorerStat((new RuinExplorerStats())->setActive(true)->setTimeout( (new DateTime())->add(DateInterval::createFromDateString(
-            $this->getTownConf()->get($citizen->getProfession()->getName() === 'collec' ?
-                TownConf::CONF_TIMES_EXPLORE_COLLEC :
-                TownConf::CONF_TIMES_EXPLORE_NORMAL, '+5min')
+            $this->getTownConf()->get($citizen->getProfession()->getName() === 'collec'
+                                          ? TownSetting::TimingExplorationCollector
+                                          : TownSetting::TimingExplorationDefault
+            )
         ) )));
         $this->entity_manager->persist($citizen);
         try {

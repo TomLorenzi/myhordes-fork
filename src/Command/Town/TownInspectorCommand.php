@@ -9,6 +9,7 @@ use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
 use App\Entity\Town;
 use App\Entity\Zone;
+use App\Enum\Configuration\TownSetting;
 use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Service\CommandHelper;
 use App\Service\ConfMaster;
@@ -286,7 +287,7 @@ class TownInspectorCommand extends Command
             foreach ($town->getZones() as &$zone) if ($zone->getPrototype() && $zone->getPrototype()->getExplorable()) {
                 $changes = true;
                 $this->mazeMaker->setTargetZone($zone);
-                $zone->setExplorableFloors($conf->get(TownConf::CONF_EXPLORABLES_FLOORS, 1));
+                $zone->setExplorableFloors($conf->get(TownSetting::ERuinSpaceFloors));
                 $this->mazeMaker->createField();  
                 $this->mazeMaker->generateCompleteMaze();
 
