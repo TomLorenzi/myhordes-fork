@@ -19,6 +19,7 @@ export const TownCreatorSectionDifficulty = () => {
     const WELL = "well"
     const MAP_PRESET = "mapPreset"
     const EXPLORABLE_PRESET = "explorablePreset"
+    const EXPLORABLE_TIMING_PRESET = "explorableTimingPreset"
     const MAP = "map"
     const RUINS = "ruins"
     const EXPLORABLE_RUINS = "explorable_ruins"
@@ -200,6 +201,12 @@ export const TownCreatorSectionDifficulty = () => {
                     />
                 </AtLeast>
             ) }
+
+            <AtLeast elevation="crow">
+                <OptionSelect value={ globals.getOption( 'rules.explorableTimingPreset' ) ?? 'normal' } propName={EXPLORABLE_TIMING_PRESET} propTitle={ difficulty.explorable_timing }
+                              options={ difficulty.explorable_timing_presets.map( m => ({ value: m.value, title: m.label }) ) }
+                />
+            </AtLeast>
         </> }
 
         { /* Position Settings */ }

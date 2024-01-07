@@ -42,11 +42,6 @@ class TownConf extends Conf
 
     const CONF_SCAVENGING_PLAN_LIMIT_B = 'zone_items.plan_limits.bag';
 
-    const CONF_TIMES_DIG_NORMAL     = 'times.digging.normal';
-    const CONF_TIMES_DIG_COLLEC     = 'times.digging.collec';
-    const CONF_TIMES_EXPLORE_NORMAL = 'times.exploration.normal';
-    const CONF_TIMES_EXPLORE_COLLEC = 'times.exploration.collec';
-
     const CONF_BANK_ABUSE_LIMIT       = 'bank_abuse.limit';
     const CONF_BANK_ABUSE_LIMIT_CHAOS = 'bank_abuse.chaos_limit';
     const CONF_BANK_ABUSE_BASE        = 'bank_abuse.base_range_min';

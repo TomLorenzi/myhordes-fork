@@ -87,6 +87,23 @@ enum TownSetting: string implements Configuration
 
     //</editor-fold>
 
+    //<editor-fold desc="Town Timing Settings">
+    case Section_Timing = '--section--/Timing';
+
+    //<editor-fold desc="Town Timing for Digging Settings">
+    case Section_Timing_Digging = '--section--/Explorable/Digging';
+    case TimingDiggingDefault = 'times.digging.normal';
+    case TimingDiggingCollector = 'times.digging.collec';
+    //</editor-fold>
+
+    //<editor-fold desc="Town Timing for Exploration Settings">
+    case Section_Timing_Exploration = '--section--/Explorable/Exploration';
+    case TimingExplorationDefault = 'times.exploration.normal';
+    case TimingExplorationCollector = 'times.exploration.collec';
+    //</editor-fold>
+
+    //</editor-fold>
+
     public function abstract(): bool
     {
         return match ($this) {
@@ -99,6 +116,9 @@ enum TownSetting: string implements Configuration
             self::Section_Explorable_Space,
             self::Section_Explorable_BP,
             self::Section_Explorable_Zombies,
+            self::Section_Timing,
+            self::Section_Timing_Digging,
+            self::Section_Timing_Exploration,
                 => true,
 
             default => false
@@ -155,6 +175,15 @@ enum TownSetting: string implements Configuration
 
             self::ERuinZombiesInitial,
             self::ERuinZombiesDaily => self::Section_Explorable_Zombies,
+
+            self::Section_Timing_Digging,
+            self::Section_Timing_Exploration => self::Section_Timing,
+
+            self::TimingDiggingDefault,
+            self::TimingDiggingCollector => self::Section_Timing_Digging,
+
+            self::TimingExplorationDefault,
+            self::TimingExplorationCollector => self::Section_Timing_Exploration,
 
             default => null
         };
@@ -223,6 +252,12 @@ enum TownSetting: string implements Configuration
 
             self::ERuinZombiesInitial => 10,
             self::ERuinZombiesDaily   => 5,
+
+            self::TimingDiggingDefault => '+2hour',
+            self::TimingDiggingCollector => '+1hour30min',
+
+            self::TimingExplorationDefault => '+5min',
+            self::TimingExplorationCollector => '+7min30sec',
 
             default => null,
         };

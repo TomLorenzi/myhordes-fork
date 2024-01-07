@@ -176,6 +176,13 @@ class TownCreatorController extends CustomAbstractCoreController
                     'map_e_ruins' => $this->translator->trans('Anzahl Begehbare Ruinen', [], 'ghost'),
 
                     'explorable' => $this->translator->trans('Größe der Begehbaren Ruinen', [], 'ghost'),
+                    'explorable_timing' => $this->translator->trans('Sauerstoffvorrat', [], 'ghost'),
+                    'explorable_timing_presets' => [
+                        ['value' => 'low', 'label' => $this->translator->trans('Gering', [], 'ghost')],
+                        ['value' => 'normal', 'label' => $this->translator->trans('Normal', [], 'ghost')],
+                        ['value' => 'long', 'label' => $this->translator->trans('Umfangreich', [], 'ghost')],
+                        ['value' => 'extra-long', 'label' => $this->translator->trans('Exorbitant', [], 'ghost')]
+                    ],
                     'explorable_presets' => [
                         ['value' => 'classic', 'label' => $this->translator->trans('Eine Etage', [], 'ghost')],
                         ['value' => 'normal', 'label' => $this->translator->trans('Zwei Etagen', [], 'ghost')],

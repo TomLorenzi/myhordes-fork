@@ -7,6 +7,7 @@ use App\Entity\BuildingPrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\TownClass;
 use App\Entity\User;
+use App\Enum\Configuration\TownSetting;
 use App\Service\ConfMaster;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -160,6 +161,16 @@ class SanitizeTownConfigAction
             if ($trimTo < User::USER_LEVEL_CROW) unset($rules['features']['free_from_teams']);
         }
 
+        // Changed timing settings require CROW permissions
+        if ( ($rules['times']['exploration']['collec'] !== TownSetting::TimingExplorationCollector->default()) ) {
+            $elevation = max($elevation, User::USER_LEVEL_CROW);
+            if ($trimTo < User::USER_LEVEL_CROW) unset($rules['times']['exploration']['collec']);
+        }
+        if ( ($rules['times']['exploration']['normal'] !== TownSetting::TimingExplorationDefault->default()) ) {
+            $elevation = max($elevation, User::USER_LEVEL_CROW);
+            if ($trimTo < User::USER_LEVEL_CROW) unset($rules['times']['exploration']['normal']);
+        }
+
         return $elevation;
     }
 
@@ -292,6 +303,9 @@ class SanitizeTownConfigAction
         $well_preset = $conf['wellPreset'] ?? null;
         unset( $conf['wellPreset'] );
 
+        $exploration_timing_preset = $conf['explorableTimingPreset'] ?? null;
+        unset( $conf['explorableTimingPreset'] );
+
         if ($map_preset) {
             $conf['map'] = $conf['map'] ?? [];
             switch ($map_preset) {
@@ -403,6 +417,29 @@ class SanitizeTownConfigAction
             }
         }
 
+        if ($exploration_timing_preset) {
+            $conf['times'] = $conf['times'] ?? [];
+            $conf['times']['exploration'] = $conf['times']['exploration'] ?? [];
+            switch ($exploration_timing_preset) {
+                case 'low':
+                    $conf['times']['exploration']['normal'] = '+3min';
+                    $conf['times']['exploration']['collec'] = '+5min30sec';
+                case 'normal':
+                    $tc = $this->conf->getTownConfigurationByType( TownClass::DEFAULT )->getData();
+                    $conf['times']['exploration']['normal'] = $tc['times']['exploration']['normal'] ?? '+5min';
+                    $conf['times']['exploration']['collec'] = $tc['times']['exploration']['collec'] ?? '+7min30sec';
+                    break;
+                case 'long':
+                    $conf['times']['exploration']['normal'] = '+6min';
+                    $conf['times']['exploration']['collec'] = '+8min';
+                    break;
+                case 'extra-long':
+                    $conf['times']['exploration']['normal'] = '+8min';
+                    $conf['times']['exploration']['collec'] = '+11min30sec';
+                    break;
+            }
+        }
+
         return $conf;
     }
 
@@ -456,7 +493,8 @@ class SanitizeTownConfigAction
         if (!is_int( $head['townSeed'] ?? 'x' ) || (int)$head['townSeed'] <= 0) unset( $head['townSeed'] );
 
         // Ensure map min/max is between 10 and 35
-        if (!is_int( $rules['map']['min'] ?? 'x' )) unset( $rules['map']['min'] ); if (!is_int( $rules['map']['max'] ?? 'x' )) unset( $rules['map']['max'] );
+        if (!is_int( $rules['map']['min'] ?? 'x' )) unset( $rules['map']['min'] );
+        if (!is_int( $rules['map']['max'] ?? 'x' )) unset( $rules['map']['max'] );
         if ( ($rules['map']['min'] ?? 10) < 10 ) $rules['map']['min'] = 10; if ( ($rules['map']['max'] ?? 10) < 10 ) $rules['map']['max'] = 10;
         if ( ($rules['map']['min'] ?? 10) > 35 ) $rules['map']['min'] = 35; if ( ($rules['map']['max'] ?? 10) > 35 ) $rules['map']['max'] = 35;
         if ( ($rules['map']['min'] ?? 0) > ($rules['map']['max'] ?? 0) ) $rules['map']['min'] = $rules['map']['max'];
