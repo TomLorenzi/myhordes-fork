@@ -2870,10 +2870,10 @@ Eventsieger: Ganador de evento
 Eventteilnehmer: Participante de evento
 'Auszeichnung für deinen Sieg in einem Community-Event, Glückwünsch!': 'Distinción obtenida tras su designación como ganador de un evento comunitario, ¡enhorabuena!'
 'Auszeichnung für deine Teilnahme an einem Community-Event.': 'Distinción obtenida tras su participación en un evento comunitario.'
-'Allwissender Schamane': 'Allwissender Schamane'
-'Allwissender Schamane_f': 'Allwissende Schamanin'
-'Anführer der verlorenen Seelen': 'Anführer der verlorenen Seelen'
-'Anführer der verlorenen Seelen_f': 'Anführerin der verlorenen Seelen'
+'Allwissender Schamane': 'Chamán omnisciente'
+'Allwissender Schamane_f': 'Chamana omnisciente'
+'Anführer der verlorenen Seelen': 'Guía de las almas perdidas'
+'Anführer der verlorenen Seelen_f': 'Guía de las almas perdidas'
 'Uneinnehmbare Festung': 'Fortaleza impenetrable'
 'Uneinnehmbare Festung_f': 'Fortaleza impenetrable'
 'Ein bisschen näher an den Sternen': 'Ein bisschen näher an den Sternen'
@@ -2881,7 +2881,7 @@ Eventteilnehmer: Participante de evento
 'Himmel! Was werden die Nachbarn sagen?': 'Himmel! Was werden die Nachbarn sagen?'
 'Himmel! Was werden die Nachbarn sagen?_f': 'Himmel! Was werden die Nachbarn sagen?'
 'Mister Sandman ♫♪': 'Mister Sandman ♫♪'
-'Mister Sandman ♫♪_f': 'Misses Sandman ♫♪'
+'Mister Sandman ♫♪_f': 'Miss Sandman ♫♪'
 'Nutzt das Vergängliche': 'Nutzt das Vergängliche'
 'Nutzt das Vergängliche_f': 'Nutzt das Vergängliche'
 'John Snow': 'John Snow'
@@ -2890,12 +2890,12 @@ Eventteilnehmer: Participante de evento
 'Der Rabinator_f': 'La cuervinador'
 'Wir drehen frei!': 'Wir drehen frei!'
 'Wir drehen frei!_f': 'Wir drehen frei!'
-'Du nennst das ein Messer? DAS ist ein Messer!': 'Du nennst das ein Messer? DAS ist ein Messer!'
-'Du nennst das ein Messer? DAS ist ein Messer!_f': 'Du nennst das ein Messer? DAS ist ein Messer!'
+'Du nennst das ein Messer? DAS ist ein Messer!': '¿Llamas a eso un cuchillo? ¡ESTO es un cuchillo!'
+'Du nennst das ein Messer? DAS ist ein Messer!_f': '¿Llamas a eso un cuchillo? ¡ESTO es un cuchillo!'
 'Apostel des Pandämoniums': 'Apóstol del Pandemonio'
 'Apostel des Pandämoniums_f': 'Apóstol del Pandemonio'
-'Liebling des Raben': 'Liebling des Raben'
-'Liebling des Raben_f': 'Liebling des Raben'
+'Liebling des Raben': 'Favorito del Cuervo'
+'Liebling des Raben_f': 'Favorita del Cuervo'
 Seelentrader: Seelentrader
 Seelentrader_f: Seelentraderin
 Scientologe: Scientologe
@@ -2910,14 +2910,14 @@ Scientologe_f: Scientologin
 'Ultimatives Opfer_f': 'Ultimatives Opfer'
 'Kabum! Der Reaktor mach KABUM!!!': 'Kabum! Der Reaktor mach KABUM!!!'
 'Kabum! Der Reaktor mach KABUM!!!_f': 'Kabum! Der Reaktor mach KABUM!!!'
-Atompilzsammler: Atompilzsammler
-Atompilzsammler_f: Atompilzsammlerin
-'Bis auf die Seele verstrahlt': 'Bis auf die Seele verstrahlt'
-'Bis auf die Seele verstrahlt_f': 'Bis auf die Seele verstrahlt'
-'Ich steh auf Fusion!': 'Ich steh auf Fusion!'
-'Ich steh auf Fusion!_f': 'Ich steh auf Fusion!'
-Kung-Fu-Sion: Kung-Fu-Sion
-Kung-Fu-Sion_f: Kung-Fu-Sion
+Atompilzsammler: Recolector de hongos atómicos
+Atompilzsammler_f: Recolectora de hongos atómicos
+'Bis auf die Seele verstrahlt': 'Irradiado hasta el alma'
+'Bis auf die Seele verstrahlt_f': 'Irradiada hasta el alma'
+'Ich steh auf Fusion!': '¡La fisión me encanta!'
+'Ich steh auf Fusion!_f': '¡La fisión me encanta!'
+Kung-Fu-Sion: King-Fu-Sión
+Kung-Fu-Sion_f: King-Fu-Sión
 Sandsteiniger: Sandsteiniger
 Sandsteiniger_f: Sandsteinigerin
 Sandkasten-Scharfschütze: Francotirador aislado
