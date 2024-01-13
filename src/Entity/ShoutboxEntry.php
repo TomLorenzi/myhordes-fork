@@ -15,6 +15,7 @@ class ShoutboxEntry
     const SBEntryTypeTown = 4;
     const SBEntryTypeLeave = 5;
     const SBEntryTypeNameChange = 6;
+    const SBEntryTypePromote = 7;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
