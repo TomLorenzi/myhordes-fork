@@ -162,11 +162,11 @@ class SanitizeTownConfigAction
         }
 
         // Changed timing settings require CROW permissions
-        if ( ($rules['times']['exploration']['collec'] !== TownSetting::TimingExplorationCollector->default()) ) {
+        if ( (($rules['times']['exploration']['collec'] ?? TownSetting::TimingExplorationCollector->default()) !== TownSetting::TimingExplorationCollector->default()) ) {
             $elevation = max($elevation, User::USER_LEVEL_CROW);
             if ($trimTo < User::USER_LEVEL_CROW) unset($rules['times']['exploration']['collec']);
         }
-        if ( ($rules['times']['exploration']['normal'] !== TownSetting::TimingExplorationDefault->default()) ) {
+        if ( (($rules['times']['exploration']['normal'] ?? TownSetting::TimingExplorationDefault->default()) !== TownSetting::TimingExplorationDefault->default()) ) {
             $elevation = max($elevation, User::USER_LEVEL_CROW);
             if ($trimTo < User::USER_LEVEL_CROW) unset($rules['times']['exploration']['normal']);
         }

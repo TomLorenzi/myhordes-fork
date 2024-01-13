@@ -106,6 +106,11 @@ class EventController extends CustomAbstractCoreController
                     'add' => $this->translator->trans('Stadt hinzufügen', [], 'global'),
                     'delete_confirm' => $this->translator->trans('Bist du sicher, dass du dieses Stadt löschen möchtest?', [], 'global'),
 
+                    'expedite' => $this->translator->trans('Städte mit hoher Priorität anlegen', [], 'global'),
+                    'expedited' => $this->translator->trans('Städte werden mit hoher Priorität angelegt', [], 'global'),
+                    'expedite_help' => $this->translator->trans('Die Städte werden innerhalb der nächsten 30 Minuten erzeugt, statt erst beim nächsten Angriff. Bitte verwendet diese Funktion nur in Notfällen.', [], 'global'),
+                    'expedite_confirm' => $this->translator->trans('Bitte verwendet diese Funktion nur in Notfällen. Fortfahren?', [], 'global'),
+
                     'town_create' => $this->translator->trans('Neue Stadt anlegen', [], 'global'),
                     'town_edit' => $this->translator->trans('Stadt bearbeiten', [], 'global'),
 
@@ -155,6 +160,7 @@ class EventController extends CustomAbstractCoreController
      * @param EntityManagerInterface $em
      * @param UserHandler $userHandler
      * @return JsonResponse
+     * @throws Exception
      */
     #[Route(path: '', name: 'list', methods: ['GET'])]
     public function listEvents(
@@ -220,6 +226,8 @@ class EventController extends CustomAbstractCoreController
                 'proposed' => $e->isProposed(),
                 'published' => $e->getStarts() !== null
             ];
+
+            if ($owning) $return['expedited'] = $e->isUrgent();
 
             if ($this->isGranted('ROLE_CROW')) $return['owner'] = [
                 'id' => $e->getOwner()->getId(),
@@ -445,14 +453,18 @@ class EventController extends CustomAbstractCoreController
         JSONRequestParser $parser,
         EntityManagerInterface $em
     ): JsonResponse {
-        if (!$this->eventIsEditable( $event ))
-            return new JsonResponse([], Response::HTTP_FORBIDDEN);
-
         $startDate = $parser->get_dateTime('startDate');
         if ($startDate && ($startDate < new \DateTime() || $startDate > (new \DateTime())->add(\DateInterval::createFromDateString('1year'))))
             $startDate = null;
 
-        if ($startDate) $event->setConfiguredStartDate( $startDate );
+        if ($startDate) {
+            if (!$this->eventIsEditable( $event )) return new JsonResponse([], Response::HTTP_FORBIDDEN);
+            $event->setConfiguredStartDate($startDate);
+        }
+
+        $expedite = $parser->get('expedited');
+        if ($expedite && $event->getStarts() !== null && !$event->isUrgent() && $event->getOwner() === $this->getUser())
+            $event->setUrgent(true);
 
         $em->persist( $event );
 
@@ -596,6 +608,7 @@ class EventController extends CustomAbstractCoreController
         $ranking = $em->getRepository(TownRankingProxy::class)->findOneBy(['baseID' => $preset->getTownId(), 'imported' => false]);
 
         return [
+            'name' => $ranking->getName(),
             'ranking_link' => ($ranking && ( $preset->getTown() === null || $preset->getTown()?->getCitizenCount() > 0 ))
                 ? $this->generateUrl('soul_view_town', ['sid' => $preset->getEvent()->getOwner()->getId(), 'idtown' => $ranking->getId(), 'return_path' => 'soul_events'])
                 : null,

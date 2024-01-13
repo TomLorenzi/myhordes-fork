@@ -5,6 +5,9 @@ import Components from "../../index";
 import {TownPreset, TownPresetData} from "../api";
 import {Flag} from "../Common";
 import {EditorGlobals} from "../Creator";
+import {Tooltip} from "../../tooltip/Wrapper";
+import {Simulate} from "react-dom/test-utils";
+import cancel = Simulate.cancel;
 
 declare global {
     namespace JSX {
@@ -14,8 +17,12 @@ declare global {
     }
 }
 
-export const HordesEventCreatorModuleTownPreset = ( {uuid}: {
+export const HordesEventCreatorModuleTownPreset = ( {uuid,published,expedited,owning,cancel}: {
     uuid: string,
+    published: boolean,
+    expedited: boolean,
+    owning: boolean,
+    cancel: ()=>void,
 } ) => {
     const globals = useContext(Globals)
     const editorGlobals = useContext(EditorGlobals)
@@ -46,6 +53,8 @@ export const HordesEventCreatorModuleTownPreset = ( {uuid}: {
             refresh();
         } )
     }
+
+    const has_unopened_town = townList?.reduce( (c,town) => c || town.instance === null, false )
 
     return (
         <>
@@ -111,8 +120,8 @@ export const HordesEventCreatorModuleTownPreset = ( {uuid}: {
                                 <div>
                                     { town.instance !== null && town.instance.active && <img title={globals.strings.towns.town_instance_online} alt="" src={globals.strings.common.online_icon}/> }
                                     { town.instance !== null && !town.instance.active && <img title={globals.strings.towns.town_instance_offline} alt="" src={globals.strings.common.offline_icon}/> }
-                                    { town.name && <i>{ town.name }</i> }
-                                    { !town.name && <span className="small">[ { globals.strings.towns.default_town } ]</span> }
+                                    { (town.name ?? town.instance?.name) && <i>{ town.name ?? town.instance.name }</i> }
+                                    { !(town.name ?? town.instance?.name) && <span className="small">[ { globals.strings.towns.default_town } ]</span> }
                                 </div>
                                 <div className="small">
                                     { town['type'] }
@@ -147,13 +156,23 @@ export const HordesEventCreatorModuleTownPreset = ( {uuid}: {
                     ) ) }
 
                 </div> }
-                { editorGlobals.writable && <>
-                    <div className="row">
-                        <div className="cell rw-4 ro-8 rw-md-6 ro-md-6 rw-sm-12 ro-sm-0">
-                            <button onClick={()=>setActiveTownEditor(true)}>{ globals.strings.towns.add }</button>
+                <div className="row-flex gap">
+                    { editorGlobals.writable && <div className="cell">
+                        <button onClick={()=>setActiveTownEditor(true)}>{ globals.strings.towns.add }</button>
+                    </div> }
+                    { published && owning && has_unopened_town && <div className="cell">
+                        <div {...expedited ? {disabled: "disabled"} : {}}>
+                            <button onClick={() => {
+                                if (confirm( globals.strings.towns.expedite_confirm ))
+                                    globals.api.editConfig( uuid, {expedited: true} ).then(() => {
+                                        cancel();
+                                    })
+                            }}>{globals.strings.towns.expedite}</button>
+                            <Tooltip>{ globals.strings.towns.expedite_help }</Tooltip>
                         </div>
-                    </div>
-                </> }
+
+                    </div>}
+                </div>
             </> }
         </>
     )

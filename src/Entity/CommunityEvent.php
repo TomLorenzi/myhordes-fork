@@ -46,6 +46,9 @@ class CommunityEvent
     #[ORM\Column]
     private bool $ended = false;
 
+    #[ORM\Column]
+    private bool $urgent = false;
+
     public function __construct()
     {
         $this->metas = new ArrayCollection();
@@ -206,6 +209,18 @@ class CommunityEvent
     public function setEnded(bool $ended): self
     {
         $this->ended = $ended;
+
+        return $this;
+    }
+
+    public function isUrgent(): bool
+    {
+        return $this->urgent;
+    }
+
+    public function setUrgent(bool $urgent): static
+    {
+        $this->urgent = $urgent;
 
         return $this;
     }
