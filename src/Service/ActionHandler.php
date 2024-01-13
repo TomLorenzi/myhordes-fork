@@ -275,13 +275,13 @@ class ActionHandler
      * @param ItemTargetDefinition $definition
      * @return bool
      */
-    public function targetDefinitionApplies($target, ItemTargetDefinition $definition): bool {
+    public function targetDefinitionApplies($target, ItemTargetDefinition $definition, bool $forSelection = false): bool {
         switch ($definition->getSpawner()) {
             case ItemTargetDefinition::ItemSelectionType:case ItemTargetDefinition::ItemSelectionTypePoison:
                 if (!is_a( $target, Item::class )) return false;
                 if ($definition->getHeavy() !== null && $target->getPrototype()->getHeavy() !== $definition->getHeavy()) return false;
                 if ($definition->getBroken() !== null && $target->getBroken() !== $definition->getBroken()) return false;
-                if ($definition->getPoison() !== null && $target->getPoison()->poisoned() !== $definition->getPoison()) return false;
+                if (($definition->getPoison() !== null && !$forSelection) && $target->getPoison()->poisoned() !== $definition->getPoison()) return false;
                 if ($definition->getPrototype() !== null && $target->getPrototype()->getId() !== $definition->getPrototype()->getId()) return false;
                 if ($definition->getTag() !== null && !$target->getPrototype()->getProperties()->contains($definition->getTag())) return false;
                 break;

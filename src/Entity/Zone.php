@@ -413,7 +413,8 @@ class Zone
             return 0;
         }
         mt_srand($c->getId()+$this->getId());
-        $offset = mt_rand((3 - $this->getScoutLevel())*-1, 3 - $this->getScoutLevel());
+        $range = max(2 - $this->getScoutLevel(),0);
+        $offset = mt_rand(-$range, $range);
         mt_srand();
         return max(0, $this->getZombies() + $offset);
     }

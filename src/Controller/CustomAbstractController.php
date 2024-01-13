@@ -131,7 +131,7 @@ class CustomAbstractController extends CustomAbstractCoreController {
             }
         }
 
-        $nightMode = $town && $this->conf->getTownConfiguration($this->getUser()->getActiveCitizen()->getTown())->isNightMode();
+        $nightMode = $town && $this->conf->getTownConfiguration($this->getUser()->getActiveCitizen()->getTown())->isNightMode(ignoreNightModeConfig: true);
 
         $parameters = array_merge($parameters, [
             'theme' => [

@@ -54,10 +54,8 @@ class NightlyHandler
     private array $cleanup = [];
     private array $skip_reanimation = [];
     private array $skip_infection = [];
-    private bool $exec_firework = false;
     private ?Building $upgraded_building = null;
     private array $destroyed_buildings = [];
-    private bool $exec_reactor = false;
     private array $deferred_log_entries = [];
 
     private EntityManagerInterface $entity_manager;
@@ -142,7 +140,7 @@ class NightlyHandler
 
     private function kill_wrap( Citizen &$citizen, CauseOfDeath $cod, bool $skip_reanimation = false, int $zombies = 0, $skip_log = false, ?int $day = null ): void {
         $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> dies of <info>{$cod->getLabel()}</info>.");
-        $this->death_handler->kill($citizen,$cod,$rr);
+        $this->death_handler->kill($citizen,$cod,$rr, $day);
 
         if (!$skip_log) $this->entity_manager->persist( $this->logTemplates->citizenDeath( $citizen, $zombies, null, $day ) );
         foreach ($rr as $r) $this->cleanup[] = $r;

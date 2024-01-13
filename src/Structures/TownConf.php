@@ -138,8 +138,8 @@ class TownConf extends Conf
             else $this->import( $conf_block );
     }
 
-    public function isNightMode(?DateTime $dateTime = null): bool {
-        return $this->get(TownConf::CONF_FEATURE_NIGHTMODE, true) && $this->isNightTime($dateTime);
+    public function isNightMode(?DateTime $dateTime = null, bool $ignoreNightModeConfig = false): bool {
+        return ($ignoreNightModeConfig || $this->get(TownConf::CONF_FEATURE_NIGHTMODE, true)) && $this->isNightTime($dateTime);
     }
 
     public function isNightTime(?DateTime $dateTime = null): bool {

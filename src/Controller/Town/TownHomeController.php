@@ -240,8 +240,15 @@ class TownHomeController extends TownController
 
         // Get requirements for the next upgrade
         $home_next_level_requirement = null;
-        if ($home_next_level && $home_next_level->getRequiredBuilding())
+        if ($home_next_level && $home_next_level->getRequiredBuilding()) {
             $home_next_level_requirement = $th->getBuilding( $town, $home_next_level->getRequiredBuilding(), true ) ? null : $home_next_level->getRequiredBuilding();
+        }
+        $next_level_ap = null;
+        $next_level_resources = null;
+        if ($home_next_level) {
+            $next_level_ap = $has_urbanism ? $home_next_level->getApUrbanism() : $home_next_level->getAp();
+            $next_level_resources = $has_urbanism ? $home_next_level->getResourcesUrbanism() : $home_next_level->getResources();
+        }
 
         // Render
         return $this->render( 'ajax/game/town/home/build.html.twig', $this->addDefaultTwigArgs('house',
@@ -250,8 +257,8 @@ class TownHomeController extends TownController
                 'tab' => 'build',
 
                 'next_level' => $home_next_level,
-                'next_level_ap' => $has_urbanism ? $home_next_level->getApUrbanism() : $home_next_level->getAp(),
-                'next_level_resources' => $has_urbanism ? $home_next_level->getResourcesUrbanism() : $home_next_level->getResources(),
+                'next_level_ap' => $next_level_ap,
+                'next_level_resources' => $next_level_resources,
                 'next_level_req' => $home_next_level_requirement,
                 'devastated' => $town->getDevastated(),
             ], $this->house_partial_upgrade_args(), $this->house_partial_complaints_args())

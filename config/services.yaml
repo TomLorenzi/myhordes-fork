@@ -86,13 +86,15 @@ services:
     # just the interface, in order to set a locale
     App\Command\CronCommand:
       arguments:
-        $translator: '@app.decoration.translator.inner'
         $db: '%env(url:DATABASE_URL)%'
 
     # The NightlyHandler should have its own log channel
     App\Service\NightlyHandler:
         tags:
           - { name: monolog.logger, channel: night }
+    App\Command\Town\TownAttackCommand:
+      tags:
+        - { name: monolog.logger, channel: night }
 
     # Admins controllers should have their own log channel
     # App\Controller\Admin\:

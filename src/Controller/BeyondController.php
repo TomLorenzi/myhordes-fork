@@ -910,7 +910,7 @@ class BeyondController extends InventoryAwareController
                     $zedsAboveCps = $new_zone->getZombies() - $cpNewZone;
                     $delta = floor($zedsAboveCps * 1.3);
 
-                    if ($this->getTownConf()->isNightMode()) {
+                    if ($this->getTownConf()->isNightMode(ignoreNightModeConfig: true)) {
                         $delta -= 5;
                     }
                     if ($delta <= 6) {
