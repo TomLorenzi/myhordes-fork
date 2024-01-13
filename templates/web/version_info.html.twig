@@ -23,7 +23,6 @@
             {% endif %}
         </div>
     </div>
-    <div id="current_webserver">{{ "Auf {hostname}"|trans({'hostname': '<pre>' ~ hostname() ~ '</pre>'}, 'global')|raw }}</div>
 {% else %}
     <div class="debug_info_release">
         {% set link = conf().versionLinkOverrideFor(app.locale) %}
