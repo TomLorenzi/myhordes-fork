@@ -59,16 +59,11 @@ class CronCommand extends Command implements SelfSchedulingCommand
 {
     private KernelInterface $kernel;
     private EntityManagerInterface $entityManager;
-    private NightlyHandler $night;
     private Locksmith $locksmith;
-    private Translator $trans;
     private MyHordesConf $conf;
     private ConfMaster $conf_master;
     private AntiCheatService $anti_cheat;
-    private GameFactory $gameFactory;
     private UserHandler $userHandler;
-    private TownHandler $townHandler;
-    private GazetteService $gazetteService;
     private CrowService $crowService;
     private CommandHelper $helper;
     private ParameterBagInterface $params;
@@ -76,37 +71,29 @@ class CronCommand extends Command implements SelfSchedulingCommand
     private AdminHandler $adminHandler;
     private UserStatCollectionService $userStats;
 
-    private GameEventService $gameEvents;
-
     private array $db;
     private TagAwareCacheInterface $cache;
 
     public function __construct(array $db, KernelInterface $kernel, Environment $twig,
-                                EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator,
-                                ConfMaster $conf, AntiCheatService $acs, GameFactory $gf, UserHandler $uh, GazetteService $gs,
-                                TownHandler $th, CrowService $cs, CommandHelper $helper, ParameterBagInterface $params,
-                                AdminHandler $adminHandler, UserStatCollectionService $us, GameEventService $gameEvents,
+                                EntityManagerInterface $em, Locksmith $ls,
+                                ConfMaster $conf, AntiCheatService $acs, UserHandler $uh,
+                                CrowService $cs, CommandHelper $helper, ParameterBagInterface $params,
+                                AdminHandler $adminHandler, UserStatCollectionService $us,
                                 TagAwareCacheInterface $gameCachePool)
     {
         $this->kernel = $kernel;
         $this->twig = $twig;
         $this->entityManager = $em;
-        $this->night = $nh;
         $this->locksmith = $ls;
-        $this->trans = $translator;
         $this->conf_master = $conf;
         $this->conf = $conf->getGlobalConf();
         $this->anti_cheat = $acs;
-        $this->gameFactory = $gf;
         $this->userHandler = $uh;
-        $this->townHandler = $th;
-        $this->gazetteService = $gs;
         $this->crowService = $cs;
         $this->helper = $helper;
         $this->params = $params;
         $this->adminHandler = $adminHandler;
         $this->userStats = $us;
-        $this->gameEvents = $gameEvents;
         $this->cache = $gameCachePool;
 
         $this->db = $db;
@@ -243,7 +230,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
             foreach ( $town_ids as $town_id ) {
 
                 $failures = [];
-                while (count($failures) < $try_limit && !$this->helper->capsule("app:cron attack $town_id $schedule_id", $output, "Processing town <info>{$town_id}</info> <comment>($i/$num)</comment>... ", true, $ret))
+                while (count($failures) < $try_limit && !$this->helper->capsule("app:town:attack $town_id $schedule_id", $output, "Processing town <info>{$town_id}</info> <comment>($i/$num)</comment>... ", true, $ret))
                     $failures[] = $ret;
 
                 $i++;
@@ -403,137 +390,6 @@ class CronCommand extends Command implements SelfSchedulingCommand
         $event_notifier_ran = $this->module_event_notifications();
         $output->writeln( "Event notifications: <info>" . ($event_notifier_ran ? 'Complete' : 'Not scheduled') . "</info>", OutputInterface::VERBOSITY_VERBOSE );
 
-
-        return 0;
-    }
-
-    protected function task_attack(InputInterface $input, OutputInterface $output): int {
-        // Attack task
-        $output->writeln( "MyHordes CronJob - Attack Processor", OutputInterface::VERBOSITY_VERBOSE );
-
-        $town_id = (int)$input->getArgument('p1');
-        $schedule_id = (int)$input->getArgument('p2');
-
-        if ($town_id <= 0 || $schedule_id <= 0) return -1;
-
-        $town = $this->entityManager->getRepository(Town::class)->find($town_id);
-        $schedule = $this->entityManager->getRepository(AttackSchedule::class)->find($schedule_id);
-
-        if ($town === null || $schedule === 0) return -2;
-
-        $events = $this->conf_master->getCurrentEvents();
-        $town_conf = $this->conf_master->getTownConfiguration($town);
-
-        if ($town->getLanguage() === 'multi') $this->trans->setLocale('en');
-        else $this->trans->setLocale($town->getLanguage() ?? 'de');
-
-        try {
-            /** @var Town $town */
-            $last_op = 'fst';
-            if ($town->isOpen() && $town->getForceStartAhead()) {
-                $town->setForceStartAhead( false );
-                $this->gameFactory->enableStranger( $town );
-            }
-
-            $last_op = 'pre';
-            if ($this->night->advance_day($town, $town_events = $this->conf_master->getCurrentEvents( $town ))) {
-
-                foreach ($this->night->get_cleanup_container() as $c) $this->entityManager->remove($c);
-                $town->setLastAttack($schedule)->setAttackFails(0);
-
-                $last_op = 'adv';
-                $this->entityManager->persist($town);
-                $this->entityManager->flush();
-                $this->entityManager->clear();
-
-                $town = $this->entityManager->getRepository(Town::class)->find($town_id);
-                try {
-                    $this->entityManager->persist( $this->gazetteService->ensureGazette($town) );
-                    $this->entityManager->flush();
-                    $this->entityManager->clear();
-                    $town = $this->entityManager->getRepository(Town::class)->find($town_id);
-                } catch (Exception $e) {}
-
-                // Enable or disable events
-                if (!$town->getManagedEvents() && !$this->conf_master->checkEventActivation($town)) {
-                    $last_op = 'ev_a';
-                    if ($this->townHandler->updateCurrentEvents($town, $events)) {
-                        $this->entityManager->persist($town);
-                        $this->entityManager->flush();
-                    } else $this->entityManager->clear();
-                }
-
-            } else {
-
-                // In case a log entry has been written to the town log during the cancelled attack,
-                // we want to make sure everything is persisted before we proceed.
-                $last_op = 'stay';
-                $this->entityManager->persist($town);
-                $this->entityManager->flush();
-
-                $limit = (int)$town_conf->get( TownSetting::CancelTownAfterDaysWithoutFilling );
-                $grace = (int)$town_conf->get( TownSetting::DoNotCancelAfterCitizensReached );
-
-                $stranger_day   = (int)$town_conf->get( TownSetting::SpawnStrangerAfterUnfilledDays );
-                $stranger_limit = (int)$town_conf->get( TownSetting::SpawnStrangerAfterCitizenCount );
-
-                $update_events = false;
-
-                if ($town->isOpen() && $town->getAliveCitizenCount() > 0 && !$town->getCitizens()->isEmpty() && $stranger_day >= 0 && $town->getDayWithoutAttack() > $stranger_day && $town->getCitizenCount() >= $stranger_limit && $town->getCitizenCount() < $grace) {
-                    $last_op = 'strg';
-                    $town->setForceStartAhead(true);
-                    $update_events = true;
-                    $this->entityManager->persist($town);
-                } elseif ($town->isOpen() && $town->getAliveCitizenCount() > 0 && !$town->getCitizens()->isEmpty() && $limit >= 0 && $town->getDayWithoutAttack() > $limit && $town->getCitizenCount() < $grace) {
-                    $last_op = 'del';
-                    foreach ($town->getCitizens() as $citizen)
-                        $this->entityManager->persist(
-                            $this->crowService->createPM_townNegated( $citizen->getUser(), $town->getName(), true )
-                        );
-                    $this->gameFactory->nullifyTown($town, true);
-                } elseif ($town->isOpen() && $town->getCitizenCount() > 0 && $town->getAliveCitizenCount() == 0) {
-                    $last_op = 'delc';
-                    $this->gameFactory->nullifyTown($town, true);
-                } elseif ((!$town->isOpen()) && $town->getAliveCitizenCount() == 0) {
-                    $last_op = 'com';
-                    $town->setAttackFails(0);
-                    if (!$this->gameFactory->compactTown($town)) {
-                        $this->entityManager->persist($town);
-                        $update_events = true;
-                    }
-                } else {
-                    $update_events = true;
-                    $town->setAttackFails(0);
-                    $this->entityManager->persist($town);
-                }
-
-                // Enable or disable events
-                if ($update_events) {
-                    $running_events = $town_events;
-                    if (!$town->getManagedEvents() && !$this->conf_master->checkEventActivation($town)) {
-                        $this->entityManager->flush();
-                        $last_op = 'ev_s';
-                        if ($this->townHandler->updateCurrentEvents($town, $events)) {
-                            $this->entityManager->persist($town);
-                            $running_events = $events;
-                            $this->entityManager->flush();
-                        } else $this->entityManager->clear();
-                    }
-
-                    $this->gameEvents->triggerNoAttackHooks( $town, $running_events );
-                    $this->entityManager->persist($town);
-                    $this->entityManager->flush();
-                }
-
-                $this->entityManager->flush();
-            }
-        } catch (Exception $e) {
-
-            $output->writeln("<error>Failed to process town {$town->getId()} (@{$last_op})!</error>");
-            $output->writeln($e->getMessage());
-
-            return -3;
-        }
 
         return 0;
     }
@@ -806,7 +662,6 @@ class CronCommand extends Command implements SelfSchedulingCommand
 
         switch ($task) {
             case 'host': return $this->task_host($input,$output);
-            case 'attack': return $this->task_attack($input,$output);
             case 'backup': return $this->task_backup($input,$output);
             default: return -1;
         }
