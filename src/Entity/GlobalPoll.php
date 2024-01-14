@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\GlobalPollRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: GlobalPollRepository::class)]
@@ -29,6 +30,12 @@ class GlobalPoll
     private $poll;
     #[ORM\Column(type: 'boolean')]
     private $showResultsImmediately;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $reveal_date = null;
+
+    #[ORM\Column]
+    private ?bool $multipleChoice = null;
     public function getId(): ?int
     {
         return $this->id;
@@ -166,6 +173,30 @@ class GlobalPoll
     public function setShowResultsImmediately(bool $showResultsImmediately): self
     {
         $this->showResultsImmediately = $showResultsImmediately;
+
+        return $this;
+    }
+
+    public function getRevealDate(): ?\DateTimeInterface
+    {
+        return $this->reveal_date;
+    }
+
+    public function setRevealDate(?\DateTimeInterface $reveal_date): static
+    {
+        $this->reveal_date = $reveal_date;
+
+        return $this;
+    }
+
+    public function isMultipleChoice(): ?bool
+    {
+        return $this->multipleChoice;
+    }
+
+    public function setMultipleChoice(bool $multipleChoice): static
+    {
+        $this->multipleChoice = $multipleChoice;
 
         return $this;
     }

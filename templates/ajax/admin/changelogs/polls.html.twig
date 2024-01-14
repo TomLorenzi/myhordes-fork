@@ -102,6 +102,24 @@
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                        <div class="note note-lightest"><label for="poll_premature_start">{{ 'Verläufige Ergebnisse anzeigen ab'|trans({},'admin') }}</label></div>
+                    </div>
+                    <div class="padded cell rw-9 rw-md-8 rw-sm-12">
+                        <input id="poll_premature_start" name="poll_premature_start" type="date" value="{{ "now"|date('Y-m-d') }}" min="{{ "now"|date('Y-m-d') }}" disabled="disabled">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                        <div class="note note-lightest"><label for="poll_multi">{{ 'Mehrere Antworten möglich (Multiple Choice)'|trans({},'admin') }}</label></div>
+                    </div>
+                    <div class="padded cell rw-9 rw-md-8 rw-sm-12">
+                        <input id="poll_multi" name="poll_multi" type="checkbox">
+                    </div>
+                </div>
+
                 {{ _self.poll_field( langsCodes, 'Kurzbeschreibung'|trans({},'admin'), 'preview', 'textarea', true ) }}
                 {{ _self.poll_field( langsCodes, 'Beschreibung der Umfrage'|trans({},'admin'), 'desc', 'textarea' ) }}
 
@@ -196,6 +214,11 @@
             }
         };
 
+        document.querySelector('#poll_premature')?.addEventListener('change', e => {
+            if (!e.target.checked) document.querySelector('#poll_premature_start')?.setAttribute('disabled','disabled');
+            else document.querySelector('#poll_premature_start')?.removeAttribute('disabled');
+        });
+
         const emote_resolver = s => {
             switch (s) {
                 case ':)': s = ':smile:';    break;
@@ -262,6 +285,8 @@
             const date_start = document.getElementById('poll_start').value;
             const date_end   = document.getElementById('poll_end').value;
             const premature  = document.getElementById('poll_premature').checked;
+            const multiple  = document.getElementById('poll_multi').checked;
+            const date_premature  = document.getElementById('poll_premature_start').value;
 
             let answers = [];
             $.html.forEach( '#answers-table > .row:not(.hidden)', row => {
@@ -280,7 +305,7 @@
 
             $.ajax.easySend( '{{ path('admin_changelog_new_poll') }}', {
                 title: title_set, preview: preview_set, desc: desc_set,
-                start: date_start, end: date_end, premature,
+                start: date_start, end: date_end, premature, date_premature, multiple,
                 answers
             }, data => {
                 $.html.message('notice', 'OK.');

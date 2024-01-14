@@ -56,6 +56,8 @@
                         {{ 'Du hast an dieser Umfrage teilgenommen. Vielen Dank!'|trans({},'soul') }}
                         {% if selected.startDate < 'now'|to_date and selected.endDate > 'now'|to_date and not selected.showResultsImmediately and not app.user|is_granted('ROLE_ORACLE') %}
                             {{ 'Sobald die Umfrage beendet ist, werden die Ergebnisse angezeigt.'|trans({},'soul') }}
+                        {% elseif selected.startDate < 'now'|to_date and selected.endDate > 'now'|to_date and selected.showResultsImmediately and selected.revealDate > 'now'|to_date and not app.user|is_granted('ROLE_ORACLE') %}
+                            {{ 'Die Ergebnisse dieser Umfrage werden ab {date} angezeigt.'|trans({date: selected.revealDate|format_datetime('long', 'none')},'soul') }}
                         {% endif %}
                     </div>
                 {% endif %}
@@ -106,7 +108,11 @@
                     {% if selected.startDate < 'now'|to_date and selected.endDate > 'now'|to_date and not selected.poll.participants.contains( app.user ) %}
                         <li class="plain"><div class="help">
                             <b>{{ 'Wichtiger Hinweis:'|trans({},'help')|raw }}</b>
-                            {{ 'Du kannst nur eine Antwort auswählen.'|trans({},'soul') }}
+                            {% if selected.multipleChoice %}
+                                {{ 'Du kannst mehrere Antworten (oder auch keine Antwort) auswählen.'|trans({},'soul') }}
+                            {% else %}
+                                {{ 'Du kannst nur eine Antwort auswählen.'|trans({},'soul') }}
+                            {% endif %}
                         </div></li>
                     {% endif %}
                     {% set total = 0 %}
@@ -123,9 +129,13 @@
                                 <div class="cell rw-9 rw-lg-8 rw-sm-12">{{ selected.answerTitleByLang( answer, app.user.language )|raw }}</div>
                                 {% if selected.startDate < 'now'|to_date and selected.endDate > 'now'|to_date and not selected.poll.participants.contains( app.user ) %}
                                     <div class="cell rw-3 rw-lg-4 rw-sm-12 right">
-                                        <button class="small inline" data-poll="{{ path('soul_poll_participate', {id: selected.id, answer: answer.id}) }}">{{ 'Abstimmen'|trans({},'game') }}</button>
+                                        {% if selected.multipleChoice %}
+                                            <label><input type="checkbox" name="poll_answer" value="{{ answer.id }}" /></label>
+                                        {% else %}
+                                            <button class="small inline" data-poll="{{ path('soul_poll_participate_single', {id: selected.id, answer: answer.id}) }}">{{ 'Abstimmen'|trans({},'game') }}</button>
+                                        {% endif %}
                                     </div>
-                                {% elseif selected.startDate < 'now'|to_date and (selected.endDate < 'now'|to_date or ( selected.showResultsImmediately and selected.poll.participants.contains( app.user ) ) or app.user|is_granted('ROLE_ORACLE')) %}
+                                {% elseif selected.startDate < 'now'|to_date and (selected.endDate < 'now'|to_date or ( selected.showResultsImmediately and selected.revealDate < 'now'|to_date and selected.poll.participants.contains( app.user ) ) or app.user|is_granted('ROLE_ORACLE')) %}
                                     <div class="cell rw-3 rw-lg-4 rw-sm-12">
                                         <div class="right">{{ answer.tagNumber(group,tag) }}</div>
                                         <div class="vote-bar"><div class="bar" style="width: {{ total > 0 ? ( 100 * answer.tagNumber(group,tag)/total ) : '0' }}%"></div></div>
@@ -135,11 +145,19 @@
                         </li>
                     {% endfor %}
                     {% if selected.startDate < 'now'|to_date and selected.endDate > 'now'|to_date and not selected.poll.participants.contains( app.user ) %}
-                        <li>
+                        <li {{ selected.multipleChoice ? 'class="plain"' : '' }}>
                             <div class="row-flex wrap">
-                                <div class="cell grow-1">{{ 'Ich habe keine besondere Meinung zu dieser Frage.'|trans({},'soul') }}</div>
+                                <div class="cell grow-1">
+                                    {% if not selected.multipleChoice %}
+                                        {{ 'Ich habe keine besondere Meinung zu dieser Frage.'|trans({},'soul') }}
+                                    {% endif %}
+                                </div>
                                 <div class="cell shrink-1">
-                                    <button class="small inline" data-no-vote="1" data-poll="{{ path('soul_poll_participate', {id: selected.id, answer: 0}) }}">{{ 'Abstimmen'|trans({},'game') }}</button>
+                                    {% if selected.multipleChoice %}
+                                        <button class="small inline" data-multi-vote="1" data-poll="{{ path('soul_poll_participate_multi', {id: selected.id}) }}">{{ 'Abstimmen'|trans({},'game') }}</button>
+                                    {% else %}
+                                        <button class="small inline" data-no-vote="1" data-poll="{{ path('soul_poll_participate_single', {id: selected.id, answer: 0}) }}">{{ 'Abstimmen'|trans({},'game') }}</button>
+                                    {% endif %}
                                 </div>
                             </div>
                         </li>
@@ -168,13 +186,19 @@
         {% endif  %}
 
         $.html.addEventListenerAll('[data-poll]', 'click', function (e,elem) {
-            const txt = '{{ 'Bestätigen?'|trans({},'global')|e('js') }}';
-
-            if (confirm(txt))
-                $.ajax.easySend( elem.dataset.poll, {},
-                    function () {
-                        $.ajax.load( target, "{{ path('soul_polls', {id: selected ? selected.id : 0}) }}" );
+            if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) {
+                if (elem.dataset.multiVote) {
+                    let answers = [];
+                    document.querySelectorAll('[name="poll_answer"]:checked').forEach( elem => {
+                        answers.push(parseInt(elem.value));
                     } );
+                    $.ajax.easySend(elem.dataset.poll, {answers},
+                        () => $.ajax.load(target, "{{ path('soul_polls', {id: selected ? selected.id : 0}) }}")
+                    );
+                } else $.ajax.easySend(elem.dataset.poll, {},
+                    () => $.ajax.load(target, "{{ path('soul_polls', {id: selected ? selected.id : 0}) }}")
+                );
+            }
         });
     </script>
 {% endblock %}

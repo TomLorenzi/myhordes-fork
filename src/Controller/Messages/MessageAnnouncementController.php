@@ -84,12 +84,16 @@ class MessageAnnouncementController extends MessageController
         $title = $parser->get_array( 'title' );
         $desc = $parser->get_array( 'desc' );
         $premature = (bool)$parser->get( 'premature' );
+        $multiple = (bool)$parser->get( 'multiple' );
         $preview = $parser->get_array( 'preview' );
 
         try {
             $start = new DateTime( $parser->get('start', '-1') );
             $end = new DateTime( $parser->get('end', '-1') );
+            $reveal_at = new DateTime( $parser->get('date_premature', '-1') );
         } catch (\Throwable $t) { return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest ); }
+
+        if (!$premature) $reveal_at = null;
 
         if ($end <= new DateTime('now')) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         if ($start >= $end) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
@@ -116,7 +120,8 @@ class MessageAnnouncementController extends MessageController
             $this->entity_manager->flush();
 
             $global_poll = (new GlobalPoll())
-                ->setPoll( $poll )->setStartDate( $start )->setEndDate( $end )->setShowResultsImmediately( $premature );
+                ->setPoll( $poll )->setStartDate( $start )->setEndDate( $end )->setShowResultsImmediately( $premature )
+                ->setMultipleChoice($multiple)->setRevealDate( $reveal_at );
 
             foreach ($this->allLangsCodes as $lang) if ($lang !== 'ach') {
                 $global_poll
