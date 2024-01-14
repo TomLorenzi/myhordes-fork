@@ -155,10 +155,11 @@ class DistinctionController extends CustomAbstractCoreController
 
         $data = array_map(
             fn($c) => $em->getRepository(PictoPrototype::class)->find($c ?? -1)?->getId() ?? null,
-            array_values(array_slice($parser->get_array('data', [null,null,null]), 0, 3))
+            array_unique(array_values(array_slice($parser->get_array('data', [null,null,null]), 0, 3)))
         );
 
-        while(count($data) < 3) $data[] = null;
+        for ($i = 0; $i < 3; $i++) $data[$i] ??= null;
+        ksort($data);
 
         $em->persist( $user->setSetting( UserSetting::DistinctionTop3, $data ) );
         $em->flush();
