@@ -65,14 +65,15 @@ class CompressCommand extends Command
 
             $image = ImageService::createImageFromData( $data );
             $format = null;
-            foreach ( ImageService::getCompressionOptions( $image ) as $test_format ) {
-                if ($test_format === null) continue;
-                $tmp = ImageService::save( $image, $test_format );
-                if ($tmp && strlen( $data ) > strlen( $tmp )) {
-                    $format = $test_format;
-                    $data = $tmp;
+            if ($image)
+                foreach ( ImageService::getCompressionOptions( $image ) as $test_format ) {
+                    if ($test_format === null) continue;
+                    $tmp = ImageService::save( $image, $test_format );
+                    if ($tmp && strlen( $data ) > strlen( $tmp )) {
+                        $format = $test_format;
+                        $data = $tmp;
+                    }
                 }
-            }
 
             $success = $format !== null;
             $compressed = strlen( $data );
