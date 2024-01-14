@@ -379,6 +379,11 @@ class MessageGlobalPMController extends MessageController
             default   => []
         };
 
+        $user_group_filter = match($set) {
+            'support' => [ UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive ],
+            default   => null
+        };
+
         $skip = $p->get_array('skip');
         $num = max(5,min(30,$p->get_int('num', 30)));
 
@@ -388,7 +393,7 @@ class MessageGlobalPMController extends MessageController
 
         if (!empty($group_filter))
             $this->render_group_associations( $em->getRepository(UserGroupAssociation::class)->findByUserAssociation($this->getUser(), $group_filter,
-                    $skip['g'] ?? [], $num+1, $set === 'archive', $query, $user_filter), $entries );
+                    $skip['g'] ?? [], $num+1, $set === 'archive', $query, $user_filter, $user_group_filter), $entries );
 
         if ($set === 'announcements' || ($set === 'archive'))
             $this->render_announcements( $em->getRepository(Announcement::class)->findByLang($this->getUserLanguage(),

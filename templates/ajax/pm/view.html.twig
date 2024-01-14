@@ -349,7 +349,7 @@
                     {% endif %}
                     case 'archive': core_list_path = '{{ path('pm_list', {set: 'archive'}) }}'; break;
                 }
-                document.getElementById('search-by-user-bar').classList.toggle( 'hidden', ['announcements','forum','support'].includes(e.detail.tab) )
+                document.getElementById('search-by-user-bar').classList.toggle( 'hidden', ['announcements','forum'].includes(e.detail.tab) )
                 init_conv_list();
             });
 
