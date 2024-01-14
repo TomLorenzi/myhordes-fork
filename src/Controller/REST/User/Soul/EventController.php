@@ -6,12 +6,14 @@ use App\Controller\CustomAbstractCoreController;
 use App\Entity\CommunityEvent;
 use App\Entity\CommunityEventMeta;
 use App\Entity\CommunityEventTownPreset;
+use App\Entity\ForumUsagePermissions;
 use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
 use App\Messages\Discord\DiscordMessage;
 use App\Service\Actions\Ghost\SanitizeTownConfigAction;
 use App\Service\CrowService;
 use App\Service\JSONRequestParser;
+use App\Service\PermissionHandler;
 use App\Service\UserHandler;
 use App\Structures\MyHordesConf;
 use DiscordWebhooks\Client;
@@ -27,8 +29,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use function App\Controller\REST\User\mb_strlen;
-use function App\Controller\REST\User\str_contains;
 
 
 #[Route(path: '/rest/v1/user/soul/events', name: 'rest_user_soul_events_', condition: "request.headers.get('Accept') === 'application/json'")]
@@ -601,18 +601,24 @@ class EventController extends CustomAbstractCoreController
         return new JsonResponse();
     }
 
-    protected function getTownInstanceData(CommunityEventTownPreset $preset, EntityManagerInterface $em): ?array {
+    protected function getTownInstanceData(CommunityEventTownPreset $preset, EntityManagerInterface $em, PermissionHandler $perm): ?array {
         if ($preset->getTownId() === null) return null;
 
         /** @var TownRankingProxy $ranking */
         $ranking = $em->getRepository(TownRankingProxy::class)->findOneBy(['baseID' => $preset->getTownId(), 'imported' => false]);
+
+        $has_forum_access = false;
+        if ($preset->getTown()?->getForum()) {
+            $permission = $perm->getEffectivePermissions($this->getUser(),$preset->getTown()->getForum());
+            $has_forum_access = $perm->isPermitted( $permission, ForumUsagePermissions::PermissionRead );
+        }
 
         return [
             'name' => $ranking->getName(),
             'ranking_link' => ($ranking && ( $preset->getTown() === null || $preset->getTown()?->getCitizenCount() > 0 ))
                 ? $this->generateUrl('soul_view_town', ['sid' => $preset->getEvent()->getOwner()->getId(), 'idtown' => $ranking->getId(), 'return_path' => 'soul_events'])
                 : null,
-            'forum_link' => $preset->getTown()?->getForum()
+            'forum_link' => $has_forum_access
                 ? $this->generateUrl( 'forum_view', ['id' => $preset->getTown()?->getForum()?->getId()] )
                 : null,
             'active' => $preset->getTown() !== null,
@@ -632,6 +638,7 @@ class EventController extends CustomAbstractCoreController
     public function list_town_presets(
         CommunityEvent $event,
         EntityManagerInterface $em,
+        PermissionHandler $perm,
     ): JsonResponse {
         if (!$this->eventIsExplorable( $event ))
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
@@ -646,7 +653,7 @@ class EventController extends CustomAbstractCoreController
                                             $em->getRepository(TownClass::class)->findOneBy(['name' => $preset->getHeader()['townBase'] ?? $preset->getHeader()['townType'] ?? TownClass::DEFAULT])->getLabel() ?? '',
                                             [], 'game'
                                         ),
-                                        'instance' => $this->getTownInstanceData( $preset, $em )
+                                        'instance' => $this->getTownInstanceData( $preset, $em, $perm )
                                     ],
                                     $event->getTownPresets()->toArray()
                                 )]);

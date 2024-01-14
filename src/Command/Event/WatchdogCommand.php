@@ -10,6 +10,7 @@ use App\Entity\UserGroup;
 use App\Service\Actions\Ghost\CreateTownFromConfigAction;
 use App\Service\PermissionHandler;
 use App\Structures\TownSetup;
+use ArrayHelpers\Arr;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
@@ -89,18 +90,27 @@ class WatchdogCommand extends Command
                 $this->em->persist($preset);
 
                 // Create an Animaction user group with Oracle/Mod permissions on the town forum and associate the user
-                // to it. Also, give the global Animaction group read access to the forum
-                $this->em->persist( $ga = (new UserGroup())->setName("[town:{$result->town()->getId()}:animaction]")->setType(UserGroup::GroupTownAnimaction)->setRef1($result->town()->getId()) );
-                $this->em->persist( (new ForumUsagePermissions())->setForum($result->town()->getForum())->setPrincipalGroup($ga)->setPermissionsGranted(
-                    ForumUsagePermissions::PermissionReadWrite |
-                    ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionFormattingModerator |
-                    ForumUsagePermissions::PermissionHelp | ForumUsagePermissions::PermissionFormattingOracle
-                )->setPermissionsDenied(ForumUsagePermissions::PermissionNone) );
-                $g_anim = $this->em->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAnimactorGroup]);
-                $this->em->persist( (new ForumUsagePermissions())->setForum($result->town()->getForum())->setPrincipalGroup($g_anim)->setPermissionsGranted(
-                    ForumUsagePermissions::PermissionRead
-                )->setPermissionsDenied(ForumUsagePermissions::PermissionNone) );
-                $this->permissionHandler->associate( $preset->getEvent()->getOwner(), $ga );
+                // to it.
+                if (in_array( Arr::get($preset->getHeader(), 'townIncarnation'), ['forum','forum-all'])) {
+                    $this->em->persist( $ga = (new UserGroup())->setName("[town:{$result->town()->getId()}:animaction]")->setType(UserGroup::GroupTownAnimaction)->setRef1($result->town()->getId()) );
+                    $this->em->persist( (new ForumUsagePermissions())->setForum($result->town()->getForum())->setPrincipalGroup($ga)->setPermissionsGranted(
+                        ForumUsagePermissions::PermissionReadWrite |
+                        ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionFormattingModerator |
+                        ForumUsagePermissions::PermissionHelp | ForumUsagePermissions::PermissionFormattingOracle
+                    )->setPermissionsDenied(ForumUsagePermissions::PermissionNone) );
+                    $this->permissionHandler->associate( $preset->getEvent()->getOwner(), $ga );
+
+                    // Give the global Animaction group access to the forum
+                    $granted = Arr::get($preset->getHeader(), 'townIncarnation') === 'forum-all'
+                        ? ForumUsagePermissions::PermissionReadWrite |
+                        ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionFormattingModerator |
+                        ForumUsagePermissions::PermissionHelp | ForumUsagePermissions::PermissionFormattingOracle
+                        : ForumUsagePermissions::PermissionRead;
+                    $g_anim = $this->em->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAnimactorGroup]);
+                    $this->em->persist( (new ForumUsagePermissions())->setForum($result->town()->getForum())->setPrincipalGroup($g_anim)->setPermissionsGranted(
+                        $granted
+                    )->setPermissionsDenied(ForumUsagePermissions::PermissionNone) );
+                }
 
                 $this->em->flush();
                 $this->em->clear();
