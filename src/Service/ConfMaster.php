@@ -3,6 +3,7 @@
 
 namespace App\Service;
 
+use App\Entity\AutomaticEventForecast;
 use App\Entity\Citizen;
 use App\Entity\EventActivationMarker;
 use App\Entity\ServerSettings;
@@ -16,6 +17,7 @@ use App\Structures\TownConf;
 use DateInterval;
 use DateTime;
 use DateTimeImmutable;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use MyHordes\Plugins\Management\ConfigurationStorage;
 
@@ -170,21 +172,18 @@ class ConfMaster
             return $conf;
         }
 
-        if ($this->event_conf !== null) return $this->event_conf;
+        if ($this->event_conf !== null && $query_date === null) return $this->event_conf;
 
         $curDate = $query_date ?? new DateTime();
+        $conf = array_map( fn(AutomaticEventForecast $a) => $this->getEvent($a->getEvent()), $this->entityManager->getRepository( AutomaticEventForecast::class )->matching((new Criteria())
+            ->andWhere(Criteria::expr()->lte('start', DateTimeImmutable::createFromMutable( $curDate )))
+            ->andWhere(Criteria::expr()->gte('end', DateTimeImmutable::createFromMutable( $curDate )))
+        )->toArray() );
 
-        $conf = [];
-        foreach($this->storage->getSegment( 'events', [] ) as $id => $config) {
+        $conf = (empty($conf) ? [(new EventConf())->complete()] : $conf);
+        if ($query_date === null) $this->event_conf = $conf;
 
-            if (empty($config['trigger'])) continue;
-
-            if ($this->getEventSchedule($config['trigger'], $curDate))
-                $conf[] = $this->getEvent($id);
-
-        }
-
-        return $this->event_conf = (empty($conf) ? [(new EventConf())->complete()] : $conf);
+        return $conf;
     }
 
     /**
