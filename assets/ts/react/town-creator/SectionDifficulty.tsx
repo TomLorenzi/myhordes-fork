@@ -85,11 +85,11 @@ export const TownCreatorSectionDifficulty = () => {
                 onChange={e => {
                     const v =  (e.target as HTMLSelectElement).value;
                     if (v === '_fixed') {
-                        if (!globals.getOption('rules.well.min')) globals.setOption('rules.map.min', 120);
-                        globals.setOption('rules.map.max', globals.getOption('rules.map.min'));
+                        if (!globals.getOption('rules.well.min')) globals.setOption('rules.well.min', 120);
+                        globals.setOption('rules.well.max', globals.getOption('rules.well.min'));
                     } else if (v === '_range') {
-                        if (!globals.getOption('rules.well.min')) globals.setOption('rules.map.min', 90);
-                        if (!globals.getOption('rules.well.max')) globals.setOption('rules.map.max', 180);
+                        if (!globals.getOption('rules.well.min')) globals.setOption('rules.well.min', 90);
+                        if (!globals.getOption('rules.well.max')) globals.setOption('rules.well.max', 180);
                     } else {
                         globals.removeOption('rules.well.min');
                         globals.removeOption('rules.well.max');
