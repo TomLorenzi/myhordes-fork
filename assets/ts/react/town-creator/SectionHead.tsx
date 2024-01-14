@@ -180,6 +180,14 @@ export const TownCreatorSectionHead = ( {townTypes, setDefaultRules, setBlocked,
                 { value: globals.getOption( 'head.townEventTag' ) as boolean, name: '<.head.townEventTag', title: head.management.event_tag, help: head.management.event_tag_help },
             ]} propTitle={head.management.section}/>
 
+            <AtLeast onlyForEvents={true}>
+                { /* Participation Settings */ }
+                <OptionSelect propTitle={head.participation}
+                              value={globals.getOption( 'head.townIncarnation' ) ?? 'none'} propName="<.head.townIncarnation"
+                              options={ head.participation_presets.filter(v => v.value !== 'incarnate').map( preset => ({ value: preset.value, title: preset.label, help: preset.help }) ) }
+                />
+            </AtLeast>
+
             <AtLeast notForEvents={true}>
                 { /* Participation Settings */ }
                 <OptionSelect propTitle={head.participation}
