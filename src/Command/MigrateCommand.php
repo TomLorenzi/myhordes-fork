@@ -137,6 +137,7 @@ class MigrateCommand extends Command
 		'a8ddaec85455e9ab14b1ac91b7e1b7e232ad03c9' => [ ['app:migrate', ['--fix-town-loot-log' => true] ] ],
 		'7ef3c511bb2f0c7a9504853cd7ea0daee0c37253' => [ ['app:migrate', ['--add-building-inventory' => true] ] ],
 		'348648aa18ba42e3ede0b5330275176cec60a27d' => [ ['app:migrate', ['--shuffle-zone-soul-offset' => true] ] ],
+		'62c2ac4ae51d51a24f59eb08726258c0e2ab572e' => [ ['app:migrate', ['--fix-top3' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -247,6 +248,7 @@ class MigrateCommand extends Command
 			->addOption('fix-town-loot-log', null, InputOption::VALUE_NONE, 'Fix townLoot log entries')
 			->addOption('add-building-inventory', null, InputOption::VALUE_NONE, 'Add inventory to already created Building')
 			->addOption('shuffle-zone-soul-offset', null, InputOption::VALUE_NONE, 'Add inventory to already created Building')
+			->addOption('fix-top3', null, InputOption::VALUE_NONE, 'Check TOP3 settings and fix any issues with them.')
         ;
     }
 
@@ -1459,6 +1461,24 @@ class MigrateCommand extends Command
         if ($input->getOption('shuffle-zone-soul-offset')) {
             $this->helper->leChunk($output, Zone::class, 500, [], true, true, function(Zone $z) {
                 $z->setSoulPositionOffset( mt_rand(0,3) );
+            }, true);
+        }
+
+        if ($input->getOption('fix-top3')) {
+            $whitelisted = array_map(fn(PictoPrototype $p) => $p->getId(), $this->entity_manager->getRepository(PictoPrototype::class)->findAll());
+            $this->helper->leChunk($output, User::class, 500, [], true, false, function(User $u) use ($whitelisted) {
+                $top3 =  $u->getSetting( UserSetting::DistinctionTop3 );
+                $unique = array_unique($top3);
+                $edited = [null,null,null];
+                foreach ($unique as $key => $value) {
+                    if ($value !== null && in_array($value, $whitelisted))
+                        $edited[$key] = $value;
+                }
+                if ($edited !== $top3) {
+                    $u->setSetting( UserSetting::DistinctionTop3, $edited );
+                    return true;
+                } else return false;
+
             }, true);
         }
 
