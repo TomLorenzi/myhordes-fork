@@ -62,12 +62,13 @@ class UserGroupAssociationRepository extends ServiceEntityRepository
      * @param bool $archive
      * @param string|null $filter
      * @param int|null $user_id
+     * @param array|null $userFilterGroupAssociation
      * @return int|mixed|string
      */
-    public function findByUserAssociation( User $user, $association = null, array $skip = [], int $limit = 0, bool $archive = false, ?string $filter = null, ?int $user_id = null ) {
+    public function findByUserAssociation( User $user, $association = null, array $skip = [], int $limit = 0, bool $archive = false, ?string $filter = null, ?int $user_id = null, ?array $userFilterGroupAssociation = null ) {
         $group_wl = null;
         if ($user_id !== null)
-            $group_wl = $this->filter_query($user_id, $association, $archive, $filter)
+            $group_wl = $this->filter_query($user_id, $userFilterGroupAssociation ?? $association, $archive, $filter)
                 ->andWhere('u.associationType != :mod')->setParameter('mod', UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember)
                 ->select('g.id')->getQuery()->getSingleColumnResult();
 
