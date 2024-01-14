@@ -111,6 +111,8 @@ class TownCreatorController extends CustomAbstractCoreController
                     'participation' => $this->translator->trans('Teilnahme', [], 'ghost'),
                     'participation_presets' => [
                         ['value' => 'incarnate', 'label' => $this->translator->trans('Verkörperung in der Stadt', [], 'ghost'), 'help' => $this->translator->trans('Verkörpert dich in der Stadt bei ihrer Entstehung.', [], 'ghost')],
+                        ['value' => 'forum',     'label' => $this->translator->trans('Forenzugang (selbst)', [], 'ghost'), 'help' => $this->translator->trans('Du erhälst Zugang zum Stadtforum, wirst jedoch nicht verkörpert.', [], 'ghost')],
+                        ['value' => 'forum-all', 'label' => $this->translator->trans('Forenzugang (Gilde)', [], 'ghost'), 'help' => $this->translator->trans('Du und alle Mitglieder der Animateursgilde erhalten Zugang zum Stadtforum', [], 'ghost')],
                         ['value' => 'none',      'label' => $this->translator->trans('Keine', [], 'ghost'), 'help' => $this->translator->trans('Du wirst weder verkörpert, noch erhälst du Zugang zum Stadtforum.', [], 'ghost')],
                     ],
 

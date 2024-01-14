@@ -28,6 +28,7 @@ interface PermissionArgs  {
     elevation?: "crow"|"admin"|"super",
 
     notForEvents?: boolean,
+    onlyForEvents?: boolean,
 
     children: React.ReactNode,
 }
@@ -37,6 +38,7 @@ export const AtLeast = (props: PermissionArgs) => {
 
     let can = true;
     if (props.notForEvents && globals.eventMode) can = false;
+    if (props.onlyForEvents && !globals.eventMode) can = false;
     else if (props.elevation) {
         if (globals.elevation < 3 && props.elevation === "crow") can = false;
         if (globals.elevation < 4 && props.elevation === "admin") can = false;
