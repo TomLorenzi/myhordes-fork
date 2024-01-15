@@ -65,7 +65,11 @@ class DoorController extends CustomAbstractCoreController
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         if ($action === 'open'  && $town->getDoor())
             return AjaxResponse::error( TownController::ErrorDoorAlreadyOpen );
-        if ($action === 'open'  && $town->getQuarantine()) {
+        if ($action === 'open' && $town->getLockdown()) {
+            $this->addFlash('error', $this->translator->trans('Das Stadttor kann während einer Lockdowns nicht geöffnet werden!', [], 'game'));
+            return AjaxResponse::success();
+        }
+        if ($action === 'open' && $town->getQuarantine()) {
             $this->addFlash('error', $this->translator->trans('Das Stadttor kann während einer Quarantäne nicht geöffnet werden!', [], 'game'));
             return AjaxResponse::success();
         }

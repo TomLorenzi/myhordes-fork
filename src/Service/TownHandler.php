@@ -835,6 +835,8 @@ class TownHandler
 	}
 
     public function door_is_locked(Town $town): bool|BuildingPrototype {
+        if ($town->getLockdown()) return true;
+        
         if ( !$town->getDoor() ) {
 
             if ($town->isOpen() && $this->conf->getTownConfiguration($town)->get(TownSetting::LockDoorUntilTownIsFull)) return true;
