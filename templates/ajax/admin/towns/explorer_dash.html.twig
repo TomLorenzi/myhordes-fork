@@ -79,7 +79,7 @@
 								{% endif %}
 								<option value="{{ url('admin_town_manage', {action: 'set_town_base_def', id: town.id}) }}" x-query="{{ 'Neue Basis-Stadtverteidigung:'|trans({},'admin') }}">{{ 'Basis-Stadtverteidigung setzen'|trans({},'admin') }}</option>
 								<option value="{{ url('admin_town_manage', {action: 'set_town_temp_def', id: town.id}) }}" x-query="{{ 'Neue temporäre Stadtverteidigung:'|trans({},'admin') }}">{{ 'Temporäre Stadtverteidigung setzen'|trans({},'admin') }}</option>
-								<option value="{{ url('admin_town_manage', {action: 'toggle_lockdown', id: town.id}) }}">{% if town.lockdown %}{{ 'Sperrung deaktivieren'|trans({},'admin') }}{% else %}{{ 'Sperre aktivieren'|trans({},'admin') }}{% endif %}</option>
+								<option value="{{ url('admin_town_manage', {action: 'toggle_lockdown', id: town.id}) }}">{% if town.lockdown %}{{ 'Sperre deaktivieren'|trans({},'admin') }}{% else %}{{ 'Sperre aktivieren'|trans({},'admin') }}{% endif %}</option>
 							{% endif %}
 							{% if is_granted("ROLE_CROW") %}
 								{% if town.rankingEntry.event %}
