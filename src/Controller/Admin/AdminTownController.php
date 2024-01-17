@@ -849,6 +849,13 @@ class AdminTownController extends AdminActionController
                 }
                 $this->entity_manager->persist($town);
                 break;
+            case 'toggle_broken_door':
+                $town->setBrokenDoor(!$town->getBrokenDoor());
+                if($town->getBrokenDoor()) {
+                    $town->setDoor(true);
+                }
+                $this->entity_manager->persist($town);
+                break;
             case 'dbg_disengage':
                 foreach ($town->getCitizens() as $citizen)
                     if ($citizen->getAlive() && $citizen->getActive())

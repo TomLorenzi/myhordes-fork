@@ -20,6 +20,7 @@
     </div>
 {% endblock %}
 {% block content %}
+    {% set brokenDoor = town.brokenDoor or town.devastated %}
     {% set hour = "now"|date("G") %}
     <div class="row">
         <div class="cell rw-12 town-banner town-banner-door-{% if town.door %}open{% else %}closed{% endif%} time-{{ hour }} {% if conf.isNightTime %}night{% endif %}"></div>
@@ -33,7 +34,7 @@
         <div class="padded cell rw-8 ellipsis row-detail">{{def}} <img src="{{ asset('build/images/icons/small_def.gif') }}" alt="" /> (<span class="link" x-ajax-href="{{ path('town_dashboard') }}">{{'Details ansehen'|trans({}, 'game')}}</span>)</div>
         <div class="padded cell rw-4 ellipsis row-header"><img src="{{ asset('build/images/item/item_door.gif') }}" alt="" /> {{'Lage'|trans({}, 'game')}}</div>
         <div class="padded cell rw-8 ellipsis row-detail">
-            {% if town.door and town.devastated %}
+            {% if town.door and brokenDoor %}
                 <span class="warning">{{'Stadttor zerstört!'|trans({}, 'game')}}</span>
             {% elseif (town.door) %}
                 <span class="warning">{{'Stadttor geöffnet'|trans({}, 'game')}}</span>
@@ -75,7 +76,7 @@
                     </p>
                 </div>
             {% else %}
-                {% if not town.devastated %}
+                {% if not brokenDoor %}
                     <div class="help">
                         {% trans from 'game' %}
                             Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das Tor zu schließen!
@@ -94,10 +95,12 @@
                         {% trans from 'game' %}
                             Das Stadttor wurde bei einem besonders furchtbaren Angriff aus den Angeln gerissen und in die Aussenwelt geschleudert. Du solltest dich heute Nacht besser nicht hier aufhalten, sonst wird diese Stadt dein Grab.
                         {% endtrans %}
-                        <br/><br/>
-                        <strong>{% trans from 'game' %}
-                            Das passiert eben, wenn man eine Stadt ohne einen einzigen Einwohner zurücklässt.
-                        {% endtrans %}</strong>
+                        {% if town.devastated %}
+                            <br/><br/>
+                            <strong>{% trans from 'game' %}
+                                Das passiert eben, wenn man eine Stadt ohne einen einzigen Einwohner zurücklässt.
+                            {% endtrans %}</strong>
+                        {% endif %}
                     </div>
                 {% endif %}
                 <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
@@ -106,7 +109,8 @@
                         <div style="margin-bottom: 5px;">
                             <button
                                     id="door_closer"
-                                    {% if town.devastated %}disabled{% endif %}
+                                    {% if brokenDoor %}disabled
+                                    {% endif %}
                                     data-fetch="{{ path('rest_town_core_door_control') }}"
                                     data-fetch-payload="{{ {action: 'close'}|json_encode }}"
                                     data-fetch-method="patch"
@@ -119,7 +123,7 @@
                                     (<div class="ap">{{ door_ap_cost }}</div>)
                                 {% endif %}
                             </button>
-                            {% if town.devastated %}
+                            {% if brokenDoor %}
                                 <div class="tooltip">{{ 'Das Stadttor ist zerstört!'|trans({},'game') }}</div>
                             {% else %}
                                 <div class="tooltip help">{{ 'Achtung! Alle Spieler, die sich außerhalb der Stadt befinden, können danach nicht mehr rein.'|trans({},'game') }}</div>
