@@ -681,9 +681,6 @@ class PublicController extends CustomAbstractController
                 }
             }
 
-            if ( !$userHandler->isNameValid( preg_replace('/[^\w]/', '', trim($etwin_user->getDisplayName())) ) )
-                return AjaxResponse::errorMessage($this->translator->trans('Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.', [], 'login') );
-
             $new_user = $userFactory->importUser( $etwin_user, $parser->get('mail1'), false, $error );
 
             switch ($error) {
@@ -744,7 +741,7 @@ class PublicController extends CustomAbstractController
                 return AjaxResponse::error( SoulController::ErrorETwinImportProfileInUse );
 
             $myhordes_user->setEternalID( $etwin_user->getID() );
-            if (!$myhordes_user->getNoAutomaticNameManagement() && $etwin_user->getDisplayName() !== $myhordes_user->getUsername()) {
+            if (!$myhordes_user->getNoAutomaticNameManagement() && $etwin_user->getDisplayName() !== $myhordes_user->getUsername() && $userHandler->isNameValid( $etwin_user->getDisplayName() )) {
                 $history = $myhordes_user->getNameHistory() ?? [];
                 if(!in_array($myhordes_user->getName(), $history))
                     $history[] = $myhordes_user->getName();

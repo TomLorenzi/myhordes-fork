@@ -46,6 +46,8 @@ class UserFactory
     private MailerInterface $mailer;
     private ConfMaster $conf;
 
+    private UserHandler $userHandler;
+
     const ErrorNone = 0;
     const ErrorUserExists           = ErrorHelper::BaseUserErrors + 1;
     const ErrorMailExists           = ErrorHelper::BaseUserErrors + 2;
@@ -58,7 +60,7 @@ class UserFactory
 
     public function __construct( EntityManagerInterface $em, UserPasswordHasherInterface $passwordEncoder,
                                  Locksmith $l, UrlGeneratorInterface $url, Environment $e, TranslatorInterface $t,
-                                 PermissionHandler $p, MailerInterface $mailer, ConfMaster $conf)
+                                 PermissionHandler $p, MailerInterface $mailer, ConfMaster $conf, UserHandler $userHandler)
     {
         $this->entity_manager = $em;
         $this->encoder = $passwordEncoder;
@@ -69,6 +71,7 @@ class UserFactory
         $this->perm = $p;
         $this->mailer = $mailer;
         $this->conf = $conf;
+        $this->userHandler = $userHandler;
     }
 
     public function resetUserPassword( string $email, string $validation_key, string $password, ?int &$error ): ?User {
@@ -258,7 +261,13 @@ class UserFactory
 
         $i = 0;
         $user_mail = $mail ?? "{$etwin_user->getID()}@user.eternal-twin.net";
-        $display_name = substr(preg_replace('/[^\w]/', '', trim($etwin_user->getDisplayName())),0,32);
+
+        $etwin_name = preg_replace('/[^\w]/', '', trim($etwin_user->getDisplayName()));
+        if (!$this->userHandler->isNameValid( $etwin_name ))
+            $display_name = substr($etwin_name,0,32);
+        else
+            $display_name = 'u' . time();
+
         $new_name = substr($display_name,0,16);
 
         if ($this->entity_manager->getRepository(User::class)->findOneByMail( $user_mail )) {
