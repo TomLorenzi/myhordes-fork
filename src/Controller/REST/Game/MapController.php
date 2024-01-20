@@ -33,6 +33,7 @@ class MapController extends CustomAbstractCoreController
      */
     #[Route(path: '', name: 'base', methods: ['GET'])]
     #[Route(path: '/index', name: 'base_index', methods: ['GET'])]
+    #[GateKeeperProfile('skip')]
     public function index(EntityManagerInterface $em): JsonResponse {
         $all_tags = [];
         $last = 0;
@@ -163,6 +164,7 @@ class MapController extends CustomAbstractCoreController
      */
     #[Route(path: '/admin/{id}/map', name: 'admin', methods: ['GET'])]
     #[IsGranted('ROLE_CROW')]
+    #[GateKeeperProfile('skip')]
     public function admin(Town $town, RenderMapAction $renderer): JsonResponse {
         return new JsonResponse($renderer( town: $town, admin: true ) );
     }
@@ -174,6 +176,7 @@ class MapController extends CustomAbstractCoreController
      */
     #[Route(path: '/admin/{id}/routes', name: 'admin_routes', methods: ['GET'])]
     #[IsGranted('ROLE_CROW')]
+    #[GateKeeperProfile('skip')]
     public function admin_routes(Town $town, RenderMapRouteAction $renderer): JsonResponse {
         return new JsonResponse($renderer($town));
     }
