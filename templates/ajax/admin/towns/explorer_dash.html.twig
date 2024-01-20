@@ -86,7 +86,7 @@
 								{% else %}
 									<option value="{{ url('admin_town_event_tag_control', {tid: town.rankingEntry.id, act: 1}) }}">{{ 'Als Event-Stadt markieren'|trans({},'admin') }}</option>
 								{% endif %}
-								{% if town.rankingEntry.disabled %}
+								{% if town.rankingEntry.disabled or town.rankingEntry.disableFlag is odd %}
 									<option value="{{ url('admin_town_town_ranking_control', {tid: town.rankingEntry.id, act: 0}) }}">{{ 'Ranking-Ausschluss zurücknehmen'|trans({},'admin') }}</option>
 								{% else %}
 									<option value="{{ url('admin_town_town_ranking_control', {tid: town.rankingEntry.id, act: 1}) }}">{{ 'Diese Stadt aus dem Ranking ausschließen'|trans({},'admin') }}</option>
