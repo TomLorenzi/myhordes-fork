@@ -1753,6 +1753,7 @@ class AdminTownController extends AdminActionController
     /**
      * @param int $tid
      * @param int $act
+     * @param JSONRequestParser $request
      * @return Response
      */
     #[Route(path: 'api/admin/town/{tid}/unrank/{act}', name: 'admin_town_town_ranking_control', requirements: ['tid' => '\d+', 'act' => '\d+'])]
@@ -1763,8 +1764,7 @@ class AdminTownController extends AdminActionController
         $town_proxy = $this->entity_manager->getRepository(TownRankingProxy::class)->find($tid);
         if (!$town_proxy) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $flag = $request->get("flag");
-        if($flag === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        $flag = $request->get("flag") ?? TownRankingProxy::DISABLE_RANKING;
 
         //$town_proxy->setDisabled( $act !== 0 );
         if($act)
