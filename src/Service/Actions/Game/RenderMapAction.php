@@ -15,16 +15,16 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Asset\Packages;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-class RenderMapAction
+readonly class RenderMapAction
 {
     public function __construct(
-        private readonly EntityManagerInterface $em,
-        private readonly TranslatorInterface $translator,
-        private readonly TownHandler $town_handler,
-        private readonly ZoneHandler $zone_handler,
-        private readonly CitizenHandler $citizen_handler,
-        private readonly Packages $asset,
-        private readonly EventProxyService $proxy,
+        private EntityManagerInterface $em,
+        private TranslatorInterface    $translator,
+        private TownHandler            $town_handler,
+        private ZoneHandler            $zone_handler,
+        private CitizenHandler         $citizen_handler,
+        private Packages               $asset,
+        private EventProxyService      $proxy,
     ) { }
 
     private function getPersonalZoneDiscoveryState(Zone $z, int $scout_level): int {

@@ -22,6 +22,7 @@ use App\Entity\ZoneActivityMarker;
 use App\Entity\ZonePrototype;
 use App\Enum\ScavengingActionType;
 use App\Enum\ZoneActivityMarkerType;
+use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Structures\EventConf;
 use App\Structures\TownConf;
 use App\Translation\T;
@@ -49,10 +50,12 @@ class ZoneHandler
     private GameProfilerService $gps;
     private EventProxyService $proxy;
 
+    private InvalidateTagsInAllPoolsAction $clear;
+
     public function __construct(
         EntityManagerInterface $em, ItemFactory $if, LogTemplateHandler $lh, TranslatorInterface $t,
         StatusFactory $sf, RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, PictoHandler $ph, Packages $a,
-        ConfMaster $conf, TownHandler $th, GameProfilerService $gps, EventProxyService $proxy)
+        ConfMaster $conf, TownHandler $th, GameProfilerService $gps, EventProxyService $proxy, InvalidateTagsInAllPoolsAction $clear)
     {
         $this->entity_manager = $em;
         $this->item_factory = $if;
@@ -68,6 +71,7 @@ class ZoneHandler
         $this->town_handler = $th;
         $this->gps = $gps;
         $this->proxy = $proxy;
+        $this->clear = $clear;
     }
 
     public function updateRuinZone(?RuinExplorerStats $ex): ?string {
@@ -185,6 +189,9 @@ class ZoneHandler
         $zone_update = false;
 
         $not_up_to_date = !empty($dig_timers_due);
+
+        if ($not_up_to_date)
+            ($this->clear)("town_{$zone->getTown()->getId()}_zones_{$zone->getX()}_{$zone->getY()}");
 
         while ($not_up_to_date) {
             usort( $dig_timers_due, $sort_func );

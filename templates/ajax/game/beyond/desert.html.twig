@@ -105,22 +105,21 @@
     </div>
 {% endblock %}
 
-{% use "ajax/game/beyond/partials/inventory.html.twig" with
-    includes as inventory_partial_includes,
-    js as inventory_partial_js,
-    html as inventory_partial_html,
-    html_escort as inventory_partial_html_escort,
-    html_escort_actions as inventory_partial_html_escort_actions,
-    html_escort_action_lists as inventory_partial_html_escort_action_lists
-%}
+
 
 {# @var zone \App\Entity\Zone #}
 {# @var citizen \App\Entity\Citizen #}
 {% block content %}
+    {% set zone_cache_key = "twig_cache_desert_#{citizen.id}_zone_#{citizen.zone.x}_#{citizen.zone.y}" %}
+    {% set zone_cache_tags = ['daily',"town_#{citizen.town.id}","town_#{citizen.town.id}_zones","town_#{citizen.town.id}_zones_#{citizen.zone.x}_#{citizen.zone.y}"] %}
+
     {% set hour = "now"|date("G") %}
     <div class="row">
         <div class="cell rw-12 zone-beyond time-{{ hour }} {% if conf.isNightTime %}night-{% endif %}{% if zone.x == 0 and zone.y == 0 %}city{% elseif zone.prototype and zone.prototype.id > 0 %}oldruins{% else %}outerworld{% endif %}{% if zone.x == 0 and zone.y == 0 and zone.town.door == 1 %}-open{% endif %}"></div>
     </div>
+
+    {% cache zone_cache_key ~ "_html" ttl(60) tags(zone_cache_tags) %}
+
     <div class="row">
         <div class="cell rw-12">
             <div class="{% if not zone.prototype %}ambiant {% endif %}small ambiant-zone-desc">
@@ -518,7 +517,7 @@
                 <div class="padded cell rw-6 rw-md-12">
                     <h5><span class="float-right link small" x-ajax-sticky x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{% trans from 'game' %}Meine objekte{% endtrans %}</h5>
                     <div id="inventory_partial_html">
-                        {{ block('inventory_partial_html') }}
+                        {{ block('html', "ajax/game/beyond/partials/inventory.html.twig") }}
                     </div>
 
                     <h5><label for="zone-marker">{{"Zonenmarkierer"|trans({}, 'game')}}</label> <a class="help-button"><div class="tooltip help">{{ 'Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
@@ -642,7 +641,7 @@
                                 </div>
                                 <div class="padded cell rw-4 rw-lg-12 rw-md-4 rw-sm-12 right">
                                     <div class="inline-block" id="escort-act-{{ other_citizen.id }}">
-                                        {{ block('inventory_partial_html_escort_actions') }}
+                                        {{ block('html_escort_actions', "ajax/game/beyond/partials/inventory.html.twig") }}
                                     </div>
 
                                     {% if zone.x != 0 or zone.y != 0 %}
@@ -668,14 +667,14 @@
                                     </button>
 
                                     <div id="escort-act-list-{{ other_citizen.id }}">
-                                        {{ block('inventory_partial_html_escort_action_lists') }}
+                                        {{ block('html_escort_action_lists', "ajax/game/beyond/partials/inventory.html.twig") }}
                                     </div>
                                 </div>
 
                                 {% if other_citizen.escortSettings.allowInventoryAccess %}
                                     <div class="padded cell ro-4 rw-8 ro-lg-0 rw-lg-12">
                                         <div data-escort-inventory="1" id="escort-inv-{{ other_citizen.id }}">
-                                            {{ block('inventory_partial_html_escort') }}
+                                            {{ block('html_escort', "ajax/game/beyond/partials/inventory.html.twig") }}
                                         </div>
                                     </div>
                                 {% else %}
@@ -834,9 +833,14 @@
             </div>
         {% endif %}
     </div>
+    {% endcache %}
 {% endblock %}
 {% block js %}
+    {% set zone_cache_key = "twig_cache_desert_#{citizen.id}_zone_#{citizen.zone.x}_#{citizen.zone.y}" %}
+    {% set zone_cache_tags = ['daily',"town_#{citizen.town.id}","town_#{citizen.town.id}_zones","town_#{citizen.town.id}_zones_#{citizen.zone.x}_#{citizen.zone.y}"] %}
+
     {{ parent() }}
+    {% cache zone_cache_key ~ "_js" ttl(60) tags(zone_cache_tags) %}
     <script>
         {% embed "scripts/actions.js.twig" %}{% endembed %};
 
@@ -948,8 +952,8 @@
         });
         {% endif %}
 
-        {{ block('inventory_partial_includes') }}
-        {{ block('inventory_partial_js') }}
+        {{ block('includes', "ajax/game/beyond/partials/inventory.html.twig") }}
+        {{ block('js', "ajax/game/beyond/partials/inventory.html.twig") }}
 
         {% if allow_floor_access %}
             handleCampingActions(
@@ -1077,4 +1081,5 @@
             });
         {% endif %}
     </script>
+    {% endcache %}
 {% endblock %}

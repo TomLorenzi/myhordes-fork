@@ -43,6 +43,7 @@ use App\Entity\ZonePrototype;
 use App\Enum\ActionHandler\ActionValidity;
 use App\Enum\Game\TransferItemModality;
 use App\Enum\ItemPoisonType;
+use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\Actions\Game\AtomProcessors\Require\AtomRequirementProcessor;
 use App\Service\Maps\MazeMaker;
 use App\Structures\ActionHandler\Evaluation;
@@ -80,7 +81,8 @@ class ActionHandler
         private readonly MazeMaker $maze,
         private readonly GameProfilerService $gps,
         private readonly ContainerInterface $container,
-        private readonly EventProxyService $proxyService
+        private readonly EventProxyService $proxyService,
+        private readonly InvalidateTagsInAllPoolsAction $clearCache
     ) {}
 
     protected function evaluate( Citizen $citizen, ?Item $item, $target, ItemAction $action, ?string &$message, ?Evaluation &$cache = null ): ActionValidity {
@@ -1162,6 +1164,9 @@ class ActionHandler
 
                         $jumper->setZone(null);
                         $zone->removeCitizen( $jumper );
+
+                        ($this->clearCache)("town_{$jumper->getTown()->getId()}_zones_{$zone->getX()}_{$zone->getY()}");
+
                         foreach ($this->entity_manager->getRepository(HomeIntrusion::class)->findBy(['victim' => $jumper]) as $homeIntrusion)
                             $this->entity_manager->remove($homeIntrusion);
 
