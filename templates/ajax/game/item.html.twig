@@ -8,9 +8,11 @@
 {% if item.essential %}{% set classes = classes|merge(['locked']) %}{% endif %}
 
 <li class="{{ classes|join(' ') }}" {% if no_id is not defined or not no_id %}x-item-id="{{ item.id }}"{% endif %} {% if escort is defined and escort is not null %}x-escort-id="{{ escort }}"{% endif %}>
-    <span class="item-icon"><img src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" alt="{{ item.prototype.label|trans({},'items') }}"></span>
-    {% if count is defined and count > 1 %}<span>{{ count }}</span>{% endif %}
-    {% if no_tooltip is not defined or not no_tooltip %}
-        {% embed "ajax/game/item_tooltip.html.twig" with {"item": item, 'debug': debug is defined and debug} %}{% endembed %}
-    {% endif %}
+    {% cache item|itemCacheKey(count is defined ? count : 1, debug is defined ? debug : (is_granted('ROLE_CROW') and app.environment == 'dev')) ~ '_' ~ (app.request.locale|e('html_attr')|split('_', 2))[0] %}
+        <span class="item-icon"><img src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" alt="{{ item.prototype.label|trans({},'items') }}"></span>
+        {% if count is defined and count > 1 %}<span>{{ count }}</span>{% endif %}
+        {% if no_tooltip is not defined or not no_tooltip %}
+            {% embed "ajax/game/item_tooltip.html.twig" with {"item": item, 'debug': debug is defined and debug} %}{% endembed %}
+        {% endif %}
+    {% endcache %}
 </li>

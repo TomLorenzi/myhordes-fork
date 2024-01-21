@@ -50,6 +50,7 @@ class ObjectCacheExtension extends AbstractExtension implements GlobalsInterface
     {
         return [
             new TwigFilter('avatar', [$this, 'get_cached_avatar']),
+            new TwigFilter('itemCacheKey', [$this, 'get_item_cache_key']),
         ];
     }
 
@@ -87,4 +88,18 @@ class ObjectCacheExtension extends AbstractExtension implements GlobalsInterface
         }/*, INF*/);
     }
 
+    public function get_item_cache_key(Item|ItemPrototype $item, int $count = 1, bool $devMode = false): string {
+        if (is_a($item, ItemPrototype::class)) return "item_prototype_{$item->getId()}_plain";
+        else {
+            $key = "item_prototype_{$item->getPrototype()->getId()}_instance_$count";
+            if ($devMode) $key .= "_i{$item->getId()}";
+            if ($item->getBroken()) $key .= "_b";
+            if ($item->getEssential()) $key .= "_e";
+            if ($item->getHidden()) $key .= "_h";
+            if ($item->getFirstPick()) $key .= "_f";
+            $key .= "_p{$item->getPoison()->value}";
+
+            return $key;
+        }
+    }
 }
