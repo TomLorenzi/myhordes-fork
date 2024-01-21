@@ -44,6 +44,7 @@ use App\Enum\DomainBlacklistType;
 use App\Enum\StatisticType;
 use App\Enum\UserSetting;
 use App\Response\AjaxResponse;
+use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\ConfMaster;
 use App\Service\CrowService;
 use App\Service\ErrorHelper;
@@ -1372,15 +1373,16 @@ class SoulController extends CustomAbstractController
     /**
      * @param JSONRequestParser $parser
      * @param SessionInterface $session
+     * @param InvalidateTagsInAllPoolsAction $clearCache
      * @return Response
      */
     #[Route(path: 'api/soul/unsubscribe', name: 'api_unsubscribe')]
-    public function unsubscribe_api(JSONRequestParser $parser, SessionInterface $session, TagAwareCacheInterface $gameCachePool): Response {
+    public function unsubscribe_api(JSONRequestParser $parser, SessionInterface $session, InvalidateTagsInAllPoolsAction $clearCache): Response {
         $this->user_handler->confirmNextDeath( $this->getUser(), $parser->get('lastwords', '') );
 
         if ($session->has('_town_lang')) {
             $session->remove('_town_lang');
-            $gameCachePool->invalidateTags(['distinction_ranking']);
+            $clearCache('distinction_ranking');
             return AjaxResponse::success()->setAjaxControl(AjaxResponse::AJAX_CONTROL_RESET);
         } else return AjaxResponse::success();
     }

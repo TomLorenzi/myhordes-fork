@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "24836163120baea4ea300ef2020415b3",
+    "content-hash": "8912d5146f59d0fcf74ca3d0cb7a3ef9",
     "packages": [
         {
             "name": "adbario/php-dot-notation",
@@ -2979,7 +2979,7 @@
         },
         {
             "name": "myhordes/fixtures",
-            "version": "dev-master",
+            "version": "dev-beyond_cache",
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-fixtures",
@@ -3017,7 +3017,7 @@
         },
         {
             "name": "myhordes/plugins",
-            "version": "dev-master",
+            "version": "dev-beyond_cache",
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-plugins",
@@ -10483,6 +10483,71 @@
                 }
             ],
             "time": "2023-11-06T10:58:05+00:00"
+        },
+        {
+            "name": "twig/cache-extra",
+            "version": "v3.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/cache-extra.git",
+                "reference": "1e78b0e9268dd9742c480a2279eb246652a9c452"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/cache-extra/zipball/1e78b0e9268dd9742c480a2279eb246652a9c452",
+                "reference": "1e78b0e9268dd9742c480a2279eb246652a9c452",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5",
+                "symfony/cache": "^5.0|^6.0|^7.0",
+                "twig/twig": "^3.0"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^6.4|^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Twig\\Extra\\Cache\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "A Twig extension for Symfony Cache",
+            "homepage": "https://twig.symfony.com",
+            "keywords": [
+                "cache",
+                "html",
+                "twig"
+            ],
+            "support": {
+                "source": "https://github.com/twigphp/cache-extra/tree/v3.8.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/twig/twig",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-11-21T14:02:01+00:00"
         },
         {
             "name": "twig/extra-bundle",

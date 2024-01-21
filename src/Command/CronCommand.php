@@ -17,6 +17,7 @@ use App\Entity\Town;
 use App\Entity\User;
 use App\Enum\Configuration\TownSetting;
 use App\Enum\StatisticType;
+use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\AdminHandler;
 use App\Service\AntiCheatService;
 use App\Service\CommandHelper;
@@ -72,14 +73,14 @@ class CronCommand extends Command implements SelfSchedulingCommand
     private UserStatCollectionService $userStats;
 
     private array $db;
-    private TagAwareCacheInterface $cache;
+    private InvalidateTagsInAllPoolsAction $clearCache;
 
     public function __construct(array $db, KernelInterface $kernel, Environment $twig,
                                 EntityManagerInterface $em, Locksmith $ls,
                                 ConfMaster $conf, AntiCheatService $acs, UserHandler $uh,
                                 CrowService $cs, CommandHelper $helper, ParameterBagInterface $params,
                                 AdminHandler $adminHandler, UserStatCollectionService $us,
-                                TagAwareCacheInterface $gameCachePool)
+                                InvalidateTagsInAllPoolsAction $clearCache)
     {
         $this->kernel = $kernel;
         $this->twig = $twig;
@@ -94,7 +95,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
         $this->params = $params;
         $this->adminHandler = $adminHandler;
         $this->userStats = $us;
-        $this->cache = $gameCachePool;
+        $this->clearCache = $clearCache;
 
         $this->db = $db;
         parent::__construct();
@@ -263,7 +264,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
 
             $this->updateHeaderStats();
             try {
-                $this->cache->invalidateTags(['daily']);
+                ($this->clearCache)('daily');
             } catch (\Throwable $e) {}
 
 

@@ -13,6 +13,7 @@ use App\Entity\PictoPrototype;
 use App\Entity\User;
 use App\Enum\UserSetting;
 use App\Response\AjaxResponse;
+use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
@@ -128,15 +129,15 @@ class AvatarController extends AbstractController
 
     /**
      * @param EntityManagerInterface $em
-     * @param TagAwareCacheInterface $gameCachePool
+     * @param InvalidateTagsInAllPoolsAction $clearCache
      * @return JsonResponse
      * @throws InvalidArgumentException
      */
     #[Route(path: '/media', name: 'delete', methods: ['DELETE'])]
-    public function deleteMedia(EntityManagerInterface $em, TagAwareCacheInterface $gameCachePool): JsonResponse {
+    public function deleteMedia(EntityManagerInterface $em, InvalidateTagsInAllPoolsAction $clearCache): JsonResponse {
 
         if ($this->getUser()->getAvatar()) {
-            $gameCachePool->invalidateTags(["user_avatar_{$this->getUser()->getId()}"]);
+            $clearCache("user_avatar_{$this->getUser()->getId()}");
             $em->remove($this->getUser()->getAvatar());
             $this->getUser()->setAvatar(null);
             $em->flush();
@@ -169,9 +170,8 @@ class AvatarController extends AbstractController
      * @param UserHandler $userHandler
      * @param ConfMaster $conf
      * @param EntityManagerInterface $em
-     * @param TagAwareCacheInterface $gameCachePool
+     * @param InvalidateTagsInAllPoolsAction $clearCache
      * @return JsonResponse
-     * @throws InvalidArgumentException
      */
     #[Route(path: '/media', name: 'upload', methods: ['PUT'])]
     public function uploadMedia(
@@ -179,7 +179,7 @@ class AvatarController extends AbstractController
         UserHandler $userHandler,
         ConfMaster $conf,
         EntityManagerInterface $em,
-        TagAwareCacheInterface $gameCachePool
+        InvalidateTagsInAllPoolsAction $clearCache
     ): JsonResponse {
         $payload = $parser->get_base64('data');
         $format = $parser->get('format', 'avif');
@@ -254,7 +254,7 @@ class AvatarController extends AbstractController
             $avatar->setSmallName( md5($small_data) )->setSmallImage( $small_data );
         else $avatar->setSmallName( null )->setSmallImage( null );
 
-        $gameCachePool->invalidateTags(["user_avatar_{$user->getId()}"]);
+        $clearCache("user_avatar_{$user->getId()}");
         $em->persist( $user );
         $em->flush();
 

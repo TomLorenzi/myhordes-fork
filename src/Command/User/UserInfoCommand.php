@@ -13,6 +13,7 @@ use App\Entity\RolePlayText;
 use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
+use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\CommandHelper;
 use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
@@ -40,17 +41,17 @@ class UserInfoCommand extends Command
     private UserPasswordHasherInterface $pwenc;
     private CommandHelper $helper;
     private UrlGeneratorInterface $router;
-    private TagAwareCacheInterface $cache;
+    private InvalidateTagsInAllPoolsAction $clearCache;
 
     public function __construct(EntityManagerInterface $em, UserPasswordHasherInterface $passwordEncoder,
-                                UserHandler $uh, CommandHelper $ch, UrlGeneratorInterface $router, TagAwareCacheInterface $gameCachePool)
+                                UserHandler $uh, CommandHelper $ch, UrlGeneratorInterface $router, InvalidateTagsInAllPoolsAction $clearCache)
     {
         $this->entityManager = $em;
         $this->pwenc = $passwordEncoder;
         $this->user_handler = $uh;
         $this->helper = $ch;
         $this->router = $router;
-        $this->cache = $gameCachePool;
+        $this->clearCache = $clearCache;
         parent::__construct();
     }
 
@@ -301,7 +302,7 @@ class UserInfoCommand extends Command
 
                     $user->setAvatar(null);
                     $this->entityManager->remove($a);
-                    $this->cache->invalidateTags(["user_avatar_{$user->getId()}"]);
+                    ($this->clearCache)("user_avatar_{$user->getId()}");
                     $output->writeln('Avatar has been deleted.');
 
                     $this->entityManager->flush();

@@ -37,6 +37,7 @@ use App\Entity\UserSwapPivot;
 use App\Enum\ServerSetting;
 use App\Exception\DynamicAjaxResetException;
 use App\Response\AjaxResponse;
+use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\AdminHandler;
 use App\Service\AntiCheatService;
 use App\Service\CrowService;
@@ -425,6 +426,7 @@ class AdminUserController extends AdminActionController
      * @param PermissionHandler $perm
      * @param CrowService $crow
      * @param KernelInterface $kernel
+     * @param InvalidateTagsInAllPoolsAction $clearCache
      * @param string $param
      * @return Response
      */
@@ -432,7 +434,7 @@ class AdminUserController extends AdminActionController
     #[AdminLogProfile(enabled: true)]
     public function user_account_manager(int $id, string $action, JSONRequestParser $parser, UserFactory $uf,
                                          TwinoidHandler $twin, UserHandler $userHandler, PermissionHandler $perm,
-                                         CrowService $crow, KernelInterface $kernel, TagAwareCacheInterface $gameCachePool,
+                                         CrowService $crow, KernelInterface $kernel, InvalidateTagsInAllPoolsAction $clearCache,
                                          string $param = ''): Response
     {
         /** @var User $user */
@@ -805,7 +807,7 @@ class AdminUserController extends AdminActionController
                 if ($user->getAvatar()) {
                     $this->entity_manager->remove($user->getAvatar());
                     $user->setAvatar(null);
-                    $gameCachePool->invalidateTags(["user_avatar_{$user->getId()}"]);
+                    $clearCache("user_avatar_{$user->getId()}");
                 }
                 break;
 

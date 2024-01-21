@@ -26,6 +26,7 @@ use App\Entity\Town;
 use App\Entity\User;
 use App\Enum\UserSetting;
 use App\Response\AjaxResponse;
+use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\CitizenHandler;
 use App\Service\CrowService;
 use App\Service\ErrorHelper;
@@ -299,8 +300,7 @@ class MessageForumController extends MessageController
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
      * @param RateLimitingFactoryProvider $rateLimiter
-     * @param EventProxyService $proxy
-     * @param TagAwareCacheInterface $gameCachePool
+     * @param InvalidateTagsInAllPoolsAction $clearCache
      * @return Response
      */
     #[Route(path: 'api/forum/{id<\d+>}/post', name: 'forum_new_thread_controller')]
@@ -309,8 +309,7 @@ class MessageForumController extends MessageController
         JSONRequestParser $parser,
         EntityManagerInterface $em,
         RateLimitingFactoryProvider $rateLimiter,
-        EventProxyService $proxy,
-        TagAwareCacheInterface $gameCachePool,
+        InvalidateTagsInAllPoolsAction $clearCache,
         CrowService $crow
     ): Response {
 
@@ -377,7 +376,7 @@ class MessageForumController extends MessageController
             'ANIM' => 67,
         ];
 
-        try {$gameCachePool->invalidateTags(["forum_{$forum->getId()}_unread"]);} catch (\Throwable) {}
+        $clearCache("forum_{$forum->getId()}_unread");
 
         $post = (new Post())
             ->setOwner( isset($map_type[$type]) ? $this->entity_manager->getRepository(User::class)->find($map_type[$type]) : $user )
@@ -517,9 +516,9 @@ class MessageForumController extends MessageController
      * @param int $tid
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
-     * @param EventProxyService $proxy
-     * @param TagAwareCacheInterface $gameCachePool
+     * @param InvalidateTagsInAllPoolsAction $clearCache
      * @param PictoHandler $ph
+     * @param CrowService $crow
      * @return Response
      */
     #[Route(path: 'api/forum/{fid<\d+>}/{tid<\d+>}/post', name: 'forum_new_post_controller')]
@@ -528,8 +527,7 @@ class MessageForumController extends MessageController
         int $tid,
         JSONRequestParser $parser,
         EntityManagerInterface $em,
-        EventProxyService $proxy,
-        TagAwareCacheInterface $gameCachePool,
+        InvalidateTagsInAllPoolsAction $clearCache,
         PictoHandler $ph,
         CrowService $crow
     ): Response {
@@ -591,7 +589,7 @@ class MessageForumController extends MessageController
             'ANIM' => 67
         ];
 
-        try {$gameCachePool->invalidateTags(["forum_{$forum->getId()}_unread"]);} catch (\Throwable) {}
+        $clearCache("forum_{$forum->getId()}_unread");
 
         $post = (new Post())
             ->setOwner( isset($map_type[$type]) ? $this->entity_manager->getRepository(User::class)->find($map_type[$type]) : $user )
@@ -820,7 +818,7 @@ class MessageForumController extends MessageController
      * @param int $sem
      * @param EntityManagerInterface $em
      * @param CitizenHandler $ch
-     * @param TagAwareCacheInterface $gameCachePool
+     * @param InvalidateTagsInAllPoolsAction $clearCache
      * @return Response
      */
     #[Route(path: 'api/forum/{sem<\d+>}/{fid<\d+>}/preview', name: 'forum_previewer_controller')]
@@ -829,7 +827,7 @@ class MessageForumController extends MessageController
         int $sem,
         EntityManagerInterface $em,
         CitizenHandler $ch,
-        TagAwareCacheInterface $gameCachePool
+        InvalidateTagsInAllPoolsAction $clearCache
     ) {
         $user = $this->getUser();
 
@@ -855,7 +853,7 @@ class MessageForumController extends MessageController
             /** @var Post $post */
             $post->setHydrated( $this->html->prepareEmotes( $post->getText(), $this->getUser(), $post->getThread()->getForum()->getTown() ) );
 
-        try {$gameCachePool->invalidateTags(["forum_{$this->getUser()->getId()}_{$forum->getId()}_unread"]);} catch (\Throwable) {}
+        $clearCache("forum_{$this->getUser()->getId()}_{$forum->getId()}_unread");
 
         return $this->render( 'ajax/forum/posts_small.html.twig', [
             'posts' => $posts,
@@ -873,7 +871,7 @@ class MessageForumController extends MessageController
      * @param JSONRequestParser $parser
      * @param SessionInterface $session
      * @param CitizenHandler $ch
-     * @param TagAwareCacheInterface $gameCachePool
+     * @param InvalidateTagsInAllPoolsAction $clearCache
      * @param int $pid
      * @return Response
      */
@@ -885,7 +883,7 @@ class MessageForumController extends MessageController
         JSONRequestParser $parser,
         SessionInterface $session,
         CitizenHandler $ch,
-        TagAwareCacheInterface $gameCachePool,
+        InvalidateTagsInAllPoolsAction $clearCache,
         int $pid = -1,
     ): Response {
         $user = $this->getUser();
@@ -997,7 +995,7 @@ class MessageForumController extends MessageController
         $other_forums[ $this->translator->trans('Weltforen', [], 'global') ] = array_filter( $other_forums_raw, fn(Forum $f) => $f->getTown() === null && $f->getWorldForumLanguage() === null );
         $other_forums[ $this->translator->trans('Stadtforum', [], 'global') ] = array_filter( $other_forums_raw, fn(Forum $f) => $f->getTown() !== null );
 
-        try {$gameCachePool->invalidateTags(["forum_{$this->getUser()->getId()}_{$forum->getId()}_unread"]);} catch (\Throwable) {}
+        $clearCache("forum_{$this->getUser()->getId()}_{$forum->getId()}_unread");
 
         return $this->render( 'ajax/forum/posts.html.twig', [
             'posts' => $posts,

@@ -25,6 +25,7 @@ use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
 use App\Enum\DomainBlacklistType;
+use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Structures\MyHordesConf;
 use Doctrine\ORM\QueryBuilder;
 use DateTime;
@@ -57,8 +58,9 @@ class UserHandler
     private TranslatorInterface $translator;
     private ConfMaster $conf;
     private DoctrineCacheService $doctrineCache;
+    private InvalidateTagsInAllPoolsAction $clearCache;
 
-    public function __construct( EntityManagerInterface $em, RoleHierarchyInterface $roles,ContainerInterface $c, CrowService $crow, TranslatorInterface  $translator, ConfMaster $conf, DoctrineCacheService $doctrineCache)
+    public function __construct( EntityManagerInterface $em, RoleHierarchyInterface $roles,ContainerInterface $c, CrowService $crow, TranslatorInterface  $translator, ConfMaster $conf, DoctrineCacheService $doctrineCache, InvalidateTagsInAllPoolsAction $clearCache)
     {
         $this->entity_manager = $em;
         $this->container = $c;
@@ -67,6 +69,7 @@ class UserHandler
         $this->translator = $translator;
         $this->conf = $conf;
         $this->doctrineCache = $doctrineCache;
+        $this->clearCache = $clearCache;
     }
 
     public function fetchSoulPoints(User $user, bool $all = true, bool $useCached = false): int {
@@ -376,7 +379,7 @@ class UserHandler
 
         if ($user->getAvatar()) {
             $this->entity_manager->remove($user->getAvatar());
-            $this->gameCachePool->invalidateTags(["user_avatar_{$user->getId()}"]);
+            ($this->clearCache)("user_avatar_{$user->getId()}");
             $user->setAvatar(null);
         }
 
