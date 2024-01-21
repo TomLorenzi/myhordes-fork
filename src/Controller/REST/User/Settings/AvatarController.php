@@ -21,6 +21,8 @@ use App\Service\UserHandler;
 use App\Structures\Image;
 use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
+use Psr\Cache\InvalidArgumentException;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Asset\Packages;
@@ -28,6 +30,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Contracts\Cache\TagAwareCacheInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 
@@ -125,12 +128,15 @@ class AvatarController extends AbstractController
 
     /**
      * @param EntityManagerInterface $em
+     * @param TagAwareCacheInterface $gameCachePool
      * @return JsonResponse
+     * @throws InvalidArgumentException
      */
     #[Route(path: '/media', name: 'delete', methods: ['DELETE'])]
-    public function deleteMedia(EntityManagerInterface $em): JsonResponse {
+    public function deleteMedia(EntityManagerInterface $em, TagAwareCacheInterface $gameCachePool): JsonResponse {
 
         if ($this->getUser()->getAvatar()) {
+            $gameCachePool->invalidateTags(["user_avatar_{$this->getUser()->getId()}"]);
             $em->remove($this->getUser()->getAvatar());
             $this->getUser()->setAvatar(null);
             $em->flush();
@@ -163,12 +169,19 @@ class AvatarController extends AbstractController
      * @param UserHandler $userHandler
      * @param ConfMaster $conf
      * @param EntityManagerInterface $em
+     * @param TagAwareCacheInterface $gameCachePool
      * @return JsonResponse
+     * @throws InvalidArgumentException
      */
     #[Route(path: '/media', name: 'upload', methods: ['PUT'])]
-    public function uploadMedia(JSONRequestParser $parser, UserHandler $userHandler, ConfMaster $conf, EntityManagerInterface $em): JsonResponse {
+    public function uploadMedia(
+        JSONRequestParser $parser,
+        UserHandler $userHandler,
+        ConfMaster $conf,
+        EntityManagerInterface $em,
+        TagAwareCacheInterface $gameCachePool
+    ): JsonResponse {
         $payload = $parser->get_base64('data');
-        $mime = $parser->get('mime');
         $format = $parser->get('format', 'avif');
 
         $user = $this->getUser();
@@ -241,6 +254,7 @@ class AvatarController extends AbstractController
             $avatar->setSmallName( md5($small_data) )->setSmallImage( $small_data );
         else $avatar->setSmallName( null )->setSmallImage( null );
 
+        $gameCachePool->invalidateTags(["user_avatar_{$user->getId()}"]);
         $em->persist( $user );
         $em->flush();
 
