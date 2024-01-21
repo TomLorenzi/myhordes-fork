@@ -63,6 +63,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Contracts\Cache\TagAwareCacheInterface;
 
 /**
  * @method User getUser
@@ -431,7 +432,7 @@ class AdminUserController extends AdminActionController
     #[AdminLogProfile(enabled: true)]
     public function user_account_manager(int $id, string $action, JSONRequestParser $parser, UserFactory $uf,
                                          TwinoidHandler $twin, UserHandler $userHandler, PermissionHandler $perm,
-                                         CrowService $crow, KernelInterface $kernel,
+                                         CrowService $crow, KernelInterface $kernel, TagAwareCacheInterface $gameCachePool,
                                          string $param = ''): Response
     {
         /** @var User $user */
@@ -804,6 +805,7 @@ class AdminUserController extends AdminActionController
                 if ($user->getAvatar()) {
                     $this->entity_manager->remove($user->getAvatar());
                     $user->setAvatar(null);
+                    $gameCachePool->invalidateTags(["user_avatar_{$user->getId()}"]);
                 }
                 break;
 

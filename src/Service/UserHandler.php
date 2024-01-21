@@ -376,6 +376,7 @@ class UserHandler
 
         if ($user->getAvatar()) {
             $this->entity_manager->remove($user->getAvatar());
+            $this->gameCachePool->invalidateTags(["user_avatar_{$user->getId()}"]);
             $user->setAvatar(null);
         }
 

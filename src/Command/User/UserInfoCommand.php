@@ -27,6 +27,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Contracts\Cache\TagAwareCacheInterface;
 
 #[AsCommand(
     name: 'app:user:list',
@@ -39,15 +40,17 @@ class UserInfoCommand extends Command
     private UserPasswordHasherInterface $pwenc;
     private CommandHelper $helper;
     private UrlGeneratorInterface $router;
+    private TagAwareCacheInterface $cache;
 
     public function __construct(EntityManagerInterface $em, UserPasswordHasherInterface $passwordEncoder,
-                                UserHandler $uh, CommandHelper $ch, UrlGeneratorInterface $router)
+                                UserHandler $uh, CommandHelper $ch, UrlGeneratorInterface $router, TagAwareCacheInterface $gameCachePool)
     {
         $this->entityManager = $em;
         $this->pwenc = $passwordEncoder;
         $this->user_handler = $uh;
         $this->helper = $ch;
         $this->router = $router;
+        $this->cache = $gameCachePool;
         parent::__construct();
     }
 
@@ -298,6 +301,7 @@ class UserInfoCommand extends Command
 
                     $user->setAvatar(null);
                     $this->entityManager->remove($a);
+                    $this->cache->invalidateTags(["user_avatar_{$user->getId()}"]);
                     $output->writeln('Avatar has been deleted.');
 
                     $this->entityManager->flush();
