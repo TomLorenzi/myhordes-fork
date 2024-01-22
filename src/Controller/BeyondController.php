@@ -268,7 +268,7 @@ class BeyondController extends InventoryAwareController
 
         if ($refresh) $this->clearZoneCache();
 
-        $data = $gameCachePool->get("beyond_twig_data_{$citizen->getId()}_{$request->headers->get('X-Render-Target')}", function (ItemInterface $item) use ($citizen, $sect, $th): array {
+        $data = $gameCachePool->get("beyond_twig_data_{$citizen->getId()}_{$citizen->getZone()->getId()}_{$request->headers->get('X-Render-Target')}", function (ItemInterface $item) use ($citizen, $sect, $th): array {
             $item->expiresAfter(60)->tag(['daily',"town_{$citizen->getTown()->getId()}","town_{$citizen->getTown()->getId()}_zones","town_{$citizen->getTown()->getId()}_zones_{$citizen->getZone()->getX()}_{$citizen->getZone()->getY()}"]);
 
             $town = $citizen->getTown();
