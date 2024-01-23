@@ -158,10 +158,10 @@ class BeyondController extends InventoryAwareController
     protected function clearZoneCache(int|Zone|null $x = null, ?int $y = null): void {
         $citizen = $this->getActiveCitizen();
         $zone = is_a($x, Zone::class) ? $x : $citizen->getZone();
-        if (is_a($x, Zone::class)) $x = $x->getX();
-        else $x ??= $zone->getX();
-        $y ??= $zone->getY();
-        ($this->clear)("town_{$citizen->getTown()->getId()}_zones_{$citizen->getZone()->getX()}_{$citizen->getZone()->getY()}");
+        if (is_a($x, Zone::class)) $x = $x?->getX();
+        else $x ??= $zone?->getX();
+        $y ??= $zone?->getY();
+        ($this->clear)("town_{$citizen->getTown()->getId()}_zones_{$x}_{$y}");
     }
 
     protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null, $merge_map = true ): array {
