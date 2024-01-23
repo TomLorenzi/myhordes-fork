@@ -1446,10 +1446,11 @@ class MessageForumController extends MessageController
     }
 
     /**
+     * @param InvalidateTagsInAllPoolsAction $clearCache
      * @return Response
      */
     #[Route(path: 'api/forum/read_all', name: 'forum_all_read_controller')]
-    public function forum_mark_all_read(): Response {
+    public function forum_mark_all_read(InvalidateTagsInAllPoolsAction $clearCache): Response {
 
         $last_post = $this->entity_manager->getRepository(Post::class)->findBy(['hidden' => false], ['id' => 'DESC'], 1);
         if (count($last_post) !== 1) return AjaxResponse::success();
@@ -1465,6 +1466,8 @@ class MessageForumController extends MessageController
         } catch (Exception $e) {
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
+
+        $clearCache("forum_unread");
 
         return AjaxResponse::success();
     }
