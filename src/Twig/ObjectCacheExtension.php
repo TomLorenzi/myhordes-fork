@@ -44,6 +44,7 @@ class ObjectCacheExtension extends AbstractExtension implements GlobalsInterface
         private readonly TagAwareCacheInterface $gameCachePool,
         private readonly RouterInterface        $router,
         private readonly Packages               $asset,
+        private readonly EventProxyService      $events,
     ) { }
 
     public function getFilters(): array
@@ -98,6 +99,8 @@ class ObjectCacheExtension extends AbstractExtension implements GlobalsInterface
             if ($item->getHidden()) $key .= "_h";
             if ($item->getFirstPick()) $key .= "_f";
             $key .= "_p{$item->getPoison()->value}";
+            if ($item->getPrototype()->getWatchpoint() > 0 && ($t = $item->getInventory()->findTown()))
+                $key .= "_w{$this->events->buildingQueryNightwatchDefenseBonus( $t, $item )}";
 
             return $key;
         }
