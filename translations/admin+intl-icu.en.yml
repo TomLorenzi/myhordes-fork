@@ -634,7 +634,7 @@ Prüfen: Check
 Entfernen: Remove
 Beginn: Start
 'Max. Aktive Zombies': 'Max. active zombies'
-'Sperre deaktivieren': 'Disable lock'
-'Sperre aktivieren': 'Sperre aktivieren'
-'Stadttor reparieren': 'Stadttor reparieren'
-'Zerstöre das Stadttor': 'Zerstöre das Stadttor'
+'Sperre deaktivieren': 'Disable lockdown'
+'Sperre aktivieren': 'Activate lockdown'
+'Stadttor reparieren': 'Repair city gate'
+'Zerstöre das Stadttor': 'Destroy the city gate'
