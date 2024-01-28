@@ -559,8 +559,6 @@ class PublicController extends CustomAbstractController
                 }
             }
 
-            dump($user);
-
             return $this->render( 'ajax/public/et_welcome.html.twig', [
                 'refer' => $session->get('refer'),
                 'etwin_user' => $user,
