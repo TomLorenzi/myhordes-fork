@@ -27,12 +27,11 @@ class LandingController extends CustomAbstractController
     /**
      * @param EntityManagerInterface $em
      * @param TimeKeeperService $tk
-     * @param Request $request
      * @param UserHandler $userHandler
      * @return Response
      */
     #[Route(path: 'jx/landing', name: 'initial_landing', condition: 'request.isXmlHttpRequest()')]
-    public function main_landing(EntityManagerInterface $em, TimeKeeperService $tk, Request $request, UserHandler $userHandler): Response
+    public function main_landing(EntityManagerInterface $em, TimeKeeperService $tk, UserHandler $userHandler): Response
     {
         if ($tk->isDuringAttack()) {
             $response = new Response('', 302, [
@@ -47,22 +46,24 @@ class LandingController extends CustomAbstractController
         $user = $this->getUser();
 
         if (!$user)
-            return $this->redirect($this->generateUrl('public_welcome'));
+            return $this->redirectToRoute('public_welcome');
         elseif (!$user->getValidated())
-            return $this->redirect($this->generateUrl('public_validate'));
+            return $this->redirectToRoute('public_validate');
         elseif ($user->tosBlocked())
-            return $this->redirect($this->generateUrl('public_accept_tos'));
+            return $this->redirectToRoute('public_accept_tos');
         elseif ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
-            return $this->redirect($this->generateUrl('soul_death'));
+            return $this->redirectToRoute('soul_death');
         else {
             // The user is properly authenticated has no pending death pages to confirm
             // Check if there is some news for him to see
             if (!$userHandler->hasSeenLatestChangelog($user, $this->getUserLanguage()))
-                return $this->redirect($this->generateUrl('soul_future'));
+                return $this->redirectToRoute('soul_future');
             elseif ($em->getRepository(Citizen::class)->findActiveByUser($user))
-                return $this->redirect($this->generateUrl('game_landing'));
+                return $this->redirectToRoute('game_landing');
+            elseif ($this->isGranted('ROLE_CROW') && $this->isGranted('ROLE_DUMMY'))
+                return $this->redirectToRoute('forum_list');
             else
-                return $this->redirect($this->generateUrl('ghost_welcome'));
+                return $this->redirectToRoute('ghost_welcome');
         }
     }
 
