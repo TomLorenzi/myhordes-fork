@@ -176,8 +176,11 @@ class BeyondController extends InventoryAwareController
         $scout_sense = false;
 
         if ($this->getActiveCitizen()->getProfession()->getName() === 'hunter') {
-            $scout_level = $zone->getScoutLevel();
             $scout_sense = true;
+            $scout_markings_global = $this->getActiveCitizen()->hasRole('guide');
+            $scout_level =
+                ($scout_markings_global ? $zone->getScoutLevelFor( null ) : 0) +
+                $zone->getScoutLevelForCitizens( );
         }
 
         $scout_movement = $this->inventory_handler->countSpecificItems(
