@@ -114,7 +114,7 @@
                 {% if not town.devastated and has_levelable_building and not citizen.banished %}<li x-ajax-href="{{ path('town_upgrades') }}" {% if active_citizen.dailyUpgradeVote %} class="checked"{% endif %}>{{ 'Für ein Tagesprojekt abstimmen.'|trans({}, 'game') }},</li>{% endif %}
 				{% if display_home_upgrade %}<li{% if has_upgraded_house %} class="checked"{% endif %} x-ajax-href="{{ path('town_house_build') }}">{{ 'Mein Haus ausbauen'|trans({}, 'game') }},</li>{% endif %}
                 {% if citizen.banished %}<li{% if not can_do_insurrection %} class="checked"{% endif %}>{{ 'Einen Aufstand der Verbannten vorbereiten (optional).'|trans({}, 'game') }},</li>{% endif %}
-                <li{% if has_been_active %} class="checked"{% endif %}>{{ 'Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).'|trans({}, 'game') }}{% if additional_bullet_points|length > 0 %},{% else %}.{% endif %}</li>
+                <li{% if has_been_active %} class="checked"{% endif %} x-ajax-href="{{ path('town_constructions') }}">{{ 'Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).'|trans({}, 'game') }}{% if additional_bullet_points|length > 0 %},{% else %}.{% endif %}</li>
                 {% for obj in additional_bullet_points %}
                     <li {% if obj[1] %}class="checked"{% endif %}>{{ obj[0]|trans({},'game') }}{% if loop.last %}.{% else %},{% endif %}</li>
                 {% endfor %}
