@@ -254,7 +254,7 @@ class UserFactory
         }
     }
 
-    public function importUser( \EternalTwinClient\Object\User $etwin_user, ?string $mail, $validated, ?int &$error ): ?User {
+    public function importUser( \EternalTwinClient\Object\User $etwin_user, ?string $mail, $validated, ?int &$error, ?string $override_name = null ): ?User {
         $error = 0;
 
         $lock = $this->locksmith->waitForLock( 'user-creation' );
@@ -263,12 +263,15 @@ class UserFactory
         $user_mail = $mail ?? "{$etwin_user->getID()}@user.eternal-twin.net";
 
         $etwin_name = preg_replace('/[^\w]/', '', trim($etwin_user->getDisplayName()));
-        if (!$this->userHandler->isNameValid( $etwin_name ))
+        if ($this->userHandler->isNameValid( $etwin_name ))
             $display_name = substr($etwin_name,0,32);
         else
-            $display_name = 'u' . time();
+            $display_name = $override_name ?? ('u' . time());
 
         $new_name = substr($display_name,0,16);
+        $count = 1;
+        while ($this->entity_manager->getRepository(User::class)->findOneByName( $new_name ) && $count < 999)
+            $new_name = substr($display_name,0,13) . str_pad( "" . ($count++), 3, "0", STR_PAD_LEFT );
 
         if ($this->entity_manager->getRepository(User::class)->findOneByMail( $user_mail )) {
             $error = self::ErrorMailExists;

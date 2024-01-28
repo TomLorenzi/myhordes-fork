@@ -562,6 +562,7 @@ class PublicController extends CustomAbstractController
             return $this->render( 'ajax/public/et_welcome.html.twig', [
                 'refer' => $session->get('refer'),
                 'etwin_user' => $user,
+                'etwin_user_valid' => $userHandler->isNameValid( $user->getDisplayName(), custom_length: 32 ),
                 'etwin_mail' => $user->getEmailAddress(),
                 'target_user' => $potential_user,
                 'current_user' => $myhordes_user
@@ -681,7 +682,16 @@ class PublicController extends CustomAbstractController
                 }
             }
 
-            $new_user = $userFactory->importUser( $etwin_user, $parser->get('mail1'), false, $error );
+            $override_name = null;
+            if ($parser->has('name', true)) {
+
+                $override_name = $parser->get('name', null);
+                if (!$userHandler->isNameValid($override_name, custom_length: 32)) {
+                    return AjaxResponse::error('invalid_fields', ['fields' => [$translator->trans('Der eingegebene Spielername verstößt gegen die Richtlinien von MyHordes und kann nicht verwendet werden.', [], 'login')]]);
+                }
+            }
+
+            $new_user = $userFactory->importUser( $etwin_user, $parser->get('mail1'), false, $error, $override_name );
 
             switch ($error) {
                 case UserFactory::ErrorNone:
