@@ -101,6 +101,10 @@ class Town
     private $tempDefenseBonus = 0;
     #[ORM\Column(type: 'integer')]
     private $baseDefense = 10;
+    #[ORM\Column(type: 'boolean')]
+    private bool $lockdown = false;
+    #[ORM\Column(type: 'boolean')]
+    private bool $brokenDoor = false;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $scheduledFor = null;
@@ -871,6 +875,28 @@ class Town
     public function setPrime(?string $prime): static
     {
         $this->prime = $prime;
+
+        return $this;
+    }
+
+    public function getLockdown(): bool
+    {
+        return $this->lockdown ?? false;
+    }
+    public function setLockdown(bool $lockdown): self
+    {
+        $this->lockdown = $lockdown;
+
+        return $this;
+    }
+
+    public function getBrokenDoor(): bool
+    {
+        return $this->brokenDoor ?? false;
+    }
+    public function setBrokenDoor(bool $brokenDoor): self
+    {
+        $this->brokenDoor = $brokenDoor;
 
         return $this;
     }

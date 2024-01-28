@@ -847,6 +847,20 @@ class AdminTownController extends AdminActionController
                 foreach ($town->getCitizens() as $citizen)
                     $this->entity_manager->persist($this->crow_service->createPM_moderation( $citizen->getUser(), CrowService::ModerationActionDomainRanking, CrowService::ModerationActionTargetGameName, CrowService::ModerationActionEdit, $town, $old_name ));
                 break;
+            case 'toggle_lockdown':
+                $town->setLockdown(!$town->getLockdown());
+                if($town->getLockdown()) {
+                    $town->setDoor(false);
+                }
+                $this->entity_manager->persist($town);
+                break;
+            case 'toggle_broken_door':
+                $town->setBrokenDoor(!$town->getBrokenDoor());
+                if($town->getBrokenDoor()) {
+                    $town->setDoor(true);
+                }
+                $this->entity_manager->persist($town);
+                break;
             case 'dbg_disengage':
                 foreach ($town->getCitizens() as $citizen)
                     if ($citizen->getAlive() && $citizen->getActive())

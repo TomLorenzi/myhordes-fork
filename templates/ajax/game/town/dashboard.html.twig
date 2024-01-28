@@ -125,7 +125,7 @@
                 <div class="padded cell rw-12">
                     <ul class="overview-list">
                         <li>{{ 'Stadttyp:'|trans({}, 'game') }} <strong>{{ town.type.label|trans({}, 'game') }}</strong></li>
-                        <li>{{ 'Stadttor:'|trans({}, 'game') }} <strong class="{% if(town.door) %}warning{% endif %}">{% if(town.door and town.devastated) %} {{ 'ZERSTÖRT!!'|trans({}, 'game')}} {% elseif (town.door) %} {{ 'Offen!'|trans({}, 'game')}} {% else %} {{'Geschlossen'|trans({}, 'game')}} {% endif %}</strong></li>
+                        <li>{{ 'Stadttor:'|trans({}, 'game') }} <strong class="{% if(town.door) %}warning{% endif %}">{% if(town.door and (town.devastated or town.brokenDoor)) %} {{ 'ZERSTÖRT!!'|trans({}, 'game')}} {% elseif (town.door) %} {{ 'Offen!'|trans({}, 'game')}} {% else %} {{'Geschlossen'|trans({}, 'game')}} {% endif %}</strong></li>
                         <li>{{ 'Wasservorräte:'|trans({}, 'game') }} <strong>{{ town.well}}</strong> <img src="{{ asset('build/images/item/item_water.gif') }}" />{% if town.well < 15 %} <span class="warning">(<img src="{{ asset('build/images/icons/small_warning.gif') }}" alt="" /> {{ 'Gefahr'|trans({}, 'game') }})</span>{% endif %}</li>
                         <li>{{ 'Einwohner am Leben:'|trans({}, 'game') }} <strong>{{ living_citizens + town.strangers }}</strong> <img src="{{ asset('build/images/icons/small_human.gif') }}" /></li>
                         <li>{{ 'Geschätzter Angriff :'|trans({}, 'game') }} <strong>{% if (zeds_today[3] >= wtt) and zeds_today[0] %}{{ zeds_today[1] }} - {{ zeds_today[2] }}{% else %}{{ 'Unbekannt'|trans({}, 'game')}}{% endif %}</strong> <img src="{{ asset('build/images/icons/small_zombie.gif') }}" /></li>
