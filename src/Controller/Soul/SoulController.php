@@ -297,6 +297,7 @@ class SoulController extends CustomAbstractController
         }
 
         $reverse_friends = $this->entity_manager->getRepository(User::class)->findInverseFriends($this->getUser(), true);
+        $reverse_friends = array_filter( $reverse_friends, fn(User $u) => !str_contains($u->getEmail(), '$ deleted'));
         $all_reverse_friends = count($reverse_friends);
         if ($opt !== 1) $reverse_friends = array_filter( $reverse_friends, fn(User $friend) => !$this->user_handler->checkRelation( $this->getUser(), $friend, SocialRelation::SocialRelationTypeNotInterested ) );
 
