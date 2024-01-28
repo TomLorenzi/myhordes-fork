@@ -113,7 +113,7 @@ readonly class RenderMapAction
             $raw = 0;
             if ($admin || $scout_markings_global || $scout_markings_own) $current_zone['scoutLevel'] = min(3, $admin
                 ? $zone->getScoutLevel()
-                : ( ($scout_markings_global ? $zone->getScoutLevelFor( null ) : 0) + (($scout_markings_own && $activeCitizen) ? $zone->getScoutLevelFor( $activeCitizen, $raw ) : 0) )
+                : ( ($scout_markings_global ? $zone->getScoutLevelFor( null ) : 0) + (($scout_markings_own && $activeCitizen) ? $zone->getScoutLevelForCitizens( $raw ) : 0) )
             );
 
             if ($raw > 0) $current_zone['fractional'] = true;
