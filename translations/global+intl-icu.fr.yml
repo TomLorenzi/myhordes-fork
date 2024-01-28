@@ -542,3 +542,5 @@ Inhaltsverzeichnis: Sommaire
 'Vielen Dank an diese Spieler für ihre künstlerischen Beiträge.': 'Merci à ces joueurs pour leurs contributions artistiques.'
 '<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>{max}</strong> Verteidigungspunkte vergeben!': '<strong>Important :</strong> les objets de défense peuvent donner au maximum <strong>{max}</strong> points de défense !'
 'Auf {hostname}': 'Sur {hostname}'
+aktiv: actif
+inaktiv: inactif
