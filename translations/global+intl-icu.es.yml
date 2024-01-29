@@ -542,6 +542,6 @@ Inhaltsverzeichnis: Tabla de contenidos
 'Vielen Dank an diese Spieler für ihre künstlerischen Beiträge.': 'Gracias a estos jugadores por sus aportes artísticos.'
 '<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>{max}</strong> Verteidigungspunkte vergeben!': '<strong>Importante:</strong> ¡Los objetos de defensa pueden aportar un máximo de <strong>{max}</strong> puntos de defensas!'
 'Auf {hostname}': 'En {hostname}'
-aktiv: aktiv
-inaktiv: inaktiv
+aktiv: activo
+inaktiv: inactivo
 'Hilfe (forum)': 'Ayuda'
