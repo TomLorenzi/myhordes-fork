@@ -100,3 +100,5 @@ Registrierungstoken: crwdns136683:0crwdne136683:0
 'Klicke auf "Später zustimmen", um diesen Hinweis vorerst auszublenden. Bitte beachte jedoch, dass du diesen Hinweis nicht ewig ignorieren kannst.': 'crwdns136849:0crwdne136849:0'
 'Dein Name muss mindestens {limit} Zeichen umfassen.': 'crwdns168685:0{limit}crwdne168685:0'
 'Dein Name kann höchstens {limit} Zeichen umfassen.': 'crwdns168687:0{limit}crwdne168687:0'
+'Der eingegebene Spielername verstößt gegen die Richtlinien von MyHordes und kann nicht verwendet werden.': 'crwdns204680:0crwdne204680:0'
+'Leider verstößt dein aktueller Anzeigename auf Eternaltwin gegen die Richtlinien von MyHordes. Bitte gib einen neuen Namen ein, den du auf MyHordes benutzen möchtest. Dein Name auf Eternaltwin wird hierdurch nicht geändert.': 'crwdns204682:0crwdne204682:0'
