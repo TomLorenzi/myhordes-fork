@@ -69,8 +69,6 @@ translate:
   dependencies:
     - build
   script:
-    # run phpstan
-    - vendor/bin/phpstan analyse --no-progress --error-format=gitlab > phpstan.json
     # Install a DB
     - php bin/console app:migrate -i -vvv --skip-optional
     # Let's generate source strings
@@ -94,10 +92,6 @@ translate:
     CROWDIN_API_TOKEN: $CROWDIN_API_TOKEN
     CROWDIN_PROJECT_ID: $CROWDIN_PROJECT_ID
     APP_ENV: translation
-  artifacts:
-    when: always
-    reports:
-      codequality: phpstan.json
 
 translate-next:
   stage: test-translate
@@ -135,6 +129,8 @@ test:
   dependencies:
     - build
   script:
+    # run phpstan
+    - vendor/bin/phpstan analyse --no-progress --error-format=gitlab > phpstan.json
     - export APP_ENV=test
     - echo $DATABASE_URL
     # Install a DB
@@ -152,6 +148,10 @@ test:
   except:
     refs:
       - /^l10n_.*/
+  artifacts:
+    when: always
+    reports:
+      codequality: phpstan.json
 
 deploy_staging:
   stage: deploy
