@@ -2055,6 +2055,9 @@ class TownController extends InventoryAwareController
                     $lastActionText = $this->translator->trans('vor {time}', ['{time}' => "$delta $unit"], 'game');
                     break;
                 }
+
+				if (empty($lastActionText))
+					$lastActionText = "???";
             }
         } // Yesterday
         elseif ((int)$date->format('d') === ((int)(new DateTime())->format('d') - 1))
