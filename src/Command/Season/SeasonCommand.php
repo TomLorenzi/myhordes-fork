@@ -35,7 +35,7 @@ class SeasonCommand extends Command
 {
     private EntityManagerInterface $entityManager;
 
-    public function __construct(EntityManagerInterface $em, CommandHelper $com, UserHandler $uh, GameFactory $gf, CrowService $crowService)
+    public function __construct(EntityManagerInterface $em)
     {
         $this->entityManager = $em;
         parent::__construct();

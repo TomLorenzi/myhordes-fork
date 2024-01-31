@@ -723,7 +723,7 @@ class MigrateCommand extends Command
         }
 
         if ($input->getOption('update-all-sp')) {
-            $this->helper->leChunk($output, User::class, 100, [], true, false, function(User $user) use ( $output ): bool {
+            $this->helper->leChunk($output, User::class, 100, [], true, false, function(User $user) : bool {
                 $calculated_sp_mh = $this->user_handler->fetchSoulPoints($user,false);
                 $calculated_sp_im = $this->user_handler->fetchImportedSoulPoints($user);
 
@@ -1287,7 +1287,7 @@ class MigrateCommand extends Command
 
         if ($input->getOption('prune-rp-texts')) {
             $target_picto = null;
-            $this->helper->leChunk($output, User::class, 100, [], true, false, function(User $user) use ($output, &$target_picto) {
+            $this->helper->leChunk($output, User::class, 100, [], true, false, function(User $user) use (&$target_picto) {
                 $imported = $this->entity_manager->getRepository(Picto::class)->createQueryBuilder('i')
                     ->select('SUM(i.count)')
                     ->andWhere('i.user = :user')->setParameter('user', $user)->andWhere('i.prototype = :rp')->setParameter('rp', $target_picto)
