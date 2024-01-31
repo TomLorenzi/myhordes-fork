@@ -130,6 +130,7 @@ test:
     - build
   script:
     - export APP_ENV=test
+    - echo $DATABASE_URL
     # Install a DB
     - php bin/console app:migrate -i -vvv
     # Run tests
