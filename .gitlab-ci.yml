@@ -129,6 +129,7 @@ test:
   dependencies:
     - build
   script:
+    - export APP_ENV=test
     # Install a DB
     - php bin/console app:migrate -i -vvv
     # Run tests
