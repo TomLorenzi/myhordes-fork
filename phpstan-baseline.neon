@@ -1,0 +1,231 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Offset mixed on array\\{\\} on left side of \\?\\? does not exist\\.$#"
+			count: 1
+			path: src/Command/Translation/TranslationsStatsCommand.php
+
+		-
+			message: "#^Variable \\$a in empty\\(\\) always exists and is not falsy\\.$#"
+			count: 1
+			path: src/Controller/Admin/AdminUserController.php
+
+		-
+			message: "#^Variable \\$camping_debug on left side of \\?\\? is never defined\\.$#"
+			count: 1
+			path: src/Controller/BeyondController.php
+
+		-
+			message: "#^Variable \\$returnUrl in empty\\(\\) always exists and is always falsy\\.$#"
+			count: 1
+			path: src/Controller/Soul/SoulController.php
+
+		-
+			message: "#^Variable \\$season on left side of \\?\\? always exists and is always null\\.$#"
+			count: 4
+			path: src/Controller/Soul/SoulRankingController.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Actions\\\\ActionData has an uninitialized readonly property \\$action\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Actions/ActionData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Actions\\\\ActionData has an uninitialized readonly property \\$citizen\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Actions/ActionData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Actions\\\\ActionData has an uninitialized readonly property \\$item\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Actions/ActionData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Actions\\\\ActionData has an uninitialized readonly property \\$target\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Actions/ActionData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Actions\\\\ActionData has an uninitialized readonly property \\$type\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Actions/ActionData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Citizen\\\\CitizenBaseData has an uninitialized readonly property \\$citizen\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Citizen/CitizenBaseData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Citizen\\\\CitizenDigData has an uninitialized readonly property \\$at_night\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Citizen/CitizenDigData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Citizen\\\\CitizenDigData has an uninitialized readonly property \\$distance\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Citizen/CitizenDigData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Citizen\\\\CitizenDigData has an uninitialized readonly property \\$empty\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Citizen/CitizenDigData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Citizen\\\\CitizenDigData has an uninitialized readonly property \\$prototype\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Citizen/CitizenDigData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Citizen\\\\CitizenDigData has an uninitialized readonly property \\$ruinZone\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Citizen/CitizenDigData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Citizen\\\\CitizenDigData has an uninitialized readonly property \\$type\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Citizen/CitizenDigData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Citizen\\\\CitizenDigData has an uninitialized readonly property \\$zone\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Citizen/CitizenDigData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Citizen\\\\CitizenWatchData has an uninitialized readonly property \\$during_attack\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Citizen/CitizenWatchData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\EventHooks\\\\Common\\\\CitizenToggleData has an uninitialized readonly property \\$citizen\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/EventHooks/Common/CitizenToggleData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\EventHooks\\\\Common\\\\DoorResponseData has an uninitialized readonly property \\$action\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/EventHooks/Common/DoorResponseData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\GameInteractionEvent has an uninitialized readonly property \\$data_mixin\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/GameInteractionEvent.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Items\\\\TransferItemData has an uninitialized readonly property \\$actor\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Items/TransferItemData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Items\\\\TransferItemData has an uninitialized readonly property \\$from\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Items/TransferItemData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Items\\\\TransferItemData has an uninitialized readonly property \\$item\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Items/TransferItemData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Items\\\\TransferItemData has an uninitialized readonly property \\$modality\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Items/TransferItemData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Items\\\\TransferItemData has an uninitialized readonly property \\$options\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Items/TransferItemData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Items\\\\TransferItemData has an uninitialized readonly property \\$to\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Items/TransferItemData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Town\\\\Addon\\\\Dump\\\\DumpInsertionExecuteData has an uninitialized readonly property \\$check\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Town/Addon/Dump/DumpInsertionExecuteData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Town\\\\Addon\\\\Dump\\\\DumpInsertionExecuteData has an uninitialized readonly property \\$quantity\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Town/Addon/Dump/DumpInsertionExecuteData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Town\\\\Basic\\\\Buildings\\\\BuildingCatapultItemTransformData has an uninitialized readonly property \\$in\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Town/Basic/Buildings/BuildingCatapultItemTransformData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Town\\\\Basic\\\\Buildings\\\\BuildingDestructionData has an uninitialized readonly property \\$building\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Town/Basic/Buildings/BuildingDestructionData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Town\\\\Basic\\\\Buildings\\\\BuildingDestructionData has an uninitialized readonly property \\$method\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Town/Basic/Buildings/BuildingDestructionData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Town\\\\Basic\\\\Buildings\\\\BuildingEffectData has an uninitialized readonly property \\$building\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Town/Basic/Buildings/BuildingEffectData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Town\\\\Basic\\\\Buildings\\\\BuildingEffectData has an uninitialized readonly property \\$upgradedBuilding\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Town/Basic/Buildings/BuildingEffectData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Town\\\\Basic\\\\Buildings\\\\BuildingQueryNightwatchDefenseBonusData has an uninitialized readonly property \\$item\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Town/Basic/Buildings/BuildingQueryNightwatchDefenseBonusData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Town\\\\Basic\\\\Buildings\\\\BuildingQueryTownParameterData has an uninitialized readonly property \\$arg\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Town/Basic/Buildings/BuildingQueryTownParameterData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Town\\\\Basic\\\\Buildings\\\\BuildingQueryTownParameterData has an uninitialized readonly property \\$query\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Town/Basic/Buildings/BuildingQueryTownParameterData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Town\\\\Basic\\\\Buildings\\\\BuildingQueryTownRoleEnabledData has an uninitialized readonly property \\$role\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Town/Basic/Buildings/BuildingQueryTownRoleEnabledData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Town\\\\Basic\\\\Well\\\\WellExtractionExecuteData has an uninitialized readonly property \\$check\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Town/Basic/Well/WellExtractionExecuteData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Town\\\\Basic\\\\Well\\\\WellInsertionExecuteData has an uninitialized readonly property \\$check\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Town/Basic/Well/WellInsertionExecuteData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Town\\\\Basic\\\\Well\\\\WellInsertionExecuteData has an uninitialized readonly property \\$original_prototype\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Town/Basic/Well/WellInsertionExecuteData.php
+
+		-
+			message: "#^Class App\\\\Event\\\\Game\\\\Town\\\\Maintenance\\\\TownContentMigrationData has an uninitialized readonly property \\$output\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: src/Event/Game/Town/Maintenance/TownContentMigrationData.php
+
+		-
+			message: "#^Attribute class JetBrains\\\\PhpStorm\\\\ArrayShape does not exist\\.$#"
+			count: 1
+			path: src/EventSubscriber/APIRequestListener.php
+
+		-
+			message: "#^Attribute class JetBrains\\\\PhpStorm\\\\ArrayShape does not exist\\.$#"
+			count: 1
+			path: src/EventSubscriber/AdminLogGeneratorSubscriber.php
+
+		-
+			message: "#^Attribute class JetBrains\\\\PhpStorm\\\\ArrayShape does not exist\\.$#"
+			count: 1
+			path: src/EventSubscriber/AjaxSessionStateSubscriber.php
