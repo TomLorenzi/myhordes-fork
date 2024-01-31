@@ -85,18 +85,21 @@ class AdminHandler
         return $this->kill_citizen($targetCitizenId, CauseOfDeath::LiverEaten);
     }
 
-    private function kill_citizen($targetCitizenId, $causeOfDeath): string {
+    private function kill_citizen(int $targetCitizenId, int $causeOfDeath): string {
         /** @var Citizen $citizen */
         $citizen = $this->entity_manager->getRepository(Citizen::class)->find($targetCitizenId);
-        if ($citizen && $citizen->getAlive()) {
+        if ($citizen !== null && $citizen->getAlive()) {
             $rem = [];
             $this->death_handler->kill( $citizen, $causeOfDeath, $rem );
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
             $this->entity_manager->flush();
-            if ($causeOfDeath == CauseOfDeath::Headshot)
+			$cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => $causeOfDeath]);
+            if ($causeOfDeath === CauseOfDeath::Headshot)
                 $message = $this->translator->trans('{username} wurde standrechtlich erschossen.', ['{username}' => '<span>' . $citizen->getName() . '</span>'], 'game');
             else if ($causeOfDeath === CauseOfDeath::LiverEaten)
                 $message = $this->translator->trans('{username} hat keine Leber mehr.', ['{username}' => '<span>' . $citizen->getName() . '</span>'], 'game');
+			else
+				$message = $this->translator->trans('Verrat! {citizen} ist gestorben: {cod}.', ['{username}' => '<span>' . $citizen->getName() . '</span>', '{cod}' => $this->translator->trans($cod->getLabel(), [], "game")], 'game');
         }
         else {
             $message = $this->translator->trans('Dieser Bürger gehört keiner Stadt an.', [], 'game');

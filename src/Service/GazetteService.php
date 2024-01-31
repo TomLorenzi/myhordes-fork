@@ -741,7 +741,7 @@ class GazetteService
             $node = $this->rand->pick(
                 array_filter(
                     array_diff( $templates, static::$node_block_cache[$cache_key])
-                    , function(CouncilEntryTemplate $template) use (&$variable_stack_copy, $parent, $parents, $siblings, &$flags) {
+                    , function(CouncilEntryTemplate $template) use (&$variable_stack_copy, $parents, $siblings, &$flags) {
 
                         $has_main = false; $main_source = null;
                         $cache = [];
@@ -840,7 +840,7 @@ class GazetteService
         };
 
         $add_to_list = null;
-        $add_to_list = function ( array $templates, ?CouncilEntry $parent = null, array $parents = [], array &$siblings = [], $once = false ) use (&$add_to_list, &$list, &$implement_template, &$citizenData) {
+        $add_to_list = function ( array $templates, ?CouncilEntry $parent = null, array $parents = [], array &$siblings = [], $once = false ) use (&$add_to_list, &$implement_template, &$citizenData) {
 
             if ($parent) $parents[] = $parent;
             $citizenData['_parent'] = ($parent && $parent->getCitizen()) ? [$parent->getCitizen()] : [];

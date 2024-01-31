@@ -27,8 +27,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use function App\Controller\REST\User\mb_strlen;
-use function App\Controller\REST\User\str_contains;
 
 
 #[Route(path: '/rest/v1/user/soul/events', name: 'rest_user_soul_events_', condition: "request.headers.get('Accept') === 'application/json'")]

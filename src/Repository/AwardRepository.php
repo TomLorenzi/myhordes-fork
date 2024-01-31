@@ -20,7 +20,7 @@ use Doctrine\ORM\NonUniqueResultException;
 class AwardRepository extends ServiceEntityRepository {
 
     public function __construct(ManagerRegistry $registry) {
-        Parent::__construct($registry, Award::class);
+        parent::__construct($registry, Award::class);
     }
 
     public function getAwardsByUser(User $user) {

@@ -81,15 +81,7 @@ class JSONv1Controller extends CoreController {
         if ($user) $this->user = $user;
 
         switch ($type) {
-            case 'internalerror':
-                if (empty($data)) {
-                    $data = [
-                        "error"             => "server_error",
-                        "error_description" => "UnknownAction(default)"
-                    ];
-                }
-                break;
-            case 'status':
+			case 'status':
                 $data = [
                     "attack"   => $this->time_keeper->isDuringAttack(),
                     "maintain" => is_file($this->getParameter('kernel.project_dir') . "/public/maintenance/.active")
@@ -124,7 +116,8 @@ class JSONv1Controller extends CoreController {
 
                 $data = $this->getAdminAPI();
                 break;
-            default:
+			case 'internalerror':
+			default:
                 $data = [
                     "error"             => "server_error",
                     "error_description" => "UnknownAction(default)"

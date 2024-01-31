@@ -214,7 +214,7 @@ class LogTemplateHandler
                     $listType = $typeEntry['listType'];
                     $listArray = array_map( function($e) use ($listType) { if(array_key_exists('count', $e)) {return array('item' => $this->fetchVariableObject($listType, $e['id']),'count' => $e['count']);}
                         else { return $this->fetchVariableObject($listType, $e['id']); } }, $variables[$typeEntry['name']] );
-                    if (isset($listArray)) {
+                    if (!empty($listArray)) {
                         $transParams['{'.$typeEntry['name'].'}'] = implode( ', ', array_map( function($e) use ($wrap_fun) { return $wrap_fun( $this->iconize( $e ), 'tool' ); }, $listArray ) );
                     }
                     else
@@ -1106,7 +1106,7 @@ class LogTemplateHandler
             ->setVariables($variables)
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
-            ->setTimestamp( $time ?? new DateTime('now') )
+            ->setTimestamp( new DateTime('now') )
             ->setCitizen( $citizen )
             ->setZone( $citizen->getZone() );
     }
@@ -1120,7 +1120,7 @@ class LogTemplateHandler
             ->setVariables($variables)
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
-            ->setTimestamp( $time ?? new DateTime('now') )
+            ->setTimestamp( new DateTime('now') )
             ->setCitizen( $citizen )
             ->setZone( $citizen->getZone() );
     }

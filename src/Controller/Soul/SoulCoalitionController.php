@@ -29,10 +29,11 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 #[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
 class SoulCoalitionController extends SoulController
 {
-    /**
-     * @param ConfMaster $conf
-     * @return Response
-     */
+	/**
+	 * @param ConfMaster $conf
+	 * @return Response
+	 * @throws Exception
+	 */
     #[Route(path: 'jx/soul/coalitions', name: 'soul_coalitions')]
     public function soul_coalitions(ConfMaster $conf): Response
     {

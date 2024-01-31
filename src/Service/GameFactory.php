@@ -359,7 +359,7 @@ class GameFactory
                 $conf_section = $gender . ($plural ? 'p' : 's');
 
                 $mutator_keys = [];
-                $active_mutator_index = $this->random_generator->pick( array_keys( $mutator_data ?? [] ) );
+                $active_mutator_index = $this->random_generator->pick( array_keys( $mutator_data ) );
                 foreach ($data['sets'] as $index => &$set)
                     if (isset( $mutator_data[$index] ) && $index === $active_mutator_index) {
                         $set = $mutator_data[$index];
@@ -471,7 +471,7 @@ class GameFactory
                 return null;
         }
 
-        return empty($name_sections) ? null : ($as_array ? $name_sections : ucfirst( implode( ' ', $name_sections ) ));
+        return $as_array ? $name_sections : ucfirst( implode( ' ', $name_sections ) );
     }
 
     public function createTownName(string $language, ?string &$schema = null, ?string $mutator = null): string {

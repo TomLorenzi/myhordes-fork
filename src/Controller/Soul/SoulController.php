@@ -129,8 +129,6 @@ class SoulController extends CustomAbstractController
 
         $user = $this->getUser();
 
-        $data = $data ?? [];
-
         $user_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy( [
             'user' => $user,
             'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive]
