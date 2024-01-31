@@ -8,11 +8,11 @@ use Doctrine\ORM\EntityManagerInterface;
 use MyHordes\Fixtures\DTO\Element;
 
 /**
- * @property string icon
+ * @property string $icon
  * @method self icon(string $v)
- * @property string associatedpicto
+ * @property string $associatedpicto
  * @method self associatedpicto(string $v)
- * @property int unlockquantity
+ * @property int $unlockquantity
  * @method self unlockquantity(int $v)
  *
  * @method AwardIconPrototypeDataContainer commit(string &$id = null)

@@ -3,14 +3,13 @@
 namespace MyHordes\Fixtures\DTO\Actions\Atoms;
 
 use App\Service\Actions\Game\AtomProcessors\Require\DummyRequirement;
-use App\Service\Actions\Game\AtomProcessors\Require\ProcessItemRequirement;
 use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 /**
  * @method self requirement(?string $v)
- * @property ?string requirement
+ * @property ?string $requirement
  * @method self args(?array $v)
- * @property ?array args
+ * @property ?array $args
  */
 class CustomClassRequirement extends RequirementsAtom {
     public function getClass(): string

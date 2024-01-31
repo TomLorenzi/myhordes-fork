@@ -419,8 +419,6 @@ class DebugCommand extends LanguageCommand
         }
 
         if ($input->getOption('reapply-twinoid-data')) {
-            /** @var TwinoidImport[] $all_imports */
-
             $limited = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_LIMITED, false);
             $threshold = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1);
             $town_threshold = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1);

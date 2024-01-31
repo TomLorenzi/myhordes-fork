@@ -1,6 +1,31 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Template type T of method MyHordes\\\\Fixtures\\\\DTO\\\\Actions\\\\RequirementsDataContainer\\:\\:findRequirements\\(\\) is not referenced in a parameter\\.$#"
+			count: 1
+			path: packages/myhordes-fixtures/src/templates/DTO/Actions/RequirementsDataContainer.php
+
+		-
+			message: "#^Access to an undefined property MyHordes\\\\Fixtures\\\\DTO\\\\Awards\\\\AwardIconPrototypeDataElement\\:\\:\\$title\\.$#"
+			count: 1
+			path: packages/myhordes-fixtures/src/templates/DTO/Awards/AwardIconPrototypeDataElement.php
+
+		-
+			message: "#^Variable \\$data_before might not be defined\\.$#"
+			count: 2
+			path: packages/myhordes-plugins/src/Interfaces/FixtureChainInterface.php
+
+		-
+			message: "#^Class MyHordes\\\\Prime\\\\Event\\\\Game\\\\Town\\\\Addon\\\\Dump\\\\DumpRetrieveExecuteData has an uninitialized readonly property \\$check\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: packages/myhordes-prime/src/templates/Event/Game/Town/Addon/Dump/DumpRetrieveExecuteData.php
+
+		-
+			message: "#^Class MyHordes\\\\Prime\\\\Event\\\\Game\\\\Town\\\\Addon\\\\Dump\\\\DumpRetrieveExecuteData has an uninitialized readonly property \\$quantity\\. Assign it in the constructor\\.$#"
+			count: 1
+			path: packages/myhordes-prime/src/templates/Event/Game/Town/Addon/Dump/DumpRetrieveExecuteData.php
+
+		-
 			message: "#^Offset mixed on array\\{\\} on left side of \\?\\? does not exist\\.$#"
 			count: 1
 			path: src/Command/Translation/TranslationsStatsCommand.php

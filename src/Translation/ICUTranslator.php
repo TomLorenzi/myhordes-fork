@@ -34,7 +34,7 @@ class ICUTranslator implements TranslatorInterface, TranslatorBagInterface, Loca
         /** @var User $u */
         $u = $this->_security->getUser();
         $pass_trough = [
-            'ref__icu' => $u ? ($u->getUseICU() ? 'on' : 'off') : 'off',
+            'ref__icu' => $u !== null ? ($u->getUseICU() ? 'on' : 'off') : 'off',
             'ref__gender' => 'none'
         ];
 

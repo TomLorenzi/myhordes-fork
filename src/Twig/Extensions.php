@@ -306,8 +306,8 @@ class Extensions extends AbstractExtension implements GlobalsInterface
 
     public function translatedTitle(string|Award|AwardPrototype|User $subject, User $object, ?User $object2 = null): string {
 
-        /** @var $owner User */
-        /** @var $me User */
+        /** @var User $owner*/
+        /** @var User $me */
         [$base, $owner, $me] = match (true) {
             is_string( $subject ) => [$subject, $object, $object2],
             is_a( $subject, Award::class ) => [$subject->getPrototype()?->getTitle(), $object, $object2],

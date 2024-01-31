@@ -9,31 +9,31 @@ use MyHordes\Fixtures\DTO\Element;
 use MyHordes\Fixtures\DTO\LabeledIconElementInterface;
 
 /**
- * @property string label
+ * @property string $label
  * @method self label(string $v)
- * @property string icon
+ * @property string $icon
  * @method self icon(string $v)
- * @property string description
+ * @property string $description
  * @method self description(string $v)
- * @property string category
+ * @property string $category
  * @method self category(string $v)
- * @property int deco
+ * @property int $deco
  * @method self deco(int $v)
- * @property bool heavy
+ * @property bool $heavy
  * @method self heavy(bool $v)
- * @property int watchpoint
+ * @property int $watchpoint
  * @method self watchpoint(int $v)
- * @property bool fragile
+ * @property bool $fragile
  * @method self fragile(bool $v)
- * @property string deco_text
+ * @property string $deco_text
  * @method self deco_text(string $v)
- * @property int sort
+ * @property int $sort
  * @method self sort(int $v)
- * @property bool hideInForeignChest
+ * @property bool $hideInForeignChest
  * @method self hideInForeignChest(bool $v)
- * @property bool unstackable
+ * @property bool $unstackable
  * @method self unstackable(bool $v)
- * @property int watchimpact
+ * @property int $watchimpact
  * @method self watchimpact(int $v)
  *
  * @method ItemPrototypeDataContainer commit()

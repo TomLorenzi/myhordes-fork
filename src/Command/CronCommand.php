@@ -169,7 +169,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
         if ($path === null) $path = "{$this->params->get('kernel.project_dir')}/var/backup";
         if (file_exists($path))
             foreach (new DirectoryIterator($path) as $fileInfo) {
-                /** @var SplFileInfo $fileInfo */
+                /** @var DirectoryIterator $fileInfo */
                 if ($fileInfo->isDot() || $fileInfo->isLink()) continue;
                 elseif ($fileInfo->isFile() && in_array(strtolower($fileInfo->getExtension()), ['sql','xz','gzip','bz2'])) {
                     $segments = explode('_', explode('.',$fileInfo->getFilename())[0]);
@@ -525,7 +525,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
                 case "local":
                     $targetPath = str_replace("~", $this->params->get('kernel.project_dir'), $config['path']);
                     foreach (new DirectoryIterator($targetPath) as $fileInfo) {
-                        /** @var SplFileInfo $fileInfo */
+                        /** @var DirectoryIterator $fileInfo */
                         if ($fileInfo->isDot() || $fileInfo->isLink()) continue;
 
                         if ($fileInfo->isFile() && in_array(strtolower($fileInfo->getExtension()), ['sql', 'xz', 'gzip', 'bz2'])) {

@@ -7,37 +7,37 @@ use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 /**
  * @method self town(?bool $v)
- * @property ?bool town
+ * @property ?bool $town
  * @method self beyond(?bool $v)
- * @property ?bool beyond
+ * @property ?bool $beyond
  * @method self exploring(?bool $v)
- * @property ?bool exploring
+ * @property ?bool $exploring
  * @method self minKm(?int $v)
- * @property ?int minKm
+ * @property ?int $minKm
  * @method self maxKm(?int $v)
- * @property ?int maxKm
+ * @property ?int $maxKm
  * @method self minAp(?int $v)
- * @property ?int minAp
+ * @property ?int $minAp
  * @method self maxAp(?int $v)
- * @property ?int maxAp
+ * @property ?int $maxAp
  * @method self minZombies(?int $v)
- * @property ?int minZombies
+ * @property ?int $minZombies
  * @method self maxZombies(?int $v)
- * @property ?int maxZombies
+ * @property ?int $maxZombies
  * @method self minLevel(?float $v)
- * @property ?float minLevel
+ * @property ?float $minLevel
  * @method self maxLevel(?float $v)
- * @property ?float maxLevel
+ * @property ?float $maxLevel
  * @method self atRuin(?bool $v)
- * @property ?bool atRuin
+ * @property ?bool $atRuin
  * @method self atBuriedRuin(?bool $v)
- * @property ?bool atBuriedRuin
+ * @property ?bool $atBuriedRuin
  * @method self isControlled(?bool $v)
- * @property ?bool isControlled
+ * @property ?bool $isControlled
  * @method self isTempControlled(?bool $v)
- * @property ?bool isTempControlled
+ * @property ?bool $isTempControlled
  * @method self isControlledOrTempControlled(?bool $v)
- * @property ?bool isControlledOrTempControlled
+ * @property ?bool $isControlledOrTempControlled
  */
 class LocationRequirement extends RequirementsAtom {
     public function getClass(): string
