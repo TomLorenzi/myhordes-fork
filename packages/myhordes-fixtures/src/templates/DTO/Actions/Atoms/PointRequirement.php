@@ -8,13 +8,13 @@ use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 /**
  * @method self require(PointType $v)
- * @property PointType require
+ * @property PointType $require
  * @method self min(?int $v)
- * @property ?int min
+ * @property ?int $min
  * @method self max(?int $v)
- * @property ?int max
+ * @property ?int $max
  * @method self fromLimit(?bool $v = true)
- * @property ?bool fromLimit
+ * @property ?bool $fromLimit
  */
 class PointRequirement extends RequirementsAtom {
     public function getClass(): string

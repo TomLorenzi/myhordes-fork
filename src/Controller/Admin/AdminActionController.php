@@ -124,10 +124,10 @@ class AdminActionController extends CustomAbstractController
     #[Route(path: 'api/admin/login', name: 'api_admin_login')]
     public function login_api(TokenStorageInterface $ts): Response
     {
-        /** @var User $user */
+        /** @var ?User $user */
         $user = $this->getUser();
-        if (!$user || !$user->getValidated() || $user->getRightsElevation() < User::USER_LEVEL_CROW) {
-            $ts->setToken();
+        if ($user === null || !$user->getValidated() || $user->getRightsElevation() < User::USER_LEVEL_CROW) {
+            $ts->setToken(null);
             return new AjaxResponse( ['success' => false ] );
         }
 

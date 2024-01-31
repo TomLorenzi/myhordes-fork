@@ -1238,9 +1238,6 @@ class JSONv1Controller extends CoreController {
                             $data[$field] = $gazette['defense'];
                             break;
                         case "content":
-                            /**
-                             * @var GazetteLogEntry $entry
-                             */
                             if(count($this->languages) == 1) {
                                 $data[$field] = $gazette['text'];
                             } else {

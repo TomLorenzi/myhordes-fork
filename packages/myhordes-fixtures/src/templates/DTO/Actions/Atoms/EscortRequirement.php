@@ -7,11 +7,11 @@ use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 /**
  * @method minFollowers(?int $v)
- * @property ?int minFollowers
+ * @property ?int $minFollowers
  * @method maxFollowers(?int $v)
- * @property ?int maxFollowers
+ * @property ?int $maxFollowers
  * @method full(?bool $v)
- * @property ?bool full
+ * @property ?bool $full
  */
 class EscortRequirement extends RequirementsAtom {
     public function getClass(): string

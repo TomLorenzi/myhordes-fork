@@ -8,7 +8,7 @@ use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 /**
  * @method building(string $name, ?bool $enabled)
- * @property string building
+ * @property string $building
  */
 class BuildingRequirement extends RequirementsAtom {
     public function getClass(): string

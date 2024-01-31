@@ -8,6 +8,6 @@ interface ElementInterface extends ArrayDecoratorInterface {
     public function discard(): ContainerInterface;
 
     public function toArray(): array;
-    public function fromArray(array $element): self;
+    public function fromArray(array $data): self;
 
 }

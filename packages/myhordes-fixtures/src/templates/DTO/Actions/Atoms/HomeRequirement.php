@@ -9,11 +9,11 @@ use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 /**
  * @method self minLevel(?int $v)
- * @property ?int minLevel
+ * @property ?int $minLevel
  * @method self maxLevel(?int $v)
- * @property ?int maxLevel
+ * @property ?int $maxLevel
  * @method self upgrade(?string $v)
- * @property ?string upgrade
+ * @property ?string $upgrade
  */
 class HomeRequirement extends RequirementsAtom {
     public function getClass(): string

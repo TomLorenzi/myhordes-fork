@@ -7,17 +7,17 @@ use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 /**
  * @method self item(?string $v)
- * @property ?string item
+ * @property ?string $item
  * @method self property(?string $v)
- * @property ?string property
+ * @property ?string $property
  * @method self count(?int $v)
- * @property ?int count
+ * @property ?int $count
  * @method self poison(?bool $v)
- * @property ?bool poison
+ * @property ?bool $poison
  * @method self broken(?bool $v)
- * @property ?bool broken
+ * @property ?bool $broken
  * @method self store(?string $v)
- * @property ?string store
+ * @property ?string $store
  */
 class ItemRequirement extends RequirementsAtom {
     public function getClass(): string

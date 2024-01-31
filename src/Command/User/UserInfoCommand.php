@@ -20,6 +20,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Asset\Package;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -91,6 +92,7 @@ class UserInfoCommand extends Command
 
             if ($user === null) throw new \Exception('User not found.');
 
+			/** @var QuestionHelper $helper */
             $helper = $this->getHelper('question');
 
             if (null !== ($modlv = $input->getOption('set-mod-level'))) {
@@ -136,8 +138,8 @@ class UserInfoCommand extends Command
                             ->setPersisted(2)
                             ->setTown($town)
                             ->setOld($town !== null && $town->getSeason() === null)
-                            ->setTownEntry(null !== $town ? $town->getRankingEntry() : null)
-                            ->setDisabled(null !== $town && $town->getRankingEntry()->getDisableFlag(TownRankingProxy::DISABLE_PICTOS))
+                            ->setTownEntry($town?->getRankingEntry())
+                            ->setDisabled(null !== $town && $town->getRankingEntry()->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS))
                             ->setUser($user);
                     }
                     $picto->setCount($picto->getCount() + $count);
@@ -179,8 +181,8 @@ class UserInfoCommand extends Command
                         ->setPersisted(2)
                         ->setTown($town)
                         ->setOld($town !== null && $town->getSeason() === null)
-                        ->setTownEntry(null !== $town ? $town->getRankingEntry() : null)
-                        ->setDisabled(null !== $town && $town->getRankingEntry()->getDisableFlag(TownRankingProxy::DISABLE_PICTOS))
+                        ->setTownEntry($town?->getRankingEntry())
+                        ->setDisabled(null !== $town && $town->getRankingEntry()->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS))
                         ->setUser($user);
                     $user->addPicto($picto);
                     $this->entityManager->persist($user);

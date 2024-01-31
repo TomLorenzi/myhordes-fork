@@ -7,11 +7,11 @@ use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 /**
  * @method self min(?int $v)
- * @property ?int minDay
+ * @property ?int $minDay
  * @method self max(?int $v)
- * @property ?int maxDay
+ * @property ?int $maxDay
  * @method self counter(?int $v)
- * @property ?int counter
+ * @property ?int $counter
  */
 class CounterRequirement extends RequirementsAtom {
     public function getClass(): string
