@@ -620,7 +620,7 @@ class InventoryAwareController extends CustomAbstractController
 
         if ($direction === 'down' && $allow_down_all && $item && in_array($item->getPrototype()->getName(), $carrier_items)) {
 
-            $has_other_carriers = !empty(array_filter($citizen->getInventory()->getItems()->getValues(), function(Item $i) use ($carrier_items, $item) {
+            $has_other_carriers = !empty(array_filter($citizen->getInventory()->getItems()->getValues(), function(Item $i) use (/*$carrier_items,*/ $item) {
                 return $i !== $item && in_array($i->getPrototype()->getName(), /*$carrier_items*/[]);   // Fix watcher/belt abuse
             }));
 
@@ -675,7 +675,7 @@ class InventoryAwareController extends CustomAbstractController
 
         $processed = max(0, $item_count - count($errors));
 
-        if (empty($errors) || count($errors) < $item_count || ($item_count === 0 && empty($error))) {
+        if (empty($errors) || count($errors) < $item_count || $item_count === 0) {
             return AjaxResponse::success();
         } else {
             if (!empty($error_messages))

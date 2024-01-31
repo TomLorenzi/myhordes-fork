@@ -274,7 +274,7 @@ class XMLv1Controller extends CoreController {
             }
         }
 
-        return $data ?? [];
+        return $data;
     }
 
     private function arrayToXml($array, $rootElement = null, $xml = null, $node = null): string {
@@ -298,13 +298,10 @@ class XMLv1Controller extends CoreController {
                     $this->arrayToXml($v['list']['items'], $name, $child, $v['list']['name']);
                     unset($v['list']);
                 }
-            }
-            // If there is nested array then
-            if (is_array($v)) {
-                // Call function for nested array
-                if (!empty($v)) {
-                    $this->arrayToXml($v, $name, $child);
-                }
+				// Call function for nested array
+				if (!empty($v)) {
+					$this->arrayToXml($v, $name, $child);
+				}
             } else {
                 // Simply add child element.
                 $_xml->addChild($k, $v);

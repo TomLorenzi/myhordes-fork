@@ -68,7 +68,7 @@ class MessageGlobalPMController extends MessageController
                 ->andWhere( Criteria::expr()->gt('num', 0))
         );
 
-        if (!empty($subscriptions)) {
+        if ($subscriptions->count() > 0) {
             $forums = $this->perm->getForumsWithPermission($user);
             $subscriptions =  $subscriptions->filter(fn(ForumThreadSubscription $s) => !$s->getThread()->getHidden() && in_array($s->getThread()->getForum(), $forums));
         }
@@ -294,7 +294,7 @@ class MessageGlobalPMController extends MessageController
                 ->andWhere( Criteria::expr()->gt('num', 0))
         );
 
-        if (!empty($subscriptions)) {
+		if ($subscriptions->count() > 0) {
             $forums = $this->perm->getForumsWithPermission($this->getUser());
             $subscriptions =  $subscriptions->filter(fn(ForumThreadSubscription $s) => !$s->getThread()->getHidden() && !in_array($s->getThread()->getId(), $skip) && ($query === null || mb_strpos( mb_strtolower($s->getThread()->getTitle()), mb_strtolower( $query ) ) !== false) && in_array($s->getThread()->getForum(), $forums));
         }
@@ -448,7 +448,7 @@ class MessageGlobalPMController extends MessageController
                             ->andWhere( Criteria::expr()->gt('num', 0))
                     );
 
-                    if (!empty($subscriptions)) {
+					if ($subscriptions->count() > 0) {
                         $forums = $this->perm->getForumsWithPermission($user);
                         $subscriptions =  $subscriptions->filter(fn(ForumThreadSubscription $s) => !$s->getThread()->getHidden() && in_array($s->getThread()->getForum(), $forums));
                     }

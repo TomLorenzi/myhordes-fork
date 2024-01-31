@@ -416,7 +416,7 @@ class BeyondController extends InventoryAwareController
                 'camping_blueprint' => $camping_blueprint ?? '',
                 'blueprintFound' => $blueprintFound ?? '',
                 'camping_debug' => $camping_debug ?? '',
-                'zone_tags' => $zone_tags ?? [],
+                'zone_tags' => $zone_tags,
                 'sect' => $sect,
             ];
         }/*, INF*/);
@@ -1348,9 +1348,7 @@ class BeyondController extends InventoryAwareController
                 $messages[] = $this->translator->trans('Dein <strong>Trunkenheitszustand</strong> hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.', [], 'game');
         }
 
-        if (!empty($messages)) {
-            $this->addFlash('notice', implode('<hr />', $messages));
-        }
+        $this->addFlash('notice', implode('<hr />', $messages));
 
         $this->zone_handler->handleCitizenCountUpdate($zone, $old_cp_ok);
 
@@ -1587,8 +1585,7 @@ class BeyondController extends InventoryAwareController
         if (!$this->zone_handler->isZoneUnderControl( $this->getActiveCitizen()->getZone() ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
             $str[] = $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game');
 
-        if(!empty($str))
-            $this->addFlash( 'notice', implode("<hr />", $str) );
+		$this->addFlash( 'notice', implode("<hr />", $str) );
 
         $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_digger_#00']);
         $this->picto_handler->give_picto($citizen, $picto);

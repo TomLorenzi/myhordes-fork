@@ -1859,7 +1859,8 @@ class AdminTownController extends AdminActionController
                 $this->entity_manager->persist($this->crow_service->createPM_moderation( $citizen->getUser(), CrowService::ModerationActionDomainRanking, CrowService::ModerationActionTargetGameName, CrowService::ModerationActionEdit, $town_proxy, $old_name ));
         }
 
-        $this->clearTownCaches($town);
+		if ($town_proxy->getTown() !== null)
+        	$this->clearTownCaches($town_proxy->getTown());
         $this->entity_manager->persist($town_proxy);
         if ($town_proxy->getTown()) $this->entity_manager->persist($town_proxy->getTown());
         $this->entity_manager->flush();

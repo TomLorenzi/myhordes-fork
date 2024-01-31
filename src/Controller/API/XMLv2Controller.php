@@ -318,6 +318,8 @@ class XMLv2Controller extends CoreController {
                 $item_def_factor += (1+$building->getLevel()) * 0.5;
             }
 
+			$map_x = $map_y = null;
+
             $town->getMapSize($map_x,$map_y);
 
             $data['data'] = [

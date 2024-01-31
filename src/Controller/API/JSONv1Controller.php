@@ -41,7 +41,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 #[GateKeeperProfile(allow_during_attack: true, record_user_activity: false)]
 class JSONv1Controller extends CoreController {
     private Request $request;
-    private                          $SURLLobj;
+    private array                    $SURLLobj;
     private array                    $filters         = [];
     private array                    $fields          = [];
     private Town                     $town;

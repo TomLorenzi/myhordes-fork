@@ -113,7 +113,7 @@ class MessageController extends CustomAbstractController
                     $post->setNote("<img alt='' src='{$this->asset->getUrl("build/images/professions/{$citizen->getProfession()->getIcon()}.gif")}' /> <img alt='' src='{$this->asset->getUrl('build/images/icons/item_map.gif')}' /> <span>$note</span>");
                 }
             }
-        } elseif (!empty($polls)) return false;
+        }
 
         return true;
     }
