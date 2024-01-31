@@ -14,3 +14,5 @@ parameters:
         - src
         # if you have tests and want to analyze this folder, uncomment the line below
         # - tests
+    doctrine:
+    	objectManagerLoader: tests/object-manager.php

@@ -73,14 +73,14 @@ use Symfony\Contracts\Cache\TagAwareCacheInterface;
 #[GateKeeperProfile(allow_during_attack: true)]
 class AdminUserController extends AdminActionController
 {
-    /**
-     * @param JSONRequestParser $parser
-     * @param EntityManagerInterface $em
-     * @return Response
-     */
+	/**
+	 * @param JSONRequestParser      $parser
+	 * @param EntityManagerInterface $em
+	 * @return Response
+	 * @throws Exception
+	 */
     #[Route(path: 'jx/admin/users', name: 'admin_users')]
     public function users(JSONRequestParser $parser, EntityManagerInterface $em): Response {
-        $query = (new Criteria());
         $filter = $parser->get_array('filters');
 
         $fun_realize = function() use (&$em,$filter) {
