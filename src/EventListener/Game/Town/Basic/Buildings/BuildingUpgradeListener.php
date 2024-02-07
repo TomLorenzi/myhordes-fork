@@ -92,7 +92,7 @@ final class BuildingUpgradeListener implements ServiceSubscriberInterface
 
     public function onApplyUpgrade( BuildingUpgradeEvent $event ): void {
         if ($event->defenseIncrement !== 0 || $event->defenseMultiplier !== 1.0) {
-            $event->building->setDefenseBonus(($event->defenseMultiplier * $event->building->getDefenseBonus()) + $event->defenseIncrement );
+            $event->building->setDefenseBonus(($event->defenseMultiplier * $event->building->getPrototype()->getDefense()) + $event->defenseIncrement );
             $event->markModified();
         }
 
