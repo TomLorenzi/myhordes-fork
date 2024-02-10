@@ -1153,9 +1153,6 @@ class MessageGlobalPMController extends MessageController
      */
     #[Route(path: 'jx/pm/answer-editor/{id<\d+>}', name: 'pm_post_editor_controller')]
     public function editor_pm_post_api(int $id, EntityManagerInterface $em): Response {
-        if ($this->userHandler->isRestricted($this->getUser(), AccountRestriction::RestrictionGlobalCommunication))
-            return new Response("");
-
         return $this->render( 'ajax/forum/editor.html.twig', [
             'fid' => null,
             'tid' => null,
