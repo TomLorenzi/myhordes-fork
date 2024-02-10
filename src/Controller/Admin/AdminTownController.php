@@ -25,6 +25,7 @@ use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
 use App\Entity\ComplaintReason;
 use App\Entity\CouncilEntry;
+use App\Entity\DigTimer;
 use App\Entity\EventActivationMarker;
 use App\Entity\ExpeditionRoute;
 use App\Entity\HeroicActionPrototype;
@@ -2224,7 +2225,9 @@ class AdminTownController extends AdminActionController
             case '_dig_':
                 if ($control)
                     foreach ($citizens as $citizen) {
-                        $dig = $citizen->getCurrentDigTimer();
+                        $dig = ($citizen->getZone() && !$citizen->getZone()->isTownZone())
+                            ? ($citizen->getCurrentDigTimer() ?? (new DigTimer())->setZone( $citizen->getZone() )->setCitizen( $citizen ))
+                            : null;
                         if ($dig) {
                             $dig->setTimestamp(new \DateTime('now - 24hours'));
                             $this->entity_manager->persist($dig);
