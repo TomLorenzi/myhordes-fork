@@ -19,7 +19,9 @@
     {% set message_show_ava = true %}
     {% if entry.obj|instance_of('App\\Entity\\UserGroupAssociation') %}
         {% if not entry.closed %}
-            {% set endpoint_answer = path('pm_post_editor_controller', {'id': entry.obj.association.id}) %}
+            {% if entry.official is not null or not app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGlobalCommunication')) %}
+                {% set endpoint_answer = path('pm_post_editor_controller', {'id': entry.obj.association.id}) %}
+            {% endif %}
             {% set endpoint_users  = path('pm_conv_group_users', {'id': entry.obj.association.id}) %}
             {% set endpoint_spring = path('api_pm_spring', {'id': entry.obj.association.id, 'domain': 'g'}) %}
         {% endif %}
