@@ -783,7 +783,7 @@ class NightlyHandler
             $woundOrTerrorChances = $chances['wound'] + $chances['terror'];
             $ctz = $watcher->getCitizen();
 
-            $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> chances are <info>{$deathChances}</info> for death and <info>{$woundOrTerrorChances}</info> for wound or terror.");
+            $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> chances are <info>{$deathChances}</info> for death, <info>{$chances['wound']}</info> for wound and <info>{$chances['terror']}</info> for terror.");
 
             if ($this->random->chance($deathChances)) {
                 $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> is now <info>dead</info> because of the watch");
