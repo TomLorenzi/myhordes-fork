@@ -1169,20 +1169,18 @@ class NightlyHandler
 
             if ($citizen->getStatus()->contains($status_survive))
                 $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> is <info>protected</info> by <info>{$status_survive->getLabel()}</info>.");
-            else
-            {
-                if (!$citizen->getStatus()->contains($status_hasdrunk)) {
-                    $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has <info>not</info> drunk today. <info>Increasing</info> thirst level.");
-                    $this->citizen_handler->increaseThirstLevel( $citizen );
-                }
-                if (!$citizen->getStatus()->contains($status_infection) && $this->citizen_handler->isWounded( $citizen ) && !in_array( $citizen->getId(), $this->skip_infection )) {
-                    $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> is <info>wounded</info>. Adding an <info>infection</info>.");
-                    $this->citizen_handler->inflictStatus($citizen, $status_wound_infection);
-                }
-                if (!$citizen->getStatus()->contains($status_infection) && $citizen->getStatus()->contains($status_ooze)) {
-                    $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has consumed the <info>ooze</info>. Adding an <info>infection</info>.");
-                    $this->citizen_handler->inflictStatus($citizen, $status_wound_infection);
-                }
+            elseif (!$citizen->getStatus()->contains($status_hasdrunk)) {
+                $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has <info>not</info> drunk today. <info>Increasing</info> thirst level.");
+                $this->citizen_handler->increaseThirstLevel( $citizen );
+            }
+
+            if (!$citizen->getStatus()->contains($status_infection) && $this->citizen_handler->isWounded( $citizen ) && !in_array( $citizen->getId(), $this->skip_infection )) {
+                $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> is <info>wounded</info>. Adding an <info>infection</info>.");
+                $this->citizen_handler->inflictStatus($citizen, $status_wound_infection);
+            }
+            if (!$citizen->getStatus()->contains($status_infection) && $citizen->getStatus()->contains($status_ooze)) {
+                $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has consumed the <info>ooze</info>. Adding an <info>infection</info>.");
+                $this->citizen_handler->inflictStatus($citizen, $status_wound_infection);
             }
 
             if (!$citizen->getStatus()->contains($status_paranoid) && $citizen->getStatus()->contains($status_ooze)) {
