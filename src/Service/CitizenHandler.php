@@ -774,15 +774,7 @@ class CitizenHandler
     }
 
     public function getNightWatchDefense(Citizen $citizen): int {
-        $def = 10 + $this->getNightwatchProfessionDefenseBonus($citizen);
-
-        foreach ($citizen->getStatus() as $status)
-            $def += $status->getNightWatchDefenseBonus();
-
-        foreach ($citizen->getInventory()->getItems() as $item)
-            $def += $this->events->buildingQueryNightwatchDefenseBonus( $citizen->getTown(), $item );
-
-        return $def;
+        return $this->events->citizenQueryNightwatchInfo( $citizen )['def'] ?? 0;
     }
 
     /**
