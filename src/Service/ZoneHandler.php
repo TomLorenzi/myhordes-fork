@@ -350,7 +350,7 @@ class ZoneHandler
         }
 
         if ($zone_update) $this->entity_manager->persist($zone);
-        foreach ($all_dig_timers as $timer) $this->entity_manager->persist( $timer->setNonAutomatic(false) );
+        foreach ($active_dig_timers as $timer) $this->entity_manager->persist( $timer->setNonAutomatic(false) );
 
         if ($chances_by_player > 0) {
             if (empty($found_by_player)){
