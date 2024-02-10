@@ -24,6 +24,7 @@ use App\Entity\TwinoidImport;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
+use App\Entity\UserSwapPivot;
 use App\Enum\DomainBlacklistType;
 use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Structures\MyHordesConf;
@@ -787,5 +788,21 @@ class UserHandler
         $this->entity_manager->flush();
 
         return true;
+    }
+
+    /**
+     * @param User $user
+     * @param bool $asPrincipal
+     * @param bool $asSecondary
+     * @return User[]
+     */
+    public function getAllPivotUserRelationsFor(User $user, bool $asPrincipal = true, bool $asSecondary = true): array {
+        $users = [];
+        if ($asPrincipal)
+            $users = array_merge($users, array_map(fn(UserSwapPivot $p) => $p->getSecondary(), $this->entity_manager->getRepository(UserSwapPivot::class)->findBy(['principal' => $user])));
+        if ($asSecondary)
+            $users = array_merge($users, array_map(fn(UserSwapPivot $p) => $p->getPrincipal(), $this->entity_manager->getRepository(UserSwapPivot::class)->findBy(['secondary' => $user])));
+
+        return $users;
     }
 }
