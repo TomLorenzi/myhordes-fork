@@ -17,6 +17,7 @@ use App\Entity\SocialRelation;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
+use App\Entity\UserSwapPivot;
 use App\Response\AjaxResponse;
 use App\Service\CrowService;
 use App\Service\ErrorHelper;
@@ -668,9 +669,17 @@ class MessageGlobalPMController extends MessageController
 
         $last = $group_association->getRef2();
 
+        $update_assocs = [$group_association];
+        foreach ($this->userHandler->getAllPivotUserRelationsFor( $this->getUser() ) as $pivotUser)
+            $update_assocs[] = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $pivotUser, 'associationType' => [
+                UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive, UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember
+            ], 'association' => $group]);
+        $update_assocs = array_filter( $update_assocs, fn($a) => $a !== null );
+
         try {
             $s->remove('cache_ping');
-            $this->entity_manager->persist( $group_association->setRef1( $read_only ? $group_association->getRef3() : $group->getRef1() )->setRef2( $messages[0]->getId() ) );
+            foreach ( $update_assocs as $assoc )
+                $this->entity_manager->persist( $assoc->setRef1( $read_only ? $assoc->getRef3() : $group->getRef1() )->setRef2( $messages[0]->getId() ) );
             $this->entity_manager->flush();
         } catch (\Exception $e) {}
 
