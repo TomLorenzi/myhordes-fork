@@ -57,35 +57,29 @@ use Zenstruck\ScheduleBundle\Schedule\Task\CommandTask;
 )]
 class CronCommand extends Command implements SelfSchedulingCommand
 {
-    private KernelInterface $kernel;
     private EntityManagerInterface $entityManager;
     private Locksmith $locksmith;
     private MyHordesConf $conf;
-    private ConfMaster $conf_master;
     private AntiCheatService $anti_cheat;
     private UserHandler $userHandler;
     private CrowService $crowService;
     private CommandHelper $helper;
     private ParameterBagInterface $params;
-    private Environment $twig;
     private AdminHandler $adminHandler;
     private UserStatCollectionService $userStats;
 
     private array $db;
     private TagAwareCacheInterface $cache;
 
-    public function __construct(array $db, KernelInterface $kernel, Environment $twig,
+    public function __construct(array $db,
                                 EntityManagerInterface $em, Locksmith $ls,
                                 ConfMaster $conf, AntiCheatService $acs, UserHandler $uh,
                                 CrowService $cs, CommandHelper $helper, ParameterBagInterface $params,
                                 AdminHandler $adminHandler, UserStatCollectionService $us,
                                 TagAwareCacheInterface $gameCachePool)
     {
-        $this->kernel = $kernel;
-        $this->twig = $twig;
         $this->entityManager = $em;
         $this->locksmith = $ls;
-        $this->conf_master = $conf;
         $this->conf = $conf->getGlobalConf();
         $this->anti_cheat = $acs;
         $this->userHandler = $uh;
@@ -297,80 +291,6 @@ class CronCommand extends Command implements SelfSchedulingCommand
         return true;
     }
 
-    protected function module_event_notifications(): bool {
-        $now = new DateTime('now');
-        $span_end =  (new DateTime('now'))->modify('+8days');
-        $schedule = array_filter($this->conf_master->getAllScheduledEvents(
-            $now,
-            (new DateTime('now'))->modify('+1min')
-        ), function($s) use ($now, $span_end) {
-            [, $date, $beginning] = $s;
-            return $beginning && $date > $now && $date < $span_end;
-        });
-
-        if (empty($schedule)) return false;
-        $the_crow = $this->entityManager->getRepository(User::class)->find(66);
-
-        if (!$the_crow) return false;
-
-        foreach ($schedule as $entry) {
-
-            $marker = $this->entityManager->getRepository( EventAnnouncementMarker::class )->findOneBy(['name' => $entry[0], 'identifier' => $entry[1]->getTimestamp()]);
-            if ($marker || !file_exists( "{$this->kernel->getProjectDir()}/templates/event/{$entry[0]}" )) continue;
-
-            /**
-             * @var DateTime $begin
-             * @var DateTime $end
-             */
-            if ($this->conf_master->getEventScheduleByName( $entry[0], $now, $begin, $end )) continue;
-            if ($begin === null || $end === null) continue;
-
-
-
-            $lang_fallback_path = ['en','fr','de','es'];
-            $lang_mapping = [];
-            $langs = array_map(function($item) {return $item['code'];}, array_filter($this->conf->get(MyHordesConf::CONF_LANGS), function($item) {
-                return $item['generate'];
-            }));
-            foreach ($langs as $lang)
-                if (file_exists( "{$this->kernel->getProjectDir()}/templates/event/{$entry[0]}/$lang.html.twig" ))
-                    $lang_mapping[$lang] = $lang;
-                else foreach ($lang_fallback_path as $fallback)
-                    if (file_exists( "{$this->kernel->getProjectDir()}/templates/event/{$entry[0]}/$fallback.html.twig" )) {
-                        $lang_mapping[$lang] = $fallback;
-                        break;
-                    }
-
-            $vars = [
-                'year' => $begin->format('Y'),
-                'date_begin' => $begin,
-                'date_end' => $end
-            ];
-
-            foreach ( $lang_mapping as $lang => $mapping ) try {
-                $template = $this->twig->load( "event/{$entry[0]}/$mapping.html.twig" );
-                $announcement = (new Announcement())
-                    ->setTitle( strip_tags( $template->renderBlock('title', $vars) ) )
-                    ->setText( $template->renderBlock('content', $vars) )
-                    ->setTimestamp( new DateTime() )
-                    ->setLang( $lang )
-                    ->setSender( $the_crow )
-                    ->setValidated(true);
-
-                $this->entityManager->persist($announcement);
-
-            } catch(\Throwable $t) {echo $t->getMessage();}
-
-            $this->entityManager->persist( (new EventAnnouncementMarker())
-                ->setName( $entry[0] )
-                ->setIdentifier( $entry[1]->getTimestamp() )
-            );
-        }
-
-        $this->entityManager->flush();
-        return true;
-    }
-
     protected function task_host(InputInterface $input, OutputInterface $output): int {
         // Host task
         $output->writeln( "MyHordes CronJob Interface", OutputInterface::VERBOSITY_VERBOSE );
@@ -386,10 +306,6 @@ class CronCommand extends Command implements SelfSchedulingCommand
 
         $clear_ran = $this->module_run_clear();
         $output->writeln( "Cleanup Crew: <info>" . ($clear_ran ? 'Complete' : 'Not scheduled') . "</info>", OutputInterface::VERBOSITY_VERBOSE );
-
-        $event_notifier_ran = $this->module_event_notifications();
-        $output->writeln( "Event notifications: <info>" . ($event_notifier_ran ? 'Complete' : 'Not scheduled') . "</info>", OutputInterface::VERBOSITY_VERBOSE );
-
 
         return 0;
     }

@@ -35,6 +35,9 @@ class AutomaticEventForecast
     #[ORM\Column(length: 196)]
     private ?string $identifier = null;
 
+    #[ORM\Column]
+    private bool $announced = false;
+
     public function getId(): ?Uuid
     {
         return $this->id;
@@ -84,6 +87,18 @@ class AutomaticEventForecast
     public function setIdentifier(string $identifier): static
     {
         $this->identifier = $identifier;
+
+        return $this;
+    }
+
+    public function isAnnounced(): bool
+    {
+        return $this->announced;
+    }
+
+    public function setAnnounced(bool $announced): static
+    {
+        $this->announced = $announced;
 
         return $this;
     }
