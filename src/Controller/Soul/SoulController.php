@@ -8,6 +8,7 @@ use App\Entity\AccountRestriction;
 use App\Entity\AdminReport;
 use App\Entity\Announcement;
 use App\Entity\AntiSpamDomains;
+use App\Entity\AutomaticEventForecast;
 use App\Entity\Award;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
@@ -62,6 +63,7 @@ use App\Service\InventoryHandler;
 use App\Service\TimeKeeperService;
 use App\Structures\MyHordesConf;
 use DateTime;
+use DateTimeImmutable;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -524,24 +526,19 @@ class SoulController extends CustomAbstractController
     #[Route(path: 'jx/soul/events', name: 'soul_events')]
     public function soul_events(): Response
     {
-        $now = new DateTime();
+        $now = new DateTimeImmutable();
+        $cutoff = new DateTimeImmutable('today+400days');
 
-        $schedule =
-            array_filter(
-                array_map( function(string $name) use (&$now) {
-                    $enabled = $this->conf->getEventScheduleByName( $name, $now, $begin, $end, true );
-                    return [ $name, $begin, $end, $enabled ];
-                }, $this->conf->getAllEventNames() ),
-            function( array $event ) use (&$now) {
-                return $this->conf->eventIsPublic( $event[0] ) && ( $event[3] || $event[1] > $now || $event[2] > $now );
-            }
-        );
-
-        usort( $schedule, fn(array $a, array $b) => $a[1] <=> $b[1] );
+        $all_events = $this->entity_manager->getRepository(AutomaticEventForecast::class)->matching(
+            (new Criteria())
+                ->where( Criteria::expr()->gte( 'end', $now ) )
+                ->andWhere( Criteria::expr()->lt( 'start', $cutoff ) )
+                ->orderBy(['start' => Criteria::ASC])
+        )->filter(fn(AutomaticEventForecast $f) => $this->conf->eventIsPublic( $f->getEvent() ));
 
         return $this->render( 'ajax/soul/events.html.twig', $this->addDefaultTwigArgs("soul_future", [
-            'active_events' => array_filter( $schedule, fn($event) =>  $event[3] ),
-            'future_events' => array_filter( $schedule, fn($event) => !$event[3] ),
+            'active_events' => $all_events->filter( fn(AutomaticEventForecast $f) => $f->getStart() <= $now ),
+            'future_events' => $all_events->filter( fn(AutomaticEventForecast $f) => $f->getStart() > $now ),
         ]) );
     }
 

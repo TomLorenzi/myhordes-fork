@@ -3,6 +3,7 @@
 
 namespace App\Service;
 
+use App\Entity\AutomaticEventForecast;
 use App\Entity\Citizen;
 use App\Entity\EventActivationMarker;
 use App\Entity\ServerSettings;
@@ -16,6 +17,7 @@ use App\Structures\TownConf;
 use DateInterval;
 use DateTime;
 use DateTimeImmutable;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use MyHordes\Plugins\Management\ConfigurationStorage;
 
@@ -59,11 +61,6 @@ class ConfMaster
         return $this->event_cache[$name] ?? ($this->event_cache[$name] = $this->storage->hasSegment("events.$name")
             ? (new EventConf( $name, $this->storage->getSegment("events.$name.conf", []) ))->complete()
             : (new EventConf())->complete());
-    }
-
-    public function getEventScheduleByName(string $name, DateTime $curDate, ?DateTime &$begin = null, ?DateTime &$end = null, bool $lookAhead = false): bool {
-        if (!$this->storage->hasSegment("events.$name") || !$this->storage->hasSegment("events.$name.trigger")) return false;
-        return $this->getEventSchedule( $this->storage->getSegment("events.$name.trigger", []), $curDate, $begin, $end, $lookAhead );
     }
 
     public function eventIsPublic(string $name): bool {
@@ -170,21 +167,18 @@ class ConfMaster
             return $conf;
         }
 
-        if ($this->event_conf !== null) return $this->event_conf;
+        if ($this->event_conf !== null && $query_date === null) return $this->event_conf;
 
         $curDate = $query_date ?? new DateTime();
+        $conf = array_map( fn(AutomaticEventForecast $a) => $this->getEvent($a->getEvent()), $this->entityManager->getRepository( AutomaticEventForecast::class )->matching((new Criteria())
+            ->andWhere(Criteria::expr()->lte('start', DateTimeImmutable::createFromMutable( $curDate )))
+            ->andWhere(Criteria::expr()->gte('end', DateTimeImmutable::createFromMutable( $curDate )))
+        )->toArray() );
 
-        $conf = [];
-        foreach($this->storage->getSegment( 'events', [] ) as $id => $config) {
+        $conf = (empty($conf) ? [(new EventConf())->complete()] : $conf);
+        if ($query_date === null) $this->event_conf = $conf;
 
-            if (empty($config['trigger'])) continue;
-
-            if ($this->getEventSchedule($config['trigger'], $curDate))
-                $conf[] = $this->getEvent($id);
-
-        }
-
-        return $this->event_conf = (empty($conf) ? [(new EventConf())->complete()] : $conf);
+        return $conf;
     }
 
     /**
@@ -212,41 +206,6 @@ class ConfMaster
         return empty($must_enable) && empty($must_disable);
     }
 
-    public function getAllScheduledEvents(DateTime $from, DateTime $to, string $interval = '1D'): array {
-
-        $cache = [[],[]];
-
-        while ($from < $to) {
-
-            foreach($this->storage->getSegment( 'events', [] ) as $id => $conf) {
-                if (empty($conf['trigger'])) continue;
-
-                $this->getEventSchedule($conf['trigger'], $from, $begin, $end);
-
-                if ($begin !== null && $end !== null) {
-
-                    if (!isset($cache[0][$id])) {
-                        $cache[0][$id] = [$begin];
-                        $cache[1][$id] = [$end];
-                    } elseif (($begin <> end( $cache[0][$id] ) || $end <> end( $cache[1][$id] )) && $begin < $to) {
-                        $cache[0][$id][] = $begin;
-                        $cache[1][$id][] = $end;
-                    }
-
-                }
-
-                $from->add(new DateInterval("P{$interval}"));
-            }
-
-        }
-
-        $result = [];
-        foreach ($cache[0] as $id => $dates) foreach ($dates as $date) $result[] = [ $id, $date, true ];
-        foreach ($cache[1] as $id => $dates) foreach ($dates as $date) $result[] = [ $id, $date, false ];
-
-        usort($result, fn(array $a, array $b) => $a[1] <=> $b[1] ?: $a[2] <=> $b[2] ?: strcmp($a[0],$b[0]) );
-        return $result;
-    }
 
     protected function fetchServerSetting(ServerSetting $setting): mixed {
         $data = $this->entityManager->getRepository(ServerSettings::class)->findOneBy(['setting' => $setting->value])?->getData();

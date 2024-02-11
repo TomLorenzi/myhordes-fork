@@ -62,16 +62,16 @@
                 </div>
             {% endif %}
             {% for event in future_events %}
-                <div class="note note-event-{{ event[0] }}">
-                    <b>{{ ('event_' ~ event[0] ~ '_title')|trans({year: event[1]|date("Y")}, 'events') }}</b><br />
+                <div class="note note-event-{{ event.event }}">
+                    <b>{{ ('event_' ~ event.event ~ '_title')|trans({year: event.start|date("Y")}, 'events') }}</b><br />
                     <span class="small">
-                        {{ ('event_' ~ event[0] ~ '_description')|trans({}, 'events') }}
+                        {{ ('event_' ~ event.event ~ '_description')|trans({}, 'events') }}
                     </span><br />
                     <b class="small">
-                        {{ 'Beginnt in {days} Tagen, am {date}'|trans({days: ('today'|to_date).diff(event[1]).days, date: event[1]|format_datetime('long', 'long')}, 'soul') }}
+                        {{ 'Beginnt in {days} Tagen, am {date}'|trans({days: ('today'|to_date).diff(event.start).days, date: event.start|format_datetime('long', 'long')}, 'soul') }}
                     </b><br />
                     <b class="small">
-                        {{ 'Endet nach {days} Tagen, am {date}'|trans({days: event[1].diff(event[2]).days, date: event[2]|date_modify("-1sec")|format_datetime('long', 'long')}, 'soul') }}
+                        {{ 'Endet nach {days} Tagen, am {date}'|trans({days: event.start.diff(event.end).days, date: event.end|date_modify("-1sec")|format_datetime('long', 'long')}, 'soul') }}
                     </b>
                 </div>
             {% endfor %}
