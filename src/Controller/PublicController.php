@@ -705,6 +705,8 @@ class PublicController extends CustomAbstractController
                                                             ->setIdentifier( md5($request->getClientIp()) )
                         );
 
+                        if ($override_name !== null) $new_user->setNoAutomaticNameManagement(true);
+
                         if ($campaign = $session->get('campaign')) {
                             $campaign_obj = $this->entity_manager->getRepository(MarketingCampaign::class)->find($campaign);
                             if ($campaign_obj)
@@ -751,14 +753,14 @@ class PublicController extends CustomAbstractController
                 return AjaxResponse::error( SoulController::ErrorETwinImportProfileInUse );
 
             $myhordes_user->setEternalID( $etwin_user->getID() );
-            if (!$myhordes_user->getNoAutomaticNameManagement() && $etwin_user->getDisplayName() !== $myhordes_user->getUsername() && $userHandler->isNameValid( $etwin_user->getDisplayName() )) {
+            $new_display_name = preg_replace('/[^\w]/', '', trim($etwin_user->getDisplayName()));
+            if (!$myhordes_user->getNoAutomaticNameManagement() && $new_display_name !== $myhordes_user->getName() && $userHandler->isNameValid( $new_display_name )) {
                 $history = $myhordes_user->getNameHistory() ?? [];
                 if(!in_array($myhordes_user->getName(), $history))
                     $history[] = $myhordes_user->getName();
                 $myhordes_user->setNameHistory(array_filter(array_unique($history)));
-                $myhordes_user->setDisplayName( $etwin_user->getDisplayName() );
+                $myhordes_user->setDisplayName( $new_display_name );
             }
-
 
             $this->entity_manager->persist($myhordes_user);
             try {
