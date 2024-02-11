@@ -40,16 +40,6 @@ class ForecastCommand extends Command
         parent::__construct();
     }
 
-    protected function configure(): void
-    {
-        $this
-            ->addOption('create-towns', null, InputOption::VALUE_NONE, 'Creates towns for community events that start in 48 hours or less.')
-            ->addOption('urgent-create-towns', null, InputOption::VALUE_NONE, 'Creates towns for community events that are marked as "urgently".')
-            ->addOption('auto-end', null, InputOption::VALUE_NONE, 'Disables events that have ended (+50 days old or no living towns left)')
-        ;
-        parent::configure();
-    }
-
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $start = (new DateTimeImmutable())->modify('today-64days');
