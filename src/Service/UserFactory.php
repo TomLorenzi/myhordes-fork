@@ -262,8 +262,8 @@ class UserFactory
         $i = 0;
         $user_mail = $mail ?? "{$etwin_user->getID()}@user.eternal-twin.net";
 
-        $etwin_name = preg_replace('/[^\w]/', '', trim($etwin_user->getDisplayName()));
-        if ($this->userHandler->isNameValid( $etwin_name ))
+        $etwin_name = $override_name ?? preg_replace('/[^\w]/', '', trim($etwin_user->getDisplayName()));
+        if ($override_name !== null || $this->userHandler->isNameValid( $etwin_name ))
             $display_name = substr($etwin_name,0,32);
         else
             $display_name = $override_name ?? ('u' . time());
