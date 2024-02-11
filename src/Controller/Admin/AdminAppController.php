@@ -13,6 +13,7 @@ use App\Service\Media\ImageService;
 use App\Service\RandomGenerator;
 use App\Structures\MyHordesConf;
 use App\Translation\T;
+use Exception;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -79,7 +80,7 @@ class AdminAppController extends AdminActionController
         $this->entity_manager->persist($app);
         try {
             $this->entity_manager->flush();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
 
@@ -88,12 +89,13 @@ class AdminAppController extends AdminActionController
         return AjaxResponse::success();
     }
 
-    /**
-     * @param int $id
-     * @param JSONRequestParser $parser
-     * @param RandomGenerator $rand
-     * @return Response
-     */
+	/**
+	 * @param int               $id
+	 * @param JSONRequestParser $parser
+	 * @param RandomGenerator   $rand
+	 * @return Response
+	 * @throws Exception
+	 */
     #[Route(path: 'api/admin/apps/register/{id<-?\d+>}', name: 'admin_update_ext_app')]
     #[AdminLogProfile(enabled: true)]
     public function ext_app_update(int $id, JSONRequestParser $parser, RandomGenerator $rand): Response
@@ -150,7 +152,7 @@ class AdminAppController extends AdminActionController
         $this->entity_manager->persist($app);
         try {
             $this->entity_manager->flush();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
 

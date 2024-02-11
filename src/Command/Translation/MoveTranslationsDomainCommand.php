@@ -10,6 +10,7 @@ use App\Structures\MyHordesConf;
 use Exception;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -118,7 +119,9 @@ class MoveTranslationsDomainCommand extends Command
         }
 
         $output->writeln('Found <info>' . count($move_keys) . '</info> translation entries to move.');
-        if (!$this->getHelper('question')->ask($input, $output, new ConfirmationQuestion('Continue? (y/n) ', false)))
+		/** @var QuestionHelper $helper */
+		$helper = $this->getHelper('question');
+        if (!$helper->ask($input, $output, new ConfirmationQuestion('Continue? (y/n) ', false)))
             return 0;
 
         $langs = array_map(function($item) {return $item['code'];}, array_filter($this->confMaster->getGlobalConf()->get(MyHordesConf::CONF_LANGS), function($item) {

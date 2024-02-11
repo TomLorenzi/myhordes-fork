@@ -13,36 +13,36 @@ use MyHordes\Fixtures\DTO\Element;
 use MyHordes\Fixtures\DTO\LabeledIconElementInterface;
 
 /**
- * @property string label
+ * @property string $label
  * @method self label(string $v)
- * @property string icon
+ * @property string $icon
  * @method self icon(string $v)
- * @property ?string parentBuilding
+ * @property ?string $parentBuilding
  * @method self parentBuilding(string $v)
- * @property string description
+ * @property string $description
  * @method self description(string $v)
- * @property bool isTemporary
+ * @property bool $isTemporary
  * @method self isTemporary(bool $v)
- * @property bool isImpervious
+ * @property bool $isImpervious
  * @method self isImpervious(bool $v)
- * @property int orderBy
+ * @property int $orderBy
  * @method self orderBy(int $v)
- * @property int defense
+ * @property int $defense
  * @method self defense(int $v)
- * @property int health
+ * @property int $health
  * @method self health(int $v)
- * @property int ap
+ * @property int $ap
  * @method self ap(int $v)
- * @property int blueprintLevel
+ * @property int $blueprintLevel
  * @method self blueprintLevel(int $v)
- * @property array resources
+ * @property array $resources
  * @method self resources(array $v)
  * @method self resource(string $key, int $value)
- * @property int voteLevel
+ * @property int $voteLevel
  * @method self voteLevel(int $v)
- * @property string baseVoteText
+ * @property string $baseVoteText
  * @method self baseVoteText(string $v)
- * @property string[] upgradeTexts
+ * @property string[] $upgradeTexts
  * @method self upgradeTexts(array $v)
  *
  * @method BuildingPrototypeDataContainer commit(string &$id = null)

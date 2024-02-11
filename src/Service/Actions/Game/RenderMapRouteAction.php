@@ -14,10 +14,10 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Asset\Packages;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-class RenderMapRouteAction
+readonly class RenderMapRouteAction
 {
     public function __construct(
-        private readonly EntityManagerInterface $em,
+        private EntityManagerInterface $em,
     ) { }
 
     /**

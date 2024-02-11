@@ -7,9 +7,9 @@ use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 /**
  * @method self minDay(?int $v)
- * @property ?int minDay
+ * @property ?int $minDay
  * @method self maxDay(?int $v)
- * @property ?int maxDay
+ * @property ?int $maxDay
  * @method self atNight()
  * @method self atDay()
  * @method self atAnyTime()

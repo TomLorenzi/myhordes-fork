@@ -17,6 +17,7 @@ use App\Entity\Town;
 use App\Entity\User;
 use App\Enum\Configuration\TownSetting;
 use App\Enum\StatisticType;
+use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\AdminHandler;
 use App\Service\AntiCheatService;
 use App\Service\CommandHelper;
@@ -69,14 +70,14 @@ class CronCommand extends Command implements SelfSchedulingCommand
     private UserStatCollectionService $userStats;
 
     private array $db;
-    private TagAwareCacheInterface $cache;
+    private InvalidateTagsInAllPoolsAction $clearCache;
 
     public function __construct(array $db,
                                 EntityManagerInterface $em, Locksmith $ls,
                                 ConfMaster $conf, AntiCheatService $acs, UserHandler $uh,
                                 CrowService $cs, CommandHelper $helper, ParameterBagInterface $params,
                                 AdminHandler $adminHandler, UserStatCollectionService $us,
-                                TagAwareCacheInterface $gameCachePool)
+                                InvalidateTagsInAllPoolsAction $clearCache)
     {
         $this->entityManager = $em;
         $this->locksmith = $ls;
@@ -88,7 +89,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
         $this->params = $params;
         $this->adminHandler = $adminHandler;
         $this->userStats = $us;
-        $this->cache = $gameCachePool;
+        $this->clearCache = $clearCache;
 
         $this->db = $db;
         parent::__construct();
@@ -162,7 +163,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
         if ($path === null) $path = "{$this->params->get('kernel.project_dir')}/var/backup";
         if (file_exists($path))
             foreach (new DirectoryIterator($path) as $fileInfo) {
-                /** @var SplFileInfo $fileInfo */
+                /** @var DirectoryIterator $fileInfo */
                 if ($fileInfo->isDot() || $fileInfo->isLink()) continue;
                 elseif ($fileInfo->isFile() && in_array(strtolower($fileInfo->getExtension()), ['sql','xz','gzip','bz2'])) {
                     $segments = explode('_', explode('.',$fileInfo->getFilename())[0]);
@@ -257,7 +258,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
 
             $this->updateHeaderStats();
             try {
-                $this->cache->invalidateTags(['daily']);
+                ($this->clearCache)('daily');
             } catch (\Throwable $e) {}
 
 
@@ -440,7 +441,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
                 case "local":
                     $targetPath = str_replace("~", $this->params->get('kernel.project_dir'), $config['path']);
                     foreach (new DirectoryIterator($targetPath) as $fileInfo) {
-                        /** @var SplFileInfo $fileInfo */
+                        /** @var DirectoryIterator $fileInfo */
                         if ($fileInfo->isDot() || $fileInfo->isLink()) continue;
 
                         if ($fileInfo->isFile() && in_array(strtolower($fileInfo->getExtension()), ['sql', 'xz', 'gzip', 'bz2'])) {

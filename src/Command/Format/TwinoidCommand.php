@@ -24,13 +24,11 @@ use Symfony\Component\HttpKernel\KernelInterface;
 )]
 class TwinoidCommand extends Command
 {
-    private KernelInterface $kernel;
     private EntityManagerInterface $entityManager;
     private CommandHelper $commandHelper;
 
-    public function __construct(KernelInterface $kernel, EntityManagerInterface $em, CommandHelper $commandHelper)
+    public function __construct(EntityManagerInterface $em, CommandHelper $commandHelper)
     {
-        $this->kernel = $kernel;
         $this->entityManager = $em;
         $this->commandHelper = $commandHelper;
 
@@ -145,7 +143,7 @@ class TwinoidCommand extends Command
                 $icon = str_replace('.gif','',$elems[array_key_last($elems)]);
                 if (!in_array($elems[array_key_last($elems)], $have)) {
                     $have[] = $elems[array_key_last($elems)];
-                    $flat[sprintf("{06u_}06u_%s", $picto_id, $count, $icon)] =
+                    $flat[sprintf("{06u_}06u_%s", $picto_id)] =
                         "['icon'=>'$icon', 'unlockquantity'=>$count, 'associatedpicto'=>'{$picto->getName()}'],";
                 }
             }

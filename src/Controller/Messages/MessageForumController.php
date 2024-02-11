@@ -25,6 +25,7 @@ use App\Entity\Town;
 use App\Entity\User;
 use App\Enum\UserSetting;
 use App\Response\AjaxResponse;
+use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\CitizenHandler;
 use App\Service\CrowService;
 use App\Service\ErrorHelper;
@@ -39,6 +40,7 @@ use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\QueryBuilder;
 use Exception;
+use Psr\Cache\InvalidArgumentException;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -47,6 +49,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Uid\Uuid;
+use Symfony\Contracts\Cache\ItemInterface;
+use Symfony\Contracts\Cache\TagAwareCacheInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -226,9 +230,10 @@ class MessageForumController extends MessageController
 
     /**
      * @return Response
+     * @throws InvalidArgumentException
      */
     #[Route(path: 'jx/forum', name: 'forum_list')]
-    public function forums(): Response
+    public function forums(TagAwareCacheInterface $gameCachePool): Response
     {
         /** @var Forum[] $forums */
         $forums = array_filter($this->perm->getForumsWithPermission($this->getUser()), fn(Forum $f) => !$this->isLimitedDuringAttack($f));
@@ -237,23 +242,24 @@ class MessageForumController extends MessageController
         $forums_new = [];
         foreach ($forums as $forum) {
 
-            if ( (!$forum->getTown() && $this->getUser()->getMutedForums()->contains( $forum )) || !$this->perm->checkEffectivePermissions( $this->getUser(), $forum, ForumUsagePermissions::PermissionListThreads )) {
-                $forums_new[$forum->getId()] = false;
-                continue;
-            }
+            $forums_new[$forum->getId()] = $gameCachePool->get("forum_unread_cache_{$this->getUser()->getId()}_{$forum->getId()}", function (ItemInterface $item) use ($forum): bool {
+                $item->expiresAfter(1800)->tag(['forum_unread', "forum_{$forum->getId()}_unread", "forum_{$this->getUser()->getId()}_{$forum->getId()}_unread"]);
 
-            if ($forum->getTown()) {
-                if (!$forum->getTown()->userInTown($this->getUser())) {
-                    $forums_new[$forum->getId()] = false;
-                    continue;
-                }
+                if ( (!$forum->getTown() && $this->getUser()->getMutedForums()->contains( $forum )) || !$this->perm->checkEffectivePermissions( $this->getUser(), $forum, ForumUsagePermissions::PermissionListThreads ))
+                    return false;
 
-                $forums_new[$forum->getId()] = $this->entity_manager->getRepository(Thread::class)->countThreadsWithUnreadPosts(
-                    $this->getUser(), $forum
-                ) > 0;
-            } else $forums_new[$forum->getId()] = $this->entity_manager->getRepository(Thread::class)->countThreadsWithUnreadPosts(
-                $this->getUser(), $this->entity_manager->getRepository(Thread::class)->firstPageThreadIDs( $forum, self::ThreadsPerPage )
-            ) > 0;
+                if ($forum->getTown()) {
+                    if (!$forum->getTown()->userInTown($this->getUser()))
+                        return false;
+
+                    return $this->entity_manager->getRepository(Thread::class)->countThreadsWithUnreadPosts(
+                            $this->getUser(), $forum
+                        ) > 0;
+                } else return $this->entity_manager->getRepository(Thread::class)->countThreadsWithUnreadPosts(
+                        $this->getUser(), $this->entity_manager->getRepository(Thread::class)->firstPageThreadIDs( $forum, self::ThreadsPerPage )
+                    ) > 0;
+
+            }/*, INF*/);
         }
 
         $forum_sections = array_unique( array_filter( array_map( fn(Forum $f) => $f->getWorldForumLanguage(), $forums ) ) );
@@ -283,11 +289,22 @@ class MessageForumController extends MessageController
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
      * @param RateLimitingFactoryProvider $rateLimiter
+     * @param InvalidateTagsInAllPoolsAction $clearCache
+     * @param CrowService $crow,
      * @param EventProxyService $proxy
+     *
      * @return Response
      */
     #[Route(path: 'api/forum/{id<\d+>}/post', name: 'forum_new_thread_controller')]
-    public function new_thread_api(int $id, JSONRequestParser $parser, EntityManagerInterface $em, RateLimitingFactoryProvider $rateLimiter, EventProxyService $proxy): Response {
+    public function new_thread_api(
+        int $id,
+        JSONRequestParser $parser,
+        EntityManagerInterface $em,
+        RateLimitingFactoryProvider $rateLimiter,
+        InvalidateTagsInAllPoolsAction $clearCache,
+        CrowService $crow,
+        EventProxyService $proxy
+    ): Response {
 
         /** @var Forum $forum */
         $forum = $em->getRepository(Forum::class)->find($id);
@@ -351,6 +368,8 @@ class MessageForumController extends MessageController
             'CROW' => 66,
             'ANIM' => 67,
         ];
+
+        $clearCache("forum_{$forum->getId()}_unread");
 
         $post = (new Post())
             ->setOwner( isset($map_type[$type]) ? $this->entity_manager->getRepository(User::class)->find($map_type[$type]) : $user )
@@ -482,11 +501,23 @@ class MessageForumController extends MessageController
      * @param int $tid
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
+     * @param InvalidateTagsInAllPoolsAction $clearCache
+     * @param PictoHandler $ph
+     * @param CrowService $crow
      * @param EventProxyService $proxy
      * @return Response
      */
     #[Route(path: 'api/forum/{fid<\d+>}/{tid<\d+>}/post', name: 'forum_new_post_controller')]
-    public function new_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, EventProxyService $proxy): Response {
+    public function new_post_api(
+        int $fid,
+        int $tid,
+        JSONRequestParser $parser,
+        EntityManagerInterface $em,
+        InvalidateTagsInAllPoolsAction $clearCache,
+        PictoHandler $ph,
+        CrowService $crow,
+        EventProxyService $proxy
+    ): Response {
         $user = $this->getUser();
 
         $thread = $em->getRepository(Thread::class)->find( $tid );
@@ -542,6 +573,8 @@ class MessageForumController extends MessageController
             'CROW' => 66,
             'ANIM' => 67
         ];
+
+        $clearCache("forum_{$forum->getId()}_unread");
 
         $post = (new Post())
             ->setOwner( isset($map_type[$type]) ? $this->entity_manager->getRepository(User::class)->find($map_type[$type]) : $user )
@@ -744,10 +777,18 @@ class MessageForumController extends MessageController
      * @param int $fid
      * @param int $sem
      * @param EntityManagerInterface $em
+     * @param CitizenHandler $ch
+     * @param InvalidateTagsInAllPoolsAction $clearCache
      * @return Response
      */
     #[Route(path: 'api/forum/{sem<\d+>}/{fid<\d+>}/preview', name: 'forum_previewer_controller')]
-    public function small_viewer_api( int $fid, int $sem, EntityManagerInterface $em, CitizenHandler $ch) {
+    public function small_viewer_api(
+        int $fid,
+        int $sem,
+        EntityManagerInterface $em,
+        CitizenHandler $ch,
+        InvalidateTagsInAllPoolsAction $clearCache
+    ) {
         $user = $this->getUser();
 
         if ($sem === 0) return new Response('');
@@ -772,6 +813,8 @@ class MessageForumController extends MessageController
             /** @var Post $post */
             $post->setHydrated( $this->html->prepareEmotes( $post->getText(), $this->getUser(), $post->getThread()->getForum()->getTown() ) );
 
+        $clearCache("forum_{$this->getUser()->getId()}_{$forum->getId()}_unread");
+
         return $this->render( 'ajax/forum/posts_small.html.twig', [
             'posts' => $posts,
             'town' => $forum->getTown() ? $forum->getTown() : false,
@@ -788,11 +831,21 @@ class MessageForumController extends MessageController
      * @param JSONRequestParser $parser
      * @param SessionInterface $session
      * @param CitizenHandler $ch
+     * @param InvalidateTagsInAllPoolsAction $clearCache
      * @param int $pid
      * @return Response
      */
     #[Route(path: 'api/forum/{tid<\d+>}/{fid<\d+>}/view/{pid<\d+>}', name: 'forum_viewer_controller')]
-    public function viewer_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, SessionInterface $session, CitizenHandler $ch, int $pid = -1): Response {
+    public function viewer_api(
+        int $fid,
+        int $tid,
+        EntityManagerInterface $em,
+        JSONRequestParser $parser,
+        SessionInterface $session,
+        CitizenHandler $ch,
+        InvalidateTagsInAllPoolsAction $clearCache,
+        int $pid = -1,
+    ): Response {
         $user = $this->getUser();
 
         $hydrate_post = fn(Post $post, bool $include_original = false) => $post->getHydrated() ? $post : $post->setHydrated(
@@ -901,6 +954,8 @@ class MessageForumController extends MessageController
 
         $other_forums[ $this->translator->trans('Weltforen', [], 'global') ] = array_filter( $other_forums_raw, fn(Forum $f) => $f->getTown() === null && $f->getWorldForumLanguage() === null );
         $other_forums[ $this->translator->trans('Stadtforum', [], 'global') ] = array_filter( $other_forums_raw, fn(Forum $f) => $f->getTown() !== null );
+
+        $clearCache("forum_{$this->getUser()->getId()}_{$forum->getId()}_unread");
 
         return $this->render( 'ajax/forum/posts.html.twig', [
             'posts' => $posts,
@@ -1340,10 +1395,11 @@ class MessageForumController extends MessageController
     }
 
     /**
+     * @param InvalidateTagsInAllPoolsAction $clearCache
      * @return Response
      */
     #[Route(path: 'api/forum/read_all', name: 'forum_all_read_controller')]
-    public function forum_mark_all_read(): Response {
+    public function forum_mark_all_read(InvalidateTagsInAllPoolsAction $clearCache): Response {
 
         $last_post = $this->entity_manager->getRepository(Post::class)->findBy(['hidden' => false], ['id' => 'DESC'], 1);
         if (count($last_post) !== 1) return AjaxResponse::success();
@@ -1359,6 +1415,8 @@ class MessageForumController extends MessageController
         } catch (Exception $e) {
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
+
+        $clearCache("forum_unread");
 
         return AjaxResponse::success();
     }
@@ -1532,7 +1590,8 @@ class MessageForumController extends MessageController
                     return AjaxResponse::success();
                 }
                 catch (Exception $e) {
-                    return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+                    throw $e;
+                    //return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
                 }
 
             case 'undelete':

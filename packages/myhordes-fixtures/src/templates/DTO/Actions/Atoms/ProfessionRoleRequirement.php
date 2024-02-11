@@ -10,19 +10,19 @@ use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
  * @property ?bool hero
  * @method job(string $name, ?bool $enabled)
  * @method role(string $name, ?bool $enabled)
- * @property ?bool job_none
- * @property ?bool job_basic
- * @property ?bool job_collec
- * @property ?bool job_guardian
- * @property ?bool job_hunter
- * @property ?bool job_tamer
- * @property ?bool job_tech
- * @property ?bool job_shaman
- * @property ?bool job_survivalist
- * @property ?bool role_shaman
- * @property ?bool role_guide
- * @property ?bool role_ghoul
- * @property ?bool role_cata
+ * @property ?bool $job_none
+ * @property ?bool $job_basic
+ * @property ?bool $job_collec
+ * @property ?bool $job_guardian
+ * @property ?bool $job_hunter
+ * @property ?bool $job_tamer
+ * @property ?bool $job_tech
+ * @property ?bool $job_shaman
+ * @property ?bool $job_survivalist
+ * @property ?bool $role_shaman
+ * @property ?bool $role_guide
+ * @property ?bool $role_ghoul
+ * @property ?bool $role_cata
  */
 class ProfessionRoleRequirement extends RequirementsAtom {
 

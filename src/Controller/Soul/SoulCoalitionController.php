@@ -29,10 +29,11 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 #[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
 class SoulCoalitionController extends SoulController
 {
-    /**
-     * @param ConfMaster $conf
-     * @return Response
-     */
+	/**
+	 * @param ConfMaster $conf
+	 * @return Response
+	 * @throws Exception
+	 */
     #[Route(path: 'jx/soul/coalitions', name: 'soul_coalitions')]
     public function soul_coalitions(ConfMaster $conf): Response
     {
@@ -140,7 +141,7 @@ class SoulCoalitionController extends SoulController
 
         $this->entity_manager->persist(
             $g = (new UserGroup())
-                ->setName($trans->trans("{name}'s Koalition", ['{name}' => $user->getUsername()], 'soul'))
+                ->setName($trans->trans("{name}'s Koalition", ['{name}' => $user->getName()], 'soul'))
                 ->setType(UserGroup::GroupSmallCoalition)
                 ->setRef1($user->getId())
         );

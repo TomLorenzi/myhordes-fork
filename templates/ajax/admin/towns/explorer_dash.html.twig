@@ -79,6 +79,8 @@
 								{% endif %}
 								<option value="{{ url('admin_town_manage', {action: 'set_town_base_def', id: town.id}) }}" x-query="{{ 'Neue Basis-Stadtverteidigung:'|trans({},'admin') }}">{{ 'Basis-Stadtverteidigung setzen'|trans({},'admin') }}</option>
 								<option value="{{ url('admin_town_manage', {action: 'set_town_temp_def', id: town.id}) }}" x-query="{{ 'Neue temporäre Stadtverteidigung:'|trans({},'admin') }}">{{ 'Temporäre Stadtverteidigung setzen'|trans({},'admin') }}</option>
+								{% if not town.brokenDoor %}<option value="{{ url('admin_town_manage', {action: 'toggle_lockdown', id: town.id}) }}">{% if town.lockdown %}{{ 'Sperre deaktivieren'|trans({},'admin') }}{% else %}{{ 'Sperre aktivieren'|trans({},'admin') }}{% endif %}</option>{% endif %}
+								{% if not town.lockdown %}<option value="{{ url('admin_town_manage', {action: 'toggle_broken_door', id: town.id}) }}">{% if town.brokenDoor %}{{ 'Stadttor reparieren'|trans({},'admin') }}{% else %}{{ 'Zerstöre das Stadttor'|trans({},'admin') }}{% endif %}</option>{% endif %}
 							{% endif %}
 							{% if is_granted("ROLE_CROW") %}
 								{% if town.rankingEntry.event %}
@@ -86,7 +88,7 @@
 								{% else %}
 									<option value="{{ url('admin_town_event_tag_control', {tid: town.rankingEntry.id, act: 1}) }}">{{ 'Als Event-Stadt markieren'|trans({},'admin') }}</option>
 								{% endif %}
-								{% if town.rankingEntry.disabled %}
+								{% if town.rankingEntry.disabled or town.rankingEntry.disableFlag is odd %}
 									<option value="{{ url('admin_town_town_ranking_control', {tid: town.rankingEntry.id, act: 0}) }}">{{ 'Ranking-Ausschluss zurücknehmen'|trans({},'admin') }}</option>
 								{% else %}
 									<option value="{{ url('admin_town_town_ranking_control', {tid: town.rankingEntry.id, act: 1}) }}">{{ 'Diese Stadt aus dem Ranking ausschließen'|trans({},'admin') }}</option>

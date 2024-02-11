@@ -524,6 +524,7 @@ class WebController extends CustomAbstractController
     #[Route(path: '/cdn/avatar/{uid<\d+>}/{name}.{ext<[\w\d]+>}', name: 'app_web_avatar_legacy', requirements: ['name' => '[0123456789abcdef]{32}'], defaults: ['wu' => true], condition: '!request.isXmlHttpRequest()')]
     #[Route(path: '/cdn/avatars/{uid<\d+>}/{name}.{ext<[\w\d]+>}', name: 'app_web_avatar', requirements: ['name' => '[0123456789abcdef]{32}'], defaults: ['wu' => true], condition: '!request.isXmlHttpRequest()')]
     #[Route(path: '/cdn/avatars/notifications/{uid<\d+>}/{name}.{ext<[\w\d]+>}', name: 'app_web_avatar_for_webpush', requirements: ['name' => '[0123456789abcdef]{32}'], defaults: ['wu' => false], condition: '!request.isXmlHttpRequest()')]
+    #[GateKeeperProfile('skip')]
     public function avatar(int $uid, string $name, string $ext, bool $wu): Response
     {
         if ($r = $this->check_cache($name)) return $r;
@@ -551,6 +552,7 @@ class WebController extends CustomAbstractController
      * @return Response
      */
     #[Route(path: '/cdn/icon/{uid<\d+>}/{aid<\d+>}/{name}.{ext<[\w\d]+>}', requirements: ['name' => '[0123456789abcdef]{32}'], condition: '!request.isXmlHttpRequest()')]
+    #[GateKeeperProfile('skip')]
     public function customIcon(int $uid, int $aid, string $name, string $ext): Response
     {
         if ($r = $this->check_cache($name)) return $r;
@@ -573,6 +575,7 @@ class WebController extends CustomAbstractController
      * @return Response
      */
     #[Route(path: '/cdn/app/{aid<\d+>}/{name}.{ext<[\w\d]+>}', requirements: ['name' => '[0123456789abcdef]{32}'], condition: '!request.isXmlHttpRequest()')]
+    #[GateKeeperProfile('skip')]
     public function app_icon(int $aid, string $name, string $ext): Response
     {
         if ($r = $this->check_cache($name)) return $r;
@@ -593,6 +596,7 @@ class WebController extends CustomAbstractController
      * @return Response
      */
     #[Route(path: '/cdn/group/{gid<\d+>}/{name}.{ext<[\w\d]+>}', requirements: ['name' => '[0123456789abcdef]{32}'], condition: '!request.isXmlHttpRequest()')]
+    #[GateKeeperProfile('skip')]
     public function group_icon(int $gid, string $name, string $ext): Response
     {
         if ($r = $this->check_cache($name)) return $r;
@@ -615,6 +619,7 @@ class WebController extends CustomAbstractController
      * @return Response
      */
     #[Route(path: '/cdn/{url}', requirements: ['url' => '.+'], condition: '!request.isXmlHttpRequest()')]
+    #[GateKeeperProfile('skip')]
     public function cdn_fallback(string $url): Response {
         return new Response(
             "File not found: cdn/{$url}",

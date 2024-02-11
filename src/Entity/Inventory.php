@@ -182,4 +182,14 @@ class Inventory
     {
         return count(array_intersect( $item_names, $this->getItems()->map( fn(Item $i) => $i->getPrototype()->getName() )->toArray() )) === count($item_names);
     }
+
+    public function findTown(): ?Town {
+        return $this->getTown() ??
+            $this->getCitizen()?->getTown() ??
+            $this->getZone()?->getTown() ??
+            $this->getHome()?->getCitizen()?->getTown() ??
+            $this->getRuinZone()?->getZone()?->getTown() ??
+            $this->getRuinZoneRoom()->getZone()?->getTown() ??
+            null;
+    }
 }

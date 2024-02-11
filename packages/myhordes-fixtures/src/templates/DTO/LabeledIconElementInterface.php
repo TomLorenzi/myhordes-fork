@@ -3,9 +3,9 @@
 namespace MyHordes\Fixtures\DTO;
 
 /**
- * @property string label
+ * @property string $label
  * @method self label(string $v)
- * @property string icon
+ * @property string $icon
  * @method self icon(string $v)
  */
 interface LabeledIconElementInterface {}

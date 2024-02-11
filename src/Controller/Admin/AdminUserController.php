@@ -37,6 +37,7 @@ use App\Entity\UserSwapPivot;
 use App\Enum\ServerSetting;
 use App\Exception\DynamicAjaxResetException;
 use App\Response\AjaxResponse;
+use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\AdminHandler;
 use App\Service\AntiCheatService;
 use App\Service\CrowService;
@@ -63,6 +64,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Contracts\Cache\TagAwareCacheInterface;
 
 /**
  * @method User getUser
@@ -71,14 +73,14 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 #[GateKeeperProfile(allow_during_attack: true)]
 class AdminUserController extends AdminActionController
 {
-    /**
-     * @param JSONRequestParser $parser
-     * @param EntityManagerInterface $em
-     * @return Response
-     */
+	/**
+	 * @param JSONRequestParser      $parser
+	 * @param EntityManagerInterface $em
+	 * @return Response
+	 * @throws Exception
+	 */
     #[Route(path: 'jx/admin/users', name: 'admin_users')]
     public function users(JSONRequestParser $parser, EntityManagerInterface $em): Response {
-        $query = (new Criteria());
         $filter = $parser->get_array('filters');
 
         $fun_realize = function() use (&$em,$filter) {
@@ -424,6 +426,7 @@ class AdminUserController extends AdminActionController
      * @param PermissionHandler $perm
      * @param CrowService $crow
      * @param KernelInterface $kernel
+     * @param InvalidateTagsInAllPoolsAction $clearCache
      * @param string $param
      * @return Response
      */
@@ -431,7 +434,7 @@ class AdminUserController extends AdminActionController
     #[AdminLogProfile(enabled: true)]
     public function user_account_manager(int $id, string $action, JSONRequestParser $parser, UserFactory $uf,
                                          TwinoidHandler $twin, UserHandler $userHandler, PermissionHandler $perm,
-                                         CrowService $crow, KernelInterface $kernel,
+                                         CrowService $crow, KernelInterface $kernel, InvalidateTagsInAllPoolsAction $clearCache,
                                          string $param = ''): Response
     {
         /** @var User $user */
@@ -804,6 +807,7 @@ class AdminUserController extends AdminActionController
                 if ($user->getAvatar()) {
                     $this->entity_manager->remove($user->getAvatar());
                     $user->setAvatar(null);
+                    $clearCache("user_avatar_{$user->getId()}");
                 }
                 break;
 

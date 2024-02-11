@@ -54,6 +54,7 @@ use Exception;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
+use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -409,15 +410,17 @@ class MigrateCommand extends Command
             if(!$input->getOption('skip-optional')){
                 $output->writeln("\n\n=== <info>Optional setup steps</info> ===\n");
 
-                $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
+				/** @var QuestionHelper $qh */
+				$qh = $this->getHelper('question');
+                $result = $qh->ask($input, $output, new ConfirmationQuestion(
                     "Would you like to create a season? If you don't create one, the game will run in Alpha Mode. (Y/n) ", true
                 ) );
 
                 if ($result) {
-                    $num = (int)$this->getHelper('question')->ask($input, $output, new Question(
+                    $num = (int)$qh->ask($input, $output, new Question(
                         "Enter season number (default: 16): ", "16"
                     ) );
-                    $subnum = (int)$this->getHelper('question')->ask($input, $output, new Question(
+                    $subnum = (int)$qh->ask($input, $output, new Question(
                         "Enter sub-season number (default: 0): ", "0"
                     ) );
 
@@ -426,7 +429,7 @@ class MigrateCommand extends Command
                     }
                 }
 
-                $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
+                $result = $qh->ask($input, $output, new ConfirmationQuestion(
                     "Would you like to create default world forums? (Y/n) ", true
                 ) );
                 if ($result) {
@@ -443,7 +446,7 @@ class MigrateCommand extends Command
                         return 5;
                     }
                 } else {
-                    $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
+                    $result = $qh->ask($input, $output, new ConfirmationQuestion(
                         "Would you like to create a single staging forum, instead? (Y/n) ", true
                     ) );
                     if ($result) {
@@ -453,7 +456,7 @@ class MigrateCommand extends Command
                     }
                 }
 
-                $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
+                $result = $qh->ask($input, $output, new ConfirmationQuestion(
                     "Would you like to create a town? (Y/n) ", true
                 ) );
 
@@ -479,14 +482,14 @@ class MigrateCommand extends Command
                     }
                 }
 
-                $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
+                $result = $qh->ask($input, $output, new ConfirmationQuestion(
                     "Would you like to create an administrator account? (Y/n) ", true
                 ) );
                 if ($result) {
-                    $name = $this->getHelper('question')->ask($input, $output, new Question(
+                    $name = $qh->ask($input, $output, new Question(
                         "Please enter the username (default: admin): ", 'admin'
                     ) );
-                    $mail = $this->getHelper('question')->ask($input, $output, new Question(
+                    $mail = $qh->ask($input, $output, new Question(
                         "Please enter the e-mail address (default: admin@localhost): ", 'admin@localhost'
                     ) );
 
@@ -494,11 +497,11 @@ class MigrateCommand extends Command
                     while (!$proceed) {
                         $q = new Question( "Please enter the account password (default: admin): ", 'admin' );
                         $q->setHidden(true);
-                        $password1 = $this->getHelper('question')->ask($input, $output, $q );
+                        $password1 = $qh->ask($input, $output, $q );
 
                         $q = new Question( "Please repeat the account password (default: admin): ", 'admin' );
                         $q->setHidden(true);
-                        $password2 = $this->getHelper('question')->ask($input, $output, $q );
+                        $password2 = $qh->ask($input, $output, $q );
 
                         $proceed = $password1 === $password2;
                         if (!$proceed) $output->writeln('<error>The passwords did not match.</error> Please try again.');
@@ -728,7 +731,7 @@ class MigrateCommand extends Command
         }
 
         if ($input->getOption('update-all-sp')) {
-            $this->helper->leChunk($output, User::class, 100, [], true, false, function(User $user) use ( $output ): bool {
+            $this->helper->leChunk($output, User::class, 100, [], true, false, function(User $user) : bool {
                 $calculated_sp_mh = $this->user_handler->fetchSoulPoints($user,false);
                 $calculated_sp_im = $this->user_handler->fetchImportedSoulPoints($user);
 
@@ -1292,7 +1295,7 @@ class MigrateCommand extends Command
 
         if ($input->getOption('prune-rp-texts')) {
             $target_picto = null;
-            $this->helper->leChunk($output, User::class, 100, [], true, false, function(User $user) use ($output, &$target_picto) {
+            $this->helper->leChunk($output, User::class, 100, [], true, false, function(User $user) use (&$target_picto) {
                 $imported = $this->entity_manager->getRepository(Picto::class)->createQueryBuilder('i')
                     ->select('SUM(i.count)')
                     ->andWhere('i.user = :user')->setParameter('user', $user)->andWhere('i.prototype = :rp')->setParameter('rp', $target_picto)

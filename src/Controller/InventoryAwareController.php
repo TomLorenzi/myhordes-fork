@@ -251,7 +251,7 @@ class InventoryAwareController extends CustomAbstractController
         $av_inv = [$this->getActiveCitizen()->getInventory(), $this->getActiveCitizen()->getZone() ? $this->getActiveCitizen()->getZone()->getFloor() : $this->getActiveCitizen()->getHome()->getChest()];
 
         $this->action_handler->getAvailableIHeroicActions( $this->getActiveCitizen(),  $available, $crossed, $used );
-        if (empty($available) && empty($crossed)) return [];
+        if (empty($available) && empty($crossed) && empty($used) ) return [];
 
         foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'action' => $a->getAction(), 'renderer' => null, 'targets' => $a->getAction()->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getAction()->getTarget() ) : null, 'target_mode' => $a->getAction()->getTarget() ? $a->getAction()->getTarget()->getSpawner() : 0, 'crossed' => false ];
         foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'action' => $c->getAction(), 'renderer' => null, 'targets' => null, 'target_mode' => 0, 'crossed' => true ];
@@ -620,7 +620,7 @@ class InventoryAwareController extends CustomAbstractController
 
         if ($direction === 'down' && $allow_down_all && $item && in_array($item->getPrototype()->getName(), $carrier_items)) {
 
-            $has_other_carriers = !empty(array_filter($citizen->getInventory()->getItems()->getValues(), function(Item $i) use ($carrier_items, $item) {
+            $has_other_carriers = !empty(array_filter($citizen->getInventory()->getItems()->getValues(), function(Item $i) use (/*$carrier_items,*/ $item) {
                 return $i !== $item && in_array($i->getPrototype()->getName(), /*$carrier_items*/[]);   // Fix watcher/belt abuse
             }));
 
@@ -675,7 +675,7 @@ class InventoryAwareController extends CustomAbstractController
 
         $processed = max(0, $item_count - count($errors));
 
-        if (empty($errors) || count($errors) < $item_count || ($item_count === 0 && empty($error))) {
+        if (empty($errors) || count($errors) < $item_count || $item_count === 0) {
             return AjaxResponse::success();
         } else {
             if (!empty($error_messages))

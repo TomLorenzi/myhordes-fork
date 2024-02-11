@@ -11,7 +11,7 @@ class ForumThreadTagDataService implements FixtureProcessorInterface {
     {
         $data = array_replace_recursive($data, [
             'bugs'   => [ 'color' => '3b1c32', 'label' => 'Fehler' ],
-            'help'   => [ 'color' => 'ca054d', 'label' => 'Hilfe'  ],
+            'help'   => [ 'color' => 'ca054d', 'label' => 'Hilfe (forum)'  ],
             'update' => [ 'color' => '3d405b', 'label' => 'Changelog', 'mask' => ForumUsagePermissions::PermissionPostAsDev ],
             'event'  => [ 'color' => '43aa8b', 'label' => 'Event' ],
             'rp'     => [ 'color' => 'd4a373', 'label' => 'RP' ],

@@ -41,7 +41,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 #[GateKeeperProfile(allow_during_attack: true, record_user_activity: false)]
 class JSONv1Controller extends CoreController {
     private Request $request;
-    private                          $SURLLobj;
+    private array                    $SURLLobj;
     private array                    $filters         = [];
     private array                    $fields          = [];
     private Town                     $town;
@@ -81,15 +81,7 @@ class JSONv1Controller extends CoreController {
         if ($user) $this->user = $user;
 
         switch ($type) {
-            case 'internalerror':
-                if (empty($data)) {
-                    $data = [
-                        "error"             => "server_error",
-                        "error_description" => "UnknownAction(default)"
-                    ];
-                }
-                break;
-            case 'status':
+			case 'status':
                 $data = [
                     "attack"   => $this->time_keeper->isDuringAttack(),
                     "maintain" => is_file($this->getParameter('kernel.project_dir') . "/public/maintenance/.active")
@@ -124,7 +116,8 @@ class JSONv1Controller extends CoreController {
 
                 $data = $this->getAdminAPI();
                 break;
-            default:
+			case 'internalerror':
+			default:
                 $data = [
                     "error"             => "server_error",
                     "error_description" => "UnknownAction(default)"
@@ -1245,9 +1238,6 @@ class JSONv1Controller extends CoreController {
                             $data[$field] = $gazette['defense'];
                             break;
                         case "content":
-                            /**
-                             * @var GazetteLogEntry $entry
-                             */
                             if(count($this->languages) == 1) {
                                 $data[$field] = $gazette['text'];
                             } else {

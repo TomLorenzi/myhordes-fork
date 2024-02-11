@@ -10,13 +10,13 @@ use Exception;
 /**
  * Class User
  * @package ETwinOAuth\Object
- * @method string getID
- * @method bool isAdministrator
- * @method string|null getUsername
- * @method string|null getEmailAddress
- * @method bool|null hasPassword
- * @method string getDisplayName
- * @method DateTime getCTime
+ * @method string getID()
+ * @method bool isAdministrator()
+ * @method string|null getUsername()
+ * @method string|null getEmailAddress()
+ * @method bool|null hasPassword()
+ * @method string getDisplayName()
+ * @method DateTime getCTime()
  */
 class User extends ResponseObject
 {

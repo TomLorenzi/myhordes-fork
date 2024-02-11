@@ -56,10 +56,8 @@
         {% if url is not defined %}
             {% if user.id == 66 %}
                 {% set url = asset('build/images/forum/crow/crow.' ~ (small ? 'small.' : '') ~ (app.request.locale|e('html_attr')|split('_', 2))[0] ~ '.png') %}
-            {% elseif user.avatar %}
-                {% set url = path('app_web_avatar', {'uid': user.id, 'name': small ? user.avatar.smallName : user.avatar.filename, 'ext': user.avatar.format}) %}
             {% else %}
-                {% set url = asset('build/images/forum/empty_avatar.gif') %}
+                {% set url = user|avatar(small) %}
             {% endif %}
         {% endif %}
 
@@ -72,7 +70,7 @@
             {% endif %}
         {% endif %}
 
-        {% if user.id == 66 or user.avatar or ((fallback is not defined or fallback) and not gpm) %}
+        {% if user.id == 66 or url or ((fallback is not defined or fallback) and not gpm) %}
 
             {% if wrapper is not defined or wrapper %}
                 <div {{ additional_attributes|attributes }} {{ {

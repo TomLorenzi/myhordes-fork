@@ -17,7 +17,7 @@ use Doctrine\ORM\NonUniqueResultException;
 class AwardPrototypeRepository extends ServiceEntityRepository {
 
     public function __construct(ManagerRegistry $registry) {
-        Parent::__construct($registry, AwardPrototype::class);
+        parent::__construct($registry, AwardPrototype::class);
     }
 
     public function getAwardsByPicto(string $value) {

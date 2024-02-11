@@ -15,6 +15,7 @@ use App\Entity\User;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Response\AjaxResponse;
+use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\AdminHandler;
 use App\Service\AdminLog;
 use App\Service\CitizenHandler;
@@ -54,6 +55,8 @@ class AdminActionController extends CustomAbstractController
     protected AdminHandler $adminHandler;
 	protected TownHandler $town_handler;
 
+    protected InvalidateTagsInAllPoolsAction $clear;
+
     public static function getAdminActions(): array {
         return [
             ['name' => T::__('Dashboard', 'admin'),   'route' => 'admin_dashboard'],
@@ -80,7 +83,7 @@ class AdminActionController extends CustomAbstractController
         ];
     }
 
-    public function __construct(EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $lth, TranslatorInterface $translator, ZoneHandler $zh, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih, UserHandler $uh, CrowService $crow, AdminLog $adminLogger, UrlGeneratorInterface $urlGenerator, AdminHandler $adminHandler, TownHandler $townHandler, HookExecutor $hookExecutor)
+    public function __construct(EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $lth, TranslatorInterface $translator, ZoneHandler $zh, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih, UserHandler $uh, CrowService $crow, AdminLog $adminLogger, UrlGeneratorInterface $urlGenerator, AdminHandler $adminHandler, TownHandler $townHandler, HookExecutor $hookExecutor, InvalidateTagsInAllPoolsAction $clear)
     {
         parent::__construct($conf, $em, $tk, $ch, $ih, $translator, $hookExecutor);
         $this->logTemplateHandler = $lth;
@@ -91,6 +94,7 @@ class AdminActionController extends CustomAbstractController
         $this->urlGenerator = $urlGenerator;
         $this->adminHandler = $adminHandler;
 		$this->town_handler = $townHandler;
+        $this->clear = $clear;
     }
 
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null): array
@@ -121,10 +125,10 @@ class AdminActionController extends CustomAbstractController
     #[Route(path: 'api/admin/login', name: 'api_admin_login')]
     public function login_api(TokenStorageInterface $ts): Response
     {
-        /** @var User $user */
+        /** @var ?User $user */
         $user = $this->getUser();
-        if (!$user || !$user->getValidated() || $user->getRightsElevation() < User::USER_LEVEL_CROW) {
-            $ts->setToken();
+        if ($user === null || !$user->getValidated() || $user->getRightsElevation() < User::USER_LEVEL_CROW) {
+            $ts->setToken(null);
             return new AjaxResponse( ['success' => false ] );
         }
 

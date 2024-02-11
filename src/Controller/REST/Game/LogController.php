@@ -60,6 +60,7 @@ class LogController extends CustomAbstractCoreController
      */
     #[Route(path: '', name: 'base', methods: ['GET'])]
     #[Route(path: '/index', name: 'base_index', methods: ['GET'])]
+    #[GateKeeperProfile('skip')]
     public function index(Packages $asset): JsonResponse {
         return new JsonResponse([
             'wrapper' => [
@@ -290,6 +291,7 @@ class LogController extends CustomAbstractCoreController
      * @throws Exception
      */
     #[Route(path: '/admin/zone/{id}', name: 'admin_zone', methods: ['GET'])]
+    #[GateKeeperProfile('skip')]
     #[IsGranted('ROLE_CROW')]
     public function adminZone(Zone $zone, Request $request, EntityManagerInterface $em): JsonResponse {
         return new JsonResponse([
@@ -313,6 +315,7 @@ class LogController extends CustomAbstractCoreController
      * @throws Exception
      */
     #[Route(path: '/admin/town/{id}', name: 'admin_town', methods: ['GET'])]
+    #[GateKeeperProfile('skip')]
     #[IsGranted('ROLE_CROW')]
     public function adminTown(Town $town, Request $request, EntityManagerInterface $em): JsonResponse {
 

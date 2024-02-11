@@ -17,6 +17,7 @@ use App\Entity\SocialRelation;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
+use App\Entity\UserSwapPivot;
 use App\Response\AjaxResponse;
 use App\Service\CrowService;
 use App\Service\ErrorHelper;
@@ -70,7 +71,7 @@ class MessageGlobalPMController extends MessageController
                 ->andWhere( Criteria::expr()->gt('num', 0))
         );
 
-        if (!empty($subscriptions)) {
+        if ($subscriptions->count() > 0) {
             $forums = $this->perm->getForumsWithPermission($user);
             $subscriptions =  $subscriptions->filter(fn(ForumThreadSubscription $s) => !$s->getThread()->getHidden() && in_array($s->getThread()->getForum(), $forums));
         }
@@ -296,7 +297,7 @@ class MessageGlobalPMController extends MessageController
                 ->andWhere( Criteria::expr()->gt('num', 0))
         );
 
-        if (!empty($subscriptions)) {
+		if ($subscriptions->count() > 0) {
             $forums = $this->perm->getForumsWithPermission($this->getUser());
             $subscriptions =  $subscriptions->filter(fn(ForumThreadSubscription $s) => !$s->getThread()->getHidden() && !in_array($s->getThread()->getId(), $skip) && ($query === null || mb_strpos( mb_strtolower($s->getThread()->getTitle()), mb_strtolower( $query ) ) !== false) && in_array($s->getThread()->getForum(), $forums));
         }
@@ -450,7 +451,7 @@ class MessageGlobalPMController extends MessageController
                             ->andWhere( Criteria::expr()->gt('num', 0))
                     );
 
-                    if (!empty($subscriptions)) {
+					if ($subscriptions->count() > 0) {
                         $forums = $this->perm->getForumsWithPermission($user);
                         $subscriptions =  $subscriptions->filter(fn(ForumThreadSubscription $s) => !$s->getThread()->getHidden() && in_array($s->getThread()->getForum(), $forums));
                     }
@@ -670,9 +671,17 @@ class MessageGlobalPMController extends MessageController
 
         $last = $group_association->getRef2();
 
+        $update_assocs = [$group_association];
+        foreach ($this->userHandler->getAllPivotUserRelationsFor( $this->getUser() ) as $pivotUser)
+            $update_assocs[] = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $pivotUser, 'associationType' => [
+                UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive, UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember
+            ], 'association' => $group]);
+        $update_assocs = array_filter( $update_assocs, fn($a) => $a !== null );
+
         try {
             $s->remove('cache_ping');
-            $this->entity_manager->persist( $group_association->setRef1( $read_only ? $group_association->getRef3() : $group->getRef1() )->setRef2( $messages[0]->getId() ) );
+            foreach ( $update_assocs as $assoc )
+                $this->entity_manager->persist( $assoc->setRef1( $read_only ? $assoc->getRef3() : $group->getRef1() )->setRef2( $messages[0]->getId() ) );
             $this->entity_manager->flush();
         } catch (\Exception $e) {}
 
@@ -1119,9 +1128,6 @@ class MessageGlobalPMController extends MessageController
      */
     #[Route(path: 'jx/pm/answer-editor/{id<\d+>}', name: 'pm_post_editor_controller')]
     public function editor_pm_post_api(int $id, EntityManagerInterface $em): Response {
-        if ($this->userHandler->isRestricted($this->getUser(), AccountRestriction::RestrictionGlobalCommunication))
-            return new Response("");
-
         return $this->render( 'ajax/editor/gpm-post.html.twig', [
             'uuid' => Uuid::v4(),
             'tid' => $id,

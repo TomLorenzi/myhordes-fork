@@ -42,6 +42,11 @@ class WatchdogCommand extends Command implements SelfSchedulingCommand
         // Let's check if there is enough opened town
         $openTowns = $this->em->getRepository(Town::class)->findOpenTown();
 
+        $openTowns = array_filter( $openTowns, function(Town $t): bool {
+            if ($t->getPassword() || $t->getCreator()) return false;
+            return true;
+        } );
+
         $conf = $this->confMaster->getGlobalConf();
 
         $count = [];

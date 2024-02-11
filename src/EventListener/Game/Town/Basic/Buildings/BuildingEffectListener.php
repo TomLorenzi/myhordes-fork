@@ -190,9 +190,6 @@ final class BuildingEffectListener implements ServiceSubscriberInterface
             $event->markModified();
         }
 
-        if (!empty($local_log))
-            $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->nightlyAttackProduction( $event->building, $local_log ) );
-
         if (!empty($event->consumedItems)) {
             $temp = [];
             $non_pile = 0;

@@ -7,7 +7,7 @@ use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 /**
  * @method event(?string $v)
- * @property ?string event
+ * @property ?string $event
  * @method config(string $v, mixed $expected)
  */
 class ConfigRequirement extends RequirementsAtom {

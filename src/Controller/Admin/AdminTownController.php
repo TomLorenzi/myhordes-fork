@@ -25,6 +25,7 @@ use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
 use App\Entity\ComplaintReason;
 use App\Entity\CouncilEntry;
+use App\Entity\DigTimer;
 use App\Entity\EventActivationMarker;
 use App\Entity\ExpeditionRoute;
 use App\Entity\HeroicActionPrototype;
@@ -94,6 +95,10 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 #[GateKeeperProfile(allow_during_attack: true)]
 class AdminTownController extends AdminActionController
 {
+    protected function clearTownCaches(Town $town) {
+        ($this->clear)("town_{$town->getId()}");
+    }
+
 	/**
      * @return Response
      */
@@ -781,6 +786,7 @@ class AdminTownController extends AdminActionController
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $this->logger->invoke("[town_manager] Admin <info>{$this->getUser()->getName()}</info> did the action <info>$action</info> in the town <info>{$town->getName()}</info> (id: {$town->getId()})");
+        $this->clearTownCaches($town);
 
         $param = $parser->get('param');
 
@@ -842,6 +848,20 @@ class AdminTownController extends AdminActionController
                 $this->entity_manager->persist($town->getRankingEntry());
                 foreach ($town->getCitizens() as $citizen)
                     $this->entity_manager->persist($this->crow_service->createPM_moderation( $citizen->getUser(), CrowService::ModerationActionDomainRanking, CrowService::ModerationActionTargetGameName, CrowService::ModerationActionEdit, $town, $old_name ));
+                break;
+            case 'toggle_lockdown':
+                $town->setLockdown(!$town->getLockdown());
+                if($town->getLockdown()) {
+                    $town->setDoor(false);
+                }
+                $this->entity_manager->persist($town);
+                break;
+            case 'toggle_broken_door':
+                $town->setBrokenDoor(!$town->getBrokenDoor());
+                if($town->getBrokenDoor()) {
+                    $town->setDoor(true);
+                }
+                $this->entity_manager->persist($town);
                 break;
             case 'dbg_disengage':
                 foreach ($town->getCitizens() as $citizen)
@@ -1169,6 +1189,7 @@ class AdminTownController extends AdminActionController
             }
         }
 
+        $this->clearTownCaches($town);
         $this->entity_manager->persist($town);
         $this->entity_manager->flush();
 
@@ -1194,6 +1215,7 @@ class AdminTownController extends AdminActionController
         $town->setLanguage( $newLang );
         $town->getRankingEntry()->setLanguage( $newLang );
 
+        $this->clearTownCaches($town);
         $this->entity_manager->persist($town);
         $this->entity_manager->persist($town->getRankingEntry());
         $this->entity_manager->flush();
@@ -1297,6 +1319,7 @@ class AdminTownController extends AdminActionController
             $handler->forceRemoveItem($item, $qty);
         }
 
+        $this->clearTownCaches($town);
         $this->entity_manager->persist($town->getBank());
         $this->entity_manager->flush();
 
@@ -1388,6 +1411,8 @@ class AdminTownController extends AdminActionController
             $this->entity_manager->persist($target_zone);
         }
 
+        $this->clearTownCaches($town);
+
         $this->entity_manager->flush();
         return AjaxResponse::success();
     }
@@ -1428,6 +1453,7 @@ class AdminTownController extends AdminActionController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $citizen->setAlias($alias);
+        $this->clearTownCaches($town);
 
         try {
             $this->entity_manager->persist( $citizen );
@@ -1526,6 +1552,7 @@ class AdminTownController extends AdminActionController
             $this->entity_manager->persist($inventory);
         }
 
+        $this->clearTownCaches($town);
         $this->entity_manager->flush();
 
         return AjaxResponse::success();
@@ -1634,6 +1661,7 @@ class AdminTownController extends AdminActionController
                 return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
+        $this->clearTownCaches($town);
         $this->entity_manager->flush();
         return AjaxResponse::success();
     }
@@ -1679,6 +1707,7 @@ class AdminTownController extends AdminActionController
             default: return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
+        $this->clearTownCaches($town);
         $this->entity_manager->persist($zone);
         $this->entity_manager->flush();
 
@@ -1727,6 +1756,7 @@ class AdminTownController extends AdminActionController
             }
         }
 
+        $this->clearTownCaches($town);
         $this->entity_manager->flush();
         return AjaxResponse::success();
     }
@@ -1754,6 +1784,7 @@ class AdminTownController extends AdminActionController
     /**
      * @param int $tid
      * @param int $act
+     * @param JSONRequestParser $request
      * @return Response
      */
     #[Route(path: 'api/admin/town/{tid}/unrank/{act}', name: 'admin_town_town_ranking_control', requirements: ['tid' => '\d+', 'act' => '\d+'])]
@@ -1764,8 +1795,7 @@ class AdminTownController extends AdminActionController
         $town_proxy = $this->entity_manager->getRepository(TownRankingProxy::class)->find($tid);
         if (!$town_proxy) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $flag = $request->get("flag");
-        if($flag === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        $flag = $request->get("flag") ?? TownRankingProxy::DISABLE_RANKING;
 
         //$town_proxy->setDisabled( $act !== 0 );
         if($act)
@@ -1831,6 +1861,8 @@ class AdminTownController extends AdminActionController
                 $this->entity_manager->persist($this->crow_service->createPM_moderation( $citizen->getUser(), CrowService::ModerationActionDomainRanking, CrowService::ModerationActionTargetGameName, CrowService::ModerationActionEdit, $town_proxy, $old_name ));
         }
 
+		if ($town_proxy->getTown() !== null)
+        	$this->clearTownCaches($town_proxy->getTown());
         $this->entity_manager->persist($town_proxy);
         if ($town_proxy->getTown()) $this->entity_manager->persist($town_proxy->getTown());
         $this->entity_manager->flush();
@@ -2031,6 +2063,7 @@ class AdminTownController extends AdminActionController
             }
         }
 
+        $this->clearTownCaches($town);
         $this->entity_manager->flush();
         return AjaxResponse::success();
     }
@@ -2069,6 +2102,7 @@ class AdminTownController extends AdminActionController
             $this->entity_manager->persist($citizen);
         }
 
+        $this->clearTownCaches($town);
         $this->entity_manager->flush();
         return AjaxResponse::success();
     }
@@ -2192,7 +2226,9 @@ class AdminTownController extends AdminActionController
             case '_dig_':
                 if ($control)
                     foreach ($citizens as $citizen) {
-                        $dig = $citizen->getCurrentDigTimer();
+                        $dig = ($citizen->getZone() && !$citizen->getZone()->isTownZone())
+                            ? ($citizen->getCurrentDigTimer() ?? (new DigTimer())->setZone( $citizen->getZone() )->setCitizen( $citizen ))
+                            : null;
                         if ($dig) {
                             $dig->setTimestamp(new \DateTime('now - 24hours'));
                             $this->entity_manager->persist($dig);
@@ -2204,6 +2240,7 @@ class AdminTownController extends AdminActionController
 
         }
 
+        $this->clearTownCaches($town);
         $this->entity_manager->flush();
         return AjaxResponse::success();
     }
@@ -2245,6 +2282,7 @@ class AdminTownController extends AdminActionController
             $this->entity_manager->persist($citizen);
         }
 
+        $this->clearTownCaches($town);
         $this->entity_manager->flush();
         return AjaxResponse::success();
     }
@@ -2292,6 +2330,7 @@ class AdminTownController extends AdminActionController
             $this->entity_manager->persist($citizen);
         }
 
+        $this->clearTownCaches($town);
         $this->entity_manager->flush();
         return AjaxResponse::success();
     }
@@ -2330,6 +2369,7 @@ class AdminTownController extends AdminActionController
             }
         }
 
+        $this->clearTownCaches($town);
         $this->entity_manager->persist($town);
         $this->entity_manager->flush();
 
@@ -2380,6 +2420,7 @@ class AdminTownController extends AdminActionController
             $events->buildingDestruction($building, 'debug', true);
         }
 
+        $this->clearTownCaches($town);
         $this->entity_manager->persist($building);
         $this->entity_manager->persist($town);
         $this->entity_manager->flush();
@@ -2440,6 +2481,7 @@ class AdminTownController extends AdminActionController
 			}
 		}
 
+        $this->clearTownCaches($town);
         $this->entity_manager->persist($building);
         $this->entity_manager->persist($town);
         $this->entity_manager->flush();
@@ -2484,6 +2526,7 @@ class AdminTownController extends AdminActionController
             $events->buildingUpgrade( $building, false );
         }
 
+        $this->clearTownCaches($town);
         $this->entity_manager->persist($building);
         $this->entity_manager->persist($town);
         $this->entity_manager->flush();
@@ -2517,6 +2560,7 @@ class AdminTownController extends AdminActionController
         foreach (BuildingEffectStage::cases() as $stage)
             $events->buildingEffect( $building, null, $stage );
 
+        $this->clearTownCaches($town);
         $this->entity_manager->persist($building);
         $this->entity_manager->persist($town);
         $this->entity_manager->flush();
@@ -2610,6 +2654,8 @@ class AdminTownController extends AdminActionController
                 return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
             }
         }
+
+        $this->clearTownCaches($town);
         return AjaxResponse::success();
     }
 }

@@ -55,5 +55,8 @@ templates/build/*
 .vscode/
 .idea/
 
+# PHPStan
+phpstan.neon
+
 *:Zone.Identifier
 .vslist

@@ -24,7 +24,9 @@ use App\Entity\TwinoidImport;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
+use App\Entity\UserSwapPivot;
 use App\Enum\DomainBlacklistType;
+use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Structures\MyHordesConf;
 use Doctrine\ORM\QueryBuilder;
 use DateTime;
@@ -51,9 +53,11 @@ class UserHandler
         private RoleHierarchyInterface $roles,
         private ContainerInterface $container,
         private CrowService $crow,
+        private TranslatorInterface $translator,
         private ConfMaster $conf,
         private DoctrineCacheService $doctrineCache,
-        private TagAwareCacheInterface $gameCachePool
+        private TagAwareCacheInterface $gameCachePool,
+        private InvalidateTagsInAllPoolsAction $clearCache,
     )
     { }
 
@@ -368,6 +372,7 @@ class UserHandler
 
         if ($user->getAvatar()) {
             $this->entity_manager->remove($user->getAvatar());
+            ($this->clearCache)("user_avatar_{$user->getId()}");
             $user->setAvatar(null);
         }
 
@@ -775,5 +780,21 @@ class UserHandler
         $this->entity_manager->flush();
 
         return true;
+    }
+
+    /**
+     * @param User $user
+     * @param bool $asPrincipal
+     * @param bool $asSecondary
+     * @return User[]
+     */
+    public function getAllPivotUserRelationsFor(User $user, bool $asPrincipal = true, bool $asSecondary = true): array {
+        $users = [];
+        if ($asPrincipal)
+            $users = array_merge($users, array_map(fn(UserSwapPivot $p) => $p->getSecondary(), $this->entity_manager->getRepository(UserSwapPivot::class)->findBy(['principal' => $user])));
+        if ($asSecondary)
+            $users = array_merge($users, array_map(fn(UserSwapPivot $p) => $p->getPrincipal(), $this->entity_manager->getRepository(UserSwapPivot::class)->findBy(['secondary' => $user])));
+
+        return $users;
     }
 }

@@ -138,7 +138,7 @@ class DebugCommand extends LanguageCommand
             if ($input->getOption('add-crow')) {
                 /** @var User $crow */
                 $crow = $this->entity_manager->getRepository(User::class)->find(66);
-                if (!isset($crow)) {
+                if ($crow === null) {
                     $command = $this->getApplication()->find('app:user:create');
 
                     for ($i = 1; $i <= 80; $i++) {
@@ -192,7 +192,7 @@ class DebugCommand extends LanguageCommand
             if ($input->getOption('add-animactor')) {
                 /** @var User $animacteur */
                 $animacteur = $this->entity_manager->getRepository(User::class)->find(67);
-                if (!isset($animacteur)) {
+                if ($animacteur === null) {
                     $command = $this->getApplication()->find('app:user:create');
                     for ($i = 1; $i <= 80; $i++) {
                         $user_name = 'user_' . str_pad($i, 3, '0', STR_PAD_LEFT);
@@ -418,8 +418,6 @@ class DebugCommand extends LanguageCommand
         }
 
         if ($input->getOption('reapply-twinoid-data')) {
-            /** @var TwinoidImport[] $all_imports */
-
             $limited = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_LIMITED, false);
             $threshold = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1);
             $town_threshold = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1);

@@ -102,13 +102,11 @@
                                         <div class="tooltip">{{ 'Diskussion aktualisieren'|trans({}, 'global') }}</div>
                                     </div>
                                 </div>
-                                {% if not app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGlobalCommunication')) %}
-                                    <div class="cell">
-                                        <div x-pm-action="answer-single" class="pm-button" id="new-answer-single-button">
-                                            <img alt="" src="{{ asset('build/images/forum/edit.png') }}" /> {{ 'Antworten'|trans({},'global') }}
-                                        </div>
+                                <div class="cell">
+                                    <div x-pm-action="answer-single" class="pm-button" id="new-answer-single-button">
+                                        <img alt="" src="{{ asset('build/images/forum/edit.png') }}" /> {{ 'Antworten'|trans({},'global') }}
                                     </div>
-                                {% endif %}
+                                </div>
                                 <div class="cell">
                                     <div x-pm-action="pin-single" class="pm-button" id="pin-single-button">
                                         <img alt="" src="{{ asset('build/images/icons/pin3.png') }}"> {{ 'Anpinnen'|trans({},'global') }}

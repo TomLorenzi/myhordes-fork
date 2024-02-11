@@ -28,6 +28,20 @@
                                 {{ 'Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.'|trans({},'login') }}
                                 <br><br />
                                 <form id="register-form">
+                                    {% if not etwin_user_valid %}
+                                        <div class="row">
+                                            <div class="cell rw-12">
+                                                <div class="note note-warning">
+                                                    {{ 'Leider verstößt dein aktueller Anzeigename auf Eternaltwin gegen die Richtlinien von MyHordes. Bitte gib einen neuen Namen ein, den du auf MyHordes benutzen möchtest. Dein Name auf Eternaltwin wird hierdurch nicht geändert.'|trans({},'login') }}
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="cell padded-small rw-6 rw-md-12"><b><label for="name">{% trans from 'login' %}Spielername{% endtrans %}</label></b></div>
+                                            <div class="cell padded-small rw-6 rw-md-12"><input name="name" id="name" type="text" value="{{ etwin_user.getDisplayName }}" /></div>
+                                        </div>
+                                    {% endif %}
                                     <div class="row">
                                         <div class="cell padded-small rw-6 rw-md-12"><b><label for="mail1">{% trans from 'login' %}E-Mail Adresse{% endtrans %}</label></b></div>
                                         <div class="cell padded-small rw-6 rw-md-12"><input name="mail1" id="mail1" type="email" value="{{ etwin_mail }}" /></div>
@@ -139,6 +153,7 @@
             document.getElementById('et_confirm').addEventListener('click', function () {
                 $.ajax.easySend( '{{ path('api_etwin_confirm') }}', {
                     pass: document.getElementById('login-password') ? document.getElementById('login-password').value : null,
+                    name: document.getElementById('name') ? document.getElementById('name').value : null,
                     mail1: document.getElementById('mail1') ? document.getElementById('mail1').value : null,
                     mail2: document.getElementById('mail2') ? document.getElementById('mail2').value : null,
                     refer: document.getElementById('refer') ? document.getElementById('refer').value : null,

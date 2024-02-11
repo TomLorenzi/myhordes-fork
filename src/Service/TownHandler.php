@@ -116,7 +116,7 @@ class TownHandler
     public function triggerAlways( Town $town, bool $attack = false ): bool {
         $changed = false;
 
-        if ( $town->getDoor() && !$town->getDevastated() && (($s = $attack ? 0 : $this->timeKeeper->secondsUntilNextAttack(null, true))) <= 1800 ) {
+        if ( $town->getDoor() && !$town->getDevastated() && !$town->getBrokenDoor() && (($s = $attack ? 0 : $this->timeKeeper->secondsUntilNextAttack(null, true))) <= 1800 ) {
 
             $close_ts = null;
             if ($this->getBuilding( $town, 'small_door_closed_#02' )) {
@@ -144,7 +144,7 @@ class TownHandler
 
         }
 
-        if ( !$town->getDoor() && $town->getDevastated() ) {
+        if ( !$town->getDoor() && ($town->getDevastated() || $town->getBrokenDoor()) ) {
             $town->setDoor( true );
             $changed = true;
         }
@@ -835,6 +835,8 @@ class TownHandler
 	}
 
     public function door_is_locked(Town $town): bool|BuildingPrototype {
+        if ($town->getLockdown()) return true;
+        
         if ( !$town->getDoor() ) {
 
             if ($town->isOpen() && $this->conf->getTownConfiguration($town)->get(TownSetting::LockDoorUntilTownIsFull)) return true;

@@ -271,7 +271,6 @@ class XMLv2Controller extends CoreController {
         $data = $this->getHeaders($user, $language, !!$app_key);
 
         /** @var User $user */
-        /** @var Citizen $citizen */
         if (!$user->getActiveCitizen()) {
             $data['error']['attributes'] = ['code' => "not_in_game"];
             $data['status']['attributes'] = ['open' => "1", "msg" => ""];
@@ -317,6 +316,8 @@ class XMLv2Controller extends CoreController {
             if ($building) {
                 $item_def_factor += (1+$building->getLevel()) * 0.5;
             }
+
+			$map_x = $map_y = null;
 
             $town->getMapSize($map_x,$map_y);
 
@@ -484,10 +485,9 @@ class XMLv2Controller extends CoreController {
             }
 
             // Current gazette
-            /** @var Gazette $gazette */
             if ($town->getDay() > 1){
                 $gazette = $this->gazette_service->renderGazette($town);
-                if ($gazette !== null) {
+                if (!empty($gazette)) {
                     $data['data']['city']['news'] = [
                         'attributes' => [
                             'z' => $gazette['attack'],
@@ -972,7 +972,7 @@ class XMLv2Controller extends CoreController {
             ],
         ];
 
-        /** @var PictoPrototype $ruin */
+        /** @var PictoPrototype $picto */
         foreach ($pictos as $picto) {
             $pictoXml = [
                 'attributes' => [
@@ -1034,7 +1034,7 @@ class XMLv2Controller extends CoreController {
             ],
         ];
 
-        /** @var AwardPrototype $ruin */
+        /** @var AwardPrototype $award */
         foreach ($awards as $award) {
             $awardXml = [
                 'attributes' => [

@@ -114,7 +114,7 @@
                 {% if not town.devastated and has_levelable_building and not citizen.banished %}<li x-ajax-href="{{ path('town_upgrades') }}" {% if active_citizen.dailyUpgradeVote %} class="checked"{% endif %}>{{ 'Für ein Tagesprojekt abstimmen.'|trans({}, 'game') }},</li>{% endif %}
 				{% if display_home_upgrade %}<li{% if has_upgraded_house %} class="checked"{% endif %} x-ajax-href="{{ path('town_house_build') }}">{{ 'Mein Haus ausbauen'|trans({}, 'game') }},</li>{% endif %}
                 {% if citizen.banished %}<li{% if not can_do_insurrection %} class="checked"{% endif %}>{{ 'Einen Aufstand der Verbannten vorbereiten (optional).'|trans({}, 'game') }},</li>{% endif %}
-                <li{% if has_been_active %} class="checked"{% endif %}>{{ 'Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).'|trans({}, 'game') }}{% if additional_bullet_points|length > 0 %},{% else %}.{% endif %}</li>
+                <li{% if has_been_active %} class="checked"{% endif %} x-ajax-href="{{ path('town_constructions') }}">{{ 'Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).'|trans({}, 'game') }}{% if additional_bullet_points|length > 0 %},{% else %}.{% endif %}</li>
                 {% for obj in additional_bullet_points %}
                     <li {% if obj[1] %}class="checked"{% endif %}>{{ obj[0]|trans({},'game') }}{% if loop.last %}.{% else %},{% endif %}</li>
                 {% endfor %}
@@ -125,7 +125,7 @@
                 <div class="padded cell rw-12">
                     <ul class="overview-list">
                         <li>{{ 'Stadttyp:'|trans({}, 'game') }} <strong>{{ town.type.label|trans({}, 'game') }}</strong></li>
-                        <li>{{ 'Stadttor:'|trans({}, 'game') }} <strong class="{% if(town.door) %}warning{% endif %}">{% if(town.door and town.devastated) %} {{ 'ZERSTÖRT!!'|trans({}, 'game')}} {% elseif (town.door) %} {{ 'Offen!'|trans({}, 'game')}} {% else %} {{'Geschlossen'|trans({}, 'game')}} {% endif %}</strong></li>
+                        <li>{{ 'Stadttor:'|trans({}, 'game') }} <strong class="{% if(town.door) %}warning{% endif %}">{% if(town.door and (town.devastated or town.brokenDoor)) %} {{ 'ZERSTÖRT!!'|trans({}, 'game')}} {% elseif (town.door) %} {{ 'Offen!'|trans({}, 'game')}} {% else %} {{'Geschlossen'|trans({}, 'game')}} {% endif %}</strong></li>
                         <li>{{ 'Wasservorräte:'|trans({}, 'game') }} <strong>{{ town.well}}</strong> <img src="{{ asset('build/images/item/item_water.gif') }}" />{% if town.well < 15 %} <span class="warning">(<img src="{{ asset('build/images/icons/small_warning.gif') }}" alt="" /> {{ 'Gefahr'|trans({}, 'game') }})</span>{% endif %}</li>
                         <li>{{ 'Einwohner am Leben:'|trans({}, 'game') }} <strong>{{ living_citizens + town.strangers }}</strong> <img src="{{ asset('build/images/icons/small_human.gif') }}" /></li>
                         <li>{{ 'Geschätzter Angriff :'|trans({}, 'game') }} <strong>{% if (zeds_today[3] >= wtt) and zeds_today[0] %}{{ zeds_today[1] }} - {{ zeds_today[2] }}{% else %}{{ 'Unbekannt'|trans({}, 'game')}}{% endif %}</strong> <img src="{{ asset('build/images/icons/small_zombie.gif') }}" /></li>

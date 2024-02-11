@@ -49,7 +49,7 @@ class SoulRankingController extends SoulController
     {
         $user = $this->getUser();
 
-        if (($currentSeason = $this->resolveSeasonIdentifier( $season ?? $parser->get('season', 'c'), true )) === false)
+        if (($currentSeason = $this->resolveSeasonIdentifier( $season ?? $parser->get('season', 'c'), true )) === null)
             return $this->redirect($this->generateUrl( 'soul_season', ['type' => $type, 'season' => 'c'] ));
 
         /** @var CitizenRankingProxy $nextDeath */
@@ -192,7 +192,7 @@ class SoulRankingController extends SoulController
 
         try {
             $key = "mh_app_distinction_ranking_$seasonId";
-            $ranking = $gameCachePool->get($key, function (ItemInterface $item) use ($currentSeason, $gameCachePool) {
+            $ranking = $gameCachePool->get($key, function (ItemInterface $item) use ($currentSeason) {
                 $item->expiresAfter(43200)->tag(['daily','ranking','distinction_ranking']);
 
                 $add_season_filters = function (QueryBuilder $q) use ($currentSeason): QueryBuilder {
@@ -310,7 +310,7 @@ class SoulRankingController extends SoulController
         $created = null;
 
         try {
-            $ranking = $gameCachePool->get("mh_app_distinction_ranking_{$seasonId}_{$prototype->getId()}", function (ItemInterface $item) use ($currentSeason, $prototype, $gameCachePool) {
+            $ranking = $gameCachePool->get("mh_app_distinction_ranking_{$seasonId}_{$prototype->getId()}", function (ItemInterface $item) use ($currentSeason, $prototype) {
                 $item->expiresAfter(43200)->tag(['daily','ranking','distinction_ranking']);
                 
                 $add_season_filters = function (QueryBuilder $q) use ($currentSeason): QueryBuilder {

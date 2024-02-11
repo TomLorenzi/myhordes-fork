@@ -7,7 +7,7 @@ use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 /**
  * @method shunned(?bool $v)
- * @property ?bool shunned
+ * @property ?bool $shunned
  * @method status(string $name, ?bool $enabled)
  */
 class StatusRequirement extends RequirementsAtom {

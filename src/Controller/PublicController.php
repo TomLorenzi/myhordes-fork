@@ -362,7 +362,7 @@ class PublicController extends CustomAbstractController
             ],
             'mail1' => [
                 new Constraints\Email( message: $translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login')),
-                new Constraints\Callback( [ 'callback' => function(string $mail, ExecutionContextInterface $context) use ($parser,$entityManager,$translator) {
+                new Constraints\Callback( [ 'callback' => function(string $mail, ExecutionContextInterface $context) use ($entityManager,$translator) {
                     $repo = $entityManager->getRepository(AntiSpamDomains::class);
 
                     if ($repo->findOneBy( ['type' => DomainBlacklistType::EmailAddress, 'domain' => DomainBlacklistType::EmailAddress->convert( $mail )] )) {
@@ -562,6 +562,7 @@ class PublicController extends CustomAbstractController
             return $this->render( 'ajax/public/et_welcome.html.twig', [
                 'refer' => $session->get('refer'),
                 'etwin_user' => $user,
+                'etwin_user_valid' => $userHandler->isNameValid( $user->getDisplayName(), custom_length: 32 ),
                 'etwin_mail' => $user->getEmailAddress(),
                 'target_user' => $potential_user,
                 'current_user' => $myhordes_user
@@ -623,7 +624,7 @@ class PublicController extends CustomAbstractController
                 'fields' => [
                     'mail1' => [
                         new Constraints\Email( message: $translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login')),
-                        new Constraints\Callback( [ 'callback' => function(string $mail, ExecutionContextInterface $context) use ($parser,$translator) {
+                        new Constraints\Callback( [ 'callback' => function(string $mail, ExecutionContextInterface $context) use ($translator) {
                             $repo = $this->entity_manager->getRepository(AntiSpamDomains::class);
                             if ($repo->findOneBy( ['type' => DomainBlacklistType::EmailAddress, 'domain' => DomainBlacklistType::EmailAddress->convert( $mail )] )) {
                                 $context->buildViolation($translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login'))
@@ -681,10 +682,16 @@ class PublicController extends CustomAbstractController
                 }
             }
 
-            if ( !$userHandler->isNameValid( preg_replace('/[^\w]/', '', trim($etwin_user->getDisplayName())) ) )
-                return AjaxResponse::errorMessage($this->translator->trans('Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.', [], 'login') );
+            $override_name = null;
+            if ($parser->has('name', true)) {
 
-            $new_user = $userFactory->importUser( $etwin_user, $parser->get('mail1'), false, $error );
+                $override_name = $parser->get('name', null);
+                if (!$userHandler->isNameValid($override_name, custom_length: 32)) {
+                    return AjaxResponse::error('invalid_fields', ['fields' => [$translator->trans('Der eingegebene Spielername verstößt gegen die Richtlinien von MyHordes und kann nicht verwendet werden.', [], 'login')]]);
+                }
+            }
+
+            $new_user = $userFactory->importUser( $etwin_user, $parser->get('mail1'), false, $error, $override_name );
 
             switch ($error) {
                 case UserFactory::ErrorNone:
@@ -744,7 +751,7 @@ class PublicController extends CustomAbstractController
                 return AjaxResponse::error( SoulController::ErrorETwinImportProfileInUse );
 
             $myhordes_user->setEternalID( $etwin_user->getID() );
-            if (!$myhordes_user->getNoAutomaticNameManagement() && $etwin_user->getDisplayName() !== $myhordes_user->getUsername()) {
+            if (!$myhordes_user->getNoAutomaticNameManagement() && $etwin_user->getDisplayName() !== $myhordes_user->getUsername() && $userHandler->isNameValid( $etwin_user->getDisplayName() )) {
                 $history = $myhordes_user->getNameHistory() ?? [];
                 if(!in_array($myhordes_user->getName(), $history))
                     $history[] = $myhordes_user->getName();

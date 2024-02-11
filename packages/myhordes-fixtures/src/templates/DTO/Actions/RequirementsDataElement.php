@@ -9,16 +9,16 @@ use Doctrine\ORM\EntityManagerInterface;
 use MyHordes\Fixtures\DTO\Element;
 
 /**
- * @property string identifier
+ * @property string $identifier
  * @method self identifier(string $v)
- * @property RequirementsAtom[] atomList
- * @property int type
+ * @property RequirementsAtom[] $atomList
+ * @property int $type
  * @method self type(int $v)
- * @property string text
+ * @property string $text
  * @method self text(string $v)
- * @property string text_key
+ * @property string $text_key
  * @method self text_key(string $v)
- * @property array collection
+ * @property array $collection
  * @method self collection(array $v)
  *
  * @method RequirementsDataContainer commit(string &$id = null)

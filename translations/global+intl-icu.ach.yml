@@ -542,3 +542,6 @@ Inhaltsverzeichnis: crwdns168681:0crwdne168681:0
 'Vielen Dank an diese Spieler für ihre künstlerischen Beiträge.': 'crwdns202686:0crwdne202686:0'
 '<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>{max}</strong> Verteidigungspunkte vergeben!': 'crwdns204320:0{max}crwdne204320:0'
 'Auf {hostname}': 'crwdns204322:0{hostname}crwdne204322:0'
+aktiv: crwdns204694:0crwdne204694:0
+inaktiv: crwdns204696:0crwdne204696:0
+'Hilfe (forum)': 'crwdns204788:0crwdne204788:0'

@@ -31,6 +31,7 @@ use App\Enum\ScavengingActionType;
 use App\Enum\ZoneActivityMarkerType;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
+use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\CrowService;
@@ -61,11 +62,14 @@ use DateInterval;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Psr\Cache\InvalidArgumentException;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Contracts\Cache\ItemInterface;
+use Symfony\Contracts\Cache\TagAwareCacheInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
@@ -95,6 +99,7 @@ class BeyondController extends InventoryAwareController
     protected ZoneHandler $zone_handler;
     protected $item_factory;
     protected DeathHandler $death_handler;
+    private InvalidateTagsInAllPoolsAction $clear;
 
     /**
      * BeyondController constructor.
@@ -116,17 +121,23 @@ class BeyondController extends InventoryAwareController
      * @param UserHandler $uh
      * @param CrowService $armbrust
      * @param TownHandler $th
+     * @param DoctrineCacheService $doctrineCache
+     * @param EventProxyService $events
+     * @param HookExecutor $hookExecutor
+     * @param InvalidateTagsInAllPoolsAction $clearCache
      */
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, TimeKeeperService $tk,
         DeathHandler $dh, PictoHandler $ph, TranslatorInterface $translator, GameFactory $gf, RandomGenerator $rg,
         ItemFactory $if, ZoneHandler $zh, LogTemplateHandler $lh, ConfMaster $conf, Packages $a, UserHandler $uh,
-        CrowService $armbrust, TownHandler $th, DoctrineCacheService $doctrineCache, EventProxyService $events, HookExecutor $hookExecutor)
+        CrowService $armbrust, TownHandler $th, DoctrineCacheService $doctrineCache, EventProxyService $events, HookExecutor $hookExecutor,
+        InvalidateTagsInAllPoolsAction $clearCache)
     {
         parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust, $th, $a, $doctrineCache, $events, $hookExecutor);
         $this->game_factory = $gf;
         $this->item_factory = $if;
         $this->zone_handler = $zh;
+        $this->clear = $clearCache;
     }
 
     protected function deferZoneUpdate() {
@@ -145,6 +156,15 @@ class BeyondController extends InventoryAwareController
         } else return false;
     }
 
+    protected function clearZoneCache(int|Zone|null $x = null, ?int $y = null): void {
+        $citizen = $this->getActiveCitizen();
+        $zone = is_a($x, Zone::class) ? $x : $citizen->getZone();
+        if (is_a($x, Zone::class)) $x = $x?->getX();
+        else $x ??= $zone?->getX();
+        $y ??= $zone?->getY();
+        ($this->clear)("town_{$citizen->getTown()->getId()}_zones_{$x}_{$y}");
+    }
+
     protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null, $merge_map = true ): array {
         $zone = $this->getActiveCitizen()->getZone();
         $blocked = !$this->zone_handler->isZoneUnderControl($zone, $cp);
@@ -157,8 +177,11 @@ class BeyondController extends InventoryAwareController
         $scout_sense = false;
 
         if ($this->getActiveCitizen()->getProfession()->getName() === 'hunter') {
-            $scout_level = $zone->getScoutLevel();
             $scout_sense = true;
+            $scout_markings_global = $this->getActiveCitizen()->hasRole('guide');
+            $scout_level =
+                ($scout_markings_global ? $zone->getScoutLevelFor( null ) : 0) +
+                $zone->getScoutLevelForCitizens( );
         }
 
         $scout_movement = $this->inventory_handler->countSpecificItems(
@@ -230,11 +253,15 @@ class BeyondController extends InventoryAwareController
 
     /**
      * @param TownHandler $th
+     * @param TagAwareCacheInterface $gameCachePool
      * @param string $sect
+     * @param bool $refresh
      * @return Response
+     * @throws InvalidArgumentException
      */
-    #[Route(path: 'jx/beyond/desert/{sect}', name: 'beyond_dashboard')]
-    public function desert(TownHandler $th, string $sect = ''): Response
+    #[Route(path: 'jx/beyond/desert/cached/{sect}', name: 'beyond_dashboard', defaults: ['refresh' => false])]
+    #[Route(path: 'jx/beyond/desert/refresh/{sect}', name: 'beyond_dashboard_refresh', defaults: ['refresh' => true])]
+    public function desert(TownHandler $th, TagAwareCacheInterface $gameCachePool, string $sect = '', bool $refresh = false): Response
     {
         $citizen = $this->getActiveCitizen();
         $request = Request::createFromGlobals();
@@ -242,152 +269,160 @@ class BeyondController extends InventoryAwareController
 
         if (!$citizen->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
-            
-        $town = $citizen->getTown();
-        $zone = $citizen->getZone();
 
-        $port_distance = $this->events->queryTownParameter( $town, BuildingValueQuery::BeyondTeleportRadius );
-        $distance = round(sqrt( pow($zone->getX(),2) + pow($zone->getY(),2) ));
+        if ($refresh) $this->clearZoneCache();
 
-        $can_enter = $distance <= $port_distance && !$citizen->isCamping();
-        $is_on_zero = $zone->getX() == 0 && $zone->getY() == 0;
+        $data = $gameCachePool->get("beyond_twig_data_{$citizen->getId()}_{$citizen->getZone()->getId()}_{$request->headers->get('X-Render-Target')}", function (ItemInterface $item) use ($citizen, $sect, $th): array {
+            $item->expiresAfter(60)->tag(['daily',"town_{$citizen->getTown()->getId()}","town_{$citizen->getTown()->getId()}_zones","town_{$citizen->getTown()->getId()}_zones_{$citizen->getZone()->getX()}_{$citizen->getZone()->getY()}"]);
 
-        $citizen_tired = $citizen->getAp() <= 0 || $this->citizen_handler->isTired($citizen);
+            $town = $citizen->getTown();
+            $zone = $citizen->getZone();
 
-        $blocked = !$this->zone_handler->isZoneUnderControl($zone, $cp);
-        $escape = $this->get_escape_timeout($citizen);
-        $escape_desperate = ($escape < 0) ? $this->get_escape_timeout( $citizen, true ) : -1;
+            $port_distance = $this->events->queryTownParameter( $town, BuildingValueQuery::BeyondTeleportRadius );
+            $distance = round(sqrt( pow($zone->getX(),2) + pow($zone->getY(),2) ));
 
-        $require_ap = ($is_on_zero && $th->getBuilding($town, 'small_labyrinth_#00',  true));
+            $can_enter = $distance <= $port_distance && !$citizen->isCamping();
+            $is_on_zero = $zone->getX() == 0 && $zone->getY() == 0;
 
-        if (!$is_on_zero && $this->getTownConf()->get(TownConf::CONF_FEATURE_CAMPING, false)) {
-            $zone_camping_base = ($zone->getPrototype() ? $zone->getPrototype()->getCampingLevel() : 0) + ($zone->getImprovementLevel() );
+            $citizen_tired = $citizen->getAp() <= 0 || $this->citizen_handler->isTired($citizen);
 
-            // Camping Information
-            $camping_zone = match (true) {
-                $zone_camping_base <= 0     => T::__("Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.", 'game'),
-                $zone_camping_base <= 2     => '',
-                $zone_camping_base <= 4     => T::__("Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...", 'game'),
-                $zone_camping_base <= 6     => T::__("Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.", 'game'),
-                $zone_camping_base <= 8     => T::__("Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.", 'game'),
-                $zone_camping_base <= 10    => T::__("An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...", 'game'),
-                $zone_camping_base <= 12    => T::__("In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.", 'game'),
-                default                     => T::__("Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.", 'game'),
-            };
+            $blocked = !$this->zone_handler->isZoneUnderControl($zone, $cp);
+            $escape = $this->get_escape_timeout($citizen);
+            $escape_desperate = ($escape < 0) ? $this->get_escape_timeout( $citizen, true ) : -1;
 
-            $camping_capacity = "";
-            $ruin_capacity = $zone->getBuildingCampingCapacity();
+            $require_ap = ($is_on_zero && $th->getBuilding($town, 'small_labyrinth_#00',  true));
 
-            if($zone->getPrototype() && $ruin_capacity !== -1) {
-                $zone_capacity = max(0, min(5, $zone->getBuildingCampingCapacity() - $this->entity_manager->getRepository(Zone::class)->findPreviousCampersCount($citizen)));
+            if (!$is_on_zero && $this->getTownConf()->get(TownConf::CONF_FEATURE_CAMPING, false)) {
+                $zone_camping_base = ($zone->getPrototype() ? $zone->getPrototype()->getCampingLevel() : 0) + ($zone->getImprovementLevel() );
 
-                // Ruin capacity Information
-                $camping_capacity = match($zone_capacity) {
-                    0       => T::__("Du siehst nicht wirklich, wo du dich hier verstecken könntest...", 'game'),
-                    1       => T::__("Egal, wie sehr du suchst, es erscheint offensichtlich, dass es an diesem Ort nur ein einziges geeignetes Versteck gibt. Entscheide selbst...", 'game'),
-                    2, 3    => T::__("Dieser Ort bietet Möglichkeiten zum Verstecken, wenn du kreativ genug bist.", 'game'),
-                    4       => T::__("Du beobachtest mehrere geeignete Verstecke, aber es wird nicht für jeden etwas dabei sein.", 'game'),
-                    5       => T::__("Es sollte nicht allzu schwer sein, diesen Ort zum Untertauchen auszunutzen.", 'game'),
-                    default => '',
+                // Camping Information
+                $camping_zone = match (true) {
+                    $zone_camping_base <= 0     => T::__("Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.", 'game'),
+                    $zone_camping_base <= 2     => '',
+                    $zone_camping_base <= 4     => T::__("Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...", 'game'),
+                    $zone_camping_base <= 6     => T::__("Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.", 'game'),
+                    $zone_camping_base <= 8     => T::__("Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.", 'game'),
+                    $zone_camping_base <= 10    => T::__("An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...", 'game'),
+                    $zone_camping_base <= 12    => T::__("In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.", 'game'),
+                    default                     => T::__("Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.", 'game'),
                 };
 
-                // When building at full capacity, display a special text
-                if($zone->getPrototype()->getCapacity() > 0 && $zone_capacity <= 0) {
-                    $camping_capacity = T::__("Es scheint, dass alle guten Verstecke bereits von deinen \"Freunden\" besetzt sind. Du musst also einen anderen Ort finden oder improvisieren...", 'game');
+                $camping_capacity = "";
+                $ruin_capacity = $zone->getBuildingCampingCapacity();
 
-                    // Set building text to default (outside) when no slot is left
-                    $camping_zone = T::__("Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.", 'game');
+                if($zone->getPrototype() && $ruin_capacity !== -1) {
+                    $zone_capacity = max(0, min(5, $zone->getBuildingCampingCapacity() - $this->entity_manager->getRepository(Zone::class)->findPreviousCampersCount($citizen)));
+
+                    // Ruin capacity Information
+                    $camping_capacity = match($zone_capacity) {
+                        0       => T::__("Du siehst nicht wirklich, wo du dich hier verstecken könntest...", 'game'),
+                        1       => T::__("Egal, wie sehr du suchst, es erscheint offensichtlich, dass es an diesem Ort nur ein einziges geeignetes Versteck gibt. Entscheide selbst...", 'game'),
+                        2, 3    => T::__("Dieser Ort bietet Möglichkeiten zum Verstecken, wenn du kreativ genug bist.", 'game'),
+                        4       => T::__("Du beobachtest mehrere geeignete Verstecke, aber es wird nicht für jeden etwas dabei sein.", 'game'),
+                        5       => T::__("Es sollte nicht allzu schwer sein, diesen Ort zum Untertauchen auszunutzen.", 'game'),
+                        default => '',
+                    };
+
+                    // When building at full capacity, display a special text
+                    if($zone->getPrototype()->getCapacity() > 0 && $zone_capacity <= 0) {
+                        $camping_capacity = T::__("Es scheint, dass alle guten Verstecke bereits von deinen \"Freunden\" besetzt sind. Du musst also einen anderen Ort finden oder improvisieren...", 'game');
+
+                        // Set building text to default (outside) when no slot is left
+                        $camping_zone = T::__("Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.", 'game');
+                    }
                 }
+
+                $camping_zombies = match (true) {
+                    $zone->getZombies() >= 11 => T::__("Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...", 'game'),
+                    $zone->getZombies() >=  5 => T::__("Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.", 'game'),
+                    default => ''
+                };
+
+                $camping_chance_texts = [
+                    0 => T::__("Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.", 'game'),
+                    1 => T::__("Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?", 'game'),
+                    2 => T::__("Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.", 'game'),
+                    3 => T::__("Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...", 'game'),
+                    4 => T::__("Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.", 'game'),
+                    5 => T::__("Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!", 'game'),
+                    6 => T::__("Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.", 'game'),
+                    7 => T::__("Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.", 'game'),
+                ];
+                $survival_chance = $citizen->getCampingChance() > 0
+                    ? $citizen->getCampingChance()
+                    : $this->citizen_handler->getCampingOdds($citizen);
+
+                $camping_chance = match (true) {
+                    $survival_chance <= .10     => T::__("Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.", 'game'),
+                    $survival_chance <= .30     => T::__("Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?", 'game'),
+                    $survival_chance <= .50     => T::__("Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.", 'game'),
+                    $survival_chance <= .65     => T::__("Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...", 'game'),
+                    $survival_chance <= .80     => T::__("Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.", 'game'),
+                    $survival_chance <= .90     => T::__("Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!", 'game'),
+                    $survival_chance  < 1.0     => T::__("Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.", 'game'),
+                    $survival_chance === 1.0    => T::__("Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.", 'game'),
+                    default                     => '',
+                };
+
+                $camping_improvable = ($survival_chance < $this->citizen_handler->getCampingOdds($citizen))
+                    ? $this->translator->trans("Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?", [], 'game')
+                    : "";
+
+                $camping_blueprint = "";
+                $blueprintFound = false;
+                if ($zone->getBuryCount() <= 0) {
+                    if ($zone->getBlueprint() === Zone::BlueprintAvailable) {
+                        $camping_blueprint = T::__("Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.", 'game');
+                    } else if ($zone->getBlueprint() === Zone::BlueprintFound) {
+                        $camping_blueprint = T::__("Hier wurde bereits ein Bauplan gefunden.", 'game');
+                        $blueprintFound = true;
+                    }
+                } else $camping_blueprint = T::__("Du erhälst einen Bauplan wenn Du in diesem Gebäude campst, aber du musst zunächst die Zone aufräumen.", 'game');
+
+                // Uncomment next line to show camping values in game interface.
+                #$camping_debug = "DEBUG CampingChances\nSurvivalChance for Comparison: " . $survival_chance . "\nCitizenCampingChance: " . $citizen->getCampingChance() . "\nCitizenHandlerCalculatedChance: " . $this->citizen_handler->getCampingOdds($citizen) . "\nCalculationValues:\n" . str_replace( ',', "\n", str_replace( ['{', '}'], '', json_encode($this->citizen_handler->getCampingValues($citizen), 8) ) );
             }
 
-            $camping_zombies = match (true) {
-                $zone->getZombies() >= 11 => T::__("Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...", 'game'),
-                $zone->getZombies() >=  5 => T::__("Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.", 'game'),
-                default => ''
-            };
+            $zone_tags = [];
+            if(!$is_on_zero) {
+                $zone_tags = $this->entity_manager->getRepository(ZoneTag::class)->findAll();
+            }
 
-            $camping_chance_texts = [
-                0 => T::__("Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.", 'game'),
-                1 => T::__("Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?", 'game'),
-                2 => T::__("Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.", 'game'),
-                3 => T::__("Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...", 'game'),
-                4 => T::__("Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.", 'game'),
-                5 => T::__("Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!", 'game'),
-                6 => T::__("Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.", 'game'),
-                7 => T::__("Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.", 'game'),
+            return [
+                'scout' => $citizen->getProfession()->getName() === 'hunter',
+                'allow_enter_town' => $can_enter,
+                'doors_open' => $town->getDoor(),
+                'town' => $town,
+                'show_ventilation'  => $is_on_zero && $th->getBuilding($town, 'small_ventilation_#00',  true) !== null,
+                'allow_ventilation' => $citizen->getProfession()->getHeroic(),
+                'show_sneaky' => $is_on_zero && $citizen->hasRole('ghoul') && $town->getDoor(),
+                'enter_costs_ap' => $require_ap,
+                'can_escape' => !$this->citizen_handler->isWounded( $citizen ) && !$citizen_tired,
+                'can_attack' => !$citizen_tired && !$this->citizen_handler->hasStatusEffect($citizen, 'wound2'),
+                'can_attack_nr' => $citizen_tired ? 'tired' : ( $this->citizen_handler->isWounded($citizen) ? 'wounded' : false ),
+                'can_escape_nr' => $citizen_tired ? 'tired' : ( $this->citizen_handler->isWounded($citizen) ? 'wounded' : false ),
+                'zone_blocked' => $blocked,
+                'zone_escape' => $escape,
+                'zone_escape_desperate' => $escape_desperate,
+                'digging' => $citizen->isDigging(),
+                'dig_ruin' => $citizen->getZone()->getActivityMarkerFor( ZoneActivityMarkerType::RuinDig, $citizen ) === null,
+                'actions' => $this->getItemActions(),
+                'other_citizens' => $zone->getCitizens(),
+                'day' => $citizen->getTown()->getDay(),
+                'camping_zone' => $camping_zone ?? '',
+                'camping_capacity' => $camping_capacity ?? '',
+                'camping_zombies' => $camping_zombies ?? '',
+                'camping_chance' => $camping_chance ?? '',
+                'camping_improvable' => $camping_improvable ?? '',
+                'camping_blueprint' => $camping_blueprint ?? '',
+                'blueprintFound' => $blueprintFound ?? '',
+                'camping_debug' => $camping_debug ?? '',
+                'zone_tags' => $zone_tags,
+                'sect' => $sect,
             ];
-            $survival_chance = $citizen->getCampingChance() > 0
-                ? $citizen->getCampingChance()
-                : $this->citizen_handler->getCampingOdds($citizen);
+        }/*, INF*/);
 
-            $camping_chance = match (true) {
-                $survival_chance <= .10     => T::__("Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.", 'game'),
-                $survival_chance <= .30     => T::__("Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?", 'game'),
-                $survival_chance <= .50     => T::__("Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.", 'game'),
-                $survival_chance <= .65     => T::__("Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...", 'game'),
-                $survival_chance <= .80     => T::__("Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.", 'game'),
-                $survival_chance <= .90     => T::__("Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!", 'game'),
-                $survival_chance  < 1.0     => T::__("Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.", 'game'),
-                $survival_chance === 1.0    => T::__("Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.", 'game'),
-                default                     => '',
-            };
-
-            $camping_improvable = ($survival_chance < $this->citizen_handler->getCampingOdds($citizen))
-                ? $this->translator->trans("Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?", [], 'game')
-                : "";
-
-            $camping_blueprint = "";
-            $blueprintFound = false;
-            if ($zone->getBuryCount() <= 0) {
-                if ($zone->getBlueprint() === Zone::BlueprintAvailable) {
-                    $camping_blueprint = T::__("Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.", 'game');
-                } else if ($zone->getBlueprint() === Zone::BlueprintFound) {
-                    $camping_blueprint = T::__("Hier wurde bereits ein Bauplan gefunden.", 'game');
-                    $blueprintFound = true;
-                }
-            } else $camping_blueprint = T::__("Du erhälst einen Bauplan wenn Du in diesem Gebäude campst, aber du musst zunächst die Zone aufräumen.", 'game');
-
-            // Uncomment next line to show camping values in game interface.
-            #$camping_debug = "DEBUG CampingChances\nSurvivalChance for Comparison: " . $survival_chance . "\nCitizenCampingChance: " . $citizen->getCampingChance() . "\nCitizenHandlerCalculatedChance: " . $this->citizen_handler->getCampingOdds($citizen) . "\nCalculationValues:\n" . str_replace( ',', "\n", str_replace( ['{', '}'], '', json_encode($this->citizen_handler->getCampingValues($citizen), 8) ) );
-        }
-
-        $zone_tags = [];
-        if(!$is_on_zero) {
-            $zone_tags = $this->entity_manager->getRepository(ZoneTag::class)->findAll();
-        }
-
-        $args = $this->addDefaultTwigArgs(null, array_merge([
-            'scout' => $citizen->getProfession()->getName() === 'hunter',
-            'allow_enter_town' => $can_enter,
-            'doors_open' => $town->getDoor(),
-            'town' => $town,
-            'show_ventilation'  => $is_on_zero && $th->getBuilding($town, 'small_ventilation_#00',  true) !== null,
-            'allow_ventilation' => $citizen->getProfession()->getHeroic(),
-            'show_sneaky' => $is_on_zero && $citizen->hasRole('ghoul') && $town->getDoor(),
-            'enter_costs_ap' => $require_ap,
-            'can_escape' => !$this->citizen_handler->isWounded( $citizen ) && !$citizen_tired,
-            'can_attack' => !$citizen_tired && !$this->citizen_handler->hasStatusEffect($citizen, 'wound2'),
-            'can_attack_nr' => $citizen_tired ? 'tired' : ( $this->citizen_handler->isWounded($citizen) ? 'wounded' : false ),
-            'can_escape_nr' => $citizen_tired ? 'tired' : ( $this->citizen_handler->isWounded($citizen) ? 'wounded' : false ),
-            'zone_blocked' => $blocked,
-            'zone_escape' => $escape,
-            'zone_escape_desperate' => $escape_desperate,
-            'digging' => $citizen->isDigging(),
-            'dig_ruin' => $citizen->getZone()->getActivityMarkerFor( ZoneActivityMarkerType::RuinDig, $citizen ) === null,
-            'actions' => $this->getItemActions(),
-            'other_citizens' => $zone->getCitizens(),
-            'day' => $citizen->getTown()->getDay(),
-            'camping_zone' => $camping_zone ?? '',
-            'camping_capacity' => $camping_capacity ?? '',
-            'camping_zombies' => $camping_zombies ?? '',
-            'camping_chance' => $camping_chance ?? '',
-            'camping_improvable' => $camping_improvable ?? '',
-            'camping_blueprint' => $camping_blueprint ?? '',
-            'blueprintFound' => $blueprintFound ?? '',
-            'camping_debug' => $camping_debug ?? '',
-            'zone_tags' => $zone_tags ?? [],
-            'sect' => $sect,
-        ], $this->desert_partial_inventory_args() ), !$inline);
+        $args = $this->addDefaultTwigArgs(null, array_merge($data, $this->desert_partial_inventory_args() ), !$inline);
 
         return $inline
             ? $this->renderBlocks( 'ajax/game/beyond/desert.html.twig', ['content','js'], [ 'ajax/game/game.html.twig' => 'gma' ], $args )
@@ -501,6 +536,8 @@ class BeyondController extends InventoryAwareController
         if ($citizen->getAp() <= 0 || $this->citizen_handler->isTired( $citizen ))
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
+        $this->clearZoneCache();
+
         $trashlock = $citizen->getSpecificActionCounter(ActionCounter::ActionTypeTrash);
 
         $limit = $citizen->getProfession()->getName() === 'collec' ? 4 : 3;
@@ -518,8 +555,6 @@ class BeyondController extends InventoryAwareController
 
         $item = $this->item_factory->createItem($proto);
         $gps->recordItemFound( $proto, $citizen, null, 'trash' );
-
-
 
         if (($error = $proxy->transferItem(
             $citizen, $item,
@@ -565,6 +600,8 @@ class BeyondController extends InventoryAwareController
 
         if ($citizen->getAp() < 2 || $this->citizen_handler->isTired( $citizen ))
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
+
+        $this->clearZoneCache();
 
         $hide_items = $hide_success = true;
         foreach ($citizen->getZone()->getCitizens() as $fellow_citizen)
@@ -632,6 +669,8 @@ class BeyondController extends InventoryAwareController
                 break;
             default: return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         }
+
+        $this->clearZoneCache();
 
         $movers = [];
         $movers[] = $citizen;
@@ -715,6 +754,8 @@ class BeyondController extends InventoryAwareController
         // Make sure the citizen is not wounded or terrorized
         if ($this->citizen_handler->isWounded( $citizen ) || $this->citizen_handler->hasStatusEffect( $citizen, ['terror'] ))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $this->clearZoneCache();
 
         // Make sure the citizen has not already explored the ruin today
         if ($citizen->currentExplorerStats()) {
@@ -1004,6 +1045,9 @@ class BeyondController extends InventoryAwareController
             ->setDiscoveryStatus( Zone::DiscoveryStateCurrent )
             ->setZombieStatus( max($upgraded_map ? Zone::ZombieStateExact : Zone::ZombieStateEstimate, $new_zone->getZombieStatus() ) );
 
+        $this->clearZoneCache($zone);
+        $this->clearZoneCache($new_zone);
+
         try {
             $this->zone_handler->handleCitizenCountUpdate($zone, $cp_ok, $movers[array_key_last($movers)]);
             $this->zone_handler->handleCitizenCountUpdate($new_zone, $cp_ok_new_zone);
@@ -1041,6 +1085,8 @@ class BeyondController extends InventoryAwareController
             if (!$a->getKeepsCover() && !$this->zone_handler->isZoneUnderControl( $this->getActiveCitizen()->getZone() ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
                 $this->addFlash( 'collapse', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game') );
         };
+
+        $this->clearZoneCache();
 
         return $this->generic_action_api($parser, $uncover_fun);
     }
@@ -1096,6 +1142,8 @@ class BeyondController extends InventoryAwareController
                 $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von {name} ist aufgeflogen!', ['name' => $citizen], 'game') );
         };
 
+        $this->clearZoneCache();
+
         return $this->generic_action_api($parser, $uncover_fun, $citizen);
     }
 
@@ -1114,6 +1162,8 @@ class BeyondController extends InventoryAwareController
                 $this->addFlash( 'collapse', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game') );
         };
 
+        $this->clearZoneCache();
+
         return $this->generic_heroic_action_api( $parser, $uncover_fun);
     }
 
@@ -1123,6 +1173,7 @@ class BeyondController extends InventoryAwareController
      */
     #[Route(path: 'api/beyond/desert/special_action', name: 'beyond_desert_special_action_controller')]
     public function special_action_api(JSONRequestParser $parser): Response {
+        $this->clearZoneCache();
         return $this->generic_special_action_api( $parser );
     }
 
@@ -1134,6 +1185,7 @@ class BeyondController extends InventoryAwareController
     #[Route(path: 'api/beyond/desert/camping', name: 'beyond_desert_camping_controller')]
     public function camping_desert_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
         if (!$this->activeCitizenIsNotEscorted()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+        $this->clearZoneCache();
         return $this->generic_camping_action_api( $parser);
   }
 
@@ -1151,11 +1203,15 @@ class BeyondController extends InventoryAwareController
                 $this->addFlash( 'collapse', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game') );
         };
 
+        $this->clearZoneCache();
+
         return $this->generic_recipe_api( $parser, $handler, $uncover_fun);
     }
 
     /**
      * @param JSONRequestParser $parser
+     * @param EventFactory $ef
+     * @param EventDispatcherInterface $ed
      * @return Response
      */
     #[Route(path: 'api/beyond/desert/item', name: 'beyond_desert_item_controller')]
@@ -1177,6 +1233,8 @@ class BeyondController extends InventoryAwareController
             $up_inv = $this->getActiveCitizen()->getInventory();
             $citizen = $this->getActiveCitizen();
         }
+
+        $this->clearZoneCache();
 
         if (!$this->zone_handler->isZoneUnderControl( $citizen->getZone() ) && $this->get_escape_timeout( $citizen ) < 0 && $this->uncoverHunter($citizen))
             $this->addFlash( 'collapse', $citizen === $this->getActiveCitizen()
@@ -1223,6 +1281,9 @@ class BeyondController extends InventoryAwareController
             $this->addFlash('notice', $this->translator->trans('Bei deinem Fluchtversuch ist es einem Zombie gelungen dir eine Verletzung zuzufügen: {injury}! Du solltest hier besser schnell verschwinden!', ['injury' => "<strong>$wound</strong>"], 'game'));
             $this->entity_manager->persist( $this->log->escapeInjury($citizen));
         }
+
+        $this->clearZoneCache();
+
         try {
             $escape = (new EscapeTimer())
             ->setZone( $citizen->getZone() )
@@ -1289,11 +1350,11 @@ class BeyondController extends InventoryAwareController
                 $messages[] = $this->translator->trans('Dein <strong>Trunkenheitszustand</strong> hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.', [], 'game');
         }
 
-        if (!empty($messages)) {
-            $this->addFlash('notice', implode('<hr />', $messages));
-        }
+        $this->addFlash('notice', implode('<hr />', $messages));
 
         $this->zone_handler->handleCitizenCountUpdate($zone, $old_cp_ok);
+
+        $this->clearZoneCache();
 
         try {
                 $this->entity_manager->persist( $citizen );
@@ -1354,6 +1415,8 @@ class BeyondController extends InventoryAwareController
             } catch (Exception $e) {
                 return AjaxResponse::error( ErrorHelper::ErrorInternalError );
             }
+
+        $this->clearZoneCache();
 
         try {
             $this->entity_manager->persist( $zone );
@@ -1478,6 +1541,8 @@ class BeyondController extends InventoryAwareController
             $this->addFlash( 'notice', $this->translator->trans( 'Beim Durchsuchen der Ruine merkst du, dass es nichts mehr zu finden gibt. Leider...', [], 'game' ));
         }
 
+        $this->clearZoneCache();
+
         try {
             $this->entity_manager->persist($zone);
             $this->entity_manager->flush();
@@ -1522,11 +1587,12 @@ class BeyondController extends InventoryAwareController
         if (!$this->zone_handler->isZoneUnderControl( $this->getActiveCitizen()->getZone() ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
             $str[] = $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game');
 
-        if(!empty($str))
-            $this->addFlash( 'notice', implode("<hr />", $str) );
+		$this->addFlash( 'notice', implode("<hr />", $str) );
 
         $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_digger_#00']);
         $this->picto_handler->give_picto($citizen, $picto);
+
+        $this->clearZoneCache();
 
         try {
             $this->entity_manager->persist($zone);
@@ -1556,6 +1622,8 @@ class BeyondController extends InventoryAwareController
         if ($target_citizen->activeExplorerStats() || ($citizen->getZone()->getX() == 0 && $citizen->getZone()->getY() == 0) )
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
+        $this->clearZoneCache();
+
         return $this->generic_attack_api( $citizen, $target_citizen );
     }
 
@@ -1576,6 +1644,8 @@ class BeyondController extends InventoryAwareController
 
         if ($target_citizen->activeExplorerStats())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $this->clearZoneCache();
 
         return $this->generic_devour_api( $citizen, $target_citizen );
     }
@@ -1611,6 +1681,8 @@ class BeyondController extends InventoryAwareController
 
         if ($on)
             $citizen->getEscortSettings()->setAllowInventoryAccess($cf_ruc)->setForceDirectReturn($cf_ret && !$citizen->getZone()->isTownZone());
+
+        $this->clearZoneCache();
 
         try {
             $this->entity_manager->persist( $citizen );
@@ -1677,6 +1749,8 @@ class BeyondController extends InventoryAwareController
 
         $target_citizen->getEscortSettings()->setLeader( $on ? $citizen : null );
 
+        $this->clearZoneCache();
+
         try {
             $this->entity_manager->persist( $citizen );
             $this->entity_manager->persist( $target_citizen );
@@ -1705,6 +1779,8 @@ class BeyondController extends InventoryAwareController
             $escort->setLeader(null);
             $this->entity_manager->persist($escort);
         }
+
+        $this->clearZoneCache();
 
         try {
             $this->entity_manager->persist( $citizen );
@@ -1798,7 +1874,9 @@ class BeyondController extends InventoryAwareController
 
         } else return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        //try {
+        $this->clearZoneCache();
+
+        try {
             $this->entity_manager->persist( $citizen );
             $this->entity_manager->persist( $zone->addActivityMarker( (new ZoneActivityMarker())
                 ->setType( ZoneActivityMarkerType::ShamanRain )
@@ -1806,9 +1884,9 @@ class BeyondController extends InventoryAwareController
                 ->setTimestamp( new DateTime() )
             ) );
             $this->entity_manager->flush();
-        //} catch (\Throwable $t) {
-        //    return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
-        //}
+        } catch (\Throwable $t) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
 
         $this->addFlash('notice', implode("<hr />", $str));
 
@@ -1838,6 +1916,7 @@ class BeyondController extends InventoryAwareController
         }
 
         $zone->setTag($tag);
+        $this->clearZoneCache();
 
         try {
             $this->entity_manager->persist($zone);

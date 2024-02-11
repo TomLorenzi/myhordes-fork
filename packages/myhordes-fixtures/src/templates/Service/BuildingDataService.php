@@ -542,7 +542,7 @@ class BuildingDataService implements FixtureProcessorInterface {
             ->isTemporary(0)->defense(0)->ap(45)->health(45)->blueprintLevel(4)->resources(["wood_beam_#00" => 10,"metal_beam_#00" => 5,"chain_#00" => 2,])->orderBy(11)->commit();
         $container->add()->parentBuilding($small_building)
             ->icon('small_derrick')->label('Tunnelratte')->description('Da selbst der Bohrer des Bohrturms nicht durch jede Schicht durchkommt, muss man hin und wieder kleine und mit Dynamit bestückte Tiere in die Tiefe schicken. Dieses Projekt fügt den städtischen Wasserreserven +150 Rationen hinzu.')
-            ->isTemporary(0)->defense(0)->ap(170)->health(0)->blueprintLevel(4)->resources(["concrete_wall_#00" => 3,"wood_beam_#00" => 15,"metal_beam_#00" => 15,])->orderBy(12)->commit();
+            ->isImpervious(true)->isTemporary(0)->defense(0)->ap(170)->health(0)->blueprintLevel(4)->resources(["concrete_wall_#00" => 3,"wood_beam_#00" => 15,"metal_beam_#00" => 15,])->orderBy(12)->commit();
         $container->add()->parentBuilding($small_building)
             ->icon('small_cinema')->label('Kino')->description('Sie zeigen Dawn of the Dead... zum 636. Mal. Bisher war dir die überzeugende Darstellung eines Nebendarstellers noch nie so richtig aufgefallen. Es gibt tatsächlich noch etwas Neues zu entdecken. Und wer weiß? Mit ein bisschen Glück bringt dich der Film ja sogar zum Lachen.')
             ->isTemporary(0)->defense(0)->ap(75)->health(75)->blueprintLevel(4)->resources(["electro_#00" => 3,"wood_beam_#00" => 10,"metal_beam_#00" => 5,"machine_1_#00" => 1,"machine_2_#00" => 1,])->orderBy(13)->commit();

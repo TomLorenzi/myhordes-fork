@@ -16,6 +16,7 @@ use ReflectionClass;
 use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -80,6 +81,7 @@ class CouncilTestCommand extends Command
         }
 
         if ($node === null) {
+			/** @var QuestionHelper $helper */
             $helper = $this->getHelper('question');
             $q = new ChoiceQuestion('Please select a council root node: ', array_keys($valid_nodes));
             $input->setArgument('CouncilRootNodeID', $valid_nodes[$helper->ask($input,$output, $q)]);

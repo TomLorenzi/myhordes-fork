@@ -8,8 +8,6 @@ class WellExtractionCheckData
 
     /**
      * @param int $taking
-     * @return WellExtractionCheckEvent
-     * @noinspection PhpDocSignatureInspection
      */
     public function setup( int $taking = 1 ): void {
         $this->trying_to_take = $taking;

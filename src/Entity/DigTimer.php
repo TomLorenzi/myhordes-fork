@@ -86,7 +86,7 @@ class DigTimer
         return $this;
     }
 
-    public function isNonAutomatic(): ?bool
+    public function isNonAutomatic(): bool
     {
         return $this->nonAutomatic;
     }

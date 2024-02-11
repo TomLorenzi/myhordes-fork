@@ -129,6 +129,10 @@ test:
   dependencies:
     - build
   script:
+    # run phpstan
+    - vendor/bin/phpstan analyse --no-progress --error-format=gitlab > phpstan.json
+    - export APP_ENV=test
+    - echo $DATABASE_URL
     # Install a DB
     - php bin/console app:migrate -i -vvv
     # Run tests
@@ -144,6 +148,10 @@ test:
   except:
     refs:
       - /^l10n_.*/
+  artifacts:
+    when: always
+    reports:
+      codequality: phpstan.json
 
 deploy_staging:
   stage: deploy

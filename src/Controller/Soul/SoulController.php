@@ -45,6 +45,7 @@ use App\Enum\DomainBlacklistType;
 use App\Enum\StatisticType;
 use App\Enum\UserSetting;
 use App\Response\AjaxResponse;
+use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\ConfMaster;
 use App\Service\CrowService;
 use App\Service\ErrorHelper;
@@ -130,8 +131,6 @@ class SoulController extends CustomAbstractController
         $data = parent::addDefaultTwigArgs($section, $data);
 
         $user = $this->getUser();
-
-        $data = $data ?? [];
 
         $user_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy( [
             'user' => $user,
@@ -299,6 +298,7 @@ class SoulController extends CustomAbstractController
         }
 
         $reverse_friends = $this->entity_manager->getRepository(User::class)->findInverseFriends($this->getUser(), true);
+        $reverse_friends = array_filter( $reverse_friends, fn(User $u) => !str_contains($u->getEmail(), '$ deleted'));
         $all_reverse_friends = count($reverse_friends);
         if ($opt !== 1) $reverse_friends = array_filter( $reverse_friends, fn(User $friend) => !$this->user_handler->checkRelation( $this->getUser(), $friend, SocialRelation::SocialRelationTypeNotInterested ) );
 
@@ -1380,15 +1380,16 @@ class SoulController extends CustomAbstractController
     /**
      * @param JSONRequestParser $parser
      * @param SessionInterface $session
+     * @param InvalidateTagsInAllPoolsAction $clearCache
      * @return Response
      */
     #[Route(path: 'api/soul/unsubscribe', name: 'api_unsubscribe')]
-    public function unsubscribe_api(JSONRequestParser $parser, SessionInterface $session, TagAwareCacheInterface $gameCachePool): Response {
+    public function unsubscribe_api(JSONRequestParser $parser, SessionInterface $session, InvalidateTagsInAllPoolsAction $clearCache): Response {
         $this->user_handler->confirmNextDeath( $this->getUser(), $parser->get('lastwords', '') );
 
         if ($session->has('_town_lang')) {
             $session->remove('_town_lang');
-            $gameCachePool->invalidateTags(['distinction_ranking']);
+            $clearCache('distinction_ranking');
             return AjaxResponse::success()->setAjaxControl(AjaxResponse::AJAX_CONTROL_RESET);
         } else return AjaxResponse::success();
     }

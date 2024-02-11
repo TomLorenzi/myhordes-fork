@@ -23,6 +23,7 @@ use ReflectionClass;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -68,6 +69,7 @@ class ForumCreatorCommand extends Command
 
     protected function interact(InputInterface $input, OutputInterface $output): void
     {
+		/** @var QuestionHelper $helper */
         $helper = $this->getHelper('question');
         while (empty($input->getArgument('Name')))
             $input->setArgument('Name', $helper->ask($input, $output, new Question('Please enter the forum name: ')));

@@ -347,7 +347,9 @@ class CitizenHandler
             if ($c !== $citizen && $c->getAlive() && !$this->hasRole($c, 'ghoul') && !$this->hasStatusEffect($c, 'tg_air_infected'))
                 $cc[] = $c;
 
-        if (!empty($cc)) $c = $this->random_generator->pick($cc);
+		if (empty($cc)) return; // no citizen to infect, we leave
+
+        $c = $this->random_generator->pick($cc);
         $this->inflictStatus($c, 'tg_air_infected');
         $this->entity_manager->persist($c);
     }
@@ -772,15 +774,7 @@ class CitizenHandler
     }
 
     public function getNightWatchDefense(Citizen $citizen): int {
-        $def = 10 + $this->getNightwatchProfessionDefenseBonus($citizen);
-
-        foreach ($citizen->getStatus() as $status)
-            $def += $status->getNightWatchDefenseBonus();
-
-        foreach ($citizen->getInventory()->getItems() as $item)
-            $def += $this->events->buildingQueryNightwatchDefenseBonus( $citizen->getTown(), $item );
-
-        return $def;
+        return $this->events->citizenQueryNightwatchInfo( $citizen )['def'] ?? 0;
     }
 
     /**

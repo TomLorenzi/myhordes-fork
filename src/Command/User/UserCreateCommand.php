@@ -8,8 +8,10 @@ use App\Entity\Citizen;
 use App\Entity\User;
 use App\Service\UserFactory;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -48,6 +50,7 @@ class UserCreateCommand extends Command
     {
         $password = $input->getArgument('password');
         while (empty($password)) {
+			/** @var QuestionHelper $helper */
             $helper = $this->getHelper('question');
             $password1 = new Question('Please enter the user password.');
             $password1->setHidden(true);

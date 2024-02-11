@@ -13,12 +13,14 @@ use App\Entity\RolePlayText;
 use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
+use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\CommandHelper;
 use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Asset\Package;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -27,6 +29,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Contracts\Cache\TagAwareCacheInterface;
 
 #[AsCommand(
     name: 'app:user:list',
@@ -39,15 +42,17 @@ class UserInfoCommand extends Command
     private UserPasswordHasherInterface $pwenc;
     private CommandHelper $helper;
     private UrlGeneratorInterface $router;
+    private InvalidateTagsInAllPoolsAction $clearCache;
 
     public function __construct(EntityManagerInterface $em, UserPasswordHasherInterface $passwordEncoder,
-                                UserHandler $uh, CommandHelper $ch, UrlGeneratorInterface $router)
+                                UserHandler $uh, CommandHelper $ch, UrlGeneratorInterface $router, InvalidateTagsInAllPoolsAction $clearCache)
     {
         $this->entityManager = $em;
         $this->pwenc = $passwordEncoder;
         $this->user_handler = $uh;
         $this->helper = $ch;
         $this->router = $router;
+        $this->clearCache = $clearCache;
         parent::__construct();
     }
 
@@ -87,6 +92,7 @@ class UserInfoCommand extends Command
 
             if ($user === null) throw new \Exception('User not found.');
 
+			/** @var QuestionHelper $helper */
             $helper = $this->getHelper('question');
 
             if (null !== ($modlv = $input->getOption('set-mod-level'))) {
@@ -132,8 +138,8 @@ class UserInfoCommand extends Command
                             ->setPersisted(2)
                             ->setTown($town)
                             ->setOld($town !== null && $town->getSeason() === null)
-                            ->setTownEntry(null !== $town ? $town->getRankingEntry() : null)
-                            ->setDisabled(null !== $town && $town->getRankingEntry()->getDisableFlag(TownRankingProxy::DISABLE_PICTOS))
+                            ->setTownEntry($town?->getRankingEntry())
+                            ->setDisabled(null !== $town && $town->getRankingEntry()->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS))
                             ->setUser($user);
                     }
                     $picto->setCount($picto->getCount() + $count);
@@ -175,8 +181,8 @@ class UserInfoCommand extends Command
                         ->setPersisted(2)
                         ->setTown($town)
                         ->setOld($town !== null && $town->getSeason() === null)
-                        ->setTownEntry(null !== $town ? $town->getRankingEntry() : null)
-                        ->setDisabled(null !== $town && $town->getRankingEntry()->getDisableFlag(TownRankingProxy::DISABLE_PICTOS))
+                        ->setTownEntry($town?->getRankingEntry())
+                        ->setDisabled(null !== $town && $town->getRankingEntry()->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS))
                         ->setUser($user);
                     $user->addPicto($picto);
                     $this->entityManager->persist($user);
@@ -298,6 +304,7 @@ class UserInfoCommand extends Command
 
                     $user->setAvatar(null);
                     $this->entityManager->remove($a);
+                    ($this->clearCache)("user_avatar_{$user->getId()}");
                     $output->writeln('Avatar has been deleted.');
 
                     $this->entityManager->flush();

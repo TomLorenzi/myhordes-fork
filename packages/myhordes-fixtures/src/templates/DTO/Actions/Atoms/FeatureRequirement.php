@@ -8,7 +8,7 @@ use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 /**
  * @method feature(?string $v)
- * @property ?string feature
+ * @property ?string $feature
  */
 class FeatureRequirement extends RequirementsAtom {
     public function getClass(): string
