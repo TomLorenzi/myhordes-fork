@@ -225,17 +225,24 @@ const HordesLogContentContainer = (props: logContainerProps) => {
     const globals = useContext(Globals);
 
     const [inHiding, setInHiding] = useState<number>(-1);
+    const parent = useRef<HTMLDivElement>()
 
     useEffect(() => {
         setInHiding(-1)
     }, [props.data])
+
+    useLayoutEffect(() => {
+        let cache = [];
+        parent.current?.querySelectorAll('div.username').forEach((elem:HTMLElement) => cache.push( [elem, $.html.handleUserPopup(elem)] ));
+        return ()=>cache.forEach( ([elem,handler]) => elem.removeEventListener('click', handler) );
+    });
 
     const getFlavour = () => (globals.strings?.content.flavour ?? [null])[ Math.floor( Math.random() * (globals.strings?.content.flavour.length ?? 0) ) ];
 
     let last_time = Math.floor(Date.now() / 1000);
     let last_day = props.day;
 
-    return <div className="log-content" style={props.placeholder ? {opacity: 0.25} : null}>
+    return <div ref={parent} className="log-content" style={props.placeholder ? {opacity: 0.25} : null}>
         { props.day > 0 && <div className="log-day-header">{globals.strings?.content.header.replace('{d}', `${props.day}`).replace('{today}', props.today ? `(${globals.strings?.content.header_part_today})` : '')}</div>}
         { props.data?.entries.map( entry => <React.Fragment key={entry.id}>
             { props.inline && last_day !== entry.day && <>
@@ -310,7 +317,7 @@ const HordesChatContainer = ({refresh, zone}: {refresh: ()=>void, zone: number})
 
     return <div className="row-flex gap my stretch" data-disabled={loading ? 'disabled' : ''}>
         <div className="cell grow-1" onKeyDown={e => e.key === "Enter" && sendMessage()}>
-            <TwinoEditorWrapper context="logChat" features={['passive']} controls={['core','game','rp']} skin="line" editorPrefs={{placeholder: globals.strings?.chat.placeholder}}
+            <TwinoEditorWrapper context="logChat" features={['passive']} controls={['core','user','game','rp']} skin="line" editorPrefs={{placeholder: globals.strings?.chat.placeholder}}
                                 onFieldChanged={(f,v)=>{
                                     if (f === "html") currentText.current = v as string;
                                 }}

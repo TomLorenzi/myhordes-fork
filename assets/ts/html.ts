@@ -410,8 +410,9 @@ export default class HTML {
         element.removeAttribute(text_attribute);
     }
 
-    handleUserPopup( element: HTMLElement ): void {
-        element.addEventListener( 'click', (event) => {
+    handleUserPopup( element: HTMLElement ): (MouseEvent)=>void  {
+
+        const handler = (event: MouseEvent) => {
             event.stopPropagation();
             event.preventDefault();
 
@@ -430,19 +431,19 @@ export default class HTML {
                 target.style.width = null;
                 if (element.getBoundingClientRect().left + element.offsetWidth + target.offsetWidth > window.innerWidth) {
 
-                const temp_left = Math.max(0,element.getBoundingClientRect().left + element.offsetWidth/2 - element.offsetWidth/2);
-                if (temp_left + target.offsetWidth > window.innerWidth) {
-                    target.style.top = (element.getBoundingClientRect().top + document.documentElement.scrollTop + element.offsetHeight) + "px";
-                    if ( window.innerWidth < target.offsetWidth ) {
-                        target.style.left = "0px";
-                        target.style.width = '100%';
-                    } else
-                        target.style.left = Math.floor(window.innerWidth - target.offsetWidth) + 'px';
+                    const temp_left = Math.max(0,element.getBoundingClientRect().left + element.offsetWidth/2 - element.offsetWidth/2);
+                    if (temp_left + target.offsetWidth > window.innerWidth) {
+                        target.style.top = (element.getBoundingClientRect().top + document.documentElement.scrollTop + element.offsetHeight) + "px";
+                        if ( window.innerWidth < target.offsetWidth ) {
+                            target.style.left = "0px";
+                            target.style.width = '100%';
+                        } else
+                            target.style.left = Math.floor(window.innerWidth - target.offsetWidth) + 'px';
 
-                } else {
-                    target.style.top = (element.getBoundingClientRect().top + document.documentElement.scrollTop + element.offsetHeight) + "px";
-                    target.style.left = temp_left + "px";
-                }
+                    } else {
+                        target.style.top = (element.getBoundingClientRect().top + document.documentElement.scrollTop + element.offsetHeight) + "px";
+                        target.style.left = temp_left + "px";
+                    }
 
                 } else {
                     target.style.top = (element.getBoundingClientRect().top + document.documentElement.scrollTop) + "px";
@@ -476,7 +477,10 @@ export default class HTML {
                 $.html.addEventListenerAll('[x-ajax-href]', 'click', e => removeTooltip(e,true));
                 reposition();
             });
-        })
+        }
+
+        element.addEventListener( 'click', handler);
+        return handler;
     }
 
     addLoadStack( num: number = 1): void {

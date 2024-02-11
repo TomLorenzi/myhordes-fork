@@ -13,7 +13,7 @@ declare var $: Global;
 declare var c: Const;
 
 type Feature = "tags"|"title"|"version"|"language"|"preview"|"alias"|"passive"
-type Control = "core"|"extended"|"emote"|"image"|"admin"|"mod"|"oracle"|"glory"|"poll"|"game"|"rp"|"snippet"
+type Control = "core"|"extended"|"emote"|"image"|"admin"|"mod"|"oracle"|"glory"|"poll"|"game"|"rp"|"snippet"|"user"
 type Skin = "forum"|"pm"|"line"|"textarea"
 
 interface HeaderConfig {
