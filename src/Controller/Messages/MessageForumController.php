@@ -33,6 +33,7 @@ use App\Service\EventProxyService;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\Locksmith;
+use App\Service\PictoHandler;
 use App\Service\RateLimitingFactoryProvider;
 use App\Structures\HTMLParserInsight;
 use DateTime;
