@@ -68,6 +68,9 @@ class HTMLService {
             'core_rp' => [
                 'div' => [ 'class', 'x-a', 'x-b' ],
             ],
+            'core_user' => [
+                'div' => [ 'class', 'x-a', 'x-b' ],
+            ],
             'extended' => [
                 'blockquote' => [],
                 'pre' => [],
@@ -99,7 +102,11 @@ class HTMLService {
                     'rps', 'coin', 'card'
                 ],
             ],
-            'core_rp_town' => [ 'div.class' => ['citizen'] ],
+            'core_user' => [
+                'div.class' => [
+                    'cref'
+                ],
+            ],
             'core_rp_coa' => [ 'div.class' => ['coalition'] ],
             'glory' => [ 'div.class' => [ 'glory' ] ],
             'extended' => [

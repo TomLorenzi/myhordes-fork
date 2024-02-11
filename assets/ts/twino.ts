@@ -866,6 +866,7 @@ export default class TwinoAlikeParser {
 
             if (player_data && player_data.exists === 1) {
                 elem.classList.add("username");
+                elem.setAttribute("x-a", player_data.id);
                 elem.setAttribute("x-user-id", player_data.id);
                 elem.textContent = player_data.displayName;
                 elem.removeAttribute('x-qi');

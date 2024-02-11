@@ -36,18 +36,13 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class LogTemplateHandler
 {
-    protected TranslatorInterface $trans;
-    protected Packages $asset;
-    protected EntityManagerInterface $entity_manager;
-    protected UrlGeneratorInterface $url;
-
-    public function __construct(TranslatorInterface $t, Packages $a, EntityManagerInterface $em, UrlGeneratorInterface $url)
-    {
-        $this->trans = $t;
-        $this->asset = $a;
-        $this->entity_manager = $em;
-        $this->url = $url;
-    }
+    public function __construct(
+        protected readonly TranslatorInterface $trans,
+        protected readonly Packages $asset,
+        protected readonly EntityManagerInterface $entity_manager,
+        protected readonly UrlGeneratorInterface $url,
+        protected readonly HTMLService $html
+    ) { }
 
     public function wrap(?string $obj, ?string $class = null): string {
         //if (!($obj || $obj != 0)) {var_dump($obj); die;}
@@ -235,7 +230,7 @@ class LogTemplateHandler
                     $transParams['{'.$typeEntry['name'].'}'] = "<div class='ap'>{$variables[$typeEntry['name']]}</div>";
                 }   
                 elseif ($typeEntry['type'] === 'chat') {
-                    $transParams['{'.$typeEntry['name'].'}'] = htmlentities($variables[$typeEntry['name']]);
+                    $transParams['{'.$typeEntry['name'].'}'] = htmlentities($this->html->prepareEmotes( $variables[$typeEntry['name']] ));
                 }
                 elseif ($typeEntry['type'] === 'item') {
                     $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), false, $variables['broken'] ?? false ), 'tool' );

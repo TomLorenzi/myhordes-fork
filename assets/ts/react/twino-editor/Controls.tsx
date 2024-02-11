@@ -75,8 +75,10 @@ export const TwinoEditorControls = ({emotes}: {emotes: null|Array<Emote>}) => {
                 <ControlButtonNodeWrap node="c" label={globals.strings.controls.c} fa="text-slash" />
             </div>
             <div onClick={()=>setShowOverlay(false)} className="forum-button-bar-section">
-                { globals.allowControl('extended') && <>
+                { (globals.allowControl('user') || globals.allowControl('extended')) && <>
                     <ControlButtonInsertPlayer/>
+                </> }
+                { globals.allowControl('extended') && <>
                     <ControlButtonInsertLink />
                 </> }
                 { globals.allowControl('image') && <>
