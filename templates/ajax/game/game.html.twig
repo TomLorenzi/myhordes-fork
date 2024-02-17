@@ -39,7 +39,7 @@
                                     <div class="ghoul-hunger-container in-tooltip">
                                         <div class="ghoul-hunger-background"></div>
                                         <div class="ghoul-hunger-bar {% if hunger > 40 %}warning{% endif %}" style="width: {{ min(100,hunger) }}%"></div>
-                                        <div class="ghoul-hunger-indicator" style="left: 40%"></div>
+                                        <div class="ghoul-hunger-indicator" style="left: calc(40% + 1px)"></div>
                                     </div>
                                     {% if hunger > 40 %}
                                         <div class="ghoul-message"><img src="{{ asset('build/images/icons/warning_anim.gif') }}" alt="/!\"> {{"Du wirst heute Nacht sterben!"|trans({}, 'game')}}</div>
@@ -94,7 +94,7 @@
                     <div class="ghoul-hunger-container">
                         <div class="ghoul-hunger-background"></div>
                         <div class="ghoul-hunger-bar {% if hunger > 40 %}warning{% endif %}" style="width: {{ min(100,hunger) }}%"></div>
-                        <div class="ghoul-hunger-indicator" style="left: 40%"></div>
+                        <div class="ghoul-hunger-indicator" style="left: calc(40% + 1px)"></div>
                     </div>
                     {% if hunger > 40 %}
                         <div class="ghoul-message"><img src="{{ asset('build/images/icons/warning_anim.gif') }}" alt="/!\"> {{"Du wirst heute Nacht sterben!"|trans({}, 'game')}}</div>
