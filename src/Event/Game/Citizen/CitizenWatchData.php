@@ -4,20 +4,25 @@ namespace App\Event\Game\Citizen;
 
 
 use App\Entity\Citizen;
+use Psr\Log\LoggerInterface;
 
 class CitizenWatchData extends CitizenBaseData
 {
     public readonly bool $during_attack;
 
+    public readonly ?LoggerInterface $log;
+
 	/**
 	 * @param Citizen $citizen
 	 * @param bool $duringAttack
+     * @param LoggerInterface $log
 	 * @return CitizenWatchData
 	 * @noinspection PhpDocSignatureInspection
 	 */
-	public function setup( Citizen $citizen, bool $duringAttack = false): void {
+	public function setup( Citizen $citizen, bool $duringAttack = false, LoggerInterface $log = null): void {
 		parent::setup($citizen);
 		$this->during_attack = $duringAttack;
+        $this->log = $log;
 	}
 
 	public float $deathChance = 0.0;
