@@ -129,7 +129,7 @@ final class WellExtractionCommonListener implements ServiceSubscriberInterface
             ($event->check->already_taken + $event->check->trying_to_take) > 1
             ? T::__('Du hast eine weitere {item} genommen. Die anderen Bürger der Stadt wurden informiert. Sei nicht zu gierig...', 'game')
             : T::__('Du hast deine tägliche Ration erhalten: {item}', 'game')
-        ,'notice', 'game', ['item' => ItemProducerTrait::class]);
+        ,'notice', 'game', ['item' => ItemProducerTrait::class], conditional_success: true);
     }
 
     /**
