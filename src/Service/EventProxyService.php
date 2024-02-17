@@ -42,6 +42,7 @@ use App\Event\Game\Town\Basic\Buildings\BuildingUpgradePreAttackEvent;
 use App\Structures\FriendshipActionTarget;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class EventProxyService
@@ -140,13 +141,13 @@ class EventProxyService
         return $event->data;
     }
 
-	public function citizenQueryNightwatchDefense(Citizen $citizen): int {
-		$this->ed->dispatch($event = $this->ef->gameEvent(CitizenQueryNightwatchDefenseEvent::class, $citizen->getTown())->setup($citizen));
+	public function citizenQueryNightwatchDefense(Citizen $citizen, LoggerInterface $log = null): int {
+		$this->ed->dispatch($event = $this->ef->gameEvent(CitizenQueryNightwatchDefenseEvent::class, $citizen->getTown())->setup($citizen, log: $log));
 		return $event->nightwatchDefense;
 	}
 
-	public function citizenQueryNightwatchDeathChance(Citizen $citizen): array {
-		$this->ed->dispatch($event = $this->ef->gameEvent(CitizenQueryNightwatchDeathChancesEvent::class, $citizen->getTown())->setup($citizen));
+	public function citizenQueryNightwatchDeathChance(Citizen $citizen, LoggerInterface $log = null): array {
+		$this->ed->dispatch($event = $this->ef->gameEvent(CitizenQueryNightwatchDeathChancesEvent::class, $citizen->getTown())->setup($citizen, log: $log));
 		return [
 			'death' => $event->deathChance,
 			'terror' => $event->terrorChance,
