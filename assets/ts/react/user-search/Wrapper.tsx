@@ -165,18 +165,16 @@ export const UserSearchBar = (
         }
     }
 
-    const keyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        if (e.key === "Enter") return;
-        const s = (e.target as HTMLInputElement).value;
-        if (s.length >= 3 || result.length) searchTimeout.current = window.setTimeout( () => search( (e.target as HTMLInputElement).value ), 500 );
-    }
-
     const keyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        clearTimeout();
         if (e.key === "Enter" && result.length > 0 && !searchTimeout.current) {
             execCallback(result);
         } else if (e.key === "Enter")
             search((e.target as HTMLInputElement).value, true)
-        clearTimeout();
+        else {
+            let l = (e.target as HTMLInputElement).value?.length ?? 0;
+            if (l >= 2 || result.length) searchTimeout.current = window.setTimeout( () => search( (e.target as HTMLInputElement).value ), 500 );
+        }
     }
 
 
@@ -237,7 +235,7 @@ export const UserSearchBar = (
 
     return (
         <div className="userSearchWrapper" ref={wrapper}>
-            <div className="userSearchInputContainer"><label><input type="text" ref={input} onKeyDown={e=>keyDown(e)} onKeyUp={e=>keyUp(e)}/></label>
+            <div className="userSearchInputContainer"><label><input type="text" ref={input} onKeyDown={e=>keyDown(e)}/></label>
                 { title && (
                     <Tooltip additionalClasses="help" html={title} />
                 ) }
