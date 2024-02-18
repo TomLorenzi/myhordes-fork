@@ -1,0 +1,24 @@
+<ul class="tabs plain no-top-margin no-bottom-margin">
+    {% if has_fv %}
+        <li {{ { 'tab': true, selected: tab == "fv" }|classes }}>
+            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('forum_town_redirect') }}">
+                <img src="{{ asset('build/images/assets/img/log/door_closed.gif') }}" alt=""/>
+                <span class="hide-sm">{{ 'Stadtforum'|trans({},'global') }}</span>
+            </div>
+        </li>
+    {% endif %}
+    <li {{ { 'tab': true, selected: tab == "list" }|classes }}>
+        <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('forum_list') }}">
+            <img src="{{ asset('build/images/icons/small_world.gif') }}" alt=""/>
+            <span class="hide-sm">{{ 'Weltforen'|trans({},'global') }}</span>
+        </div>
+    </li>
+    {% if tab == 'fm' and name is defined and id is defined %}
+        <li {{ { 'tab': true, selected: true }|classes }}>
+            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('forum_view', {id: id}) }}">
+                <img src="{{ asset('build/images/icons/small_rp.gif') }}" alt=""/>
+                <span class="hide-sm">{{ name }}</span>
+            </div>
+        </li>
+    {% endif %}
+</ul>
