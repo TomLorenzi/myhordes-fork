@@ -50,7 +50,6 @@ final class CommonEffectListener implements ServiceSubscriberInterface
             if (($error = $this->container->get(EventProxyService::class)->transferItem(
                     $event->citizen, $item, to: $event->citizen->getInventory()
                 )) !== InventoryHandler::ErrorNone) {
-
                 $event->pushErrorCode( $error )->cancelPersist()->stopPropagation();
                 return;
 
@@ -81,31 +80,32 @@ final class CommonEffectListener implements ServiceSubscriberInterface
             return array_values($a);
         };
 
-        foreach ( $event->getFlashMessages() as list( $type, $message, $domain, $args ) )
-            $event->pushMessage( $this->container->get(TranslatorInterface::class)->trans(
-                $message,
-                array_map( function(mixed $entry) use (&$event, $traits, &$fun_accumulate_items) {
+        foreach ( $event->getFlashMessages() as list( $type, $message, $domain, $args, $conditional_success ) )
+            if (!$conditional_success || !$event->hasError())
+                $event->pushMessage( $this->container->get(TranslatorInterface::class)->trans(
+                    $message,
+                    array_map( function(mixed $entry) use (&$event, $traits, &$fun_accumulate_items) {
 
-                    if (is_object( $entry )) return $this->container->get(LogTemplateHandler::class)->wrap(
-                        $this->container->get(LogTemplateHandler::class)->iconize( $entry ), 'tool');
+                        if (is_object( $entry )) return $this->container->get(LogTemplateHandler::class)->wrap(
+                            $this->container->get(LogTemplateHandler::class)->iconize( $entry ), 'tool');
 
-                    if (is_string( $entry )) return match ( true ) {
+                        if (is_string( $entry )) return match ( true ) {
 
-                        $entry === ItemProducerTrait::class && in_array( $entry, $traits ) => implode(
-                            ', ',
-                            array_map( fn( $sub ) => $this->container->get(LogTemplateHandler::class)->wrap(
-                                $this->container->get(LogTemplateHandler::class)->iconize( $sub ), 'tool')
-                            , $fun_accumulate_items( $event->getFinishedInstances() ))
-                        ),
+                            $entry === ItemProducerTrait::class && in_array( $entry, $traits ) => implode(
+                                ', ',
+                                array_map( fn( $sub ) => $this->container->get(LogTemplateHandler::class)->wrap(
+                                    $this->container->get(LogTemplateHandler::class)->iconize( $sub ), 'tool')
+                                , $fun_accumulate_items( $event->getFinishedInstances() ))
+                            ),
 
-                        default => $entry
-                    };
+                            default => $entry
+                        };
 
-                    return $entry;
+                        return $entry;
 
-                }, $args ),
-                $domain
-            ), $type);
+                    }, $args ),
+                    $domain
+                ), $type);
     }
 
     /**

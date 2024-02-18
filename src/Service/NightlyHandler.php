@@ -774,10 +774,10 @@ class NightlyHandler
         foreach ($watchers as $watcher) {
             $used_items = count( array_filter( $watcher->getCitizen()->getInventory()->getItems()->getValues(), fn(Item $i) => $i->getPrototype()->getWatchpoint() > 0 || $i->getPrototype()->getName() === 'chkspk_#00' ) );
 
-			$watcherDefense = $this->events->citizenQueryNightwatchDefense($watcher->getCitizen());
+			$watcherDefense = $this->events->citizenQueryNightwatchDefense($watcher->getCitizen(), $this->log);
             $defBonus = $overflow > 0 ? floor($watcherDefense * $def_scale) : 0;
 
-			$chances = $this->events->citizenQueryNightwatchDeathChance($watcher->getCitizen());
+			$chances = $this->events->citizenQueryNightwatchDeathChance($watcher->getCitizen(), $this->log);
 			$deathChances = $chances['death'];
 
             $woundOrTerrorChances = $chances['wound'] + $chances['terror'];
