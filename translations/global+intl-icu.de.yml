@@ -543,7 +543,7 @@ Inhaltsverzeichnis: Inhaltsverzeichnis
 'Auf {hostname}': 'Auf {hostname}'
 aktiv: aktiv
 inaktiv: inaktiv
-'Hilfe (forum)': 'Hilfe'
+'Hilfe (forum)': Hilfe
 'Neue Antwort in abonnierter Diskussion': 'Neue Antwort in abonnierter Diskussion'
 '{player} hat auf die Diskussion "{threadname}" im Forum "{forumname}" geantwortet.': '{player} hat auf die Diskussion "{threadname}" im Forum "{forumname}" geantwortet.'
 'Du wurdest erwähnt': 'Du wurdest erwähnt'
