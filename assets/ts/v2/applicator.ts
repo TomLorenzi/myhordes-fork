@@ -21,7 +21,8 @@ function applyFetchFunctions( node: HTMLElement ) {
                 .then(data => {
                     if (node.dataset.fetchMessage && data[node.dataset.fetchMessage]) $.html.notice( data[node.dataset.fetchMessage] );
                     if (node.dataset.fetchMessageText) $.html.notice( node.dataset.fetchMessageText );
-                    if (node.dataset.fetchLoad) $.ajax.load(null, node.dataset.fetchLoad, true)
+                    if (node.dataset.fetchLoadFrom) $.ajax.load(null, data[node.dataset.fetchLoadFrom] ?? node.dataset.fetchLoad, true)
+                    else if (node.dataset.fetchLoad) $.ajax.load(null, node.dataset.fetchLoad, true)
                 } )
                 .catch(data => {
                     if (node.dataset.fetchMessage && data[node.dataset.fetchMessage]) $.html.error( 'X' + data[node.dataset.fetchMessage] );

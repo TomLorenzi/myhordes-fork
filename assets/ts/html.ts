@@ -2,6 +2,8 @@ import {Const, Global} from "./defaults";
 
 import TwinoAlikeParser from "./twino"
 import HordesTwinoEditorElement from "./modules/twino-editor";
+import {GroupResponse, HordesUserSearchBar} from "./react/user-search/Wrapper";
+import {HordesUserSearchElement} from "./modules/common-modules";
 
 declare var $: Global;
 declare var c: Const;
@@ -92,36 +94,61 @@ export default class HTML {
     serializeForm(form: ParentNode): object {
         let data: object = {};
 
-        const input_fields = form.querySelectorAll('input,select,hordes-twino-editor') as NodeListOf<HTMLInputElement|HTMLSelectElement|HordesTwinoEditorElement>;
+        const unpack = (data:any):any => {
+            return (typeof data === "object")
+                ? (Object.values(data)[0] ?? undefined)
+                : data;
+        }
+
+        const input_fields = form.querySelectorAll('input,select,hordes-twino-editor,hordes-user-search') as NodeListOf<HTMLInputElement|HTMLSelectElement|HordesTwinoEditorElement|HordesUserSearchElement>;
         for (let i = 0; i < input_fields.length; i++) {
             const node = input_fields[i];
             const node_name = node.getAttribute('name') ?? node.getAttribute('id');
             const node_type = node.dataset['type'] ?? node.getAttribute('type') ?? 'text';
 
             // Do not enter react parents!
-            const blacklisted = node.closest('hordes-twino-editor');
+            const blacklisted = node.closest('hordes-twino-editor,hordes-user-search');
             if (blacklisted && blacklisted !== node) continue;
+
+            let value = undefined;
 
             if (node_name) {
                 switch (node.nodeName) {
                     case 'INPUT':
-                        data[node_name] = node.getAttribute('type') != 'checkbox'
+                        value = node.getAttribute('type') != 'checkbox'
                             ? (node as HTMLInputElement).value
-                            : (node as HTMLInputElement).checked;
+                            : ((node as HTMLInputElement).checked ? (( node as HTMLInputElement).value === "on" ? true : ( node as HTMLInputElement).value) : false);
                         break;
                     case 'SELECT':
-                        data[node_name] = (node as HTMLSelectElement).value;
+                        value = (node as HTMLSelectElement).value;
                         break;
                     case 'HORDES-TWINO-EDITOR':
-                        data[node_name] = node_type === "twino" ? (node as HordesTwinoEditorElement).twino : (node as HordesTwinoEditorElement).html;
+                        value = node_type === "twino" ? (node as HordesTwinoEditorElement).twino : (node as HordesTwinoEditorElement).html;
+                        break;
+                    case 'HORDES-USER-SEARCH':
+                        value = (node as HordesUserSearchElement).value?.filter(entry => entry.type === "user")?.map( entry => entry.id );
+                        (node as HordesUserSearchElement).value?.filter(entry => entry.type === "group")?.forEach(
+                            (entry => value = [...value, ...(entry as GroupResponse).members.map( member => member.id )])
+                        )
                         break;
                 }
 
+                if (typeof value === "undefined") continue;
+
                 switch (node_type) {
                     case 'number':
-                        data[node_name] = parseFloat( data[node_name] );
+                        value = parseFloat( unpack(value) );
                         break;
                 }
+
+                if (node_name.endsWith('[]')) {
+                    const array_name = node_name.slice(0, -2);
+                    if (typeof data[array_name] !== "object") data[array_name] = [];
+
+                    if (typeof value === "string" || typeof value === "number" || typeof value === "object")
+                        data[array_name].push(value);
+
+                } else data[node_name] = value;
             }
 
         }

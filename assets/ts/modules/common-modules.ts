@@ -4,13 +4,23 @@
 // It's purpose is to map a react node to a custom web component
 
 // Import the actual react code
-import {HordesUserSearchBar} from "../react/user-search/Wrapper";
+import {GroupResponse, HordesUserSearchBar, UserResponse} from "../react/user-search/Wrapper";
 import {HordesDistinctions} from "../react/distinctions/Wrapper";
 import {Shim} from "../react";
 import {HordesTooltip} from "../react/tooltip/Wrapper";
 
 // Define web component <hordes-user-search />
-customElements.define('hordes-user-search', class HordesUserSearchElement extends Shim<HordesUserSearchBar> {
+export class HordesUserSearchElement extends Shim<HordesUserSearchBar> {
+
+    #_value: Array<UserResponse|GroupResponse> = null;
+
+    public get value() {
+        return this.#_value;
+    }
+
+    public set value(v: Array<UserResponse|GroupResponse>) {
+        this.#_value = v;
+    }
 
     protected generateInstance(): HordesUserSearchBar {
         return new HordesUserSearchBar();
@@ -34,7 +44,8 @@ customElements.define('hordes-user-search', class HordesUserSearchElement extend
         return ['data-title','data-exclude','data-clear','data-list','data-self','data-friends','data-alias','data-notify-clear'];
     }
 
-}, {  });
+}
+customElements.define('hordes-user-search', HordesUserSearchElement, {  });
 
 customElements.define('hordes-distinctions', class HordesDistinctionsElement extends Shim<HordesDistinctions> {
 
