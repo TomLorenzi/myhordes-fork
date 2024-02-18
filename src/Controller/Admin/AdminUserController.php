@@ -270,12 +270,25 @@ class AdminUserController extends AdminActionController
      * @return Response
      */
     #[Route(path: 'jx/admin/users/settings', name: 'admin_users_settings')]
+    #[IsGranted('ROLE_ADMIN')]
     public function settings(): Response
     {
         return $this->render( 'ajax/admin/users/settings_index.html.twig', $this->addDefaultTwigArgs("settings", [
             's' => [
                 'DisableAutomaticUserValidationMails' => $this->conf->serverSetting( ServerSetting::DisableAutomaticUserValidationMails )
             ]
+        ]));
+    }
+
+    /**
+     * @return Response
+     */
+    #[Route(path: 'jx/admin/users/perch', name: 'admin_users_crow_management')]
+    #[IsGranted('ROLE_ADMIN')]
+    public function crowManagementUI(): Response
+    {
+        return $this->render( 'ajax/admin/users/crow_management.html.twig', $this->addDefaultTwigArgs("perch", [
+            'langs' => $this->generatedLangs
         ]));
     }
 

@@ -1,0 +1,70 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block ajax %}
+    {% embed "ajax/admin/users/footer.html.twig" %}{% endembed %}
+    <div class="row">
+        <div class="cell rw-12">
+            {% embed "ajax/admin/users/listing_tabs.html.twig" %}{% endembed %}
+            <div class="row">
+                <div class="padded cell rw-12">
+                    <form>
+                        <h5>{{'Raben-Account anlegen'|trans({}, "admin")}}</h5>
+                        <div class="row-flex v-center">
+                            <div class="cell padded rw-3 rw-sm-12 note note-lightest">
+                                <label for="name">{{ 'Name'|trans({},'admin') }}</label>
+                            </div>
+                            <div class="cell padded rw-6 rw-sm-12">
+                                <div class="row-flex gap">
+                                    <div class="cell grow-0">
+                                        <label><select name="prefix">
+                                                <option>Corvus</option>
+                                                <option>Corbilla</option>
+                                            </select></label>
+                                    </div>
+                                    <div class="cell grow-1">
+                                        <input type="text" autocomplete="off" id="name" name="name" class="full-width"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-flex v-center">
+                            <div class="cell padded rw-3 rw-sm-12 note note-lightest">
+                                <label for="user">{{ 'Zugehöriger User (optional)'|trans({},'admin') }}</label>
+                            </div>
+                            <div class="cell padded rw-6 rw-sm-12">
+                                <hordes-user-search id="user" data-clear="0" name="user" data-type="number"
+                                                    data-alias="0" data-title="{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}"
+                                                    data-self="1"
+                                ></hordes-user-search>
+                            </div>
+                        </div>
+                        <div class="row-flex top">
+                            <div class="cell padded rw-3 rw-sm-12 note note-lightest">
+                                <label for="user">{{ 'Zugehörige Rabennester'|trans({},'admin') }}</label>
+                            </div>
+                            <div class="cell padded rw-6 rw-sm-12">
+                                {% for lang in langs %}
+                                    <div class="row-flex gap">
+                                        <div class="cell"><input type="checkbox" name="lang[]" id="lang[{{ lang.code }}]" value="{{ lang.code }}"/></div>
+                                        <div class="cell"><label for="lang[{{ lang.code }}]">{{ lang.label|trans({},'global') }}</label></div>
+                                    </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                        <div class="row-flex right">
+                            <div class="cell">
+                                <button data-fetch="{{ path('rest_admin_crow_management_put') }}"
+                                        data-fetch-method="put"
+                                        data-fetch-load="{{ path('admin_users_crow_management') }}"
+                                        data-fetch-load-from="url"
+                                        data-fetch-confirm="{{ 'Bestätigen?'|trans({},'global') }}"
+                                >{{ 'Raben-Account anlegen'|trans({},'admin') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
