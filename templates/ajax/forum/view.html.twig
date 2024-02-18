@@ -125,6 +125,16 @@
     <div class="row">
         <div class="cell rw-12">
             <div class="row">
+                <div class="padded cell rw-12">
+                    {% include('ajax/forum/tabs.html.twig') with {
+                        tab: forum.town and app.user.activeCitizen and app.user.activeCitizen.town == forum.town ? 'fv' : 'fm',
+                        name: forum.localizedTitle(app.locale),
+                        id: forum.id,
+                        has_fv: app.user.activeCitizen and app.user.activeCitizen.town.forum and (at_night is not defined or not at_night)
+                    } only %}
+                </div>
+            </div>
+            <div class="row">
                 <div class="cell padded rw-5 rw-md-12">
                     <div class="forum-control">
                         <div class="forum-header-bar">

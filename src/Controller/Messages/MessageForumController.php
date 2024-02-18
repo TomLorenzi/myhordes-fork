@@ -161,7 +161,8 @@ class MessageForumController extends MessageController
             'town' => $forum->getTown() ?? false,
             'pages' => $pages,
             'current_page' => $page,
-            'paranoid' => $paranoid
+            'paranoid' => $paranoid,
+            'at_night' => $this->time_keeper->isDuringAttack()
         ] ));
     }
 
@@ -281,7 +282,8 @@ class MessageForumController extends MessageController
             'forums_new' => $forums_new,
             'subscriptions' => $subscriptions,
             'forumSections' => $forum_sections,
-            'official_groups' => $this->entity_manager->getRepository(OfficialGroup::class)->findBy(['lang' => [$this->getUserLanguage(),'multi']])
+            'official_groups' => $this->entity_manager->getRepository(OfficialGroup::class)->findBy(['lang' => [$this->getUserLanguage(),'multi']]),
+            'at_night' => $this->time_keeper->isDuringAttack(),
         ] ));
     }
 
