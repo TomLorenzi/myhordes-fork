@@ -1,10 +1,22 @@
-MyHordes is an open implementation developed by the community of the browser game "Hordes" and its other versions made by [Motion-Twin](https://motion-twin.com/fr/).
-The whole folder is under [CC-BY-NC-SA-4.0 license](https://creativecommons.org/licenses/by-nc-sa/4.0/), some part of the code use [Hordes open-source code](https://github.com/motion-twin/WebGamesArchives/tree/main/Hordes).
+MyHordes is an open implementation of the browser game "Hordes" and its other versions made by Motion-Twin, developed by the 
+community.
+
+# License
+
+The code is licensed under [AGPL-3.0-or-later](https://spdx.org/licenses/AGPL-3.0-or-later.html), while assets use 
+[CC-BY-NC-SA-4.0](https://spdx.org/licenses/CC-BY-NC-SA-4.0.html). Some part of the code are based on Hordes'
+open-source code.
+  
+The official MyHordes server uses additional an package comprised of private code (`myhordes-prime`) to keep some parts 
+of the game rules a mystery. This was an integral part of the spirit of the original game, which is why we replicate it
+here. This code is published with a delay of one year and can be found 
+[here](./packages/myhordes-prime-shim/archive/seasons). For more information about this part of the code, check the
+[archive readme](./packages/myhordes-prime-shim/archive/README.MD).
 
 # Development Installation
 #### Tested on Debian 10, Ubuntu 19.04 
 
-## Requierements
+## Requirements
 
 * zip
 * unzip
