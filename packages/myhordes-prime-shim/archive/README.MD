@@ -4,7 +4,7 @@ This folder contains an archived version of the closed-source code used on the o
 
 ## Which code is archived here?
 
-We automatically publish all closed-source code with a delay of one year. 
+We regularly publish all closed-source code with a delay of one year. 
 Therefore, what you see in this archive is the state of the closed-source plugin from one year ago.
 Newer versions of the code are not publicly available until they reach an age of one year.
 
