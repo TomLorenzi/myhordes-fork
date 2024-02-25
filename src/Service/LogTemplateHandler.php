@@ -190,16 +190,35 @@ class LogTemplateHandler
                     $transParams["{$typeEntry['name']}__tag"] = 'span';
                     if ($typeEntry['type'] === 'professionFull') $transParams["{$typeEntry['name']}__class"] = 'jobName';
                 }
-                // Non ICU-aware
                 elseif ($typeEntry['type'] === 'user') {
                     $user = $this->entity_manager->getRepository(User::class)->find( $variables[$typeEntry['name']] );
-                    $userName = match ($user->getId()) {
+                    $userName = match ($user?->getId()) {
                         66 => $this->trans->trans('Der Rabe', [], 'global'),
                         67 => $this->trans->trans('Animateur-Team', [], 'global'),
-                        default => $user->getName()
+                        default => $user?->getName()
                     };
-                    $transParams['{'.$typeEntry['name'].'}'] =
-                        $user ? "<span class=\"username\" x-user-id=\"{$user->getId()}\">{$userName}</span>" : '<span class="username">???</span>';
+                    if ($user) {
+                        $transParams[$typeEntry['name']] = $user;
+                        $transParams["{$typeEntry['name']}__tag"] = 'span';
+                        $transParams["{$typeEntry['name']}__class"] = 'username';
+                        $transParams["{$typeEntry['name']}__attr"] = ['x-user-id' => $user->getId()];
+                    } else $transParams[$typeEntry['name']] = '<span class="username">???</span>';
+                }
+                // Non ICU-aware
+                elseif ($typeEntry['type'] === 'users') {
+                    $users = array_map( function(User $user) {
+                        $userName = match ($user?->getId()) {
+                            66 => $this->trans->trans('Der Rabe', [], 'global'),
+                            67 => $this->trans->trans('Animateur-Team', [], 'global'),
+                            default => $user?->getName()
+                        };
+
+                        return "<span class=\"username\" x-user-id=\"{$user->getId()}\">{$userName}</span>";
+                    }, $this->entity_manager->getRepository(User::class)->findBy( ['id' => $variables[$typeEntry['name']]] ));
+
+                    if (count($users) > 1)
+                        $transParams[$typeEntry['name']] = implode(', ', array_slice( $users, 0, -1)) . ' ' . $this->trans->trans('und', [], 'global') . ' ' . array_slice( $users, -1)[0];
+                    else $transParams[$typeEntry['name']] = implode(', ', $users);
                 }
                 elseif ($typeEntry['type'] === 'itemGroup') {
                     $itemGroupEntries  = $this->fetchVariableObject($typeEntry['type'], $variables[$typeEntry['name']])->getEntries()->getValues();

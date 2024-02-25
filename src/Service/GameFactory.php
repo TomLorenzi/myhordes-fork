@@ -598,7 +598,7 @@ class GameFactory
         return $town;
     }
 
-    public function userCanEnterTown( Town &$town, User &$user, bool $whitelist_enabled = false, ?int &$error = null, bool $internal = false ): bool {
+    public function userCanEnterTown( Town $town, User $user, bool $whitelist_enabled = false, ?int &$error = null, bool $internal = false ): bool {
         if (!$town->isOpen() || $town->getScheduledFor() > (new \DateTime())) {
             $error = self::ErrorTownClosed;
             return false;
@@ -710,8 +710,10 @@ class GameFactory
 
         $this->entity_manager->flush();
 
-        foreach ($before_event_cache as $before_event)
-            $this->events->afterTownJoinEvent( $town, $before_event );
+        foreach ($before_event_cache as $before_event) {
+            $this->events->afterTownJoinEvent($town, $before_event);
+            $this->entity_manager->flush();
+        }
 
         $whitelist = $whitelist_enabled ? $this->entity_manager->getRepository(TownSlotReservation::class)->findOneBy(['town' => $town, 'user' => $user]) : null;
         if ($whitelist !== null) $this->entity_manager->remove($whitelist);

@@ -63,7 +63,14 @@ class ICUTranslator implements TranslatorInterface, TranslatorBagInterface, Loca
                 $pass_trough["{$key}__copy"] = $value;
             }
 
-            if (isset($parameters["{$key}__tag"])) $pass_trough[$key] = "<{$parameters["{$key}__tag"]} class=\"" . ($parameters["{$key}__class"] ?? '') . "\">{$pass_trough[$key]}</{$parameters["{$key}__tag"]}>";
+            if (isset($parameters["{$key}__tag"])) {
+                $attr = '';
+                if (isset($parameters["{$key}__attr"]))
+                    $attr = is_array( $parameters["{$key}__attr"] )
+                        ? implode(' ', array_map( fn(string $key, mixed $value) => "$key=\"$value\"", array_keys( $parameters["{$key}__attr"] ), array_values( $parameters["{$key}__attr"] ) ))
+                        : $parameters["{$key}__attr"];
+                $pass_trough[$key] = "<{$parameters["{$key}__tag"]} $attr class=\"" . ($parameters["{$key}__class"] ?? '') . "\">{$pass_trough[$key]}</{$parameters["{$key}__tag"]}>";
+            }
         }
 
         $string = $this->_decorated->trans($id,$pass_trough,$domain,$locale);

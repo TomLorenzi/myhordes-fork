@@ -251,7 +251,7 @@ class LogDataService implements FixtureProcessorInterface {
             ['text'=>'{player} hat deine Freundschaftserklärung erwidert.', 'name'=>'gpm_friend_reverse_notification', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"user",'name'=>'player'])],
 
             ['text'=>'{player} ist der Stadt "{town}" beigetreten. Dort ist noch Platz für dich, du könntest ihm also folgen...', 'name'=>'gpm_friend_enters_town', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"user",'name'=>'player'],['type'=>"string",'name'=>'town'])],
-            ['text'=>'{players} sind der Stadt "{town}" beigetreten. Dort ist noch Platz für dich, du könntest ihnen also folgen...', 'name'=>'gpm_friends_enters_town', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"users",'name'=>'players'],['type'=>"string",'name'=>'town'])],
+            ['text'=>'{player} sind der Stadt "{town}" beigetreten. Dort ist noch Platz für dich, du könntest ihnen also folgen...', 'name'=>'gpm_friends_enter_town', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"users",'name'=>'player'],['type'=>"string",'name'=>'town'])],
         ]);
     }
 }

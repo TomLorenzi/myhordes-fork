@@ -5,6 +5,8 @@ namespace App\EventListener\Common\Social;
 
 use App\Entity\ShoutboxEntry;
 use App\Entity\ShoutboxReadMarker;
+use App\Entity\TownJoinNotificationAccumulation;
+use App\Entity\User;
 use App\Enum\NotificationSubscriptionType;
 use App\Enum\UserSetting;
 use App\Event\Common\Social\FriendEvent;
@@ -26,6 +28,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 #[AsEventListener(event: BeforeJoinTownEvent::class, method: 'checkShoutboxNotification', priority: 0)]
 #[AsEventListener(event: JoinTownEvent::class, method: 'createShoutboxNotification', priority: 0)]
 #[AsEventListener(event: AfterJoinTownEvent::class, method: 'handleShoutboxNotificationCleanup', priority: 0)]
+#[AsEventListener(event: AfterJoinTownEvent::class, method: 'accumulateNotifications', priority: -100)]
 final class SocialEventListener implements ServiceSubscriberInterface
 {
     use ContainerTypeTrait;
@@ -96,5 +99,25 @@ final class SocialEventListener implements ServiceSubscriberInterface
                 $this->getService(EntityManagerInterface::class)->persist( $marker->setEntry( $last_entry ));
 
         }
+    }
+
+    public function accumulateNotifications(AfterJoinTownEvent $event): void {
+        $friends = $event->before->subject->getFriends()->filter( fn(User $friend) => $friend->getFriends()->contains( $event->before->subject ) );
+
+        foreach ($friends as $friend) {
+            $accumulator = $this->getService(EntityManagerInterface::class)
+                ->getRepository(TownJoinNotificationAccumulation::class)
+                ->findOneBy( [ 'town' => $event->town, 'subject' => $friend ] ) ?? (new TownJoinNotificationAccumulation())
+                ->setTown( $event->town )
+                ->setSubject( $friend )
+                ->setDue( (new \DateTime())->modify('+1 min') )
+            ;
+
+            $this->getService(EntityManagerInterface::class)->persist(
+                $accumulator->addFriend( $event->before->subject )
+            );
+        }
+
+
     }
 }
