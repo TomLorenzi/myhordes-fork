@@ -110,14 +110,6 @@ class CreateTownFromConfigAction
         if ($incarnated) {
             $citizen = $this->gameFactory->createCitizen($town, $creator, $error, $all);
             if (!$citizen) return $this->error();
-            try {
-                $this->em->persist($citizen);
-                $this->em->flush();
-                foreach ($all as $new_citizen)
-                    $this->profiler->recordCitizenJoined( $new_citizen, $new_citizen === $citizen ? 'create' : 'follow' );
-            } catch (Exception $e) {
-                return $this->error(exception: $e);
-            }
 
             try {
                 $this->em->flush();

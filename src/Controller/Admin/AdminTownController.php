@@ -920,7 +920,6 @@ class AdminTownController extends AdminActionController
                     $this->entity_manager->persist($citizen);
                     $this->entity_manager->persist($town);
 
-                    $gps->recordCitizenJoined($citizen, 'debug');
                     if ($citizen->getProfession()->getName() !== 'none')
                         $gps->recordCitizenProfessionSelected( $citizen );
 
