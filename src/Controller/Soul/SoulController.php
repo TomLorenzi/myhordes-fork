@@ -940,7 +940,7 @@ class SoulController extends CustomAbstractController
 
         if ($this->user_handler->isRestricted( $user, AccountRestriction::RestrictionComments )) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
-        $id = $parser->get("id");
+        $id = $parser->get("id", -1);
         /** @var CitizenRankingProxy $citizenProxy */
         $citizenProxy = $this->entity_manager->getRepository(CitizenRankingProxy::class)->find($id);
         if ($citizenProxy === null || $citizenProxy->getUser() !== $user || $citizenProxy->getCommentLocked() )
