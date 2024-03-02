@@ -5,6 +5,7 @@ namespace App\Controller\REST\User\Settings;
 use App\Entity\NotificationSubscription;
 use App\Entity\User;
 use App\Enum\NotificationSubscriptionType;
+use App\Enum\UserSetting;
 use App\Service\JSONRequestParser;
 use ArrayHelpers\Arr;
 use BenTools\WebPushBundle\Model\Message\PushNotification;
@@ -42,10 +43,15 @@ class NotificationManagerController extends AbstractController
         return new JsonResponse([
             'strings' => [
                 'common' => [
+                    'help' => $trans->trans('Hilfe', [], 'global'),
                     'infoText1' => $trans->trans('Wenn du möchtest, kannst du auch dann Benachrichtigungen auf deinen Computer oder Smartphone bekommen, wenn du gerade nicht auf MyHordes unterwegs bist. So bist du immer auf dem neusten Stand und kannst keine wichtigen Meldungen mehr verpassen!', [], 'global'),
                     'infoText2' => $trans->trans('Um diese Funktion zu verwenden, musst du MyHordes die Erlaubnis geben, dir Benachrichtigungen auf dein Gerät zu schicken. Klicke auf "Benachrichtigungen auf diesem Gerät erhalten" und bestätige die Sicherheitsabfrage deines Browsers, um diese Funktion zu aktivieren.', [], 'global'),
                     'infoText3' => $trans->trans('Wenn du keine weiteren Benachrichtigungen erhalten möchtest, kannst du diese Funktion jederzeit vollständig oder für einzelne Geräte deaktivieren.', [], 'global'),
-                    'unsupported' => $trans->trans('Dieses Gerät unterstützt keine Push-Benachrichtigungen.', [], 'global')
+                    'unsupported' => $trans->trans('Dieses Gerät unterstützt keine Push-Benachrichtigungen.', [], 'global'),
+                    'rejected'  => $trans->trans('Um diese Funktion zu verwenden, musst du MyHordes die Erlaubnis geben, dir Benachrichtigungen auf dein Gerät zu schicken.', [], 'global'),
+
+                    'error_put_400' => $trans->trans('MyHordes ist nicht in der Lage, die von diesem Gerät angebotene Schnittstelle anzusprechen. Bitte versuche, dein Gerät oder Browser auf die neuste Version zu aktualisieren, oder verwende einen anderen Browser.', [], 'global'),
+                    'error_put_409' => $trans->trans('Dieses Gerät ist bereits für Push-Benachrichtigungen eines anderen MyHordes-Account registriert. Ein Gerät kann nicht mehreren Accounts zugeordnet werden.', [], 'global'),
                 ],
                 'actions' => [
                     'add' => $trans->trans('Benachrichtigungen auf diesem Gerät erhalten', [], 'global'),
@@ -67,6 +73,21 @@ class NotificationManagerController extends AbstractController
                     'test_icon' => $assets->getUrl('build/images/icons/small_talk.gif'),
                     'expired' => $trans->trans('Berechtigung zurückgezogen!', [], 'global'),
                     'expired_icon' => $assets->getUrl('build/images/icons/warning_anim.gif'),
+                ],
+                'settings' => [
+                    'headline' => $trans->trans('Einstellungen für Push-Benachrichtigungen', [], 'soul' ),
+                    'toggle' => [
+                        [
+                            'type' => UserSetting::PushNotifyMeOnPM->value,
+                            'text' => $trans->trans('Push-Benachrichrichtigung über neue private Nachrichten erhalten', [], 'soul' ),
+                            'help' => null,
+                        ],
+                        [
+                            'type' => UserSetting::PushNotifyOnFriendTownJoin->value,
+                            'text' => $trans->trans('Push-Benachrichrichtigung erhalten, wenn Freunde einer Stadt beitreten', [], 'soul' ),
+                            'help' => $trans->trans('Du wirst nur benachrichtigt, wenn du dieser Stadt ebenfalls beitreten könntest.', [], 'soul' )
+                        ],
+                    ]
                 ]
             ]
         ]);

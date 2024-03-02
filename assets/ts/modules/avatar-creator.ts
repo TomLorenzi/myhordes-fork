@@ -10,6 +10,8 @@ import {Shim} from "../react";
 // Define web component <hordes-avatar-creator />
 customElements.define('hordes-avatar-creator', class HordesAvatarCreatorElement extends Shim<HordesAvatarCreator> {
 
+    protected mountsLazily(): boolean { return true; }
+
     protected generateProps(): object {
         return {
             maxSize: parseInt(this.dataset.maxSize) ?? 0,

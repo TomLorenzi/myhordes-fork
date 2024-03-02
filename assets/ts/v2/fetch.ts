@@ -169,6 +169,7 @@ class FetchBuilder {
 }
 
 class FetchOptions {
+    public throw_response_on_error = false;
     public error_messages: boolean = true;
     public loader: boolean = true;
     public body_success: boolean = false;
@@ -189,6 +190,9 @@ class FetchOptionBuilder {
         this.options = new FetchOptions();
         this.queryParams = null;
     }
+
+    public throwResponseOnError(): FetchOptionBuilder { this.options.throw_response_on_error = true; return this; }
+    public throwAliasCodeOnError(): FetchOptionBuilder { this.options.throw_response_on_error = false; return this; }
 
     public withErrorMessages(): FetchOptionBuilder { this.options.error_messages = true; return this; }
     public withoutErrorMessages(): FetchOptionBuilder { this.options.error_messages = false; return this; }
@@ -269,7 +273,7 @@ export class Fetch {
                 $.html.error( typeof error === 'string' ? `${c.errors['net']}<br/><code>${error}</code>` : c.errors['net']);
             else if (error) console.error(error);
 
-            throw error;
+            throw options.throw_response_on_error ? null : error;
         }
     }
 
@@ -296,14 +300,24 @@ export class Fetch {
                     default: error_code = error_code ?? 'com'; break;
                 }
 
+                if (options.error_messages && options.throw_response_on_error && error_message) {
+                    $.html.error(error_message);
+                    throw null;
+                }
+
                 if (options.error_messages)
                     $.html.error(error_message ?? c.errors[error_code ?? '__'] ?? `${c.errors['com']} (HTTP-${response.status})`);
-                throw error_code ?? 'com';
+                throw options.throw_response_on_error ? response : (error_code ?? 'com');
+            }
+
+            if (options.error_messages && options.throw_response_on_error && error_message) {
+                $.html.error(error_message);
+                throw null;
             }
 
             if (options.error_messages)
                 $.html.error(`${error_message ?? c.errors[error_code ?? 'common'] ?? c.errors['common']}`);
-            throw error_code ?? 'common';
+            throw options.throw_response_on_error ? response : (error_code ?? 'common');
         }
 
         this.handle_response_headers( response );

@@ -190,12 +190,16 @@ export abstract class Shim<ReactType extends ShimLoader> extends HTMLElement {
 
     private initialized: ReactType|null = null;
     private data: object = {}
+    private do_mount = false;
+    private lazy_observer: IntersectionObserver = null;
 
     protected allow_migration: boolean = false;
 
     protected abstract generateProps(): object|null;
     protected abstract generateInstance(): ReactType;
     protected static observedAttributeNames(): string[] { return []; };
+
+    protected mountsLazily(): boolean { return false; }
 
     protected nestedObject(): ReactType|null {
         return this.initialized;
@@ -217,7 +221,7 @@ export abstract class Shim<ReactType extends ShimLoader> extends HTMLElement {
 
 
     private initialize() {
-        if (this.initialized || !this.isConnected) return;
+        if (!this.do_mount || this.initialized || !this.isConnected) return;
         if (this.extractData()) {
             this.initialized = this.generateInstance();
             this.selfMount();
@@ -225,6 +229,7 @@ export abstract class Shim<ReactType extends ShimLoader> extends HTMLElement {
     }
 
     connectedCallback() {
+        if (!this.do_mount) return;
         this.initialize();
         if (this.extractData()) this.selfMount();
     }
@@ -247,7 +252,25 @@ export abstract class Shim<ReactType extends ShimLoader> extends HTMLElement {
     public constructor() {
         super();
         this.addEventListener('x-react-degenerate', () => this.selfUnmount());
-        this.initialize();
+        if (this.mountsLazily()) {
+            const minHeightBefore = this.style.minHeight;
+            this.style.minHeight = '1px';
+            this.lazy_observer = new IntersectionObserver( (v) => {
+                if (v[0].isIntersecting) {
+                    this.do_mount = true;
+                    this.lazy_observer.unobserve(this);
+                    this.style.minHeight = minHeightBefore;
+                    this.initialize();
+                }
+            }, {
+                root: null,
+                rootMargin: "0px",
+            } );
+            this.lazy_observer.observe(this);
+        } else {
+            this.do_mount = true;
+            this.initialize();
+        }
     }
 }
 

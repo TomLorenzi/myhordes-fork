@@ -11,6 +11,7 @@ use App\Entity\TownLogEntry;
 use App\Entity\TownSlotReservation;
 use App\Entity\User;
 use App\Enum\NotificationSubscriptionType;
+use App\Enum\UserSetting;
 use App\Messages\WebPush\WebPushMessage;
 use App\Service\GameFactory;
 use App\Service\LogTemplateHandler;
@@ -82,6 +83,7 @@ class ProcessTownJoinNotificationsCommand extends Command
             if (empty($accumulator->getFriends())) continue;
             if ($accumulator->getTown()->getPassword() || !$accumulator->getTown()->isOpen()) continue;
             if ($accumulator->getSubject()->getActiveCitizen()) continue;
+            if (!$accumulator->getSubject()->getSetting( UserSetting::PushNotifyOnFriendTownJoin )) continue;
 
             if (!$this->gameFactory->userCanEnterTown(
                 $accumulator->getTown(),
