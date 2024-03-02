@@ -85,7 +85,7 @@ class NotificationManagerController extends AbstractController
                         [
                             'type' => UserSetting::PushNotifyOnFriendTownJoin->value,
                             'text' => $trans->trans('Push-Benachrichrichtigung erhalten, wenn Freunde einer Stadt beitreten', [], 'soul' ),
-                            'help' => $trans->trans('Du wirst nur benachrichtigt, wenn du dieser Stadt ebenfalls beitreten könntest.', [], 'soul' )
+                            'help' => $trans->trans('Damit du benachrichtigt wirst, wenn ein Freund eine Stadt betritt, muss dieser dich ebenfalls als Freund hinzugefügt haben. Du wirst zudem nur benachrichtigt, wenn du dieser Stadt ebenfalls beitreten könntest (dich also beispielsweise nicht bereits in einer anderen Stadt aufhälst).', [], 'soul' )
                         ],
                     ]
                 ]
