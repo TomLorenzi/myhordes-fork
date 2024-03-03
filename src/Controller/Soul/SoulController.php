@@ -1074,6 +1074,7 @@ class SoulController extends CustomAbstractController
         $user->setSetting( UserSetting::ReorderActionButtonsBeyond, (bool)$parser->get('beyondAltLayout', false) );
         $user->setSetting( UserSetting::ReorderTownLocationButtons, (bool)$parser->get('townAltLayout', true) );
         $user->setSetting( UserSetting::PrivateForumsOnTop, (bool)$parser->get('privateForumsOnTop', true) );
+        $user->setSetting( UserSetting::LargerPMIcon, (bool)$parser->get('largerPMIcon', false) );
         $user->setAdminLang($parser->get("adminLang", null));
         $session->set('_admin_lang',$user->getAdminLang() ?? $user->getLanguage());
         $this->entity_manager->persist( $user );

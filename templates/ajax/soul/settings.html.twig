@@ -665,6 +665,12 @@
                                     {{help_btn("Diese Option steuert, ob Private Foren in denen du Mitglied bist in der Forenliste über oder unter den Weltforen angezeigt werden. Unabhängig von dieser Einstellung wird das Stadtforum deiner aktuellen Stadt immer ganz oben angezeigt."|trans({}, 'soul'))}}
                                 </div>
                             </div>
+                            <div class="padded cell rw-12">
+                                <div class="note note-lightest">
+                                    <input x-setting data-full-reload="1" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::LargerPMIcon") ) %}checked{% endif%} type="checkbox" id="setting_larger-pm-icon">&nbsp;<label for="setting_larger-pm-icon">{{'Größeres PM-Icon verwenden'|trans({}, 'soul')}}</label>
+                                    {{help_btn("Wenn aktiviert wird das PM-Icon am oberen rechten Rand der Seite größer dargestellt, um sich leichter klicken zu lassen."|trans({}, 'soul'))}}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -969,12 +975,14 @@
                     beyondAltLayout: document.getElementById('setting_reorder-action-buttons-beyond').checked,
                     townAltLayout: document.getElementById('setting_reorder-location-buttons-town').checked,
                     privateForumsOnTop: document.getElementById('setting_private-forums-on-top').checked,
+                    largerPMIcon: document.getElementById('setting_larger-pm-icon').checked,
                     {% if is_granted("ROLE_CROW") %}
                     adminLang: document.querySelector("input[name=admin_setting_preferred_language]:checked").value
                     {% endif %}
                 },
                 function () {
-                    $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                    if (elem.dataset.fullReload) window.location.reload();
+                    else $.ajax.load(null, '{{ path('soul_settings') }}', true);
                 } )
         });
         $.html.addEventListenerAll('[x-lang-setting]', 'change', function(e,elem) {

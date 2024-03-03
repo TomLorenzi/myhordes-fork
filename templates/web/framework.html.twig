@@ -66,7 +66,7 @@
 <div id="wrapper">
     <div id="header">
         <div id="header-reload-area"></div>
-        <div id="postbox" class="hidden">
+        <div id="postbox" {{ {'hidden': true, 'show-larger': app.user and app.user.setting( constant("\\App\\Enum\\UserSetting::LargerPMIcon") )}|classes }}>
             <div><img src="{{ asset('build/images/icons/small_mail.gif') }}" alt=""></div>
             <div><img src="{{ asset('build/images/icons/anim_icon_mail.gif') }}" alt=""></div>
             <div id="postbox-new-msg-counter">0</div>
