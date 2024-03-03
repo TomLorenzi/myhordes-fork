@@ -333,6 +333,16 @@
       transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
     }
   }
+
+  div.collapsed>div[data-etog] {
+
+    cursor: pointer;
+    &:before {
+      content: '▶'; transform: rotate(270deg) scale(0.6); color: #ddab76; display: inline-block;
+    }
+
+    text-align: center;
+  }
 }
 
 .forum-control {

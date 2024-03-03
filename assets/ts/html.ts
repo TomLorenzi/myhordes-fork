@@ -571,51 +571,59 @@ export default class HTML {
     }
 
     handleCollapseSection( element: HTMLElement): void {
-        element?.querySelectorAll('.collapsor:not([data-processed])+.collapsed').forEach( collapsed => {
+        element?.querySelectorAll('.collapsor:not([data-processed])+.collapsed').forEach( (collapsed: HTMLElement) => {
             const collapsor = collapsed.previousElementSibling as HTMLElement;
             collapsor.dataset.processed = '1';
 
             if (collapsor.dataset.open === '1') {
-                (collapsed as HTMLElement).style.maxHeight = null;
-                (collapsed as HTMLElement).style.opacity = '1';
+                collapsed.style.maxHeight = null;
+                collapsed.style.opacity = '1';
             } else {
-                (collapsed as HTMLElement).style.maxHeight = '0';
-                (collapsed as HTMLElement).style.opacity = '0';
+                collapsed.style.maxHeight = '0';
+                collapsed.style.opacity = '0';
             }
+
+            let toggler = null;
+            collapsed.insertAdjacentElement('beforeend', toggler = document.createElement('div'))
+            toggler.dataset.etog = "1";
 
             const updateState = () => {
                 if (collapsor.dataset.open === '1') {
                     collapsor.dataset.transition = '0';
-                    (collapsed as HTMLElement).style.maxHeight = null;
+                    collapsed.style.maxHeight = null;
                     const h = (collapsed as HTMLElement).offsetHeight;
-                    (collapsed as HTMLElement).style.maxHeight = '0';
+                    collapsed.style.maxHeight = '0';
 
                     collapsor.dataset.transition = '1';
                     window.setTimeout(() => {
-                        (collapsed as HTMLElement).style.maxHeight = `${h}px`;
-                        (collapsed as HTMLElement).style.opacity = '1';
+                        collapsed.style.maxHeight = `${h}px`;
+                        collapsed.style.opacity = '1';
                         window.setTimeout( () => {
-                            if (collapsed as HTMLElement) (collapsed as HTMLElement).style.maxHeight = null;
+                            if (collapsed) collapsed.style.maxHeight = null;
                         }, 300 );
                     }, 1)
 
                 } else {
                     collapsor.dataset.transition = '0';
-                    const h = (collapsed as HTMLElement).offsetHeight;
-                    (collapsed as HTMLElement).style.maxHeight = `${h}px`;
-                    (collapsed as HTMLElement).style.opacity = '1';
+                    const h = collapsed.offsetHeight;
+                    collapsed.style.maxHeight = `${h}px`;
+                    collapsed.style.opacity = '1';
 
                     collapsor.dataset.transition = '1';
                     window.setTimeout(() => {
-                        (collapsed as HTMLElement).style.maxHeight = '0';
-                        (collapsed as HTMLElement).style.opacity = '0';
+                        collapsed.style.maxHeight = '0';
+                        collapsed.style.opacity = '0';
                     }, 1)
                 }
             }
-            collapsor.addEventListener('click', () => {
+
+            const handler = () => {
                 collapsor.dataset.open = collapsor.dataset.open === '1' ? '0' : '1';
                 updateState();
-            })
+            }
+
+            collapsor.addEventListener('click', handler);
+            toggler.addEventListener('click', handler);
         } )
     }
 
