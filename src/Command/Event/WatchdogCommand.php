@@ -96,15 +96,16 @@ class WatchdogCommand extends Command
                     $this->em->persist( (new ForumUsagePermissions())->setForum($result->town()->getForum())->setPrincipalGroup($ga)->setPermissionsGranted(
                         ForumUsagePermissions::PermissionReadWrite |
                         ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionFormattingModerator |
-                        ForumUsagePermissions::PermissionHelp | ForumUsagePermissions::PermissionFormattingOracle
+                        ForumUsagePermissions::PermissionHelp | ForumUsagePermissions::PermissionFormattingOracle |
+                        ForumUsagePermissions::PermissionPostAsAnim
                     )->setPermissionsDenied(ForumUsagePermissions::PermissionNone) );
                     $this->permissionHandler->associate( $preset->getEvent()->getOwner(), $ga );
 
                     // Give the global Animaction group access to the forum
                     $granted = Arr::get($preset->getHeader(), 'townIncarnation') === 'forum-all'
-                        ? ForumUsagePermissions::PermissionReadWrite |
+                        ? (ForumUsagePermissions::PermissionReadWrite |
                         ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionFormattingModerator |
-                        ForumUsagePermissions::PermissionHelp | ForumUsagePermissions::PermissionFormattingOracle
+                        ForumUsagePermissions::PermissionHelp | ForumUsagePermissions::PermissionFormattingOracle | ForumUsagePermissions::PermissionPostAsAnim)
                         : ForumUsagePermissions::PermissionRead;
                     $g_anim = $this->em->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAnimactorGroup]);
                     $this->em->persist( (new ForumUsagePermissions())->setForum($result->town()->getForum())->setPrincipalGroup($g_anim)->setPermissionsGranted(
