@@ -100,7 +100,7 @@ export default class HTML {
                 : data;
         }
 
-        const input_fields = form.querySelectorAll('input,select,hordes-twino-editor,hordes-user-search') as NodeListOf<HTMLInputElement|HTMLSelectElement|HordesTwinoEditorElement|HordesUserSearchElement>;
+        const input_fields = form.querySelectorAll('input,textarea,select,hordes-twino-editor,hordes-user-search') as NodeListOf<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement|HordesTwinoEditorElement|HordesUserSearchElement>;
         for (let i = 0; i < input_fields.length; i++) {
             const node = input_fields[i];
             const node_name = node.getAttribute('name') ?? node.getAttribute('id');
@@ -115,11 +115,15 @@ export default class HTML {
             if (node_name) {
                 switch (node.nodeName) {
                     case 'INPUT':
-                        value = node.getAttribute('type') != 'checkbox'
-                            ? (node as HTMLInputElement).value
-                            : ((node as HTMLInputElement).checked ? (( node as HTMLInputElement).value === "on" ? true : ( node as HTMLInputElement).value) : false);
+                        if (node.getAttribute('type') === 'checkbox')
+                            value = node.getAttribute('type') != 'checkbox'
+                                ? (node as HTMLInputElement).value
+                                : ((node as HTMLInputElement).checked ? (( node as HTMLInputElement).value === "on" ? true : ( node as HTMLInputElement).value) : false);
+                        else if (node.getAttribute('type') === 'radio')
+                            value = (node as HTMLInputElement).checked ? (node as HTMLInputElement).value : undefined;
+                        else value = (node as HTMLInputElement).value;
                         break;
-                    case 'SELECT':
+                    case 'TEXTAREA': case 'SELECT':
                         value = (node as HTMLSelectElement).value;
                         break;
                     case 'HORDES-TWINO-EDITOR':

@@ -1391,66 +1391,6 @@ class MessageGlobalPMController extends MessageController
 
     /**
      * @param int $pid
-     * @param EntityManagerInterface $em
-     * @param TranslatorInterface $ti
-     * @return Response
-     */
-    #[Route(path: 'api/pm/{pid<\d+>}/report', name: 'pm_report_post_controller')]
-    public function report_post_api(int $pid, EntityManagerInterface $em, TranslatorInterface $ti, JSONRequestParser $parser, CrowService $crow, RateLimitingFactoryProvider $rateLimiter): Response {
-        $user = $this->getUser();
-
-        $message = $em->getRepository( GlobalPrivateMessage::class )->find( $pid );
-        if (!$message) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        $reason = $parser->get_int('reason', 0, 0, 13);
-        if ($reason === 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        $group = $message->getReceiverGroup();
-        if (!$group || $group->getType() !== UserGroup::GroupMessageGroup)
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        /** @var UserGroupAssociation $group_association */
-        $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(),
-            'associationType' => [UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive], 'association' => $group]);
-        if (!$group_association) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-
-
-        $targetUser = $message->getSender();
-        if ($targetUser->getName() === "Der Rabe" )
-            return AjaxResponse::success(true, ['msg' => $ti->trans('Das ist keine gute Idee, das ist dir doch wohl klar!', [], 'game')]);
-
-        $reports = $message->getAdminReports();
-        foreach ($reports as $report)
-            if ($report->getSourceUser()->getId() == $user->getId())
-                return AjaxResponse::success();
-
-        if (!($limit = $rateLimiter->reportLimiter( $user )->create( $user->getId() )->consume())->isAccepted())
-            return AjaxResponse::error( ErrorHelper::ErrorRateLimited, ['detail' => 'report', 'retry_in' => $limit->getRetryAfter()->getTimestamp() - (new DateTime())->getTimestamp()]);
-
-        $details = $parser->trimmed('details');
-        $newReport = (new AdminReport())
-            ->setSourceUser($user)
-            ->setTs(new DateTime('now'))
-            ->setReason( $parser->get_int('reason', 0, 0, 13) )
-            ->setDetails( $details ?: null )
-            ->setGpm($message);
-
-        try {
-            $em->persist($newReport);
-            $em->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
-        try {
-            $crow->triggerExternalModNotification( 'A global PM has been reported.', $message, $newReport );
-        } catch (\Throwable $e) {}
-
-        return AjaxResponse::success( true, ['msg' => $ti->trans('Du hast die Nachricht von {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...', ['{username}' => '<span>' . $message->getSender()->getName() . '</span>'], 'game')]);
-    }
-
-    /**
-     * @param int $pid
      * @param int $action
      * @param EntityManagerInterface $em
      * @return Response

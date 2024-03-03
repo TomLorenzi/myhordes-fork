@@ -444,61 +444,6 @@ class MessageTownMessageController extends MessageController
     }
 
     /**
-     * @param JSONRequestParser $parser
-     * @param EntityManagerInterface $em
-     * @param TranslatorInterface $ti
-     * @return Response
-     */
-    #[Route(path: 'api/town/house/pm/report', name: 'home_report_pm_controller')]
-    public function pm_report_api(JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti, CrowService $crow, RateLimitingFactoryProvider $rateLimiter): Response {
-        $user = $this->getUser();
-
-        $id = $parser->get('pmid', null);
-        if ($id === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        $reason = $parser->get_int('reason', 0, 0, 13);
-        if ($reason === 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        /** @var Citizen $citizen */
-        if (!($citizen = $user->getActiveCitizen())) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        /** @var PrivateMessage $post */
-        $post = $em->getRepository(PrivateMessage::class)->find( $id );
-        if ($post === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        $thread = $post->getPrivateMessageThread();
-        if (!$thread || $post->getOwner() === $citizen || !$thread->getSender() || ($thread->getRecipient()->getId() !== $citizen->getId() && $thread->getSender()->getId() !== $citizen->getId())) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        $reports = $post->getAdminReports();
-        foreach ($reports as $report)
-            if ($report->getSourceUser()->getId() == $user->getId())
-                return AjaxResponse::success();
-
-        if (!($limit = $rateLimiter->reportLimiter( $user )->create( $user->getId() )->consume())->isAccepted())
-            return AjaxResponse::error( ErrorHelper::ErrorRateLimited, ['detail' => 'report', 'retry_in' => $limit->getRetryAfter()->getTimestamp() - (new DateTime())->getTimestamp()]);
-
-        $details = $parser->trimmed('details');
-        $newReport = (new AdminReport())
-            ->setSourceUser($user)
-            ->setTs(new DateTime('now'))
-            ->setReason( $parser->get_int('reason', 0, 0, 13) )
-            ->setDetails( $details ?: null )
-            ->setPm($post);
-
-        $em->persist($newReport);
-        $em->flush();
-
-        try {
-            $crow->triggerExternalModNotification( 'A town PM has been reported.', $post, $newReport );
-        } catch (\Throwable $e) {}
-
-        $message = $ti->trans('Du hast die Nachricht von {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...', ['{username}' => '<span>' . $post->getOwner()->getName() . '</span>'], 'game');
-        $this->addFlash('notice', $message);
-
-        return AjaxResponse::success();
-    }
-
-    /**
      * @param PrivateMessageThread $thread
      * @return Response
      */

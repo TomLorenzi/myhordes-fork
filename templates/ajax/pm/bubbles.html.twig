@@ -240,7 +240,12 @@
                         </a>
                     {% endif %}
                     {% if message.sender != app.user and message.senderGroup is empty %}
-                        &nbsp;<a class="pm-button pointer" x-report-url="{{ path('pm_report_post_controller', {pid: message.id}) }}"><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"><div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div></a>
+                        &nbsp;<hordes-content-report class="pm-button pointer" data-principal-id="{{ message.id }}" data-report="global-pm" data-selector="img" data-title="{{ 'Unangemessenen Inhalt melden'|trans({},'global') }}">
+                            <div class="inline">
+                                <img alt="!" src="{{ asset('build/images/forum/warning.png') }}">
+                                <div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div>
+                            </div>
+                        </hordes-content-report>
                     {% endif %}
                 </div>
             </div>
@@ -334,7 +339,12 @@
                     {% endif %}
                 {% endif %}
                 {% if message.senderGroup is empty and not message.hidden and message.sender != app.user %}
-                    &nbsp;&nbsp;[ <a class="pm-button" x-report-url="{{ path('pm_report_post_controller', {pid: message.id}) }}"><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"><div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div></a> ]
+                    &nbsp;&nbsp;[<hordes-content-report class="pm-button pointer" data-principal-id="{{ message.id }}" data-report="global-pm" data-selector="img" data-title="{{ 'Unangemessenen Inhalt melden'|trans({},'global') }}">
+                        <div class="inline">
+                            <img alt="!" src="{{ asset('build/images/forum/warning.png') }}">
+                            <div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div>
+                        </div>
+                    </hordes-content-report> ]
                 {% endif %}
             </div>
         </div>

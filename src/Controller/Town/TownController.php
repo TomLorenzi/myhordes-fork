@@ -723,25 +723,6 @@ class TownController extends InventoryAwareController
     /**
      * @param int $id
      * @param JSONRequestParser $parser
-     * @param RateLimitingFactoryProvider $rateLimiter
-     * @return Response
-     */
-    #[Route(path: 'api/town/visit/{id}/report', name: 'report_personal_desc')]
-    public function report_personal_desc_api(int $id, JSONRequestParser $parser, RateLimitingFactoryProvider $rateLimiter ): Response {
-
-        if ($id === $this->getActiveCitizen()->getId())
-            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
-
-        /** @var Citizen $citizen */
-        $citizen = $this->entity_manager->getRepository(Citizen::class)->find( $id );
-        if (!$citizen) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        return $this->reportCitizen( $citizen, AdminReportSpecification::CitizenAnnouncement, $parser, $rateLimiter->reportLimiter( $this->getUser() ) );
-    }
-
-    /**
-     * @param int $id
-     * @param JSONRequestParser $parser
      * @return Response
      */
     #[Route(path: 'api/town/visit/{id}/intrude', name: 'town_visit_intrusion_controller')]
@@ -1637,58 +1618,6 @@ class TownController extends InventoryAwareController
         }
 
         return AjaxResponse::success();
-    }
-
-    /**
-     * @param JSONRequestParser $parser
-     * @param RateLimitingFactoryProvider $rateLimiter
-     * @return Response
-     */
-    #[Route(path: 'api/town/dashboard/wordofheroes/report', name: 'town_dashboard_report_woh')]
-    public function dashboard_report_wordofheroes_api(JSONRequestParser $parser, RateLimitingFactoryProvider $rateLimiter ): Response {
-        $user = $this->getUser();
-        $blackBoardEdit = $this->entity_manager->getRepository(BlackboardEdit::class)->find( $parser->get_int('bbe') );
-        $reason = $parser->get_int('reason', 0, 0, 13);
-        if ($reason === 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        if (!$blackBoardEdit || empty( $blackBoardEdit->getText() ) || $blackBoardEdit->getTown() !== $this->getActiveCitizen()->getTown())
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        $targetUser = $blackBoardEdit->getUser();
-        if ($targetUser === $user)
-            return AjaxResponse::success();
-
-        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['blackBoard' => $blackBoardEdit]);
-        foreach ($reports as $report)
-            if ($report->getSourceUser()->getId() == $user->getId())
-                return AjaxResponse::success();
-        $report_count = count($reports) + 1;
-
-        if (!($limit = $rateLimiter->reportLimiter( $user )->create( $user->getId() )->consume())->isAccepted())
-            return AjaxResponse::error( ErrorHelper::ErrorRateLimited, ['detail' => 'report', 'retry_in' => $limit->getRetryAfter()->getTimestamp() - (new DateTime())->getTimestamp()]);
-
-        $details = $parser->trimmed('details');
-        $newReport = (new AdminReport())
-            ->setSourceUser($user)
-            ->setReason( $reason )
-            ->setDetails( $details ?: null )
-            ->setTs(new DateTime('now'))
-            ->setBlackBoard( $blackBoardEdit );
-
-        try {
-            $this->entity_manager->persist($newReport);
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
-        try {
-            $this->crow->triggerExternalModNotification( "A blackboard message has been reported.", $blackBoardEdit, $newReport, "This is report #{$report_count}." );
-        } catch (\Throwable $e) {}
-
-        $message = $this->translator->trans('Du hast die Nachricht auf dem Schwarzen Brett an den Raben gemeldet. Wer weiß, vielleicht wird deren Verfasser heute Nacht stääärben...', [], 'game');
-        $this->addFlash('notice', $message);
-        return AjaxResponse::success( );
     }
 
     /**

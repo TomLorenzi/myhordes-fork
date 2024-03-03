@@ -5,10 +5,8 @@ namespace App\Controller\Messages;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AccountRestriction;
 use App\Entity\AdminDeletion;
-use App\Entity\AdminReport;
 use App\Entity\Citizen;
 use App\Entity\Forum;
-use App\Entity\ForumModerationSnippet;
 use App\Entity\ForumPoll;
 use App\Entity\ForumPollAnswer;
 use App\Entity\ForumThreadSubscription;
@@ -17,13 +15,10 @@ use App\Entity\GlobalPrivateMessage;
 use App\Entity\LogEntryTemplate;
 use App\Entity\OfficialGroup;
 use App\Entity\Post;
-use App\Entity\SocialRelation;
 use App\Entity\Thread;
 use App\Entity\ThreadReadMarker;
 use App\Entity\ThreadTag;
-use App\Entity\Town;
 use App\Entity\User;
-use App\Enum\UserSetting;
 use App\Response\AjaxResponse;
 use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\CitizenHandler;
@@ -49,10 +44,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\Uid\Uuid;
 use Symfony\Contracts\Cache\ItemInterface;
 use Symfony\Contracts\Cache\TagAwareCacheInterface;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @method User getUser
@@ -1680,71 +1673,5 @@ class MessageForumController extends MessageController
         }
 
         return $success ? AjaxResponse::success() : AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-    }
-
-    /**
-     * @param int $fid
-     * @param int $tid
-     * @param JSONRequestParser $parser
-     * @param EntityManagerInterface $em
-     * @param TranslatorInterface $ti
-     * @return Response
-     */
-    #[Route(path: 'api/forum/{fid<\d+>}/{tid<\d+>}/post/report', name: 'forum_report_post_controller')]
-    public function report_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti, CrowService $crow, RateLimitingFactoryProvider $rateLimiter): Response {
-        if (!$parser->has('postId'))
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        $user = $this->getUser();
-        $postId = $parser->get('postId');
-        $reason = $parser->get_int('reason', 0, 0, 13);
-        if ($reason === 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        /** @var Post $post */
-        $post = $em->getRepository( Post::class )->find( $postId );
-        if ($post->getTranslate() || $post->getThread()->getId() !== $tid || $post->getThread()->getForum()->getId() !== $fid) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        if (!$this->perm->checkEffectivePermissions($user, $post->getThread()->getForum(), ForumUsagePermissions::PermissionReadThreads) || $this->isLimitedDuringAttack($post->getThread()->getForum()))
-            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
-
-        $targetUser = $post->getOwner();
-        if ($targetUser->getName() === "Der Rabe" ) {
-            $message = $ti->trans('Das ist keine gute Idee, das ist dir doch wohl klar!', [], 'game');
-            $this->addFlash('notice', $message);
-            return AjaxResponse::success();
-        }
-
-        $reports = $post->getAdminReports();
-        foreach ($reports as $report)
-            if ($report->getSourceUser()->getId() == $user->getId())
-                return AjaxResponse::success();
-
-        if (!($limit = $rateLimiter->reportLimiter( $user )->create( $user->getId() )->consume($reports->isEmpty() ? 2 : 1))->isAccepted())
-            return AjaxResponse::error( ErrorHelper::ErrorRateLimited, ['detail' => 'report', 'retry_in' => $limit->getRetryAfter()->getTimestamp() - (new DateTime())->getTimestamp()]);
-
-        $details = $parser->trimmed('details');
-        $post->addAdminReport(
-            $newReport = (new AdminReport())
-                ->setSourceUser($user)
-                ->setReason( $reason )
-                ->setDetails( $details ?: null )
-                ->setTs(new DateTime('now'))
-        );
-
-        try {
-            $em->persist($post);
-            $em->persist($newReport);
-            $em->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
-        try {
-            $crow->triggerExternalModNotification( "A forum message has been reported.", $post, $newReport, "This is report #{$post->getAdminReports()->count()}." );
-        } catch (\Throwable $e) {}
-
-        $message = $ti->trans('Du hast die Nachricht von {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...', ['{username}' => '<span>' . $post->getOwner()->getName() . '</span>'], 'game');
-        $this->addFlash('notice', $message);
-        return AjaxResponse::success( );
     }
 }
