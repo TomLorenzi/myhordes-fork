@@ -1959,15 +1959,25 @@ i.dagger {
   cursor: pointer; z-index: 995;
   &:hover { background-color: lighten(rgba(62, 36, 23, .75),10%); }
 
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+
+  img { image-rendering: pixelated };
+
   &>div {
     margin: 0; display: inline-block; font-weight: bold;
-    &:last-child { margin-left: 4px; }
+    &:not(#postbox-new-msg-counter) { line-height: 0 }
   }
 
   &.new-messages {
     >*:nth-child(1) { display: none; }
   }
   &:not(.new-messages)>*:not(:nth-child(1)) { display: none !important; }
+
+  &.show-larger {
+    img { height: 24px; }
+  }
 }
 
 .mt-1 {

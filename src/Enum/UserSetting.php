@@ -21,10 +21,11 @@ enum UserSetting: string {
     case PushNotifyOnFriendTownJoin     = 'push-notify-on-town-join';
     case ReorderActionButtonsBeyond     = 'reorder-action-buttons-beyond';
     case ReorderTownLocationButtons     = 'reorder-location-buttons-town';
-    case DistinctionTop3     = 'distinctions-top-3';
-    case TitleLanguage     = 'title-language';
-    case PrivateForumsOnTop = 'private-forums-on-top';
+    case DistinctionTop3                = 'distinctions-top-3';
+    case TitleLanguage                  = 'title-language';
+    case PrivateForumsOnTop             = 'private-forums-on-top';
     case PreferredPronounTitle          = 'preferred-pronoun-title';
+    case LargerPMIcon                   = 'larger-pm-icon';
 
     /**
      * @return UserSetting[]
@@ -53,7 +54,8 @@ enum UserSetting: string {
             UserSetting::PushNotifyMeOnPM,
             UserSetting::PushNotifyOnFriendTownJoin,
             UserSetting::ReorderActionButtonsBeyond,
-            UserSetting::ReorderTownLocationButtons    => true,
+            UserSetting::ReorderTownLocationButtons,
+            UserSetting::LargerPMIcon => true,
 
             UserSetting::Flag,
             UserSetting::PreferredPronoun,
@@ -87,7 +89,8 @@ enum UserSetting: string {
             UserSetting::PostAs,
             UserSetting::NotifyMeWhenMentioned,
             UserSetting::TitleLanguage,
-            UserSetting::PreferredPronounTitle    => true,
+            UserSetting::PreferredPronounTitle,
+            UserSetting::LargerPMIcon  => true,
 
             UserSetting::DistinctionTop3          => false,
         };
@@ -119,6 +122,7 @@ enum UserSetting: string {
             UserSetting::TitleLanguage                 => '_them',
             UserSetting::PrivateForumsOnTop            => true,
             UserSetting::PreferredPronounTitle         => 0,
+            UserSetting::LargerPMIcon                  => false,
         };
     }
 }
