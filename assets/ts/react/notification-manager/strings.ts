@@ -1,9 +1,16 @@
+import {Setting} from "./api";
+
 export type TranslationStrings = {
     common: {
+        help: string,
         infoText1: string
         infoText2: string
         infoText3: string
         unsupported: string
+        rejected: string
+
+        error_put_400: string
+        error_put_409: string
     },
     actions: {
         add: string,
@@ -25,5 +32,9 @@ export type TranslationStrings = {
         test_icon: string
         expired: string
         expired_icon: string
+    }
+    settings: {
+        headline: string,
+        toggle: Array<Setting>
     }
 }

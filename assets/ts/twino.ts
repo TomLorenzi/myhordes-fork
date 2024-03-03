@@ -933,7 +933,6 @@ export default class TwinoAlikeParser {
         // Properly nest orphaned LIs
         let orphan = null;
         while (orphan = container_node.querySelector('*:not(ul):not(ol)>li')) {
-            console.log(orphan);
             const new_parent = document.createElement('ul');
             let next_sibling = null;
 

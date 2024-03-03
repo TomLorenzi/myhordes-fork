@@ -5,8 +5,8 @@ namespace App\Service;
 use App\Entity\Building;
 use App\Entity\Citizen;
 use App\Entity\CitizenRole;
-use App\Entity\Inventory;
 use App\Entity\GlobalPrivateMessage;
+use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
@@ -39,14 +39,15 @@ use App\Event\Game\Town\Basic\Buildings\BuildingCatapultItemTransformEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingDestroyedDuringAttackPostEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingDestructionEvent;
-use App\Event\Game\Town\Basic\Buildings\BuildingEffectEvent;
-use App\Event\Game\Town\Basic\Buildings\BuildingEffectPostAttackEvent;
-use App\Event\Game\Town\Basic\Buildings\BuildingEffectPreAttackEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingQueryNightwatchDefenseBonusEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingQueryTownParameterEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingQueryTownRoleEnabledEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingUpgradePostAttackEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingUpgradePreAttackEvent;
+use App\Event\Game\Town\Basic\Core\AfterJoinTownEvent;
+use App\Event\Game\Town\Basic\Core\BeforeJoinTownData;
+use App\Event\Game\Town\Basic\Core\BeforeJoinTownEvent;
+use App\Event\Game\Town\Basic\Core\JoinTownEvent;
 use App\Structures\FriendshipActionTarget;
 use App\Structures\HTMLParserInsight;
 use Psr\Container\ContainerExceptionInterface;
@@ -203,6 +204,20 @@ class EventProxyService
 
     public function friendListUpdatedEvent( User $actor, User $subject, bool $added ): void {
         $this->ed->dispatch( (new FriendEvent())->setup( $added, $actor, $subject ) );
+    }
+
+    public function beforeTownJoinEvent( Town $town, User $subject, bool $auto ): BeforeJoinTownData {
+        $this->ed->dispatch( $event = $this->ef->gameEvent( BeforeJoinTownEvent::class, $town )->setup( $subject, $auto ) );
+        return $event->data;
+    }
+
+    public function townJoinEvent( Town $town, User $subject, bool $auto ): Citizen {
+        $this->ed->dispatch( $event = $this->ef->gameEvent( JoinTownEvent::class, $town )->setup( $subject, $auto ) );
+        return $event->citizen;
+    }
+
+    public function afterTownJoinEvent( Town $town, BeforeJoinTownData $data ): void {
+        $this->ed->dispatch( $event = $this->ef->gameEvent( AfterJoinTownEvent::class, $town )->setup( $data ) );
     }
 
     /**

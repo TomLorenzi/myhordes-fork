@@ -216,15 +216,6 @@ class GhostController extends CustomAbstractController
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
-        try {
-            foreach ($all as $new_citizen)
-                $this->gps->recordCitizenJoined( $new_citizen, $new_citizen === $citizen ? 'join' : 'follow' );
-            $this->entity_manager->flush();
-        }
-        catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
         $current_town_events = $this->conf->getCurrentEvents($town);
         if (!empty(array_filter($current_town_events,fn(EventConf $e) => $e->active()))) {
             if (!$townHandler->updateCurrentEvents($town, $current_town_events))

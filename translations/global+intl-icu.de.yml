@@ -579,3 +579,8 @@ Gerät: Gerät
 'Bei der Kommunikation mit deinem Gerät ist ein Fehler aufgetreten. Fehlercode: {code}. Bitte versuche es zu einem späteren Zeitpunkt erneut.': 'Bei der Kommunikation mit deinem Gerät ist ein Fehler aufgetreten. Fehlercode: {code}. Bitte versuche es zu einem späteren Zeitpunkt erneut.'
 Testbenachrichtiung: Testbenachrichtiung
 'Hallo! Ich bin eine Testbenachrichtigung von MyHordes.': 'Hallo! Ich bin eine Testbenachrichtigung von MyHordes.'
+'Um diese Funktion zu verwenden, musst du MyHordes die Erlaubnis geben, dir Benachrichtigungen auf dein Gerät zu schicken.': 'Um diese Funktion zu verwenden, musst du MyHordes die Erlaubnis geben, dir Benachrichtigungen auf dein Gerät zu schicken.'
+'MyHordes ist nicht in der Lage, die von diesem Gerät angebotene Schnittstelle anzusprechen. Bitte versuche, dein Gerät oder Browser auf die neuste Version zu aktualisieren, oder verwende einen anderen Browser.': 'MyHordes ist nicht in der Lage, die von diesem Gerät angebotene Schnittstelle anzusprechen. Bitte versuche, dein Gerät oder Browser auf die neuste Version zu aktualisieren, oder verwende einen anderen Browser.'
+'Dieses Gerät ist bereits für Push-Benachrichtigungen eines anderen MyHordes-Account registriert. Ein Gerät kann nicht mehreren Accounts zugeordnet werden.': 'Dieses Gerät ist bereits für Push-Benachrichtigungen eines anderen MyHordes-Account registriert. Ein Gerät kann nicht mehreren Accounts zugeordnet werden.'
+'Freunde sind einer Stadt beigetreten': 'Freunde sind einer Stadt beigetreten'
+'Ein Freund ist einer Stadt beigetreten': 'Ein Freund ist einer Stadt beigetreten'

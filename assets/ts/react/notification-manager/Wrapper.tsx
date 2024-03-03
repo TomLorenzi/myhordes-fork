@@ -4,13 +4,18 @@ import { createRoot } from "react-dom/client";
 import {ResponseIndex, NotificationManagerAPI, NotificationSubscription} from "./api";
 import {ChangeEvent, MouseEventHandler, useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
 import {TranslationStrings} from "./strings";
-import {Global} from "../../defaults";
+import {Const, Global} from "../../defaults";
 import {UAParser} from "ua-parser-js";
 import {getPushServiceRegistration, pushAPIIsSupported, registerForPushNotifications} from "../../v2/push";
 import {md5} from "js-md5";
 import Console from "../../v2/debug";
+import {bool} from "prop-types";
+import {UserSettingBase, UserSettingsAPI} from "../user-settings/api";
+import {v4 as uuidv4} from "uuid";
+import {Tooltip} from "../tooltip/Wrapper";
 
 declare var $: Global;
+declare var c: Const;
 
 export class HordesNotificationManager {
 
@@ -78,15 +83,26 @@ const NotificationManagerWrapper = ( {}: {} ) => {
                 [ device.os.name, device.os.version ].filter(s => !!s).join(' '),
             ].filter(s => !!s).join(', ');
 
-            const sub = await apiRef.current.put('webpush', await getPushServiceRegistration(),
-                ua_device
+            try {
+                const sub = await apiRef.current.put('webpush', await getPushServiceRegistration(),
+                    ua_device
                         ? `${ua_browser} (${ua_device})`
                         : ua_browser
-            );
-            if (sub) setList( [...list,sub.subscription] );
-            $.html.notice( index.strings.actions.registered );
+                );
+
+                if (sub) setList( [...list,sub.subscription] );
+                $.html.notice( index.strings.actions.registered );
+            } catch (error) {
+                if (typeof error === "object") switch ( error.status ?? -1 ) {
+                    case 400: $.html.error( index.strings.common.error_put_400 ); break;
+                    case 409: $.html.error( index.strings.common.error_put_409 ); break;
+                    default:
+                        console.log(error);
+                        $.html.error( c.errors['com'] )
+                } else if (error !== null) $.html.error( c.errors['com'] )
+            }
         }
-        else alert('Um diese Funktion zu verwenden musst du MyHordes gestatten, dir Benachrichtigungen zu senden.')
+        else $.html.error( index.strings.common.rejected );
     }
 
     const deleteDevice = async (id: string) => {
@@ -176,7 +192,77 @@ const NotificationManagerWrapper = ( {}: {} ) => {
                         </div>
                     </div>
                 }
+
+                <div className="row">
+                    <SettingSection index={index} enabled={list.length > 0}/>
+                </div>
             </>}
         </Globals.Provider>
     )
 };
+
+const SettingSection = ( {index, enabled}: {index: ResponseIndex|null, enabled: boolean} ) => {
+
+    if (!index) return null;
+
+    const apiRef = useRef<UserSettingsAPI>(new UserSettingsAPI());
+
+    const [settings, setSettings ] = useState<Array<UserSettingBase>|null>(null);
+    const [currentlySaving, setCurrentlySaving] = useState<Array<string>>([]);
+
+    const uuid = useRef<string>(uuidv4())
+    const makeUUID = (s: string) => `${uuid.current}-${s}`
+
+    const getSetting = (option: string): UserSettingBase|null =>
+        settings.find( s => s.option === option ) ?? null
+
+    const setSetting = ( option: string, value: any, overwriteAll: boolean ): void => {
+        const index = settings.findIndex( s => s.option === option );
+        if (index < 0) return;
+        setSettings([
+            ...settings.slice(0, index),
+            {
+                ...settings[index],
+                ...(overwriteAll ? value : {value})
+            },
+            ...settings.slice(index + 1)
+        ]);
+    }
+
+    useEffect(() => {
+        apiRef.current.list().then( s => setSettings(s) );
+        return () => setSettings(null);
+    }, [enabled]);
+
+    return <>
+        <h5>{ index.strings.settings.headline }</h5>
+        { index.strings.settings.toggle.map( v => <div key={v.type} className="row">
+            <div className="padded cell rw-12">
+                <div className="note note-lightest">
+                    <div className="row-flex v-center gap">
+                        <input id={makeUUID(v.type)} type="checkbox"
+                               disabled={!enabled || !settings || currentlySaving.includes(v.type)}
+                               checked={(enabled && settings) ? getSetting(v.type).value : false}
+                               onChange={ e => {
+                                   setCurrentlySaving( [ ...currentlySaving.filter(s => s !== v.type), v.type ] );
+                                   apiRef.current.toggle( v.type, e.currentTarget.checked )
+                                       .then( s => {
+                                           setCurrentlySaving( currentlySaving.filter(s => s !== v.type) );
+                                           setSetting(v.type, s, true)
+                                       } )
+                                       .catch( () => setCurrentlySaving( currentlySaving.filter(s => s !== v.type) ))
+                               } }
+                        />
+                        <label htmlFor={makeUUID(v.type)}>{v.text}</label>
+                        {v.help && <a className="help-button">
+                            <Tooltip textContent={v.help}/>
+                            {index.strings.common.help}
+                        </a>}
+                    </div>
+                </div>
+            </div>
+
+        </div>)}
+    </>
+
+}

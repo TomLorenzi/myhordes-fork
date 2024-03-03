@@ -10,6 +10,8 @@ import {Shim} from "../react";
 // Define web component <hordes-notification-manager />
 customElements.define('hordes-notification-manager', class HordesNotificationManagerElement extends Shim<HordesNotificationManager> {
 
+    protected mountsLazily(): boolean { return true; }
+
     protected generateProps(): object {
         return {};
     }

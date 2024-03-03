@@ -64,7 +64,6 @@ class GameFactory
     private TranslatorInterface $translator;
     private MapMaker $map_maker;
     private CrowService $crow;
-    private PermissionHandler $perm;
     private TimeKeeperService $timeKeeper;
 
     const ErrorNone = 0;
@@ -82,7 +81,7 @@ class GameFactory
     public function __construct(ConfMaster $conf,
         EntityManagerInterface $em, GameValidator $v, Locksmith $l, ItemFactory $if, TownHandler $th, TimeKeeperService $ts,
         RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, ZoneHandler $zh, LogTemplateHandler $lh,
-        TranslatorInterface $translator, MapMaker $mm, CrowService $crow, PermissionHandler $perm, UserHandler $uh, GameProfilerService $gps,
+        TranslatorInterface $translator, MapMaker $mm, CrowService $crow, UserHandler $uh, GameProfilerService $gps,
         EventProxyService $events)
     {
         $this->entity_manager = $em;
@@ -100,7 +99,6 @@ class GameFactory
         $this->translator = $translator;
         $this->map_maker = $mm;
         $this->crow = $crow;
-        $this->perm = $perm;
         $this->gps = $gps;
         $this->timeKeeper = $ts;
         $this->events = $events;
@@ -600,7 +598,7 @@ class GameFactory
         return $town;
     }
 
-    public function userCanEnterTown( Town &$town, User &$user, bool $whitelist_enabled = false, ?int &$error = null, bool $internal = false ): bool {
+    public function userCanEnterTown( Town $town, User $user, bool $whitelist_enabled = false, ?int &$error = null, bool $internal = false ): bool {
         if (!$town->isOpen() || $town->getScheduledFor() > (new \DateTime())) {
             $error = self::ErrorTownClosed;
             return false;
@@ -696,113 +694,31 @@ class GameFactory
             return null;
         }
 
-        $base_profession = $this->entity_manager->getRepository(CitizenProfession::class)->findDefault();
-        if ($base_profession === null) {
-            $error = self::ErrorNoDefaultProfession;
-            return null;
-        }
-
         $followers[] = $user;
         $main_citizen = null;
         $all_citizens = [];
 
-        $town_group = $this->entity_manager->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $town->getId()] );
+        $before_event_cache = array_map(
+            fn(User $joining_user) => $this->events->beforeTownJoinEvent( $town, $joining_user, $joining_user !== $user ),
+            $followers
+        );
 
-        $cx_clean_shoutbox_state = [];
-        foreach ($followers as $joining_user)
-            if ($sb = $this->user_handler->getShoutbox($joining_user)) {
-                $last_entry = $this->entity_manager->getRepository(ShoutboxEntry::class)->findOneBy(['shoutbox' => $sb], ['timestamp' => 'DESC', 'id' => 'DESC']);
-                if ($last_entry) {
-                    $marker = $this->entity_manager->getRepository(ShoutboxReadMarker::class)->findOneBy(['user' => $joining_user]);
-                    if ($marker && $last_entry === $marker->getEntry()) $cx_clean_shoutbox_state[] = $joining_user;
-                }
-            }
-
-        $entry_cache = [];
         foreach ($followers as $joining_user) {
-
-            if (!$this->user_handler->hasRole( $joining_user, 'ROLE_CROW' ))
-                if (!$this->conf->getTownConfiguration( $town )->get( TownConf::CONF_FEATURE_NO_TEAMS ) && $town->getLanguage() !== null && $town->getLanguage() !== 'multi' && $town->getRankingEntry() && !$town->getRankingEntry()->getEvent() && $town->getSeason())
-                    $this->entity_manager->persist(
-                        (new TeamTicket())
-                            ->setTown( $town->getRankingEntry() )
-                            ->setSeason( $town->getSeason() )
-                            ->setUser( $joining_user )
-                            ->setTeam( $town->getLanguage() )
-                    );
-
-            $home = new CitizenHome();
-            $home
-                ->setChest( $chest = new Inventory() )
-                ->setPrototype( $this->entity_manager->getRepository( CitizenHomePrototype::class )->findOneBy(['level' => 0]) )
-            ;
-
-            $joining_user->addCitizen( $citizen = new Citizen() );
-            $citizen->setUser( $joining_user )
-                ->setTown( $town )
-                ->setInventory( new Inventory() )
-                ->setHome( $home )
-                ->setCauseOfDeath( $this->entity_manager->getRepository( CauseOfDeath::class )->findOneBy( ['ref' => CauseOfDeath::Unknown] ) )
-                ->setHasSeenGazette( true );
-
-            // Check for other coalition members
-            foreach ($this->user_handler->getAllOtherCoalitionMembers( $joining_user ) as $coa_member) {
-                $coa_citizen = $coa_member->getCitizenFor($town);
-                if ($coa_citizen) {
-                    $this->entity_manager->persist( $coa_citizen->setCoalized(true) );
-                    $citizen->setCoalized( true );
-                }
-            }
-
-            (new Inventory())->setCitizen( $citizen );
-            $this->citizen_handler->inflictStatus( $citizen, 'clean' );
-
-            if ($this->town_handler->getBuilding( $town, 'small_novlamps_#00' ))
-                $this->citizen_handler->inflictStatus( $citizen, 'tg_novlamps' );
-
-            $this->citizen_handler->applyProfession( $citizen, $base_profession );
-
-            $this->inventory_handler->forceMoveItem( $chest, $this->item_factory->createItem( 'chest_citizen_#00' ) );
-            $this->inventory_handler->forceMoveItem( $chest, $this->item_factory->createItem( 'food_bag_#00' ) );
-
-            // Adding default heroic action
-            $heroic_actions = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findBy(['unlockable' => false]);
-            foreach ($heroic_actions as $heroic_action)
-                /** @var $heroic_action HeroicActionPrototype */
-                $citizen->addHeroicAction( $heroic_action );
-
-            if ($town_group) $this->perm->associate( $joining_user, $town_group );
-
+            $all_citizens[] = $citizen = $this->events->townJoinEvent( $town, $joining_user, $joining_user !== $user );
             if ($joining_user === $user) $main_citizen = $citizen;
-            $all_citizens[] = $citizen;
-            $this->entity_manager->persist($citizen);
-
-            /** @var Shoutbox|null $shoutbox */
-            if ($shoutbox = $this->user_handler->getShoutbox($joining_user)) {
-                $shoutbox->addEntry(
-                    $entry_cache[$shoutbox->getId()] = (new ShoutboxEntry())
-                        ->setType( ShoutboxEntry::SBEntryTypeTown )
-                        ->setTimestamp( new \DateTime() )
-                        ->setUser1( $joining_user )
-                        ->setText( $town->getName() )
-                );
-                $this->entity_manager->persist($shoutbox);
-            }
         }
 
-        foreach ($cx_clean_shoutbox_state as $sb_clean_user)
-            if ($sb = $this->user_handler->getShoutbox($sb_clean_user)) {
+        $this->entity_manager->flush();
 
-                if (isset($entry_cache[$sb->getId()])) {
-                    /** @var ShoutboxReadMarker $marker */
-                    $marker = $this->entity_manager->getRepository(ShoutboxReadMarker::class)->findOneBy(['user' => $sb_clean_user]);
-                    if ($marker)
-                        $this->entity_manager->persist($marker->setEntry( $entry_cache[$sb->getId()] ));
-                }
-            }
+        foreach ($before_event_cache as $before_event) {
+            $this->events->afterTownJoinEvent($town, $before_event);
+            $this->entity_manager->flush();
+        }
 
         $whitelist = $whitelist_enabled ? $this->entity_manager->getRepository(TownSlotReservation::class)->findOneBy(['town' => $town, 'user' => $user]) : null;
         if ($whitelist !== null) $this->entity_manager->remove($whitelist);
+
+        $this->entity_manager->flush();
 
         return $main_citizen;
     }

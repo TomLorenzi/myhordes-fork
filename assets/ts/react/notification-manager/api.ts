@@ -26,6 +26,12 @@ export type NotificationSubscription = {
     expired: boolean
 }
 
+export type Setting = {
+    'type': string,
+    text: string,
+    help: string
+}
+
 export class NotificationManagerAPI {
 
     private fetch: Fetch;
@@ -45,7 +51,7 @@ export class NotificationManagerAPI {
     }
 
     public put( type: string, payload: object, desc: string|null = null ): Promise<ResponseSingle> {
-        return this.fetch.from(`/${type}`).withErrorMessages()
+        return this.fetch.from(`/${type}`).withErrorMessages().throwResponseOnError()
             .request().put({ desc,payload }) as Promise<ResponseSingle>;
     }
 

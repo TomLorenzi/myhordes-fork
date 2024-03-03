@@ -349,7 +349,6 @@ class DebugCommand extends LanguageCommand
 
                     /** @var Citizen $joined_citizen */
                     foreach ( $all as $joined_citizen ) {
-                        $this->gps->recordCitizenJoined( $joined_citizen, 'debug' );
                         if ($citizen->getProfession()->getName() !== 'none')
                             $this->gps->recordCitizenProfessionSelected( $joined_citizen );
                         if($joined_citizen !== $citizen) {
