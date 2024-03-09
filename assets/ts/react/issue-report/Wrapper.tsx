@@ -1,38 +1,33 @@
 import * as React from "react";
-import { useEffect, useLayoutEffect, useRef, useState} from "react";
+import {useEffect, useLayoutEffect, useRef, useState} from "react";
 import {Const, Global} from "../../defaults";
-import {ContentReportAPI, ResponseIndex} from "./api";
+import {IssueReportAPI, ResponseIndex} from "./api";
 import {ReactDialogMounter} from "../index";
+import {btoa} from "buffer";
 
 declare var c: Const;
 declare var $: Global;
 
 type Props = {
-    principal: number
-    type: string,
     selector: string,
     title: string
 }
 
-export class HordesContentReport extends ReactDialogMounter<Props> {
+export class HordesIssueReport extends ReactDialogMounter<Props> {
 
     protected findActivator(parent: HTMLElement, props: Props): HTMLElement {
         return parent.querySelector(props.selector);
     }
 
     protected renderReact(callback: (a:any)=>void, props: Props) {
-        return <ReportCreatorDialog
+        return <ReportIssueDialog
             setCallback={callback}
             title={props.title}
-            type={props.type}
-            principal={props.principal}
         />
     }
 }
 
-const ReportCreatorDialog = (props: {
-    type: string,
-    principal: number,
+const ReportIssueDialog = (props: {
     title: string,
     setCallback: (any)=>void
 }) => {
@@ -43,7 +38,7 @@ const ReportCreatorDialog = (props: {
     const dialog = useRef<HTMLDialogElement>(null);
     const form = useRef<HTMLFormElement>(null);
 
-    const api = useRef(new ContentReportAPI())
+    const api = useRef(new IssueReportAPI())
 
     useEffect(() => {
         props.setCallback( () => setOpen(true) );
@@ -52,19 +47,19 @@ const ReportCreatorDialog = (props: {
 
     const confirmDialog = () => {
         setSending(true);
-        api.current.report( props.type, props.principal, $.html.serializeForm( form.current ))
+        api.current.report( $.html.serializeForm( form.current ), [{ file: 'example.txt', ext: '.txt', content: Buffer.from('This is a file.').toString('base64') }])
             .then( r => {
-                if (r?.message) $.html.notice(r.message);
+                //if (r?.message) $.html.notice(r.message);
                 dialog.current.close();
                 setSending(false);
                 setOpen(false);
             }).catch(error => {
                 setSending(false);
                 if (typeof error === "object") switch ( error.status ?? -1 ) {
-                    case 400: $.html.error( index.strings.texts.error_400 ); break;
-                    case 404: $.html.error( index.strings.texts.error_404 ); break;
-                    case 409: $.html.error( index.strings.texts.error_409 ); break;
-                    case 429: $.html.error( index.strings.texts.error_429 ); break;
+                    //case 400: $.html.error( index.strings.texts.error_400 ); break;
+                    //case 404: $.html.error( index.strings.texts.error_404 ); break;
+                    //case 409: $.html.error( index.strings.texts.error_409 ); break;
+                    //case 429: $.html.error( index.strings.texts.error_429 ); break;
                     default:
                         console.log(error);
                         $.html.error( c.errors['com'] )
@@ -79,7 +74,12 @@ const ReportCreatorDialog = (props: {
     }
 
     useEffect(() => {
-        if (open && index === null) api.current.index( props.type ).then( s => setIndex(s) );
+        if (open && index === null) api.current.index( ).then( s => {
+            if (s.strings.redirect) {
+                window.open(s.strings.redirect, '_blank');
+                cancelDialog();
+            } else setIndex(s)
+        } );
     }, [open]);
 
     useLayoutEffect(() => {
@@ -97,20 +97,27 @@ const ReportCreatorDialog = (props: {
                 <div className="modal-content">
                     {index === null && <div className="loading"></div>}
                     {index && <>
-                        <p className="small bold">{ index.strings.texts.header }</p>
+                        <p className="small bold">{ index.strings.common.prompt }</p>
+                        <div className="note note-warning">{ index.strings.common.warn }</div>
                         <p className="small">
-                            <span>{ index.strings.texts.subline }</span>
-                            { index.strings.options.filter( ([,value]) => value !== null ).map( ([id,value]) => <label className="block" key={`opt_${id}`}><input type="radio" name="report_reason" value={id} />&nbsp;{value}</label> ) }
+                            <div><b>{ index.strings.fields.title.title }</b></div>
+                            <div><span className="small">{ index.strings.fields.title.hint }</span></div>
+
+                            <input type="text" name="issue_title" placeholder={index.strings.fields.title.example}/>
                         </p>
                         <p className="small">
-                            <span>{index.strings.texts.additional}</span>
-                            <textarea maxLength={255} style={{minHeight: '70px', maxHeight: '120px', height: '70px'}} name="report_details"/>
+                            <div><b>{index.strings.fields.desc.title}</b></div>
+                            <div><span className="small">{index.strings.fields.desc.hint}</span></div>
+                            <textarea maxLength={255} style={{minHeight: '70px', maxHeight: '400px', height: '120px'}}
+                                      name="issue_details" placeholder={index.strings.fields.desc.example}/>
                         </p>
                     </>}
                 </div>
                 {index && <div id="modal-actions">
-                        <button type="button" disabled={sending} className="modal-button small inline" onClick={() => confirmDialog()}>{ index.strings.texts.ok }</button>
-                        <button type="button" disabled={sending} className="modal-button small inline" onClick={() => cancelDialog()}>{ index.strings.texts.abort }</button>
+                    <button type="button" disabled={sending} className="modal-button small inline"
+                            onClick={() => confirmDialog()}>{index.strings.common.ok}
+                    </button>
+                    <button type="button" disabled={sending} className="modal-button small inline" onClick={() => cancelDialog()}>{index.strings.common.cancel}</button>
                     </div>
                 }
             </form>

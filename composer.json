@@ -31,6 +31,7 @@
         "jdrieghe/array-helpers": "^0.2.0",
         "laminas/laminas-code": "4.13.0",
         "league/commonmark": "2.4.1",
+        "m4tthumphrey/php-gitlab-api": "^11.13",
         "myhordes/fixtures": "@dev",
         "myhordes/plugins": "@dev",
         "myhordes/prime": "^2.0.0",

@@ -55,6 +55,11 @@ parameters:
       discord: ~
     domains: []
     urls: []
+    issue_tracking:
+      fallback-url: 'https://gitlab.com/eternaltwin/myhordes/myhordes/-/issues'
+      gitlab:
+        token: ~
+        project-id: ~
     twinoid:
       sk: ~
       id: ~

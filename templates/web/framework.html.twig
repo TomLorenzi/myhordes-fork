@@ -93,6 +93,11 @@
 <footer {{ (theme??{})|data }} class="{% if custom_css is defined and custom_css != '' %}{{ custom_css }}{% endif %}">
     {% block footer %}
         <div class="row">
+            <div class="padded cell ro-10 rw-2 right">
+                <hordes-issue-report data-selector="a" data-title="{{ 'Fehler melden'|trans({}, 'global') }}"><a href="#">{{ 'Fehler melden'|trans({}, 'global') }}</a></hordes-issue-report>
+            </div>
+        </div>
+        <div class="row">
             <div class="padded cell footer rw-5 rw-sm-12 justify">
                 {% include 'partials/project_desc.html.twig' %}
             </div>

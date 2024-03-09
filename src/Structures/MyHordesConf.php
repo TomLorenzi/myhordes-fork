@@ -80,6 +80,9 @@ class MyHordesConf extends Conf
     const CONF_STAGING_FEATURES    = 'staging.features';
     const CONF_STAGING_HERODAYS    = 'staging.herodays';
 
+    const CONF_ISSUE_REPORTING_FALLBACK    = 'issue_tracking.fallback-url';
+    const CONF_ISSUE_REPORTING_GITLAB    = 'issue_tracking.gitlab';
+
     const CONF_MAIL_DOMAINCAP    = 'mail.slice_domain';
 
     const CONF_OVERRIDE_AUTOPOST_ADDENDUM = 'override.autopost_addendum';
