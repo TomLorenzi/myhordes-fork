@@ -4,8 +4,13 @@ namespace App\Controller\REST\User;
 
 use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractCoreController;
+use App\Entity\AccountRestriction;
+use App\Response\AjaxResponse;
 use App\Service\ConfMaster;
+use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
+use App\Service\RateLimitingFactoryProvider;
+use App\Service\UserHandler;
 use App\Structures\MyHordesConf;
 use ArrayHelpers\Arr;
 use Gitlab\Client;
@@ -58,10 +63,13 @@ class GitlabController extends CustomAbstractCoreController
      * @throws \Exception
      */
     #[Route(path: '', name: 'base', methods: ['GET'])]
-    public function index(ConfMaster $confMaster): JsonResponse {
+    public function index(ConfMaster $confMaster, UserHandler $handler): JsonResponse {
+
+        $blocked = ($handler->isRestricted($this->getUser(), AccountRestriction::RestrictionReportToGitlab));
+
         return new JsonResponse([
             'strings' => [
-                'redirect' => $this->validateConfig( $confMaster ) ? null : $confMaster->getGlobalConf()->get( MyHordesConf::CONF_ISSUE_REPORTING_FALLBACK, '' ),
+                'redirect' => (!$blocked && $this->validateConfig( $confMaster )) ? null : $confMaster->getGlobalConf()->get( MyHordesConf::CONF_ISSUE_REPORTING_FALLBACK, '' ),
 
                 'common' => [
                     'prompt' => $this->translator->trans('Über dieses Formular kannst du uns einen technischen Fehler melden. Bitte verwende diese Funktion nicht, um uns unangemessene Inhalte oder inhaltliche Vorschläge für zukünftige Updates zu senden.', [], 'global'),
@@ -113,7 +121,14 @@ class GitlabController extends CustomAbstractCoreController
      * @throws \Exception
      */
     #[Route(path: '', name: 'create_issue', methods: ['PUT'])]
-    public function create_issue(ParameterBagInterface $params, JSONRequestParser $parser, ConfMaster $confMaster, VersionManagerInterface $version): JsonResponse {
+    public function create_issue(ParameterBagInterface $params, JSONRequestParser $parser, ConfMaster $confMaster, VersionManagerInterface $version, UserHandler $handler, RateLimitingFactoryProvider $rateLimiter): JsonResponse {
+
+        if ($handler->isRestricted($this->getUser(), AccountRestriction::RestrictionReportToGitlab))
+            return new JsonResponse([], Response::HTTP_FORBIDDEN);
+
+        if ( !$this->isGranted('ROLE_ELEVATED') && !$rateLimiter->reportLimiter($this->getUser())->create( $this->getUser()->getId() )->consume( 2 )->isAccepted())
+            return new JsonResponse([], Response::HTTP_TOO_MANY_REQUESTS);
+
         $data = $confMaster->getGlobalConf()->get( MyHordesConf::CONF_ISSUE_REPORTING_GITLAB ) ?? [];
         $token = Arr::get( $data, 'token', null );
         $project = Arr::get( $data, 'project-id', null );
