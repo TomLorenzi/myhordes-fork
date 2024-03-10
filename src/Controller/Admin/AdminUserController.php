@@ -1164,7 +1164,7 @@ class AdminUserController extends AdminActionController
         $duration  = $parser->get_int('duration');
         $mask      = $parser->get_int('restriction', 0);
 
-        if ($duration === 0 || $mask <= 0 || ($mask & ~(AccountRestriction::RestrictionSocial | AccountRestriction::RestrictionGameplay | AccountRestriction::RestrictionProfile | AccountRestriction::RestrictionGameplayLang)))
+        if ($duration === 0 || $mask <= 0 || ($mask & ~(AccountRestriction::RestrictionSocial | AccountRestriction::RestrictionGameplay | AccountRestriction::RestrictionProfile | AccountRestriction::RestrictionGameplayLang | AccountRestriction::RestrictionReportToGitlab )))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $a = ($edit ?? ((new AccountRestriction())->setCreated( new \DateTime() )))

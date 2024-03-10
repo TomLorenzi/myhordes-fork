@@ -1,60 +1,32 @@
 import * as React from "react";
-import { createPortal } from "react-dom";
-import { createRoot } from "react-dom/client";
-import {ReactNode, useEffect, useLayoutEffect, useRef, useState} from "react";
+import { useEffect, useLayoutEffect, useRef, useState} from "react";
 import {Const, Global} from "../../defaults";
 import {ContentReportAPI, ResponseIndex} from "./api";
+import {ReactDialogMounter} from "../index";
 
 declare var c: Const;
 declare var $: Global;
 
-export class HordesContentReport {
+type Props = {
+    principal: number
+    type: string,
+    selector: string,
+    title: string
+}
 
-    #_root = null;
-    #_auto_div = null;
-    #_activator = null;
+export class HordesContentReport extends ReactDialogMounter<Props> {
 
-    #_callback = null;
-    #_click_handler = () => {
-        if (this.#_callback) (this.#_callback)();
+    protected findActivator(parent: HTMLElement, props: Props): HTMLElement {
+        return parent.querySelector(props.selector);
     }
 
-    public mount(parent: HTMLElement, props: {
-        principal: number
-        type: string,
-        selector: string,
-        title: string
-    }): any {
-        if (!this.#_auto_div) {
-            parent.insertAdjacentElement('beforeend', this.#_auto_div = document.createElement('div'));
-            this.#_auto_div.style.position = 'absolute';
-            this.#_auto_div.style.cursor = 'default';
-            this.#_auto_div.style.textAlign = 'left';
-            (this.#_activator = parent.querySelector(props.selector)).addEventListener('click', this.#_click_handler);
-        }
-
-        if (!this.#_root)
-            this.#_root = createRoot(this.#_auto_div);
-
-        this.#_root.render( <ReportCreatorDialog
-            setCallback={c => this.#_callback = c}
+    protected renderReact(callback: (a:any)=>void, props: Props) {
+        return <ReportCreatorDialog
+            setCallback={callback}
             title={props.title}
             type={props.type}
             principal={props.principal}
-        /> );
-    }
-
-    public unmount() {
-        if (this.#_root) {
-            this.#_root.unmount();
-            this.#_root = null;
-        }
-
-        if (this.#_auto_div) {
-            this.#_activator.removeEventListener('click', this.#_click_handler);
-            this.#_auto_div.remove();
-            this.#_auto_div = null;
-        }
+        />
     }
 }
 

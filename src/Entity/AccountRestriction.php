@@ -36,6 +36,10 @@ class AccountRestriction
                                            AccountRestriction::RestrictionProfileDescription |
                                            AccountRestriction::RestrictionProfileTitle |
                                            AccountRestriction::RestrictionProfileDisplayName;
+
+    // Misc
+    const RestrictionReportToGitlab      = 1 << 27;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]

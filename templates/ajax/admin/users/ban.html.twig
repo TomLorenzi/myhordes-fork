@@ -77,6 +77,9 @@
                                                     {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle')) %}<div>{{ 'Titel'|trans({},'admin') }}</div>{% endif %}
                                                     {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionProfileDisplayName')) %}<div>{{ 'Spielername'|trans({},'admin') }}</div>{% endif %}
                                                 {% endif %}
+                                                {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionReportToGitlab')) %}
+                                                    <div>{{ 'Fehlerberichte'|trans({},'admin') }}</div>
+                                                {% endif %}
                                             </div>
                                         </div>
                                         {% if is_granted('ROLE_ADMIN') and restriction.active and (restriction.expires is null or restriction.expires > 'now'|to_date) %}
@@ -197,6 +200,7 @@
                                 <div class="cell ro-1 rw-11"><label><input type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionProfileDescription') }}"> {{ 'Ändern der Profilbeschreibung verbieten'|trans({},'admin') }}</label></div>
                                 <div class="cell ro-1 rw-11"><label><input type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle') }}"> {{ 'Ändern des Titels verbieten'|trans({},'admin') }}</label></div>
                                 <div class="cell ro-1 rw-11"><label><input type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionProfileDisplayName') }}"> {{ 'Ändern des Spielernamens verbieten'|trans({},'admin') }}</label></div>
+                                <div class="cell rw-12"><label><input type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionReportToGitlab') }}"> {{ 'Verfassen von Fehlerberichten für Gitlab verbieten'|trans({},'admin') }}</label></div>
                             </div>
                             <div class="row">
                                 <div class="cell rw-12">

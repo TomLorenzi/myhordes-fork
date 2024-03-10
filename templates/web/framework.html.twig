@@ -86,12 +86,17 @@
         </noscript>
     </div>
 
+    <div style="text-align: right; font-size: 0.6em; margin-right: 12px; margin-top: 4px">
+        <hordes-issue-report data-pass="{{ {'Button': 'Page Bottom'}|json_encode }}" data-selector="a" data-title="{{ 'Fehler melden'|trans({}, 'global') }}"><a href="#">{{ 'Fehler melden'|trans({}, 'global') }}</a></hordes-issue-report>
+    </div>
+
     <div id="footer"></div>
 </div>
 {% include "partials/containers.html.twig" with {} only %}
 </body>
 <footer {{ (theme??{})|data }} class="{% if custom_css is defined and custom_css != '' %}{{ custom_css }}{% endif %}">
     {% block footer %}
+
         <div class="row">
             <div class="padded cell footer rw-5 rw-sm-12 justify">
                 {% include 'partials/project_desc.html.twig' %}

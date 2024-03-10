@@ -290,6 +290,7 @@ class LogTemplateHandler
                         if ( $binmatch($mask, AccountRestriction::RestrictionProfileDescription) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Ändern der Profilbeschreibung', [], 'soul' ) );
                         if ( $binmatch($mask, AccountRestriction::RestrictionProfileDisplayName) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Ändern des Spielernamens', [], 'soul' ));
                     }
+                    if ( $binmatch($mask, AccountRestriction::RestrictionReportToGitlab) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Fehlerberichte erfassen', [], 'soul' ));
                     $transParams['{'.$typeEntry['name'].'}'] .= "</div>";
                 }
                 elseif ($typeEntry['type'] === 'title-custom-list') {

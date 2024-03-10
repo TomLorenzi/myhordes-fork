@@ -106,6 +106,9 @@ export default class HTML {
             const node_name = node.getAttribute('name') ?? node.getAttribute('id');
             const node_type = node.dataset['type'] ?? node.getAttribute('type') ?? 'text';
 
+            // Check do-not-serialize attribe
+            if (node.dataset.noSerialization) continue;
+
             // Do not enter react parents!
             const blacklisted = node.closest('hordes-twino-editor,hordes-user-search');
             if (blacklisted && blacklisted !== node) continue;

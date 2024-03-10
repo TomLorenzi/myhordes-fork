@@ -1,4 +1,6 @@
 import {Global} from "../defaults";
+import {createRoot} from "react-dom/client";
+import * as React from "react";
 
 declare var $: Global;
 
@@ -276,4 +278,78 @@ export abstract class Shim<ReactType extends ShimLoader> extends HTMLElement {
 
 export abstract class PersistentShim<ReactType extends ShimLoader> extends Shim<ReactType> {
     protected allow_migration: boolean = true;
+}
+
+export abstract class ReactDialogMounter<PropDef extends object> {
+    private root = null;
+    private auto_div = null;
+    private activator = null;
+
+    private callback = null;
+    private click_handler = e => {
+        if (this.callback) {
+            (this.callback)();
+            e.preventDefault();
+        }
+    }
+
+    private
+
+    protected abstract renderReact(callback: (a:any)=>void, props: PropDef);
+
+    protected abstract findActivator(parent: HTMLElement, props: PropDef): HTMLElement|null;
+
+    protected findActivatorAsync(parent: HTMLElement, props: PropDef): Promise<HTMLElement> {
+        return new Promise<HTMLElement>((resolve,reject) => {
+            const fetchActivator = () => {
+                const elem = this.findActivator( parent, props );
+                if (elem) resolve(elem);
+                else reject();
+            }
+
+            if (document.readyState !== "complete")
+                document.addEventListener('DOMContentLoaded', fetchActivator)
+            else fetchActivator();
+        })
+    }
+
+    public mount(parent: HTMLElement, props: PropDef): any {
+        if (!this.auto_div) {
+
+            this.findActivatorAsync( parent, props )
+                .then( activator => {
+                    parent.insertAdjacentElement('beforeend', this.auto_div = document.createElement('div'));
+                    this.auto_div.style.position = 'absolute';
+                    this.auto_div.style.cursor = 'default';
+                    this.auto_div.style.textAlign = 'left';
+                    (this.activator = activator).addEventListener('click', this.click_handler);
+
+                    if (!this.root)
+                        this.root = createRoot(this.auto_div);
+
+                    this.root.render( this.renderReact( c => this.callback = c, props ) );
+                })
+                .catch(() => console.warn( 'Unable to fetch the activator for a dialog mount.', parent, props ));
+        } else {
+            if (!this.root)
+                this.root = createRoot(this.auto_div);
+
+            this.root.render(this.renderReact(c => this.callback = c, props));
+        }
+
+
+    }
+
+    public unmount() {
+        if (this.root) {
+            this.root.unmount();
+            this.root = null;
+        }
+
+        if (this.auto_div) {
+            this.activator.removeEventListener('click', this.click_handler);
+            this.auto_div.remove();
+            this.auto_div = null;
+        }
+    }
 }
