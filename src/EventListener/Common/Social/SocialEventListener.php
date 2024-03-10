@@ -7,6 +7,7 @@ use App\Entity\ShoutboxEntry;
 use App\Entity\ShoutboxReadMarker;
 use App\Entity\TownJoinNotificationAccumulation;
 use App\Entity\User;
+use App\Entity\UserGroupAssociation;
 use App\Enum\NotificationSubscriptionType;
 use App\Enum\UserSetting;
 use App\Event\Common\Social\FriendEvent;
@@ -102,9 +103,26 @@ final class SocialEventListener implements ServiceSubscriberInterface
     }
 
     public function accumulateNotifications(AfterJoinTownEvent $event): void {
-        $friends = $event->before->subject->getFriends()->filter( fn(User $friend) => $friend->getFriends()->contains( $event->before->subject ) );
+        $friends = $event->before->subject->getFriends()->filter( fn(User $friend) => $friend->getFriends()->contains( $event->before->subject ) )->toArray();
 
+        /** @var UserGroupAssociation|null $user_coalition */
+        $user_coalition = $this->getService(UserHandler::class)->getCoalitionMembership($event->before->subject);
+        if ($user_coalition) {
+            $members = $this->getService(EntityManagerInterface::class)->getRepository(UserGroupAssociation::class)->findBy( [
+                'association' => $user_coalition->getAssociation(),
+                'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive] ]
+            );
+
+            foreach ($members as $member)
+                if ($member->getUser()->getId() !== $event->before->subject->getId())
+                    $friends[] = $member->getUser();
+        }
+
+        $known_ids = [];
         foreach ($friends as $friend) {
+            if (in_array( $friend->getId(), $known_ids )) continue;
+            $known_ids[] = $friend->getId();
+
             $accumulator = $this->getService(EntityManagerInterface::class)
                 ->getRepository(TownJoinNotificationAccumulation::class)
                 ->findOneBy( [ 'town' => $event->town, 'subject' => $friend ] ) ?? (new TownJoinNotificationAccumulation())
