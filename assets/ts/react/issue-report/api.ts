@@ -9,7 +9,7 @@ export type ResponseReport = {
     success: boolean
 }
 
-type FileUpload = {
+export type FileUpload = {
     file: string,
     ext: string,
     content: string

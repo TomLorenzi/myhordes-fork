@@ -112,8 +112,14 @@
   &:not(.wrap):not(.wrap-inverse) { flex-wrap: nowrap; }
   &.wrap { flex-wrap: wrap; }
   &.gap { gap: @myhordes-grid-padsize }
+  &.gap-x { column-gap: @myhordes-grid-padsize }
+  &.gap-y { row-gap: @myhordes-grid-padsize }
   &.gap-small { gap: @myhordes-grid-padsize-small }
+  &.gap-small-x { column-gap: @myhordes-grid-padsize-small }
+  &.gap-small-y { row-gap: @myhordes-grid-padsize-small }
   &.gap-none { gap: 0 }
+  &.gap-none-x { column-gap: 0 }
+  &.gap-none-y { row-gap: 0 }
   &.wrap-inverse { flex-wrap: wrap-reverse; }
 
   &.h-center { justify-content: center; }

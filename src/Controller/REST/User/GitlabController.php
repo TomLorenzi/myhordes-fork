@@ -4,31 +4,12 @@ namespace App\Controller\REST\User;
 
 use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractCoreController;
-use App\Entity\AdminReport;
-use App\Entity\BlackboardEdit;
-use App\Entity\Citizen;
-use App\Entity\CitizenRankingProxy;
-use App\Entity\ForumUsagePermissions;
-use App\Entity\GlobalPrivateMessage;
-use App\Entity\Post;
-use App\Entity\PrivateMessage;
-use App\Entity\User;
-use App\Entity\UserGroup;
-use App\Entity\UserGroupAssociation;
-use App\Enum\AdminReportSpecification;
 use App\Service\ConfMaster;
-use App\Service\CrowService;
 use App\Service\JSONRequestParser;
-use App\Service\PermissionHandler;
-use App\Service\RateLimitingFactoryProvider;
 use App\Structures\MyHordesConf;
 use ArrayHelpers\Arr;
-use DateTime;
-use Doctrine\ORM\EntityManagerInterface;
 use Gitlab\Client;
-use Shivas\VersioningBundle\Service\VersionManager;
-use Shivas\VersioningBundle\ShivasVersioningBundle;
-use Symfony\Bridge\Doctrine\Attribute\MapEntity;
+use Shivas\VersioningBundle\Service\VersionManagerInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -37,7 +18,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Uid\UuidV4;
-use Throwable;
 
 #[Route(path: '/rest/v1/user/issues', name: 'rest_user_issues_', condition: "request.headers.get('Accept') === 'application/json'")]
 #[GateKeeperProfile('skip')]
@@ -47,11 +27,18 @@ class GitlabController extends CustomAbstractCoreController
         $data = $confMaster->getGlobalConf()->get( MyHordesConf::CONF_ISSUE_REPORTING_GITLAB ) ?? [];
         return Arr::get( $data, 'token', null ) && Arr::get( $data, 'project-id', null );
     }
-    private function collectProxyInformation(Request $request, ?VersionManager $version = null): array {
+    private function collectProxyInformation(Request $request, ?VersionManagerInterface $version = null): array {
         $user_profile = $this->generateUrl( 'soul_visit', ['id' => $this->getUser()->getId()], UrlGeneratorInterface::ABSOLUTE_URL );
+
+        $town = $this->getUser()->getActiveCitizen()?->getTown();
+        $zone = $this->getUser()->getActiveCitizen()?->getZone();
+
+        $town_url = $town ? $this->generateUrl( 'admin_town_dashboard', ['id' => $town->getId()], UrlGeneratorInterface::ABSOLUTE_URL ) : null;
 
         return array_filter( [
             'Active User' => "[{$this->getUser()->getName()} #{$this->getUser()->getId()}]({$user_profile})",
+            'Current Town' => $town ? "[{$town->getName()} #{$town->getId()}]({$town_url})" : null,
+            'Current Zone' => $zone ? "{$zone->getX()} / {$zone->getY()}" : null,
             'Page URL' => $request->headers->get('referer'),
             'User Agent' => $request->headers->get('User-Agent'),
             'Version' => $version?->getVersion()?->toString()
@@ -80,8 +67,21 @@ class GitlabController extends CustomAbstractCoreController
                     'prompt' => $this->translator->trans('Über dieses Formular kannst du uns einen technischen Fehler melden. Bitte verwende diese Funktion nicht, um uns unangemessene Inhalte oder inhaltliche Vorschläge für zukünftige Updates zu senden.', [], 'global'),
                     'warn' => $this->translator->trans('Der Missbrauch dieses Formulars führt zu Sanktionen für deinen Account.', [], 'global'),
 
+                    'add_file' => $this->translator->trans('Datei anhängen', [], 'global'),
+                    'add_screenshot' => $this->translator->trans('Screenshot anfertigen', [], 'global'),
+                    'delete_file' => $this->translator->trans('Anhang entfernen', [], 'global'),
+
                     'ok' => $this->translator->trans('Absenden', [], 'global'),
                     'cancel' => $this->translator->trans('Abbrechen', [], 'global'),
+
+                    'success' => $this->translator->trans('Dein Fehlerbericht wurde erfolgreich erfasst. Vielen Dank!', [], 'global'),
+                ],
+
+                'errors' => [
+                    'too_large' => $this->translator->trans('Eine oder mehrere ausgewählte Dateien sind zu groß, um angehängt zu werden.', [], 'global'),
+                    'error_400' => $this->translator->trans('Bitte prüfe deinen Bericht auf Vollständigkeit.', [], 'global'),
+                    'error_407' => $this->translator->trans('Bei der Weiterleitung deines Fehlerberichts an GitLab ist ein Kommunkationsfehler aufgetreten. Bitte versuche es in einigen Augenblicken erneut.', [], 'global'),
+                    'error_412' => $this->translator->trans('Dein Fehlerbericht konnte nicht weitergeleitet werden. Dieser MyHordes-Server ist nicht an eine GitLab-Instanz angeschlossen.', [], 'global'),
                 ],
 
                 'fields' => [
@@ -94,6 +94,10 @@ class GitlabController extends CustomAbstractCoreController
                         'title' => $this->translator->trans('Beschreibung des Fehlers', [], 'global'),
                         'hint' => $this->translator->trans('Bitte beschreibe detailliert, wie es zu diesem Fehler gekommen ist. Wenn du eine Fehlermeldung erhalten hast, gib bitte wenn möglich deren Wortlaut mit an.', [], 'global'),
                     ],
+                    'attachment' => [
+                        'title' => $this->translator->trans('Datei anhängen (optional)', [], 'global'),
+                        'hint' => $this->translator->trans('Wenn du zusätzliche Dateien (Screenshots, Videos, ...) zu deiner Fehlermeldung hinzufügen möchtest, kannst du das hier tun. Bitte beachte, dass die Gesamtgröße aller hochgeladenen Dateien die Grenze von 3MB nicht übersteigen darf.', [], 'global'),
+                    ],
                 ]
             ]
         ]);
@@ -104,12 +108,12 @@ class GitlabController extends CustomAbstractCoreController
      * @param ParameterBagInterface $params
      * @param JSONRequestParser $parser
      * @param ConfMaster $confMaster
-     * @param VersionManager $version
+     * @param VersionManagerInterface $version
      * @return JsonResponse
      * @throws \Exception
      */
     #[Route(path: '', name: 'create_issue', methods: ['PUT'])]
-    public function create_issue(ParameterBagInterface $params, JSONRequestParser $parser, ConfMaster $confMaster, VersionManager $version): JsonResponse {
+    public function create_issue(ParameterBagInterface $params, JSONRequestParser $parser, ConfMaster $confMaster, VersionManagerInterface $version): JsonResponse {
         $data = $confMaster->getGlobalConf()->get( MyHordesConf::CONF_ISSUE_REPORTING_GITLAB ) ?? [];
         $token = Arr::get( $data, 'token', null );
         $project = Arr::get( $data, 'project-id', null );
@@ -118,6 +122,7 @@ class GitlabController extends CustomAbstractCoreController
 
         $title = $parser->trimmed('issue_title', null);
         $desc  = $parser->trimmed('issue_details', null);
+        $pass  = $parser->get_array('pass', []);
 
         if (!$title || !$desc)
             return new JsonResponse([], Response::HTTP_BAD_REQUEST);
@@ -153,16 +158,19 @@ class GitlabController extends CustomAbstractCoreController
             }, array_keys( $paths ), array_values( $paths ) );
 
             ['iid' => $issue_id] = $client->issues()->create( $project, [
-                'description' => $desc . (empty($md) ? '' : ("\n\nAttachments:\n" .  implode( "\n", $md ))),
+                'description' => $desc . (empty($md) ? '' : ("\n### Attachments:\n" .  implode( "\n", $md ))),
                 'issue_type' => 'issue',
                 'confidential' => true,
                 'title' => $title
             ] );
 
+            $proxy_table = "## Information added by proxy:\n\n" . $this->makeTable( $this->collectProxyInformation( Request::createFromGlobals(), $version ) );
+            $pass_table = !empty($pass) ? ("## Information passed by client:\n\n" . $this->makeTable( $pass ) ) : '';
+
             $client->issues()->addNote(
                 $project,
                 $issue_id,
-                "This issue was created from inside MyHordes.\n## Information added by proxy:\n\n" . $this->makeTable( $this->collectProxyInformation( Request::createFromGlobals(), $version ) ), [
+                "This issue was created from inside MyHordes.\n$proxy_table\n$pass_table", [
                 'internal' => true,
             ] );
 

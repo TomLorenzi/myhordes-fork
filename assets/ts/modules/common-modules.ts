@@ -128,12 +128,13 @@ customElements.define('hordes-issue-report', class HordesIssueReportElement exte
     protected generateProps(): object | null {
         return {
             selector: this.dataset.selector ?? '*',
-            title: this.dataset.title
+            title: this.dataset.title,
+            pass: JSON.parse( this.dataset.pass ?? 'null' ) ?? {},
         }
     }
 
     protected static observedAttributeNames() {
-        return [ 'data-selector', 'data-title' ];
+        return [ 'data-selector', 'data-title', 'data-pass' ];
     }
 
 }, {  });

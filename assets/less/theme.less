@@ -214,6 +214,11 @@ dialog {
     &>:not(.modal-title) { flex-grow: 0; flex-shrink: 1; overflow: scroll }
   }
   &::backdrop { .modal-backdrop(); }
+
+  &.invisible {
+    opacity: 0;
+    &::backdrop { opacity: 0 }
+  }
 }
 
 #modal-backdrop {

@@ -11,12 +11,25 @@ export type TranslationStrings = {
         prompt: string,
         warn: string,
 
+        add_file: string,
+        add_screenshot: string,
+        delete_file: string,
         ok: string,
         cancel: string,
+
+        success: string,
     },
+
+    errors: {
+        too_large: string,
+        error_400: string,
+        error_407: string,
+        error_412: string,
+    }
 
     fields: {
         title: Field,
         desc: Field
+        attachment: Field
     }
 }
