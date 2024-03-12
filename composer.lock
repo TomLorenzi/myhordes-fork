@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8912d5146f59d0fcf74ca3d0cb7a3ef9",
+    "content-hash": "7e3be5cbc74cae0007668d8440bd3675",
     "packages": [
         {
             "name": "adbario/php-dot-notation",
@@ -133,7 +133,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-etwin-api-client",
-                "reference": "578f80a0cf89c14cd704aee652169bc93882df82"
+                "reference": "1d10e1ffe1c9f4fa7e25d3264d13657500266791"
             },
             "require": {
                 "ext-json": "*",
@@ -2979,11 +2979,11 @@
         },
         {
             "name": "myhordes/fixtures",
-            "version": "dev-beyond_cache",
+            "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-fixtures",
-                "reference": "59b44236a462f33ddf50f47c82b4d10febf621c6"
+                "reference": "781bcc78dac7c5da1c2457c7ebda0e793914501e"
             },
             "require": {
                 "etwin/myhordes": "@dev",
@@ -3017,11 +3017,11 @@
         },
         {
             "name": "myhordes/plugins",
-            "version": "dev-beyond_cache",
+            "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-plugins",
-                "reference": "dbc338961fb7e2a3fa17fec38ce95a580a9fc415"
+                "reference": "70fd33c9c9cddc9eb3987b4dc16e21faa6c2b517"
             },
             "require": {
                 "etwin/myhordes": "@dev",
@@ -3055,7 +3055,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-prime",
-                "reference": "2c7683879bae32fda13e1025483a38b116d3abbb"
+                "reference": "f73fcf52223506c90e38a0430c9174a399ca0b22"
             },
             "require": {
                 "php": ">=8.2",
@@ -11389,6 +11389,148 @@
             "time": "2023-11-21T16:30:46+00:00"
         },
         {
+            "name": "phpstan/phpstan-doctrine",
+            "version": "1.3.53",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpstan/phpstan-doctrine.git",
+                "reference": "85def57e5db6ac6c8a512200c0cfadf7b6621b10"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpstan/phpstan-doctrine/zipball/85def57e5db6ac6c8a512200c0cfadf7b6621b10",
+                "reference": "85def57e5db6ac6c8a512200c0cfadf7b6621b10",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2 || ^8.0",
+                "phpstan/phpstan": "^1.10.12"
+            },
+            "conflict": {
+                "doctrine/collections": "<1.0",
+                "doctrine/common": "<2.7",
+                "doctrine/mongodb-odm": "<1.2",
+                "doctrine/orm": "<2.5",
+                "doctrine/persistence": "<1.3"
+            },
+            "require-dev": {
+                "composer/semver": "^3.3.2",
+                "doctrine/annotations": "^1.11.0",
+                "doctrine/collections": "^1.6",
+                "doctrine/common": "^2.7 || ^3.0",
+                "doctrine/dbal": "^2.13.8 || ^3.3.3",
+                "doctrine/lexer": "^1.2.1",
+                "doctrine/mongodb-odm": "^1.3 || ^2.1",
+                "doctrine/orm": "^2.11.0",
+                "doctrine/persistence": "^1.3.8 || ^2.2.1",
+                "gedmo/doctrine-extensions": "^3.8",
+                "nesbot/carbon": "^2.49",
+                "nikic/php-parser": "^4.13.2",
+                "php-parallel-lint/php-parallel-lint": "^1.2",
+                "phpstan/phpstan-phpunit": "^1.3.13",
+                "phpstan/phpstan-strict-rules": "^1.5.1",
+                "phpunit/phpunit": "^9.5.10",
+                "ramsey/uuid-doctrine": "^1.5.0",
+                "symfony/cache": "^4.4.35"
+            },
+            "type": "phpstan-extension",
+            "extra": {
+                "phpstan": {
+                    "includes": [
+                        "extension.neon",
+                        "rules.neon"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PHPStan\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Doctrine extensions for PHPStan",
+            "support": {
+                "issues": "https://github.com/phpstan/phpstan-doctrine/issues",
+                "source": "https://github.com/phpstan/phpstan-doctrine/tree/1.3.53"
+            },
+            "time": "2023-11-21T10:31:58+00:00"
+        },
+        {
+            "name": "phpstan/phpstan-symfony",
+            "version": "1.3.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpstan/phpstan-symfony.git",
+                "reference": "d8a0bc03a68d95288b6471c37d435647fbdaff1a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpstan/phpstan-symfony/zipball/d8a0bc03a68d95288b6471c37d435647fbdaff1a",
+                "reference": "d8a0bc03a68d95288b6471c37d435647fbdaff1a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-simplexml": "*",
+                "php": "^7.2 || ^8.0",
+                "phpstan/phpstan": "^1.10.36"
+            },
+            "conflict": {
+                "symfony/framework-bundle": "<3.0"
+            },
+            "require-dev": {
+                "nikic/php-parser": "^4.13.0",
+                "php-parallel-lint/php-parallel-lint": "^1.2",
+                "phpstan/phpstan-phpunit": "^1.3.11",
+                "phpstan/phpstan-strict-rules": "^1.5.1",
+                "phpunit/phpunit": "^8.5.29 || ^9.5",
+                "psr/container": "1.0 || 1.1.1",
+                "symfony/config": "^5.4 || ^6.1",
+                "symfony/console": "^5.4 || ^6.1",
+                "symfony/dependency-injection": "^5.4 || ^6.1",
+                "symfony/form": "^5.4 || ^6.1",
+                "symfony/framework-bundle": "^5.4 || ^6.1",
+                "symfony/http-foundation": "^5.4 || ^6.1",
+                "symfony/messenger": "^5.4",
+                "symfony/polyfill-php80": "^1.24",
+                "symfony/serializer": "^5.4",
+                "symfony/service-contracts": "^2.2.0"
+            },
+            "type": "phpstan-extension",
+            "extra": {
+                "phpstan": {
+                    "includes": [
+                        "extension.neon",
+                        "rules.neon"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PHPStan\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lukáš Unger",
+                    "email": "looky.msc@gmail.com",
+                    "homepage": "https://lookyman.net"
+                }
+            ],
+            "description": "Symfony Framework extensions and rules for PHPStan",
+            "support": {
+                "issues": "https://github.com/phpstan/phpstan-symfony/issues",
+                "source": "https://github.com/phpstan/phpstan-symfony/tree/1.3.8"
+            },
+            "time": "2024-03-05T16:33:08+00:00"
+        },
+        {
             "name": "phpunit/php-code-coverage",
             "version": "10.1.9",
             "source": {
@@ -13386,5 +13528,5 @@
     "platform-dev": {
         "ext-sqlite3": "*"
     },
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
