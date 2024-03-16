@@ -376,10 +376,10 @@ export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldC
                         </div> }
 
                     </div>
-                    <div className="row-flex v-center right">
+                    <div className="row-flex v-stretch right">
                         {Object.values(props.roles ?? []).length > 0 && <>
                             <div className="padded cell">
-                                <label><select value={getField('role')}
+                                <label><select value={getField('role')} className="full-height"
                                                onChange={e => setField('role', e.target.value)}>
                                     {Object.entries(props.roles).map( ([role,name]) => <option key={ role } value={ role }>{ name }</option> ) }
                                 </select></label>
