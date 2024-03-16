@@ -42,10 +42,12 @@ final class GlobalPrivateMessageEventListener implements ServiceSubscriberInterf
         ];
     }
 
-    private function should_notify( ?User $from, ?User $to, bool $og = false ): bool {
+    private function should_notify( ?User $from, ?User $to, bool $og = false, bool $is_og_member = false ): bool {
         if (!$from || !$to) return false;
+        $setting = ($og && $is_og_member) ? UserSetting::PushNotifyOnOfficialGroupChat : UserSetting::PushNotifyMeOnPM;
+
         return $from !== $to &&
-            $to->getSetting( UserSetting::NotifyMeOnPM ) &&
+            $to->getSetting( $setting ) &&
             ($og || !$this->getService(UserHandler::class)->checkRelation($to,$from,SocialRelation::SocialRelationTypeBlock));
     }
 
@@ -64,17 +66,19 @@ final class GlobalPrivateMessageEventListener implements ServiceSubscriberInterf
 
         $prepared_post = $this->getService(HTMLService::class)->prepareEmotes( $event->post->getText(), $event->post->getSender() );
 
-        foreach ($all_associations as $association)
-            if ($this->should_notify( $event->post->getSender(), $association->getUser(), !!$og_link )) {
-                $prefix = $this->getService(TranslatorInterface::class)->trans('PN', [], 'global', $association->getUser()->getLanguage() ?? 'en');
+        foreach ($all_associations as $association) {
+            $as_og_member = !!$og_link && $association->getAssociationType() === UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember;
+            if ($this->should_notify($event->post->getSender(), $association->getUser(), !!$og_link, $as_og_member)) {
+                $prefix = $as_og_member ? $og_link->getUsergroup()->getName() : $this->getService(TranslatorInterface::class)->trans('PN', [], 'global', $association->getUser()->getLanguage() ?? 'en');
                 foreach ($association->getUser()->getNotificationSubscriptionsFor(NotificationSubscriptionType::WebPush) as $subscription)
                     $this->getService(MessageBusInterface::class)->dispatch(
                         new WebPushMessage($subscription,
                             title:         "[{$prefix}] {$group->getName()}",
                             body:          $prepared_post,
-                            avatar:        $og_link?->getAnon() ? null : $event->post->getSender()->getAvatar()?->getId()
+                            avatar:        (!$as_og_member && $og_link?->getAnon()) ? null : $event->post->getSender()->getAvatar()?->getId()
                         )
                     );
             }
+        }
 	}
 }
