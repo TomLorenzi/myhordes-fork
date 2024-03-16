@@ -14,6 +14,7 @@ use App\Service\Actions\Ghost\SanitizeTownConfigAction;
 use App\Service\CrowService;
 use App\Service\JSONRequestParser;
 use App\Service\PermissionHandler;
+use App\Service\User\UserCapabilityService;
 use App\Service\UserHandler;
 use App\Structures\MyHordesConf;
 use DiscordWebhooks\Client;
@@ -158,17 +159,17 @@ class EventController extends CustomAbstractCoreController
 
     /**
      * @param EntityManagerInterface $em
-     * @param UserHandler $userHandler
+     * @param UserCapabilityService $capability
      * @return JsonResponse
      * @throws Exception
      */
     #[Route(path: '', name: 'list', methods: ['GET'])]
     public function listEvents(
         EntityManagerInterface $em,
-        UserHandler $userHandler
+        UserCapabilityService $capability
     ): JsonResponse {
 
-        $can_view_proposals = $userHandler->hasRoles( $this->getUser(), ['ROLE_ADMIN','ROLE_CROW'], true );
+        $can_view_proposals = $capability->hasAnyRole( $this->getUser(), ['ROLE_ADMIN','ROLE_CROW'] );
 
         $is_owner = Criteria::expr()->eq('owner', $this->getUser() );
         $is_proposed = Criteria::expr()->eq('proposed', true );
@@ -239,16 +240,16 @@ class EventController extends CustomAbstractCoreController
     }
 
     /**
-     * @param UserHandler $userHandler
+     * @param UserCapabilityService $capability
      * @param EntityManagerInterface $em
      * @return JsonResponse
      */
     #[Route(path: '', name: 'create', methods: ['PUT'])]
     public function createEvent(
-        UserHandler $userHandler,
+        UserCapabilityService $capability,
         EntityManagerInterface $em
     ): JsonResponse {
-        if (!$userHandler->hasRoles( $this->getUser(), ['ROLE_ADMIN','ROLE_CROW','ROLE_ANIMAC','ROLE_ORACLE'], true ))
+        if (!$capability->hasAnyRole( $this->getUser(), ['ROLE_ADMIN','ROLE_CROW','ROLE_ANIMAC','ROLE_ORACLE'] ))
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
         $em->persist( $event = (new CommunityEvent())

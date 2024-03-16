@@ -7,6 +7,7 @@ use App\Entity\User;
 use App\Enum\NotificationSubscriptionType;
 use App\Enum\UserSetting;
 use App\Service\JSONRequestParser;
+use App\Service\User\UserCapabilityService;
 use ArrayHelpers\Arr;
 use BenTools\WebPushBundle\Model\Message\PushNotification;
 use BenTools\WebPushBundle\Model\Response\PushResponse;
@@ -33,13 +34,44 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class NotificationManagerController extends AbstractController
 {
 
+    private function getToggleOptions(UserCapabilityService $capability, TranslatorInterface $trans) {
+        $base = [
+            [
+                'type' => UserSetting::PushNotifyMeOnPM->value,
+                'text' => $trans->trans('Push-Benachrichrichtigung über neue private Nachrichten erhalten', [], 'soul' ),
+                'help' => null,
+            ],
+            [
+                'type' => UserSetting::PushNotifyOnFriendTownJoin->value,
+                'text' => $trans->trans('Push-Benachrichrichtigung erhalten, wenn Freunde einer Stadt beitreten', [], 'soul' ),
+                'help' => $trans->trans('Damit du benachrichtigt wirst, wenn ein Freund eine Stadt betritt, muss dieser dich ebenfalls als Freund hinzugefügt haben. Du wirst zudem nur benachrichtigt, wenn du dieser Stadt ebenfalls beitreten könntest (dich also beispielsweise nicht bereits in einer anderen Stadt aufhälst).', [], 'soul' )
+            ],
+        ];
+
+        if ( !empty($capability->getOfficialGroups( $this->getUser() )) )
+            $base[] = [
+                'type' => UserSetting::PushNotifyOnOfficialGroupChat->value,
+                'text' => $trans->trans('Push-Benachrichrichtigung über eine neue Nachricht in meinen offiziellen Gruppen erhalten', [], 'soul' ),
+                'help' => null,
+            ];
+
+        if ($capability->hasRole( $this->getUser(), 'ROLE_CROW', true ))
+            $base[] = [
+                'type' => UserSetting::PushNotifyOnOfficialGroupChat->value,
+                'text' => $trans->trans('Push-Benachrichrichtigung für Meldungen an die Moderation erhalten', [], 'soul' ),
+                'help' => null,
+            ];
+
+        return $base;
+    }
+
     /**
      * @param Packages $assets
      * @param TranslatorInterface $trans
      * @return JsonResponse
      */
     #[Route(path: '/', name: 'index', methods: ['GET'])]
-    public function index(Packages $assets, TranslatorInterface $trans): JsonResponse {
+    public function index(Packages $assets, UserCapabilityService $capability, TranslatorInterface $trans): JsonResponse {
         return new JsonResponse([
             'strings' => [
                 'common' => [
@@ -76,18 +108,7 @@ class NotificationManagerController extends AbstractController
                 ],
                 'settings' => [
                     'headline' => $trans->trans('Einstellungen für Push-Benachrichtigungen', [], 'soul' ),
-                    'toggle' => [
-                        [
-                            'type' => UserSetting::PushNotifyMeOnPM->value,
-                            'text' => $trans->trans('Push-Benachrichrichtigung über neue private Nachrichten erhalten', [], 'soul' ),
-                            'help' => null,
-                        ],
-                        [
-                            'type' => UserSetting::PushNotifyOnFriendTownJoin->value,
-                            'text' => $trans->trans('Push-Benachrichrichtigung erhalten, wenn Freunde einer Stadt beitreten', [], 'soul' ),
-                            'help' => $trans->trans('Damit du benachrichtigt wirst, wenn ein Freund eine Stadt betritt, muss dieser dich ebenfalls als Freund hinzugefügt haben. Du wirst zudem nur benachrichtigt, wenn du dieser Stadt ebenfalls beitreten könntest (dich also beispielsweise nicht bereits in einer anderen Stadt aufhälst).', [], 'soul' )
-                        ],
-                    ]
+                    'toggle' => $this->getToggleOptions( $capability, $trans )
                 ]
             ]
         ]);

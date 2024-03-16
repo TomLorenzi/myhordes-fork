@@ -19,6 +19,8 @@ enum UserSetting: string {
     case NotifyMeOnFriendRequest        = 'notify-on-friend-request';
     case PushNotifyMeOnPM               = 'push-notify-on-pm';
     case PushNotifyOnFriendTownJoin     = 'push-notify-on-town-join';
+    case PushNotifyOnOfficialGroupChat  = 'push-notify-on-og';
+    case PushNotifyOnModReport          = 'push-notify-on-mod';
     case ReorderActionButtonsBeyond     = 'reorder-action-buttons-beyond';
     case ReorderTownLocationButtons     = 'reorder-location-buttons-town';
     case DistinctionTop3                = 'distinctions-top-3';
@@ -55,7 +57,9 @@ enum UserSetting: string {
             UserSetting::PushNotifyOnFriendTownJoin,
             UserSetting::ReorderActionButtonsBeyond,
             UserSetting::ReorderTownLocationButtons,
-            UserSetting::LargerPMIcon => true,
+            UserSetting::LargerPMIcon,
+            UserSetting::PushNotifyOnOfficialGroupChat,
+            UserSetting::PushNotifyOnModReport => true,
 
             UserSetting::Flag,
             UserSetting::PreferredPronoun,
@@ -90,7 +94,9 @@ enum UserSetting: string {
             UserSetting::NotifyMeWhenMentioned,
             UserSetting::TitleLanguage,
             UserSetting::PreferredPronounTitle,
-            UserSetting::LargerPMIcon  => true,
+            UserSetting::LargerPMIcon,
+            UserSetting::PushNotifyOnOfficialGroupChat,
+            UserSetting::PushNotifyOnModReport => true,
 
             UserSetting::DistinctionTop3          => false,
         };
@@ -123,6 +129,8 @@ enum UserSetting: string {
             UserSetting::PrivateForumsOnTop            => true,
             UserSetting::PreferredPronounTitle         => 0,
             UserSetting::LargerPMIcon                  => false,
+            UserSetting::PushNotifyOnOfficialGroupChat => true,
+            UserSetting::PushNotifyOnModReport         => true,
         };
     }
 }

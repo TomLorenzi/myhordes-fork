@@ -26,6 +26,7 @@ use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
 use App\Service\PermissionHandler;
 use App\Service\RateLimitingFactoryProvider;
+use App\Service\User\UserCapabilityService;
 use App\Service\UserHandler;
 use App\Structures\HTMLParserInsight;
 use App\Translation\T;
@@ -190,14 +191,14 @@ class MessageGlobalPMController extends MessageController
      * @return Response
      */
     #[Route(path: 'jx/pm/view', name: 'pm_view')]
-    public function pm_view(JSONRequestParser $parser): Response {
+    public function pm_view(JSONRequestParser $parser, UserCapabilityService $capability): Response {
         $target = Request::createFromGlobals()->headers->get('X-Render-Target', '');
 
         if ($target === 'post-office-content') {
             return $this->render( 'ajax/pm/view.html.twig', [
                 'rk' => (new DateTime('now'))->getTimestamp(),
                 'command' => $parser->get('command'),
-                'official_groups' => array_filter( $this->entity_manager->getRepository(OfficialGroup::class)->findAll(), fn(OfficialGroup $o) => $this->perm->userInGroup($this->getUser(), $o->getUsergroup()) ),
+                'official_groups' => $capability->getOfficialGroups( $this->getUser() ),
                 'has_forum_notif' => $this->entity_manager->getRepository(ForumThreadSubscription::class)->count(['user' => $this->getUser()]) > 0,
             ]);
         }
