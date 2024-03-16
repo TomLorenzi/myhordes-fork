@@ -49,7 +49,7 @@ class UserCapabilityService implements ServiceSubscriberInterface
     public function getEffectiveRoles( User $user, bool $allow_inheritance_from_pivot = false ): array {
         $roles = $this->getService(RoleHierarchyInterface::class)->getReachableRoleNames( $user->getRoles() );
         if ($allow_inheritance_from_pivot) foreach ($this->getService(UserHandler::class)->getAllPivotUserRelationsFor( $user, true, false ) as $pivot)
-            $roles = [...$roles, $this->getService(RoleHierarchyInterface::class)->getReachableRoleNames( $pivot->getRoles() )];
+            $roles = [...$roles, ...$this->getService(RoleHierarchyInterface::class)->getReachableRoleNames( $pivot->getRoles() )];
 
         return array_values( array_unique( $roles ) );
     }
