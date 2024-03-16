@@ -2,8 +2,11 @@
 
 namespace App\Service;
 
+use App\Entity\AdminReport;
+use App\Entity\BlackboardEdit;
 use App\Entity\Building;
 use App\Entity\Citizen;
+use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenRole;
 use App\Entity\GlobalPrivateMessage;
 use App\Entity\Inventory;
@@ -11,6 +14,7 @@ use App\Entity\Item;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
 use App\Entity\Post;
+use App\Entity\PrivateMessage;
 use App\Entity\RuinZone;
 use App\Entity\Town;
 use App\Entity\User;
@@ -24,6 +28,12 @@ use App\Event\Common\Messages\Forum\ForumMessageNewPostEvent;
 use App\Event\Common\Messages\Forum\ForumMessageNewThreadEvent;
 use App\Event\Common\Messages\GlobalPrivateMessage\GPMessageNewPostEvent;
 use App\Event\Common\Messages\GlobalPrivateMessage\GPMessageNewThreadEvent;
+use App\Event\Common\Social\ContentReportEvents\BlackboardEditContentReportEvent;
+use App\Event\Common\Social\ContentReportEvents\CitizenRankingProxyContentReportEvent;
+use App\Event\Common\Social\ContentReportEvents\GlobalPrivateMessageContentReportEvent;
+use App\Event\Common\Social\ContentReportEvents\PostContentReportEvent;
+use App\Event\Common\Social\ContentReportEvents\PrivateMessageContentReportEvent;
+use App\Event\Common\Social\ContentReportEvents\UserContentReportEvent;
 use App\Event\Common\Social\FriendEvent;
 use App\Event\Game\Actions\CustomActionProcessorEvent;
 use App\Event\Game\Citizen\CitizenPostDeathEvent;
@@ -50,6 +60,7 @@ use App\Event\Game\Town\Basic\Core\BeforeJoinTownEvent;
 use App\Event\Game\Town\Basic\Core\JoinTownEvent;
 use App\Structures\FriendshipActionTarget;
 use App\Structures\HTMLParserInsight;
+use Doctrine\Common\Util\ClassUtils;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Log\LoggerInterface;
@@ -252,5 +263,21 @@ class EventProxyService
             if ($inventory && $this->transferItem( $actor, $item, to: $inventory, options: $silent ? [TransferItemOption::EnforcePlacement, TransferItemOption::Silent] : [TransferItemOption::EnforcePlacement] ) === InventoryHandler::ErrorNone)
                 return $inventory;
         return null;
+    }
+
+    public function contentReport(
+        User $reporter,
+        AdminReport $report,
+        Post|GlobalPrivateMessage|PrivateMessage|BlackboardEdit|CitizenRankingProxy|User $subject,
+        int $count = 1
+    ): void {
+        $this->ed->dispatch( match (ClassUtils::getRealClass(get_class($subject))) {
+            Post::class => (new PostContentReportEvent())->setup( $reporter, $report, $subject, $count ),
+            GlobalPrivateMessage::class => (new GlobalPrivateMessageContentReportEvent())->setup( $reporter, $report, $subject, $count ),
+            PrivateMessage::class => (new PrivateMessageContentReportEvent())->setup( $reporter, $report, $subject, $count ),
+            BlackboardEdit::class => (new BlackboardEditContentReportEvent())->setup( $reporter, $report, $subject, $count ),
+            CitizenRankingProxy::class => (new CitizenRankingProxyContentReportEvent())->setup( $reporter, $report, $subject, $count ),
+            User::class => (new UserContentReportEvent())->setup( $reporter, $report, $subject, $count ),
+        });
     }
 }

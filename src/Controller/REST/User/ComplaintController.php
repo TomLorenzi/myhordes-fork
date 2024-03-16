@@ -17,6 +17,7 @@ use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
 use App\Enum\AdminReportSpecification;
 use App\Service\CrowService;
+use App\Service\EventProxyService;
 use App\Service\JSONRequestParser;
 use App\Service\PermissionHandler;
 use App\Service\RateLimitingFactoryProvider;
@@ -123,7 +124,7 @@ class ComplaintController extends CustomAbstractCoreController
      * @return JsonResponse
      */
     #[Route(path: '/forum-post/{id}', name: 'forum_post', defaults: ['type' => 'forum-post'], methods: ['PUT'])]
-    public function report_forum_post(Post $post, string $type, JSONRequestParser $parser, EntityManagerInterface $em, PermissionHandler $perm, RateLimitingFactoryProvider $rateLimiter, CrowService $crow): JsonResponse {
+    public function report_forum_post(Post $post, string $type, JSONRequestParser $parser, EntityManagerInterface $em, PermissionHandler $perm, RateLimitingFactoryProvider $rateLimiter, EventProxyService $proxy): JsonResponse {
         $user = $this->getUser();
 
         $reason = $parser->get_int('report_reason', 0);
@@ -174,7 +175,7 @@ class ComplaintController extends CustomAbstractCoreController
         }
 
         try {
-            $crow->triggerExternalModNotification( "A forum message has been reported.", $post, $newReport, "This is report #{$post->getAdminReports()->count()}." );
+            $proxy->contentReport( $user, $newReport, $post, $post->getAdminReports()->count() );
         } catch (\Throwable $e) {}
 
         return new JsonResponse([
@@ -193,7 +194,7 @@ class ComplaintController extends CustomAbstractCoreController
      * @return JsonResponse
      */
     #[Route(path: '/blackboard/{id}', name: 'blackboard', defaults: ['type' => 'blackboard'], methods: ['PUT'])]
-    public function report_blackboard(BlackboardEdit $blackBoardEdit, string $type, JSONRequestParser $parser, EntityManagerInterface $em, PermissionHandler $perm, RateLimitingFactoryProvider $rateLimiter, CrowService $crow): JsonResponse {
+    public function report_blackboard(BlackboardEdit $blackBoardEdit, string $type, JSONRequestParser $parser, EntityManagerInterface $em, PermissionHandler $perm, RateLimitingFactoryProvider $rateLimiter, EventProxyService $proxy): JsonResponse {
         $user = $this->getUser();
 
         $reason = $parser->get_int('report_reason', 0);
@@ -241,7 +242,7 @@ class ComplaintController extends CustomAbstractCoreController
         }
 
         try {
-            $crow->triggerExternalModNotification( "A blackboard message has been reported.", $blackBoardEdit, $newReport, "This is report #{$report_count}." );
+            $proxy->contentReport( $user, $newReport, $blackBoardEdit, $report_count );
         } catch (\Throwable $e) {}
 
         return new JsonResponse([
@@ -267,7 +268,7 @@ class ComplaintController extends CustomAbstractCoreController
         ?Citizen $citizen_instance,
         #[MapEntity(id: 'ccid')]
         ?CitizenRankingProxy $citizen_proxy,
-        string $type, JSONRequestParser $parser, EntityManagerInterface $em, RateLimitingFactoryProvider $rateLimiter, CrowService $crow): JsonResponse
+        string $type, JSONRequestParser $parser, EntityManagerInterface $em, RateLimitingFactoryProvider $rateLimiter, EventProxyService $proxyService): JsonResponse
     {
         $citizen = $citizen_instance ?? $citizen_proxy;
         if (!$citizen) return new JsonResponse([], Response::HTTP_NOT_FOUND);
@@ -333,12 +334,7 @@ class ComplaintController extends CustomAbstractCoreController
         }
 
         try {
-            $crow->triggerExternalModNotification( match ($specification) {
-                AdminReportSpecification::CitizenAnnouncement => "A citizen's home message has been reported.",
-                AdminReportSpecification::CitizenLastWords => "A citizen's last words have been reported.",
-                AdminReportSpecification::CitizenTownComment => "A town comment has been reported.",
-                default => '[invalid]'
-            }, $proxy, $newReport, "This is report #{$report_count}." );
+            $proxyService->contentReport( $user, $newReport, $proxy, $report_count );
         } catch (Throwable $e) {}
 
         return new JsonResponse([
@@ -356,7 +352,7 @@ class ComplaintController extends CustomAbstractCoreController
      * @return JsonResponse
      */
     #[Route(path: '/user/{id}', name: 'user', defaults: ['type' => 'user'], methods: ['PUT'])]
-    public function report_user(User $reportedUser, string $type, JSONRequestParser $parser, EntityManagerInterface $em, RateLimitingFactoryProvider $rateLimiter, CrowService $crow): JsonResponse {
+    public function report_user(User $reportedUser, string $type, JSONRequestParser $parser, EntityManagerInterface $em, RateLimitingFactoryProvider $rateLimiter, EventProxyService $proxy): JsonResponse {
         $user = $this->getUser();
 
         $reason = $parser->get_int('report_reason', 0);
@@ -398,7 +394,7 @@ class ComplaintController extends CustomAbstractCoreController
         }
 
         try {
-            $crow->triggerExternalModNotification( 'A user account has been reported.', $reportedUser, $newReport, "This is report #{$report_count}." );
+            $proxy->contentReport( $user, $newReport, $reportedUser, $report_count );
         } catch (Throwable $e) {}
 
         return new JsonResponse([
@@ -416,7 +412,7 @@ class ComplaintController extends CustomAbstractCoreController
      * @return JsonResponse
      */
     #[Route(path: '/town-pm/{id}', name: 'town_pm', defaults: ['type' => 'town-pm'], methods: ['PUT'])]
-    public function report_town_pm(PrivateMessage $post, string $type, JSONRequestParser $parser, EntityManagerInterface $em, RateLimitingFactoryProvider $rateLimiter, CrowService $crow): JsonResponse {
+    public function report_town_pm(PrivateMessage $post, string $type, JSONRequestParser $parser, EntityManagerInterface $em, RateLimitingFactoryProvider $rateLimiter, EventProxyService $proxy): JsonResponse {
         $user = $this->getUser();
 
         /** @var Citizen $citizen */
@@ -468,7 +464,7 @@ class ComplaintController extends CustomAbstractCoreController
         }
 
         try {
-            $crow->triggerExternalModNotification( 'A town PM has been reported.', $post, $newReport );
+            $proxy->contentReport( $user, $newReport, $post, $report_count );
         } catch (Throwable $e) {}
 
         return new JsonResponse([
@@ -486,7 +482,7 @@ class ComplaintController extends CustomAbstractCoreController
      * @return JsonResponse
      */
     #[Route(path: '/global-pm/{id}', name: 'global_pm', defaults: ['type' => 'global-pm'], methods: ['PUT'])]
-    public function report_global_pm(GlobalPrivateMessage $message, string $type, JSONRequestParser $parser, EntityManagerInterface $em, RateLimitingFactoryProvider $rateLimiter, CrowService $crow): JsonResponse {
+    public function report_global_pm(GlobalPrivateMessage $message, string $type, JSONRequestParser $parser, EntityManagerInterface $em, RateLimitingFactoryProvider $rateLimiter, EventProxyService $proxy): JsonResponse {
         $user = $this->getUser();
 
         $group = $message->getReceiverGroup();
@@ -543,7 +539,7 @@ class ComplaintController extends CustomAbstractCoreController
         }
 
         try {
-            $crow->triggerExternalModNotification( 'A global PM has been reported.', $message, $newReport );
+            $proxy->contentReport( $user, $newReport, $message, $report_count );
         } catch (Throwable $e) {}
 
         return new JsonResponse([
