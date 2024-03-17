@@ -126,6 +126,17 @@ export default class Ajax {
         }
     }
 
+    private setNetworkOffset( date: string ) {
+        const serverDate = new Date(date);
+        const localDate = new Date();
+
+        c.ot = serverDate.getTime() - localDate.getTime();
+    }
+
+    public networkTimeOffset( ): number {
+        return c.ot ?? 0;
+    }
+
     public load_dynamic_modules(target: Document|HTMLElement) {
         // Check content source for non-defined nodes
         target.querySelectorAll(':not(:defined)').forEach( e =>
@@ -319,7 +330,7 @@ export default class Ajax {
                 }, {capture: true});
             }
 
-            let countdowns = content_source[i].querySelectorAll('*[x-countdown]');
+            let countdowns = content_source[i].querySelectorAll('*[x-countdown],*[x-countdown-to]');
             for (let c = 0; c < countdowns.length; c++) {
                 if ( countdowns[c].getAttribute('x-on-expire') === 'reload' )
                     countdowns[c].addEventListener('expire', function() { ajax_instance.load( target, url ) });
@@ -389,10 +400,13 @@ export default class Ajax {
             this_promise = [resolve,reject]
         })}}) );
 
+        const sno = d => this.setNetworkOffset( d );
+
         if (!no_loader) $.html.addLoadStack();
         let request = new XMLHttpRequest();
         request.responseType = 'document';
         request.addEventListener('load', function(e) {
+            sno( this.getResponseHeader('Date') );
             // Check if a reset header is set
             switch ( this.getResponseHeader('X-AJAX-Control') ) {
                 case 'reset':
@@ -476,10 +490,13 @@ export default class Ajax {
         const no_loader = this.fetch_no_loader();
         const no_error  = this.fetch_soft_fail();
 
+        const sno = d => this.setNetworkOffset( d )
+
         if (!no_loader) $.html.addLoadStack();
         let request = new XMLHttpRequest();
         request.responseType = 'json';
         request.addEventListener('load', function(e) {
+            sno( this.getResponseHeader('Date') );
             switch ( this.getResponseHeader('X-AJAX-Control') ) {
                 case 'reset':
                     window.location.href = base;
