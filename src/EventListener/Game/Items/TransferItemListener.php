@@ -397,6 +397,7 @@ final class TransferItemListener implements ServiceSubscriberInterface
             $victim_home = $event->type_from === TransferItemType::Steal ? $event->from->getHome() : $event->to->getHome();
             if (!$victim_home) return;
 
+            $stolen_previously = $event->actor->hasStatus('tg_steal');
             $this->getService(CitizenHandler::class)->inflictStatus($event->actor, 'tg_steal');
 
             // Give picto steal
@@ -406,13 +407,13 @@ final class TransferItemListener implements ServiceSubscriberInterface
             $isLeprechaun = false;
             $hasExplodingDoormat = false;
 
-            if ($this->getService(InventoryHandler::class)->countSpecificItems($event->actor->getInventory(), 'christmas_suit_full_#00') > 0) {
+            if (!$stolen_previously && $this->getService(InventoryHandler::class)->countSpecificItems($event->actor->getInventory(), 'christmas_suit_full_#00') > 0) {
                 if (
                     $victim_home->getCitizen()->getAlive() &&
                     $this->getService(EntityManagerInterface::class)->getRepository(EventActivationMarker::class)->findOneBy(['town' => $event->town, 'active' => true, 'event' => 'christmas'])
                 ) $pictoName = "r_santac_#00";
                 $isSanta = true;
-            } elseif ($this->getService(InventoryHandler::class)->countSpecificItems($event->actor->getInventory(), 'leprechaun_suit_#00') > 0){
+            } elseif (!$stolen_previously && $this->getService(InventoryHandler::class)->countSpecificItems($event->actor->getInventory(), 'leprechaun_suit_#00') > 0){
                 if(
                     $victim_home->getCitizen()->getAlive() &&
                     $this->getService(EntityManagerInterface::class)->getRepository(EventActivationMarker::class)->findOneBy(['town' => $event->town, 'active' => true, 'event' => 'stpatrick'])
