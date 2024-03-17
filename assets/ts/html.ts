@@ -275,7 +275,11 @@ export default class HTML {
     }
 
     handleCountdown( element: Element ): void {
-        let attr = parseInt(element.getAttribute('x-countdown'));
+        let to = parseInt(element.getAttribute('x-countdown-to'));
+        let attr = 0;
+        if (to) {
+            attr = parseInt(element.getAttribute('x-countdown-to')) - ((new Date()).getTime() + $.ajax.networkTimeOffset())/1000
+        } else attr = parseInt(element.getAttribute('x-countdown'));
         const timeout = new Date( (new Date()).getTime() + 1000 * attr );
 
         const show_secs   = !element.getAttribute('x-countdown-no-seconds');

@@ -11,6 +11,7 @@ export interface Global {
 }
 
 export interface Const {
+    ot?: number,
     errors: object,
     taptut: string
 }

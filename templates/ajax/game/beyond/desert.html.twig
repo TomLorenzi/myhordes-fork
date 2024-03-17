@@ -220,7 +220,7 @@
                                 {% trans from 'game' %}
                                     Du hast die <strong>Kontrolle über diese Zone verloren</strong> (dies kann passieren, wenn ein anderer Bürger ohne dich gegangen ist)! Wenn du nicht festsitzen möchtest, kannst du noch flüchten. Es bleiben dir :
                                 {% endtrans %}
-                                <span x-countdown="{{ zone_escape }}" x-on-expire="reload">...</span>
+                                <span x-countdown-to="{{ zone_escape_ts.timestamp }}" x-on-expire="reload">...</span>
                                 {% if active_scout_mode %}
                                     {{ 'Glücklicherweise kannst du dich dank deines {img_scout} <strong>Tarnanzug</strong> unerkannt weiterbewegen.'|trans({'{img_scout}': '<img alt="" src="' ~ asset('build/images/item/item_vest_on.gif') ~ '" />'},'game')|raw }}
                                     {{ 'Achtung: Jede Aktion in der Zone sorgt dafür, dass deine <strong>Tarnung auffliegt</strong>. (Es können nur Aktionen ausgeführt werden, die mit einem Icon {img_scout_ok} gekennzeichnet sind)!'|trans({'{img_scout_ok}': '<img alt="" src="' ~ asset('build/images/icons/small_stealthy.gif') ~ '" />'},'game')|raw }}
@@ -230,7 +230,7 @@
                                 {% trans from 'game' %}
                                     Du hast es geschafft, dich aus dieser Gefahr zu befreien, aber die Zombies schauen dich jetzt hungrig an und kommen gefährlich knurrend auf dich zu... FLIEHE!
                                 {% endtrans %}
-                                <span x-countdown="{{ zone_escape_desperate }}" x-on-expire="reload">...</span>
+                                <span x-countdown-to="{{ zone_escape_desperate_ts.timestamp }}" x-on-expire="reload">...</span>
                             {% elseif active_scout_mode %}
                                 <br />
                                 {{ 'Mit deinem {img_scout} <strong>Tarnanzug</strong> kannst du dich bewegen ohne dabei entdeckt zu werden.'|trans({'{img_scout}': '<img alt="" src="' ~ asset('build/images/item/item_vest_on.gif') ~ '" />'},'game')|raw }}
@@ -308,7 +308,7 @@
                                     <div class="note note-light" id="mgd-digging-note">
                                         <img class="icon left" alt="" src="{{ asset('build/images/icons/lock.gif') }}" />
                                         {% trans from 'game' %}Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:{% endtrans %}
-                                        <b x-countdown="{{ citizen.digTimeout }}" x-on-expire="reload">...</b>
+                                        <b x-countdown-to="{{ citizen.currentDigTimer.timestamp.timestamp }}" x-on-expire="reload">...</b>
                                     </div>
                                 {% elseif citizen.passiveDigTimer and not conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ALLOW_REDIGS'),false) %}
                                     <div class="note note-light" id="mgd-digging-note">
@@ -334,7 +334,7 @@
                                 <div class="note note-light" id="mgd-digging-note">
                                     <img class="icon left" alt="" src="{{ asset('build/images/icons/small_gather.gif') }}" />
                                     {% trans from 'game' %}Nächste automatische Ausgrabung:{% endtrans %}
-                                    <span x-countdown="{{ citizen.digTimeout }}" x-on-expire="reload">...</span>
+                                    <span x-countdown-to="{{ citizen.currentDigTimer.timestamp.timestamp }}" x-on-expire="reload">...</span>
                                     <div class="tooltip help">
                                         {% trans from 'game' %}
                                             Du bist gerade dabei in dieser Zone zu graben. Wenn du bis zum Ende der angezeigten Zeit am gleichen Platz bleibst, <strong>hast du die Möglichkeit einen weiteren Gegenstand zu finden</strong>!<br /><br />Du kannst so lange bleiben wie du möchtest.
@@ -588,7 +588,7 @@
                                                         <img src="{{ asset('build/images/icons/small_nogather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
                                                         <div class="tooltip">
                                                             {% trans from 'game' %}Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:{% endtrans %}
-                                                            <div class="center"><span x-countdown="{{ other_citizen.digTimeout }}" x-on-expire="">...</span></div>
+                                                            <div class="center"><span x-countdown-to="{{ other_citizen.currentDigTimer.timestamp.timestamp }}" x-on-expire="">...</span></div>
                                                         </div>
                                                     </li>
                                                 {% elseif other_citizen.passiveDigTimer and not conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ALLOW_REDIGS'),false) %}
@@ -604,7 +604,7 @@
                                                     <img src="{{ asset('build/images/icons/small_gather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
                                                     <div class="tooltip">
                                                         <b>{% trans from 'game' %}Nächste automatische Ausgrabung:{% endtrans %}</b>
-                                                        <div class="center"><span x-countdown="{{ other_citizen.digTimeout }}" x-on-expire="">...</span></div>
+                                                        <div class="center"><span x-countdown-to="{{ other_citizen.currentDigTimer.timestamp.timestamp }}" x-on-expire="">...</span></div>
                                                     </div>
                                                 </li>
                                             {% endif %}
