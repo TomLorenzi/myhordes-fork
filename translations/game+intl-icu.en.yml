@@ -2939,3 +2939,4 @@ Sandkasten-Scharfschütze_f: Sandstorm Sniper
 'Du bist erschöpft!': 'You are exhausted!'
 'Du hast dich gestern so sehr verausgabt, dass du in der Nacht nicht genug Kraft schöpfen konntest, um deine Aktionspunkte vollständig zu regenerieren.': 'You exhausted yourself so much yesterday by hanging a garland that you couldn''t gain enough strength during the night to fully regenerate your action points.'
 'Das Stadttor kann während eines Lockdowns nicht geöffnet werden!': 'Das Stadttor kann während eines Lockdowns nicht geöffnet werden!'
+'Du benötigst mindestens {sp} Seelenpunkte, um Anzeigen gegen andere Bürger erstatten zu können': 'You need at least {sp} soul points to be able to send a complain against other citizens.'

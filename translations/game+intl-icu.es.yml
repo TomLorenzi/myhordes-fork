@@ -968,7 +968,7 @@ Bürgermeister: Alcalde
 Architekt: Arquitecto
 'Du beginnst jede Stadt mit einem Gebäudeplan.': 'Comienzas cada partida con un plano común en tu poder.'
 Profiwächter: Centinela Experto
-'Du hast permanent um 5% bessere Chancen auf der Nachtwache.': 'Siempre tienes un 5% mejores posibilidades de sobrevivir como centinela a la noche.'
+'Du hast permanent um 5% bessere Chancen auf der Nachtwache.': 'Disminuye la penalización de vigilias sucesivas.'
 'Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.': 'Dedicas un buen rato a esconder todos los objetos que tienes contigo... Jejeje. Has utilizado 2 Puntos de Acción.'
 'Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst {item}!': 'Tomas una impresión de la cerradura de la puerta y obtienes {item}'
 'Mithilfe des {item} hast du die Tür aufgeschlossen!': '¡Has abierto la puerta utilizando {item}!'
@@ -2649,9 +2649,9 @@ Tunnelblicker_f: Exploradora de ruinas
 'Inklusive Kompass_f': 'Brújula andante'
 'Begrabener Freiwilliger_f': 'Voluntaria enterrada'
 'Tomb Raider_f': 'Tomb Raider'
-Labyrinth-Gollum_f: Labyrinth-Gollum
+Labyrinth-Gollum_f: Maestra del Laberinto
 'Labyrinth-Meister MB_f': 'No me llames juniora'
-"Wo klemmt's?_f": "Wo klemmt's?"
+"Wo klemmt's?_f": "Ganzúa"
 Dietrich_f: Dietrich
 'Sesam, öffne dich..._f': 'Sesam, öffne dich...'
 Türöffner_f: Ábrete Sésamo
@@ -2852,7 +2852,7 @@ Wegweiser_f: Linterna de luz diurna
 'Barney Gumble der Außenwelt_f': 'Barney Gumble der Außenwelt'
 'Fass das Saufen lieber sein_f': 'Fass das Saufen lieber sein'
 'Gib mir was zu saufen oder es knallt!_f': 'Gib mir was zu saufen oder es knallt!'
-'Alles unter 55% ist Wasser_f': 'Alles unter 55% ist Wasser'
+'Alles unter 55% ist Wasser_f': 'Si son menos de 55 tragos, ¡es agua!'
 Dialyse_f: Dialyse
 'Chef der Mauer_f': 'Jefa de muralla'
 Schaufelführer_f: Pala de cabeza
@@ -2939,3 +2939,4 @@ Sandkasten-Scharfschütze_f: Francotiradora aislada
 'Du bist erschöpft!': '¡Estás agotado!'
 'Du hast dich gestern so sehr verausgabt, dass du in der Nacht nicht genug Kraft schöpfen konntest, um deine Aktionspunkte vollständig zu regenerieren.': 'Ayer estabas tan agotado colgando una guirnalda que no pudiste recuperar tus fuerzas correctamente durante la noche para regenerar completamente tus Puntos de Acción.'
 'Das Stadttor kann während eines Lockdowns nicht geöffnet werden!': 'Das Stadttor kann während eines Lockdowns nicht geöffnet werden!'
+'Du benötigst mindestens {sp} Seelenpunkte, um Anzeigen gegen andere Bürger erstatten zu können': 'Necesitas al menos {sp} puntos de alma para poder enviar una denuncia a otros ciudadanos.'
