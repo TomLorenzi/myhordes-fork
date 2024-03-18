@@ -541,6 +541,6 @@ Inhaltsverzeichnis: Table of Contents
 'Vielen Dank an diese Spieler für ihre künstlerischen Beiträge.': 'Thanks to these players for their artistic contributions.'
 '<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>{max}</strong> Verteidigungspunkte vergeben!': '<strong>Important:</strong> Defensive objects can award a maximum of <strong>{max}</strong> defense points!'
 'Auf {hostname}': 'On {hostname}'
-aktiv: aktiv
-inaktiv: inaktiv
+aktiv: active
+inaktiv: inactive
 'Hilfe (forum)': 'Help'
