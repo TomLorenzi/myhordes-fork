@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 
 #[ORM\Entity(repositoryClass: PictoRollupRepository::class)]
 #[Table]
-#[UniqueConstraint(name: 'picto_rollup_assoc_unique', columns: ['user_id','prototype_id','old','imported','total'])]
+#[UniqueConstraint(name: 'picto_rollup_assoc_unique', columns: ['user_id','prototype_id','old','imported','total','season_id'])]
 class PictoRollup
 {
     #[ORM\Id]
@@ -36,6 +36,9 @@ class PictoRollup
 
     #[ORM\Column]
     private ?bool $total = null;
+
+    #[ORM\ManyToOne]
+    private ?Season $season = null;
 
     public function getId(): ?int
     {
@@ -110,6 +113,18 @@ class PictoRollup
     public function setTotal(bool $total): static
     {
         $this->total = $total;
+
+        return $this;
+    }
+
+    public function getSeason(): ?Season
+    {
+        return $this->season;
+    }
+
+    public function setSeason(?Season $season): static
+    {
+        $this->season = $season;
 
         return $this;
     }
