@@ -43,6 +43,7 @@ use App\Service\AntiCheatService;
 use App\Service\CrowService;
 use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
+use App\Service\EventProxyService;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\Media\ImageService;
@@ -435,6 +436,7 @@ class AdminUserController extends AdminActionController
     public function user_account_manager(int $id, string $action, JSONRequestParser $parser, UserFactory $uf,
                                          TwinoidHandler $twin, UserHandler $userHandler, PermissionHandler $perm,
                                          CrowService $crow, KernelInterface $kernel, InvalidateTagsInAllPoolsAction $clearCache,
+                                         EventProxyService $proxy,
                                          string $param = ''): Response
     {
         /** @var User $user */
@@ -560,7 +562,7 @@ class AdminUserController extends AdminActionController
                     $this->entity_manager->persist($main);
                     $this->entity_manager->flush();
 
-                    $this->user_handler->computePictoUnlocks($user);
+                    $proxy->pictosPersisted( $user, imported: true );
                     $this->entity_manager->persist($user);
                     $this->entity_manager->flush();
                 }
@@ -581,7 +583,7 @@ class AdminUserController extends AdminActionController
                     $this->entity_manager->persist($user);
                     $this->entity_manager->flush();
 
-                    $this->user_handler->computePictoUnlocks($user);
+                    $proxy->pictosPersisted( $user, imported: true );
                     $this->entity_manager->persist($user);
                     $this->entity_manager->flush();
                 }
@@ -1442,7 +1444,7 @@ class AdminUserController extends AdminActionController
     #[Route(path: 'api/admin/users/{id}/picto/give', name: 'admin_user_give_picto', requirements: ['id' => '\d+'])]
     #[IsGranted('ROLE_CROW')]
     #[AdminLogProfile(enabled: true)]
-    public function user_give_picto(int $id, JSONRequestParser $parser, KernelInterface $kernel): Response
+    public function user_give_picto(int $id, JSONRequestParser $parser, KernelInterface $kernel, EventProxyService $proxy): Response
     {
         $user = $this->entity_manager->getRepository(User::class)->find($id);
         if(!$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -1480,7 +1482,7 @@ class AdminUserController extends AdminActionController
 
         $this->entity_manager->flush();
 
-        $this->user_handler->computePictoUnlocks($user);
+        $proxy->pictosPersisted( $user, $this->entity_manager->getRepository(Season::class)->findOneBy(['number' => 0, 'subNumber' => 15]) );
         $this->entity_manager->flush();
 
         return AjaxResponse::success();

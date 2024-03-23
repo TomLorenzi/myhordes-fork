@@ -10,6 +10,7 @@ use App\Entity\Item;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
 use App\Entity\RuinZone;
+use App\Entity\Season;
 use App\Entity\Town;
 use App\Entity\Zone;
 use App\Enum\EventStages\BuildingEffectStage;
@@ -44,6 +45,7 @@ use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use App\Event\Common\User\PictoPersistedEvent;
 
 class EventProxyService
 {
@@ -182,6 +184,10 @@ class EventProxyService
         $message = $event->message;
         $remove = $event->remove;
         $execute_info_cache = $event->execute_info_cache;
+    }
+
+    public function pictosPersisted( User $user, ?Season $season = null, ?bool $old = null, ?bool $imported = null ): void {
+        $this->ed->dispatch( (new PictoPersistedEvent())->setup( $user, $season, $old, $imported ) );
     }
 
     /**

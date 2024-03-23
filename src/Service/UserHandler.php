@@ -60,8 +60,9 @@ class UserHandler
     private ConfMaster $conf;
     private DoctrineCacheService $doctrineCache;
     private InvalidateTagsInAllPoolsAction $clearCache;
+    private EventProxyService $proxy;
 
-    public function __construct( EntityManagerInterface $em, RoleHierarchyInterface $roles,ContainerInterface $c, CrowService $crow, TranslatorInterface  $translator, ConfMaster $conf, DoctrineCacheService $doctrineCache, InvalidateTagsInAllPoolsAction $clearCache)
+    public function __construct( EntityManagerInterface $em, RoleHierarchyInterface $roles,ContainerInterface $c, CrowService $crow, TranslatorInterface  $translator, ConfMaster $conf, DoctrineCacheService $doctrineCache, InvalidateTagsInAllPoolsAction $clearCache, EventProxyService $proxy)
     {
         $this->entity_manager = $em;
         $this->container = $c;
@@ -71,6 +72,7 @@ class UserHandler
         $this->conf = $conf;
         $this->doctrineCache = $doctrineCache;
         $this->clearCache = $clearCache;
+        $this->proxy = $proxy;
     }
 
     public function fetchSoulPoints(User $user, bool $all = true, bool $useCached = false): int {
@@ -779,8 +781,7 @@ class UserHandler
         $this->entity_manager->persist( $nextDeath );
         $this->entity_manager->flush();
 
-        $this->computePictoUnlocks($user);
-        $this->entity_manager->flush();
+        $this->proxy->pictosPersisted( $user, $nextDeath->getTown()->getSeason() );
 
         // Update soul points
         $user->setSoulPoints( $this->fetchSoulPoints( $user, false ) );
