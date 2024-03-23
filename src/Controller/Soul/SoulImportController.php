@@ -10,6 +10,7 @@ use App\Entity\TwinoidImportPreview;
 use App\Entity\User;
 use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
+use App\Service\EventProxyService;
 use App\Service\JSONRequestParser;
 use App\Service\TwinoidHandler;
 use App\Structures\MyHordesConf;
@@ -145,9 +146,10 @@ class SoulImportController extends SoulController
      * @param TwinoidHandler $twin
      * @param int $id
      * @return Response
+     * @throws Exception
      */
     #[Route(path: 'api/soul/import-confirm/{id}', name: 'soul_import_confirm_api')]
-    public function soul_import_confirm(JSONRequestParser $json, TwinoidHandler $twin, int $id = -1): Response
+    public function soul_import_confirm(JSONRequestParser $json, TwinoidHandler $twin, EventProxyService $proxy, int $id = -1): Response
     {
         $conf = $this->conf->getGlobalConf();
 
@@ -212,7 +214,7 @@ class SoulImportController extends SoulController
                 $this->entity_manager->persist($user);
                 $this->entity_manager->flush();
 
-                $this->user_handler->computePictoUnlocks($user);
+                $proxy->pictosPersisted( $user, imported: true );
                 $this->entity_manager->persist($user);
                 $this->entity_manager->flush();
 
@@ -226,9 +228,10 @@ class SoulImportController extends SoulController
 
     /**
      * @return Response
+     * @throws Exception
      */
     #[Route(path: 'api/soul/import-soft-reset', name: 'soul_import_soft_reset_api')]
-    public function soul_soft_reset(): Response
+    public function soul_soft_reset(EventProxyService $proxy): Response
     {
         $conf = $this->conf->getGlobalConf();
 
@@ -265,7 +268,7 @@ class SoulImportController extends SoulController
             $this->entity_manager->persist($user);
             $this->entity_manager->flush();
 
-            $this->user_handler->computePictoUnlocks($user);
+            $proxy->pictosPersisted( $user, imported: true );
             $this->entity_manager->persist($user);
             $this->entity_manager->flush();
 

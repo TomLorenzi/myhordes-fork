@@ -47,14 +47,15 @@ class UserHandler
     const ErrorAvatarTooManyFrames = ErrorHelper::BaseAvatarErrors + 8;
 
     public function __construct(
-        private EntityManagerInterface $entity_manager,
-        private ContainerInterface $container,
-        private CrowService $crow,
-        private ConfMaster $conf,
-        private DoctrineCacheService $doctrineCache,
-        private TagAwareCacheInterface $gameCachePool,
-        private InvalidateTagsInAllPoolsAction $clearCache,
-        private UserCapabilityService $capability,
+        private readonly EntityManagerInterface $entity_manager,
+        private readonly ContainerInterface $container,
+        private readonly CrowService $crow,
+        private readonly ConfMaster $conf,
+        private readonly DoctrineCacheService $doctrineCache,
+        private readonly TagAwareCacheInterface $gameCachePool,
+        private readonly InvalidateTagsInAllPoolsAction $clearCache,
+        private readonly UserCapabilityService $capability,
+        private readonly EventProxyService $proxy,
     )
     { }
 
@@ -754,8 +755,7 @@ class UserHandler
         $this->entity_manager->persist( $nextDeath );
         $this->entity_manager->flush();
 
-        $this->computePictoUnlocks($user);
-        $this->entity_manager->flush();
+        $this->proxy->pictosPersisted( $user, $nextDeath->getTown()->getSeason() );
 
         // Update soul points
         $user->setSoulPoints( $this->fetchSoulPoints( $user, false ) );
