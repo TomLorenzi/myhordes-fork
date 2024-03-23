@@ -60,13 +60,32 @@ readonly class UserPictoRollupAction
         elseif (!$season && !$imported && !$old)
             $qb->andWhere('false = true');
 
-        return $this->collect( $prototype, $qb
+        $collection = $this->collect( $prototype, $qb
             ->andWhere('i.user = :user')->setParameter('user', $user)
             ->andWhere('i.persisted = 2')
             ->andWhere('i.disabled = false')
             ->andWhere('i.imported = :imported')->setParameter( 'imported', $imported )
             ->andWhere('i.old = :old')->setParameter( 'old', $old )
         );
+
+        if ($season?->getNumber() === 0 && $season?->getSubNumber() === 15 && !$imported && !$old) {
+
+            $orphans = $this->collect( $prototype, $this->em->getRepository(Picto::class)->createQueryBuilder('i')
+                ->select('SUM(i.count) as c', $prototype === null ? 'IDENTITY(i.prototype) as p' : null)
+                ->andWhere('i.user = :user')->setParameter('user', $user)
+                ->andWhere('i.persisted = 2')
+                ->andWhere('i.disabled = false')
+                ->andWhere('i.imported = false')
+                ->andWhere('i.old = false')
+                ->andWhere('i.townEntry IS NULL')
+            );
+
+            foreach ($orphans as $p => $c)
+                $collection[$p] = ($collection[$p] ?? 0) + $c;
+
+        }
+
+        return $collection;
     }
 
     /**
