@@ -8,10 +8,14 @@ use App\Entity\Award;
 use App\Entity\Citizen;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
+use App\Entity\PictoRollup;
 use App\Entity\User;
 use App\Enum\UserSetting;
+use App\Interfaces\Entity\PictoRollupInterface;
 use App\Service\JSONRequestParser;
+use App\Service\User\UserCapabilityService;
 use App\Service\UserHandler;
+use App\Structures\Entity\PictoRollupStructure;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Asset\Packages;
@@ -54,6 +58,49 @@ class DistinctionController extends CustomAbstractCoreController
     }
 
     /**
+     * @param PictoRollupInterface[] $data
+     * @return PictoRollupInterface[]
+     */
+    private function sort_data( array $data ): array {
+        usort( $data, fn( PictoRollupInterface $a, PictoRollupInterface $b ) =>
+            $b->getPrototype()->getRare() <=> $a->getPrototype()->getRare() ?:
+            $b->getCount() <=> $a->getCount() ?:
+            $b->getPrototype()->getId() <=> $a->getPrototype()->getId()
+        );
+        return $data;
+    }
+
+    /**
+     * @param EntityManagerInterface $em
+     * @param User $user
+     * @param bool $include_imported
+     * @param bool $include_old
+     * @return PictoRollupStructure[]
+     */
+    private function accumulate(EntityManagerInterface $em, User $user, bool $include_imported = false, bool $include_old = false): array {
+        $qb = $em->getRepository(PictoRollup::class)->createQueryBuilder('i')
+            ->select('SUM(i.count) as c', 'IDENTITY(i.prototype) as p')
+            ->groupBy('p')
+            ->andWhere('i.user = :user')->setParameter('user', $user)
+            ->andWhere('i.total = true');
+        if (!$include_imported) $qb->andWhere('NOT (i.imported = false AND i.old = false AND i.season IS NULL)');
+        if (!$include_old) $qb->andWhere('i.old = false');
+        $data = $qb->getQuery()->getArrayResult();
+
+        $prototypes = array_column( array_map(
+            fn(PictoPrototype $p) => [ 'id' => $p->getId(), 'prototype' => $p ],
+            $em->getRepository(PictoPrototype::class)->findBy(['id' => array_map( fn(array $a) => $a['p'], $data )])
+        ), 'prototype', 'id');
+
+        $data = array_map(
+            fn($row) => new PictoRollupStructure( $prototypes[$row['p']], $user, $row['c'] ),
+            $data
+        );
+
+        return $this->sort_data( $data );
+    }
+
+    /**
      * @param User $user
      * @param string $source
      * @param UserHandler $userHandler
@@ -66,25 +113,28 @@ class DistinctionController extends CustomAbstractCoreController
         User $user,
         string $source,
         UserHandler $userHandler,
+        UserCapabilityService $capabilityService,
         EntityManagerInterface $em,
         Packages $assets
     ): JsonResponse {
 
-        $picto_db = array_column( array_map(fn(array $p) => [
-            'id' => (int)$p['id'],
-            'label' => $this->translator->trans( $p['label'], [], 'game' ),
-            'description' => $this->translator->trans( $p['description'], [], 'game' ),
-            'icon' => $assets->getUrl( "build/images/pictos/{$p['icon']}.gif" ),
-            'rare' => $p['rare'],
-            'count' => (int)$p['c']
-        ], match ($source) {
-            'soul'      => $em->getRepository(Picto::class)->findNotPendingByUser( $user ),
-            'mh'        => $em->getRepository(Picto::class)->findNotPendingByUser( $user, imported: false),
-            'imported'  => $em->getRepository(Picto::class)->findNotPendingByUser( $user, imported: true),
-            'old'       => $em->getRepository(Picto::class)->findOldByUser( $user ),
-            'all'       => $userHandler->hasRole( $this->getUser(), 'ROLE_CROW' ) ? $em->getRepository(Picto::class)->findByUser( $user ) : [],
+        $data = match ($source) {
+            'soul'      => $this->accumulate( $em, $user, include_imported: true ),
+            'mh'        => $this->accumulate( $em, $user ),
+            'imported'  => $this->sort_data( $em->getRepository(PictoRollup::class)->findBy(['user' => $user, 'imported' => true, 'total' => false, 'old' => false, 'season' => null]) ),
+            'old'       => $this->sort_data( $em->getRepository(PictoRollup::class)->findBy(['user' => $user, 'imported' => false, 'total' => false, 'old' => true, 'season' => null]) ),
+            'all'       => $capabilityService->hasRole( $this->getUser(), 'ROLE_CROW' ) ? $this->accumulate($em, $user, include_imported: true, include_old: true) : [],
             default => []
-        }), null, 'id');
+        };
+
+        $picto_db = array_column( array_map(fn(PictoRollupInterface $p) => [
+            'id' => $p->getPrototype()->getId(),
+            'label' => $this->translator->trans( $p->getPrototype()->getLabel(), [], 'game' ),
+            'description' => $this->translator->trans( $p->getPrototype()->getDescription(), [], 'game' ),
+            'icon' => $assets->getUrl( "build/images/pictos/{$p->getPrototype()->getIcon()}.gif" ),
+            'rare' => $p->getPrototype()->getRare(),
+            'count' => $p->getCount()
+        ], $data), null, 'id');
 
         $award_db = match ($source) {
             'soul' => $user->getAwards()->filter(fn(Award $a) => $a->getCustomTitle() || $a->getPrototype()?->getTitle())->map(fn(Award $a) => [
@@ -123,13 +173,7 @@ class DistinctionController extends CustomAbstractCoreController
         }
 
         return new JsonResponse([
-            'points' => match ($source) {
-                'soul'      => round($userHandler->getPoints( $user )),
-                'mh'        => round($userHandler->getPoints( $user, imported: false )),
-                'imported'  => round($userHandler->getPoints( $user, imported: true )),
-                'old'       => round($userHandler->getPoints( $user, old: true )),
-                default => null
-            },
+            'points' => $userHandler->getPointsFromPictoRollupSet( $data ),
             'pictos' => array_values($picto_db),
             'awards' => array_values($award_db ?? []),
             'top3' => $top3

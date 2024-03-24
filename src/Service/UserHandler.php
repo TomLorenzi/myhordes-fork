@@ -25,6 +25,7 @@ use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
 use App\Entity\UserSwapPivot;
 use App\Enum\DomainBlacklistType;
+use App\Interfaces\Entity\PictoRollupInterface;
 use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\User\UserCapabilityService;
 use App\Structures\MyHordesConf;
@@ -84,183 +85,176 @@ class UserHandler
         ), fn(int $carry, CitizenRankingProxy $next) => $carry + ($next->getPoints() ?? 0), 0 );
     }
 
-    public function getPoints(User $user, ?bool $imported = null, ?bool $old = false){
-        $sp = $imported === null ? $user->getAllSoulPoints() : ( $imported ? $user->getImportedSoulPoints() : $user->getSoulPoints() );
-        if ($old) $sp = 0;
-        $pictos = $old
-            ? $this->entity_manager->getRepository(Picto::class)->findOldByUser($user)
-            : $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user, $imported);
-        $points = 0;
+    /**
+     * @param PictoRollupInterface[] $data
+     * @return int
+     */
+    public function getPointsFromPictoRollupSet( array $data ): int {
 
-        if($sp >= 100)  $points += 13;
-        if($sp >= 500)  $points += 33;
-        if($sp >= 1000) $points += 66;
-        if($sp >= 2000) $points += 132;
-        if($sp >= 3000) $points += 198;
+        $count = 0;
+        foreach ($data as $picto)
+            $count += match ( $picto->getPrototype()->getName() ) {
+                'r_ptame_#00' => match (true) {
+                    $picto->getCount() <  100 => 0,
+                    $picto->getCount() <  500 => 13,
+                    $picto->getCount() < 1000 => 13 + 33,
+                    $picto->getCount() < 2000 => 13 + 33 + 66,
+                    $picto->getCount() < 3000 => 13 + 33 + 66 + 132,
+                    default                   => 13 + 33 + 66 + 132 + 198,
+                },
 
-        foreach ($pictos as $picto) {
-            switch($picto["name"]){
-                case "r_heroac_#00": case "r_explor_#00":
-                    if ($picto["c"] >= 15)
-                        $points += 3.5;
-                    if ($picto["c"] >= 30)
-                        $points += 6.5;
-                    break;
-                case "r_cookr_#00": case "r_cmplst_#00": case "r_camp_#00":case "r_drgmkr_#00": case "r_jtamer_#00":
-                case "r_jrangr_#00": case "r_jguard_#00": case "r_jermit_#00": case "r_jtech_#00": case "r_jcolle_#00":
-                    if ($picto["c"] >= 10)
-                        $points += 3.5;
-                    if ($picto["c"] >= 25)
-                        $points += 6.5;
-                    break;
-                case "r_animal_#00": case "r_plundr_#00":
-                    if ($picto["c"] >= 30)
-                        $points += 3.5;
-                    if ($picto["c"] >= 60)
-                        $points += 6.5;
-                    break;
-                case "r_chstxl_#00": case "r_ruine_#00":
-                    if ($picto["c"] >= 5)
-                        $points += 3.5;
-                    if ($picto["c"] >= 10)
-                        $points += 6.5;
-                    break;
-                case "r_buildr_#00":
-                    if ($picto["c"] >= 100)
-                        $points += 3.5;
-                    if ($picto["c"] >= 200)
-                        $points += 6.5;
-                    break;
-                case "r_nodrug_#00":
-                    if ($picto["c"] >= 20)
-                        $points += 3.5;
-                    if ($picto["c"] >= 75)
-                        $points += 6.5;
-                    break;
-                case "r_ebuild_#00":
-                    if ($picto["c"] >= 1)
-                        $points += 3.5;
-                    if ($picto["c"] >= 3)
-                        $points += 6.5;
-                    break;
-                case "r_digger_#00":
-                    if ($picto["c"] >= 50)
-                        $points += 3.5;
-                    if ($picto["c"] >= 300)
-                        $points += 6.5;
-                    break;
-                case "r_deco_#00":
-                    if ($picto["c"] >= 100)
-                        $points += 3.5;
-                    if ($picto["c"] >= 250)
-                        $points += 6.5;
-                    break;
-                case "r_explo2_#00":
-                    if ($picto["c"] >= 5)
-                        $points += 3.5;
-                    if ($picto["c"] >= 15)
-                        $points += 6.5;
-                    break;
-                case "r_guide_#00":
-                    if ($picto["c"] >= 300)
-                        $points += 3.5;
-                    if ($picto["c"] >= 1000)
-                        $points += 6.5;
-                    break;
-                case "r_theft_#00":
-                    if ($picto["c"] >= 10)
-                        $points += 3.5;
-                    if ($picto["c"] >= 30)
-                        $points += 6.5;
-                    break;
-                case "r_maso_#00": case "r_guard_#00":
-                    if ($picto["c"] >= 20)
-                        $points += 3.5;
-                    if ($picto["c"] >= 40)
-                        $points += 6.5;
-                    break;
-                case "r_surlst_#00":
-                    if ($picto["c"] >= 10)
-                        $points += 3.5;
-                    if ($picto["c"] >= 15)
-                        $points += 6.5;
-                    if ($picto["c"] >= 30)
-                        $points += 10;
-                    if ($picto["c"] >= 50)
-                        $points += 13;
-                    if ($picto["c"] >= 100)
-                        $points += 16.5;
-                    break;
-                case "r_suhard_#00":
-                    if ($picto["c"] >= 5)
-                        $points += 3.5;
-                    if ($picto["c"] >= 10)
-                        $points += 6.5;
-                    if ($picto["c"] >= 20)
-                        $points += 10;
-                    if ($picto["c"] >= 40)
-                        $points += 13;
-                    break;
-                case "r_doutsd_#00":
-                    if($picto["c"] >= 20)
-                        $points += 3.5;
-                    break;
-                case "r_door_#00":
-                    if($picto["c"] >= 1)
-                        $points += 3.5;
-                    if($picto["c"] >= 5)
-                        $points += 6.5;
-                    break;
-                case "r_wondrs_#00":
-                    if($picto["c"] >= 20)
-                        $points += 3.5;
-                    if($picto["c"] >= 50)
-                        $points += 6.5;
-                    break;
-                case "r_rp_#00":
-                    if($picto["c"] >= 5)
-                        $points += 3.5;
-                    if($picto["c"] >= 10)
-                        $points += 6.5;
-                    if($picto["c"] >= 20)
-                        $points += 10;
-                    if($picto["c"] >= 30)
-                        $points += 13;
-                    if($picto["c"] >= 40)
-                        $points += 16.5;
-                    if($picto["c"] >= 60)
-                        $points += 20;
-                    break;
-                case "r_winbas_#00":
-                    if($picto["c"] >= 2)
-                        $points += 13;
-                    if($picto["c"] >= 5)
-                        $points += 20;
-                    break;
-                case "r_wintop_#00":
-                    if($picto["c"] >= 1)
-                        $points += 20;
-                    break;
-                case "r_killz_#00":
-                    if($picto["c"] >= 100)
-                        $points += 3.5;
-                    if($picto["c"] >= 200)
-                        $points += 6.5;
-                    if($picto["c"] >= 300)
-                        $points += 10;
-                    if($picto["c"] >= 800)
-                        $points += 13;
-                    break;
-                case "r_cannib_#00":
-                    if ($picto["c"] >= 10)
-                        $points += 3.5;
-                    if ($picto["c"] >= 40)
-                        $points += 6.5;
-                    break;
-            }
-        }
+                'r_heroac_#00', 'r_explor_#00' => match(true) {
+                    $picto->getCount() < 15 => 0,
+                    $picto->getCount() < 30 => 3.5,
+                    default                 => 3.5 + 6.5,
+                },
 
-        return $points;
+                'r_cookr_#00', 'r_cmplst_#00', 'r_camp_#00', 'r_drgmkr_#00', 'r_jtamer_#00', 'r_jrangr_#00',
+                'r_jguard_#00', 'r_jermit_#00', 'r_jtech_#00', 'r_jcolle_#00' => match(true) {
+                    $picto->getCount() < 10 => 0,
+                    $picto->getCount() < 25 => 3.5,
+                    default                 => 3.5 + 6.5,
+                },
+
+                'r_animal_#00', 'r_plundr_#00' => match(true) {
+                    $picto->getCount() < 30 => 0,
+                    $picto->getCount() < 60 => 3.5,
+                    default                 => 3.5 + 6.5,
+                },
+
+                'r_chstxl_#00', 'r_ruine_#00' => match(true) {
+                    $picto->getCount() <  5 => 0,
+                    $picto->getCount() < 10 => 3.5,
+                    default                 => 3.5 + 6.5,
+                },
+
+                'r_buildr_#00' => match(true) {
+                    $picto->getCount() < 100 => 0,
+                    $picto->getCount() < 200 => 3.5,
+                    default                  => 3.5 + 6.5,
+                },
+
+                'r_nodrug_#00' => match(true) {
+                    $picto->getCount() < 20 => 0,
+                    $picto->getCount() < 75 => 3.5,
+                    default                 => 3.5 + 6.5,
+                },
+
+                'r_ebuild_#00' => match(true) {
+                    $picto->getCount() < 1 => 0,
+                    $picto->getCount() < 3 => 3.5,
+                    default                => 3.5 + 6.5,
+                },
+
+                'r_digger_#00' => match(true) {
+                    $picto->getCount() <  50 => 0,
+                    $picto->getCount() < 300 => 3.5,
+                    default                  => 3.5 + 6.5,
+                },
+
+                'r_deco_#00' => match(true) {
+                    $picto->getCount() < 100 => 0,
+                    $picto->getCount() < 250 => 3.5,
+                    default                  => 3.5 + 6.5,
+                },
+
+                'r_explo2_#00' => match(true) {
+                    $picto->getCount() <  5 => 0,
+                    $picto->getCount() < 15 => 3.5,
+                    default                 => 3.5 + 6.5,
+                },
+
+                'r_guide_#00' => match(true) {
+                    $picto->getCount() <  300 => 0,
+                    $picto->getCount() < 1000 => 3.5,
+                    default                   => 3.5 + 6.5,
+                },
+
+                'r_theft_#00' => match(true) {
+                    $picto->getCount() < 10 => 0,
+                    $picto->getCount() < 30 => 3.5,
+                    default                 => 3.5 + 6.5,
+                },
+
+                'r_maso_#00', 'r_guard_#00' => match(true) {
+                    $picto->getCount() < 20 => 0,
+                    $picto->getCount() < 40 => 3.5,
+                    default                 => 3.5 + 6.5,
+                },
+
+                'r_surlst_#00' => match(true) {
+                    $picto->getCount() <  10 => 0,
+                    $picto->getCount() <  15 => 3.5,
+                    $picto->getCount() <  30 => 3.5 + 6.5,
+                    $picto->getCount() <  50 => 3.5 + 6.5 + 10,
+                    $picto->getCount() < 100 => 3.5 + 6.5 + 10 + 13,
+                    default                  => 3.5 + 6.5 + 10 + 13 + 16.5,
+                },
+
+                'r_suhard_#00' => match(true) {
+                    $picto->getCount() <   5 => 0,
+                    $picto->getCount() <  10 => 3.5,
+                    $picto->getCount() <  20 => 3.5 + 6.5,
+                    $picto->getCount() <  40 => 3.5 + 6.5 + 10,
+                    default                  => 3.5 + 6.5 + 10 + 13,
+                },
+
+                'r_doutsd_#00' => match(true) {
+                    $picto->getCount() < 20 => 0,
+                    default                 => 3.5,
+                },
+
+                'r_door_#00' => match(true) {
+                    $picto->getCount() < 1 => 0,
+                    $picto->getCount() < 5 => 3.5,
+                    default                => 3.5 + 6.5,
+                },
+
+                'r_wondrs_#00' => match(true) {
+                    $picto->getCount() < 20 => 0,
+                    $picto->getCount() < 50 => 3.5,
+                    default                 => 3.5 + 6.5,
+                },
+
+                'r_rp_#00' => match(true) {
+                    $picto->getCount() <   5 => 0,
+                    $picto->getCount() <  10 => 3.5,
+                    $picto->getCount() <  20 => 3.5 + 6.5,
+                    $picto->getCount() <  30 => 3.5 + 6.5 + 10,
+                    $picto->getCount() <  40 => 3.5 + 6.5 + 10 + 13,
+                    $picto->getCount() <  60 => 3.5 + 6.5 + 10 + 13 + 16.5,
+                    default                  => 3.5 + 6.5 + 10 + 13 + 16.5 + 20,
+                },
+
+                'r_winbas_#00' => match(true) {
+                    $picto->getCount() < 2 => 0,
+                    $picto->getCount() < 5 => 13,
+                    default                => 13 + 20,
+                },
+
+                'r_wintop_#00' => match(true) {
+                    $picto->getCount() < 1 => 0,
+                    default                => 20,
+                },
+
+                'r_killz_#00' => match(true) {
+                    $picto->getCount() < 100 => 0,
+                    $picto->getCount() < 200 => 3.5,
+                    $picto->getCount() < 300 => 3.5 + 6.5,
+                    $picto->getCount() < 800 => 3.5 + 6.5 + 10,
+                    default                  => 3.5 + 6.5 + 10 + 13,
+                },
+
+                'r_cannib_#00' => match(true) {
+                    $picto->getCount() < 10 => 0,
+                    $picto->getCount() < 40 => 3.5,
+                    default                 => 3.5 + 6.5,
+                },
+
+                default => 0,
+            };
+
+        return round($count);
     }
 
     public function computePictoUnlocks(User $user): void {
