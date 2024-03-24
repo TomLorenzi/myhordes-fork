@@ -74,11 +74,7 @@ class UserUpdatePictoRollupCommand extends Command
     private function getSeasons() {
         $criteria = new Criteria();
 
-        return [null, ...$this->em->getRepository(Season::class)->matching(
-            ($criteria)
-                ->where( $criteria->expr()->gt('number', 0) )
-                ->orWhere( $criteria->expr()->gte('subNumber', 15) )
-        )->toArray()];
+        return [null, ...$this->em->getRepository(Season::class)->findAll()];
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
