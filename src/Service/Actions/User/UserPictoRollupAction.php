@@ -129,7 +129,7 @@ readonly class UserPictoRollupAction
             ];
 
 
-        foreach ($prototypes as $prototype) {
+        foreach (($prototypes ?? $this->em->getRepository(PictoPrototype::class)->findAll()) as $prototype) {
 
             foreach ($settings as $s => [$s_import, $s_old, $s_total]) {
 
