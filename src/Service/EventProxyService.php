@@ -12,6 +12,7 @@ use App\Entity\ItemPrototype;
 use App\Entity\RuinZone;
 use App\Entity\Season;
 use App\Entity\Town;
+use App\Entity\User;
 use App\Entity\Zone;
 use App\Enum\EventStages\BuildingEffectStage;
 use App\Enum\EventStages\BuildingValueQuery;
