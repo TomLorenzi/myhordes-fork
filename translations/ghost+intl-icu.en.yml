@@ -286,6 +286,18 @@ Löschen: Delete
 'Eigenartiger Boden': 'Strange Soil'
 'Der Boden, auf dem die Stadt errichtet wurde, ist mit Chemikalien verseucht. Dies hat Einfluss auf die Qualität des Brunnenwassers und damit auch auf die Landwirtschaft...': 'The soil on which the city was built is contaminated with chemicals. This has an impact on the quality of the well water and thus also on the agriculture...'
 'Es können maximal {number} Private Städte gleichzeitig eröffnet werden.': 'No more than {number} Private Towns can be opened at the same time.'
+'Größe der Begehbaren Ruinen': 'Size of the e-ruins'
+Sauerstoffvorrat: Amount of oxygen
+Umfangreich: Long
+Exorbitant: Very long
+'Eine Etage': '1 floor'
+'Zwei Etagen': '2 floors'
+'Drei Etagen': '3 floors'
+Etagen: Floors
+'Anzahl Räume': 'Number of rooms'
+'Mindestanzahl an Räumen pro Etage': 'Minimum number of rooms per floor'
+Kartenbreite: Map width
+Kartenhöhe: Map height
 'Abweichende Bedingungen für den automatischen Stadtabbruch': 'Different conditions for automatic city aborts'
 'Abweichende Bedingungen für den Mysteriösen Fremden': 'Different conditions for the Mysterious Stranger'
 'Stadttor ist bis zum Start der Stadt verschlossen': 'City gate is locked until the start of the city'
@@ -331,3 +343,7 @@ Seelenpunkte: Soul points
 'Abweichende Funktions-Einstellungen': 'Functional settings edited'
 'Abweichende allgemeine Einstellungen': 'General settings different'
 'Die Regeln dieser Stadt weichen von der Norm ab:': 'These town rules deviate from the norm:'
+'Forenzugang (selbst)': 'Access to forum (yourself)'
+'Du erhälst Zugang zum Stadtforum, wirst jedoch nicht verkörpert.': 'You have access to the city forum, but your identity is not hidden.'
+'Forenzugang (Gilde)': 'Access to forum (Guild)'
+'Du und alle Mitglieder der Animateursgilde erhalten Zugang zum Stadtforum': 'You and all members of the Animaction Guild have access to the city forum.'
