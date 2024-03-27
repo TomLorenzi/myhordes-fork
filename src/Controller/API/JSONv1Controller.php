@@ -48,7 +48,6 @@ class JSONv1Controller extends CoreController {
     private User                     $user;
     private int                      $xTown           = 0;
     private int                      $yTown           = 0;
-    private int                      $mapIdUser       = 0;
 
     public function on_error( ExternalAPIError $message, string $language ): Response {
         return match ($message) {
@@ -204,7 +203,7 @@ class JSONv1Controller extends CoreController {
             $fields = $this->getRequestParam('fields');
             $lang = $this->getRequestParam('languages');
 
-            if ($fields && $map_id == $this->mapIdUser) {
+            if ($fields) {
                 $this->fields = $this->SURLL_preparser($fields);
             } else {
                 $this->fields = ['date', 'days', 'season', 'id', 'hei', 'wid', 'bonusPts', 'conspiracy', 'custom','city'];
