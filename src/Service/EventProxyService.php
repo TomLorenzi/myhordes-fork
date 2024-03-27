@@ -16,6 +16,7 @@ use App\Entity\ItemPrototype;
 use App\Entity\Post;
 use App\Entity\PrivateMessage;
 use App\Entity\RuinZone;
+use App\Entity\Season;
 use App\Entity\Town;
 use App\Entity\User;
 use App\Entity\Zone;
@@ -65,6 +66,7 @@ use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use App\Event\Common\User\PictoPersistedEvent;
 
 class EventProxyService
 {
@@ -229,6 +231,10 @@ class EventProxyService
 
     public function afterTownJoinEvent( Town $town, BeforeJoinTownData $data ): void {
         $this->ed->dispatch( $event = $this->ef->gameEvent( AfterJoinTownEvent::class, $town )->setup( $data ) );
+    }
+
+    public function pictosPersisted( User $user, ?Season $season = null, ?bool $old = null, ?bool $imported = null ): void {
+        $this->ed->dispatch( (new PictoPersistedEvent())->setup( $user, $season, $old, $imported ) );
     }
 
     /**

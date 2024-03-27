@@ -159,6 +159,9 @@
             <div class="padded cell rw-12">
                 <button id="{{ _self.gen_id(prefix,'featurewidget','give')}}">{{'Vergeben!'|trans({}, 'admin')}}</button>
             </div>
+            <div class="padded cell rw-12">
+                <button id="{{ _self.gen_id(prefix,'featurewidget','revoke')}}">{{'Entfernen'|trans({}, 'admin')}}</button>
+            </div>
         </div>
     </div>
 {% endmacro %}
@@ -185,6 +188,21 @@
                     prototype: parseInt(document.getElementById('{{ _self.gen_id(prefix,'featurewidget','select')}}').value),
                     number: isNaN(number) ? 0 : number,
                     date: date,
+                    type: type
+                },
+                () => $.ajax.load(null, '{{ load_url }}', true)
+            );
+        });
+        $.html.addEventListenerAll('#{{ _self.gen_id(prefix,'featurewidget','revoke')}}', 'click', function(){
+            let type = -1;
+            if (document.getElementById('{{ _self.gen_id(prefix,'featurewidget','expire_none')}}').checked) type = 0;
+            else if (document.getElementById('{{ _self.gen_id(prefix,'featurewidget','expire_season')}}').checked) type = 1;
+            else if (document.getElementById('{{ _self.gen_id(prefix,'featurewidget','expire_timeout')}}').checked) type = 2;
+            else if (document.getElementById('{{ _self.gen_id(prefix,'featurewidget','expire_towns')}}').checked) type = 3;
+            $.ajax.easySend('{{ api_url }}',
+                {
+                    prototype: parseInt(document.getElementById('{{ _self.gen_id(prefix,'featurewidget','select')}}').value),
+                    revoke: 1,
                     type: type
                 },
                 () => $.ajax.load(null, '{{ load_url }}', true)

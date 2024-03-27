@@ -483,7 +483,7 @@ class BuildingDataService implements FixtureProcessorInterface {
             ->isTemporary(0)->defense(300)->ap(300)->health(300)->blueprintLevel(3)->resources(["wood2_#00" => 20,"metal_#00" => 20,"concrete_wall_#00" => 5,"wood_beam_#00" => 10,"metal_beam_#00" => 10,])->orderBy(0)->commit();
         $container->add()->parentBuilding($small_building)
             ->icon('small_derrick')->label('Bohrturm')->description('Auch der Bohrturm ist eine absurde Konstruktion. Mit ihm können selbst tiefste wasserführende Schichten angezapft werden! Er fügt +50 Rationen an Wasser dem Brunnen hinzu.')
-            ->isTemporary(0)->defense(0)->ap(70)->health(0)->blueprintLevel(3)->resources(["wood_beam_#00" => 10,"metal_beam_#00" => 15,])->orderBy(1)->commit();
+            ->isImpervious(true)->isTemporary(0)->defense(0)->ap(70)->health(0)->blueprintLevel(3)->resources(["wood_beam_#00" => 10,"metal_beam_#00" => 15,])->orderBy(1)->commit();
         $container->add()->parentBuilding($small_building)
             ->icon('small_falsecity')->label('Falsche Stadt')->description('Es ist weithin bekannt, dass die Zombies nicht so ganz helle sind... Wenn ihr es schafft, eine Stadt nachzubauen, könntet ihr den überwiegenden Großteil des Angriffs auf diesen Nachbau umlenken...')
             ->isTemporary(0)->defense(400)->ap(400)->health(400)->blueprintLevel(3)->resources(["meca_parts_#00" => 15,"wood2_#00" => 20,"metal_#00" => 20,"wood_beam_#00" => 20,"metal_beam_#00" => 20,])->orderBy(2)->commit();

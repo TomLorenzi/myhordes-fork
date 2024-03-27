@@ -652,7 +652,7 @@ class SoulController extends CustomAbstractController
             'next_name_change_days' => $user->getLastNameChange() ? max(0, (30 * 4) - $user->getLastNameChange()->diff(new DateTime())->days ) : 0,
             'show_importer'     => $user->getTwinoidID() !== null && $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_ENABLED, true),
             'avatar_max_size' => [$a_max_size, $b_max_size,$this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)],
-            'langs' => $this->allLangs,
+            'langs' => $this->generatedLangs,
             'team_tickets_in' => $season ? $user->getTeamTicketsFor( $season, '' )->count() : 0,
             'team_tickets_out' => $season ? $user->getTeamTicketsFor( $season, '!' )->count() : 0,
             'team_tickets_limit' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_FOREIGN_CAP, 3),
@@ -947,7 +947,7 @@ class SoulController extends CustomAbstractController
 
         if ($this->user_handler->isRestricted( $user, AccountRestriction::RestrictionComments )) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
-        $id = $parser->get("id");
+        $id = $parser->get("id", -1);
         /** @var CitizenRankingProxy $citizenProxy */
         $citizenProxy = $this->entity_manager->getRepository(CitizenRankingProxy::class)->find($id);
         if ($citizenProxy === null || $citizenProxy->getUser() !== $user || $citizenProxy->getCommentLocked() )

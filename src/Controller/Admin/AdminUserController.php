@@ -43,6 +43,7 @@ use App\Service\AntiCheatService;
 use App\Service\CrowService;
 use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
+use App\Service\EventProxyService;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\Media\ImageService;
@@ -448,6 +449,7 @@ class AdminUserController extends AdminActionController
     public function user_account_manager(int $id, string $action, JSONRequestParser $parser, UserFactory $uf,
                                          TwinoidHandler $twin, UserHandler $userHandler, PermissionHandler $perm,
                                          CrowService $crow, KernelInterface $kernel, InvalidateTagsInAllPoolsAction $clearCache,
+                                         EventProxyService $proxy,
                                          string $param = ''): Response
     {
         /** @var User $user */
@@ -573,7 +575,7 @@ class AdminUserController extends AdminActionController
                     $this->entity_manager->persist($main);
                     $this->entity_manager->flush();
 
-                    $this->user_handler->computePictoUnlocks($user);
+                    $proxy->pictosPersisted( $user, imported: true );
                     $this->entity_manager->persist($user);
                     $this->entity_manager->flush();
                 }
@@ -594,7 +596,7 @@ class AdminUserController extends AdminActionController
                     $this->entity_manager->persist($user);
                     $this->entity_manager->flush();
 
-                    $this->user_handler->computePictoUnlocks($user);
+                    $proxy->pictosPersisted( $user, imported: true );
                     $this->entity_manager->persist($user);
                     $this->entity_manager->flush();
                 }
@@ -1455,7 +1457,7 @@ class AdminUserController extends AdminActionController
     #[Route(path: 'api/admin/users/{id}/picto/give', name: 'admin_user_give_picto', requirements: ['id' => '\d+'])]
     #[IsGranted('ROLE_CROW')]
     #[AdminLogProfile(enabled: true)]
-    public function user_give_picto(int $id, JSONRequestParser $parser, KernelInterface $kernel): Response
+    public function user_give_picto(int $id, JSONRequestParser $parser, KernelInterface $kernel, EventProxyService $proxy): Response
     {
         $user = $this->entity_manager->getRepository(User::class)->find($id);
         if(!$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -1493,7 +1495,7 @@ class AdminUserController extends AdminActionController
 
         $this->entity_manager->flush();
 
-        $this->user_handler->computePictoUnlocks($user);
+        $proxy->pictosPersisted( $user, $this->entity_manager->getRepository(Season::class)->findOneBy(['number' => 0, 'subNumber' => 15]) );
         $this->entity_manager->flush();
 
         return AjaxResponse::success();
@@ -1624,39 +1626,54 @@ class AdminUserController extends AdminActionController
         $prototype_id = $parser->get('prototype');
         $number = $parser->get_int('number', 1);
         $date = new \DateTime($parser->get('date'));
+        $revoke = $parser->get_int('revoke', 0);
 
         /** @var FeatureUnlockPrototype $prototype */
         $prototype = $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->find($prototype_id);
         if ($prototype === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $feature = (new FeatureUnlock())
-            ->setUser($user)
-            ->setPrototype($prototype);
+        if ($revoke !== 0) {
 
-        switch ($parser->get_int('type', -1)) {
-            case 0:
-                $feature->setExpirationMode(FeatureUnlock::FeatureExpirationNone);
-                break;
-            case 1:
-                $feature
-                    ->setExpirationMode(FeatureUnlock::FeatureExpirationSeason)
-                    ->setSeason( $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]) );
-                break;
-            case 2:
-                $feature
-                    ->setExpirationMode(FeatureUnlock::FeatureExpirationTimestamp)
-                    ->setTimestamp( $date );
-                break;
-            case 3:
-                if ($number <= 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-                $feature
-                    ->setExpirationMode(FeatureUnlock::FeatureExpirationTownCount)
-                    ->setTownCount( $number );
-                break;
-            default: return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+            $existing = $this->entity_manager->getRepository( FeatureUnlock::class )->findBy([
+                'user' => $user,
+                'prototype' => $prototype,
+                'expirationMode' => $parser->get_int('type', -1)
+            ]);
+
+            foreach ($existing as $entity)
+                $this->entity_manager->remove( $entity );
+
+        } else {
+            $feature = (new FeatureUnlock())
+                ->setUser($user)
+                ->setPrototype($prototype);
+
+            switch ($parser->get_int('type', -1)) {
+                case 0:
+                    $feature->setExpirationMode(FeatureUnlock::FeatureExpirationNone);
+                    break;
+                case 1:
+                    $feature
+                        ->setExpirationMode(FeatureUnlock::FeatureExpirationSeason)
+                        ->setSeason( $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]) );
+                    break;
+                case 2:
+                    $feature
+                        ->setExpirationMode(FeatureUnlock::FeatureExpirationTimestamp)
+                        ->setTimestamp( $date );
+                    break;
+                case 3:
+                    if ($number <= 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+                    $feature
+                        ->setExpirationMode(FeatureUnlock::FeatureExpirationTownCount)
+                        ->setTownCount( $number );
+                    break;
+                default: return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+            }
+
+            $this->entity_manager->persist($feature);
         }
 
-        $this->entity_manager->persist($feature);
         $this->entity_manager->flush();
 
         return AjaxResponse::success();

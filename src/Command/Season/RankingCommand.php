@@ -16,6 +16,7 @@ use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Service\CommandHelper;
 use App\Service\CrowService;
+use App\Service\EventProxyService;
 use App\Service\GameFactory;
 use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
@@ -43,7 +44,11 @@ class RankingCommand extends Command
     private GameFactory $gameFactory;
     private CrowService $crowService;
 
-    public function __construct(EntityManagerInterface $em, CommandHelper $com, UserHandler $uh, GameFactory $gf, CrowService $crowService)
+
+    public function __construct(
+        EntityManagerInterface $em, CommandHelper $com, UserHandler $uh, GameFactory $gf, CrowService $crowService,
+        private readonly EventProxyService $proxy,
+    )
     {
         $this->entityManager = $em;
         $this->commandHelper = $com;
@@ -424,7 +429,8 @@ class RankingCommand extends Command
                         $season?->getNumber() ?: 0
                     ) );
 
-                $this->userHandler->computePictoUnlocks( $user );
+                $this->entityManager->flush();
+                $this->proxy->pictosPersisted( $user, $season );
 
                 $this->entityManager->flush();
                 $this->entityManager->clear();

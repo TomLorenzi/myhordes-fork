@@ -55,6 +55,7 @@ class UserHandler
         private TagAwareCacheInterface $gameCachePool,
         private InvalidateTagsInAllPoolsAction $clearCache,
         private UserCapabilityService $capability,
+        private EventProxyService $proxy
     )
     { }
 
@@ -754,8 +755,7 @@ class UserHandler
         $this->entity_manager->persist( $nextDeath );
         $this->entity_manager->flush();
 
-        $this->computePictoUnlocks($user);
-        $this->entity_manager->flush();
+        $this->proxy->pictosPersisted( $user, $nextDeath->getTown()->getSeason() );
 
         // Update soul points
         $user->setSoulPoints( $this->fetchSoulPoints( $user, false ) );

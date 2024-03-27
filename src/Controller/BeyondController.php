@@ -239,8 +239,13 @@ class BeyondController extends InventoryAwareController
     }
 
     public function get_escape_timeout(Citizen $c, bool $allow_desperate = false): int {
+        $active_timer = $this->get_escape_timestamp( $c, $allow_desperate );
+        return $active_timer ? ($active_timer->getTimestamp() - (new DateTime())->getTimestamp()) : -1;
+    }
+
+    public function get_escape_timestamp(Citizen $c, bool $allow_desperate = false): ?DateTime {
         $active_timer = $this->entity_manager->getRepository(EscapeTimer::class)->findActiveByCitizen( $c, false, $allow_desperate );
-        return ($active_timer && (!$active_timer->getDesperate() || $allow_desperate)) ? ($active_timer->getTime()->getTimestamp() - (new DateTime())->getTimestamp()) : -1;
+        return ($active_timer && (!$active_timer->getDesperate() || $allow_desperate)) ? $active_timer->getTime() : null;
     }
 
     public function uncoverHunter(Citizen $c): bool {
@@ -288,7 +293,9 @@ class BeyondController extends InventoryAwareController
 
             $blocked = !$this->zone_handler->isZoneUnderControl($zone, $cp);
             $escape = $this->get_escape_timeout($citizen);
+            $escape_ts = $this->get_escape_timestamp($citizen);
             $escape_desperate = ($escape < 0) ? $this->get_escape_timeout( $citizen, true ) : -1;
+            $escape_desperate_ts = ($escape < 0) ? $this->get_escape_timestamp( $citizen, true ) : null;
 
             $require_ap = ($is_on_zero && $th->getBuilding($town, 'small_labyrinth_#00',  true));
 
@@ -403,7 +410,9 @@ class BeyondController extends InventoryAwareController
                 'can_escape_nr' => $citizen_tired ? 'tired' : ( $this->citizen_handler->isWounded($citizen) ? 'wounded' : false ),
                 'zone_blocked' => $blocked,
                 'zone_escape' => $escape,
+                'zone_escape_ts' => $escape_ts,
                 'zone_escape_desperate' => $escape_desperate,
+                'zone_escape_desperate_ts' => $escape_desperate_ts,
                 'digging' => $citizen->isDigging(),
                 'dig_ruin' => $citizen->getZone()->getActivityMarkerFor( ZoneActivityMarkerType::RuinDig, $citizen ) === null,
                 'actions' => $this->getItemActions(),

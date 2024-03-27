@@ -1931,7 +1931,7 @@ class AdminTownController extends AdminActionController
     #[Route(path: 'api/admin/town/{id}/picto/give', name: 'admin_town_give_picto', requirements: ['id' => '\d+'])]
     #[IsGranted('ROLE_ADMIN')]
     #[AdminLogProfile(enabled: true)]
-    public function town_give_picto(int $id, JSONRequestParser $parser): Response
+    public function town_give_picto(int $id, JSONRequestParser $parser, EventProxyService $proxy): Response
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         $townRanking = $this->entity_manager->getRepository(TownRankingProxy::class)->find($id);
@@ -1952,8 +1952,6 @@ class AdminTownController extends AdminActionController
 
         foreach ($town->getCitizens() as $citizen) {
             /** @var Citizen $citizen */
-            // if(!$citizen->getAlive()) continue;
-
             if (!in_array( $citizen->getId(), $to )) continue;
 
             $picto = $this->entity_manager->getRepository(Picto::class)->findByUserAndTownAndPrototype($citizen->getUser(), $town, $pictoPrototype);
@@ -1976,6 +1974,13 @@ class AdminTownController extends AdminActionController
         }
 
         $this->entity_manager->flush();
+
+        foreach ($town->getCitizens() as $citizen) {
+            /** @var Citizen $citizen */
+            if (!in_array($citizen->getId(), $to)) continue;
+
+            $proxy->pictosPersisted( $citizen->getUser(), $town->getSeason() );
+        }
 
         return AjaxResponse::success();
     }

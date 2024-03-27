@@ -5,8 +5,10 @@ namespace App\Entity;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\Event\PostPersistEventArgs;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\PersistentCollection;
 
 #[ORM\Entity(repositoryClass: 'App\Repository\CitizenRepository')]
 #[ORM\HasLifecycleCallbacks]
@@ -369,9 +371,9 @@ class Citizen
         return $this;
     }
     /**
-     * @return Collection|DigTimer[]
+     * @return ArrayCollection<DigTimer>|PersistentCollection<DigTimer>
      */
-    public function getDigTimers(): Collection
+    public function getDigTimers(): ArrayCollection|PersistentCollection
     {
         return $this->digTimers;
     }
@@ -398,10 +400,12 @@ class Citizen
     }
     public function getCurrentDigTimer(): ?DigTimer {
         if (!$this->getZone()) return null;
-        foreach ($this->getDigTimers() as $digTimer)
-            if ($digTimer->getZone() === $this->getZone())
-                return $digTimer;
-        return null;
+
+        return
+            $this->getDigTimers()->matching(
+                (new Criteria())
+                    ->where(Criteria::expr()->eq( 'zone', $this->getZone() ))
+            )->first() ?: null;
     }
     public function getDailyUpgradeVote(): ?DailyUpgradeVote
     {
