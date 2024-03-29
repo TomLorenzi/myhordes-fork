@@ -13,6 +13,7 @@ use App\Entity\User;
 use App\Enum\UserSetting;
 use App\Interfaces\Entity\PictoRollupInterface;
 use App\Service\JSONRequestParser;
+use App\Service\User\PictoService;
 use App\Service\User\UserCapabilityService;
 use App\Service\UserHandler;
 use App\Structures\Entity\PictoRollupStructure;
@@ -57,54 +58,13 @@ class DistinctionController extends CustomAbstractCoreController
         ]);
     }
 
-    /**
-     * @param PictoRollupInterface[] $data
-     * @return PictoRollupInterface[]
-     */
-    private function sort_data( array $data ): array {
-        usort( $data, fn( PictoRollupInterface $a, PictoRollupInterface $b ) =>
-            $b->getPrototype()->getRare() <=> $a->getPrototype()->getRare() ?:
-            $b->getCount() <=> $a->getCount() ?:
-            $b->getPrototype()->getId() <=> $a->getPrototype()->getId()
-        );
-        return $data;
-    }
-
-    /**
-     * @param EntityManagerInterface $em
-     * @param User $user
-     * @param bool $include_imported
-     * @param bool $include_old
-     * @return PictoRollupStructure[]
-     */
-    private function accumulate(EntityManagerInterface $em, User $user, bool $include_imported = false, bool $include_old = false): array {
-        $qb = $em->getRepository(PictoRollup::class)->createQueryBuilder('i')
-            ->select('SUM(i.count) as c', 'IDENTITY(i.prototype) as p')
-            ->groupBy('p')
-            ->andWhere('i.user = :user')->setParameter('user', $user)
-            ->andWhere('i.total = true');
-        if (!$include_imported) $qb->andWhere('NOT (i.imported = false AND i.old = false AND i.season IS NULL)');
-        if (!$include_old) $qb->andWhere('i.old = false');
-        $data = $qb->getQuery()->getArrayResult();
-
-        $prototypes = array_column( array_map(
-            fn(PictoPrototype $p) => [ 'id' => $p->getId(), 'prototype' => $p ],
-            $em->getRepository(PictoPrototype::class)->findBy(['id' => array_map( fn(array $a) => $a['p'], $data )])
-        ), 'prototype', 'id');
-
-        $data = array_map(
-            fn($row) => new PictoRollupStructure( $prototypes[$row['p']], $user, $row['c'] ),
-            $data
-        );
-
-        return $this->sort_data( $data );
-    }
 
     /**
      * @param User $user
      * @param string $source
-     * @param UserHandler $userHandler
+     * @param UserCapabilityService $capabilityService
      * @param EntityManagerInterface $em
+     * @param PictoService $pictoService
      * @param Packages $assets
      * @return JsonResponse
      */
@@ -112,18 +72,18 @@ class DistinctionController extends CustomAbstractCoreController
     public function list(
         User $user,
         string $source,
-        UserHandler $userHandler,
         UserCapabilityService $capabilityService,
         EntityManagerInterface $em,
+        PictoService $pictoService,
         Packages $assets
     ): JsonResponse {
 
         $data = match ($source) {
-            'soul'      => $this->accumulate( $em, $user, include_imported: true ),
-            'mh'        => $this->accumulate( $em, $user ),
-            'imported'  => $this->sort_data( $em->getRepository(PictoRollup::class)->findBy(['user' => $user, 'imported' => true, 'total' => false, 'old' => false, 'season' => null]) ),
-            'old'       => $this->sort_data( $em->getRepository(PictoRollup::class)->findBy(['user' => $user, 'imported' => false, 'total' => false, 'old' => true, 'season' => null]) ),
-            'all'       => $capabilityService->hasRole( $this->getUser(), 'ROLE_CROW' ) ? $this->accumulate($em, $user, include_imported: true, include_old: true) : [],
+            'soul'      => $pictoService->accumulateAllPictos( $user, include_imported: true ),
+            'mh'        => $pictoService->accumulateAllPictos( $user ),
+            'imported'  => $pictoService->getPictoGroup( $user, imported: true ),
+            'old'       => $pictoService->getPictoGroup( $user, old: true ),
+            'all'       => $capabilityService->hasRole( $this->getUser(), 'ROLE_CROW' ) ? $pictoService->accumulateAllPictos($user, include_imported: true, include_old: true) : [],
             default => []
         };
 
@@ -173,7 +133,7 @@ class DistinctionController extends CustomAbstractCoreController
         }
 
         return new JsonResponse([
-            'points' => $userHandler->getPointsFromPictoRollupSet( $data ),
+            'points' => $pictoService->getPointsFromPictoRollupSet( $data ),
             'pictos' => array_values($picto_db),
             'awards' => array_values($award_db ?? []),
             'top3' => $top3

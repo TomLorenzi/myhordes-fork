@@ -144,15 +144,15 @@ class XMLv2Controller extends CoreController {
             ]
         ];
 
-        $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
+        $pictos = $this->pictoService->accumulateAllPictos( $user, include_imported: true );
 
         foreach ($pictos as $picto){
             /** @var Picto $picto */
             $node = [
                 'attributes' => [
-                    'rare' => intval($picto['rare']),
-                    'n' => $picto['c'],
-                    'img' => $this->getIconPath($this->asset->getUrl( "build/images/pictos/{$picto['icon']}.gif")),
+                    'rare' => intval($picto->getPrototype()->getRare()),
+                    'n' => intval($picto->getCount()),
+                    'img' => $this->getIconPath($this->asset->getUrl( "build/images/pictos/{$picto->getPrototype()->getIcon()}.gif")),
                 ],
                 'list' => [
                     'name' => 'title',
@@ -160,18 +160,18 @@ class XMLv2Controller extends CoreController {
                 ],
             ];
             if($language !== "all") {
-                $node['attributes']['name'] = $this->translator->trans($picto['label'], [], 'game');
-                $node['attributes']['desc'] = $this->translator->trans($picto['description'], [], 'game');
+                $node['attributes']['name'] = $this->translator->trans($picto->getPrototype()->getLabel(), [], 'game');
+                $node['attributes']['desc'] = $this->translator->trans($picto->getPrototype()->getDescription(), [], 'game');
             } else {
                 foreach ($this->languages as $lang) {
-                    $node['attributes']["name-$lang"] = $this->translator->trans($picto['label'], [], 'game', $lang);
-                    $node['attributes']["desc-$lang"] = $this->translator->trans($picto['description'], [], 'game', $lang);
+                    $node['attributes']["name-$lang"] = $this->translator->trans($picto->getPrototype()->getLabel(), [], 'game', $lang);
+                    $node['attributes']["desc-$lang"] = $this->translator->trans($picto->getPrototype()->getDescription(), [], 'game', $lang);
                 }
             }
             
             $criteria = new Criteria();
-            $criteria->andWhere($criteria->expr()->lte('unlockQuantity', $picto['c']));
-            $criteria->andWhere($criteria->expr()->eq('associatedPicto', $this->entity_manager->getRepository(PictoPrototype::class)->find($picto['id'])));
+            $criteria->andWhere($criteria->expr()->lte('unlockQuantity', $picto->getCount()));
+            $criteria->andWhere($criteria->expr()->eq('associatedPicto', $picto->getPrototype()));
 
             $titles = $this->entity_manager->getRepository(AwardPrototype::class)->matching($criteria);
             foreach($titles as $title){

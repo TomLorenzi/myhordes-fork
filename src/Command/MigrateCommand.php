@@ -44,6 +44,7 @@ use App\Service\Maps\MazeMaker;
 use App\Service\PermissionHandler;
 use App\Service\RandomGenerator;
 use App\Service\TwinoidHandler;
+use App\Service\User\PictoService;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
 use App\Structures\TownConf;
@@ -84,7 +85,7 @@ class MigrateCommand extends Command
     private PermissionHandler $perm;
     private CommandHelper $helper;
     private TwinoidHandler $twin;
-	private PdoSessionHandler $sessionHandler;
+	private PictoService $pictoService;
 
     protected static $git_script_repository = [
         'ce5c1810ee2bde2c10cc694e80955b110bbed010' => [ ['app:migrate', ['--calculate-score' => true] ] ],
@@ -147,7 +148,7 @@ class MigrateCommand extends Command
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
                                 RandomGenerator $rg, ConfMaster $conf,
                                 MazeMaker $maze, ParameterBagInterface $params, UserHandler $uh, PermissionHandler $p,
-                                UserFactory $uf, CommandHelper $helper, TwinoidHandler $twin, PdoSessionHandler $sh)
+                                UserFactory $uf, CommandHelper $helper, TwinoidHandler $twin, PictoService $ps)
     {
         $this->kernel = $kernel;
 
@@ -164,7 +165,7 @@ class MigrateCommand extends Command
         $this->helper = $helper;
         $this->twin = $twin;
 
-		$this->sessionHandler = $sh;
+		$this->pictoService = $ps;
 
         parent::__construct();
     }
@@ -662,7 +663,7 @@ class MigrateCommand extends Command
 
         if ($input->getOption('assign-awards')) {
             $this->helper->leChunk($output, User::class, 200, [], true, true, function(User $user) {
-                $this->user_handler->computePictoUnlocks($user);
+                $this->pictoService->computePictoUnlocks($user);
             }, true);
 
             return 0;
@@ -1186,7 +1187,7 @@ class MigrateCommand extends Command
                     $this->entity_manager->persist($user);
                     $this->entity_manager->flush();
 
-                    $this->user_handler->computePictoUnlocks($user);
+                    $this->pictoService->computePictoUnlocks($user);
                     $this->entity_manager->persist($user);
                     $this->entity_manager->flush();
                 }

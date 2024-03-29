@@ -18,6 +18,8 @@ use App\Service\CommandHelper;
 use App\Service\CrowService;
 use App\Service\EventProxyService;
 use App\Service\GameFactory;
+use App\Service\User\PictoService;
+use App\Service\User\UserCapabilityService;
 use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -38,23 +40,16 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 )]
 class RankingCommand extends Command
 {
-    private EntityManagerInterface $entityManager;
-    private CommandHelper $commandHelper;
-    private UserHandler $userHandler;
-    private GameFactory $gameFactory;
-    private CrowService $crowService;
-
-
     public function __construct(
-        EntityManagerInterface $em, CommandHelper $com, UserHandler $uh, GameFactory $gf, CrowService $crowService,
+        private readonly EntityManagerInterface $entityManager,
+        private readonly CommandHelper $commandHelper,
+        private readonly UserCapabilityService $userCapabilityService,
+        private readonly GameFactory $gameFactory,
+        private readonly CrowService $crowService,
         private readonly EventProxyService $proxy,
+        private readonly PictoService $pictoService,
     )
     {
-        $this->entityManager = $em;
-        $this->commandHelper = $com;
-        $this->userHandler = $uh;
-        $this->gameFactory = $gf;
-        $this->crowService = $crowService;
         parent::__construct();
     }
 
@@ -77,7 +72,7 @@ class RankingCommand extends Command
         if (!$alpha_picto) return -1;
 
         $this->commandHelper->leChunk($output, User::class, 100, [], true, true, function (User $u) use (&$alpha_picto) {
-            if ($this->userHandler->hasRole($u,'ROLE_USER') && !$this->userHandler->hasRole($u,'ROLE_DUMMY') && $u->getPastLifes()->count() >= 1) {
+            if ($this->userCapabilityService->hasRole($u,'ROLE_USER') && !$this->userCapabilityService->hasRole($u,'ROLE_DUMMY') && $u->getPastLifes()->count() >= 1) {
                 if (empty(array_filter( $this->entityManager->getRepository(Picto::class)->findPictoByUserAndTown($u, null), fn(Picto $p) => $p->getPersisted() === 2 ))) {
                     $u->addPicto($p = (new Picto())
                         ->setCount(1)
@@ -91,7 +86,7 @@ class RankingCommand extends Command
         }, true, function() use (&$alpha_picto) { $alpha_picto = $this->entityManager->getRepository(PictoPrototype::class)->findOneByName('r_ripflash_#00'); } );
 
         $this->commandHelper->leChunk($output, User::class, 100, [], true, true, function (User $u) {
-            $this->userHandler->computePictoUnlocks($u);
+            $this->pictoService->computePictoUnlocks($u);
         }, true );
 
         $this->commandHelper->leChunk($output, Town::class, 1, [], false, false, function(Town $t) {
