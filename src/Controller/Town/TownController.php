@@ -561,8 +561,9 @@ class TownController extends InventoryAwareController
         if ($this->getActiveCitizen()->getBanished() && $severity > Complaint::SeverityNone)
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
-        if ($this->getActiveCitizen()->getUser()->getAllSoulPoints() < $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_SP, 20))
-            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailableSP );
+        $grief_sp = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_SP, 20);
+        if ($this->getActiveCitizen()->getUser()->getAllSoulPoints() < $grief_sp)
+            return AjaxResponse::errorMessage($this->translator->trans( 'Du benötigst mindestens {sp} Seelenpunkte, um Anzeigen gegen andere Bürger erstatten zu können', ['sp' => $grief_sp], 'game' ));
 
         if ($severity < Complaint::SeverityNone || $severity > Complaint::SeverityKill)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );

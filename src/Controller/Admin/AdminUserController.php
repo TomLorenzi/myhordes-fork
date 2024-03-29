@@ -1626,39 +1626,54 @@ class AdminUserController extends AdminActionController
         $prototype_id = $parser->get('prototype');
         $number = $parser->get_int('number', 1);
         $date = new \DateTime($parser->get('date'));
+        $revoke = $parser->get_int('revoke', 0);
 
         /** @var FeatureUnlockPrototype $prototype */
         $prototype = $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->find($prototype_id);
         if ($prototype === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $feature = (new FeatureUnlock())
-            ->setUser($user)
-            ->setPrototype($prototype);
+        if ($revoke !== 0) {
 
-        switch ($parser->get_int('type', -1)) {
-            case 0:
-                $feature->setExpirationMode(FeatureUnlock::FeatureExpirationNone);
-                break;
-            case 1:
-                $feature
-                    ->setExpirationMode(FeatureUnlock::FeatureExpirationSeason)
-                    ->setSeason( $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]) );
-                break;
-            case 2:
-                $feature
-                    ->setExpirationMode(FeatureUnlock::FeatureExpirationTimestamp)
-                    ->setTimestamp( $date );
-                break;
-            case 3:
-                if ($number <= 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-                $feature
-                    ->setExpirationMode(FeatureUnlock::FeatureExpirationTownCount)
-                    ->setTownCount( $number );
-                break;
-            default: return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+            $existing = $this->entity_manager->getRepository( FeatureUnlock::class )->findBy([
+                'user' => $user,
+                'prototype' => $prototype,
+                'expirationMode' => $parser->get_int('type', -1)
+            ]);
+
+            foreach ($existing as $entity)
+                $this->entity_manager->remove( $entity );
+
+        } else {
+            $feature = (new FeatureUnlock())
+                ->setUser($user)
+                ->setPrototype($prototype);
+
+            switch ($parser->get_int('type', -1)) {
+                case 0:
+                    $feature->setExpirationMode(FeatureUnlock::FeatureExpirationNone);
+                    break;
+                case 1:
+                    $feature
+                        ->setExpirationMode(FeatureUnlock::FeatureExpirationSeason)
+                        ->setSeason( $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]) );
+                    break;
+                case 2:
+                    $feature
+                        ->setExpirationMode(FeatureUnlock::FeatureExpirationTimestamp)
+                        ->setTimestamp( $date );
+                    break;
+                case 3:
+                    if ($number <= 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+                    $feature
+                        ->setExpirationMode(FeatureUnlock::FeatureExpirationTownCount)
+                        ->setTownCount( $number );
+                    break;
+                default: return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+            }
+
+            $this->entity_manager->persist($feature);
         }
 
-        $this->entity_manager->persist($feature);
         $this->entity_manager->flush();
 
         return AjaxResponse::success();

@@ -107,7 +107,7 @@ class LogController extends CustomAbstractCoreController
      */
     protected function applyFilters(Request $request, Citizen|Zone|Town $context, ?Criteria $criteria = null, bool $limits = true, bool $allow_inline_days = false, bool $admin = false ): Criteria {
         $day = $request->query->get('day', 0);
-        $limit = $request->query->get('limit', -1);
+        $limit = min((int)$request->query->get('limit', -1), 500);
         $threshold_top = $request->query->get('below', PHP_INT_MAX);
         $threshold_bottom = $request->query->get('above', 0);
 
@@ -126,7 +126,7 @@ class LogController extends CustomAbstractCoreController
             ->andWhere( Criteria::expr()->gt('id', $threshold_bottom) )
             ->andWhere( Criteria::expr()->lt('id', $threshold_top) )
             ->andWhere( Criteria::expr()->eq('zone', $zone ) )
-            ->setMaxResults(($limit > 0 && $limits) ? $limit : null)
+            ->setMaxResults(($limit > 0 && $limits) ? $limit : 500)
             ->orderBy( ['timestamp' => Criteria::DESC, 'id' => Criteria::DESC] );
 
         if ($day <= 0 && !$allow_inline_days) $day = $town->getDay();

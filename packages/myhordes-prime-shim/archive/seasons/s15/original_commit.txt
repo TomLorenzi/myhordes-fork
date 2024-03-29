@@ -1,0 +1,7 @@
+commit 31c55e26708dc02156ab68aade651abb0043c8c3
+Author:     Dylan57 <dylandep57@gmail.com>
+AuthorDate: Sun Mar 19 21:49:06 2023 +0100
+Commit:     Dylan57 <dylandep57@gmail.com>
+CommitDate: Sun Mar 19 21:49:06 2023 +0100
+
+    Update spanish item names, based on community suggestion

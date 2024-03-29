@@ -67,6 +67,7 @@ use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use App\Event\Common\User\PictoPersistedEvent;
 
 class EventProxyService
 {

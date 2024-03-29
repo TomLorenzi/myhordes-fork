@@ -63,8 +63,8 @@ abstract class Event extends BaseEvent
     public function shouldPropagateTo(string $listenerClass, string $methodName): bool {
         if ($this->isPropagationStopped()) return false;
         return !array_key_exists( $listenerClass, $this->propagation_blacklist ) || (
-            !in_array( $methodName, $this->propagation_blacklist[$listenerClass] ) &&
-            !in_array( '*', $this->propagation_blacklist[$listenerClass] )
-        );
+                !in_array( $methodName, $this->propagation_blacklist[$listenerClass] ) &&
+                !in_array( '*', $this->propagation_blacklist[$listenerClass] )
+            );
     }
 }

@@ -286,6 +286,18 @@ Löschen: Supprimer
 'Eigenartiger Boden': 'Sol étrange'
 'Der Boden, auf dem die Stadt errichtet wurde, ist mit Chemikalien verseucht. Dies hat Einfluss auf die Qualität des Brunnenwassers und damit auch auf die Landwirtschaft...': 'Le sol sur lequel la ville a été construite est contaminé par des produits chimiques. Cela a un impact sur la qualité de l’eau du puits et donc aussi sur l’agriculture...'
 'Es können maximal {number} Private Städte gleichzeitig eröffnet werden.': 'Pas plus de {number} Villes Privées peuvent être ouvertes en même temps.'
+'Größe der Begehbaren Ruinen': 'Taille des ruines'
+Sauerstoffvorrat: Quantité d'oxygène
+Umfangreich: Long
+Exorbitant: Très long
+'Eine Etage': 'Un étage'
+'Zwei Etagen': 'Deux étages'
+'Drei Etagen': 'Trois étages'
+Etagen: Étages
+'Anzahl Räume': 'Nombre de pièces'
+'Mindestanzahl an Räumen pro Etage': 'Nombre minimal de pièces par étage'
+Kartenbreite: Largeur
+Kartenhöhe: Profondeur
 'Abweichende Bedingungen für den automatischen Stadtabbruch': 'Différentes conditions pour l''annulation automatique de la ville'
 'Abweichende Bedingungen für den Mysteriösen Fremden': 'Différentes conditions pour le mystérieux étranger'
 'Stadttor ist bis zum Start der Stadt verschlossen': 'La porte de la ville est verrouillée jusqu''au début de la ville'
@@ -331,3 +343,7 @@ Seelenpunkte: Points d'âme
 'Abweichende Funktions-Einstellungen': 'Différents paramètres de fonctions'
 'Abweichende allgemeine Einstellungen': 'Différents paramètres généraux'
 'Die Regeln dieser Stadt weichen von der Norm ab:': 'Les règles de cette ville diffèrent de la norme :'
+'Forenzugang (selbst)': 'Accès au forum (vous-même)'
+'Du erhälst Zugang zum Stadtforum, wirst jedoch nicht verkörpert.': 'Vous avez accès au forum de la ville, mais votre identité n''est pas cachée.'
+'Forenzugang (Gilde)': 'Accès au forum (Guilde)'
+'Du und alle Mitglieder der Animateursgilde erhalten Zugang zum Stadtforum': 'Vous et tous les membres de la Guilde de l''Animaction avez accès au forum de la ville.'
