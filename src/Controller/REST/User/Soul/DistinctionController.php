@@ -110,9 +110,9 @@ class DistinctionController extends CustomAbstractCoreController
 
         foreach ( $award_db ?? [] as $item )
             if ($item['picto'] && !isset( $picto_db[ $item['picto']['id'] ] )) {
-                $picto = $em->getRepository(PictoPrototype::class)->find( $item['picto'] );
-                $picto_db[ $item['picto'] ] = [
-                    'id' => (int)$item['picto'],
+                $picto = $em->getRepository(PictoPrototype::class)->find( $item['picto']['id'] );
+                $picto_db[ $item['picto']['id'] ] = [
+                    'id' => (int)$item['picto']['id'],
                     'label' => $this->translator->trans( $picto?->getLabel() ?? '', [], 'game' ),
                     'description' => $this->translator->trans( $picto?->getDescription() ?? '', [], 'game' ),
                     'icon' => $assets->getUrl( "build/images/pictos/{$picto?->getIcon()}.gif" ),
