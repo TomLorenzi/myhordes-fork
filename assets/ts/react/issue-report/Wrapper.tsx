@@ -316,7 +316,7 @@ const ReportIssueDialog = (props: {
                             <span>{index.strings.fields.title.title}</span><br/>
                             {index.strings.fields.title.hint}
 
-                            <input type="text" name="issue_title" placeholder={index.strings.fields.title.example}/>
+                            <input type="text" name="issue_title" autoComplete="off" placeholder={index.strings.fields.title.example}/>
                         </p>
                         <p className="small">
                             <span>{index.strings.fields.desc.title}</span><br/>
