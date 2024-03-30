@@ -336,9 +336,10 @@ class TownCreatorController extends CustomAbstractCoreController
 
                     'pictos' => $this->translator->trans('Vergabe von Auszeichnungen', [], 'ghost'),
                     'pictos_presets' => [
-                        ['value' => 'all',     'label' => $this->translator->trans('Alle', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten alle Auszeichnungen, die sie in der Stadt verdient haben.', [], 'ghost')],
-                        ['value' => 'reduced', 'label' => $this->translator->trans('Reduziert', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten ein Drittel der Auszeichnungen, die sie in der Stadt verdient haben.', [], 'ghost')],
-                        ['value' => 'none',    'label' => $this->translator->trans('Deaktiviert', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten keine Auszeichnungen für diese Stadt.', [], 'ghost')],
+                        ['value' => 'all',              'label' => $this->translator->trans('Alle', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten alle Auszeichnungen, die sie in der Stadt verdient haben.', [], 'ghost')],
+                        ['value' => 'reduced',          'label' => $this->translator->trans('Roulette', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten ein Drittel der Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben, in voller Höhe. Die restlichen Auszeichnungen werden entfernt. Welche Auszeichnungstypen entfernt werden ist zufällig.', [], 'ghost')],
+                        ['value' => 'reduced_classic',  'label' => $this->translator->trans('Reduziert', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten alle Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben. Die Höhe aller Auszeichnungen wird gedrittelt.', [], 'ghost')],
+                        ['value' => 'none',             'label' => $this->translator->trans('Deaktiviert', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten keine Auszeichnungen für diese Stadt.', [], 'ghost')],
                     ],
 
                     'picto_rules' => $this->translator->trans('Auszeichnungen beschränken', [], 'ghost'),
