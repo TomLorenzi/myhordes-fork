@@ -104,6 +104,18 @@ enum TownSetting: string implements Configuration
 
     //</editor-fold>
 
+    //<editor-fold desc="Town Reward Settings">
+    case Section_Rewards = '--section--/Rewards';
+
+    //<editor-fold desc="Town Timing for Digging Settings">
+    case Section_Rewards_Pictos = '--section--/Rewards/Pictos';
+
+    case PictoClassicCullMode = 'features.picto_classic_cull_mode';
+    //</editor-fold>
+
+
+    //</editor-fold>
+
     public function abstract(): bool
     {
         return match ($this) {
@@ -119,6 +131,8 @@ enum TownSetting: string implements Configuration
             self::Section_Timing,
             self::Section_Timing_Digging,
             self::Section_Timing_Exploration,
+            self::Section_Rewards,
+            self::Section_Rewards_Pictos,
                 => true,
 
             default => false
@@ -185,6 +199,9 @@ enum TownSetting: string implements Configuration
             self::TimingExplorationDefault,
             self::TimingExplorationCollector => self::Section_Timing_Exploration,
 
+            self::Section_Rewards_Pictos => self::Section_Rewards,
+            self::PictoClassicCullMode => self::Section_Rewards_Pictos,
+
             default => null
         };
     }
@@ -203,7 +220,7 @@ enum TownSetting: string implements Configuration
         return $this->value;
     }
 
-    public function default(): null|bool|int|float
+    public function default(): null|bool|int|float|string
     {
         /** @noinspection PhpDuplicateMatchArmBodyInspection */
         return match ($this) {
@@ -258,6 +275,8 @@ enum TownSetting: string implements Configuration
 
             self::TimingExplorationDefault => '+5min',
             self::TimingExplorationCollector => '+7min30sec',
+
+            self::PictoClassicCullMode => true,
 
             default => null,
         };

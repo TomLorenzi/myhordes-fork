@@ -46,6 +46,8 @@ class SanitizeTownConfigAction
         // Crow options
         if ($rules['features']['give_all_pictos'] ?? false) $elevation = max($elevation, User::USER_LEVEL_CROW);
         if ($trimTo < User::USER_LEVEL_CROW) unset($rules['features']['give_all_pictos']);
+        if (!($rules['features']['picto_classic_cull_mode'] ?? true)) $elevation = max($elevation, User::USER_LEVEL_CROW);
+        if ($trimTo < User::USER_LEVEL_CROW) unset($rules['features']['picto_classic_cull_mode']);
         if ($rules['features']['enable_pictos'] ?? false) $elevation = max($elevation, User::USER_LEVEL_CROW);
         if ($trimTo < User::USER_LEVEL_CROW) unset($rules['features']['enable_pictos']);
         if ($rules['features']['give_soulpoints'] ?? false) $elevation = max($elevation, User::USER_LEVEL_CROW);

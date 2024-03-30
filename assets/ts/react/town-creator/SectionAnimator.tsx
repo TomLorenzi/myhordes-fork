@@ -28,14 +28,17 @@ export const TownCreatorSectionAnimator = () => {
         <OptionSelect propTitle={animation.pictos}
                       value={
                         globals.getOption( 'rules.features.enable_pictos' )
-                            ? (globals.getOption( 'rules.features.give_all_pictos' ) ? 'all' : 'reduced')
+                            ? (globals.getOption( 'rules.features.give_all_pictos' ) ? 'all' : (globals.getOption( 'rules.features.picto_classic_cull_mode' ) ? 'reduced_classic' : 'reduced'))
                             : 'none'
                       } propName="features.pictos"
                       options={ animation.pictos_presets.map( preset => ({ value: preset.value, title: preset.label, help: preset.help }) ) }
                       onChange={e => {
                           const v = (e.target as HTMLInputElement).value;
                           globals.setOption('rules.features.enable_pictos', v !== 'none')
-                          if (v !== 'none') globals.setOption('rules.features.give_all_pictos', v === 'all')
+                          if (v !== 'none') {
+                              globals.setOption('rules.features.give_all_pictos', v === 'all')
+                              globals.setOption('rules.features.picto_classic_cull_mode', v === 'reduced_classic')
+                          }
                       }}
         />
 

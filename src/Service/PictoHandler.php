@@ -8,6 +8,7 @@ use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
+use App\Enum\Configuration\TownSetting;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use Doctrine\ORM\AbstractQuery;
@@ -122,8 +123,8 @@ class PictoHandler
         if(!$conf->get(TownConf::CONF_FEATURE_GIVE_ALL_PICTOS, true)){
 
             $keepPictos = [];
-
             $pictos = $this->entity_manager->getRepository(Picto::class)->findBy(['user' => $citizen->getUser(), 'town' => $citizen->getTown(), "persisted" => 1]);
+
             foreach ($pictos as $picto) {
                 /** @var Picto $picto */
 
@@ -131,7 +132,7 @@ class PictoHandler
                     $this->entity_manager->remove($picto);
                     continue;
                 }
-                
+
                 if($picto->getPrototype()->getName() !== "r_ptame_#00")
                     $keepPictos[] = $picto;
                 else {
@@ -140,10 +141,26 @@ class PictoHandler
                 }
             }
 
-            shuffle($keepPictos);
+            if ($conf->get( TownSetting::PictoClassicCullMode )) {
 
-            for($i = ceil(count($keepPictos) / 3); $i < count($keepPictos); $i++)
-                $this->entity_manager->remove($keepPictos[$i]);
+                foreach ($keepPictos as $picto) {
+                    /** @var Picto $picto */
+                    if ($picto->getPrototype()->getRare()) {
+                        $new_count = floor($picto->getCount() / 3);
+                        if ($new_count <= 0) $this->entity_manager->remove( $picto );
+                        else $picto->setCount(floor($picto->getCount() / 3));
+                        $this->entity_manager->persist($picto->setCount($new_count));
+                    }
+                }
+
+            } else {
+                shuffle($keepPictos);
+
+                for($i = ceil(count($keepPictos) / 3); $i < count($keepPictos); $i++)
+                    $this->entity_manager->remove($keepPictos[$i]);
+            }
+
+
         }
     }
 }
