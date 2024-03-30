@@ -1003,9 +1003,9 @@ Basisverteidigung: Defensa base
 'Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Du kannst flüchten, allerdings wirst du dadurch zusätzlichen Sauerstoff verbrauchen ...': '¡Los zombies te han acorralado! Puedes huir, pero te va a costar bastante oxígeno...'
 Flüchten: Huir
 'Gebäude verlassen': 'Salir del edificio'
-'Raum durchsuchen': 'Rebuscar en la pieza'
-'Raum verlassen': 'Salir de la pieza'
-'Raum betreten': 'Entrar en la pieza'
+'Raum durchsuchen': 'Rebuscar en la sala'
+'Raum verlassen': 'Salir de la sala'
+'Raum betreten': 'Entrar en la sala'
 'Abdruck nehmen': 'Hacer un molde'
 'Tür aufschließen': 'Desbloquear la puerta'
 '{ruin} betreten': 'Entrar en {ruin}'
@@ -1137,7 +1137,7 @@ Schlachtenbummler: Titán de choque
 Explosion: Explosión
 '???': '???'
 Schokoladenkreuz: Cruz de chocolate
-'Regentanz ausführen': 'Haz caer la lluvia'
+'Regentanz ausführen': 'Hacer que llueva'
 'Einsiedler - Gewinner des SoH': 'Ganador Ermitaño del CDH'
 'Buddler - Gewinner des SoH': 'Ganador Excavador del CDH'
 'Sieg für die Buddler beim Shock of Heroes Event!': '¡Victoria como Excavador durante el choque de héroes!'
@@ -2037,8 +2037,8 @@ Deko-Punkte: puntos de decoración
 'Unser verbesserter Wachturm ermöglicht die ungehinderte Rückkehr eines jeden Bürgers, der sich in der Nähe der Stadt befindet!': '¡Nuestra torre de vigilancia mejorada permite el regreso sin obstáculos de cualquier habitante que se encuentre cerca del pueblo!'
 'Du kannst einen Teil deines Sauerstoffs zur Flucht verwenden, indem du in die gewünschte Richtung sprintest.': 'Puedes usar una parte de tu oxígeno para escapar corriendo en la dirección que desees.'
 'Du kannst dieses Gebäude mit allen gefundenen Ressourcen verlassen.': 'Puedes salir de este edificio con los recursos encontrados.'
-'Verzweifelt suchst du in diesem Raum nach etwas, aber wie lange wirst du an diesem unheilvollen Ort durchhalten?': 'Buscas desesperadamente un objeto en esta pieza, ¿pero cuáto tiempo resistirás en ese lugar?'
-'Du kannst die üblen Gerüche und den Anblick dieses Raumes nicht länger ertragen.': 'No soportas los olores y la desolación de esta pieza.'
+'Verzweifelt suchst du in diesem Raum nach etwas, aber wie lange wirst du an diesem unheilvollen Ort durchhalten?': 'Buscas desesperadamente un objeto en esta sala, ¿pero cuáto tiempo resistirás en este lugar?'
+'Du kannst die üblen Gerüche und den Anblick dieses Raumes nicht länger ertragen.': 'No soportas los olores y la desolación de esta sala.'
 'Du kannst diesen Raum betreten, vielleicht findest du einige interessante Gegenstände.': 'Puede ingresar a esta sala, es posible que encuentre algunos artículos interesantes.'
 'Diese Aktion kostet dich Sauerstoff, trotzdem flüchten?': 'Esta acción te cuesta oxígeno, ¿huir de todos modos?'
 'Diese Aktion ermöglicht es dir, die Tiefen dieses Gebäude zu erkunden und wertvolle Ressourcen zu bergen. Sei aber nicht zu gierig, denn deine Zeit ist begrenzt!': 'Explora bien el edificio, podrías encontrar recursos importantes, pero se prudente, ¡el tiempo es limitado!'
