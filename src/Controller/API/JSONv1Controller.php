@@ -1555,11 +1555,13 @@ class JSONv1Controller extends CoreController {
         $data = [];
 
         if(empty($fields)) {
-            $fields = ['id', 'rare', 'number', 'img', 'name', 'desc', 'titles'];
+            $fields = ['id', 'rare', 'number', 'img', 'name', 'desc', 'titles', 'comments'];
         }
 		if ($user === null) $user = $this->user;
 
         $pictos = $this->pictoService->accumulateAllPictos( $user, include_imported: true );
+        $comments = in_array( 'comments', $fields ) ? $this->pictoService->accumulateAllPictoComments( $user ) : [];
+
         foreach ($pictos as $picto) {
             $picto_data = [];
             foreach ($fields as $field) {
@@ -1581,6 +1583,9 @@ class JSONv1Controller extends CoreController {
                         break;
                     case "desc":
                         $picto_data[$field] = $this->getTranslate($picto->getPrototype()->getDescription(), 'game');
+                        break;
+                    case "comments":
+                        $picto_data[$field] = $comments[ $picto->getPrototype()->getId() ] ?? [];
                         break;
                     case "titles":
                         $criteria = new Criteria();

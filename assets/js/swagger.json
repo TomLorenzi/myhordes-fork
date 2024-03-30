@@ -1179,6 +1179,17 @@
               "name": "title",
               "wrapped": false
             }
+          },
+          "comment": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Some Event"
+            },
+            "xml": {
+              "name": "comment",
+              "wrapped": false
+            }
           }
         },
         "xml": {
@@ -2334,6 +2345,13 @@
             "type": "array",
             "description": "List of unlocked titles.",
             "items": { "$ref": "#/components/schemas/JSONLanguageDependantField" }
+          },
+          "comments": {
+            "type": "array",
+            "description": "Comments attached to this distinction. Usually used to note events where instances of this distinction were earned.",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
