@@ -535,7 +535,7 @@ Heldentaten: Heroic Actions
 Alkohol: Alcohol
 'Anzahl der Liter selbstgebrannten Alkohols, den du gesoffen hast.': 'The number of litres of home-made alcoholic substances you have consumed.'
 Hausverbesserung: Home Improvements
-'Anzahl der Verbesserungen und Ausbauten, die du an deinem eigenem Haus vorgenommen hast.': 'Number of DIY projects successfully completed around the house.'
+'Anzahl der Verbesserungen und Ausbauten, die du an deinem eigenem Haus vorgenommen hast.': 'Number of upgrades you have made to your place (improvements).'
 Handwerk: Craftsman
 'Anzahl der Gegenstände, die du in der Werkstatt zusammengebaut oder zerstört hast.': 'The number of objects you have assembled or dismantled at the workshop.'
 Leichenwäscher: Sprinkler
@@ -654,7 +654,7 @@ Batteriewerferfabrikant: Battery Launcher Builder
 'Überlebende der Hölle!': 'Survivor of Hell!'
 'Sie sind ein wahrer Überlebenskünstler der Hölle.': 'You are a true survivor of hell.'
 Hausarbeiten: Homemaker
-'Anzahl der Ausbauten, die du an deinem Haus vorgenommen hast.': 'Number of upgrades you have made to your place (improvements).'
+'Anzahl der Ausbauten, die du an deinem Haus vorgenommen hast.': 'Number of DIY projects successfully completed around the house.'
 Kettensägen: Chainsaws
 'Anzahl an Kettensägen, die du gebaut hast.': 'The number of chainsaws you have built.'
 Stadtwächter: Watchman
