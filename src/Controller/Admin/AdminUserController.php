@@ -19,6 +19,7 @@ use App\Entity\FeatureUnlock;
 use App\Entity\FeatureUnlockPrototype;
 use App\Entity\ItemPrototype;
 use App\Entity\Picto;
+use App\Entity\PictoComment;
 use App\Entity\PictoPrototype;
 use App\Entity\RegistrationToken;
 use App\Entity\Season;
@@ -1464,6 +1465,7 @@ class AdminUserController extends AdminActionController
 
         $prototype_id = $parser->get('prototype');
         $number = $parser->get('number', 1);
+        $text = $parser->trimmed('text');
 
         if ($prototype_id === -42 && $kernel->getEnvironment() === 'dev' && $this->isGranted('ROLE_ADMIN', $user))
             $prototypes = $this->entity_manager->getRepository(PictoPrototype::class)->findAll();
@@ -1489,7 +1491,17 @@ class AdminUserController extends AdminActionController
             }
 
             $picto->setCount($picto->getCount() + $number);
-            if ($picto->getCount() > 0) $this->entity_manager->persist($picto);
+            if ($picto->getCount() > 0) {
+                $this->entity_manager->persist($picto);
+                if (!empty($text)) {
+
+                    $comment = ($picto->getId() !== null ? $this->entity_manager->getRepository(PictoComment::class)->findOneBy(['picto' => $picto]) : null)
+                        ?? (new PictoComment())->setPicto( $picto )->setOwner( $user )->setDisplay( true );
+
+                    $comment->setText( $text );
+                    $this->entity_manager->persist($comment);
+                }
+            }
             else $this->entity_manager->remove($picto);
         }
 

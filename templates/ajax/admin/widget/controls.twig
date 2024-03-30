@@ -108,17 +108,39 @@
         </div>
         <div class="row">
             <div class="padded cell rw-12">
+                <label for="{{ _self.gen_id(prefix,'pictowidget','text')}}">{{'Zusätzliche Beschreibung:'|trans({}, 'admin')}}</label>
+            </div>
+            <div class="padded cell rw-12">
+                <input type="text" id="{{ _self.gen_id(prefix,'pictowidget','text')}}" value=""/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="padded cell rw-12">
                 <button id="{{ _self.gen_id(prefix,'pictowidget','give')}}">{{'Vergeben!'|trans({}, 'admin')}}</button>
             </div>
         </div>
     </div>
 {% endmacro %}
-{% macro widget_picto_creator_js(api_url, load_url, prefix = '') %}
+{% macro widget_picto_creator_js(selector, api_url, load_url, prefix = '') %}
 <script>
     $.html.addEventListenerAll('#{{ _self.gen_id(prefix,'pictowidget','give')}}', 'click', function(){
         const number = parseInt(document.getElementById("{{ _self.gen_id(prefix,'pictowidget','number')}}").value);
+
+        let targets = [];
+        {% if selector %}
+            document.querySelectorAll('{{ selector|e('js') }}').forEach( element => targets.push(parseInt(element.getAttribute('x-id'))) );
+            if (targets.length === 0) {
+                $.html.error('{{ 'Kein Bürger ausgewählt!'|trans({}, 'admin') }}');
+                return;
+            }
+        {% endif %}
+
         $.ajax.easySend('{{ api_url }}',
-            {prototype: parseInt(document.getElementById('{{ _self.gen_id(prefix,'pictowidget','select')}}').value), number: isNaN(number) ? 1 : number},
+            {
+                prototype: parseInt(document.getElementById('{{ _self.gen_id(prefix,'pictowidget','select')}}').value),
+                number: isNaN(number) ? 1 : number, to: targets,
+                text: document.getElementById("{{ _self.gen_id(prefix,'pictowidget','text')}}").value
+            },
             () => $.ajax.load(null, '{{ load_url }}', true)
         );
     });

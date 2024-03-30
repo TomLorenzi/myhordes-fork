@@ -87,10 +87,17 @@ class DistinctionController extends CustomAbstractCoreController
             default => []
         };
 
+        $comments = match ($source) {
+            'imported', 'old'   => [],
+            'soul', 'mh', 'all' => $pictoService->accumulateAllPictoComments( $user ),
+            default => []
+        };
+
         $picto_db = array_column( array_map(fn(PictoRollupInterface $p) => [
             'id' => $p->getPrototype()->getId(),
             'label' => $this->translator->trans( $p->getPrototype()->getLabel(), [], 'game' ),
             'description' => $this->translator->trans( $p->getPrototype()->getDescription(), [], 'game' ),
+            'comments' => $comments[$p->getPrototype()->getId()] ?? [],
             'icon' => $assets->getUrl( "build/images/pictos/{$p->getPrototype()->getIcon()}.gif" ),
             'rare' => $p->getPrototype()->getRare(),
             'count' => $p->getCount()

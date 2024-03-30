@@ -4,6 +4,8 @@ namespace App\Service\User;
 
 use App\Entity\Award;
 use App\Entity\AwardPrototype;
+use App\Entity\Picto;
+use App\Entity\PictoComment;
 use App\Entity\PictoPrototype;
 use App\Entity\PictoRollup;
 use App\Entity\Season;
@@ -13,6 +15,7 @@ use App\Interfaces\Entity\PictoRollupInterface;
 use App\Service\CrowService;
 use App\Structures\Entity\PictoRollupStructure;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Query\Expr\Join;
 use Psr\Container\ContainerInterface;
 use Symfony\Contracts\Cache\TagAwareCacheInterface;
 use Symfony\Contracts\Service\ServiceSubscriberInterface;
@@ -310,6 +313,29 @@ class PictoService implements ServiceSubscriberInterface
                 $this->gameCachePool->invalidateTags(["user-{$user->getId()}-emote-unlocks"]);
         } catch (\Throwable $t) {}
 
+    }
+
+    /**
+     * Returns all stored picto comments grouped by picto prototype
+     * @param User $user
+     * @return array
+     */
+    public function accumulateAllPictoComments(User $user): array {
+        $data = $this->getService(EntityManagerInterface::class)
+            ->getRepository(PictoComment::class)->createQueryBuilder('c')
+            ->select('c.text as text', 'IDENTITY(p.prototype) as proto')
+            ->innerJoin( Picto::class, 'p', Join::WITH, 'c.picto = p.id AND p.disabled = false AND p.persisted = 2 AND p.user = :user' )
+            ->andWhere('c.owner = :user')->setParameter('user', $user)
+            ->andWhere('c.display = true')
+            ->getQuery()->getArrayResult();
+
+        $result = [];
+        foreach ($data as ['text' => $text, 'proto' => $proto_id]) {
+            if (!array_key_exists($proto_id, $result)) $result[$proto_id] = [];
+            $result[$proto_id][] = $text;
+        }
+
+        return $result;
     }
 
 }
