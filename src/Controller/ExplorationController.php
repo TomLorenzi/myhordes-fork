@@ -128,11 +128,12 @@ class ExplorationController extends InventoryAwareController implements HookedIn
                     : $this->entity_manager->getRepository(RuinZone::class)->findOneBy(['zone' => $ruinZone->getZone(), 'z' => $ex->getZ(), 'connect' => -1])
                 : null;
 
+        $in_grace = $ex->isGrace() && $ex->getStarted() !== null && (new DateTime())->modify('-30sec') < $ex->getStarted();
+
         return $this->render( 'ajax/game/beyond/ruin.html.twig', $this->addDefaultTwigArgs(null, [
             'prototype' => $citizen->getZone()->getPrototype(),
             'exploration' => $ex,
             'zone' => $ruinZone,
-            // 'floor' => $ex->getInRoom() ? $ruinZone->getRoomFloor() : $ruinZone->getFloor(),
             'floorItems' => $floorItems,
             'heroics' => $this->getHeroicActions(),
             'actions' => $this->getItemActions(),
@@ -144,7 +145,9 @@ class ExplorationController extends InventoryAwareController implements HookedIn
             'shifted' => $ex->getInRoom(),
             'scavenge' => !$ex->getScavengedRooms()->contains($ruinZone),
             'can_imprint' => $citizen->getProfession()->getName() === 'tech',
+
             'ruin_map_data' => [
+                'paused' => $in_grace,
                 'show_exit_direction' => $exitZone ? [$exitZone->getX() - $ruinZone->getX(), $exitZone->getY() - $ruinZone->getY()] : null,
                 'name' => $this->generateRuinName($citizen->getZone()),
                 'timeout' => max(0, $ex->getTimeout()->getTimestamp() - time()),
@@ -229,6 +232,14 @@ class ExplorationController extends InventoryAwareController implements HookedIn
             ($dy == -1 && !$ruinZone->hasCorridor( RuinZone::CORRIDOR_S ))
         ) return AjaxResponse::error( BeyondController::ErrorNotReachableFromHere );
 
+
+        if ($ex->isGrace()) {
+            $ex->setGrace(false);
+            if ($ex->getStarted() !== null) {
+                $offset = max(0, min(30, time() - $ex->getStarted()->getTimestamp()));
+                $ex->setTimeout( (new DateTime())->setTimestamp( $ex->getTimeout()->getTimestamp() - ( 30 - $offset ) ) );
+            }
+        }
 
         $ex
             ->setX( $ex->getX() + $dx )

@@ -86,7 +86,11 @@
             <div class="name">{{ map.name|trans({},'names') }}</div>
             <div class="timer">
                 {{ 'Sauerstoff'|trans({},'game') }}:<br />
-                <div class="ox"><span x-countdown-interval="250" x-countdown-handler="handle" x-countdown="{{ map.timeout }}" x-on-expire="reload">{{ (map.timeout/3)|round(0,'floor') }}</span></div></div>
+                {% if map.paused %}
+                    <div class="nox"><span>{{ 'Tief durchatmen!'|trans({},'game') }}</span></div></div>
+                {% else %}
+                    <div class="ox"><span x-countdown-interval="250" x-countdown-handler="handle" x-countdown="{{ map.timeout }}" x-on-expire="reload">{{ (map.timeout/3)|round(0,'floor') }}</span></div></div>
+                {% endif %}
             <div class="scanner-fx"></div>
             <div class="frame"></div>
             <div class="scanner"></div>

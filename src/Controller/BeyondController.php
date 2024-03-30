@@ -809,12 +809,12 @@ class BeyondController extends InventoryAwareController
         $this->picto_handler->give_picto($citizen, 'r_ruine_#00', 1);
         $this->citizen_handler->setAP( $citizen, true, -1 );
 
-        $citizen->addExplorerStat((new RuinExplorerStats())->setActive(true)->setTimeout( (new DateTime())->add(DateInterval::createFromDateString(
+        $citizen->addExplorerStat((new RuinExplorerStats())->setActive(true)->setGrace(true)->setStarted(new DateTime())->setTimeout( (new DateTime())->add(DateInterval::createFromDateString(
             $this->getTownConf()->get($citizen->getProfession()->getName() === 'collec'
                                           ? TownSetting::TimingExplorationCollector
                                           : TownSetting::TimingExplorationDefault
             )
-        ) )));
+        ) )->modify('+30sec')));
         $this->entity_manager->persist($citizen);
         try {
             $this->entity_manager->flush();
