@@ -20,6 +20,7 @@ use App\EventListener\ContainerTypeTrait;
 use App\Messages\WebPush\WebPushMessage;
 use App\Service\Actions\User\UserPictoRollupAction;
 use App\Service\CrowService;
+use App\Service\User\PictoService;
 use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
@@ -41,7 +42,7 @@ final class RankingEventListener implements ServiceSubscriberInterface
         return [
             UserPictoRollupAction::class,
             EntityManagerInterface::class,
-            UserHandler::class,
+            PictoService::class,
         ];
     }
 
@@ -59,7 +60,7 @@ final class RankingEventListener implements ServiceSubscriberInterface
 
         $this->getService(EntityManagerInterface::class)->flush();
 
-        $this->getService(UserHandler::class)->computePictoUnlocks($event->user);
+        $this->getService(PictoService::class)->computePictoUnlocks($event->user);
         $this->getService(EntityManagerInterface::class)->flush();
     }
 

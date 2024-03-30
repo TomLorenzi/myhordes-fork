@@ -23,6 +23,7 @@ use App\Service\PictoHandler;
 use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
 use App\Service\TownHandler;
+use App\Service\User\PictoService;
 use App\Service\UserHandler;
 use App\Service\ZoneHandler;
 use Doctrine\ORM\EntityManagerInterface;
@@ -44,6 +45,8 @@ abstract class CoreController extends InventoryAwareController {
     protected UrlGeneratorInterface  $urlGenerator;
     protected array $languages;
 
+    protected $pictoService;
+
     /**
      * @param EntityManagerInterface $em
      * @param InventoryHandler $ih
@@ -64,6 +67,10 @@ abstract class CoreController extends InventoryAwareController {
      * @param GazetteService $gs
      * @param AdminHandler $adminHandler
      * @param UrlGeneratorInterface $urlGenerator
+     * @param DoctrineCacheService $doctrineCache
+     * @param EventProxyService $events
+     * @param HookExecutor $hookExecutor
+     * @param PictoService $pictoService
      */
     public function __construct(EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch,
                                 ActionHandler $ah, TimeKeeperService $tk, DeathHandler $dh,
@@ -71,12 +78,15 @@ abstract class CoreController extends InventoryAwareController {
                                 RandomGenerator $rg, LogTemplateHandler $lh,
                                 ConfMaster $conf, ZoneHandler $zh, UserHandler $uh,
                                 CrowService $armbrust, Packages $a, TownHandler $th, GazetteService $gs,
-                                AdminHandler $adminHandler, UrlGeneratorInterface $urlGenerator, DoctrineCacheService $doctrineCache, EventProxyService $events, HookExecutor $hookExecutor) {
+                                AdminHandler $adminHandler, UrlGeneratorInterface $urlGenerator, DoctrineCacheService $doctrineCache, EventProxyService $events, HookExecutor $hookExecutor,
+                                PictoService $pictoService
+    ) {
         parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust, $th, $a, $doctrineCache, $events, $hookExecutor);
         $this->gazette_service = $gs;
         $this->adminHandler = $adminHandler;
         $this->urlGenerator = $urlGenerator;
         $this->languages = $this->generatedLangsCodes;
+        $this->pictoService = $pictoService;
     }
 
     abstract public function on_error( ExternalAPIError $message, string $language ): Response;

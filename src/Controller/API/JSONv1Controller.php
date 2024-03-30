@@ -15,6 +15,7 @@ use App\Entity\GazetteLogEntry;
 use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
+use App\Entity\PictoRollup;
 use App\Entity\Town;
 use App\Entity\User;
 use App\Entity\Zone;
@@ -1554,37 +1555,42 @@ class JSONv1Controller extends CoreController {
         $data = [];
 
         if(empty($fields)) {
-            $fields = ['id', 'rare', 'number', 'img', 'name', 'desc', 'titles'];
+            $fields = ['id', 'rare', 'number', 'img', 'name', 'desc', 'titles', 'comments'];
         }
 		if ($user === null) $user = $this->user;
 
-        $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
+        $pictos = $this->pictoService->accumulateAllPictos( $user, include_imported: true );
+        $comments = in_array( 'comments', $fields ) ? $this->pictoService->accumulateAllPictoComments( $user ) : [];
+
         foreach ($pictos as $picto) {
             $picto_data = [];
             foreach ($fields as $field) {
                 switch ($field) {
                     case "rare":
-                        $picto_data[$field] = intval($picto['rare']);
+                        $picto_data[$field] = intval($picto->getPrototype()->getRare());
                         break;
                     case "number":
-                        $picto_data[$field] = intval($picto['c']);
+                        $picto_data[$field] = intval($picto->getCount());
                         break;
                     case "id":
-                        $picto_data[$field] = $picto['id'];
+                        $picto_data[$field] = intval($picto->getPrototype()->getId());
                         break;
                     case "img":
-                        $picto_data[$field] = $this->getIconPath($this->asset->getUrl("build/images/pictos/{$picto['icon']}.gif"));
+                        $picto_data[$field] = $this->getIconPath($this->asset->getUrl("build/images/pictos/{$picto->getPrototype()->getIcon()}.gif"));
                         break;
                     case "name":
-                        $picto_data[$field] = $this->getTranslate($picto['label'], 'game');
+                        $picto_data[$field] = $this->getTranslate($picto->getPrototype()->getLabel(), 'game');
                         break;
                     case "desc":
-                        $picto_data[$field] = $this->getTranslate($picto['description'], 'game');
+                        $picto_data[$field] = $this->getTranslate($picto->getPrototype()->getDescription(), 'game');
+                        break;
+                    case "comments":
+                        $picto_data[$field] = $comments[ $picto->getPrototype()->getId() ] ?? [];
                         break;
                     case "titles":
                         $criteria = new Criteria();
-                        $criteria->andWhere($criteria->expr()->lte('unlockQuantity', $picto['c']));
-                        $criteria->andWhere($criteria->expr()->eq('associatedPicto', $this->entity_manager->getRepository(PictoPrototype::class)->find($picto['id'])));
+                        $criteria->andWhere($criteria->expr()->lte('unlockQuantity', $picto->getCount()));
+                        $criteria->andWhere($criteria->expr()->eq('associatedPicto', $picto->getPrototype()));
                         $titles = $this->entity_manager->getRepository(AwardPrototype::class)->matching($criteria);
                         $titles_data = [];
                         /** @var AwardPrototype $title */

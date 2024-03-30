@@ -9,6 +9,7 @@ export type DistinctionPicto = {
     id: number,
     label: string,
     description: string,
+    comments: string[],
     icon: string,
     rare: boolean,
     count: number

@@ -936,7 +936,7 @@
         {{ item_creator_js('[x-id][x-target="bank"]', path('admin_spawn_item', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "bank"}), 'bnk') }}
         {{ item_creator_js('[x-id][x-target="zone"]', path('admin_spawn_item', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "dash"}), 'zone') }}
         {{ teleport_control_js('input[x-id][x-target="status"]:checked', path('admin_teleport_citizen', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
-        {{ picto_creator_js(path('admin_town_give_picto', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
+        {{ picto_creator_js('input[x-id][x-target="status"]:checked', path('admin_town_give_picto', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
         {{ status_control_js('input[x-id][x-target="status"]:checked', path('admin_town_manage_status', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
         {{ role_control_js('input[x-id][x-target="status"]:checked', path('admin_town_manage_role', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
         {{ point_control_js('input[x-id][x-target="status"]:checked', path('admin_town_alter_pp', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}

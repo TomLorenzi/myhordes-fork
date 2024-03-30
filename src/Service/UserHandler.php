@@ -25,6 +25,7 @@ use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
 use App\Entity\UserSwapPivot;
 use App\Enum\DomainBlacklistType;
+use App\Interfaces\Entity\PictoRollupInterface;
 use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\User\UserCapabilityService;
 use App\Structures\MyHordesConf;
@@ -47,15 +48,13 @@ class UserHandler
     const ErrorAvatarTooManyFrames = ErrorHelper::BaseAvatarErrors + 8;
 
     public function __construct(
-        private EntityManagerInterface $entity_manager,
-        private ContainerInterface $container,
-        private CrowService $crow,
-        private ConfMaster $conf,
-        private DoctrineCacheService $doctrineCache,
-        private TagAwareCacheInterface $gameCachePool,
-        private InvalidateTagsInAllPoolsAction $clearCache,
-        private UserCapabilityService $capability,
-        private EventProxyService $proxy
+        private readonly EntityManagerInterface $entity_manager,
+        private readonly ContainerInterface $container,
+        private readonly ConfMaster $conf,
+        private readonly DoctrineCacheService $doctrineCache,
+        private readonly InvalidateTagsInAllPoolsAction $clearCache,
+        private readonly UserCapabilityService $capability,
+        private readonly EventProxyService $proxy,
     )
     { }
 
@@ -82,232 +81,6 @@ class UserHandler
                 $c->getImportLang() === $p_soul;
             }
         ), fn(int $carry, CitizenRankingProxy $next) => $carry + ($next->getPoints() ?? 0), 0 );
-    }
-
-    public function getPoints(User $user, ?bool $imported = null, ?bool $old = false){
-        $sp = $imported === null ? $user->getAllSoulPoints() : ( $imported ? $user->getImportedSoulPoints() : $user->getSoulPoints() );
-        if ($old) $sp = 0;
-        $pictos = $old
-            ? $this->entity_manager->getRepository(Picto::class)->findOldByUser($user)
-            : $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user, $imported);
-        $points = 0;
-
-        if($sp >= 100)  $points += 13;
-        if($sp >= 500)  $points += 33;
-        if($sp >= 1000) $points += 66;
-        if($sp >= 2000) $points += 132;
-        if($sp >= 3000) $points += 198;
-
-        foreach ($pictos as $picto) {
-            switch($picto["name"]){
-                case "r_heroac_#00": case "r_explor_#00":
-                    if ($picto["c"] >= 15)
-                        $points += 3.5;
-                    if ($picto["c"] >= 30)
-                        $points += 6.5;
-                    break;
-                case "r_cookr_#00": case "r_cmplst_#00": case "r_camp_#00":case "r_drgmkr_#00": case "r_jtamer_#00":
-                case "r_jrangr_#00": case "r_jguard_#00": case "r_jermit_#00": case "r_jtech_#00": case "r_jcolle_#00":
-                    if ($picto["c"] >= 10)
-                        $points += 3.5;
-                    if ($picto["c"] >= 25)
-                        $points += 6.5;
-                    break;
-                case "r_animal_#00": case "r_plundr_#00":
-                    if ($picto["c"] >= 30)
-                        $points += 3.5;
-                    if ($picto["c"] >= 60)
-                        $points += 6.5;
-                    break;
-                case "r_chstxl_#00": case "r_ruine_#00":
-                    if ($picto["c"] >= 5)
-                        $points += 3.5;
-                    if ($picto["c"] >= 10)
-                        $points += 6.5;
-                    break;
-                case "r_buildr_#00":
-                    if ($picto["c"] >= 100)
-                        $points += 3.5;
-                    if ($picto["c"] >= 200)
-                        $points += 6.5;
-                    break;
-                case "r_nodrug_#00":
-                    if ($picto["c"] >= 20)
-                        $points += 3.5;
-                    if ($picto["c"] >= 75)
-                        $points += 6.5;
-                    break;
-                case "r_ebuild_#00":
-                    if ($picto["c"] >= 1)
-                        $points += 3.5;
-                    if ($picto["c"] >= 3)
-                        $points += 6.5;
-                    break;
-                case "r_digger_#00":
-                    if ($picto["c"] >= 50)
-                        $points += 3.5;
-                    if ($picto["c"] >= 300)
-                        $points += 6.5;
-                    break;
-                case "r_deco_#00":
-                    if ($picto["c"] >= 100)
-                        $points += 3.5;
-                    if ($picto["c"] >= 250)
-                        $points += 6.5;
-                    break;
-                case "r_explo2_#00":
-                    if ($picto["c"] >= 5)
-                        $points += 3.5;
-                    if ($picto["c"] >= 15)
-                        $points += 6.5;
-                    break;
-                case "r_guide_#00":
-                    if ($picto["c"] >= 300)
-                        $points += 3.5;
-                    if ($picto["c"] >= 1000)
-                        $points += 6.5;
-                    break;
-                case "r_theft_#00":
-                    if ($picto["c"] >= 10)
-                        $points += 3.5;
-                    if ($picto["c"] >= 30)
-                        $points += 6.5;
-                    break;
-                case "r_maso_#00": case "r_guard_#00":
-                    if ($picto["c"] >= 20)
-                        $points += 3.5;
-                    if ($picto["c"] >= 40)
-                        $points += 6.5;
-                    break;
-                case "r_surlst_#00":
-                    if ($picto["c"] >= 10)
-                        $points += 3.5;
-                    if ($picto["c"] >= 15)
-                        $points += 6.5;
-                    if ($picto["c"] >= 30)
-                        $points += 10;
-                    if ($picto["c"] >= 50)
-                        $points += 13;
-                    if ($picto["c"] >= 100)
-                        $points += 16.5;
-                    break;
-                case "r_suhard_#00":
-                    if ($picto["c"] >= 5)
-                        $points += 3.5;
-                    if ($picto["c"] >= 10)
-                        $points += 6.5;
-                    if ($picto["c"] >= 20)
-                        $points += 10;
-                    if ($picto["c"] >= 40)
-                        $points += 13;
-                    break;
-                case "r_doutsd_#00":
-                    if($picto["c"] >= 20)
-                        $points += 3.5;
-                    break;
-                case "r_door_#00":
-                    if($picto["c"] >= 1)
-                        $points += 3.5;
-                    if($picto["c"] >= 5)
-                        $points += 6.5;
-                    break;
-                case "r_wondrs_#00":
-                    if($picto["c"] >= 20)
-                        $points += 3.5;
-                    if($picto["c"] >= 50)
-                        $points += 6.5;
-                    break;
-                case "r_rp_#00":
-                    if($picto["c"] >= 5)
-                        $points += 3.5;
-                    if($picto["c"] >= 10)
-                        $points += 6.5;
-                    if($picto["c"] >= 20)
-                        $points += 10;
-                    if($picto["c"] >= 30)
-                        $points += 13;
-                    if($picto["c"] >= 40)
-                        $points += 16.5;
-                    if($picto["c"] >= 60)
-                        $points += 20;
-                    break;
-                case "r_winbas_#00":
-                    if($picto["c"] >= 2)
-                        $points += 13;
-                    if($picto["c"] >= 5)
-                        $points += 20;
-                    break;
-                case "r_wintop_#00":
-                    if($picto["c"] >= 1)
-                        $points += 20;
-                    break;
-                case "r_killz_#00":
-                    if($picto["c"] >= 100)
-                        $points += 3.5;
-                    if($picto["c"] >= 200)
-                        $points += 6.5;
-                    if($picto["c"] >= 300)
-                        $points += 10;
-                    if($picto["c"] >= 800)
-                        $points += 13;
-                    break;
-                case "r_cannib_#00":
-                    if ($picto["c"] >= 10)
-                        $points += 3.5;
-                    if ($picto["c"] >= 40)
-                        $points += 6.5;
-                    break;
-            }
-        }
-
-        return $points;
-    }
-
-    public function computePictoUnlocks(User $user): void {
-
-        $cache = [];
-
-        $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
-        foreach ($pictos as $picto)
-            $cache[$picto['id']] = $picto['c'];
-
-        $skip_proto = [];
-        $remove_awards = [];
-        $award_awards = [];
-
-        /** @var Award $award */
-        foreach ($user->getAwards() as $award) {
-            if ($award->getPrototype()) $skip_proto[] = $award->getPrototype();
-            if ($award->getPrototype() && $award->getPrototype()->getAssociatedPicto() &&
-                (!isset($cache[$award->getPrototype()->getAssociatedPicto()->getId()]) || $cache[$award->getPrototype()->getAssociatedPicto()->getId()] < $award->getPrototype()->getUnlockQuantity())
-            )
-                $remove_awards[] = $award;
-        }
-
-        foreach ($this->entity_manager->getRepository(AwardPrototype::class)->findAll() as $prototype)
-            if (!in_array($prototype,$skip_proto) &&
-                (isset($cache[$prototype->getAssociatedPicto()->getId()]) && $cache[$prototype->getAssociatedPicto()->getId()] >= $prototype->getUnlockQuantity())
-            ) {
-                $user->addAward($award = (new Award())->setPrototype($prototype));
-                $this->entity_manager->persist($award_awards[] = $award);
-            }
-
-        if (!empty($award_awards))
-            $this->entity_manager->persist($this->crow->createPM_titleUnlock($user, $award_awards));
-
-
-        foreach ($remove_awards as $r) {
-            if ($user->getActiveIcon() === $r) $user->setActiveIcon(null);
-            if ($user->getActiveTitle() === $r) $user->setActiveTitle(null);
-            $user->removeAward($r);
-            $this->entity_manager->remove($r);
-        }
-
-        try {
-            if (!empty($award_awards) || !empty($remove_awards))
-                $this->gameCachePool->invalidateTags(["user-{$user->getId()}-emote-unlocks"]);
-        } catch (\Throwable $t) {}
-
     }
 
     public function hasSkill(User $user, $skill){

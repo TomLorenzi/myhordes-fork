@@ -34,6 +34,7 @@ use App\Entity\Item;
 use App\Entity\ItemCategory;
 use App\Entity\ItemPrototype;
 use App\Entity\Picto;
+use App\Entity\PictoComment;
 use App\Entity\PictoPrototype;
 use App\Entity\RuinExplorerStats;
 use App\Entity\SpecialActionPrototype;
@@ -1946,6 +1947,7 @@ class AdminTownController extends AdminActionController
         $prototype_id = $parser->get('prototype');
         $number = $parser->get('number', 1);
         $to = $parser->get_array( 'to' );
+        $text = $parser->trimmed( 'text' );
 
         /** @var PictoPrototype $pictoPrototype */
         $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->find($prototype_id);
@@ -1968,6 +1970,15 @@ class AdminTownController extends AdminActionController
             }
 
             $picto->setCount($picto->getCount() + $number)->setDisabled(false)->setManual(true);
+
+            if (!empty($text)) {
+
+                $comment = ($picto->getId() !== null ? $this->entity_manager->getRepository(PictoComment::class)->findOneBy(['picto' => $picto]) : null)
+                    ?? (new PictoComment())->setPicto( $picto )->setOwner( $citizen->getUser() )->setDisplay( true );
+
+                $comment->setText( $text );
+                $this->entity_manager->persist($comment);
+            }
 
             $this->entity_manager->persist($citizen->getUser());
             $this->entity_manager->persist($picto);

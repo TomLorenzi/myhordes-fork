@@ -36,6 +36,7 @@ use App\Event\Common\Social\ContentReportEvents\PostContentReportEvent;
 use App\Event\Common\Social\ContentReportEvents\PrivateMessageContentReportEvent;
 use App\Event\Common\Social\ContentReportEvents\UserContentReportEvent;
 use App\Event\Common\Social\FriendEvent;
+use App\Event\Common\User\PictoPersistedEvent;
 use App\Event\Game\Actions\CustomActionProcessorEvent;
 use App\Event\Game\Citizen\CitizenPostDeathEvent;
 use App\Event\Game\Citizen\CitizenQueryDigChancesEvent;
@@ -66,7 +67,6 @@ use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use App\Event\Common\User\PictoPersistedEvent;
 
 class EventProxyService
 {

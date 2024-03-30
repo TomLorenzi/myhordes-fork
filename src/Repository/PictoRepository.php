@@ -105,54 +105,6 @@ class PictoRepository extends ServiceEntityRepository
         return $query->getQuery()->getResult();
     }
 
-    /**
-     * @param User $user
-     * @return Picto[]
-     */
-    public function findNotPendingByUser(User $user, ?bool $imported = null): array
-    {
-        $qb = $this->createQueryBuilder('i')
-            ->select('SUM(i.count) as c', 'pp.id', 'pp.rare', 'pp.icon', 'pp.label', 'pp.description', 'pp.name')
-            ->andWhere('i.user = :val')->setParameter('val', $user)
-            ->andWhere('i.persisted = 2')
-            ->andWhere('i.disabled = false')
-            ->andWhere('i.old = false')
-            ->orderBy('pp.rare', 'DESC')
-            ->addOrderBy('c', 'DESC')
-            ->addOrderBy('pp.id', 'DESC')
-            ->leftJoin('i.prototype', 'pp')
-            ->groupBy("i.prototype");
-
-        if ($imported !== null)
-            $qb->andWhere('i.imported = :imported')->setParameter('imported', $imported);
-
-        return $qb
-            ->getQuery()->getResult();
-    }
-
-    /**
-     * @param User $user
-     * @return Picto[]
-     */
-    public function findOldByUser(User $user): array
-    {
-        $qb = $this->createQueryBuilder('i')
-            ->select('SUM(i.count) as c', 'pp.id', 'pp.rare', 'pp.icon', 'pp.label', 'pp.description', 'pp.name')
-            ->andWhere('i.user = :val')->setParameter('val', $user)
-            ->andWhere('i.persisted = 2')
-            ->andWhere('i.disabled = false')
-            ->andWhere('i.old = true')
-            ->andWhere('i.imported = false')
-            ->orderBy('pp.rare', 'DESC')
-            ->addOrderBy('pp.priority', 'DESC')
-            ->addOrderBy('c', 'DESC')
-            ->addOrderBy('pp.id', 'DESC')
-            ->leftJoin('i.prototype', 'pp')
-            ->groupBy("i.prototype");
-
-        return $qb
-            ->getQuery()->getResult();
-    }
 
     /**
      * @param User $user
