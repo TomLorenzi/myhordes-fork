@@ -124,12 +124,15 @@ class CustomAbstractController extends CustomAbstractCoreController {
         $current_events = $town ? $this->conf->getCurrentEvents($town) : $this->conf->getCurrentEvents();
 
         $event_css = null;
-        foreach ($current_events as $current_event) {
-            if ($current_event->active() && ($css = $current_event->get(EventConf::EVENT_CSS, null))) {
-                $event_css = $current_event->get(EventConf::EVENT_CSS, $css);
-                break;
+        $event_mod_css = [];
+        foreach ($current_events as $current_event)
+            if ($current_event->active()) {
+                if ($event_css === null && $css = $current_event->get(EventConf::EVENT_CSS, null))
+                    $event_css = $current_event->get(EventConf::EVENT_CSS, $css);
+
+                if ($css = $current_event->get(EventConf::EVENT_MOD_CSS, null))
+                    $event_mod_css[] = $css;
             }
-        }
 
         $nightMode = $town && $this->conf->getTownConfiguration($this->getUser()->getActiveCitizen()->getTown())->isNightMode(ignoreNightModeConfig: true);
 
@@ -137,6 +140,7 @@ class CustomAbstractController extends CustomAbstractCoreController {
             'theme' => [
                 'themeContainer' => 1,
                 'themeName' => $event_css ?? 'none',
+                'themeMods' => implode( ' ', $event_mod_css ),
                 'themeDaytime' => $nightMode ? 'night' : 'day',
                 'themePrimaryModifier' => $town?->getType()?->getName() ?? ' none',
                 'themeSecondaryModifier' => match (true) {
