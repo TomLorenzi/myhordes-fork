@@ -130,10 +130,6 @@
                     $.html.error('{{ 'Dein Name kann höchstens {limit} Zeichen umfassen.'|trans({limit: '22'},'login')|e('js') }}');
                     return;
                 }
-                if (form.citizenalias && form.citizenalias.match(/[^\w]/)) {
-                    $.html.error('{{ 'Dein Name kann nur alphanumerische Zeichen enthalten.'|trans({},'login')|e('js') }}');
-                    return;
-                }
             {% endif %}
             $.ajax.easySend( '{{ path('api_jobcenter') }}', form,
                     function () {
