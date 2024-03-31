@@ -20,6 +20,7 @@ parameters:
       conf:
         name: '1. April'
         priority: 11
+        mod-css: 'a1'
         dispatch:
           night_before: 'App\Event\Game\EventHooks\Common\AutoDoorEvent'
           door: 'App\Event\Game\EventHooks\April\DoorResponseEvent'

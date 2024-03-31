@@ -113,3 +113,39 @@ body[data-theme-name="halloween"] {
 body[data-theme-name="contamination"] {
    #wrapper>#header { background: url(../../img/background/header_contamination_de.png) !important; }
 }
+
+body[data-theme-mods~="a1"] {
+  .forum-posts .forum-post-variant-crow .header-variant-crow {
+
+      div.avatarcrow {
+        img { display: none; }
+        &:before {
+          content: " "; height: 30px; width: 90px; display: block;
+        }
+
+      }
+
+      span.username {font-size: 0}
+      span.username:before {font-size: 16px;}
+
+      html.lang-base-de & {
+        div.avatarcrow:before { background: url("../../img/forum/crow/dove.de.gif"); }
+        span.username:before { content: "Die Taube" }
+      }
+
+      html.lang-base-en & {
+        div.avatarcrow:before { background: url("../../img/forum/crow/dove.en.gif"); }
+        span.username:before { content: "The Dove" }
+      }
+
+      html.lang-base-es & {
+        div.avatarcrow:before { background: url("../../img/forum/crow/dove.es.gif"); }
+        span.username:before { content: "La Paloma" }
+      }
+
+      html.lang-base-fr & {
+        div.avatarcrow:before { background: url("../../img/forum/crow/dove.fr.gif"); }
+        span.username:before { content: "La Colombe" }
+      }
+  }
+}

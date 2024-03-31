@@ -15,6 +15,7 @@ class EventConf extends Conf
     const EVENT_PRIORITY = 'priority';
 
     const EVENT_CSS = 'css';
+    const EVENT_MOD_CSS = 'mod-css';
     const EVENT_MUTATE_NAME = 'mutate_names';
     const EVENT_MODS_ENABLED = 'mods.enable';
 
