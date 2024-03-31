@@ -43,7 +43,7 @@
 
     <h5>{{ 'Vorhandene Bauprojekte'|trans({},'game') }}</h5>
     {% if canvote %}
-        <div class="hero-help">{{'Du kannst den Bürgern der Stadt die Errichtung eines bestimmten Gebäudes empfehlen. Bewege dafür den Mauszeiger über das Bauprojekt, das du empfehlen willst und klicke auf den Link <strong>Abstimmen</strong>, der darüber erscheint.'|trans({}, 'game')|raw}}</div>
+        <div class="hero-help">{{'Du kannst den Bürgern der Stadt die Errichtung eines bestimmten Gebäudes empfehlen. Klicke dafür auf den Namen des Bauprojektes, das du empfehlen willst.'|trans({}, 'game')|raw}}</div>
     {% endif %}
 
     {% if not voted_building is null %}
@@ -91,7 +91,14 @@
                     {% else %}
                         <img alt="" class="building_icon" src="{{ asset('build/images/icons/lock.gif' ) }}" >
                     {% endif %}
-                    <span class="building_name {% if has_vote %}vote_hide{% endif %}">{{ building.prototype.label|trans({},'buildings') }}</span>
+                    <span {{ {'building_name': true, 'vote_hide': has_vote, 'action-vote': has_vote}|classes }} x-building-id="{{ building.id }}">
+                        {{ building.prototype.label|trans({},'buildings') }}
+                        {% if has_vote %}
+                            <div class="tooltip">
+                                {{ 'Klicke hier, um deinen Mitbürgern die Errichtung dieses Bauwerks zu empfehlen.'|trans({},'game') }}
+                            </div>
+                        {% endif %}
+                    </span>
                     {% if building.prototype.temp %}
                         <span>
                             <img alt="(!)" src="{{ asset('build/images/icons/small_warning.gif') }}" />
@@ -102,7 +109,7 @@
                         </span>
                     {% endif %}
                     {% if has_vote %}
-                        <span class="vote" x-building-id="{{ building.id }}">[ <span class="link">{{'Abstimmen'|trans({}, 'game')}}</span> ]</span>
+                        <span class="vote action-vote" x-building-id="{{ building.id }}">[ <span class="link">{{'Abstimmen'|trans({}, 'game')}}</span> ]</span>
                     {% endif %}
                     {% if (building.complete and building.defense > 0) or (not building.complete and building.prototype.defense > 0) %}
                         <div class="defense{% if building.complete and building.defense != building.prototype.defense %}-broken{% endif %}">
@@ -340,7 +347,7 @@
             } );
         }
 
-        let voteButtons = document.querySelectorAll('.vote[x-building-id]');
+        let voteButtons = document.querySelectorAll('.action-vote[x-building-id]');
         for(let i = 0 ; i < voteButtons.length ; i++) {
             voteButtons[i].addEventListener('click', function(){ send_vote_request(this.getAttribute('x-building-id')); });
         }
