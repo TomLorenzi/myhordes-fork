@@ -436,7 +436,7 @@ class UserHandler
      * @param string $name The username to test
      * @return bool The validity of the username
      */
-    public function isNameValid(string $name, ?bool &$too_long = null, $custom_length = 16): bool {
+    public function isNameValid(string $name, ?bool &$too_long = null, int $custom_length = 16, bool $disable_preg = false): bool {
         $invalidNames = [
             // The Crow
             'Der Rabe', 'Rabe', 'Le Corbeau', 'Corbeau', 'The Crow', 'Crow', 'El Cuervo', 'Cuervo',
@@ -462,7 +462,7 @@ class UserHandler
         $levenshtein_max = mb_strlen( $closestDistance[1] ) <= 5 ? 1 : 2;
 
         $too_long = mb_strlen($name) > $custom_length;
-        return !preg_match('/[^\p{L}\w]/u', $name) && mb_strlen($name) >= 3 && !$too_long && $closestDistance[0] > $levenshtein_max;
+        return ($disable_preg || !preg_match('/[^\p{L}\w]/u', $name)) && mb_strlen($name) >= 3 && !$too_long && $closestDistance[0] > $levenshtein_max;
     }
 
     public function getMaximumEntryHidden(User $user): int {
