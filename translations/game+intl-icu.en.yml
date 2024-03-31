@@ -2550,7 +2550,7 @@ Terraformingspezialist_f: Terraformingspezialistin
 'Meister der Nutzlosigkeit_f': 'Meisterin der Nutzlosigkeit'
 'Vereister Ingenieur_f': 'Vereiste Ingenieurin'
 'Wundervoll nutzlos_f': 'Wonderfully futile'
-'Der Bruce Lee des Spachtels_f': 'Der Bruce Lee des Spachtels'
+'Der Bruce Lee des Spachtels_f': 'Cynthia Rothrock of the trowel'
 'Es ist Zeit für Kathedralen_f': 'The time for cathedrals has come'
 'Hast du nichts besseres zu tun?_f': 'Don''t you have better things to do?'
 'Hohepriesterin des Sonnentempels_f': 'High Priestess of the Sun Temple'
@@ -2718,7 +2718,7 @@ Menschenfleischliebhaber_f: Menschenfleischliebhaberin
 Hannibalfan_f: Dr Death's Dietician
 Totmacher_f: Totmacherin
 'Jeffrey Dahmer_f': 'Lunches like Anna'
-'Fast schon ein Zombie..._f': 'Fast schon ein Zombie...'
+'Fast schon ein Zombie..._f': 'Wannabe Zombie...'
 "Schmeckt am besten wenn's noch schreit!_f": "It's better when they scream."
 'Die Macht der Proteine_f': 'Full of protein.'
 'Nackt und Zerfleischt_f': 'Holocaust cannibals'
@@ -2938,5 +2938,5 @@ Sandkasten-Scharfschütze_f: Sandstorm Sniper
 'Bei {citizens} Bürgern in der Stadt': 'With {citizens} citizens in the city'
 'Du bist erschöpft!': 'You are exhausted!'
 'Du hast dich gestern so sehr verausgabt, dass du in der Nacht nicht genug Kraft schöpfen konntest, um deine Aktionspunkte vollständig zu regenerieren.': 'You exhausted yourself so much yesterday by hanging a garland that you couldn''t gain enough strength during the night to fully regenerate your action points.'
-'Das Stadttor kann während eines Lockdowns nicht geöffnet werden!': 'Das Stadttor kann während eines Lockdowns nicht geöffnet werden!'
+'Das Stadttor kann während eines Lockdowns nicht geöffnet werden!': 'It is impossible to open the town gates during a quarantine period!'
 'Du benötigst mindestens {sp} Seelenpunkte, um Anzeigen gegen andere Bürger erstatten zu können': 'You need at least {sp} soul points to be able to send a complain against other citizens.'
