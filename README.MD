@@ -21,7 +21,7 @@ here. This code is published with a delay of one year and can be found
 * zip
 * unzip
 * imagemagick
-* php (>=8.2)
+* php (>=8.3)
 * php-xml
 * php-intl
 * php-zip

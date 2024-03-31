@@ -4,11 +4,10 @@
     "name": "etwin/myhordes",
     "description": "",
     "require": {
-        "php": ">=8.2",
+        "php": ">=8.3",
         "ext-ctype": "*",
         "ext-curl": "*",
         "ext-dom": "*",
-        "ext-ftp": "*",
         "ext-iconv": "*",
         "ext-intl": "*",
         "ext-json": "*",
@@ -101,7 +100,8 @@
         "ext-imagick": "*",
         "ext-pthreads": "*",
         "ext-ssh2": "*",
-        "ext-apcu": "*"
+        "ext-apcu": "*",
+        "ext-ftp": "*"
     },
     "repositories": [
       {
