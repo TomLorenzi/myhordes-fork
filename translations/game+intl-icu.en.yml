@@ -1839,7 +1839,7 @@ Reiseleiter-Ratgeber: the guide to the game for Guides to the World Beyond
 'Das ist die bestmögliche Schätzung, die wir für diesen Angriff abgeben konnten.': 'This is the best estimation we can make of this attack.'
 '<span>{citizen} hat einen Zombie mit seinen bloßen Händen niedergestreckt!</span>': '<span>{citizen} went toe to toe with a zombie and managed to finish him!</span>'
 '{citizen} hat versucht einen Zombie niederzustrecken und ist dabei fast draufgegangen...': '{citizen} managed to get punched square in the crotch by attacking a zombie with their bare hands...'
-'<span>Wir kontrollieren die Zone ab sofort.</span>': '<span>We control the zone from now on.</span>'
+'<span>Wir kontrollieren die Zone ab sofort.</span>': '<span>The zone is now under control.</span>'
 'Du hast dir folgenden Gegenstand unter den Nagel gerissen: {item}. Dein kleiner Hausbesuch bei † {victim} ist allerdings aufgeflogen...<hr /><strong>Dieser Gegenstand wurde in deiner Truhe abgelegt.</strong>': 'You got the {item}. Nonetheless, your little visit to † {victim}''s house didn''t go unnoticed...<hr />This object has been placed <strong>in your chest</strong>.'
 'als Gruppe': 'on a group expedition'
 'Du kannst in den Foren um Hilfe bitten!': 'You can ask for help on the forums!'
