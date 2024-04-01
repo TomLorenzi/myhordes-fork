@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.2",
+  "openapi": "3.1.0",
   "info": {
     "title": "MyHordes External API",
     "description": "This documentation describes the MyHordes external API. There are two APIs available to use - JSON and XML. Although it's possible to mix them, this is not recommended.",
@@ -7,7 +7,7 @@
       "name": "AGPL3",
       "url": "https://spdx.org/licenses/AGPL-3.0-or-later.html"
     },
-    "version": "1.0.0.63"
+    "version": "2.1.0"
   },
   "servers": [
     {
@@ -460,6 +460,100 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/JSONGameObject"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {"secret_key":[]},
+          {"user_key":[]}
+        ]
+      }
+    },
+    "/json/townlist": {
+      "get": {
+        "tags": [
+          "JSON API"
+        ],
+        "summary": "Get a list of town IDs for a specific season. NOTE: This endpoint is NOT AVAILABLE when using demo keys.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "season",
+            "description": "Season. Defaults to current season. Use 'a' to select the MyHordes alpha Season and 'b' to select the MyHordes beta season, otherwise enter a season number.",
+            "schema": {
+              "oneOf": [
+                { "type": "integer" },
+                { "type": "string" }
+              ]
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "language",
+            "description": "Optional town language filter.",
+            "schema": {
+              "type": "string",
+              "enum": ["de","fr","es","en","multi"]
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "towns": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {"secret_key":[]},
+          {"user_key":[]}
+        ]
+      }
+    },
+    "/json/towns": {
+      "get": {
+        "tags": [
+          "JSON API"
+        ],
+        "summary": "Information about multiple towns at once. NOTE: This endpoint is NOT AVAILABLE when using demo keys.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "ids",
+            "description": "Comma-separated list of town IDs (max 50).",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {"$ref": "#/components/parameters/JSONParameterFields"},
+          {"$ref": "#/components/parameters/JSONParameterLanguage"}
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/JSONTownObject" }
                 }
               }
             }
@@ -2458,6 +2552,119 @@
                 "description": "Cleanup type ID",
                 "example": 1
               }
+            }
+          }
+        }
+      },
+      "JSONNestedMapObject": {
+        "description": "A MyHordes game",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Numeric user ID",
+            "example": 1
+          },
+          "twinId": {
+            "type": "integer",
+            "description": "Twinoid ID if user has a connected Twinoid Account.",
+            "example": 250
+          },
+          "etwinId": {
+            "type": "string",
+            "description": "Eternal Twin ID if user has a connected ET Account.",
+            "example": ""
+          },
+          "survival": {
+            "type": "integer",
+            "description": "Number of survived days.",
+            "example": 1
+          },
+          "avatar": {
+            "type": "string",
+            "description": "User avatar path",
+            "example": ""
+          },
+          "name": {
+            "type": "string",
+            "description": "User name",
+            "example": "Brainbox"
+          },
+          "dtype": {
+            "type": "integer",
+            "description": "Death type ID",
+            "example": 1
+          },
+          "score": {
+            "type": "integer",
+            "description": "Soul points earned for this town.",
+            "example": 1
+          },
+          "msg": {
+            "type": "string",
+            "description": "Citizen's last words.",
+            "example": 1
+          },
+          "comment": {
+            "type": "string",
+            "description": "Citizen's town comment.",
+            "example": 1
+          }
+        }
+      },
+      "JSONTownObject": {
+        "description": "A MyHordes ranking entry",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Numeric town ID",
+            "example": 1
+          },
+          "mapId": {
+            "type": "integer",
+            "description": "Numeric map ID",
+            "example": 1
+          },
+          "day": {
+            "type": "integer",
+            "description": "Number of survived days for the town.",
+            "example": 1
+          },
+          "mapName": {
+            "type": "string",
+            "description": "Map name",
+            "example": "A Town"
+          },
+          "language": {
+            "type": "string",
+            "description": "Map language",
+            "example": "de"
+          },
+          "season": {
+            "type": "integer",
+            "description": "Season",
+            "example": 15
+          },
+          "phase": {
+            "type": "string",
+            "description": "Server phase (alpha, beta, import or native)",
+            "example": "beta"
+          },
+          "v1": {
+            "type": "integer",
+            "description": "Is always zero (exists for backwards compatibility)",
+            "example": 0
+          },
+          "score": {
+            "type": "integer",
+            "description": "Town score",
+            "example": 1
+          },
+          "citizens": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JSONNestedMapObject"
             }
           }
         }
