@@ -134,30 +134,7 @@
 <script>
     (function() {
         document.getElementById('header-reload-area').addEventListener('click', function() { window.location.href = $.ajax.getBaseURL(); })
-        window.c = {
-            'errors': {
-                'default': '{% trans from 'global' %}Allgemeiner Fehler.{% endtrans %}',
-                {{ include('scripts/errors/generic.txt.twig') }}
-                {{ include('scripts/errors/profile.txt.twig') }}
-                {{ include('scripts/errors/town.txt.twig') }}
-                {{ include('scripts/errors/beyond.txt.twig') }}
-                {{ include('scripts/errors/inventory.txt.twig') }}
-                {{ include('scripts/errors/actions.txt.twig') }}
-                {{ include('scripts/errors/forum.txt.twig') }}
-                {{ include('scripts/errors/ghost.txt.twig') }}
-                {{ include('scripts/errors/messages.txt.twig') }}
-            },
-            'modules': {{ include('scripts/modules.json.twig') }},
-            'langs': {
-                {% for lang in langs %}
-                '{{ lang['code'] }}': '{{ lang["label"] |trans({},'global') }}',
-                {% endfor %}
-            },
-            'label': {
-                'confirm': '{{ 'Bestätigen'|trans({},'global') }}'
-            },
-            'taptut': '{{ 'Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.'|trans({},'global')|e('js') }}'
-        };
+        {{ include('partials/window_c.js.twig') }}
 
         $.html.setInitParams({
             userPopupEndpoint: '{{ path('soul_tooltip') }}',
