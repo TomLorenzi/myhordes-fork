@@ -145,6 +145,7 @@ class JSONv1Controller extends CoreController {
                 return $parsed;
             } elseif ($surll_item[0] === ".") {
                 $last_surll_item = array_pop($parsed);
+                if ($last_surll_item === null) continue;
                 if (is_string($last_surll_item)) {
                     $name = $last_surll_item;
                     $last_surll_item = [];
@@ -1531,16 +1532,16 @@ class JSONv1Controller extends CoreController {
                                 break;
                             case "job":
                                 $user_data[$fieldName] =
-                                    $this->getJobData($current_citizen, (!empty($fieldValues['fields'])) ? $fieldValues['fields'] : []);
+                                    $this->getJobData($current_citizen, $fieldValues['fields'] ?? []);
                                 break;
                         }
                     }
                     switch($fieldName){
                         case "playedMaps":
-                            $user_data[$fieldName] = $this->getPlayedMapData($user, $fieldValues['fields']);
+                            $user_data[$fieldName] = $this->getPlayedMapData($user, $fieldValues['fields'] ?? [] );
                             break;
                         case "rewards":
-                            $user_data[$fieldName] = $this->getRewardsData($user, $fieldValues['fields']);
+                            $user_data[$fieldName] = $this->getRewardsData($user, $fieldValues['fields'] ?? []);
                             break;
                     }
                 }
@@ -1657,16 +1658,16 @@ class JSONv1Controller extends CoreController {
                     foreach ($field as $fieldName => $fieldValues)
                         switch ($fieldName) {
                             case "details":
-                                $data_zone[$fieldName] = $this->getDetailsData($zone, $zoneOfUser, $buildUpgradedMap, $fieldValues['fields']);
+                                $data_zone[$fieldName] = $this->getDetailsData($zone, $zoneOfUser, $buildUpgradedMap, $fieldValues['fields'] ?? []);
                                 break;
                             case "items":
                                 if ($zoneOfUser && !$this->town->getChaos()) {
-                                    $data_zone[$fieldName] = $this->getArrayItem($zone->getFloor()->getItems(), $fieldValues['fields']);
+                                    $data_zone[$fieldName] = $this->getArrayItem($zone->getFloor()->getItems(), $fieldValues['fields'] ?? []);
                                 }
                                 break;
                             case "building":
                                 if ($zone->getPrototype() != null) {
-                                    $data_zone[$fieldName] = $this->getBuildingData($zone, $zoneOfUser, $fieldValues['fields']);
+                                    $data_zone[$fieldName] = $this->getBuildingData($zone, $zoneOfUser, $fieldValues['fields'] ?? []);
                                 }
                                 break;
                         }
