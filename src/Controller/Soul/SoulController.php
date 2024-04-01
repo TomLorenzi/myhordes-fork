@@ -68,6 +68,7 @@ use DateTimeImmutable;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -892,7 +893,10 @@ class SoulController extends CustomAbstractController
      * @return Response
      */
     #[Route(path: 'jx/soul/{sid}/town/{idtown}/{return_path}', name: 'soul_view_town')]
-    public function soul_view_town(int $idtown, string $sid = 'me', string $return_path = "soul_me"): Response
+    public function soul_view_town(
+        #[MapEntity(id: 'idtown')]
+        TownRankingProxy $town,
+        string $sid = 'me', string $return_path = "soul_me"): Response
     {
         $user = $this->getUser();
 
@@ -907,7 +911,7 @@ class SoulController extends CustomAbstractController
 
         $id = $sid === 'me' ? -1 : (int)$sid;
         if ($id === $user->getId())
-            return $this->redirect($this->generateUrl( 'soul_view_town', ['idtown' => $idtown] ));
+            return $this->redirect($this->generateUrl( 'soul_view_town', ['idtown' => $town->getId()] ));
 
         /** @var CitizenRankingProxy $nextDeath */
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
@@ -915,10 +919,6 @@ class SoulController extends CustomAbstractController
 
         $target_user = $this->entity_manager->getRepository(User::class)->find($id);
         if($target_user === null && $id !== -1)  return $this->redirect($this->generateUrl('soul_me'));
-
-        $town = $this->entity_manager->getRepository(TownRankingProxy::class)->find($idtown);
-        if($town === null)
-            return $target_user === null ? $this->redirect($this->generateUrl('soul_me')) : $this->redirect($this->generateUrl('soul_visit', ['id' => $id]));
 
         if ($target_user === null) $target_user = $user;
 
@@ -932,7 +932,7 @@ class SoulController extends CustomAbstractController
             'town' => $town,
             'last_user_standing' => $picto !== null ? $picto->getUser() : null,
             'return_path' => $return_path,
-            'self_path' => $this->generateUrl('soul_view_town', ['sid' => $sid, 'idtown' => $idtown, 'return_path' => $return_path])
+            'self_path' => $this->generateUrl('soul_view_town', ['sid' => $sid, 'idtown' => $town->getId(), 'return_path' => $return_path])
         )));
     }
 
