@@ -534,7 +534,7 @@ Heldentaten: Heroic Actions
 Alkohol: Alcohol
 'Anzahl der Liter selbstgebrannten Alkohols, den du gesoffen hast.': 'The number of litres of home-made alcoholic substances you have consumed.'
 Hausverbesserung: Home Improvements
-'Anzahl der Verbesserungen und Ausbauten, die du an deinem eigenem Haus vorgenommen hast.': 'Number of DIY projects successfully completed around the house.'
+'Anzahl der Verbesserungen und Ausbauten, die du an deinem eigenem Haus vorgenommen hast.': 'Number of upgrades you have made to your place (improvements).'
 Handwerk: Craftsman
 'Anzahl der Gegenstände, die du in der Werkstatt zusammengebaut oder zerstört hast.': 'The number of objects you have assembled or dismantled at the workshop.'
 Leichenwäscher: Sprinkler
@@ -653,7 +653,7 @@ Batteriewerferfabrikant: Battery Launcher Builder
 'Überlebende der Hölle!': 'Survivor of Hell!'
 'Sie sind ein wahrer Überlebenskünstler der Hölle.': 'You are a true survivor of hell.'
 Hausarbeiten: Homemaker
-'Anzahl der Ausbauten, die du an deinem Haus vorgenommen hast.': 'Number of upgrades you have made to your place (improvements).'
+'Anzahl der Ausbauten, die du an deinem Haus vorgenommen hast.': 'Number of DIY projects successfully completed around the house.'
 Kettensägen: Chainsaws
 'Anzahl an Kettensägen, die du gebaut hast.': 'The number of chainsaws you have built.'
 Stadtwächter: Watchman
@@ -1838,7 +1838,7 @@ Reiseleiter-Ratgeber: the guide to the game for Guides to the World Beyond
 'Das ist die bestmögliche Schätzung, die wir für diesen Angriff abgeben konnten.': 'This is the best estimation we can make of this attack.'
 '<span>{citizen} hat einen Zombie mit seinen bloßen Händen niedergestreckt!</span>': '<span>{citizen} went toe to toe with a zombie and managed to finish him!</span>'
 '{citizen} hat versucht einen Zombie niederzustrecken und ist dabei fast draufgegangen...': '{citizen} managed to get punched square in the crotch by attacking a zombie with their bare hands...'
-'<span>Wir kontrollieren die Zone ab sofort.</span>': '<span>We control the zone from now on.</span>'
+'<span>Wir kontrollieren die Zone ab sofort.</span>': '<span>The zone is now under control.</span>'
 'Du hast dir folgenden Gegenstand unter den Nagel gerissen: {item}. Dein kleiner Hausbesuch bei † {victim} ist allerdings aufgeflogen...<hr /><strong>Dieser Gegenstand wurde in deiner Truhe abgelegt.</strong>': 'You got the {item}. Nonetheless, your little visit to † {victim}''s house didn''t go unnoticed...<hr />This object has been placed <strong>in your chest</strong>.'
 'als Gruppe': 'on a group expedition'
 'Du kannst in den Foren um Hilfe bitten!': 'You can ask for help on the forums!'
@@ -2471,7 +2471,7 @@ Wüstenstadt-Dealer_f: Local Dealer
 'Aussergewöhnlicher Bürger_f': 'Extraordinary citizen'
 Wunder_f: Prodigy
 'Werdender Superheld_f': 'Superheroine in training'
-Volksheld_f: Volksheldin
+Volksheld_f: Heroine of the people
 Neo_f: I'm Batman
 'Erlöser der Menschheit_f': 'Saviour of Citizenkind'
 Außenweltlegende_f: Legend of the World Beyond
@@ -2492,10 +2492,10 @@ Schaumschläger_f: Schaumschlägerin
 Dieb_f: Diebin
 Fantomas_f: Rusty Ryan
 'Ali Baba_f': 'Danny Ocean'
-Meisterdieb_f: Meisterdiebin
+Meisterdieb_f: Multipass
 Kleptomane_f: Kleptomanin
 'Dein Haus ist mein Haus_f': 'Your home is my home'
-Ästhet_f: Ästhetin
+Ästhet_f: Coquette
 Schaufenstergestalter_f: Schaufenstergestalterin
 Innenarchitekt_f: Innenarchitektin
 Möbelgourmet_f: Marquee Master
@@ -2537,7 +2537,7 @@ Terraformingspezialist_f: Terraformingspezialistin
 'Allmächtiger Schöpfer_f': 'Allmächtige Schöpferin'
 'Archi-Mädlicher Illustrator von Pi_f': 'Archi-Mädliche Illustratorin von Pi'
 "Muad'Dib_f": "Three rivers dam... That's adorable."
-'Am 7. Tag erschuf er den Fleischkäfig_f': 'Am 7. Tag erschuf sie den Fleischkäfig'
+'Am 7. Tag erschuf er den Fleischkäfig_f': 'And on the 7th day, she did not rest!'
 'Bauherr ohne Sinn und Verstand_f': 'Bauherrin ohne Sinn und Verstand'
 'Erbauer der verlorenen Zeit_f': 'Erbauerin der verlorenen Zeit'
 'Erleuchteter Baumeister_f': 'Erleuchteter Baumeisterin'
@@ -2937,10 +2937,14 @@ Sandkasten-Scharfschütze_f: Sandstorm Sniper
 'Bei {citizens} Bürgern in der Stadt': 'With {citizens} citizens in the city'
 'Du bist erschöpft!': 'You are exhausted!'
 'Du hast dich gestern so sehr verausgabt, dass du in der Nacht nicht genug Kraft schöpfen konntest, um deine Aktionspunkte vollständig zu regenerieren.': 'You exhausted yourself so much yesterday by hanging a garland that you couldn''t gain enough strength during the night to fully regenerate your action points.'
-'Das Stadttor kann während eines Lockdowns nicht geöffnet werden!': 'Das Stadttor kann während eines Lockdowns nicht geöffnet werden!'
+'Das Stadttor kann während eines Lockdowns nicht geöffnet werden!': 'It is impossible to open the town gates during a quarantine period!'
+'Du benötigst mindestens {sp} Seelenpunkte, um Anzeigen gegen andere Bürger erstatten zu können': 'You need at least {sp} soul points to be able to send a complain against other citizens.'
 '{player} hat deine Freundschaftserklärung erwidert.': '{player} has returned your declaration of friendship.'
 'Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen. Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.': 'This allows you to add a random citizen''s name to your post. If necessary, you can narrow down the selection to specific professions, heroes or citizens who have already died.'
 'Zufälliges Koalitionsmitglied': 'Random coalition member'
 'Hiermit kannst du den Namen eines zufälligen Mitglieds deiner Koalition in deinen Post anfügen.': 'Allows you to add the name of a random member of your coalition to your post.'
 '{player} ist der Stadt "{town}" beigetreten. Dort ist noch Platz für dich, du könntest ihm also folgen...': '{ref__gender, select, female {{player} ist der Stadt "{town}" beigetreten. Dort ist noch Platz für dich, du könntest ihr also folgen...} other {{player} ist der Stadt "{town}" beigetreten. Dort ist noch Platz für dich, du könntest ihm also folgen...} }'
 '{player} sind der Stadt "{town}" beigetreten. Dort ist noch Platz für dich, du könntest ihnen also folgen...': '{player} have joined the city "{town}". There''s still room for you there, so you could follow them...'
+'Tief durchatmen!': 'Take a breath!'
+'Du kannst den Bürgern der Stadt die Errichtung eines bestimmten Gebäudes empfehlen. Klicke dafür auf den Namen des Bauprojektes, das du empfehlen willst.': 'You can recommend the construction of a specific site to the citizens of the city. To do this, click on the name of the construction site you want to recommend.'
+'Klicke hier, um deinen Mitbürgern die Errichtung dieses Bauwerks zu empfehlen.': 'Click here to recommend the construction of this project to your fellow citizens.'

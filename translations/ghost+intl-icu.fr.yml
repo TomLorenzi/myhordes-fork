@@ -347,3 +347,6 @@ Seelenpunkte: Points d'âme
 'Du erhälst Zugang zum Stadtforum, wirst jedoch nicht verkörpert.': 'Vous avez accès au forum de la ville, mais votre identité n''est pas cachée.'
 'Forenzugang (Gilde)': 'Accès au forum (Guilde)'
 'Du und alle Mitglieder der Animateursgilde erhalten Zugang zum Stadtforum': 'Vous et tous les membres de la Guilde de l''Animaction avez accès au forum de la ville.'
+Roulette: Roulette
+'Spieler erhalten ein Drittel der Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben, in voller Höhe. Die restlichen Auszeichnungen werden entfernt. Welche Auszeichnungstypen entfernt werden ist zufällig.': 'Les joueurs recevront 1/3 des distinctions non rares gagnées dans la ville. Les distinctions restantes seront supprimées. Les distinctions restantes supprimées sont aléatoires.'
+'Spieler erhalten alle Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben. Die Höhe aller Auszeichnungen wird gedrittelt.': 'Les joueurs recevront toutes les distinctions non rares qu''ils ont gagnées dans la ville mais avec 1/3 de leur montant.'

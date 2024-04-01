@@ -347,3 +347,6 @@ Seelenpunkte: Soul points
 'Du erhälst Zugang zum Stadtforum, wirst jedoch nicht verkörpert.': 'You have access to the city forum, but your identity is not hidden.'
 'Forenzugang (Gilde)': 'Access to forum (Guild)'
 'Du und alle Mitglieder der Animateursgilde erhalten Zugang zum Stadtforum': 'You and all members of the Animaction Guild have access to the city forum.'
+Roulette: Roulette
+'Spieler erhalten ein Drittel der Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben, in voller Höhe. Die restlichen Auszeichnungen werden entfernt. Welche Auszeichnungstypen entfernt werden ist zufällig.': 'Players will receive 1/3 of non-rare distinctions earned in the city. The remaining distinctions will be removed. The remaining distinctions removed are random.'
+'Spieler erhalten alle Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben. Die Höhe aller Auszeichnungen wird gedrittelt.': 'Players will receive all non-rare distinctions they earned in the city but with 1/3 of their amount.'

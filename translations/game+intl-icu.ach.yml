@@ -967,7 +967,7 @@ Bürgermeister: crwdns191363:0crwdne191363:0
 Architekt: crwdns191375:0crwdne191375:0
 'Du beginnst jede Stadt mit einem Gebäudeplan.': 'crwdns191381:0crwdne191381:0'
 Profiwächter: crwdns191387:0crwdne191387:0
-'Du hast permanent um 5% bessere Chancen auf der Nachtwache.': 'crwdns191391:0crwdne191391:0'
+'Du hast permanent um 5% bessere Chancen auf der Nachtwache.': 'crwdns205036:0crwdne205036:0'
 'Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.': 'crwdns191397:0crwdne191397:0'
 'Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst {item}!': 'crwdns191403:0{item}crwdne191403:0'
 'Mithilfe des {item} hast du die Tür aufgeschlossen!': 'crwdns191409:0{item}crwdne191409:0'
@@ -2938,9 +2938,13 @@ Sandkasten-Scharfschütze_f: crwdns204544:0crwdne204544:0
 'Du bist erschöpft!': 'crwdns204556:0crwdne204556:0'
 'Du hast dich gestern so sehr verausgabt, dass du in der Nacht nicht genug Kraft schöpfen konntest, um deine Aktionspunkte vollständig zu regenerieren.': 'crwdns204558:0crwdne204558:0'
 'Das Stadttor kann während eines Lockdowns nicht geöffnet werden!': 'crwdns204820:0crwdne204820:0'
+'Du benötigst mindestens {sp} Seelenpunkte, um Anzeigen gegen andere Bürger erstatten zu können': 'crwdns205040:0{sp}crwdne205040:0'
 '{player} hat deine Freundschaftserklärung erwidert.': 'crwdns204560:0{player}crwdne204560:0'
 'Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen. Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.': 'crwdns204562:0crwdne204562:0'
 'Zufälliges Koalitionsmitglied': 'crwdns204564:0crwdne204564:0'
 'Hiermit kannst du den Namen eines zufälligen Mitglieds deiner Koalition in deinen Post anfügen.': 'crwdns204566:0crwdne204566:0'
 '{player} ist der Stadt "{town}" beigetreten. Dort ist noch Platz für dich, du könntest ihm also folgen...': 'crwdns204936:0ref__gender={ref__gender}crwdnd204936:0player={player}crwdnd204936:0town={town}crwdnd204936:0player={player}crwdnd204936:0town={town}crwdne204936:0'
 '{player} sind der Stadt "{town}" beigetreten. Dort ist noch Platz für dich, du könntest ihnen also folgen...': 'crwdns204938:0{player}crwdnd204938:0{town}crwdne204938:0'
+'Tief durchatmen!': 'crwdns205048:0crwdne205048:0'
+'Du kannst den Bürgern der Stadt die Errichtung eines bestimmten Gebäudes empfehlen. Klicke dafür auf den Namen des Bauprojektes, das du empfehlen willst.': 'crwdns205050:0crwdne205050:0'
+'Klicke hier, um deinen Mitbürgern die Errichtung dieses Bauwerks zu empfehlen.': 'crwdns205052:0crwdne205052:0'

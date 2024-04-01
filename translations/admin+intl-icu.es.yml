@@ -637,11 +637,12 @@ Beginn: Inicio
 'Sperre aktivieren': 'Activar bloqueo'
 'Stadttor reparieren': 'Reparar el Portal del pueblo'
 'Zerstöre das Stadttor': 'Destruir el Portal del pueblo'
-'Verläufige Ergebnisse anzeigen ab': 'Verläufige Ergebnisse anzeigen ab'
-'Mehrere Antworten möglich (Multiple Choice)': 'Mehrere Antworten möglich (Multiple Choice)'
-'Raben-Account anlegen': 'Raben-Account anlegen'
-'Zugehöriger User (optional)': 'Zugehöriger User (optional)'
-'Zugehörige Rabennester': 'Zugehörige Rabennester'
-Raben: Raben
-Fehlerberichte: Fehlerberichte
-'Verfassen von Fehlerberichten für Gitlab verbieten': 'Verfassen von Fehlerberichten für Gitlab verbieten'
+'Verläufige Ergebnisse anzeigen ab': 'Mostrar resultados actuales'
+'Mehrere Antworten möglich (Multiple Choice)': 'Varias respuestas posibles (opción múltiple)'
+'Raben-Account anlegen': 'Crear una cuenta Cuervo'
+'Zugehöriger User (optional)': 'Usuario asociado (opcional)'
+'Zugehörige Rabennester': 'Nido de cuervos asociado'
+Raben: Cuervo
+Fehlerberichte: Informes de errores
+'Verfassen von Fehlerberichten für Gitlab verbieten': 'No permitir la escritura de informes de errores para Gitlab'
+'Zusätzliche Beschreibung:': 'Descripción adicional:'

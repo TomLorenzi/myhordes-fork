@@ -347,3 +347,6 @@ Seelenpunkte: crwdns204910:0crwdne204910:0
 'Du erhälst Zugang zum Stadtforum, wirst jedoch nicht verkörpert.': 'crwdns204920:0crwdne204920:0'
 'Forenzugang (Gilde)': 'crwdns204922:0crwdne204922:0'
 'Du und alle Mitglieder der Animateursgilde erhalten Zugang zum Stadtforum': 'crwdns204924:0crwdne204924:0'
+Roulette: crwdns205042:0crwdne205042:0
+'Spieler erhalten ein Drittel der Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben, in voller Höhe. Die restlichen Auszeichnungen werden entfernt. Welche Auszeichnungstypen entfernt werden ist zufällig.': 'crwdns205044:0crwdne205044:0'
+'Spieler erhalten alle Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben. Die Höhe aller Auszeichnungen wird gedrittelt.': 'crwdns205046:0crwdne205046:0'
