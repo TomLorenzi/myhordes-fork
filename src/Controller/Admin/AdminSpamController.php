@@ -84,25 +84,21 @@ class AdminSpamController extends AdminActionController
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         $body = $parser->get('list', '');
-        $separator = "\r\n";
-        $line = strtok($body, $separator);
+        $lines = array_unique( explode( "\r\n", $body ) );
 
         $repo = $this->entity_manager->getRepository(AntiSpamDomains::class);
 
-        while ($line !== false) {
-
+        foreach ($lines as $line) {
             if (empty($line)) continue;
             if ($line[0] === '@' || $line[0] === '.') $line = substr($line, 1);
 
-            if (!$repo->findOneBy(['domain' => DomainBlacklistType::EmailDomain->convert( $line ), 'type' => DomainBlacklistType::EmailDomain]))
+            $this_entry = DomainBlacklistType::EmailDomain->convert( $line );
+            if (!$repo->findOneBy(['domain' => $this_entry, 'type' => DomainBlacklistType::EmailDomain]))
                 $this->entity_manager->persist(
                     (new AntiSpamDomains())
-                        ->setDomain( DomainBlacklistType::EmailDomain->convert( $line ))
-                        ->setType( DomainBlacklistType::EmailDomain )
+                        ->setDomain($this_entry)
+                        ->setType(DomainBlacklistType::EmailDomain)
                 );
-
-
-            $line = strtok( $separator );
         }
 
         $this->entity_manager->flush();
