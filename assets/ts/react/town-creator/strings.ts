@@ -107,6 +107,16 @@ export type TranslationStrings = {
         map_ruins: string,
         map_e_ruins: string,
 
+        explorable: string,
+        explorable_timing: string,
+        explorable_timing_presets: {value: string, label: string}[],
+        explorable_presets: {value: string, label: string}[],
+        explorable_floors: string,
+        explorable_rooms: string,
+        explorable_min_rooms: string,
+        explorable_space_x: string,
+        explorable_space_y: string,
+
         position: string,
         position_presets: {value: string, label: string}[],
 

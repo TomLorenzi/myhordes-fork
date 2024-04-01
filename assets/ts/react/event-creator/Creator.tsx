@@ -17,12 +17,14 @@ type EventCreatorEditGlobals = {
 
 export const EditorGlobals = React.createContext<EventCreatorEditGlobals>(null);
 
-export const HordesEventCreatorWizard = ( {cancel, uuid, proposed, published, started}: {
+export const HordesEventCreatorWizard = ( {cancel, uuid, proposed, published, started, owning, expedited}: {
     cancel: ()=>void,
     uuid: string,
     proposed?: boolean,
     published?: boolean,
     started?: boolean,
+    owning?: boolean,
+    expedited?: boolean,
 } ) => {
     const globals = useContext(Globals)
 
@@ -33,8 +35,8 @@ export const HordesEventCreatorWizard = ( {cancel, uuid, proposed, published, st
             <h5>{ globals.strings.editor.edit }</h5>
 
             <TabbedSection mountOnlyActive={true}>
-                <Tab title={globals.strings.editor.title} id="ec_town"><HordesEventCreatorModuleMeta uuid={uuid}/></Tab>
-                <Tab title={globals.strings.towns.title} id="ec_meta"><HordesEventCreatorModuleTownPreset uuid={uuid}/></Tab>
+                <Tab title={globals.strings.editor.title} id="ec_town"><HordesEventCreatorModuleMeta uuid={uuid} expedited={expedited}/></Tab>
+                <Tab title={globals.strings.towns.title} id="ec_meta"><HordesEventCreatorModuleTownPreset uuid={uuid} published={published} owning={owning} expedited={expedited} cancel={cancel}/></Tab>
             </TabbedSection>
 
             <hr className="section"/>

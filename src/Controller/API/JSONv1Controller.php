@@ -15,7 +15,10 @@ use App\Entity\GazetteLogEntry;
 use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
+use App\Entity\PictoRollup;
+use App\Entity\Season;
 use App\Entity\Town;
+use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
@@ -30,7 +33,7 @@ use Doctrine\Common\Collections\Criteria;
 use Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\Generator\UrlGenerator;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
@@ -72,7 +75,7 @@ class JSONv1Controller extends CoreController {
      * @param string $type
      * @return Response
      */
-    #[Route(path: '/api/x/json/{type}', name: 'ext_json', methods: ['GET', 'POST'])]
+    #[Route(path: '/api/x/json/{type}', name: 'ext_json', methods: ['GET', 'POST'], priority: 0)]
     #[ExternalAPI(user: true, app: true, api: ExternalAPIInterface::JSONv1)]
     public function api_json(?User $user, string $type = ''): Response {
 
@@ -108,6 +111,11 @@ class JSONv1Controller extends CoreController {
             case "map":
                 $data = $this->getMapAPI();
                 break;
+
+            case 'townlist':
+                $data = $this->getTownListData();
+                break;
+
             case "admin":
                 if ($this->user->getRightsElevation() <= User::USER_LEVEL_CROW) {
                     break;
@@ -115,7 +123,9 @@ class JSONv1Controller extends CoreController {
 
                 $data = $this->getAdminAPI();
                 break;
-			case 'internalerror':
+
+            case 'internalerror':
+
 			default:
                 $data = [
                     "error"             => "server_error",
@@ -134,6 +144,37 @@ class JSONv1Controller extends CoreController {
         ]);
     }
 
+    #[Route(path: '/api/x/json/townlist', name: 'ext_json_townlist', methods: ['GET', 'POST'], priority: 1)]
+    #[ExternalAPI(user: true, app: true, fefe: false, api: ExternalAPIInterface::JSONv1)]
+    public function api_json_townlist(?User $user): Response {
+        if ($user) $this->user = $user;
+        return $this->json($this->getTownListData());
+    }
+
+    #[Route(path: '/api/x/json/towns', name: 'ext_json_town', methods: ['GET', 'POST'], priority: 1)]
+    #[ExternalAPI(user: true, app: true, fefe: false, api: ExternalAPIInterface::JSONv1)]
+    public function api_json_town(?User $user): Response {
+        if ($user) $this->user = $user;
+
+        $towns = array_unique( array_slice( explode(',', $this->getRequestParam('ids')), 0, 50 ) );
+        $fields = $this->getRequestParam('fields');
+        $langue = $this->getRequestParam('languages');
+
+        if ($fields) {
+            $this->fields = $this->SURLL_preparser($fields);
+        } else {
+            $this->fields = ['id', 'day', 'score'];
+        }
+        if ($langue) {
+            $this->languages = $this->SURLL_preparser($langue);
+        }
+
+        return $this->json( array_map(
+            fn(TownRankingProxy $t) => $this->getRankingInformation($t, $this->fields),
+            $this->entity_manager->getRepository(TownRankingProxy::class)->findBy(['id' => $towns])
+        ));
+    }
+
     private function SURLL_parser(): array {
         $parsed = [];
         while (count($this->SURLLobj) > 0) {
@@ -144,6 +185,7 @@ class JSONv1Controller extends CoreController {
                 return $parsed;
             } elseif ($surll_item[0] === ".") {
                 $last_surll_item = array_pop($parsed);
+                if ($last_surll_item === null) continue;
                 if (is_string($last_surll_item)) {
                     $name = $last_surll_item;
                     $last_surll_item = [];
@@ -275,6 +317,39 @@ class JSONv1Controller extends CoreController {
         }
 
         return $this->getUserData($filters, $fields_user, $type === "me");
+    }
+
+    private function getTownListData(): array {
+        $season_id = $this->getRequestParam('season');
+        $language_id = $this->getRequestParam('language');
+
+        $season = null;
+        if ($season_id === null)
+            $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
+        elseif (is_numeric( $season_id )) {
+            $n = (int)$season_id;
+            $season = $this->entity_manager->getRepository(Season::class)->findOneBy($n >= 15
+                ? ['number' => $n, 'subNumber' => 0]
+                : ['number' => 0, 'subNumber' => $n]
+            );
+        }
+        elseif ( $season_id === 'b' )
+            $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['number' => 0, 'subNumber' => 15]);
+
+        if (!$season && $season_id !== 'a') return ['towns' => []];
+
+        $qb = $this->entity_manager->getRepository(TownRankingProxy::class)->createQueryBuilder('t')
+            ->select('t.id')
+            ->andWhere('t.town IS NULL')
+        ;
+
+        if ($season) $qb->andWhere('t.season = :season')->setParameter('season', $season);
+        else $qb->andWhere('t.season IS NULL');
+
+        if ($language_id)
+            $qb->andWhere('t.language = :language')->setParameter( 'language', $language_id );
+
+        return ['towns' => $qb->getQuery()->getSingleColumnResult()];
     }
 
     private function getAdminAPI(): array {
@@ -1308,8 +1383,6 @@ class JSONv1Controller extends CoreController {
                 continue;
             }
 
-            // This does not work; getCadaversInformation requires a Citizen, not a CitizenRankingProxy
-            // Commenting it out until it is fixed to prevent crashes
             $data_town = $this->getCadaversInformation($pastLife, $fields);
             if(in_array('origin',$fields)){
                 $codeOrigin = '';
@@ -1530,16 +1603,16 @@ class JSONv1Controller extends CoreController {
                                 break;
                             case "job":
                                 $user_data[$fieldName] =
-                                    $this->getJobData($current_citizen, (!empty($fieldValues['fields'])) ? $fieldValues['fields'] : []);
+                                    $this->getJobData($current_citizen, $fieldValues['fields'] ?? []);
                                 break;
                         }
                     }
                     switch($fieldName){
                         case "playedMaps":
-                            $user_data[$fieldName] = $this->getPlayedMapData($user, $fieldValues['fields']);
+                            $user_data[$fieldName] = $this->getPlayedMapData($user, $fieldValues['fields'] ?? [] );
                             break;
                         case "rewards":
-                            $user_data[$fieldName] = $this->getRewardsData($user, $fieldValues['fields']);
+                            $user_data[$fieldName] = $this->getRewardsData($user, $fieldValues['fields'] ?? []);
                             break;
                     }
                 }
@@ -1553,37 +1626,42 @@ class JSONv1Controller extends CoreController {
         $data = [];
 
         if(empty($fields)) {
-            $fields = ['id', 'rare', 'number', 'img', 'name', 'desc', 'titles'];
+            $fields = ['id', 'rare', 'number', 'img', 'name', 'desc', 'titles', 'comments'];
         }
 		if ($user === null) $user = $this->user;
 
-        $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
+        $pictos = $this->pictoService->accumulateAllPictos( $user, include_imported: true );
+        $comments = in_array( 'comments', $fields ) ? $this->pictoService->accumulateAllPictoComments( $user ) : [];
+
         foreach ($pictos as $picto) {
             $picto_data = [];
             foreach ($fields as $field) {
                 switch ($field) {
                     case "rare":
-                        $picto_data[$field] = intval($picto['rare']);
+                        $picto_data[$field] = intval($picto->getPrototype()->getRare());
                         break;
                     case "number":
-                        $picto_data[$field] = intval($picto['c']);
+                        $picto_data[$field] = intval($picto->getCount());
                         break;
                     case "id":
-                        $picto_data[$field] = $picto['id'];
+                        $picto_data[$field] = intval($picto->getPrototype()->getId());
                         break;
                     case "img":
-                        $picto_data[$field] = $this->getIconPath($this->asset->getUrl("build/images/pictos/{$picto['icon']}.gif"));
+                        $picto_data[$field] = $this->getIconPath($this->asset->getUrl("build/images/pictos/{$picto->getPrototype()->getIcon()}.gif"));
                         break;
                     case "name":
-                        $picto_data[$field] = $this->getTranslate($picto['label'], 'game');
+                        $picto_data[$field] = $this->getTranslate($picto->getPrototype()->getLabel(), 'game');
                         break;
                     case "desc":
-                        $picto_data[$field] = $this->getTranslate($picto['description'], 'game');
+                        $picto_data[$field] = $this->getTranslate($picto->getPrototype()->getDescription(), 'game');
+                        break;
+                    case "comments":
+                        $picto_data[$field] = $comments[ $picto->getPrototype()->getId() ] ?? [];
                         break;
                     case "titles":
                         $criteria = new Criteria();
-                        $criteria->andWhere($criteria->expr()->lte('unlockQuantity', $picto['c']));
-                        $criteria->andWhere($criteria->expr()->eq('associatedPicto', $this->entity_manager->getRepository(PictoPrototype::class)->find($picto['id'])));
+                        $criteria->andWhere($criteria->expr()->lte('unlockQuantity', $picto->getCount()));
+                        $criteria->andWhere($criteria->expr()->eq('associatedPicto', $picto->getPrototype()));
                         $titles = $this->entity_manager->getRepository(AwardPrototype::class)->matching($criteria);
                         $titles_data = [];
                         /** @var AwardPrototype $title */
@@ -1651,16 +1729,16 @@ class JSONv1Controller extends CoreController {
                     foreach ($field as $fieldName => $fieldValues)
                         switch ($fieldName) {
                             case "details":
-                                $data_zone[$fieldName] = $this->getDetailsData($zone, $zoneOfUser, $buildUpgradedMap, $fieldValues['fields']);
+                                $data_zone[$fieldName] = $this->getDetailsData($zone, $zoneOfUser, $buildUpgradedMap, $fieldValues['fields'] ?? []);
                                 break;
                             case "items":
                                 if ($zoneOfUser && !$this->town->getChaos()) {
-                                    $data_zone[$fieldName] = $this->getArrayItem($zone->getFloor()->getItems(), $fieldValues['fields']);
+                                    $data_zone[$fieldName] = $this->getArrayItem($zone->getFloor()->getItems(), $fieldValues['fields'] ?? []);
                                 }
                                 break;
                             case "building":
                                 if ($zone->getPrototype() != null) {
-                                    $data_zone[$fieldName] = $this->getBuildingData($zone, $zoneOfUser, $fieldValues['fields']);
+                                    $data_zone[$fieldName] = $this->getBuildingData($zone, $zoneOfUser, $fieldValues['fields'] ?? []);
                                 }
                                 break;
                         }
@@ -1731,6 +1809,62 @@ class JSONv1Controller extends CoreController {
             $data['avatar'] = false;
         }
 
+        return $data;
+    }
+
+    private function getRankingInformation(TownRankingProxy $town, array $fields): array {
+        $data = [];
+
+        foreach ($fields as $field) {
+            if(is_array($field)){
+                foreach ($field as $fieldName => $fieldValues)
+                    switch ($fieldName) {
+                        case "citizens":
+                            $subvalues = array_intersect( $fieldValues['fields'] ?? ['id'], ['id','twinId','etwinId','survival','avatar','name','dtype','score','msg','comment']);
+                            $data[$fieldName] = array_map( fn(CitizenRankingProxy $c) => $this->getCadaversInformation( $c, $subvalues ), $town->getCitizens()->toArray() );
+                            break;
+                    }
+            } else {
+                switch ($field) {
+                    case "id":
+                        $data[$field] = $town->getId();
+                        break;
+                    case "mapId":
+                        $data[$field] = $town->getBaseID() ?? -1;
+                        break;
+                    case "day":
+                        $data[$field] = $town->getDays();
+                        break;
+                    case "mapName":
+                        $data[$field] = $town->getName();
+                        break;
+                    case "language":
+                        $data[$field] = $town->getLanguage() ?? '';
+                        break;
+                    case "season":
+                        $data[$field] = ($town->getSeason()) ?
+                            ($town->getSeason()->getNumber() === 0) ? $town->getSeason()->getSubNumber() :
+                                $town->getSeason()->getNumber() : 0;
+                        break;
+                    case "phase":
+                        if ($town->getSeason() === null)
+                            $data[$field] = 'alpha';
+                        elseif ($town->getSeason()->getNumber() === 0 && $town->getSeason()->getSubNumber() <= 14)
+                            $data[$field] = 'import';
+                        elseif ($town->getSeason()->getNumber() === 0 && $town->getSeason()->getSubNumber() >= 14)
+                            $data[$field] = 'beta';
+                        else
+                            $data[$field] = 'native';
+                        break;
+                    case "v1":
+                        $data[$field] = 0;
+                        break;
+                    case "score":
+                        $data[$field] = $town->getScore();
+                        break;
+                }
+            }
+        }
         return $data;
     }
 

@@ -286,6 +286,18 @@ Löschen: Borrar
 'Eigenartiger Boden': 'Suelo extraño'
 'Der Boden, auf dem die Stadt errichtet wurde, ist mit Chemikalien verseucht. Dies hat Einfluss auf die Qualität des Brunnenwassers und damit auch auf die Landwirtschaft...': 'El suelo sobre el que se construyó el pueblo está contaminado con productos químicos muy potentes. Esto afecta a la calidad del agua del pozo y, por ende, también a la agricultura...'
 'Es können maximal {number} Private Städte gleichzeitig eröffnet werden.': 'No se pueden abrir más de {number} Pueblos Privados al mismo tiempo.'
+'Größe der Begehbaren Ruinen': 'Größe der Begehbaren Ruinen'
+Sauerstoffvorrat: Sauerstoffvorrat
+Umfangreich: Umfangreich
+Exorbitant: Exorbitant
+'Eine Etage': 'Un piso'
+'Zwei Etagen': 'Dos pisos'
+'Drei Etagen': 'Tres pisos'
+Etagen: Pisos
+'Anzahl Räume': 'Número de piezas'
+'Mindestanzahl an Räumen pro Etage': 'Número mínimo de piezas por piso'
+Kartenbreite: Anchura del mapa
+Kartenhöhe: Altura del mapa
 'Abweichende Bedingungen für den automatischen Stadtabbruch': 'Abweichende Bedingungen für den automatischen Stadtabbruch'
 'Abweichende Bedingungen für den Mysteriösen Fremden': 'Abweichende Bedingungen für den Mysteriösen Fremden'
 'Stadttor ist bis zum Start der Stadt verschlossen': 'Stadttor ist bis zum Start der Stadt verschlossen'
@@ -331,3 +343,10 @@ Seelenpunkte: Puntos de alma
 'Abweichende Funktions-Einstellungen': 'Abweichende Funktions-Einstellungen'
 'Abweichende allgemeine Einstellungen': 'Abweichende allgemeine Einstellungen'
 'Die Regeln dieser Stadt weichen von der Norm ab:': 'Die Regeln dieser Stadt weichen von der Norm ab:'
+'Forenzugang (selbst)': 'Acceso al foro (usted mismo)'
+'Du erhälst Zugang zum Stadtforum, wirst jedoch nicht verkörpert.': 'Tienes acceso al foro de la ciudad, pero tu identidad no está oculta.'
+'Forenzugang (Gilde)': 'Acceso al foro (Gremio)'
+'Du und alle Mitglieder der Animateursgilde erhalten Zugang zum Stadtforum': 'Tú y todos los miembros del Animación tenéis acceso al foro de la ciudad.'
+Roulette: Ruleta
+'Spieler erhalten ein Drittel der Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben, in voller Höhe. Die restlichen Auszeichnungen werden entfernt. Welche Auszeichnungstypen entfernt werden ist zufällig.': 'Spieler erhalten ein Drittel der Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben, in voller Höhe. Die restlichen Auszeichnungen werden entfernt. Welche Auszeichnungstypen entfernt werden ist zufällig.'
+'Spieler erhalten alle Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben. Die Höhe aller Auszeichnungen wird gedrittelt.': 'Spieler erhalten alle Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben. Die Höhe aller Auszeichnungen wird gedrittelt.'

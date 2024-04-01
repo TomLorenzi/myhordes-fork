@@ -21,7 +21,7 @@ here. This code is published with a delay of one year and can be found
 * zip
 * unzip
 * imagemagick
-* php (>=8.2)
+* php (>=8.3)
 * php-xml
 * php-intl
 * php-zip
@@ -340,11 +340,13 @@ All config files in there will overwrite default config files without being push
 If you do not run MyHordes within the web root (i.e. you have it running in a folder such as `example.com/myhordes`), you need to create an additional config file in the root directory called `webpack.config.local.js`. The content should look like this:
 ```javascript
 module.exports = {
-    // Relative path to the build folder from the MyHordes root folder
+    // Relative path to the build and service folders from the MyHordes root folder
     output_path: 'public/build/',
+    output_service_path: 'public/service/',
 
-    // URL to the build folder from webroot
+    // URL to the build and service folders from webroot
     public_path: '/myhordes/build/',
+    public_service_path: '/myhordes/service/',
 
     // Optional; should be set to false on dev servers and omitted (or set to true) on
     // production servers.

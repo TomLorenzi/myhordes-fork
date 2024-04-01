@@ -5,6 +5,7 @@ namespace App\Controller\Soul;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
+use App\Entity\PictoRollup;
 use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
@@ -18,7 +19,7 @@ use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\ORM\QueryBuilder;
 use Symfony\Component\Cache\Adapter\FilesystemTagAwareAdapter;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Cache\ItemInterface;
 use Symfony\Contracts\Cache\TagAwareCacheInterface;
 
@@ -197,12 +198,18 @@ class SoulRankingController extends SoulController
 
                 $add_season_filters = function (QueryBuilder $q) use ($currentSeason): QueryBuilder {
                     if ($currentSeason === 'myh')
-                        $q->andWhere('t.imported = false')->andWhere('p.old = false');
+                        $q
+                            ->andWhere('i.total = true')
+                            ->andWhere('NOT (i.imported = false AND i.old = false AND i.season IS NULL)')
+                            ->andWhere('i.old = false');
                     elseif ($currentSeason && is_a($currentSeason, Season::class))
-                        $q->andWhere('t.season = :season')->setParameter('season', $currentSeason);
+                        $q
+                            ->andWhere('i.total = true')
+                            ->andWhere('i.season = :season')->setParameter('season', $currentSeason)
+                            ->andWhere('i.old = false');
                     elseif ($currentSeason === null)
-                        $q->andWhere('p.old = true');
-                    else $q->andWhere('p.old = false');
+                        $q->andWhere('i.old = true')->andWhere('i.imported = false')->andWhere('i.season IS NULL');
+                    else $q->andWhere('i.total = true')->andWhere('i.old = false');
 
                     return $q;
                 };
@@ -210,26 +217,17 @@ class SoulRankingController extends SoulController
                 $data = array_map( fn(PictoPrototype $p) => [
                     'prototype' => $p->getId(),
                     'ranking' => $add_season_filters($this->entity_manager->createQueryBuilder()
-                        ->from(Picto::class, 'p')
-                        ->select('u.id as user', 'SUM(p.count) as count')
-                        ->where('p.prototype = :proto')->setParameter('proto', $p)
-                        ->andWhere('p.persisted = 2')
-                        ->andWhere('p.disabled = false')
-                        ->leftJoin(User::class, 'u', Join::WITH, 'p.user = u.id')
-                        ->leftJoin(TownRankingProxy::class, 't', Join::WITH, 'p.townEntry = t.id')
-                        ->groupBy('p.user')
-                        ->orderBy('count', 'DESC')
+                        ->from(PictoRollup::class, 'i')
+                        ->select('SUM(i.count) as count', 'IDENTITY(i.user) as user')
+                        ->where('i.prototype = :proto')->setParameter('proto', $p)
+                        ->groupBy('user')
+                        ->orderBy('count', 'DESC')->addOrderBy('user', 'ASC')
                         ->setMaxResults(3)
-                    )->getQuery()->getResult(AbstractQuery::HYDRATE_ARRAY)
+                    )->getQuery()->getResult(AbstractQuery::HYDRATE_ARRAY),
                 ], $this->entity_manager->getRepository(PictoPrototype::class)->findBy(
                     ['id' => $this->entity_manager->createQueryBuilder()
-                        ->from(Picto::class, 'p')
-                        ->select('pp.id')
-                        ->groupBy('p.prototype')
-                        ->andWhere('p.persisted = 2')
-                        ->andWhere('p.disabled = false')
-                        ->andWhere('p.count > 0')
-                        ->leftJoin(PictoPrototype::class, 'pp', Join::WITH, 'p.prototype = pp.id')
+                        ->from(PictoRollup::class, 'p')
+                        ->select('IDENTITY(p.prototype) as pp')->distinct()
                         ->getQuery()->getResult(AbstractQuery::HYDRATE_SCALAR_COLUMN)],
                     ['rare' => 'DESC', 'priority' => 'DESC', 'id' => 'ASC']
                 ) );
@@ -244,6 +242,7 @@ class SoulRankingController extends SoulController
             $ranking = Arr::get( $ranking, 'payload', $ranking );
 
         } catch (\Throwable $e) {
+            throw $e;
             $ranking = [];
         }
 

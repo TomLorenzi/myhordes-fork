@@ -125,17 +125,18 @@
     <div class="row">
         <div class="cell rw-12">
             <div class="row">
+                <div class="padded cell rw-12">
+                    {% include('ajax/forum/tabs.html.twig') with {
+                        tab: forum.town and app.user.activeCitizen and app.user.activeCitizen.town == forum.town ? 'fv' : 'fm',
+                        name: forum.localizedTitle(app.locale),
+                        id: forum.id,
+                        has_fv: app.user.activeCitizen and app.user.activeCitizen.town.forum and (at_night is not defined or not at_night)
+                    } only %}
+                </div>
+            </div>
+            <div class="row">
                 <div class="cell padded rw-5 rw-md-12">
                     <div class="forum-control">
-                        <div class="forum-header-bar">
-                            <a href="#" x-ajax-href="{{ url('forum_list') }}">{{ 'Alle Foren'|trans({},'global') }}</a>
-                            <span><img alt=">" src="{{ asset('build/images/icons/small_caret_right.gif') }}" /></span>
-                            {% if forum.worldForumLanguage %}
-                                <img style="height: 15px; width: auto;" alt="forum.worldForumLanguage" src="{{ asset('build/images/lang/' ~ forum.worldForumLanguage ~ '.png') }}" >
-                                <span><img alt=">" src="{{ asset('build/images/icons/small_caret_right.gif') }}" /></span>
-                            {% endif %}
-                            <b><img alt=">" src="{{ asset('build/images/icons/small_rp.gif') }}" /> {{ forum.localizedTitle(app.locale) }}</b>
-                        </div>
                         <div class="forum-button-bar">
                             <div x-ajax-href="{{ url('forum_list') }}" class="forum-button"><img alt="" src="{{ asset('build/images/forum/back.png') }}" /><div class="tooltip forum-tooltip">{{ 'Zurück'|trans({},'global') }}</div></div>
                             {% if select > 0 %}

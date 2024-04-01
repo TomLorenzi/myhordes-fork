@@ -8,6 +8,7 @@ use App\Entity\AccountRestriction;
 use App\Entity\AdminReport;
 use App\Entity\Announcement;
 use App\Entity\AntiSpamDomains;
+use App\Entity\AutomaticEventForecast;
 use App\Entity\Award;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
@@ -49,6 +50,7 @@ use App\Service\ConfMaster;
 use App\Service\CrowService;
 use App\Service\ErrorHelper;
 use App\Service\EternalTwinHandler;
+use App\Service\EventProxyService;
 use App\Service\HookExecutor;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
@@ -62,9 +64,11 @@ use App\Service\InventoryHandler;
 use App\Service\TimeKeeperService;
 use App\Structures\MyHordesConf;
 use DateTime;
+use DateTimeImmutable;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -72,7 +76,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\RateLimiter\RateLimiterFactory;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
@@ -523,35 +527,34 @@ class SoulController extends CustomAbstractController
     #[Route(path: 'jx/soul/events', name: 'soul_events')]
     public function soul_events(): Response
     {
-        $now = new DateTime();
+        $now = new DateTimeImmutable();
+        $cutoff = new DateTimeImmutable('today+400days');
 
-        $schedule =
-            array_filter(
-                array_map( function(string $name) use (&$now) {
-                    $enabled = $this->conf->getEventScheduleByName( $name, $now, $begin, $end, true );
-                    return [ $name, $begin, $end, $enabled ];
-                }, $this->conf->getAllEventNames() ),
-            function( array $event ) use (&$now) {
-                return $this->conf->eventIsPublic( $event[0] ) && ( $event[3] || $event[1] > $now || $event[2] > $now );
-            }
-        );
-
-        usort( $schedule, fn(array $a, array $b) => $a[1] <=> $b[1] );
+        $all_events = $this->entity_manager->getRepository(AutomaticEventForecast::class)->matching(
+            (new Criteria())
+                ->where( Criteria::expr()->gte( 'end', $now ) )
+                ->andWhere( Criteria::expr()->lt( 'start', $cutoff ) )
+                ->orderBy(['start' => Criteria::ASC])
+        )->filter(fn(AutomaticEventForecast $f) => $this->conf->eventIsPublic( $f->getEvent() ));
 
         return $this->render( 'ajax/soul/events.html.twig', $this->addDefaultTwigArgs("soul_future", [
-            'active_events' => array_filter( $schedule, fn($event) =>  $event[3] ),
-            'future_events' => array_filter( $schedule, fn($event) => !$event[3] ),
+            'active_events' => $all_events->filter( fn(AutomaticEventForecast $f) => $f->getStart() <= $now ),
+            'future_events' => $all_events->filter( fn(AutomaticEventForecast $f) => $f->getStart() > $now ),
         ]) );
     }
 
 
     /**
+     * @param JSONRequestParser $parser
      * @param int $id
-     * @param int $answer
+     * @param bool $multi
+     * @param int|null $answer
      * @return Response
+     * @throws Exception
      */
-    #[Route(path: 'api/soul/polls/{id<\d+>}/{answer<\d+>}', name: 'soul_poll_participate')]
-    public function soul_poll_participate(int $id = 0, int $answer = 0): Response
+    #[Route(path: 'api/soul/polls/{id<\d+>}/{answer<\d+>}', name: 'soul_poll_participate_single', defaults: ['multi' => false])]
+    #[Route(path: 'api/soul/polls/{id<\d+>}/multi', name: 'soul_poll_participate_multi', defaults: ['multi' => true])]
+    public function soul_poll_participate(JSONRequestParser $parser, int $id, bool $multi, ?int $answer = null): Response
     {
         $user = $this->getUser();
         $now = new DateTime();
@@ -560,34 +563,39 @@ class SoulController extends CustomAbstractController
         if (!$poll || $poll->getStartDate() > $now || $poll->getEndDate() < $now || $poll->getPoll()->getParticipants()->contains($user))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
-        if ($answer > 0) {
+        if ($poll->isMultipleChoice() !== $multi) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-            $answer = $this->entity_manager->getRepository(ForumPollAnswer::class)->find($answer);
-            if (!$answer || !$poll->getPoll()->getAnswers()->contains($answer))
-                return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+        $answers = $multi ? $parser->get_array('answers') : [$answer];
 
-            $answer->setNum( $answer->getNum() + 1 );
+        foreach ($answers as $selection)
+            if ($selection > 0) {
 
-            $main = 'none';
-            foreach ($user->getTwinoidImports() as $import)
-                if ($import->getMain()) $main = $import->getScope() ?? 'none';
+                $answer = $this->entity_manager->getRepository(ForumPollAnswer::class)->find($selection);
+                if (!$answer || !$poll->getPoll()->getAnswers()->contains($answer))
+                    return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
-            $sp = $user->getAllSoulPoints();
-            $anti_grief =
-                $user->getAllSoulPoints() < $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_SP, 20) ||
-                $this->user_handler->isRestricted( $user, AccountRestriction::RestrictionGameplay ) ||
-                $this->isGranted( 'ROLE_DUMMY' );
+                $answer->setNum( $answer->getNum() + 1 );
 
-            $answer->incTagNumber('origin', $main);
-            $answer->incTagNumber('lang', $user->getLanguage());
-            if ($sp < 100)       $answer->incTagNumber('sp', '0_99');
-            elseif ($sp < 1000)  $answer->incTagNumber('sp', '100_999');
-            elseif ($sp < 10000) $answer->incTagNumber('sp', '1000_9999');
-            else                 $answer->incTagNumber('sp', '10000');
-            $answer->incTagNumber('antigrief', $anti_grief ? 'fail' : 'pass');
+                $main = 'none';
+                foreach ($user->getTwinoidImports() as $import)
+                    if ($import->getMain()) $main = $import->getScope() ?? 'none';
 
-            $this->entity_manager->persist($answer);
-        }
+                $sp = $user->getAllSoulPoints();
+                $anti_grief =
+                    $user->getAllSoulPoints() < $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_SP, 20) ||
+                    $this->user_handler->isRestricted( $user, AccountRestriction::RestrictionGameplay ) ||
+                    $this->isGranted( 'ROLE_DUMMY' );
+
+                $answer->incTagNumber('origin', $main);
+                $answer->incTagNumber('lang', $user->getLanguage());
+                if ($sp < 100)       $answer->incTagNumber('sp', '0_99');
+                elseif ($sp < 1000)  $answer->incTagNumber('sp', '100_999');
+                elseif ($sp < 10000) $answer->incTagNumber('sp', '1000_9999');
+                else                 $answer->incTagNumber('sp', '10000');
+                $answer->incTagNumber('antigrief', $anti_grief ? 'fail' : 'pass');
+
+                $this->entity_manager->persist($answer);
+            }
 
         $poll->getPoll()->addParticipant( $user );
         $this->entity_manager->persist( $poll->getPoll() );
@@ -747,7 +755,7 @@ class SoulController extends CustomAbstractController
         $user->setFlag($flag === '' ? null : $flag);
 
         $desc_obj = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
-        if (!empty($desc) && $html->htmlPrepare($user, 0, false, $desc, null, $insight) && $insight->text_length > 0) {
+        if (!empty($desc) && $html->htmlPrepare($user, 0, ['extended','emote'], $desc, null, $insight) && $insight->text_length > 0) {
             if (!$this->user_handler->isRestricted($user, AccountRestriction::RestrictionProfileDescription)) {
                 if (!$desc_obj) $desc_obj = (new UserDescription())->setUser($user);
                 $desc_obj->setText($desc);
@@ -885,7 +893,10 @@ class SoulController extends CustomAbstractController
      * @return Response
      */
     #[Route(path: 'jx/soul/{sid}/town/{idtown}/{return_path}', name: 'soul_view_town')]
-    public function soul_view_town(int $idtown, string $sid = 'me', string $return_path = "soul_me"): Response
+    public function soul_view_town(
+        #[MapEntity(id: 'idtown')]
+        TownRankingProxy $town,
+        string $sid = 'me', string $return_path = "soul_me"): Response
     {
         $user = $this->getUser();
 
@@ -900,7 +911,7 @@ class SoulController extends CustomAbstractController
 
         $id = $sid === 'me' ? -1 : (int)$sid;
         if ($id === $user->getId())
-            return $this->redirect($this->generateUrl( 'soul_view_town', ['idtown' => $idtown] ));
+            return $this->redirect($this->generateUrl( 'soul_view_town', ['idtown' => $town->getId()] ));
 
         /** @var CitizenRankingProxy $nextDeath */
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
@@ -908,10 +919,6 @@ class SoulController extends CustomAbstractController
 
         $target_user = $this->entity_manager->getRepository(User::class)->find($id);
         if($target_user === null && $id !== -1)  return $this->redirect($this->generateUrl('soul_me'));
-
-        $town = $this->entity_manager->getRepository(TownRankingProxy::class)->find($idtown);
-        if($town === null)
-            return $target_user === null ? $this->redirect($this->generateUrl('soul_me')) : $this->redirect($this->generateUrl('soul_visit', ['id' => $id]));
 
         if ($target_user === null) $target_user = $user;
 
@@ -925,7 +932,7 @@ class SoulController extends CustomAbstractController
             'town' => $town,
             'last_user_standing' => $picto !== null ? $picto->getUser() : null,
             'return_path' => $return_path,
-            'self_path' => $this->generateUrl('soul_view_town', ['sid' => $sid, 'idtown' => $idtown, 'return_path' => $return_path])
+            'self_path' => $this->generateUrl('soul_view_town', ['sid' => $sid, 'idtown' => $town->getId(), 'return_path' => $return_path])
         )));
     }
 
@@ -959,58 +966,6 @@ class SoulController extends CustomAbstractController
         $this->addFlash('notice', $this->translator->trans('Deine Nachricht wurde gespeichert.', [], 'game'));
 
         return AjaxResponse::success();
-    }
-
-    /**
-     * @param int $sid
-     * @param JSONRequestParser $parser
-     * @param RateLimitingFactoryProvider $rateLimiter
-     * @return Response
-     */
-    #[Route(path: 'api/soul/{sid}/report', name: 'soul_report_user')]
-    public function soul_report_user(int $sid, JSONRequestParser $parser, RateLimitingFactoryProvider $rateLimiter): Response
-    {
-        $user = $this->getUser();
-        if ($sid === $user->getId())
-            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
-
-        $target_user = $this->entity_manager->getRepository(User::class)->find($sid);
-
-        if (!$target_user)
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
-
-        return $this->reportUser( $target_user, $parser, $rateLimiter->reportLimiter( $user ) );
-    }
-
-    /**
-     * @param int $sid
-     * @param int $idtown
-     * @param string $topic
-     * @param JSONRequestParser $parser
-     * @param RateLimitingFactoryProvider $rateLimiter
-     * @return Response
-     */
-    #[Route(path: 'api/soul/{sid}/town/{idtown}/report/{topic}', name: 'soul_report_comment')]
-    public function soul_report_comment(int $sid, int $idtown, string $topic, JSONRequestParser $parser, RateLimitingFactoryProvider $rateLimiter): Response
-    {
-        if (!in_array( $topic, ['lw','com'] )) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
-
-        $user = $this->getUser();
-        if ($sid === $user->getId())
-            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
-
-        $target_user = $this->entity_manager->getRepository(User::class)->find($sid);
-        $town = $this->entity_manager->getRepository(TownRankingProxy::class)->find($idtown);
-
-        if (!$town || !$target_user)
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
-
-        $citizen = null;
-        foreach ($town->getCitizens() as $c) if ($c->getUser() === $target_user) $citizen = $c;
-        if (!$citizen)
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
-
-        return $this->reportCitizen( $citizen, $topic === 'lw' ? AdminReportSpecification::CitizenLastWords : AdminReportSpecification::CitizenTownComment, $parser, $rateLimiter->reportLimiter( $user ) );
     }
 
     /**
@@ -1067,6 +1022,7 @@ class SoulController extends CustomAbstractController
         $user->setSetting( UserSetting::ReorderActionButtonsBeyond, (bool)$parser->get('beyondAltLayout', false) );
         $user->setSetting( UserSetting::ReorderTownLocationButtons, (bool)$parser->get('townAltLayout', true) );
         $user->setSetting( UserSetting::PrivateForumsOnTop, (bool)$parser->get('privateForumsOnTop', true) );
+        $user->setSetting( UserSetting::LargerPMIcon, (bool)$parser->get('largerPMIcon', false) );
         $user->setAdminLang($parser->get("adminLang", null));
         $session->set('_admin_lang',$user->getAdminLang() ?? $user->getLanguage());
         $this->entity_manager->persist( $user );
@@ -1614,7 +1570,7 @@ class SoulController extends CustomAbstractController
      */
     #[Route(path: 'api/soul/friend/{action}', name: 'soul_friend_control')]
     #[GateKeeperProfile(allow_during_attack: true)]
-    public function api_friend_control(int $action, JSONRequestParser $parser) {
+    public function api_friend_control(int $action, JSONRequestParser $parser, EventProxyService $proxy) {
         if ($action !== 0 && $action !== 1) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $id = $parser->get("id");
@@ -1626,6 +1582,9 @@ class SoulController extends CustomAbstractController
         if ($action && $this->user_handler->checkRelation($this->getUser(), $user,SocialRelation::SocialRelationTypeBlock, true))
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
+        if ($action && $this->getUser()->getFriends()->contains( $user )) return AjaxResponse::success();
+        if (!$action && !$this->getUser()->getFriends()->contains( $user )) return AjaxResponse::success();
+
         if ($action) {
             $this->getUser()->addFriend($user);
             $ignoreRelation = $this->entity_manager->getRepository( SocialRelation::class )->findOneBy( ['owner' => $this->getUser(), 'related' => $user, 'type' => SocialRelation::SocialRelationTypeNotInterested ] );
@@ -1635,6 +1594,8 @@ class SoulController extends CustomAbstractController
 
         $this->entity_manager->persist($this->getUser());
         $this->entity_manager->flush();
+
+        $proxy->friendListUpdatedEvent( $this->getUser(), $user, !!$action );
 
         if ($action && $user->getSetting( UserSetting::NotifyMeOnFriendRequest )) {
             $this->entity_manager->persist( $this->crow->createPM_friendNotification( $user, $this->getUser() ) );
@@ -1675,106 +1636,6 @@ class SoulController extends CustomAbstractController
         $this->entity_manager->flush();
 
         return AjaxResponse::success();
-    }
-
-    public function reportCitizen( Citizen|CitizenRankingProxy $citizen, AdminReportSpecification $specification, JSONRequestParser $parser, RateLimiterFactory $reportToModerationLimiter ): Response {
-
-        $user = $this->getUser();
-
-        $proxy   = is_a( $citizen, CitizenRankingProxy::class ) ? $citizen : $citizen->getRankingEntry();
-        $citizen = $proxy->getCitizen();
-
-        if ($specification === AdminReportSpecification::CitizenAnnouncement && (!$citizen || $citizen->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId()) )
-            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
-
-        $payload = match ($specification) {
-            AdminReportSpecification::CitizenAnnouncement => $citizen?->getHome()->getDescription(),
-            AdminReportSpecification::CitizenLastWords => $proxy->getLastWords(),
-            AdminReportSpecification::CitizenTownComment => $proxy->getComment(),
-            default => null
-        };
-
-        if (empty( $payload ))
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['citizen' => $proxy, 'specification' => $specification->value]);
-        foreach ($reports as $report)
-            if ($report->getSourceUser()->getId() == $user->getId())
-                return AjaxResponse::success();
-
-        $report_count = count($reports) + 1;
-
-        if (!($limit = $reportToModerationLimiter->create( $user->getId() )->consume())->isAccepted())
-            return AjaxResponse::error( ErrorHelper::ErrorRateLimited, ['detail' => 'report', 'retry_in' => $limit->getRetryAfter()->getTimestamp() - (new DateTime())->getTimestamp()]);
-
-        $details = $parser->trimmed('details');
-        $newReport = (new AdminReport())
-            ->setSourceUser($user)
-            ->setReason( $parser->get_int('reason', 0, 0, 13) )
-            ->setDetails( $details ?: null )
-            ->setTs(new \DateTime('now'))
-            ->setCitizen( $proxy )
-            ->setSpecification( $specification );
-
-        try {
-            $this->entity_manager->persist($newReport);
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
-        try {
-            $this->crow->triggerExternalModNotification( match ($specification) {
-                AdminReportSpecification::CitizenAnnouncement => "A citizen's home message has been reported.",
-                AdminReportSpecification::CitizenLastWords => "A citizen's last words have been reported.",
-                AdminReportSpecification::CitizenTownComment => "A town comment has been reported.",
-                default => '[invalid]'
-            }, $proxy, $newReport, "This is report #{$report_count}." );
-        } catch (\Throwable $e) {}
-
-        $message = $this->translator->trans('Du hast die Nachricht von {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...', ['{username}' => '<span>' . $proxy->getUser()->getName() . '</span>'], 'game');
-        $this->addFlash('notice', $message);
-        return AjaxResponse::success( );
-    }
-
-    public function reportUser( User $reportedUser, JSONRequestParser $parser, RateLimiterFactory $reportToModerationLimiter ): Response {
-
-        $user = $this->getUser();
-        if ($user === $reportedUser)
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['user' => $reportedUser]);
-        foreach ($reports as $report)
-            if ($report->getSourceUser()->getId() == $user->getId())
-                return AjaxResponse::success();
-
-        $report_count = count($reports) + 1;
-
-        if (!($limit = $reportToModerationLimiter->create( $user->getId() )->consume( $report_count <= 1 ? 2 : 1 ))->isAccepted())
-            return AjaxResponse::error( ErrorHelper::ErrorRateLimited, ['detail' => 'report', 'retry_in' => $limit->getRetryAfter()->getTimestamp() - (new DateTime())->getTimestamp()]);
-
-        $details = $parser->trimmed('details');
-        $newReport = (new AdminReport())
-            ->setSourceUser($user)
-            ->setReason( $parser->get_int('reason', 0, 0, 13) )
-            ->setDetails( $details ?: null )
-            ->setTs(new \DateTime('now'))
-            ->setUser( $reportedUser );
-
-        try {
-            $this->entity_manager->persist($newReport);
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
-        try {
-            $this->crow->triggerExternalModNotification( 'A user account has been reported.', $reportedUser, $newReport, "This is report #{$report_count}." );
-        } catch (\Throwable $e) {}
-
-        $message = $this->translator->trans('Du hast {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...', ['{username}' => '<span>' . $reportedUser->getName() . '</span>'], 'game');
-        $this->addFlash('notice', $message);
-        return AjaxResponse::success( );
     }
 
 }

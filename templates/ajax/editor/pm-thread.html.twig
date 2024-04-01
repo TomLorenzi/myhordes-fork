@@ -1,0 +1,14 @@
+{% extends "ajax/ajax_plain.html.twig" %}
+{% from 'ajax/editor/base/pm-editor.html.twig' import pmEditor as editor %}
+{% block ajax_base %}
+    {{ editor(
+        type,
+        null,
+        app.user,
+        username,
+        'Neue Nachricht'|trans({},'global'),
+        true,
+        'recipient:#pmidrecipient,items[]:#item-rec',
+        path('town_house_send_pm_controller')
+    ) }}
+{% endblock %}

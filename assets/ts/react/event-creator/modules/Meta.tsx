@@ -13,8 +13,9 @@ declare global {
     }
 }
 
-export const HordesEventCreatorModuleMeta = ( {uuid}: {
-    uuid: string
+export const HordesEventCreatorModuleMeta = ( {uuid, expedited}: {
+    uuid: string,
+    expedited: boolean
 } ) => {
     const globals = useContext(Globals)
     const editorGlobals = useContext(EditorGlobals)

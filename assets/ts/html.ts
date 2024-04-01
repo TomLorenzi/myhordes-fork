@@ -1,6 +1,9 @@
 import {Const, Global} from "./defaults";
 
 import TwinoAlikeParser from "./twino"
+import HordesTwinoEditorElement from "./modules/twino-editor";
+import {GroupResponse, HordesUserSearchBar} from "./react/user-search/Wrapper";
+import {HordesUserSearchElement} from "./modules/common-modules";
 
 declare var $: Global;
 declare var c: Const;
@@ -91,22 +94,69 @@ export default class HTML {
     serializeForm(form: ParentNode): object {
         let data: object = {};
 
-        const input_fields = form.querySelectorAll('input,select') as NodeListOf<HTMLInputElement|HTMLSelectElement>;
+        const unpack = (data:any):any => {
+            return (typeof data === "object")
+                ? (Object.values(data)[0] ?? undefined)
+                : data;
+        }
+
+        const input_fields = form.querySelectorAll('input,textarea,select,hordes-twino-editor,hordes-user-search') as NodeListOf<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement|HordesTwinoEditorElement|HordesUserSearchElement>;
         for (let i = 0; i < input_fields.length; i++) {
             const node = input_fields[i];
             const node_name = node.getAttribute('name') ?? node.getAttribute('id');
+            const node_type = node.dataset['type'] ?? node.getAttribute('type') ?? 'text';
 
-            if (node_name)
+            // Check do-not-serialize attribe
+            if (node.dataset.noSerialization) continue;
+
+            // Do not enter react parents!
+            const blacklisted = node.closest('hordes-twino-editor,hordes-user-search');
+            if (blacklisted && blacklisted !== node) continue;
+
+            let value = undefined;
+
+            if (node_name) {
                 switch (node.nodeName) {
                     case 'INPUT':
-                        data[node_name] = node.getAttribute('type') != 'checkbox'
-                            ? (node as HTMLInputElement).value
-                            : (node as HTMLInputElement).checked;
+                        if (node.getAttribute('type') === 'checkbox')
+                            value = node.getAttribute('type') != 'checkbox'
+                                ? (node as HTMLInputElement).value
+                                : ((node as HTMLInputElement).checked ? (( node as HTMLInputElement).value === "on" ? true : ( node as HTMLInputElement).value) : false);
+                        else if (node.getAttribute('type') === 'radio')
+                            value = (node as HTMLInputElement).checked ? (node as HTMLInputElement).value : undefined;
+                        else value = (node as HTMLInputElement).value;
                         break;
-                    case 'SELECT':
-                        data[node_name] = (node as HTMLSelectElement).value;
+                    case 'TEXTAREA': case 'SELECT':
+                        value = (node as HTMLSelectElement).value;
+                        break;
+                    case 'HORDES-TWINO-EDITOR':
+                        value = node_type === "twino" ? (node as HordesTwinoEditorElement).twino : (node as HordesTwinoEditorElement).html;
+                        break;
+                    case 'HORDES-USER-SEARCH':
+                        value = (node as HordesUserSearchElement).value?.filter(entry => entry.type === "user")?.map( entry => entry.id );
+                        (node as HordesUserSearchElement).value?.filter(entry => entry.type === "group")?.forEach(
+                            (entry => value = [...value, ...(entry as GroupResponse).members.map( member => member.id )])
+                        )
                         break;
                 }
+
+                if (typeof value === "undefined") continue;
+
+                switch (node_type) {
+                    case 'number':
+                        value = parseFloat( unpack(value) );
+                        break;
+                }
+
+                if (node_name.endsWith('[]')) {
+                    const array_name = node_name.slice(0, -2);
+                    if (typeof data[array_name] !== "object") data[array_name] = [];
+
+                    if (typeof value === "string" || typeof value === "number" || typeof value === "object")
+                        data[array_name].push(value);
+
+                } else data[node_name] = value;
+            }
 
         }
 
@@ -398,8 +448,9 @@ export default class HTML {
         element.removeAttribute(text_attribute);
     }
 
-    handleUserPopup( element: HTMLElement ): void {
-        element.addEventListener( 'click', (event) => {
+    handleUserPopup( element: HTMLElement ): (MouseEvent)=>void  {
+
+        const handler = (event: MouseEvent) => {
             event.stopPropagation();
             event.preventDefault();
 
@@ -418,19 +469,19 @@ export default class HTML {
                 target.style.width = null;
                 if (element.getBoundingClientRect().left + element.offsetWidth + target.offsetWidth > window.innerWidth) {
 
-                const temp_left = Math.max(0,element.getBoundingClientRect().left + element.offsetWidth/2 - element.offsetWidth/2);
-                if (temp_left + target.offsetWidth > window.innerWidth) {
-                    target.style.top = (element.getBoundingClientRect().top + document.documentElement.scrollTop + element.offsetHeight) + "px";
-                    if ( window.innerWidth < target.offsetWidth ) {
-                        target.style.left = "0px";
-                        target.style.width = '100%';
-                    } else
-                        target.style.left = Math.floor(window.innerWidth - target.offsetWidth) + 'px';
+                    const temp_left = Math.max(0,element.getBoundingClientRect().left + element.offsetWidth/2 - element.offsetWidth/2);
+                    if (temp_left + target.offsetWidth > window.innerWidth) {
+                        target.style.top = (element.getBoundingClientRect().top + document.documentElement.scrollTop + element.offsetHeight) + "px";
+                        if ( window.innerWidth < target.offsetWidth ) {
+                            target.style.left = "0px";
+                            target.style.width = '100%';
+                        } else
+                            target.style.left = Math.floor(window.innerWidth - target.offsetWidth) + 'px';
 
-                } else {
-                    target.style.top = (element.getBoundingClientRect().top + document.documentElement.scrollTop + element.offsetHeight) + "px";
-                    target.style.left = temp_left + "px";
-                }
+                    } else {
+                        target.style.top = (element.getBoundingClientRect().top + document.documentElement.scrollTop + element.offsetHeight) + "px";
+                        target.style.left = temp_left + "px";
+                    }
 
                 } else {
                     target.style.top = (element.getBoundingClientRect().top + document.documentElement.scrollTop) + "px";
@@ -464,7 +515,10 @@ export default class HTML {
                 $.html.addEventListenerAll('[x-ajax-href]', 'click', e => removeTooltip(e,true));
                 reposition();
             });
-        })
+        }
+
+        element.addEventListener( 'click', handler);
+        return handler;
     }
 
     addLoadStack( num: number = 1): void {
@@ -528,51 +582,59 @@ export default class HTML {
     }
 
     handleCollapseSection( element: HTMLElement): void {
-        element?.querySelectorAll('.collapsor:not([data-processed])+.collapsed').forEach( collapsed => {
+        element?.querySelectorAll('.collapsor:not([data-processed])+.collapsed').forEach( (collapsed: HTMLElement) => {
             const collapsor = collapsed.previousElementSibling as HTMLElement;
             collapsor.dataset.processed = '1';
 
             if (collapsor.dataset.open === '1') {
-                (collapsed as HTMLElement).style.maxHeight = null;
-                (collapsed as HTMLElement).style.opacity = '1';
+                collapsed.style.maxHeight = null;
+                collapsed.style.opacity = '1';
             } else {
-                (collapsed as HTMLElement).style.maxHeight = '0';
-                (collapsed as HTMLElement).style.opacity = '0';
+                collapsed.style.maxHeight = '0';
+                collapsed.style.opacity = '0';
             }
+
+            let toggler = null;
+            collapsed.insertAdjacentElement('beforeend', toggler = document.createElement('div'))
+            toggler.dataset.etog = "1";
 
             const updateState = () => {
                 if (collapsor.dataset.open === '1') {
                     collapsor.dataset.transition = '0';
-                    (collapsed as HTMLElement).style.maxHeight = null;
+                    collapsed.style.maxHeight = null;
                     const h = (collapsed as HTMLElement).offsetHeight;
-                    (collapsed as HTMLElement).style.maxHeight = '0';
+                    collapsed.style.maxHeight = '0';
 
                     collapsor.dataset.transition = '1';
                     window.setTimeout(() => {
-                        (collapsed as HTMLElement).style.maxHeight = `${h}px`;
-                        (collapsed as HTMLElement).style.opacity = '1';
+                        collapsed.style.maxHeight = `${h}px`;
+                        collapsed.style.opacity = '1';
                         window.setTimeout( () => {
-                            if (collapsed as HTMLElement) (collapsed as HTMLElement).style.maxHeight = null;
+                            if (collapsed) collapsed.style.maxHeight = null;
                         }, 300 );
                     }, 1)
 
                 } else {
                     collapsor.dataset.transition = '0';
-                    const h = (collapsed as HTMLElement).offsetHeight;
-                    (collapsed as HTMLElement).style.maxHeight = `${h}px`;
-                    (collapsed as HTMLElement).style.opacity = '1';
+                    const h = collapsed.offsetHeight;
+                    collapsed.style.maxHeight = `${h}px`;
+                    collapsed.style.opacity = '1';
 
                     collapsor.dataset.transition = '1';
                     window.setTimeout(() => {
-                        (collapsed as HTMLElement).style.maxHeight = '0';
-                        (collapsed as HTMLElement).style.opacity = '0';
+                        collapsed.style.maxHeight = '0';
+                        collapsed.style.opacity = '0';
                     }, 1)
                 }
             }
-            collapsor.addEventListener('click', () => {
+
+            const handler = () => {
                 collapsor.dataset.open = collapsor.dataset.open === '1' ? '0' : '1';
                 updateState();
-            })
+            }
+
+            collapsor.addEventListener('click', handler);
+            toggler.addEventListener('click', handler);
         } )
     }
 

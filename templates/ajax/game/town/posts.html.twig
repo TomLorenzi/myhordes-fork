@@ -76,7 +76,12 @@
             <div class="forum-post-footer right">
                 {% if post.owner and post.owner.user != app.user %}
                     <div class="float-right small">
-                        [ <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }}><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"><div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div></a> ]
+                        [ <hordes-content-report class="action-button" id="report_post" data-principal-id="{{ post.id }}" data-report="town-pm" data-selector="img" data-title="{{ 'Unangemessenen Inhalt melden'|trans({},'global') }}">
+                            <div class="inline">
+                                <img class="pointer" alt="!" src="{{ asset('build/images/forum/warning.png') }}">
+                                <div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div>
+                            </div>
+                        </hordes-content-report> ]
                     </div>
                 {% endif %}
             </div>
@@ -130,43 +135,7 @@
     if(replybtn) replybtn.addEventListener('click', function(e){
         e.preventDefault();
         replybtn.style.display = "none";
-        $.ajax.no_history().load( document.getElementById('pm-forum-editor'), '{{ path('home_answer_post_editor_controller', {tid: thread.id}) }}', false )
+        $.ajax.no_history().load( document.getElementById('pm-forum-editor'), '{{ path('home_answer_post_editor_controller', {id: thread.id}) }}', false )
     });
 
-    $.html.addEventListenerAll('[x-forum-action="report-post"]', 'click', function(e,elem) {
-
-        let form = $.html.createElement('<div class="modal-form" id="modal-form" />');
-        form.append($.html.createElement( '<p class="small bold"></p>', '{{ 'Bist du sicher, dass du diesen Post an die Moderatoren melden willst?'|trans({},'global')|e('js') }}' ));
-
-        let sec_p = $.html.createElement('<p class="small"/>', '{{ 'Wenn möglich gib bitte einen Grund für deine Meldung an:'|trans({},'global')|e('js') }}');
-        sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="1" />' + '{{ 'Cheating'|trans({},'global')|e('js') }}' + '</label></div>') )
-        sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="2" />' + '{{ 'Flooding oder Spam'|trans({},'global')|e('js') }}' + '</label></div>') )
-        sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="3" />' + '{{ 'Verwendung einer anderen als der Stadtsprache'|trans({},'global')|e('js') }}' + '</label></div>') )
-        sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="4" />' + '{{ 'Beleidigungen / Unangemessener Ausdruck'|trans({},'global')|e('js') }}' + '</label></div>') )
-        sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="5" />' + '{{ 'Pornographie'|trans({},'global')|e('js') }}' + '</label></div>') )
-        sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="6" />' + '{{ 'Hassrede'|trans({},'global')|e('js') }}' + '</label></div>') )
-        sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="7" />' + '{{ 'Verbreitung persönlicher Informationen'|trans({},'global')|e('js') }}' + '</label></div>') )
-        sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="8" />' + '{{ 'Verletzung von Copyright'|trans({},'global')|e('js') }}' + '</label></div>') )
-        sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="9" />' + '{{ 'Aufruf zu Gesetzesverstößen'|trans({},'global')|e('js') }}' + '</label></div>') )
-        sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="10" />' + '{{ 'Ermutigung von Selbstmord oder Selbstverletzung'|trans({},'global')|e('js') }}' + '</label></div>') )
-        sec_p.append( $.html.createElement('<p class="small"/>', '{{ 'Zusätzliche Informationen zu deiner Meldung (optional):'|trans({},'global')|e('js') }}') )
-        sec_p.append( $.html.createElement('<div><textarea maxlength="255" style="min-height: 70px; max-height: 120px; height: 70px;" name="report_details"></textarea></div>') )
-
-        form.append(sec_p)
-
-        $.html.popup('{{ 'Unangemessenen Inhalt melden'|trans({},'global')|e('js') }}', form, null, [
-            [ '{{ 'Inhalt melden'|trans({},'global')|e('js') }}',  [ ['click', (e_sub, elem_sub) => {
-                const reason = document.querySelector('[name="report_reason"]:checked') ? parseInt(document.querySelector('[name="report_reason"]:checked').value) : 0;
-                const detail = document.querySelector('[name="report_details"]') ? document.querySelector('[name="report_details"]').value : '';
-
-                if (reason > 0) {
-                    $.html.triggerPopupPop(elem_sub);
-                    $.ajax.easySend( '{{ url('home_report_pm_controller') }}', {pmid: parseInt( elem.getAttribute('x-post-id') ), reason: reason, details: detail }, function () {
-                        $.ajax.load(null, '{{ path('town_house_messages', {'subtab': 'received'}) }}', true);
-                    } )
-                } else $.html.error('{{ 'Bitte wähle einen Grund für deine Meldung aus.'|trans({},'global')|e('js') }}')
-            }] ] ],
-            [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e_sub, elem_sub) => $.html.triggerPopupPop(elem_sub)] ] ]
-        ] );
-    });
 </script>

@@ -38,7 +38,7 @@ use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -213,15 +213,6 @@ class GhostController extends CustomAbstractController
             $this->entity_manager->persist($citizen);
             $this->entity_manager->flush();
         } catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
-        try {
-            foreach ($all as $new_citizen)
-                $this->gps->recordCitizenJoined( $new_citizen, $new_citizen === $citizen ? 'join' : 'follow' );
-            $this->entity_manager->flush();
-        }
-        catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 

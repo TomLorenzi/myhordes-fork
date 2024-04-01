@@ -1,6 +1,7 @@
 {% extends "ajax/ajax_plain.html.twig" %}
 {% block ajax_base %}
-    <div x-og-resolved="{{ group.id }}">
+    <div>
+        <input type="hidden" id="og-resolved" value="{{ group.id }}" />
         {% include "ajax/soul/playeravatar.html.twig" with {user: group, wrapper: false, attributes: {style: 'max-height: 24px'}} only %}
         <b>{{ group.usergroup.name }}</b>
     </div>

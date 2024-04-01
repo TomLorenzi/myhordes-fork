@@ -123,7 +123,6 @@ class DebugCommand extends LanguageCommand
             ->addOption('reapply-twinoid-data', null, InputOption::VALUE_NONE, 'Re-applies the stored twinoid data for all users')
 
             ->addOption('current-event', null, InputOption::VALUE_OPTIONAL, 'Shows the current event.', false)
-            ->addOption('all-events', null, InputOption::VALUE_OPTIONAL, 'Shows the current event. Can take a year value.', false)
 
             ->addOption('test-estim', null, InputOption::VALUE_REQUIRED, 'Takes all the citizens in the town and make them go into the watchtower', false)
             ->addOption('keep-estims', null, InputOption::VALUE_NONE, 'If set, leaves the estimations in the DB')
@@ -350,7 +349,6 @@ class DebugCommand extends LanguageCommand
 
                     /** @var Citizen $joined_citizen */
                     foreach ( $all as $joined_citizen ) {
-                        $this->gps->recordCitizenJoined( $joined_citizen, 'debug' );
                         if ($citizen->getProfession()->getName() !== 'none')
                             $this->gps->recordCitizenProfessionSelected( $joined_citizen );
                         if($joined_citizen !== $citizen) {
@@ -564,34 +562,6 @@ class DebugCommand extends LanguageCommand
             $events = array_map(fn(EventConf $e) => $e->name(), array_filter( $this->conf->getCurrentEvents(null,$m, $dateTime), fn(EventConf $e) => $e->active() ));
             if (!empty($events)) $output->writeln("<comment>{$dateTime->format('c')}:</comment> Current events: [<info>" . implode('</info>,<info>', $events) . "</info>]");
             else $output->writeln("<comment>{$dateTime->format('c')}:</comment> There are <info>no current events</info>.");
-        }
-
-        if (($y = $input->getOption('all-events')) !== false) {
-
-            $y = is_numeric($y) ? (int)$y : (int)(new DateTime())->format('Y');
-            $start = (new DateTime())->setDate( $y, 1, 1 );
-            $end = (new DateTime())->setDate( $y, 12, 31 );
-
-            $schedule = $this->conf->getAllScheduledEvents($start,$end);
-
-            $now = new DateTime();
-            $last = (new DateTime())->setDate( $y-1, 12, 31 );
-
-            if (!empty($schedule) && $now < $schedule[0][1])
-                $output->writeln( "<comment>{$now->format('c')} <-- We are here</comment>" );
-
-            foreach ($schedule as $entry) {
-                if ($now > $last && $now <= $entry[1])
-                    $output->writeln( "<comment>{$now->format('c')} <-- We are here</comment>" );
-                if ($entry[2])
-                    $output->writeln( "<comment>{$entry[1]->format('c')}</comment> <info>[start]</info> of event <info>{$entry[0]}</info>." );
-                else $output->writeln( "<comment>{$entry[1]->format('c')}</comment> <info> [end] </info> of event <info>{$entry[0]}</info>." );
-                $last = clone $entry[1];
-            }
-
-            if (!empty($schedule) && $now > end($schedule)[1])
-                $output->writeln( "<comment>{$now->format('c')} <-- We are here</comment>" );
-
         }
 
         if($tid = $input->getOption('test-estim')) {

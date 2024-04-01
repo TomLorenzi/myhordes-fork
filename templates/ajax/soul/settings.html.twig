@@ -37,29 +37,33 @@
                 <ul class="tabs plain" x-tab-group="user-settings-tabs" x-tab-control>
                     <li class="tab" x-tab-id="profile"><div class="tab-link">
                         <img alt="" src="{{ asset('build/images/icons/small_user.gif') }}" />
-                        <span class="hide-md hide-sm">{{ 'Profil und Avatar'|trans({},'soul') }}</span>
+                        <span class="hide-lg hide-md hide-sm">{{ 'Profil und Avatar'|trans({},'soul') }}</span>
                     </div></li>
                     <li class="tab" x-tab-id="security"><div class="tab-link">
                         <img alt="" src="{{ asset('build/images/icons/lock.gif') }}" />
-                        <span class="hide-md hide-sm">{{ 'Account und Sicherheit'|trans({},'soul') }}</span>
+                        <span class="hide-lg hide-md hide-sm">{{ 'Account und Sicherheit'|trans({},'soul') }}</span>
+                    </div></li>
+                    <li class="tab" x-tab-id="general-settings"><div class="tab-link">
+                        <img alt="" src="{{ asset('build/images/icons/title/r_repair.gif') }}" />
+                        <span class="hide-lg hide-md hide-sm">{{ 'Allgemein'|trans({},'soul') }}</span>
+                    </div></li>
+                    <li class="tab" x-tab-id="notification-settings"><div class="tab-link">
+                        <img alt="" src="{{ asset('build/images/icons/small_talk.gif') }}" />
+                        <span class="hide-lg hide-md hide-sm">{{ 'Benachrichtigungen'|trans({},'soul') }}</span>
+                    </div></li>
+                    <li class="tab" x-tab-id="browser-settings"><div class="tab-link">
+                        <img alt="" src="{{ asset('build/images/building/small_eden.gif') }}" />
+                        <span class="hide-lg hide-md hide-sm">{{ 'Browser'|trans({},'soul') }}</span>
                     </div></li>
                     {% if show_importer %}
                         <li class="tab" x-tab-id="soul-import"><div class="tab-link">
                             <img alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}" />
-                            <span class="hide-md hide-sm">{{ 'Importierte Seelen'|trans({},'soul') }}</span>
+                            <span class="hide-lg hide-md hide-sm">{{ 'Importierte Seelen'|trans({},'soul') }}</span>
                         </div></li>
                     {% endif %}
-                    <li class="tab" x-tab-id="general-settings"><div class="tab-link">
-                            <img alt="" src="{{ asset('build/images/icons/title/r_repair.gif') }}" />
-                            <span class="hide-md hide-sm">{{ 'Allgemein'|trans({},'soul') }}</span>
-                        </div></li>
-                    <li class="tab" x-tab-id="browser-settings"><div class="tab-link">
-                            <img alt="" src="{{ asset('build/images/building/small_eden.gif') }}" />
-                            <span class="hide-md hide-sm">{{ 'Browser'|trans({},'soul') }}</span>
-                        </div></li>
                     <li class="tab" x-tab-id="expert-settings"><div class="tab-link">
                         <img alt="" src="{{ asset('build/images/icons/small_archive.gif') }}" />
-                        <span class="hide-md hide-sm">{{ 'Erweitert'|trans({},'soul') }}</span>
+                        <span class="hide-lg hide-md hide-sm">{{ 'Erweitert'|trans({},'soul') }}</span>
                     </div></li>
                 </ul>
             </div>
@@ -278,11 +282,11 @@
                 <div class="row">
                     <div class="padded cell rw-3 rw-md-4 rw-sm-12">
                         <div class="note note-lightest">
-                            <label for="user_desc">{{ 'Deine Beschreibung'|trans({}, 'global') }}</label>
+                            <label>{{ 'Deine Beschreibung'|trans({}, 'global') }}</label>
                         </div>
                     </div>
                     <div class="padded cell rw-9 rw-md-8 rw-sm-12">
-                        <textarea id="user_desc" style="min-height: 100px;"></textarea>
+                        <hordes-twino-editor id="user_desc" data-context="user-desc" data-skin="textarea" data-control="core,emote" data-feature-passive="1"></hordes-twino-editor>
                     </div>
                 </div>
                 <div class="row">
@@ -610,34 +614,6 @@
                 {% endif %}
                 <div class="row">
                     <div class="cell rw-12">
-                        <h5>{{ 'Benachrichtigungen'|trans({},'soul') }}</h5>
-                        <div class="row">
-                            <div class="padded cell rw-12">
-                                <div class="note note-lightest">
-                                    <input x-setting {% if not app.user.noAutoFollowThreads %}checked{% endif%} type="checkbox" id="setting_auto_follow">&nbsp;<label for="setting_auto_follow">{{'Neuen Threads automatisch abonnieren'|trans({}, 'soul')}}</label>
-                                    {{help_btn("Ist diese Option aktiviert, abonnierst du automatisch allen Threads, die du selbst erstellt hast. Du kannst das Abonnement deiner Threads jederzeit manuell beenden."|trans({}, 'soul'))}}
-                                </div>
-                            </div>
-                            <div class="padded cell rw-12">
-                                <div class="note note-lightest">
-                                    <input x-setting {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeOnFriendRequest") ) %}checked{% endif%} type="checkbox" id="setting_notify_on_friend">&nbsp;<label for="setting_notify_on_friend">{{'Benachrichrichtigung erhalten, wenn jemand mich als Freund hinzufügt'|trans({}, 'soul')}}</label>
-                                </div>
-                            </div>
-                            <div class="padded cell rw-12">
-                                <div class="note note-lightest">
-                                    <label for="setting_notify_on_mention">{{'Benachrichrichtigung erhalten, wenn ich in einem Forenpost markiert werde'|trans({}, 'soul')}}</label>&nbsp;
-                                    <select class="small" x-setting id="setting_notify_on_mention">
-                                        <option value="0" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 0 %}selected{% endif%}>{{ 'Deaktiviert'|trans({}, 'soul') }}</option>
-                                        <option value="1" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 1 %}selected{% endif%}>{{ 'Nur in Stadtforen'|trans({}, 'soul') }}</option>
-                                        <option value="3" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 3 %}selected{% endif%}>{{ 'Nur in Weltforen'|trans({}, 'soul') }}</option>
-                                        <option value="2" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 2 %}selected{% endif%}>{{ 'In allen Foren'|trans({}, 'soul') }}</option>
-                                    </select>
-                                    &nbsp;
-                                    {{help_btn('Zum Schutz vor Spam wirst du unabhängig von dieser Einstellung keine Benachrichtigung erhalten, wenn in einem Post mehr als 5 Spieler (10 in Stadtforen) markiert sind.'|trans({}, 'soul'))}}
-                                </div>
-                            </div>
-                        </div>
-
                         <h5>{{ 'Darstellung'|trans({},'soul') }}</h5>
                         <div class="row">
                             <div class="padded cell rw-12">
@@ -689,6 +665,52 @@
                                     {{help_btn("Diese Option steuert, ob Private Foren in denen du Mitglied bist in der Forenliste über oder unter den Weltforen angezeigt werden. Unabhängig von dieser Einstellung wird das Stadtforum deiner aktuellen Stadt immer ganz oben angezeigt."|trans({}, 'soul'))}}
                                 </div>
                             </div>
+                            <div class="padded cell rw-12">
+                                <div class="note note-lightest">
+                                    <input x-setting data-full-reload="1" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::LargerPMIcon") ) %}checked{% endif%} type="checkbox" id="setting_larger-pm-icon">&nbsp;<label for="setting_larger-pm-icon">{{'Größeres PM-Icon verwenden'|trans({}, 'soul')}}</label>
+                                    {{help_btn("Wenn aktiviert wird das PM-Icon am oberen rechten Rand der Seite größer dargestellt, um sich leichter klicken zu lassen."|trans({}, 'soul'))}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div x-tab-target x-tab-group="user-settings-tabs" x-tab-id="notification-settings">
+
+                <div class="row">
+                    <div class="cell rw-12">
+                        <h5>{{ 'Allgemeine Einstellungen für Benachrichtigungen'|trans({},'soul') }}</h5>
+                        <div class="row">
+                            <div class="padded cell rw-12">
+                                <div class="note note-lightest">
+                                    <input x-setting {% if not app.user.noAutoFollowThreads %}checked{% endif%} type="checkbox" id="setting_auto_follow">&nbsp;<label for="setting_auto_follow">{{'Neuen Threads automatisch abonnieren'|trans({}, 'soul')}}</label>
+                                    {{help_btn("Ist diese Option aktiviert, abonnierst du automatisch allen Threads, die du selbst erstellt hast. Du kannst das Abonnement deiner Threads jederzeit manuell beenden."|trans({}, 'soul'))}}
+                                </div>
+                            </div>
+                            <div class="padded cell rw-12">
+                                <div class="note note-lightest">
+                                    <input x-setting {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeOnFriendRequest") ) %}checked{% endif%} type="checkbox" id="setting_notify_on_friend">&nbsp;<label for="setting_notify_on_friend">{{'Benachrichrichtigung erhalten, wenn jemand mich als Freund hinzufügt'|trans({}, 'soul')}}</label>
+                                </div>
+                            </div>
+                            <div class="padded cell rw-12">
+                                <div class="note note-lightest">
+                                    <label for="setting_notify_on_mention">{{'Benachrichrichtigung erhalten, wenn ich in einem Forenpost markiert werde'|trans({}, 'soul')}}</label>&nbsp;
+                                    <select class="small" x-setting id="setting_notify_on_mention">
+                                        <option value="0" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 0 %}selected{% endif%}>{{ 'Deaktiviert'|trans({}, 'soul') }}</option>
+                                        <option value="1" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 1 %}selected{% endif%}>{{ 'Nur in Stadtforen'|trans({}, 'soul') }}</option>
+                                        <option value="3" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 3 %}selected{% endif%}>{{ 'Nur in Weltforen'|trans({}, 'soul') }}</option>
+                                        <option value="2" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 2 %}selected{% endif%}>{{ 'In allen Foren'|trans({}, 'soul') }}</option>
+                                    </select>
+                                    &nbsp;
+                                    {{help_btn('Zum Schutz vor Spam wirst du unabhängig von dieser Einstellung keine Benachrichtigung erhalten, wenn in einem Post mehr als 5 Spieler (10 in Stadtforen) markiert sind.'|trans({}, 'soul'))}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cell rw-12">
+                            <h5>{{ 'Push-Benachrichtigungen'|trans({},'soul') }}</h5>
+                            <hordes-notification-manager></hordes-notification-manager>
                         </div>
                     </div>
                 </div>
@@ -953,12 +975,14 @@
                     beyondAltLayout: document.getElementById('setting_reorder-action-buttons-beyond').checked,
                     townAltLayout: document.getElementById('setting_reorder-location-buttons-town').checked,
                     privateForumsOnTop: document.getElementById('setting_private-forums-on-top').checked,
+                    largerPMIcon: document.getElementById('setting_larger-pm-icon').checked,
                     {% if is_granted("ROLE_CROW") %}
                     adminLang: document.querySelector("input[name=admin_setting_preferred_language]:checked").value
                     {% endif %}
                 },
                 function () {
-                    $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                    if (elem.dataset.fullReload) window.location.reload();
+                    else $.ajax.load(null, '{{ path('soul_settings') }}', true);
                 } )
         });
         $.html.addEventListenerAll('[x-lang-setting]', 'change', function(e,elem) {
@@ -1018,7 +1042,7 @@
 
             $.ajax.easySend('{{ path('api_soul_header')|e('js') }}', {
                 title, title_lang, icon, flag, pronoun, pronounTitle,
-                desc: $.html.twinoParser.parseToString(document.getElementById('user_desc').value, s => [null,s], {autoLinks: $.client.config.autoParseLinks.get()}),
+                desc: document.getElementById('user_desc').html,
                 displayName: document.getElementById('user_displayname').value
             }, () => {
                 $.html.notice('{{ 'Deine Einstellung wurde gespeichert.'|trans({},'soul')|e('js') }}');
@@ -1111,6 +1135,6 @@
             });
         });
 
-        document.getElementById('user_desc').value = $.html.twinoParser.parseFrom('{{ user_desc|e('js') }}', $.html.twinoParser.OpModeRaw);
+        document.getElementById('user_desc').html = '{{ user_desc|e('js') }}';
     </script>
 {% endblock %}

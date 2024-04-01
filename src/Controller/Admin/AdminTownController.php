@@ -34,6 +34,7 @@ use App\Entity\Item;
 use App\Entity\ItemCategory;
 use App\Entity\ItemPrototype;
 use App\Entity\Picto;
+use App\Entity\PictoComment;
 use App\Entity\PictoPrototype;
 use App\Entity\RuinExplorerStats;
 use App\Entity\SpecialActionPrototype;
@@ -42,6 +43,7 @@ use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Enum\Configuration\TownSetting;
 use App\Enum\EventStages\BuildingEffectStage;
 use App\Enum\EventStages\BuildingValueQuery;
 use App\Enum\ItemPoisonType;
@@ -84,7 +86,7 @@ use Psr\Container\NotFoundExceptionInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
@@ -919,7 +921,6 @@ class AdminTownController extends AdminActionController
                     $this->entity_manager->persist($citizen);
                     $this->entity_manager->persist($town);
 
-                    $gps->recordCitizenJoined($citizen, 'debug');
                     if ($citizen->getProfession()->getName() !== 'none')
                         $gps->recordCitizenProfessionSelected( $citizen );
 
@@ -1946,6 +1947,7 @@ class AdminTownController extends AdminActionController
         $prototype_id = $parser->get('prototype');
         $number = $parser->get('number', 1);
         $to = $parser->get_array( 'to' );
+        $text = $parser->trimmed( 'text' );
 
         /** @var PictoPrototype $pictoPrototype */
         $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->find($prototype_id);
@@ -1968,6 +1970,15 @@ class AdminTownController extends AdminActionController
             }
 
             $picto->setCount($picto->getCount() + $number)->setDisabled(false)->setManual(true);
+
+            if (!empty($text)) {
+
+                $comment = ($picto->getId() !== null ? $this->entity_manager->getRepository(PictoComment::class)->findOneBy(['picto' => $picto]) : null)
+                    ?? (new PictoComment())->setPicto( $picto )->setOwner( $citizen->getUser() )->setDisplay( true );
+
+                $comment->setText( $text );
+                $this->entity_manager->persist($comment);
+            }
 
             $this->entity_manager->persist($citizen->getUser());
             $this->entity_manager->persist($picto);
@@ -2645,7 +2656,7 @@ class AdminTownController extends AdminActionController
         {
 
             $mazeMaker->setTargetZone($zone);
-            $zone->setExplorableFloors($conf->get(TownConf::CONF_EXPLORABLES_FLOORS, 1));
+            $zone->setExplorableFloors($conf->get(TownSetting::ERuinSpaceFloors));
 
             $mazeMaker->createField();
             $mazeMaker->generateCompleteMaze();

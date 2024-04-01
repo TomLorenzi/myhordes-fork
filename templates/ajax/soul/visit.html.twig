@@ -125,7 +125,9 @@
                 <div class="row">
                     <div class="padded cell rw-12 right">
                         <button class="inline small" id="user_block_button"><i class="fa fa-shield-alt"></i> {{ 'Spieler blockieren'|trans({'{user}': user.name},'global') }}</button>
-                        <button class="inline small" id="user_report_button"><i class="fa fa-exclamation"></i> {{ 'Spieler melden'|trans({'{user}': user.name},'global') }}</button>
+                        <hordes-content-report class="inline" data-principal-id="{{ user.id }}" data-report="user" data-selector="button" data-title="{{ 'Unangemessenen Inhalt melden'|trans({},'global') }}">
+                            <button class="inline small"><i class="fa fa-exclamation"></i> {{ 'Spieler melden'|trans({'{user}': user.name},'global') }}</button>
+                        </hordes-content-report>
                     </div>
                 </div>
             {% endif %}
@@ -162,34 +164,6 @@
                     function () {
                         $.ajax.load(null, '{{ path('soul_visit', {id: user.id}) }}', true);
                     } );
-        });
-
-        $.html.addEventListenerAll('#user_report_button','click',(e,elem) => {
-            e.preventDefault();
-            let form = $.html.createElement('<div class="modal-form" id="modal-form" />');
-            form.append($.html.createElement( '<p class="small bold"></p>', '{{ 'Bist du sicher, dass du diesen Spieler an die Moderatoren melden willst?'|trans({},'global')|e('js') }}' ));
-            form.append($.html.createElement( '<p class="small"></p>', '{{ 'Wenn du eine Nachricht oder einen Foren-Post dieses Spielers melden willst, benutze bitte stattdessen die Melden-Funktion der entsprechenden Nachricht.'|trans({},'global')|e('js') }}' ));
-
-            let sec_p = $.html.createElement('<p class="small"/>', '{{ 'Wenn möglich gib bitte einen Grund für deine Meldung an:'|trans({},'global')|e('js') }}');
-            sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="11" />' + '{{ 'Unangemessene Profilbeschreibung'|trans({},'global')|e('js') }}' + '</label></div>') )
-            sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="12" />' + '{{ 'Unangemessener Avatar'|trans({},'global')|e('js') }}' + '</label></div>') )
-            sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="13" />' + '{{ 'Unangemessener Name'|trans({},'global')|e('js') }}' + '</label></div>') )
-            sec_p.append( $.html.createElement('<p class="small"/>', '{{ 'Zusätzliche Informationen zu deiner Meldung (optional):'|trans({},'global')|e('js') }}') )
-            sec_p.append( $.html.createElement('<div><textarea maxlength="255" style="min-height: 70px; max-height: 120px; height: 70px;" name="report_details"></textarea></div>') )
-
-            form.append(sec_p)
-
-            $.html.popup('{{ 'Unangemessenen Inhalt melden'|trans({},'global')|e('js') }}', form, null, [
-                [ '{{ 'Inhalt melden'|trans({},'global')|e('js') }}',  [ ['click', (e_sub, elem_sub) => {
-                    const reason = document.querySelector('[name="report_reason"]:checked') ? parseInt(document.querySelector('[name="report_reason"]:checked').value) : 0;
-                    const detail = document.querySelector('[name="report_details"]') ? document.querySelector('[name="report_details"]').value : '';
-                    if (reason > 0) {
-                        $.html.triggerPopupPop(elem_sub);
-                        $.ajax.easySend( '{{ url('soul_report_user', { 'sid': user.id}) }}', {reason: reason, details: detail }, ()=>{document.location.reload();} );
-                    } else $.html.error('{{ 'Bitte wähle einen Grund für deine Meldung aus.'|trans({},'global')|e('js') }}')
-                }] ] ],
-                [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e_sub, elem_sub) => $.html.triggerPopupPop(elem_sub)] ] ]
-            ] );
         });
 
         let season_select = document.getElementById('season');

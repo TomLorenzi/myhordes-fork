@@ -637,3 +637,12 @@ Beginn: Début
 'Sperre aktivieren': 'Activer le blocage'
 'Stadttor reparieren': 'Réparer les portes de la ville'
 'Zerstöre das Stadttor': 'Détruire les portes de la ville'
+'Verläufige Ergebnisse anzeigen ab': 'Afficher les résultats actuels'
+'Mehrere Antworten möglich (Multiple Choice)': 'Plusieurs réponses possibles (choix multiple)'
+'Raben-Account anlegen': 'Créer un compte Corbeau'
+'Zugehöriger User (optional)': 'Utilisateur associé (facultatif)'
+'Zugehörige Rabennester': 'Nid de corbeaux associé'
+Raben: Corbeau
+Fehlerberichte: Rapports de bogues
+'Verfassen von Fehlerberichten für Gitlab verbieten': 'Interdire la rédaction de rapports de bogues pour Gitlab'
+'Zusätzliche Beschreibung:': 'Description supplémentaire :'

@@ -8,16 +8,21 @@ use App\Entity\Award;
 use App\Entity\Citizen;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
+use App\Entity\PictoRollup;
 use App\Entity\User;
 use App\Enum\UserSetting;
+use App\Interfaces\Entity\PictoRollupInterface;
 use App\Service\JSONRequestParser;
+use App\Service\User\PictoService;
+use App\Service\User\UserCapabilityService;
 use App\Service\UserHandler;
+use App\Structures\Entity\PictoRollupStructure;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 #[Route(path: '/rest/v1/user/soul/distinctions', name: 'rest_user_soul_distinctions_', condition: "request.headers.get('Accept') === 'application/json'")]
 #[IsGranted('ROLE_USER')]
@@ -53,11 +58,13 @@ class DistinctionController extends CustomAbstractCoreController
         ]);
     }
 
+
     /**
      * @param User $user
      * @param string $source
-     * @param UserHandler $userHandler
+     * @param UserCapabilityService $capabilityService
      * @param EntityManagerInterface $em
+     * @param PictoService $pictoService
      * @param Packages $assets
      * @return JsonResponse
      */
@@ -65,26 +72,36 @@ class DistinctionController extends CustomAbstractCoreController
     public function list(
         User $user,
         string $source,
-        UserHandler $userHandler,
+        UserCapabilityService $capabilityService,
         EntityManagerInterface $em,
+        PictoService $pictoService,
         Packages $assets
     ): JsonResponse {
 
-        $picto_db = array_column( array_map(fn(array $p) => [
-            'id' => (int)$p['id'],
-            'label' => $this->translator->trans( $p['label'], [], 'game' ),
-            'description' => $this->translator->trans( $p['description'], [], 'game' ),
-            'icon' => $assets->getUrl( "build/images/pictos/{$p['icon']}.gif" ),
-            'rare' => $p['rare'],
-            'count' => (int)$p['c']
-        ], match ($source) {
-            'soul'      => $em->getRepository(Picto::class)->findNotPendingByUser( $user ),
-            'mh'        => $em->getRepository(Picto::class)->findNotPendingByUser( $user, imported: false),
-            'imported'  => $em->getRepository(Picto::class)->findNotPendingByUser( $user, imported: true),
-            'old'       => $em->getRepository(Picto::class)->findOldByUser( $user ),
-            'all'       => $userHandler->hasRole( $this->getUser(), 'ROLE_CROW' ) ? $em->getRepository(Picto::class)->findByUser( $user ) : [],
+        $data = match ($source) {
+            'soul'      => $pictoService->accumulateAllPictos( $user, include_imported: true ),
+            'mh'        => $pictoService->accumulateAllPictos( $user ),
+            'imported'  => $pictoService->getPictoGroup( $user, imported: true ),
+            'old'       => $pictoService->getPictoGroup( $user, old: true ),
+            'all'       => $capabilityService->hasRole( $this->getUser(), 'ROLE_CROW' ) ? $pictoService->accumulateAllPictos($user, include_imported: true, include_old: true) : [],
             default => []
-        }), null, 'id');
+        };
+
+        $comments = match ($source) {
+            'imported', 'old'   => [],
+            'soul', 'mh', 'all' => $pictoService->accumulateAllPictoComments( $user ),
+            default => []
+        };
+
+        $picto_db = array_column( array_map(fn(PictoRollupInterface $p) => [
+            'id' => $p->getPrototype()->getId(),
+            'label' => $this->translator->trans( $p->getPrototype()->getLabel(), [], 'game' ),
+            'description' => $this->translator->trans( $p->getPrototype()->getDescription(), [], 'game' ),
+            'comments' => $comments[$p->getPrototype()->getId()] ?? [],
+            'icon' => $assets->getUrl( "build/images/pictos/{$p->getPrototype()->getIcon()}.gif" ),
+            'rare' => $p->getPrototype()->getRare(),
+            'count' => $p->getCount()
+        ], $data), null, 'id');
 
         $award_db = match ($source) {
             'soul' => $user->getAwards()->filter(fn(Award $a) => $a->getCustomTitle() || $a->getPrototype()?->getTitle())->map(fn(Award $a) => [
@@ -100,9 +117,9 @@ class DistinctionController extends CustomAbstractCoreController
 
         foreach ( $award_db ?? [] as $item )
             if ($item['picto'] && !isset( $picto_db[ $item['picto']['id'] ] )) {
-                $picto = $em->getRepository(PictoPrototype::class)->find( $item['picto'] );
-                $picto_db[ $item['picto'] ] = [
-                    'id' => (int)$item['picto'],
+                $picto = $em->getRepository(PictoPrototype::class)->find( $item['picto']['id'] );
+                $picto_db[ $item['picto']['id'] ] = [
+                    'id' => (int)$item['picto']['id'],
                     'label' => $this->translator->trans( $picto?->getLabel() ?? '', [], 'game' ),
                     'description' => $this->translator->trans( $picto?->getDescription() ?? '', [], 'game' ),
                     'icon' => $assets->getUrl( "build/images/pictos/{$picto?->getIcon()}.gif" ),
@@ -123,13 +140,7 @@ class DistinctionController extends CustomAbstractCoreController
         }
 
         return new JsonResponse([
-            'points' => match ($source) {
-                'soul'      => round($userHandler->getPoints( $user )),
-                'mh'        => round($userHandler->getPoints( $user, imported: false )),
-                'imported'  => round($userHandler->getPoints( $user, imported: true )),
-                'old'       => round($userHandler->getPoints( $user, old: true )),
-                default => null
-            },
+            'points' => $pictoService->getPointsFromPictoRollupSet( $data ),
             'pictos' => array_values($picto_db),
             'awards' => array_values($award_db ?? []),
             'top3' => $top3

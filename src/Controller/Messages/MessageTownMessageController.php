@@ -27,7 +27,7 @@ use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -444,90 +444,19 @@ class MessageTownMessageController extends MessageController
     }
 
     /**
-     * @param JSONRequestParser $parser
-     * @param EntityManagerInterface $em
-     * @param TranslatorInterface $ti
+     * @param PrivateMessageThread $thread
      * @return Response
      */
-    #[Route(path: 'api/town/house/pm/report', name: 'home_report_pm_controller')]
-    public function pm_report_api(JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti, CrowService $crow, RateLimitingFactoryProvider $rateLimiter): Response {
-        $user = $this->getUser();
-
-        $id = $parser->get('pmid', null);
-        if ($id === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        $reason = $parser->get_int('reason', 0, 0, 13);
-        if ($reason === 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        /** @var Citizen $citizen */
-        if (!($citizen = $user->getActiveCitizen())) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        /** @var PrivateMessage $post */
-        $post = $em->getRepository(PrivateMessage::class)->find( $id );
-        if ($post === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        $thread = $post->getPrivateMessageThread();
-        if (!$thread || $post->getOwner() === $citizen || !$thread->getSender() || ($thread->getRecipient()->getId() !== $citizen->getId() && $thread->getSender()->getId() !== $citizen->getId())) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        $reports = $post->getAdminReports();
-        foreach ($reports as $report)
-            if ($report->getSourceUser()->getId() == $user->getId())
-                return AjaxResponse::success();
-
-        if (!($limit = $rateLimiter->reportLimiter( $user )->create( $user->getId() )->consume())->isAccepted())
-            return AjaxResponse::error( ErrorHelper::ErrorRateLimited, ['detail' => 'report', 'retry_in' => $limit->getRetryAfter()->getTimestamp() - (new DateTime())->getTimestamp()]);
-
-        $details = $parser->trimmed('details');
-        $newReport = (new AdminReport())
-            ->setSourceUser($user)
-            ->setTs(new DateTime('now'))
-            ->setReason( $parser->get_int('reason', 0, 0, 13) )
-            ->setDetails( $details ?: null )
-            ->setPm($post);
-
-        $em->persist($newReport);
-        $em->flush();
-
-        try {
-            $crow->triggerExternalModNotification( 'A town PM has been reported.', $post, $newReport );
-        } catch (\Throwable $e) {}
-
-        $message = $ti->trans('Du hast die Nachricht von {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...', ['{username}' => '<span>' . $post->getOwner()->getName() . '</span>'], 'game');
-        $this->addFlash('notice', $message);
-
-        return AjaxResponse::success();
-    }
-
-    /**
-     * @param int $tid
-     * @param EntityManagerInterface $em
-     * @return Response
-     */
-    #[Route(path: 'jx/town/house/pm/{tid<\d+>}/editor', name: 'home_answer_post_editor_controller')]
-    public function home_answer_editor_post_api(int $tid, EntityManagerInterface $em): Response {
+    #[Route(path: 'jx/town/house/pm/{id<\d+>}/editor', name: 'home_answer_post_editor_controller')]
+    public function home_answer_editor_post_api(PrivateMessageThread $thread): Response {
         $user = $this->getUser();
 
         if ($this->userHandler->isRestricted($user, AccountRestriction::RestrictionTownCommunication))
             return new Response("");
 
-        $thread = $em->getRepository( PrivateMessageThread::class )->find( $tid );
-        if ($thread === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
-        return $this->render( 'ajax/forum/editor.html.twig', [
-            'fid' => null,
-            'tid' => $tid,
-            'pid' => null,
-
-            'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionCreatePost ),
-            'snippets' => [],
-            'emotes' => $this->getEmotesByUser($user,true),
-
-            'forum' => false,
+        return $this->render( 'ajax/editor/pm-post.html.twig', [
+            'tid' => $thread->getId(),
             'username' => $user->getActiveCitizen()->getName(),
-            'type' => 'pm',
-            'target_url' => 'town_house_send_pm_controller',
-            'town_controls' => true,
-            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 
@@ -535,31 +464,16 @@ class MessageTownMessageController extends MessageController
      * @param string $type
      * @return Response
      */
-    #[Route(path: 'jx/town/house/pm/{type}/editor', name: 'home_new_post_editor_controller')]
+    #[Route(path: 'jx/town/house/pm/{type<pm|global>}/editor', name: 'home_new_post_editor_controller')]
     public function home_new_editor_post_api(string $type): Response {
         $user = $this->getUser();
 
         if ($this->userHandler->isRestricted($user, AccountRestriction::RestrictionTownCommunication))
             return new Response("");
 
-        $allowed_types = ['pm', 'global'];
-        if(!in_array($type, $allowed_types)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
-        return $this->render( 'ajax/forum/editor.html.twig', [
-            'fid' => null,
-            'tid' => null,
-            'pid' => null,
-
-            'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionWrite ),
-            'snippets' => [],
-
-            'emotes' => $this->getEmotesByUser($user,true),
-            'forum' => false,
+        return $this->render( 'ajax/editor/pm-thread.html.twig', [
             'username' => $user->getActiveCitizen()->getName(),
             'type' => $type,
-            'target_url' => 'town_house_send_pm_controller',
-            'town_controls' => true,
-            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 
@@ -567,28 +481,14 @@ class MessageTownMessageController extends MessageController
      * @param string $type
      * @return Response
      */
-    #[Route(path: 'jx/admin/pm/{type}/editor', name: 'admin_pm_editor_controller')]
+    #[Route(path: 'jx/admin/pm/{type<pm|global>}/editor', name: 'admin_pm_editor_controller')]
     public function admin_pm_new_editor_post_api(string $type): Response {
         $user = $this->getUser();
 
-        $allowed_types = ['pm', 'global'];
-        if(!in_array($type, $allowed_types)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
-        return $this->render( 'ajax/forum/editor.html.twig', [
-            'fid' => null,
-            'tid' => null,
-            'pid' => null,
-
+        return $this->render( 'ajax/editor/pm-mod.html.twig', [
             'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionOwn ),
-            'snippets' => [],
-
-            'emotes' => $this->getEmotesByUser($user,true),
-            'forum' => false,
             'username' => $user->getName(),
-            'type' => $type,
-            'target_url' => 'admin_send_pm_controller',
-            'town_controls' => true,
-            'langsCodes' => $this->generatedLangsCodes
+            'type' => $type
         ] );
     }
 

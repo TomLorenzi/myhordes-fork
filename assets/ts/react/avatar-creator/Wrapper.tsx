@@ -1,13 +1,12 @@
 import * as React from "react";
 import { createRoot } from "react-dom/client";
 
-import Components, {ReactData} from "../index";
 import {AvatarCreatorAPI, ResponseIndex, ResponseMedia} from "./api";
-import {ChangeEvent, MouseEventHandler, useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
+import {useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
 import {TranslationStrings} from "./strings";
 import {Global} from "../../defaults";
-import {number} from "prop-types";
 import {Tooltip} from "../tooltip/Wrapper";
+import {byteToText} from "../../v2/utils";
 
 declare var $: Global;
 
@@ -156,12 +155,6 @@ const getMediaDimensions = ( url: string, callback: (ImageDimensions)=>void ) =>
     const i = new Image();
     i.onload = () => callback({x: i.width, y: i.height});
     i.src = url;
-}
-
-const byteToText = (bytes: number) => {
-    if (bytes < 1024) return `${bytes} B`
-    else if (bytes < 1048576) return `${Math.floor(bytes/102.4)/10} KiB`
-    else return `${Math.floor(bytes/104857.6)/10} MiB`
 }
 
 const AvatarDisplay = ({media,defaultResolutionCallback}:{media:ResponseMedia, defaultResolutionCallback: (x: number, y: number) => void}) => {

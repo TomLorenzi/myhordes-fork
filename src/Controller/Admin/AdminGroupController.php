@@ -20,7 +20,7 @@ use App\Translation\T;
 use Exception;
 use ReflectionClass;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 #[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
 #[GateKeeperProfile(allow_during_attack: true)]

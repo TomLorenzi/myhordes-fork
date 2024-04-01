@@ -286,6 +286,18 @@ Löschen: Löschen
 'Eigenartiger Boden': 'Eigenartiger Boden'
 'Der Boden, auf dem die Stadt errichtet wurde, ist mit Chemikalien verseucht. Dies hat Einfluss auf die Qualität des Brunnenwassers und damit auch auf die Landwirtschaft...': 'Der Boden, auf dem die Stadt errichtet wurde, ist mit Chemikalien verseucht. Dies hat Einfluss auf die Qualität des Brunnenwassers und damit auch auf die Landwirtschaft...'
 'Es können maximal {number} Private Städte gleichzeitig eröffnet werden.': 'Es können maximal {number} Private Städte gleichzeitig eröffnet werden.'
+'Größe der Begehbaren Ruinen': 'Größe der Begehbaren Ruinen'
+Sauerstoffvorrat: Sauerstoffvorrat
+Umfangreich: Umfangreich
+Exorbitant: Exorbitant
+'Eine Etage': 'Eine Etage'
+'Zwei Etagen': 'Zwei Etagen'
+'Drei Etagen': 'Drei Etagen'
+Etagen: Etagen
+'Anzahl Räume': 'Anzahl Räume'
+'Mindestanzahl an Räumen pro Etage': 'Mindestanzahl an Räumen pro Etage'
+Kartenbreite: Kartenbreite
+Kartenhöhe: Kartenhöhe
 'Abweichende Bedingungen für den automatischen Stadtabbruch': 'Abweichende Bedingungen für den automatischen Stadtabbruch'
 'Abweichende Bedingungen für den Mysteriösen Fremden': 'Abweichende Bedingungen für den Mysteriösen Fremden'
 'Stadttor ist bis zum Start der Stadt verschlossen': 'Stadttor ist bis zum Start der Stadt verschlossen'
@@ -331,3 +343,10 @@ Seelenpunkte: Seelenpunkte
 'Abweichende Funktions-Einstellungen': 'Abweichende Funktions-Einstellungen'
 'Abweichende allgemeine Einstellungen': 'Abweichende allgemeine Einstellungen'
 'Die Regeln dieser Stadt weichen von der Norm ab:': 'Die Regeln dieser Stadt weichen von der Norm ab:'
+'Forenzugang (selbst)': 'Forenzugang (selbst)'
+'Du erhälst Zugang zum Stadtforum, wirst jedoch nicht verkörpert.': 'Du erhälst Zugang zum Stadtforum, wirst jedoch nicht verkörpert.'
+'Forenzugang (Gilde)': 'Forenzugang (Gilde)'
+'Du und alle Mitglieder der Animateursgilde erhalten Zugang zum Stadtforum': 'Du und alle Mitglieder der Animateursgilde erhalten Zugang zum Stadtforum'
+Roulette: Roulette
+'Spieler erhalten ein Drittel der Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben, in voller Höhe. Die restlichen Auszeichnungen werden entfernt. Welche Auszeichnungstypen entfernt werden ist zufällig.': 'Spieler erhalten ein Drittel der Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben, in voller Höhe. Die restlichen Auszeichnungen werden entfernt. Welche Auszeichnungstypen entfernt werden ist zufällig.'
+'Spieler erhalten alle Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben. Die Höhe aller Auszeichnungen wird gedrittelt.': 'Spieler erhalten alle Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben. Die Höhe aller Auszeichnungen wird gedrittelt.'

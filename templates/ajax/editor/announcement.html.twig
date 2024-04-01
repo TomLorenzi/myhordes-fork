@@ -1,0 +1,20 @@
+{% extends "ajax/ajax_plain.html.twig" %}
+{% from 'ajax/editor/base/announcement-editor.html.twig' import announcementEditor as editor %}
+{% block ajax_base %}
+    {{ editor(
+        uuid,
+        app.user,
+        permission,
+        'announcement',
+        'Neue Ankündigung'|trans({},'admin'),
+        false,
+        path('admin_changelog_new_announcement')
+    ) }}
+{% endblock %}
+{% block js %}
+    <script>
+        document.getElementById('{{ uuid }}').addEventListener('submit', () => {
+            $.msg.execute();
+        })
+    </script>
+{% endblock %}

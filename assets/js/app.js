@@ -14,8 +14,9 @@ import Ajax from '../ts/ajax'
 import HTML from '../ts/html'
 import MessageAPI from '../ts/messages'
 import Components from "../ts/react";
-const matchAll = require('string.prototype.matchall');
-matchAll.shim();
+
+import {init} from "../ts/v2/init";
+init();
 
 // Get the base URL
 const base_node = document.getElementsByTagName('base');

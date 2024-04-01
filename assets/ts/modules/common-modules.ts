@@ -4,13 +4,25 @@
 // It's purpose is to map a react node to a custom web component
 
 // Import the actual react code
-import {HordesUserSearchBar} from "../react/user-search/Wrapper";
+import {GroupResponse, HordesUserSearchBar, UserResponse} from "../react/user-search/Wrapper";
 import {HordesDistinctions} from "../react/distinctions/Wrapper";
 import {Shim} from "../react";
 import {HordesTooltip} from "../react/tooltip/Wrapper";
+import {HordesContentReport} from "../react/content-report/Wrapper";
+import {HordesIssueReport} from "../react/issue-report/Wrapper";
 
 // Define web component <hordes-user-search />
-customElements.define('hordes-user-search', class HordesUserSearchElement extends Shim<HordesUserSearchBar> {
+export class HordesUserSearchElement extends Shim<HordesUserSearchBar> {
+
+    #_value: Array<UserResponse|GroupResponse> = null;
+
+    public get value() {
+        return this.#_value;
+    }
+
+    public set value(v: Array<UserResponse|GroupResponse>) {
+        this.#_value = v;
+    }
 
     protected generateInstance(): HordesUserSearchBar {
         return new HordesUserSearchBar();
@@ -34,7 +46,8 @@ customElements.define('hordes-user-search', class HordesUserSearchElement extend
         return ['data-title','data-exclude','data-clear','data-list','data-self','data-friends','data-alias','data-notify-clear'];
     }
 
-}, {  });
+}
+customElements.define('hordes-user-search', HordesUserSearchElement, {  });
 
 customElements.define('hordes-distinctions', class HordesDistinctionsElement extends Shim<HordesDistinctions> {
 
@@ -84,3 +97,46 @@ customElements.define('hordes-tooltip', class HordesTooltipElement extends Shim<
     }
 
 }, {  });
+
+customElements.define('hordes-content-report', class HordesContentReportElement extends Shim<HordesContentReport> {
+
+    protected generateInstance(): HordesContentReport {
+        return new HordesContentReport();
+    }
+
+    protected generateProps(): object | null {
+        return {
+            principal: parseInt(this.dataset.principalId ?? '0'),
+            type: this.dataset.report ?? 'none',
+            selector: this.dataset.selector ?? '*',
+            title: this.dataset.title
+        }
+    }
+
+    protected static observedAttributeNames() {
+        return [ 'data-principal', 'data-report', 'data-selector', 'data-title' ];
+    }
+
+}, {  });
+
+customElements.define('hordes-issue-report', class HordesIssueReportElement extends Shim<HordesIssueReport> {
+
+    protected generateInstance(): HordesIssueReport {
+        return new HordesIssueReport();
+    }
+
+    protected generateProps(): object | null {
+        return {
+            selector: this.dataset.selector ?? '*',
+            title: this.dataset.title,
+            pass: JSON.parse( this.dataset.pass ?? 'null' ) ?? {},
+        }
+    }
+
+    protected static observedAttributeNames() {
+        return [ 'data-selector', 'data-title', 'data-pass' ];
+    }
+
+}, {  });
+
+require('./twino-editor')

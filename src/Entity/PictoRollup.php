@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Interfaces\Entity\PictoRollupInterface;
 use App\Repository\PictoRollupRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 #[ORM\Entity(repositoryClass: PictoRollupRepository::class)]
 #[Table]
 #[UniqueConstraint(name: 'picto_rollup_assoc_unique', columns: ['user_id','prototype_id','old','imported','total','season_id'])]
-class PictoRollup
+class PictoRollup implements PictoRollupInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

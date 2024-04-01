@@ -38,6 +38,7 @@ class CustomAbstractController extends CustomAbstractCoreController {
         $this->time_keeper = $tk;
         $this->citizen_handler = $ch;
         $this->inventory_handler = $ih;
+
 		$this->hookExecutor = $hookExecutor;
     }
 

@@ -10,6 +10,7 @@ use App\Entity\UserGroup;
 use App\Service\Actions\Ghost\CreateTownFromConfigAction;
 use App\Service\PermissionHandler;
 use App\Structures\TownSetup;
+use ArrayHelpers\Arr;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
@@ -25,6 +26,7 @@ use Zenstruck\ScheduleBundle\Attribute\AsScheduledTask;
     description: 'Performs maintenance tasks on community events.'
 )]
 #[AsScheduledTask('12 0 * * *', description: 'Create upcoming community event towns', arguments: '--create-towns')]
+#[AsScheduledTask('15,45 * * * *', description: 'Create community event towns that are marked as "urgent".', arguments: '--urgent-create-towns')]
 #[AsScheduledTask('18 0 * * *', description: 'Conclude finished community events.', arguments: '--auto-end')]
 class WatchdogCommand extends Command
 {
@@ -42,19 +44,23 @@ class WatchdogCommand extends Command
     {
         $this
             ->addOption('create-towns', null, InputOption::VALUE_NONE, 'Creates towns for community events that start in 48 hours or less.')
+            ->addOption('urgent-create-towns', null, InputOption::VALUE_NONE, 'Creates towns for community events that are marked as "urgently".')
             ->addOption('auto-end', null, InputOption::VALUE_NONE, 'Disables events that have ended (+50 days old or no living towns left)')
         ;
         parent::configure();
     }
 
-    protected function create_towns(OutputInterface $output): void {
+    protected function create_towns(OutputInterface $output, bool $urgent): void {
 
         /** @var CommunityEvent[] $pending_events */
         $pending_events = $this->em->getRepository(CommunityEvent::class)->matching(
-            (Criteria::create())
-                ->where(Criteria::expr()->neq( 'starts', null ))
-                ->andWhere(Criteria::expr()->lte( 'starts', (new DateTime())->modify('+48hour') ))
-                ->andWhere(Criteria::expr()->eq('ended', false))
+            $urgent
+                ? (Criteria::create())
+                    ->andWhere(Criteria::expr()->eq('urgent', true))
+                : (Criteria::create())
+                    ->where(Criteria::expr()->neq( 'starts', null ))
+                    ->andWhere(Criteria::expr()->lte( 'starts', (new DateTime())->modify('+48hour') ))
+                    ->andWhere(Criteria::expr()->eq('ended', false))
         );
 
         $meta_ids = [];
@@ -84,18 +90,28 @@ class WatchdogCommand extends Command
                 $this->em->persist($preset);
 
                 // Create an Animaction user group with Oracle/Mod permissions on the town forum and associate the user
-                // to it. Also, give the global Animaction group read access to the forum
-                $this->em->persist( $ga = (new UserGroup())->setName("[town:{$result->town()->getId()}:animaction]")->setType(UserGroup::GroupTownAnimaction)->setRef1($result->town()->getId()) );
-                $this->em->persist( (new ForumUsagePermissions())->setForum($result->town()->getForum())->setPrincipalGroup($ga)->setPermissionsGranted(
-                    ForumUsagePermissions::PermissionReadWrite |
-                    ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionFormattingModerator |
-                    ForumUsagePermissions::PermissionHelp | ForumUsagePermissions::PermissionFormattingOracle
-                )->setPermissionsDenied(ForumUsagePermissions::PermissionNone) );
-                $g_anim = $this->em->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAnimactorGroup]);
-                $this->em->persist( (new ForumUsagePermissions())->setForum($result->town()->getForum())->setPrincipalGroup($g_anim)->setPermissionsGranted(
-                    ForumUsagePermissions::PermissionRead
-                )->setPermissionsDenied(ForumUsagePermissions::PermissionNone) );
-                $this->permissionHandler->associate( $preset->getEvent()->getOwner(), $ga );
+                // to it.
+                if (in_array( Arr::get($preset->getHeader(), 'townIncarnation'), ['forum','forum-all'])) {
+                    $this->em->persist( $ga = (new UserGroup())->setName("[town:{$result->town()->getId()}:animaction]")->setType(UserGroup::GroupTownAnimaction)->setRef1($result->town()->getId()) );
+                    $this->em->persist( (new ForumUsagePermissions())->setForum($result->town()->getForum())->setPrincipalGroup($ga)->setPermissionsGranted(
+                        ForumUsagePermissions::PermissionReadWrite |
+                        ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionFormattingModerator |
+                        ForumUsagePermissions::PermissionHelp | ForumUsagePermissions::PermissionFormattingOracle |
+                        ForumUsagePermissions::PermissionPostAsAnim
+                    )->setPermissionsDenied(ForumUsagePermissions::PermissionNone) );
+                    $this->permissionHandler->associate( $preset->getEvent()->getOwner(), $ga );
+
+                    // Give the global Animaction group access to the forum
+                    $granted = Arr::get($preset->getHeader(), 'townIncarnation') === 'forum-all'
+                        ? (ForumUsagePermissions::PermissionReadWrite |
+                        ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionFormattingModerator |
+                        ForumUsagePermissions::PermissionHelp | ForumUsagePermissions::PermissionFormattingOracle | ForumUsagePermissions::PermissionPostAsAnim)
+                        : ForumUsagePermissions::PermissionRead;
+                    $g_anim = $this->em->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAnimactorGroup]);
+                    $this->em->persist( (new ForumUsagePermissions())->setForum($result->town()->getForum())->setPrincipalGroup($g_anim)->setPermissionsGranted(
+                        $granted
+                    )->setPermissionsDenied(ForumUsagePermissions::PermissionNone) );
+                }
 
                 $this->em->flush();
                 $this->em->clear();
@@ -138,7 +154,8 @@ class WatchdogCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        if ($input->getOption('create-towns')) $this->create_towns($output);
+        if ($input->getOption('create-towns')) $this->create_towns($output, false);
+        if ($input->getOption('urgent-create-towns')) $this->create_towns($output, true);
         if ($input->getOption('auto-end')) $this->create_towns($output);
 
         return 0;

@@ -637,3 +637,12 @@ Beginn: Start
 'Sperre aktivieren': 'Activate lockdown'
 'Stadttor reparieren': 'Repair city gate'
 'Zerstöre das Stadttor': 'Destroy the city gate'
+'Verläufige Ergebnisse anzeigen ab': 'Show current results'
+'Mehrere Antworten möglich (Multiple Choice)': 'Multiple answers possible (multiple choice)'
+'Raben-Account anlegen': 'Create a Crow account'
+'Zugehöriger User (optional)': 'Associated user (optional)'
+'Zugehörige Rabennester': 'Associated Crow Nest'
+Raben: Crows
+Fehlerberichte: Bug reports
+'Verfassen von Fehlerberichten für Gitlab verbieten': 'Prohibit writing bug reports for Gitlab'
+'Zusätzliche Beschreibung:': 'Additional description:'

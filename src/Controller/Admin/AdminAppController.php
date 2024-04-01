@@ -14,7 +14,7 @@ use App\Service\RandomGenerator;
 use App\Structures\MyHordesConf;
 use App\Translation\T;
 use Exception;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Response;
 
 #[Route(path: '/', condition: 'request.isXmlHttpRequest()')]

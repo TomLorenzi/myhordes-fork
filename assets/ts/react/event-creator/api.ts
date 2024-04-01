@@ -18,11 +18,13 @@ export type EventCore = {
     ended: boolean,
     start: string|null,
     proposed: boolean,
+    expedited?: boolean,
     owner: EventOwner|null
 }
 
 export type EventConfig = {
     startDate?: string,
+    expedited?: boolean,
 }
 
 export type EventMeta = {
@@ -45,6 +47,7 @@ export interface TownPreset extends TownPresetUUID {
 }
 
 export interface TownPresetInstance  {
+    name: string|null
     ranking_link: string|null
     forum_link: string|null,
     active: boolean|null,

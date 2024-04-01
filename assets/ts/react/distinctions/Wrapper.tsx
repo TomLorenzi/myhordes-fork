@@ -235,6 +235,9 @@ const Distinctions = (
                                     <Tooltip additionalClasses="forum-tooltip">
                                         <h1>{ p.label } ({p.count})</h1>
                                         <em>{ p.description }</em>
+                                        { p.comments.length > 0 && <ul>
+                                            { p.comments.map( (s,i) => <li key={i}>{ `„${s}“` }</li> ) }
+                                        </ul> }
                                     </Tooltip>
                                 </div>
                             ) }

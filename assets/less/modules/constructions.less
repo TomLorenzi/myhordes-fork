@@ -103,17 +103,15 @@ div.buildings {
       &> div.cell:first-child:before { background: @myhordes-building-complete-header-color; }
     }
 
-    .vote {
-      display: none;
+    .action-vote {
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
-    &:hover {
-      .vote_hide {
-        display: none;
-      }
-      .vote {
-        display: inline;
-      }
+    .vote {
+      display: none;
     }
 
     .no-ws:empty { display: none}

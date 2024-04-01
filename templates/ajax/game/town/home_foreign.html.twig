@@ -115,7 +115,7 @@
                         <div class="cell rw-7 rw-lg-6">
                             {{ owner.rankingEntry.lastWords|replace({'{gotKilled}': '...der Mörder .. ist.. IST.. AAARGHhh..'|trans({},'game')}) }}
                             {% if owner.rankingEntry.lastWords %}
-                                <a href="#" id="report-desc" class="float-right" title="{{ 'Unangemessenen Inhalt melden'|trans({},'global') }}"><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"></a>
+                                <hordes-content-report class="float-right" data-principal-id="{{ owner.rankingEntry.id }}" data-report="citizen-last-words" data-selector="img" data-title="{{ 'Unangemessenen Inhalt melden'|trans({},'global') }}"><img class="pointer" title="{{ 'Unangemessenen Inhalt melden'|trans({},'global') }}" alt="!" src="{{ asset('build/images/forum/warning.png') }}"></hordes-content-report>
                             {% endif %}
                         </div>
                     </div>
@@ -130,7 +130,9 @@
                 <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Persönliche Beschreibung'|trans({},'game') }} :</span></div>
                 <div class="cell rw-7 rw-lg-6">
                     « {{ owner.home.description }} »
-                    <div class="float-right"><a href="#" id="report-desc" title="{{ 'Unangemessenen Inhalt melden'|trans({},'global') }}"><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"></a></div>
+                    <div class="float-right">
+                        <hordes-content-report data-principal-id="{{ owner.id }}" data-report="citizen-description" data-selector="img" data-title="{{ 'Unangemessenen Inhalt melden'|trans({},'global') }}"><img class="pointer" title="{{ 'Unangemessenen Inhalt melden'|trans({},'global') }}" alt="!" src="{{ asset('build/images/forum/warning.png') }}"></hordes-content-report>
+                    </div>
                 </div>
             </div>
         </div>
@@ -562,45 +564,6 @@
                     } );
             });
         {% endif %}
-
-        $.html.addEventListenerAll("#report-desc", "click", function(event,element){
-            event.preventDefault();
-            event.stopPropagation();
-
-            let form = $.html.createElement('<div class="modal-form" id="modal-form" />');
-            form.append($.html.createElement( '<p class="small bold"></p>', '{{ 'Bist du sicher, dass du diesen Post an die Moderatoren melden willst?'|trans({},'global')|e('js') }}' ));
-
-            let sec_p = $.html.createElement('<p class="small"/>', '{{ 'Wenn möglich gib bitte einen Grund für deine Meldung an:'|trans({},'global')|e('js') }}');
-            sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="1" />' + '{{ 'Cheating'|trans({},'global')|e('js') }}' + '</label></div>') )
-            sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="2" />' + '{{ 'Flooding oder Spam'|trans({},'global')|e('js') }}' + '</label></div>') )
-            {% if owner.alive %}
-                sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="3" />' + '{{ 'Verwendung einer anderen als der Stadtsprache'|trans({},'global')|e('js') }}' + '</label></div>') )
-            {% endif %}
-            sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="4" />' + '{{ 'Beleidigungen / Unangemessener Ausdruck'|trans({},'global')|e('js') }}' + '</label></div>') )
-            sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="5" />' + '{{ 'Pornographie'|trans({},'global')|e('js') }}' + '</label></div>') )
-            sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="6" />' + '{{ 'Hassrede'|trans({},'global')|e('js') }}' + '</label></div>') )
-            sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="7" />' + '{{ 'Verbreitung persönlicher Informationen'|trans({},'global')|e('js') }}' + '</label></div>') )
-            sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="8" />' + '{{ 'Verletzung von Copyright'|trans({},'global')|e('js') }}' + '</label></div>') )
-            sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="9" />' + '{{ 'Aufruf zu Gesetzesverstößen'|trans({},'global')|e('js') }}' + '</label></div>') )
-            sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="10" />' + '{{ 'Ermutigung von Selbstmord oder Selbstverletzung'|trans({},'global')|e('js') }}' + '</label></div>') )
-            sec_p.append( $.html.createElement('<p class="small"/>', '{{ 'Zusätzliche Informationen zu deiner Meldung (optional):'|trans({},'global')|e('js') }}') )
-            sec_p.append( $.html.createElement('<div><textarea maxlength="255" style="min-height: 70px; max-height: 120px; height: 70px;" name="report_details"></textarea></div>') )
-
-            form.append(sec_p)
-
-            $.html.popup('{{ 'Unangemessenen Inhalt melden'|trans({},'global')|e('js') }}', form, null, [
-                [ '{{ 'Inhalt melden'|trans({},'global')|e('js') }}',  [ ['click', (e_sub, elem_sub) => {
-                    const reason = document.querySelector('[name="report_reason"]:checked') ? parseInt(document.querySelector('[name="report_reason"]:checked').value) : 0;
-                    const detail = document.querySelector('[name="report_details"]') ? document.querySelector('[name="report_details"]').value : '';
-                    if (reason > 0) {
-                        $.html.triggerPopupPop(elem_sub);
-                        $.ajax.easySend( '{{ owner.alive ? url('report_personal_desc', { id: owner.id }) : url('soul_report_comment', { sid: owner.user.id, idtown: owner.rankingEntry.town.id, topic: 'lw' }) }}', {reason, details: detail }, () => $.ajax.load(null, '{{ path('town_visit', {id: owner.id}) }}', true) );
-                    } else $.html.error('{{ 'Bitte wähle einen Grund für deine Meldung aus.'|trans({},'global')|e('js') }}')
-                }] ] ],
-                [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e_sub, elem_sub) => $.html.triggerPopupPop(elem_sub)] ] ]
-            ] );
-
-        });
 
         {% if owner.home.holdsBody %}
             const disposalButtons = document.querySelectorAll('[x-disposal-id]');

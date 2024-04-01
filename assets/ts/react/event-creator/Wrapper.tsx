@@ -81,6 +81,8 @@ const EventCreatorWrapper = ( {creator, reviewer}: {creator: boolean, reviewer: 
                                                                    proposed={ showCreator.event?.proposed ?? false }
                                                                    published={ showCreator.event?.published ?? false }
                                                                    started={ showCreator.event?.started && !showCreator.event?.ended }
+                                                                   owning={ showCreator.event?.own }
+                                                                   expedited={ showCreator.event?.expedited }
                                                                    cancel={ creator ? ()=>setShowCreator(null) : null } /> }
                     </> }
                 </div>

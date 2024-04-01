@@ -40,7 +40,7 @@ use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -261,7 +261,7 @@ class GameController extends CustomAbstractController
 
         $citizen_alias_active = $town_conf->get(TownConf::CONF_FEATURE_CITIZEN_ALIAS, false);
         if($citizen_alias_active) {
-            if (!$this->user_handler->isNameValid( $alias = $parser->trimmed('citizenalias', ''), custom_length: 22 ))
+            if (!$this->user_handler->isNameValid( $alias = $parser->trimmed('citizenalias', ''), custom_length: 22, disable_preg: true ))
                 return AjaxResponse::error(SoulController::ErrorUserEditUserName);
             $citizen->setAlias( $alias );
         }

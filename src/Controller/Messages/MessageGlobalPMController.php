@@ -21,10 +21,12 @@ use App\Entity\UserSwapPivot;
 use App\Response\AjaxResponse;
 use App\Service\CrowService;
 use App\Service\ErrorHelper;
+use App\Service\EventProxyService;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
 use App\Service\PermissionHandler;
 use App\Service\RateLimitingFactoryProvider;
+use App\Service\User\UserCapabilityService;
 use App\Service\UserHandler;
 use App\Structures\HTMLParserInsight;
 use App\Translation\T;
@@ -36,7 +38,8 @@ use Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Uid\Uuid;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -188,14 +191,14 @@ class MessageGlobalPMController extends MessageController
      * @return Response
      */
     #[Route(path: 'jx/pm/view', name: 'pm_view')]
-    public function pm_view(JSONRequestParser $parser): Response {
+    public function pm_view(JSONRequestParser $parser, UserCapabilityService $capability): Response {
         $target = Request::createFromGlobals()->headers->get('X-Render-Target', '');
 
         if ($target === 'post-office-content') {
             return $this->render( 'ajax/pm/view.html.twig', [
                 'rk' => (new DateTime('now'))->getTimestamp(),
                 'command' => $parser->get('command'),
-                'official_groups' => array_filter( $this->entity_manager->getRepository(OfficialGroup::class)->findAll(), fn(OfficialGroup $o) => $this->perm->userInGroup($this->getUser(), $o->getUsergroup()) ),
+                'official_groups' => $capability->getOfficialGroups( $this->getUser() ),
                 'has_forum_notif' => $this->entity_manager->getRepository(ForumThreadSubscription::class)->count(['user' => $this->getUser()]) > 0,
             ]);
         }
@@ -1101,22 +1104,9 @@ class MessageGlobalPMController extends MessageController
         if ($em->getRepository(UserGroupAssociation::class)->countRecentRecipients($this->getUser()) > 100)
             return $this->render( 'ajax/pm/non-editor.html.twig');
 
-        return $this->render( 'ajax/forum/editor.html.twig', [
-            'fid' => null,
-            'tid' => null,
-            'pid' => null,
-
+        return $this->render( 'ajax/editor/gpm-thread.html.twig', [
+            'uuid' => Uuid::v4(),
             'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionCreateThread ),
-            'snippets' => $this->isGranted('ROLE_CROW') ? $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll() : [],
-
-            'emotes' => $this->getEmotesByUser($this->getUser(),true),
-            'username' => $this->getUser()->getName(),
-            'forum' => false,
-            'town_controls' => null,
-
-            'type' => 'global-pm',
-            'target_url' => 'pm_new_thread_controller',
-            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 
@@ -1126,23 +1116,9 @@ class MessageGlobalPMController extends MessageController
      */
     #[Route(path: 'jx/pm/create-og-editor', name: 'pm_og_thread_editor_controller')]
     public function editor_pm_og_thread_api(EntityManagerInterface $em): Response {
-
-        return $this->render( 'ajax/forum/editor.html.twig', [
-            'fid' => null,
-            'tid' => null,
-            'pid' => null,
-
+        return $this->render( 'ajax/editor/gpm-og.html.twig', [
+            'uuid' => Uuid::v4(),
             'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionCreateThread ),
-            'snippets' => $this->isGranted('ROLE_CROW') ? $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll() : [],
-
-            'emotes' => $this->getEmotesByUser($this->getUser(),true),
-            'username' => $this->getUser()->getName(),
-            'forum' => false,
-            'town_controls' => null,
-
-            'type' => 'global-og-pm',
-            'target_url' => 'pm_new_og_thread_controller',
-            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 
@@ -1153,23 +1129,10 @@ class MessageGlobalPMController extends MessageController
      */
     #[Route(path: 'jx/pm/answer-editor/{id<\d+>}', name: 'pm_post_editor_controller')]
     public function editor_pm_post_api(int $id, EntityManagerInterface $em): Response {
-        return $this->render( 'ajax/forum/editor.html.twig', [
-            'fid' => null,
-            'tid' => null,
-            'pid' => null,
-
+        return $this->render( 'ajax/editor/gpm-post.html.twig', [
+            'uuid' => Uuid::v4(),
+            'tid' => $id,
             'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionCreatePost ),
-            'snippets' => $this->isGranted('ROLE_CROW') ? $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll() : [],
-
-            'emotes' => $this->getEmotesByUser($this->getUser(),true),
-            'username' => $this->getUser()->getName(),
-            'forum' => false,
-            'town_controls' => null,
-
-            'type' => 'global-pm',
-            'target_url'  => 'pm_new_post_controller',
-            'target_data' => ['id' => $id],
-            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 
@@ -1178,10 +1141,11 @@ class MessageGlobalPMController extends MessageController
      * @param EntityManagerInterface $em
      * @param UserHandler $userHandler
      * @param PermissionHandler $perm
+     * @param EventProxyService $proxy
      * @return Response
      */
     #[Route(path: 'api/pm/post', name: 'pm_new_thread_controller')]
-    public function new_thread_api(JSONRequestParser $parser, EntityManagerInterface $em, UserHandler $userHandler, PermissionHandler $perm): Response {
+    public function new_thread_api(JSONRequestParser $parser, EntityManagerInterface $em, UserHandler $userHandler, PermissionHandler $perm, EventProxyService $proxy): Response {
 
         $user = $this->getUser();
         if ($this->userHandler->isRestricted( $user, AccountRestriction::RestrictionGlobalCommunication ))
@@ -1207,7 +1171,7 @@ class MessageGlobalPMController extends MessageController
                     $official_group = $this->entity_manager->getRepository(OfficialGroup::class)->find( (int)$id );
                     if (!$official_group || !$this->perm->userInGroup($user, $official_group->getUsergroup()))
                         return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-                    return $this->new_og_thread_api($parser,$em,$perm,(int)$id,$users);
+                    return $this->new_og_thread_api($parser,$em,$perm,$proxy,(int)$id,$users);
             }
         }
 
@@ -1273,6 +1237,8 @@ class MessageGlobalPMController extends MessageController
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
+        $proxy->globalPrivateMessageNewPostEvent( $post, $insight, true );
+
         if (!empty($blocked_users)) {
             if (count($blocked_users) === 1)
                 $this->addFlash('error', $this->translator->trans('{user} hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.',['{user}' => $blocked_users[0]->getName()],'global'));
@@ -1289,12 +1255,13 @@ class MessageGlobalPMController extends MessageController
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
      * @param PermissionHandler $perm
+     * @param EventProxyService $proxy
      * @param int|null $overwrite_og
      * @param User[]|null $overwrite_user
      * @return Response
      */
     #[Route(path: 'api/pm/og_post', name: 'pm_new_og_thread_controller')]
-    public function new_og_thread_api(JSONRequestParser $parser, EntityManagerInterface $em, PermissionHandler $perm, ?int $overwrite_og = null, ?array $overwrite_user = null): Response {
+    public function new_og_thread_api(JSONRequestParser $parser, EntityManagerInterface $em, PermissionHandler $perm, EventProxyService $proxy, ?int $overwrite_og = null, ?array $overwrite_user = null): Response {
         if (!$parser->has_all(['title','content'], true) || ( !$parser->has('og') && !$overwrite_og ))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
@@ -1345,6 +1312,8 @@ class MessageGlobalPMController extends MessageController
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException );
         }
 
+        $proxy->globalPrivateMessageNewPostEvent( $post, $insight, true );
+
         return AjaxResponse::success( true , ['url' => $this->generateUrl('pm_view')] );
     }
 
@@ -1353,11 +1322,10 @@ class MessageGlobalPMController extends MessageController
      * @param int $id
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
-     * @param UserHandler $userHandler
      * @return Response
      */
     #[Route(path: 'api/pm/{id<\d+>}/answer', name: 'pm_new_post_controller')]
-    public function new_post_api(int $id, JSONRequestParser $parser, EntityManagerInterface $em, UserHandler $userHandler): Response {
+    public function new_post_api(int $id, JSONRequestParser $parser, EntityManagerInterface $em, EventProxyService $proxy): Response {
 
         $user = $this->getUser();
 
@@ -1417,67 +1385,9 @@ class MessageGlobalPMController extends MessageController
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
+        $proxy->globalPrivateMessageNewPostEvent( $post, $insight, false );
+
         return AjaxResponse::success( true , ['url' => $this->generateUrl('pm_view')] );
-    }
-
-    /**
-     * @param int $pid
-     * @param EntityManagerInterface $em
-     * @param TranslatorInterface $ti
-     * @return Response
-     */
-    #[Route(path: 'api/pm/{pid<\d+>}/report', name: 'pm_report_post_controller')]
-    public function report_post_api(int $pid, EntityManagerInterface $em, TranslatorInterface $ti, JSONRequestParser $parser, CrowService $crow, RateLimitingFactoryProvider $rateLimiter): Response {
-        $user = $this->getUser();
-
-        $message = $em->getRepository( GlobalPrivateMessage::class )->find( $pid );
-        if (!$message) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        $reason = $parser->get_int('reason', 0, 0, 13);
-        if ($reason === 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        $group = $message->getReceiverGroup();
-        if (!$group || $group->getType() !== UserGroup::GroupMessageGroup)
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        /** @var UserGroupAssociation $group_association */
-        $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(),
-            'associationType' => [UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive], 'association' => $group]);
-        if (!$group_association) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-
-
-        $targetUser = $message->getSender();
-        if ($targetUser->getName() === "Der Rabe" )
-            return AjaxResponse::success(true, ['msg' => $ti->trans('Das ist keine gute Idee, das ist dir doch wohl klar!', [], 'game')]);
-
-        $reports = $message->getAdminReports();
-        foreach ($reports as $report)
-            if ($report->getSourceUser()->getId() == $user->getId())
-                return AjaxResponse::success();
-
-        if (!($limit = $rateLimiter->reportLimiter( $user )->create( $user->getId() )->consume())->isAccepted())
-            return AjaxResponse::error( ErrorHelper::ErrorRateLimited, ['detail' => 'report', 'retry_in' => $limit->getRetryAfter()->getTimestamp() - (new DateTime())->getTimestamp()]);
-
-        $details = $parser->trimmed('details');
-        $newReport = (new AdminReport())
-            ->setSourceUser($user)
-            ->setTs(new DateTime('now'))
-            ->setReason( $parser->get_int('reason', 0, 0, 13) )
-            ->setDetails( $details ?: null )
-            ->setGpm($message);
-
-        try {
-            $em->persist($newReport);
-            $em->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
-        try {
-            $crow->triggerExternalModNotification( 'A global PM has been reported.', $message, $newReport );
-        } catch (\Throwable $e) {}
-
-        return AjaxResponse::success( true, ['msg' => $ti->trans('Du hast die Nachricht von {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...', ['{username}' => '<span>' . $message->getSender()->getName() . '</span>'], 'game')]);
     }
 
     /**

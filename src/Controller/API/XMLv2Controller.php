@@ -34,7 +34,7 @@ use Exception;
 use Symfony\Component\Config\Util\Exception\InvalidXmlException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
@@ -144,37 +144,45 @@ class XMLv2Controller extends CoreController {
             ]
         ];
 
-        $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
+        $pictos = $this->pictoService->accumulateAllPictos( $user, include_imported: true );
+        $comments = $this->pictoService->accumulateAllPictoComments( $user );
 
         foreach ($pictos as $picto){
             /** @var Picto $picto */
             $node = [
                 'attributes' => [
-                    'rare' => intval($picto['rare']),
-                    'n' => $picto['c'],
-                    'img' => $this->getIconPath($this->asset->getUrl( "build/images/pictos/{$picto['icon']}.gif")),
+                    'rare' => intval($picto->getPrototype()->getRare()),
+                    'n' => intval($picto->getCount()),
+                    'img' => $this->getIconPath($this->asset->getUrl( "build/images/pictos/{$picto->getPrototype()->getIcon()}.gif")),
                 ],
-                'list' => [
+                'list-0' => [
                     'name' => 'title',
+                    'items' => []
+                ],
+                'list-1' => [
+                    'name' => 'comment',
                     'items' => []
                 ],
             ];
             if($language !== "all") {
-                $node['attributes']['name'] = $this->translator->trans($picto['label'], [], 'game');
-                $node['attributes']['desc'] = $this->translator->trans($picto['description'], [], 'game');
+                $node['attributes']['name'] = $this->translator->trans($picto->getPrototype()->getLabel(), [], 'game');
+                $node['attributes']['desc'] = $this->translator->trans($picto->getPrototype()->getDescription(), [], 'game');
             } else {
                 foreach ($this->languages as $lang) {
-                    $node['attributes']["name-$lang"] = $this->translator->trans($picto['label'], [], 'game', $lang);
-                    $node['attributes']["desc-$lang"] = $this->translator->trans($picto['description'], [], 'game', $lang);
+                    $node['attributes']["name-$lang"] = $this->translator->trans($picto->getPrototype()->getLabel(), [], 'game', $lang);
+                    $node['attributes']["desc-$lang"] = $this->translator->trans($picto->getPrototype()->getDescription(), [], 'game', $lang);
                 }
             }
             
             $criteria = new Criteria();
-            $criteria->andWhere($criteria->expr()->lte('unlockQuantity', $picto['c']));
-            $criteria->andWhere($criteria->expr()->eq('associatedPicto', $this->entity_manager->getRepository(PictoPrototype::class)->find($picto['id'])));
+            $criteria->andWhere($criteria->expr()->lte('unlockQuantity', $picto->getCount()));
+            $criteria->andWhere($criteria->expr()->eq('associatedPicto', $picto->getPrototype()));
 
             $titles = $this->entity_manager->getRepository(AwardPrototype::class)->matching($criteria);
             foreach($titles as $title){
+
+                if (empty($title->getTitle())) continue;
+
                 /** @var AwardPrototype $title */
                 $nodeTitle = [
                     'attributes' => [
@@ -187,8 +195,9 @@ class XMLv2Controller extends CoreController {
                         $nodeTitle['attributes']["name-$lang"] = $this->translator->trans($title->getTitle(), [], 'game', $lang);
                     }
                 }
-                $node['list']['items'][] = $nodeTitle;
+                $node['list-0']['items'][] = $nodeTitle;
             }
+            $node['list-1']['items'] = array_map( fn( string $s ) => ['attributes' => [], 'cdata_value' => $s], $comments[ $picto->getPrototype()->getId() ] ?? []);
             $data['data']['rewards']['list']['items'][] = $node;
         }
 
@@ -1085,6 +1094,11 @@ class XMLv2Controller extends CoreController {
                     $this->arrayToXml($v['list']['items'], $name, $child, $v['list']['name']);
                     unset($v['list']);
                 }
+                for ($i = 0; $i <= 9; $i++)
+                    if (array_key_exists("list-$i", $v)) {
+                        $this->arrayToXml($v["list-$i"]['items'], $name, $child, $v["list-$i"]['name']);
+                        unset($v["list-$i"]);
+                    }
 
                 if(array_key_exists('value', $v) && array_key_exists('cdata_value', $v))
                     throw new InvalidXmlException("You cannot have both value and cdata_value in a node");
@@ -1125,7 +1139,7 @@ class XMLv2Controller extends CoreController {
                     'secure' => intval($secure),
                     'author' => 'MyHordes',
                     'language' => $language,
-                    'version' => '0.1',
+                    'version' => '2.1.0',
                     'generator' => 'symfony',
                 ],
             ]

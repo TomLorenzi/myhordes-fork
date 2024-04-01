@@ -22,8 +22,9 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\MessageBusInterface;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Uid\Uuid;
 
 /**
  * @method User getUser
@@ -83,12 +84,16 @@ class MessageAnnouncementController extends MessageController
         $title = $parser->get_array( 'title' );
         $desc = $parser->get_array( 'desc' );
         $premature = (bool)$parser->get( 'premature' );
+        $multiple = (bool)$parser->get( 'multiple' );
         $preview = $parser->get_array( 'preview' );
 
         try {
             $start = new DateTime( $parser->get('start', '-1') );
             $end = new DateTime( $parser->get('end', '-1') );
+            $reveal_at = new DateTime( $parser->get('date_premature', '-1') );
         } catch (\Throwable $t) { return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest ); }
+
+        if (!$premature) $reveal_at = null;
 
         if ($end <= new DateTime('now')) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         if ($start >= $end) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
@@ -115,7 +120,8 @@ class MessageAnnouncementController extends MessageController
             $this->entity_manager->flush();
 
             $global_poll = (new GlobalPoll())
-                ->setPoll( $poll )->setStartDate( $start )->setEndDate( $end )->setShowResultsImmediately( $premature );
+                ->setPoll( $poll )->setStartDate( $start )->setEndDate( $end )->setShowResultsImmediately( $premature )
+                ->setMultipleChoice($multiple)->setRevealDate( $reveal_at );
 
             foreach ($this->allLangsCodes as $lang) if ($lang !== 'ach') {
                 $global_poll
@@ -171,27 +177,12 @@ class MessageAnnouncementController extends MessageController
      */
     #[Route(path: 'jx/admin/changelogs/c/editor', name: 'admin_new_changelog_editor_controller')]
     public function admin_new_changelog_editor_controller(): Response {
-        $user = $this->getUser();
-
-        if ($this->isGranted('ROLE_ADMIN')) $p = ForumUsagePermissions::PermissionOwn;
-        elseif ($this->isGranted('ROLE_CROW')) $p = ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingModerator;
-        else $p = ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingOracle;
-
-        return $this->render( 'ajax/forum/editor.html.twig', [
-            'fid' => null,
-            'tid' => null,
-            'pid' => null,
-
-            'permission' => $this->getPermissionObject( $p ),
-            'snippets' => [],
-            'emotes' => $this->getEmotesByUser($user,true),
-
-            'forum' => false,
-            'type' => 'changelog',
-            'username' => $user->getName(),
-            'target_url' => 'admin_changelog_new_changelog',
-            'town_controls' => false,
-            'langsCodes' => $this->generatedLangsCodes
+        return $this->render( 'ajax/editor/changelog.html.twig', [
+            'permission' => $this->getPermissionObject( match(true) {
+                $this->isGranted('ROLE_ADMIN') => ForumUsagePermissions::PermissionOwn,
+                $this->isGranted('ROLE_CROW') => ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingModerator,
+                default => ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingOracle,
+            } ),
         ] );
     }
 
@@ -200,27 +191,13 @@ class MessageAnnouncementController extends MessageController
      */
     #[Route(path: 'jx/admin/com/changelogs/a/editor', name: 'admin_new_announcement_editor_controller')]
     public function admin_new_announcement_editor_controller(): Response {
-        $user = $this->getUser();
-
-        if ($this->isGranted('ROLE_ADMIN')) $p = ForumUsagePermissions::PermissionOwn;
-        elseif ($this->isGranted('ROLE_CROW')) $p = ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingModerator;
-        else $p = ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingOracle;
-
-        return $this->render( 'ajax/forum/editor.html.twig', [
-            'fid' => null,
-            'tid' => null,
-            'pid' => null,
-
-            'permission' => $this->getPermissionObject( $p ),
-            'snippets' => [],
-            'emotes' => $this->getEmotesByUser($user,true),
-
-            'forum' => false,
-            'type' => 'announcement',
-            'username' => $user->getName(),
-            'target_url' => 'admin_changelog_new_announcement',
-            'town_controls' => false,
-            'langsCodes' => $this->generatedLangsCodes
+        return $this->render( 'ajax/editor/announcement.html.twig', [
+            'uuid' => Uuid::v4(),
+            'permission' => $this->getPermissionObject( match(true) {
+                $this->isGranted('ROLE_ADMIN') => ForumUsagePermissions::PermissionOwn,
+                $this->isGranted('ROLE_CROW') => ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingModerator,
+                default => ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingOracle,
+            } ),
         ] );
     }
 

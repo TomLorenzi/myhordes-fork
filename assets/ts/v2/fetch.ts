@@ -98,7 +98,7 @@ class FetchBuilder {
     private use_cache: boolean = false;
     private send_token: boolean = false;
 
-    constructor(url: string, params: URLSearchParams|null, f_then: (Response) => Promise<any>, f_catch: (any) => Promise<any>) {
+    constructor(url: string, headers: object|null, params: URLSearchParams|null, f_then: (Response) => Promise<any>, f_catch: (any) => Promise<any>) {
         this.url = url;
         this.params = params;
         this.f_then = f_then;
@@ -110,7 +110,8 @@ class FetchBuilder {
             credentials: 'same-origin',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                ...(headers ?? {})
             },
             redirect: 'follow'
         }
@@ -168,9 +169,11 @@ class FetchBuilder {
 }
 
 class FetchOptions {
+    public throw_response_on_error = false;
     public error_messages: boolean = true;
     public loader: boolean = true;
     public body_success: boolean = false;
+    public add_xhr_header: boolean = false;
 }
 
 class FetchOptionBuilder {
@@ -188,11 +191,17 @@ class FetchOptionBuilder {
         this.queryParams = null;
     }
 
+    public throwResponseOnError(): FetchOptionBuilder { this.options.throw_response_on_error = true; return this; }
+    public throwAliasCodeOnError(): FetchOptionBuilder { this.options.throw_response_on_error = false; return this; }
+
     public withErrorMessages(): FetchOptionBuilder { this.options.error_messages = true; return this; }
     public withoutErrorMessages(): FetchOptionBuilder { this.options.error_messages = false; return this; }
 
     public withLoader(): FetchOptionBuilder { this.options.loader = true; return this; }
     public withoutLoader(): FetchOptionBuilder { this.options.loader = false; return this; }
+
+    public withXHRHeader(): FetchOptionBuilder { this.options.add_xhr_header = true; return this; }
+    public withoutXHRHeader(): FetchOptionBuilder { this.options.add_xhr_header = false; return this; }
 
     public bodyDeterminesSuccess(b: boolean = true): FetchOptionBuilder { this.options.body_success = b; return this; }
 
@@ -205,7 +214,15 @@ class FetchOptionBuilder {
     }
 
     public request(): FetchBuilder {
-        return new FetchBuilder( this.url, this.queryParams, (r: Response) => this.processor(r, this.options), r => this.error_handler(r, this.options) );
+        return new FetchBuilder(
+            this.url,
+            this.options.add_xhr_header ? {
+                'X-Requested-With': 'XMLHttpRequest'
+            }: null,
+            this.queryParams,
+            (r: Response) => this.processor(r, this.options),
+            r => this.error_handler(r, this.options)
+        );
     }
 }
 
@@ -256,7 +273,7 @@ export class Fetch {
                 $.html.error( typeof error === 'string' ? `${c.errors['net']}<br/><code>${error}</code>` : c.errors['net']);
             else if (error) console.error(error);
 
-            throw error;
+            throw options.throw_response_on_error ? null : error;
         }
     }
 
@@ -271,6 +288,8 @@ export class Fetch {
         const success_data = data?.success ?? null;
         const error_message = (success_data !== false && !error_code) ? null : (error_code === 'message' || error_code === null) ? (data?.message) ?? null : null;
 
+
+
         if (!response.ok || typeof data === "undefined" || (options.body_success && (!success_data || error_message))) {
 
             if (!response.ok) {
@@ -283,14 +302,24 @@ export class Fetch {
                     default: error_code = error_code ?? 'com'; break;
                 }
 
-                if (options.error_messages)
+                if (options.error_messages && options.throw_response_on_error && error_message) {
+                    $.html.error(error_message);
+                    throw null;
+                }
+
+                if (options.error_messages && !options.throw_response_on_error)
                     $.html.error(error_message ?? c.errors[error_code ?? '__'] ?? `${c.errors['com']} (HTTP-${response.status})`);
-                throw error_code ?? 'com';
+                throw options.throw_response_on_error ? response : (error_code ?? 'com');
+            }
+
+            if (options.error_messages && options.throw_response_on_error && error_message) {
+                $.html.error(error_message);
+                throw null;
             }
 
             if (options.error_messages)
                 $.html.error(`${error_message ?? c.errors[error_code ?? 'common'] ?? c.errors['common']}`);
-            throw error_code ?? 'common';
+            throw options.throw_response_on_error ? response : (error_code ?? 'common');
         }
 
         this.handle_response_headers( response );
@@ -300,6 +329,12 @@ export class Fetch {
     public from( endpoint: string ) {
         const e = this.remove_slashes( endpoint );
         return new FetchOptionBuilder( e ? `${this.rest}/${e}` : this.rest,
+            (r,opt) => this.preprocess_response(r,opt),
+            (e,opt) => this.process_network_failure(e,opt) );
+    }
+
+    public fromEndpoint( ) {
+        return new FetchOptionBuilder( this.rest,
             (r,opt) => this.preprocess_response(r,opt),
             (e,opt) => this.process_network_failure(e,opt) );
     }

@@ -7,6 +7,7 @@ use App\Entity\Inventory;
 use App\Entity\RuinZone;
 use App\Entity\RuinZonePrototype;
 use App\Entity\Zone;
+use App\Enum\Configuration\TownSetting;
 use App\Service\ConfMaster;
 use App\Service\RandomGenerator;
 use App\Structures\TownConf;
@@ -21,30 +22,21 @@ class MazeMaker
     // 
     // -----------------------------------------------------------------------------------------
 
-    private EntityManagerInterface $entity_manager;
-    private RandomGenerator $random;
-    private ConfMaster $conf;
     private float $skipMazeDirectionProbability = 0;
     private float $joinPathProbability = 0.2;
     private bool $enableOpenArea = false;
 
     private Zone $targetZone;
 
-    const mazeSizeX = 13;
-    const mazeSizeY = 13;
-    const mazeOffsetX = -7;
-    const mazeOffsetY = 1;
-        
     const minStepDirection = 3;
     
     // --------
 
-    public function __construct(EntityManagerInterface $em, RandomGenerator $r, ConfMaster $c)
-    {
-        $this->entity_manager = $em;
-        $this->random = $r;
-        $this->conf = $c;
-    }
+    public function __construct(
+        private readonly EntityManagerInterface $entity_manager,
+        private readonly RandomGenerator $random,
+        private readonly ConfMaster $conf
+    ) { }
 
     // -----------------------------------------------------------------------------------------
     // Parameter Setters
@@ -130,8 +122,16 @@ class MazeMaker
             $this->createAndAddRuinZone(0, 0, 0);
         }
 
-        for ($x = self::mazeOffsetX; $x < self::mazeOffsetX + self::mazeSizeX; $x++) {
-            for ($y = self::mazeOffsetY; $y < self::mazeOffsetY + self::mazeSizeY; $y++) {
+        $conf = $this->conf->getTownConfiguration( $this->targetZone->getTown() );
+
+        $mapSizeX = $conf->get( TownSetting::ERuinSpaceMaxSizeX );
+        $mapSizeY = $conf->get( TownSetting::ERuinSpaceMaxSizeY );
+
+        $mazeOffsetX = -$conf->get( TownSetting::ERuinSpaceOffsetX );
+        $mazeOffsetY = 1;
+
+        for ($x = $mazeOffsetX; $x < $mazeOffsetX + $mapSizeX; $x++) {
+            for ($y = $mazeOffsetY; $y < $mazeOffsetY + $mapSizeY; $y++) {
                 for ($z = 0; $z < $this->targetZone->getExplorableFloors(); $z++) {
                     
                     if (!isset($cache[$z][$x][$y]))
@@ -256,8 +256,8 @@ class MazeMaker
         $originOffset = 0;
 
         $conf = $this->conf->getTownConfiguration( $this->targetZone->getTown() );
-        $rooms_total = $conf->get(TownConf::CONF_EXPLORABLES_ROOMS_TOTAL,  15);
-        $rooms_min_per_floor = $conf->get(TownConf::CONF_EXPLORABLES_ROOMS_MIN, 5);
+        $rooms_total = $conf->get(TownSetting::ERuinRoomCountTotal);
+        $rooms_min_per_floor = $conf->get(TownSetting::ERuinRoomCountMinPerFloor);
 
         // Calculate rooms per level
         $rooms_level = [];
@@ -278,7 +278,7 @@ class MazeMaker
             $originOffset += $originZone->getDistance() + 1;
         }
 
-        $this->populateMaze($this->targetZone, $this->conf->getTownConfiguration( $this->targetZone->getTown() )->get(TownConf::CONF_EXPLORABLES_ZOMBIES_INI, 25) * $levels );
+        $this->populateMaze($this->targetZone, $this->conf->getTownConfiguration( $this->targetZone->getTown() )->get(TownSetting::ERuinZombiesInitial) * $levels );
     }
 
     // -----------------------------------------------------------------------------------------
@@ -470,9 +470,9 @@ class MazeMaker
         $conf =  $this->conf->getTownConfiguration( $this->targetZone->getTown() );
         
         // Let's add some rooms!
-        $room_distance = $conf->get(TownConf::CONF_EXPLORABLES_ROOMDIST,   5) + $offset_distance;
-        $lock_distance = $conf->get(TownConf::CONF_EXPLORABLES_LOCKDIST,  10);
-        $room_dist     = $conf->get(TownConf::CONF_EXPLORABLES_ROOM_DIST,  4);
+        $room_distance = $conf->get(TownSetting::ERuinRoomDistance) + $offset_distance;
+        $lock_distance = $conf->get(TownSetting::ERuinRoomLockDistance);
+        $room_dist     = $conf->get(TownSetting::ERuinRoomSpacing);
 
         // Room candidates
         $room_candidates = [];

@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\RuinExplorerStatsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
@@ -18,28 +19,45 @@ class RuinExplorerStats
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
     private $id;
+
     #[ORM\ManyToOne(targetEntity: Citizen::class, inversedBy: 'explorerStats', cascade: ['persist'])]
     #[ORM\JoinColumn(nullable: false)]
     private $citizen;
+
     #[ORM\ManyToOne(targetEntity: Zone::class, inversedBy: 'explorerStats', cascade: ['persist'])]
     #[ORM\JoinColumn(nullable: false)]
     private $zone;
+
     #[ORM\Column(type: 'integer')]
     private $x = 0;
+
     #[ORM\Column(type: 'integer')]
     private $y = 0;
+
     #[ORM\Column(type: 'integer')]
     private $z = 0;
+
     #[ORM\Column(type: 'boolean')]
     private $active;
+
     #[ORM\Column(type: 'boolean')]
     private $inRoom = false;
+
     #[ORM\ManyToMany(targetEntity: RuinZone::class)]
     private $scavengedRooms;
+
     #[ORM\Column(type: 'boolean')]
     private $escaping = false;
+
     #[ORM\Column(type: 'datetime')]
     private $timeout;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $started = null;
+
+    #[ORM\Column]
+    private bool $grace = false;
+
     public function __construct()
     {
         $this->scavengedRooms = new ArrayCollection();
@@ -159,6 +177,30 @@ class RuinExplorerStats
     public function setTimeout(\DateTimeInterface $timeout): self
     {
         $this->timeout = $timeout;
+
+        return $this;
+    }
+
+    public function getStarted(): ?\DateTimeInterface
+    {
+        return $this->started;
+    }
+
+    public function setStarted(?\DateTimeInterface $started): static
+    {
+        $this->started = $started;
+
+        return $this;
+    }
+
+    public function isGrace(): ?bool
+    {
+        return $this->grace;
+    }
+
+    public function setGrace(bool $grace): static
+    {
+        $this->grace = $grace;
 
         return $this;
     }

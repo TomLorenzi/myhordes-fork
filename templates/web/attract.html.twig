@@ -105,6 +105,8 @@
 </footer>
 <script>
     (function() {
+        {{ include('partials/window_c.js.twig') }}
+
         document.querySelector('.deco_logo').addEventListener('click', () => {
             window.location.href = $.ajax.getBaseURL();
         })

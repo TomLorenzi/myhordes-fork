@@ -267,7 +267,7 @@
 	{% if is_granted("ROLE_ADMIN") %}
 		{{ item_creator_js('input[x-id][x-target="rucksack"]:checked,input[x-id][x-target="chest"]:checked,input[x-id][x-target="zone"]:checked', path('admin_spawn_item', {id: town.id}), path('admin_town_citizens', {id: town.id}), 'ctz') }}
 		{{ teleport_control_js('input[x-id][x-target="status"]:checked', path('admin_teleport_citizen', {id: town.id}), path('admin_town_citizens', {id: town.id})) }}
-		{{ picto_creator_js(path('admin_town_give_picto', {id: town.id}), path('admin_town_citizens', {id: town.id})) }}
+		{{ picto_creator_js('input[x-id][x-target="status"]:checked', path('admin_town_give_picto', {id: town.id}), path('admin_town_citizens', {id: town.id})) }}
 		{{ status_control_js('input[x-id][x-target="status"]:checked', path('admin_town_manage_status', {id: town.id}), path('admin_town_citizens', {id: town.id})) }}
 		{{ role_control_js('input[x-id][x-target="status"]:checked', path('admin_town_manage_role', {id: town.id}), path('admin_town_citizens', {id: town.id})) }}
 		{{ point_control_js('input[x-id][x-target="status"]:checked', path('admin_town_alter_pp', {id: town.id}), path('admin_town_citizens', {id: town.id})) }}

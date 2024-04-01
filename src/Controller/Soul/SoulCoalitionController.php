@@ -20,7 +20,7 @@ use App\Structures\MyHordesConf;
 use DateTime;
 use Exception;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -302,11 +302,11 @@ class SoulCoalitionController extends SoulController
     }
 
     /**
-     * @param int $coalition
+     * @param UserGroupAssociation $target_coalition
      * @return Response
      */
-    #[Route(path: 'api/soul/coalition/kick/{coalition<\d+>}', name: 'soul_kick_coalition')]
-    public function api_soul_kick_coalition(int $coalition): Response
+    #[Route(path: 'api/soul/coalition/kick/{id<\d+>}', name: 'soul_kick_coalition')]
+    public function api_soul_kick_coalition(UserGroupAssociation $target_coalition): Response
     {
         $user = $this->getUser();
         if ($this->user_handler->isRestricted( $user, AccountRestriction::RestrictionOrganization )) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
@@ -316,13 +316,8 @@ class SoulCoalitionController extends SoulController
         if ($user_coalition === null || !in_array($user_coalition->getAssociationType(), [UserGroupAssociation::GroupAssociationTypeCoalitionMember,UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive]))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        /** @var UserGroupAssociation|null $target_coalition */
-        $target_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->find($coalition);
-        if ($target_coalition === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
         if ($target_coalition->getAssociation() !== $user_coalition->getAssociation())
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-
 
         if ($target_coalition->getAssociationType() !== UserGroupAssociation::GroupAssociationTypeCoalitionInvitation && $user_coalition->getAssociationLevel() !== UserGroupAssociation::GroupAssociationLevelFounder)
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
@@ -333,6 +328,53 @@ class SoulCoalitionController extends SoulController
             $shoutbox->addEntry(
                 (new ShoutboxEntry())
                     ->setType( ShoutboxEntry::SBEntryTypeLeave )
+                    ->setTimestamp( new DateTime() )
+                    ->setUser1( $user )
+                    ->setUser2( $target_coalition->getUser() )
+            );
+            $this->entity_manager->persist($shoutbox);
+        }
+
+        try {
+            $this->entity_manager->flush();
+        }
+        catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @param UserGroupAssociation $target_coalition
+     * @return Response
+     */
+    #[Route(path: 'api/soul/coalition/promote/{id<\d+>}', name: 'soul_promote_coalition')]
+    public function api_soul_promote_coalition(UserGroupAssociation $target_coalition): Response
+    {
+        $user = $this->getUser();
+        if ($this->user_handler->isRestricted( $user, AccountRestriction::RestrictionOrganization )) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+
+        /** @var UserGroupAssociation|null $user_coalition */
+        $user_coalition = $this->user_handler->getCoalitionMembership($user);
+        if (
+            $user_coalition === null ||
+            !in_array($user_coalition->getAssociationType(), [UserGroupAssociation::GroupAssociationTypeCoalitionMember,UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive]) ||
+            $user_coalition->getAssociationLevel() !== UserGroupAssociation::GroupAssociationLevelFounder
+        ) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        if ($target_coalition->getAssociation() !== $user_coalition->getAssociation())
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        $this->entity_manager->persist( $target_coalition->setAssociationLevel( UserGroupAssociation::GroupAssociationLevelFounder ) );
+        $this->entity_manager->persist( $user_coalition->setAssociationLevel( UserGroupAssociation::GroupAssociationLevelDefault ) );
+
+        /** @var Shoutbox|null $shoutbox */
+        if ($shoutbox = $this->user_handler->getShoutbox($user_coalition)) {
+            $shoutbox->addEntry(
+                (new ShoutboxEntry())
+                    ->setType( ShoutboxEntry::SBEntryTypePromote )
                     ->setTimestamp( new DateTime() )
                     ->setUser1( $user )
                     ->setUser2( $target_coalition->getUser() )
@@ -487,7 +529,7 @@ class SoulCoalitionController extends SoulController
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $text = $parser->trimmed('text', '');
-        if (!$html->htmlPrepare( $user, 0, ['core_rp'],  $text, null, $insight ) || $insight->text_length < 2 || $insight->text_length > 256)
+        if (!$html->htmlPrepare( $user, 0, ['core_rp','core_rp_coa'],  $text, null, $insight ) || $insight->text_length < 2 || $insight->text_length > 256)
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         $shoutbox = $this->user_handler->getShoutbox($user);

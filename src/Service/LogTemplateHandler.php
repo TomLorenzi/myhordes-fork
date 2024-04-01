@@ -36,18 +36,13 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class LogTemplateHandler
 {
-    protected TranslatorInterface $trans;
-    protected Packages $asset;
-    protected EntityManagerInterface $entity_manager;
-    protected UrlGeneratorInterface $url;
-
-    public function __construct(TranslatorInterface $t, Packages $a, EntityManagerInterface $em, UrlGeneratorInterface $url)
-    {
-        $this->trans = $t;
-        $this->asset = $a;
-        $this->entity_manager = $em;
-        $this->url = $url;
-    }
+    public function __construct(
+        protected readonly TranslatorInterface $trans,
+        protected readonly Packages $asset,
+        protected readonly EntityManagerInterface $entity_manager,
+        protected readonly UrlGeneratorInterface $url,
+        protected readonly HTMLService $html
+    ) { }
 
     public function wrap(?string $obj, ?string $class = null): string {
         //if (!($obj || $obj != 0)) {var_dump($obj); die;}
@@ -195,16 +190,35 @@ class LogTemplateHandler
                     $transParams["{$typeEntry['name']}__tag"] = 'span';
                     if ($typeEntry['type'] === 'professionFull') $transParams["{$typeEntry['name']}__class"] = 'jobName';
                 }
-                // Non ICU-aware
                 elseif ($typeEntry['type'] === 'user') {
                     $user = $this->entity_manager->getRepository(User::class)->find( $variables[$typeEntry['name']] );
-                    $userName = match ($user->getId()) {
+                    $userName = match ($user?->getId()) {
                         66 => $this->trans->trans('Der Rabe', [], 'global'),
                         67 => $this->trans->trans('Animateur-Team', [], 'global'),
-                        default => $user->getName()
+                        default => $user?->getName()
                     };
-                    $transParams['{'.$typeEntry['name'].'}'] =
-                        $user ? "<span class=\"username\" x-user-id=\"{$user->getId()}\">{$userName}</span>" : '<span class="username">???</span>';
+                    if ($user) {
+                        $transParams[$typeEntry['name']] = $user;
+                        $transParams["{$typeEntry['name']}__tag"] = 'span';
+                        $transParams["{$typeEntry['name']}__class"] = 'username';
+                        $transParams["{$typeEntry['name']}__attr"] = ['x-user-id' => $user->getId()];
+                    } else $transParams[$typeEntry['name']] = '<span class="username">???</span>';
+                }
+                // Non ICU-aware
+                elseif ($typeEntry['type'] === 'users') {
+                    $users = array_map( function(User $user) {
+                        $userName = match ($user?->getId()) {
+                            66 => $this->trans->trans('Der Rabe', [], 'global'),
+                            67 => $this->trans->trans('Animateur-Team', [], 'global'),
+                            default => $user?->getName()
+                        };
+
+                        return "<span class=\"username\" x-user-id=\"{$user->getId()}\">{$userName}</span>";
+                    }, $this->entity_manager->getRepository(User::class)->findBy( ['id' => $variables[$typeEntry['name']]] ));
+
+                    if (count($users) > 1)
+                        $transParams[$typeEntry['name']] = implode(', ', array_slice( $users, 0, -1)) . ' ' . $this->trans->trans('und', [], 'global') . ' ' . array_slice( $users, -1)[0];
+                    else $transParams[$typeEntry['name']] = implode(', ', $users);
                 }
                 elseif ($typeEntry['type'] === 'itemGroup') {
                     $itemGroupEntries  = $this->fetchVariableObject($typeEntry['type'], $variables[$typeEntry['name']])->getEntries()->getValues();
@@ -235,7 +249,7 @@ class LogTemplateHandler
                     $transParams['{'.$typeEntry['name'].'}'] = "<div class='ap'>{$variables[$typeEntry['name']]}</div>";
                 }   
                 elseif ($typeEntry['type'] === 'chat') {
-                    $transParams['{'.$typeEntry['name'].'}'] = htmlentities($variables[$typeEntry['name']]);
+                    $transParams['{'.$typeEntry['name'].'}'] = htmlentities($this->html->prepareEmotes( $variables[$typeEntry['name']] ));
                 }
                 elseif ($typeEntry['type'] === 'item') {
                     $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), false, $variables['broken'] ?? false ), 'tool' );
@@ -276,6 +290,7 @@ class LogTemplateHandler
                         if ( $binmatch($mask, AccountRestriction::RestrictionProfileDescription) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Ändern der Profilbeschreibung', [], 'soul' ) );
                         if ( $binmatch($mask, AccountRestriction::RestrictionProfileDisplayName) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Ändern des Spielernamens', [], 'soul' ));
                     }
+                    if ( $binmatch($mask, AccountRestriction::RestrictionReportToGitlab) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Fehlerberichte erfassen', [], 'soul' ));
                     $transParams['{'.$typeEntry['name'].'}'] .= "</div>";
                 }
                 elseif ($typeEntry['type'] === 'title-custom-list') {

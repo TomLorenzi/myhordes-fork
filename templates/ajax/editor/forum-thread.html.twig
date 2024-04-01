@@ -1,0 +1,18 @@
+{% extends "ajax/ajax_plain.html.twig" %}
+{% from 'ajax/editor/base/forum-editor.html.twig' import forumEditor as editor %}
+{% block ajax_base %}
+    {{ editor(
+        app.user,
+        username,
+        permission,
+        alias,
+        'Neuer Thread'|trans({},'global'),
+        town_controls,
+        true,
+        null,
+        true,
+        path('forum_new_thread_controller', {id: fid}),
+        tags,
+        null,
+    ) }}
+{% endblock %}

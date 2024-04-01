@@ -639,7 +639,7 @@
                                 {% for floornum, floor in exploration.rz %}
                                     <div class="adm-exploration" x-tab-group="admin-town-explorable-{{ exploration.z.id }}" x-tab-id="f-{{ exploration.z.id }}-{{ floornum }}" x-tab-target>
                                         {% for rz in floor %}
-                                            <div class="rz {% if rz.prototype and rz.connect == 0 %}rz-{{ rz.locked ? 'locked' : 'unlocked' }}{% endif%} {% if rz.prototype and rz.connect != 0 %}rz-{{ rz.connect > 0 ? 'up' : 'down' }}{% endif%} rz-{{ rz.distance > conf.get(constant('App\\Structures\\TownConf::CONF_EXPLORABLES_LOCKDIST')) ? 'far' : 'close' }} rz-{{ rz.corridor }} {% if rz.zombies > 0 %}rz-zeds{% endif %}" style="top:{{ rz.y * 20 }}px;left:{{ rz.x * 20 }}px;">
+                                            <div class="rz {% if rz.prototype and rz.connect == 0 %}rz-{{ rz.locked ? 'locked' : 'unlocked' }}{% endif%} {% if rz.prototype and rz.connect != 0 %}rz-{{ rz.connect > 0 ? 'up' : 'down' }}{% endif%} rz-{{ rz.distance > conf.get(constant('App\\Enum\\Configuration\\TownSetting::ERuinRoomLockDistance')) ? 'far' : 'close' }} rz-{{ rz.corridor }} {% if rz.zombies > 0 %}rz-zeds{% endif %}" style="top:{{ rz.y * 20 }}px;left:{{ rz.x * 20 }}px;">
                                                 {% if rz.corridor != 0 %}
                                                     <div class="tooltip ndynamic">
                                                         {{ _self.valuelist('ID'|trans({},'admin'), rz.id) }}
@@ -936,7 +936,7 @@
         {{ item_creator_js('[x-id][x-target="bank"]', path('admin_spawn_item', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "bank"}), 'bnk') }}
         {{ item_creator_js('[x-id][x-target="zone"]', path('admin_spawn_item', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "dash"}), 'zone') }}
         {{ teleport_control_js('input[x-id][x-target="status"]:checked', path('admin_teleport_citizen', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
-        {{ picto_creator_js(path('admin_town_give_picto', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
+        {{ picto_creator_js('input[x-id][x-target="status"]:checked', path('admin_town_give_picto', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
         {{ status_control_js('input[x-id][x-target="status"]:checked', path('admin_town_manage_status', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
         {{ role_control_js('input[x-id][x-target="status"]:checked', path('admin_town_manage_role', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
         {{ point_control_js('input[x-id][x-target="status"]:checked', path('admin_town_alter_pp', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}

@@ -22,9 +22,9 @@ use App\Service\ErrorHelper;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\PermissionHandler;
-use Symfony\Component\Finder\Glob;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Core\Role\RoleHierarchyInterface;
 
 /**
  * @method User getUser
@@ -449,16 +449,26 @@ class AdminForumController extends AdminActionController
 
     /**
      * @param JSONRequestParser $parser
+     * @param RoleHierarchyInterface $roles
      * @return Response
      */
-    #[Route(path: 'api/admin/forum/reports/snippet/add', name: 'admin_reports_add_snippet')]
+    #[Route(path: 'api/admin/com/forum/reports/snippet/add', name: 'admin_reports_add_snippet')]
     #[AdminLogProfile(enabled: true)]
-    public function add_snippet(JSONRequestParser $parser): Response {
+    public function add_snippet(JSONRequestParser $parser, RoleHierarchyInterface $roles): Response {
 
-        if (!$parser->has_all(['id','lang','content','edit'],true)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        if (!$parser->has_all(['id','lang','content','edit','role'],true)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         $lang = strtolower( $parser->trimmed('lang') );
+        $role = strtoupper( $parser->trimmed('role') );
 
         if (!in_array($lang, $this->allLangsCodes)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        if ($role === '*' && !$this->isGranted('ROLE_ADMIN')) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+        $available_roles = array_intersect(
+            ["ROLE_CROW", "ROLE_ADMIN", "ROLE_ORACLE", "ROLE_ANIMAC"],
+            $roles->getReachableRoleNames( $this->getUser()->getRoles() )
+        );
+
+        if ($role !== '*' && !in_array($role, $available_roles)) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         $existing_id = $parser->get_int('edit', -1);
         $existing = $this->entity_manager->getRepository(ForumModerationSnippet::class)->findOneBy(['short' => $parser->trimmed('id'), 'lang' => $lang]);
@@ -466,11 +476,11 @@ class AdminForumController extends AdminActionController
         if ( ($existing_id < 0 && $existing) || ($existing_id >= 0 && $existing?->getId() !== $existing_id) || ( $existing_id >= 0 && !$editing ) )
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-
         $this->entity_manager->persist( ($existing_id < 0 ? (new ForumModerationSnippet) : $editing)
             ->setShort( $parser->trimmed('id') )
             ->setLang( $lang )
             ->setText( $parser->trimmed( 'content' ) )
+            ->setRole( $role )
         );
 
         try {
@@ -483,26 +493,27 @@ class AdminForumController extends AdminActionController
     }
 
     /**
-     * @param int $id
+     * @param ForumModerationSnippet $snippet
+     * @param RoleHierarchyInterface $roles
      * @return Response
      */
-    #[Route(path: 'api/admin/forum/reports/snippet/remove/{id<\d+>}', name: 'admin_reports_remove_snippet')]
+    #[Route(path: 'api/admin/com/forum/reports/snippet/remove/{id<\d+>}', name: 'admin_reports_remove_snippet')]
     #[AdminLogProfile(enabled: true)]
-    public function remove_snippet(int $id): Response {
+    public function remove_snippet(ForumModerationSnippet $snippet, RoleHierarchyInterface $roles): Response {
+        if ($snippet->getRole() === '*' && !$this->isGranted('ROLE_ADMIN'))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
+        if (!$this->isGranted($snippet->getRole()))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
-        $snippet = $this->entity_manager->getRepository(ForumModerationSnippet::class)->find($id);
+        $this->entity_manager->remove($snippet);
+        try {
+            $this->entity_manager->flush();
+        } catch (\Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
 
-        if ($snippet) {
-            $this->entity_manager->remove($snippet);
-            try {
-                $this->entity_manager->flush();
-            } catch (\Exception $e) {
-                return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
-            }
-
-            return AjaxResponse::success();
-        } else return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        return AjaxResponse::success();
     }
 
     /**
@@ -801,15 +812,23 @@ class AdminForumController extends AdminActionController
     }
 
     /**
-     * @param PermissionHandler $perm
+     * @param RoleHierarchyInterface $roles
      * @return Response
      */
-    #[Route(path: 'jx/admin/forum/snippets', name: 'admin_reports_snippets')]
-    public function forum_snippets(PermissionHandler $perm): Response
+    #[Route(path: 'jx/admin/com/forum/snippets', name: 'admin_reports_snippets')]
+    public function forum_snippets(RoleHierarchyInterface $roles): Response
     {
+        $user_roles = $roles->getReachableRoleNames( $this->getUser()->getRoles() );
+        $valid_roles = ["ROLE_CROW", "ROLE_ADMIN", "ROLE_ORACLE", "ROLE_ANIMAC"];
+        $available_roles = array_intersect(
+            $valid_roles,
+            $user_roles
+        );
+
         return $this->render( 'ajax/admin/reports/snippets.html.twig', $this->addDefaultTwigArgs(null, [
             'tab' => 'short',
-            'snippets' => $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll()
+            'available_roles' => $this->isGranted('ROLE_ADMIN') ? [...$available_roles, '*'] : $available_roles,
+            'snippets' => $this->entity_manager->getRepository(ForumModerationSnippet::class)->findBy(['role' => $user_roles], ['lang' => 'DESC', 'role' => 'DESC', 'short' => 'DESC'])
         ]));
     }
 }

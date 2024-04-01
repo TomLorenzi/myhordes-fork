@@ -19,6 +19,7 @@ use App\Entity\FeatureUnlock;
 use App\Entity\FeatureUnlockPrototype;
 use App\Entity\ItemPrototype;
 use App\Entity\Picto;
+use App\Entity\PictoComment;
 use App\Entity\PictoPrototype;
 use App\Entity\RegistrationToken;
 use App\Entity\Season;
@@ -62,7 +63,7 @@ use Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Contracts\Cache\TagAwareCacheInterface;
@@ -271,12 +272,25 @@ class AdminUserController extends AdminActionController
      * @return Response
      */
     #[Route(path: 'jx/admin/users/settings', name: 'admin_users_settings')]
+    #[IsGranted('ROLE_ADMIN')]
     public function settings(): Response
     {
         return $this->render( 'ajax/admin/users/settings_index.html.twig', $this->addDefaultTwigArgs("settings", [
             's' => [
                 'DisableAutomaticUserValidationMails' => $this->conf->serverSetting( ServerSetting::DisableAutomaticUserValidationMails )
             ]
+        ]));
+    }
+
+    /**
+     * @return Response
+     */
+    #[Route(path: 'jx/admin/users/perch', name: 'admin_users_crow_management')]
+    #[IsGranted('ROLE_ADMIN')]
+    public function crowManagementUI(): Response
+    {
+        return $this->render( 'ajax/admin/users/crow_management.html.twig', $this->addDefaultTwigArgs("perch", [
+            'langs' => $this->generatedLangs
         ]));
     }
 
@@ -1153,7 +1167,7 @@ class AdminUserController extends AdminActionController
         $duration  = $parser->get_int('duration');
         $mask      = $parser->get_int('restriction', 0);
 
-        if ($duration === 0 || $mask <= 0 || ($mask & ~(AccountRestriction::RestrictionSocial | AccountRestriction::RestrictionGameplay | AccountRestriction::RestrictionProfile | AccountRestriction::RestrictionGameplayLang)))
+        if ($duration === 0 || $mask <= 0 || ($mask & ~(AccountRestriction::RestrictionSocial | AccountRestriction::RestrictionGameplay | AccountRestriction::RestrictionProfile | AccountRestriction::RestrictionGameplayLang | AccountRestriction::RestrictionReportToGitlab )))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $a = ($edit ?? ((new AccountRestriction())->setCreated( new \DateTime() )))
@@ -1451,6 +1465,7 @@ class AdminUserController extends AdminActionController
 
         $prototype_id = $parser->get('prototype');
         $number = $parser->get('number', 1);
+        $text = $parser->trimmed('text');
 
         if ($prototype_id === -42 && $kernel->getEnvironment() === 'dev' && $this->isGranted('ROLE_ADMIN', $user))
             $prototypes = $this->entity_manager->getRepository(PictoPrototype::class)->findAll();
@@ -1476,7 +1491,17 @@ class AdminUserController extends AdminActionController
             }
 
             $picto->setCount($picto->getCount() + $number);
-            if ($picto->getCount() > 0) $this->entity_manager->persist($picto);
+            if ($picto->getCount() > 0) {
+                $this->entity_manager->persist($picto);
+                if (!empty($text)) {
+
+                    $comment = ($picto->getId() !== null ? $this->entity_manager->getRepository(PictoComment::class)->findOneBy(['picto' => $picto]) : null)
+                        ?? (new PictoComment())->setPicto( $picto )->setOwner( $user )->setDisplay( true );
+
+                    $comment->setText( $text );
+                    $this->entity_manager->persist($comment);
+                }
+            }
             else $this->entity_manager->remove($picto);
         }
 

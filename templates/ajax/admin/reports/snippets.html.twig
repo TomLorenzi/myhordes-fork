@@ -4,18 +4,20 @@
     <div class="row-table">
         <div class="row header">
             <div class="padded cell rw-3">{{ 'ID'|trans({},'admin') }}</div>
-            <div class="padded cell rw-8">{{ 'Inhalt'|trans({},'admin') }}</div>
+            <div class="padded cell rw-2">{{ 'Rolle'|trans({},'admin') }}</div>
+            <div class="padded cell rw-6">{{ 'Inhalt'|trans({},'admin') }}</div>
         </div>
         {% for snippet in snippets|sort((a, b) => a.lang == b.lang ? a.short <=> b.short : a.lang <=> b.lang) %}
             <div class="row">
                 {# @var snippet \App\Entity\ForumModerationSnippet #}
                 <div class="padded cell rw-1"><i>{{ snippet.lang }}</i></div>
                 <div class="padded cell rw-2"><strong>{{ snippet.short }}</strong></div>
-                <div class="padded cell rw-8"><span class="small">{{ snippet.text }}</span></div>
+                <div class="padded cell rw-2"><span class="small">{{ snippet.role }}</span></div>
+                <div class="padded cell rw-6"><span class="small">{{ snippet.text }}</span></div>
                 <div class="padded cell rw-1 right">
-                    <button data-purpose="edit" data-snippet-id="{{ snippet.id }}" data-snippet-lang="{{ snippet.lang }}" data-snippet="{{ snippet.text }}" data-snippet-short="{{ snippet.short }}" class="small inline"><img alt="" src="{{ asset('build/images/forum/edit.png') }}" /></button>
+                    <button data-purpose="edit" data-snippet-id="{{ snippet.id }}" data-snippet-lang="{{ snippet.lang }}" data-snippet="{{ snippet.text }}" data-snippet-short="{{ snippet.short }}" data-snippet-role="{{ snippet.role }}" class="small inline"><img alt="" src="{{ asset('build/images/forum/edit.png') }}" /></button>
                     <button data-purpose="cancel" data-snippet-id="{{ snippet.id }}" class="small inline hidden"><img alt="X" src="{{ asset('build/images/icons/small_remove.gif') }}" /></button>
-                    <button x-delete-snippet-url="{{ path('admin_reports_remove_snippet', {id: snippet.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></button>
+                    <button data-fetch="{{ path('admin_reports_remove_snippet', {id: snippet.id}) }}" data-fetch-load="{{ path('admin_reports_snippets') }}" class="small inline"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></button>
                 </div>
             </div>
         {% endfor %}
@@ -23,61 +25,59 @@
 
     <h5 class="" id="snipped_header_new">{{ 'Neuen Kurztext anlegen'|trans({},'admin') }}</h5>
     <h5 class="hidden" id="snipped_header_edit" data-default="{{ 'Kurztext bearbeiten ({name})'|trans({},'admin') }}"></h5>
-    <div class="form">
+    <form class="form">
         <div class="row">
-            <div class="cell padded rw-3 note note-lightest">{{ 'ID'|trans({},'admin')}}</div>
+            <div class="cell padded rw-3 note note-lightest">{{ 'ID'|trans({},'admin')}} & {{ 'Rolle'|trans({},'admin')}}</div>
             <div class="cell padded rw-1">
-                <input id="snippet_preset_id" type="hidden" value="-1" />
-                <label><select id="snippet_lang"><option>DE</option><option>EN</option><option>FR</option><option>ES</option></select></label>
+                <input id="snippet_preset_id" data-type="number" type="hidden" value="-1" name="edit" />
+                <label><select id="snippet_lang" name="lang"><option>DE</option><option>EN</option><option>FR</option><option>ES</option></select></label>
             </div>
-            <div class="cell padded rw-8">
-                <label><input id="snippet_name" type="text" value="" placeholder="{{ 'ID eingeben'|trans({},'admin') }}" /></label>
+            <div class="cell padded rw-2">
+                <label><select id="snippet_role" name="role">
+                    {% for role in available_roles %}
+                        <option value="{{ role }}">{{ role|replace({'ROLE_': ''}) }}</option>
+                    {% endfor %}
+                </select></label>
+            </div>
+            <div class="cell padded rw-6">
+                <label><input id="snippet_name" name="id" type="text" value="" placeholder="{{ 'ID eingeben'|trans({},'admin') }}" /></label>
             </div>
         </div>
         <div class="row">
             <div class="cell padded rw-3 note note-lightest"><label>{{ 'Inhalt'|trans({},'admin')}}</label></div>
             <div class="cell padded rw-9">
-                <div id="numb-forum-editor"></div>
+                <hordes-twino-editor id="snippet_editor" name="content" type="twino"
+                        data-context="admin-snippets"
+                        data-pm-mode="0"
+                        data-username="{{ app.user.name }}" data-user="{{ app.user.id }}"
+                        data-feature-preview="1"
+                        data-feature-passive="1"
+                        data-control="extended"
+                        data-control-image="1"
+                        data-control-admin="1"
+                        data-control-oracle="1"
+                        data-control-mod="1"
+                ></hordes-twino-editor>
             </div>
         </div>
         <div class="row">
             <div class="padded cell rw-4 ro-8">
-                <button id="snippet_save">{{ 'Speichern'|trans({},'global') }}</button>
+                <button type="button" data-fetch="{{ path('admin_reports_add_snippet') }}" data-fetch-load="{{ path('admin_reports_snippets') }}">{{ 'Speichern'|trans({},'global') }}</button>
             </div>
         </div>
-    </div>
+    </form>
 {% endblock %}
 {% block js %}
     {{ parent() }}
     <script>
-        $.html.addEventListenerAll('#snippet_save','click',() => {
-            $.ajax.easySend( '{{ path('admin_reports_add_snippet') }}', {
-                    edit: parseInt(document.getElementById('snippet_preset_id').value),
-                    id: document.getElementById('snippet_name').value,
-                    lang: document.getElementById('snippet_lang').value,
-                    content: document.getElementById('numb-forum-editor-text').value,
-                },
-                function () {
-                    $.ajax.load(null, '{{ path('admin_reports_snippets') }}', true);
-                } );
-        });
-        $.html.addEventListenerAll('[x-delete-snippet-url]','click',(e,elem) => {
-            $.ajax.easySend( elem.getAttribute('x-delete-snippet-url'), {},
-                function () {
-                    $.ajax.load(null, '{{ path('admin_reports_snippets') }}', true);
-                } );
-        });
         $.html.addEventListenerAll('[data-purpose="edit"]','click',(e,elem) => {
-            document.getElementById('numb-forum-editor-text').value = elem.dataset.snippet;
             document.getElementById('snippet_preset_id').value = elem.dataset.snippetId;
             document.getElementById('snippet_lang').value = elem.dataset.snippetLang.toUpperCase();
             document.getElementById('snippet_name').value = elem.dataset.snippetShort;
+            document.getElementById('snippet_role').value = elem.dataset.snippetRole;
 
-            document.getElementById('numb-forum-editor-text').scrollIntoView();
-            document.getElementById('numb-forum-editor-text').dispatchEvent( new Event('input', {
-                bubbles: true,
-                cancelable: true,
-            }) );
+            document.getElementById('snippet_editor').scrollIntoView();
+            document.getElementById('snippet_editor').twino = elem.dataset.snippet;
 
             document.getElementById('snipped_header_edit').innerText = document.getElementById('snipped_header_edit').dataset['default'].replace('{name}', elem.dataset.snippetShort);
             document.getElementById('snipped_header_new').classList.add('hidden');
@@ -87,15 +87,10 @@
             document.querySelector('[data-purpose="cancel"][data-snippet-id="' + elem.dataset.snippetId + '"]').classList.remove('hidden');
         });
         $.html.addEventListenerAll('[data-purpose="cancel"]','click',(e,elem) => {
-            document.getElementById('numb-forum-editor-text').value = '';
             document.getElementById('snippet_preset_id').value = '-1';
             document.getElementById('snippet_name').value = '';
 
-            document.getElementById('numb-forum-editor-text').dispatchEvent( new Event('input', {
-                bubbles: true,
-                cancelable: true,
-            }) );
-
+            document.getElementById('snippet_editor').twino = '';
             document.getElementById('snipped_header_edit').innerText = '';
             document.getElementById('snipped_header_new').classList.remove('hidden');
             document.getElementById('snipped_header_edit').classList.add('hidden');
@@ -103,7 +98,5 @@
             elem.classList.add('hidden');
             document.querySelector('[data-purpose="edit"][data-snipped-id=' + elem.dataset.snippetId + ']').classList.remove('hidden');
         });
-
-        $.ajax.no_history().load( document.getElementById('numb-forum-editor'), '{{ url('admin_numb_editor') }}', false )
     </script>
 {% endblock %}

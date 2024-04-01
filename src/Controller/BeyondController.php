@@ -24,6 +24,7 @@ use App\Entity\RuinExplorerStats;
 use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
 use App\Entity\ZoneTag;
+use App\Enum\Configuration\TownSetting;
 use App\Enum\EventStages\BuildingValueQuery;
 use App\Enum\Game\TransferItemOption;
 use App\Enum\ScavengingActionType;
@@ -66,7 +67,7 @@ use Symfony\Component\Asset\Packages;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Cache\ItemInterface;
 use Symfony\Contracts\Cache\TagAwareCacheInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -808,11 +809,12 @@ class BeyondController extends InventoryAwareController
         $this->picto_handler->give_picto($citizen, 'r_ruine_#00', 1);
         $this->citizen_handler->setAP( $citizen, true, -1 );
 
-        $citizen->addExplorerStat((new RuinExplorerStats())->setActive(true)->setTimeout( (new DateTime())->add(DateInterval::createFromDateString(
-            $this->getTownConf()->get($citizen->getProfession()->getName() === 'collec' ?
-                TownConf::CONF_TIMES_EXPLORE_COLLEC :
-                TownConf::CONF_TIMES_EXPLORE_NORMAL, '+5min')
-        ) )));
+        $citizen->addExplorerStat((new RuinExplorerStats())->setActive(true)->setGrace(true)->setStarted(new DateTime())->setTimeout( (new DateTime())->add(DateInterval::createFromDateString(
+            $this->getTownConf()->get($citizen->getProfession()->getName() === 'collec'
+                                          ? TownSetting::TimingExplorationCollector
+                                          : TownSetting::TimingExplorationDefault
+            )
+        ) )->modify('+30sec')));
         $this->entity_manager->persist($citizen);
         try {
             $this->entity_manager->flush();

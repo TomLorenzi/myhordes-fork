@@ -6,7 +6,7 @@ namespace App\Controller;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\ExternalApp;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 /**
  * Class ExternalController

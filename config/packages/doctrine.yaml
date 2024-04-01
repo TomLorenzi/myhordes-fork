@@ -36,6 +36,8 @@ doctrine:
         report_fields_where_declared: true
         enable_lazy_ghost_objects: true
         auto_mapping: true
+        controller_resolver:
+          auto_mapping: true
         dql:
           string_functions:
             JSON_EXTRACT: Scienta\DoctrineJsonFunctions\Query\AST\Functions\Mysql\JsonExtract

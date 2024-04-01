@@ -69,6 +69,11 @@ export type TranslationStrings = {
         add: string,
         delete_confirm: string
 
+        expedite: string,
+        expedited: string,
+        expedite_help: string,
+        expedite_confirm: string
+
         town_create: string,
         town_edit: string,
 

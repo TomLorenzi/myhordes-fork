@@ -377,7 +377,7 @@
                                 [ <a class="action-button" id="quote_post" x-forum-action="quote-post" x-post-id={{ post.id }} >{{ 'Zitieren'|trans({},'global') }}</a> ]
                             {% endif %}
                             {% if not post.translate and app.user != post.owner and not permission.only_mod_access and not (post.owner|is_granted('ROLE_CROW') and post.owner|is_granted('ROLE_DUMMY')) %}
-                                [ <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"><div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div></a> ]
+                                [ <hordes-content-report class="action-button" data-principal-id="{{ post.id }}" data-report="forum-post" data-selector="img" data-title="{{ 'Unangemessenen Inhalt melden'|trans({},'global') }}"><div class="inline"><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"><div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div></div></hordes-content-report> ]
                             {% endif %}
                         </div>
                         <div class="clear">
@@ -389,7 +389,6 @@
                                         <img alt="Copy" src="{{ asset('build/images/icons/clipboard.png') }}" style="margin-bottom: 2px" />
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -433,39 +432,6 @@
             let link = document.getElementById('link-post-' + elem.getAttribute('x-post-id'));
             if (link.classList.contains('hidden')) link.classList.remove('hidden');
             else link.classList.add('hidden');
-        });
-
-        $.html.addEventListenerAll('[x-forum-action="report-post"]', 'click', function(e,elem) {
-            let form = $.html.createElement('<div class="modal-form" id="modal-form" />');
-            form.append($.html.createElement( '<p class="small bold"></p>', '{{ 'Bist du sicher, dass du diesen Post an die Moderatoren melden willst?'|trans({},'global')|e('js') }}' ));
-
-            let sec_p = $.html.createElement('<p class="small"/>', '{{ 'Wenn möglich gib bitte einen Grund für deine Meldung an:'|trans({},'global')|e('js') }}');
-            sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="1" />' + '{{ 'Cheating'|trans({},'global')|e('js') }}' + '</label></div>') )
-            sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="2" />' + '{{ 'Flooding oder Spam'|trans({},'global')|e('js') }}' + '</label></div>') )
-            sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="3" />' + '{{ 'Verwendung einer anderen als der Forensprache'|trans({},'global')|e('js') }}' + '</label></div>') )
-            sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="4" />' + '{{ 'Beleidigungen / Unangemessener Ausdruck'|trans({},'global')|e('js') }}' + '</label></div>') )
-            sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="5" />' + '{{ 'Pornographie'|trans({},'global')|e('js') }}' + '</label></div>') )
-            sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="6" />' + '{{ 'Hassrede'|trans({},'global')|e('js') }}' + '</label></div>') )
-            sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="7" />' + '{{ 'Verbreitung persönlicher Informationen'|trans({},'global')|e('js') }}' + '</label></div>') )
-            sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="8" />' + '{{ 'Verletzung von Copyright'|trans({},'global')|e('js') }}' + '</label></div>') )
-            sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="9" />' + '{{ 'Aufruf zu Gesetzesverstößen'|trans({},'global')|e('js') }}' + '</label></div>') )
-            sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="10" />' + '{{ 'Ermutigung von Selbstmord oder Selbstverletzung'|trans({},'global')|e('js') }}' + '</label></div>') )
-            sec_p.append( $.html.createElement('<p class="small"/>', '{{ 'Zusätzliche Informationen zu deiner Meldung (optional):'|trans({},'global')|e('js') }}') )
-            sec_p.append( $.html.createElement('<div><textarea maxlength="255" style="min-height: 70px; max-height: 120px; height: 70px;" name="report_details"></textarea></div>') )
-
-            form.append(sec_p)
-
-            $.html.popup('{{ 'Unangemessenen Inhalt melden'|trans({},'global')|e('js') }}', form, null, [
-                [ '{{ 'Inhalt melden'|trans({},'global')|e('js') }}',  [ ['click', (e_sub, elem_sub) => {
-                    const reason = document.querySelector('[name="report_reason"]:checked') ? parseInt(document.querySelector('[name="report_reason"]:checked').value) : 0;
-                    const detail = document.querySelector('[name="report_details"]') ? document.querySelector('[name="report_details"]').value : '';
-                    if (reason > 0) {
-                        $.html.triggerPopupPop(elem_sub);
-                        $.ajax.easySend( '{{ url('forum_report_post_controller', { 'fid': fid, 'tid': tid}) }}', {postId: parseInt( elem.getAttribute('x-post-id')), page: parseInt( elem.getAttribute('x-to-page')), reason: reason, details: detail }, reloadPage );
-                    } else $.html.error('{{ 'Bitte wähle einen Grund für deine Meldung aus.'|trans({},'global')|e('js') }}')
-                }] ] ],
-                [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e_sub, elem_sub) => $.html.triggerPopupPop(elem_sub)] ] ]
-            ] );
         });
 
         {% if permission.moderate %}
@@ -516,14 +482,20 @@
                 let content = document.querySelector('[x-post-content-id="' + elem.getAttribute('x-post-id') + '"]');
                 let author = content.getAttribute('x-post-content-author');
                 let author_id = parseInt(content.getAttribute('x-post-content-author-id'));
-                let textEditor = document.getElementById("forum-forum-editor-text");
                 const quote = elem.getAttribute('x-forum-action') === 'quote-post';
 
-                if(textEditor.value !== '' && !textEditor.value.endsWith("\n")) textEditor.value += "\n";
-
-                textEditor.value += (quote ? (author ? ('[quote=' + (author_id > 0 ? author.replace(/[^\p{L}\d_-]/gu, '') : author) + (author_id > 0 ? (':' + author_id) : '') + ']') : '[quote]') : '') + $.html.twinoParser.parseFrom( content.innerHTML, $.html.twinoParser.OpModeQuote ) + (quote ? '[/quote]' : '') + "\n";
-                textEditor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
-                textEditor.focus();
+                document.querySelector("#forum-forum-editor hordes-twino-editor")?.dispatchEvent(new CustomEvent('import', {
+                    bubbles: false,
+                    cancelable: false,
+                    detail: {
+                        html: content?.innerHTML ?? '',
+                        insert: true,
+                        wrap: [
+                            (quote ? (author ? ('[quote=' + (author_id > 0 ? author.replace(/[^\p{L}\d_-]/gu, '') : author) + (author_id > 0 ? (':' + author_id) : '') + ']') : '[quote]') : ''),
+                            (quote ? "[/quote]\n" : "\n")
+                        ],
+                        opmode: $.html.twinoParser.OpModeQuote }
+                }));
             };
 
             if (editor && editor.innerHTML === "") {
@@ -535,12 +507,11 @@
             let editor = get_forum_editor();
 
             let fun_edit = function() {
-                let content = document.querySelector('[x-post-content-id="' + postID + '"]');
-                let textEditor = document.getElementById("forum-forum-editor-text");
-                if (!textEditor) return;
-                textEditor.value = $.html.twinoParser.parseFrom( content.innerHTML, twinoOpMode );
-                textEditor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
-                textEditor.focus();
+                document.querySelector("#forum-forum-editor hordes-twino-editor")?.dispatchEvent(new CustomEvent('import', {
+                    bubbles: false,
+                    cancelable: false,
+                    detail: { html: document.querySelector('[x-post-content-id="' + postID + '"]')?.innerHTML ?? '', opmode: twinoOpMode }
+                }));
             };
 
             let wrapper = document.querySelector('[x-post-wrapper-id="' + postID + '"]');
@@ -628,7 +599,6 @@
             $.html.forEach('[x-forum-action="answer"],[x-forum-action="sub"],[x-forum-action="unsub"]', e => e.remove());
             $.ajax.no_history().load( get_forum_editor(), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false, {}, function() {
                 get_forum_editor().scrollIntoView();
-                document.getElementById("forum-forum-editor-text").focus();
             } );
         } );
 

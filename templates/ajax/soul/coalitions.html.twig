@@ -32,7 +32,7 @@
                 {{ help_lnk(('Kleine Koalitionen'|trans({}, 'soul')), 'help', {'name':'coalitions'}) }}
             </div>
             <div class="cell padded rw-6 rw-md-8 rw-sm-12">
-                <button x-confirm="{{ 'Du möchtest deine eigene Koalition erstellen?'|trans({},'soul') }}" x-api-endpoint="{{ path('soul_create_coalition') }}" data-success-message="{{ 'Herzlichen Glückwunsch, du hast soeben eine Koalition erstellt!'|trans({},'soul') }}">{{ 'Meine Koalition erstellen'|trans({},'soul') }}</button>
+                <button data-fetch-confirm="{{ 'Du möchtest deine eigene Koalition erstellen?'|trans({},'soul') }}" data-fetch="{{ path('soul_create_coalition') }}" data-fetch-load="{{ path('soul_coalitions') }}" data-fetch-message-text="{{ 'Herzlichen Glückwunsch, du hast soeben eine Koalition erstellt!'|trans({},'soul') }}">{{ 'Meine Koalition erstellen'|trans({},'soul') }}</button>
             </div>
             <div class="cell rw-12 padded">
                 <h5>{{ 'Einer existierenden Koalition beitreten'|trans({},'soul') }}</h5>
@@ -52,8 +52,8 @@
                                     {{ invitation.association.name }}
                                 </div>
                                 <div class="padded cell rw-7 rw-sm-12">
-                                    <button x-api-endpoint="{{ path('soul_join_coalition', {'coalition': invitation.id}) }}">{{ 'Mitmachen!'|trans({},'soul') }}</button>
-                                    <button x-api-endpoint="{{ path('soul_leave_coalition', {'coalition': invitation.id}) }}">{{ 'Die Einladung ablehnen.'|trans({},'soul') }}</button>
+                                    <button data-fetch="{{ path('soul_join_coalition', {'coalition': invitation.id}) }}" data-fetch-load="{{ path('soul_coalitions') }}">{{ 'Mitmachen!'|trans({},'soul') }}</button>
+                                    <button data-fetch="{{ path('soul_leave_coalition', {'coalition': invitation.id}) }}" data-fetch-load="{{ path('soul_coalitions') }}">{{ 'Die Einladung ablehnen.'|trans({},'soul') }}</button>
                                 </div>
                             </div>
                         {% endfor %}
@@ -65,7 +65,7 @@
                 <h5>{{ 'Shoutbox der Koalition'|trans({},'soul') }}</h5>
                 <div class="row-flex">
                     <div class="cell padded-small grow-1">
-                        <label><input type="text" id="shoutbox_chat" maxlength="256" /></label>
+                        <hordes-twino-editor id="shoutbox_chat" data-context="shoutbox" data-skin="line" data-control="core,game,rp" data-feature-passive="1" maxlength="256"></hordes-twino-editor>
                     </div>
                     <div class="cell padded-small">
                         <button id="shoutbox_send">{{ 'Absenden'|trans({},'soul') }}</button>
@@ -95,10 +95,10 @@
 
                 {% set ready_me = all_users|filter(ac => ac.associationType == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionMember') and ac not in all_sleepers and ac.user == app.user ) %}
 
-                {% macro display_assoc(assocs,allow_to_fire,show_town) %}
+                {% macro display_assoc(assocs,allow_to_fire,allow_to_promote,show_town) %}
                     {# @var assocs \App\Entity\UserGroupAssociation[] #}
                     <ul class="coa-users">
-                        {% for assoc in assocs %}
+                        {% for assoc in assocs|sort((a,b) => b.associationLevel <=> a.associationLevel ?: b.id <=> a.id) %}
                             <li class="{{ assoc.user == app.user ? 'my-entry' : '' }}">
                                 <div class="row-flex v-center">
                                     <div class="padded cell">
@@ -126,9 +126,15 @@
                                             {% endif %}
                                         </span>
                                     </div>
+                                    {% if assoc.user != app.user and allow_to_promote %}
+                                        <div class="cell">
+                                            <img data-fetch-confirm="{{ 'Diesem Spieler die Leitung der Koalition übertragen?'|trans({},'soul') }}" data-fetch="{{ path('soul_promote_coalition', {'id': assoc.id}) }}" data-fetch-load="{{ path('soul_coalitions') }}" class="pointer" alt="[f]" src="{{ asset('build/images/icons/small_hero.gif') }}" />
+                                            <div class="tooltip help">{{ 'Diesen Spieler zum Koalitionsleiter machen.'|trans({},'soul') }}</div>
+                                        </div>
+                                    {% endif %}
                                     {% if assoc.user != app.user and allow_to_fire %}
                                         <div class="cell">
-                                            <img x-confirm="{{ 'Diesen Spieler ausschließen?'|trans({},'soul') }}" x-api-endpoint="{{ path('soul_kick_coalition', {'coalition': assoc.id}) }}" class="pointer" alt="[x]" src="{{ asset('build/images/icons/fired.gif') }}" />
+                                            <img data-fetch-confirm="{{ 'Diesen Spieler ausschließen?'|trans({},'soul') }}" data-fetch="{{ path('soul_kick_coalition', {'id': assoc.id}) }}" data-fetch-load="{{ path('soul_coalitions') }}" class="pointer" alt="[x]" src="{{ asset('build/images/icons/fired.gif') }}" />
                                             <div class="tooltip help">{{ 'Diesen Spieler ausschließen.'|trans({},'soul') }}</div>
                                         </div>
                                     {% endif %}
@@ -141,18 +147,18 @@
 
                 {% if all_members is not empty %}
                     <h5>{{ 'Verfügbare Mitglieder'|trans({},'soul') }}</h5>
-                    {{ _self.display_assoc(all_members,membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder'),true) }}
+                    {{ _self.display_assoc(all_members,membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder'),membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder'),true) }}
                     {% if ready_me is not empty %}
                         <button x-ajax-href="{{ path('ghost_welcome') }}"><img alt="->" src="{{ asset('build/images/icons/small_move.gif') }}" /> {{ 'Eine Stadt aussuchen'|trans({},'ghost') }}</button>
                     {% endif %}
                 {% endif %}
                 {% if all_sleepers is not empty %}
                     <h5>{{ 'Nicht verfügbar'|trans({},'soul') }} <a class="help-button"><div class="tooltip help">{% trans from "global" %}Folgende Bürger sind wahlweise: <ul><li>auf ihrer Todesanzeigeseite (sie haben ihren Tod noch nicht bestätigt),</li><li>bereits im Spiel,</li><li>sie haben sich entschieden, nicht automatisch einer Stadt und ihrer Koalition anzugehören.</li><li>oder, sie haben sich seit über 5 Tagen nicht mehr angemeldet.</li></ul>{% endtrans %}</div>{{ 'Hilfe'|trans({},'global')|raw }}</a></h5> 
-                    {{ _self.display_assoc(all_sleepers,membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder'),true) }}
+                    {{ _self.display_assoc(all_sleepers,membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder'),membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder'),true) }}
                 {% endif %}
                 {% if all_invited is not empty %}
                     <h5>{{ 'Ausstehende Einladungen'|trans({},'soul') }}</h5>
-                    {{ _self.display_assoc(all_invited,membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') or membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelDefault'),false) }}
+                    {{ _self.display_assoc(all_invited,membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') or membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelDefault'),false,false) }}
                 {% endif %}
 
                 {% if not coa_full %}
@@ -171,12 +177,12 @@
                 {% else %}
                     <span class="small">{% trans from "soul" %}Du stehst <strong>nicht zur Verfügung</strong>.{% endtrans %}</span>
                 {% endif %}
-                <button x-api-endpoint="{{ path('soul_toggle_coalition') }}">{{ 'Meinen Status ändern'|trans({},'soul') }}<div class="tooltip help">{{ 'Wenn du nicht automatisch an einer Partie teilnehmen möchtest, sobald ein anderer Spieler der Koalition einer Stadt beitritt, stelle bitte ein: nicht zur Verfügung.'|trans({},'soul') }}</div></button>
+                <button data-fetch="{{ path('soul_toggle_coalition') }}" data-fetch-load="{{ path('soul_coalitions') }}">{{ 'Meinen Status ändern'|trans({},'soul') }}<div class="tooltip help">{{ 'Wenn du nicht automatisch an einer Partie teilnehmen möchtest, sobald ein anderer Spieler der Koalition einer Stadt beitritt, stelle bitte ein: nicht zur Verfügung.'|trans({},'soul') }}</div></button>
                 {% if membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') %}
                     <button data-purpose="change-name">{{ 'Koalition umbenennen'|trans({},'soul') }}</button>
-                    <button x-confirm="{{ 'Möchtest du diese Koalition verlassen und somit auflösen?'|trans({},'soul') }}" x-api-endpoint="{{ path('soul_leave_coalition', {'coalition': membership.id}) }}">{{ 'Verlassen UND auflösen'|trans({},'soul') }}</button>
+                    <button data-fetch-confirm="{{ 'Möchtest du diese Koalition verlassen und somit auflösen?'|trans({},'soul') }}" data-fetch="{{ path('soul_leave_coalition', {'coalition': membership.id}) }}" data-fetch-load="{{ path('soul_coalitions') }}">{{ 'Verlassen UND auflösen'|trans({},'soul') }}</button>
                 {% else %}
-                    <button x-confirm="{{ 'Möchtest du diese Koalition verlassen?'|trans({},'soul') }}" x-api-endpoint="{{ path('soul_leave_coalition', {'coalition': membership.id}) }}" data-success-message="{{ 'Du hast hiermit die Koalition verlassen.'|trans({}, 'soul') }}">{{ 'Verlassen'|trans({},'soul') }}</button>
+                    <button data-fetch-confirm="{{ 'Möchtest du diese Koalition verlassen?'|trans({},'soul') }}" data-fetch="{{ path('soul_leave_coalition', {'coalition': membership.id}) }}" data-fetch-message-text="{{ 'Du hast hiermit die Koalition verlassen.'|trans({}, 'soul') }}" data-fetch-load="{{ path('soul_coalitions') }}">{{ 'Verlassen'|trans({},'soul') }}</button>
                 {% endif %}
                 <span class="small"></span>
             </div>
@@ -187,8 +193,6 @@
 {% block js %}
     {{parent()}}
     <script>
-        $.html.forEach('#shoutbox_chat', e => e.focus());
-
         {% if membership is not null %}
             document.getElementById('users-search')?.addEventListener('hordes-user-search-callback', e => {
                 $.ajax.easySend( '{{ path('soul_invite_coalition', {id: '0000000000000000000000'}) }}'.replace('0000000000000000000000', e.detail[0].id), {},
@@ -196,16 +200,6 @@
                 );
             });
         {% endif %}
-
-        $.html.addEventListenerAll('[x-api-endpoint]', 'click', function(e,elem) {
-            const cn = elem.getAttribute('x-confirm');
-            if (!cn || confirm(cn))
-                $.ajax.easySend( elem.getAttribute('x-api-endpoint'), {},
-                    function () {
-                        if (elem.dataset.successMessage) $.html.notice(elem.dataset.successMessage);
-                        $.ajax.load(null, '{{ path('soul_coalitions') }}', true);
-                    } );
-        });
 
         {% if membership is not null %}
             $.html.addEventListenerAll('[data-purpose="change-name"]', 'click', function(e,elem) {
@@ -249,8 +243,7 @@
             let fun_send_working = false;
             const fun_send_shout = function() {
                 let box = document.getElementById('shoutbox_chat');
-                if (!box.value || fun_send_working) return;
-                box.setAttribute('disabled','disabled');
+                if (!box.html || fun_send_working) return;
 
                 let button = document.getElementById('shoutbox_send');
                 button.setAttribute('disabled','disabled');
@@ -260,18 +253,16 @@
 
                 fun_send_working = true;
 
-                $.ajax.no_loader().easySend( '{{ path('soul_shout_coalition') }}', {text: $.html.twinoParser.parseToString(box.value, s => [null,s], {autoLinks: $.client.config.autoParseLinks.get()})},
+                $.ajax.no_loader().easySend( '{{ path('soul_shout_coalition') }}', {text: box.html},
                     () => {
                         fun_refresh(true, () => {
-                            box.value = '';
-                            box.removeAttribute('disabled');
+                            box.twino = '';
                             button.removeAttribute('disabled');
                             ref.removeAttribute('disabled');
                             fun_send_working = false;
                         });
                     }, null,  (data) => {
                         $.html.selectErrorMessage( data.error, {}, c.errors, data )
-                        box.removeAttribute('disabled');
                         button.removeAttribute('disabled');
                         ref.removeAttribute('disabled');
                         fun_send_working = false;
@@ -282,7 +273,6 @@
             $.html.addEventListenerAll('#shoutbox_chat', 'keypress', e => e.key === "Enter" ? fun_send_shout() : null)
             $.html.addEventListenerAll('#shoutbox_refresh', 'click', function() {
                 let box = document.getElementById('shoutbox_chat');
-                box.setAttribute('disabled','disabled');
                 let button = document.getElementById('shoutbox_send');
                 button.setAttribute('disabled','disabled');
                 let ref = document.getElementById('shoutbox_refresh');
@@ -290,8 +280,7 @@
                 fun_send_working = true;
 
                 fun_refresh(true, () => {
-                    box.value = '';
-                    box.removeAttribute('disabled');
+                    box.twino = '';
                     button.removeAttribute('disabled');
                     ref.removeAttribute('disabled');
                     fun_send_working = false;

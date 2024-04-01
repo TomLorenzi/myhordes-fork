@@ -14,7 +14,7 @@ use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 #[Route(path: '/rest/v1/town/facilities/well', name: 'rest_town_facilities_well_', condition: "request.headers.get('Accept') === 'application/json'")]
 #[IsGranted('ROLE_USER')]

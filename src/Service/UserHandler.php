@@ -4,7 +4,6 @@ namespace App\Service;
 
 use App\Entity\AccountRestriction;
 use App\Entity\AntiSpamDomains;
-use App\Entity\Avatar;
 use App\Entity\Award;
 use App\Entity\AwardPrototype;
 use App\Entity\CauseOfDeath;
@@ -26,14 +25,15 @@ use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
 use App\Entity\UserSwapPivot;
 use App\Enum\DomainBlacklistType;
+use App\Interfaces\Entity\PictoRollupInterface;
 use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
+use App\Service\User\UserCapabilityService;
 use App\Structures\MyHordesConf;
 use Doctrine\ORM\QueryBuilder;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\Security\Core\Role\RoleHierarchyInterface;
-use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Contracts\Cache\TagAwareCacheInterface;
 
 class UserHandler
 {
@@ -47,33 +47,16 @@ class UserHandler
     const ErrorAvatarInsufficientCompression = ErrorHelper::BaseAvatarErrors +  7;
     const ErrorAvatarTooManyFrames = ErrorHelper::BaseAvatarErrors + 8;
 
-    const ImageProcessingForceImagick = 0;
-    const ImageProcessingPreferImagick = 1;
-    const ImageProcessingDisableImagick = 2;
-
-
-    private EntityManagerInterface $entity_manager;
-    private RoleHierarchyInterface $roles;
-    private ContainerInterface $container;
-    private CrowService $crow;
-    private TranslatorInterface $translator;
-    private ConfMaster $conf;
-    private DoctrineCacheService $doctrineCache;
-    private InvalidateTagsInAllPoolsAction $clearCache;
-    private EventProxyService $proxy;
-
-    public function __construct( EntityManagerInterface $em, RoleHierarchyInterface $roles,ContainerInterface $c, CrowService $crow, TranslatorInterface  $translator, ConfMaster $conf, DoctrineCacheService $doctrineCache, InvalidateTagsInAllPoolsAction $clearCache, EventProxyService $proxy)
-    {
-        $this->entity_manager = $em;
-        $this->container = $c;
-        $this->roles = $roles;
-        $this->crow = $crow;
-        $this->translator = $translator;
-        $this->conf = $conf;
-        $this->doctrineCache = $doctrineCache;
-        $this->clearCache = $clearCache;
-        $this->proxy = $proxy;
-    }
+    public function __construct(
+        private readonly EntityManagerInterface $entity_manager,
+        private readonly ContainerInterface $container,
+        private readonly ConfMaster $conf,
+        private readonly DoctrineCacheService $doctrineCache,
+        private readonly InvalidateTagsInAllPoolsAction $clearCache,
+        private readonly UserCapabilityService $capability,
+        private readonly EventProxyService $proxy,
+    )
+    { }
 
     public function fetchSoulPoints(User $user, bool $all = true, bool $useCached = false): int {
         if ($useCached) return $all ? $user->getAllSoulPoints() : $user->getSoulPoints();
@@ -98,228 +81,6 @@ class UserHandler
                 $c->getImportLang() === $p_soul;
             }
         ), fn(int $carry, CitizenRankingProxy $next) => $carry + ($next->getPoints() ?? 0), 0 );
-    }
-
-    public function getPoints(User $user, ?bool $imported = null, ?bool $old = false){
-        $sp = $imported === null ? $user->getAllSoulPoints() : ( $imported ? $user->getImportedSoulPoints() : $user->getSoulPoints() );
-        if ($old) $sp = 0;
-        $pictos = $old
-            ? $this->entity_manager->getRepository(Picto::class)->findOldByUser($user)
-            : $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user, $imported);
-        $points = 0;
-
-        if($sp >= 100)  $points += 13;
-        if($sp >= 500)  $points += 33;
-        if($sp >= 1000) $points += 66;
-        if($sp >= 2000) $points += 132;
-        if($sp >= 3000) $points += 198;
-
-        foreach ($pictos as $picto) {
-            switch($picto["name"]){
-                case "r_heroac_#00": case "r_explor_#00":
-                    if ($picto["c"] >= 15)
-                        $points += 3.5;
-                    if ($picto["c"] >= 30)
-                        $points += 6.5;
-                    break;
-                case "r_cookr_#00": case "r_cmplst_#00": case "r_camp_#00":case "r_drgmkr_#00": case "r_jtamer_#00":
-                case "r_jrangr_#00": case "r_jguard_#00": case "r_jermit_#00": case "r_jtech_#00": case "r_jcolle_#00":
-                    if ($picto["c"] >= 10)
-                        $points += 3.5;
-                    if ($picto["c"] >= 25)
-                        $points += 6.5;
-                    break;
-                case "r_animal_#00": case "r_plundr_#00":
-                    if ($picto["c"] >= 30)
-                        $points += 3.5;
-                    if ($picto["c"] >= 60)
-                        $points += 6.5;
-                    break;
-                case "r_chstxl_#00": case "r_ruine_#00":
-                    if ($picto["c"] >= 5)
-                        $points += 3.5;
-                    if ($picto["c"] >= 10)
-                        $points += 6.5;
-                    break;
-                case "r_buildr_#00":
-                    if ($picto["c"] >= 100)
-                        $points += 3.5;
-                    if ($picto["c"] >= 200)
-                        $points += 6.5;
-                    break;
-                case "r_nodrug_#00":
-                    if ($picto["c"] >= 20)
-                        $points += 3.5;
-                    if ($picto["c"] >= 75)
-                        $points += 6.5;
-                    break;
-                case "r_ebuild_#00":
-                    if ($picto["c"] >= 1)
-                        $points += 3.5;
-                    if ($picto["c"] >= 3)
-                        $points += 6.5;
-                    break;
-                case "r_digger_#00":
-                    if ($picto["c"] >= 50)
-                        $points += 3.5;
-                    if ($picto["c"] >= 300)
-                        $points += 6.5;
-                    break;
-                case "r_deco_#00":
-                    if ($picto["c"] >= 100)
-                        $points += 3.5;
-                    if ($picto["c"] >= 250)
-                        $points += 6.5;
-                    break;
-                case "r_explo2_#00":
-                    if ($picto["c"] >= 5)
-                        $points += 3.5;
-                    if ($picto["c"] >= 15)
-                        $points += 6.5;
-                    break;
-                case "r_guide_#00":
-                    if ($picto["c"] >= 300)
-                        $points += 3.5;
-                    if ($picto["c"] >= 1000)
-                        $points += 6.5;
-                    break;
-                case "r_theft_#00":
-                    if ($picto["c"] >= 10)
-                        $points += 3.5;
-                    if ($picto["c"] >= 30)
-                        $points += 6.5;
-                    break;
-                case "r_maso_#00": case "r_guard_#00":
-                    if ($picto["c"] >= 20)
-                        $points += 3.5;
-                    if ($picto["c"] >= 40)
-                        $points += 6.5;
-                    break;
-                case "r_surlst_#00":
-                    if ($picto["c"] >= 10)
-                        $points += 3.5;
-                    if ($picto["c"] >= 15)
-                        $points += 6.5;
-                    if ($picto["c"] >= 30)
-                        $points += 10;
-                    if ($picto["c"] >= 50)
-                        $points += 13;
-                    if ($picto["c"] >= 100)
-                        $points += 16.5;
-                    break;
-                case "r_suhard_#00":
-                    if ($picto["c"] >= 5)
-                        $points += 3.5;
-                    if ($picto["c"] >= 10)
-                        $points += 6.5;
-                    if ($picto["c"] >= 20)
-                        $points += 10;
-                    if ($picto["c"] >= 40)
-                        $points += 13;
-                    break;
-                case "r_doutsd_#00":
-                    if($picto["c"] >= 20)
-                        $points += 3.5;
-                    break;
-                case "r_door_#00":
-                    if($picto["c"] >= 1)
-                        $points += 3.5;
-                    if($picto["c"] >= 5)
-                        $points += 6.5;
-                    break;
-                case "r_wondrs_#00":
-                    if($picto["c"] >= 20)
-                        $points += 3.5;
-                    if($picto["c"] >= 50)
-                        $points += 6.5;
-                    break;
-                case "r_rp_#00":
-                    if($picto["c"] >= 5)
-                        $points += 3.5;
-                    if($picto["c"] >= 10)
-                        $points += 6.5;
-                    if($picto["c"] >= 20)
-                        $points += 10;
-                    if($picto["c"] >= 30)
-                        $points += 13;
-                    if($picto["c"] >= 40)
-                        $points += 16.5;
-                    if($picto["c"] >= 60)
-                        $points += 20;
-                    break;
-                case "r_winbas_#00":
-                    if($picto["c"] >= 2)
-                        $points += 13;
-                    if($picto["c"] >= 5)
-                        $points += 20;
-                    break;
-                case "r_wintop_#00":
-                    if($picto["c"] >= 1)
-                        $points += 20;
-                    break;
-                case "r_killz_#00":
-                    if($picto["c"] >= 100)
-                        $points += 3.5;
-                    if($picto["c"] >= 200)
-                        $points += 6.5;
-                    if($picto["c"] >= 300)
-                        $points += 10;
-                    if($picto["c"] >= 800)
-                        $points += 13;
-                    break;
-                case "r_cannib_#00":
-                    if ($picto["c"] >= 10)
-                        $points += 3.5;
-                    if ($picto["c"] >= 40)
-                        $points += 6.5;
-                    break;
-            }
-        }
-
-        return $points;
-    }
-
-    public function computePictoUnlocks(User $user): void {
-
-        $cache = [];
-
-        $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
-        foreach ($pictos as $picto)
-            $cache[$picto['id']] = $picto['c'];
-
-        $skip_proto = [];
-        $remove_awards = [];
-        $award_awards = [];
-
-        /** @var Award $award */
-        foreach ($user->getAwards() as $award) {
-            if ($award->getPrototype()) $skip_proto[] = $award->getPrototype();
-            if ($award->getPrototype() && $award->getPrototype()->getAssociatedPicto() &&
-                (!isset($cache[$award->getPrototype()->getAssociatedPicto()->getId()]) || $cache[$award->getPrototype()->getAssociatedPicto()->getId()] < $award->getPrototype()->getUnlockQuantity())
-            )
-                $remove_awards[] = $award;
-        }
-
-        foreach ($this->entity_manager->getRepository(AwardPrototype::class)->findAll() as $prototype)
-            if (!in_array($prototype,$skip_proto) &&
-                (isset($cache[$prototype->getAssociatedPicto()->getId()]) && $cache[$prototype->getAssociatedPicto()->getId()] >= $prototype->getUnlockQuantity())
-            ) {
-                $user->addAward($award = (new Award())->setPrototype($prototype));
-                $this->entity_manager->persist($award_awards[] = $award);
-            }
-
-        if (!empty($award_awards))
-            $this->entity_manager->persist($this->crow->createPM_titleUnlock($user, $award_awards));
-
-
-        foreach ($remove_awards as $r) {
-            if ($user->getActiveIcon() === $r) $user->setActiveIcon(null);
-            if ($user->getActiveTitle() === $r) $user->setActiveTitle(null);
-            $user->removeAward($r);
-            $this->entity_manager->remove($r);
-        }
-
-
     }
 
     public function hasSkill(User $user, $skill){
@@ -426,28 +187,14 @@ class UserHandler
     }
 
     /**
-     * Checks if the given user has specified roles. The relation type is controlled by $any. If $roles is an empty
-     * array, this function will return true in AND mode and false in OR mode.
-     * @param User $user User to check
-     * @param array $roles Roles to check for
-     * @param bool $any Set true to check if any of the given roles apply (OR); set false to check if all roles apply
-     * (AND).
-     * @return bool
-     */
-    public function hasRoles(User $user, array $roles, bool $any = false): bool {
-        $effectiveRoles = $this->roles->getReachableRoleNames( $user->getRoles() );
-        foreach ($roles as $role) if ($any === in_array( $role, $effectiveRoles )) return $any;
-        return !$any;
-    }
-
-    /**
      * Checks if the user has a specific role.
      * @param User $user User to check
      * @param string $role Role to check for
      * @return bool True if the user has the given role; false otherwise.
+     * @deprecated User the hasRole function in UserCapabilityService instead
      */
     public function hasRole(User $user, string $role) {
-        return in_array( $role, $this->roles->getReachableRoleNames( $user->getRoles() ) );
+        return $this->capability->hasRole( $user, $role );
     }
 
     /**
@@ -474,19 +221,19 @@ class UserHandler
      */
     public function admin_canAdminister( User $principal, User $target ): bool {
         // Only crows and admins can administer
-        if (!$this->hasRoles( $principal, ['ROLE_CROW','ROLE_ADMIN'], true )) return false;
+        if (!$this->capability->hasAnyRole( $principal, ['ROLE_CROW','ROLE_ADMIN'] )) return false;
 
         // Crows / Admins can administer themselves
         if ($principal === $target) return true;
 
         // Nobody can administer a super admin
-        if ($this->hasRole( $target, 'ROLE_SUPER' )) return false;
+        if ($this->capability->hasRole( $target, 'ROLE_SUPER' )) return false;
 
         // Only super admins can administer admins
-        if ($this->hasRole( $target, 'ROLE_ADMIN' ) && !$this->hasRole( $principal, 'ROLE_SUPER')) return false;
+        if ($this->capability->hasRole( $target, 'ROLE_ADMIN' ) && !$this->capability->hasRole( $principal, 'ROLE_SUPER')) return false;
 
         // Only admins can administer crows
-        if ($this->hasRole( $target, 'ROLE_CROW' ) && !$this->hasRole( $principal, 'ROLE_ADMIN')) return false;
+        if ($this->capability->hasRole( $target, 'ROLE_CROW' ) && !$this->capability->hasRole( $principal, 'ROLE_ADMIN')) return false;
 
         return true;
     }
@@ -499,7 +246,7 @@ class UserHandler
      */
     public function admin_canGrant( User $principal, string $role ): bool {
         // Only admins can grant roles
-        if (!$this->hasRole( $principal, 'ROLE_ADMIN' )) return false;
+        if (!$this->capability->hasRole( $principal, 'ROLE_ADMIN' )) return false;
 
 
         // Make sure only valid roles can be granted
@@ -511,10 +258,10 @@ class UserHandler
             return false;
 
         // Only super admins can grant admin role
-        if ($role === 'ROLE_ADMIN' && !$this->hasRole( $principal, 'ROLE_SUPER' )) return false;
+        if ($role === 'ROLE_ADMIN' && !$this->capability->hasRole( $principal, 'ROLE_SUPER' )) return false;
 
         // Super admin role can be granted by admins only if no super admin exists yet
-        if ($role === 'ROLE_SUPER' &&  !$this->hasRole( $principal, 'ROLE_SUPER' ) &&
+        if ($role === 'ROLE_SUPER' &&  !$this->capability->hasRole( $principal, 'ROLE_SUPER' ) &&
             $this->entity_manager->getRepository(User::class)->findByLeastElevationLevel(User::USER_LEVEL_SUPER)
         ) return false;
 
@@ -689,7 +436,7 @@ class UserHandler
      * @param string $name The username to test
      * @return bool The validity of the username
      */
-    public function isNameValid(string $name, ?bool &$too_long = null, $custom_length = 16): bool {
+    public function isNameValid(string $name, ?bool &$too_long = null, int $custom_length = 16, bool $disable_preg = false): bool {
         $invalidNames = [
             // The Crow
             'Der Rabe', 'Rabe', 'Le Corbeau', 'Corbeau', 'The Crow', 'Crow', 'El Cuervo', 'Cuervo',
@@ -715,7 +462,7 @@ class UserHandler
         $levenshtein_max = mb_strlen( $closestDistance[1] ) <= 5 ? 1 : 2;
 
         $too_long = mb_strlen($name) > $custom_length;
-        return !preg_match('/[^\p{L}\w]/u', $name) && mb_strlen($name) >= 3 && !$too_long && $closestDistance[0] > $levenshtein_max;
+        return ($disable_preg || !preg_match('/[^\p{L}\w]/u', $name)) && mb_strlen($name) >= 3 && !$too_long && $closestDistance[0] > $levenshtein_max;
     }
 
     public function getMaximumEntryHidden(User $user): int {

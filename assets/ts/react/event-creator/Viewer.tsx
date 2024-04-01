@@ -115,6 +115,10 @@ const HordesEventCreatorEventListing = ( {event,editEvent,deleteEvent}: {
                 }</b>
             </div> }
 
+            { event.published && event.own && event.expedited && !event.started && !event.ended && <div className="small">
+                <b>{ globals.strings.towns.expedited }</b>
+            </div> }
+
             { event.published && event.started && !event.ended && t && <div className="small">
                 <b>{ globals.strings.common.start_string_running
                     .replace('{date}', t.toLocaleDateString())

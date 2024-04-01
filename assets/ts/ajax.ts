@@ -130,11 +130,11 @@ export default class Ajax {
         const serverDate = new Date(date);
         const localDate = new Date();
 
-        c.ot = serverDate.getTime() - localDate.getTime();
+        if (c) c.ot = serverDate.getTime() - localDate.getTime();
     }
 
     public networkTimeOffset( ): number {
-        return c.ot ?? 0;
+        return c?.ot ?? 0;
     }
 
     public load_dynamic_modules(target: Document|HTMLElement) {

@@ -5,6 +5,7 @@
         "@babel/preset-react": "7.23.3",
         "@fortawesome/fontawesome-free": "6.4.2",
         "@symfony/webpack-encore": "4.5.0",
+        "@types/uuid": "^9",
         "core-js": "3.33.3",
         "favicons": "^7.0.2",
         "favicons-webpack-plugin": "^6.0.0",
@@ -33,6 +34,7 @@
         "@ruffle-rs/ruffle": "0.1.0-nightly.2023.11.24",
         "@types/react-dom": "18.2.17",
         "buffer": "6.0.3",
+        "js-md5": "^0.8.3",
         "latest-createjs": "1.0.24",
         "process": "0.11.10",
         "prop-types": "15.8.1",
@@ -41,7 +43,9 @@
         "stream": "0.0.2",
         "stream-browserify": "3.0.0",
         "string.prototype.matchall": "4.0.10",
-        "swagger-ui": "5.10.3"
+        "swagger-ui": "5.10.3",
+        "ua-parser-js": "1.0.37",
+        "uuid": "9.0.1"
     },
     "packageManager": "yarn@4.0.2"
 }

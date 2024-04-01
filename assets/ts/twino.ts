@@ -81,7 +81,7 @@ class TwinoRegexResult {
         switch (type) {
             case TwinoRegexResult.TypeShortBB: return /(?:([^\w\s]){2})([\s\S]*?)\1{2}/gm;
             case TwinoRegexResult.TypeInset:   return /\{([a-zA-Z]+)\}|\{([a-zA-Z]+),([\w,]*)\}|\{([a-zA-Z]+)(\d+)\}|(?:\B|\b)@([\p{L}\d_-]+)(?::(\d+))?(?:\B|\b)/gu;
-            case TwinoRegexResult.TypeEmote:   return /(?::(\w+?):)|([:;].)/g;
+            case TwinoRegexResult.TypeEmote:   return /(?::(\w+?):)|([:;=].)|(\p{Emoji})/gu;
             default: throw Error( 'No regex defined for this type of TRR!' )
         }
 
@@ -249,7 +249,7 @@ class TwinoConverterToBlocks {
         }
 
         if (pollspace && ['ul','li','q','desc'].indexOf(match.nodeType()) === -1)
-            return [true, []];
+            return [false, []];
 
         switch (match.nodeType()) {
             case 'b': case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li':
@@ -364,6 +364,7 @@ class TwinoConverterToBlocks {
                 listspace = false;
         }
 
+        let attribs = null;
         switch ( match.nodeType() ) {
             case 'hr': blocks.push( new TwinoInterimBlock( '', match.nodeType()) ); break;
             case 'br': blocks.push( listspace ? new TwinoInterimBlock() : new TwinoInterimBlock( '', match.nodeType()) ); break;
@@ -385,10 +386,15 @@ class TwinoConverterToBlocks {
             case 'carte': case 'card': case 'skat': case 'blatt': case 'carta': case 'karte':
                 blocks.push( new TwinoInterimBlock( '???', 'div', 'card') ); break;
             case 'citizen': case 'rnduser': case 'user': case 'spieler': case 'habitant': case 'habitante': case'einwohner':
-                let attribs = match.nodeInfo() ? match.nodeInfo().split(',') : [];
+                attribs = match.nodeInfo() ? match.nodeInfo().split(',') : [];
                 if (!attribs[0]) attribs[0] = 'any';
                 if (!attribs[1]) attribs[1] = '0';
                 blocks.push( new TwinoInterimBlock( attribs[1] === '0' ? '???' : '??? [' + attribs[1] + ']', 'div', 'citizen', [['x-a', attribs[0]], ['x-b', attribs[1]]]) );
+                break;
+            case 'coalition':
+                attribs = match.nodeInfo() ? match.nodeInfo().split(',') : [];
+                if (!attribs[0]) attribs[0] = '0';
+                blocks.push( new TwinoInterimBlock( '???', 'div', 'coalition', [['x-b', attribs[0]]]) );
                 break;
             case '@':
                 let id = match.nodeInfo() ? match.nodeInfo() : 'auto';
@@ -556,7 +562,6 @@ export default class TwinoAlikeParser {
 
     public readonly OpModeRaw        = 0x1;
     public readonly OpModeQuote      = 0x2;
-    public AjaxUrl = "";
 
     private static lego(blocks: Array<TwinoInterimBlock>, elem: HTMLElement): void {
         for (let i = 0; i < blocks.length; i++) {
@@ -861,6 +866,7 @@ export default class TwinoAlikeParser {
 
             if (player_data && player_data.exists === 1) {
                 elem.classList.add("username");
+                elem.setAttribute("x-a", player_data.id);
                 elem.setAttribute("x-user-id", player_data.id);
                 elem.textContent = player_data.displayName;
                 elem.removeAttribute('x-qi');
@@ -879,7 +885,7 @@ export default class TwinoAlikeParser {
         } );
     }
 
-    parseTo( text: string, target: HTMLElement, resolver: emoteResolver, options: TwinoClientOptions = {} ): void {
+    parseTo( text: string, target: HTMLElement, resolver: emoteResolver, options: TwinoClientOptions = {}, targetCallback = (s:string)=>{} ): void {
 
         let container_node = document.createElement('p');
         container_node.innerText = TwinoAlikeParser.preprocessText( text );
@@ -927,7 +933,6 @@ export default class TwinoAlikeParser {
         // Properly nest orphaned LIs
         let orphan = null;
         while (orphan = container_node.querySelector('*:not(ul):not(ol)>li')) {
-            console.log(orphan);
             const new_parent = document.createElement('ul');
             let next_sibling = null;
 
@@ -958,37 +963,37 @@ export default class TwinoAlikeParser {
 
         TwinoAlikeParser.processPlayerNames( container_node );
         if (playerCacheRefreshing) window.clearTimeout(playerCacheRefreshing);
-        if ($.html.twinoParser.AjaxUrl !== '') {
-            const missing_ids: Array<number> = Object.entries( playerCache.id ).filter( ([,cache]) => cache === null ).map( ([id]) => parseInt(id) );
-            const missing_names: Array<string> = Object.entries( playerCache.name ).filter( ([,cache]) => cache === null ).map( ([name]) => name );
 
-            if (missing_ids.length > 0 || missing_names.length > 0) {
-                playerCacheRefreshing = window.setTimeout(() => {
-                    $.ajax.background().easySend($.html.twinoParser.AjaxUrl, {
-                        names: missing_names, ids: missing_ids
-                    }, (data) => {
+        const missing_ids: Array<number> = Object.entries( playerCache.id ).filter( ([,cache]) => cache === null ).map( ([id]) => parseInt(id) );
+        const missing_names: Array<string> = Object.entries( playerCache.name ).filter( ([,cache]) => cache === null ).map( ([name]) => name );
 
-                        (data as unknown as { data: Array<playerCacheEntry> })?.data?.forEach( player => {
-                            playerCache.name[ player.queryName ] = player;
-                            if (player.id > 0) playerCache.id[ player.id ] = player;
-                        } );
+        if (missing_ids.length > 0 || missing_names.length > 0) {
+            playerCacheRefreshing = window.setTimeout(() => {
+                $.ajax.background().easySend((document.querySelector('base[href]').getAttribute('href') ?? '') + '/jx/soul/exists' , {
+                    names: missing_names, ids: missing_ids
+                }, (data) => {
 
-                        missing_ids.forEach( id => { if (!playerCache.id[id]) delete playerCache.id[id] } );
-                        missing_names.forEach( name => { if (!playerCache.name[name]) delete playerCache.name[name] } );
-                        playerCacheRefreshing = null;
-                        TwinoAlikeParser.processPlayerNames( target );
-                    }, {}, () => playerCacheRefreshing = null);
-                }, 1000);
-            }
+                    (data as unknown as { data: Array<playerCacheEntry> })?.data?.forEach( player => {
+                        playerCache.name[ player.queryName ] = player;
+                        if (player.id > 0) playerCache.id[ player.id ] = player;
+                    } );
+
+                    missing_ids.forEach( id => { if (!playerCache.id[id]) delete playerCache.id[id] } );
+                    missing_names.forEach( name => { if (!playerCache.name[name]) delete playerCache.name[name] } );
+                    playerCacheRefreshing = null;
+                    TwinoAlikeParser.processPlayerNames( target );
+                    if (targetCallback) targetCallback(target.innerHTML);
+                }, {}, () => playerCacheRefreshing = null);
+            }, 1000);
         }
 
         while ((c = container_node.firstChild))
             target.appendChild(c);
     }
 
-    parseToString( text: string, resolver: emoteResolver, options: TwinoClientOptions = {} ): string {
+    parseToString( text: string, resolver: emoteResolver, options: TwinoClientOptions = {}, targetCallback = (s:string)=>{} ): string {
         let proxy = document.createElement( 'div' );
-        this.parseTo( text, proxy, resolver, options );
+        this.parseTo( text, proxy, resolver, options, targetCallback );
         return proxy.innerHTML;
     }
 

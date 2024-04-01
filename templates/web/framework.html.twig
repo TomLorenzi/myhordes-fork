@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html prefix="og: http://ogp.me/ns#" lang="{{ app.request.locale|e('html_attr') }}" class="lang-base-{{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}" x-ajax-landing="{{ ajax_landing }}" data-ticket="{{ ticket }}">
+<html prefix="og: http://ogp.me/ns#" lang="{{ app.request.locale|e('html_attr') }}" class="lang-base-{{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}" x-ajax-landing="{{ ajax_landing }}" data-ticket="{{ ticket }}" data-service-worker="{{ absolute_url(asset('service/service.js', 'service-package')) }}" data-vapid-key="{{ bentools_webpush.server_key }}">
 <head>
     {% block html_head %}
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -66,7 +66,7 @@
 <div id="wrapper">
     <div id="header">
         <div id="header-reload-area"></div>
-        <div id="postbox" class="hidden">
+        <div id="postbox" {{ {'hidden': true, 'show-larger': app.user and app.user.setting( constant("\\App\\Enum\\UserSetting::LargerPMIcon") )}|classes }}>
             <div><img src="{{ asset('build/images/icons/small_mail.gif') }}" alt=""></div>
             <div><img src="{{ asset('build/images/icons/anim_icon_mail.gif') }}" alt=""></div>
             <div id="postbox-new-msg-counter">0</div>
@@ -86,12 +86,17 @@
         </noscript>
     </div>
 
+    <div style="font-size: 0.6em; margin-right: 12px; margin-left: inherit; width: max-content;" class="note note-warning">
+        <hordes-issue-report data-pass="{{ {'Button': 'Page Bottom'}|json_encode }}" data-selector="a" data-title="{{ 'Fehler melden'|trans({}, 'global') }}"><a href="#">{{ 'Fehler melden'|trans({}, 'global') }}</a></hordes-issue-report>
+    </div>
+
     <div id="footer"></div>
 </div>
 {% include "partials/containers.html.twig" with {} only %}
 </body>
 <footer {{ (theme??{})|data }} class="{% if custom_css is defined and custom_css != '' %}{{ custom_css }}{% endif %}">
     {% block footer %}
+
         <div class="row">
             <div class="padded cell footer rw-5 rw-sm-12 justify">
                 {% include 'partials/project_desc.html.twig' %}
@@ -129,30 +134,7 @@
 <script>
     (function() {
         document.getElementById('header-reload-area').addEventListener('click', function() { window.location.href = $.ajax.getBaseURL(); })
-        window.c = {
-            'errors': {
-                'default': '{% trans from 'global' %}Allgemeiner Fehler.{% endtrans %}',
-                {{ include('scripts/errors/generic.txt.twig') }}
-                {{ include('scripts/errors/profile.txt.twig') }}
-                {{ include('scripts/errors/town.txt.twig') }}
-                {{ include('scripts/errors/beyond.txt.twig') }}
-                {{ include('scripts/errors/inventory.txt.twig') }}
-                {{ include('scripts/errors/actions.txt.twig') }}
-                {{ include('scripts/errors/forum.txt.twig') }}
-                {{ include('scripts/errors/ghost.txt.twig') }}
-                {{ include('scripts/errors/messages.txt.twig') }}
-            },
-            'modules': {{ include('scripts/modules.json.twig') }},
-            'langs': {
-                {% for lang in langs %}
-                '{{ lang['code'] }}': '{{ lang["label"] |trans({},'global') }}',
-                {% endfor %}
-            },
-            'label': {
-                'confirm': '{{ 'Bestätigen'|trans({},'global') }}'
-            },
-            'taptut': '{{ 'Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.'|trans({},'global')|e('js') }}'
-        };
+        {{ include('partials/window_c.js.twig') }}
 
         $.html.setInitParams({
             userPopupEndpoint: '{{ path('soul_tooltip') }}',

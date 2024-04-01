@@ -6,12 +6,15 @@ use App\Controller\CustomAbstractCoreController;
 use App\Entity\CommunityEvent;
 use App\Entity\CommunityEventMeta;
 use App\Entity\CommunityEventTownPreset;
+use App\Entity\ForumUsagePermissions;
 use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
 use App\Messages\Discord\DiscordMessage;
 use App\Service\Actions\Ghost\SanitizeTownConfigAction;
 use App\Service\CrowService;
 use App\Service\JSONRequestParser;
+use App\Service\PermissionHandler;
+use App\Service\User\UserCapabilityService;
 use App\Service\UserHandler;
 use App\Structures\MyHordesConf;
 use DiscordWebhooks\Client;
@@ -25,7 +28,7 @@ use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\MessageBusInterface;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 
@@ -104,6 +107,11 @@ class EventController extends CustomAbstractCoreController
                     'add' => $this->translator->trans('Stadt hinzufügen', [], 'global'),
                     'delete_confirm' => $this->translator->trans('Bist du sicher, dass du dieses Stadt löschen möchtest?', [], 'global'),
 
+                    'expedite' => $this->translator->trans('Städte mit hoher Priorität anlegen', [], 'global'),
+                    'expedited' => $this->translator->trans('Städte werden mit hoher Priorität angelegt', [], 'global'),
+                    'expedite_help' => $this->translator->trans('Die Städte werden innerhalb der nächsten 30 Minuten erzeugt, statt erst beim nächsten Angriff. Bitte verwendet diese Funktion nur in Notfällen.', [], 'global'),
+                    'expedite_confirm' => $this->translator->trans('Bitte verwendet diese Funktion nur in Notfällen. Fortfahren?', [], 'global'),
+
                     'town_create' => $this->translator->trans('Neue Stadt anlegen', [], 'global'),
                     'town_edit' => $this->translator->trans('Stadt bearbeiten', [], 'global'),
 
@@ -151,16 +159,17 @@ class EventController extends CustomAbstractCoreController
 
     /**
      * @param EntityManagerInterface $em
-     * @param UserHandler $userHandler
+     * @param UserCapabilityService $capability
      * @return JsonResponse
+     * @throws Exception
      */
     #[Route(path: '', name: 'list', methods: ['GET'])]
     public function listEvents(
         EntityManagerInterface $em,
-        UserHandler $userHandler
+        UserCapabilityService $capability
     ): JsonResponse {
 
-        $can_view_proposals = $userHandler->hasRoles( $this->getUser(), ['ROLE_ADMIN','ROLE_CROW'], true );
+        $can_view_proposals = $capability->hasAnyRole( $this->getUser(), ['ROLE_ADMIN','ROLE_CROW'] );
 
         $is_owner = Criteria::expr()->eq('owner', $this->getUser() );
         $is_proposed = Criteria::expr()->eq('proposed', true );
@@ -219,6 +228,8 @@ class EventController extends CustomAbstractCoreController
                 'published' => $e->getStarts() !== null
             ];
 
+            if ($owning) $return['expedited'] = $e->isUrgent();
+
             if ($this->isGranted('ROLE_CROW')) $return['owner'] = [
                 'id' => $e->getOwner()->getId(),
                 'name' => $e->getOwner()->getName(),
@@ -229,16 +240,16 @@ class EventController extends CustomAbstractCoreController
     }
 
     /**
-     * @param UserHandler $userHandler
+     * @param UserCapabilityService $capability
      * @param EntityManagerInterface $em
      * @return JsonResponse
      */
     #[Route(path: '', name: 'create', methods: ['PUT'])]
     public function createEvent(
-        UserHandler $userHandler,
+        UserCapabilityService $capability,
         EntityManagerInterface $em
     ): JsonResponse {
-        if (!$userHandler->hasRoles( $this->getUser(), ['ROLE_ADMIN','ROLE_CROW','ROLE_ANIMAC','ROLE_ORACLE'], true ))
+        if (!$capability->hasAnyRole( $this->getUser(), ['ROLE_ADMIN','ROLE_CROW','ROLE_ANIMAC','ROLE_ORACLE'] ))
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
         $em->persist( $event = (new CommunityEvent())
@@ -443,14 +454,18 @@ class EventController extends CustomAbstractCoreController
         JSONRequestParser $parser,
         EntityManagerInterface $em
     ): JsonResponse {
-        if (!$this->eventIsEditable( $event ))
-            return new JsonResponse([], Response::HTTP_FORBIDDEN);
-
         $startDate = $parser->get_dateTime('startDate');
         if ($startDate && ($startDate < new \DateTime() || $startDate > (new \DateTime())->add(\DateInterval::createFromDateString('1year'))))
             $startDate = null;
 
-        if ($startDate) $event->setConfiguredStartDate( $startDate );
+        if ($startDate) {
+            if (!$this->eventIsEditable( $event )) return new JsonResponse([], Response::HTTP_FORBIDDEN);
+            $event->setConfiguredStartDate($startDate);
+        }
+
+        $expedite = $parser->get('expedited');
+        if ($expedite && $event->getStarts() !== null && !$event->isUrgent() && $event->getOwner() === $this->getUser())
+            $event->setUrgent(true);
 
         $em->persist( $event );
 
@@ -587,17 +602,24 @@ class EventController extends CustomAbstractCoreController
         return new JsonResponse();
     }
 
-    protected function getTownInstanceData(CommunityEventTownPreset $preset, EntityManagerInterface $em): ?array {
+    protected function getTownInstanceData(CommunityEventTownPreset $preset, EntityManagerInterface $em, PermissionHandler $perm): ?array {
         if ($preset->getTownId() === null) return null;
 
         /** @var TownRankingProxy $ranking */
         $ranking = $em->getRepository(TownRankingProxy::class)->findOneBy(['baseID' => $preset->getTownId(), 'imported' => false]);
 
+        $has_forum_access = false;
+        if ($preset->getTown()?->getForum()) {
+            $permission = $perm->getEffectivePermissions($this->getUser(),$preset->getTown()->getForum());
+            $has_forum_access = $perm->isPermitted( $permission, ForumUsagePermissions::PermissionRead );
+        }
+
         return [
+            'name' => $ranking->getName(),
             'ranking_link' => ($ranking && ( $preset->getTown() === null || $preset->getTown()?->getCitizenCount() > 0 ))
                 ? $this->generateUrl('soul_view_town', ['sid' => $preset->getEvent()->getOwner()->getId(), 'idtown' => $ranking->getId(), 'return_path' => 'soul_events'])
                 : null,
-            'forum_link' => $preset->getTown()?->getForum()
+            'forum_link' => $has_forum_access
                 ? $this->generateUrl( 'forum_view', ['id' => $preset->getTown()?->getForum()?->getId()] )
                 : null,
             'active' => $preset->getTown() !== null,
@@ -617,6 +639,7 @@ class EventController extends CustomAbstractCoreController
     public function list_town_presets(
         CommunityEvent $event,
         EntityManagerInterface $em,
+        PermissionHandler $perm,
     ): JsonResponse {
         if (!$this->eventIsExplorable( $event ))
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
@@ -631,7 +654,7 @@ class EventController extends CustomAbstractCoreController
                                             $em->getRepository(TownClass::class)->findOneBy(['name' => $preset->getHeader()['townBase'] ?? $preset->getHeader()['townType'] ?? TownClass::DEFAULT])->getLabel() ?? '',
                                             [], 'game'
                                         ),
-                                        'instance' => $this->getTownInstanceData( $preset, $em )
+                                        'instance' => $this->getTownInstanceData( $preset, $em, $perm )
                                     ],
                                     $event->getTownPresets()->toArray()
                                 )]);

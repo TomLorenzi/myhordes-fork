@@ -40,6 +40,11 @@
     <div class="row">
         <div class="cell padded header rw-8 rw-lg-12">
             <div class="cell rw-12 padded">
+                {% include('ajax/forum/tabs.html.twig') with {
+                    tab: 'list',
+                    has_fv: app.user.activeCitizen and app.user.activeCitizen.town.forum and (at_night is not defined or not at_night)
+                } only %}
+
                 {% if forums|length == 0 %}
                     <div class="note">
                         {% trans from 'game' %}

@@ -100,6 +100,10 @@
                                 {{'Anzahl der Auszeichnungen:'|trans({}, 'admin')}}
                             </label>
                             <input type="number" id="numberPicto" value="1"/>
+                            <label for="commentPicto">
+                                {{'Zusätzliche Beschreibung:'|trans({}, 'admin')}}
+                            </label>
+                            <input type="text" id="commentPicto"/>
                             <br />
                             <button id="givebtn" disabled>{{'Vergeben!'|trans({}, 'admin')}}</button>
                         </div>
@@ -136,6 +140,9 @@
 
                     let picto = document.getElementById('selectPicto').value;
                     let to = [];
+
+                    let text = document.getElementById("commentPicto").value;
+
                     $.html.forEach('[data-distribute-to]:not([data-distribute-to="*"])', v => {
                         if (v.checked) to.push(parseInt(v.dataset.distributeTo));
                     });
@@ -143,7 +150,7 @@
                     if (to.length === 0) return;
 
                     $.ajax.easySend('{{ path('admin_town_give_picto', {id: town.id}) }}', {
-                            'prototype': picto, number, to,
+                            'prototype': picto, number, to, text
                         },
                         function () {
                             $.ajax.load(null, '{{ path('admin_old_town_explorer', {id: town.id, tab: "citizens"}) }}', true);

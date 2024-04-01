@@ -1,4 +1,6 @@
 import {Global} from "../defaults";
+import {createRoot} from "react-dom/client";
+import * as React from "react";
 
 declare var $: Global;
 
@@ -190,12 +192,20 @@ export abstract class Shim<ReactType extends ShimLoader> extends HTMLElement {
 
     private initialized: ReactType|null = null;
     private data: object = {}
+    private do_mount = false;
+    private lazy_observer: IntersectionObserver = null;
 
     protected allow_migration: boolean = false;
 
     protected abstract generateProps(): object|null;
     protected abstract generateInstance(): ReactType;
     protected static observedAttributeNames(): string[] { return []; };
+
+    protected mountsLazily(): boolean { return false; }
+
+    protected nestedObject(): ReactType|null {
+        return this.initialized;
+    }
 
     protected selfMount(data: object = {}): void {
         this.initialized?.mount(this, { ...this.data, ...data } );
@@ -213,7 +223,7 @@ export abstract class Shim<ReactType extends ShimLoader> extends HTMLElement {
 
 
     private initialize() {
-        if (this.initialized || !this.isConnected) return;
+        if (!this.do_mount || this.initialized || !this.isConnected) return;
         if (this.extractData()) {
             this.initialized = this.generateInstance();
             this.selfMount();
@@ -221,6 +231,7 @@ export abstract class Shim<ReactType extends ShimLoader> extends HTMLElement {
     }
 
     connectedCallback() {
+        if (!this.do_mount) return;
         this.initialize();
         if (this.extractData()) this.selfMount();
     }
@@ -243,10 +254,102 @@ export abstract class Shim<ReactType extends ShimLoader> extends HTMLElement {
     public constructor() {
         super();
         this.addEventListener('x-react-degenerate', () => this.selfUnmount());
-        this.initialize();
+        if (this.mountsLazily()) {
+            const minHeightBefore = this.style.minHeight;
+            this.style.minHeight = '1px';
+            this.lazy_observer = new IntersectionObserver( (v) => {
+                if (v[0].isIntersecting) {
+                    this.do_mount = true;
+                    this.lazy_observer.unobserve(this);
+                    this.style.minHeight = minHeightBefore;
+                    this.initialize();
+                }
+            }, {
+                root: null,
+                rootMargin: "0px",
+            } );
+            this.lazy_observer.observe(this);
+        } else {
+            this.do_mount = true;
+            this.initialize();
+        }
     }
 }
 
 export abstract class PersistentShim<ReactType extends ShimLoader> extends Shim<ReactType> {
     protected allow_migration: boolean = true;
+}
+
+export abstract class ReactDialogMounter<PropDef extends object> {
+    private root = null;
+    private auto_div = null;
+    private activator = null;
+
+    private callback = null;
+    private click_handler = e => {
+        if (this.callback) {
+            (this.callback)();
+            e.preventDefault();
+        }
+    }
+
+    private
+
+    protected abstract renderReact(callback: (a:any)=>void, props: PropDef);
+
+    protected abstract findActivator(parent: HTMLElement, props: PropDef): HTMLElement|null;
+
+    protected findActivatorAsync(parent: HTMLElement, props: PropDef): Promise<HTMLElement> {
+        return new Promise<HTMLElement>((resolve,reject) => {
+            const fetchActivator = () => {
+                const elem = this.findActivator( parent, props );
+                if (elem) resolve(elem);
+                else reject();
+            }
+
+            if (document.readyState !== "complete")
+                document.addEventListener('DOMContentLoaded', fetchActivator)
+            else fetchActivator();
+        })
+    }
+
+    public mount(parent: HTMLElement, props: PropDef): any {
+        if (!this.auto_div) {
+
+            this.findActivatorAsync( parent, props )
+                .then( activator => {
+                    parent.insertAdjacentElement('beforeend', this.auto_div = document.createElement('div'));
+                    this.auto_div.style.position = 'absolute';
+                    this.auto_div.style.cursor = 'default';
+                    this.auto_div.style.textAlign = 'left';
+                    (this.activator = activator).addEventListener('click', this.click_handler);
+
+                    if (!this.root)
+                        this.root = createRoot(this.auto_div);
+
+                    this.root.render( this.renderReact( c => this.callback = c, props ) );
+                })
+                .catch(() => console.warn( 'Unable to fetch the activator for a dialog mount.', parent, props ));
+        } else {
+            if (!this.root)
+                this.root = createRoot(this.auto_div);
+
+            this.root.render(this.renderReact(c => this.callback = c, props));
+        }
+
+
+    }
+
+    public unmount() {
+        if (this.root) {
+            this.root.unmount();
+            this.root = null;
+        }
+
+        if (this.auto_div) {
+            this.activator.removeEventListener('click', this.click_handler);
+            this.auto_div.remove();
+            this.auto_div = null;
+        }
+    }
 }

@@ -40,30 +40,7 @@ class TownConf extends Conf
     const CONF_ESTIM_OFFSET_MIN     = 'estimation.offset.min';
     const CONF_ESTIM_OFFSET_MAX     = 'estimation.offset.max';
 
-    const CONF_EXPLORABLES_COMPLEXITY   = 'explorable_ruin_params.complexity';
-    const CONF_EXPLORABLES_CONVOLUTION  = 'explorable_ruin_params.convolution';
-    const CONF_EXPLORABLES_CRUELTY      = 'explorable_ruin_params.cruelty';
-    const CONF_EXPLORABLES_ROOM_DIST    = 'explorable_ruin_params.room_config.spacing';
-    const CONF_EXPLORABLES_LOCKDIST     = 'explorable_ruin_params.room_config.lock';
-    const CONF_EXPLORABLES_ROOMDIST     = 'explorable_ruin_params.room_config.distance';
-    const CONF_EXPLORABLES_ROOMS_TOTAL  = 'explorable_ruin_params.room_config.total';
-    const CONF_EXPLORABLES_ROOMS_MIN  = 'explorable_ruin_params.room_config.min';
-
-    const CONF_EXPLORABLES_ITEM_RATE    = 'explorable_ruin_params.item_fillrate';
-    const CONF_EXPLORABLES_MAX_DISTANCE = 'explorable_ruin_params.max_distance';
-    const CONF_EXPLORABLES_ZOMBIES_INI  = 'explorable_ruin_params.zombies.initial';
-    const CONF_EXPLORABLES_ZOMBIES_DAY  = 'explorable_ruin_params.zombies.daily';
-    const CONF_EXPLORABLES_PLAN_LIMIT_U = 'explorable_ruin_params.plan_limits.unusual';
-    const CONF_EXPLORABLES_PLAN_LIMIT_R = 'explorable_ruin_params.plan_limits.rare';
-    const CONF_EXPLORABLES_PLAN_LIMIT_E = 'explorable_ruin_params.plan_limits.epic';
     const CONF_SCAVENGING_PLAN_LIMIT_B = 'zone_items.plan_limits.bag';
-    const CONF_EXPLORABLES_FLOORS      = 'explorable_ruin_params.floors';
-	const CONF_EXPLORABLES_DIG_CHANCE  = 'explorable_ruin_params.dig_chance';
-
-    const CONF_TIMES_DIG_NORMAL     = 'times.digging.normal';
-    const CONF_TIMES_DIG_COLLEC     = 'times.digging.collec';
-    const CONF_TIMES_EXPLORE_NORMAL = 'times.exploration.normal';
-    const CONF_TIMES_EXPLORE_COLLEC = 'times.exploration.collec';
 
     const CONF_BANK_ABUSE_LIMIT       = 'bank_abuse.limit';
     const CONF_BANK_ABUSE_LIMIT_CHAOS = 'bank_abuse.chaos_limit';

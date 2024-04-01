@@ -11,6 +11,7 @@ use App\Entity\CitizenRankingProxy;
 use App\Entity\FeatureUnlock;
 use App\Entity\FeatureUnlockPrototype;
 use App\Entity\Forum;
+use App\Entity\ForumModerationSnippet;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\FoundRolePlayText;
 use App\Entity\GitVersions;
@@ -34,6 +35,7 @@ use App\Entity\UserGroupAssociation;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
+use App\Enum\Configuration\TownSetting;
 use App\Enum\UserSetting;
 use App\Service\CommandHelper;
 use App\Service\ConfMaster;
@@ -42,6 +44,7 @@ use App\Service\Maps\MazeMaker;
 use App\Service\PermissionHandler;
 use App\Service\RandomGenerator;
 use App\Service\TwinoidHandler;
+use App\Service\User\PictoService;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
 use App\Structures\TownConf;
@@ -82,7 +85,7 @@ class MigrateCommand extends Command
     private PermissionHandler $perm;
     private CommandHelper $helper;
     private TwinoidHandler $twin;
-	private PdoSessionHandler $sessionHandler;
+	private PictoService $pictoService;
 
     protected static $git_script_repository = [
         'ce5c1810ee2bde2c10cc694e80955b110bbed010' => [ ['app:migrate', ['--calculate-score' => true] ] ],
@@ -138,13 +141,14 @@ class MigrateCommand extends Command
 		'a8ddaec85455e9ab14b1ac91b7e1b7e232ad03c9' => [ ['app:migrate', ['--fix-town-loot-log' => true] ] ],
 		'7ef3c511bb2f0c7a9504853cd7ea0daee0c37253' => [ ['app:migrate', ['--add-building-inventory' => true] ] ],
 		'348648aa18ba42e3ede0b5330275176cec60a27d' => [ ['app:migrate', ['--shuffle-zone-soul-offset' => true] ] ],
+		'7721bb3d28475c7c4fc6e474b579762c06fc4e8e' => [ ['app:migrate', ['--set-snippet-role' => true] ] ],
 		'62c2ac4ae51d51a24f59eb08726258c0e2ab572e' => [ ['app:migrate', ['--fix-top3' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
                                 RandomGenerator $rg, ConfMaster $conf,
                                 MazeMaker $maze, ParameterBagInterface $params, UserHandler $uh, PermissionHandler $p,
-                                UserFactory $uf, CommandHelper $helper, TwinoidHandler $twin, PdoSessionHandler $sh)
+                                UserFactory $uf, CommandHelper $helper, TwinoidHandler $twin, PictoService $ps)
     {
         $this->kernel = $kernel;
 
@@ -161,7 +165,7 @@ class MigrateCommand extends Command
         $this->helper = $helper;
         $this->twin = $twin;
 
-		$this->sessionHandler = $sh;
+		$this->pictoService = $ps;
 
         parent::__construct();
     }
@@ -249,6 +253,8 @@ class MigrateCommand extends Command
 			->addOption('fix-town-loot-log', null, InputOption::VALUE_NONE, 'Fix townLoot log entries')
 			->addOption('add-building-inventory', null, InputOption::VALUE_NONE, 'Add inventory to already created Building')
 			->addOption('shuffle-zone-soul-offset', null, InputOption::VALUE_NONE, 'Add inventory to already created Building')
+
+            ->addOption('set-snippet-role', null, InputOption::VALUE_NONE, 'Sets empty snippet roles to CROW')
 			->addOption('fix-top3', null, InputOption::VALUE_NONE, 'Check TOP3 settings and fix any issues with them.')
         ;
     }
@@ -657,7 +663,7 @@ class MigrateCommand extends Command
 
         if ($input->getOption('assign-awards')) {
             $this->helper->leChunk($output, User::class, 200, [], true, true, function(User $user) {
-                $this->user_handler->computePictoUnlocks($user);
+                $this->pictoService->computePictoUnlocks($user);
             }, true);
 
             return 0;
@@ -950,7 +956,7 @@ class MigrateCommand extends Command
                         $spawn_zone->setPrototype($spawning_ruin);
                         
                         $this->maze->setTargetZone($spawn_zone);
-                        $spawn_zone->setExplorableFloors($this->conf->getTownConfiguration($town)->get(TownConf::CONF_EXPLORABLES_FLOORS, 1));
+                        $spawn_zone->setExplorableFloors($this->conf->getTownConfiguration($town)->get(TownSetting::ERuinSpaceFloors));
                         $this->maze->createField();
                         $this->maze->generateCompleteMaze( $spawn_zone );
                     }
@@ -1181,7 +1187,7 @@ class MigrateCommand extends Command
                     $this->entity_manager->persist($user);
                     $this->entity_manager->flush();
 
-                    $this->user_handler->computePictoUnlocks($user);
+                    $this->pictoService->computePictoUnlocks($user);
                     $this->entity_manager->persist($user);
                     $this->entity_manager->flush();
                 }
@@ -1464,6 +1470,12 @@ class MigrateCommand extends Command
         if ($input->getOption('shuffle-zone-soul-offset')) {
             $this->helper->leChunk($output, Zone::class, 500, [], true, true, function(Zone $z) {
                 $z->setSoulPositionOffset( mt_rand(0,3) );
+            }, true);
+        }
+
+        if ($input->getOption('set-snippet-role')) {
+            $this->helper->leChunk($output, ForumModerationSnippet::class, 10, [], true, false, function(ForumModerationSnippet $f) {
+                if (empty($f->getRole())) $f->setRole('ROLE_CROW');
             }, true);
         }
 

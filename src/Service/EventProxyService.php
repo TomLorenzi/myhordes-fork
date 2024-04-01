@@ -2,13 +2,19 @@
 
 namespace App\Service;
 
+use App\Entity\AdminReport;
+use App\Entity\BlackboardEdit;
 use App\Entity\Building;
 use App\Entity\Citizen;
+use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenRole;
+use App\Entity\GlobalPrivateMessage;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
+use App\Entity\Post;
+use App\Entity\PrivateMessage;
 use App\Entity\RuinZone;
 use App\Entity\Season;
 use App\Entity\Town;
@@ -19,6 +25,18 @@ use App\Enum\EventStages\BuildingValueQuery;
 use App\Enum\Game\TransferItemModality;
 use App\Enum\Game\TransferItemOption;
 use App\Enum\ScavengingActionType;
+use App\Event\Common\Messages\Forum\ForumMessageNewPostEvent;
+use App\Event\Common\Messages\Forum\ForumMessageNewThreadEvent;
+use App\Event\Common\Messages\GlobalPrivateMessage\GPMessageNewPostEvent;
+use App\Event\Common\Messages\GlobalPrivateMessage\GPMessageNewThreadEvent;
+use App\Event\Common\Social\ContentReportEvents\BlackboardEditContentReportEvent;
+use App\Event\Common\Social\ContentReportEvents\CitizenRankingProxyContentReportEvent;
+use App\Event\Common\Social\ContentReportEvents\GlobalPrivateMessageContentReportEvent;
+use App\Event\Common\Social\ContentReportEvents\PostContentReportEvent;
+use App\Event\Common\Social\ContentReportEvents\PrivateMessageContentReportEvent;
+use App\Event\Common\Social\ContentReportEvents\UserContentReportEvent;
+use App\Event\Common\Social\FriendEvent;
+use App\Event\Common\User\PictoPersistedEvent;
 use App\Event\Game\Actions\CustomActionProcessorEvent;
 use App\Event\Game\Citizen\CitizenPostDeathEvent;
 use App\Event\Game\Citizen\CitizenQueryDigChancesEvent;
@@ -33,20 +51,22 @@ use App\Event\Game\Town\Basic\Buildings\BuildingCatapultItemTransformEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingDestroyedDuringAttackPostEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingDestructionEvent;
-use App\Event\Game\Town\Basic\Buildings\BuildingEffectEvent;
-use App\Event\Game\Town\Basic\Buildings\BuildingEffectPostAttackEvent;
-use App\Event\Game\Town\Basic\Buildings\BuildingEffectPreAttackEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingQueryNightwatchDefenseBonusEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingQueryTownParameterEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingQueryTownRoleEnabledEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingUpgradePostAttackEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingUpgradePreAttackEvent;
+use App\Event\Game\Town\Basic\Core\AfterJoinTownEvent;
+use App\Event\Game\Town\Basic\Core\BeforeJoinTownData;
+use App\Event\Game\Town\Basic\Core\BeforeJoinTownEvent;
+use App\Event\Game\Town\Basic\Core\JoinTownEvent;
 use App\Structures\FriendshipActionTarget;
+use App\Structures\HTMLParserInsight;
+use Doctrine\Common\Util\ClassUtils;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use App\Event\Common\User\PictoPersistedEvent;
 
 class EventProxyService
 {
@@ -187,6 +207,32 @@ class EventProxyService
         $execute_info_cache = $event->execute_info_cache;
     }
 
+    public function forumNewPostEvent( Post $post, HTMLParserInsight $insight, bool $new_thread = false ): void {
+        $this->ed->dispatch( ($new_thread ? new ForumMessageNewThreadEvent() : new ForumMessageNewPostEvent())->setup( $post, $insight ) );
+    }
+
+    public function globalPrivateMessageNewPostEvent( GlobalPrivateMessage $post, HTMLParserInsight $insight, bool $new_thread = false ): void {
+        $this->ed->dispatch( ($new_thread ? new GPMessageNewThreadEvent() : new GPMessageNewPostEvent())->setup( $post, $insight ) );
+    }
+
+    public function friendListUpdatedEvent( User $actor, User $subject, bool $added ): void {
+        $this->ed->dispatch( (new FriendEvent())->setup( $added, $actor, $subject ) );
+    }
+
+    public function beforeTownJoinEvent( Town $town, User $subject, bool $auto ): BeforeJoinTownData {
+        $this->ed->dispatch( $event = $this->ef->gameEvent( BeforeJoinTownEvent::class, $town )->setup( $subject, $auto ) );
+        return $event->data;
+    }
+
+    public function townJoinEvent( Town $town, User $subject, bool $auto ): Citizen {
+        $this->ed->dispatch( $event = $this->ef->gameEvent( JoinTownEvent::class, $town )->setup( $subject, $auto ) );
+        return $event->citizen;
+    }
+
+    public function afterTownJoinEvent( Town $town, BeforeJoinTownData $data ): void {
+        $this->ed->dispatch( $event = $this->ef->gameEvent( AfterJoinTownEvent::class, $town )->setup( $data ) );
+    }
+
     public function pictosPersisted( User $user, ?Season $season = null, ?bool $old = null, ?bool $imported = null ): void {
         $this->ed->dispatch( (new PictoPersistedEvent())->setup( $user, $season, $old, $imported ) );
     }
@@ -223,5 +269,21 @@ class EventProxyService
             if ($inventory && $this->transferItem( $actor, $item, to: $inventory, options: $silent ? [TransferItemOption::EnforcePlacement, TransferItemOption::Silent] : [TransferItemOption::EnforcePlacement] ) === InventoryHandler::ErrorNone)
                 return $inventory;
         return null;
+    }
+
+    public function contentReport(
+        User $reporter,
+        AdminReport $report,
+        Post|GlobalPrivateMessage|PrivateMessage|BlackboardEdit|CitizenRankingProxy|User $subject,
+        int $count = 1
+    ): void {
+        $this->ed->dispatch( match (ClassUtils::getRealClass(get_class($subject))) {
+            Post::class => (new PostContentReportEvent())->setup( $reporter, $report, $subject, $count ),
+            GlobalPrivateMessage::class => (new GlobalPrivateMessageContentReportEvent())->setup( $reporter, $report, $subject, $count ),
+            PrivateMessage::class => (new PrivateMessageContentReportEvent())->setup( $reporter, $report, $subject, $count ),
+            BlackboardEdit::class => (new BlackboardEditContentReportEvent())->setup( $reporter, $report, $subject, $count ),
+            CitizenRankingProxy::class => (new CitizenRankingProxyContentReportEvent())->setup( $reporter, $report, $subject, $count ),
+            User::class => (new UserContentReportEvent())->setup( $reporter, $report, $subject, $count ),
+        });
     }
 }

@@ -25,7 +25,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 #[Route(path: '/rest/v1/town-creator', name: 'rest_town_creator_', condition: "request.headers.get('Accept') === 'application/json'")]
 #[IsGranted('ROLE_USER')]
@@ -111,6 +111,8 @@ class TownCreatorController extends CustomAbstractCoreController
                     'participation' => $this->translator->trans('Teilnahme', [], 'ghost'),
                     'participation_presets' => [
                         ['value' => 'incarnate', 'label' => $this->translator->trans('Verkörperung in der Stadt', [], 'ghost'), 'help' => $this->translator->trans('Verkörpert dich in der Stadt bei ihrer Entstehung.', [], 'ghost')],
+                        ['value' => 'forum',     'label' => $this->translator->trans('Forenzugang (selbst)', [], 'ghost'), 'help' => $this->translator->trans('Du erhälst Zugang zum Stadtforum, wirst jedoch nicht verkörpert.', [], 'ghost')],
+                        ['value' => 'forum-all', 'label' => $this->translator->trans('Forenzugang (Gilde)', [], 'ghost'), 'help' => $this->translator->trans('Du und alle Mitglieder der Animateursgilde erhalten Zugang zum Stadtforum', [], 'ghost')],
                         ['value' => 'none',      'label' => $this->translator->trans('Keine', [], 'ghost'), 'help' => $this->translator->trans('Du wirst weder verkörpert, noch erhälst du Zugang zum Stadtforum.', [], 'ghost')],
                     ],
 
@@ -174,6 +176,26 @@ class TownCreatorController extends CustomAbstractCoreController
                     'map_exact' => $this->translator->trans('Exakte Kartengröße', [], 'ghost'),
                     'map_ruins' => $this->translator->trans('Anzahl Ruinen', [], 'ghost'),
                     'map_e_ruins' => $this->translator->trans('Anzahl Begehbare Ruinen', [], 'ghost'),
+
+                    'explorable' => $this->translator->trans('Größe der Begehbaren Ruinen', [], 'ghost'),
+                    'explorable_timing' => $this->translator->trans('Sauerstoffvorrat', [], 'ghost'),
+                    'explorable_timing_presets' => [
+                        ['value' => 'low', 'label' => $this->translator->trans('Gering', [], 'ghost')],
+                        ['value' => 'normal', 'label' => $this->translator->trans('Normal', [], 'ghost')],
+                        ['value' => 'long', 'label' => $this->translator->trans('Umfangreich', [], 'ghost')],
+                        ['value' => 'extra-long', 'label' => $this->translator->trans('Exorbitant', [], 'ghost')]
+                    ],
+                    'explorable_presets' => [
+                        ['value' => 'classic', 'label' => $this->translator->trans('Eine Etage', [], 'ghost')],
+                        ['value' => 'normal', 'label' => $this->translator->trans('Zwei Etagen', [], 'ghost')],
+                        ['value' => 'large', 'label' => $this->translator->trans('Drei Etagen', [], 'ghost')],
+                        ['value' => '_custom', 'label' => $this->translator->trans('Eigene Einstellung', [], 'ghost')]
+                    ],
+                    'explorable_floors' => $this->translator->trans('Etagen', [], 'ghost'),
+                    'explorable_rooms' => $this->translator->trans('Anzahl Räume', [], 'ghost'),
+                    'explorable_min_rooms' => $this->translator->trans('Mindestanzahl an Räumen pro Etage', [], 'ghost'),
+                    'explorable_space_x' => $this->translator->trans('Kartenbreite', [], 'ghost'),
+                    'explorable_space_y' => $this->translator->trans('Kartenhöhe', [], 'ghost'),
 
                     'attacks' => $this->translator->trans('Stärke der Angriffe', [], 'ghost'),
                     'attacks_presets' => [
@@ -314,9 +336,10 @@ class TownCreatorController extends CustomAbstractCoreController
 
                     'pictos' => $this->translator->trans('Vergabe von Auszeichnungen', [], 'ghost'),
                     'pictos_presets' => [
-                        ['value' => 'all',     'label' => $this->translator->trans('Alle', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten alle Auszeichnungen, die sie in der Stadt verdient haben.', [], 'ghost')],
-                        ['value' => 'reduced', 'label' => $this->translator->trans('Reduziert', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten ein Drittel der Auszeichnungen, die sie in der Stadt verdient haben.', [], 'ghost')],
-                        ['value' => 'none',    'label' => $this->translator->trans('Deaktiviert', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten keine Auszeichnungen für diese Stadt.', [], 'ghost')],
+                        ['value' => 'all',              'label' => $this->translator->trans('Alle', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten alle Auszeichnungen, die sie in der Stadt verdient haben.', [], 'ghost')],
+                        ['value' => 'reduced',          'label' => $this->translator->trans('Roulette', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten ein Drittel der Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben, in voller Höhe. Die restlichen Auszeichnungen werden entfernt. Welche Auszeichnungstypen entfernt werden ist zufällig.', [], 'ghost')],
+                        ['value' => 'reduced_classic',  'label' => $this->translator->trans('Reduziert', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten alle Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben. Die Höhe aller Auszeichnungen wird gedrittelt.', [], 'ghost')],
+                        ['value' => 'none',             'label' => $this->translator->trans('Deaktiviert', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten keine Auszeichnungen für diese Stadt.', [], 'ghost')],
                     ],
 
                     'picto_rules' => $this->translator->trans('Auszeichnungen beschränken', [], 'ghost'),
@@ -423,8 +446,8 @@ class TownCreatorController extends CustomAbstractCoreController
      * @param SanitizeTownConfigAction $sanitizeTownConfigAction
      * @return JsonResponse
      */
-    #[Route(path: '/town-rules/{id}', name: 'town-rules', methods: ['GET'], defaults: ['private' => false])]
-    #[Route(path: '/town-rules/private/{id}', name: 'private-town-rules', methods: ['GET'], defaults: ['private' => true])]
+    #[Route(path: '/town-rules/{id}', name: 'town-rules', defaults: ['private' => false], methods: ['GET'])]
+    #[Route(path: '/town-rules/private/{id}', name: 'private-town-rules', defaults: ['private' => true], methods: ['GET'])]
     public function town_type_rules(TownClass $townClass, bool $private, SanitizeTownConfigAction $sanitizeTownConfigAction): JsonResponse {
         if ($townClass->getHasPreset()) {
 
@@ -446,6 +469,7 @@ class TownCreatorController extends CustomAbstractCoreController
      * @param EntityManagerInterface $em
      * @param UserHandler $userHandler
      * @return JsonResponse
+     * @throws Exception
      */
     #[Route(path: '/create-town', name: 'create-town', methods: ['POST'])]
     public function create_town(JSONRequestParser        $parser,
@@ -503,8 +527,8 @@ class TownCreatorController extends CustomAbstractCoreController
      * @param SanitizeTownConfigAction $sanitizeTownConfigAction
      * @return JsonResponse
      */
-    #[Route(path: '/template', name: 'create-template', methods: ['PUT'], defaults: ['create' => true])]
-    #[Route(path: '/template/{id}', name: 'update-template', methods: ['PATCH'], defaults: ['create' => false])]
+    #[Route(path: '/template', name: 'create-template', defaults: ['create' => true], methods: ['PUT'])]
+    #[Route(path: '/template/{id}', name: 'update-template', defaults: ['create' => false], methods: ['PATCH'])]
     public function save_template(
         bool $create,
         ?TownRulesTemplate $template,
@@ -566,6 +590,7 @@ class TownCreatorController extends CustomAbstractCoreController
 
     /**
      * @param TownRulesTemplate $template
+     * @param SanitizeTownConfigAction $sanitizer
      * @return JsonResponse
      */
     #[Route(path: '/template/{id}', name: 'load-template', methods: ['GET'])]

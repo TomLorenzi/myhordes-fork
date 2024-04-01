@@ -66,6 +66,7 @@
                         {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle'), 'Ändern des Profiltitels'|trans({},'soul'), 'Du kannst deinen deinen Profil-Titel sowie Icon nicht länger ändern. Wenn du aktuell einen Titel oder ein Icon gesetzt hast, kannst du diese jedoch entfernen.'|trans({},'soul')) }}
                         {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionProfileDescription'), 'Ändern der Profilbeschreibung'|trans({},'soul'), 'Du kannst deine Profilbeschreibung nicht länger ändern. Eine bestehende Profilbeschreibung kann jedoch gelöscht werden.'|trans({},'soul')) }}
                         {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionProfileDisplayName'), 'Ändern des Spielernamens'|trans({},'soul'), 'Du kannst deinen Spielernamen nicht mehr ändern.'|trans({},'soul')) }}
+                        {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionReportToGitlab'), 'Fehlerberichte erfassen'|trans({},'soul'), 'Du kannst keine Fehlerberichte über die MyHordes-Benutzeroberfläche erfassen und an Gitlab senden.'|trans({},'soul')) }}
 
                     </ul>
                     <i>{{ 'Dieser Hinweis ist nur für dich, nicht aber für Besucher auf deiner Seelenseite sichtbar.'|trans({},'soul') }}</i>
