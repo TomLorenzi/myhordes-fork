@@ -102,6 +102,11 @@ class HTMLService {
                     'rps', 'coin', 'card'
                 ],
             ],
+            'core_rp_town' => [
+                'div.class' => [
+                    'citizen'
+                ],
+            ],
             'core_user' => [
                 'div.class' => [
                     'cref'
@@ -354,7 +359,7 @@ class HTMLService {
                 $s_value = $value < 9 ? ('' . ($value+2)) : [$this->translator->trans('Bube',[],'items'),$this->translator->trans('Dame',[],'items'),$this->translator->trans('König',[],'items'),$this->translator->trans('Ass',[],'items')][$value-9];
                 $d->nodeValue = $this->translator->trans('{color} {value}', ['{color}' => $s_color, '{value}' => $s_value], 'global');
             },
-            '//div[@class=\'citizen\']'   => function (DOMNode $d) use ($town,&$cache,&$insight) {
+            '//div[@class=\'citizen\']'   => function (DOMNode $d) use ($town,&$cache,&$insight,$user) {
                 $insight->editable = false;
                 $profession = $d->attributes->getNamedItem('x-a')?->nodeValue ?? null;
                 if ($profession === 'any') $profession = null;
@@ -396,7 +401,7 @@ class HTMLService {
                 } );
 
                 if (!$valid) {
-                    $d->nodeValue = '???';
+                    $d->nodeValue = 'NOVALID ???';
                     return;
                 }
 
