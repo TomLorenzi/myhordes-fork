@@ -498,6 +498,7 @@ const TwinoEditorPreview = ({html}: {html:string}) => {
 
     useLayoutEffect( () => {
         preview.current.querySelectorAll('.username[x-user-id]').forEach( e => $.html.handleUserPopup(e as HTMLElement) );
+        $.html.handleCollapseSection( preview.current );
     } );
 
     return <>
