@@ -5,6 +5,7 @@ namespace App\Messages\WebPush;
 use App\Entity\Avatar;
 use App\Entity\NotificationSubscription;
 use App\Enum\NotificationSubscriptionType;
+use ArrayHelpers\Arr;
 use BenTools\WebPushBundle\Model\Message\PushNotification;
 use BenTools\WebPushBundle\Sender\PushMessageSender;
 use Doctrine\ORM\EntityManagerInterface;
@@ -24,9 +25,9 @@ readonly class WebPushMessageHandler
         private string $uri,
     ) {}
 
-    private function buildPayload( WebPushMessage $message ): array {
+    private function buildPayload( WebPushMessage $message, bool $html_supported = false ): array {
         $payload = [
-            PushNotification::BODY => $message->body,
+            PushNotification::BODY => $html_supported ? $message->body : html_entity_decode( strip_tags( $message->body ), ENT_QUOTES ),
             PushNotification::TIMESTAMP => $message->timestamp->getTimestamp(),
             PushNotification::BADGE => $this->uri . $this->asset->getUrl('build/favicon/android-chrome-72x72.png'),
         ];
@@ -57,12 +58,20 @@ readonly class WebPushMessageHandler
         // We do not process expired subscriptions
         if ($subscription->isExpired()) return;
 
+        // Check if the receiver is Firefox - it can render HTML in message bodies, for all other services, the HTML
+        // needs to be escaped.
+        $domain = parse_url(
+            Arr::get($subscription->getSubscription(), 'endpoint', 'https://domain.com/' ),
+            PHP_URL_HOST
+        );
+        $html_supported = str_ends_with( $domain, 'mozilla.com' );
+
         // Push notification to subscriber service
         $response = null;
         $responses = $this->sender
             ->setMaxPaddingLength(min($subscription->getMaxPaddingLength() ?? Encryption::MAX_PAYLOAD_LENGTH, Encryption::MAX_PAYLOAD_LENGTH))
             ->push(
-                (new PushNotification("MyHordes: {$message->title}", $this->buildPayload( $message )))->createMessage(),
+                (new PushNotification("MyHordes: {$message->title}", $this->buildPayload( $message, $html_supported )))->createMessage(),
                 [$subscription]
             );
         foreach ($responses as $r) $response = $r;
