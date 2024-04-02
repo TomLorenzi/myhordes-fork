@@ -66,7 +66,7 @@ class MessageController extends CustomAbstractController
         $this->html = $html;
     }
 
-    protected function preparePost(User $user, ?Forum $forum, $post, ?Town $town = null, ?HTMLParserInsight &$insight = null): bool {
+    protected function preparePost(User $user, ?Forum $forum, $post, ?Town $town = null, ?HTMLParserInsight &$insight = null, bool $is_update = false): bool {
         if (!$town && $forum && $forum->getTown())
             $town = $forum->getTown();
 
@@ -92,7 +92,7 @@ class MessageController extends CustomAbstractController
         $post->setText($tx);
         if ($distorted && is_a( $post, Post::class )) $post->setEditingMode( Post::EditorLocked );
 
-        if ($post instanceof Post) {
+        if ($post instanceof Post && !$is_update) {
             $post->setSearchText( strip_tags( $tx ) );
 
             if ($post->getType() !== 'CROW' && $post->getType() !== 'ANIM' && $forum !== null && $forum->getTown()){
