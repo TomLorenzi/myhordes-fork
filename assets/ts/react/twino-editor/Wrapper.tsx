@@ -230,7 +230,7 @@ export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldC
         }
     }
 
-    const getField = (f: string): number|string|null => fields[f] ?? null;
+    const getField = (f: string): number|string|null => fieldRef.current[f] ?? null;
 
     const submit = () => {
         const html = deproxify( `${fieldRef.current.html ?? ''}` );
