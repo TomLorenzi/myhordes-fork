@@ -512,7 +512,7 @@ export default class HTML {
             reposition();
 
             $.ajax.background().load(target, this.initParams.userPopupEndpoint, false, {'id': element.getAttribute("x-user-id")}, () => {
-                $.html.addEventListenerAll('[x-ajax-href]', 'click', e => removeTooltip(e,true));
+                $.html.addEventListenerAll('[x-ajax-href],a[href]', 'click', e => removeTooltip(e,true));
                 reposition();
             });
         }
