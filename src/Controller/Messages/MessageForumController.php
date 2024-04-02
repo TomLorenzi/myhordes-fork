@@ -735,7 +735,7 @@ class MessageForumController extends MessageController
         }
 
         /** @var HTMLParserInsight $insight */
-        if (!$this->preparePost($user,$forum,$post, null, $insight))
+        if (!$this->preparePost($user,$forum,$post, null, $insight, is_update: true))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         if ($insight->text_length < 2) return AjaxResponse::error( self::ErrorPostTextLength );
