@@ -68,6 +68,7 @@ final class GlobalPrivateMessageEventListener implements ServiceSubscriberInterf
 
         foreach ($all_associations as $association) {
             $as_og_member = !!$og_link && $association->getAssociationType() === UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember;
+            if ($association->getBref()) continue;
             if ($this->should_notify($event->post->getSender(), $association->getUser(), !!$og_link, $as_og_member)) {
                 $prefix = $as_og_member ? $og_link->getUsergroup()->getName() : $this->getService(TranslatorInterface::class)->trans('PN', [], 'global', $association->getUser()->getLanguage() ?? 'en');
                 foreach ($association->getUser()->getNotificationSubscriptionsFor(NotificationSubscriptionType::WebPush) as $subscription)
