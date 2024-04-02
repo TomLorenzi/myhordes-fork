@@ -42,7 +42,7 @@ class AnnouncementCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $now = new DateTimeImmutable();
-        $cutoff = new DateTimeImmutable('today+800days');
+        $cutoff = new DateTimeImmutable('today+14days');
 
         /** @var ArrayCollection<AutomaticEventForecast> $all_events */
         $all_events = $this->em->getRepository(AutomaticEventForecast::class)->matching(
