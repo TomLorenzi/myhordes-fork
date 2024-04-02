@@ -74,7 +74,15 @@
       &.log-entry-class-1 { background-color: #820000; span.log-part-content span.tool { background-color: #a00; } }
       &.log-entry-class-2 { background-color: #ad2714; span.log-part-content span.tool { background-color: #a00; } }
       &.log-entry-class-3 { background-color: #965c36; font-weight: bold; }
-      &.log-entry-class-4 { background-color: #3b3249; .log-part-content { font-style: italic; } }
+      &.log-entry-class-4 { background-color: #3b3249;
+        .log-part-content {
+          font-style: italic;
+          i {
+            display: inline-block; transform: skew(-15deg, 0deg); opacity: 0.9;
+            i { transform: none; opacity: 1 }
+          }
+        }
+      }
       &.log-entry-class-5 { background-color: #b05502; }
 
       &.log-entry-type-0  {}
