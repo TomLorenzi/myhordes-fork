@@ -290,8 +290,12 @@ export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldC
                     if (t.insert) {
                         const prev = `${fieldRef.current.body ?? ''}`;
                         setField('body', prev.slice( 0, selection.current.start ) + body + prev.slice( selection.current.end ) )
+                        selection.current.start = selection.current.end = (selection.current.end + body.length);
                     }
-                    else setField('body', body);
+                    else {
+                        setField('body', body);
+                        selection.current.start = selection.current.end = body.length;
+                    }
                 }
 
             } );
