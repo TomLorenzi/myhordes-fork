@@ -161,6 +161,15 @@ const ReportIssueDialog = (props: {
     useLayoutEffect(() => {
         if (open && dialog.current) {
             dialog.current.showModal();
+
+            const esc_handler = (e) => {
+                if (e.keyCode === 27) {
+                    e.preventDefault();
+                    cancelDialog();
+                }
+            }
+            document.addEventListener('keydown', esc_handler );
+            return () => document.removeEventListener('keydown', esc_handler);
         }
     }, [open]);
 
