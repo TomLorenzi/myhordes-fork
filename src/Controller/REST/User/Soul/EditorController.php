@@ -2,6 +2,7 @@
 
 namespace App\Controller\REST\User\Soul;
 
+use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractCoreController;
 use App\Entity\Award;
 use App\Entity\CitizenProfession;
@@ -21,6 +22,7 @@ use Symfony\Contracts\Cache\TagAwareCacheInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[Route(path: '/rest/v1/user/soul/editor', name: 'rest_user_soul_editor_', condition: "request.headers.get('Accept') === 'application/json'")]
+#[GateKeeperProfile(allow_during_attack: true)]
 #[IsGranted('ROLE_USER')]
 class EditorController extends CustomAbstractCoreController
 {
