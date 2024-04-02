@@ -317,7 +317,7 @@ const ControlButtonInsertPlayer = () => {
     return <ControlButton fa="user" label={globals.strings.controls["@"]} dialogTitle={globals.strings.controls["@-dialog"]} manualConfirm={false} handler={() => {
         if (!selected.current) return;
 
-        const insert = `@${selected.current.name}:${selected.current.id}`;
+        const insert = `@${selected.current.name.replaceAll(/[^\w_]/gi, '')}:${selected.current.id}`;
         const body = `${globals.getField('body') ?? ''}`;
 
         let before = body.slice(0, globals.selection.start);
