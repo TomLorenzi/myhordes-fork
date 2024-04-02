@@ -490,11 +490,17 @@ const TwinoEditorPreview = ({html}: {html:string}) => {
 
     const [displayPreview, setDisplayPreview] = useState(true);
 
+    const preview = useRef<HTMLDivElement>();
+
+    useLayoutEffect( () => {
+        preview.current.querySelectorAll('.username[x-user-id]').forEach( e => $.html.handleUserPopup(e as HTMLElement) );
+    } );
+
     return <>
         <label className="small pointer" onClick={() => setDisplayPreview(!displayPreview)}>
             { globals.strings.sections.preview }
         </label>
-        <div translate="no" className="twino-editor-preview" dangerouslySetInnerHTML={{__html: html}}/>
+        <div ref={preview} translate="no" className="twino-editor-preview" dangerouslySetInnerHTML={{__html: html}}/>
     </>
 }
 
