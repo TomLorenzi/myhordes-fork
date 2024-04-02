@@ -87,12 +87,12 @@ export const TwinoEditorControls = ({emotes}: {emotes: null|Array<Emote>}) => {
             </div>
             <div onClick={()=>setShowOverlay(false)} className="forum-button-bar-section">
                 { globals.allowControl('extended') && <>
-                    <ControlButtonInsertWithAttribute node="quote" label={globals.strings.controls.quote} fa="quote-left" block={true} dialogTitle="Wer?" attribute="Spielernamen eingeben" />
+                    <ControlButtonInsertWithAttribute node="quote" label={globals.strings.controls.quote} fa="quote-left" block={true} dialogTitle={globals.strings.controls['quote-dialog']} attribute={globals.strings.controls['quote-placeholder']} />
                     <ControlButtonNodeWrap node="spoiler" label={globals.strings.controls.spoiler} fa="eye-slash" block={true} />
                     <ControlButtonNodeWrap node="aparte" label={globals.strings.controls.aparte} fa="compress-alt" block={true} />
                     <ControlButtonNodeWrap node="code" label={globals.strings.controls.code} fa="code" block={true} />
-                    <ControlButtonInsertWithAttribute node="rp" label={globals.strings.controls.rp} fa="scroll" block={true} dialogTitle="Wer?" attribute="Spielernamen eingeben" />
-                    <ControlButtonInsertWithAttribute node="collapse" label={globals.strings.controls.collapse} fa="square-caret-down" block={true} dialogTitle="Eingeklappte Sektion hinzufügen"  attribute="Kopfzeile" />
+                    <ControlButtonInsertWithAttribute node="rp" label={globals.strings.controls.rp} fa="scroll" block={true} dialogTitle={globals.strings.controls['rp-dialog']} attribute={globals.strings.controls['rp-placeholder']} />
+                    <ControlButtonInsertWithAttribute node="collapse" label={globals.strings.controls.collapse} fa="square-caret-down" block={true} dialogTitle={globals.strings.controls['collapse-dialog']} attribute={globals.strings.controls['collapse-placeholder']} />
                 </> }
                 { globals.allowControl('glory') && <>
                     <ControlButtonNodeWrap node="glory" label={globals.strings.controls.glory} fa="crown" block={true} />
