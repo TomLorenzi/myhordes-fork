@@ -387,7 +387,7 @@ export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldC
                         </>}
                         { !isEnabled('passive') && <>
                             <div className="padded cell">
-                                <div className="forum-button" tabIndex={0} onClick={() => submit()}>
+                                <div className="forum-button" tabIndex={20} onClick={() => submit()}>
                                 <span className="forum-button-tooltip">
                                     <div className="center">{strings.common.send}</div>
                                     <div
@@ -424,7 +424,7 @@ const TwinoEditorFields = ({tags}: { tags: { [index: string]: string } }) => {
                 </div>
                 <div
                     className={`cell ${globals.isEnabled("tags") && !globals.getField('tag') && !showTagDropdown ? 'rw-5 rw-sm-9' : 'rw-9'} padded`}>
-                    <input type="text" id={`${globals.uuid}-title`}
+                    <input type="text" id={`${globals.uuid}-title`} tabIndex={1}
                            defaultValue={globals.getField('title')}
                            onChange={v => globals.setField('title', v.target.value)}
                     />
@@ -444,7 +444,7 @@ const TwinoEditorFields = ({tags}: { tags: { [index: string]: string } }) => {
                     <label htmlFor={`${globals.uuid}-tags`}>{ globals.strings.header.tag }</label>
                 </div>
                 <div className="cell rw-9 padded">
-                    <select id={`${globals.uuid}-tags`}
+                    <select id={`${globals.uuid}-tags`} tabIndex={2}
                            defaultValue={ globals.getField('tag') }
                            onChange={v => globals.setField('tag', v.target.value)}
                     >
@@ -460,7 +460,7 @@ const TwinoEditorFields = ({tags}: { tags: { [index: string]: string } }) => {
                     <label htmlFor={`${globals.uuid}-version`}>{ globals.strings.header.version }</label>
                 </div>
                 <div className="cell rw-9 padded">
-                    <input type="text" id={`${globals.uuid}-version`}
+                    <input type="text" id={`${globals.uuid}-version`}  tabIndex={3}
                            defaultValue={globals.getField('version')}
                            onChange={v => globals.setField('version', v.target.value)}
                     />
@@ -473,7 +473,7 @@ const TwinoEditorFields = ({tags}: { tags: { [index: string]: string } }) => {
                     <label htmlFor={`${globals.uuid}-language`}>{ globals.strings.header.language }</label>
                 </div>
                 <div className="cell rw-9 padded">
-                    <select id={`${globals.uuid}-language`}
+                    <select id={`${globals.uuid}-language`}  tabIndex={4}
                             defaultValue={globals.getField('language')}
                             onChange={v => globals.setField('language', v.target.value)}
                     >
@@ -559,7 +559,7 @@ const TwinoEditorEditor = ({body, fixed, controlTrigger, prefs}: {body: string, 
         />
         : <textarea ref={textArea}
             value={body} maxLength={prefs.maxLength} placeholder={prefs.placeholder}
-            tabIndex={0} id={`${globals.uuid}-editor`}
+            tabIndex={10} id={`${globals.uuid}-editor`}
             style={fixed ? {height: '90px', minHeight: '90px'} : {}}
             onInput={e => globals.setField('body', e.currentTarget.value)}
             onKeyDown={e => {
