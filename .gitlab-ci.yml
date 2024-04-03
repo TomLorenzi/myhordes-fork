@@ -19,6 +19,7 @@ variables:
   MARIADB_USER: myhordes-ci
   MARIADB_PASSWORD: Sullen.Vindicate9.Untruth
   MARIADB_RANDOM_ROOT_PASSWORD: 'yes'
+  MARIADB_ROOT_PASSWORD: Unbolted5-Overgrown2-Outscore2-Yodel1
 
   # MH environment variables
   DATABASE_URL: mysql://myhordes-ci:Sullen.Vindicate9.Untruth@mariadb:3306/myhordes?serverVersion=11.2.2-MariaDB
