@@ -2433,7 +2433,7 @@ Wüstenwurmzüchter_f: Rat Roaster
 'Heraklit der Außenwelt_f': 'Lonely...I''m so lonely'
 'Gepanzerter Fakir_f': 'Hardened Hermitess'
 'Diplomierter Scharlatan_f': 'Certified Charlatan'
-'Schlimmer Finger_f': 'Accursed Soothsayer'
+'Schlimmer Finger_f': 'Accursed Seeress'
 Seelenverwerter_f: Soul Recycler
 'Mystischer Seher_f': 'Divine Mystic'
 'Voodoo Sorceror_f': 'Voodoo Sorceror'
@@ -2446,7 +2446,7 @@ Seelenverwerter_f: Soul Recycler
 'Personalisierter Titel - Techniker (T-ID: 631944)_f': 'Never walks without her keys'
 'Die Mauer_f': 'Defender'
 Höllenwächter_f: Master Guardian
-Kerberos_f: Wandering Knight
+Kerberos_f: Wandering Dame
 'Die letzte Verteidigungslinie_f': 'Last Bastion'
 'Du kommst hier NICHT durch!_f': 'You... shall... not...PASS!'
 Hekatoncheir_f: Insurmountable citizen
@@ -2472,7 +2472,7 @@ Wüstenstadt-Dealer_f: Local Dealer
 Wunder_f: Prodigy
 'Werdender Superheld_f': 'Superheroine in training'
 Volksheld_f: Heroine of the people
-Neo_f: I'm Batman
+Neo_f: I'm Batwoman
 'Erlöser der Menschheit_f': 'Saviour of Citizenkind'
 Außenweltlegende_f: Legend of the World Beyond
 'Messie der verlorenen Welt_f': 'Lost World Messiah'
@@ -2491,7 +2491,7 @@ Lump_f: Artful Dodger
 Schaumschläger_f: Schaumschlägerin
 Dieb_f: Diebin
 Fantomas_f: Rusty Ryan
-'Ali Baba_f': 'Danny Ocean'
+'Ali Baba_f': 'Debbie Ocean'
 Meisterdieb_f: Multipass
 Kleptomane_f: Kleptomanin
 'Dein Haus ist mein Haus_f': 'Your home is my home'
@@ -2499,12 +2499,12 @@ Kleptomane_f: Kleptomanin
 Schaufenstergestalter_f: Schaufenstergestalterin
 Innenarchitekt_f: Innenarchitektin
 Möbelgourmet_f: Marquee Master
-'Ordnung muss sein!_f': 'Aesthetics Expert'
+'Ordnung muss sein!_f': 'Aesthetics Experta'
 'Ein schöneres Leben_f': 'Style is eternal...'
 'Großer E-KEA Katalog_f': 'Welcome to the palace.'
 Plünderer_f: Plünderin
-Aasgeier_f: Plunderer
-Hyäne_f: Viking
+Aasgeier_f: Plunderess
+Hyäne_f: Hyena
 'Wegelagerer post mortem_f': 'Post-mortem Pickpocket'
 'Hungriger Schakal_f': 'Hungry Jackal'
 'Kojote der kargen Steppen_f': 'Fleet-footed Coyote'
@@ -2542,14 +2542,14 @@ Terraformingspezialist_f: Terraformingspezialistin
 'Erbauer der verlorenen Zeit_f': 'Erbauerin der verlorenen Zeit'
 'Erleuchteter Baumeister_f': 'Erleuchteter Baumeisterin'
 'Maurer aus Leidenschaft_f': 'Maurerin aus Leidenschaft'
-'Das Unnütze mit dem Angenehmen verbinden_f': 'Chief DIY'
+'Das Unnütze mit dem Angenehmen verbinden_f': 'Chiefess DIY'
 'Verrückter Architekten-Visionär_f': 'Verrückte Architekten-Visionärin'
 'Ich habe einen Plan_f': 'I have a plan'
 'Hirnverbrannter Baumeister_f': 'Hirnverbrannte Baumeisterin'
 'Meister der Nutzlosigkeit_f': 'Meisterin der Nutzlosigkeit'
 'Vereister Ingenieur_f': 'Vereiste Ingenieurin'
 'Wundervoll nutzlos_f': 'Wonderfully futile'
-'Der Bruce Lee des Spachtels_f': 'Bruce Lee of the trowel'
+'Der Bruce Lee des Spachtels_f': 'Cynthia Rothrock of the trowel'
 'Es ist Zeit für Kathedralen_f': 'The time for cathedrals has come'
 'Hast du nichts besseres zu tun?_f': 'Don''t you have better things to do?'
 'Hohepriesterin des Sonnentempels_f': 'High Priestess of the Sun Temple'
@@ -2618,7 +2618,7 @@ Fleisch-Schuldner_f: Fleisch-Schuldnerin
 Hobby-Heimwerker_f: Hobby-Heimwerkerin
 Techniker_f: Technikerin
 'Meisterbastler _f': Meisterbastlerin
-'Sowas wirft man doch nicht weg!_f': 'Craftsman'
+'Sowas wirft man doch nicht weg!_f': 'Craftswoman'
 'Mac Gyver der Außenwelt_f': 'MacGyver of the World beyond'
 'Super Soaker_f': 'Super Soaker'
 Wasserwaffen-Spezialist_f: H2Operative
@@ -2634,13 +2634,13 @@ Riesenmaulwurf_f: Desert Rat
 'Unglaubliche Entschlossenheit_f': 'Incredible determination'
 'Der letzte Überlebende_f': 'The Last Survivor'
 'Ich gehe alleine._f': 'I walk alone.'
-'Neil Armstrong der Außenwelt_f': 'Neil Armstrong of the World Beyond'
+'Neil Armstrong der Außenwelt_f': 'Christina Koch of the World Beyond'
 'Lebensmüder Kundschafter_f': 'Extreme Explorer'
 'Draufgängerischer Expeditionsreisender_f': 'Expedition Expert'
 Nervenkitzelsucher_f: Nervenkitzelsucherin
 'Christopher Kolumbus_f': 'Desert Shackleton'
 'Bis zur Unendlichkeit... und noch viel weiter!_f': 'To infinity and beyond!'
-'Indiana Jones und die Ruinen der Aussenwelt_f': 'Indiana Jones and the ruins of the World Beyond'
+'Indiana Jones und die Ruinen der Aussenwelt_f': 'Lara Croft and the ruins of the World Beyond'
 'Wenn ich das nur vorher gewusst hätte..._f': 'Sneaky Voyager'
 'Verwegener Wanderer_f': 'Tunnel Visionary'
 Tunnelblicker_f: Tunnelblickerin
@@ -2648,15 +2648,15 @@ Tunnelblicker_f: Tunnelblickerin
 'Inklusive Kompass_f': 'Buried Voluntarily'
 'Begrabener Freiwilliger_f': 'Tombstone Toppler'
 'Tomb Raider_f': 'Gollum of the Labyrinths'
-Labyrinth-Gollum_f: Labyrinth Master PhD
+Labyrinth-Gollum_f: Labyrinth Mistress PhD
 'Labyrinth-Meister MB_f': 'Don''t call me Junior'
 "Wo klemmt's?_f": "Key hee hee!"
 Dietrich_f: How about some Chubb-ly?
 'Sesam, öffne dich..._f': 'Sesame, shift your A...'
 Türöffner_f: Türöffnerin
 Gentleman-Einbrecher_f: Lady-Einbrecherin
-Schlüsseldienst_f: Captain Hook
-Zerberus_f: Shim Surgeon
+Schlüsseldienst_f: Schlüsseldienst
+Zerberus_f: Shim Surgeoness
 'Meister der Schlüssel_f': 'Grand Key Master'
 Brutalo_f: Brutala
 Verstümmler_f: Verstümmlerin
@@ -2666,10 +2666,10 @@ Vernichter_f: Vernichterin
 Schlächter_f: Schlächterin
 Friedensstifter_f: Friedensstifterin
 'Alptraum der Traumlosen_f': 'Go ahead, make my day!'
-'Hans im Glück_f': 'The name''s Nate Fortu'
+'Hans im Glück_f': 'The name''s Nataniela Fortu'
 'Vierklettriges Kleeblatt_f': 'Do you feel lucky, punk?'
 Fortuna_f: Windfall Catcher
-'Gontran Happiness_f': 'Jack Pott'
+'Gontran Happiness_f': 'Jacklyn Pott'
 'Lucky 7_f': 'Lucky 7'
 'Money for Nothing_f': 'Money for Nothing'
 'Ultimate Fighter_f': 'Ultimate Fighter'
@@ -2693,7 +2693,7 @@ Außenweltschläfer_f: Außenweltschläferin
 'Ich komme heute Nacht nicht heim..._f': 'Don''t wait up...'
 'Ein Mann gegen die Außenwelt_f': 'Eine Frau gegen die Außenwelt'
 Stadtallergie_f: I'm allergic to something in town.
-'Wo ich hinguck, seh ich Gegend._f': 'So I guess we''re not waiting for Bob?'
+'Wo ich hinguck, seh ich Gegend._f': 'So I guess we''re not waiting for Bobbie?'
 'Runaway Michael_f': 'Runaway Michael'
 'Ohne Dach oder Leber_f': 'Without a roof or a tooth.'
 'Neugieriger Leser_f': 'Neugierige Leserin'
@@ -2704,7 +2704,7 @@ Archivar_f: Archivarin
 Erinnerungsträger_f: Erinnerungsträgerin
 'Erinnerungen an die Zivilisation_f': 'Memory of civilization'
 'Twinoid ist tabu_f': 'Twinoid is taboo'
-'Keine Macht den Drogen_f': 'Happy as Larry'
+'Keine Macht den Drogen_f': 'Happy as Laurence'
 'Sowas fasse ICH nicht an_f': 'Never touch the stuff, me.'
 'Vorbild für die Jugend_f': 'Just Say No!'
 'Champions nehmen keine Drogen!_f': 'Winners don''t use drugs!'
@@ -2716,7 +2716,7 @@ Laborratte_f: Lab Rat
 Menschenfleischliebhaber_f: Menschenfleischliebhaberin
 Hannibalfan_f: Dr Death's Dietician
 Totmacher_f: Totmacherin
-'Jeffrey Dahmer_f': 'Lunches like Lecter'
+'Jeffrey Dahmer_f': 'Lunches like Anna'
 'Fast schon ein Zombie..._f': 'Wannabe Zombie...'
 "Schmeckt am besten wenn's noch schreit!_f": "It's better when they scream."
 'Die Macht der Proteine_f': 'Full of protein.'
@@ -2848,14 +2848,14 @@ Wegweiser_f: Wegweiserin
 'Nur ein Finger_f': 'Just one finger!'
 'Plünderer der Schnapsläden_f': 'Pilager of the liquor store.'
 'Hennessy Highwayman_f': 'Tavern robber'
-'Barney Gumble der Außenwelt_f': 'Barney Gumble of the world beyond'
+'Barney Gumble der Außenwelt_f': 'Karen Walker of the world beyond'
 'Fass das Saufen lieber sein_f': 'Absinthe from drinking next time eh?!'
 'Gib mir was zu saufen oder es knallt!_f': 'Gimme a drink or the dog gets it!'
 'Alles unter 55% ist Wasser_f': 'If it''s under 55 proof it''s water!'
 Dialyse_f: Dialysis
 'Chef der Mauer_f': 'Rampart Chief'
 Schaufelführer_f: Schaufelführerin
-'Ich bin ein Biest!_f': 'Chief Tamer'
+'Ich bin ein Biest!_f': 'Chiefess Tamer'
 'DdA Beste Buddler_f': 'DoE Winning Scavenger'
 Tarnexperte_f: Tarnexpertin
 Ninja_f: Shadow Master
