@@ -1152,8 +1152,11 @@ class MessageForumController extends MessageController
 
 		$queryBuilder = $this->entity_manager->getRepository(Post::class)->createQueryBuilder('p');
 
-        $queryBuilder->andWhere('p.searchText IS NOT NULL');
-        $queryBuilder->andWhere('p.hidden = false OR p.hidden IS NULL');
+        $queryBuilder
+            ->andWhere('p.searchText IS NOT NULL')
+            ->andWhere('p.hidden = false OR p.hidden IS NULL');
+        if (!empty($result))
+            $queryBuilder->andWhere('p.id NOT IN (:list)')->setParameter('list', array_map( fn(Post $pr) => $pr->getId(), $result ));
 
         if ($search_user !== null)
             $queryBuilder->andWhere('p.owner = :user')->setParameter('user', $search_user);
