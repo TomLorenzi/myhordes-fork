@@ -40,7 +40,7 @@ class ProcessLocationRequirement extends AtomRequirementProcessor
                 $citizenHandler = $this->container->get(CitizenHandler::class);
                 foreach ($cache->citizen->getZone()->getCitizens() as $c)
                     $cp += $citizenHandler->getCP($c);
-            } else $cp = 1;
+            }
 
             if ($data->minKm !== null && $zone->getDistance() < $data->minKm) return false;
             if ($data->maxKm !== null && $zone->getDistance() > $data->maxKm) return false;
