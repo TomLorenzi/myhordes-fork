@@ -81,6 +81,18 @@ class Forum
         return $entity ? $entity->getTitle() : $this->getTitle();
     }
 
+    public function getLocalizedSlug(string $lang): ?string {
+        $base = $this->getLocalizedTitle($lang);
+        $slug = implode('',
+            array_map(
+                fn(string $s) => mb_substr($s, 0, 1),
+                explode( ' ', $base )
+            )
+        );
+
+        return mb_strlen($slug) === 1 ? mb_substr( $base, 0, 3 ) : $slug;
+    }
+
     public function getLocalizedDescription(string $lang): ?string {
         $entity = $this->getTitles()->matching( (new Criteria())
             ->where( new Comparison( 'language', Comparison::EQ, $lang )  )

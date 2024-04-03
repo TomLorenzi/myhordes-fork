@@ -13,12 +13,23 @@
             <span class="hide-sm">{{ 'Weltforen'|trans({},'global') }}</span>
         </div>
     </li>
-    {% if tab == 'fm' and name is defined and id is defined %}
+    {% if tab == 'fm' and name is defined and id is defined and (not app.user or id not in app.user.pinnedForums|map(p => p.id)) %}
         <li {{ { 'tab': true, selected: true }|classes }}>
             <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('forum_view', {id: id}) }}">
                 <img src="{{ asset('build/images/icons/small_rp.gif') }}" alt=""/>
                 <span class="hide-sm">{{ name }}</span>
             </div>
         </li>
+    {% endif %}
+    {% if app.user %}
+        {% for pinned_forum in app.user.pinnedForums %}
+            <li {{ { 'tab': true, selected: id is defined and id == pinned_forum.id }|classes }} title="{{ pinned_forum.localizedTitle(app.locale) }}">
+                <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('forum_view', {id: pinned_forum.id}) }}">
+                    <img src="{{ asset('build/images/icons/small_rp.gif') }}" alt=""/>
+                    <span class="hide-sm hide-md hide-lg">{{ (app.user.pinnedForums.count >= 4 and slugify is defined and slugify) ? pinned_forum.localizedSlug(app.locale) : pinned_forum.localizedTitle(app.locale) }}</span>
+                    <span class="hide-desktop">{{ pinned_forum.localizedSlug(app.locale) }}</span>
+                </div>
+            </li>
+        {% endfor %}
     {% endif %}
 </ul>

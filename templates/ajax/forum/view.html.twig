@@ -221,7 +221,39 @@
                             <div class="forum-note">
                                 <b>{{ 'Optionen für dieses Forum'|trans({},'global') }}</b>
                                 <div class="row-flex v-center">
-                                    <div class="padded cell grow-0"><input type="checkbox" id="f_opt_mute" {% if app.user.mutedForums.contains(forum) %}checked{% endif %} /></div>
+                                    <div class="padded cell grow-0"><input
+                                                type="checkbox"
+                                                id="f_opt_pin"
+                                                data-fetch-load="{{ path('forum_view', {id: forum.id}) }}"
+                                                {% if app.user.pinnedForums.contains(forum) %}
+                                                    checked
+                                                    data-fetch="{{ path('rest_user_settings_options_forum_flag_off', {id: forum.id, flag: 'pin'}) }}"
+                                                    data-fetch-method="delete"
+                                                {% else %}
+                                                    {% if app.user.pinnedForums.count >= 6 %}
+                                                        disabled="disabled"
+                                                    {% endif %}
+                                                    data-fetch="{{ path('rest_user_settings_options_forum_flag_on', {id: forum.id, flag: 'pin'}) }}"
+                                                    data-fetch-method="put"
+                                                {% endif %}
+                                        /></div>
+                                    <div class="padded cell"><label for="f_opt_pin">{{ 'Forum anpinnen'|trans({},'forum') }}</label></div>
+                                    <div class="padded cell grow-0">{{ help_btn( 'Wenn diese Option aktiviert ist, wird dieses Forum in der Tab-Liste im oberen Bereich der Forenansicht angeheftet, damit du schneller darauf zugreifen kannst. Du kannst maximal {n} Foren anpinnen.'|trans({n: 6},'forum') ) }}</div>
+                                </div>
+                                <div class="row-flex v-center">
+                                    <div class="padded cell grow-0"><input
+                                                type="checkbox"
+                                                id="f_opt_mute"
+                                                data-fetch-load="{{ path('forum_view', {id: forum.id}) }}"
+                                                {% if app.user.mutedForums.contains(forum) %}
+                                                    checked
+                                                    data-fetch="{{ path('rest_user_settings_options_forum_flag_off', {id: forum.id, flag: 'mute'}) }}"
+                                                    data-fetch-method="delete"
+                                                {% else %}
+                                                    data-fetch="{{ path('rest_user_settings_options_forum_flag_on', {id: forum.id, flag: 'mute'}) }}"
+                                                    data-fetch-method="put"
+                                                {% endif %}
+                                        /></div>
                                     <div class="padded cell"><label for="f_opt_mute">{{ 'Forum stummschalten'|trans({},'forum') }}</label></div>
                                     <div class="padded cell grow-0">{{ help_btn( 'Wenn diese Option aktiviert ist, werden dir neue Nachrichten in diesem Forum nicht auf der Forenübersicht angezeigt. Diese Option kann nicht für das Stadtforum aktiviert werden.'|trans({},'forum') ) }}</div>
                                 </div>
@@ -240,13 +272,6 @@
 {% block js %}
     {{ parent() }}
     <script>
-
-        document.getElementById('f_opt_mute')?.addEventListener('click', e => {
-            $.ajax.easySend( e.target.checked ? '{{ path('forum_mute_controller', {fid: forum.id}) }}' : '{{ path('forum_unmute_controller', {fid: forum.id}) }}', {},
-                ()=>$.ajax.load(null, '{{ path('forum_view', {id: forum.id}) }}')
-            );
-        });
-
         function get_forum_editor() {
             let editor = document.getElementById('forum-forum-editor');
             if (!editor) {

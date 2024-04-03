@@ -8,3 +8,5 @@ rnduser: einwohner
 'Forum stummschalten': 'Forum stummschalten'
 'Wenn diese Option aktiviert ist, werden dir neue Nachrichten in diesem Forum nicht auf der Forenübersicht angezeigt. Diese Option kann nicht für das Stadtforum aktiviert werden.': 'Wenn diese Option aktiviert ist, werden dir neue Nachrichten in diesem Forum nicht auf der Forenübersicht angezeigt. Diese Option kann nicht für das Stadtforum aktiviert werden.'
 Tag: Tag
+'Forum anpinnen': 'Forum anpinnen'
+'Wenn diese Option aktiviert ist, wird dieses Forum in der Tab-Liste im oberen Bereich der Forenansicht angeheftet, damit du schneller darauf zugreifen kannst. Du kannst maximal {n} Foren anpinnen.': 'Wenn diese Option aktiviert ist, wird dieses Forum in der Tab-Liste im oberen Bereich der Forenansicht angeheftet, damit du schneller darauf zugreifen kannst. Du kannst maximal {n} Foren anpinnen.'
