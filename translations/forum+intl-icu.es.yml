@@ -8,3 +8,5 @@ rnduser: habitante
 'Forum stummschalten': 'Silenciar este foro'
 'Wenn diese Option aktiviert ist, werden dir neue Nachrichten in diesem Forum nicht auf der Forenübersicht angezeigt. Diese Option kann nicht für das Stadtforum aktiviert werden.': 'Cuando esta opción está activada, ya no verás el indicador «New» para este foro en la lista de foros. Tenga en cuenta que esta opción no puede ser activada para el foro de su pueblo.'
 Tag: Etiqueta
+'Forum anpinnen': 'Forum anpinnen'
+'Wenn diese Option aktiviert ist, wird dieses Forum in der Tab-Liste im oberen Bereich der Forenansicht angeheftet, damit du schneller darauf zugreifen kannst. Du kannst maximal {n} Foren anpinnen.': 'Wenn diese Option aktiviert ist, wird dieses Forum in der Tab-Liste im oberen Bereich der Forenansicht angeheftet, damit du schneller darauf zugreifen kannst. Du kannst maximal {n} Foren anpinnen.'
