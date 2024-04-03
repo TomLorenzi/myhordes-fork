@@ -3,7 +3,6 @@ import {useEffect, useLayoutEffect, useRef, useState} from "react";
 import {Const, Global} from "../../defaults";
 import {FileUpload, IssueReportAPI, ResponseIndex} from "./api";
 import {ReactDialogMounter} from "../index";
-import {btoa} from "buffer";
 import {byteToText} from "../../v2/utils";
 
 declare var c: Const;
@@ -325,13 +324,13 @@ const ReportIssueDialog = (props: {
                             <span>{index.strings.fields.title.title}</span><br/>
                             {index.strings.fields.title.hint}
 
-                            <input type="text" name="issue_title" autoComplete="off" placeholder={index.strings.fields.title.example}/>
+                            <input maxLength={255} type="text" name="issue_title" autoComplete="off" placeholder={index.strings.fields.title.example}/>
                         </p>
                         <p className="small">
                             <span>{index.strings.fields.desc.title}</span><br/>
                             {index.strings.fields.desc.hint}
 
-                            <textarea maxLength={255} style={{minHeight: '70px', maxHeight: '400px', height: '120px'}}
+                            <textarea style={{minHeight: '70px', maxHeight: '400px', height: '120px'}}
                                       name="issue_details" placeholder={index.strings.fields.desc.example}/>
                         </p>
                         <div className="small">
