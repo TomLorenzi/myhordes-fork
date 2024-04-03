@@ -65,7 +65,7 @@ class GitlabController extends CustomAbstractCoreController
     #[Route(path: '', name: 'base', methods: ['GET'])]
     public function index(ConfMaster $confMaster, UserHandler $handler): JsonResponse {
 
-        $blocked = ($handler->isRestricted($this->getUser(), AccountRestriction::RestrictionReportToGitlab));
+        $blocked = !$this->getUser() || ($handler->isRestricted($this->getUser(), AccountRestriction::RestrictionReportToGitlab));
 
         return new JsonResponse([
             'strings' => [
