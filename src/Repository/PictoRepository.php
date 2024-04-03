@@ -62,7 +62,7 @@ class PictoRepository extends ServiceEntityRepository
                     $qb->andWhere("i.townEntry = :town");
                 $qb->setParameter('town', $town);
             } else {
-                $qb->andWhere("i.town IS NULL");
+                $qb->andWhere("i.town IS NULL")->andWhere("i.townEntry IS NULL");
             }
             return $qb->getQuery()
                         ->getOneOrNullResult();
