@@ -76,7 +76,7 @@ final class GlobalPrivateMessageEventListener implements ServiceSubscriberInterf
                         new WebPushMessage($subscription,
                             title:         "[{$prefix}] {$group->getName()}",
                             body:          $prepared_post,
-                            avatar:        (!$as_og_member && $og_link?->getAnon()) ? null : $event->post->getSender()->getAvatar()?->getId()
+                            avatar:        (!$og_link?->getAnon()) ? null : $event->post->getSender()->getAvatar()?->getId()
                         )
                     );
             }
