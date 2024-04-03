@@ -41,6 +41,7 @@
         <div class="cell padded header rw-8 rw-lg-12">
             <div class="cell rw-12 padded">
                 {% include('ajax/forum/tabs.html.twig') with {
+                    slugify: true,
                     tab: 'list',
                     has_fv: app.user.activeCitizen and app.user.activeCitizen.town.forum and (at_night is not defined or not at_night)
                 } only %}

@@ -11,6 +11,7 @@ use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Collections\Expr\Comparison;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\JoinTable;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
 use Doctrine\ORM\PersistentCollection;
@@ -166,6 +167,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     #[ORM\Column(type: 'json', nullable: true)]
     private array $settings = [];
 
+    #[JoinTable(name: 'user_forum')]
     #[ORM\ManyToMany(targetEntity: Forum::class, fetch: 'EXTRA_LAZY')]
     private Collection $mutedForums;
 
@@ -196,6 +198,10 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: NotificationSubscription::class, orphanRemoval: true)]
     private Collection $notificationSubscriptions;
 
+    #[JoinTable(name: 'user_forum_pinned')]
+    #[ORM\ManyToMany(targetEntity: Forum::class, fetch: 'EXTRA_LAZY')]
+    private Collection $pinnedForums;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -211,6 +217,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         $this->mutedForums = new ArrayCollection();
         $this->teamTickets = new ArrayCollection();
         $this->notificationSubscriptions = new ArrayCollection();
+        $this->pinnedForums = new ArrayCollection();
     }
     public function getId(): ?int
     {
@@ -1190,6 +1197,30 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
                 $notificationSubscription->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Forum>
+     */
+    public function getPinnedForums(): Collection
+    {
+        return $this->pinnedForums;
+    }
+
+    public function addPinnedForum(Forum $pinnedForum): static
+    {
+        if (!$this->pinnedForums->contains($pinnedForum)) {
+            $this->pinnedForums->add($pinnedForum);
+        }
+
+        return $this;
+    }
+
+    public function removePinnedForum(Forum $pinnedForum): static
+    {
+        $this->pinnedForums->removeElement($pinnedForum);
 
         return $this;
     }

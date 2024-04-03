@@ -1332,34 +1332,6 @@ class MessageForumController extends MessageController
 
     /**
      * @param int $fid
-     * @param bool $mute
-     * @return Response
-     */
-    #[Route(path: 'api/forum/{fid<\d+>}/mute', name: 'forum_mute_controller', defaults: ['mute' => true])]
-    #[Route(path: 'api/forum/{fid<\d+>}/unmute', name: 'forum_unmute_controller', defaults: ['mute' => false])]
-    public function forum_mute(int $fid, bool $mute): Response {
-        /** @var Forum $forum */
-        $forum = $this->entity_manager->getRepository(Forum::class)->find($fid);
-
-        $permissions = $this->perm->getEffectivePermissions( $this->getUser(), $forum );
-        if (($forum->getTown() && $mute) || !$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionRead ) || $this->isLimitedDuringAttack($forum))
-            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-
-        if ($mute) $this->getUser()->getMutedForums()->add( $forum );
-        else $this->getUser()->getMutedForums()->removeElement( $forum );
-
-        try {
-            $this->entity_manager->persist($this->getUser());
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
-        }
-
-        return AjaxResponse::success();
-    }
-
-    /**
-     * @param int $fid
      * @param int $tid
      * @param bool $subscribe
      * @return Response

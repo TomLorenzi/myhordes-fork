@@ -8,6 +8,8 @@ use App\Entity\AccountRestriction;
 use App\Entity\Avatar;
 use App\Entity\Award;
 use App\Entity\Citizen;
+use App\Entity\Forum;
+use App\Entity\ForumUsagePermissions;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\User;
@@ -18,6 +20,7 @@ use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\Media\ImageService;
+use App\Service\PermissionHandler;
 use App\Service\UserHandler;
 use App\Structures\Image;
 use App\Structures\MyHordesConf;
@@ -65,6 +68,7 @@ class SettingsController extends AbstractController
     /**
      * @param string $option
      * @param bool $value
+     * @param EntityManagerInterface $em
      * @return JsonResponse
      */
     #[Route(path: '/{option}', name: 'toggle_on', defaults: ['value' => true], methods: ['PUT'])]
@@ -80,5 +84,34 @@ class SettingsController extends AbstractController
         $em->flush();
 
         return new JsonResponse( $this->renderSetting( $setting ) );
+    }
+
+    #[Route(path: '/forum/{id}/flags/{flag}', name: 'forum_flag_on', defaults: ['value' => true], methods: ['PUT'])]
+    #[Route(path: '/forum/{id}/flags/{flag}', name: 'forum_flag_off', defaults: ['value' => false], methods: ['DELETE'])]
+    public function toggleForumFlag(Forum $forum, string $flag, bool $value, PermissionHandler $perm, EntityManagerInterface $em): JsonResponse {
+        if (!$perm->checkEffectivePermissions( $this->getUser(), $forum, ForumUsagePermissions::PermissionRead ))
+            return new JsonResponse(status: Response::HTTP_NOT_FOUND);
+
+        if ($forum->getTown())
+            return new JsonResponse(status: Response::HTTP_FORBIDDEN);
+
+        $collection = match ( $flag ) {
+            'mute' => $this->getUser()->getMutedForums(),
+            'pin' => $this->getUser()->getPinnedForums(),
+            default => null
+        };
+
+        if ($collection === null) return new JsonResponse(status: Response::HTTP_NOT_FOUND);
+
+        if ($flag === 'pin' && $value && !$collection->contains( $forum ) && $collection->count() >= 6)
+            return new JsonResponse(status: Response::HTTP_NOT_ACCEPTABLE);
+
+        if ($value) $collection->add( $forum );
+        else $collection->removeElement( $forum );
+
+        $em->persist( $this->getUser() );
+        $em->flush();
+
+        return new JsonResponse( ['success' => true] );
     }
 }
