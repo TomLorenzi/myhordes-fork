@@ -35,7 +35,6 @@ use App\Entity\PrivateMessage;
 use App\Entity\ShoutboxEntry;
 use App\Entity\ShoutboxReadMarker;
 use App\Entity\SpecialActionPrototype;
-use App\Entity\Thread;
 use App\Entity\Town;
 use App\Entity\User;
 use App\Entity\UserGroupAssociation;
@@ -277,13 +276,6 @@ class TownController extends InventoryAwareController
         $item_def_limit = $this->events->queryTownParameter( $town, BuildingValueQuery::MaxItemDefense );
         if ($item_def_limit === PHP_INT_MAX) $item_def_limit = null;
 
-        $forum_visited =
-            $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_chk_forum') &&
-            $town->getForum() &&
-            $this->entity_manager->getRepository(Thread::class)->countThreadsWithUnreadPosts(
-                $this->getUser(), $town->getForum()
-            ) <= 0;
-
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
             'is_watcher' => $is_watcher,
@@ -301,7 +293,7 @@ class TownController extends InventoryAwareController
             'has_levelable_building' => $has_levelable_building,
             'active_citizen' => $this->getActiveCitizen(),
             'has_estimated' => $has_estimated,
-            'has_visited_forum' => $forum_visited,
+            'has_visited_forum' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_chk_forum'),
             'has_been_active' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), ['tg_chk_workshop', 'tg_chk_movewb', 'tg_chk_build']),
             'has_pending_coa_invite' => !empty($user_invitations),
             'display_home_upgrade' => $display_home_upgrade,

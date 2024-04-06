@@ -298,7 +298,6 @@ class MessageForumController extends MessageController
         EntityManagerInterface $em,
         RateLimitingFactoryProvider $rateLimiter,
         InvalidateTagsInAllPoolsAction $clearCache,
-        CrowService $crow,
         EventProxyService $proxy
     ): Response {
 
@@ -396,6 +395,8 @@ class MessageForumController extends MessageController
         }
 
         $proxy->forumNewPostEvent( $post, $insight, new_thread: true );
+        $this->entity_manager->flush();
+
         return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $id, 'tid' => $thread->getId()])] );
     }
 
@@ -510,8 +511,6 @@ class MessageForumController extends MessageController
         JSONRequestParser $parser,
         EntityManagerInterface $em,
         InvalidateTagsInAllPoolsAction $clearCache,
-        PictoHandler $ph,
-        CrowService $crow,
         EventProxyService $proxy
     ): Response {
         $user = $this->getUser();
@@ -601,6 +600,7 @@ class MessageForumController extends MessageController
         }
 
         $proxy->forumNewPostEvent( $post, $insight );
+        $this->entity_manager->flush();
 
         return AjaxResponse::success( true, ['url' =>
             $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])

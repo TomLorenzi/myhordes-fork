@@ -15,6 +15,7 @@ use App\Event\Common\Messages\Forum\ForumMessageNewPostEvent;
 use App\Event\Common\Messages\Forum\ForumMessageNewThreadEvent;
 use App\EventListener\ContainerTypeTrait;
 use App\Messages\WebPush\WebPushMessage;
+use App\Service\CitizenHandler;
 use App\Service\CrowService;
 use App\Service\PermissionHandler;
 use App\Service\PictoHandler;
@@ -32,6 +33,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 #[AsEventListener(event: ForumMessageNewPostEvent::class, method: 'queueSubscriptions', priority: 10)]
 #[AsEventListener(event: ForumMessageNewPostEvent::class, method: 'queueSubscriptions', priority: 10)]
 #[AsEventListener(event: ForumMessageNewPostEvent::class, method: 'queueDistinctions', priority: 20)]
+#[AsEventListener(event: ForumMessageNewThreadEvent::class, method: 'removeForumCheckmarkForTownForums', priority: -10)]
+#[AsEventListener(event: ForumMessageNewPostEvent::class, method: 'removeForumCheckmarkForTownForums', priority: -10)]
 final class ForumEventListener implements ServiceSubscriberInterface
 {
     use ContainerTypeTrait;
@@ -48,7 +51,8 @@ final class ForumEventListener implements ServiceSubscriberInterface
             UserHandler::class,
             PermissionHandler::class,
             CrowService::class,
-            PictoHandler::class
+            PictoHandler::class,
+            CitizenHandler::class
         ];
     }
 
@@ -136,6 +140,12 @@ final class ForumEventListener implements ServiceSubscriberInterface
                 }
 
         if ($has_notif) try { $this->getService(EntityManagerInterface::class)->flush(); } catch (\Throwable) {}
+    }
+
+    public function removeForumCheckmarkForTownForums(ForumMessageNewPostEvent|ForumMessageNewThreadEvent $event): void {
+        foreach ($event->post?->getThread()?->getForum()?->getTown()?->getCitizens() ?? [] as $c)
+            if ($c->getAlive() && $c->getUser() !== $event->post->getOwner() && $c->hasStatus('tg_chk_forum') && $this->getService(CitizenHandler::class)->removeStatus( $c, 'tg_chk_forum' ))
+                $this->getService(EntityManagerInterface::class)->persist($c);
     }
 
 }
