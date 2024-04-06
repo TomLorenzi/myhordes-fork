@@ -190,10 +190,13 @@ class LogController extends CustomAbstractCoreController
      * @return JsonResponse
      * @throws Exception
      */
-    #[Route(path: '/beyond', name: 'beyond', methods: ['GET'])]
+    #[Route(path: '/beyond/{id}', name: 'beyond', methods: ['GET'])]
     #[GateKeeperProfile(only_alive: true, only_beyond: true)]
     #[Toaster]
-    public function beyond(Request $request, EntityManagerInterface $em): JsonResponse {
+    public function beyond(Zone $zone, Request $request, EntityManagerInterface $em): JsonResponse {
+        if ($this->getUser()->getActiveCitizen()?->getZone() !== $zone)
+            return new JsonResponse([], Response::HTTP_NOT_ACCEPTABLE);
+
         return new JsonResponse([
             'entries' => $this->renderLogEntries(
                 $em->getRepository(TownLogEntry::class)->matching(
