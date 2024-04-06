@@ -21,7 +21,7 @@
                 </div>
             </div>
 
-            {% include 'ajax/game/gazette_widget.html.twig' with { gazette: gazette, council: council } %}
+            {% include 'ajax/game/gazette_widget.html.twig' with { gazette: gazette, council: council, soul: not show_register } %}
 
             {% if citizensWithRole|length > 0 or votesNeeded|length > 0 %}
             <h5 id="gazette-role-title">{{ 'Stadtrat'|trans({}, 'game') }}</h5>
