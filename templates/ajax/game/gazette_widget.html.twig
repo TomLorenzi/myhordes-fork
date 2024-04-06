@@ -27,7 +27,7 @@
                     {% else %}
                         {% for citizen in gazette.death_inside %}
                             <span>
-                                <span x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="cursor: pointer; text-decoration: underline;">{{citizen.name}}</span>{% if not loop.last  %}, {% endif %}
+                                <span x-ajax-href="{{ soul ? path('soul_visit', {id: citizen.user.id}) : path('town_visit', {id: citizen.id}) }}" style="cursor: pointer; text-decoration: underline;">{{citizen.name}}</span>{% if not loop.last  %}, {% endif %}
                                 <div class="tooltip normal">
                                     <h1>{{'Todesursache'|trans({}, 'game')}}</h1>
                                     {{citizen.causeOfDeath.label|trans({}, 'game')}}
@@ -43,7 +43,7 @@
                         </div>
                         {% for citizen in gazette.death_outside %}
                             <span>
-                                        <span x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="cursor: pointer; text-decoration: underline;">{{citizen.name}}</span>{% if not loop.last  %}, {% endif %}
+                                        <span x-ajax-href="{{ soul ? path('soul_visit', {id: citizen.user.id}) : path('town_visit', {id: citizen.id}) }}" style="cursor: pointer; text-decoration: underline;">{{citizen.name}}</span>{% if not loop.last  %}, {% endif %}
                                         <div class="tooltip normal">
                                             <h1>{{'Todesursache'|trans({}, 'game')}}</h1>
                                             {{citizen.causeOfDeath.label|trans({}, 'game')}}
