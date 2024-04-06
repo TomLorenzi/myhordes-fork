@@ -94,11 +94,12 @@
         const seen = true;
         const hide = ( action === 'gpm-delete-post' || action === 'gpm-edit-delete-post' );
         const message = ( action === 'gpm-edit-post' || action === 'gpm-edit-delete-post' ) ? window.prompt('{{ 'Nachricht?'|trans({},'admin')|e('js') }}') : false;
+        const notice = ( action === 'gpm-edit-post' || action === 'gpm-edit-delete-post' || action === 'gpm-delete-post' ) ? window.prompt('{{ 'Nachricht an den Verfasser?'|trans({},'admin')|e('js') }}', message === false ? '' : message) : false;
 
         if (!message && message !== false) return;
-        if (!message && !confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;
+        if (!message && !notice && !confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;
 
-        $.ajax.easySend( '{{ path('admin_reports_mod_gpm') }}', {pmid: parseInt(elem.getAttribute('x-post-id')), seen: seen, hide: hide, message: message},
+        $.ajax.easySend( '{{ path('admin_reports_mod_gpm') }}', {pmid: parseInt(elem.getAttribute('x-post-id')), seen: seen, hide: hide, message: message, notice: notice},
             function () {
                 $.ajax.load(null, '{{ path('admin_reports_global', {opt: ''}) }}', true);
             } );

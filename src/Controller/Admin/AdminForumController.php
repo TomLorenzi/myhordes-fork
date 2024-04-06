@@ -385,6 +385,7 @@ class AdminForumController extends AdminActionController
         $seen = (bool)$parser->get('seen', false);
         $hide = (bool)$parser->get('hide', false);
         $message = $parser->get('message', null);
+        $notice = $parser->get('notice', null);
 
         if (!$seen && !$hide && !$message) return AjaxResponse::success();
 
@@ -399,7 +400,7 @@ class AdminForumController extends AdminActionController
         if ($hide || $message) {
             $notification = $crow->createPM_moderation( $pm->getSender(),
                 CrowService::ModerationActionDomainGlobalPM, CrowService::ModerationActionTargetPost, $hide ? CrowService::ModerationActionDelete : CrowService::ModerationActionEdit,
-                $pm, $message ?? ''
+                $pm, $notice ?? $message ?? ''
             );
             if ($notification) $this->entity_manager->persist($notification);
         }
