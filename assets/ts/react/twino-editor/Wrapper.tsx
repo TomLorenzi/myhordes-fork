@@ -320,6 +320,25 @@ export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldC
 
     const padded = props.skin !== 'line' && props.skin !== 'textarea';
 
+    const controlTrigger = e => {
+        if ((e.ctrlKey || e.metaKey) && (!e.shiftKey)) {
+            const key = e.key.toLowerCase();
+            if (key === 'enter') {
+                submit();
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            else {
+                const list = me.current?.querySelectorAll(`[data-receive-control-event="${key}"]`);
+                list.forEach(e => e.dispatchEvent(new CustomEvent('controlActionTriggered', {bubbles: false})));
+                if (list.length > 0) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+            }
+        }
+    }
+
     return (
         <>
             { strings === null && <div className="loading"/> }
@@ -336,7 +355,7 @@ export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldC
                 strings,
                 skin: props.skin,
             }}>
-                <div className={`${props.skin}-editor`}>
+                <div className={`${props.skin}-editor`} onKeyDown={controlTrigger}>
                     {props.header && <TwinoEditorHeader {...props} />}
                     <TwinoEditorFields tags={props.tags}/>
                     <div className="row classic-editor classic-editor-react" ref={me}>
@@ -362,14 +381,6 @@ export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldC
                             <TwinoEditorEditor
                                 body={`${fieldRef.current['body'] ?? getField('body') ?? ''}`}
                                 fixed={props.skin === "pm" || props.skin === "textarea"} prefs={props.editorPrefs}
-                                controlTrigger={s => {
-                                    if (s === 'enter') submit();
-                                    else {
-                                        const list = me.current?.querySelectorAll(`[data-receive-control-event="${s}"]`);
-                                        list.forEach(e => e.dispatchEvent(new CustomEvent('controlActionTriggered', {bubbles: false})));
-                                        return list.length > 0;
-                                    }
-                                }}
                             />
                         </div>
                         {padded && <div className={`padded cell rw-12 ${expanded ? '' : 'hidden'}`}>
@@ -509,7 +520,7 @@ const TwinoEditorPreview = ({html}: {html:string}) => {
     </>
 }
 
-const TwinoEditorEditor = ({body, fixed, controlTrigger, prefs}: {body: string, fixed: boolean, controlTrigger?: null|((s:string) => boolean), prefs: EditorConfig}) => {
+const TwinoEditorEditor = ({body, fixed, prefs}: {body: string, fixed: boolean, prefs: EditorConfig}) => {
     const textArea = useRef<HTMLTextAreaElement|HTMLInputElement|any>(null);
     const globals = useContext(Globals);
 
@@ -553,27 +564,11 @@ const TwinoEditorEditor = ({body, fixed, controlTrigger, prefs}: {body: string, 
             ref={textArea} enterKeyHint={prefs.enterKeyHint}
             tabIndex={0} id={`${globals.uuid}-editor`}
             onInput={e => globals.setField('body', e.currentTarget.value)}
-            onKeyDown={e => {
-                if (controlTrigger && (e.ctrlKey || e.metaKey) && (!e.shiftKey)) {
-                    if (controlTrigger(e.key.toLowerCase())) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                    }
-                }
-            }}
         />
         : <textarea ref={textArea}
             value={body} maxLength={prefs.maxLength} placeholder={prefs.placeholder}
             tabIndex={10} id={`${globals.uuid}-editor`}
             style={fixed ? {height: '90px', minHeight: '90px'} : {}}
             onInput={e => globals.setField('body', e.currentTarget.value)}
-            onKeyDown={e => {
-                if (controlTrigger && (e.ctrlKey || e.metaKey) && (!e.shiftKey)) {
-                    if (controlTrigger(e.key.toLowerCase())) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                    }
-                }
-            }}
         />
 }
