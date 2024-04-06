@@ -60,18 +60,18 @@ readonly class WebPushMessageHandler
 
         // Check if the receiver is Firefox - it can render HTML in message bodies, for all other services, the HTML
         // needs to be escaped.
-        $domain = parse_url(
-            Arr::get($subscription->getSubscription(), 'endpoint', 'https://domain.com/' ),
-            PHP_URL_HOST
-        );
-        $html_supported = str_ends_with( $domain, 'mozilla.com' );
+        //$domain = parse_url(
+        //    Arr::get($subscription->getSubscription(), 'endpoint', 'https://domain.com/' ),
+        //    PHP_URL_HOST
+        //);
+        //$html_supported = str_ends_with( $domain, 'mozilla.com' );
 
         // Push notification to subscriber service
         $response = null;
         $responses = $this->sender
             ->setMaxPaddingLength(min($subscription->getMaxPaddingLength() ?? Encryption::MAX_PAYLOAD_LENGTH, Encryption::MAX_PAYLOAD_LENGTH))
             ->push(
-                (new PushNotification("MyHordes: {$message->title}", $this->buildPayload( $message, $html_supported )))->createMessage(),
+                (new PushNotification("MyHordes: {$message->title}", $this->buildPayload( $message, false )))->createMessage(),
                 [$subscription]
             );
         foreach ($responses as $r) $response = $r;
