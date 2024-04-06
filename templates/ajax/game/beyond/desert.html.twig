@@ -828,7 +828,7 @@
             <div class="row">
                 <h5><span class="float-right link small" x-ajax-sticky x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{{ 'Zonenregister'|trans({},'game') }} <a class="help-button"><div class="tooltip help">{{ 'Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
                 <div class="cell rw-12" id="beyond_log_content">
-                    <hordes-log id="beyond-log" data-day="{{ day }}" data-react-mount="beyond-log" data-etag="{{ date().timestamp }}" data-domain="beyond" data-zone="{{ zone.id }}" data-entries="10" data-indicators="1" data-inline-days="1" data-chat="1"></hordes-log>
+                    <hordes-log id="beyond-log" data-day="{{ day }}" data-react-mount="beyond-log" data-etag="{{ date().timestamp }}" data-domain="beyond/{{ zone.id }}" data-zone="{{ zone.id }}" data-entries="10" data-indicators="1" data-inline-days="1" data-chat="1"></hordes-log>
                 </div>
             </div>
         {% endif %}
