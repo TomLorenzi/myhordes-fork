@@ -284,7 +284,7 @@
                 return;
             const id = parseInt(elem.closest('[x-citizen-id]').getAttribute('x-citizen-id'));
             $.ajax.easySend('{{ path('clear_citizen_attribs', {id: town.id}) }}', {id, clear: elem.dataset.clear},
-                () => $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "citizens"}) }}', true)
+                () => $.ajax.load(null, '{{ path('admin_town_citizens', {id: town.id}) }}', true)
             );
         } );
 
