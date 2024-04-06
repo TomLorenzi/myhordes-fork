@@ -198,11 +198,16 @@ export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldC
         return [e.result[s]?.url ?? null, s];
     }
 
+    const submitting = useRef<boolean>(false);
+
     const convertToHTML = (twino:string,update = (s:string) => {console.warn('no processor.')}) => $.html.twinoParser.parseToString(twino, s => emoteResolver(s), {autoLinks: $.client.config.autoParseLinks.get()}, update);
     const convertToTwino = (html:string,opmode:number = null) => $.html.twinoParser.parseFrom(html, opmode ?? $.html.twinoParser.OpModeRaw);
 
     const setField = (field: string, value: string|number) => {
         const current = fieldRef.current[field] ?? null;
+
+        // Reset submission state
+        if (field === 'body' || field === 'html') submitting.current = false;
 
         // Replace snippets
         if (field === 'body' && emotes?.snippets) value = `${value}`.replace( /%(\w*?)%(\w+)/, (match:string, lang:string, short:string) => emotes.snippets.list[lang === emotes.snippets.base ? `%%${short}` : match]?.value ?? match )
@@ -233,12 +238,16 @@ export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldC
     const getField = (f: string): number|string|null => fieldRef.current[f] ?? null;
 
     const submit = () => {
+        if (submitting.current) return;
         const html = deproxify( `${fieldRef.current.html ?? ''}` );
 
         if (!props.target) {
+            submitting.current = true;
+            window.setTimeout(() => submitting.current = false, 1000);
             $.client.config.scopedEditorCache.set(['','']);
             if (props.onSubmit) props.onSubmit({...fieldRef.current, html });
         } else {
+            submitting.current = true;
             let submissionData = {};
 
             const check = (field: string, value: string|number): boolean => {
@@ -271,7 +280,7 @@ export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldC
                         const url = r.url ?? r.redirect ?? null;
                         if (url) $.ajax.load( null, url, true );
                     } else if (props.redirectAfterSubmit) $.ajax.load( null, props.redirectAfterSubmit as string, true );
-                })
+                }).catch(() => submitting.current = false)
         }
     }
 
