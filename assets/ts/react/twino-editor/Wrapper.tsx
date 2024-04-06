@@ -221,7 +221,7 @@ export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldC
                 }
                 update(new_fields['html'] = convertToHTML(`${value}`, s => {
                     update(s);
-                    setFields({...fieldRef.current,html: s});
+                    setField('html', s);
                 }));
 
             } else if (field === 'html') (document.querySelector(props.previewSelector) ?? {innerHTML:''}).innerHTML = value as string;
