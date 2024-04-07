@@ -606,3 +606,6 @@ Push-Benachrichtigungen: crwdns205074:0crwdne205074:0
 'Du kannst keine Fehlerberichte über die MyHordes-Benutzeroberfläche erfassen und an Gitlab senden.': 'crwdns205100:0crwdne205100:0'
 'Push-Benachrichrichtigung über eine neue Nachricht in meinen offiziellen Gruppen erhalten': 'crwdns205102:0crwdne205102:0'
 'Push-Benachrichrichtigung für Meldungen an die Moderation erhalten': 'crwdns205104:0crwdne205104:0'
+'Push-Benachrichrichtigung für offizielle Ankündigungen auf MyHordes erhalten.': 'crwdns205316:0crwdne205316:0'
+'Push-Benachrichrichtigung für Community-Events erhalten.': 'crwdns205318:0crwdne205318:0'
+'Wenn du diese Einstellung aktivierst, bekommst du eine Benachrichtung, wenn ein neues Community-Event in den Event-Kalender aufgenommen wurde.': 'crwdns205320:0crwdne205320:0'
