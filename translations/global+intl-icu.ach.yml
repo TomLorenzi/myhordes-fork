@@ -619,3 +619,5 @@ Testbenachrichtiung: crwdns205172:0crwdne205172:0
 'Der Stadtkommentar eines Bürgers wurde gemeldet.': 'crwdns205248:0crwdne205248:0'
 'Ein Spieleraccount wurde gemeldet.': 'crwdns205250:0crwdne205250:0'
 'Dies ist Meldung #{num}.': 'crwdns205252:0#{num}crwdne205252:0'
+Community-Event: crwdns205322:0crwdne205322:0
+'Die erhälst die gekennzeichneten Benachrichtigungen nur, wenn sie deiner gewählten Sprache entsprechen. Wenn du die entsprechenden Einstellungen änderst oder deine Sprache wechselst, kann es bis zu 24 Stunden dauern, bis die Änderungen für Benachrichtigungen übernommen werden.': 'crwdns205324:0crwdne205324:0'
