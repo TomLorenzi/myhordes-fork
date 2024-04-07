@@ -180,6 +180,8 @@ const HordesLogWrapper = (props: mountProps) => {
                 applyData( day, v.entries, false, v.entries.length >= v.total);
                 setManipulations( v.manipulations );
                 setLoading( false );
+                if (v.entries.length < v.total)
+                    $.html.notice( strings?.content.noMore )
             } )
     }
 

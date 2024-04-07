@@ -29,6 +29,7 @@ use App\Service\ZoneHandler;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\Criteria;
+use Doctrine\Common\Collections\Order;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
@@ -92,6 +93,7 @@ class LogController extends CustomAbstractCoreController
                 'hiddenBy' => $this->translator->trans('Versteckt von {player}', [], 'admin'),
 
                 'more' => $this->translator->trans('Alle Einträge anzeigen', [], 'game'),
+                'noMore' => $this->translator->trans('Es konnten nicht alle Einträge geladen werden, da dieses Register zu viele Einträge enthält.', [], 'game'),
                 'flavour' => [
                     $this->translator->trans('Akteneinsicht wird beantragt...', [], 'game'),
                     $this->translator->trans('Protokolle werden analysiert...', [], 'game'),
@@ -107,7 +109,7 @@ class LogController extends CustomAbstractCoreController
      */
     protected function applyFilters(Request $request, Citizen|Zone|Town $context, ?Criteria $criteria = null, bool $limits = true, bool $allow_inline_days = false, bool $admin = false ): Criteria {
         $day = $request->query->get('day', 0);
-        $limit = min((int)$request->query->get('limit', -1), 500);
+        $limit = min((int)$request->query->get('limit', -1), 1500);
         $threshold_top = $request->query->get('below', PHP_INT_MAX);
         $threshold_bottom = $request->query->get('above', 0);
 
@@ -126,8 +128,8 @@ class LogController extends CustomAbstractCoreController
             ->andWhere( Criteria::expr()->gt('id', $threshold_bottom) )
             ->andWhere( Criteria::expr()->lt('id', $threshold_top) )
             ->andWhere( Criteria::expr()->eq('zone', $zone ) )
-            ->setMaxResults(($limit > 0 && $limits) ? $limit : 500)
-            ->orderBy( ['timestamp' => Criteria::DESC, 'id' => Criteria::DESC] );
+            ->setMaxResults(($limit > 0 && $limits) ? $limit : 1500)
+            ->orderBy( ['timestamp' => Order::Descending, 'id' => Order::Descending] );
 
         if ($day <= 0 && !$allow_inline_days) $day = $town->getDay();
         if ($day > 0) $criteria->andWhere( Criteria::expr()->eq('day', $day) );
