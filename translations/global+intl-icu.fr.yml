@@ -618,3 +618,5 @@ Testbenachrichtiung: Notification de test
 'Der Stadtkommentar eines Bürgers wurde gemeldet.': 'Le commentaire d''un citoyen de la ville a été signalé.'
 'Ein Spieleraccount wurde gemeldet.': 'Un compte joueur a été signalé.'
 'Dies ist Meldung #{num}.': 'Il s''agit du message #{num}.'
+Community-Event: Community-Event
+'Die erhälst die gekennzeichneten Benachrichtigungen nur, wenn sie deiner gewählten Sprache entsprechen. Wenn du die entsprechenden Einstellungen änderst oder deine Sprache wechselst, kann es bis zu 24 Stunden dauern, bis die Änderungen für Benachrichtigungen übernommen werden.': 'Die erhälst die gekennzeichneten Benachrichtigungen nur, wenn sie deiner gewählten Sprache entsprechen. Wenn du die entsprechenden Einstellungen änderst oder deine Sprache wechselst, kann es bis zu 24 Stunden dauern, bis die Änderungen für Benachrichtigungen übernommen werden.'
