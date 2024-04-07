@@ -3,11 +3,13 @@
 namespace App\Service;
 
 use App\Entity\AdminReport;
+use App\Entity\Announcement;
 use App\Entity\BlackboardEdit;
 use App\Entity\Building;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenRole;
+use App\Entity\CommunityEvent;
 use App\Entity\GlobalPrivateMessage;
 use App\Entity\Inventory;
 use App\Entity\Item;
@@ -25,6 +27,8 @@ use App\Enum\EventStages\BuildingValueQuery;
 use App\Enum\Game\TransferItemModality;
 use App\Enum\Game\TransferItemOption;
 use App\Enum\ScavengingActionType;
+use App\Event\Common\Messages\Announcement\NewAnnouncementEvent;
+use App\Event\Common\Messages\Announcement\NewEventAnnouncementEvent;
 use App\Event\Common\Messages\Forum\ForumMessageNewPostEvent;
 use App\Event\Common\Messages\Forum\ForumMessageNewThreadEvent;
 use App\Event\Common\Messages\GlobalPrivateMessage\GPMessageNewPostEvent;
@@ -209,6 +213,14 @@ class EventProxyService
 
     public function forumNewPostEvent( Post $post, HTMLParserInsight $insight, bool $new_thread = false ): void {
         $this->ed->dispatch( ($new_thread ? new ForumMessageNewThreadEvent() : new ForumMessageNewPostEvent())->setup( $post, $insight ) );
+    }
+
+    public function newAnnounceEvent( Announcement $announcement ): void {
+        $this->ed->dispatch( (new NewAnnouncementEvent())->setup( $announcement ) );
+    }
+
+    public function newCommunityEventEvent( CommunityEvent $event ): void {
+        $this->ed->dispatch( (new NewEventAnnouncementEvent())->setup( $event ) );
     }
 
     public function globalPrivateMessageNewPostEvent( GlobalPrivateMessage $post, HTMLParserInsight $insight, bool $new_thread = false ): void {

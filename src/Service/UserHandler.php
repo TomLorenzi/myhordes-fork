@@ -184,6 +184,11 @@ class UserHandler
             $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::Headshot, $r );
             foreach ($r as $re) $this->entity_manager->remove($re);
         }
+
+        foreach ($user->getNotificationSubscriptions() as $subscription) {
+            $user->removeNotificationSubscription($subscription);
+            $this->entity_manager->remove($subscription);
+        }
     }
 
     /**

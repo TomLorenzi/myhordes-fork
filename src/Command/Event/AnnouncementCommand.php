@@ -7,6 +7,7 @@ use App\Entity\Announcement;
 use App\Entity\AutomaticEventForecast;
 use App\Entity\User;
 use App\Service\ConfMaster;
+use App\Service\EventProxyService;
 use App\Structures\MyHordesConf;
 use DateTime;
 use DateTimeImmutable;
@@ -33,7 +34,8 @@ class AnnouncementCommand extends Command
         protected readonly EntityManagerInterface $em,
         protected readonly ConfMaster $conf,
         protected readonly KernelInterface $kernel,
-        protected readonly Environment $twig
+        protected readonly Environment $twig,
+        protected readonly EventProxyService $proxyService
     )
     {
         parent::__construct();
@@ -60,6 +62,8 @@ class AnnouncementCommand extends Command
 
         $global_conf = $this->conf->getGlobalConf();
 
+        $announcements = [];
+
         foreach ($all_events as $entry) {
 
             $lang_fallback_path = ['en', 'fr', 'de', 'es'];
@@ -82,7 +86,7 @@ class AnnouncementCommand extends Command
 
             foreach ($lang_mapping as $lang => $mapping) {
                 $template = $this->twig->load("event/{$entry->getEvent()}/$mapping.html.twig");
-                $announcement = (new Announcement())
+                $announcements[] = $announcement = (new Announcement())
                     ->setTitle(strip_tags($template->renderBlock('title', $vars)))
                     ->setText($template->renderBlock('content', $vars))
                     ->setTimestamp(new DateTime())
@@ -96,6 +100,11 @@ class AnnouncementCommand extends Command
             if (!empty($lang_mapping)) $this->em->persist($entry->setAnnounced(true));
             $this->em->flush();
         }
+
+        foreach ($announcements as $announcement)
+            $this->proxyService->newAnnounceEvent( $announcement );
+
+        $this->em->flush();
 
         return 0;
     }

@@ -12,6 +12,7 @@ use App\Entity\User;
 use App\Messages\Discord\DiscordMessage;
 use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
+use App\Service\EventProxyService;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Structures\MyHordesConf;
@@ -239,7 +240,7 @@ class MessageAnnouncementController extends MessageController
      * @return Response
      */
     #[Route(path: 'api/admin/com/changelogs/new_announcement', name: 'admin_changelog_new_announcement')]
-    public function create_announcement_api(EntityManagerInterface $em, JSONRequestParser $parser, UrlGeneratorInterface $urlGenerator, MessageBusInterface $bus): Response {
+    public function create_announcement_api(EntityManagerInterface $em, JSONRequestParser $parser, UrlGeneratorInterface $urlGenerator, MessageBusInterface $bus, EventProxyService $proxy): Response {
         $title     = $parser->get('title', '');
         $content   = $parser->get('content', '');
         $lang      = $parser->get('lang', 'de');
@@ -258,7 +259,12 @@ class MessageAnnouncementController extends MessageController
         $em->persist($announcement);
         $em->flush();
 
-        if ($endpoint = $this->conf->getGlobalConf()->get( MyHordesConf::CONF_ANIM_MAIL_DCHOOK )) {
+        if ($announcement->isValidated())
+            $proxy->newAnnounceEvent( $announcement );
+
+        $em->flush();
+
+        if (!$announcement->isValidated() && $endpoint = $this->conf->getGlobalConf()->get( MyHordesConf::CONF_ANIM_MAIL_DCHOOK )) {
             $discord = (new Client($endpoint))
                 ->message(":black_joker: **Please validate my announcement.**");
 
@@ -324,12 +330,15 @@ class MessageAnnouncementController extends MessageController
      * @return Response
      */
     #[Route(path: 'api/admin/com/changelogs/validate/{id<\d+>}', name: 'admin_changelog_val_announcement')]
-    public function validate_announcement_api(Announcement $announcement, EntityManagerInterface $em): Response {
+    public function validate_announcement_api(Announcement $announcement, EntityManagerInterface $em, EventProxyService $proxy): Response {
         if (!$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         if (!$announcement->isValidated()) {
             $em->persist( $announcement->setValidated(true)->setValidatedBy( $this->getUser() ) );
+            $em->flush();
+
+            $proxy->newAnnounceEvent( $announcement );
             $em->flush();
         }
 

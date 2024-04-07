@@ -28,6 +28,7 @@ export type NotificationSubscription = {
 
 export type Setting = {
     'type': string,
+    delay?: boolean,
     text: string,
     help: string
 }

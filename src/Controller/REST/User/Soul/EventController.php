@@ -12,6 +12,7 @@ use App\Entity\TownRankingProxy;
 use App\Messages\Discord\DiscordMessage;
 use App\Service\Actions\Ghost\SanitizeTownConfigAction;
 use App\Service\CrowService;
+use App\Service\EventProxyService;
 use App\Service\JSONRequestParser;
 use App\Service\PermissionHandler;
 use App\Service\User\UserCapabilityService;
@@ -374,7 +375,8 @@ class EventController extends CustomAbstractCoreController
     public function publishEvent(
         CommunityEvent $event,
         EntityManagerInterface $em,
-        CrowService $crow
+        CrowService $crow,
+        EventProxyService $proxy,
     ): JsonResponse {
         if (!$this->eventIsEditable( $event ) || !$this->isGranted('ROLE_CROW'))
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
@@ -398,6 +400,9 @@ class EventController extends CustomAbstractCoreController
         } catch (\Throwable $e) {
             return new JsonResponse([], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
+
+        $proxy->newCommunityEventEvent( $event );
+        $em->flush();
 
         return new JsonResponse(['uuid' => $event->getId()]);
     }
