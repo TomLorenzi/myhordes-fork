@@ -220,7 +220,7 @@
                                 {% trans from 'game' %}
                                     Du hast die <strong>Kontrolle über diese Zone verloren</strong> (dies kann passieren, wenn ein anderer Bürger ohne dich gegangen ist)! Wenn du nicht festsitzen möchtest, kannst du noch flüchten. Es bleiben dir :
                                 {% endtrans %}
-                                <span x-countdown-to="{{ zone_escape_ts.timestamp }}" x-on-expire="reload">...</span>
+                                <div style="font-weight: bold; font-size: 1.5em" x-countdown-to="{{ zone_escape_ts.timestamp }}" x-on-expire="reload">...</div>
                                 {% if active_scout_mode %}
                                     {{ 'Glücklicherweise kannst du dich dank deines {img_scout} <strong>Tarnanzug</strong> unerkannt weiterbewegen.'|trans({'{img_scout}': '<img alt="" src="' ~ asset('build/images/item/item_vest_on.gif') ~ '" />'},'game')|raw }}
                                     {{ 'Achtung: Jede Aktion in der Zone sorgt dafür, dass deine <strong>Tarnung auffliegt</strong>. (Es können nur Aktionen ausgeführt werden, die mit einem Icon {img_scout_ok} gekennzeichnet sind)!'|trans({'{img_scout_ok}': '<img alt="" src="' ~ asset('build/images/icons/small_stealthy.gif') ~ '" />'},'game')|raw }}
@@ -230,7 +230,7 @@
                                 {% trans from 'game' %}
                                     Du hast es geschafft, dich aus dieser Gefahr zu befreien, aber die Zombies schauen dich jetzt hungrig an und kommen gefährlich knurrend auf dich zu... FLIEHE!
                                 {% endtrans %}
-                                <span x-countdown-to="{{ zone_escape_desperate_ts.timestamp }}" x-on-expire="reload">...</span>
+                                <div style="font-weight: bold; font-size: 1.5em" x-countdown-to="{{ zone_escape_desperate_ts.timestamp }}" x-on-expire="reload">...</div>
                             {% elseif active_scout_mode %}
                                 <br />
                                 {{ 'Mit deinem {img_scout} <strong>Tarnanzug</strong> kannst du dich bewegen ohne dabei entdeckt zu werden.'|trans({'{img_scout}': '<img alt="" src="' ~ asset('build/images/item/item_vest_on.gif') ~ '" />'},'game')|raw }}
