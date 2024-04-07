@@ -21,6 +21,8 @@ enum UserSetting: string {
     case PushNotifyOnFriendTownJoin     = 'push-notify-on-town-join';
     case PushNotifyOnOfficialGroupChat  = 'push-notify-on-og';
     case PushNotifyOnModReport          = 'push-notify-on-mod';
+    case PushNotifyOnAnnounce           = 'push-notify-on-announce';
+    case PushNotifyOnEvent              = 'push-notify-on-event';
     case ReorderActionButtonsBeyond     = 'reorder-action-buttons-beyond';
     case ReorderTownLocationButtons     = 'reorder-location-buttons-town';
     case DistinctionTop3                = 'distinctions-top-3';
@@ -59,7 +61,9 @@ enum UserSetting: string {
             UserSetting::ReorderTownLocationButtons,
             UserSetting::LargerPMIcon,
             UserSetting::PushNotifyOnOfficialGroupChat,
-            UserSetting::PushNotifyOnModReport => true,
+            UserSetting::PushNotifyOnModReport,
+            UserSetting::PushNotifyOnAnnounce,
+            UserSetting::PushNotifyOnEvent => true,
 
             UserSetting::Flag,
             UserSetting::PreferredPronoun,
@@ -96,7 +100,9 @@ enum UserSetting: string {
             UserSetting::PreferredPronounTitle,
             UserSetting::LargerPMIcon,
             UserSetting::PushNotifyOnOfficialGroupChat,
-            UserSetting::PushNotifyOnModReport => true,
+            UserSetting::PushNotifyOnModReport,
+            UserSetting::PushNotifyOnAnnounce,
+            UserSetting::PushNotifyOnEvent => true,
 
             UserSetting::DistinctionTop3          => false,
         };
@@ -131,6 +137,8 @@ enum UserSetting: string {
             UserSetting::LargerPMIcon                  => false,
             UserSetting::PushNotifyOnOfficialGroupChat => true,
             UserSetting::PushNotifyOnModReport         => true,
+            UserSetting::PushNotifyOnAnnounce          => true,
+            UserSetting::PushNotifyOnEvent             => true,
         };
     }
 }

@@ -253,7 +253,7 @@ const SettingSection = ( {index, enabled}: {index: ResponseIndex|null, enabled: 
                                        .catch( () => setCurrentlySaving( currentlySaving.filter(s => s !== v.type) ))
                                } }
                         />
-                        <label htmlFor={makeUUID(v.type)}>{v.text}</label>
+                        <label htmlFor={makeUUID(v.type)}>{v.delay ? <><span style={{color: 'red'}}>*</span>&nbsp;</> : null}{v.text}</label>
                         {v.help && <a className="help-button">
                             <Tooltip textContent={v.help}/>
                             {index.strings.common.help}
@@ -263,6 +263,22 @@ const SettingSection = ( {index, enabled}: {index: ResponseIndex|null, enabled: 
             </div>
 
         </div>)}
+        { index.strings.settings.toggle.filter(v => v.delay).length > 0 && <>
+            <div className="row">
+                <div className="padded cell">
+                    <div className="note note-lightest">
+                        <div className="row-flex v-top gap">
+                            <div className="padded cell">
+                                <span style={{color: 'red'}}>*</span>
+                            </div>
+                            <div className="padded cell">
+                                <span className="small">{index.strings.common.delayed}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>}
     </>
 
 }

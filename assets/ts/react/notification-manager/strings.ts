@@ -8,6 +8,7 @@ export type TranslationStrings = {
         infoText3: string
         unsupported: string
         rejected: string
+        delayed: string
 
         error_put_400: string
         error_put_409: string

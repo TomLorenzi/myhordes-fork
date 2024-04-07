@@ -46,6 +46,18 @@ class NotificationManagerController extends AbstractController
                 'text' => $trans->trans('Push-Benachrichrichtigung erhalten, wenn Freunde einer Stadt beitreten', [], 'soul' ),
                 'help' => $trans->trans('Damit du benachrichtigt wirst, wenn ein Freund eine Stadt betritt, muss dieser dich ebenfalls als Freund hinzugefügt haben. Du wirst zudem nur benachrichtigt, wenn du dieser Stadt ebenfalls beitreten könntest (dich also beispielsweise nicht bereits in einer anderen Stadt aufhälst).', [], 'soul' )
             ],
+            [
+                'type' => UserSetting::PushNotifyOnAnnounce->value,
+                'delay' => true,
+                'text' => $trans->trans('Push-Benachrichrichtigung für offizielle Ankündigungen auf MyHordes erhalten.', [], 'soul' ),
+                'help' => null
+            ],
+            [
+                'type' => UserSetting::PushNotifyOnEvent->value,
+                'delay' => true,
+                'text' => $trans->trans('Push-Benachrichrichtigung für Community-Events erhalten.', [], 'soul' ),
+                'help' => $trans->trans('Wenn du diese Einstellung aktivierst, bekommst du eine Benachrichtung, wenn ein neues Community-Event in den Event-Kalender aufgenommen wurde.', [], 'soul' )
+            ],
         ];
 
         if ( !empty($capability->getOfficialGroups( $this->getUser() )) )
@@ -57,7 +69,7 @@ class NotificationManagerController extends AbstractController
 
         if ($capability->hasRole( $this->getUser(), 'ROLE_CROW', true ))
             $base[] = [
-                'type' => UserSetting::PushNotifyOnOfficialGroupChat->value,
+                'type' => UserSetting::PushNotifyOnModReport->value,
                 'text' => $trans->trans('Push-Benachrichrichtigung für Meldungen an die Moderation erhalten', [], 'soul' ),
                 'help' => null,
             ];
@@ -81,6 +93,8 @@ class NotificationManagerController extends AbstractController
                     'infoText3' => $trans->trans('Wenn du keine weiteren Benachrichtigungen erhalten möchtest, kannst du diese Funktion jederzeit vollständig oder für einzelne Geräte deaktivieren.', [], 'global'),
                     'unsupported' => $trans->trans('Dieses Gerät unterstützt keine Push-Benachrichtigungen.', [], 'global'),
                     'rejected'  => $trans->trans('Um diese Funktion zu verwenden, musst du MyHordes die Erlaubnis geben, dir Benachrichtigungen auf dein Gerät zu schicken.', [], 'global'),
+
+                    'delayed' => $trans->trans('Die erhälst die gekennzeichneten Benachrichtigungen nur, wenn sie deiner gewählten Sprache entsprechen. Wenn du die entsprechenden Einstellungen änderst oder deine Sprache wechselst, kann es bis zu 24 Stunden dauern, bis die Änderungen für Benachrichtigungen übernommen werden.', [], 'global'),
 
                     'error_put_400' => $trans->trans('MyHordes ist nicht in der Lage, die von diesem Gerät angebotene Schnittstelle anzusprechen. Bitte versuche, dein Gerät oder Browser auf die neuste Version zu aktualisieren, oder verwende einen anderen Browser.', [], 'global'),
                     'error_put_409' => $trans->trans('Dieses Gerät ist bereits für Push-Benachrichtigungen eines anderen MyHordes-Account registriert. Ein Gerät kann nicht mehreren Accounts zugeordnet werden.', [], 'global'),
