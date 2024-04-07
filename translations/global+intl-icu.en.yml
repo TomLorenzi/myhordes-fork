@@ -618,3 +618,5 @@ Testbenachrichtiung: Test notification
 'Der Stadtkommentar eines Bürgers wurde gemeldet.': 'The comment from a city citizen was reported.'
 'Ein Spieleraccount wurde gemeldet.': 'A player account has been reported.'
 'Dies ist Meldung #{num}.': 'This is the message #{num}.'
+Community-Event: Community-Event
+'Die erhälst die gekennzeichneten Benachrichtigungen nur, wenn sie deiner gewählten Sprache entsprechen. Wenn du die entsprechenden Einstellungen änderst oder deine Sprache wechselst, kann es bis zu 24 Stunden dauern, bis die Änderungen für Benachrichtigungen übernommen werden.': 'Die erhälst die gekennzeichneten Benachrichtigungen nur, wenn sie deiner gewählten Sprache entsprechen. Wenn du die entsprechenden Einstellungen änderst oder deine Sprache wechselst, kann es bis zu 24 Stunden dauern, bis die Änderungen für Benachrichtigungen übernommen werden.'
