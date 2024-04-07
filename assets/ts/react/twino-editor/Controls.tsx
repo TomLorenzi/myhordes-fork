@@ -424,7 +424,7 @@ const ControlButtonInsertLink = () => {
 }
 const ControlButtonInsertImage = () => {
     const globals = useContext(Globals);
-    return <ControlButtonInsertURL node="image" label={globals.strings.controls.image} fa="image" block={true}
+    return <ControlButtonInsertURL node="image" label={globals.strings.controls.image} fa="image" block={false}
                                    urlField={globals.strings.controls["image-url"]}
                                    textField={globals.strings.controls["image-text"]}
     />
