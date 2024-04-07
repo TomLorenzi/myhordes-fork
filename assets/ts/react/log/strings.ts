@@ -23,6 +23,7 @@ export type TranslationStrings = {
         manipulated: string
         falsify: string
         more: string
+        noMore: string
         flavour: string[]
     }
 }
