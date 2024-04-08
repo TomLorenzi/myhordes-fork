@@ -286,10 +286,10 @@ Löschen: Borrar
 'Eigenartiger Boden': 'Suelo extraño'
 'Der Boden, auf dem die Stadt errichtet wurde, ist mit Chemikalien verseucht. Dies hat Einfluss auf die Qualität des Brunnenwassers und damit auch auf die Landwirtschaft...': 'El suelo sobre el que se construyó el pueblo está contaminado con productos químicos muy potentes. Esto afecta a la calidad del agua del pozo y, por ende, también a la agricultura...'
 'Es können maximal {number} Private Städte gleichzeitig eröffnet werden.': 'No se pueden abrir más de {number} Pueblos Privados al mismo tiempo.'
-'Größe der Begehbaren Ruinen': 'Größe der Begehbaren Ruinen'
-Sauerstoffvorrat: Sauerstoffvorrat
-Umfangreich: Umfangreich
-Exorbitant: Exorbitant
+'Größe der Begehbaren Ruinen': 'Tamaño de las ruinas'
+Sauerstoffvorrat: Cantidad de oxigeno
+Umfangreich: Larga
+Exorbitant: Muy larga
 'Eine Etage': 'Un piso'
 'Zwei Etagen': 'Dos pisos'
 'Drei Etagen': 'Tres pisos'

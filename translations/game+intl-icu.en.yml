@@ -2452,7 +2452,7 @@ Kerberos_f: Wandering Knight
 Hekatoncheir_f: Insurmountable citizen
 'Holy F***ing Iceberg_f': 'Holy F***ing Iceberg'
 Kantinenkoch_f: Cantine Cook
-'Kleiner Küchenchef_f': 'Kleine Küchenchefin'
+'Kleiner Küchenchef_f': 'Small cook'
 'Meister Eintopf_f': 'Demi Chef de Partie'
 'Großer Wüstenkonditor_f': 'Mama''s Finest'
 'Begnadeter Wüstenkonditor_f': 'Under Chef'
@@ -2943,7 +2943,7 @@ Sandkasten-Scharfschütze_f: Sandstorm Sniper
 'Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen. Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.': 'This allows you to add a random citizen''s name to your post. If necessary, you can narrow down the selection to specific professions, heroes or citizens who have already died.'
 'Zufälliges Koalitionsmitglied': 'Random coalition member'
 'Hiermit kannst du den Namen eines zufälligen Mitglieds deiner Koalition in deinen Post anfügen.': 'Allows you to add the name of a random member of your coalition to your post.'
-'{player} ist der Stadt "{town}" beigetreten. Dort ist noch Platz für dich, du könntest ihm also folgen...': '{ref__gender, select, female {{player} ist der Stadt "{town}" beigetreten. Dort ist noch Platz für dich, du könntest ihr also folgen...} other {{player} ist der Stadt "{town}" beigetreten. Dort ist noch Platz für dich, du könntest ihm also folgen...} }'
+'{player} ist der Stadt "{town}" beigetreten. Dort ist noch Platz für dich, du könntest ihm also folgen...': '{ref__gender, select, female {{player} has joined "{town}". There is still an available place for you there, you could then follow them...} other {{player} has joined "{town}". There is still an available place for you there, you could then follow them...} }'
 '{player} sind der Stadt "{town}" beigetreten. Dort ist noch Platz für dich, du könntest ihnen also folgen...': '{player} have joined the city "{town}". There''s still room for you there, so you could follow them...'
 'Tief durchatmen!': 'Take a breath!'
 'Du kannst den Bürgern der Stadt die Errichtung eines bestimmten Gebäudes empfehlen. Klicke dafür auf den Namen des Bauprojektes, das du empfehlen willst.': 'You can recommend the construction of a specific site to the citizens of the city. To do this, click on the name of the construction site you want to recommend.'

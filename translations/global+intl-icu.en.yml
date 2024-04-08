@@ -603,7 +603,7 @@ Testbenachrichtiung: Test notification
 'Bei der Weiterleitung deines Fehlerberichts an GitLab ist ein Kommunkationsfehler aufgetreten. Bitte versuche es in einigen Augenblicken erneut.': 'A communication error occurred while forwarding your bug report to GitLab. Please try again in a few moments.'
 'Dein Fehlerbericht konnte nicht weitergeleitet werden. Dieser MyHordes-Server ist nicht an eine GitLab-Instanz angeschlossen.': 'Your bug report could not be forwarded. This MyHordes server is not connected to a GitLab instance.'
 'Kurzzusammenfassung des Fehlers': 'Short summary of the error'
-'Beschreibe das Problem in einem Stichpunkt.': 'Describe the problem in a bullet point.'
+'Beschreibe das Problem in einem Stichpunkt.': 'Describe the problem briefly.'
 'Beispiel: Kommunikationsfehler beim Benutzen des Katapults': 'Example: Communication error when using the catapult'
 'Beschreibung des Fehlers': 'Description of the error'
 'Bitte beschreibe detailliert, wie es zu diesem Fehler gekommen ist. Wenn du eine Fehlermeldung erhalten hast, gib bitte wenn möglich deren Wortlaut mit an.': 'Please describe in detail how this error occurred. If you received an error message, please include the wording if possible.'
