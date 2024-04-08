@@ -1,3 +1,4 @@
+---
 E-Mail-Adresse: Adresse email
 'Externe ID für Apps': 'ID externe pour les apps'
 'Neue ID generieren': 'Générer un nouvel ID'
@@ -605,6 +606,6 @@ Push-Benachrichtigungen: Notifications push
 'Du kannst keine Fehlerberichte über die MyHordes-Benutzeroberfläche erfassen und an Gitlab senden.': 'Vous ne pouvez pas collecter de rapports de bogues et les soumettre à Gitlab via l''interface MyHordes.'
 'Push-Benachrichrichtigung über eine neue Nachricht in meinen offiziellen Gruppen erhalten': 'Recevoir une notification push d''un nouveau message dans mes groupes officiels'
 'Push-Benachrichrichtigung für Meldungen an die Moderation erhalten': 'Recevez des notifications push pour les rapports à modérer'
-'Push-Benachrichrichtigung für offizielle Ankündigungen auf MyHordes erhalten.': 'Push-Benachrichrichtigung für offizielle Ankündigungen auf MyHordes erhalten.'
-'Push-Benachrichrichtigung für Community-Events erhalten.': 'Push-Benachrichrichtigung für Community-Events erhalten.'
-'Wenn du diese Einstellung aktivierst, bekommst du eine Benachrichtung, wenn ein neues Community-Event in den Event-Kalender aufgenommen wurde.': 'Wenn du diese Einstellung aktivierst, bekommst du eine Benachrichtung, wenn ein neues Community-Event in den Event-Kalender aufgenommen wurde.'
+'Push-Benachrichrichtigung für offizielle Ankündigungen auf MyHordes erhalten.': 'Recevoir des notifications push pour les annonces officielles de MyHordes.'
+'Push-Benachrichrichtigung für Community-Events erhalten.': 'Recevoir des notifications push pour les événements communautaires.'
+'Wenn du diese Einstellung aktivierst, bekommst du eine Benachrichtung, wenn ein neues Community-Event in den Event-Kalender aufgenommen wurde.': 'Si vous activez ce paramètre, vous recevrez une notification lorsqu''un nouvel événement communautaire sera ajouté au calendrier des événements.'
