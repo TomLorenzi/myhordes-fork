@@ -1,3 +1,4 @@
+---
 E-Mail-Adresse: Email address
 'Externe ID für Apps': 'External ID for apps'
 'Neue ID generieren': 'Generate a new ID'
@@ -605,6 +606,6 @@ Push-Benachrichtigungen: Push notifications
 'Du kannst keine Fehlerberichte über die MyHordes-Benutzeroberfläche erfassen und an Gitlab senden.': 'You cannot collect bug reports and submit them to Gitlab through the MyHordes interface.'
 'Push-Benachrichrichtigung über eine neue Nachricht in meinen offiziellen Gruppen erhalten': 'Receive push notification of a new message in my official groups'
 'Push-Benachrichrichtigung für Meldungen an die Moderation erhalten': 'Receive push notifications for reports to moderation'
-'Push-Benachrichrichtigung für offizielle Ankündigungen auf MyHordes erhalten.': 'Push-Benachrichrichtigung für offizielle Ankündigungen auf MyHordes erhalten.'
-'Push-Benachrichrichtigung für Community-Events erhalten.': 'Push-Benachrichrichtigung für Community-Events erhalten.'
-'Wenn du diese Einstellung aktivierst, bekommst du eine Benachrichtung, wenn ein neues Community-Event in den Event-Kalender aufgenommen wurde.': 'Wenn du diese Einstellung aktivierst, bekommst du eine Benachrichtung, wenn ein neues Community-Event in den Event-Kalender aufgenommen wurde.'
+'Push-Benachrichrichtigung für offizielle Ankündigungen auf MyHordes erhalten.': 'Receive push notifications for official announcements of MyHordes.'
+'Push-Benachrichrichtigung für Community-Events erhalten.': 'Receive push notifications for community events.'
+'Wenn du diese Einstellung aktivierst, bekommst du eine Benachrichtung, wenn ein neues Community-Event in den Event-Kalender aufgenommen wurde.': 'If you enable this setting, you will receive a notification when a new community event is added to the events calendar.'
