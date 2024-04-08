@@ -560,7 +560,7 @@ ENTER: ENTRY
 'Spieler auswählen': 'Select player'
 'Gib den Namen des Spielers ein': 'Enter the player''s name'
 'Wenn du möchtest, kannst du auch dann Benachrichtigungen auf deinen Computer oder Smartphone bekommen, wenn du gerade nicht auf MyHordes unterwegs bist. So bist du immer auf dem neusten Stand und kannst keine wichtigen Meldungen mehr verpassen!': 'It is possible to receive notifications on computer or smartphone even when you are not on MyHordes. This way you will always be up to date with the latest news and will no longer be able to miss important messages!'
-'Um diese Funktion zu verwenden, musst du MyHordes die Erlaubnis geben, dir Benachrichtigungen auf dein Gerät zu schicken. Klicke auf "Benachrichtigungen auf diesem Gerät erhalten" und bestätige die Sicherheitsabfrage deines Browsers, um diese Funktion zu aktivieren.': 'It is possible to receive notifications on computer or smartphone even when you are not on MyHordes. This way you will always be up-to-date with the latest news and will no longer be able to miss important messages!'
+'Um diese Funktion zu verwenden, musst du MyHordes die Erlaubnis geben, dir Benachrichtigungen auf dein Gerät zu schicken. Klicke auf "Benachrichtigungen auf diesem Gerät erhalten" und bestätige die Sicherheitsabfrage deines Browsers, um diese Funktion zu aktivieren.': 'To use this function, you must give MyHordes permission to send you notifications on your device. Click on "Receive notifications on this device" and confirm your browser''s security prompt to activate this function.'
 'Wenn du keine weiteren Benachrichtigungen erhalten möchtest, kannst du diese Funktion jederzeit vollständig oder für einzelne Geräte deaktivieren.': 'It is possible to deactivate notifications at any time, completely or for certain devices.'
 'Dieses Gerät unterstützt keine Push-Benachrichtigungen.': 'This device does not support push notifications.'
 'Benachrichtigungen auf diesem Gerät erhalten': 'Receive notifications on this device'
@@ -603,7 +603,7 @@ Testbenachrichtiung: Test notification
 'Bei der Weiterleitung deines Fehlerberichts an GitLab ist ein Kommunkationsfehler aufgetreten. Bitte versuche es in einigen Augenblicken erneut.': 'A communication error occurred while forwarding your bug report to GitLab. Please try again in a few moments.'
 'Dein Fehlerbericht konnte nicht weitergeleitet werden. Dieser MyHordes-Server ist nicht an eine GitLab-Instanz angeschlossen.': 'Your bug report could not be forwarded. This MyHordes server is not connected to a GitLab instance.'
 'Kurzzusammenfassung des Fehlers': 'Short summary of the error'
-'Beschreibe das Problem in einem Stichpunkt.': 'Describe the problem in a bullet point.'
+'Beschreibe das Problem in einem Stichpunkt.': 'Describe the problem briefly.'
 'Beispiel: Kommunikationsfehler beim Benutzen des Katapults': 'Example: Communication error when using the catapult'
 'Beschreibung des Fehlers': 'Description of the error'
 'Bitte beschreibe detailliert, wie es zu diesem Fehler gekommen ist. Wenn du eine Fehlermeldung erhalten hast, gib bitte wenn möglich deren Wortlaut mit an.': 'Please describe in detail how this error occurred. If you received an error message, please include the wording if possible.'
@@ -618,3 +618,5 @@ Testbenachrichtiung: Test notification
 'Der Stadtkommentar eines Bürgers wurde gemeldet.': 'The comment from a city citizen was reported.'
 'Ein Spieleraccount wurde gemeldet.': 'A player account has been reported.'
 'Dies ist Meldung #{num}.': 'This is the message #{num}.'
+Community-Event: Community-Event
+'Die erhälst die gekennzeichneten Benachrichtigungen nur, wenn sie deiner gewählten Sprache entsprechen. Wenn du die entsprechenden Einstellungen änderst oder deine Sprache wechselst, kann es bis zu 24 Stunden dauern, bis die Änderungen für Benachrichtigungen übernommen werden.': 'Die erhälst die gekennzeichneten Benachrichtigungen nur, wenn sie deiner gewählten Sprache entsprechen. Wenn du die entsprechenden Einstellungen änderst oder deine Sprache wechselst, kann es bis zu 24 Stunden dauern, bis die Änderungen für Benachrichtigungen übernommen werden.'

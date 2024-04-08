@@ -8,3 +8,5 @@ rnduser: habitant
 'Forum stummschalten': 'Rendre ce forum muet'
 'Wenn diese Option aktiviert ist, werden dir neue Nachrichten in diesem Forum nicht auf der Forenübersicht angezeigt. Diese Option kann nicht für das Stadtforum aktiviert werden.': 'Lorsque cette option est activée, vous ne verrez plus l’indicateur « New » de ce forum dans la liste des forums. Veuillez noter que cette option ne peut pas être activée pour le forum de votre ville.'
 Tag: Tag
+'Forum anpinnen': 'Forum anpinnen'
+'Wenn diese Option aktiviert ist, wird dieses Forum in der Tab-Liste im oberen Bereich der Forenansicht angeheftet, damit du schneller darauf zugreifen kannst. Du kannst maximal {n} Foren anpinnen.': 'Wenn diese Option aktiviert ist, wird dieses Forum in der Tab-Liste im oberen Bereich der Forenansicht angeheftet, damit du schneller darauf zugreifen kannst. Du kannst maximal {n} Foren anpinnen.'

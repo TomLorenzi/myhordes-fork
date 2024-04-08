@@ -8,3 +8,5 @@ rnduser: rnduser
 'Forum stummschalten': 'Mute this forum'
 'Wenn diese Option aktiviert ist, werden dir neue Nachrichten in diesem Forum nicht auf der Forenübersicht angezeigt. Diese Option kann nicht für das Stadtforum aktiviert werden.': 'When enabled, you will no longer see the "New Messages" indicator on the forum list for this forum. Please note that this option cannot be enabled for your town forum.'
 Tag: Tag
+'Forum anpinnen': 'Pin forum'
+'Wenn diese Option aktiviert ist, wird dieses Forum in der Tab-Liste im oberen Bereich der Forenansicht angeheftet, damit du schneller darauf zugreifen kannst. Du kannst maximal {n} Foren anpinnen.': 'If this option is enabled, this forum will be pinned in the tab list at the top of the forum view so that you can access it more quickly. You can pin a maximum of {n} forums.'

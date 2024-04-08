@@ -603,7 +603,7 @@ Testbenachrichtiung: Notification de test
 'Bei der Weiterleitung deines Fehlerberichts an GitLab ist ein Kommunkationsfehler aufgetreten. Bitte versuche es in einigen Augenblicken erneut.': 'Une erreur de communication s''est produite lors du transfert de votre rapport de bug à GitLab. Merci de réessayer dans quelques instants.'
 'Dein Fehlerbericht konnte nicht weitergeleitet werden. Dieser MyHordes-Server ist nicht an eine GitLab-Instanz angeschlossen.': 'Votre rapport de bug n''a pas pu être transmis. Ce serveur MyHordes n''est pas connecté à une instance GitLab.'
 'Kurzzusammenfassung des Fehlers': 'Bref résumé de l''erreur'
-'Beschreibe das Problem in einem Stichpunkt.': 'Décrivez le problème sous forme de liste.'
+'Beschreibe das Problem in einem Stichpunkt.': 'Décrivez le problème brièvement.'
 'Beispiel: Kommunikationsfehler beim Benutzen des Katapults': 'Exemple : Erreur de communication lors de l''utilisation de la catapulte'
 'Beschreibung des Fehlers': 'Description de l''erreur'
 'Bitte beschreibe detailliert, wie es zu diesem Fehler gekommen ist. Wenn du eine Fehlermeldung erhalten hast, gib bitte wenn möglich deren Wortlaut mit an.': 'Veuillez décrire en détail comment cette erreur s''est produite. Si vous avez reçu un message d''erreur, veuillez inclure le texte si possible.'
@@ -618,3 +618,5 @@ Testbenachrichtiung: Notification de test
 'Der Stadtkommentar eines Bürgers wurde gemeldet.': 'Le commentaire d''un citoyen de la ville a été signalé.'
 'Ein Spieleraccount wurde gemeldet.': 'Un compte joueur a été signalé.'
 'Dies ist Meldung #{num}.': 'Il s''agit du message #{num}.'
+Community-Event: Community-Event
+'Die erhälst die gekennzeichneten Benachrichtigungen nur, wenn sie deiner gewählten Sprache entsprechen. Wenn du die entsprechenden Einstellungen änderst oder deine Sprache wechselst, kann es bis zu 24 Stunden dauern, bis die Änderungen für Benachrichtigungen übernommen werden.': 'Die erhälst die gekennzeichneten Benachrichtigungen nur, wenn sie deiner gewählten Sprache entsprechen. Wenn du die entsprechenden Einstellungen änderst oder deine Sprache wechselst, kann es bis zu 24 Stunden dauern, bis die Änderungen für Benachrichtigungen übernommen werden.'
