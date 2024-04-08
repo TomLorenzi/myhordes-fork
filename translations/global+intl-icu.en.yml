@@ -1,3 +1,4 @@
+---
 'Allgemeiner Fehler.': 'Common error.'
 'Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.': 'The selected forum doesn''t exist or you are lacking the permission to view it.'
 'Dein Text muss mindestens 2 Zeichen lang sein.': 'Your text has to be at least 2 characters long.'
@@ -618,5 +619,5 @@ Testbenachrichtiung: Test notification
 'Der Stadtkommentar eines Bürgers wurde gemeldet.': 'The comment from a city citizen was reported.'
 'Ein Spieleraccount wurde gemeldet.': 'A player account has been reported.'
 'Dies ist Meldung #{num}.': 'This is the message #{num}.'
-Community-Event: Community-Event
-'Die erhälst die gekennzeichneten Benachrichtigungen nur, wenn sie deiner gewählten Sprache entsprechen. Wenn du die entsprechenden Einstellungen änderst oder deine Sprache wechselst, kann es bis zu 24 Stunden dauern, bis die Änderungen für Benachrichtigungen übernommen werden.': 'Die erhälst die gekennzeichneten Benachrichtigungen nur, wenn sie deiner gewählten Sprache entsprechen. Wenn du die entsprechenden Einstellungen änderst oder deine Sprache wechselst, kann es bis zu 24 Stunden dauern, bis die Änderungen für Benachrichtigungen übernommen werden.'
+Community-Event: Community Event
+'Die erhälst die gekennzeichneten Benachrichtigungen nur, wenn sie deiner gewählten Sprache entsprechen. Wenn du die entsprechenden Einstellungen änderst oder deine Sprache wechselst, kann es bis zu 24 Stunden dauern, bis die Änderungen für Benachrichtigungen übernommen werden.': 'You will only receive marked notifications if they match the selected language. If you change the affected settings or change your language, notifications may take up to 24 hours to reflect the changes.'
