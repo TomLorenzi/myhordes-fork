@@ -1,3 +1,4 @@
+---
 'Deine Route wurde gespeichert.': 'Your expedition has been saved.'
 'Du hast deine Beschreibung geändert.': 'You have changed your announcement.'
 '{citizen} hat {item} in den Brunnen geschüttet und damit {num} Rationen Wasser hinzugefügt.': '{citizen} poured {item} into the well and it added {num} water ration(s).'
@@ -149,7 +150,7 @@ Anzahl: Stock
 Werkstatt-Register: Workshop
 'Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.': 'This is a complete list of everything currently stored in the Bank. These objects are the fruit of the citizens'' hard work. These objects are mainly used for the construction of community buildings and to defend the town during the attack of the zombie horde.'
 Bankregister: Bank
-"Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle\n                    arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten <div class=\"ap\"></div>.": "The Town has legalized Slavery. From now on you can go to a construction site despite your banishment to\n        \twork and even get a 50% bonus on everyone invested <div class=\"ap\"></div>."
+"Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle\n                    arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten <div class=\"ap\"></div>.": "The Town has legalized Slavery. From now on you can go to a construction site despite your banishment to\n        \\twork and even get a 50% bonus on everyone invested <div class=\"ap\"></div>."
 'Du wurdest verbannt und kannst daher nicht länger auf einer Baustelle arbeiten.': 'You have been shunned and can therefore no longer work on a construction site.'
 Baustellenregister: Constructions
 '{rations} Rationen Wasser übrig': '{rations} water rations remaining'
@@ -2439,7 +2440,7 @@ Seelenverwerter_f: Soul Recycler
 'Voodoo Sorceror_f': 'Voodoo Sorceror'
 'Yo, wir schaffen das!_f': 'I''ll let myself in...'
 'Kleiner Schraubendreher_f': 'The BRD Screwdriver Combo'
-'Schweizer Taschenmesser_f': 'Spanners and Bump keys'
+'Schweizer Taschenmesser_f': 'Swiss Army Knife'
 'Unermüdlicher Schrauber_f': 'Tireless tumbler tickler'
 'Seele des Handwerks_f': 'TechnicoMecanoMegalo'
 'Seele eines Profis_f': 'Soul of the professional'
