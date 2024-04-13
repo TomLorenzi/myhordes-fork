@@ -44,6 +44,7 @@ class CitizenStatusDataService implements FixtureProcessorInterface {
             'tg_never' => ['name' => 'tg_never', 'volatile' => false],
             'tg_hero' => ['name' => 'tg_hero', 'volatile' => true],
             'tg_chk_forum' => ['name' => 'tg_chk_forum', 'volatile' => true],
+            'tg_chk_forum_day' => ['name' => 'tg_chk_forum_day', 'volatile' => true],
             'tg_chk_active' => ['name' => 'tg_chk_active', 'volatile' => true],
             'tg_chk_workshop' => ['name' => 'tg_chk_workshop', 'volatile' => true],
             'tg_chk_build' => ['name' => 'tg_chk_build', 'volatile' => true],

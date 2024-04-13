@@ -829,7 +829,7 @@ class CitizenHandler
 
     public function getActivityLevel(Citizen $citizen): int {
         $level = 0;
-        if($this->hasStatusEffect($citizen, 'tg_chk_forum')) $level++;
+        if($this->hasStatusEffect($citizen, 'tg_chk_forum_day')) $level++;
         if($this->hasStatusEffect($citizen, 'tg_chk_active')) $level++;
         if($this->hasStatusEffect($citizen, 'tg_chk_workshop')) $level++;
         if($this->hasStatusEffect($citizen, 'tg_chk_build')) $level++;
