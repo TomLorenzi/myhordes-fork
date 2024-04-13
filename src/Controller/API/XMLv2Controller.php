@@ -31,11 +31,15 @@ use DateTime;
 use DateTimeZone;
 use Doctrine\Common\Collections\Criteria;
 use Exception;
+use Psr\Cache\InvalidArgumentException;
 use Symfony\Component\Config\Util\Exception\InvalidXmlException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Attribute\MapQueryParameter;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Contracts\Cache\ItemInterface;
+use Symfony\Contracts\Cache\TagAwareCacheInterface;
 
 /**
  * Class XMLv2Controller
@@ -265,11 +269,24 @@ class XMLv2Controller extends CoreController {
      * @param User|null $user
      * @param string $language
      * @param string|null $app_key
+     * @param TagAwareCacheInterface $gameCachePool
+     * @param bool $cache
+     * @param bool $header_only
      * @return Response
+     * @throws InvalidArgumentException
      */
     #[Route(path: 'api/x/v2/xml/town', name: 'api_x2_xml_town', defaults: ['_format' => 'xml'], methods: ['GET', 'POST'])]
     #[ExternalAPI(user: true, app: false, api: ExternalAPIInterface::XMLv2)]
-    public function api_xml_town(?User $user, string $language, ?string $app_key): Response {
+    public function api_xml_town(
+        ?User $user,
+        string $language,
+        ?string $app_key,
+        TagAwareCacheInterface $gameCachePool,
+        #[MapQueryParameter]
+        bool $cache = false,
+        #[MapQueryParameter]
+        bool $header_only = false,
+    ): Response {
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
         } catch (Exception) {
@@ -284,18 +301,7 @@ class XMLv2Controller extends CoreController {
             $data['error']['attributes'] = ['code' => "not_in_game"];
             $data['status']['attributes'] = ['open' => "1", "msg" => ""];
         } else {
-            //if ($user->getRightsElevation() >= User::USER_LEVEL_ADMIN && $request->query->has('town')) {
-            //    $town = $this->entity_manager->getRepository(Town::class)->find($request->query->get('town'));
-            //    if ($town === null) {
-            //        $data['error']['attributes'] = ['code' => "town_not_found"];
-            //        $data['status']['attributes'] = ['open' => "1", "msg" => ""];
-            //        $response = new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
-            //        $response->headers->set('Content-Type', 'text/xml');
-            //        return $response;
-            //    }
-            //} else {
-                $town = $user->getActiveCitizen()->getTown();
-            //}
+            $town = $user->getActiveCitizen()->getTown();
 
             if (!$this->conf->getTownConfiguration($town)->get(TownConf::CONF_FEATURE_XML, true)) {
                 $data['error']['attributes'] = ['code' => "disabled_feed"];
@@ -314,428 +320,16 @@ class XMLv2Controller extends CoreController {
                 ],
             ];
 
-            $offset = $town->getMapOffset();
+            if ($header_only) $gameData = [];
+            else
+                $gameData = !$cache ? $this->getGameData( $town, $language ) : $gameCachePool->get("mh_app_ext_xml_data_town_{$town->getId()}_{$language}", function (ItemInterface $item) use ($town, $language) {
 
-            $def = new TownDefenseSummary();
-            $this->town_handler->calculate_town_def($town, $def);
+                    $item->expiresAfter(300)->tag(['daily',"town_{$town->getId()}"]);
 
-            $item_def_factor = 1;
+                    return $this->getGameData( $town, $language, false );
+                });
 
-            $building = $this->town_handler->getBuilding($town, 'item_meca_parts_#00');
-            if ($building) {
-                $item_def_factor += (1+$building->getLevel()) * 0.5;
-            }
-
-			$map_x = $map_y = null;
-
-            $town->getMapSize($map_x,$map_y);
-
-            $data['data'] = [
-                'attributes' => [
-                    'cache-date' => $now->format('Y-m-d H:i:s'),
-                    'cache-fast' => 0,
-                ],
-                'city' => [
-                    'attributes' => [
-                        'city' => $town->getName(),
-                        'door' => intval($town->getDoor()),
-                        'water' => $town->getWell(),
-                        'chaos' => intval($town->getChaos()),
-                        'devast' => intval( $town->getDevastated()),
-                        'hard' => intval($town->getType()->getName() === 'panda'),
-                        'x' => $offset['x'],
-                        'y' => $offset['y'],
-                        'region' => $town->getLanguage()
-                    ],
-                    'list' => [
-                        'name' => 'building',
-                        'items' => [
-
-                        ]
-                    ],
-                    'defense' => [
-                        'attributes' => [
-                            'base' => 10,
-                            'items' => $this->inventory_handler->countSpecificItems($town->getBank(), $this->inventory_handler->resolveItemProperties( 'defence' ), false, false),
-                            'citizen_guardians' => $def->guardian_defense,
-                            'citizen_homes' => $def->house_defense,
-                            'upgrades' => $def->building_def_vote,
-                            'buildings' => $def->building_def_base,
-                            'total' => $def->sum(),
-                            'itemsMul' => $item_def_factor
-                        ]
-                    ]
-                ],
-                'bank' => [
-                    'list' => [
-                        'name' => 'item',
-                        'items' => [
-
-                        ]
-                    ]
-                ],
-                'expeditions' => [
-                    'list' => [
-                        'name' => 'expedition',
-                        'items' => []
-                    ]
-                ],
-                'citizens' => [
-                    'list' => [
-                        'name' => 'citizen',
-                        'items' => [
-
-                        ]
-                    ]
-                ],
-                'cadavers' => [
-                    'list' => [
-                        'name' => 'cadaver',
-                        'items' => [
-
-                        ]
-                    ]
-                ],
-                'map' => [
-                    'attributes' => [
-                        'hei' => $map_y,
-                        'wid' => $map_x
-                    ],
-                    'list' => [
-                        'name' => 'zone',
-                        'items' => [
-
-                        ]
-                    ]
-                ],
-                'upgrades' => [
-                    'attributes' => [
-                        'total' => 0,
-                    ],
-                    'list' => [
-                        'name' => 'up',
-                        'items' => [
-
-                        ]
-                    ]
-                ],
-                'estimations' => [
-                    'list' => [
-                        'name' => 'e',
-                        'items' => [
-
-                        ]
-                    ]
-                ]
-            ];
-
-            // Town roles
-            /** @var Citizen $latest_guide */
-            $latest_guide = $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => 'guide']), $town);
-            if ($latest_guide && $latest_guide->getAlive()) {
-                $data['data']['city']['attributes']['guide'] = $latest_guide->getUser()->getId();
-            }
-
-            /** @var Citizen $latest_shaman */
-            $latest_shaman = $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => 'shaman']), $town);
-            if ($latest_shaman && $latest_shaman->getAlive()) {
-                $data['data']['city']['attributes']['shaman'] = $latest_shaman->getUser()->getId();
-            }
-
-            // Town buildings
-            foreach($town->getBuildings() as $building){
-                /** @var Building $building */
-                if(!$building->getComplete()) continue;
-
-                $buildingXml = [
-                    'attributes' => [
-                        'temporary' => intval($building->getPrototype()->getTemp()),
-                        'id' => $building->getPrototype()->getId(),
-                        'img' => $this->getIconPath($this->asset->getUrl("build/images/building/{$building->getPrototype()->getIcon()}.gif"))
-                    ]
-                ];
-
-                if ($language !== 'all') {
-                    $buildingXml['attributes']['name'] = $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings');
-                    $buildingXml['cdata_value'] = $this->translator->trans($building->getPrototype()->getDescription(), [], 'buildings');
-                } else {
-                    foreach ($this->generatedLangsCodes as $lang) {
-                        $buildingXml['attributes']["name-$lang"] = $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings', $lang);
-                        $buildingXml["value-$lang"] = ['cdata_value'=> $this->translator->trans($building->getPrototype()->getDescription(), [], 'buildings', $lang)];
-                    }
-                }
-
-                if ($building->getPrototype()->getParent() !== null) {
-                    $buildingXml['attributes']['parent'] = $building->getPrototype()->getParent()->getId();
-                }
-
-                $data['data']['city']['list']['items'][] = $buildingXml;
-
-                if ($building->getPrototype()->getMaxLevel() > 0 && $building->getLevel() > 0) {
-                    $data['data']['upgrades']['attributes']['total'] += $building->getLevel();
-                    $updateXml = [
-                        'attributes' => [
-                            'level' => $building->getLevel(),
-                            'buildingId' => $building->getPrototype()->getId(),
-                        ],
-                    ];
-
-                    if ($language !== 'all') {
-                        $updateXml['attributes']['name'] = $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings');
-                        $updateXml['cdata_value'] = $this->translator->trans($building->getPrototype()->getUpgradeTexts()[$building->getLevel() - 1], [], 'buildings');
-                    } else {
-                        foreach ($this->generatedLangsCodes as $lang) {
-                            $updateXml['attributes']["name-$lang"] = $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings', $lang);
-                            $updateXml["value-$lang"] = ['cdata_value'=> $this->translator->trans($building->getPrototype()->getUpgradeTexts()[$building->getLevel() - 1], [], 'buildings', $lang)];
-                        }
-                    }
-                    $data['data']['upgrades']['list']['items'][] = $updateXml;
-                }
-            }
-
-            // Current gazette
-            if ($town->getDay() > 1){
-                $gazette = $this->gazette_service->renderGazette($town);
-                if (!empty($gazette)) {
-                    $data['data']['city']['news'] = [
-                        'attributes' => [
-                            'z' => $gazette['attack'],
-                            'def' => $gazette['defense']
-                        ]
-                    ];
-                    if($language !== "all") {
-                        $data['data']['city']['news']['content'] = [
-                            'cdata_value' => $gazette['text'] . '<p>' . $gazette['wind'] . '</p>'
-                        ];
-                    } else {
-                        foreach($this->generatedLangsCodes as $lang) {
-                            $gazette = $this->gazette_service->renderGazette($town, null, true, $lang);
-                            $data['data']['city']['news']["content-$lang"] = [
-                                'cdata_value' => $gazette['text'] . '<p>' . $gazette['wind'] . '</p>'
-                            ];
-                        }
-                    }
-                }
-
-            }
-
-            // The town bank
-            foreach($town->getBank()->getItems() as $bankItem) {
-                /** @var Item $bankItem */
-                $str = "{$bankItem->getPrototype()->getId()}-" . intval($bankItem->getBroken());
-                if (!isset($data['data']['bank']['list']['items'][$str])) {
-                    $cat = $bankItem->getPrototype()->getCategory();
-                    while ($cat->getParent()) $cat = $cat->getParent();
-
-                    $itemXml = [
-                        'attributes' => [
-                            'count' => $bankItem->getCount(),
-                            'id' => $bankItem->getPrototype()->getId(),
-                            'cat' => $cat->getName(),
-                            'img' => $this->getIconPath($this->asset->getUrl("build/images/item/item_{$bankItem->getPrototype()->getIcon()}.gif")),
-                            'broken' => intval($bankItem->getBroken())
-                        ]
-                    ];
-                    if ($language !== 'all') {
-                        $itemXml['attributes']['name'] = $this->translator->trans($bankItem->getPrototype()->getLabel(), [], 'items');
-                    } else {
-                        foreach ($this->generatedLangsCodes as $lang) {
-                            $itemXml['attributes']["name-$lang"] = $this->translator->trans($bankItem->getPrototype()->getLabel(), [], 'items', $lang);
-                        }
-                    }
-                    $data['data']['bank']['list']['items'][$str] = $itemXml;
-
-                } else $data['data']['bank']['list']['items'][$str]['attributes']['count'] += $bankItem->getCount();
-            }
-            usort( $data['data']['bank']['list']['items'],
-                fn($a,$b) => $a['attributes']['id'] <=> $b['attributes']['id'] ?? $b['attributes']['broken'] <=> $a['attributes']['broken']);
-
-            // Expeditions
-            $expeditions = $this->entity_manager->getRepository(ExpeditionRoute::class)->findByTown( $town );
-            foreach($expeditions as $expedition) {
-                /** @var ExpeditionRoute $expedition */
-                $expe = [
-                    'attributes' => [
-                        'name' => str_replace('"', "'", $expedition->getLabel()),
-                        'author' => $expedition->getOwner()->getUser()->getName(),
-                        'length' => $expedition->getLength(),
-                        'authorId' => $expedition->getOwner()->getUser()->getId()
-                    ],
-                    'list' => [
-                        'name' => 'point',
-                        'items' => []
-                    ]
-                ];
-
-                foreach($expedition->getData() as $point){
-                    $expe['list']['items'][] = [
-                        'attributes' => [
-                            'x' => $offset['x'] + $point[0],
-                            'y' => $offset['y'] - $point[1]
-                        ]
-                    ];
-                }
-                $data['data']['expeditions']['list']['items'][] = $expe;
-            }
-
-            // Citizens
-            foreach($town->getCitizens() as $citizen){
-                /** @var Citizen $citizen */
-                if ($citizen->getAlive()) {
-                    $citizenNode = [
-                        'attributes' => [
-                            'dead' => (int)!$citizen->getAlive(),
-                            'hero' => intval($citizen->getProfession()->getHeroic()),
-                            'name' => $citizen->getUser()->getName(),
-                            'avatar' => $citizen->getUser()->getAvatar() !== null ? $citizen->getUser()->getId() . "/" . $citizen->getUser()->getAvatar()->getFilename() . "." . $citizen->getUser()->getAvatar()->getFormat() : '',
-                            'id' => $citizen->getUser()->getId(),
-                            'ban' => intval($citizen->getBanished()),
-                            'job' => $citizen->getProfession()->getName() !== 'none' ? $citizen->getProfession()->getName() : '',
-                            'out' => intval($citizen->getZone() !== null),
-                            'baseDef' => $citizen->getAlive() ? $citizen->getHome()->getPrototype()->getDefense() : 0,
-                        ],
-                        'cdata_value' => $citizen->getHome()->getDescription()
-                    ];
-                    if (!$citizen->getTown()->getChaos()){
-                        $citizenNode['attributes']['x'] = $citizen->getZone() !== null ? $offset['x'] + $citizen->getZone()->getX() : $offset['x'];
-                        $citizenNode['attributes']['y'] = $citizen->getZone() !== null ? $offset['y'] - $citizen->getZone()->getY() : $offset['y'];
-                    }
-                    $data['data']['citizens']['list']['items'][] = $citizenNode;
-                } else {
-                    $cadaver = [
-                        'attributes' => [
-                            'name' => $citizen->getUser()->getName(),
-                            'dtype' => $citizen->getCauseOfDeath()->getRef(),
-                            'id' => $citizen->getUser()->getId(),
-                            'day' => $citizen->getDayOfDeath() <= 0 ? '1' : $citizen->getSurvivedDays(),
-                        ]
-
-                    ];
-                    if($citizen->getDisposed() !== null) {
-                        $type = "unknown";
-                        switch($citizen->getDisposed()){
-                            case Citizen::Thrown:
-                                $type = 'garbage';
-                                break;
-                            case Citizen::Watered:
-                                $type = 'water';
-                                break;
-                            case Citizen::Cooked:
-                                $type = "cook";
-                                break;
-                            case Citizen::Ghoul:
-                                $type = "ghoul";
-                                break;
-                        }
-
-                        $cadaver['cleanup'] = [
-                            'attributes' => [
-                                'type' => $type,
-                                'user' => $citizen->getDisposedBy()->count() > 0 ? $citizen->getDisposedBy()[0]->getName() : ""
-                            ]
-                        ];
-                    }
-                    if($citizen->getLastWords() !== null) {
-                        $cadaver['msg'] = [
-                            'cdata_value' => str_replace('{gotKilled}', $this->translator->trans('...der Mörder .. ist.. IST.. AAARGHhh..', [], 'game'), $citizen->getLastWords())
-                        ];
-                    }
-                    $data['data']['cadavers']['list']['items'][] = $cadaver;
-                }
-            }
-
-            usort( $data['data']['citizens']['list']['items'], fn($a,$b) => strtolower($a['attributes']['name']) <=> strtolower($b['attributes']['name']));
-            usort( $data['data']['cadavers']['list']['items'], fn($a,$b) => $a['attributes']['day'] <=> $b['attributes']['day'] ?? strtolower($a['attributes']['name']) <=> strtolower($b['attributes']['name']));
-
-            // Map
-            foreach($town->getZones() as $zone) {
-                /** @var Zone $zone */
-
-                if ($zone->getDiscoveryStatus() === Zone::DiscoveryStateNone) continue;
-
-                $danger = 0;
-                if ($zone->getZombies() > 0 && $zone->getZombies() <= 2) {
-                    $danger = 1;
-                } else if ($zone->getZombies() > 2 && $zone->getZombies() <= 5) {
-                    $danger = 2;
-                } else if ($zone->getZombies() > 5) {
-                    $danger = 3;
-                }
-
-                $item = [
-                    'attributes' => [
-                        'x' => $offset['x'] + $zone->getX(),
-                        'y' => $offset['y'] - $zone->getY(),
-                        'nvt' => intval($zone->getDiscoveryStatus() != Zone::DiscoveryStateCurrent)
-                    ]
-                ];
-
-                if ($zone->getDiscoveryStatus() == Zone::DiscoveryStateCurrent) {
-                    if($danger > 0) {
-                        $item['attributes']['danger'] = $danger;
-                    }
-
-                    if ($zone->getZombieStatus() == Zone::ZombieStateExact && $zone->getZombies() > 0) {
-                        $item['attributes']['z'] = $zone->getZombies();
-                    }
-                }
-
-                if ($zone->getTag() !== null && $zone->getTag()->getRef() !== ZoneTag::TagNone) {
-                    $item['attributes']['tag'] = $zone->getTag()->getRef();
-                }
-
-                if ($zone->getPrototype() !== null) {
-                    $zoneXml = [
-                        'attributes' => [
-                            'type' => $zone->getBuryCount() > 0 ? -1 : $zone->getPrototype()->getId(),
-                            'dig' => $zone->getBuryCount()
-                        ]
-                    ];
-
-                    if ($language !== 'all') {
-                        $zoneXml['attributes']['name'] = $zone->getBuryCount() > 0 ? $this->translator->trans('Verschüttete Ruine', [], 'game') : $this->translator->trans($zone->getPrototype()->getLabel(), [], 'game');
-                        $zoneXml['cdata_value'] = $zone->getBuryCount() > 0 ? $this->translator->trans('Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.', [], 'game') : $this->translator->trans($zone->getPrototype()->getDescription(), [], 'game');
-                    } else {
-                        foreach ($this->generatedLangsCodes as $lang) {
-                            $zoneXml['attributes']["name-$lang"] = $zone->getBuryCount() > 0 ? $this->translator->trans('Verschüttete Ruine', [], 'game', $lang) : $this->translator->trans($zone->getPrototype()->getLabel(), [], 'game', $lang);
-                            $zoneXml["value-$lang"] = ['cdata_value'=> $zone->getBuryCount() > 0 ? $this->translator->trans('Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.', [], 'game') : $this->translator->trans($zone->getPrototype()->getDescription(), [], 'game', $lang)];
-                        }
-                    }
-                    $item['building'] = $zoneXml;
-                }
-
-                $data['data']['map']['list']['items'][] = $item;
-
-            }
-
-            $has_zombie_est  = ($this->town_handler->getBuilding($town, 'item_tagger_#00') !== null);
-            $has_zombie_est_tomorrow = ($this->town_handler->getBuilding($town, 'item_tagger_#02') !== null);
-            if ($has_zombie_est){
-                // Zombies estimations
-                $estims = $this->town_handler->get_zombie_estimation($town);
-                $watchtrigger = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WT_THRESHOLD, 33);
-
-                if($watchtrigger / 100 <= $estims[0]->getEstimation()) {
-                    $data['data']['estimations']['list']['items'][] = [
-                        'attributes' => [
-                            'day' => ($town->getDay()),
-                            'max' => $estims[0]->getMax(),
-                            'min' => $estims[0]->getMin(),
-                            'maxed' => intval($estims[0]->getEstimation() >= 1)
-                        ]
-                    ];
-                    if ($estims[0]->getEstimation() >= 1 && $has_zombie_est_tomorrow) {
-                        $data['data']['estimations']['list']['items'][] = [
-                            'attributes' => [
-                                'day' => ($town->getDay() + 1),
-                                'max' => $estims[1]->getMax(),
-                                'min' => $estims[1]->getMin(),
-                                'maxed' => intval($estims[1]->getEstimation() >= 1)
-                            ]
-                        ];
-                    }
-                }
-            }
+            $data = array_merge( $data, $gameData );
         }
 
         $response = new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
@@ -1139,7 +733,7 @@ class XMLv2Controller extends CoreController {
                     'secure' => intval($secure),
                     'author' => 'MyHordes',
                     'language' => $language,
-                    'version' => '2.1.0',
+                    'version' => '2.1.3',
                     'generator' => 'symfony',
                 ],
             ]
@@ -1252,6 +846,433 @@ class XMLv2Controller extends CoreController {
         }
 
         return $headers;
+    }
+
+    protected function getGameData(Town $town, string $language = 'de', bool $cache_fast = true): array {
+        $offset = $town->getMapOffset();
+
+        $def = new TownDefenseSummary();
+        $this->town_handler->calculate_town_def($town, $def);
+
+        $item_def_factor = 1;
+
+        $building = $this->town_handler->getBuilding($town, 'item_meca_parts_#00');
+        if ($building) {
+            $item_def_factor += (1+$building->getLevel()) * 0.5;
+        }
+
+        $map_x = $map_y = null;
+
+        $town->getMapSize($map_x,$map_y);
+
+        $data['data'] = [
+            'attributes' => [
+                'cache-date' => (new DateTime())->format('Y-m-d H:i:s'),
+                'cache-fast' => intval($cache_fast),
+            ],
+            'city' => [
+                'attributes' => [
+                    'city' => $town->getName(),
+                    'door' => intval($town->getDoor()),
+                    'water' => $town->getWell(),
+                    'chaos' => intval($town->getChaos()),
+                    'devast' => intval( $town->getDevastated()),
+                    'hard' => intval($town->getType()->getName() === 'panda'),
+                    'x' => $offset['x'],
+                    'y' => $offset['y'],
+                    'region' => $town->getLanguage()
+                ],
+                'list' => [
+                    'name' => 'building',
+                    'items' => [
+
+                    ]
+                ],
+                'defense' => [
+                    'attributes' => [
+                        'base' => 10,
+                        'items' => $this->inventory_handler->countSpecificItems($town->getBank(), $this->inventory_handler->resolveItemProperties( 'defence' ), false, false),
+                        'citizen_guardians' => $def->guardian_defense,
+                        'citizen_homes' => $def->house_defense,
+                        'upgrades' => $def->building_def_vote,
+                        'buildings' => $def->building_def_base,
+                        'total' => $def->sum(),
+                        'itemsMul' => $item_def_factor
+                    ]
+                ]
+            ],
+            'bank' => [
+                'list' => [
+                    'name' => 'item',
+                    'items' => [
+
+                    ]
+                ]
+            ],
+            'expeditions' => [
+                'list' => [
+                    'name' => 'expedition',
+                    'items' => []
+                ]
+            ],
+            'citizens' => [
+                'list' => [
+                    'name' => 'citizen',
+                    'items' => [
+
+                    ]
+                ]
+            ],
+            'cadavers' => [
+                'list' => [
+                    'name' => 'cadaver',
+                    'items' => [
+
+                    ]
+                ]
+            ],
+            'map' => [
+                'attributes' => [
+                    'hei' => $map_y,
+                    'wid' => $map_x
+                ],
+                'list' => [
+                    'name' => 'zone',
+                    'items' => [
+
+                    ]
+                ]
+            ],
+            'upgrades' => [
+                'attributes' => [
+                    'total' => 0,
+                ],
+                'list' => [
+                    'name' => 'up',
+                    'items' => [
+
+                    ]
+                ]
+            ],
+            'estimations' => [
+                'list' => [
+                    'name' => 'e',
+                    'items' => [
+
+                    ]
+                ]
+            ]
+        ];
+
+        // Town roles
+        /** @var Citizen $latest_guide */
+        $latest_guide = $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => 'guide']), $town);
+        if ($latest_guide && $latest_guide->getAlive()) {
+            $data['data']['city']['attributes']['guide'] = $latest_guide->getUser()->getId();
+        }
+
+        /** @var Citizen $latest_shaman */
+        $latest_shaman = $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => 'shaman']), $town);
+        if ($latest_shaman && $latest_shaman->getAlive()) {
+            $data['data']['city']['attributes']['shaman'] = $latest_shaman->getUser()->getId();
+        }
+
+        // Town buildings
+        foreach($town->getBuildings() as $building){
+            /** @var Building $building */
+            if(!$building->getComplete()) continue;
+
+            $buildingXml = [
+                'attributes' => [
+                    'temporary' => intval($building->getPrototype()->getTemp()),
+                    'id' => $building->getPrototype()->getId(),
+                    'img' => $this->getIconPath($this->asset->getUrl("build/images/building/{$building->getPrototype()->getIcon()}.gif"))
+                ]
+            ];
+
+            if ($language !== 'all') {
+                $buildingXml['attributes']['name'] = $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings');
+                $buildingXml['cdata_value'] = $this->translator->trans($building->getPrototype()->getDescription(), [], 'buildings');
+            } else {
+                foreach ($this->generatedLangsCodes as $lang) {
+                    $buildingXml['attributes']["name-$lang"] = $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings', $lang);
+                    $buildingXml["value-$lang"] = ['cdata_value'=> $this->translator->trans($building->getPrototype()->getDescription(), [], 'buildings', $lang)];
+                }
+            }
+
+            if ($building->getPrototype()->getParent() !== null) {
+                $buildingXml['attributes']['parent'] = $building->getPrototype()->getParent()->getId();
+            }
+
+            $data['data']['city']['list']['items'][] = $buildingXml;
+
+            if ($building->getPrototype()->getMaxLevel() > 0 && $building->getLevel() > 0) {
+                $data['data']['upgrades']['attributes']['total'] += $building->getLevel();
+                $updateXml = [
+                    'attributes' => [
+                        'level' => $building->getLevel(),
+                        'buildingId' => $building->getPrototype()->getId(),
+                    ],
+                ];
+
+                if ($language !== 'all') {
+                    $updateXml['attributes']['name'] = $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings');
+                    $updateXml['cdata_value'] = $this->translator->trans($building->getPrototype()->getUpgradeTexts()[$building->getLevel() - 1], [], 'buildings');
+                } else {
+                    foreach ($this->generatedLangsCodes as $lang) {
+                        $updateXml['attributes']["name-$lang"] = $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings', $lang);
+                        $updateXml["value-$lang"] = ['cdata_value'=> $this->translator->trans($building->getPrototype()->getUpgradeTexts()[$building->getLevel() - 1], [], 'buildings', $lang)];
+                    }
+                }
+                $data['data']['upgrades']['list']['items'][] = $updateXml;
+            }
+        }
+
+        // Current gazette
+        if ($town->getDay() > 1){
+            $gazette = $this->gazette_service->renderGazette($town);
+            if (!empty($gazette)) {
+                $data['data']['city']['news'] = [
+                    'attributes' => [
+                        'z' => $gazette['attack'],
+                        'def' => $gazette['defense']
+                    ]
+                ];
+                if($language !== "all") {
+                    $data['data']['city']['news']['content'] = [
+                        'cdata_value' => $gazette['text'] . '<p>' . $gazette['wind'] . '</p>'
+                    ];
+                } else {
+                    foreach($this->generatedLangsCodes as $lang) {
+                        $gazette = $this->gazette_service->renderGazette($town, null, true, $lang);
+                        $data['data']['city']['news']["content-$lang"] = [
+                            'cdata_value' => $gazette['text'] . '<p>' . $gazette['wind'] . '</p>'
+                        ];
+                    }
+                }
+            }
+
+        }
+
+        // The town bank
+        foreach($town->getBank()->getItems() as $bankItem) {
+            /** @var Item $bankItem */
+            $str = "{$bankItem->getPrototype()->getId()}-" . intval($bankItem->getBroken());
+            if (!isset($data['data']['bank']['list']['items'][$str])) {
+                $cat = $bankItem->getPrototype()->getCategory();
+                while ($cat->getParent()) $cat = $cat->getParent();
+
+                $itemXml = [
+                    'attributes' => [
+                        'count' => $bankItem->getCount(),
+                        'id' => $bankItem->getPrototype()->getId(),
+                        'cat' => $cat->getName(),
+                        'img' => $this->getIconPath($this->asset->getUrl("build/images/item/item_{$bankItem->getPrototype()->getIcon()}.gif")),
+                        'broken' => intval($bankItem->getBroken())
+                    ]
+                ];
+                if ($language !== 'all') {
+                    $itemXml['attributes']['name'] = $this->translator->trans($bankItem->getPrototype()->getLabel(), [], 'items');
+                } else {
+                    foreach ($this->generatedLangsCodes as $lang) {
+                        $itemXml['attributes']["name-$lang"] = $this->translator->trans($bankItem->getPrototype()->getLabel(), [], 'items', $lang);
+                    }
+                }
+                $data['data']['bank']['list']['items'][$str] = $itemXml;
+
+            } else $data['data']['bank']['list']['items'][$str]['attributes']['count'] += $bankItem->getCount();
+        }
+        usort( $data['data']['bank']['list']['items'],
+            fn($a,$b) => $a['attributes']['id'] <=> $b['attributes']['id'] ?? $b['attributes']['broken'] <=> $a['attributes']['broken']);
+
+        // Expeditions
+        $expeditions = $this->entity_manager->getRepository(ExpeditionRoute::class)->findByTown( $town );
+        foreach($expeditions as $expedition) {
+            /** @var ExpeditionRoute $expedition */
+            $expe = [
+                'attributes' => [
+                    'name' => str_replace('"', "'", $expedition->getLabel()),
+                    'author' => $expedition->getOwner()->getUser()->getName(),
+                    'length' => $expedition->getLength(),
+                    'authorId' => $expedition->getOwner()->getUser()->getId()
+                ],
+                'list' => [
+                    'name' => 'point',
+                    'items' => []
+                ]
+            ];
+
+            foreach($expedition->getData() as $point){
+                $expe['list']['items'][] = [
+                    'attributes' => [
+                        'x' => $offset['x'] + $point[0],
+                        'y' => $offset['y'] - $point[1]
+                    ]
+                ];
+            }
+            $data['data']['expeditions']['list']['items'][] = $expe;
+        }
+
+        // Citizens
+        foreach($town->getCitizens() as $citizen){
+            /** @var Citizen $citizen */
+            if ($citizen->getAlive()) {
+                $citizenNode = [
+                    'attributes' => [
+                        'dead' => (int)!$citizen->getAlive(),
+                        'hero' => intval($citizen->getProfession()->getHeroic()),
+                        'name' => $citizen->getUser()->getName(),
+                        'avatar' => $citizen->getUser()->getAvatar() !== null ? $citizen->getUser()->getId() . "/" . $citizen->getUser()->getAvatar()->getFilename() . "." . $citizen->getUser()->getAvatar()->getFormat() : '',
+                        'id' => $citizen->getUser()->getId(),
+                        'ban' => intval($citizen->getBanished()),
+                        'job' => $citizen->getProfession()->getName() !== 'none' ? $citizen->getProfession()->getName() : '',
+                        'out' => intval($citizen->getZone() !== null),
+                        'baseDef' => $citizen->getAlive() ? $citizen->getHome()->getPrototype()->getDefense() : 0,
+                    ],
+                    'cdata_value' => $citizen->getHome()->getDescription()
+                ];
+                if (!$citizen->getTown()->getChaos()){
+                    $citizenNode['attributes']['x'] = $citizen->getZone() !== null ? $offset['x'] + $citizen->getZone()->getX() : $offset['x'];
+                    $citizenNode['attributes']['y'] = $citizen->getZone() !== null ? $offset['y'] - $citizen->getZone()->getY() : $offset['y'];
+                }
+                $data['data']['citizens']['list']['items'][] = $citizenNode;
+            } else {
+                $cadaver = [
+                    'attributes' => [
+                        'name' => $citizen->getUser()->getName(),
+                        'dtype' => $citizen->getCauseOfDeath()->getRef(),
+                        'id' => $citizen->getUser()->getId(),
+                        'day' => $citizen->getDayOfDeath() <= 0 ? '1' : $citizen->getSurvivedDays(),
+                    ]
+
+                ];
+                if($citizen->getDisposed() !== null) {
+                    $type = "unknown";
+                    switch($citizen->getDisposed()){
+                        case Citizen::Thrown:
+                            $type = 'garbage';
+                            break;
+                        case Citizen::Watered:
+                            $type = 'water';
+                            break;
+                        case Citizen::Cooked:
+                            $type = "cook";
+                            break;
+                        case Citizen::Ghoul:
+                            $type = "ghoul";
+                            break;
+                    }
+
+                    $cadaver['cleanup'] = [
+                        'attributes' => [
+                            'type' => $type,
+                            'user' => $citizen->getDisposedBy()->count() > 0 ? $citizen->getDisposedBy()[0]->getName() : ""
+                        ]
+                    ];
+                }
+                if($citizen->getLastWords() !== null) {
+                    $cadaver['msg'] = [
+                        'cdata_value' => str_replace('{gotKilled}', $this->translator->trans('...der Mörder .. ist.. IST.. AAARGHhh..', [], 'game'), $citizen->getLastWords())
+                    ];
+                }
+                $data['data']['cadavers']['list']['items'][] = $cadaver;
+            }
+        }
+
+        usort( $data['data']['citizens']['list']['items'], fn($a,$b) => strtolower($a['attributes']['name']) <=> strtolower($b['attributes']['name']));
+        usort( $data['data']['cadavers']['list']['items'], fn($a,$b) => $a['attributes']['day'] <=> $b['attributes']['day'] ?? strtolower($a['attributes']['name']) <=> strtolower($b['attributes']['name']));
+
+        // Map
+        foreach($town->getZones() as $zone) {
+            /** @var Zone $zone */
+
+            if ($zone->getDiscoveryStatus() === Zone::DiscoveryStateNone) continue;
+
+            $danger = 0;
+            if ($zone->getZombies() > 0 && $zone->getZombies() <= 2) {
+                $danger = 1;
+            } else if ($zone->getZombies() > 2 && $zone->getZombies() <= 5) {
+                $danger = 2;
+            } else if ($zone->getZombies() > 5) {
+                $danger = 3;
+            }
+
+            $item = [
+                'attributes' => [
+                    'x' => $offset['x'] + $zone->getX(),
+                    'y' => $offset['y'] - $zone->getY(),
+                    'nvt' => intval($zone->getDiscoveryStatus() != Zone::DiscoveryStateCurrent)
+                ]
+            ];
+
+            if ($zone->getDiscoveryStatus() == Zone::DiscoveryStateCurrent) {
+                if($danger > 0) {
+                    $item['attributes']['danger'] = $danger;
+                }
+
+                if ($zone->getZombieStatus() == Zone::ZombieStateExact && $zone->getZombies() > 0) {
+                    $item['attributes']['z'] = $zone->getZombies();
+                }
+            }
+
+            if ($zone->getTag() !== null && $zone->getTag()->getRef() !== ZoneTag::TagNone) {
+                $item['attributes']['tag'] = $zone->getTag()->getRef();
+            }
+
+            if ($zone->getPrototype() !== null) {
+                $zoneXml = [
+                    'attributes' => [
+                        'type' => $zone->getBuryCount() > 0 ? -1 : $zone->getPrototype()->getId(),
+                        'dig' => $zone->getBuryCount()
+                    ]
+                ];
+
+                if ($language !== 'all') {
+                    $zoneXml['attributes']['name'] = $zone->getBuryCount() > 0 ? $this->translator->trans('Verschüttete Ruine', [], 'game') : $this->translator->trans($zone->getPrototype()->getLabel(), [], 'game');
+                    $zoneXml['cdata_value'] = $zone->getBuryCount() > 0 ? $this->translator->trans('Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.', [], 'game') : $this->translator->trans($zone->getPrototype()->getDescription(), [], 'game');
+                } else {
+                    foreach ($this->generatedLangsCodes as $lang) {
+                        $zoneXml['attributes']["name-$lang"] = $zone->getBuryCount() > 0 ? $this->translator->trans('Verschüttete Ruine', [], 'game', $lang) : $this->translator->trans($zone->getPrototype()->getLabel(), [], 'game', $lang);
+                        $zoneXml["value-$lang"] = ['cdata_value'=> $zone->getBuryCount() > 0 ? $this->translator->trans('Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.', [], 'game') : $this->translator->trans($zone->getPrototype()->getDescription(), [], 'game', $lang)];
+                    }
+                }
+                $item['building'] = $zoneXml;
+            }
+
+            $data['data']['map']['list']['items'][] = $item;
+
+        }
+
+        $has_zombie_est  = ($this->town_handler->getBuilding($town, 'item_tagger_#00') !== null);
+        $has_zombie_est_tomorrow = ($this->town_handler->getBuilding($town, 'item_tagger_#02') !== null);
+        if ($has_zombie_est){
+            // Zombies estimations
+            $estims = $this->town_handler->get_zombie_estimation($town);
+            $watchtrigger = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WT_THRESHOLD, 33);
+
+            if($watchtrigger / 100 <= $estims[0]->getEstimation()) {
+                $data['data']['estimations']['list']['items'][] = [
+                    'attributes' => [
+                        'day' => ($town->getDay()),
+                        'max' => $estims[0]->getMax(),
+                        'min' => $estims[0]->getMin(),
+                        'maxed' => intval($estims[0]->getEstimation() >= 1)
+                    ]
+                ];
+                if ($estims[0]->getEstimation() >= 1 && $has_zombie_est_tomorrow) {
+                    $data['data']['estimations']['list']['items'][] = [
+                        'attributes' => [
+                            'day' => ($town->getDay() + 1),
+                            'max' => $estims[1]->getMax(),
+                            'min' => $estims[1]->getMin(),
+                            'maxed' => intval($estims[1]->getEstimation() >= 1)
+                        ]
+                    ];
+                }
+            }
+        }
+
+        return $data;
     }
 
 }

@@ -175,6 +175,26 @@
         "tags": [
           "XML API"
         ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "header_only",
+            "allowEmptyValue": true,
+            "description": "Set true to only fetch the header node. Speeds up response time immensely.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cache",
+            "allowEmptyValue": true,
+            "description": "Set true to allow the data node to be rendered from a cache. Speeds up response time.",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
         "summary": "Town information.",
         "responses": {
           "200": {
