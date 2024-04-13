@@ -21,10 +21,10 @@ class PrivateMessageThread
     #[ORM\Column(type: 'boolean')]
     private $new = false;
     #[ORM\ManyToOne(targetEntity: Citizen::class)]
-    #[ORM\JoinColumn(nullable: true)]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'CASCADE')]
     private $sender;
     #[ORM\ManyToOne(targetEntity: Citizen::class, inversedBy: 'privateMessageThreads')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private $recipient;
     #[ORM\Column(type: 'datetime')]
     private $lastMessage;

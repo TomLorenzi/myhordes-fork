@@ -19,10 +19,10 @@ class Complaint
     #[ORM\Column(type: 'integer')]
     private $id;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\Citizen')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private $autor;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\Citizen', inversedBy: 'complaints')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private $culprit;
     #[ORM\Column(type: 'integer')]
     private $count;

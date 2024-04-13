@@ -35,12 +35,12 @@ class PrivateMessage
     #[ORM\JoinColumn(nullable: false)]
     private $privateMessageThread;
     #[ORM\ManyToOne(targetEntity: Citizen::class)]
-    #[ORM\JoinColumn(nullable: true)]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'CASCADE')]
     private $owner;
     #[ORM\Column(type: 'boolean')]
     private $new;
     #[ORM\ManyToOne(targetEntity: Citizen::class)]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private $recipient;
     #[ORM\Column(type: 'array', nullable: true)]
     private $items = [];
@@ -57,6 +57,7 @@ class PrivateMessage
     #[ORM\ManyToOne(targetEntity: User::class)]
     private $moderator;
     #[ORM\ManyToOne(targetEntity: Citizen::class)]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private $originalRecipient;
     #[ORM\Column(type: 'json', nullable: true)]
     private $additionalData = [];

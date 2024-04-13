@@ -24,7 +24,7 @@
         "doctrine/doctrine-fixtures-bundle": "3.5.1",
         "doctrine/doctrine-migrations-bundle": "3.3.0",
         "doctrine/migrations": "3.7.4",
-        "doctrine/orm": "2.17.1",
+        "doctrine/orm": "2.19.3",
         "graphp/algorithms": "0.8.2",
         "jawira/case-converter": "^3.5",
         "jdrieghe/array-helpers": "^0.2.0",
