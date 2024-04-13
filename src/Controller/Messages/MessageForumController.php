@@ -80,6 +80,7 @@ class MessageForumController extends MessageController
             $c = $user->getActiveCitizen();
             if ($c) {
                 $ch->inflictStatus($c, 'tg_chk_forum');
+                $ch->inflictStatus($c, 'tg_chk_forum_day');
                 $c->setLastActionTimestamp(time());
             }
             $paranoid = $ch->hasStatusEffect($c,'tg_paranoid');

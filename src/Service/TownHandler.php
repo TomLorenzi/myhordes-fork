@@ -162,7 +162,7 @@ class TownHandler
             if (!$allow_multi && $citizen->hasRole('cata')) return null;
 
             $level = 0;
-            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_forum')) $level++;
+            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_forum_day')) $level++;
             if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_active')) $level++;
             if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_workshop')) $level++;
             if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_build')) $level++;
