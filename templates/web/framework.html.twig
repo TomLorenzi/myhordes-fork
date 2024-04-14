@@ -133,75 +133,90 @@
 </footer>
 <script>
     (function() {
-        document.getElementById('header-reload-area').addEventListener('click', function() { window.location.href = $.ajax.getBaseURL(); })
-        {{ include('partials/window_c.js.twig') }}
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('header-reload-area').addEventListener('click', function() { window.location.href = $.ajax.getBaseURL(); })
+            {{ include('partials/window_c.js.twig') }}
 
-        $.html.setInitParams({
-            userPopupEndpoint: '{{ path('soul_tooltip') }}',
-            userPopupLoadingAnimation: '{{ asset('build/images/anims/loading_wheel.gif') }}'
-        })
+            $.html.setInitParams({
+                userPopupEndpoint: '{{ path('soul_tooltip') }}',
+                userPopupLoadingAnimation: '{{ asset('build/images/anims/loading_wheel.gif') }}'
+            })
 
-        $.html.addEventListenerAll('#post-office','click', function(e,elem) {
-            if (e.target !== elem) return;
-            elem.classList.remove('visible');
-            document.body.style.overflow = null;
-            $.msg.togglePing(true);
-            $.msg.toggleFetch(false);
-            $.msg.restoreFetchEndpoint();
-            $.msg.setFetchRK(null);
-            $.msg.execute();
-        });
-        $.html.addEventListenerAll('#post-office-button-overlay>ul>li:last-child','click', function() {
-            let post = document.getElementById('post-office');
-            if (post) {
-                post.classList.remove('visible');
+            $.html.addEventListenerAll('#post-office','click', function(e,elem) {
+                if (e.target !== elem) return;
+                elem.classList.remove('visible');
                 document.body.style.overflow = null;
                 $.msg.togglePing(true);
                 $.msg.toggleFetch(false);
                 $.msg.restoreFetchEndpoint();
                 $.msg.setFetchRK(null);
                 $.msg.execute();
-            }
-        });
-        $.msg.registerPingEndpoint( '{{ path('api_pm_ping') }}' );
-        $.msg.registerPingCallback(data => {
-            if (data.connected) {
-                $.html.forEach('#postbox', e => e.classList.remove('hidden'));
-                document.getElementById('postbox-new-msg-counter').innerText = data.newMessages;
-                if (data.newMessages > 0) $.html.forEach('#postbox', e => e.classList.add('new-messages'));
-                else $.html.forEach('#postbox', e => e.classList.remove('new-messages'));
-                $.html.setTitleSegmentCount(data.newMessages);
-            }
-            else $.html.forEach('#postbox', e=>e.classList.add('hidden'));
-        }, true);
-        $.msg.registerFetchEndpoint( '{{ path('api_pm_spring') }}' );
-        $.msg.toggleFetch(false);
-
-        $.html.addEventListenerAll('#postbox','click', function() {
-            let post = document.getElementById('post-office');
-            if (post) {
-                post.classList.add('visible');
-                document.body.style.overflow = 'hidden';
-                document.getElementById('post-office-content').innerText = '';
-
-                $.msg.restoreFetchEndpoint();
-                $.msg.togglePing(false);
-                $.msg.toggleFetch(true);
-                $.msg.setFetchRK(null);
-
-                $.html.setTitleSegmentCount(0);
-
-                let data = {};
-                const command = document.getElementById('postbox').getAttribute('x-post-command');
-                if (command) {
-                    document.getElementById('postbox').removeAttribute('x-post-command');
-                    data.command = command;
+            });
+            $.html.addEventListenerAll('#post-office-button-overlay>ul>li:last-child','click', function() {
+                let post = document.getElementById('post-office');
+                if (post) {
+                    post.classList.remove('visible');
+                    document.body.style.overflow = null;
+                    $.msg.togglePing(true);
+                    $.msg.toggleFetch(false);
+                    $.msg.restoreFetchEndpoint();
+                    $.msg.setFetchRK(null);
+                    $.msg.execute();
                 }
+            });
+            $.msg.registerPingEndpoint( '{{ path('api_pm_ping') }}' );
+            $.msg.registerPingCallback(data => {
+                if (data.connected) {
+                    $.html.forEach('#postbox', e => e.classList.remove('hidden'));
+                    document.getElementById('postbox-new-msg-counter').innerText = data.newMessages;
+                    if (data.newMessages > 0) $.html.forEach('#postbox', e => e.classList.add('new-messages'));
+                    else $.html.forEach('#postbox', e => e.classList.remove('new-messages'));
+                    $.html.setTitleSegmentCount(data.newMessages);
+                }
+                else $.html.forEach('#postbox', e=>e.classList.add('hidden'));
+            }, true);
+            $.msg.registerFetchEndpoint( '{{ path('api_pm_spring') }}' );
+            $.msg.toggleFetch(false);
 
-                $.ajax.background().load( document.getElementById('post-office-content'),'{{ url('pm_view')|e('js') }}', false, data);
-            }
+            $.html.addEventListenerAll('#postbox','click', function() {
+                let post = document.getElementById('post-office');
+                if (post) {
+                    post.classList.add('visible');
+                    document.body.style.overflow = 'hidden';
+                    document.getElementById('post-office-content').innerText = '';
+
+                    $.msg.restoreFetchEndpoint();
+                    $.msg.togglePing(false);
+                    $.msg.toggleFetch(true);
+                    $.msg.setFetchRK(null);
+
+                    $.html.setTitleSegmentCount(0);
+
+                    let data = {};
+                    const command = document.getElementById('postbox').getAttribute('x-post-command');
+                    if (command) {
+                        document.getElementById('postbox').removeAttribute('x-post-command');
+                        data.command = command;
+                    }
+
+                    $.ajax.background().load( document.getElementById('post-office-content'),'{{ url('pm_view')|e('js') }}', false, data);
+                }
+            });
+        })
+
+        const h1 = new EventSource("{{ mercure('https://myhordes/hello', { subscribe: 'https://myhordes/hello' })|e('js') }}", {
+            withCredentials: true
         });
-    })();
+        h1.onmessage = event => {
+            console.log('FROM H1', JSON.parse(event.data));
+        }
 
+        const h2 = new EventSource("{{ mercure('https://myhordes/hello', { subscribe: 'https://myhordes/no' })|e('js') }}", {
+            withCredentials: true
+        });
+        h2.onmessage = event => {
+            console.log('FROM H2', JSON.parse(event.data));
+        }
+    })();
 </script>
 </html>

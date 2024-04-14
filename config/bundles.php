@@ -21,4 +21,5 @@ return [
     Zenstruck\ScheduleBundle\ZenstruckScheduleBundle::class => ['all' => true],
     Sentry\SentryBundle\SentryBundle::class => ['all' => true],
     WebPush\Bundle\WebPushBundle::class => ['all' => true],
+    Symfony\Bundle\MercureBundle\MercureBundle::class => ['all' => true],
 ];
