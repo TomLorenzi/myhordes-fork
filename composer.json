@@ -33,7 +33,7 @@
     "m4tthumphrey/php-gitlab-api": "^11.14.0",
     "myhordes/fixtures": "@dev",
     "myhordes/plugins": "@dev",
-    "myhordes/prime": "^2.0.0",
+    "myhordes/prime": "^3.0.0",
     "nesbot/carbon": "^3.3",
     "nikic/php-parser": "^4.15",
     "nopjmp/discord-webhooks": "^0.3.1",
@@ -64,6 +64,7 @@
     "symfony/property-access": "7.0.6",
     "symfony/property-info": "7.0.6",
     "symfony/rate-limiter": "7.0.3",
+    "symfony/runtime": "7.0.3",
     "symfony/security-bundle": "7.0.6",
     "symfony/serializer": "7.0.6",
     "symfony/string": "7.0.4",
@@ -79,7 +80,7 @@
     "twig/intl-extra": "3.8.0",
     "twig/markdown-extra": "3.8.0",
     "twig/twig": "^3.0",
-        "whichbrowser/parser": "^2.1",
+    "whichbrowser/parser": "^2.1",
     "wikimedia/composer-merge-plugin": "^2.1",
     "zenstruck/schedule-bundle": "^1.5"
   },
@@ -121,7 +122,8 @@
       "composer/package-versions-deprecated": true,
       "symfony/flex": true,
       "wikimedia/composer-merge-plugin": true,
-      "php-http/discovery": true
+      "php-http/discovery": true,
+      "symfony/runtime": true
     }
   },
   "autoload": {
