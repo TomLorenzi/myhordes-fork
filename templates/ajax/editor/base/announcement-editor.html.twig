@@ -27,6 +27,7 @@
 
         {{ core_permissions(user,permission) }}
 
+        data-default-language="{{ app.locale }}"
         data-target-url="{{ target_url }}"
         data-target-map="{{ 'html:content,title,' ~ (enable_version ? 'version,' : '') ~ 'language:lang' }}"
         data-redirect-after-submit="1"
