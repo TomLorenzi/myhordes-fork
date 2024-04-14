@@ -1,3 +1,9 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
 auto_logout:
   path: /logout
   methods: GET
