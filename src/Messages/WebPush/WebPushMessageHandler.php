@@ -5,41 +5,39 @@ namespace App\Messages\WebPush;
 use App\Entity\Avatar;
 use App\Entity\NotificationSubscription;
 use App\Enum\NotificationSubscriptionType;
-use ArrayHelpers\Arr;
-use BenTools\WebPushBundle\Model\Message\PushNotification;
-use BenTools\WebPushBundle\Sender\PushMessageSender;
 use Doctrine\ORM\EntityManagerInterface;
-use Minishlink\WebPush\Encryption;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use WebPush\Message;
+use WebPush\Notification;
+use WebPush\WebPush;
 
 #[AsMessageHandler]
 readonly class WebPushMessageHandler
 {
     public function __construct(
-        private PushMessageSender $sender,
+        private WebPush $sender,
         private EntityManagerInterface $em,
         private Packages $asset,
         private UrlGeneratorInterface $generator,
         private string $uri,
     ) {}
 
-    private function buildPayload( WebPushMessage $message, bool $html_supported = false ): array {
-        $payload = [
-            PushNotification::BODY => $html_supported ? $message->body : html_entity_decode( strip_tags( $message->body ), ENT_QUOTES ),
-            PushNotification::TIMESTAMP => $message->timestamp->getTimestamp(),
-            PushNotification::BADGE => $this->uri . $this->asset->getUrl('build/favicon/android-chrome-72x72.png'),
-        ];
+    private function buildPayload( WebPushMessage $message, bool $html_supported = false ): Message {
+
+        $payload = Message::create("MyHordes: {$message->title}")
+            ->withBody( $html_supported ? $message->body : html_entity_decode( strip_tags( $message->body ), ENT_QUOTES ) )
+            ->withTimestamp( $message->timestamp->getTimestamp() )
+            ->withBadge( $this->uri . $this->asset->getUrl('build/favicon/android-chrome-72x72.png') );
 
         if ($message->avatar) {
             $avatar = $this->em->getRepository(Avatar::class)->find( $message->avatar );
-            if ($avatar) $payload[ PushNotification::ICON ] = $this->uri . $this->generator->generate( 'app_web_avatar_for_webpush', [
-                'uid' => $avatar->getId(), 'name' => $avatar->getFilename() ?? $avatar->getSmallName(), 'ext' => $avatar->getFormat()
-            ] );
+            if ($avatar) $payload->withIcon( $this->uri . $this->generator->generate( 'app_web_avatar_for_webpush', [
+                                                 'uid' => $avatar->getId(), 'name' => $avatar->getFilename() ?? $avatar->getSmallName(), 'ext' => $avatar->getFormat()
+                                             ] )
+            );
         }
-
-        //dump($payload);
 
         return $payload;
     }
@@ -67,17 +65,16 @@ readonly class WebPushMessageHandler
         //$html_supported = str_ends_with( $domain, 'mozilla.com' );
 
         // Push notification to subscriber service
-        $response = null;
-        $responses = $this->sender
-            ->setMaxPaddingLength(min($subscription->getMaxPaddingLength() ?? Encryption::MAX_PAYLOAD_LENGTH, Encryption::MAX_PAYLOAD_LENGTH))
-            ->push(
-                (new PushNotification("MyHordes: {$message->title}", $this->buildPayload( $message, false )))->createMessage(),
-                [$subscription]
-            );
-        foreach ($responses as $r) $response = $r;
+        $response = $this->sender->send( Notification::create()
+            ->withTTL(2419200)
+            ->withPayload(
+                $this->buildPayload( $message, false )->toString()
+            ),
+            $subscription
+        );
 
         // If the subscription is expired, blacklist it
-        if ($response?->isExpired()) {
+        if ($response?->isSubscriptionExpired()) {
             $this->em->persist( $subscription->setExpired( true ) );
             $this->em->flush();
         }

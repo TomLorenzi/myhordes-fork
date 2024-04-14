@@ -1,0 +1,13 @@
+webpush:
+  vapid:
+    enabled: true
+    subject: 'https://my-service.com:8000'
+    lcobucci:
+      enabled: true
+      public_key: '%env(WEBPUSH_PUBLIC)%'
+      private_key: '%env(WEBPUSH_PRIVATE)%'
+  payload:
+    aesgcm:
+      padding: 2847
+    aes128gcm:
+      padding: 2847

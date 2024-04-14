@@ -5,7 +5,6 @@ namespace App\Entity;
 use App\Enum\NotificationSubscriptionType;
 use App\Repository\NotificationSubscriptionRepository;
 use ArrayHelpers\Arr;
-use BenTools\WebPushBundle\Model\Subscription\UserSubscriptionInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
@@ -14,13 +13,14 @@ use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Uid\Uuid;
+use WebPush\SubscriptionInterface;
 
 #[ORM\Entity(repositoryClass: NotificationSubscriptionRepository::class)]
 #[ORM\Index(columns: ['type'], name: 'ns_by_type_idx')]
 #[UniqueEntity(['type','subscription_hash'])]
 #[Table]
 #[UniqueConstraint(name: 'ns_type_hash_unique', columns: ['type','subscription_hash'])]
-class NotificationSubscription implements UserSubscriptionInterface
+class NotificationSubscription implements SubscriptionInterface
 {
     #[ORM\Id]
     #[ORM\Column(type: UuidType::NAME, unique: true)]
@@ -138,30 +138,6 @@ class NotificationSubscription implements UserSubscriptionInterface
         };
     }
 
-    public function getPublicKey(): string
-    {
-        return match($this->type) {
-            NotificationSubscriptionType::WebPush => Arr::get($this->getSubscription(), 'keys.p256dh', ''),
-            default => ''
-        };
-    }
-
-    public function getAuthToken(): string
-    {
-        return match($this->type) {
-            NotificationSubscriptionType::WebPush => Arr::get($this->getSubscription(), 'keys.auth', ''),
-            default => ''
-        };
-    }
-
-    public function getContentEncoding(): string
-    {
-        return match($this->type) {
-            NotificationSubscriptionType::WebPush => Arr::get($this->getSubscription(), 'content-encoding', 'aesgcm'),
-            default => ''
-        };
-    }
-
     public function calculateHash(): string
     {
         return match($this->type) {
@@ -192,5 +168,35 @@ class NotificationSubscription implements UserSubscriptionInterface
         $this->maxPaddingLength = $maxPaddingLength;
 
         return $this;
+    }
+
+    public function getKeys(): array
+    {
+        return Arr::get($this->getSubscription(), "keys", []);
+    }
+
+    public function hasKey(string $key): bool
+    {
+        return Arr::has($this->getSubscription(), "keys.$key");
+    }
+
+    public function getKey(string $key): string
+    {
+        return Arr::get($this->getSubscription(), "keys.$key", '');
+    }
+
+    public function getExpirationTime(): ?int
+    {
+        return null;
+    }
+
+    public function getSupportedContentEncodings(): array
+    {
+        return Arr::get($this->getSubscription(), "data.content-encodings", [Arr::get($this->getSubscription(), "content-encoding", 'aesgcm')]);
+    }
+
+    public function jsonSerialize(): array
+    {
+        return $this->getSubscription();
     }
 }

@@ -10,6 +10,7 @@ imports:
 
 twig:
     globals:
+        vapid_public: '%env(WEBPUSH_PUBLIC)%'
         all_languages:
           de: 'de_DE'
           en: 'en_US'
@@ -211,13 +212,3 @@ services:
 
     app.hooks_registry:
         class: App\Hooks\HookRegistry
-
-    BenTools\WebPushBundle\Sender\PushMessageSender:
-      arguments:
-        $auth:
-          VAPID:
-            subject: '%bentools_webpush.vapid_subject%'
-            publicKey: '%bentools_webpush.vapid_public_key%'
-            privateKey: '%bentools_webpush.vapid_private_key%'
-        $defaultOptions:
-          TTL: 2419200

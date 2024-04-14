@@ -9,11 +9,7 @@ use App\Enum\UserSetting;
 use App\Service\JSONRequestParser;
 use App\Service\User\UserCapabilityService;
 use ArrayHelpers\Arr;
-use BenTools\WebPushBundle\Model\Message\PushNotification;
-use BenTools\WebPushBundle\Model\Response\PushResponse;
-use BenTools\WebPushBundle\Sender\PushMessageSender;
 use Doctrine\ORM\EntityManagerInterface;
-use Minishlink\WebPush\Encryption;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,6 +20,10 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\Url;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use WebPush\Exception\OperationException;
+use WebPush\Message;
+use WebPush\Notification;
+use WebPush\WebPush;
 
 
 /**
@@ -150,8 +150,12 @@ class NotificationManagerController extends AbstractController
         ]);
     }
 
+    /**
+     * @throws \JsonException
+     * @throws OperationException
+     */
     #[Route(path: '/webpush', name: 'put_webpush', defaults: ['type' => NotificationSubscriptionType::WebPush->value], methods: ['PUT'])]
-    public function put(NotificationSubscriptionType $type, EntityManagerInterface $em, JSONRequestParser $parser, ValidatorInterface $validator, PushMessageSender $sender, TranslatorInterface $trans): JsonResponse {
+    public function put(NotificationSubscriptionType $type, EntityManagerInterface $em, JSONRequestParser $parser, ValidatorInterface $validator, WebPush $sender, TranslatorInterface $trans): JsonResponse {
 
         $desc = $parser->trimmed('desc', '' ) ?: 'WebPush';
         $payload = $parser->get_array('payload');
@@ -200,45 +204,24 @@ class NotificationManagerController extends AbstractController
         ]) > 0) return new JsonResponse(status: Response::HTTP_CONFLICT);
 
         $subscription->setSubscriptionHash( $hash );
+        $notification = Notification::create()
+            ->withTTL(2419200)
+            ->withPayload(
+                Message::create('Test Notification')
+                    ->withData( ['test' => true] )
+                    ->toString()
+            );
 
-        $response = null;
+        $response = $sender->send( $notification, $subscription );
 
-        $notification = new PushNotification('Test Notification', [
-            PushNotification::DATA => ['test' => true]
-        ]);
-
-        $attempt_encryption_padding = [
-            0,
-            1024,
-            2048,
-            2847,                                           // Max encryption for Firefox mobile
-            Encryption::MAX_COMPATIBILITY_PAYLOAD_LENGTH,   // Compatibility encryption padding
-            Encryption::MAX_PAYLOAD_LENGTH,                 // Default encryption padding
-        ];
-
-        $use_padding = null;
-        $code = -2;
-        while (!empty($attempt_encryption_padding)) {
-            $use_padding = array_pop($attempt_encryption_padding);
-            $responses = $sender
-                ->setMaxPaddingLength($use_padding)
-                ->push( $notification->createMessage(), [$subscription] );
-            foreach ($responses as $r) $response = $r;
-
-            $code = $response?->getStatusCode() ?? -1;
-            // Got PAYLOAD TOO LARGE error; attempt using smaller encryption padding
-            if ($code === PushResponse::PAYLOAD_SIZE_TOO_LARGE) continue;
-            else break;
-        }
-
-        if ($code >= 200 && $code <= 299) {
-            $em->persist( $subscription->setMaxPaddingLength($use_padding)->setSubscriptionHash( $hash )->setUser( $this->getUser() ) );
+        if ($response->isSuccess()) {
+            $em->persist( $subscription->setSubscriptionHash( $hash )->setUser( $this->getUser() ) );
             $em->flush();
             return new JsonResponse(['subscription' => $this->renderNotifications( $subscription )]);
         } else return new JsonResponse([
             'error' => 'message',
             'message' => $trans->trans('Bei der Kommunikation mit deinem Gerät ist ein Fehler aufgetreten. Fehlercode: {code}. Bitte versuche es zu einem späteren Zeitpunkt erneut.', [
-                'code' => $code
+                'code' => -1
             ], 'global')
         ], status: Response::HTTP_INTERNAL_SERVER_ERROR);
     }
@@ -272,27 +255,25 @@ class NotificationManagerController extends AbstractController
     }
 
     #[Route(path: '/webpush/{id}/test', name: 'test_webpush', defaults: ['type' => NotificationSubscriptionType::WebPush->value], methods: ['POST'])]
-    public function test(NotificationSubscriptionType $type, NotificationSubscription $subscription, PushMessageSender $sender, TranslatorInterface $trans): JsonResponse {
+    public function test(NotificationSubscriptionType $type, NotificationSubscription $subscription, WebPush $sender, TranslatorInterface $trans): JsonResponse {
 
         if ($subscription->getType() !== $type || $subscription->getUser() !== $this->getUser())
             return new JsonResponse(status: Response::HTTP_NOT_FOUND);
 
-        $notification = new PushNotification($trans->trans('Testbenachrichtiung', [], 'global'), [
-            PushNotification::BODY => $trans->trans('Hallo! Ich bin eine Testbenachrichtigung von MyHordes.', [], 'global')
-        ]);
+        $notification = Notification::create()
+            ->withTTL(2419200)
+            ->withPayload(
+                Message::create($trans->trans('Testbenachrichtiung', [], 'global'))
+                    ->withBody( $trans->trans('Hallo! Ich bin eine Testbenachrichtigung von MyHordes.', [], 'global') )
+                    ->toString()
+            );
 
-        $response = null;
-        $responses = $sender
-            ->setMaxPaddingLength(min($subscription->getMaxPaddingLength() ?? Encryption::MAX_PAYLOAD_LENGTH, Encryption::MAX_PAYLOAD_LENGTH))
-            ->push( $notification->createMessage(), [$subscription] );
+        $response = $sender->send( $notification, $subscription );
 
-        foreach ($responses as $r) $response = $r;
-
-        $code = $response?->getStatusCode() ?? -1;
         return new JsonResponse([
-            'status' => $code,
-            'success' => $code >= 200 && $code <= 299,
-            'expired' => $response?->isExpired() ?? false
+            'status' => $response->isSuccess() ? 204 : -1,
+            'success' => $response?->isSuccess() ?? false,
+            'expired' => $response?->isSubscriptionExpired() ?? false
         ]);
     }
 }
