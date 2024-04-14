@@ -533,7 +533,7 @@ class MigrateCommand extends Command
                 if ($input->getOption('recover')) {
                     $output->writeln("<warning>Unable to migrate database, attempting recovery.</warning>");
 
-                    $source = "{$this->param->get('kernel.project_dir')}/src/Migrations";
+                    $source = "{$this->param->get('kernel.project_dir')}/migrations";
                     foreach (scandir( $source ) as $file)
                         if ($file && $file[0] !== '.') {
                             $output->write("\tDeleting \"<comment>{$file}</comment>\"... ");
