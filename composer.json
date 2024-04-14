@@ -1,172 +1,172 @@
 {
-    "type": "project",
-    "license": "proprietary",
-    "name": "etwin/myhordes",
-    "description": "",
-    "require": {
-        "php": ">=8.3",
-        "ext-ctype": "*",
-        "ext-curl": "*",
-        "ext-dom": "*",
-        "ext-iconv": "*",
-        "ext-intl": "*",
-        "ext-json": "*",
-        "ext-libxml": "*",
-        "ext-mbstring": "*",
-        "ext-simplexml": "*",
-        "adbario/php-dot-notation": "^3.3",
-        "brainbox-et/etwin-api-client": "@dev",
-        "clue/graph": "0.9.3",
-        "composer/semver": "^3.4",
-        "doctrine/annotations": "2.0.1",
-        "doctrine/doctrine-bundle": "2.12.0",
-        "doctrine/doctrine-fixtures-bundle": "3.5.1",
-        "doctrine/doctrine-migrations-bundle": "3.3.0",
-        "doctrine/migrations": "3.7.4",
-        "doctrine/orm": "2.19.3",
-        "graphp/algorithms": "0.8.2",
-        "jawira/case-converter": "^3.5",
-        "jdrieghe/array-helpers": "^0.2.0",
-        "laminas/laminas-code": "4.13.0",
-        "lcobucci/jwt": "5.3.0",
-        "league/commonmark": "2.4.2",
-        "m4tthumphrey/php-gitlab-api": "^11.14.0",
-        "myhordes/fixtures": "@dev",
-        "myhordes/plugins": "@dev",
-        "myhordes/prime": "^2.0.0",
-        "nesbot/carbon": "^3.3",
-        "nikic/php-parser": "^4.15",
-        "nopjmp/discord-webhooks": "^0.3.1",
-        "phpdocumentor/reflection-docblock": "5.3.0",
-        "phpstan/phpdoc-parser": "^1.13",
-        "scienta/doctrine-json-functions": "^5.2",
-        "sentry/sentry-symfony": "^4.12",
-        "shivas/versioning-bundle": "dev-master",
-        "spomky-labs/web-push-bundle": "3.1.2",
-        "symfony/apache-pack": "1.0.1",
-        "symfony/asset": "6.4.3",
-        "symfony/console": "6.4.6",
-        "symfony/crowdin-translation-provider": "6.4.3",
-        "symfony/doctrine-messenger": "6.4.6",
-        "symfony/dotenv": "6.4.4",
-        "symfony/expression-language": "6.4.3",
-        "symfony/flex": "2.4.5",
-        "symfony/form": "6.4.6",
-        "symfony/framework-bundle": "6.4.6",
-        "symfony/http-client": "6.4.6",
-        "symfony/intl": "6.4.3",
-        "symfony/lock": "6.4.6",
-        "symfony/mailer": "6.4.6",
-        "symfony/messenger": "6.4.6",
-        "symfony/monolog-bundle": "3.10.0",
-        "symfony/notifier": "6.4.3",
-        "symfony/process": "6.4.4",
-        "symfony/property-access": "6.4.6",
-        "symfony/property-info": "6.4.6",
-        "symfony/rate-limiter": "6.4.3",
-        "symfony/security-bundle": "6.4.6",
-        "symfony/serializer": "6.4.6",
-        "symfony/string": "6.4.4",
-        "symfony/translation": "6.4.4",
-        "symfony/twig-bundle": "6.4.4",
-        "symfony/uid": "6.4.3",
-        "symfony/validator": "6.4.6",
-        "symfony/web-link": "6.4.3",
-        "symfony/webpack-encore-bundle": "2.1.1",
-        "symfony/yaml": "6.4.3",
-        "twig/cache-extra": "^3.8",
-        "twig/extra-bundle": "^3.0",
-        "twig/intl-extra": "3.8.0",
-        "twig/markdown-extra": "3.8.0",
-        "twig/twig": "^3.0",
+  "type": "project",
+  "license": "proprietary",
+  "name": "etwin/myhordes",
+  "description": "",
+  "require": {
+    "php": ">=8.3",
+    "ext-ctype": "*",
+    "ext-curl": "*",
+    "ext-dom": "*",
+    "ext-iconv": "*",
+    "ext-intl": "*",
+    "ext-json": "*",
+    "ext-libxml": "*",
+    "ext-mbstring": "*",
+    "ext-simplexml": "*",
+    "adbario/php-dot-notation": "^3.3",
+    "brainbox-et/etwin-api-client": "@dev",
+    "clue/graph": "0.9.3",
+    "composer/semver": "^3.4",
+    "doctrine/annotations": "2.0.1",
+    "doctrine/doctrine-bundle": "2.12.0",
+    "doctrine/doctrine-fixtures-bundle": "3.5.1",
+    "doctrine/doctrine-migrations-bundle": "3.3.0",
+    "doctrine/migrations": "3.7.4",
+    "doctrine/orm": "2.19.3",
+    "graphp/algorithms": "0.8.2",
+    "jawira/case-converter": "^3.5",
+    "jdrieghe/array-helpers": "^0.2.0",
+    "laminas/laminas-code": "4.13.0",
+    "lcobucci/jwt": "5.3.0",
+    "league/commonmark": "2.4.2",
+    "m4tthumphrey/php-gitlab-api": "^11.14.0",
+    "myhordes/fixtures": "@dev",
+    "myhordes/plugins": "@dev",
+    "myhordes/prime": "^2.0.0",
+    "nesbot/carbon": "^3.3",
+    "nikic/php-parser": "^4.15",
+    "nopjmp/discord-webhooks": "^0.3.1",
+    "phpdocumentor/reflection-docblock": "5.3.0",
+    "phpstan/phpdoc-parser": "^1.13",
+    "scienta/doctrine-json-functions": "^5.2",
+    "sentry/sentry-symfony": "^4.12",
+    "shivas/versioning-bundle": "dev-master",
+    "spomky-labs/web-push-bundle": "3.1.2",
+    "symfony/apache-pack": "1.0.1",
+    "symfony/asset": "7.0.3",
+    "symfony/console": "7.0.6",
+    "symfony/crowdin-translation-provider": "7.0.3",
+    "symfony/doctrine-messenger": "7.0.6",
+    "symfony/dotenv": "7.0.4",
+    "symfony/expression-language": "7.0.3",
+    "symfony/flex": "2.4.5",
+    "symfony/form": "7.0.6",
+    "symfony/framework-bundle": "7.0.6",
+    "symfony/http-client": "7.0.6",
+    "symfony/intl": "7.0.3",
+    "symfony/lock": "7.0.6",
+    "symfony/mailer": "7.0.6",
+    "symfony/messenger": "7.0.6",
+    "symfony/monolog-bundle": "3.10.0",
+    "symfony/notifier": "7.0.3",
+    "symfony/process": "7.0.4",
+    "symfony/property-access": "7.0.6",
+    "symfony/property-info": "7.0.6",
+    "symfony/rate-limiter": "7.0.3",
+    "symfony/security-bundle": "7.0.6",
+    "symfony/serializer": "7.0.6",
+    "symfony/string": "7.0.4",
+    "symfony/translation": "7.0.4",
+    "symfony/twig-bundle": "7.0.4",
+    "symfony/uid": "7.0.3",
+    "symfony/validator": "7.0.6",
+    "symfony/web-link": "7.0.3",
+    "symfony/webpack-encore-bundle": "2.1.1",
+    "symfony/yaml": "7.0.3",
+    "twig/cache-extra": "^3.8",
+    "twig/extra-bundle": "^3.0",
+    "twig/intl-extra": "3.8.0",
+    "twig/markdown-extra": "3.8.0",
+    "twig/twig": "^3.0",
         "whichbrowser/parser": "^2.1",
-        "wikimedia/composer-merge-plugin": "^2.1",
-        "zenstruck/schedule-bundle": "^1.5"
-    },
-    "require-dev": {
-        "ext-sqlite3": "*",
-        "dama/doctrine-test-bundle": "v8.0.2",
-        "phpstan/phpstan": "^1.10",
-        "phpstan/phpstan-doctrine": "^1.3",
-        "phpstan/phpstan-symfony": "^1.3",
-        "phpunit/phpunit": "10.5.17",
-        "rector/rector": "1.0.3",
-        "symfony/browser-kit": "6.4.3",
-        "symfony/css-selector": "6.4.3",
-        "symfony/debug-bundle": "6.4.3",
-        "symfony/maker-bundle": "1.57.0",
-        "symfony/phpunit-bridge": "6.4.6",
-        "symfony/stopwatch": "6.4.3",
-        "symfony/web-profiler-bundle": "6.4.4"
-    },
-    "suggest": {
-        "ext-imagick": "*",
-        "ext-pthreads": "*",
-        "ext-ssh2": "*",
-        "ext-apcu": "*",
-        "ext-ftp": "*"
-    },
-    "repositories": [
-      {
-        "type": "path",
-        "url": "packages/myhordes-*"
-      }
-    ],
-    "config": {
-        "preferred-install": {
-            "*": "dist"
-        },
-        "sort-packages": true,
-        "allow-plugins": {
-            "composer/package-versions-deprecated": true,
-            "symfony/flex": true,
-            "wikimedia/composer-merge-plugin": true,
-            "php-http/discovery": true
-        }
-    },
-    "autoload": {
-        "psr-4": {
-            "App\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "App\\Tests\\": "tests/"
-        }
-    },
-    "replace": {
-        "paragonie/random_compat": "2.*",
-        "symfony/polyfill-ctype": "*",
-        "symfony/polyfill-iconv": "*",
-        "symfony/polyfill-php72": "*",
-        "symfony/polyfill-php71": "*",
-        "symfony/polyfill-php70": "*",
-        "symfony/polyfill-php56": "*"
-    },
-    "scripts": {
-        "auto-scripts": {
-            "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
-        },
-        "post-install-cmd": [
-            "@auto-scripts"
-        ],
-        "post-update-cmd": [
-            "@auto-scripts"
-        ]
-    },
-    "conflict": {
-        "symfony/symfony": "0.1.*"
-    },
-    "extra": {
-        "symfony": {
-            "allow-contrib": false,
-            "require": "6.4.*"
-        },
-        "merge-plugin": {
-          "include": [
-            "composer.dist.json"
-          ]
-        }
+    "wikimedia/composer-merge-plugin": "^2.1",
+    "zenstruck/schedule-bundle": "^1.5"
+  },
+  "require-dev": {
+    "ext-sqlite3": "*",
+    "dama/doctrine-test-bundle": "v8.0.2",
+    "phpstan/phpstan": "^1.10",
+    "phpstan/phpstan-doctrine": "^1.3",
+    "phpstan/phpstan-symfony": "^1.3",
+    "phpunit/phpunit": "10.5.17",
+    "rector/rector": "1.0.3",
+    "symfony/browser-kit": "7.0.3",
+    "symfony/css-selector": "7.0.3",
+    "symfony/debug-bundle": "7.0.3",
+    "symfony/phpunit-bridge": "7.0.6",
+    "symfony/stopwatch": "7.0.3",
+    "symfony/web-profiler-bundle": "7.0.4",
+    "symfony/maker-bundle": "1.57.0"
+  },
+  "suggest": {
+    "ext-imagick": "*",
+    "ext-pthreads": "*",
+    "ext-ssh2": "*",
+    "ext-apcu": "*",
+    "ext-ftp": "*"
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "packages/myhordes-*"
     }
+  ],
+  "config": {
+    "preferred-install": {
+      "*": "dist"
+    },
+    "sort-packages": true,
+    "allow-plugins": {
+      "composer/package-versions-deprecated": true,
+      "symfony/flex": true,
+      "wikimedia/composer-merge-plugin": true,
+      "php-http/discovery": true
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "App\\Tests\\": "tests/"
+    }
+  },
+  "replace": {
+    "paragonie/random_compat": "2.*",
+    "symfony/polyfill-ctype": "*",
+    "symfony/polyfill-iconv": "*",
+    "symfony/polyfill-php72": "*",
+    "symfony/polyfill-php71": "*",
+    "symfony/polyfill-php70": "*",
+    "symfony/polyfill-php56": "*"
+  },
+  "scripts": {
+    "auto-scripts": {
+      "cache:clear": "symfony-cmd",
+      "assets:install %PUBLIC_DIR%": "symfony-cmd"
+    },
+    "post-install-cmd": [
+      "@auto-scripts"
+    ],
+    "post-update-cmd": [
+      "@auto-scripts"
+    ]
+  },
+  "conflict": {
+    "symfony/symfony": "0.1.*"
+  },
+  "extra": {
+    "symfony": {
+      "allow-contrib": false,
+      "require": "7.0.*"
+    },
+    "merge-plugin": {
+      "include": [
+        "composer.dist.json"
+      ]
+    }
+  }
 }
