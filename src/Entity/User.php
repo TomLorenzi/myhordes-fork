@@ -1191,13 +1191,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
     public function removeNotificationSubscription(NotificationSubscription $notificationSubscription): static
     {
-        if ($this->notificationSubscriptions->removeElement($notificationSubscription)) {
-            // set the owning side to null (unless already changed)
-            if ($notificationSubscription->getUser() === $this) {
-                $notificationSubscription->setUser(null);
-            }
-        }
-
+        $this->notificationSubscriptions->removeElement($notificationSubscription);
         return $this;
     }
 
