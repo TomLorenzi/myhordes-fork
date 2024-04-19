@@ -72,7 +72,7 @@ class WebController extends CustomAbstractController
 
     public static array $supporters = [
         'MisterD', 'Mondi', 'Schrödinger', 'Kitsune',
-        'MOTZI', 'devwwm', 'tchekof', 'alonsopor', 'Termineitron',
+        'MOTZI', 'devwwm', 'alonsopor', 'Termineitron',
         'Rikrdo', 'Valedres', 'Yaken', 'Finne', 'Aeon',
         'Elara', 'MisterSimple', 'Eragony', 'Tristana', 'Bigonoud', 'Bacchus', 'unukun',
         'Docteur'
