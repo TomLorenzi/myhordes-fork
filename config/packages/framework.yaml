@@ -13,7 +13,8 @@ framework:
     # Remove or comment this section to explicitly disable session support.
     session:
         # handler_id: 'session.handler.native_file' # This is for FileBased session
-        handler_id: Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler # This is for DatabaseBased sessions
+        # handler_id: Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler # This is for DatabaseBased sessions
+        handler_id: Symfony\Component\HttpFoundation\Session\Storage\Handler\RedisSessionHandler
         name: 'myhordes_session_id'
         cookie_lifetime: 2592000
         cookie_secure: auto
