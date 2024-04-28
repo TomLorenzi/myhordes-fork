@@ -110,8 +110,8 @@
 {# @var zone \App\Entity\Zone #}
 {# @var citizen \App\Entity\Citizen #}
 {% block content %}
-    {% set zone_cache_key = "twig_cache_desert_#{citizen.id}_zone_#{citizen.zone.x}_#{citizen.zone.y}" %}
-    {% set zone_cache_tags = ['daily',"town_#{citizen.town.id}","town_#{citizen.town.id}_zones","town_#{citizen.town.id}_zones_#{citizen.zone.x}_#{citizen.zone.y}"] %}
+    {% set zone_cache_key = 'twig_cache_desert_#' ~ citizen.id ~ '_zone_' ~ citizen.zone.x ~ '_' ~ citizen.zone.y %}
+    {% set zone_cache_tags = ['daily','user_#' ~ citizen.user.id,'town_#' ~ citizen.town.id,'town_#' ~ citizen.town.id ~ '_zones','town_#' ~ citizen.town.id ~ '_zones_#' ~ citizen.zone.x ~ '_' ~ citizen.zone.y] %}
 
     {% set hour = "now"|date("G") %}
     <div class="row">
