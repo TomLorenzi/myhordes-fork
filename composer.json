@@ -77,6 +77,7 @@
         "twig/intl-extra": "3.8.0",
         "twig/markdown-extra": "3.8.0",
         "twig/twig": "^3.0",
+        "whichbrowser/parser": "^2.1",
         "wikimedia/composer-merge-plugin": "^2.1",
         "zenstruck/schedule-bundle": "^1.5"
     },
