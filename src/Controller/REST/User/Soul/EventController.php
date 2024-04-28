@@ -620,7 +620,7 @@ class EventController extends CustomAbstractCoreController
         }
 
         return [
-            'name' => $ranking->getName(),
+            'name' => $ranking?->getName(),
             'ranking_link' => ($ranking && ( $preset->getTown() === null || $preset->getTown()?->getCitizenCount() > 0 ))
                 ? $this->generateUrl('soul_view_town', ['sid' => $preset->getEvent()->getOwner()->getId(), 'idtown' => $ranking->getId(), 'return_path' => 'soul_events'])
                 : null,
