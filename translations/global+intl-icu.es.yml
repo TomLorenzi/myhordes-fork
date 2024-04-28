@@ -614,10 +614,10 @@ Testbenachrichtiung: Notificación de prueba
 'Ein Forenpost wurde gemeldet.': 'Un mensaje de foro ha sido señalado.'
 'Eine Stadt-PN wurde gemeldet.': 'Un MP de pueblo ha sido señalado.'
 'Ein Eintrag auf dem Schwarzen Brett wurde gemeldet.': 'Una entrada del tablero negro ha sido señalado.'
-'Die Nachricht eines Bürgers wurde gemeldet.': 'Die Nachricht eines Bürgers wurde gemeldet.'
-'Die Letzten Worte eines Bürgers wurde gemeldet.': 'Die Letzten Worte eines Bürgers wurde gemeldet.'
-'Der Stadtkommentar eines Bürgers wurde gemeldet.': 'Der Stadtkommentar eines Bürgers wurde gemeldet.'
-'Ein Spieleraccount wurde gemeldet.': 'Ein Spieleraccount wurde gemeldet.'
+'Die Nachricht eines Bürgers wurde gemeldet.': 'El mensaje de un habitante ha sido reportado.'
+'Die Letzten Worte eines Bürgers wurde gemeldet.': 'Las últimas palabras de un habitante fueron reportadas.'
+'Der Stadtkommentar eines Bürgers wurde gemeldet.': 'El comentario de pueblo de un habitante fue reportado.'
+'Ein Spieleraccount wurde gemeldet.': 'Una cuenta jugador fue reportada.'
 'Dies ist Meldung #{num}.': 'Es el mensaje #{num}.'
-Community-Event: Community-Event
-'Die erhälst die gekennzeichneten Benachrichtigungen nur, wenn sie deiner gewählten Sprache entsprechen. Wenn du die entsprechenden Einstellungen änderst oder deine Sprache wechselst, kann es bis zu 24 Stunden dauern, bis die Änderungen für Benachrichtigungen übernommen werden.': 'Die erhälst die gekennzeichneten Benachrichtigungen nur, wenn sie deiner gewählten Sprache entsprechen. Wenn du die entsprechenden Einstellungen änderst oder deine Sprache wechselst, kann es bis zu 24 Stunden dauern, bis die Änderungen für Benachrichtigungen übernommen werden.'
+Community-Event: Evento Comunitario
+'Die erhälst die gekennzeichneten Benachrichtigungen nur, wenn sie deiner gewählten Sprache entsprechen. Wenn du die entsprechenden Einstellungen änderst oder deine Sprache wechselst, kann es bis zu 24 Stunden dauern, bis die Änderungen für Benachrichtigungen übernommen werden.': 'Solo recibirás las notificaciones etiquetadas si corresponden al idioma seleccionado. Si modificas los ajustes pertinentes o cambias de idioma, los cambios pueden tardar hasta 24 horas en aplicarse a las notificaciones.'
