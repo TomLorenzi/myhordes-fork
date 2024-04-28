@@ -3,45 +3,83 @@
 namespace App\Service;
 
 use App\Entity\AccountRestriction;
-use App\Entity\ConnectionIdentifier;
+use App\Entity\Activity;
 use App\Entity\User;
 use App\Structures\CheatTable;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
+use Doctrine\DBAL\LockMode;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\NoResultException;
 use Doctrine\ORM\QueryBuilder;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Contracts\Cache\ItemInterface;
+use Symfony\Contracts\Cache\TagAwareCacheInterface;
+use WhichBrowser\Parser;
 
 class AntiCheatService {
 
-    private $em;
-    private $conf;
-    private $user_handler;
-
-    public function __construct(ConfMaster $conf, EntityManagerInterface $em, UserHandler $uh)
-    {
-        $this->em = $em;
-        $this->conf = $conf;
-        $this->user_handler = $uh;
-    }
+    public function __construct(
+        private readonly ConfMaster $conf,
+        private readonly EntityManagerInterface $em,
+        private readonly UserHandler $user_handler,
+        private readonly TagAwareCacheInterface $gameCachePool,
+    ) { }
 
     public function cleanseConnectionIdentifiers() {
-        $old = $this->em->getRepository(ConnectionIdentifier::class)->matching(
-            (new Criteria())->where(Criteria::expr()->lte('lastUsed', new DateTime('-7 days')))
+        $old = $this->em->getRepository(Activity::class)->matching(
+            (new Criteria())->where(Criteria::expr()->lte('dateTimeEnd', new DateTime('-7 days')))
         );
         foreach ($old as $e) $this->em->remove($e);
     }
 
-    public function recordConnection(?User $user, Request $request) {
+    protected function blockTime(\DateTime $dateTime, bool $up = false, int $interval = 1800): \DateTime {
+        $base = (clone $dateTime)->modify('today')->getTimestamp();
+        $offset = (float)($dateTime->getTimestamp() - $base + ($up ? 1 : 0)) / (float)$interval;
 
+        return (new \DateTime())->setTimestamp($base + round(($up ? ceil($offset) : floor($offset)) * $interval));
+    }
+
+    public function recordConnection(?User $user, Request $request) {
         if (!$user) return;
 
-        $id = md5($request->getClientIp());
-        $existing = $this->em->getRepository(ConnectionIdentifier::class)->findOneBy(['user' => $user, 'identifier' => $id]);
-        if (!$existing) $existing = (new ConnectionIdentifier())->setUser($user)->setIdentifier($id);
+        $agent_raw = $request->headers->get('User-Agent') ?? '-no-agent-';
+        $agent_string = $this->gameCachePool->get("ua_detect_" . md5($agent_raw), function (ItemInterface $item) use ($agent_raw) {
+            $agent_parser = new Parser($agent_raw);
+            $item->expiresAfter(6000);
 
-        $existing->setLastUsed(new DateTime('now'));
-        $this->em->persist($existing);
+            $device = $agent_parser->device->toString() ?: 'Unknown Device';
+            return "{$device} | {$agent_parser->os->toString()} | {$agent_parser->browser->getName()}";
+        });
+
+        $prev_segment = $this->blockTime( new DateTime(), false );
+        $next_segment = $this->blockTime( new DateTime(), true );
+
+        $this->em->wrapInTransaction(function(EntityManagerInterface $em) use ($user, $request, $prev_segment, $next_segment, $agent_string) {
+            try {
+                $existing = $em->getRepository(Activity::class)->createQueryBuilder('a')
+                    ->andWhere('a.user = :user')->setParameter('user', $user)
+                    ->andWhere('a.ip = :ip')->setParameter('ip', $request->getClientIp())
+                    ->andWhere('a.agent = :agent')->setParameter('agent', $agent_string)
+                    ->andWhere('a.domain = :host')->setParameter('host', $request->getHost())
+                    ->andWhere('a.blockEnd >= :block')->setParameter('block', $prev_segment)
+                    ->orderBy('a.blockEnd', 'DESC')
+                    ->setMaxResults(1)
+                    ->getQuery()->setLockMode(LockMode::PESSIMISTIC_WRITE)->getSingleResult();
+            } catch (NoResultException $e) {
+                $existing = (new Activity())
+                    ->setUser( $user )
+                    ->setIp($request->getClientIp())
+                    ->setAgent($agent_string)
+                    ->setDomain($request->getHost())
+                    ->setBlockBegin($prev_segment)
+                    ->setDateTimeBegin(new DateTime())
+                    ->setRequests(0);
+            }
+
+            $existing->setBlockEnd($next_segment)->setDateTimeEnd(new DateTime())->setRequests( $existing->getRequests() + 1 );
+            $em->persist( $existing );
+        });
 
     }
 
@@ -51,16 +89,16 @@ class AntiCheatService {
     public function createMultiAccountReport(): array {
 
         /** @var QueryBuilder $qb */
-        $repo = $this->em->getRepository(ConnectionIdentifier::class);;
+        $repo = $this->em->getRepository(Activity::class);;
 
         $id_data = array_column(
             $repo->createQueryBuilder('c')
-                ->select('c.identifier', 'count(c.id) as n')
-                ->groupBy('c.identifier')
+                ->select('c.ip', 'count(c.ip) as n')
+                ->groupBy('c.ip')
                 ->having('n > 1')
                 ->orderBy('n', 'DESC')
                 ->getQuery()->getScalarResult(),
-            'n', 'identifier');
+            'n', 'ip');
 
         $user_matrix = [];
 
@@ -75,11 +113,11 @@ class AntiCheatService {
 
             $user_times = array_column(
                 $repo->createQueryBuilder('c')
-                    ->select('c.lastUsed', 'identity(c.user) as user_id')
-                    ->where('c.identifier = :i')->setParameter('i', $identifier)
+                    ->select('c.dateTimeEnd', 'identity(c.user) as user_id')
+                    ->where('c.ip = :i')->setParameter('i', $identifier)
                     ->orderBy('user_id', 'ASC')
                     ->getQuery()->getScalarResult(),
-            'lastUsed', 'user_id');
+            'dateTimeEnd', 'user_id');
 
             foreach ($user_times as $user_id_a => $time_a)
                 foreach ($user_times as $user_id_b => $time_b)

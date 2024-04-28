@@ -13,7 +13,6 @@ use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
-use App\Entity\ConnectionIdentifier;
 use App\Entity\ConnectionWhitelist;
 use App\Entity\FeatureUnlock;
 use App\Entity\FeatureUnlockPrototype;

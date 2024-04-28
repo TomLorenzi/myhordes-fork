@@ -117,9 +117,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private ?Changelog $latestChangelog = null;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: ConnectionIdentifier::class, fetch: 'EXTRA_LAZY', orphanRemoval: true)]
-    private Collection $connectionIdentifiers;
-
     #[ORM\ManyToMany(targetEntity: ConnectionWhitelist::class, mappedBy: 'users', cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY')]
     private Collection $connectionWhitelists;
 
@@ -210,7 +207,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         $this->bannings = new ArrayCollection();
         $this->pastLifes = new ArrayCollection();
         $this->twinoidImports = new ArrayCollection();
-        $this->connectionIdentifiers = new ArrayCollection();
         $this->connectionWhitelists = new ArrayCollection();
         $this->forumThreadSubscriptions = new ArrayCollection();
         $this->friends = new ArrayCollection();
@@ -662,34 +658,8 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
         return $this;
     }
-    /**
-     * @return Collection<ConnectionIdentifier>
-     */
-    public function getConnectionIdentifiers(): Collection
-    {
-        return $this->connectionIdentifiers;
-    }
-    public function addConnectionIdentifier(ConnectionIdentifier $connectionIdentifier): self
-    {
-        if (!$this->connectionIdentifiers->contains($connectionIdentifier)) {
-            $this->connectionIdentifiers[] = $connectionIdentifier;
-            $connectionIdentifier->setUser($this);
-        }
 
-        return $this;
-    }
-    public function removeConnectionIdentifier(ConnectionIdentifier $connectionIdentifier): self
-    {
-        if ($this->connectionIdentifiers->contains($connectionIdentifier)) {
-            $this->connectionIdentifiers->removeElement($connectionIdentifier);
-            // set the owning side to null (unless already changed)
-            if ($connectionIdentifier->getUser() === $this) {
-                $connectionIdentifier->setUser(null);
-            }
-        }
 
-        return $this;
-    }
     /**
      * @return Collection<ConnectionWhitelist>
      */

@@ -2,24 +2,11 @@
 
 namespace App\Service\Translation;
 
-use App\Entity\AccountRestriction;
-use App\Entity\ConnectionIdentifier;
-use App\Entity\User;
-use App\Service\ConfMaster;
-use App\Service\UserHandler;
-use App\Structures\CheatTable;
-use DateTime;
 use DirectoryIterator;
-use Doctrine\Common\Collections\Criteria;
-use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\QueryBuilder;
-use Psr\Container\ContainerInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Finder\SplFileInfo;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
-use Symfony\Component\Translation\Loader\FileLoader;
 use Symfony\Component\Translation\Loader\YamlFileLoader;
 use Symfony\Component\Translation\MessageCatalogue;
 
