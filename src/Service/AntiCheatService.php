@@ -43,6 +43,9 @@ class AntiCheatService {
     public function recordConnection(?User $user, Request $request) {
         if (!$user) return;
 
+        $proxies = $request->getClientIps();
+        $client_ip = array_pop($proxies);
+
         $agent_raw = $request->headers->get('User-Agent') ?? '-no-agent-';
         $agent_string = $this->gameCachePool->get("ua_detect_" . md5($agent_raw), function (ItemInterface $item) use ($agent_raw) {
             $agent_parser = new Parser($agent_raw);
@@ -55,11 +58,11 @@ class AntiCheatService {
         $prev_segment = $this->blockTime( new DateTime(), false );
         $next_segment = $this->blockTime( new DateTime(), true );
 
-        $this->em->wrapInTransaction(function(EntityManagerInterface $em) use ($user, $request, $prev_segment, $next_segment, $agent_string) {
+        $this->em->wrapInTransaction(function(EntityManagerInterface $em) use ($user, $request, $client_ip, $prev_segment, $next_segment, $agent_string) {
             try {
                 $existing = $em->getRepository(Activity::class)->createQueryBuilder('a')
                     ->andWhere('a.user = :user')->setParameter('user', $user)
-                    ->andWhere('a.ip = :ip')->setParameter('ip', $request->getClientIp())
+                    ->andWhere('a.ip = :ip')->setParameter('ip', $client_ip)
                     ->andWhere('a.agent = :agent')->setParameter('agent', $agent_string)
                     ->andWhere('a.domain = :host')->setParameter('host', $request->getHost())
                     ->andWhere('a.blockEnd >= :block')->setParameter('block', $prev_segment)
@@ -69,7 +72,7 @@ class AntiCheatService {
             } catch (NoResultException $e) {
                 $existing = (new Activity())
                     ->setUser( $user )
-                    ->setIp($request->getClientIp())
+                    ->setIp($client_ip)
                     ->setAgent($agent_string)
                     ->setDomain($request->getHost())
                     ->setBlockBegin($prev_segment)
