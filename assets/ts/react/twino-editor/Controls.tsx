@@ -380,12 +380,12 @@ const ControlButtonInsertURL = ({
                 if (text.current && link.current) {
                     if (s && checkLink(s)) {
                         text.current.value = '';
-                        text.current.focus();
                         link.current.value = s;
+                        window.requestAnimationFrame(() => text.current.focus());
                     } else {
                         text.current.value = s;
                         link.current.value = '';
-                        (s ? link : text).current.focus();
+                        window.requestAnimationFrame(() => (s ? link : text).current.focus());
                     }
                 } else (text.current ?? link.current).value = '';
 
