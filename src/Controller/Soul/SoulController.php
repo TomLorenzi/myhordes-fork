@@ -1041,7 +1041,7 @@ class SoulController extends CustomAbstractController
      * @return Response
      */
     #[Route(path: 'api/soul/settings/setlanguage', name: 'api_soul_set_language')]
-    public function soul_settings_set_language(JSONRequestParser $parser, Request $request, UserHandler $userHandler, SessionInterface $session): Response {
+    public function soul_settings_set_language(JSONRequestParser $parser, Request $request, UserHandler $userHandler, SessionInterface $session, InvalidateTagsInAllPoolsAction $invalidate): Response {
         $user = $this->getUser();
 
         if (!$parser->has('lang', true))
@@ -1057,6 +1057,8 @@ class SoulController extends CustomAbstractController
 
         $user->setLanguage( $lang );
         $session->set('_user_lang',$lang);
+
+        $invalidate("user_#{$user->getId()}");
 
         if ($seen_news) $userHandler->setSeenLatestChangelog($user, $lang);
         else $user->setLatestChangelog(null);

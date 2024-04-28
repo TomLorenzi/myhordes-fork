@@ -7,7 +7,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\UniqueConstraint;
 
-#[UniqueConstraint(name: 'activity_id_unique', columns: ['ip', 'domain', 'agent', 'user_id'])]
+#[UniqueConstraint(name: 'activity_id_unique', columns: ['ip', 'domain', 'agent', 'user_id', 'block_begin'])]
 #[ORM\Index(columns: ['block_begin'], name: 'activity_btb_idx')]
 #[ORM\Index(columns: ['block_end'], name: 'activity_bte_idx')]
 #[ORM\Index(columns: ['ip'], name: 'activity_ip_idx')]
