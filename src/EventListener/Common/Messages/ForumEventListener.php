@@ -80,6 +80,10 @@ final class ForumEventListener implements ServiceSubscriberInterface
             // Dispatch WebPush notifications
             $subscribed_user = $s->getUser();
             $lang = $subscribed_user->getLanguage() ?? 'en';
+
+            if (!$this->getService(PermissionHandler::class)->checkEffectivePermissions( $subscribed_user, $event->post->getThread()->getForum(), ForumUsagePermissions::PermissionReadThreads ))
+                continue;
+
             foreach ( $subscribed_user->getNotificationSubscriptionsFor(NotificationSubscriptionType::WebPush) as $subscription )
                 $this->getService(MessageBusInterface::class)->dispatch(
                     new WebPushMessage($subscription,
