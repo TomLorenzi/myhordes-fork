@@ -41,6 +41,7 @@ class AttackScheduleRepository extends ServiceEntityRepository
         try {
             return $this->createQueryBuilder('a')
                 ->andWhere('a.completed = :val')->setParameter('val', false)
+                ->andWhere('a.startedAt IS NULL')
                 ->orderBy('a.timestamp', 'ASC')
                 ->setMaxResults(1)
                 ->getQuery()
