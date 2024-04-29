@@ -118,8 +118,6 @@
         <div class="cell rw-12 zone-beyond time-{{ hour }} {% if conf.isNightTime %}night-{% endif %}{% if zone.x == 0 and zone.y == 0 %}city{% elseif zone.prototype and zone.prototype.id > 0 %}oldruins{% else %}outerworld{% endif %}{% if zone.x == 0 and zone.y == 0 and zone.town.door == 1 %}-open{% endif %}"></div>
     </div>
 
-    {% cache zone_cache_key ~ "_html" ttl(60) tags(zone_cache_tags) %}
-
     <div class="row">
         <div class="cell rw-12">
             <div class="{% if not zone.prototype %}ambiant {% endif %}small ambiant-zone-desc">
@@ -833,14 +831,12 @@
             </div>
         {% endif %}
     </div>
-    {% endcache %}
 {% endblock %}
 {% block js %}
-    {% set zone_cache_key = "twig_cache_desert_#{citizen.id}_zone_#{citizen.zone.x}_#{citizen.zone.y}" %}
-    {% set zone_cache_tags = ['daily',"town_#{citizen.town.id}","town_#{citizen.town.id}_zones","town_#{citizen.town.id}_zones_#{citizen.zone.x}_#{citizen.zone.y}"] %}
+    {% set zone_cache_key = 'twig_cache_desert_#' ~ citizen.id ~ '_zone_' ~ citizen.zone.x ~ '_' ~ citizen.zone.y %}
+    {% set zone_cache_tags = ['daily','user_#' ~ citizen.user.id,'town_#' ~ citizen.town.id,'town_#' ~ citizen.town.id ~ '_zones','town_#' ~ citizen.town.id ~ '_zones_#' ~ citizen.zone.x ~ '_' ~ citizen.zone.y] %}
 
     {{ parent() }}
-    {% cache zone_cache_key ~ "_js" ttl(60) tags(zone_cache_tags) %}
     <script>
         {% embed "scripts/actions.js.twig" %}{% endembed %};
 
@@ -1081,5 +1077,4 @@
             });
         {% endif %}
     </script>
-    {% endcache %}
 {% endblock %}
