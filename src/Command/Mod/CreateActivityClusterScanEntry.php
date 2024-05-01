@@ -153,6 +153,7 @@ class CreateActivityClusterScanEntry extends Command
             ->setAverageOverlap( $individual_overlap )
             ->setOverlappingUsers( $overlapping_users )
             ->setOverlappingUA( (count(array_intersect( $owner_ua, $foreign_ua )) + count(array_intersect( $foreign_ua, $owner_ua ))) / (count($owner_ua) + count($foreign_ua)) )
+            ->setOutOfClusterBlocks( $ooc_overlapping_blocks )
             ->setLastSeen( new DateTime() );
 
         $this->entityManager->persist($entry);

@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Annotations\AdminLogProfile;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AccountRestriction;
+use App\Entity\ActivityCluster;
 use App\Entity\Award;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
@@ -223,6 +224,26 @@ class AdminUserController extends AdminActionController
         $report = $as->createMultiAccountReport();
         return $this->render( 'ajax/admin/users/multi_index.html.twig', $this->addDefaultTwigArgs("multi_list", [
             'ma_report' => $report
+        ]));
+    }
+
+    /**
+     * @param AntiCheatService $as
+     * @return Response
+     */
+    #[Route(path: 'jx/admin/users/multis_ac', name: 'admin_users_multi_ac')]
+    public function users_multi_ac(): Response
+    {
+        $clusters = $this->entity_manager->getRepository(ActivityCluster::class)
+            ->matching( Criteria::create()->andWhere(Criteria::expr()->gt( 'lastSeen', (new \DateTime())->modify('-7days today') )) )
+            ->getValues();
+
+        usort($clusters, fn(ActivityCluster $a, ActivityCluster $b) => $b->getUsers()->count() <=> $a->getUsers()->count() );
+
+        $clusters = array_filter( $clusters, fn(ActivityCluster $a) => $a->getUsers()->filter(fn(User $u) => !$this->user_handler->isRestricted( $u, AccountRestriction::RestrictionGameplay ))->count() > 0 );
+
+        return $this->render( 'ajax/admin/users/multi_index_ac.html.twig', $this->addDefaultTwigArgs("multi_list_ac", [
+            'clusters' => $clusters
         ]));
     }
 

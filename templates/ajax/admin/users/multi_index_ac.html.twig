@@ -1,0 +1,200 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block ajax %}
+    {% embed "ajax/admin/users/footer.html.twig" %}{% endembed %}
+    <div class="row">
+        <div class="cell rw-12">
+            {% embed "ajax/admin/users/listing_tabs.html.twig" %}{% endembed %}
+            <h5>{{'Multi-Account Report'|trans({}, "admin")}}</h5>
+
+            {% macro info(entry, cutoff) %}
+
+                {% macro line(blk, prc, invert, scale = 1) %}
+                    {% set prc_val = invert ? 1 - prc / scale : prc / scale %}
+                    {% if prc_val <= 0.10 %}
+                        {% set color = '#ff4646' %}
+                    {% elseif prc_val < 0.25 %}
+                        {% set color = '#ff6c00' %}
+                    {% elseif prc_val < 0.50 %}
+                        {% set color = '#ff8300' %}
+                    {% elseif prc_val < 0.75 %}
+                        {% set color = '#dfff00' %}
+                    {% elseif prc_val < 1.0 %}
+                        {% set color = '#00ff04' %}
+                    {% else %}
+                        {% set color = '#00f3ff' %}
+                    {% endif %}
+                    <span style="color: {{ color }}" >
+                        {% if blk is null %}
+                            {{ '{prc}%'|trans({prc: (100 * prc)|round}, 'admin') }}
+                        {% else %}
+                            {{ '{hrs} Std. ({prc}%)'|trans({hrs: (blk * 0.5)|round(2), prc: (100 * prc)|round}, 'admin') }}
+                        {% endif %}
+                    </span>
+                {% endmacro %}
+
+                {# @var \App\Entity\ActivityClusterEntry entry #}
+                <div class="row">
+                    <div class="cell rw-12 padded-small">
+                        <div class="small">
+                            {% if cutoff == 7 %}{{ 'Letzte Woche'|trans({},'admin') }}
+                            {% elseif cutoff == 1 %}{{ 'Letzter Tag'|trans({},'admin') }}
+                            {% else %}{{ 'Letzte {n} Tage'|trans({n: cutoff},'admin') }}{% endif %}
+
+                            {% if entry.lastSeen < 'now - 24hours'|to_date %}
+                                <span> | <b>{{ 'Veraltet!'|trans({},'admin') }}</b></span>
+                            {% endif %}
+                        </div>
+                        {% if entry and entry.ownBlocks > 0 %}
+                            <div class="row-flex gap">
+                                <div class="cell">{{ _self.line( entry.totalOverlap, entry.totalOverlap / entry.ownBlocks, true ) }}</div>
+                                <div class="cell"><b> // </b></div>
+                                <div class="cell">{{ _self.line( entry.averageOverlap, entry.averageOverlap / entry.ownBlocks, true ) }}</div>
+                                <div class="cell"><b> // </b></div>
+                                <div class="cell">{{ _self.line( null, entry.overlappingUA, true ) }}</div>
+                                <div class="tooltip">
+                                    <div>
+                                        <b>{{ 'Diese Zeile enthält belastende Informationen über den Spieler.'|trans({},'admin') }}</b>
+                                    </div>
+                                    <div>
+                                        <b>{{ 'Erster Wert:'|trans({},'admin') }}</b>
+                                        <span>{{ 'Dauer und Gesamtanteil der aktiven Phasen, die sich mit min. einem anderen Spieler dieser Gruppe überschneiden. '|trans({},'admin') }}</span>
+                                    </div>
+                                    <div>
+                                        <b>{{ 'Zweiter Wert:'|trans({},'admin') }}</b>
+                                        <span>{{ 'Durchschnittliche Dauer und Gesamtanteil der gemeinsamen aktiven Phasen über alle Spieler der Gruppe.'|trans({},'admin') }}</span>
+                                    </div>
+                                    <div>
+                                        <b>{{ 'Dritter Wert:'|trans({},'admin') }}</b>
+                                        <span>{{ 'Übereinstimmung der von dem Spieler genutzen Endgeräte mit denen des Rests der Gruppe.'|trans({},'admin') }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-flex gap">
+                                <div class="cell">{{ _self.line( entry.outOfClusterBlocks, entry.outOfClusterBlocks / entry.ownBlocks, false, 2 ) }}</div>
+                                <div class="tooltip">
+                                    <div>
+                                        <b>{{ 'Diese Zeile enthält entlastende Informationen über den Spieler.'|trans({},'admin') }}</b>
+                                    </div>
+                                    <div>
+                                        <span>{{ 'Dauer und Verhältnis der aktiven Phasen dieses Spielers in anderen Gruppen, die keinerlei überschneidung mit den anderen Spielern dieser Gruppe haben.'|trans({},'admin') }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        {% else %}
+                            <b>{{ 'Keine Daten'|trans({},'admin') }}</b>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endmacro %}
+
+            {% for cluster in clusters %}
+                <div class="note">
+                    <div class="row-flex gap small">
+                        <div class="cell">
+                            <b>{{ 'Letztes Update'|trans({},'admin') }}</b>
+                            {{ cluster.lastSeen|format_datetime('short','short') }}
+                        </div>
+                        <div class="cell grow-1">
+                            <b>{{ 'Erstellt'|trans({},'admin') }}</b>
+                            {{ cluster.firstSeen|format_datetime('short','short') }}
+                        </div>
+                        <div class="cell">
+                            <span><b>Report-ID </b> {{ cluster.id }}</span>
+                        </div>
+                        <div class="cell">
+                            <b style="color: {{ cluster.isIpv6 ? '#9595f7' : '#ff0000' }}">{{ cluster.isIpv6 ? 'v6' : 'v4' }}</b>
+                            <div class="tooltip help">
+                                {{ 'Reports, die mit "v4" gekennzeichnet sind, neigen dazu Spieler als Multi-Accounts zu kennzeichnen, die sich einen Internetanschluss teilen (z.B. innerhalb derselben Wohnung, Schule, Arbeitsplatz, ...). Mit "v6" gekennzeichnete Reports sind wesentlich besser in der Lage, solche Spieler von echten Multi-Accounts zu trennen.'|trans({},'admin') }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-table">
+                        <div class="row header">
+                            <div class="padded cell rw-3">
+                                <span class="hide-md hide-sm">{{ 'Spieler'|trans({},'admin') }}</span>
+                            </div>
+                            <div class="padded cell rw-5">
+                                <span class="hide-md hide-sm">{{ 'Info'|trans({},'admin') }}</span>
+                            </div>
+                            <div class="padded cell rw-4">
+                                <span class="hide-lg hide-md hide-sm">{{ 'Aktionen'|trans({},'admin') }}</span>
+                            </div>
+                        </div>
+
+                        {% for user in cluster.users %}
+                            <div class="row">
+                                <div class="padded cell rw-3 rw-md-6 rw-sm-12">
+                                    {% include 'ajax/soul/playername.html.twig' with {user: user} only %}<br/>
+                                    <span class="small">
+                                        {% if user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGameplay')) %}
+                                            <span style="font-weight: bold; color: red">{{ user.id }}</span>
+                                        {% else %}
+                                            <span>{{ user.id }}</span>
+                                        {% endif %}
+
+                                        {% if is_granted('ROLE_ADMIN') %}
+                                            <br/>{{ user.email }}
+                                        {% endif %}
+                                    </span>
+                                </div>
+                                <div class="padded cell rw-5 rw-sm-12">
+                                    {{ _self.info( cluster.entryBy(user, 7), 7 ) }}
+                                    {{ _self.info( cluster.entryBy(user, 3), 3 ) }}
+                                    {{ _self.info( cluster.entryBy(user, 1), 1 ) }}
+                                </div>
+                                <div class="padded cell rw-4 rw-md-12">
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                    <div class="row-flex gap">
+                                        <div class="cell">
+                                            <button class="small inline" x-shadow="{{ user.id }}" x-api-endpoint="{{ url('admin_users_account_manage', {action: 'shadow',    id: user.id}) }}"><img alt="x" src="{{ asset('build/images/pictos/r_ban.gif') }}" /> <span class="hide-lg">{{ 'Bann'|trans({},'admin') }}</span></button>
+                                        </div>
+                                        <div class="cell">
+                                            <button class="small inline" x-shadow="{{ cluster.users|map(u=>u.id)|join('|') }}" x-api-endpoint="{{ url('admin_users_account_manage', {action: 'shadow',    id: user.id}) }}"><img alt="x" src="{{ asset('build/images/pictos/r_ban.gif') }}" /> <span class="hide-lg">{{ 'Alle bannen'|trans({},'admin') }}</span></button>
+                                        </div>
+                                        <div class="cell">
+                                            <button class="small inline" x-whitelist="{{ cluster.users|map(u=>u.id)|join('|') }}" x-api-endpoint="{{ url('admin_users_account_manage', {action: 'whitelist', id: user.id}) }}"><img alt="✓" src="{{ asset('build/images/icons/done.png') }}" /> <span class="hide-lg">{{ 'Whitelist'|trans({},'admin') }}</span></button>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        {% if is_granted("ROLE_ADMIN") %}
+        $.html.addEventListenerAll('[x-shadow][x-api-endpoint]', 'click', function(e,elem) {
+            if (confirm("{{ 'Bestätigen?'|trans({},'global')|e('js') }}\nBAN"))
+                $.ajax.easySend( elem.getAttribute('x-api-endpoint'), {param: {
+                            reason: 'Multi Account', ids: elem.getAttribute('x-shadow').split('|'),
+                        }},
+                    function () {
+                        $.ajax.load(null, '{{ path('admin_users_multi_ac') }}', true);
+                    } );
+        });
+        $.html.addEventListenerAll('[x-whitelist][x-api-endpoint]', 'click', function(e,elem) {
+            if (!elem.hasAttribute('x-whitelist-alt') || e.ctrlKey) {
+                const reason = prompt('{{ 'Notiz'|trans({},'admin') }}');
+                if (!reason) return;
+                $.ajax.easySend( elem.getAttribute('x-api-endpoint'), {param: {
+                            reason, ids: elem.getAttribute('x-whitelist').split('|'),
+                        }},
+                    function () {
+                        $.ajax.load(null, '{{ path('admin_users_multi_ac') }}', true);
+                    } );
+            }
+
+        });
+        $.html.addEventListenerAll('[x-whitelist][x-whitelist-alt][x-api-endpoint]', 'click', function(e,elem) {
+            if (!e.ctrlKey) window.open(elem.getAttribute('x-whitelist-alt'),'_blank');
+        });
+        {% endif %}
+    </script>
+{% endblock %}

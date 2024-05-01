@@ -3,6 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\ActivityClusterRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\Criteria;
+use Doctrine\Common\Collections\Order;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\UniqueConstraint;
@@ -30,6 +34,14 @@ class ActivityCluster
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $lastSeen = null;
+
+    #[ORM\OneToMany(mappedBy: 'cluster', targetEntity: 'App\Entity\ActivityClusterEntry', cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY')]
+    private Collection $entries;
+
+    public function __construct()
+    {
+        $this->entries = new ArrayCollection();
+    }
 
     public function getId(): ?Uuid
     {
@@ -82,5 +94,46 @@ class ActivityCluster
         $this->lastSeen = $lastSeen;
 
         return $this;
+    }
+
+    /**
+     * @return Collection<ActivityClusterEntry>
+     */
+    public function getEntries(): Collection {
+        return $this->entries;
+    }
+
+    /**
+     * @return Collection<ActivityClusterEntry>
+     */
+    public function getEntriesBy(?User $user = null, ?int $cutoff = null): Collection {
+        if ($user === null && $cutoff === null) return $this->getEntries();
+
+        $criteria = Criteria::create();
+        if ($user !== null) $criteria->andWhere( Criteria::expr()->eq('user', $user) );
+        if ($user !== null) $criteria->andWhere( Criteria::expr()->eq('cutoff', $cutoff) );
+        return $this->entries->matching($criteria);
+    }
+
+    /**
+     * @param User $user
+     * @param int $cutoff
+     * @return ?ActivityClusterEntry
+     */
+    public function getEntryBy(User $user, int $cutoff): ?ActivityClusterEntry {
+        return $this->getEntriesBy($user, $cutoff)->first() ?: null;
+    }
+
+    /**
+     * @return Collection<User>
+     */
+    public function getUsers(): Collection {
+        $users = new ArrayCollection();
+        $map = $this->getEntries()
+            ->map( fn(ActivityClusterEntry $entry) => $entry->getUser() );
+        foreach ($map as $u)
+            if (!$users->contains($u)) $users->add($u);
+
+        return $users->matching( Criteria::create()->orderBy(['id' => Order::Ascending]) );
     }
 }

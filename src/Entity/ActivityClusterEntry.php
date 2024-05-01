@@ -54,6 +54,9 @@ class ActivityClusterEntry
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $lastSeen = null;
 
+    #[ORM\Column]
+    private ?int $outOfClusterBlocks = null;
+
     public function getId(): ?Uuid
     {
         return $this->id;
@@ -187,6 +190,18 @@ class ActivityClusterEntry
     public function setLastSeen(\DateTimeInterface $lastSeen): static
     {
         $this->lastSeen = $lastSeen;
+
+        return $this;
+    }
+
+    public function getOutOfClusterBlocks(): ?int
+    {
+        return $this->outOfClusterBlocks;
+    }
+
+    public function setOutOfClusterBlocks(int $outOfClusterBlocks): static
+    {
+        $this->outOfClusterBlocks = $outOfClusterBlocks;
 
         return $this;
     }
