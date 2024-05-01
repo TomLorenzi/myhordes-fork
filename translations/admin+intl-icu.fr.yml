@@ -663,7 +663,7 @@ Erstellt: Erstellt
 'Durchschnittliche Dauer und Gesamtanteil der gemeinsamen aktiven Phasen über alle Spieler der Gruppe.': 'Durée moyenne et proportion totale de phases actives partagées entre tous les joueurs du groupe.'
 'Dritter Wert:': 'Troisième valeur :'
 'Übereinstimmung der von dem Spieler genutzen Endgeräte mit denen des Rests der Gruppe.': 'Cohérence des appareils utilisés par le joueur avec ceux du reste du groupe.'
-'Diese Zeile enthält entlastende Informationen über den Spieler.': 'Diese Zeile enthält entlastende Informationen über den Spieler.'
+'Diese Zeile enthält entlastende Informationen über den Spieler.': 'Cette ligne contient des informations à décharge sur le joueur. Si la valeur indiquée ici est élevée, cela signifie qu''il est moins probable qu''il s''agisse d''un multicompte.'
 'Dauer und Verhältnis der aktiven Phasen dieses Spielers in anderen Gruppen, die keinerlei überschneidung mit den anderen Spielern dieser Gruppe haben.': 'Durée et ratio des phases actives de ce joueur dans d''autres groupes qui n''ont aucun lien avec les autres joueurs de ce groupe.'
 'Keine Daten': 'Pas de données'
 'Multi-Account Report V2': 'Rapport multi-comptes V2'
