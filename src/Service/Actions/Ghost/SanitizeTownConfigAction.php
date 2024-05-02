@@ -425,7 +425,7 @@ class SanitizeTownConfigAction
                     $conf['times']['exploration']['normal'] = '+3min';
                     $conf['times']['exploration']['collec'] = '+5min30sec';
                 case 'normal':
-                    $tc = $this->conf->getTownConfigurationByType( TownClass::DEFAULT )->getData();
+                    $tc = $this->conf->getTownConfigurationByType( $base )->getData();
                     $conf['times']['exploration']['normal'] = $tc['times']['exploration']['normal'] ?? '+5min';
                     $conf['times']['exploration']['collec'] = $tc['times']['exploration']['collec'] ?? '+7min30sec';
                     break;
