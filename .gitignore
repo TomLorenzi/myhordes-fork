@@ -34,7 +34,9 @@ yarn-error.log
 # Composer
 composer.phar
 composer.dist.json
-# composer.lock
+
+# Migrations
+src/Migrations/*.php
 
 # Local webpack config
 webpack.config.local.js
@@ -49,13 +51,13 @@ rector.php
 # Dynamic templates
 templates/build/*
 
+# PHPStan
+phpstan.neon
+
 # Misc
 .DS_Store
 .vscode/
 .idea/
-
-# PHPStan
-phpstan.neon
-
 *:Zone.Identifier
 .vslist
+
