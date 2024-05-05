@@ -203,7 +203,11 @@ const ControlButton = ({fa = null, img = null, label = null, control = null, han
         {children && <dialog ref={dialog}>
             <div className="modal-title">{dialogTitle ?? label}</div>
             <form method="dialog" ref={form} onKeyDown={e => {
-                if (e.key === "enter") confirmDialog();
+                if (e.key.toLowerCase() === "enter") {
+                    confirmDialog();
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
             }} onSubmit={() => confirmDialog()}>
                 <div className="modal-content">{children}</div>
                 <div className="modal-actions">
