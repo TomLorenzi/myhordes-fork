@@ -14,6 +14,7 @@ use App\Entity\OfficialGroup;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Response\AjaxResponse;
+use App\Service\Actions\Security\GenerateMercureToken;
 use App\Service\Actions\Security\RegisterNewTokenAction;
 use App\Service\AdminHandler;
 use App\Service\CitizenHandler;
@@ -45,6 +46,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\EventListener\AbstractSessionListener;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\HttpKernel\Log\DebugLoggerInterface;
+use Symfony\Component\Mercure\HubRegistry;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Cache\ItemInterface;
@@ -103,7 +105,7 @@ class WebController extends CustomAbstractController
         return null;
     }
 
-    private function render_web_framework(Request $request, string $ajax_landing, $allow_attract_page = false): Response {
+    private function render_web_framework(Request $request, GenerateMercureToken $mercure, string $ajax_landing, $allow_attract_page = false): Response {
         try {
             $version = $this->version_manager->getVersion();
             $is_debug_version =
@@ -122,8 +124,11 @@ class WebController extends CustomAbstractController
         $supporters = self::$supporters;
         shuffle($supporters);
 
+        $mercure_token = ($mercure)();
+
         return $this->render( ($this->getUser() || !$allow_attract_page) ? 'web/framework.html.twig' : 'web/attract.html.twig', [
             'ticket' => ($this->tokenizer)($request),
+            'mercure_token' => $mercure_token,
             'version' => $version, 'debug' => $is_debug_version, 'env' => $this->kernel->getEnvironment(),
             'devs' => array_map(function($dev) {
                 $dev[3] = match ($dev[1]) {
@@ -194,9 +199,9 @@ class WebController extends CustomAbstractController
      * @return Response
      */
     #[Route(path: '/', name: 'home')]
-    public function framework(Request $r): Response
+    public function framework(Request $r, GenerateMercureToken $mercure): Response
     {
-        return $this->handleDomainRedirection() ?? $this->render_web_framework($r, $this->generateUrl('initial_landing'), true);
+        return $this->handleDomainRedirection() ?? $this->render_web_framework($r, $mercure, $this->generateUrl('initial_landing'), true);
     }
 
 
@@ -253,11 +258,11 @@ class WebController extends CustomAbstractController
      * @return Response
      */
     #[Route(path: '/ref/{name}')]
-    public function refer_incoming(Request $rq, string $name, SessionInterface $s): Response
+    public function refer_incoming(Request $rq, string $name, SessionInterface $s, GenerateMercureToken $mercure): Response
     {
         if ($r = $this->handleDomainRedirection()) return $r;
         $s->set('refer', $name);
-        return $this->render_web_framework($rq, $this->generateUrl('public_register'));
+        return $this->render_web_framework($rq, $mercure, $this->generateUrl('public_register'));
     }
 
     /**
@@ -418,7 +423,7 @@ class WebController extends CustomAbstractController
      * @return Response
      */
     #[Route(path: '/twinoid', name: 'twinoid_auth_endpoint')]
-    public function framework_import(Request $r, ConfMaster $conf): Response
+    public function framework_import(Request $r, ConfMaster $conf, GenerateMercureToken $mercure): Response
     {
         $request = Request::createFromGlobals();
         $state = explode('#',$request->query->get('state'));
@@ -437,8 +442,8 @@ class WebController extends CustomAbstractController
         }
 
         switch ($state) {
-            case 'import': return $this->render_web_framework($r, $this->generateUrl('soul_import', ['code' => $code]));
-            case 'etwin-login': return $this->render_web_framework($r, $this->generateUrl('etwin_login', ['code' => $code]));
+            case 'import': return $this->render_web_framework($r, $mercure, $this->generateUrl('soul_import', ['code' => $code]));
+            case 'etwin-login': return $this->render_web_framework($r, $mercure, $this->generateUrl('etwin_login', ['code' => $code]));
             default: return new Response('Error: Invalid state, can\'t redirect!');
         }
 
@@ -451,7 +456,7 @@ class WebController extends CustomAbstractController
      * @return Response
      */
     #[Route(path: '/jx/{ajax}', requirements: ['ajax' => '.+'], condition: '!request.isXmlHttpRequest()')]
-    public function loader(string $ajax, Request $q): Response
+    public function loader(string $ajax, Request $q, GenerateMercureToken $mercure): Response
     {
         if ($q->query->count() > 0) {
             $bag = [];
@@ -476,7 +481,7 @@ class WebController extends CustomAbstractController
             return false;
         };
 
-        return $this->handleDomainRedirection() ?? $this->render_web_framework($q, $q->getBasePath() . "/jx/{$ajax}{$bag}", $whitelisted( $ajax ));
+        return $this->handleDomainRedirection() ?? $this->render_web_framework($q, $mercure, $q->getBasePath() . "/jx/{$ajax}{$bag}", $whitelisted( $ajax ));
     }
 
     private function check_cache(string $name): ?Response {

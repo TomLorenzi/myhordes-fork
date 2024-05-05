@@ -30,7 +30,7 @@ class MercureTestCommand extends Command
         $this
             ->setHelp('Debug Mercure.')
 
-            ->addArgument('topic', InputArgument::OPTIONAL, 'The topic', 'https://myhordes/hello')
+            ->addArgument('topic', InputArgument::OPTIONAL, 'The topic', 'myhordes://live/concerns/authorized')
         ;
     }
 

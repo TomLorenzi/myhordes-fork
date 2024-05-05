@@ -16,6 +16,10 @@ export function serviceWorkerCall(request: string, args: object = {}): Promise<a
     })
 }
 
+function html(): HTMLElement {
+    return ((document.getRootNode() as Document).firstElementChild as HTMLElement);
+}
+
 async function initLive() {
     require('string.prototype.matchall').shim();
     await initServiceWorker();
@@ -33,7 +37,7 @@ async function initServiceWorker(): Promise<boolean> {
         return false;
     }
 
-    const serviceLoaderFile = ((document.getRootNode() as Document).firstElementChild as HTMLElement)?.dataset?.serviceWorker as string;
+    const serviceLoaderFile = html()?.dataset?.serviceWorker as string;
     if (!serviceLoaderFile) {
         Console.warn('Service worker file not defined.')
         return false;
@@ -60,10 +64,28 @@ async function initServiceWorker(): Promise<boolean> {
                     window.transferTable[id] = null;
                 } else Console.warn(`Did not find callback "${id}" in callback table:`, window.transferTable)
                 break;
+
+            case 'mercure.incoming':
+                html().dispatchEvent(new CustomEvent('mercureMessage', {bubbles: true, cancelable: false, detail: JSON.parse(e.data.payload)}));
+                break;
+
+            case 'mercure.connection_state':
+                const state = JSON.parse(e.data.payload);
+
+                html().dispatchEvent(new CustomEvent('mercureState', {bubbles: true, cancelable: false, detail: state}));
+                const mercure = html()?.dataset?.mercureAuth as string;
+                if (!state.auth && mercure) serviceWorkerCall('mercure.authorize', {token: JSON.parse(mercure)});
+                break;
         }
     })
 
     worker.active.postMessage({request: 'ping'});
+
+    const mercure = html()?.dataset?.mercureAuth as string;
+    if (mercure) {
+        serviceWorkerCall('mercure.authorize', {token: JSON.parse(mercure)});
+    }
+
 }
 
 export function init () {

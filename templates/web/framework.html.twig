@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<html prefix="og: http://ogp.me/ns#" lang="{{ app.request.locale|e('html_attr') }}" class="lang-base-{{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}" x-ajax-landing="{{ ajax_landing }}" data-ticket="{{ ticket }}" data-service-worker="{{ absolute_url(asset('service/service.js', 'service-package')) }}" data-vapid-key="{{ vapid_public }}">
+<html prefix="og: http://ogp.me/ns#" lang="{{ app.request.locale|e('html_attr') }}" class="lang-base-{{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}" x-ajax-landing="{{ ajax_landing }}"
+      data-ticket="{{ ticket }}"
+      data-service-worker="{{ absolute_url(asset('service/service.js', 'service-package')) }}"
+      data-vapid-key="{{ vapid_public }}"
+      data-mercure-auth="{{ mercure_token|json_encode }}"
+>
 <head>
     {% block html_head %}
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -203,20 +208,6 @@
                 }
             });
         })
-
-        const h1 = new EventSource("{{ mercure('https://myhordes/hello', { subscribe: 'https://myhordes/hello' })|e('js') }}", {
-            withCredentials: true
-        });
-        h1.onmessage = event => {
-            console.log('FROM H1', JSON.parse(event.data));
-        }
-
-        const h2 = new EventSource("{{ mercure('https://myhordes/hello', { subscribe: 'https://myhordes/no' })|e('js') }}", {
-            withCredentials: true
-        });
-        h2.onmessage = event => {
-            console.log('FROM H2', JSON.parse(event.data));
-        }
     })();
 </script>
 </html>

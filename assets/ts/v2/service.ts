@@ -1,65 +1,57 @@
 import Console from "./debug";
+import MercureServiceModule from "./service-modules/mercure";
+import ServiceModule from "./service-modules/common";
+import PushServiceModule from "./service-modules/push";
+import PingServiceModule from "./service-modules/ping";
 
 const scope = (self as unknown as ServiceWorkerGlobalScope);
 
-let pushSubscriptionOptions: PushSubscriptionOptionsInit = {
-    applicationServerKey: null,
-    userVisibleOnly: true
-};
-let pushSubscription: PushSubscription = null;
+// Kept so previous versions of the service worker can transition their data
+let pushSubscriptionOptions: any = null;
+let pushSubscription: any = null;
 
-function respond( event: ExtendableMessageEvent, payload: any ) {
-    Console.log('Responding to', event, 'with', payload)
-    event.source.postMessage({
-        request: 'response',
-        to: event.data.to,
-        payload: JSON.stringify(payload)
-    });
+type ModuleRepository = {
+    ping?: PingServiceModule|null
+    push?: PushServiceModule|null
+    mercure?: MercureServiceModule|null
+} | {
+    [modname: string]: ServiceModule
 }
+
+let modules: ModuleRepository = {};
+
+let event = (e: string, d: any = null) => Object.values(modules).forEach( m => m.event(e, d))
+
+scope.addEventListener('install', () => {
+    const f = () => scope;
+
+    // Installer
+    Console.debug('before', modules);
+    modules.ping = modules.ping ?? new PingServiceModule(f);
+    modules.push = modules.push ?? new PushServiceModule(f, pushSubscription, pushSubscriptionOptions);
+    modules.mercure = modules.mercure ?? new MercureServiceModule(f);
+    Console.debug('after', modules);
+
+    // Clear old push subscription data
+    pushSubscription = null;
+    pushSubscriptionOptions = null;
+
+    event('install');
+})
 
 scope.addEventListener('activate', () => {
     // Activation hook
-
-    // If the user has granted us Notification permissions, subscribe for push messages
-    if (Notification.permission === 'granted' && pushSubscriptionOptions.applicationServerKey)
-        scope.registration.pushManager.subscribe(pushSubscriptionOptions).then(s => { pushSubscription = s })
-})
-
-scope.addEventListener('push', (e) => {
-    const data = e.data?.json() ?? null;
-    if (data?.title && data?.options?.body) {
-        // Do not display test notifications
-        if (!data?.options?.data?.test) scope.registration.showNotification(data.title, data.options);
-    }
+    event('activate');
 })
 
 scope.addEventListener('message', e => {
-    Console.log('From client', e.data);
-    switch (e.data.request) {
-        // Respond to "ping" with "pong"
-        case 'ping':
-            e.source.postMessage({request: 'pong'});
-            break;
+    Console.log('From client', e.data, e.source);
 
-        // Respond with current push subscription (if available)
-        case 'pushSubscription':
-            // There can be no subscription without notification permissions
-            if (Notification.permission !== 'granted') respond(e, null);
-            // If we have already subscribed in the past, return existing subscription
-            else if (pushSubscription) respond(e, pushSubscription);
-            // Without a key, we cannot activate a new subscription
-            else if (!e.data.key) respond(e, null);
-            // Otherwise fetch a new subscription
-            else {
-                pushSubscriptionOptions.applicationServerKey = e.data.key;
-                scope.registration.pushManager.subscribe(pushSubscriptionOptions)
-                    .then(s => respond(e, pushSubscription = s))
-                    .catch(error => {
-                        Console.error(error);
-                        respond(e, null)
-                    });
-            }
-            break;
-    }
+    const request = (e.data?.request ?? '_none').split('.');
+    const handler = modules[ request[0] ] ?? null;
+
+    if (!handler) Console.warn(`No handler for ${request[0]} (from ${e.data?.request})`, e);
+    else if (request.length === 1) handler.handle( e );
+    else handler.handleMessage( e, request.slice(1).join('.') );
 });
 
