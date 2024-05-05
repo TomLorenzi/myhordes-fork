@@ -481,7 +481,7 @@ class AdminUserController extends AdminActionController
 
         if (in_array($action, [
                 'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset', 'twin_main_full_import', 'delete', 'rename',
-                'shadow', 'whitelist', 'unwhitelist', 'link', 'unlink', 'etwin_reset', 'initiate_pw_reset', 'name_manual', 'name_auto', 'herodays',
+                'shadow', 'whitelist', 'unwhitelist', 'link', 'unlink', 'etwin_reset', 'initiate_pw_reset', 'herodays',
                 'team', 'enforce_pw_reset', 'change_mail', 'ref_rename', 'ref_disable', 'ref_enable', 'set_sponsor', 'mh_unreset', 'forget_name_history',
             ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
