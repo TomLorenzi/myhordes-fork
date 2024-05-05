@@ -1481,7 +1481,12 @@ class SoulController extends CustomAbstractController
                     new Constraints\Blank( ['message' => 'a' ] )
                 ])
             ],
-            'contact' => [ new Constraints\Email( ['message' => 'v']) ],
+            'contact' => [
+                new Constraints\AtLeastOneOf([
+                    new Constraints\Url( ['relativeProtocol' => false, 'protocols' => ['http', 'https'], 'message' => 'a' ] ),
+                    new Constraints\Email( ['message' => 'v'])
+                ])
+            ],
             'sk' => [  ]
         ]) );
 
