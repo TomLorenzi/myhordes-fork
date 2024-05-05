@@ -212,8 +212,10 @@ class PublicController extends CustomAbstractController
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
         $pending = $this->entity_manager->getRepository(UserPendingValidation::class)->findOneByUserAndType($this->getUser(), UserPendingValidation::EMailValidation);
-        if (!$pending)
-            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+        if (!$pending) {
+            $factory->announceValidationToken( $factory->ensureValidation( $this->getUser(), UserPendingValidation::EMailValidation ) );
+            return AjaxResponse::success();
+        }
 
         if (($pending->getTime()->getTimestamp() + 300) > time() )
             return AjaxResponse::error(UserFactory::ErrorTooManyMails);

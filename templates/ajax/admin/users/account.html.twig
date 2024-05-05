@@ -415,24 +415,22 @@
                         {% endif %}
 
                         {% if is_granted("ROLE_ADMIN") %}
-                            {% if user.eternalID is null %}
-                                <div class="cell padded rw-3 rw-sm-12 note note-lightest">
-                                    {{ 'Validierungstokens'|trans({}, 'admin') }}
-                                </div>
-                                <div class="cell padded rw-9 rw-sm-12">
-                                    {% if validations|length == 0 %}{{ 'Keine'|trans({}, 'admin') }}{% endif %}
-                                    {% for token in validations %}
-                                        {# @var token \App\Entity\UserPendingValidation #}
-                                        <div>{{ token.pkey }}
-                                            ({% if     token.type ==  constant('App\\Entity\\UserPendingValidation::EMailValidation') %} EMailValidation
-                                        {% elseif token.type ==  constant('App\\Entity\\UserPendingValidation::ResetValidation') %} ResetValidation
-                                        {% elseif token.type ==  constant('App\\Entity\\UserPendingValidation::ChangeEmailValidation') %} ChangeEmailValidation
-                                        {% else                                                                                  %} {{ token.type }} {% endif %})
-                                            <div x-delete-token="{{ token.id }}" class="button small inline"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></div>
-                                        </div>
-                                    {% endfor %}
-                                </div>
-                            {% endif %}
+                            <div class="cell padded rw-3 rw-sm-12 note note-lightest">
+                                {{ 'Validierungstokens'|trans({}, 'admin') }}
+                            </div>
+                            <div class="cell padded rw-9 rw-sm-12">
+                                {% if validations|length == 0 %}{{ 'Keine'|trans({}, 'admin') }}{% endif %}
+                                {% for token in validations %}
+                                    {# @var token \App\Entity\UserPendingValidation #}
+                                    <div>{{ token.pkey }}
+                                        ({% if     token.type ==  constant('App\\Entity\\UserPendingValidation::EMailValidation') %} EMailValidation
+                                    {% elseif token.type ==  constant('App\\Entity\\UserPendingValidation::ResetValidation') %} ResetValidation
+                                    {% elseif token.type ==  constant('App\\Entity\\UserPendingValidation::ChangeEmailValidation') %} ChangeEmailValidation
+                                    {% else                                                                                  %} {{ token.type }} {% endif %})
+                                        <div x-delete-token="{{ token.id }}" class="button small inline"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></div>
+                                    </div>
+                                {% endfor %}
+                            </div>
 
                             <div class="cell padded rw-3 rw-sm-12 note note-lightest">
                                 {{ 'Multi-Account Whitelist'|trans({}, 'admin') }}
