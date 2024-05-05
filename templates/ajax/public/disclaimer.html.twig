@@ -83,10 +83,13 @@
                         <div class="cell padded rw-4 rw-md-12 note note-lightest">
                             <label for="app_email">{{ 'Kontakt'|trans({},'admin') }}</label>
                             <span class="float-right"><a class="help-button float-right">{{ 'Hilfe'|trans({},'global') }}
-                            <div class="tooltip help">{{ 'Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.'|trans({},'global') }}</div>
+                            <div class="tooltip help">
+                                {{ 'Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.'|trans({},'global') }}<br/>
+                                {{ 'Alternativ zu einer E-Mail Adresse kannst du hier auch eine URL eintragen, auf der Spieler eine Kontaktmöglichkeit zu dir finden.'|trans({},'global') }}<br/>
+                            </div>
                         </a></span>
                         </div>
-                        <div class="cell padded rw-8 rw-md-12"><input id="app_email" type="text" value="{{ ex.contact }}" /></div>
+                        <div class="cell padded rw-8 rw-md-12"><input id="app_email" type="text" value="{{ ex.contact }}" maxlength="190" /></div>
                     </div>
 
                     <div class="row">
