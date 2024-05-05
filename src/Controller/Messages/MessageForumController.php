@@ -58,7 +58,7 @@ class MessageForumController extends MessageController
     protected const ThreadsPerPage = 20;
     protected const PostsPerPage = 10;
 
-    private function default_forum_renderer(int $fid, int $tid, int $pid, int $post_page, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch): Response {
+    private function default_forum_renderer(int $fid, int $tid, int $pid, int $post_page, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch, Locksmith $locksmith): Response {
         $user = $this->getUser();
 
         /** @var Forum $forum */
@@ -78,14 +78,19 @@ class MessageForumController extends MessageController
         // Set the activity status
         if ($forum->getTown() && $user->getActiveCitizen() && $user->getActiveCitizen()->getTown() === $forum->getTown()) {
             $c = $user->getActiveCitizen();
-            if ($c) {
-                $ch->inflictStatus($c, 'tg_chk_forum');
-                $ch->inflictStatus($c, 'tg_chk_forum_day');
-                $c->setLastActionTimestamp(time());
+            $paranoid = $c ? $ch->hasStatusEffect($c,'tg_paranoid') : false;
+
+            if ($lock = $locksmith->getAcquiredLock("form_read_state_{$user->getId()}")) {
+                if ($c) {
+                    $ch->inflictStatus($c, 'tg_chk_forum');
+                    $ch->inflictStatus($c, 'tg_chk_forum_day');
+                    $c->setLastActionTimestamp(time());
+                }
+                $em->persist( $c );
+                $em->flush();
+                $lock->release();
             }
-            $paranoid = $ch->hasStatusEffect($c,'tg_paranoid');
-            $em->persist( $c );
-            $em->flush();
+
         } else $paranoid = false;
 
 
@@ -188,9 +193,9 @@ class MessageForumController extends MessageController
      * @return Response
      */
     #[Route(path: 'jx/forum/{id<\d+>}', name: 'forum_view')]
-    public function forum(int $id, EntityManagerInterface $em, JSONRequestParser $p, CitizenHandler $ch): Response
+    public function forum(int $id, EntityManagerInterface $em, JSONRequestParser $p, CitizenHandler $ch, Locksmith $locksmith): Response
     {
-        return $this->default_forum_renderer($id,-1,-1, -1, $em, $p, $ch);
+        return $this->default_forum_renderer($id,-1,-1, -1, $em, $p, $ch, $locksmith);
     }
 
     /**
@@ -203,9 +208,9 @@ class MessageForumController extends MessageController
      * @return Response
      */
     #[Route(path: 'jx/forum/{fid<\d+>}/{tid<\d+>}/{page<\d+>}', name: 'forum_thread_view')]
-    public function forum_thread(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $p, CitizenHandler $ch, int $page = -1): Response
+    public function forum_thread(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $p, CitizenHandler $ch, Locksmith $locksmith, int $page = -1): Response
     {
-        return $this->default_forum_renderer($fid,$tid,-1, $page, $em,$p,$ch);
+        return $this->default_forum_renderer($fid,$tid,-1, $page, $em,$p,$ch, $locksmith);
     }
 
     /**
@@ -216,12 +221,12 @@ class MessageForumController extends MessageController
      * @return Response
      */
     #[Route(path: 'jx/forum/jump/{pid<\d+>}', name: 'forum_jump_view')]
-    public function forum_jump_post(int $pid, EntityManagerInterface $em, JSONRequestParser $p, CitizenHandler $ch): Response
+    public function forum_jump_post(int $pid, EntityManagerInterface $em, JSONRequestParser $p, CitizenHandler $ch, Locksmith $locksmith): Response
     {
         /** @var Post $post */
         $post = $this->entity_manager->getRepository(Post::class)->find($pid);
 
-        return $this->default_forum_renderer($post ? $post->getThread()->getForum()->getId() : -1,$post ? $post->getThread()->getId() : -1,$post ? $pid : -1, -1, $em,$p,$ch);
+        return $this->default_forum_renderer($post ? $post->getThread()->getForum()->getId() : -1,$post ? $post->getThread()->getId() : -1,$post ? $pid : -1, -1, $em,$p,$ch,$locksmith);
     }
 
     /**
