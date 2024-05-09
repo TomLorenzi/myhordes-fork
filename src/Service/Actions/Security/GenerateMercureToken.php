@@ -48,7 +48,7 @@ readonly class GenerateMercureToken
 
             $item->expiresAfter($t ? 3600 : 1)->tag(['mercure',"mercure_{$user->getId()}"]);
 
-            return self::format( $path, $user, $t, 1 );
+            return self::format( $path, $user, $t, $expires->getTimestamp() );
         }) : self::format($path);
     }
 }

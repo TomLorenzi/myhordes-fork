@@ -1,10 +1,15 @@
 import Console from "./debug";
 
 declare global {
-    interface Window { transferTable: Array<any>; }
+    interface Window {
+        transferTable: Array<any>;
+        mhWorker: SharedWorker,
+        mhWorkerIdList: Array<string>
+    }
 }
 
 window.transferTable = window.transferTable || [];
+window.mhWorkerIdList = window.mhWorkerIdList || [];
 
 export function serviceWorkerCall(request: string, args: object = {}): Promise<any> {
     return new Promise<any>((resolve,reject) => {
@@ -16,6 +21,14 @@ export function serviceWorkerCall(request: string, args: object = {}): Promise<a
     })
 }
 
+export function sharedWorkerCall(request: string, args: object = {}): Promise<any> {
+    return new Promise<any>((resolve,reject) => {
+        if (!window.mhWorker) reject(null);
+        window.transferTable.push(resolve);
+        window.mhWorker.port.postMessage( {...args, request, to: `${window.transferTable.length - 1}`} )
+    })
+}
+
 function html(): HTMLElement {
     return ((document.getRootNode() as Document).firstElementChild as HTMLElement);
 }
@@ -23,6 +36,7 @@ function html(): HTMLElement {
 async function initLive() {
     require('string.prototype.matchall').shim();
     await initServiceWorker();
+    await initSharedWorker();
 }
 
 async function initOnceLoaded() {
@@ -64,28 +78,55 @@ async function initServiceWorker(): Promise<boolean> {
                     window.transferTable[id] = null;
                 } else Console.warn(`Did not find callback "${id}" in callback table:`, window.transferTable)
                 break;
-
-            case 'mercure.incoming':
-                html().dispatchEvent(new CustomEvent('mercureMessage', {bubbles: true, cancelable: false, detail: JSON.parse(e.data.payload)}));
-                break;
-
-            case 'mercure.connection_state':
-                const state = JSON.parse(e.data.payload);
-
-                html().dispatchEvent(new CustomEvent('mercureState', {bubbles: true, cancelable: false, detail: state}));
-                const mercure = html()?.dataset?.mercureAuth as string;
-                if (!state.auth && mercure) serviceWorkerCall('mercure.authorize', {token: JSON.parse(mercure)});
-                break;
         }
     })
 
     worker.active.postMessage({request: 'ping'});
+}
 
-    const mercure = html()?.dataset?.mercureAuth as string;
-    if (mercure) {
-        serviceWorkerCall('mercure.authorize', {token: JSON.parse(mercure)});
+async function initSharedWorker(): Promise<boolean> {
+    const sharedLoaderFile = html()?.dataset?.sharedWorker as string;
+    if (!sharedLoaderFile) {
+        Console.warn('Shared worker file not defined.')
+        return false;
     }
 
+    Console.log('shared worker', sharedLoaderFile);
+
+    const mhWorker = new SharedWorker(sharedLoaderFile);
+    mhWorker.port.start();
+    mhWorker.port.addEventListener('message', e => {
+
+        Console.debug('From shared worker', e.data);
+        switch (e.data.request) {
+            case 'worker.id':
+                window.mhWorkerIdList.push( e.data.id );
+                break;
+
+            case 'mercure.incoming':
+                html().dispatchEvent(new CustomEvent('mercureMessage', {bubbles: true, cancelable: false, detail: e.data.payload}));
+                break;
+
+            case 'mercure.connection_state':
+                const state = e.data.payload;
+
+                html().dispatchEvent(new CustomEvent('mercureState', {bubbles: true, cancelable: false, detail: state}));
+                const mercure = html()?.dataset?.mercureAuth as string;
+                if (!state.auth && mercure) sharedWorkerCall('mercure.authorize', {token: JSON.parse(mercure)});
+                break;
+        }
+
+    })
+    window.mhWorker = mhWorker;
+    window.addEventListener('beforeunload', () => {
+        window.mhWorkerIdList.forEach(id => mhWorker.port.postMessage({request: 'worker.disconnect', id}));
+        window.mhWorkerIdList = [];
+    });
+    mhWorker.port.postMessage({request: 'ping'});
+
+    const mercure = html()?.dataset?.mercureAuth as string;
+    if (mercure)
+        sharedWorkerCall('mercure.authorize', {token: JSON.parse(mercure)});
 }
 
 export function init () {

@@ -17,6 +17,8 @@ export default class MercureServiceModule extends ServiceModule{
     private connectionFails = 0;
     private reconnectTimeout = null;
 
+    constructor(p) { super(p); }
+
     private static eventSourceState(e: EventSource|null): string {
         if (!e || e?.readyState === EventSource.CLOSED ) return 'closed';
         else if (e.readyState === EventSource.CONNECTING) return 'connecting';
@@ -47,7 +49,7 @@ export default class MercureServiceModule extends ServiceModule{
         this.pendingEventSource = null;
     }
 
-    private async broadcastState() {
+    private broadcastState() {
         const e = MercureServiceModule.eventSourceState( this.eventSource );
         const p = MercureServiceModule.eventSourceState( this.pendingEventSource );
 
@@ -62,18 +64,18 @@ export default class MercureServiceModule extends ServiceModule{
             else state = 'open';
         }
 
-        return await this.broadcast('mercure.connection_state', {
+        this.broadcast('mercure.connection_state', {
             connected: e === 'open',
             state,
             auth: !!this.auth?.t
         });
     }
 
-    handle(event: ExtendableMessageEvent): void {
+    handle(event: MessageEvent): void {
         Console.warn('MercureServiceModule: Invalid unscoped call.');
     }
 
-    handleMessage(event: ExtendableMessageEvent, message: string): void {
+    handleMessage(event: MessageEvent, message: string): void {
         switch (message) {
             case 'authorize':
                 const auth = event.data.token as MercureAuthorization;
@@ -105,7 +107,7 @@ export default class MercureServiceModule extends ServiceModule{
         const url = new URL(this.auth?.m);
         url.searchParams.append('authorization', this.auth.t);
         url.searchParams.append('topic', '*');
-        return new EventSource(url, { withCredentials: true });
+        return new EventSource(url, { withCredentials: false });
     }
 
     private connect() {

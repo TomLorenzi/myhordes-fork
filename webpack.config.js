@@ -4,13 +4,10 @@ const envPlugin = new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
 });
 
-const fe_config = require('./webpack.fe.config');
-const service_config = require('./webpack.service.config');
-
-fe_config.plugins.push( envPlugin );
-service_config.plugins.push( envPlugin );
-
-module.exports = [
-    fe_config,
-    service_config
+const configs = [
+    require('./webpack.fe.config'),
+    require('./webpack.service.config'),
+    require('./webpack.shared.config')
 ];
+configs.forEach( c => c.plugins.push(envPlugin) );
+module.exports = configs;

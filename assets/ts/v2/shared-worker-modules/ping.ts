@@ -3,12 +3,15 @@ import Console from "../debug";
 
 
 export default class PingServiceModule extends ServiceModule {
-    handle(event: ExtendableMessageEvent): void {
+
+    constructor(p) { super(p); }
+
+    handle(event: MessageEvent): void {
         Console.info('Got ping.', event);
-        event.source.postMessage({request: 'pong'});
+        event.ports.forEach(p => p.postMessage({request: 'pong'}));
     }
 
-    handleMessage(event: ExtendableMessageEvent, message: string): void {
+    handleMessage(event: MessageEvent, message: string): void {
         Console.warn('PingServiceModule: Invalid scoped call.', message, event);
     }
 
