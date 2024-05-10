@@ -49,7 +49,7 @@ export default class MercureServiceModule extends ServiceModule{
         this.pendingEventSource = null;
     }
 
-    private broadcastState() {
+    private renderState(): object {
         const e = MercureServiceModule.eventSourceState( this.eventSource );
         const p = MercureServiceModule.eventSourceState( this.pendingEventSource );
 
@@ -64,11 +64,15 @@ export default class MercureServiceModule extends ServiceModule{
             else state = 'open';
         }
 
-        this.broadcast('mercure.connection_state', {
+        return {
             connected: e === 'open',
             state,
             auth: !!this.auth?.t
-        });
+        };
+    }
+
+    private broadcastState() {
+        this.broadcast('mercure.connection_state', this.renderState());
     }
 
     handle(event: MessageEvent): void {
@@ -98,6 +102,11 @@ export default class MercureServiceModule extends ServiceModule{
                 } else if (MercureServiceModule.eventSourceState(this.eventSource) === 'closed' && !this.reconnectTimeout)
                     this.connect();
                 else Console.debug('Keeping connection');
+                break;
+            case 'state':
+                this.respond(event, this.renderState());
+                break;
+
         }
     }
 

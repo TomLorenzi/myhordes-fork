@@ -61,8 +61,8 @@ scope.addEventListener('connect', client => {
 });
 
 (() => {
-    const f = (except: Array<String> = []) => ports
-        .filter(p => !except.includes(p.id))
+    const f = (except: Array<String> = [], only: Array<String> = null) => ports
+        .filter(p => only === null ? !except.includes(p.id) : only.includes(p.id))
         .map(p => p.port);
 
     // Installer

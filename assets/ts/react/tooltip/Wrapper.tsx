@@ -126,6 +126,11 @@ const TooltipImplementation = (
                         } else tooltip.current.style.left = (e.clientX - tooltip.current.clientWidth - 50) + 'px';
 
                     } else tooltip.current.style.left = e.clientX + 'px';
+
+                    // Make sure the tooltip does not exit the screen on the bottom
+                    // If it does, attach it above the cursor instead of below
+                    if (e.clientY + tooltip.current.clientHeight + 25 > window.innerHeight)
+                        tooltip.current.style.top  = e.clientY - 25 - tooltip.current.clientHeight - getOffset(tooltip.current) + 'px';
                 }
             }
         }

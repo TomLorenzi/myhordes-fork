@@ -138,7 +138,13 @@
                         <a href="{{ url('legal_doc_default', {document: 'imprint'}) }}">{{ 'Impressum'|trans({}, 'global') }}</a>
                     </div>
                 </div>
-
+            </div>
+        </div>
+        <div class="row">
+            <div class="padded cell rw-6">
+                STATE
+            </div>
+            <div class="padded cell rw-6">
                 <div class="v">
                     {% include "web/version_info.html.twig" with {debug, version} only %}
                 </div>

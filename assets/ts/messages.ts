@@ -1,5 +1,5 @@
 import {Global} from "./defaults";
-import {broadcast} from "./v2/init";
+import {broadcast, html} from "./v2/init";
 
 interface callbackTemplate<T extends payload> { (T, bool):void }
 
@@ -175,24 +175,25 @@ export default class MessageAPI {
     private last_ping: PayloadPing = null;
 
     public constructor() {
-        const html = ((document.getRootNode() as Document).firstElementChild as HTMLElement);
-        html
+        const node = html();
+        node
             .addEventListener('mercureMessage', e => {
                 if (e.detail?.message === 'domains.pm.new') {
                     if (!this.initialized()) return;
 
-                    if (e.detail?.language && e.detail?.language !== html.dataset.language) return;
+                    if (e.detail?.language && e.detail?.language !== node.dataset.language) return;
 
-                    this.nw_ping.stack.trigger( {
-                        ...this.last_ping,
-                        newMessages: this.last_ping.newMessages + (e.detail?.number ?? 1),
-                        authoritative: false
-                    }, true )
+                    if (this.last_ping)
+                        this.nw_ping.stack.trigger( {
+                            ...this.last_ping,
+                            newMessages: this.last_ping.newMessages + (e.detail?.number ?? 1),
+                            authoritative: false
+                        }, true )
 
                     this.nw_fetch.setTimeout(0);
                 }
             });
-        html.addEventListener('broadcastMessage', e => {
+        node.addEventListener('broadcastMessage', e => {
             if (e.detail?.message === 'domains.pm.ping')
                 this.nw_ping.stack.trigger( {
                     ...e.detail.ping as PayloadPing,

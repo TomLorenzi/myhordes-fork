@@ -934,7 +934,7 @@ class MessageForumController extends MessageController
                     $cleared++;
                 }
                 $flush = true;
-                $mercure($user, -$cleared);
+                if ($cleared > 0) $mercure($user, -$cleared);
             }
 
 

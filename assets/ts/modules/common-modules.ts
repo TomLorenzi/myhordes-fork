@@ -10,6 +10,7 @@ import {Shim} from "../react";
 import {HordesTooltip} from "../react/tooltip/Wrapper";
 import {HordesContentReport} from "../react/content-report/Wrapper";
 import {HordesIssueReport} from "../react/issue-report/Wrapper";
+import {HordesServiceWorkerIndicator} from "../react/service-worker-state/Wrapper";
 
 // Define web component <hordes-user-search />
 export class HordesUserSearchElement extends Shim<HordesUserSearchBar> {
@@ -135,6 +136,22 @@ customElements.define('hordes-issue-report', class HordesIssueReportElement exte
 
     protected static observedAttributeNames() {
         return [ 'data-selector', 'data-title', 'data-pass' ];
+    }
+
+}, {  });
+
+customElements.define('hordes-service-worker-indicator', class HordesServiceWorkerIndicatorElement extends Shim<HordesServiceWorkerIndicator> {
+
+    protected generateInstance(): HordesServiceWorkerIndicator {
+        return new HordesServiceWorkerIndicator();
+    }
+
+    protected generateProps(): object | null {
+        return {...this.dataset}
+    }
+
+    protected static observedAttributeNames() {
+        return [ 'data-text-title', 'data-text-help', 'data-text-no-sw', 'data-text-offline', 'data-text-connecting', 'data-text-upgrading', 'data-text-online' ];
     }
 
 }, {  });

@@ -3,6 +3,9 @@ import Console from "./debug";
 declare global {
     interface Window {
         transferTable: Array<any>;
+
+        mhWorkerQueue: Array<any>,
+        mhWorkerSetup: boolean|null,
         mhWorker: SharedWorker,
         mhWorkerIdList: Array<string>
     }
@@ -23,9 +26,15 @@ export function serviceWorkerCall(request: string, args: object = {}): Promise<a
 
 export function sharedWorkerCall(request: string, args: object = {}): Promise<any> {
     return new Promise<any>((resolve,reject) => {
-        if (!window.mhWorker) reject(null);
+        if (window.mhWorkerSetup && !window.mhWorker) reject(null);
         window.transferTable.push(resolve);
-        window.mhWorker.port.postMessage( {...args, request, to: `${window.transferTable.length - 1}`} )
+        const payload = {...args, request, for: window.mhWorkerIdList, to: `${window.transferTable.length - 1}`};
+        if (window.mhWorkerSetup)
+            window.mhWorker.port.postMessage( payload )
+        else {
+            if (!window.mhWorkerQueue) window.mhWorkerQueue = [];
+            window.mhWorkerQueue.push(payload);
+        }
     })
 }
 
@@ -33,7 +42,7 @@ export function broadcast(message: string, args: object = {}): void {
     window.mhWorker.port.postMessage( {payload: {...args, message}, request: 'broadcast', except: window.mhWorkerIdList} )
 }
 
-function html(): HTMLElement {
+export function html(): HTMLElement {
     return ((document.getRootNode() as Document).firstElementChild as HTMLElement);
 }
 
@@ -89,13 +98,13 @@ async function initServiceWorker(): Promise<boolean> {
 }
 
 async function initSharedWorker(): Promise<boolean> {
+    window.mhWorkerSetup = true;
+
     const sharedLoaderFile = html()?.dataset?.sharedWorker as string;
     if (!sharedLoaderFile) {
         Console.warn('Shared worker file not defined.')
         return false;
     }
-
-    Console.log('shared worker', sharedLoaderFile);
 
     const mhWorker = new SharedWorker(sharedLoaderFile);
     mhWorker.port.start();
@@ -105,6 +114,17 @@ async function initSharedWorker(): Promise<boolean> {
         switch (e.data.request) {
             case 'worker.id':
                 window.mhWorkerIdList.push( e.data.id );
+                window.mhWorkerQueue?.forEach( p => window.mhWorker.port.postMessage({...p, for: window.mhWorkerIdList} ) );
+                window.mhWorkerQueue = [];
+                break;
+
+            case 'response':
+                const id = parseInt( e.data.to as string );
+                const callback = window.transferTable[id] ?? null;
+                if (callback) {
+                    callback(e.data.payload);
+                    window.transferTable[id] = null;
+                } else Console.warn(`Did not find callback "${id}" in callback table:`, window.transferTable)
                 break;
 
             case 'broadcast.incoming':

@@ -1,7 +1,7 @@
 import Console from "../debug";
 import {string} from "prop-types";
 
-export type PortQueryFunction = (except: Array<String> = []) => Array<MessagePort>;
+export type PortQueryFunction = (except: Array<String>, only: Array<String>) => Array<MessagePort>;
 
 export default abstract class SharedModule {
 
@@ -13,16 +13,20 @@ export default abstract class SharedModule {
 
     protected respond( event: MessageEvent, payload: any ) {
         Console.log('Responding to', event, 'with', payload)
-        event.ports.forEach(p => p.postMessage({
-            request: 'response',
-            to: event.data.to,
-            payload: payload
-        }));
+
+        const ports = (!event.data.for) ? event.ports : this.ports([], event.data.for);
+        ports.forEach(p => {
+            p.postMessage({
+                request: 'response',
+                to: event.data.to,
+                payload: payload
+            })
+        });
     }
 
     protected broadcast( request: string, payload: object, except: Array<String> = [] ) {
         Console.log('Broadcasting', request, 'with', payload);
-        this.ports(except).forEach( port => {
+        this.ports(except, null).forEach( port => {
             port.postMessage({
                 request, payload
             })
