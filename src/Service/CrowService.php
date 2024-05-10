@@ -2,11 +2,8 @@
 
 namespace App\Service;
 
-use App\Entity\AdminReport;
 use App\Entity\Award;
-use App\Entity\BlackboardEdit;
 use App\Entity\Citizen;
-use App\Entity\CitizenRankingProxy;
 use App\Entity\CommunityEvent;
 use App\Entity\FeatureUnlockPrototype;
 use App\Entity\Forum;
@@ -20,68 +17,44 @@ use App\Entity\ThreadTag;
 use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
-use App\Entity\UserDescription;
-use App\Enum\AdminReportSpecification;
-use App\Messages\Discord\DiscordMessage;
-use App\Structures\MyHordesConf;
 use DateTime;
-use DiscordWebhooks\Client;
-use DiscordWebhooks\Embed;
-use Doctrine\Common\Util\ClassUtils;
+use DateTimeInterface;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
-use Symfony\Component\Finder\Glob;
-use Symfony\Component\Messenger\MessageBusInterface;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 class CrowService {
-    const ModerationActionDomainForum = 1;
-    const ModerationActionDomainTownPM = 2;
-    const ModerationActionDomainGlobalPM = 3;
-    const ModerationActionDomainAccount = 101;
-    const ModerationActionDomainRanking = 201;
-    const ModerationActionDomainEvents = 301;
+    const int ModerationActionDomainForum = 1;
+    const int ModerationActionDomainTownPM = 2;
+    const int ModerationActionDomainGlobalPM = 3;
+    const int ModerationActionDomainAccount = 101;
+    const int ModerationActionDomainRanking = 201;
+    const int ModerationActionDomainEvents = 301;
 
-    const ModerationActionTargetThread = 1;
-    const ModerationActionTargetPost = 2;
-    const ModerationActionTargetForumBan = 101;
-    const ModerationActionTargetGameBan = 102;
-    const ModerationActionTargetAnyBan = 103;
-    const ModerationActionTargetGameName = 201;
-    const ModerationActionTargetEvent = 301;
-    const ModerationActionTargetEventValidation = 302;
+    const int ModerationActionTargetThread = 1;
+    const int ModerationActionTargetPost = 2;
+    const int ModerationActionTargetForumBan = 101;
+    const int ModerationActionTargetGameBan = 102;
+    const int ModerationActionTargetAnyBan = 103;
+    const int ModerationActionTargetGameName = 201;
+    const int ModerationActionTargetEvent = 301;
+    const int ModerationActionTargetEventValidation = 302;
 
-    const ModerationActionEdit = 1;
-    const ModerationActionDelete = 2;
-    const ModerationActionImpose = 3;
-    const ModerationActionRevoke = 4;
-    const ModerationActionMove = 5;
-    const ModerationActionClose = 6;
-    const ModerationActionSolve = 7;
-    const ModerationActionOpen = 8;
-
-    private EntityManagerInterface $em;
-    private UrlGeneratorInterface $url_generator;
-    private ConfMaster $conf;
-    private ?string $report_path;
-    private TranslatorInterface $trans;
-    private MessageBusInterface $bus;
-
+    const int ModerationActionEdit = 1;
+    const int ModerationActionDelete = 2;
+    const int ModerationActionImpose = 3;
+    const int ModerationActionRevoke = 4;
+    const int ModerationActionMove = 5;
+    const int ModerationActionClose = 6;
+    const int ModerationActionSolve = 7;
+    const int ModerationActionOpen = 8;
 
     private function getCrowAccount(): User {
         return $this->em->getRepository(User::class)->find(66);
     }
 
-    public function __construct(EntityManagerInterface $em, ParameterBagInterface $params, ConfMaster $conf, UrlGeneratorInterface $url_generator, TranslatorInterface $trans, MessageBusInterface $bus )
-    {
-        $this->em = $em;
-        $this->conf = $conf;
-        $this->trans = $trans;
-        $this->url_generator = $url_generator;
-        $this->report_path = "{$params->get('kernel.project_dir')}/var/reports";
-        $this->bus = $bus;
-    }
+    public function __construct(
+        private readonly EntityManagerInterface $em,
+        private readonly EventProxyService $proxy,
+    ) { }
 
     /**
      * Post a message in a forum/thread as the crow
@@ -90,10 +63,11 @@ class CrowService {
      * @param bool $pinned
      * @param bool $translatable
      * @param string|array|null $title
-     * @param int $semantic
+     * @param int|array $semantic
      * @param Thread|null $thread
      */
-    public function postToForum( Forum $forum, $text, bool $pinned, bool $translatable, $title = null, $semantic = 0, ?Thread $thread = null ) {
+    public function postToForum( Forum $forum, string|array $text, bool $pinned, bool $translatable, string|array $title = null, int|array $semantic = 0, ?Thread $thread = null ): void
+    {
 
         if (is_array( $text )) {
 
@@ -132,7 +106,8 @@ class CrowService {
     }
 
 
-    public function postAsPM( Citizen $receiver, string $title, string $text, int $template = 0, ?int $foreign = null, $data = null ) {
+    public function postAsPM( Citizen $receiver, string $title, string $text, int $template = 0, ?int $foreign = null, $data = null ): void
+    {
 
         $thread = new PrivateMessageThread();
 
@@ -161,32 +136,47 @@ class CrowService {
 
     }
 
-    public function createPM_townNegated( User $receiver, string $townName, bool $auto ): GlobalPrivateMessage {
-        $template = $auto
-            ? $this->em->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gpm_townNegatedAuto'])
-            : $this->em->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gpm_townNegatedAdmin']);
+    protected function createMessage(
+        LogEntryTemplate|string|null $template = null,
+        ?array                       $data = null,
+        User                         $receiver = null,
+        ?DateTimeInterface           $timestamp = null,
+        ?string                      $message = null,
+    ): ?GlobalPrivateMessage {
+        if (is_string($template)) $template = $this->em->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $template]);
+        if (!$receiver) return null;
+        $entity = (new GlobalPrivateMessage())
+            ->setTemplate($template)
+            ->setText($message)
+            ->setData($data)
+            ->setTimestamp( $timestamp ?? new DateTime('now') )
+            ->setReceiverUser($receiver)
+            ->setSender($this->getCrowAccount())
+            ->setSeen(false);
 
-        return (new GlobalPrivateMessage())
-            ->setTemplate( $template )
-            ->setData( [ 'town' => $townName ])
-            ->setTimestamp( new DateTime('now') )
-            ->setReceiverUser( $receiver )
-            ->setSender( $this->getCrowAccount() )
-            ->setSeen( false );
+        $this->proxy->globalPrivateDirectMessageNewPostEvent( $entity );
+        return $entity;
     }
 
-    public function createPM_townQuarantine( User $receiver, string $townName, bool $on ): GlobalPrivateMessage {
-        $template = $on
-            ? $this->em->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gpm_townQuarantineOn'])
-            : $this->em->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gpm_townQuarantineOff']);
+    public function createPM_townNegated( User $receiver, string $townName, bool $auto ): GlobalPrivateMessage {
+        return $this->createMessage(
+            $auto
+                ? 'gpm_townNegatedAuto'
+                : 'gpm_townNegatedAdmin',
+            [ 'town' => $townName ],
+            $receiver
+        );
+    }
 
-        return (new GlobalPrivateMessage())
-            ->setTemplate( $template )
-            ->setData( [ 'town' => $townName ])
-            ->setTimestamp( new DateTime('now') )
-            ->setReceiverUser( $receiver )
-            ->setSender( $this->getCrowAccount() )
-            ->setSeen( false );
+
+    public function createPM_townQuarantine( User $receiver, string $townName, bool $on ): GlobalPrivateMessage {
+        return $this->createMessage(
+            $on
+                ? 'gpm_townQuarantineOn'
+                : 'gpm_townQuarantineOff',
+            [ 'town' => $townName ],
+            $receiver
+        );
     }
 
     /**
@@ -196,30 +186,26 @@ class CrowService {
      */
     public function createPM_titleUnlock(User $receiver, array $awards): GlobalPrivateMessage
     {
-        $template = $this->em->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gpm_unlock_titles2']);
-
-        return (new GlobalPrivateMessage())
-            ->setTemplate( $template )
-            ->setData( ['list' => array_map(fn(Award $a) => $a->getPrototype() ? $a->getPrototype()->getId() : -$a->getId(), $awards) ] )
-            ->setTimestamp( new DateTime('now') )
-            ->setReceiverUser( $receiver )
-            ->setSender( $this->getCrowAccount() )
-            ->setSeen( false );
+        return $this->createMessage(
+            'gpm_unlock_titles2',
+            ['list' => array_map(fn(Award $a) => $a->getPrototype() ? $a->getPrototype()->getId() : -$a->getId(), $awards) ],
+            $receiver
+        );
     }
 
     /**
      * @param User $receiver
      * @param array $pictos
      * @param FeatureUnlockPrototype[] $features
+     * @param string|null $importLang
+     * @param int $season
      * @return GlobalPrivateMessage
      */
     public function createPM_seasonalRewards(User $receiver, array $pictos, array $features, ?string $importLang, int $season): GlobalPrivateMessage
     {
-        $template = $this->em->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gpm_season_reward']);
-
-        return (new GlobalPrivateMessage())
-            ->setTemplate( $template )
-            ->setData( [
+        return $this->createMessage(
+            'gpm_season_reward',
+            [
                 'pictos' => array_map(fn(array $p) => [$p[0]->getId(), $p[1]], $pictos),
                 'features' => array_map(fn(FeatureUnlockPrototype $f) => $f->getId(), $features),
                 'server' => match ($importLang) {
@@ -230,11 +216,9 @@ class CrowService {
                     default => 'MyHordes'
                 },
                 'season' => $season
-            ] )
-            ->setTimestamp( new DateTime('now') )
-            ->setReceiverUser( $receiver )
-            ->setSender( $this->getCrowAccount() )
-            ->setSeen( false );
+            ],
+            $receiver
+        );
     }
 
     /**
@@ -244,47 +228,39 @@ class CrowService {
      */
     public function createPM_mentionNotification(User $receiver, Post $post): GlobalPrivateMessage
     {
-        $template = $this->em->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gpm_post_notification']);
-
-        return (new GlobalPrivateMessage())
-            ->setTemplate( $template )
-            ->setData( [
-               'link_post' => $post->getId(),
-               'threadname' => $post->getThread()->getTitle(),
-               'forumname' => $post->getThread()->getForum()->getTitle(),
-               'player' => $post->getOwner()->getId(),
-               'threadname__translate' => $post->getThread()->getTranslatable() ? 'game' : null,
-            ] )
-            ->setTimestamp( new DateTime('now') )
-            ->setReceiverUser( $receiver )
-            ->setSender( $this->getCrowAccount() )
-            ->setSeen( false );
+        return $this->createMessage(
+            'gpm_post_notification',
+            [
+                'link_post' => $post->getId(),
+                'threadname' => $post->getThread()->getTitle(),
+                'forumname' => $post->getThread()->getForum()->getTitle(),
+                'player' => $post->getOwner()->getId(),
+                'threadname__translate' => $post->getThread()->getTranslatable() ? 'game' : null,
+            ],
+            $receiver
+        );
     }
 
     /**
      * @param User $receiver
+     * @param User $sender
+     * @param bool $revert
      * @return GlobalPrivateMessage
      */
     public function createPM_friendNotification(User $receiver, User $sender, bool $revert = false): GlobalPrivateMessage
     {
-        $template = $this->em->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $revert ? 'gpm_friend_reverse_notification' : 'gpm_friend_notification']);
-
-        return (new GlobalPrivateMessage())
-            ->setTemplate( $template )
-            ->setData( ['player' => $sender->getId() ])
-            ->setTimestamp( new DateTime('now') )
-            ->setReceiverUser( $receiver )
-            ->setSender( $this->getCrowAccount() )
-            ->setSeen( false );
+        return $this->createMessage(
+            $revert ? 'gpm_friend_reverse_notification' : 'gpm_friend_notification',
+            ['player' => $sender->getId() ],
+            $receiver
+        );
     }
 
     public function createPM( User $receiver, string $message): ?GlobalPrivateMessage {
-        return (new GlobalPrivateMessage())
-            ->setText($message)
-            ->setTimestamp( new DateTime('now') )
-            ->setReceiverUser( $receiver )
-            ->setSender( $this->getCrowAccount() )
-            ->setSeen( false );
+        return $this->createMessage(
+            receiver: $receiver,
+            message: $message,
+        );
     }
 
     public function createPM_moderation( User $receiver, int $domain, int $target, int $action, $object = null, string $reason = ''): ?GlobalPrivateMessage {
@@ -392,12 +368,10 @@ class CrowService {
         $template = $this->em->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $name]);
         $data['reason'] = $reason;
 
-        return (new GlobalPrivateMessage())
-            ->setTemplate( $template )
-            ->setData( $data )
-            ->setTimestamp( new DateTime('now') )
-            ->setReceiverUser( $receiver )
-            ->setSender( $this->getCrowAccount() )
-            ->setSeen( false );
+        return $this->createMessage(
+            $template,
+            $data,
+            $receiver
+        );
     }
 }

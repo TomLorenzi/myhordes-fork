@@ -9,12 +9,13 @@ use App\Entity\User;
 use App\Entity\UserGroupAssociation;
 use App\Enum\NotificationSubscriptionType;
 use App\Enum\UserSetting;
+use App\Event\Common\Messages\GlobalPrivateMessage\GPDirectMessageEvent;
+use App\Event\Common\Messages\GlobalPrivateMessage\GPDirectMessageNewPostEvent;
 use App\Event\Common\Messages\GlobalPrivateMessage\GPMessageNewPostEvent;
 use App\Event\Common\Messages\GlobalPrivateMessage\GPMessageNewThreadEvent;
 use App\EventListener\ContainerTypeTrait;
 use App\Messages\WebPush\WebPushMessage;
 use App\Service\Actions\Mercure\BroadcastPMUpdateViaMercureAction;
-use App\Service\Actions\Mercure\BroadcastViaMercureAction;
 use App\Service\HTMLService;
 use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
@@ -26,6 +27,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[AsEventListener(event: GPMessageNewThreadEvent::class, method: 'queueNotifications', priority: 0)]
 #[AsEventListener(event: GPMessageNewPostEvent::class, method: 'queueNotifications', priority: 0)]
+#[AsEventListener(event: GPDirectMessageNewPostEvent::class, method: 'broadcastSingleUpdate', priority: 0)]
 #[AsEventListener(event: GPMessageNewThreadEvent::class, method: 'broadcastUpdate', priority: 0)]
 #[AsEventListener(event: GPMessageNewPostEvent::class, method: 'broadcastUpdate', priority: 0)]
 final class GlobalPrivateMessageEventListener implements ServiceSubscriberInterface
@@ -56,6 +58,13 @@ final class GlobalPrivateMessageEventListener implements ServiceSubscriberInterf
             ($og || !$this->getService(UserHandler::class)->checkRelation($to,$from,SocialRelation::SocialRelationTypeBlock));
     }
 
+    public function broadcastSingleUpdate(GPDirectMessageEvent $event): void {
+        if (!$event->post->getReceiverUser()) return;
+
+        $mercure = $this->getService(BroadcastPMUpdateViaMercureAction::class);
+        $mercure($event->post->getReceiverUser());
+    }
+
     public function broadcastUpdate(GPMessageNewPostEvent|GPMessageNewThreadEvent $event): void {
         $is_thread = is_a($event, GPMessageNewThreadEvent::class);
         if (!$event->post->getSender()) return;
@@ -73,10 +82,6 @@ final class GlobalPrivateMessageEventListener implements ServiceSubscriberInterf
 
         $updating_users = [];
         $passive_users = [];
-
-        foreach ($targets as $target) {
-            dump([ $target->getRef1(), $group->getRef1() ]);
-        }
 
         if ($is_thread) $updating_users = array_map( fn(UserGroupAssociation $a) => $a->getUser(), $targets );
         else {

@@ -21,6 +21,7 @@ use App\Entity\ThreadTag;
 use App\Entity\User;
 use App\Response\AjaxResponse;
 use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
+use App\Service\Actions\Mercure\BroadcastPMUpdateViaMercureAction;
 use App\Service\CitizenHandler;
 use App\Service\CrowService;
 use App\Service\ErrorHelper;
@@ -841,6 +842,7 @@ class MessageForumController extends MessageController
         SessionInterface $session,
         CitizenHandler $ch,
         InvalidateTagsInAllPoolsAction $clearCache,
+        BroadcastPMUpdateViaMercureAction $mercure,
         int $pid = -1,
     ): Response {
         $user = $this->getUser();
@@ -924,13 +926,18 @@ class MessageForumController extends MessageController
                     ->andWhere( Criteria::expr()->gt('num', 0))
             );
 
+            $cleared = 0;
             if (!empty($subscriptions)) {
                 foreach ($subscriptions as $s) if ($s->getNum() > 0) {
                     $session->remove('cache_ping');
                     $em->persist($s->setNum(0));
+                    $cleared++;
                 }
                 $flush = true;
+                $mercure($user, -$cleared);
             }
+
+
         }
 
         if ($flush) try { $em->flush(); } catch (Exception $e) {}

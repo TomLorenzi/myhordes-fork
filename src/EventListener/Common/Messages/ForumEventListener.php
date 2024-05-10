@@ -15,6 +15,7 @@ use App\Event\Common\Messages\Forum\ForumMessageNewPostEvent;
 use App\Event\Common\Messages\Forum\ForumMessageNewThreadEvent;
 use App\EventListener\ContainerTypeTrait;
 use App\Messages\WebPush\WebPushMessage;
+use App\Service\Actions\Mercure\BroadcastPMUpdateViaMercureAction;
 use App\Service\CitizenHandler;
 use App\Service\CrowService;
 use App\Service\PermissionHandler;
@@ -30,7 +31,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[AsEventListener(event: ForumMessageNewThreadEvent::class, method: 'queueMentions', priority: 0)]
 #[AsEventListener(event: ForumMessageNewPostEvent::class, method: 'queueMentions', priority: 0)]
-#[AsEventListener(event: ForumMessageNewPostEvent::class, method: 'queueSubscriptions', priority: 10)]
 #[AsEventListener(event: ForumMessageNewPostEvent::class, method: 'queueSubscriptions', priority: 10)]
 #[AsEventListener(event: ForumMessageNewPostEvent::class, method: 'queueDistinctions', priority: 20)]
 #[AsEventListener(event: ForumMessageNewThreadEvent::class, method: 'removeForumCheckmarkForTownForums', priority: -10)]
@@ -52,7 +52,8 @@ final class ForumEventListener implements ServiceSubscriberInterface
             PermissionHandler::class,
             CrowService::class,
             PictoHandler::class,
-            CitizenHandler::class
+            CitizenHandler::class,
+            BroadcastPMUpdateViaMercureAction::class
         ];
     }
 
@@ -74,7 +75,9 @@ final class ForumEventListener implements ServiceSubscriberInterface
                 ->andWhere( Criteria::expr()->lt('num', 10) )
         );
 
+        $inform_users = [];
         foreach ($subscriptions as $s) {
+            $was_read = $s->getNum() === 0;
             $this->getService(EntityManagerInterface::class)->persist($s->setNum($s->getNum() + 1));
 
             // Dispatch WebPush notifications
@@ -83,6 +86,9 @@ final class ForumEventListener implements ServiceSubscriberInterface
 
             if (!$this->getService(PermissionHandler::class)->checkEffectivePermissions( $subscribed_user, $event->post->getThread()->getForum(), ForumUsagePermissions::PermissionReadThreads ))
                 continue;
+
+            if ($was_read)
+                $inform_users[] = $subscribed_user;
 
             foreach ( $subscribed_user->getNotificationSubscriptionsFor(NotificationSubscriptionType::WebPush) as $subscription )
                 $this->getService(MessageBusInterface::class)->dispatch(
@@ -97,7 +103,12 @@ final class ForumEventListener implements ServiceSubscriberInterface
                     )
                 );
         }
+
         if (!empty($subscriptions)) try { $this->getService(EntityManagerInterface::class)->flush(); } catch (\Throwable) {}
+        if (!empty($inform_users)) {
+            $mercure = $this->getService(BroadcastPMUpdateViaMercureAction::class);
+            $mercure($inform_users);
+        }
 	}
 
     public function queueDistinctions(ForumMessageNewPostEvent $event): void {

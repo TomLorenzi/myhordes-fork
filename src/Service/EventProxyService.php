@@ -31,6 +31,7 @@ use App\Event\Common\Messages\Announcement\NewAnnouncementEvent;
 use App\Event\Common\Messages\Announcement\NewEventAnnouncementEvent;
 use App\Event\Common\Messages\Forum\ForumMessageNewPostEvent;
 use App\Event\Common\Messages\Forum\ForumMessageNewThreadEvent;
+use App\Event\Common\Messages\GlobalPrivateMessage\GPDirectMessageNewPostEvent;
 use App\Event\Common\Messages\GlobalPrivateMessage\GPMessageNewPostEvent;
 use App\Event\Common\Messages\GlobalPrivateMessage\GPMessageNewThreadEvent;
 use App\Event\Common\Social\ContentReportEvents\BlackboardEditContentReportEvent;
@@ -225,6 +226,10 @@ class EventProxyService
 
     public function globalPrivateMessageNewPostEvent( GlobalPrivateMessage $post, HTMLParserInsight $insight, bool $new_thread = false ): void {
         $this->ed->dispatch( ($new_thread ? new GPMessageNewThreadEvent() : new GPMessageNewPostEvent())->setup( $post, $insight ) );
+    }
+
+    public function globalPrivateDirectMessageNewPostEvent( GlobalPrivateMessage $post ): void {
+        $this->ed->dispatch( (new GPDirectMessageNewPostEvent())->setup( $post ) );
     }
 
     public function friendListUpdatedEvent( User $actor, User $subject, bool $added ): void {
