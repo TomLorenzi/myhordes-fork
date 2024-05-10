@@ -7,6 +7,7 @@ use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Mercure\HubInterface;
 use Symfony\Component\Mercure\Update;
@@ -30,15 +31,20 @@ class MercureTestCommand extends Command
         $this
             ->setHelp('Debug Mercure.')
 
-            ->addArgument('topic', InputArgument::OPTIONAL, 'The topic', 'myhordes://live/concerns/authorized')
+            ->addOption('topic', null, InputOption::VALUE_REQUIRED, 'The topic', 'myhordes://live/concerns/authorized')
+            ->addOption('message', null, InputOption::VALUE_REQUIRED, 'The message', 'test')
+            ->addOption('data', null, InputOption::VALUE_REQUIRED, 'Data to transmit', '{}')
         ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $response = $this->hub->publish(new Update(
-            topics: $input->getArgument('topic'),
-            data: json_encode(['data' => 'MercureTest']),
+            topics: $input->getOption('topic'),
+            data: json_encode([
+                'message' => $input->getOption('message'),
+                ...json_decode( $input->getOption('data'), true, flags: JSON_THROW_ON_ERROR )
+            ]),
             private: true
         ));
 

@@ -2,6 +2,7 @@ import Console from "./debug";
 import PingServiceModule from "./shared-worker-modules/ping";
 import MercureServiceModule from "./shared-worker-modules/mercure";
 import ServiceModule from "./shared-worker-modules/common";
+import BroadcastServiceModule from "./shared-worker-modules/broadcast";
 
 const scope = (self as unknown as SharedWorkerGlobalScope);
 
@@ -11,6 +12,7 @@ let ports: Array<{ id: string, port: MessagePort }> = [];
 type ModuleRepository = {
     ping?: PingServiceModule|null
     mercure?: MercureServiceModule|null
+    broadcast?: BroadcastServiceModule|null
 } | {
     [modname: string]: ServiceModule
 }
@@ -59,11 +61,14 @@ scope.addEventListener('connect', client => {
 });
 
 (() => {
-    const f = () => ports.map(p => p.port);
+    const f = (except: Array<String> = []) => ports
+        .filter(p => !except.includes(p.id))
+        .map(p => p.port);
 
     // Installer
     modules.ping = new PingServiceModule(f);
     modules.mercure = new MercureServiceModule(f);
+    modules.broadcast = new BroadcastServiceModule(f);
     event('install');
 })();
 

@@ -1,4 +1,5 @@
 import {Global} from "./defaults";
+import {broadcast} from "./v2/init";
 
 interface callbackTemplate<T extends payload> { (T, bool):void }
 
@@ -120,12 +121,14 @@ class PayloadPing extends payload {
     public readonly newMessages: number;
     public readonly connected: boolean;
     public readonly delay: number;
+    public readonly authoritative: boolean;
 
     public constructor(args: object) {
         super(args);
         this.newMessages = args['new'] ?? 0;
         this.connected = !!args['connected'] ?? false;
         this.delay = Math.max(5000, args['connected'] ? args['connected'] : 60000 );
+        this.authoritative = args['authoritative'] ?? true;
     }
 }
 
@@ -169,13 +172,44 @@ export default class MessageAPI {
     private nw_ping:  networker<PayloadPing> = null;
     private nw_fetch: networker<PayloadFetch> = null;
 
+    private last_ping: PayloadPing = null;
+
+    public constructor() {
+        const html = ((document.getRootNode() as Document).firstElementChild as HTMLElement);
+        html
+            .addEventListener('mercureMessage', e => {
+                if (e.detail?.message === 'domains.pm.new') {
+                    if (!this.initialized()) return;
+
+                    this.nw_ping.stack.trigger( {
+                        ...this.last_ping,
+                        newMessages: this.last_ping.newMessages + (e.detail?.number ?? 1),
+                        authoritative: false
+                    }, true )
+
+                    this.nw_fetch.setTimeout(0);
+                }
+            });
+        html.addEventListener('broadcastMessage', e => {
+            if (e.detail?.message === 'domains.pm.ping')
+                this.nw_ping.stack.trigger( {
+                    ...e.detail.ping as PayloadPing,
+                    authoritative: false
+                }, true )
+        })
+    }
+
     public initialized(): boolean {
         return this.nw_ping !== null && this.nw_fetch !== null;
     }
 
     public registerPingEndpoint(endpoint: string): void {
         this.nw_ping = new networker<PayloadPing>(endpoint, PayloadPing);
-        this.registerPingCallback((a: PayloadPing) => this.nw_ping.setTimeout(a.delay), true);
+        this.registerPingCallback((a: PayloadPing) => {
+            this.last_ping = a;
+            if (a.authoritative) broadcast('domains.pm.ping', {ping: {...a, authoritative: false}});
+        }, true);
+        //this.registerPingCallback((a: PayloadPing) => this.nw_ping.setTimeout(a.delay), true);
     }
 
     public registerPingCallback(callback: callbackTemplate<PayloadPing>, persistent: boolean = false): void {
@@ -189,7 +223,7 @@ export default class MessageAPI {
 
     public registerFetchEndpoint(endpoint: string): void {
         this.nw_fetch = new networker<PayloadFetch>(this.fetch_default_endpoint = endpoint, PayloadFetch);
-        this.registerFetchCallback((a: PayloadFetch) => this.nw_fetch.setTimeout(a.delay), true);
+        //this.registerFetchCallback((a: PayloadFetch) => this.nw_fetch.setTimeout(a.delay), true);
     }
 
     public overrideFetchEndpoint(endpoint: string): void {

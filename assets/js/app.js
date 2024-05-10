@@ -112,15 +112,8 @@ const resize_game_menu = function() {
     }
 };
 
-const resize_map = function() {
-    let outer_maps = document.querySelectorAll('.map');
-    for (let i = 0; i < outer_maps.length; i++)
-        outer_maps[i].dispatchEvent(new Event("x-resize", { bubbles: false, cancelable: true }));
-};
-
 const resizer = function() {
     resize_game_menu();
-    resize_map();
 
     //console.log(game_menu.offsetWidth, content_width, game_menu.offsetWidth - content_width);
 };

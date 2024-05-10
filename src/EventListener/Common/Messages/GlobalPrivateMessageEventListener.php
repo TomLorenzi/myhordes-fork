@@ -13,6 +13,8 @@ use App\Event\Common\Messages\GlobalPrivateMessage\GPMessageNewPostEvent;
 use App\Event\Common\Messages\GlobalPrivateMessage\GPMessageNewThreadEvent;
 use App\EventListener\ContainerTypeTrait;
 use App\Messages\WebPush\WebPushMessage;
+use App\Service\Actions\Mercure\BroadcastPMUpdateViaMercureAction;
+use App\Service\Actions\Mercure\BroadcastViaMercureAction;
 use App\Service\HTMLService;
 use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
@@ -24,6 +26,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[AsEventListener(event: GPMessageNewThreadEvent::class, method: 'queueNotifications', priority: 0)]
 #[AsEventListener(event: GPMessageNewPostEvent::class, method: 'queueNotifications', priority: 0)]
+#[AsEventListener(event: GPMessageNewThreadEvent::class, method: 'broadcastUpdate', priority: 0)]
+#[AsEventListener(event: GPMessageNewPostEvent::class, method: 'broadcastUpdate', priority: 0)]
 final class GlobalPrivateMessageEventListener implements ServiceSubscriberInterface
 {
     use ContainerTypeTrait;
@@ -38,7 +42,8 @@ final class GlobalPrivateMessageEventListener implements ServiceSubscriberInterf
             EntityManagerInterface::class,
             UserHandler::class,
             HTMLService::class,
-            TranslatorInterface::class
+            TranslatorInterface::class,
+            BroadcastPMUpdateViaMercureAction::class,
         ];
     }
 
@@ -49,6 +54,39 @@ final class GlobalPrivateMessageEventListener implements ServiceSubscriberInterf
         return $from !== $to &&
             $to->getSetting( $setting ) &&
             ($og || !$this->getService(UserHandler::class)->checkRelation($to,$from,SocialRelation::SocialRelationTypeBlock));
+    }
+
+    public function broadcastUpdate(GPMessageNewPostEvent|GPMessageNewThreadEvent $event): void {
+        $is_thread = is_a($event, GPMessageNewThreadEvent::class);
+        if (!$event->post->getSender()) return;
+
+        $group = $event->post->getReceiverGroup();
+
+        /** @var UserGroupAssociation[] $all_associations */
+        $all_associations = $this->getService(EntityManagerInterface::class)->getRepository(UserGroupAssociation::class)->findBy([
+            'associationType' => [ UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember ],
+            'association' => $group,
+            'bref' => false
+        ]);
+
+        $targets = array_filter( $all_associations, fn(UserGroupAssociation $a) => $a->getUser() !== $event->post->getSender() );
+
+        $updating_users = [];
+        $passive_users = [];
+
+        foreach ($targets as $target) {
+            dump([ $target->getRef1(), $group->getRef1() ]);
+        }
+
+        if ($is_thread) $updating_users = array_map( fn(UserGroupAssociation $a) => $a->getUser(), $targets );
+        else {
+            $passive_users = array_map( fn(UserGroupAssociation $a) => $a->getUser(), array_filter( $targets, fn(UserGroupAssociation $a) => $a->getRef1() === null || $a->getRef1() !== ($group->getRef1()-1) ) );
+            $updating_users = array_map( fn(UserGroupAssociation $a) => $a->getUser(), array_filter( $targets, fn(UserGroupAssociation $a) => $a->getRef1() === ($group->getRef1()-1) ) );
+        }
+
+        $mercure = $this->getService(BroadcastPMUpdateViaMercureAction::class);
+        $mercure($updating_users);
+        $mercure($passive_users, 0);
     }
 
 	public function queueNotifications(GPMessageNewPostEvent|GPMessageNewThreadEvent $event): void {

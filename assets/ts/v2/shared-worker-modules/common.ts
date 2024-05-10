@@ -1,10 +1,13 @@
 import Console from "../debug";
+import {string} from "prop-types";
+
+export type PortQueryFunction = (except: Array<String> = []) => Array<MessagePort>;
 
 export default abstract class SharedModule {
 
-    protected ports: () => Array<MessagePort>;
+    protected ports: PortQueryFunction;
 
-    protected constructor(ports: () => Array<MessagePort>) {
+    protected constructor(ports: PortQueryFunction) {
         this.ports = ports;
     }
 
@@ -17,9 +20,9 @@ export default abstract class SharedModule {
         }));
     }
 
-    protected broadcast( request: string, payload: object ) {
+    protected broadcast( request: string, payload: object, except: Array<String> = [] ) {
         Console.log('Broadcasting', request, 'with', payload);
-        this.ports().forEach( port => {
+        this.ports(except).forEach( port => {
             port.postMessage({
                 request, payload
             })
