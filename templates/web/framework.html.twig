@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" lang="{{ app.request.locale|e('html_attr') }}" class="lang-base-{{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}" x-ajax-landing="{{ ajax_landing }}"
+      data-language="{{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}"
       data-ticket="{{ ticket }}"
       data-shared-worker="{{ absolute_url(asset('shared/shared.js', 'shared-package')) }}"
       data-service-worker="{{ absolute_url(asset('service/service.js', 'service-package')) }}"

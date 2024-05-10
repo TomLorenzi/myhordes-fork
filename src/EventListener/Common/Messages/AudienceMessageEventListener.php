@@ -3,18 +3,14 @@
 
 namespace App\EventListener\Common\Messages;
 
-use App\Entity\OfficialGroupMessageLink;
-use App\Entity\SocialRelation;
 use App\Entity\User;
-use App\Entity\UserGroupAssociation;
 use App\Enum\NotificationSubscriptionType;
 use App\Enum\UserSetting;
 use App\Event\Common\Messages\Announcement\NewAnnouncementEvent;
 use App\Event\Common\Messages\Announcement\NewEventAnnouncementEvent;
-use App\Event\Common\Messages\GlobalPrivateMessage\GPMessageNewPostEvent;
-use App\Event\Common\Messages\GlobalPrivateMessage\GPMessageNewThreadEvent;
 use App\EventListener\ContainerTypeTrait;
 use App\Messages\WebPush\WebPushMessage;
+use App\Service\Actions\Mercure\BroadcastAnnouncementUpdateViaMercureAction;
 use App\Service\Actions\User\GetAudienceAction;
 use App\Service\HTMLService;
 use App\Service\UserHandler;
@@ -27,6 +23,7 @@ use Symfony\Contracts\Service\ServiceSubscriberInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[AsEventListener(event: NewAnnouncementEvent::class, method: 'queueAnnouncementNotifications', priority: 0)]
+#[AsEventListener(event: NewAnnouncementEvent::class, method: 'broadcastUpdate', priority: 0)]
 #[AsEventListener(event: NewEventAnnouncementEvent::class, method: 'queueCommunityEventNotifications', priority: 0)]
 final class AudienceMessageEventListener implements ServiceSubscriberInterface
 {
@@ -43,8 +40,16 @@ final class AudienceMessageEventListener implements ServiceSubscriberInterface
             UserHandler::class,
             HTMLService::class,
             TranslatorInterface::class,
-            GetAudienceAction::class
+            GetAudienceAction::class,
+            BroadcastAnnouncementUpdateViaMercureAction::class
         ];
+    }
+
+
+    public function broadcastUpdate(NewAnnouncementEvent $event): void {
+        if (!$event->announcement->getLang()) return;
+        $mercure = $this->getService(BroadcastAnnouncementUpdateViaMercureAction::class);
+        $mercure($event->announcement->getLang());
     }
 
     /**

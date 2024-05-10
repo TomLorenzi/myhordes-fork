@@ -181,6 +181,8 @@ export default class MessageAPI {
                 if (e.detail?.message === 'domains.pm.new') {
                     if (!this.initialized()) return;
 
+                    if (e.detail?.language && e.detail?.language !== html.dataset.language) return;
+
                     this.nw_ping.stack.trigger( {
                         ...this.last_ping,
                         newMessages: this.last_ping.newMessages + (e.detail?.number ?? 1),
