@@ -1499,7 +1499,8 @@ class AdminUserController extends AdminActionController
             $prototypes = [$prototype];
         }
 
-        foreach ( $prototypes as $pictoPrototype ) {
+        if ($number > 0)
+            foreach ( $prototypes as $pictoPrototype ) {
             $picto = $this->entity_manager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, null, $pictoPrototype);
             if (null === $picto) {
                 $picto = new Picto();
@@ -1524,6 +1525,28 @@ class AdminUserController extends AdminActionController
             }
             else $this->entity_manager->remove($picto);
         }
+        else if ($number < 0)
+            foreach ( $prototypes as $pictoPrototype ) {
+                $n = -$number;
+                /** @var Picto $picto */
+                $picto = $this->entity_manager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, null, $pictoPrototype);
+                if ($picto?->getDisabled()) $picto = null;
+
+                if ($picto?->getCount() > $n) {
+                    $picto->setCount( $picto->getCount() - $n );
+                    $this->entity_manager->persist($picto);
+                    continue;
+                } elseif ($picto) {
+                    $n -= $picto->getCount();
+                    $user->removePicto($picto);
+                    $this->entity_manager->remove($picto);
+                }
+
+                if ($n > 0)
+                    $this->addFlash('error', $this->translator->trans('{number} Auszeichnungen konnten nicht entfernt werden. Möglicherweise sind sie dem Spieler über Städte zugewiesen. In diesem Fall müssen sie über die Städteverwaltung entfernt werden.', ['number' => $n], 'admin'));
+            }
+
+
 
         $this->entity_manager->flush();
 
