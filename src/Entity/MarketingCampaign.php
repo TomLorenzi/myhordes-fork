@@ -32,6 +32,9 @@ class MarketingCampaign
     #[ORM\OneToMany(mappedBy: 'campaign', targetEntity: MarketingCampaignConversion::class, orphanRemoval: true)]
     private Collection $conversions;
 
+    #[ORM\Column]
+    private int $clicks = 0;
+
     public function __construct()
     {
         $this->managers = new ArrayCollection();
@@ -117,6 +120,23 @@ class MarketingCampaign
                 $conversion->setCampaign(null);
             }
         }
+
+        return $this;
+    }
+
+    public function registerClick(): self {
+        $this->setClicks( $this->getClicks() + 1 );
+        return $this;
+    }
+
+    public function getClicks(): int
+    {
+        return $this->clicks;
+    }
+
+    public function setClicks(int $clicks): static
+    {
+        $this->clicks = $clicks;
 
         return $this;
     }
