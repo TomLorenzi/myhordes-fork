@@ -488,6 +488,8 @@ class UserHandler
         if ($nextDeath === null || ($nextDeath->getCitizen() && $nextDeath->getCitizen()->getAlive()))
             return false;
 
+        $lastWords = $this->isRestricted( $user, AccountRestriction::RestrictionComments ) ? '' : $lastWords;
+
         if ($nextDeath->getCod()->getRef() != CauseOfDeath::Poison && $nextDeath->getCod()->getRef() != CauseOfDeath::GhulEaten)
             $last_words = str_replace(['{','}'], ['(',')'], $lastWords);
         else $last_words = '{gotKilled}';
@@ -523,12 +525,12 @@ class UserHandler
         }
         if ($active = $nextDeath->getCitizen()) {
             $active->setActive(false);
-            $active->setLastWords( $this->isRestricted( $user, AccountRestriction::RestrictionComments ) ? '' : $last_words);
+            $active->setLastWords( $last_words);
             $nextDeath = CitizenRankingProxy::fromCitizen( $active, true );
             $this->entity_manager->persist( $active );
         }
 
-        $nextDeath->setConfirmed(true)->setLastWords( $this->isRestricted( $user, AccountRestriction::RestrictionComments ) ? '' : $last_words );
+        $nextDeath->setConfirmed(true)->setLastWords( $last_words );
 
         $this->entity_manager->persist( $nextDeath );
         $this->entity_manager->flush();

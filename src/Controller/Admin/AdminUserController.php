@@ -1337,7 +1337,7 @@ class AdminUserController extends AdminActionController
         if (!$citizen) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         switch ($parser->get('subject')) {
             case 'comment':
-                $citizen->setComment('')->getRankingEntry()->setComment('');
+                $citizen->setComment('')->getRankingEntry()->setComment('')->setCommentLocked(true);
                 $this->entity_manager->persist($citizen);
                 $this->entity_manager->persist($citizen->getRankingEntry());
                 break;
