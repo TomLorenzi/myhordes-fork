@@ -240,10 +240,19 @@ class AdminUserController extends AdminActionController
 
         usort($clusters, fn(ActivityCluster $a, ActivityCluster $b) => $b->getUsers()->count() <=> $a->getUsers()->count() );
 
-        $clusters = array_filter( $clusters, fn(ActivityCluster $a) => $a->getUsers()->filter(fn(User $u) => !$this->user_handler->isRestricted( $u, AccountRestriction::RestrictionGameplay ))->count() > 0 );
+        $user_list = [];
+        foreach ($clusters as $cluster)
+            foreach ($cluster->getUsers() as $user)
+                if (!isset($user_list[$user->getId()]))
+                    $user_list[$user->getId()] = [
+                        'gameban' => $this->user_handler->isRestricted( $user, AccountRestriction::RestrictionGameplay )
+                    ];
+
+        $clusters = array_filter( $clusters, fn(ActivityCluster $a) => $a->getUsers()->filter(fn(User $u) => !$user_list[$u->getId()]['gameban'])->count() > 0 );
 
         return $this->render( 'ajax/admin/users/multi_index_ac.html.twig', $this->addDefaultTwigArgs("multi_list_ac", [
-            'clusters' => $clusters
+            'clusters' => $clusters,
+            'user_data' => $user_list
         ]));
     }
 
