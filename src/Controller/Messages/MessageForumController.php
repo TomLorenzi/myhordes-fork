@@ -78,10 +78,11 @@ class MessageForumController extends MessageController
         // Set the activity status
         if ($forum->getTown() && $user->getActiveCitizen() && $user->getActiveCitizen()->getTown() === $forum->getTown()) {
             $c = $user->getActiveCitizen();
-            $paranoid = $c ? $ch->hasStatusEffect($c,'tg_paranoid') : false;
+            $paranoid = $c && $ch->hasStatusEffect($c, 'tg_paranoid');
 
             if ($lock = $locksmith->getAcquiredLock("form_read_state_{$user->getId()}")) {
                 if ($c) {
+                    $this->entity_manager->refresh($c);
                     $ch->inflictStatus($c, 'tg_chk_forum');
                     $ch->inflictStatus($c, 'tg_chk_forum_day');
                     $c->setLastActionTimestamp(time());
