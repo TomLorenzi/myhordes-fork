@@ -12,6 +12,7 @@ export type TranslationStrings = {
 
         error_put_400: string
         error_put_409: string
+        error_put_nsw: string
     },
     actions: {
         add: string,
