@@ -11,21 +11,16 @@ use App\Entity\Citizen;
 use App\Entity\LogEntryTemplate;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
-use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
-use App\Entity\ZoneTag;
 use App\Response\AjaxResponse;
-use App\Service\Actions\Game\RenderMapAction;
-use App\Service\Actions\Game\RenderMapRouteAction;
+use App\Service\Actions\Cache\CalculateBlockTimeAction;
+use App\Service\Actions\Cache\InvalidateLogCacheAction;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
-use App\Service\ErrorHelper;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
-use App\Service\TownHandler;
 use App\Service\UserHandler;
-use App\Service\ZoneHandler;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\Criteria;
@@ -38,6 +33,8 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Contracts\Cache\ItemInterface;
+use Symfony\Contracts\Cache\TagAwareCacheInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 
@@ -50,6 +47,8 @@ class LogController extends CustomAbstractCoreController
         ConfMaster $conf,
         TranslatorInterface $translator,
         private readonly LogTemplateHandler $handler,
+        private readonly TagAwareCacheInterface $gameCachePool,
+        private readonly CalculateBlockTimeAction $blockTime
     )
     {
         parent::__construct($conf, $translator);
@@ -107,7 +106,7 @@ class LogController extends CustomAbstractCoreController
     /**
      * @throws Exception
      */
-    protected function applyFilters(Request $request, Citizen|Zone|Town $context, ?Criteria $criteria = null, bool $limits = true, bool $allow_inline_days = false, bool $admin = false ): Criteria {
+    protected function applyFilters(Request $request, Citizen|Zone|Town $context, ?Criteria $criteria = null, bool $limits = true, bool $allow_inline_days = false, bool $admin = false, string &$identifier = null ): Criteria {
         $day = $request->query->get('day', 0);
         $limit = min((int)$request->query->get('limit', -1), 1500);
         $threshold_top = $request->query->get('below', PHP_INT_MAX);
@@ -131,10 +130,20 @@ class LogController extends CustomAbstractCoreController
             ->setMaxResults(($limit > 0 && $limits) ? $limit : 1500)
             ->orderBy( ['timestamp' => Order::Descending, 'id' => Order::Descending] );
 
-        if ($day <= 0 && !$allow_inline_days) $day = $town->getDay();
-        if ($day > 0) $criteria->andWhere( Criteria::expr()->eq('day', $day) );
+        $identifier = "t{$town->getId()}_";
+        if ($zone) $identifier .= "z{$zone->getId()}_";
+        else $identifier .= "zz_";
 
-        if (!$admin) $criteria->andWhere( Criteria::expr()->eq('adminOnly', false) );
+        if ($day <= 0 && !$allow_inline_days) $day = $town->getDay();
+        if ($day > 0) {
+            $criteria->andWhere(Criteria::expr()->eq('day', $day));
+            $identifier .= "d{$day}_";
+        } else $identifier .= "dd_";
+
+        if (!$admin) {
+            $criteria->andWhere(Criteria::expr()->eq('adminOnly', false));
+            $identifier .= 'p';
+        } else $identifier = 'a';
 
         return $criteria;
     }
@@ -146,7 +155,7 @@ class LogController extends CustomAbstractCoreController
      * @return array
      */
     protected function renderLogEntries(Collection $entries, bool $canHide = false, bool $admin = false): array {
-        return $entries->map( function( TownLogEntry $entry ) use ($canHide, $admin): ?array {
+        return array_values($entries->map( function( TownLogEntry $entry ) use ($canHide, $admin): ?array {
             /** @var LogEntryTemplate $template */
             $template = $entry->getLogEntryTemplate();
 
@@ -183,10 +192,48 @@ class LogController extends CustomAbstractCoreController
             ];
 
             return $json;
-        } )->filter(fn($v) => $v !== null)->toArray();
+        } )->filter(fn($v) => $v !== null)->toArray());
+    }
+
+    protected function renderCachedLogEntries( EntityManagerInterface $em, Criteria $filters, string $cache_ident, Zone $zone = null, bool $canHide = false, bool $admin = false): array {
+        if ($admin)
+            return $this->renderLogEntries(
+                $em->getRepository(TownLogEntry::class)->matching(
+                    $filters
+                ), $canHide, $admin
+            );
+
+        /** @var Collection<TownLogEntry> $entries */
+        $entries = $em->getRepository(TownLogEntry::class)->matching( $filters );
+        if ($entries->isEmpty()) return [];
+
+        $result = [];
+        $current_block = ($this->blockTime)(new \DateTime());
+        $first = true;
+        $h = $canHide ? 'h' : 'n';
+        while (!$entries->isEmpty()) {
+            $next = ($this->blockTime)($entries->first()->getTimestamp());
+            [$c, $entries] = $entries->partition( fn(int $i, TownLogEntry $t) => $t->getTimestamp() >= $next );
+
+            if ($first || $current_block->getTimestamp() === $next->getTimestamp()) $result = $this->renderLogEntries( $c, $canHide, $admin );
+            else $result = [
+                ...$result, ...$this->gameCachePool->get( "logs_{$cache_ident}_{$h}__{$next->getTimestamp()}", function (ItemInterface $item) use ($cache_ident, $next, $admin, $canHide, &$c, &$zone) {
+                    $tid = $c->first()?->getTown()?->getId();
+                    $item->expiresAfter(4320000)->tag( [
+                        'logs',"logs_{$cache_ident}","logs_{$cache_ident}__{$next->getTimestamp()}","logs__{$next->getTimestamp()}","logs__{$tid}__{$next->getTimestamp()}",
+                        ...($zone ? ["logs__z{$zone->getId()}", "logs__z{$zone->getId()}__{$next->getTimestamp()}"] : [])
+                    ] );
+                    return $this->renderLogEntries( $c, $canHide, $admin );
+                } )
+            ];
+            $first = false;
+        }
+
+        return $result;
     }
 
     /**
+     * @param Zone $zone
      * @param Request $request
      * @param EntityManagerInterface $em
      * @return JsonResponse
@@ -199,11 +246,11 @@ class LogController extends CustomAbstractCoreController
         if ($this->getUser()->getActiveCitizen()?->getZone() !== $zone)
             return new JsonResponse([], Response::HTTP_NOT_ACCEPTABLE);
 
+        $criteria = $this->applyFilters( $request, $this->getUser()->getActiveCitizen(), allow_inline_days: true, identifier: $cache_ident );
+
         return new JsonResponse([
-            'entries' => $this->renderLogEntries(
-                $em->getRepository(TownLogEntry::class)->matching(
-                    $this->applyFilters( $request, $this->getUser()->getActiveCitizen(), allow_inline_days: true )
-                ), canHide: false
+            'entries' => $this->renderCachedLogEntries(
+                $em, $criteria, $cache_ident, zone: $zone, canHide: false
             ),
             'total' => $em->getRepository(TownLogEntry::class)->matching(
                 $this->applyFilters( $request, $this->getUser()->getActiveCitizen(), limits: false, allow_inline_days: true )
@@ -235,20 +282,28 @@ class LogController extends CustomAbstractCoreController
         $active_citizen = $this->getUser()->getActiveCitizen();
 
         $filter = $request->query->get('filter', '');
-        $criteria = $this->applyFilters( $request, $active_citizen );
+        $criteria = $this->applyFilters( $request, $active_citizen, identifier: $cache_ident );
         $countCriteria = $this->applyFilters( $request, $active_citizen, limits: false );
+
+        $templates = !empty($filter) ? $em->getRepository(LogEntryTemplate::class)->findByTypes(
+            explode(',', $filter)
+        ) : null;
 
         foreach ([$criteria,$countCriteria] as &$c) {
             if ($citizen) $c
                 ->andWhere(Criteria::expr()->eq('citizen', $citizen))
                 ->andWhere(Criteria::expr()->neq('hidden', true));
-            if (!empty($filter)) $c->andWhere(Criteria::expr()->in('logEntryTemplate', $em->getRepository(LogEntryTemplate::class)->findByTypes(
-                explode(',', $filter)
-            )));
+            if (!empty($filter)) $c->andWhere(Criteria::expr()->in('logEntryTemplate', $templates));
         }
 
+        if ($citizen) $cache_ident .= "_c{$citizen->getId()}";
+        else  $cache_ident .= '_cc';
+
+        if (!empty($filter)) $cache_ident .= '_t' . implode( '+', array_map( fn(LogEntryTemplate $t) => $t->getId(), $templates ) );
+        else $cache_ident .= '_tt';
+
         return new JsonResponse([
-            'entries' => $this->renderLogEntries( $em->getRepository(TownLogEntry::class)->matching( $criteria ), canHide: true ),
+            'entries' => $this->renderCachedLogEntries( $em, $criteria, $cache_ident, canHide: true ),
             'total' => $em->getRepository(TownLogEntry::class)->matching( $countCriteria )->count(),
             'manipulations' => $this->getManipulationsLeft( $active_citizen, $userHandler )
         ]);
@@ -259,12 +314,13 @@ class LogController extends CustomAbstractCoreController
      * @param TownLogEntry $entry
      * @param UserHandler $userHandler
      * @param EntityManagerInterface $em
+     * @param InvalidateLogCacheAction $invalidate
      * @return JsonResponse
      */
     #[Route(path: '/{id}', name: 'delete_log', methods: ['DELETE'])]
     #[GateKeeperProfile(only_alive: true, only_with_profession: true, only_in_town: true)]
     #[Toaster]
-    public function delete_log(TownLogEntry $entry, UserHandler $userHandler, EntityManagerInterface $em): JsonResponse {
+    public function delete_log(TownLogEntry $entry, UserHandler $userHandler, EntityManagerInterface $em, InvalidateLogCacheAction $invalidate): JsonResponse {
         $active_citizen = $this->getUser()->getActiveCitizen();
 
         $manipulations = $this->getManipulationsLeft($active_citizen, $userHandler);
@@ -275,6 +331,7 @@ class LogController extends CustomAbstractCoreController
         if ($entry->getZone() || $entry->getHidden() || $entry->getTown() !== $active_citizen->getTown() || $entry->getLogEntryTemplate()->getType() === LogEntryTemplate::TypeNightly)
             return new JsonResponse([], Response::HTTP_NOT_ACCEPTABLE);
 
+        $invalidate($entry);
         $entry->setHidden( true )->setHiddenBy( $active_citizen );
         $em->persist( $entry );
         $em->persist( $active_citizen->getSpecificActionCounter(ActionCounter::ActionTypeRemoveLog)->increment() );
@@ -299,11 +356,10 @@ class LogController extends CustomAbstractCoreController
     #[GateKeeperProfile('skip')]
     #[IsGranted('ROLE_CROW')]
     public function adminZone(Zone $zone, Request $request, EntityManagerInterface $em): JsonResponse {
+        $criteria = $this->applyFilters( $request, $zone, allow_inline_days: true, admin: true, identifier: $cache_ident );
         return new JsonResponse([
-                                    'entries' => $this->renderLogEntries(
-                                        $em->getRepository(TownLogEntry::class)->matching(
-                                            $this->applyFilters( $request, $zone, allow_inline_days: true, admin: true )
-                                        ), canHide: false, admin: true
+                                    'entries' => $this->renderCachedLogEntries(
+                                        $em, $criteria, $cache_ident, canHide: false, admin: true
                                     ),
                                     'total' => $em->getRepository(TownLogEntry::class)->matching(
                                         $this->applyFilters( $request, $zone, limits: false, allow_inline_days: true, admin: true )
@@ -325,7 +381,7 @@ class LogController extends CustomAbstractCoreController
     public function adminTown(Town $town, Request $request, EntityManagerInterface $em): JsonResponse {
 
         $filter = $request->query->get('filter', '');
-        $criteria = $this->applyFilters( $request, $town, admin: true );
+        $criteria = $this->applyFilters( $request, $town, admin: true, identifier: $cache_ident );
         $countCriteria = $this->applyFilters( $request, $town, limits: false, admin: true );
 
         foreach ([$criteria,$countCriteria] as &$c) {
@@ -335,7 +391,7 @@ class LogController extends CustomAbstractCoreController
         }
 
         return new JsonResponse([
-                                    'entries' => $this->renderLogEntries( $em->getRepository(TownLogEntry::class)->matching( $criteria ), canHide: false, admin: true ),
+                                    'entries' => $this->renderCachedLogEntries( $em, $criteria, $cache_ident, canHide: false, admin: true ),
                                     'total' => $em->getRepository(TownLogEntry::class)->matching( $countCriteria )->count(),
                                     'manipulations' => 0
                                 ]);

@@ -43,6 +43,7 @@ use App\Entity\ZonePrototype;
 use App\Enum\ActionHandler\ActionValidity;
 use App\Enum\Game\TransferItemModality;
 use App\Enum\ItemPoisonType;
+use App\Service\Actions\Cache\InvalidateLogCacheAction;
 use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\Actions\Game\AtomProcessors\Require\AtomRequirementProcessor;
 use App\Service\Maps\MazeMaker;
@@ -82,7 +83,8 @@ class ActionHandler
         private readonly GameProfilerService $gps,
         private readonly ContainerInterface $container,
         private readonly EventProxyService $proxyService,
-        private readonly InvalidateTagsInAllPoolsAction $clearCache
+        private readonly InvalidateTagsInAllPoolsAction $clearCache,
+        private readonly InvalidateLogCacheAction $clearLogCache
     ) {}
 
     protected function evaluate( Citizen $citizen, ?Item $item, $target, ItemAction $action, ?string &$message, ?Evaluation &$cache = null ): ActionValidity {
@@ -875,10 +877,11 @@ class ActionHandler
                                 }
 
                                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'smokeBombReplacement' . $suffix]);
-                                if ($entry->getTimestamp() > $limit) {
+                                if ($template && $entry->getTimestamp() > $limit) {
+                                    ($this->clearLogCache)($entry);
                                     $entry->setLogEntryTemplate($template);
                                     $this->entity_manager->persist($entry);
-                                }
+                                } else break;
                             }
                         }
                         $this->entity_manager->persist($this->log->smokeBombUsage($base_zone));
