@@ -192,7 +192,7 @@
                                                             </span>
                                                         {% endif %}
                                                         {% if cdm_level != 2 %}
-                                                            <a {% if town|openFor(app.user) and (not town|whitelisted or town|whitelisted(app.user)) %}x-coa-restricted="{{ (coa is not empty and (town|whitelisted or town.password)) ? 1 : 0 }}" x-coa-discard="{{ coa|filter( member => not town|openFor(member) )|map( member => member.name )|join(';') }}" x-town-lang="{{ town.getLanguage }}" x-town-id="{{ town.id }}" x-town-name="{{ town.name }}" x-town-ticket="{{ (cap_left < 0 or town.rankingEntry.event or town|conf(constant('App\\Structures\\TownConf::CONF_FEATURE_NO_TEAMS'),true)) ? '0' : '1' }}" x-town-locked="{% if town.password is not null %}1{% else %}0{% endif %}" {% else %}disabled="disabled"{% endif %}>
+                                                            <a data-event="{{ town.rankingEntry.event ? '1' : '0' }}" {% if town|openFor(app.user) and (not town|whitelisted or town|whitelisted(app.user)) %}x-coa-restricted="{{ (coa is not empty and (town|whitelisted or town.password)) ? 1 : 0 }}" x-coa-discard="{{ coa|filter( member => not town|openFor(member) )|map( member => member.name )|join(';') }}" x-town-lang="{{ town.getLanguage }}" x-town-id="{{ town.id }}" x-town-name="{{ town.name }}" x-town-ticket="{{ (cap_left < 0 or town.rankingEntry.event or town|conf(constant('App\\Structures\\TownConf::CONF_FEATURE_NO_TEAMS'),true)) ? '0' : '1' }}" x-town-locked="{% if town.password is not null %}1{% else %}0{% endif %}" {% else %}disabled="disabled"{% endif %}>
                                                                 <span class="link">{{ town.name }}</span>
                                                                 {% if town.language != 'multi' and town.language != app.user.language and joinable %}
                                                                         <img alt="!" src="{{ asset('build/images/icons/warning_anim.gif') }}" />
@@ -285,7 +285,18 @@
             const coa_restriction = elem.getAttribute('x-coa-restricted') === '1';
             const coa_discard = elem.getAttribute('x-coa-discard') ? elem.getAttribute('x-coa-discard').split(';') : [];
 
-            if (town_ticketed && user_team !== town_lang && user_team) {
+            const event_town = elem.dataset.event === '1';
+
+            if (event_town) {
+                let message =
+                    ('{{ 'Dies ist eine Event-Stadt, in der möglicherweise andere Regeln gelten und/oder eine bestimmte Spielweise erforderlich ist.'|trans({},'ghost')|e('js') }}' + "\n\n" +
+                        '{{ 'Damit alle Spieler an diesem Event Spaß haben können, tritt dieser Stadt bitte nur bei, wenn du dir über deren Regeln im Klaren bist.'|trans({tickets_left: cap_left},'ghost')|e('js') }}' + "\n\n" +
+                        '{{ 'Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt {town_name} betreten'|trans({tickets_left: cap_left},'ghost')|e('js') }}'
+                    )
+                        .replace('{town_name}', town_name);
+
+                if (!confirm(message)) return;
+            } else if (town_ticketed && user_team !== town_lang && user_team) {
                 const user_team_rep = window.c.langs[user_team] ? window.c.langs[user_team] : user_team;
                 const town_lang_rep = window.c.langs[town_lang.split('_')[0]] ? window.c.langs[town_lang.split('_')[0]] : town_lang;
                 let message =
@@ -305,7 +316,7 @@
                     .replace(/{lang_user}/g, user_lang_rep).replace(/{lang_town}/g, town_lang_rep);
 
                 if (!confirm(message)) return;
-            } else if (!confirm('{{ 'Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt {town_name} betreten'|trans({},'ghost')|e('js') }} ?'.replace('{town_name}', town_name)))
+            } else if (!confirm('{{ 'Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt {town_name} betreten'|trans({},'ghost')|e('js') }}'.replace('{town_name}', town_name)))
                 return;
 
             {% if cdm_level == 1 %}
