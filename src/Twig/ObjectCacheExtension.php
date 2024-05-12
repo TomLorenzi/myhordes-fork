@@ -99,7 +99,7 @@ class ObjectCacheExtension extends AbstractExtension implements GlobalsInterface
             if ($item->getHidden()) $key .= "_h";
             if ($item->getFirstPick()) $key .= "_f";
             $key .= "_p{$item->getPoison()->value}";
-            if ($item->getPrototype()->getWatchpoint() > 0 && ($t = $item->getInventory()->findTown()))
+            if ($item->getPrototype()->getWatchpoint() <> 0 && ($t = $item->getInventory()->findTown()))
                 $key .= "_w{$this->events->buildingQueryNightwatchDefenseBonus( $t, $item )}";
 
             return $key;
