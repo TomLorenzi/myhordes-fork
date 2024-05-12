@@ -53,8 +53,7 @@
                 {% endif %}
                 </strong>
             </div>
-            {% if pump is not null %}
-                {# @var pump \App\Entity\Building #}
+            {% if pump %}
                 {% if banished %}
                     <div class="note note-warning">
                         {% trans from 'game' %}
@@ -64,13 +63,13 @@
                 {% endif %}
             {% endif %}
             <p class="actions-box">
-                {% if first_take or pump is null %}
+                {% if first_take or not pump %}
                     <button data-fetch="{{ path('rest_town_facilities_well_retrieve') }}" data-fetch-method="get" data-fetch-load="{{ path('town_well') }}" {% if not allow_take or rations_left <= 0 %}disabled{% endif %}><img alt="" src="{{ asset('build/images/item/item_water.gif') }}" />{{ 'Deine Ration Wasser erhalten'|trans({},'game') }}</button>
                 {% else %}
                     <button data-fetch="{{ path('rest_town_facilities_well_retrieve') }}" data-fetch-method="get" data-fetch-load="{{ path('town_well') }}" data-fetch-confirm="{{ 'Bestätigen?'|trans({},'global') }}" {% if rations_left <= 0 %}disabled{% endif %}><img alt="" src="{{ asset('build/images/item/item_water.gif') }}" />{{ 'Eine weitere Ration erhalten'|trans({},'game') }}</button>
                 {% endif %}
 
-            {% if pump is not null %}
+            {% if pump %}
                 {% if not first_take %}
                     <div class="note note-critical">{{'Achtung! Wenn du pro Tag <strong>mehr als eine Ration Wasser</strong> nimmst, erfolgt dies auf Kosten der anderen Bürger. Aus diesem Grund werden dementsprechende Aktionen im Großen Register rot vermerkt...'|trans({}, 'game')|raw}}</div>
                 {% endif %}
