@@ -282,7 +282,7 @@ class TwinoConverterToBlocks {
                 if ( match.nodeInfo() ) {
                     let split = match.nodeInfo().split(':');
                     blocks.push( new TwinoInterimBlock('', 'div', 'clear') );
-                    blocks.push( new TwinoInterimBlock(split.length === 2 ? split[0] : match.nodeInfo(), 'span', 'quoteauthor', split.length === 2 && !isNaN(parseInt(split[1])) ? [ ['x-a',split[1]] ] : []) );
+                    blocks.push( new TwinoInterimBlock(match.nodeInfo(), 'span', 'quoteauthor', split.length === 2 && !isNaN(parseInt(split[1])) ? [ ['x-a',split[1]] ] : []) );
                 }
 
                 blocks.push( new TwinoInterimBlock(nodeContent, 'blockquote') );
