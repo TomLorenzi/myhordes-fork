@@ -299,7 +299,7 @@ Etagen: Pisos
 'Mindestanzahl an Räumen pro Etage': 'Número mínimo de piezas por piso'
 Kartenbreite: Anchura del mapa
 Kartenhöhe: Altura del mapa
-'Abweichende Bedingungen für den automatischen Stadtabbruch': 'Abweichende Bedingungen für den automatischen Stadtabbruch'
+'Abweichende Bedingungen für den automatischen Stadtabbruch': 'Diferentes condiciones para la cancelación automática del pueblo'
 'Abweichende Bedingungen für den Mysteriösen Fremden': 'Abweichende Bedingungen für den Mysteriösen Fremden'
 'Stadttor ist bis zum Start der Stadt verschlossen': 'Stadttor ist bis zum Start der Stadt verschlossen'
 'Stadttor kann vor dem Start der Stadt geöffnet werden': 'Stadttor kann vor dem Start der Stadt geöffnet werden'
@@ -351,3 +351,5 @@ Seelenpunkte: Puntos de alma
 Roulette: Ruleta
 'Spieler erhalten ein Drittel der Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben, in voller Höhe. Die restlichen Auszeichnungen werden entfernt. Welche Auszeichnungstypen entfernt werden ist zufällig.': 'Spieler erhalten ein Drittel der Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben, in voller Höhe. Die restlichen Auszeichnungen werden entfernt. Welche Auszeichnungstypen entfernt werden ist zufällig.'
 'Spieler erhalten alle Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben. Die Höhe aller Auszeichnungen wird gedrittelt.': 'Spieler erhalten alle Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben. Die Höhe aller Auszeichnungen wird gedrittelt.'
+'Dies ist eine Event-Stadt, in der möglicherweise andere Regeln gelten und/oder eine bestimmte Spielweise erforderlich ist.': 'Dies ist eine Event-Stadt, in der möglicherweise andere Regeln gelten und/oder eine bestimmte Spielweise erforderlich ist.'
+'Damit alle Spieler an diesem Event Spaß haben können, tritt dieser Stadt bitte nur bei, wenn du dir über deren Regeln im Klaren bist.': 'Damit alle Spieler an diesem Event Spaß haben können, tritt dieser Stadt bitte nur bei, wenn du dir über deren Regeln im Klaren bist.'

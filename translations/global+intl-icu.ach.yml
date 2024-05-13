@@ -621,3 +621,5 @@ Testbenachrichtiung: crwdns205172:0crwdne205172:0
 'Dies ist Meldung #{num}.': 'crwdns205252:0#{num}crwdne205252:0'
 Community-Event: crwdns205322:0crwdne205322:0
 'Die erhälst die gekennzeichneten Benachrichtigungen nur, wenn sie deiner gewählten Sprache entsprechen. Wenn du die entsprechenden Einstellungen änderst oder deine Sprache wechselst, kann es bis zu 24 Stunden dauern, bis die Änderungen für Benachrichtigungen übernommen werden.': 'crwdns205324:0crwdne205324:0'
+'Alternativ zu einer E-Mail Adresse kannst du hier auch eine URL eintragen, auf der Spieler eine Kontaktmöglichkeit zu dir finden.': 'crwdns205376:0crwdne205376:0'
+'Dein Gerät konnte sich nicht beim Benachrichtigungsdienst anmelden. Dies kann durch einen kurzzeitigen Verbindungsausfall passieren. Möglicherweise musst du den Benachrichtigungsdienst auch zunächst in den Privatsphäre-Einstellungen deines Browsers aktivieren.': 'crwdns205380:0crwdne205380:0'
