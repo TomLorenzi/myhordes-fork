@@ -217,7 +217,7 @@ class LogController extends CustomAbstractCoreController
 
             if ($first || $current_block->getTimestamp() === $next->getTimestamp()) $result = $this->renderLogEntries( $c, $canHide, $admin );
             else $result = [
-                ...$result, ...$this->gameCachePool->get( "logs_{$cache_ident}_{$h}__{$next->getTimestamp()}", function (ItemInterface $item) use ($cache_ident, $next, $admin, $canHide, &$c, &$zone) {
+                ...$result, ...$this->gameCachePool->get( "logs_{$this->getUser()?->getLanguage()}_{$cache_ident}_{$h}__{$next->getTimestamp()}", function (ItemInterface $item) use ($cache_ident, $next, $admin, $canHide, &$c, &$zone) {
                     $tid = $c->first()?->getTown()?->getId();
                     $item->expiresAfter(4320000)->tag( [
                         'logs',"logs_{$cache_ident}","logs_{$cache_ident}__{$next->getTimestamp()}","logs__{$next->getTimestamp()}","logs__{$tid}__{$next->getTimestamp()}",
