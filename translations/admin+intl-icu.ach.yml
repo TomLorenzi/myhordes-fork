@@ -669,3 +669,5 @@ Erstellt: crwdns205332:0crwdne205332:0
 'Multi-Account Report V2': 'crwdns205366:0crwdne205366:0'
 'Letzte {n} Tage': 'crwdns205368:0{n}crwdne205368:0'
 Veraltet!: crwdns205370:0crwdne205370:0
+Klicks: crwdns205374:0crwdne205374:0
+'{number} Auszeichnungen konnten nicht entfernt werden. Möglicherweise sind sie dem Spieler über Städte zugewiesen. In diesem Fall müssen sie über die Städteverwaltung entfernt werden.': 'crwdns205378:0{number}crwdne205378:0'
