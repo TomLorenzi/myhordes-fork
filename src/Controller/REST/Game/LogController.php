@@ -216,16 +216,26 @@ class LogController extends CustomAbstractCoreController
             [$c, $entries] = $entries->partition( fn(int $i, TownLogEntry $t) => $t->getTimestamp() >= $next );
 
             if ($first || $current_block->getTimestamp() === $next->getTimestamp()) $result = $this->renderLogEntries( $c, $canHide, $admin );
-            else $result = [
-                ...$result, ...$this->gameCachePool->get( "logs_{$this->getUser()?->getLanguage()}_{$cache_ident}_{$h}__{$next->getTimestamp()}", function (ItemInterface $item) use ($cache_ident, $next, $admin, $canHide, &$c, &$zone) {
+            else {
+                $key = "logs_{$this->getUser()?->getLanguage()}_{$cache_ident}_{$h}__{$next->getTimestamp()}";
+                $cached = $this->gameCachePool->get($key, function (ItemInterface $item) use ($cache_ident, $next, $admin, $canHide, &$c, &$zone) {
                     $tid = $c->first()?->getTown()?->getId();
-                    $item->expiresAfter(4320000)->tag( [
-                        'logs',"logs_{$cache_ident}","logs_{$cache_ident}__{$next->getTimestamp()}","logs__{$next->getTimestamp()}","logs__{$tid}__{$next->getTimestamp()}",
-                        ...($zone ? ["logs__z{$zone->getId()}", "logs__z{$zone->getId()}__{$next->getTimestamp()}"] : [])
-                    ] );
-                    return $this->renderLogEntries( $c, $canHide, $admin );
-                } )
-            ];
+                    $item->expiresAfter(4320000)->tag([
+                                                          'logs', "logs_{$cache_ident}", "logs_{$cache_ident}__{$next->getTimestamp()}", "logs__{$next->getTimestamp()}", "logs__{$tid}__{$next->getTimestamp()}",
+                                                          ...($zone ? ["logs__z{$zone->getId()}", "logs__z{$zone->getId()}__{$next->getTimestamp()}"] : [])
+                                                      ]);
+                    return $this->renderLogEntries($c, $canHide, $admin);
+                });
+
+                if (count($cached) !== $c->count()) {
+                    $cached = $this->renderLogEntries($c, $canHide, $admin);
+                    $this->gameCachePool->delete($key);
+                }
+
+                $result = [
+                    ...$result, ...$cached
+                ];
+            }
             $first = false;
         }
 
