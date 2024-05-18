@@ -1,8 +1,7 @@
 <?php
 
-namespace MyHordes\Fixtures\DTO\Actions\Atoms;
+namespace MyHordes\Fixtures\DTO\Actions\Atoms\Requirement;
 
-use App\Service\Actions\Game\AtomProcessors\Require\ProcessEscortRequirement;
 use App\Service\Actions\Game\AtomProcessors\Require\ProcessFeatureRequirement;
 use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 

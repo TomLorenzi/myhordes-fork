@@ -6,7 +6,7 @@ use App\Service\Actions\Game\AtomProcessors\Require\AtomRequirementProcessor;
 use App\Service\TownHandler;
 use App\Structures\ActionHandler\Evaluation;
 use App\Structures\TownConf;
-use MyHordes\Fixtures\DTO\Actions\Atoms\CustomClassRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\CustomClassRequirement;
 use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 class GuardTowerUseIsNotMaxed extends AtomRequirementProcessor

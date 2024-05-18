@@ -5,7 +5,7 @@ namespace App\Service\Actions\Game\AtomProcessors\Require;
 use App\Service\InventoryHandler;
 use App\Structures\ActionHandler\Evaluation;
 use App\Translation\T;
-use MyHordes\Fixtures\DTO\Actions\Atoms\InventorySpaceRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\InventorySpaceRequirement;
 use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 class ProcessInventorySpaceRequirement extends AtomRequirementProcessor

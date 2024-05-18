@@ -3,17 +3,17 @@
 namespace MyHordes\Fixtures\DTO\Actions;
 
 /**
- * @method RequirementsDataElement[] all()
- * @method RequirementsDataElement add()
- * @method RequirementsDataElement clone(string $id)
- * @method RequirementsDataElement modify(string $id, bool $required = true)
- * @method string store(RequirementsDataElement $child, mixed $context = null)
+ * @method EffectsDataElement[] all()
+ * @method EffectsDataElement add()
+ * @method EffectsDataElement clone(string $id)
+ * @method EffectsDataElement modify(string $id, bool $required = true)
+ * @method string store(EffectsDataElement $child, mixed $context = null)
  */
-class RequirementsDataContainer extends ActionDataContainerBase
+class EffectsDataContainer extends ActionDataContainerBase
 {
     protected function getElementClass(): string
     {
-        return RequirementsDataElement::class;
+        return EffectsDataElement::class;
     }
 
     /**
@@ -27,7 +27,7 @@ class RequirementsDataContainer extends ActionDataContainerBase
      *
      * @template T as object
      */
-    public function findRequirements(string $class): array {
+    public function findEffects(string $class): array {
         return $this->findAtom($class);
     }
 }

@@ -1,9 +1,7 @@
 <?php
 
-namespace MyHordes\Fixtures\DTO\Actions\Atoms;
+namespace MyHordes\Fixtures\DTO\Actions\Atoms\Requirement;
 
-use App\Service\Actions\Game\AtomProcessors\Require\ProcessBuildingRequirement;
-use App\Service\Actions\Game\AtomProcessors\Require\ProcessCounterRequirement;
 use App\Service\Actions\Game\AtomProcessors\Require\ProcessHomeRequirement;
 use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 

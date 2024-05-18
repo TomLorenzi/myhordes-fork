@@ -3,7 +3,7 @@
 namespace App\Service\Actions\Game\AtomProcessors\Require;
 
 use App\Structures\ActionHandler\Evaluation;
-use MyHordes\Fixtures\DTO\Actions\Atoms\TimeRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\TimeRequirement;
 use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 class ProcessTimeRequirement extends AtomRequirementProcessor

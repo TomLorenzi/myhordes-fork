@@ -4,7 +4,7 @@ namespace App\Service\Actions\Game\AtomProcessors\Require;
 
 use App\Service\UserHandler;
 use App\Structures\ActionHandler\Evaluation;
-use MyHordes\Fixtures\DTO\Actions\Atoms\FeatureRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\FeatureRequirement;
 use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 class ProcessFeatureRequirement extends AtomRequirementProcessor

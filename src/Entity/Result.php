@@ -59,11 +59,13 @@ class Result
     private $pm;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectCP')]
     private $cp;
-    #[ORM\ManyToOne(targetEntity: AffectMessage::class)]
-    private $message;
     #[ORM\ManyToOne(targetEntity: AffectPicto::class)]
     #[ORM\JoinTable(name: 'global_picto_id')]
     private $globalPicto;
+
+    #[ORM\Column(nullable: true)]
+    private ?array $atoms = null;
+
     public function __construct()
     {
     }
@@ -84,7 +86,7 @@ class Result
     public function clear(): self {
         $this->ap = $this->status = $this->item = $this->spawn = $this->consume = $this->resultGroup = $this->zombies =
         $this->blueprint = $this->rolePlayerText = $this->custom = $this->well = $this->home = $this->death =
-        $this->target = $this->zone = $this->picto = $this->pm = $this->cp = null;
+        $this->target = $this->zone = $this->picto = $this->pm = $this->cp = $this->message = $this->atoms = null;
         return $this;
     }
     public function getAp(): ?AffectAP
@@ -277,16 +279,7 @@ class Result
 
         return $this;
     }
-    public function getMessage(): ?AffectMessage
-    {
-        return $this->message;
-    }
-    public function setMessage(?AffectMessage $message): self
-    {
-        $this->message = $message;
 
-        return $this;
-    }
     public function getGlobalPicto(): ?AffectPicto
     {
         return $this->globalPicto;
@@ -294,6 +287,18 @@ class Result
     public function setGlobalPicto(?AffectPicto $globalPicto): self
     {
         $this->globalPicto = $globalPicto;
+
+        return $this;
+    }
+
+    public function getAtoms(): ?array
+    {
+        return $this->atoms;
+    }
+
+    public function setAtoms(?array $atoms): self
+    {
+        $this->atoms = $atoms;
 
         return $this;
     }

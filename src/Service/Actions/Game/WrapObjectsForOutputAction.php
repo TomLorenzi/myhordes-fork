@@ -27,7 +27,7 @@ readonly class WrapObjectsForOutputAction
         User|Citizen|
         Zone|ZonePrototype|
         string|null $object
-    ): ItemPrototype|BuildingPrototype|ZonePrototype|Citizen|null {
+    ): ItemPrototype|BuildingPrototype|ZonePrototype|Citizen|string|null {
         return match (true) {
             is_a($object, Item::class) || is_a($object, Building::class) || is_a($object, Zone::class) => $object->getPrototype(),
             is_a($object, User::class) => $object->getActiveCitizen(),
@@ -35,7 +35,7 @@ readonly class WrapObjectsForOutputAction
         };
     }
 
-    private function renderObject(ItemPrototype|BuildingPrototype|ZonePrototype|Citizen $o): string {
+    private function renderObject(ItemPrototype|BuildingPrototype|ZonePrototype|Citizen|string $o): string {
         [$text, $icon] = match(true) {
             is_a($o, ItemPrototype::class) => [
                 $this->translator->trans($o->getLabel(), [], 'items'),
@@ -52,6 +52,10 @@ readonly class WrapObjectsForOutputAction
             is_a($o, Citizen::class) => [
                 $o->getName(),
                 "build/images/professions/{$o->getProfession()->getIcon()}.gif"
+            ],
+            default => [
+                $o,
+                null
             ]
         };
 

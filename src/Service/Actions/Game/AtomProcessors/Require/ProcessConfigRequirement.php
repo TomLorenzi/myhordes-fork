@@ -4,7 +4,7 @@ namespace App\Service\Actions\Game\AtomProcessors\Require;
 
 use App\Service\ConfMaster;
 use App\Structures\ActionHandler\Evaluation;
-use MyHordes\Fixtures\DTO\Actions\Atoms\ConfigRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\ConfigRequirement;
 use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 class ProcessConfigRequirement extends AtomRequirementProcessor

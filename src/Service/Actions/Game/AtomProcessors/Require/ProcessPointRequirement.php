@@ -6,7 +6,7 @@ use App\Enum\ActionHandler\PointType;
 use App\Service\CitizenHandler;
 use App\Structures\ActionHandler\Evaluation;
 use App\Translation\T;
-use MyHordes\Fixtures\DTO\Actions\Atoms\PointRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\PointRequirement;
 use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 class ProcessPointRequirement extends AtomRequirementProcessor

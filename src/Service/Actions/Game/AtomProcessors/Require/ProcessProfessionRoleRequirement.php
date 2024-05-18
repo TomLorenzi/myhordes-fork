@@ -4,7 +4,7 @@ namespace App\Service\Actions\Game\AtomProcessors\Require;
 
 use App\Entity\CitizenRole;
 use App\Structures\ActionHandler\Evaluation;
-use MyHordes\Fixtures\DTO\Actions\Atoms\ProfessionRoleRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\ProfessionRoleRequirement;
 use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 class ProcessProfessionRoleRequirement extends AtomRequirementProcessor

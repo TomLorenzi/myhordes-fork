@@ -3,13 +3,11 @@
 namespace App\Service\Actions\Game\AtomProcessors\Require;
 
 use App\Entity\ItemPrototype;
-use App\Service\ConfMaster;
 use App\Service\InventoryHandler;
 use App\Structures\ActionHandler\Evaluation;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
-use Doctrine\ORM\EntityManagerInterface;
-use MyHordes\Fixtures\DTO\Actions\Atoms\ItemRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\ItemRequirement;
 use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 class ProcessItemRequirement extends AtomRequirementProcessor

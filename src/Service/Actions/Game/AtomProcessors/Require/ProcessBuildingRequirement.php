@@ -4,7 +4,7 @@ namespace App\Service\Actions\Game\AtomProcessors\Require;
 
 use App\Entity\Building;
 use App\Structures\ActionHandler\Evaluation;
-use MyHordes\Fixtures\DTO\Actions\Atoms\BuildingRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\BuildingRequirement;
 use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 class ProcessBuildingRequirement extends AtomRequirementProcessor

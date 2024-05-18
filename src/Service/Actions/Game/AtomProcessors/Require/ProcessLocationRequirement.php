@@ -6,8 +6,7 @@ use App\Entity\EscapeTimer;
 use App\Entity\RuinZone;
 use App\Service\CitizenHandler;
 use App\Structures\ActionHandler\Evaluation;
-use Doctrine\ORM\EntityManagerInterface;
-use MyHordes\Fixtures\DTO\Actions\Atoms\LocationRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\LocationRequirement;
 use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 class ProcessLocationRequirement extends AtomRequirementProcessor

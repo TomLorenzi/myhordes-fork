@@ -13,20 +13,23 @@ use App\Enum\ItemPoisonType;
 use App\Service\Actions\Game\AtomProcessors\Require\Custom\GuardTowerUseIsNotMaxed;
 use App\Service\Actions\Game\AtomProcessors\Require\Custom\RoleVote;
 use App\Structures\TownConf;
-use MyHordes\Fixtures\DTO\Actions\Atoms\BuildingRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\ConfigRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\CounterRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\CustomClassRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\EscortRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\FeatureRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\HomeRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\InventorySpaceRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\ItemRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\LocationRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\PointRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\ProfessionRoleRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\StatusRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\TimeRequirement;
+use ArrayHelpers\Arr;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\MessageEffect;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\BuildingRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\ConfigRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\CounterRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\CustomClassRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\EscortRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\FeatureRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\HomeRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\InventorySpaceRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\ItemRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\LocationRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\PointRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\ProfessionRoleRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\StatusRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\TimeRequirement;
+use MyHordes\Fixtures\DTO\Actions\EffectsDataContainer;
 use MyHordes\Fixtures\DTO\Actions\RequirementsDataContainer;
 use MyHordes\Fixtures\DTO\ArrayDecoratorReadInterface;
 use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
@@ -264,19 +267,19 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('must_have_home_rest_v3')->type( Requirement::HideOnFail )->add( (new HomeRequirement())->upgrade('rest')->minLevel(3)->maxLevel(3) )->commit();
         //</editor-fold>
 
+        $effects_container = new EffectsDataContainer();
+
         $data = array_merge_recursive($data, [
             'meta_requirements' => [],
             'requirements' => [],
 
             'meta_results' => [
                 'do_nothing' => [],
-                'do_nothing_attack' => ['message' => ['text' => 'Mit aller Kraft schlägst du mehrmals auf einen Zombie ein, aber <strong>es scheint ihm nichts anzuhaben</strong>!']],
-                'do_nothing_attack2' => ['message' => ['text' => 'Sie greifen einen Zombie mit Ihrem {item} an, aber <strong>er reagiert nicht einmal</strong> und macht weiter!']],
 
                 'contaminated_zone_infect'  => [ 'collection' => [ 'custom' => [22] ] ],
 
                 'consume_item'    => [ 'item' => [ 'consume' => true,  'morph' => null, 'break' => null, 'poison' => null ] ],
-                'break_item'      => [ 'item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => null ], 'picto' => 'picto_break', "message" => ['text' => 'Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...', 'ordering' => 99999] ],
+                'break_item'      => [ 'collection' => ['item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => null ], 'picto' => 'picto_break']],
                 'cleanse_item'    => [ 'item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => false ] ],
                 'empty_jerrygun'  => [ 'item' => [ 'consume' => false, 'morph' => 'jerrygun_off_#00', 'break' => null, 'poison' => null ] ],
 
@@ -298,19 +301,19 @@ class ActionDataService implements FixtureProcessorInterface {
                 'drink_no_ap' => [ 'status' => 'replace_dehydration' ],
                 'reset_thirst_counter' => [ 'status' => 'reset_thirst_counter' ],
 
-                'eat_ap6'     => [ 'status' => 'add_has_eaten', 'ap' => 'to_max_plus_0', 'message' => ['escort' => false, 'text' => 'Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...'] ],
+                'eat_ap6'     => [ 'collection' => ['status' => 'add_has_eaten', 'ap' => 'to_max_plus_0'] ],
                 'eat_ap6_silent' => [ 'status' => 'add_has_eaten', 'ap' => 'to_max_plus_0' ],
-                'eat_ap7'     => [ 'status' => 'add_has_eaten', 'ap' => 'to_max_plus_1', 'message' => ['escort' => false, 'text' => 'Einmal ist zwar keinmal, dennoch genießt du dein(e) <span class="tool">{item}</span>. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast <strong>1 zusätzlichen AP erhalten!</strong>'] ],
+                'eat_ap7'     => [ 'collection' => ['status' => 'add_has_eaten', 'ap' => 'to_max_plus_1'] ],
 
                 'drunk' => [ 'status' => 'add_drunk', 'picto' => ['r_alcool_#00']],
 
                 'drug_any'              => [ 'status' => 'add_is_drugged', 'picto' => ['r_drug_#00'] ],
-                'drug_addict'           => [ 'status' => 'add_addicted', 'picto' => ['r_drug_#00'], 'message' => ['text' => '<t-stat-up-addict>Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!</t-stat-up-addict>', 'ordering' => 1000] ],
+                'drug_addict'           => [ 'collection' => ['status' => 'add_addicted', 'picto' => ['r_drug_#00']] ],
                 'drug_addict_no_msg'    => [ 'status' => 'add_addicted', 'picto' => ['r_drug_#00'] ],
                 'terrorize'             => [ 'status' => 'add_terror' ],
                 'unterrorize'           => [ 'status' => 'remove_terror' ],
 
-                'infect'        => [ 'status' => 'add_infection', 'message' => ['text' => 'Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!'] ],
+                'infect'        => [ 'collection' => ['status' => 'add_infection'] ],
                 'infect_no_msg' => [ 'status' => 'add_infection' ],
                 'disinfect'     => [ 'status' => 'remove_infection' ],
                 'immune'        => [ 'status' => 'add_immune' ],
@@ -338,11 +341,11 @@ class ActionDataService implements FixtureProcessorInterface {
                 'produce_watercan1' => [ 'item' => [ 'consume' => false, 'morph' => 'water_can_1_#00' ] ],
                 'produce_watercan0' => [ 'item' => [ 'consume' => false, 'morph' => 'water_can_empty_#00', 'break' => null, 'poison' => false ] ],
 
-                'kill_1_zombie'   => [ 'zombies' => 'kill_1z', 'message' =>  ['text_key' => 'weapon_use'] ],
+                'kill_1_zombie'   => [ 'zombies' => 'kill_1z' ],
                 'kill_1_zombie_s' => [ 'zombies' => 'kill_1z' ],
-                'kill_1_2_zombie' => [ 'zombies' => 'kill_1z_2z', 'message' => ['text_key' => 'weapon_use'] ],
-                'kill_2_zombie' => [ 'zombies' => 'kill_2z', 'message' => ['text_key' => 'weapon_use'] ],
-                'kill_3_zombie' => [ 'zombies' => 'kill_3z', 'message' => ['text_key' => 'weapon_use'] ],
+                'kill_1_2_zombie' => [ 'zombies' => 'kill_1z_2z' ],
+                'kill_2_zombie' => [ 'zombies' => 'kill_2z' ],
+                'kill_3_zombie' => [ 'zombies' => 'kill_3z' ],
                 'kill_all_zombie' => [ 'zombies' => 'kill_all_z' ],
 
                 'find_rp' => [ 'rp' => [true] ],
@@ -382,8 +385,8 @@ class ActionDataService implements FixtureProcessorInterface {
                 'camp_unhide' => [ 'status' => [ 'from' => 'tg_hide', 'to' => null ] ],
                 'camp_untomb' => [ 'status' => [ 'from' => 'tg_tomb', 'to' => null ] ],
 
-                'home_lab_success' => [ 'spawn' => 'lab_success_drugs', 'picto' => ['r_drgmkr_#00'], 'message' =>  ['text_key' => 'use_lab_success'] ],
-                'home_lab_failure' => [ 'spawn' => 'lab_fail_drugs', 'message' =>  ['text_key' => 'use_lab_fail'] ],
+                'home_lab_success' => [ 'spawn' => 'lab_success_drugs', 'picto' => ['r_drgmkr_#00'] ],
+                'home_lab_failure' => [ 'spawn' => 'lab_fail_drugs' ],
 
                 'home_kitchen_success' => [ 'spawn' => 'kitchen_success_food', 'picto' => ['r_cookr_#00'] ],
                 'home_kitchen_failure' => [ 'spawn' => 'kitchen_fail_food' ],
@@ -605,10 +608,10 @@ class ActionDataService implements FixtureProcessorInterface {
                 'drug_xana2' => [ 'label' => 'Einsetzen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2', 'must_be_terrorized_hd' ],  'result' => [ 'contaminated_zone_infect', 'drug_addict', 'unterrorize', 'consume_item' ], 'message_key' => 'drug_xanax' ],
                 'drug_xana3' => [ 'label' => 'Einsetzen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1', 'must_not_be_terrorized' ], 'result' => [ 'contaminated_zone_infect', 'drug_any', 'consume_item' ], 'message_key' => 'drug_no_use' ],
                 'drug_xana4' => [ 'label' => 'Einsetzen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2', 'must_not_be_terrorized' ], 'result' => [ 'contaminated_zone_infect', 'drug_addict', 'consume_item' ], 'message_key' => 'drug_no_use' ],
-                'drug_par_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1', 'is_not_infected_h' ], 'result' => [ ['message' => ['text' => 'Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.']], 'contaminated_zone_infect', 'drug_any', 'immune', 'consume_item' ], 'message_key' => 'drug_no_use_2' ],
-                'drug_par_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2', 'is_not_infected_h' ], 'result' => [ ['message' => ['text' => 'Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.']], 'contaminated_zone_infect', 'drug_addict', 'immune', 'consume_item' ], 'message_key' => 'drug_no_use_2' ],
-                'drug_par_3' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1', 'is_infected_h' ], 'result' => [ ['message' => ['text' => 'Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.']], 'contaminated_zone_infect', 'drug_any', 'disinfect', 'immune', 'consume_item' ], 'message_key' => 'drug_para' ],
-                'drug_par_4' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2', 'is_infected_h' ], 'result' => [ ['message' => ['text' => 'Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.']], 'contaminated_zone_infect', 'drug_addict', 'disinfect', 'immune', 'consume_item' ], 'message_key' => 'drug_para' ],
+                'drug_par_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1', 'is_not_infected_h' ], 'result' => [ 'msg_effect_para', 'contaminated_zone_infect', 'drug_any', 'immune', 'consume_item' ], 'message_key' => 'drug_no_use_2' ],
+                'drug_par_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2', 'is_not_infected_h' ], 'result' => [ 'msg_effect_para', 'contaminated_zone_infect', 'drug_addict', 'immune', 'consume_item' ], 'message_key' => 'drug_no_use_2' ],
+                'drug_par_3' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1', 'is_infected_h' ], 'result' => [ 'msg_effect_para', 'contaminated_zone_infect', 'drug_any', 'disinfect', 'immune', 'consume_item' ], 'message_key' => 'drug_para' ],
+                'drug_par_4' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2', 'is_infected_h' ], 'result' => [ 'msg_effect_para', 'contaminated_zone_infect', 'drug_addict', 'disinfect', 'immune', 'consume_item' ], 'message_key' => 'drug_para' ],
                 'drug_6ap_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'contaminated_zone_infect', 'drug_any', 'just_ap6', 'consume_item' ], 'message_key' => 'drug_normal_ap' ],
                 'drug_6ap_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'contaminated_zone_infect', 'drug_addict', 'just_ap6', 'consume_item' ], 'message_key' => 'drug_normal_ap' ],
                 'drug_7ap_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'contaminated_zone_infect', 'drug_any', 'just_ap7', 'consume_item' ] ],
@@ -633,44 +636,43 @@ class ActionDataService implements FixtureProcessorInterface {
                 'emt'     => [ 'label' => 'Einsetzen', 'at00' => true, 'meta' => [ 'is_not_wounded' ], 'result' => [ 'just_ap6', 'inflict_wound', ['item' => [ 'consume' => false, 'morph' => 'sport_elec_empty_#00' ]], ['picto' => ['r_maso_#00']] ], 'message' => 'Es geht doch nichts über einen schönen Stromstoß in die Wirbelsäule, um so richtig wach zu werden! Aber irgendwie riecht es jetzt hier nach verbranntem Fleisch...' ],
 
                 'drug_rand_1'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
-                    [ ['drug_any', 'just_ap6', ['message' => [ 'text_key' => 'drug_normal_ap' ]]], 40 ],
-                    [ ['drug_any', 'terrorize', ['message' => [ 'text_key' => 'drug_terror' ]]], 20 ],
-                    [ ['drug_any', 'drug_addict', 'just_ap7', ['message' => [ 'text_key' => 'drug_addict_ap' ]]], 20 ],
-                    [ ['do_nothing', ['message' => [ 'text_key' => 'drug_no_effect' ]]], 20 ],
+                    [ ['drug_any', 'just_ap6', 'msg_drug_normal_ap'], 40 ],
+                    [ ['drug_any', 'terrorize', 'msg_drug_terror'], 20 ],
+                    [ ['drug_any', 'drug_addict', 'just_ap7', 'msg_drug_addict_ap'], 20 ],
+                    [ ['do_nothing', 'msg_drug_no_effect'], 20 ],
                 ]] ] ] ,
                 'drug_rand_2'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
-                    [ ['drug_addict', 'just_ap6', ['message' => [ 'text_key' => 'drug_normal_ap' ]]], 40 ],
-                    [ ['drug_addict', 'terrorize', ['message' => [ 'text_key' => 'drug_terror' ]]], 20 ],
-                    [ ['drug_addict', 'just_ap7', ['message' => [ 'text_key' => 'drug_addict_ap' ]]], 20 ],
-                    [ ['do_nothing', ['message' => [ 'text_key' => 'drug_no_effect' ]]], 20 ],
+                    [ ['drug_addict', 'just_ap6', 'msg_drug_normal_ap'], 40 ],
+                    [ ['drug_addict', 'terrorize', 'msg_drug_terror'], 20 ],
+                    [ ['drug_addict', 'just_ap7', 'msg_drug_addict_ap'], 20 ],
+                    [ ['do_nothing', 'msg_drug_no_effect'], 20 ],
                 ]] ] ] , /* Unlabelled drugs, based on Igloo stats (1 894 test) */
                 'drug_lsd_1'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
-                    [ ['drug_any', 'just_ap6', ['message' => [ 'text_key' => 'drug_normal_ap' ]]], 75 ],
-                    [ ['drug_any', 'just_ap6', 'terrorize', ['message' => [ 'text_key' => 'drug_terror' ]]], 25 ],
+                    [ ['drug_any', 'just_ap6', 'msg_drug_normal_ap'], 75 ],
+                    [ ['drug_any', 'just_ap6', 'terrorize', 'msg_drug_terror'], 25 ],
                 ]] ] ] ,
                 'drug_lsd_2'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
-                    [ ['drug_addict', 'just_ap6', ['message' => [ 'text_key' => 'drug_normal_ap' ]]], 75 ],
-                    [ ['drug_addict', 'just_ap6', 'terrorize', ['message' => [ 'text_key' => 'drug_terror' ]]], 25 ],
+                    [ ['drug_addict', 'just_ap6', 'msg_drug_normal_ap'], 75 ],
+                    [ ['drug_addict', 'just_ap6', 'terrorize', 'msg_drug_terror'], 25 ],
                 ]] ] ] ,
                 'drug_beta_bad_1'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
-                    [ ['drug_any', 'just_ap6', ['message' => [ 'text_key' => 'drug_normal_ap' ]]], 4 ],
-                    [ ['drug_any', 'terrorize', ['message' => [ 'text_key' => 'drug_terror' ]]], 2 ],
-                    [ ['drug_any', 'drug_addict', 'just_ap7', ['message' => [ 'text_key' => 'drug_addict_ap' ]]], 2 ],
-                    [ ['do_nothing', ['message' => [ 'text_key' => 'drug_no_effect' ]]], 2 ],
+                    [ ['drug_any', 'just_ap6', 'msg_drug_normal_ap'], 4 ],
+                    [ ['drug_any', 'terrorize', 'msg_drug_terror'], 2 ],
+                    [ ['drug_any', 'drug_addict', 'just_ap7', 'msg_drug_addict_ap'], 2 ],
+                    [ ['do_nothing', 'msg_drug_no_effect'], 2 ],
                 ]] ] ] ,
                 'drug_beta_bad_2'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
-                    [ ['drug_addict', 'just_ap6', ['message' => [ 'text_key' => 'drug_normal_ap' ]]], 4 ],
-                    [ ['drug_addict', 'terrorize', ['message' => [ 'text_key' => 'drug_terror' ]]], 2 ],
-                    [ ['drug_addict', 'just_ap7', ['message' => [ 'text_key' => 'drug_addict_ap' ]]], 2 ],
-                    [ ['do_nothing', ['message' => [ 'text_key' => 'drug_no_effect' ]]], 2 ],
+                    [ ['drug_addict', 'just_ap6', 'msg_drug_normal_ap'], 4 ],
+                    [ ['drug_addict', 'terrorize', 'msg_drug_terror'], 2 ],
+                    [ ['drug_addict', 'just_ap7', 'msg_drug_addict_ap'], 2 ],
+                    [ ['do_nothing', 'msg_drug_no_effect'], 2 ],
                 ]] ] ] ,
-                'drug_rand_xmas'  => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
-                    // [ ['plus_ap8_30', ['message' => ['text' => 'Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.']]], 22 ],
-                    [ ['plus_ap8_30', 'drug_addict_no_msg', ['message' => ['text' => 'Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-addict>{hr}Du bist jetzt ein Süchtiger!</t-stat-up-addict>']]], 18 ],
-                    [ ['plus_ap8_30', 'terrorize', ['message' => ['text' => 'Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-terror>{hr}Du bist vor Angst erstarrt!</t-stat-up-terror>']]], 50 ],
-                    [ ['plus_ap8_30', 'infect_no_msg', ['message' => ['text' => 'Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-infection>{hr}Du bist jetzt infiziert!</t-stat-up-infection>']]], 30 ],
+                'drug_rand_xmas' => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
+                    [ ['plus_ap8_30', 'drug_addict_no_msg', 'msg_drug_candy_addict'], 18 ],
+                    [ ['plus_ap8_30', 'terrorize', 'msg_drug_candy_terror'], 50 ],
+                    [ ['plus_ap8_30', 'infect_no_msg', 'msg_drug_candy_infect'], 30 ],
                     [ ['death_poison'], 2 ],
-                ]] ] ] ,
+                ]] ] ],
 
                 'open_doggybag'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ ['food_pims_#00', 186], ['food_tarte_#00', 174], ['food_chick_#00', 194], ['food_biscuit_#00', 188], ['food_bar3_#00', 181], ['food_bar1_#00', 168], ['food_sandw_#00', 162], ['food_bar2_#00', 222] ] ] ], 'message' => 'Du hast dein <span class="tool">{item}</span> ausgepackt und <span class="tool">{items_spawn}</span> erhalten!' ],
                 'open_lunchbag'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ 'food_candies_#00', 'food_noodles_hot_#00', 'vegetable_tasty_#00', 'meat_#00' ] ] ], 'message_key' => 'container_open' ],
@@ -751,12 +753,12 @@ class ActionDataService implements FixtureProcessorInterface {
                 'fill_watercan1' => [ 'label' => 'Befüllen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerTransgress, 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', 'produce_watercan2' ], 'message_key' => 'item_fill' ],
                 'fill_watercan2' => [ 'label' => 'Befüllen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerTransgress, 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', 'produce_watercan3' ], 'message_key' => 'item_fill' ],
 
-                'fire_pilegun'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'spawn' => 'empty_battery', 'item' => ['morph' => 'pilegun_empty_#00',    'consume' => false], 'group' => 'g_kill_1z_90_msg2', 'message' => [ 'text_key' => 'battery_use', 'ordering' => 1000]  ] ] ], /* based on Hordes data */
-                'fire_pilegun2'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [[ ['spawn' => 'battery',       'item' => ['morph' => 'pilegun_up_empty_#00', 'consume' => false], 'message' => [ 'text_key' => 'battery_dropped', 'ordering' => 1000]] ], 8],  [[ ['spawn' => 'empty_battery', 'item' => ['morph' => 'pilegun_up_empty_#00', 'consume' => false], 'message' => [ 'text_key' => 'battery_destroyed', 'ordering' => 1000]] ], 2 ] ] ], 'kill_1_zombie' ] ], /* based on Hordes data */
-                'fire_pilegun3'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [[ ['spawn' => 'empty_battery', 'item' => ['morph' => 'big_pgun_empty_#00',   'consume' => false], 'message' => [ 'text_key' => 'battery_destroyed', 'ordering' => 1000]] ], 50], [[ ['spawn' => 'battery',     'item' => ['morph' => 'big_pgun_empty_#00',   'consume' => false], 'message' => [ 'text_key' => 'battery_dropped', 'ordering' => 1000]] ], 50] ] ], 'kill_2_zombie' ] ], /* based on Hordes data */
-                'fire_mixergun'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'],  6], [[ [ 'item' => ['morph' => 'mixergun_empty_#00', 'consume' => false], 'message' => [ 'text_key' => 'battery_use', 'ordering' => 1000] ] ], 4] ] ], 'kill_1_zombie' ] ], /* based on Hordes data */
-                'fire_chainsaw'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'],  7], [[ [ 'item' => ['morph' => 'chainsaw_empty_#00', 'consume' => false], 'message' => [ 'text_key' => 'battery_use', 'ordering' => 1000] ] ], 3] ] ], 'kill_3_zombie' ] ], /* based on Hordes data */
-                'fire_taser'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => 'g_kill_1z_30_taser' ], [ 'group' => [ [['do_nothing' ],  3], [[ [ 'item' => ['morph' => 'taser_empty_#00', 'consume' => false], 'message' => [ 'text_key' => 'battery_use'] ]], 7] ] ] ] ], /* based on Hordes data */
+                'fire_pilegun'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'msg_battery_use', [ 'spawn' => 'empty_battery', 'item' => ['morph' => 'pilegun_empty_#00',    'consume' => false], 'group' => 'g_kill_1z_90_msg2' ] ] ], /* based on Hordes data */
+                'fire_pilegun2'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['msg_battery_drop', ['spawn' => 'battery', 'item' => ['morph' => 'pilegun_up_empty_#00', 'consume' => false]] ], 8],  [['msg_battery_destroy', ['spawn' => 'empty_battery', 'item' => ['morph' => 'pilegun_up_empty_#00', 'consume' => false]] ], 2 ] ] ], 'kill_1_zombie' ] ], /* based on Hordes data */
+                'fire_pilegun3'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['msg_battery_destroy', ['spawn' => 'empty_battery', 'item' => ['morph' => 'big_pgun_empty_#00',   'consume' => false]] ], 50], [['msg_battery_drop', ['spawn' => 'battery', 'item' => ['morph' => 'big_pgun_empty_#00',   'consume' => false]] ], 50] ] ], 'kill_2_zombie' ] ], /* based on Hordes data */
+                'fire_mixergun'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'],  6], [['msg_battery_use', [ 'item' => ['morph' => 'mixergun_empty_#00', 'consume' => false] ] ], 4] ] ], 'kill_1_zombie' ] ], /* based on Hordes data */
+                'fire_chainsaw'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'],  7], [['msg_battery_use', [ 'item' => ['morph' => 'chainsaw_empty_#00', 'consume' => false] ] ], 3] ] ], 'kill_3_zombie' ] ], /* based on Hordes data */
+                'fire_taser'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => 'g_kill_1z_30_taser' ], [ 'group' => [ [['do_nothing' ],  3], [[ 'msg_battery_use', [ 'item' => ['morph' => 'taser_empty_#00', 'consume' => false] ]], 7] ] ] ] ], /* based on Hordes data */
                 'fire_lpointer4' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'lpoint3_#00', 'consume' => false] ], 'kill_2_zombie' ] ],
                 'fire_lpointer3' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'lpoint2_#00', 'consume' => false] ], 'kill_2_zombie' ] ],
                 'fire_lpointer2' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'lpoint1_#00', 'consume' => false] ], 'kill_2_zombie' ] ],
@@ -784,7 +786,7 @@ class ActionDataService implements FixtureProcessorInterface {
                 'throw_b_chair_basic'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => 'g_break_50'], ['group' => 'g_kill_1z_50'] ] ], /* based on Hordes data */
                 'throw_b_torch'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['item' => ['morph' => 'torch_off_#00', 'consume' => false]], 'kill_1_zombie' ] ], /* based on Hordes data */
                 'throw_b_chain'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => 'g_break_25'], ['group' => 'g_kill_1z_50'] ] ], /* based on Hordes data */
-                'throw_b_staff'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => [[['do_nothing'], 60], [[ [ 'item' => [ 'consume' => false, 'morph' => 'staff2_#00']], ['message' => ['text' => 'Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...', 'ordering' => 99999]] ], 60]]], ['group' => 'g_kill_1z_40'] ] ], /* based on Hordes data */
+                'throw_b_staff'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => [[['do_nothing'], 60], [[ 'msg_break_item', [ 'item' => [ 'consume' => false, 'morph' => 'staff2_#00']] ], 60]]], ['group' => 'g_kill_1z_40'] ] ], /* based on Hordes data */
                 'throw_b_knife'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => 'g_break_33'], 'kill_1_zombie' ] ], /* based on Hordes data */
                 'throw_b_machine_2'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => 'g_break_43'], 'kill_1_zombie' ] ], /* based on Hordes data */
                 'throw_b_small_knife'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => 'g_break_45'], ['group' => 'g_kill_1z_15'] ] ], /* based on Hordes data */
@@ -805,7 +807,7 @@ class ActionDataService implements FixtureProcessorInterface {
                 'throw_grenade'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'consume_item', ['zombies' => [ 'min' => 2, 'max' =>  4 ]] ], 'message_key' => 'weapon_use' ],
                 'throw_exgrenade'       => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'consume_item', ['zombies' => [ 'min' => 6, 'max' => 10 ]] ], 'message_key' => 'weapon_use' ],
                 'throw_boomfruit'       => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'consume_item', ['zombies' => [ 'min' => 5, 'max' =>  9 ]] ], 'message_key' => 'weapon_use' ],
-                'throw_jerrygun'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'kill_1_zombie', ['group' => 'g_empty_jerrygun', 'message' => ['text' => '<nt-morphed>Gute Nachrichten: Es ist noch Wasser im Kanister!</nt-morphed><t-morphed><strong>Der Kanister ist LEER</strong>!</t-morphed>']]] ],
+                'throw_jerrygun'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'kill_1_zombie', 'msg_throw_jerrycan', ['group' => 'g_empty_jerrygun']] ],
 
                 'bp_generic_1'          => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => [1] ] ], 'message_key' => 'read_blueprint' ],
                 'bp_generic_2'          => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => [2] ] ], 'message_key' => 'read_blueprint' ],
@@ -847,9 +849,10 @@ class ActionDataService implements FixtureProcessorInterface {
                     [ [ ['spawn' => [ ['water_#00', 3] ] ] ], 1 ]
                 ]] ], 'message_key' => 'item_clean' ],
 
-                'home_def_plus'    => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['home' => ['def' => 1]], ['picto' => ['r_hbuild_#00']], ['message' => ['text' => 'Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament <strong>{home_defense} zusätzliche Verteidigungspunkt(e).</strong>']] ] ],
-                'home_store_plus'  => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['home' => ['store' => 1]], ['picto' => ['r_hbuild_#00']], ['message' => ['text' => 'Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: <strong>{home_storage}</strong>.']] ] ],
-                'home_store_plus2' => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['home' => ['store' => 2]], ['picto' => ['r_hbuild_#00']], ['message' => ['text' => 'Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: <strong>{home_storage}</strong>.']] ] ],
+                'home_def_plus'    => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item',
+                    ['home' => ['def' => 1]], ['picto' => ['r_hbuild_#00']]], 'message' => 'Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament <strong>{home_defense} zusätzliche Verteidigungspunkt(e).</strong>'],
+                'home_store_plus'  => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['home' => ['store' => 1]], ['picto' => ['r_hbuild_#00']]], 'message' => 'Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: <strong>{home_storage}</strong>.'],
+                'home_store_plus2' => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['home' => ['store' => 2]], ['picto' => ['r_hbuild_#00']]], 'message' => 'Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: <strong>{home_storage}</strong>.'],
 
                 'repair_1' => [ 'label' => 'Reparieren mit', 'at00' => true, 'target' => ['broken' => true], 'meta' => [ 'min_1_ap', 'not_tired', 'is_not_wounded_hands_repair' ], 'result' => [ 'minus_1ap', 'consume_item', 'repair_target', ['picto' => ['r_repair_#00'] ] ], 'message' => 'Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.' ],
                 'repair_2' => [ 'label' => 'Reparieren mit', 'at00' => true, 'target' => ['broken' => true], 'meta' => [ 'min_1_ap', 'not_tired', 'is_not_wounded_hands_repair' ], 'result' => [ 'minus_1ap', ['item' => ['consume' => false, 'morph' => 'repair_kit_part_#00'], 'picto' => ['r_repair_#00'] ], 'repair_target' ], 'message' => 'Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.' ],
@@ -905,20 +908,20 @@ class ActionDataService implements FixtureProcessorInterface {
                 'hero_hunter_1' => [ 'label' => 'Tarnen', 'at00' => true, 'meta' => [ 'must_be_outside', 'hunter_no_followers', 'must_have_control_hunter' ], 'result' => [ 'hero_hunter' ], 'message' => 'Du bist ab sofort getarnt.' ],
                 'hero_hunter_2' => [ 'label' => 'Tarnen', 'at00' => true, 'meta' => [ 'must_be_inside' ], 'result' => [ 'hero_hunter' ], 'message' => 'Du bist nun getarnt.' ],
 
-                'hero_generic_return'       => [ 'label' => 'Die Rückkehr des Helden', 'tooltip' => 'Wenn du 11 km oder weniger von der Stadt entfernt bist, kehrst du sofort in die Stadt zurück!', 'cover' => true, 'at00' => true, 'meta' => [ 'must_be_outside_or_exploring', 'must_be_outside_within_11km', 'not_yet_hero'], 'result' => [ 'hero_act', ['custom' => [8]], ['message' => [ 'text' => 'Mit deiner letzten Kraft hast du dich *in die Stadt geschleppt*... *Ein Wunder*!' ]] ],  ],
-                'hero_generic_find'         => [ 'label' => 'Fund', 'tooltip' => 'Wie durch ein Wunder treibst du einen nützlichen Gegenstand auf.', 'cover' => true, 'at00' => true, 'target' => ['type' => ItemTargetDefinition::ItemTypeSelectionType, 'property' => 'hero_find'], 'meta' => [ 'not_yet_hero' ], 'result' => [ 'hero_act', 'spawn_target', ['message' => ['text' => 'So was nennt man wohl <strong>Glück</strong>! <t-inside>Du hast soeben {items_spawn} in einem Abfallberg neben deinem Haus gefunden!</t-inside><t-outside>Du hast soeben {items_spawn} im Wüstensand gefunden!</t-outside> Genau das, was du gebraucht hast!']] ] ],
-                'hero_generic_find_lucky'   => [ 'label' => 'Schönes Fundstück', 'tooltip' => 'Wie durch ein Wunder treibst du einen nützlichen Gegenstand auf.', 'cover' => true, 'at00' => true, 'target' => ['type' => ItemTargetDefinition::ItemTypeSelectionType, 'property' => 'hero_find_lucky'], 'meta' => [ 'not_yet_hero' ], 'result' => [ 'hero_act', 'spawn_target', ['message' => ['text' => 'So was nennt man wohl <strong>Glück</strong>! <t-inside>Du hast soeben {items_spawn} in einem Abfallberg neben deinem Haus gefunden!</t-inside><t-outside>Du hast soeben {items_spawn} im Wüstensand gefunden!</t-outside> Genau das, was du gebraucht hast!']] ] ],
-                'hero_generic_punch'        => [ 'label' => 'Wildstyle Uppercut', 'tooltip' => 'Damit kannst du mit einem Schlag 2 Zombies umbringen!', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_yet_hero'], 'result' => [ 'hero_act', ['zombies' => 'kill_2z'], ['message' => [ 'text' => 'Mit Hilfe deiner übermenschlichen Heldenkräfte hast du <strong>{kills} Zombie(s)</strong> platt gemacht!' ]] ] ],
-                'hero_generic_ap'           => [ 'label' => 'Zweite Lunge', 'tooltip' => 'Stellt deine AP wieder her und beseitigt deine Müdigkeit.', 'cover' => true, 'at00' => true, 'meta' => [ 'no_full_ap_msg', 'not_yet_hero'], 'result' => [ 'hero_act', 'just_ap6', ['message' => ['text' => 'Du atmest tief durch und drückst den Rücken durch. Auf geht\'s! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und <strong>{ap} neue AP erhalten</strong>.']] ] ],
-                'hero_generic_immune'       => [ 'label' => 'Den Tod besiegen', 'tooltip' => 'Beim nächsten Angriff wird der Durst-, Infektions- und Abhängigkeitszustand außer Kraft gesetzt.', 'cover' => true, 'at00' => true, 'meta' => [ 'not_yet_hero'], 'result' => [ 'hero_act', 'hero_immune', ['message' => ['text' => 'Du versucht nochmal alle deine Kräfte für heute Abend zu mobilisieren. Die Anspannung steht dir ins Gesicht geschrieben. Du schwitzt und deine Hände zittern.{hr}Beim heutigen Angriff wirst du weder weder Durst, noch Krankheitssymptome (Infektion), noch Entzugserscheinungen verspüren.']] ] ],
+                'hero_generic_return'       => [ 'label' => 'Die Rückkehr des Helden', 'tooltip' => 'Wenn du 11 km oder weniger von der Stadt entfernt bist, kehrst du sofort in die Stadt zurück!', 'cover' => true, 'at00' => true, 'meta' => [ 'must_be_outside_or_exploring', 'must_be_outside_within_11km', 'not_yet_hero'], 'result' => [ 'hero_act', ['custom' => [8]]], 'message' => 'Mit deiner letzten Kraft hast du dich *in die Stadt geschleppt*... *Ein Wunder*!' ],
+                'hero_generic_find'         => [ 'label' => 'Fund', 'tooltip' => 'Wie durch ein Wunder treibst du einen nützlichen Gegenstand auf.', 'cover' => true, 'at00' => true, 'target' => ['type' => ItemTargetDefinition::ItemTypeSelectionType, 'property' => 'hero_find'], 'meta' => [ 'not_yet_hero' ], 'result' => [ 'hero_act', 'spawn_target'], 'message' => 'So was nennt man wohl <strong>Glück</strong>! <t-inside>Du hast soeben {items_spawn} in einem Abfallberg neben deinem Haus gefunden!</t-inside><t-outside>Du hast soeben {items_spawn} im Wüstensand gefunden!</t-outside> Genau das, was du gebraucht hast!'],
+                'hero_generic_find_lucky'   => [ 'label' => 'Schönes Fundstück', 'tooltip' => 'Wie durch ein Wunder treibst du einen nützlichen Gegenstand auf.', 'cover' => true, 'at00' => true, 'target' => ['type' => ItemTargetDefinition::ItemTypeSelectionType, 'property' => 'hero_find_lucky'], 'meta' => [ 'not_yet_hero' ], 'result' => [ 'hero_act', 'spawn_target'], 'message' => 'So was nennt man wohl <strong>Glück</strong>! <t-inside>Du hast soeben {items_spawn} in einem Abfallberg neben deinem Haus gefunden!</t-inside><t-outside>Du hast soeben {items_spawn} im Wüstensand gefunden!</t-outside> Genau das, was du gebraucht hast!'],
+                'hero_generic_punch'        => [ 'label' => 'Wildstyle Uppercut', 'tooltip' => 'Damit kannst du mit einem Schlag 2 Zombies umbringen!', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_yet_hero'], 'result' => [ 'hero_act', ['zombies' => 'kill_2z']], 'message' => 'Mit Hilfe deiner übermenschlichen Heldenkräfte hast du <strong>{kills} Zombie(s)</strong> platt gemacht!' ],
+                'hero_generic_ap'           => [ 'label' => 'Zweite Lunge', 'tooltip' => 'Stellt deine AP wieder her und beseitigt deine Müdigkeit.', 'cover' => true, 'at00' => true, 'meta' => [ 'no_full_ap_msg', 'not_yet_hero'], 'result' => [ 'hero_act', 'just_ap6'], 'message' => 'Du atmest tief durch und drückst den Rücken durch. Auf geht\'s! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und <strong>{ap} neue AP erhalten</strong>.'],
+                'hero_generic_immune'       => [ 'label' => 'Den Tod besiegen', 'tooltip' => 'Beim nächsten Angriff wird der Durst-, Infektions- und Abhängigkeitszustand außer Kraft gesetzt.', 'cover' => true, 'at00' => true, 'meta' => [ 'not_yet_hero'], 'result' => [ 'hero_act', 'hero_immune'], 'message' => 'Du versucht nochmal alle deine Kräfte für heute Abend zu mobilisieren. Die Anspannung steht dir ins Gesicht geschrieben. Du schwitzt und deine Hände zittern.{hr}Beim heutigen Angriff wirst du weder weder Durst, noch Krankheitssymptome (Infektion), noch Entzugserscheinungen verspüren.'],
                 'hero_generic_rescue'       => [ 'label' => 'Rettung', 'tooltip' => 'Du bringst einen anderen Spieler nach Hause (dieser darf max. 2 Felder von der Stadt entfernt sein).', 'confirm' => true, 'confirmMsg' => 'Möchtest du {target} heimbringen?' ,'target' => ['type' => ItemTargetDefinition::ItemHeroicRescueType], 'meta' => [ 'must_be_inside', 'not_yet_hero'], 'result' => [ 'hero_act', ['custom' => [9]] ], 'message' => 'Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!' ],
                 'hero_generic_friendship'   => [ 'label' => 'Freundschaft', 'tooltip' => 'Du spendest eine deiner noch nicht verwendeten Heldentaten an einen anderen Spieler.', 'confirm' => true, 'confirmMsg' => 'Möchtest du deine Heldentat {targetAction} an {targetPlayer} spenden? Du kannst sie danach nicht mehr selbst verwenden. ACHTUNG: Wenn {targetPlayer} bereits eine Heldentat von jemand anderem erhalten oder {targetAction} noch nicht selbst verwendet hat, verfällt dein Geschenk.' ,'target' => ['type' => ItemTargetDefinition::ItemFriendshipType], 'meta' => [ 'not_yet_hero', 'can_use_friendship'], 'result' => [ 'hero_act', ['custom' => [70]] ], 'message' => 'Du hast deine Heldentat an {citizen} weitergegeben.' ],
 
                 'throw_sandball' => [ 'label' => 'Werfen', /* 'target' => ['type' => ItemTargetDefinition::ItemCitizenOnZoneSBType], */ 'meta' => [ 'must_be_outside', 'during_christmas'], 'result' => [ ['custom' => [20]] ], 'message' => '<nt-fail>Du hast einen Sandball in {citizen}s Gesicht geworfen.</nt-fail><t-fail>Hier ist niemand, auf den du den Sandball werfen könntest...</t-fail>' ],
 
-                'special_armag'        => [ 'label' => 'Durchgang in Kraft', 'tooltip_key' => 'heroic_arma_tooltip', 'allow_when_terrorized' => true, 'meta' => [ 'must_be_outside', 'must_be_blocked' ],   'result' => [ ['group' => [ [['do_nothing', ['message' => ['text_key' => 'heroic_arma_fail']]], 50], [[ ['zone' => ['escape' => ['armag',600]] ], ['zombies' => 'kill_1z'], ['message' => ['text_key' => 'heroic_arma_success']] ], 50]]] ] ],
-                'special_armag_d'      => [ 'label' => 'Durchgang in Kraft', 'tooltip_key' => 'heroic_arma_tooltip', 'allow_when_terrorized' => true, 'meta' => [ 'must_be_outside', 'must_be_blocked', 'must_be_day'],   'result' => [ ['group' => [ [['do_nothing', ['message' => ['text_key' => 'heroic_arma_fail']]], 50], [[ ['zone' => ['escape' => ['armag',600]] ], ['zombies' => 'kill_1z'], ['message' => ['text_key' => 'heroic_arma_success']] ], 50]]] ] ],
-                'special_armag_n'      => [ 'label' => 'Durchgang in Kraft', 'tooltip_key' => 'heroic_arma_tooltip', 'allow_when_terrorized' => true, 'meta' => [ 'must_be_outside', 'must_be_blocked', 'must_be_night'], 'result' => [ ['group' => [ [['do_nothing', ['message' => ['text_key' => 'heroic_arma_fail']]], 25], [[ ['zone' => ['escape' => ['armag',600]] ], ['zombies' => 'kill_1z'], ['message' => ['text_key' => 'heroic_arma_success']] ], 75]]] ] ],
+                'special_armag'        => [ 'label' => 'Durchgang in Kraft', 'tooltip_key' => 'heroic_arma_tooltip', 'allow_when_terrorized' => true, 'meta' => [ 'must_be_outside', 'must_be_blocked' ],   'result' => [ ['group' => [ [['do_nothing', 'msg_heroic_arma_fail'], 50], [[ 'msg_heroic_arma_success', ['zone' => ['escape' => ['armag',600]], 'zombies' => 'kill_1z'] ], 50]]] ] ],
+                'special_armag_d'      => [ 'label' => 'Durchgang in Kraft', 'tooltip_key' => 'heroic_arma_tooltip', 'allow_when_terrorized' => true, 'meta' => [ 'must_be_outside', 'must_be_blocked', 'must_be_day'],   'result' => [ ['group' => [ [['do_nothing', 'msg_heroic_arma_fail'], 50], [['msg_heroic_arma_success', ['zone' => ['escape' => ['armag',600]], 'zombies' => 'kill_1z'] ], 50]]] ] ],
+                'special_armag_n'      => [ 'label' => 'Durchgang in Kraft', 'tooltip_key' => 'heroic_arma_tooltip', 'allow_when_terrorized' => true, 'meta' => [ 'must_be_outside', 'must_be_blocked', 'must_be_night'], 'result' => [ ['group' => [ [['do_nothing', 'msg_heroic_arma_fail'], 25], [['msg_heroic_arma_success', ['zone' => ['escape' => ['armag',600]], 'zombies' => 'kill_1z'] ], 75]]] ] ],
                 'special_vote_shaman'  => [ 'label' => 'Den Shamane wählen', 'target' => ['type' => ItemTargetDefinition::ItemCitizenVoteType], 'meta' => [ 'must_be_outside', 'profession_heroic', 'vote_shaman_needed', 'vote_shaman_not_given'] , 'result' => [ ['custom' => [18]] ] ],
                 'special_vote_guide'   => [ 'label' => 'Den Reiseleiter in der Außenwelt wählen', 'target' => ['type' => ItemTargetDefinition::ItemCitizenVoteType], 'meta' => [ 'must_be_outside', 'profession_heroic', 'vote_guide_needed', 'vote_guide_not_given'], 'result' => [ ['custom' => [19]] ] ],
 
@@ -1475,6 +1478,58 @@ class ActionDataService implements FixtureProcessorInterface {
         $data['meta_requirements'] = array_merge_recursive(
             $data['meta_requirements'],
             $requirement_container->toArray()
+        );
+
+        //<editor-fold desc="MessageEffects">
+        //TODO: Adjust fixture visitor!
+        $effects_container->add()->identifier('do_nothing_attack')->add((new MessageEffect())->text('Mit aller Kraft schlägst du mehrmals auf einen Zombie ein, aber <strong>es scheint ihm nichts anzuhaben</strong>!'))->commit();
+        $effects_container->add()->identifier('do_nothing_attack2')->add((new MessageEffect())->text('Sie greifen einen Zombie mit Ihrem {item} an, aber <strong>er reagiert nicht einmal</strong> und macht weiter!'))->commit();
+        $effects_container->add()->identifier('msg_effect_para')->add((new MessageEffect())->text('Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.'))->commit();
+        $effects_container->add()->identifier('msg_battery_use')->add((new MessageEffect())->text(Arr::get($data,'message_keys.battery_use')))->commit();
+        $effects_container->add()->identifier('msg_battery_drop')->add((new MessageEffect())->text(Arr::get($data,'message_keys.battery_dropped')))->commit();
+        $effects_container->add()->identifier('msg_battery_destroy')->add((new MessageEffect())->text(Arr::get($data,'message_keys.battery_destroyed')))->commit();
+        $effects_container->add()->identifier('msg_throw_jerrycan')->add((new MessageEffect())->text('<nt-morphed>Gute Nachrichten: Es ist noch Wasser im Kanister!</nt-morphed><t-morphed><strong>Der Kanister ist LEER</strong>!</t-morphed>'))->commit();
+        $effects_container->add()->identifier('msg_heroic_arma_fail')->add((new MessageEffect())->text(Arr::get($data,'message_keys.heroic_arma_fail')))->commit();
+        $effects_container->add()->identifier('msg_heroic_arma_success')->add((new MessageEffect())->text(Arr::get($data,'message_keys.heroic_arma_success')))->commit();
+        $effects_container->add()->identifier('msg_drug_normal_ap')->add((new MessageEffect())->text(Arr::get($data,'message_keys.drug_normal_ap')))->commit();
+        $effects_container->add()->identifier('msg_drug_terror')->add((new MessageEffect())->text(Arr::get($data,'message_keys.drug_terror')))->commit();
+        $effects_container->add()->identifier('msg_drug_addict_ap')->add((new MessageEffect())->text(Arr::get($data,'message_keys.drug_addict_ap')))->commit();
+        $effects_container->add()->identifier('msg_drug_no_effect')->add((new MessageEffect())->text(Arr::get($data,'message_keys.drug_no_effect')))->commit();
+        $effects_container->add()->identifier('msg_drug_candy_addict')->add((new MessageEffect())->text('Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-addict>{hr}Du bist jetzt ein Süchtiger!</t-stat-up-addict>'))->commit();
+        $effects_container->add()->identifier('msg_drug_candy_terror')->add((new MessageEffect())->text('Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-terror>{hr}Du bist vor Angst erstarrt!</t-stat-up-terror>'))->commit();
+        $effects_container->add()->identifier('msg_drug_candy_infect')->add((new MessageEffect())->text('Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-infection>{hr}Du bist jetzt infiziert!</t-stat-up-infection>'))->commit();
+        $effects_container->add()->identifier('msg_break_item')->add((new MessageEffect())->text('Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...'))->commit();
+        //</editor-fold>
+
+        // INCOMPLETE
+        $effects_container->add()->identifier('break_item')
+            ->add((new MessageEffect())->text('Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...'))->commit();
+        $effects_container->add()->identifier('eat_ap6')
+            ->add((new MessageEffect())->escort(false)->text( 'Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...'))->commit();
+        $effects_container->add()->identifier('eat_ap7')
+            ->add((new MessageEffect())->escort(false)->text( 'Einmal ist zwar keinmal, dennoch genießt du dein(e) <span class="tool">{item}</span>. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast <strong>1 zusätzlichen AP erhalten!</strong>'))->commit();
+        $effects_container->add()->identifier('drug_addict')
+            ->add((new MessageEffect())->text( '<t-stat-up-addict>Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!</t-stat-up-addict>'))->commit();
+        $effects_container->add()->identifier('infect')
+            ->add((new MessageEffect())->text( 'Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!'))->commit();
+        $effects_container->add()->identifier('kill_1_zombie')
+            ->add((new MessageEffect())->text( Arr::get($data,'message_keys.weapon_use')))->commit();
+        $effects_container->add()->identifier('kill_1_2_zombie')
+            ->add((new MessageEffect())->text( Arr::get($data,'message_keys.weapon_use')))->commit();
+        $effects_container->add()->identifier('kill_2_zombie')
+            ->add((new MessageEffect())->text( Arr::get($data,'message_keys.weapon_use')))->commit();
+        $effects_container->add()->identifier('kill_3_zombie')
+            ->add((new MessageEffect())->text( Arr::get($data,'message_keys.weapon_use')))->commit();
+        $effects_container->add()->identifier('home_lab_success')
+            ->add((new MessageEffect())->text( Arr::get($data,'message_keys.use_lab_success')))->commit();
+        $effects_container->add()->identifier('home_lab_failure')
+            ->add((new MessageEffect())->text( Arr::get($data,'message_keys.use_lab_fail')))->commit();
+        $effects_container->add()->identifier('')
+            ->add((new MessageEffect())->text( ''))->commit();
+
+        $data['meta_results'] = array_merge_recursive(
+            $data['meta_results'],
+            $effects_container->toArray()
         );
 
         array_walk_recursive( $data, fn(&$value) => is_a( $value, ArrayDecoratorReadInterface::class ) ? $value = $value->toArray() : $value );

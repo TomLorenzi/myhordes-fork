@@ -2,12 +2,9 @@
 
 namespace App\Service\Actions\Game\AtomProcessors\Require;
 
-use App\Entity\Building;
 use App\Entity\CitizenHomeUpgrade;
 use App\Structures\ActionHandler\Evaluation;
-use Doctrine\ORM\EntityManagerInterface;
-use MyHordes\Fixtures\DTO\Actions\Atoms\BuildingRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\HomeRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\HomeRequirement;
 use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 class ProcessHomeRequirement extends AtomRequirementProcessor

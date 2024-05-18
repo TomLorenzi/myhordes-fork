@@ -3,7 +3,7 @@
 namespace App\Service\Actions\Game\AtomProcessors\Require;
 
 use App\Structures\ActionHandler\Evaluation;
-use MyHordes\Fixtures\DTO\Actions\Atoms\CounterRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\CounterRequirement;
 use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 class ProcessCounterRequirement extends AtomRequirementProcessor

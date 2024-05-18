@@ -3,37 +3,10 @@
 
 namespace App\Translation;
 
-use App\Entity\AffectMessage;
-use App\Entity\AwardPrototype;
-use App\Entity\BuildingPrototype;
-use App\Entity\CauseOfDeath;
-use App\Entity\CitizenHomePrototype;
-use App\Entity\CitizenHomeUpgradePrototype;
-use App\Entity\CitizenProfession;
-use App\Entity\CitizenRole;
-use App\Entity\CitizenStatus;
-use App\Entity\ComplaintReason;
-use App\Entity\CouncilEntryTemplate;
-use App\Entity\EscortActionGroup;
-use App\Entity\FeatureUnlockPrototype;
-use App\Entity\GazetteEntryTemplate;
-use App\Entity\HeroSkillPrototype;
-use App\Entity\ItemAction;
-use App\Entity\ItemPrototype;
-use App\Entity\ItemCategory;
-use App\Entity\LogEntryTemplate;
-use App\Entity\PictoPrototype;
-use App\Entity\Recipe;
-use App\Entity\Requirement;
 use App\Entity\Season;
-use App\Entity\ThreadTag;
-use App\Entity\TownClass;
-use App\Entity\ZonePrototype;
-use App\Entity\ZoneTag;
 use App\Service\ConfMaster;
 use App\Service\Globals\TranslationConfigGlobal;
 use App\Structures\EventConf;
-use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Translation\Extractor\ExtractorInterface;
 use Symfony\Component\Translation\MessageCatalogue;

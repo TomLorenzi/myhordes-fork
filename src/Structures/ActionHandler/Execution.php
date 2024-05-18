@@ -34,6 +34,8 @@ class Execution extends Base
     private ?Zone $target_zone = null;
     private array $discovered_plans = [];
 
+    private bool $escort_mode = false;
+
     private ?ItemPrototype $target_item_prototype = null;
 
     public function addPoints(PointType $type, int $value): void {
@@ -86,6 +88,14 @@ class Execution extends Base
 
     public function setTargetItemPrototype( ItemPrototype $prototype ): void {
         $this->target_item_prototype = $prototype;
+    }
+
+    public function setEscortMode(bool $escort): void {
+        $this->escort_mode = $escort;
+    }
+
+    public function getEscortMode(): bool {
+        return $this->escort_mode;
     }
 
     public function calculateTags(): array {

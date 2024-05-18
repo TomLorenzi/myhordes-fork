@@ -4,7 +4,7 @@ namespace App\Service\Actions\Game\AtomProcessors\Require;
 
 use App\Structures\ActionHandler\Evaluation;
 use App\Structures\TownConf;
-use MyHordes\Fixtures\DTO\Actions\Atoms\EscortRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\EscortRequirement;
 use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 class ProcessEscortRequirement extends AtomRequirementProcessor

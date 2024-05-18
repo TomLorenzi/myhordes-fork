@@ -11,7 +11,6 @@ use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\ChatSilenceTimer;
 use App\Entity\Citizen;
-use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenVote;
 use App\Entity\EscapeTimer;
@@ -23,7 +22,6 @@ use App\Entity\HomeActionPrototype;
 use App\Entity\HomeIntrusion;
 use App\Entity\Item;
 use App\Entity\ItemAction;
-use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
 use App\Entity\LogEntryTemplate;
@@ -33,7 +31,6 @@ use App\Entity\Requirement;
 use App\Entity\Result;
 use App\Entity\RolePlayText;
 use App\Entity\RuinZone;
-use App\Entity\SpecialActionPrototype;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
@@ -43,6 +40,7 @@ use App\Enum\ActionHandler\PointType;
 use App\Enum\Game\TransferItemModality;
 use App\Enum\ItemPoisonType;
 use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
+use App\Service\Actions\Game\AtomProcessors\Effect\AtomEffectProcessor;
 use App\Service\Actions\Game\AtomProcessors\Require\AtomRequirementProcessor;
 use App\Service\Actions\Game\WrapObjectsForOutputAction;
 use App\Service\Maps\MazeMaker;
@@ -56,7 +54,8 @@ use App\Translation\T;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
-use MyHordes\Fixtures\DTO\Actions\Atoms\ItemRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\ItemRequirement;
+use MyHordes\Fixtures\DTO\Actions\EffectsDataContainer;
 use MyHordes\Fixtures\DTO\Actions\RequirementsDataContainer;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -402,6 +401,7 @@ class ActionHandler
 
         $cache = new Execution($this->entity_manager, $citizen, $item, $this->conf->getTownConfiguration( $citizen->getTown() ), $this->conf->getGlobalConf());
         $default_message = $escort_mode ? $action->getEscortMessage() : $action->getMessage();
+        $cache->setEscortMode($escort_mode);
 
         if ($default_message) $cache->addMessage($default_message, translationDomain: 'items');
         if ($target_item_prototype) $cache->setTargetItemPrototype( $target_item_prototype );
@@ -434,7 +434,7 @@ class ActionHandler
             } );
         };
 
-        $execute_result = function(Result $result) use ($citizen, &$item, &$target, &$action, &$message, &$remove, &$cache, &$kill_by_poison, &$infect_by_poison, &$spread_poison, $town_conf, &$floor_inventory, &$ruinZone, $escort_mode) {
+        $execute_result = function(Result $result) use ($citizen, &$item, &$target, &$action, &$message, &$remove, &$cache, &$kill_by_poison, &$infect_by_poison, &$spread_poison, $town_conf, &$floor_inventory, &$ruinZone) {
             /** @var Citizen $citizen */
             if ($status = $result->getStatus()) {
 
@@ -1423,11 +1423,10 @@ class ActionHandler
                     $this->citizen_handler->inflictStatus( $citizen, 'terror' );
             }
 
-            if($result->getMessage()){
-
-                if ($result->getMessage()->getEscort() === null || $result->getMessage()->getEscort() === $escort_mode)
-                    $cache->addMessage( $result->getMessage()->getText(), translationDomain: 'items' );
-
+            if ($result->getAtoms()) {
+                $container = (new EffectsDataContainer())->fromArray([['atomList' => $result->getAtoms()]]);
+                foreach ( $container->all() as $effectsDataElement )
+                    AtomEffectProcessor::process( $this->container, $cache, $effectsDataElement->atomList );
             }
 
             return self::ErrorNone;

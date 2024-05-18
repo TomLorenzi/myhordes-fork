@@ -4,7 +4,7 @@ namespace App\Service\Actions\Game\AtomProcessors\Require;
 
 use App\Entity\CitizenStatus;
 use App\Structures\ActionHandler\Evaluation;
-use MyHordes\Fixtures\DTO\Actions\Atoms\StatusRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\StatusRequirement;
 use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
 class ProcessStatusRequirement extends AtomRequirementProcessor
