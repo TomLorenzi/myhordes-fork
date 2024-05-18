@@ -367,7 +367,6 @@ class ActionHandler
     public function execute( Citizen &$citizen, ?Item &$item, &$target, ItemAction $action, ?string &$message, ?array &$remove, bool $force = false, bool $escort_mode = false ): int {
 
         $remove = [];
-        $tags = [];
 
         $kill_by_poison   = $item && ($item->getPoison() === ItemPoisonType::Deadly) && ($action->getPoisonHandler() & ItemAction::PoisonHandlerConsume);
         $infect_by_poison = $item && ($item->getPoison() === ItemPoisonType::Infectious) && ($action->getPoisonHandler() & ItemAction::PoisonHandlerConsume);
@@ -435,7 +434,7 @@ class ActionHandler
             } );
         };
 
-        $execute_result = function(Result $result) use ($citizen, &$item, &$target, &$action, &$message, &$remove, &$cache, &$tags, &$kill_by_poison, &$infect_by_poison, &$spread_poison, $town_conf, &$floor_inventory, &$ruinZone, $escort_mode) {
+        $execute_result = function(Result $result) use ($citizen, &$item, &$target, &$action, &$message, &$remove, &$cache, &$kill_by_poison, &$infect_by_poison, &$spread_poison, $town_conf, &$floor_inventory, &$ruinZone, $escort_mode) {
             /** @var Citizen $citizen */
             if ($status = $result->getStatus()) {
 
@@ -466,13 +465,13 @@ class ActionHandler
                     if ($status->getRole() !== null && $status->getRoleAdd() !== null) {
                         if ($status->getRoleAdd()) {
                             if ($this->citizen_handler->addRole( $citizen, $status->getRole() )) {
-                                $tags[] = 'role-up';
-                                $tags[] = "role-up-{$status->getRole()->getName()}";
+                                $cache->addTag('role-up');
+                                $cache->addTag("role-up-{$status->getRole()->getName()}");
                             }
                         } else {
                             if ($this->citizen_handler->removeRole( $citizen, $status->getRole() )) {
-                                $tags[] = 'role-down';
-                                $tags[] = "role-down-{$status->getRole()->getName()}";
+                                $cache->addTag('role-down');
+                                $cache->addTag("role-down-{$status->getRole()->getName()}");
                             }
                         }
                     }
@@ -481,14 +480,14 @@ class ActionHandler
                         if ($citizen->getStatus()->contains( $status->getInitial() )) {
                             $this->citizen_handler->removeStatus( $citizen, $status->getInitial() );
                             $this->citizen_handler->inflictStatus( $citizen, $status->getResult() );
-                            $tags[] = 'stat-change';
-                            $tags[] = "stat-change-{$status->getInitial()->getName()}-{$status->getResult()->getName()}";
+                            $cache->addTag('stat-change');
+                            $cache->addTag("stat-change-{$status->getInitial()->getName()}-{$status->getResult()->getName()}");
                         }
                     }
                     elseif ($status->getInitial()) {
                         if ($citizen->getStatus()->contains( $status->getInitial() ) && $this->citizen_handler->removeStatus( $citizen, $status->getInitial() )) {
-                            $tags[] = 'stat-down';
-                            $tags[] = "stat-down-{$status->getInitial()->getName()}";
+                            $cache->addTag('stat-down');
+                            $cache->addTag("stat-down-{$status->getInitial()->getName()}");
                         }
                     }
                     elseif ($status->getResult()) {
@@ -507,8 +506,8 @@ class ActionHandler
                         }
                         if ($inflict){
                             if (!$citizen->getStatus()->contains( $status->getResult() ) && $this->citizen_handler->inflictStatus($citizen, $status->getResult())) {
-                                $tags[] = 'stat-up';
-                                $tags[] = "stat-up-{$status->getResult()->getName()}";
+                                $cache->addTag('stat-up');
+                                $cache->addTag("stat-up-{$status->getResult()->getName()}");
                             }
                         }
                     }
@@ -683,7 +682,7 @@ class ActionHandler
 
                     $this->inventory_handler->forceRemoveItem( $consume_item );
                     $cache->addConsumedItem($consume_item);
-                    $tags[] = "item-consumed";
+                    $cache->addTag('item-consumed');
                 }
             }
 
@@ -697,8 +696,7 @@ class ActionHandler
                             $this->entity_manager->persist( $this->log->zombieKill( $citizen, $cache->originalPrototype, $kills, $action->getName() ) );
                         $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
                         if($citizen->getZone()->getZombies() <= 0)
-                            $tags[] = 'kill-latest';
-
+                            $cache->addTag('kill-latest');
                     }
                 }
 
@@ -711,7 +709,7 @@ class ActionHandler
                         $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
                         $this->entity_manager->persist( $this->log->zombieKill( $citizen, $cache->originalPrototype, $kills, $action->getName() ) );
                         if($ruinZone->getZombies() <= 0)
-                            $tags[] = 'kill-latest';
+                            $cache->addTag('kill-latest');
                     }
                 }
             }
@@ -763,13 +761,13 @@ class ActionHandler
                     }
 
                     if ($zoneEffect->getEscape() !== null && $zoneEffect->getEscape() > 0) {
-                        $tags[] = 'any-escape';
+                        $cache->addTag('any-escape');
                         if ($ruinZone) {
                             $z = $ruinZone->getZombies();
                             $ruinZone->setZombies( 0 );
                             if ($z > 0) $this->maze->populateMaze( $ruinZone->getZone(), $z, false, false, [$ruinZone] );
                             $cache->addToCounter( CountType::Zombies, $z );
-                            $tags[] = 'reverse-escape';
+                            $cache->addTag('reverse-escape');
                         } else {
                             $base_zone->addEscapeTimer((new EscapeTimer())->setTime(new DateTime("+{$zoneEffect->getEscape()}sec")));
                             switch ($zoneEffect->getEscapeTag()) {
@@ -783,7 +781,7 @@ class ActionHandler
                                     break;
                             }
 
-                            $tags[] = 'escape';
+                            $cache->addTag('escape');
                         }
                     }
 
@@ -845,9 +843,9 @@ class ActionHandler
                 $alreadyfound = !$text || $this->entity_manager->getRepository(FoundRolePlayText::class)->findByUserAndText($citizen->getUser(), $text);
                 $cache->addTranslationKey('rp_text', $text->getTitle(), true);
                 if ($alreadyfound)
-                    $tags[] = 'rp_fail';
+                    $cache->addTag('rp_fail');
                 elseif ($text) {
-                    $tags[] = 'rp_ok';
+                    $cache->addTag('rp_ok');
                     $foundrp = new FoundRolePlayText();
                     $foundrp->setUser($citizen->getUser())->setText($text)->setNew(true)->setDateFound(new DateTime());
                     $citizen->getUser()->getFoundTexts()->add($foundrp);
@@ -966,8 +964,8 @@ class ActionHandler
 
                         // The tamer does not work if the door is closed
                         if (!$citizen->getTown()->getDoor()) {
-                            $tags[] = 'fail';
-                            $tags[] = 'door-closed';
+                            $cache->addTag('fail');
+                            $cache->addTag('door-closed');
                             break;
                         }
 
@@ -988,11 +986,11 @@ class ActionHandler
                         }
 
                         if ($heavy_break) {
-                            $tags[] = 'fail';
-                            $tags[] = 'too-heavy';
+                            $cache->addTag('fail');
+                            $cache->addTag('too-heavy');
                         } elseif ($this->inventory_handler->getFreeSize( $bank ) < $item_count) {
-                            $tags[] = 'fail';
-                            $tags[] = 'no-room';
+                            $cache->addTag('fail');
+                            $cache->addTag('no-room');
                             $cache->addToCounter( CountType::Items, $item_count );
                             $cache->addTranslationKey('size', ($freeSize = $this->inventory_handler->getFreeSize($bank)) > 0 ? $freeSize : 0);
                         } else {
@@ -1008,8 +1006,8 @@ class ActionHandler
                                     $item->setPrototype( $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'tamed_pet_off_#00']) );
                                 $this->entity_manager->persist($this->log->beyondTamerSendLog($citizen, $success_count));
                             } else {
-                                $tags[] = 'no-items';
-                                $tags[] = 'fail';
+                                $cache->addTag('no-items');
+                                $cache->addTag('fail');
                             }
                         }
 
@@ -1160,7 +1158,7 @@ class ActionHandler
                         if ($selected) {
                             $upgraded_map = $this->town_handler->getBuilding($citizen->getTown(),'item_electro_#00', true);
                             $cache->setTargetZone($selected);
-                            $tags[] = 'zone';
+                            $cache->addTag('zone');
                             $selected->setDiscoveryStatus( Zone::DiscoveryStateCurrent );
                             if ($upgraded_map) $selected->setZombieStatus( Zone::ZombieStateExact );
                             else $selected->setZombieStatus( max( $selected->getZombieStatus(), Zone::ZombieStateEstimate ) );
@@ -1213,7 +1211,7 @@ class ActionHandler
                             $cache->addSpawnedItem($i);
                         }
 
-                        if (empty($filled)) $tags[] = 'fail';
+                        if (empty($filled)) $cache->addTag('fail');
                         break;
                     }
 
@@ -1223,10 +1221,10 @@ class ActionHandler
                         usort( $zones, fn(Zone $a, Zone $b) => $b->getItemsHiddenAt() <=> $a->getItemsHiddenAt() );
                         if(count($zones) > 0) {
                             $zone = $zones[0];
-                            $tags[] = 'bannote_ok';
+                            $cache->addTag('bannote_ok');
                             $cache->setTargetZone($zone);
                         } else {
-                            $tags[] = 'bannote_fail';
+                            $cache->addTag('bannote_fail');
                         }
                         break;
                     }
@@ -1301,7 +1299,7 @@ class ActionHandler
                             $this->entity_manager->persist($sandball_target);
 
 
-                        } else $tags[] = 'fail';
+                        } else $cache->addTag('fail');
 
                         break;
                     }
@@ -1320,10 +1318,10 @@ class ActionHandler
                             $this->entity_manager->persist($zone);
                             $this->inventory_handler->forceRemoveItem( $item );
                             $cache->addConsumedItem($item);
-                            $tags[] = $zone->getPrototype() ? 'flare_ok_ruin' : 'flare_ok';
+                            $cache->addTag($zone->getPrototype() ? 'flare_ok_ruin' : 'flare_ok');
                             $cache->setTargetZone($zone);
                         } else {
-                            $tags[] = 'flare_fail';
+                            $cache->addTag('flare_fail');
                         }
                         break;
 
@@ -1348,8 +1346,8 @@ class ActionHandler
                                 }
 
                                 if ($inflict && $this->citizen_handler->inflictStatus($citizen, 'infection')) {
-                                    $tags[] = 'stat-up';
-                                    $tags[] = "stat-up-infection";
+                                    $cache->addTag('stat-up');
+                                    $cache->addTag("stat-up-infection");
                                 }
 
                             }
@@ -1483,34 +1481,8 @@ class ActionHandler
 
         }
 
-        if($cache->hasMessages()) {
-        	// We translate & replace placeholders in each messages
-        	$addedContent = [];
-
-            foreach ($cache->getMessages( $this->translator, $this->wrapObjectsForOutputAction) as $contentMessage) {
-
-                $all_tags = [
-                    ...$tags,
-                    ...$cache->calculateTags()
-                ];
-
-                do {
-                    $contentMessage = preg_replace_callback( '/<t-(.*?)>(.*?)<\/t-\1>/' , function(array $m) use ($all_tags): string {
-                        [, $tag, $text] = $m;
-                        return in_array( $tag, $all_tags ) ? $text : '';
-                    }, $contentMessage, -1, $c);
-                    $contentMessage = preg_replace_callback( '/<nt-(.*?)>(.*?)<\/nt-\1>/' , function(array $m) use ($all_tags): string {
-                        [, $tag, $text] = $m;
-                        return !in_array( $tag, $all_tags ) ? $text : '';
-                    }, $contentMessage, -1, $d);
-                } while ($c > 0 || $d > 0);
-                $addedContent[] = $contentMessage;
-            }
-
-        	// We remove empty elements
-        	$addedContent = array_filter($addedContent);
-            $message = implode('<hr />', $addedContent);
-        }
+        if($cache->hasMessages())
+            $message = implode('<hr />', $cache->getMessages( $this->translator, $this->wrapObjectsForOutputAction));
 
         return self::ErrorNone;
     }

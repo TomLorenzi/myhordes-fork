@@ -24,6 +24,8 @@ class Base
 
     private array $flags = [];
 
+    private array $tags = [];
+
     public function __construct(
         public readonly EntityManagerInterface $em,
         public readonly Citizen $citizen,
@@ -64,6 +66,14 @@ class Base
         return in_array( $flag, $this->flags );
     }
 
+    public function addTag(string $tag): void {
+        $this->tags[] = $tag;
+    }
+
+    public function calculateTags(): array {
+        return $this->tags;
+    }
+
     protected function getOwnKeys(TranslatorInterface $trans, WrapObjectsForOutputAction $wrapper): array {
         return [
             ...$this->trans,
@@ -81,9 +91,26 @@ class Base
             ...$keys
         ];
 
-        return array_map(
-            fn(array $m) => $trans->trans( $m[0], [...$m[1], ...$composite_keys], $m[2] ?? 'game' ),
-            $this->messages
-        );
+        $messages = [];
+        $tags = $this->calculateTags();
+
+        foreach (array_map(
+                     fn(array $m) => $trans->trans( $m[0], [...$m[1], ...$composite_keys], $m[2] ?? 'game' ),
+                     $this->messages
+                 ) as $contentMessage) {
+            do {
+                $contentMessage = preg_replace_callback( '/<t-(.*?)>(.*?)<\/t-\1>/' , function(array $m) use ($tags): string {
+                    [, $tag, $text] = $m;
+                    return in_array( $tag, $tags ) ? $text : '';
+                }, $contentMessage, -1, $c);
+                $contentMessage = preg_replace_callback( '/<nt-(.*?)>(.*?)<\/nt-\1>/' , function(array $m) use ($tags): string {
+                    [, $tag, $text] = $m;
+                    return !in_array( $tag, $tags ) ? $text : '';
+                }, $contentMessage, -1, $d);
+            } while ($c > 0 || $d > 0);
+            $messages[] = $contentMessage;
+        }
+
+        return array_filter($messages);
     }
 }

@@ -89,7 +89,7 @@ class Execution extends Base
     }
 
     public function calculateTags(): array {
-        $tags = [];
+        $tags = parent::calculateTags();
         foreach (PointType::cases() as $type)
             if ($this->getPoints($type) > 0) $tags[] = "{$type->letterCode()}-up";
             elseif ($this->getPoints($type) < 0) $tags[] = "{$type->letterCode()}-down";
@@ -97,13 +97,13 @@ class Execution extends Base
         if ($this->getCounter(CountType::Kills) > 0)
             $tags[] = 'kills';
 
-        if (count($this->spawned_items) > ($this->morphed_items[0] ? 2 : 1))
+        if (count($this->spawned_items) > (($this->morphed_items[0] ?? false) ? 2 : 1))
             $tags[] = 'spawned';
 
-        if (count($this->consumed_items) > ($this->morphed_items[0] ? 2 : 1))
+        if (count($this->consumed_items) > (($this->morphed_items[0] ?? false) ? 2 : 1))
             $tags[] = 'consumed';
 
-        if ($this->morphed_items[0] && $this->morphed_items[1])
+        if (($this->morphed_items[0] ?? false) && ($this->morphed_items[1] ?? false))
             $tags[] = 'morphed';
 
         $tags[] = $this->citizen->getZone() ? 'outside' : 'inside';
