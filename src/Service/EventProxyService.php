@@ -65,6 +65,7 @@ use App\Event\Game\Town\Basic\Core\AfterJoinTownEvent;
 use App\Event\Game\Town\Basic\Core\BeforeJoinTownData;
 use App\Event\Game\Town\Basic\Core\BeforeJoinTownEvent;
 use App\Event\Game\Town\Basic\Core\JoinTownEvent;
+use App\Structures\ActionHandler\Execution;
 use App\Structures\FriendshipActionTarget;
 use App\Structures\HTMLParserInsight;
 use Doctrine\Common\Util\ClassUtils;
@@ -205,11 +206,10 @@ class EventProxyService
     }
 
 
-    public function executeCustomAction( int $type, Citizen $citizen, ?Item $item, Citizen|Item|ItemPrototype|FriendshipActionTarget|null $target, ItemAction $action, ?string &$message, ?array &$remove, array &$execute_info_cache ): void {
-        $this->ed->dispatch( $event = $this->ef->gameEvent( CustomActionProcessorEvent::class, $citizen->getTown() )->setup( $type, $citizen, $item, $target, $action, $message, $remove, $execute_info_cache ) );
+    public function executeCustomAction( int $type, Citizen $citizen, ?Item $item, Citizen|Item|ItemPrototype|FriendshipActionTarget|null $target, ItemAction $action, ?string &$message, ?array &$remove, Execution $cache ): void {
+        $this->ed->dispatch( $event = $this->ef->gameEvent( CustomActionProcessorEvent::class, $citizen->getTown() )->setup( $type, $citizen, $item, $target, $action, $message, $remove, $cache ) );
         $message = $event->message;
         $remove = $event->remove;
-        $execute_info_cache = $event->execute_info_cache;
     }
 
     public function forumNewPostEvent( Post $post, HTMLParserInsight $insight, bool $new_thread = false ): void {

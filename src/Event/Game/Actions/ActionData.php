@@ -6,6 +6,7 @@ use App\Entity\Citizen;
 use App\Entity\Item;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
+use App\Structures\ActionHandler\Execution;
 use App\Structures\FriendshipActionTarget;
 
 class ActionData
@@ -20,7 +21,7 @@ class ActionData
     public ?string $message;
     public array $remove;
 
-    public array $execute_info_cache;
+    public Execution $cache;
 
 	/**
      * @param int $type
@@ -30,11 +31,11 @@ class ActionData
      * @param ItemAction $action
      * @param string|null $message
      * @param array|null $remove
-     * @param array $execute_info_cache
+     * @param Execution $cache
      * @return ActionData
      * @noinspection PhpDocSignatureInspection
      */
-	public function setup( int $type, Citizen $citizen, ?Item $item, Citizen|Item|ItemPrototype|FriendshipActionTarget|null $target, ItemAction $action, ?string $message, ?array $remove, array $execute_info_cache ): void {
+	public function setup( int $type, Citizen $citizen, ?Item $item, Citizen|Item|ItemPrototype|FriendshipActionTarget|null $target, ItemAction $action, ?string $message, ?array $remove, Execution $cache ): void {
         $this->type = $type;
         $this->citizen = $citizen;
         $this->item = $item;
@@ -42,7 +43,7 @@ class ActionData
         $this->action = $action;
         $this->message = $message;
         $this->remove = $remove ?? [];
-        $this->execute_info_cache = $execute_info_cache;
+        $this->cache = $cache;
 	}
 
 }
