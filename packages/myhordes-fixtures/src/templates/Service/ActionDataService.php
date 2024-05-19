@@ -1481,7 +1481,6 @@ class ActionDataService implements FixtureProcessorInterface {
         );
 
         //<editor-fold desc="MessageEffects">
-        //TODO: Adjust fixture visitor!
         $effects_container->add()->identifier('do_nothing_attack')->add((new MessageEffect())->text('Mit aller Kraft schlägst du mehrmals auf einen Zombie ein, aber <strong>es scheint ihm nichts anzuhaben</strong>!'))->commit();
         $effects_container->add()->identifier('do_nothing_attack2')->add((new MessageEffect())->text('Sie greifen einen Zombie mit Ihrem {item} an, aber <strong>er reagiert nicht einmal</strong> und macht weiter!'))->commit();
         $effects_container->add()->identifier('msg_effect_para')->add((new MessageEffect())->text('Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.'))->commit();
@@ -1524,8 +1523,6 @@ class ActionDataService implements FixtureProcessorInterface {
             ->add((new MessageEffect())->text( Arr::get($data,'message_keys.use_lab_success')))->commit();
         $effects_container->add()->identifier('home_lab_failure')
             ->add((new MessageEffect())->text( Arr::get($data,'message_keys.use_lab_fail')))->commit();
-        $effects_container->add()->identifier('')
-            ->add((new MessageEffect())->text( ''))->commit();
 
         $data['meta_results'] = array_merge_recursive(
             $data['meta_results'],

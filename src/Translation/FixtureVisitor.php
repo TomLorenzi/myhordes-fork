@@ -2,8 +2,11 @@
 
 namespace App\Translation;
 
+use Adbar\Dot;
+use App\Service\Actions\Game\AtomProcessors\Effect\ProcessMessageEffect;
 use App\Service\Globals\TranslationConfigGlobal;
 use App\Service\Translation\TranslationService;
+use ArrayHelpers\Arr;
 use MyHordes\Plugins\Fixtures\Action;
 use MyHordes\Plugins\Fixtures\AwardFeature;
 use MyHordes\Plugins\Fixtures\AwardTitle;
@@ -69,7 +72,7 @@ final class FixtureVisitor extends AbstractVisitor implements NodeVisitor
     }
 
     protected function addMessageToCatalogue(string $message, ?string $domain, int $line): void {
-        if ($this->catalogue?->has($message,$domain)) return;
+        if (empty($message) || $this->catalogue?->has($message,$domain)) return;
 		$this->configGlobal->add_source_for($message, $domain, 'fixture', $this->relative_path);
         parent::addMessageToCatalogue($message,$domain,$line);
     }
@@ -99,15 +102,34 @@ final class FixtureVisitor extends AbstractVisitor implements NodeVisitor
         );
     }
 
+    protected function extractActionAtomData(array $data): bool {
+        // $this->addMessageToCatalogue($message, $domain, 0);
+        $dot = new Dot($data);
+        $flat = $dot->flatten();
+
+        foreach ($flat as $key => $value)
+            if (!is_array($value) && str_starts_with( $key, 'meta_results.' ) && str_ends_with( $key, '.processor' )) {
+                $payload = implode( '.', array_slice( explode('.', $key), 0, -1 ) ) . '.payload';
+
+                switch ($value) {
+                    case ProcessMessageEffect::class: {
+                        $this->addMessageToCatalogue( $dot->get( "$payload.text", '' ), $dot->get( "$payload.domain", 'items' ), 0 );
+                        break;
+                    }
+                }
+            }
+        return true;
+    }
+
     protected function extractData( FixtureChainInterface $provider, array $data ): bool {
         return match ($provider::class) {
             Action::class =>
+                $this->extractActionAtomData( $data ) &&
                 $this->extractArrayData( $data['message_keys'] ?? [], 'items') &&
                 $this->extractColumnData( $data['meta_requirements'] ?? [], 'text', 'items') &&
                 $this->extractColumnData( $data['actions'] ?? [], ['label','tooltip','confirmMsg','message','escort_message'], 'items') &&
                 $this->extractColumnData( $data['escort'] ?? [], ['label','tooltip'], 'items') &&
-                $this->extractColumnData( $data['heroics'] ?? [], ['used'], 'items') &&
-                $this->extractColumnData( array_column( $data['meta_results'] ?? [], 'message' ), 'text', 'items'),
+                $this->extractColumnData( $data['heroics'] ?? [], ['used'], 'items'),
             AwardTitle::class => $this->extractColumnDataAndHandleFemaleTitles($data, 'title', 'game'),
             Item::class =>
                 $this->extractColumnData( $data, ['label','description'], 'items'),
