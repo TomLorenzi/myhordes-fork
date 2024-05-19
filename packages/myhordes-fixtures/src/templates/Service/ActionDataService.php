@@ -18,6 +18,7 @@ use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\MessageEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\PictoEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\RolePlayTextEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\TownEffect;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\ZoneEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\BuildingRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\ConfigRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\CounterRequirement;
@@ -344,13 +345,6 @@ class ActionDataService implements FixtureProcessorInterface {
                 'produce_watercan1' => [ 'item' => [ 'consume' => false, 'morph' => 'water_can_1_#00' ] ],
                 'produce_watercan0' => [ 'item' => [ 'consume' => false, 'morph' => 'water_can_empty_#00', 'break' => null, 'poison' => false ] ],
 
-                'kill_1_zombie'   => [ 'zombies' => 'kill_1z' ],
-                'kill_1_zombie_s' => [ 'zombies' => 'kill_1z' ],
-                'kill_1_2_zombie' => [ 'zombies' => 'kill_1z_2z' ],
-                'kill_2_zombie' => [ 'zombies' => 'kill_2z' ],
-                'kill_3_zombie' => [ 'zombies' => 'kill_3z' ],
-                'kill_all_zombie' => [ 'zombies' => 'kill_all_z' ],
-
                 'casino_dice'   => [ 'custom' => [1], 'status' => [ 'from' => null, 'to' => 'tg_dice' ] ],
                 'casino_card'   => [ 'custom' => [2], 'status' => [ 'from' => null, 'to' => 'tg_cards' ] ],
                 'casino_guitar' => [ 'custom' => [3] ],
@@ -359,9 +353,6 @@ class ActionDataService implements FixtureProcessorInterface {
                 'heal_wound'  => [ 'status' => 'heal_wound' ],
                 'add_bandage' => [ 'status' => 'add_bandage' ],
                 'inflict_wound' => [ 'status' => 'inflict_wound' ],
-
-                'zonemarker' => [ 'zone' => ['scout' => true] ],
-                'nessquick'  => [ 'zone' => ['uncover' => true] ],
 
                 'cyanide' => [ 'death' => [ CauseOfDeath::Cyanide ] ],
                 'death_poison' => [ 'death' => [ CauseOfDeath::Poison ] ],
@@ -449,7 +440,6 @@ class ActionDataService implements FixtureProcessorInterface {
                     'satisfy_ghoul_10' => [ 'hunger' => -15 ],
                 ],
                 'item' => [],
-                'picto' => [],
 
                 'spawn' => [
                     'xmas_dv' => [ ['omg_this_will_kill_you_#00', 8], ['pocket_belt_#00', 8], ['christmas_candy_#00', 8], 'rp_manual_#00', 'rp_sheets_#00', 'rp_letter_#00', 'rp_scroll_#00', 'rp_book_#00', 'rp_book_#01', 'rp_book2_#00' ],
@@ -533,16 +523,6 @@ class ActionDataService implements FixtureProcessorInterface {
 
                     'g_empty_jerrygun'  => [[['do_nothing'], 85], [['empty_jerrygun'], 15]], /* based on Hordes data */
                 ],
-
-                'zombies' => [
-                    'kill_1z_2z'    => [ 'min' => 1, 'max' => 2 ],
-                    'kill_1z' => [ 'num' => 1 ],
-                    'kill_2z' => [ 'num' => 2 ],
-                    'kill_3z' => [ 'num' => 3 ],
-                    'kill_all_z' => [ 'num' => 999999 ],
-                ],
-
-                'well' => [],
             ],
 
             'actions' => [
@@ -803,9 +783,9 @@ class ActionDataService implements FixtureProcessorInterface {
                 'throw_phone'           => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', ['spawn' => 'phone'] , 'kill_1_2_zombie' ] ], /* based on Hordes data */
                 'throw_projector'       => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', ['spawn' => 'proj'] , 'kill_1_zombie' ] ], /* based on Hordes data */
 
-                'throw_grenade'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'consume_item', ['zombies' => [ 'min' => 2, 'max' =>  4 ]] ], 'message_key' => 'weapon_use' ],
-                'throw_exgrenade'       => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'consume_item', ['zombies' => [ 'min' => 6, 'max' => 10 ]] ], 'message_key' => 'weapon_use' ],
-                'throw_boomfruit'       => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'consume_item', ['zombies' => [ 'min' => 5, 'max' =>  9 ]] ], 'message_key' => 'weapon_use' ],
+                'throw_grenade'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'consume_item', 'zone_kill_2_4'  ], 'message_key' => 'weapon_use' ],
+                'throw_exgrenade'       => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'consume_item', 'zone_kill_6_10' ], 'message_key' => 'weapon_use' ],
+                'throw_boomfruit'       => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'consume_item', 'zone_kill_5_9'  ], 'message_key' => 'weapon_use' ],
                 'throw_jerrygun'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'kill_1_zombie', 'msg_throw_jerrycan', ['group' => 'g_empty_jerrygun']] ],
 
                 'bp_generic_1'          => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => [1] ] ], 'message_key' => 'read_blueprint' ],
@@ -861,10 +841,10 @@ class ActionDataService implements FixtureProcessorInterface {
                 'zonemarker_2' => [ 'label' => 'Einsetzen', 'cover' => true, 'at00' => true, 'meta' => [ ], 'result' => [ ['group' => [ ['do_nothing', 2], [ [['item' => ['consume' => false, 'morph' => 'radius_mk2_part_#00'] ]], 1 ] ]], 'zonemarker' ], 'message' => 'Mithilfe des {item} hast du die Umgebung gescannt.' ],
                 'nessquick'    => [ 'label' => 'Einsetzen', 'meta' => [ 'must_be_outside', 'must_be_at_buried_ruin' ], 'result' => [ 'consume_item', 'nessquick' ], 'message' => 'Du hast das Gebiet mit deinem {item} teilweise geräumt ({bury_count} Punkte geräumt).' ],
 
-                'bomb_1'    => [ 'label' => 'Werfen', 'cover' => true, 'meta' => [ 'must_be_outside', 'must_be_blocked' ], 'result' => [ 'consume_item', [ 'zone' => ['escape' =>  40] ] ], 'message_key' => 'escape_item' ],
-                'bomb_2'    => [ 'label' => 'Werfen', 'cover' => true, 'meta' => [ 'must_be_outside_or_exploring', 'must_be_blocked' ], 'result' => [ 'consume_item', [ 'zone' => ['escape' => 300] ] ], 'message_key' => 'escape_item' ],
+                'bomb_1'    => [ 'label' => 'Werfen', 'cover' => true, 'meta' => [ 'must_be_outside', 'must_be_blocked' ], 'result' => [ 'consume_item', 'zone_escape_40' ], 'message_key' => 'escape_item' ],
+                'bomb_2'    => [ 'label' => 'Werfen', 'cover' => true, 'meta' => [ 'must_be_outside_or_exploring', 'must_be_blocked' ], 'result' => [ 'consume_item', 'zone_escape_300' ], 'message_key' => 'escape_item' ],
 
-                'smokebomb' => [ 'label' => 'Werfen', 'meta' => [ 'must_be_outside_not_at_doors' ], 'result' => [ 'consume_item', [ 'zone' => ['chatSilence' => 60] ] ], 'message' => 'Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine <strong>nächste Bewegungsaktion</strong> wird night in das Register eingetragen, wenn sie <strong>innerhalb von 1 Minute</strong> erfolgt.' ],
+                'smokebomb' => [ 'label' => 'Werfen', 'meta' => [ 'must_be_outside_not_at_doors' ], 'result' => [ 'consume_item', 'zone_chat_60' ], 'message' => 'Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine <strong>nächste Bewegungsaktion</strong> wird night in das Register eingetragen, wenn sie <strong>innerhalb von 1 Minute</strong> erfolgt.' ],
 
                 'eat_fleshroom_1'  => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item', ['status' => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 25, 'force' => true, 'probability' => 4 ]] ], 'escort_message_key' => 'escort_food_eat' ], /* based on Hordes data */
                 'eat_fleshroom_2'  => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item' ], 'escort_message_key' => 'escort_food_eat' ],
@@ -885,9 +865,9 @@ class ActionDataService implements FixtureProcessorInterface {
 
                 'clean_clothes' => [ 'label' => 'Reinigen (Kleidung)', 'meta' => [ 'must_be_inside' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_clothes', 'counter' => ActionCounter::ActionTypeClothes ], 'item' => ['consume' => false, 'morph' => 'basic_suit_#00'] ] ], 'message' => 'Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.' ],
 
-                'flash_photo_3' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors', 'must_have_zombies', 'must_be_blocked' ], 'result' => [ ['item' => ['consume' => false, 'morph' => 'photo_2_#00'] ,   'group' => [ [['do_nothing'], 1], [[ ['zone' => ['escape' => 120] ]], 100]] ] ],  'message_key' => 'escape_item_camera' ],
-                'flash_photo_2' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors', 'must_have_zombies', 'must_be_blocked' ], 'result' => [ ['item' => ['consume' => false, 'morph' => 'photo_1_#00'] ,   'group' => [ [['do_nothing'], 30], [[ ['zone' => ['escape' => 60] ]], 66]] ] ],   'message_key' => 'escape_item_camera' ],
-                'flash_photo_1' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors', 'must_have_zombies', 'must_be_blocked' ], 'result' => [ ['item' => ['consume' => false, 'morph' => 'photo_off_#00'] , 'group' => [ [['do_nothing'], 60], [[ ['zone' => ['escape' => 30] ]], 33]] ] ],   'message_key' => 'escape_item_camera' ],
+                'flash_photo_3' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors', 'must_have_zombies', 'must_be_blocked' ], 'result' => [ ['item' => ['consume' => false, 'morph' => 'photo_2_#00'] ,   'group' => [ [['do_nothing'], 1], [['zone_escape_120'], 100]] ] ], 'message_key' => 'escape_item_camera' ],
+                'flash_photo_2' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors', 'must_have_zombies', 'must_be_blocked' ], 'result' => [ ['item' => ['consume' => false, 'morph' => 'photo_1_#00'] ,   'group' => [ [['do_nothing'], 30], [[ 'zone_escape_60'], 66]] ] ], 'message_key' => 'escape_item_camera' ],
+                'flash_photo_1' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors', 'must_have_zombies', 'must_be_blocked' ], 'result' => [ ['item' => ['consume' => false, 'morph' => 'photo_off_#00'] , 'group' => [ [['do_nothing'], 60], [[ 'zone_escape_30'], 33]] ] ], 'message_key' => 'escape_item_camera' ],
 
                 'alarm_clock' => [ 'label' => 'Benutzen', 'at00' => true, 'meta' => [  ], 'result' => [ ['item' => ['consume' => false, 'morph' => 'alarm_on_#00'] ] ],  'message' => 'Du hast {item_from} in {item_to} verwandelt.' ],
 
@@ -909,7 +889,7 @@ class ActionDataService implements FixtureProcessorInterface {
                 'hero_generic_return'       => [ 'label' => 'Die Rückkehr des Helden', 'tooltip' => 'Wenn du 11 km oder weniger von der Stadt entfernt bist, kehrst du sofort in die Stadt zurück!', 'cover' => true, 'at00' => true, 'meta' => [ 'must_be_outside_or_exploring', 'must_be_outside_within_11km', 'not_yet_hero'], 'result' => [ 'hero_act', ['custom' => [8]]], 'message' => 'Mit deiner letzten Kraft hast du dich *in die Stadt geschleppt*... *Ein Wunder*!' ],
                 'hero_generic_find'         => [ 'label' => 'Fund', 'tooltip' => 'Wie durch ein Wunder treibst du einen nützlichen Gegenstand auf.', 'cover' => true, 'at00' => true, 'target' => ['type' => ItemTargetDefinition::ItemTypeSelectionType, 'property' => 'hero_find'], 'meta' => [ 'not_yet_hero' ], 'result' => [ 'hero_act', 'spawn_target'], 'message' => 'So was nennt man wohl <strong>Glück</strong>! <t-inside>Du hast soeben {items_spawn} in einem Abfallberg neben deinem Haus gefunden!</t-inside><t-outside>Du hast soeben {items_spawn} im Wüstensand gefunden!</t-outside> Genau das, was du gebraucht hast!'],
                 'hero_generic_find_lucky'   => [ 'label' => 'Schönes Fundstück', 'tooltip' => 'Wie durch ein Wunder treibst du einen nützlichen Gegenstand auf.', 'cover' => true, 'at00' => true, 'target' => ['type' => ItemTargetDefinition::ItemTypeSelectionType, 'property' => 'hero_find_lucky'], 'meta' => [ 'not_yet_hero' ], 'result' => [ 'hero_act', 'spawn_target'], 'message' => 'So was nennt man wohl <strong>Glück</strong>! <t-inside>Du hast soeben {items_spawn} in einem Abfallberg neben deinem Haus gefunden!</t-inside><t-outside>Du hast soeben {items_spawn} im Wüstensand gefunden!</t-outside> Genau das, was du gebraucht hast!'],
-                'hero_generic_punch'        => [ 'label' => 'Wildstyle Uppercut', 'tooltip' => 'Damit kannst du mit einem Schlag 2 Zombies umbringen!', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_yet_hero'], 'result' => [ 'hero_act', ['zombies' => 'kill_2z']], 'message' => 'Mit Hilfe deiner übermenschlichen Heldenkräfte hast du <strong>{kills} Zombie(s)</strong> platt gemacht!' ],
+                'hero_generic_punch'        => [ 'label' => 'Wildstyle Uppercut', 'tooltip' => 'Damit kannst du mit einem Schlag 2 Zombies umbringen!', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_yet_hero'], 'result' => [ 'hero_act', 'zone_kill_2'], 'message' => 'Mit Hilfe deiner übermenschlichen Heldenkräfte hast du <strong>{kills} Zombie(s)</strong> platt gemacht!' ],
                 'hero_generic_ap'           => [ 'label' => 'Zweite Lunge', 'tooltip' => 'Stellt deine AP wieder her und beseitigt deine Müdigkeit.', 'cover' => true, 'at00' => true, 'meta' => [ 'no_full_ap_msg', 'not_yet_hero'], 'result' => [ 'hero_act', 'just_ap6'], 'message' => 'Du atmest tief durch und drückst den Rücken durch. Auf geht\'s! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und <strong>{ap} neue AP erhalten</strong>.'],
                 'hero_generic_immune'       => [ 'label' => 'Den Tod besiegen', 'tooltip' => 'Beim nächsten Angriff wird der Durst-, Infektions- und Abhängigkeitszustand außer Kraft gesetzt.', 'cover' => true, 'at00' => true, 'meta' => [ 'not_yet_hero'], 'result' => [ 'hero_act', 'hero_immune'], 'message' => 'Du versucht nochmal alle deine Kräfte für heute Abend zu mobilisieren. Die Anspannung steht dir ins Gesicht geschrieben. Du schwitzt und deine Hände zittern.{hr}Beim heutigen Angriff wirst du weder weder Durst, noch Krankheitssymptome (Infektion), noch Entzugserscheinungen verspüren.'],
                 'hero_generic_rescue'       => [ 'label' => 'Rettung', 'tooltip' => 'Du bringst einen anderen Spieler nach Hause (dieser darf max. 2 Felder von der Stadt entfernt sein).', 'confirm' => true, 'confirmMsg' => 'Möchtest du {target} heimbringen?' ,'target' => ['type' => ItemTargetDefinition::ItemHeroicRescueType], 'meta' => [ 'must_be_inside', 'not_yet_hero'], 'result' => [ 'hero_act', ['custom' => [9]] ], 'message' => 'Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!' ],
@@ -917,16 +897,16 @@ class ActionDataService implements FixtureProcessorInterface {
 
                 'throw_sandball' => [ 'label' => 'Werfen', /* 'target' => ['type' => ItemTargetDefinition::ItemCitizenOnZoneSBType], */ 'meta' => [ 'must_be_outside', 'during_christmas'], 'result' => [ ['custom' => [20]] ], 'message' => '<nt-fail>Du hast einen Sandball in {citizen}s Gesicht geworfen.</nt-fail><t-fail>Hier ist niemand, auf den du den Sandball werfen könntest...</t-fail>' ],
 
-                'special_armag'        => [ 'label' => 'Durchgang in Kraft', 'tooltip_key' => 'heroic_arma_tooltip', 'allow_when_terrorized' => true, 'meta' => [ 'must_be_outside', 'must_be_blocked' ],   'result' => [ ['group' => [ [['do_nothing', 'msg_heroic_arma_fail'], 50], [[ 'msg_heroic_arma_success', ['zone' => ['escape' => ['armag',600]], 'zombies' => 'kill_1z'] ], 50]]] ] ],
-                'special_armag_d'      => [ 'label' => 'Durchgang in Kraft', 'tooltip_key' => 'heroic_arma_tooltip', 'allow_when_terrorized' => true, 'meta' => [ 'must_be_outside', 'must_be_blocked', 'must_be_day'],   'result' => [ ['group' => [ [['do_nothing', 'msg_heroic_arma_fail'], 50], [['msg_heroic_arma_success', ['zone' => ['escape' => ['armag',600]], 'zombies' => 'kill_1z'] ], 50]]] ] ],
-                'special_armag_n'      => [ 'label' => 'Durchgang in Kraft', 'tooltip_key' => 'heroic_arma_tooltip', 'allow_when_terrorized' => true, 'meta' => [ 'must_be_outside', 'must_be_blocked', 'must_be_night'], 'result' => [ ['group' => [ [['do_nothing', 'msg_heroic_arma_fail'], 25], [['msg_heroic_arma_success', ['zone' => ['escape' => ['armag',600]], 'zombies' => 'kill_1z'] ], 75]]] ] ],
+                'special_armag'        => [ 'label' => 'Durchgang in Kraft', 'tooltip_key' => 'heroic_arma_tooltip', 'allow_when_terrorized' => true, 'meta' => [ 'must_be_outside', 'must_be_blocked' ],   'result' => [ ['group' => [ [['do_nothing', 'msg_heroic_arma_fail'], 50], [[ 'msg_heroic_arma_success', 'zone_escape_600_armag', 'kill_1_zombie_s' ], 50]]] ] ],
+                'special_armag_d'      => [ 'label' => 'Durchgang in Kraft', 'tooltip_key' => 'heroic_arma_tooltip', 'allow_when_terrorized' => true, 'meta' => [ 'must_be_outside', 'must_be_blocked', 'must_be_day'],   'result' => [ ['group' => [ [['do_nothing', 'msg_heroic_arma_fail'], 50], [['msg_heroic_arma_success', 'zone_escape_600_armag', 'kill_1_zombie_s' ], 50]]] ] ],
+                'special_armag_n'      => [ 'label' => 'Durchgang in Kraft', 'tooltip_key' => 'heroic_arma_tooltip', 'allow_when_terrorized' => true, 'meta' => [ 'must_be_outside', 'must_be_blocked', 'must_be_night'], 'result' => [ ['group' => [ [['do_nothing', 'msg_heroic_arma_fail'], 25], [['msg_heroic_arma_success', 'zone_escape_600_armag', 'kill_1_zombie_s' ], 75]]] ] ],
                 'special_vote_shaman'  => [ 'label' => 'Den Shamane wählen', 'target' => ['type' => ItemTargetDefinition::ItemCitizenVoteType], 'meta' => [ 'must_be_outside', 'profession_heroic', 'vote_shaman_needed', 'vote_shaman_not_given'] , 'result' => [ ['custom' => [18]] ] ],
                 'special_vote_guide'   => [ 'label' => 'Den Reiseleiter in der Außenwelt wählen', 'target' => ['type' => ItemTargetDefinition::ItemCitizenVoteType], 'meta' => [ 'must_be_outside', 'profession_heroic', 'vote_guide_needed', 'vote_guide_not_given'], 'result' => [ ['custom' => [19]] ] ],
 
-                'improve' => [ 'label' => 'Aufbauen', 'meta' => [ 'must_be_outside', 'zone_is_improvable', 'min_1_ap', 'must_be_outside_not_at_doors', 'feature_camping' ], 'result' => [ 'minus_1ap', 'consume_item', [ 'zone' => ['improve' =>  9] ] ], 'message' => 'Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.' ], // Each item used as zone improvement gives 9% chance
+                'improve' => [ 'label' => 'Aufbauen', 'meta' => [ 'must_be_outside', 'zone_is_improvable', 'min_1_ap', 'must_be_outside_not_at_doors', 'feature_camping' ], 'result' => [ 'minus_1ap', 'consume_item', 'zone_improve_9' ], 'message' => 'Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.' ], // Each item used as zone improvement gives 9% chance
 
                 'cm_campsite_hide'    => [ 'label' => 'Sich verstecken und die Nacht hier schlafen!', 'meta' => [ 'must_be_outside', 'must_not_be_hidden', 'must_not_be_tombed' ], 'result' => [ 'camp_hide', ['custom' => [10]] ], 'message' => 'Du hast Dich notdürftig versteckt.' ],
-                'cm_campsite_improve' => [ 'label' => 'Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)', 'meta' => [ 'min_1_ap', 'not_tired', 'must_be_outside', 'must_not_be_hidden', 'must_not_be_tombed', 'zone_is_improvable' ], 'result' => [ 'minus_1ap', [ 'zone' => ['improve' =>  5] ] ], 'message' => 'Du hast das hiesige Versteck verbessert.' ], // Each improvement adds 5% chance
+                'cm_campsite_improve' => [ 'label' => 'Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)', 'meta' => [ 'min_1_ap', 'not_tired', 'must_be_outside', 'must_not_be_hidden', 'must_not_be_tombed', 'zone_is_improvable' ], 'result' => [ 'minus_1ap', 'zone_improve_5' ], 'message' => 'Du hast das hiesige Versteck verbessert.' ], // Each improvement adds 5% chance
                 'cm_campsite_tomb'    => [ 'label' => '"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)', 'meta' => [ 'min_1_ap', 'not_tired', 'must_be_outside', 'must_not_be_hidden', 'must_not_be_tombed' ], 'result' => [ 'minus_1ap', 'camp_tomb', ['custom' => [10]] ], 'message' => 'Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!' ],
                 'cm_campsite_unhide'  => [ 'label' => 'Versteck verlassen', 'meta' => [ 'must_be_outside', 'must_be_hidden' ], 'result' => [ 'camp_unhide', ['custom' => [11]] ], 'message' => 'Du hast Dein Versteck verlassen.' ],
                 'cm_campsite_untomb'  => [ 'label' => 'Grab verlassen', 'meta' => [ 'must_be_outside', 'must_be_tombed' ], 'result' => [ 'camp_untomb', ['custom' => [11]] ], 'message' => 'Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!' ],
@@ -1519,6 +1499,24 @@ class ActionDataService implements FixtureProcessorInterface {
         $effects_container->add()->identifier('town_sdef_5')->add((new TownEffect())->soulDefense(5))->commit();
         //</editor-fold>
 
+        //<editor-fold desc="ZoneEffects">
+        $effects_container->add()->identifier('zonemarker')->add((new ZoneEffect())->uncover())->commit();
+        $effects_container->add()->identifier('nessquick')->add((new ZoneEffect())->clean(2,3))->commit();
+        $effects_container->add()->identifier('zone_escape_30')->add((new ZoneEffect())->escape(30))->commit();
+        $effects_container->add()->identifier('zone_escape_40')->add((new ZoneEffect())->escape(40))->commit();
+        $effects_container->add()->identifier('zone_escape_60')->add((new ZoneEffect())->escape(60))->commit();
+        $effects_container->add()->identifier('zone_escape_120')->add((new ZoneEffect())->escape(120))->commit();
+        $effects_container->add()->identifier('zone_escape_300')->add((new ZoneEffect())->escape(300))->commit();
+        $effects_container->add()->identifier('zone_escape_600_armag')->add((new ZoneEffect())->escape(600)->escapeTag('armag'))->commit();
+        $effects_container->add()->identifier('zone_chat_60')->add((new ZoneEffect())->chatSilence(60))->commit();
+        $effects_container->add()->identifier('zone_improve_5')->add((new ZoneEffect())->improveLevel(5.0))->commit();
+        $effects_container->add()->identifier('zone_improve_9')->add((new ZoneEffect())->improveLevel(9.0))->commit();
+        $effects_container->add()->identifier('zone_kill_2')->add((new ZoneEffect())->kills(2))->commit();
+        $effects_container->add()->identifier('zone_kill_2_4')->add((new ZoneEffect())->kills(2,4))->commit();
+        $effects_container->add()->identifier('zone_kill_5_9')->add((new ZoneEffect())->kills(5,9))->commit();
+        $effects_container->add()->identifier('zone_kill_6_10')->add((new ZoneEffect())->kills(6,10))->commit();
+        //</editor-fold>
+
         //<editor-fold desc="Various">
         $effects_container->add()->identifier('find_rp')->add(new RolePlayTextEffect())->commit();
         //</editor-fold>
@@ -1552,17 +1550,32 @@ class ActionDataService implements FixtureProcessorInterface {
         $effects_container->add()->identifier('infect')
             ->add((new MessageEffect())->text( 'Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!'))->commit();
 
-        $effects_container->add()->identifier('kill_1_zombie')
-            ->add((new MessageEffect())->text( Arr::get($data,'message_keys.weapon_use')))->commit();
+        $effects_container->add()->identifier('kill_1_zombie_s')
+            ->add((new ZoneEffect())->kills(1))
+            ->commit();
+
+        $effects_container->clone('kill_1_zombie_s')->identifier('kill_1_zombie')
+            ->add((new MessageEffect())->text( Arr::get($data,'message_keys.weapon_use')))
+            ->commit();
 
         $effects_container->add()->identifier('kill_1_2_zombie')
-            ->add((new MessageEffect())->text( Arr::get($data,'message_keys.weapon_use')))->commit();
+            ->add((new ZoneEffect())->kills(1,2))
+            ->add((new MessageEffect())->text( Arr::get($data,'message_keys.weapon_use')))
+            ->commit();
 
         $effects_container->add()->identifier('kill_2_zombie')
-            ->add((new MessageEffect())->text( Arr::get($data,'message_keys.weapon_use')))->commit();
+            ->add((new ZoneEffect())->kills(2))
+            ->add((new MessageEffect())->text( Arr::get($data,'message_keys.weapon_use')))
+            ->commit();
 
         $effects_container->add()->identifier('kill_3_zombie')
-            ->add((new MessageEffect())->text( Arr::get($data,'message_keys.weapon_use')))->commit();
+            ->add((new ZoneEffect())->kills(3))
+            ->add((new MessageEffect())->text( Arr::get($data,'message_keys.weapon_use')))
+            ->commit();
+
+        $effects_container->add()->identifier('kill_all_zombie')
+            ->add((new ZoneEffect())->kills(999999))
+            ->commit();
 
         $effects_container->add()->identifier('home_lab_success')
             ->add((new PictoEffect())->picto('r_drgmkr_#00'))

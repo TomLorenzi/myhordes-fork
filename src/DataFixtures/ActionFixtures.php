@@ -14,8 +14,6 @@ use App\Entity\AffectPM;
 use App\Entity\AffectResultGroup;
 use App\Entity\AffectResultGroupEntry;
 use App\Entity\AffectStatus;
-use App\Entity\AffectZombies;
-use App\Entity\AffectZone;
 use App\Entity\BuildingPrototype;
 use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
@@ -176,14 +174,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                     case 'consume':
                         $result->setConsume( $this->process_consume_effect($manager, $out, $sub_cache[$sub_id], $sub_res, $sub_data) );
                         break;
-                    case 'zombies':
-                        $result->setZombies( $this->process_zombie_effect($manager, $out, $sub_cache[$sub_id], $sub_res, $sub_data) );
-                        break;
                     case 'home':
                         $result->setHome( $this->process_home_effect($manager, $out, $sub_cache[$sub_id], $sub_res, $sub_data) );
-                        break;
-                    case 'zone':
-                        $result->setZone( $this->process_zone_effect($manager, $out, $sub_cache[$sub_id], $sub_res, $sub_data) );
                         break;
                     case 'group':
                         $result->setResultGroup( $this->process_group_effect($manager, $out, $sub_cache[$sub_id], $cache, $sub_cache, $sub_res, $sub_data) );
@@ -550,33 +542,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
      * @param array $cache
      * @param string $id
      * @param array $data
-     * @return AffectZombies
-     */
-    private function process_zombie_effect(
-        ObjectManager $manager, ConsoleOutputInterface $out,
-        array &$cache, string $id, array $data): AffectZombies
-    {
-        if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectZombies::class)->findOneBy(['name' => $id]);
-            if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>zombie/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            else {
-                $result = new AffectZombies();
-                $out->writeln( "\t\t\t<comment>Create</comment> effect <info>zombie/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-
-            $result->setName( $id )->setMax( isset($data['max']) ? $data['max'] : $data['num'] )->setMin( isset($data['min']) ? $data['min'] : $data['num'] );
-            $manager->persist( $cache[$id] = $result );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>zombie/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-
-        return $cache[$id];
-    }
-
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
      * @return AffectHome
      */
     private function process_home_effect(
@@ -594,43 +559,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             $result->setName( $id )->setAdditionalDefense( $data['def'] ?? 0 )->setAdditionalStorage( $data['store'] ?? 0 );
             $manager->persist( $cache[$id] = $result );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>home/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-
-        return $cache[$id];
-    }
-
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
-     * @return AffectZone
-     */
-    private function process_zone_effect(
-        ObjectManager $manager, ConsoleOutputInterface $out,
-        array &$cache, string $id, array $data): AffectZone
-    {
-        if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectZone::class)->findOneBy(['name' => $id]);
-            /** @var AffectZone $result */
-            if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>zone/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            else {
-                $result = new AffectZone();
-                $out->writeln( "\t\t\t<comment>Create</comment> effect <info>zone/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-
-            $escape = is_array( $data['escape'] ?? null ) ? $data['escape'][1] : ($data['escape'] ?? null);
-            $escape_tag = is_array( $data['escape'] ?? null ) ? $data['escape'][0] : null;
-
-            $result->setName( $id )
-                ->setUncoverZones( $data['scout'] ?? false )
-                ->setUncoverRuin( $data['uncover'] ?? false )
-                ->setEscape( $escape )
-                ->setEscapeTag( $escape_tag )
-                ->setImproveLevel( $data['improve'] ?? null )
-                ->setChatSilence( $data['chatSilence'] ?? null);
-            $manager->persist( $cache[$id] = $result );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>zone/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 
         return $cache[$id];
     }

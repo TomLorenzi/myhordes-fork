@@ -402,6 +402,7 @@ class ActionHandler
         $cache = new Execution($this->entity_manager, $citizen, $item, $this->conf->getTownConfiguration( $citizen->getTown() ), $this->conf->getGlobalConf());
         $default_message = $escort_mode ? $action->getEscortMessage() : $action->getMessage();
         $cache->setEscortMode($escort_mode);
+        $cache->setAction($action);
 
         if ($default_message) $cache->addMessage($default_message, translationDomain: 'items');
         if ($target_item_prototype) $cache->setTargetItemPrototype( $target_item_prototype );
@@ -410,7 +411,7 @@ class ActionHandler
         $cache->addTranslationKey('tamer_dog', LogTemplateHandler::generateDogName($citizen->getId(), $this->translator));
 
         if ($citizen->activeExplorerStats())
-            $ruinZone = $this->entity_manager->getRepository(RuinZone::class)->findOneByExplorerStats($citizen->activeExplorerStats());
+            $cache->setTargetRuinZone($ruinZone = $this->entity_manager->getRepository(RuinZone::class)->findOneByExplorerStats($citizen->activeExplorerStats()));
         else $ruinZone = null;
 
         $floor_inventory = null;
@@ -686,138 +687,11 @@ class ActionHandler
                 }
             }
 
-            if ($zombie_kill = $result->getZombies()) {
-                if ($citizen->getZone() && !$citizen->activeExplorerStats()) {
-                    $kills = min($citizen->getZone()->getZombies(), mt_rand( $zombie_kill->getMin(), $zombie_kill->getMax() ));
-                    if ($kills > 0) {
-                        $citizen->getZone()->setZombies( $citizen->getZone()->getZombies() - $kills );
-                        $cache->addToCounter( CountType::Kills, $kills );
-                        if (!$cache->isFlagged('kills_silent'))
-                            $this->entity_manager->persist( $this->log->zombieKill( $citizen, $cache->originalPrototype, $kills, $action->getName() ) );
-                        $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
-                        if($citizen->getZone()->getZombies() <= 0)
-                            $cache->addTag('kill-latest');
-                    }
-                }
-
-                if ($citizen->activeExplorerStats()) {
-                    $kills = min($ruinZone->getZombies(), mt_rand( $zombie_kill->getMin(), $zombie_kill->getMax() ));
-                    if ($kills > 0) {
-                        $ruinZone->setZombies( $ruinZone->getZombies() - $kills );
-                        $ruinZone->setKilledZombies( $ruinZone->getKilledZombies() + $kills );
-                        $cache->addToCounter( CountType::Kills, $kills );
-                        $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
-                        $this->entity_manager->persist( $this->log->zombieKill( $citizen, $cache->originalPrototype, $kills, $action->getName() ) );
-                        if($ruinZone->getZombies() <= 0)
-                            $cache->addTag('kill-latest');
-                    }
-                }
-            }
-
             if ($home_set = $result->getHome()) {
                 $citizen->getHome()->setAdditionalStorage( $citizen->getHome()->getAdditionalStorage() + $home_set->getAdditionalStorage() );
                 $citizen->getHome()->setAdditionalDefense( $citizen->getHome()->getAdditionalDefense() + $home_set->getAdditionalDefense() );
                 $cache->addTranslationKey('home_storage', $home_set->getAdditionalStorage());
                 $cache->addTranslationKey('home_defense', $home_set->getAdditionalDefense());
-            }
-
-            if ($zoneEffect = $result->getZone()) {
-                $base_zone = $citizen->getZone();
-
-                if ($zoneEffect->getUncoverZones()) {
-                    $base_zone_x = 0;
-                    $base_zone_y = 0;
-                    if ($base_zone) {
-                        $base_zone_x = $base_zone->getX();
-                        $base_zone_y = $base_zone->getY();
-                    }
-                    $upgraded_map = $this->town_handler->getBuilding($citizen->getTown(),'item_electro_#00', true);
-                    for ($x = -1; $x <= 1; $x++)
-                        for ($y = -1; $y <= 1; $y++) {
-                            /** @var Zone $zone */
-                            $zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition($citizen->getTown(), $base_zone_x + $x, $base_zone_y + $y);
-                            if ($zone) {
-                                $zone->setDiscoveryStatus( Zone::DiscoveryStateCurrent );
-                                if ($upgraded_map) $zone->setZombieStatus( Zone::ZombieStateExact );
-                                else $zone->setZombieStatus( max( $zone->getZombieStatus(), Zone::ZombieStateEstimate ) );
-                            }
-                        }
-                }
-
-                if ($base_zone) {
-                    if ($zoneEffect->getUncoverRuin()) {
-                        $count = min(mt_rand(2,3), $base_zone->getBuryCount());
-
-                        $cache->addToCounter( CountType::Bury, $count );
-                        $base_zone->setBuryCount( max(0, $base_zone->getBuryCount() - $count ));
-                        if ($base_zone->getPrototype())
-                            $this->entity_manager->persist( $this->log->outsideUncover( $citizen, $count, $item ? $item->getPrototype() : null ) );
-                        if ($base_zone->getBuryCount() == 0)
-                            $this->entity_manager->persist( $this->log->outsideUncoverComplete( $citizen ) );
-                    }
-
-                    if ($zoneEffect->getEscape() !== null && $zoneEffect->getEscape() > 0) {
-                        $cache->addTag('any-escape');
-                        if ($ruinZone) {
-                            $z = $ruinZone->getZombies();
-                            $ruinZone->setZombies( 0 );
-                            if ($z > 0) $this->maze->populateMaze( $ruinZone->getZone(), $z, false, false, [$ruinZone] );
-                            $cache->addToCounter( CountType::Zombies, $z );
-                            $cache->addTag('reverse-escape');
-                        } else {
-                            $base_zone->addEscapeTimer((new EscapeTimer())->setTime(new DateTime("+{$zoneEffect->getEscape()}sec")));
-                            switch ($zoneEffect->getEscapeTag()) {
-                                case 'armag':
-                                    $this->entity_manager->persist( $this->log->zoneEscapeArmagUsed( $citizen, $zoneEffect->getEscape(), 1 ) );
-                                    $cache->addFlag('kills_silent');
-                                    break;
-                                default:
-                                    if ($cache->originalPrototype)
-                                        $this->entity_manager->persist( $this->log->zoneEscapeItemUsed( $citizen, $cache->originalPrototype, $zoneEffect->getEscape() ) );
-                                    break;
-                            }
-
-                            $cache->addTag('escape');
-                        }
-                    }
-
-                    if ($zoneEffect->getImproveLevel()) {
-                        $base_zone->setImprovementLevel( $base_zone->getImprovementLevel() + $zoneEffect->getImproveLevel() );
-                    }
-
-                    if ($zoneEffect->getChatSilence() !== null && $zoneEffect->getChatSilence() > 0) {
-                        $base_zone->addChatSilenceTimer((new ChatSilenceTimer())->setTime(new DateTime("+{$zoneEffect->getChatSilence()}sec"))->setCitizen($citizen));
-                        $limit = new DateTime("-3min");
-
-                        foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter( $base_zone->getTown(), null, null, $base_zone ) as $entry) {
-                            /** @var TownLogEntry $entry */
-                            if ($entry->getLogEntryTemplate() !== null) {
-                                $suffix = '';
-                                switch ($entry->getLogEntryTemplate()->getClass()) {
-                                    case LogEntryTemplate::ClassWarning:
-                                        $suffix = "Warning";
-                                        break;
-                                    case LogEntryTemplate::ClassCritical:
-                                        $suffix = "Critical";
-                                        break;
-                                    case LogEntryTemplate::ClassChat:
-                                        $suffix = "Chat";
-                                        break;
-                                    case LogEntryTemplate::ClassDanger:
-                                        $suffix = "Danger";
-                                        break;
-                                }
-
-                                $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'smokeBombReplacement' . $suffix]);
-                                if ($entry->getTimestamp() > $limit) {
-                                    $entry->setLogEntryTemplate($template);
-                                    $this->entity_manager->persist($entry);
-                                }
-                            }
-                        }
-                        $this->entity_manager->persist($this->log->smokeBombUsage($base_zone));
-                    }
-                }
             }
 
             if ($result->getCustom())

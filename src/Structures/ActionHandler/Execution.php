@@ -7,15 +7,14 @@ namespace App\Structures\ActionHandler;
 use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
 use App\Entity\Item;
+use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
+use App\Entity\RuinZone;
 use App\Entity\Zone;
 use App\Enum\ActionHandler\CountType;
 use App\Enum\ActionHandler\PointType;
 use App\Service\Actions\Game\WrapObjectsForOutputAction;
 use App\Structures\FriendshipActionTarget;
-use App\Structures\MyHordesConf;
-use App\Structures\TownConf;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class Execution extends Base
@@ -30,9 +29,11 @@ class Execution extends Base
     private array $target_morphed_items = [];
     private array $used_tool_items = [];
 
+    private ?ItemAction $action = null;
     private ?Citizen $target_citizen = null;
     private ?Zone $target_zone = null;
     private array $discovered_plans = [];
+    private ?RuinZone $target_ruin_zone = null;
 
     private bool $escort_mode = false;
 
@@ -80,6 +81,22 @@ class Execution extends Base
 
     public function setTargetZone( Zone $zone ): void {
         $this->target_zone = $zone;
+    }
+
+    public function setTargetRuinZone( RuinZone $zone ): void {
+        $this->target_ruin_zone = $zone;
+    }
+
+    public function getTargetRuinZone( ): ?RuinZone {
+        return $this->target_ruin_zone;
+    }
+
+    public function setAction(ItemAction $action) {
+        $this->action = $action;
+    }
+
+    public function getAction(): ?ItemAction {
+        return $this->action;
     }
 
     public function addDiscoveredBlueprint( BuildingPrototype $building ): void {

@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
@@ -33,8 +31,6 @@ class Result
     private $consume;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectResultGroup')]
     private $resultGroup;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectZombies')]
-    private $zombies;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectBlueprint')]
     private $blueprint;
     #[ORM\Column(type: 'integer', nullable: true)]
@@ -45,8 +41,6 @@ class Result
     private $death;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectOriginalItem')]
     private $target;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectZone')]
-    private $zone;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectPM')]
     private $pm;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectCP')]
@@ -73,9 +67,9 @@ class Result
         return $this;
     }
     public function clear(): self {
-        $this->ap = $this->status = $this->item = $this->spawn = $this->consume = $this->resultGroup = $this->zombies =
+        $this->ap = $this->status = $this->item = $this->spawn = $this->consume = $this->resultGroup =
         $this->blueprint = $this->custom = $this->home = $this->death =
-        $this->target = $this->zone = $this->pm = $this->cp = $this->atoms = null;
+        $this->target = $this->pm = $this->cp = $this->atoms = null;
         return $this;
     }
     public function getAp(): ?AffectAP
@@ -138,16 +132,6 @@ class Result
 
         return $this;
     }
-    public function getZombies(): ?AffectZombies
-    {
-        return $this->zombies;
-    }
-    public function setZombies(?AffectZombies $zombies): self
-    {
-        $this->zombies = $zombies;
-
-        return $this;
-    }
     public function getBlueprint(): ?AffectBlueprint
     {
         return $this->blueprint;
@@ -196,16 +180,6 @@ class Result
     public function setTarget(?AffectOriginalItem $target): self
     {
         $this->target = $target;
-
-        return $this;
-    }
-    public function getZone(): ?AffectZone
-    {
-        return $this->zone;
-    }
-    public function setZone(?AffectZone $zone): self
-    {
-        $this->zone = $zone;
 
         return $this;
     }
