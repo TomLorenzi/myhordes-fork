@@ -75,6 +75,8 @@ services:
       public: true
     App\Service\RandomGenerator:
       public: true
+    App\Service\LogTemplateHandler:
+      public: true
 
     # This aliases the classes used by the translation tool commands
     translation.tools.loader:

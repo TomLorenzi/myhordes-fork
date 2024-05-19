@@ -17,6 +17,7 @@ use ArrayHelpers\Arr;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\MessageEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\PictoEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\RolePlayTextEffect;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\TownEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\BuildingRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\ConfigRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\CounterRequirement;
@@ -833,13 +834,13 @@ class ActionDataService implements FixtureProcessorInterface {
 
                 'watercup_1' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_inside', 'must_have_micropur_in', 'must_not_have_purifier', 'must_not_have_filter', 'must_not_be_banished' ], 'result' => [ 'consume_micropur', 'consume_item', 'picto_ban_emanc', ['spawn' => [ ['water_cup_#00', 2] ] ] ], 'message_key' => 'item_clean_watercup' ],
                 'watercup_2' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_micropur' ], 'result' => [ 'consume_micropur', 'consume_item', 'picto_ban_emanc', ['spawn' => [ ['water_cup_#00', 2] ] ] ], 'message_key' => 'item_clean_watercup' ],
-                'watercup_3' => [ 'label' => 'In den Brunnen schütten', 'meta' => [ 'must_be_inside', 'must_have_purifier', 'must_not_be_banished' ], 'result' => [ 'consume_item', [ 'well' => [ 'min' => 2, 'max' => 2 ] ] ], 'message_key' => 'water_to_well' ],
+                'watercup_3' => [ 'label' => 'In den Brunnen schütten', 'meta' => [ 'must_be_inside', 'must_have_purifier', 'must_not_be_banished' ], 'result' => [ 'consume_item', 'town_well_2' ], 'message_key' => 'water_to_well' ],
                 'jerrycan_1' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_inside', 'must_have_micropur_in', 'must_not_have_purifier', 'must_not_be_banished' ], 'result' => [ 'consume_micropur', 'consume_item', ['group' => [
                     [ [ ['spawn' => [ 'what' => [['water_#00', 2]], 'where' => AffectItemSpawn::DropTargetPreferRucksack ] ] ], 1 ],
                     [ [ ['spawn' => [ 'what' => [['water_#00', 3]], 'where' => AffectItemSpawn::DropTargetPreferRucksack ] ] ], 1 ]
                 ]] ], 'message_key' => 'item_clean' ],
-                'jerrycan_2' => [ 'label' => 'In den Brunnen schütten', 'meta' => [ 'must_be_inside', 'must_have_purifier', 'must_not_have_filter', 'must_not_be_banished' ], 'result' => [ 'consume_item', [ 'well' => [ 'min' => 1, 'max' => 3 ] ] ], 'message_key' => 'water_to_well' ],
-                'jerrycan_3' => [ 'label' => 'In den Brunnen schütten', 'meta' => [ 'must_be_inside', 'must_have_filter', 'must_not_be_banished' ], 'result' => [ 'consume_item', [ 'well' => [ 'min' => 4, 'max' => 9 ] ] ], 'message_key' => 'water_to_well' ],
+                'jerrycan_2' => [ 'label' => 'In den Brunnen schütten', 'meta' => [ 'must_be_inside', 'must_have_purifier', 'must_not_have_filter', 'must_not_be_banished' ], 'result' => [ 'consume_item', 'town_well_1_3' ], 'message_key' => 'water_to_well' ],
+                'jerrycan_3' => [ 'label' => 'In den Brunnen schütten', 'meta' => [ 'must_be_inside', 'must_have_filter', 'must_not_be_banished' ], 'result' => [ 'consume_item', 'town_well_4_9' ], 'message_key' => 'water_to_well' ],
 
                 'watercup_1b' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_inside',  'must_have_micropur_in', 'must_be_banished' ], 'result' => [ 'consume_micropur', 'consume_item', 'picto_ban_emanc', ['spawn' => [ ['water_cup_#00', 2] ] ] ], 'message_key' => 'item_clean_watercup' ],
                 'jerrycan_1b' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_inside', 'must_have_micropur_in', 'must_be_banished' ], 'result' => [ 'consume_micropur', 'consume_item', ['group' => [
@@ -963,7 +964,7 @@ class ActionDataService implements FixtureProcessorInterface {
                 'slaughter_4x'  => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', 'picto_animal', [ 'spawn' => 'meat_4x'  ] ], 'message_key' => 'use_butcher' ],
                 'slaughter_2x'  => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', 'picto_animal', [ 'spawn' => 'meat_2x'  ] ], 'message_key' => 'use_butcher' ],
                 'slaughter_bmb' => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', 'picto_animal', [ 'spawn' => 'meat_bmb' ] ], 'message_key' => 'use_butcher' ],
-                'purify_soul' => [ 'label' => 'Läutern', 'meta' => [ 'must_be_inside', 'must_have_hammam' ], 'result' => [ 'consume_item', 'picto_soul_purify', [ 'town' => ['def' => 5]] ],  'message' => "Du hast die Seele gereinigt und sie friedlich gemacht."],
+                'purify_soul' => [ 'label' => 'Läutern', 'meta' => [ 'must_be_inside', 'must_have_hammam' ], 'result' => [ 'consume_item', 'picto_soul_purify', 'town_sdef_5' ],  'message' => "Du hast die Seele gereinigt und sie friedlich gemacht."],
                 'brew_shamanic_potion' => ['label' => 'Herstellung eines Mystischern Trank', 'poison' => ItemAction::PoisonHandlerTransgress, 'tooltip' => 'Du kannst einen schamanischen Trank zubereiten, der den Rezipienten vor bösen Geistern schützt.', 'meta' => [ 'must_be_inside', 'have_water_shaman', 'min_1_pm', 'role_shaman' ], 'result' => ['consume_water', 'minus_1pm', ['spawn' => 'potion']], 'message' => 'Das ist ein Musterbeispiel eines schamanischen Tranks! Nun liegt es an die, der Stadt dessen Wirksamkeit zu vermitteln und sie von deinen schamanischen Fähigkeiten zu überzeugen.' ],
 
                 'home_rest_1'     => [ 'label' => 'Nickerchen machen', 'meta' => [ 'must_be_inside', 'must_have_home_rest_v1', 'not_yet_rested', 'no_full_ap_msg' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_rested' ], 'group' => [ ['plus_2ap_7', 33], [ 'do_nothing', 66 ] ] ] ], 'message_key' => 'use_bed' ],
@@ -1509,6 +1510,13 @@ class ActionDataService implements FixtureProcessorInterface {
             ->add((new PictoEffect())->picto('r_collec_#00'))
             ->add((new PictoEffect())->picto('r_mystic_#00')->forEntireTown(true))
             ->commit();
+        //</editor-fold>
+
+        //<editor-fold desc="TownEffects">
+        $effects_container->add()->identifier('town_well_2')->add((new TownEffect())->well(2))->commit();
+        $effects_container->add()->identifier('town_well_1_3')->add((new TownEffect())->well(1,3))->commit();
+        $effects_container->add()->identifier('town_well_4_9')->add((new TownEffect())->well(4,9))->commit();
+        $effects_container->add()->identifier('town_sdef_5')->add((new TownEffect())->soulDefense(5))->commit();
         //</editor-fold>
 
         //<editor-fold desc="Various">

@@ -14,8 +14,6 @@ use App\Entity\AffectPM;
 use App\Entity\AffectResultGroup;
 use App\Entity\AffectResultGroupEntry;
 use App\Entity\AffectStatus;
-use App\Entity\AffectTown;
-use App\Entity\AffectWell;
 use App\Entity\AffectZombies;
 use App\Entity\AffectZone;
 use App\Entity\BuildingPrototype;
@@ -187,14 +185,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                     case 'zone':
                         $result->setZone( $this->process_zone_effect($manager, $out, $sub_cache[$sub_id], $sub_res, $sub_data) );
                         break;
-                    case 'well':
-                        $result->setWell( $this->process_well_effect($manager, $out, $sub_cache[$sub_id], $sub_res, $sub_data) );
-                        break;
                     case 'group':
                         $result->setResultGroup( $this->process_group_effect($manager, $out, $sub_cache[$sub_id], $cache, $sub_cache, $sub_res, $sub_data) );
-                        break;
-                    case 'town':
-                        $result->setTown( $this->process_town_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
                         break;
                     case 'custom':
                         $result->setCustom( $sub_data[0] );
@@ -612,33 +604,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
      * @param array $cache
      * @param string $id
      * @param array $data
-     * @return AffectWell
-     */
-    private function process_well_effect(
-        ObjectManager $manager, ConsoleOutputInterface $out,
-        array &$cache, string $id, array $data): AffectWell
-    {
-        if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectWell::class)->findOneBy(['name' => $id]);
-            if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>well/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            else {
-                $result = new AffectWell();
-                $out->writeln( "\t\t\t<comment>Create</comment> effect <info>well/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-
-            $result->setName( $id )->setFillMax( $data['max'] )->setFillMin( $data['min'] );
-            $manager->persist( $cache[$id] = $result );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>well/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-
-        return $cache[$id];
-    }
-
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
      * @return AffectZone
      */
     private function process_zone_effect(
@@ -715,32 +680,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         return $cache[$id];
     }
 
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
-     * @return AffectTown
-     */
-    private function process_town_effect(
-        ObjectManager $manager, ConsoleOutputInterface $out,
-        array &$cache, string $id, array $data): AffectTown
-    {
-        if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectTown::class)->findOneBy(['name' => $id]);
-            if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>town/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            else {
-                $result = new AffectTown();
-                $out->writeln( "\t\t\t<comment>Create</comment> effect <info>home/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-
-            $result->setName( $id )->setAdditionalDefense( $data['def'] ?? 0 );
-            $manager->persist( $cache[$id] = $result );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>home/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-
-        return $cache[$id];
-    }
 
     public function generate_action( ObjectManager $manager, ConsoleOutputInterface $out, string $action,
                                      array &$set_meta_requirements, array &$set_sub_requirements,

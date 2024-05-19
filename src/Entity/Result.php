@@ -39,8 +39,6 @@ class Result
     private $blueprint;
     #[ORM\Column(type: 'integer', nullable: true)]
     private $custom;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectWell')]
-    private $well;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectHome')]
     private $home;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectDeath')]
@@ -49,8 +47,6 @@ class Result
     private $target;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectZone')]
     private $zone;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectTown')]
-    private $town;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectPM')]
     private $pm;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectCP')]
@@ -78,7 +74,7 @@ class Result
     }
     public function clear(): self {
         $this->ap = $this->status = $this->item = $this->spawn = $this->consume = $this->resultGroup = $this->zombies =
-        $this->blueprint = $this->custom = $this->well = $this->home = $this->death =
+        $this->blueprint = $this->custom = $this->home = $this->death =
         $this->target = $this->zone = $this->pm = $this->cp = $this->atoms = null;
         return $this;
     }
@@ -172,16 +168,7 @@ class Result
 
         return $this;
     }
-    public function getWell(): ?AffectWell
-    {
-        return $this->well;
-    }
-    public function setWell(?AffectWell $well): self
-    {
-        $this->well = $well;
 
-        return $this;
-    }
     public function getHome(): ?AffectHome
     {
         return $this->home;
@@ -219,17 +206,6 @@ class Result
     public function setZone(?AffectZone $zone): self
     {
         $this->zone = $zone;
-
-        return $this;
-    }
-
-    public function getTown(): ?AffectTown
-    {
-        return $this->town;
-    }
-    public function setTown(?AffectTown $town): self
-    {
-        $this->town = $town;
 
         return $this;
     }

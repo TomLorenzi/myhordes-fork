@@ -721,10 +721,6 @@ class ActionHandler
                 $cache->addTranslationKey('home_defense', $home_set->getAdditionalDefense());
             }
 
-            if ($town_set = $result->getTown()){
-                $citizen->getTown()->setSoulDefense($citizen->getTown()->getSoulDefense() + $town_set->getAdditionalDefense());
-            }
-
             if ($zoneEffect = $result->getZone()) {
                 $base_zone = $citizen->getZone();
 
@@ -822,16 +818,6 @@ class ActionHandler
                         $this->entity_manager->persist($this->log->smokeBombUsage($base_zone));
                     }
                 }
-            }
-
-            if ($well = $result->getWell()) {
-
-                $add = mt_rand( $well->getFillMin(), $well->getFillMax() );
-                $citizen->getTown()->setWell( $citizen->getTown()->getWell() + $add );
-                $cache->addToCounter( CountType::Well, $add );
-
-                if ($add > 0)
-                    $this->entity_manager->persist( $this->log->wellAdd( $citizen, $cache->originalPrototype, $add) );
             }
 
             if ($result->getCustom())
