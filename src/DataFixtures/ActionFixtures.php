@@ -6,7 +6,6 @@ use App\Entity\AffectAP;
 use App\Entity\AffectBlueprint;
 use App\Entity\AffectCP;
 use App\Entity\AffectDeath;
-use App\Entity\AffectHome;
 use App\Entity\AffectItemConsume;
 use App\Entity\AffectItemSpawn;
 use App\Entity\AffectOriginalItem;
@@ -173,9 +172,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                         break;
                     case 'consume':
                         $result->setConsume( $this->process_consume_effect($manager, $out, $sub_cache[$sub_id], $sub_res, $sub_data) );
-                        break;
-                    case 'home':
-                        $result->setHome( $this->process_home_effect($manager, $out, $sub_cache[$sub_id], $sub_res, $sub_data) );
                         break;
                     case 'group':
                         $result->setResultGroup( $this->process_group_effect($manager, $out, $sub_cache[$sub_id], $cache, $sub_cache, $sub_res, $sub_data) );
@@ -532,33 +528,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             $manager->persist( $cache[$id] = $result );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>consume/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-
-        return $cache[$id];
-    }
-
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
-     * @return AffectHome
-     */
-    private function process_home_effect(
-        ObjectManager $manager, ConsoleOutputInterface $out,
-        array &$cache, string $id, array $data): AffectHome
-    {
-        if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectHome::class)->findOneBy(['name' => $id]);
-            if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>home/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            else {
-                $result = new AffectHome();
-                $out->writeln( "\t\t\t<comment>Create</comment> effect <info>home/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-
-            $result->setName( $id )->setAdditionalDefense( $data['def'] ?? 0 )->setAdditionalStorage( $data['store'] ?? 0 );
-            $manager->persist( $cache[$id] = $result );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>home/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 
         return $cache[$id];
     }

@@ -35,8 +35,6 @@ class Result
     private $blueprint;
     #[ORM\Column(type: 'integer', nullable: true)]
     private $custom;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectHome')]
-    private $home;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectDeath')]
     private $death;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectOriginalItem')]
@@ -68,7 +66,7 @@ class Result
     }
     public function clear(): self {
         $this->ap = $this->status = $this->item = $this->spawn = $this->consume = $this->resultGroup =
-        $this->blueprint = $this->custom = $this->home = $this->death =
+        $this->blueprint = $this->custom = $this->death =
         $this->target = $this->pm = $this->cp = $this->atoms = null;
         return $this;
     }
@@ -149,17 +147,6 @@ class Result
     public function setCustom(?int $custom): self
     {
         $this->custom = $custom;
-
-        return $this;
-    }
-
-    public function getHome(): ?AffectHome
-    {
-        return $this->home;
-    }
-    public function setHome(?AffectHome $home): self
-    {
-        $this->home = $home;
 
         return $this;
     }

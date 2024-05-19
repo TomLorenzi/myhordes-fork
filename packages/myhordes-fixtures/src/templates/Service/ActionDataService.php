@@ -14,6 +14,7 @@ use App\Service\Actions\Game\AtomProcessors\Require\Custom\GuardTowerUseIsNotMax
 use App\Service\Actions\Game\AtomProcessors\Require\Custom\RoleVote;
 use App\Structures\TownConf;
 use ArrayHelpers\Arr;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\HomeEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\MessageEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\PictoEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\RolePlayTextEffect;
@@ -828,9 +829,9 @@ class ActionDataService implements FixtureProcessorInterface {
                     [ [ ['spawn' => [ ['water_#00', 3] ] ] ], 1 ]
                 ]] ], 'message_key' => 'item_clean' ],
 
-                'home_def_plus'    => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', 'picto_home_upgrade', ['home' => ['def' => 1]]], 'message' => 'Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament <strong>{home_defense} zusätzliche Verteidigungspunkt(e).</strong>'],
-                'home_store_plus'  => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', 'picto_home_upgrade', ['home' => ['store' => 1]]], 'message' => 'Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: <strong>{home_storage}</strong>.'],
-                'home_store_plus2' => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', 'picto_home_upgrade', ['home' => ['store' => 2]]], 'message' => 'Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: <strong>{home_storage}</strong>.'],
+                'home_def_plus'    => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', 'picto_home_upgrade', 'home_def_1'], 'message' => 'Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament <strong>{home_defense} zusätzliche Verteidigungspunkt(e).</strong>'],
+                'home_store_plus'  => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', 'picto_home_upgrade', 'home_store_1'], 'message' => 'Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: <strong>{home_storage}</strong>.'],
+                'home_store_plus2' => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', 'picto_home_upgrade', 'home_store_2'], 'message' => 'Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: <strong>{home_storage}</strong>.'],
 
                 'repair_1' => [ 'label' => 'Reparieren mit', 'at00' => true, 'target' => ['broken' => true], 'meta' => [ 'min_1_ap', 'not_tired', 'is_not_wounded_hands_repair' ], 'result' => [ 'minus_1ap', 'consume_item', 'repair_target', 'picto_repair' ], 'message' => 'Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.' ],
                 'repair_2' => [ 'label' => 'Reparieren mit', 'at00' => true, 'target' => ['broken' => true], 'meta' => [ 'min_1_ap', 'not_tired', 'is_not_wounded_hands_repair' ], 'result' => [ 'minus_1ap', 'picto_repair', 'repair_target', ['item' => ['consume' => false, 'morph' => 'repair_kit_part_#00'] ] ], 'message' => 'Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.' ],
@@ -1515,6 +1516,12 @@ class ActionDataService implements FixtureProcessorInterface {
         $effects_container->add()->identifier('zone_kill_2_4')->add((new ZoneEffect())->kills(2,4))->commit();
         $effects_container->add()->identifier('zone_kill_5_9')->add((new ZoneEffect())->kills(5,9))->commit();
         $effects_container->add()->identifier('zone_kill_6_10')->add((new ZoneEffect())->kills(6,10))->commit();
+        //</editor-fold>
+
+        //<editor-fold desc="HomeEffects">
+        $effects_container->add()->identifier('home_def_1')->add((new HomeEffect())->defense(1))->commit();
+        $effects_container->add()->identifier('home_store_1')->add((new HomeEffect())->storage(1))->commit();
+        $effects_container->add()->identifier('home_store_2')->add((new HomeEffect())->storage(2))->commit();
         //</editor-fold>
 
         //<editor-fold desc="Various">

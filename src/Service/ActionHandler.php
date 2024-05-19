@@ -687,13 +687,6 @@ class ActionHandler
                 }
             }
 
-            if ($home_set = $result->getHome()) {
-                $citizen->getHome()->setAdditionalStorage( $citizen->getHome()->getAdditionalStorage() + $home_set->getAdditionalStorage() );
-                $citizen->getHome()->setAdditionalDefense( $citizen->getHome()->getAdditionalDefense() + $home_set->getAdditionalDefense() );
-                $cache->addTranslationKey('home_storage', $home_set->getAdditionalStorage());
-                $cache->addTranslationKey('home_defense', $home_set->getAdditionalDefense());
-            }
-
             if ($result->getCustom())
             {
                 $ap     = false;
