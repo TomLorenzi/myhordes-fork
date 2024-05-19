@@ -26,6 +26,8 @@ class Base
 
     private array $tags = [];
 
+    private ?int $error = null;
+
     public function __construct(
         public readonly EntityManagerInterface $em,
         public readonly Citizen $citizen,
@@ -68,6 +70,14 @@ class Base
 
     public function addTag(string $tag): void {
         $this->tags[] = $tag;
+    }
+
+    public function registerError(int $error): void {
+        $this->error = $error;
+    }
+
+    public function getRegisteredError(): ?int {
+        return $this->error;
     }
 
     public function calculateTags(): array {

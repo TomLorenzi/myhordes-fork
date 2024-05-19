@@ -79,6 +79,8 @@ services:
       public: true
     App\Service\Maps\MazeMaker:
       public: true
+    App\Service\EventProxyService:
+      public: true
 
     # This aliases the classes used by the translation tool commands
     translation.tools.loader:

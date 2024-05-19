@@ -78,6 +78,11 @@ abstract class Atom implements ArrayDecoratorReadInterface {
         return null;
     }
 
+    public function __isset(string $name): bool
+    {
+        return array_key_exists($name, $this->data) || $this->default($name) !== null;
+    }
+
     public function __set(string $name, $value): void
     {
         $this->data[$name] = $value;

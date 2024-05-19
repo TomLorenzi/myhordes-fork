@@ -6,8 +6,6 @@ use App\Entity\AffectAP;
 use App\Entity\AffectBlueprint;
 use App\Entity\AffectCP;
 use App\Entity\AffectDeath;
-use App\Entity\AffectItemConsume;
-use App\Entity\AffectItemSpawn;
 use App\Entity\AffectOriginalItem;
 use App\Entity\AffectPM;
 use App\Entity\AffectResultGroup;
@@ -167,12 +165,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                     case 'target':
                         $result->setTarget( $this->process_item_effect($manager, $out, $sub_cache[$sub_id], $sub_res, $sub_data) );
                         break;
-                    case 'spawn':
-                        $result->setSpawn( $this->process_spawn_effect($manager, $out, $sub_cache[$sub_id], $sub_res, $sub_data) );
-                        break;
-                    case 'consume':
-                        $result->setConsume( $this->process_consume_effect($manager, $out, $sub_cache[$sub_id], $sub_res, $sub_data) );
-                        break;
                     case 'group':
                         $result->setResultGroup( $this->process_group_effect($manager, $out, $sub_cache[$sub_id], $cache, $sub_cache, $sub_res, $sub_data) );
                         break;
@@ -226,7 +218,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 ->setModifyProbability( $data['modProbability'] ?? true );
 
             if (!$status_from && !$status_to && !$result->getResetThirstCounter() && !$result->getCitizenHunger() && $result->getCounter() === null && $role === null) {
-                throw new Exception('Status effects must have at least one attached status.');
+                throw new Exception("Status effects must have at least one attached status ($id): " . print_r($data, true));
             }
 
             $result->setName( $id )->setInitial( $status_from )->setResult( $status_to )->setRole($role)->setRoleAdd( $data['enabled'] ?? null);
@@ -438,97 +430,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             $manager->persist( $cache[$id] = $result );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>item/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
         
-        return $cache[$id];
-    }
-
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
-     * @return AffectItemSpawn
-     * @throws Exception
-     */
-    private function process_spawn_effect(
-        ObjectManager $manager, ConsoleOutputInterface $out,
-        array &$cache, string $id, array $data): AffectItemSpawn
-    {
-        if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectItemSpawn::class)->findOneBy(['name' => $id]);
-            if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>spawn/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            else {
-                $result = (new AffectItemSpawn())->setName( $id );
-                $out->writeln( "\t\t\t<comment>Create</comment> effect <info>spawn/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-
-            if (isset($data['where']))
-                $actual_data = $data['what'];
-            else $actual_data = $data['what'] ?? $data;
-            $target = $data['where'] ?? AffectItemSpawn::DropTargetDefault;
-
-            if (count($actual_data) === 1) {
-                $name = is_array($actual_data[0]) ? $actual_data[0][0] : $actual_data[0];
-                $count =  is_array($actual_data[0]) ? $actual_data[0][1] : 1;
-                $prototype = $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $name]);
-                if (!$prototype) throw new Exception('Item prototype not found: ' . $name);
-                $result->setItemGroup(null)->setPrototype( $prototype )->setCount( $count )->setSpawnTarget($target);
-            } else {
-                $g_name = "efg_{$id}";
-                $group = $manager->getRepository( ItemGroup::class )->findOneBy(['name' => $g_name]);
-                if ($group) $group->getEntries()->clear();
-                else $group = (new ItemGroup())->setName( $g_name );
-
-                foreach ($actual_data as $entry) {
-                    [$p,$c] = is_array($entry) ? $entry : [$entry,1];
-                    $prototype = $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $p]);
-
-                    if (!$prototype) {
-                        print_r($data);
-                        throw new Exception('Item prototype not found4: ' . $p);
-                    }
-                    $group->addEntry( (new ItemGroupEntry())->setChance($c)->setPrototype( $prototype ) );
-                }
-
-                $result->setPrototype(null)->setItemGroup( $group )->setCount( 1 )->setSpawnTarget($target);
-                $manager->persist( $group );
-            }
-
-            $manager->persist( $cache[$id] = $result );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>spawn/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-
-        return $cache[$id];
-    }
-
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
-     * @return AffectItemConsume
-     * @throws Exception
-     */
-    private function process_consume_effect(
-        ObjectManager $manager, ConsoleOutputInterface $out,
-        array &$cache, string $id, array $data): AffectItemConsume
-    {
-        if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectItemConsume::class)->findOneBy(['name' => $id]);
-            if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>consume/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            else {
-                $result = (new AffectItemConsume())->setName( $id );
-                $out->writeln( "\t\t\t<comment>Create</comment> effect <info>consume/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-
-            [$name,$count] = count($data) > 1 ? $data : [$data[0],1];
-            $prototype = $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $name]);
-            if (!$prototype) throw new Exception('Item prototype not found: ' . $name);
-            $result->setPrototype( $prototype )->setCount( $count );
-
-            $manager->persist( $cache[$id] = $result );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>consume/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-
         return $cache[$id];
     }
 

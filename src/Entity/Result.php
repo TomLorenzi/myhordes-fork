@@ -25,10 +25,6 @@ class Result
     private $status;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectOriginalItem')]
     private $item;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectItemSpawn')]
-    private $spawn;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectItemConsume')]
-    private $consume;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectResultGroup')]
     private $resultGroup;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectBlueprint')]
@@ -65,7 +61,7 @@ class Result
         return $this;
     }
     public function clear(): self {
-        $this->ap = $this->status = $this->item = $this->spawn = $this->consume = $this->resultGroup =
+        $this->ap = $this->status = $this->item = $this->spawn = $this->resultGroup =
         $this->blueprint = $this->custom = $this->death =
         $this->target = $this->pm = $this->cp = $this->atoms = null;
         return $this;
@@ -97,26 +93,6 @@ class Result
     public function setItem(?AffectOriginalItem $item): self
     {
         $this->item = $item;
-
-        return $this;
-    }
-    public function getSpawn(): ?AffectItemSpawn
-    {
-        return $this->spawn;
-    }
-    public function setSpawn(?AffectItemSpawn $spawn): self
-    {
-        $this->spawn = $spawn;
-
-        return $this;
-    }
-    public function getConsume(): ?AffectItemConsume
-    {
-        return $this->consume;
-    }
-    public function setConsume(?AffectItemConsume $consume): self
-    {
-        $this->consume = $consume;
 
         return $this;
     }

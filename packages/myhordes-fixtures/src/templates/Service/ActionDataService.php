@@ -3,11 +3,11 @@
 namespace MyHordes\Fixtures\Service;
 
 use App\Entity\ActionCounter;
-use App\Entity\AffectItemSpawn;
 use App\Entity\CauseOfDeath;
 use App\Entity\ItemAction;
 use App\Entity\ItemTargetDefinition;
 use App\Entity\Requirement;
+use App\Enum\ActionHandler\ItemDropTarget;
 use App\Enum\ActionHandler\PointType;
 use App\Enum\ItemPoisonType;
 use App\Service\Actions\Game\AtomProcessors\Require\Custom\GuardTowerUseIsNotMaxed;
@@ -15,6 +15,7 @@ use App\Service\Actions\Game\AtomProcessors\Require\Custom\RoleVote;
 use App\Structures\TownConf;
 use ArrayHelpers\Arr;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\HomeEffect;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\ItemEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\MessageEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\PictoEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\RolePlayTextEffect;
@@ -272,8 +273,6 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('must_have_home_rest_v3')->type( Requirement::HideOnFail )->add( (new HomeRequirement())->upgrade('rest')->minLevel(3)->maxLevel(3) )->commit();
         //</editor-fold>
 
-        $effects_container = new EffectsDataContainer();
-
         $data = array_merge_recursive($data, [
             'meta_requirements' => [],
             'requirements' => [],
@@ -287,13 +286,6 @@ class ActionDataService implements FixtureProcessorInterface {
                 'break_item'      => [ 'collection' => ['item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => null ]]],
                 'cleanse_item'    => [ 'item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => false ] ],
                 'empty_jerrygun'  => [ 'item' => [ 'consume' => false, 'morph' => 'jerrygun_off_#00', 'break' => null, 'poison' => null ] ],
-
-                'consume_water'     => [ 'consume' => [ 'water_#00' ] ],
-                'consume_matches'   => [ 'consume' => [ 'lights_#00' ] ],
-                'consume_battery'   => [ 'consume' => [ 'pile_#00'  ] ],
-                'consume_micropur'  => [ 'consume' => [ 'water_cleaner_#00'  ] ],
-                'consume_drug'      => [ 'consume' => [ 'drug_#00'  ] ],
-                'consume_jerrycan'  => [ 'consume' => [ 'jerrycan_#00'  ] ],
 
                 'spawn_target'    => [ 'target' => [ 'consume' => false, 'morph' => null, 'break' => null, 'poison' => null ] ],
                 'consume_target'  => [ 'target' => [ 'consume' => true, 'morph' => null, 'break' => null, 'poison' => null ] ],
@@ -377,12 +369,6 @@ class ActionDataService implements FixtureProcessorInterface {
                 'camp_tomb' => [ 'status' => [ 'from' => null, 'to' => 'tg_tomb' ] ],
                 'camp_unhide' => [ 'status' => [ 'from' => 'tg_hide', 'to' => null ] ],
                 'camp_untomb' => [ 'status' => [ 'from' => 'tg_tomb', 'to' => null ] ],
-
-                'home_lab_success' => [ 'spawn' => 'lab_success_drugs' ],
-                'home_lab_failure' => [ 'spawn' => 'lab_fail_drugs' ],
-
-                'home_kitchen_success' => [ 'spawn' => 'kitchen_success_food' ],
-                'home_kitchen_failure' => [ 'spawn' => 'kitchen_fail_food' ],
             ],
 
             'results' => [
@@ -441,46 +427,6 @@ class ActionDataService implements FixtureProcessorInterface {
                     'satisfy_ghoul_10' => [ 'hunger' => -15 ],
                 ],
                 'item' => [],
-
-                'spawn' => [
-                    'xmas_dv' => [ ['omg_this_will_kill_you_#00', 8], ['pocket_belt_#00', 8], ['christmas_candy_#00', 8], 'rp_manual_#00', 'rp_sheets_#00', 'rp_letter_#00', 'rp_scroll_#00', 'rp_book_#00', 'rp_book_#01', 'rp_book2_#00' ],
-                    'xmas_3'  => [ 'omg_this_will_kill_you_#00' ],
-                    'xmas_2'  => [ 'christmas_candy_#00' ],
-                    'xmas_1'  => [ 'xmas_gift_#00' ],
-                    'matbox'  => [ 'wood2_#00', 'metal_#00' ],
-
-                    'metalbox'  => [ 'what' => [ ['drug_#00', 16], ['bandage_#00', 28], /*['vodka_de_#00', 20],*/ ['vodka_#00', 20], ['explo_#00', 8], ['lights_#00', 4], ['drug_hero_#00', 16], ['rhum_#00', 8] ], 'where' => AffectItemSpawn::DropTargetRucksack ],
-                    'metalbox2' => [ 'what' => [ ['watergun_opt_part_#00', 19], ['pilegun_upkit_#00', 10], ['pocket_belt_#00', 12], ['cutcut_#00', 10], ['chainsaw_part_#00', 12], ['mixergun_part_#00', 19], ['big_pgun_part_#00', 7], ['lawn_part_#00', 12] ], 'where' => AffectItemSpawn::DropTargetRucksack],
-                    'catbox'    => [ 'poison_part_#00', 'pet_cat_#00', 'angryc_#00' ],
-                    'toolbox'   => [ ['pile_#00', 12], ['meca_parts_#00', 17], ['rustine_#00', 13], ['tube_#00', 13], ['pharma_#00', 25], ['explo_#00', 19] ],
-                    'foodbox'   => [ ['food_bag_#00', 8], ['can_#00', 11], ['meat_#00', 7], ['hmeat_#00', 13], ['vegetable_#00', 8] ],
-
-                    'phone'     => [ 'what' => ['deto_#00', 'metal_bad_#00', 'pile_broken_#00', 'electro_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
-                    'phone_nw'  => [ 'what' => ['deto_#00', 'metal_bad_#00', 'pile_broken_#00', 'electro_#00'], 'where' => AffectItemSpawn::DropTargetRucksack ],
-                    'proj'   => [ 'lens_#00' ],
-                    'empty_battery' => [ 'what' => ['pile_broken_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
-                    'battery' => [ 'what' => ['pile_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
-                    'safe'  => [ 'what' => [['watergun_opt_part_#00',10], ['big_pgun_part_#00',5], ['lawn_part_#00',10], ['chainsaw_part_#00',10], ['mixergun_part_#00',10], ['cutcut_#00',10], ['pilegun_upkit_#00',10], ['book_gen_letter_#00',5], ['pocket_belt_#00',15], ['meca_parts_#00',10]], 'where' => AffectItemSpawn::DropTargetRucksack ],
-                    'asafe' => [ 'bplan_e_#00' ],
-
-                    'lab_fail_drugs'    => [ 'what' => ['drug_#00', 'xanax_#00', 'drug_random_#00', 'drug_water_#00', 'water_cleaner_#00'], "where" => AffectItemSpawn::DropTargetFloor  ],
-                    'lab_success_drugs' => [ 'what' => ['drug_hero_#00'], "where" => AffectItemSpawn::DropTargetFloor ],
-
-                    'kitchen_fail_food'    => [ 'what' => ['dish_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
-                    'kitchen_success_food' => [ 'what' => ['dish_tasty_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
-
-                    'meat_4xs' => [ 'what' => [ ['meat_#00',  4] ], 'where' => AffectItemSpawn::DropTargetFloorOnly],
-                    'meat_4x'  => [ 'what' => [ ['undef_#00', 4] ], 'where' => AffectItemSpawn::DropTargetFloorOnly],
-                    'meat_2xs' => [ 'what' => [ ['meat_#00',  2] ], 'where' => AffectItemSpawn::DropTargetFloorOnly],
-                    'meat_2x'  => [ 'what' => [ ['undef_#00', 2] ], 'where' => AffectItemSpawn::DropTargetFloorOnly],
-                    'meat_bmb' => [ 'what' => [ ['flesh_#00', 2] ], 'where' => AffectItemSpawn::DropTargetFloorOnly],
-
-                    'potion'   => [ 'what' => [ [ 'potion_#00', 1] ], "where" => AffectItemSpawn::DropTargetFloor  ],
-                ],
-
-                'consume' => [
-                    '2_pharma' => [ 'pharma_#00', 2 ]
-                ],
 
                 'bp' => [],
 
@@ -654,50 +600,50 @@ class ActionDataService implements FixtureProcessorInterface {
                     [ ['death_poison'], 2 ],
                 ]] ] ],
 
-                'open_doggybag'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ ['food_pims_#00', 186], ['food_tarte_#00', 174], ['food_chick_#00', 194], ['food_biscuit_#00', 188], ['food_bar3_#00', 181], ['food_bar1_#00', 168], ['food_sandw_#00', 162], ['food_bar2_#00', 222] ] ] ], 'message' => 'Du hast dein <span class="tool">{item}</span> ausgepackt und <span class="tool">{items_spawn}</span> erhalten!' ],
-                'open_lunchbag'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ 'food_candies_#00', 'food_noodles_hot_#00', 'vegetable_tasty_#00', 'meat_#00' ] ] ], 'message_key' => 'container_open' ],
-                'open_c_chest'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ 'pile_#00', 'radio_off_#00', 'pharma_#00', 'lights_#00' ] ] ], 'message_key' => 'container_open' ],
-                'open_h_chest'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ 'watergun_empty_#00', 'pilegun_empty_#00', 'flash_#00', 'repair_one_#00', 'smoke_bomb_#00' ] ] ], 'message_key' => 'container_open' ],
-                'open_postbox'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ 'money_#00', 'rp_book_#00', 'rp_book_#01', 'rp_sheets_#00' ] ] ], 'message_key' => 'container_open' ],
-                'open_postbox_xl'=> [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ 'machine_gun_#00', 'rsc_pack_2_#00', 'rhum_#00', 'vibr_empty_#00' ] ] ], 'message_key' => 'container_open' ],
-                'open_letterbox' => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ 'rp_book2_#00', 'rp_manual_#00', 'rp_scroll_#00', 'rp_scroll_#01', 'rp_sheets_#00', 'rp_letter_#00' ] ] ], 'message_key' => 'container_open' ],
-                'open_justbox'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ 'money_#00', 'rp_book_#00', 'rp_book_#01', 'rp_sheets_#00' ] ] ], 'message_key' => 'container_open' ],
+                'open_doggybag'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', 'spawn_doggy' ], 'message' => 'Du hast dein <span class="tool">{item}</span> ausgepackt und <span class="tool">{items_spawn}</span> erhalten!' ],
+                'open_lunchbag'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', 'spawn_lunch' ], 'message_key' => 'container_open' ],
+                'open_c_chest'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', 'spawn_c_chest' ], 'message_key' => 'container_open' ],
+                'open_h_chest'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', 'spawn_h_chest' ], 'message_key' => 'container_open' ],
+                'open_postbox'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', 'spawn_postbox' ], 'message_key' => 'container_open' ],
+                'open_postbox_xl'=> [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', 'spawn_postbox_xl' ], 'message_key' => 'container_open' ],
+                'open_letterbox' => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', 'spawn_letterbox' ], 'message_key' => 'container_open' ],
+                'open_justbox'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', 'spawn_justbox' ], 'message_key' => 'container_open' ],
 
-                'open_gamebox'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ 'dice_#00', 'cards_#00' ] ] ], 'message_key' => 'container_open' ],
-                'open_abox'     => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ 'bplan_r_#00' ] ] ], 'message_key' => 'container_open' ],
-                'open_cbox'     => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ ['bplan_c_#00',50], ['bplan_u_#00',35], ['bplan_r_#00',10], ['bplan_e_#00',5]] ] ], 'message_key' => 'container_open_cbox' ],
+                'open_gamebox'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', 'spawn_gamebox' ], 'message_key' => 'container_open' ],
+                'open_abox'     => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', 'spawn_abox' ], 'message_key' => 'container_open' ],
+                'open_cbox'     => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', 'spawn_cbox' ], 'message_key' => 'container_open_cbox' ],
 
-                'open_matbox3'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands','room_for_item'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'rsc_pack_2_#00' ],  'spawn' => 'matbox' ] ], 'message_key' => 'container_open_not_empty' ],
-                'open_matbox2'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands','room_for_item'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'rsc_pack_1_#00' ],  'spawn' => 'matbox' ] ], 'message_key' => 'container_open_not_empty' ],
-                'open_matbox1'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => 'matbox' ] ], 'message_key' => 'container_open_empty' ],
+                'open_matbox3'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands','room_for_item'], 'result' => [ 'spawn_matbox', [ 'item' => [ 'consume' => false, 'morph' => 'rsc_pack_2_#00' ] ] ], 'message_key' => 'container_open_not_empty' ],
+                'open_matbox2'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands','room_for_item'], 'result' => [ 'spawn_matbox', [ 'item' => [ 'consume' => false, 'morph' => 'rsc_pack_1_#00' ] ] ], 'message_key' => 'container_open_not_empty' ],
+                'open_matbox1'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', 'spawn_matbox' ], 'message_key' => 'container_open_empty' ],
 
-                'open_xmasbox3'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'chest_christmas_2_#00' ],  'spawn' => 'xmas_3' ] ], 'message_key' => 'container_open_not_empty' ],
-                'open_xmasbox2'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'chest_christmas_1_#00' ],  'spawn' => 'xmas_2' ] ], 'message_key' => 'container_open_not_empty' ],
-                'open_xmasbox1'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => 'xmas_1' ] ], 'message_key' => 'container_open_empty' ],
+                'open_xmasbox3'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'spawn_xmas_3', [ 'item' => [ 'consume' => false, 'morph' => 'chest_christmas_2_#00' ] ] ], 'message_key' => 'container_open_not_empty' ],
+                'open_xmasbox2'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'spawn_xmas_2', [ 'item' => [ 'consume' => false, 'morph' => 'chest_christmas_1_#00' ] ] ], 'message_key' => 'container_open_not_empty' ],
+                'open_xmasbox1'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', 'spawn_xmas_1' ], 'message_key' => 'container_open_empty' ],
 
-                'open_metalbox'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'not_profession_tech', 'have_can_opener', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', [ 'spawn' => 'metalbox' ] ], 'message_key' => 'container_open_tool' ],
-                'open_metalbox2' => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'not_profession_tech', 'have_can_opener', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', [ 'spawn' => 'metalbox2' ] ], 'message_key' => 'container_open_tool' ],
-                'open_catbox'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'not_profession_tech', 'have_can_opener', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', [ 'spawn' => 'catbox' ] ], 'message_key' => 'container_open_tool' ],
-                'open_toolbox'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'not_profession_tech', 'have_box_opener', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', [ 'spawn' => 'toolbox' ] ], 'message_key' => 'container_open_weapon' ],
-                'open_foodbox_out'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'not_profession_tech', 'have_parcel_opener', 'is_not_wounded_hands', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_item', [ 'spawn' => 'foodbox' ] ], 'message_key' => 'container_open_weapon' ],
-                'open_foodbox_in'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'not_profession_tech', 'have_parcel_opener_home', 'is_not_wounded_hands', 'must_be_inside' ], 'result' => [ 'consume_item', [ 'spawn' => 'foodbox' ] ], 'message_key' => 'container_open_weapon' ],
+                'open_metalbox'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'not_profession_tech', 'have_can_opener', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', 'spawn_metalbox' ], 'message_key' => 'container_open_tool' ],
+                'open_metalbox2' => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'not_profession_tech', 'have_can_opener', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', 'spawn_metalbox2' ], 'message_key' => 'container_open_tool' ],
+                'open_catbox'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'not_profession_tech', 'have_can_opener', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', 'spawn_catbox' ], 'message_key' => 'container_open_tool' ],
+                'open_toolbox'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'not_profession_tech', 'have_box_opener', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', 'spawn_toolbox' ], 'message_key' => 'container_open_weapon' ],
+                'open_foodbox_out'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'not_profession_tech', 'have_parcel_opener', 'is_not_wounded_hands', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_item', 'spawn_foodbox' ], 'message_key' => 'container_open_weapon' ],
+                'open_foodbox_in'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'not_profession_tech', 'have_parcel_opener_home', 'is_not_wounded_hands', 'must_be_inside' ], 'result' => [ 'consume_item','spawn_foodbox' ], 'message_key' => 'container_open_weapon' ],
 
-                'open_metalbox_t1'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'profession_tech', 'have_can_opener_hd', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', [ 'spawn' => 'metalbox' ] ], 'message_key' => 'container_open_tool' ],
-                'open_metalbox2_t1' => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'profession_tech', 'have_can_opener_hd', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', [ 'spawn' => 'metalbox2' ] ], 'message_key' => 'container_open_tool' ],
-                'open_catbox_t1'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'profession_tech', 'have_can_opener_hd', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', [ 'spawn' => 'catbox' ] ], 'message_key' => 'container_open_tool' ],
-                'open_toolbox_t1'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'profession_tech', 'have_box_opener_hd', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', [ 'spawn' => 'toolbox' ] ], 'message_key' => 'container_open_weapon' ],
-                'open_foodbox_out_t1'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'profession_tech', 'have_parcel_opener_hd', 'is_not_wounded_hands', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_item', [ 'spawn' => 'foodbox' ] ], 'message_key' => 'container_open_weapon' ],
-                'open_foodbox_in_t1'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta'  => [ 'profession_tech', 'have_parcel_opener_home_hd', 'is_not_wounded_hands', 'must_be_inside' ], 'result' => [ 'consume_item', [ 'spawn' => 'foodbox' ] ], 'message_key' => 'container_open_weapon' ],
+                'open_metalbox_t1'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'profession_tech', 'have_can_opener_hd', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', 'spawn_metalbox' ], 'message_key' => 'container_open_tool' ],
+                'open_metalbox2_t1' => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'profession_tech', 'have_can_opener_hd', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', 'spawn_metalbox2' ], 'message_key' => 'container_open_tool' ],
+                'open_catbox_t1'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'profession_tech', 'have_can_opener_hd', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', 'spawn_catbox' ], 'message_key' => 'container_open_tool' ],
+                'open_toolbox_t1'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'profession_tech', 'have_box_opener_hd', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', 'spawn_toolbox' ], 'message_key' => 'container_open_weapon' ],
+                'open_foodbox_out_t1'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'profession_tech', 'have_parcel_opener_hd', 'is_not_wounded_hands', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_item', 'spawn_foodbox' ], 'message_key' => 'container_open_weapon' ],
+                'open_foodbox_in_t1'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta'  => [ 'profession_tech', 'have_parcel_opener_home_hd', 'is_not_wounded_hands', 'must_be_inside' ], 'result' => [ 'consume_item', 'spawn_foodbox' ], 'message_key' => 'container_open_weapon' ],
 
-                'open_metalbox_t2'  => [ 'label' => 'Öffnen (1 BP)', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_can_opener_hd', 'min_1_cp' ], 'result' => [ 'minus_1cp', 'consume_item', [ 'spawn' => 'metalbox' ] ], 'message_key' => 'container_open' ],
-                'open_metalbox2_t2' => [ 'label' => 'Öffnen (1 BP)', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_can_opener_hd', 'min_1_cp' ], 'result' => [ 'minus_1cp', 'consume_item', [ 'spawn' => 'metalbox2' ] ], 'message_key' => 'container_open' ],
-                'open_catbox_t2'    => [ 'label' => 'Öffnen (1 BP)', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_can_opener_hd', 'min_1_cp' ], 'result' => [ 'minus_1cp', 'consume_item', [ 'spawn' => 'catbox' ] ], 'message_key' => 'container_open' ],
-                'open_toolbox_t2'    => [ 'label' => 'Öffnen (1 BP)', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_box_opener_hd', 'min_1_cp' ], 'result' => [ 'minus_1cp', 'consume_item', [ 'spawn' => 'toolbox' ] ], 'message_key' => 'container_open' ],
-                'open_foodbox_out_t2'    => [ 'label' => 'Öffnen (1 BP)', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_parcel_opener_hd', 'min_1_cp', 'must_be_outside_or_exploring' ], 'result' => [ 'minus_1cp', 'consume_item', [ 'spawn' => 'foodbox' ] ], 'message_key' => 'container_open' ],
-                'open_foodbox_in_t2'    => [ 'label' => 'Öffnen (1 BP)', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_parcel_opener_home_hd', 'min_1_cp', 'must_be_inside' ], 'result' => [ 'minus_1cp', 'consume_item', [ 'spawn' => 'foodbox' ] ], 'message_key' => 'container_open' ],
+                'open_metalbox_t2'  => [ 'label' => 'Öffnen (1 BP)', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_can_opener_hd', 'min_1_cp' ], 'result' => [ 'minus_1cp', 'consume_item', 'spawn_metalbox' ], 'message_key' => 'container_open' ],
+                'open_metalbox2_t2' => [ 'label' => 'Öffnen (1 BP)', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_can_opener_hd', 'min_1_cp' ], 'result' => [ 'minus_1cp', 'consume_item', 'spawn_metalbox2' ], 'message_key' => 'container_open' ],
+                'open_catbox_t2'    => [ 'label' => 'Öffnen (1 BP)', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_can_opener_hd', 'min_1_cp' ], 'result' => [ 'minus_1cp', 'consume_item', 'spawn_catbox' ], 'message_key' => 'container_open' ],
+                'open_toolbox_t2'    => [ 'label' => 'Öffnen (1 BP)', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_box_opener_hd', 'min_1_cp' ], 'result' => [ 'minus_1cp', 'consume_item', 'spawn_toolbox' ], 'message_key' => 'container_open' ],
+                'open_foodbox_out_t2'    => [ 'label' => 'Öffnen (1 BP)', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_parcel_opener_hd', 'min_1_cp', 'must_be_outside_or_exploring' ], 'result' => [ 'minus_1cp', 'consume_item', 'spawn_foodbox' ], 'message_key' => 'container_open' ],
+                'open_foodbox_in_t2'    => [ 'label' => 'Öffnen (1 BP)', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_parcel_opener_home_hd', 'min_1_cp', 'must_be_inside' ], 'result' => [ 'minus_1cp', 'consume_item', 'spawn_foodbox' ], 'message_key' => 'container_open' ],
 
-                'open_safe'      => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'min_1_ap', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ 'minus_1ap', ['group' => [ [['do_nothing'], 95], [ ['consume_item', [ 'spawn' =>  'safe' ]], 5 ] ]] ], 'message_key' => 'container_optional' ],
-                'open_asafe'     => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'min_1_ap', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ 'minus_1ap', ['group' => [ [['do_nothing'], 95], [ ['consume_item', [ 'spawn' => 'asafe' ]], 5 ] ]] ], 'message_key' => 'container_optional' ],
+                'open_safe'      => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'min_1_ap', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ 'minus_1ap', ['group' => [ [['do_nothing'], 95], [ ['consume_item', 'spawn_safe' ], 5 ] ]] ], 'message_key' => 'container_optional' ],
+                'open_asafe'     => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'min_1_ap', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ 'minus_1ap', ['group' => [ [['do_nothing'], 95], [ ['consume_item', 'spawn_asafe' ], 5 ] ]] ], 'message_key' => 'container_optional' ],
 
                 'load_pilegun'   => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', [ 'item' => [ 'consume' => false, 'morph' => 'pilegun_#00' ] ] ], 'message_key' => 'item_load' ],
                 'load_pilegun2'  => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', [ 'item' => [ 'consume' => false, 'morph' => 'pilegun_up_#00' ] ] ], 'message_key' => 'item_load' ],
@@ -733,9 +679,9 @@ class ActionDataService implements FixtureProcessorInterface {
                 'fill_watercan1' => [ 'label' => 'Befüllen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerTransgress, 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', 'produce_watercan2' ], 'message_key' => 'item_fill' ],
                 'fill_watercan2' => [ 'label' => 'Befüllen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerTransgress, 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', 'produce_watercan3' ], 'message_key' => 'item_fill' ],
 
-                'fire_pilegun'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'msg_battery_use', [ 'spawn' => 'empty_battery', 'item' => ['morph' => 'pilegun_empty_#00',    'consume' => false], 'group' => 'g_kill_1z_90_msg2' ] ] ], /* based on Hordes data */
-                'fire_pilegun2'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['msg_battery_drop', ['spawn' => 'battery', 'item' => ['morph' => 'pilegun_up_empty_#00', 'consume' => false]] ], 8],  [['msg_battery_destroy', ['spawn' => 'empty_battery', 'item' => ['morph' => 'pilegun_up_empty_#00', 'consume' => false]] ], 2 ] ] ], 'kill_1_zombie' ] ], /* based on Hordes data */
-                'fire_pilegun3'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['msg_battery_destroy', ['spawn' => 'empty_battery', 'item' => ['morph' => 'big_pgun_empty_#00',   'consume' => false]] ], 50], [['msg_battery_drop', ['spawn' => 'battery', 'item' => ['morph' => 'big_pgun_empty_#00',   'consume' => false]] ], 50] ] ], 'kill_2_zombie' ] ], /* based on Hordes data */
+                'fire_pilegun'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'msg_battery_use', 'spawn_empty_battery', [ 'item' => ['morph' => 'pilegun_empty_#00',    'consume' => false], 'group' => 'g_kill_1z_90_msg2' ] ] ], /* based on Hordes data */
+                'fire_pilegun2'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['msg_battery_drop', 'spawn_battery', ['item' => ['morph' => 'pilegun_up_empty_#00', 'consume' => false]] ], 8],  [['msg_battery_destroy', 'spawn_empty_battery', ['item' => ['morph' => 'pilegun_up_empty_#00', 'consume' => false]] ], 2 ] ] ], 'kill_1_zombie' ] ], /* based on Hordes data */
+                'fire_pilegun3'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['msg_battery_destroy', 'spawn_empty_battery', ['item' => ['morph' => 'big_pgun_empty_#00',   'consume' => false]] ], 50], [['msg_battery_drop', 'spawn_battery', ['item' => ['morph' => 'big_pgun_empty_#00',   'consume' => false]] ], 50] ] ], 'kill_2_zombie' ] ], /* based on Hordes data */
                 'fire_mixergun'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'],  6], [['msg_battery_use', [ 'item' => ['morph' => 'mixergun_empty_#00', 'consume' => false] ] ], 4] ] ], 'kill_1_zombie' ] ], /* based on Hordes data */
                 'fire_chainsaw'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'],  7], [['msg_battery_use', [ 'item' => ['morph' => 'chainsaw_empty_#00', 'consume' => false] ] ], 3] ] ], 'kill_3_zombie' ] ], /* based on Hordes data */
                 'fire_taser'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => 'g_kill_1z_30_taser' ], [ 'group' => [ [['do_nothing' ],  3], [[ 'msg_battery_use', [ 'item' => ['morph' => 'taser_empty_#00', 'consume' => false] ]], 7] ] ] ] ], /* based on Hordes data */
@@ -781,8 +727,8 @@ class ActionDataService implements FixtureProcessorInterface {
                 'throw_b_torch_off'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => 'g_break_75'], ['group' => 'g_kill_1z_10'] ] ], /* based on Hordes data */
                 'throw_b_wrench'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => 'g_break_20'], ['group' => 'g_kill_1z_33'] ] ], /* based on Hordes data */
                 'throw_hurling_stick'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => 'g_break_15'], ['group' => 'g_kill_1z_60'] ] ], /* based on Hordes data */
-                'throw_phone'           => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', ['spawn' => 'phone'] , 'kill_1_2_zombie' ] ], /* based on Hordes data */
-                'throw_projector'       => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', ['spawn' => 'proj'] , 'kill_1_zombie' ] ], /* based on Hordes data */
+                'throw_phone'           => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', 'spawn_phone', 'kill_1_2_zombie' ] ], /* based on Hordes data */
+                'throw_projector'       => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', 'spawn_proj', 'kill_1_zombie' ] ], /* based on Hordes data */
 
                 'throw_grenade'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'consume_item', 'zone_kill_2_4'  ], 'message_key' => 'weapon_use' ],
                 'throw_exgrenade'       => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'consume_item', 'zone_kill_6_10' ], 'message_key' => 'weapon_use' ],
@@ -813,20 +759,20 @@ class ActionDataService implements FixtureProcessorInterface {
 
                 'vibrator' => [ 'label' => 'Verwenden', 'meta' => [ 'must_be_inside', 'must_be_terrorized' ], 'result' => [ 'unterrorize', 'picto_masochism', ['item' => ['morph' => 'vibr_empty_#00', 'consume' => false]] ], 'message' => 'Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.' ],
 
-                'watercup_1' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_inside', 'must_have_micropur_in', 'must_not_have_purifier', 'must_not_have_filter', 'must_not_be_banished' ], 'result' => [ 'consume_micropur', 'consume_item', 'picto_ban_emanc', ['spawn' => [ ['water_cup_#00', 2] ] ] ], 'message_key' => 'item_clean_watercup' ],
-                'watercup_2' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_micropur' ], 'result' => [ 'consume_micropur', 'consume_item', 'picto_ban_emanc', ['spawn' => [ ['water_cup_#00', 2] ] ] ], 'message_key' => 'item_clean_watercup' ],
+                'watercup_1' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_inside', 'must_have_micropur_in', 'must_not_have_purifier', 'must_not_have_filter', 'must_not_be_banished' ], 'result' => [ 'consume_micropur', 'consume_item', 'picto_ban_emanc', 'spawn_2_watercup' ], 'message_key' => 'item_clean_watercup' ],
+                'watercup_2' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_micropur' ], 'result' => [ 'consume_micropur', 'consume_item', 'picto_ban_emanc', 'spawn_2_watercup' ], 'message_key' => 'item_clean_watercup' ],
                 'watercup_3' => [ 'label' => 'In den Brunnen schütten', 'meta' => [ 'must_be_inside', 'must_have_purifier', 'must_not_be_banished' ], 'result' => [ 'consume_item', 'town_well_2' ], 'message_key' => 'water_to_well' ],
                 'jerrycan_1' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_inside', 'must_have_micropur_in', 'must_not_have_purifier', 'must_not_be_banished' ], 'result' => [ 'consume_micropur', 'consume_item', ['group' => [
-                    [ [ ['spawn' => [ 'what' => [['water_#00', 2]], 'where' => AffectItemSpawn::DropTargetPreferRucksack ] ] ], 1 ],
-                    [ [ ['spawn' => [ 'what' => [['water_#00', 3]], 'where' => AffectItemSpawn::DropTargetPreferRucksack ] ] ], 1 ]
+                    [ 'spawn_2_water', 1 ],
+                    [ 'spawn_3_water', 1 ]
                 ]] ], 'message_key' => 'item_clean' ],
                 'jerrycan_2' => [ 'label' => 'In den Brunnen schütten', 'meta' => [ 'must_be_inside', 'must_have_purifier', 'must_not_have_filter', 'must_not_be_banished' ], 'result' => [ 'consume_item', 'town_well_1_3' ], 'message_key' => 'water_to_well' ],
                 'jerrycan_3' => [ 'label' => 'In den Brunnen schütten', 'meta' => [ 'must_be_inside', 'must_have_filter', 'must_not_be_banished' ], 'result' => [ 'consume_item', 'town_well_4_9' ], 'message_key' => 'water_to_well' ],
 
-                'watercup_1b' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_inside',  'must_have_micropur_in', 'must_be_banished' ], 'result' => [ 'consume_micropur', 'consume_item', 'picto_ban_emanc', ['spawn' => [ ['water_cup_#00', 2] ] ] ], 'message_key' => 'item_clean_watercup' ],
+                'watercup_1b' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_inside',  'must_have_micropur_in', 'must_be_banished' ], 'result' => [ 'consume_micropur', 'consume_item', 'picto_ban_emanc', 'spawn_2_watercup' ], 'message_key' => 'item_clean_watercup' ],
                 'jerrycan_1b' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_inside', 'must_have_micropur_in', 'must_be_banished' ], 'result' => [ 'consume_micropur', 'consume_item', ['group' => [
-                    [ [ ['spawn' => [ ['water_#00', 2] ] ] ], 1 ],
-                    [ [ ['spawn' => [ ['water_#00', 3] ] ] ], 1 ]
+                    [ 'spawn_2_water', 1 ],
+                    [ 'spawn_3_water', 1 ]
                 ]] ], 'message_key' => 'item_clean' ],
 
                 'home_def_plus'    => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', 'picto_home_upgrade', 'home_def_1'], 'message' => 'Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament <strong>{home_defense} zusätzliche Verteidigungspunkt(e).</strong>'],
@@ -922,14 +868,14 @@ class ActionDataService implements FixtureProcessorInterface {
                 'home_fillwater' => [ 'label' => 'Wasserwaffen füllen', 'meta' => [ 'must_be_inside', 'must_have_valve' ], 'result' => [[ 'custom' => [14]]], 'message' => '<t-fail>Du hast <strong>keine Wasserwaffen zum Befüllen</strong> in deinem Rucksack oder deiner Truhe.</t-fail><nt-fail>Du hast {items_spawn} dank des Wasserhahns kostenlos auffüllen können.</nt-fail>' ],
                 'home_cinema'    => [ 'label' => 'Ins Kino gehen', 'meta' => [ 'must_be_inside', 'must_have_cinema' ],  'result' => [ 'unterrorize'], 'message' => 'Ja, klar... Du hast ihn schon hunderte Male gesehen, das Thema ändert sich auch nicht allzu sehr, aber trotzdem: Es geht nichts über einen guten Zombie-Film zur Entspannung.<t-stat-down-terror><hr />Diese seltsam fernen Schreie des Schreckens haben dir den Kopf gerade gerückt: <strong>Du hast deine Angst abgeschüttelt</strong>.</t-stat-down-terror>' ],
 
-                'home_lab_1a' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v1', 'must_not_have_lab', 'have_2_pharma', 'lab_counter_below_1' ], 'result' => [ [ 'status' => 'increase_lab_counter', 'consume' => '2_pharma', 'group' => [ ['home_lab_success', 25], [ 'home_lab_failure', 75 ] ]],  ], 'message_key' => 'use_lab' ],
-                'home_lab_2a' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v2', 'must_not_have_lab', 'have_2_pharma', 'lab_counter_below_1' ], 'result' => [ [ 'status' => 'increase_lab_counter', 'consume' => '2_pharma', 'group' => [ ['home_lab_success', 50], [ 'home_lab_failure', 50 ] ]],  ], 'message_key' => 'use_lab' ],
-                'home_lab_3a' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v3', 'must_not_have_lab', 'have_2_pharma', 'lab_counter_below_1' ], 'result' => [ [ 'status' => 'increase_lab_counter', 'consume' => '2_pharma', 'group' => [ ['home_lab_success', 75], [ 'home_lab_failure', 25 ] ]],  ], 'message_key' => 'use_lab' ],
-                'home_lab_4a' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v4', 'must_not_have_lab', 'have_2_pharma', 'lab_counter_below_4' ], 'result' => [ [ 'status' => 'increase_lab_counter', 'consume' => '2_pharma' ], 'home_lab_success' ], 'message_key' => 'use_lab' ],
-                'home_lab_1b' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v1', 'must_have_lab',     'have_2_pharma', 'lab_counter_below_6' ], 'result' => [ [ 'status' => 'increase_lab_counter', 'consume' => '2_pharma', 'group' => [ ['home_lab_success', 25], [ 'home_lab_failure', 75 ] ]],  ], 'message_key' => 'use_lab' ],
-                'home_lab_2b' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v2', 'must_have_lab',     'have_2_pharma', 'lab_counter_below_6' ], 'result' => [ [ 'status' => 'increase_lab_counter', 'consume' => '2_pharma', 'group' => [ ['home_lab_success', 50], [ 'home_lab_failure', 50 ] ]],  ], 'message_key' => 'use_lab' ],
-                'home_lab_3b' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v3', 'must_have_lab',     'have_2_pharma', 'lab_counter_below_6' ], 'result' => [ [ 'status' => 'increase_lab_counter', 'consume' => '2_pharma', 'group' => [ ['home_lab_success', 75], [ 'home_lab_failure', 25 ] ]],  ], 'message_key' => 'use_lab' ],
-                'home_lab_4b' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v4', 'must_have_lab',     'have_2_pharma', 'lab_counter_below_9' ], 'result' => [ [ 'status' => 'increase_lab_counter', 'consume' => '2_pharma' ], 'home_lab_success' ], 'message_key' => 'use_lab' ],
+                'home_lab_1a' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v1', 'must_not_have_lab', 'have_2_pharma', 'lab_counter_below_1' ], 'result' => [ 'consume_2_pharma', [ 'status' => 'increase_lab_counter', 'group' => [ ['home_lab_success', 25], [ 'home_lab_failure', 75 ] ]],  ], 'message_key' => 'use_lab' ],
+                'home_lab_2a' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v2', 'must_not_have_lab', 'have_2_pharma', 'lab_counter_below_1' ], 'result' => [ 'consume_2_pharma', [ 'status' => 'increase_lab_counter', 'group' => [ ['home_lab_success', 50], [ 'home_lab_failure', 50 ] ]],  ], 'message_key' => 'use_lab' ],
+                'home_lab_3a' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v3', 'must_not_have_lab', 'have_2_pharma', 'lab_counter_below_1' ], 'result' => [ 'consume_2_pharma', [ 'status' => 'increase_lab_counter', 'group' => [ ['home_lab_success', 75], [ 'home_lab_failure', 25 ] ]],  ], 'message_key' => 'use_lab' ],
+                'home_lab_4a' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v4', 'must_not_have_lab', 'have_2_pharma', 'lab_counter_below_4' ], 'result' => [ 'consume_2_pharma', [ 'status' => 'increase_lab_counter' ], 'home_lab_success' ], 'message_key' => 'use_lab' ],
+                'home_lab_1b' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v1', 'must_have_lab',     'have_2_pharma', 'lab_counter_below_6' ], 'result' => [ 'consume_2_pharma', [ 'status' => 'increase_lab_counter', 'group' => [ ['home_lab_success', 25], [ 'home_lab_failure', 75 ] ]],  ], 'message_key' => 'use_lab' ],
+                'home_lab_2b' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v2', 'must_have_lab',     'have_2_pharma', 'lab_counter_below_6' ], 'result' => [ 'consume_2_pharma', [ 'status' => 'increase_lab_counter', 'group' => [ ['home_lab_success', 50], [ 'home_lab_failure', 50 ] ]],  ], 'message_key' => 'use_lab' ],
+                'home_lab_3b' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v3', 'must_have_lab',     'have_2_pharma', 'lab_counter_below_6' ], 'result' => [ 'consume_2_pharma', [ 'status' => 'increase_lab_counter', 'group' => [ ['home_lab_success', 75], [ 'home_lab_failure', 25 ] ]],  ], 'message_key' => 'use_lab' ],
+                'home_lab_4b' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v4', 'must_have_lab',     'have_2_pharma', 'lab_counter_below_9' ], 'result' => [ 'consume_2_pharma', [ 'status' => 'increase_lab_counter',], 'home_lab_success' ], 'message_key' => 'use_lab' ],
 
                 'home_kitchen_1a' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook', 'poison' => false, 'broken' => false], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v1', 'must_not_have_canteen', 'kitchen_counter_below_1' ], 'result' => [ 'consume_target', [ 'status' => 'increase_kitchen_counter', 'group' => [ ['home_kitchen_success', 33], [ 'home_kitchen_failure', 66 ] ]],  ], 'message_key' => 'use_kitchen' ],
                 'home_kitchen_2a' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook', 'poison' => false, 'broken' => false], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v2', 'must_not_have_canteen', 'kitchen_counter_below_1' ], 'result' => [ 'consume_target', [ 'status' => 'increase_kitchen_counter', 'group' => [ ['home_kitchen_success', 66], [ 'home_kitchen_failure', 33 ] ]],  ], 'message_key' => 'use_kitchen' ],
@@ -940,13 +886,13 @@ class ActionDataService implements FixtureProcessorInterface {
                 'home_kitchen_3b' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook', 'poison' => false, 'broken' => false], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v3', 'must_have_canteen',     'kitchen_counter_below_5' ], 'result' => [ 'consume_target', [ 'status' => 'increase_kitchen_counter' ], 'home_kitchen_success' ], 'message_key' => 'use_kitchen' ],
                 'home_kitchen_4b' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook', 'poison' => false, 'broken' => false], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v4', 'must_have_canteen',     'kitchen_counter_below_6' ], 'result' => [ 'consume_target', [ 'status' => 'increase_kitchen_counter' ], 'home_kitchen_success' ], 'message_key' => 'use_kitchen' ],
 
-                'slaughter_4xs' => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', 'picto_animal', [ 'spawn' => 'meat_4xs' ] ], 'message_key' => 'use_butcher' ],
-                'slaughter_2xs' => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', 'picto_animal', [ 'spawn' => 'meat_2xs' ] ], 'message_key' => 'use_butcher' ],
-                'slaughter_4x'  => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', 'picto_animal', [ 'spawn' => 'meat_4x'  ] ], 'message_key' => 'use_butcher' ],
-                'slaughter_2x'  => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', 'picto_animal', [ 'spawn' => 'meat_2x'  ] ], 'message_key' => 'use_butcher' ],
-                'slaughter_bmb' => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', 'picto_animal', [ 'spawn' => 'meat_bmb' ] ], 'message_key' => 'use_butcher' ],
+                'slaughter_4xs' => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', 'picto_animal', 'spawn_meat_4xs' ], 'message_key' => 'use_butcher' ],
+                'slaughter_2xs' => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', 'picto_animal', 'spawn_meat_2xs' ], 'message_key' => 'use_butcher' ],
+                'slaughter_4x'  => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', 'picto_animal', 'spawn_meat_4x'  ], 'message_key' => 'use_butcher' ],
+                'slaughter_2x'  => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', 'picto_animal', 'spawn_meat_2x'  ], 'message_key' => 'use_butcher' ],
+                'slaughter_bmb' => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', 'picto_animal', 'spawn_meat_bmb' ], 'message_key' => 'use_butcher' ],
                 'purify_soul' => [ 'label' => 'Läutern', 'meta' => [ 'must_be_inside', 'must_have_hammam' ], 'result' => [ 'consume_item', 'picto_soul_purify', 'town_sdef_5' ],  'message' => "Du hast die Seele gereinigt und sie friedlich gemacht."],
-                'brew_shamanic_potion' => ['label' => 'Herstellung eines Mystischern Trank', 'poison' => ItemAction::PoisonHandlerTransgress, 'tooltip' => 'Du kannst einen schamanischen Trank zubereiten, der den Rezipienten vor bösen Geistern schützt.', 'meta' => [ 'must_be_inside', 'have_water_shaman', 'min_1_pm', 'role_shaman' ], 'result' => ['consume_water', 'minus_1pm', ['spawn' => 'potion']], 'message' => 'Das ist ein Musterbeispiel eines schamanischen Tranks! Nun liegt es an die, der Stadt dessen Wirksamkeit zu vermitteln und sie von deinen schamanischen Fähigkeiten zu überzeugen.' ],
+                'brew_shamanic_potion' => ['label' => 'Herstellung eines Mystischern Trank', 'poison' => ItemAction::PoisonHandlerTransgress, 'tooltip' => 'Du kannst einen schamanischen Trank zubereiten, der den Rezipienten vor bösen Geistern schützt.', 'meta' => [ 'must_be_inside', 'have_water_shaman', 'min_1_pm', 'role_shaman' ], 'result' => ['consume_water', 'minus_1pm', 'spawn_potion'], 'message' => 'Das ist ein Musterbeispiel eines schamanischen Tranks! Nun liegt es an die, der Stadt dessen Wirksamkeit zu vermitteln und sie von deinen schamanischen Fähigkeiten zu überzeugen.' ],
 
                 'home_rest_1'     => [ 'label' => 'Nickerchen machen', 'meta' => [ 'must_be_inside', 'must_have_home_rest_v1', 'not_yet_rested', 'no_full_ap_msg' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_rested' ], 'group' => [ ['plus_2ap_7', 33], [ 'do_nothing', 66 ] ] ] ], 'message_key' => 'use_bed' ],
                 'home_rest_2'     => [ 'label' => 'Nickerchen machen', 'meta' => [ 'must_be_inside', 'must_have_home_rest_v2', 'not_yet_rested', 'no_full_ap_msg' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_rested' ], 'group' => [ ['plus_2ap_7', 66], [ 'do_nothing', 33 ] ] ] ], 'message_key' => 'use_bed' ],
@@ -960,7 +906,7 @@ class ActionDataService implements FixtureProcessorInterface {
                 'nw_empty_taser'        => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'taser_empty_#00',         'consume' => false]] ] ],
                 'nw_empty_mixergun'     => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'mixergun_empty_#00',      'consume' => false]] ] ],
                 'nw_empty_chainsaw'     => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'chainsaw_empty_#00',      'consume' => false]] ] ],
-                'nw_empty_phone'        => [ 'label' => '', 'meta' => [], 'result' => [ 'consume_item', ['spawn' => 'phone_nw'] ] ],
+                'nw_empty_phone'        => [ 'label' => '', 'meta' => [], 'result' => [ 'consume_item', 'spawn_phone_nw' ] ],
                 'nw_empty_watergun'     => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'watergun_empty_#00',      'consume' => false]] ] ],
                 'nw_empty_watergun_opt' => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'watergun_opt_empty_#00',  'consume' => false]] ] ],
                 'nw_empty_torch'        => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'torch_off_#00',           'consume' => false]] ] ],
@@ -1459,6 +1405,8 @@ class ActionDataService implements FixtureProcessorInterface {
             $requirement_container->toArray()
         );
 
+        $effects_container = new EffectsDataContainer();
+
         //<editor-fold desc="MessageEffects">
         $effects_container->add()->identifier('do_nothing_attack')->add((new MessageEffect())->text('Mit aller Kraft schlägst du mehrmals auf einen Zombie ein, aber <strong>es scheint ihm nichts anzuhaben</strong>!'))->commit();
         $effects_container->add()->identifier('do_nothing_attack2')->add((new MessageEffect())->text('Sie greifen einen Zombie mit Ihrem {item} an, aber <strong>er reagiert nicht einmal</strong> und macht weiter!'))->commit();
@@ -1524,11 +1472,176 @@ class ActionDataService implements FixtureProcessorInterface {
         $effects_container->add()->identifier('home_store_2')->add((new HomeEffect())->storage(2))->commit();
         //</editor-fold>
 
+        //<editor-fold desc="ItemEffects">
+        $effects_container->add()->identifier('consume_water')->add((new ItemEffect())->consume('water_#00'))->commit();
+        $effects_container->add()->identifier('consume_matches')->add((new ItemEffect())->consume('lights_#00'))->commit();
+        $effects_container->add()->identifier('consume_battery')->add((new ItemEffect())->consume('pile_#00'))->commit();
+        $effects_container->add()->identifier('consume_micropur')->add((new ItemEffect())->consume('water_cleaner_#00'))->commit();
+        $effects_container->add()->identifier('consume_drug')->add((new ItemEffect())->consume('drug_#00'))->commit();
+        $effects_container->add()->identifier('consume_jerrycan')->add((new ItemEffect())->consume('jerrycan_#00'))->commit();
+        $effects_container->add()->identifier('consume_2_pharma')->add((new ItemEffect())->consume('pharma_#00', 2))->commit();
+
+        $effects_container->add()->identifier('spawn_doggy')->add((new ItemEffect())
+            ->addSpawn('food_bar2_#00', 222)
+            ->addSpawn('food_chick_#00', 194)
+            ->addSpawn('food_biscuit_#00', 188)
+            ->addSpawn('food_pims_#00', 186)
+            ->addSpawn('food_bar3_#00', 181)
+            ->addSpawn('food_tarte_#00', 174)
+            ->addSpawn('food_bar1_#00', 168)
+            ->addSpawn('food_sandw_#00', 162)
+        )->commit();
+
+        $effects_container->add()->identifier('spawn_lunch')->add((new ItemEffect())
+            ->addSpawnList(['food_candies_#00', 'food_noodles_hot_#00', 'vegetable_tasty_#00', 'meat_#00'])
+        )->commit();
+
+        $effects_container->add()->identifier('spawn_c_chest')->add((new ItemEffect())
+            ->addSpawnList(['pile_#00', 'radio_off_#00', 'pharma_#00', 'lights_#00'])
+        )->commit();
+
+        $effects_container->add()->identifier('spawn_h_chest')->add((new ItemEffect())
+            ->addSpawnList(['watergun_empty_#00', 'pilegun_empty_#00', 'flash_#00', 'repair_one_#00', 'smoke_bomb_#00'])
+        )->commit();
+
+        $effects_container->add()->identifier('spawn_postbox')->add((new ItemEffect())
+            ->addSpawnList(['money_#00', 'rp_book_#00', 'rp_book_#01', 'rp_sheets_#00'])
+        )->commit();
+
+        $effects_container->add()->identifier('spawn_postbox_xl')->add((new ItemEffect())
+            ->addSpawnList(['machine_gun_#00', 'rsc_pack_2_#00', 'rhum_#00', 'vibr_empty_#00'])
+        )->commit();
+
+        $effects_container->add()->identifier('spawn_letterbox')->add((new ItemEffect())
+            ->addSpawnList(['rp_book2_#00', 'rp_manual_#00', 'rp_scroll_#00', 'rp_scroll_#01', 'rp_sheets_#00', 'rp_letter_#00'])
+        )->commit();
+
+        $effects_container->add()->identifier('spawn_justbox')->add((new ItemEffect())
+            ->addSpawnList(['money_#00', 'rp_book_#00', 'rp_book_#01', 'rp_sheets_#00'])
+        )->commit();
+
+        $effects_container->add()->identifier('spawn_gamebox')->add((new ItemEffect())
+            ->addSpawnList(['dice_#00', 'cards_#00'])
+        )->commit();
+
+        $effects_container->add()->identifier('spawn_abox')->add((new ItemEffect())
+            ->addSpawn('bplan_r_#00')
+        )->commit();
+
+        $effects_container->add()->identifier('spawn_cbox')->add((new ItemEffect())
+            ->addSpawn('bplan_c_#00', 50)
+            ->addSpawn('bplan_u_#00', 35)
+            ->addSpawn('bplan_r_#00', 10)
+            ->addSpawn('bplan_e_#00', 5)
+        )->commit();
+
+        $effects_container->add()->identifier('spawn_xmas_dv')->add((new ItemEffect())
+            ->addSpawnList(['omg_this_will_kill_you_#00', 'pocket_belt_#00', 'christmas_candy_#00'], 8)
+            ->addSpawnList(['rp_manual_#00', 'rp_sheets_#00', 'rp_letter_#00', 'rp_scroll_#00', 'rp_book_#00', 'rp_book_#01', 'rp_book2_#00'])
+        )->commit();
+        $effects_container->add()->identifier('spawn_xmas_3')->add((new ItemEffect())
+            ->addSpawnList(['omg_this_will_kill_you_#00'])
+        )->commit();
+        $effects_container->add()->identifier('spawn_xmas_2')->add((new ItemEffect())
+            ->addSpawnList(['christmas_candy_#00'])
+        )->commit();
+        $effects_container->add()->identifier('spawn_xmas_1')->add((new ItemEffect())
+            ->addSpawnList(['xmas_gift_#00'])
+        )->commit();
+        $effects_container->add()->identifier('spawn_matbox')->add((new ItemEffect())
+            ->addSpawnList(['wood2_#00', 'metal_#00'])
+        )->commit();
+
+        $effects_container->add()->identifier('spawn_metalbox')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetRucksack)
+            ->addSpawn('bandage_#00', 28)
+            ->addSpawn('vodka_#00', 20)
+            ->addSpawnList(['drug_hero_#00', 'drug_#00'], 16)
+            ->addSpawnList(['explo_#00', 'rhum_#00'], 8)
+            ->addSpawn('lights_#00', 4)
+        )->commit();
+        $effects_container->add()->identifier('spawn_metalbox2')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetRucksack)
+            ->addSpawnList(['mixergun_part_#00','watergun_opt_part_#00'], 19)
+            ->addSpawnList(['pocket_belt_#00', 'chainsaw_part_#00', 'lawn_part_#00'], 12)
+            ->addSpawnList(['pilegun_upkit_#00', 'cutcut_#00'], 10)
+            ->addSpawn('big_pgun_part_#00', 7)
+        )->commit();
+        $effects_container->add()->identifier('spawn_catbox')->add((new ItemEffect())
+            ->addSpawnList(['poison_part_#00', 'pet_cat_#00', 'angryc_#00'])
+        )->commit();
+        $effects_container->add()->identifier('spawn_toolbox')->add((new ItemEffect())
+            ->addSpawn('pharma_#00', 25)
+            ->addSpawn('explo_#00', 19)
+            ->addSpawn('meca_parts_#00', 17)
+            ->addSpawn('rustine_#00', 13)
+            ->addSpawn('tube_#00', 13)
+            ->addSpawn('pile_#00', 12)
+        )->commit();
+        $effects_container->add()->identifier('spawn_foodbox')->add((new ItemEffect())
+            ->addSpawn('hmeat_#00', 13)
+            ->addSpawn('can_#00', 11)
+            ->addSpawnList(['food_bag_#00', 'vegetable_#00'], 8)
+            ->addSpawn('meat_#00', 7)
+        )->commit();
+        $effects_container->add()->identifier('spawn_phone')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetFloor)
+            ->addSpawnList(['deto_#00', 'metal_bad_#00', 'pile_broken_#00', 'electro_#00'])
+        )->commit();
+        $effects_container->add()->identifier('spawn_phone_nw')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetRucksack)
+            ->addSpawnList(['deto_#00', 'metal_bad_#00', 'pile_broken_#00', 'electro_#00'])
+        )->commit();
+        $effects_container->add()->identifier('spawn_proj')->add((new ItemEffect())
+            ->addSpawn('lens_#00')
+        )->commit();
+        $effects_container->add()->identifier('spawn_empty_battery')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetFloor)
+            ->addSpawn('pile_broken_#00')
+        )->commit();
+        $effects_container->add()->identifier('spawn_battery')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetFloor)
+            ->addSpawn('pile_#00')
+        )->commit();
+        $effects_container->add()->identifier('spawn_safe')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetRucksack)
+            ->addSpawn('pocket_belt_#00', 15)
+            ->addSpawnList(['watergun_opt_part_#00', 'lawn_part_#00', 'chainsaw_part_#00', 'mixergun_part_#00', 'cutcut_#00', 'pilegun_upkit_#00', 'meca_parts_#00'], 10)
+            ->addSpawnList(['big_pgun_part_#00', 'book_gen_letter_#00'], 5)
+        )->commit();
+        $effects_container->add()->identifier('spawn_asafe')->add((new ItemEffect())
+            ->addSpawn('bplan_e_#00')
+        )->commit();
+
+        $effects_container->add()->identifier('spawn_meat_4xs')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetFloorOnly)
+            ->addSpawn('meat_#00', count: 4)
+        )->commit();
+        $effects_container->add()->identifier('spawn_meat_4x')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetFloorOnly)
+            ->addSpawn('undef_#00', count: 4)
+        )->commit();
+        $effects_container->add()->identifier('spawn_meat_2xs')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetFloorOnly)
+            ->addSpawn('meat_#00', count: 2)
+        )->commit();
+        $effects_container->add()->identifier('spawn_meat_2x')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetFloorOnly)
+            ->addSpawn('undef_#00', count: 2)
+        )->commit();
+        $effects_container->add()->identifier('spawn_meat_bmb')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetFloorOnly)
+            ->addSpawn('flesh_#00', count: 2)
+        )->commit();
+
+        $effects_container->add()->identifier('spawn_potion')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetFloorOnly)
+            ->addSpawn('potion_#00')
+        )->commit();
+
+        $effects_container->add()->identifier('spawn_2_watercup')->add((new ItemEffect())
+            ->addSpawn('water_cup_#00', count: 2)
+        )->commit();
+        $effects_container->add()->identifier('spawn_2_water')->add((new ItemEffect())
+            ->addSpawn('water_#00', count: 2)
+        )->commit();
+        $effects_container->add()->identifier('spawn_3_water')->add((new ItemEffect())
+            ->addSpawn('water_#00', count: 3)
+        )->commit();
+        //</editor-fold>
+
         //<editor-fold desc="Various">
         $effects_container->add()->identifier('find_rp')->add(new RolePlayTextEffect())->commit();
         //</editor-fold>
 
-        // INCOMPLETE
+        // Composite
         $effects_container->add()->identifier('break_item')
             ->add((new PictoEffect())->picto('r_broken_#00'))
             ->add((new MessageEffect())->text('Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...')->order(100))
@@ -1585,15 +1698,30 @@ class ActionDataService implements FixtureProcessorInterface {
             ->commit();
 
         $effects_container->add()->identifier('home_lab_success')
+            ->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetFloor)
+                ->addSpawn('drug_hero_#00')
+            )
             ->add((new PictoEffect())->picto('r_drgmkr_#00'))
             ->add((new MessageEffect())->text( Arr::get($data,'message_keys.use_lab_success')))
             ->commit();
 
         $effects_container->add()->identifier('home_lab_failure')
+            ->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetFloor)
+                ->addSpawnList(['drug_#00', 'xanax_#00', 'drug_random_#00', 'drug_water_#00', 'water_cleaner_#00'])
+            )
             ->add((new MessageEffect())->text( Arr::get($data,'message_keys.use_lab_fail')))->commit();
 
         $effects_container->add()->identifier('home_kitchen_success')
+            ->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetFloor)
+                ->addSpawn('dish_tasty_#00')
+            )
             ->add((new PictoEffect())->picto('r_cookr_#00'))
+            ->commit();
+
+        $effects_container->add()->identifier('home_kitchen_failure')
+            ->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetFloor)
+                ->addSpawn('dish_#00')
+            )
             ->commit();
 
         $data['meta_results'] = array_merge_recursive(

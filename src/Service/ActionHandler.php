@@ -5,7 +5,6 @@ namespace App\Service;
 
 
 use App\Entity\ActionCounter;
-use App\Entity\AffectItemSpawn;
 use App\Entity\BuildingPrototype;
 use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
@@ -611,82 +610,6 @@ class ActionHandler
                 }
             }
 
-            if ($item_spawn = $result->getSpawn()) {
-                for ($i = 0; $i < $item_spawn->getCount(); $i++ ) {
-                    $proto = null;
-                    if ($p = $item_spawn->getPrototype())
-                        $proto = $p;
-                    elseif ($g = $item_spawn->getItemGroup())
-                        $proto = $this->random_generator->pickItemPrototypeFromGroup( $g, $town_conf, $this->conf->getCurrentEvents( $citizen->getTown() ) );
-
-                    $force = false;
-
-                    switch ($item_spawn->getSpawnTarget()) {
-                        case AffectItemSpawn::DropTargetFloor:
-                            $targetInv = [ $floor_inventory, $citizen->getInventory(), $floor_inventory ];
-                            $force = true;
-                            break;
-                        case AffectItemSpawn::DropTargetFloorOnly:
-                            $targetInv = [ $floor_inventory ];
-                            $force = true;
-                            break;
-                        case AffectItemSpawn::DropTargetRucksack:
-                            $targetInv = [ $citizen->getInventory() ];
-                            $force = true;
-                            break;
-                        case AffectItemSpawn::DropTargetPreferRucksack:
-                            $targetInv = [ $citizen->getInventory(), $floor_inventory ];
-                            $force = true;
-                            break;
-                        case AffectItemSpawn::DropTargetDefault:
-                        default:
-                            $targetInv = [$cache->originalInventory ?? null, $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
-                            break;
-                    }
-
-                    if ($proto) {
-                        if ($this->proxyService->placeItem( $citizen, $this->item_factory->createItem( $proto ), $targetInv, $force)) {
-                            $cache->addSpawnedItem($proto);
-                        } else {
-                            // TODO: Get the actual error (not enough place, too many heavy items, etc...)
-                            return self::ErrorActionImpossible;
-                        }
-                    }
-                }
-            }
-
-            if ($item_consume = $result->getConsume()) {
-                $source = $citizen->getZone() ? [$citizen->getInventory()] : [$citizen->getInventory(), $citizen->getHome()->getChest()];
-				$requirements = $action->getRequirements();
-				$item_req = null;
-				foreach ($requirements as $requirement)
-                    if ($requirement->getAtoms()) {
-                        $container = (new RequirementsDataContainer())->fromArray([['atomList' => $requirement->getAtoms()]]);
-                        foreach ( $container->findRequirements( ItemRequirement::class ) as $item_requirement ) {
-                            /** @var ItemRequirement|null $item_requirement */
-                            if ($item_requirement->item !== $item_consume->getPrototype()->getName()) continue;
-                            $item_req = $item_requirement;
-                        }
-                    }
-
-				$poison = ($item_req?->poison || $this->conf->getTownConfiguration($citizen->getTown())->get( TownConf::CONF_MODIFIER_POISON_TRANS, false )) ? null : false;
-                $items = $this->inventory_handler->fetchSpecificItems( $source,
-                    [new ItemRequest( name: $item_consume->getPrototype()->getName(), count: $item_consume->getCount(), poison: $poison )]);
-
-                foreach ($items as $consume_item) {
-
-                    if ($consume_item->getPoison()->poisoned()) {
-                        if ($consume_item->getPoison() === ItemPoisonType::Deadly && ($action->getPoisonHandler() & ItemAction::PoisonHandlerConsume) > 0) $kill_by_poison = true;
-                        if ($consume_item->getPoison() === ItemPoisonType::Infectious && ($action->getPoisonHandler() & ItemAction::PoisonHandlerConsume) > 0) $infect_by_poison = true;
-                        if ($action->getPoisonHandler() & ItemAction::PoisonHandlerTransgress) $spread_poison = $town_conf->get( TownConf::CONF_MODIFIER_POISON_TRANS, false ) ? $consume_item->getPoison() : ItemPoisonType::None;
-                    }
-
-                    $this->inventory_handler->forceRemoveItem( $consume_item );
-                    $cache->addConsumedItem($consume_item);
-                    $cache->addTag('item-consumed');
-                }
-            }
-
             if ($result->getCustom())
             {
                 $ap     = false;
@@ -1247,7 +1170,7 @@ class ActionHandler
                     AtomEffectProcessor::process( $this->container, $cache, $effectsDataElement->atomList );
             }
 
-            return self::ErrorNone;
+            return $cache->getRegisteredError() ?? self::ErrorNone;
         };
 
         $results = $action->getResults()->getValues();
@@ -1262,14 +1185,15 @@ class ActionHandler
             if($res !== self::ErrorNone) return $res;
         }
 
-        if ($spread_poison->poisoned())
-            $item?->setPoison($spread_poison->mix( $spread_poison ));
+        foreach (ItemPoisonType::cases() as $pt)
+            if ($pt->poisoned() && $cache->isFlagged("transgress_poison_{$pt->value}"))
+                $item?->setPoison($spread_poison = $spread_poison->mix( $pt ));
 
-        if ($kill_by_poison && $citizen->getAlive()) {
+        if (($kill_by_poison || $cache->isFlagged('kill_by_poison')) && $citizen->getAlive()) {
             $this->death_handler->kill( $citizen, CauseOfDeath::Poison, $r );
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
             $cache->clearMessages();
-        } elseif ($infect_by_poison && $citizen->getAlive()) {
+        } elseif ($infect_by_poison || ($cache->isFlagged('infect_by_poison')) && $citizen->getAlive()) {
             $this->citizen_handler->inflictStatus( $citizen, 'infection' );
         } elseif ($random_by_poison && $citizen->getAlive() && $this->random_generator->chance(0.5)) {
 
