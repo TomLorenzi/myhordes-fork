@@ -1484,9 +1484,9 @@ class ActionDataService implements FixtureProcessorInterface {
         $effects_container->add()->identifier('do_nothing_attack')->add((new MessageEffect())->text('Mit aller Kraft schlägst du mehrmals auf einen Zombie ein, aber <strong>es scheint ihm nichts anzuhaben</strong>!'))->commit();
         $effects_container->add()->identifier('do_nothing_attack2')->add((new MessageEffect())->text('Sie greifen einen Zombie mit Ihrem {item} an, aber <strong>er reagiert nicht einmal</strong> und macht weiter!'))->commit();
         $effects_container->add()->identifier('msg_effect_para')->add((new MessageEffect())->text('Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.'))->commit();
-        $effects_container->add()->identifier('msg_battery_use')->add((new MessageEffect())->text(Arr::get($data,'message_keys.battery_use')))->commit();
-        $effects_container->add()->identifier('msg_battery_drop')->add((new MessageEffect())->text(Arr::get($data,'message_keys.battery_dropped')))->commit();
-        $effects_container->add()->identifier('msg_battery_destroy')->add((new MessageEffect())->text(Arr::get($data,'message_keys.battery_destroyed')))->commit();
+        $effects_container->add()->identifier('msg_battery_use')->add((new MessageEffect())->text(Arr::get($data,'message_keys.battery_use'))->order(100))->commit();
+        $effects_container->add()->identifier('msg_battery_drop')->add((new MessageEffect())->text(Arr::get($data,'message_keys.battery_dropped'))->order(100))->commit();
+        $effects_container->add()->identifier('msg_battery_destroy')->add((new MessageEffect())->text(Arr::get($data,'message_keys.battery_destroyed'))->order(100))->commit();
         $effects_container->add()->identifier('msg_throw_jerrycan')->add((new MessageEffect())->text('<nt-morphed>Gute Nachrichten: Es ist noch Wasser im Kanister!</nt-morphed><t-morphed><strong>Der Kanister ist LEER</strong>!</t-morphed>'))->commit();
         $effects_container->add()->identifier('msg_heroic_arma_fail')->add((new MessageEffect())->text(Arr::get($data,'message_keys.heroic_arma_fail')))->commit();
         $effects_container->add()->identifier('msg_heroic_arma_success')->add((new MessageEffect())->text(Arr::get($data,'message_keys.heroic_arma_success')))->commit();
@@ -1497,18 +1497,18 @@ class ActionDataService implements FixtureProcessorInterface {
         $effects_container->add()->identifier('msg_drug_candy_addict')->add((new MessageEffect())->text('Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-addict>{hr}Du bist jetzt ein Süchtiger!</t-stat-up-addict>'))->commit();
         $effects_container->add()->identifier('msg_drug_candy_terror')->add((new MessageEffect())->text('Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-terror>{hr}Du bist vor Angst erstarrt!</t-stat-up-terror>'))->commit();
         $effects_container->add()->identifier('msg_drug_candy_infect')->add((new MessageEffect())->text('Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-infection>{hr}Du bist jetzt infiziert!</t-stat-up-infection>'))->commit();
-        $effects_container->add()->identifier('msg_break_item')->add((new MessageEffect())->text('Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...'))->commit();
+        $effects_container->add()->identifier('msg_break_item')->add((new MessageEffect())->text('Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...')->order(100))->commit();
         //</editor-fold>
 
         // INCOMPLETE
         $effects_container->add()->identifier('break_item')
-            ->add((new MessageEffect())->text('Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...'))->commit();
+            ->add((new MessageEffect())->text('Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...')->order(100))->commit();
         $effects_container->add()->identifier('eat_ap6')
             ->add((new MessageEffect())->escort(false)->text( 'Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...'))->commit();
         $effects_container->add()->identifier('eat_ap7')
             ->add((new MessageEffect())->escort(false)->text( 'Einmal ist zwar keinmal, dennoch genießt du dein(e) <span class="tool">{item}</span>. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast <strong>1 zusätzlichen AP erhalten!</strong>'))->commit();
         $effects_container->add()->identifier('drug_addict')
-            ->add((new MessageEffect())->text( '<t-stat-up-addict>Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!</t-stat-up-addict>'))->commit();
+            ->add((new MessageEffect())->text( '<t-stat-up-addict>Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!</t-stat-up-addict>')->order(100))->commit();
         $effects_container->add()->identifier('infect')
             ->add((new MessageEffect())->text( 'Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!'))->commit();
         $effects_container->add()->identifier('kill_1_zombie')
