@@ -15,6 +15,7 @@ use App\Service\Actions\Game\AtomProcessors\Require\Custom\RoleVote;
 use App\Structures\TownConf;
 use ArrayHelpers\Arr;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\MessageEffect;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\PictoEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\BuildingRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\ConfigRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\CounterRequirement;
@@ -279,7 +280,7 @@ class ActionDataService implements FixtureProcessorInterface {
                 'contaminated_zone_infect'  => [ 'collection' => [ 'custom' => [22] ] ],
 
                 'consume_item'    => [ 'item' => [ 'consume' => true,  'morph' => null, 'break' => null, 'poison' => null ] ],
-                'break_item'      => [ 'collection' => ['item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => null ], 'picto' => 'picto_break']],
+                'break_item'      => [ 'collection' => ['item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => null ]]],
                 'cleanse_item'    => [ 'item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => false ] ],
                 'empty_jerrygun'  => [ 'item' => [ 'consume' => false, 'morph' => 'jerrygun_off_#00', 'break' => null, 'poison' => null ] ],
 
@@ -305,11 +306,11 @@ class ActionDataService implements FixtureProcessorInterface {
                 'eat_ap6_silent' => [ 'status' => 'add_has_eaten', 'ap' => 'to_max_plus_0' ],
                 'eat_ap7'     => [ 'collection' => ['status' => 'add_has_eaten', 'ap' => 'to_max_plus_1'] ],
 
-                'drunk' => [ 'status' => 'add_drunk', 'picto' => ['r_alcool_#00']],
+                'drunk' => [ 'status' => 'add_drunk' ],
 
-                'drug_any'              => [ 'status' => 'add_is_drugged', 'picto' => ['r_drug_#00'] ],
-                'drug_addict'           => [ 'collection' => ['status' => 'add_addicted', 'picto' => ['r_drug_#00']] ],
-                'drug_addict_no_msg'    => [ 'status' => 'add_addicted', 'picto' => ['r_drug_#00'] ],
+                'drug_any'              => [ 'status' => 'add_is_drugged' ],
+                'drug_addict'           => [ 'status' => 'add_addicted' ],
+                'drug_addict_no_msg'    => [ 'status' => 'add_addicted' ],
                 'terrorize'             => [ 'status' => 'add_terror' ],
                 'unterrorize'           => [ 'status' => 'remove_terror' ],
 
@@ -385,10 +386,10 @@ class ActionDataService implements FixtureProcessorInterface {
                 'camp_unhide' => [ 'status' => [ 'from' => 'tg_hide', 'to' => null ] ],
                 'camp_untomb' => [ 'status' => [ 'from' => 'tg_tomb', 'to' => null ] ],
 
-                'home_lab_success' => [ 'spawn' => 'lab_success_drugs', 'picto' => ['r_drgmkr_#00'] ],
+                'home_lab_success' => [ 'spawn' => 'lab_success_drugs' ],
                 'home_lab_failure' => [ 'spawn' => 'lab_fail_drugs' ],
 
-                'home_kitchen_success' => [ 'spawn' => 'kitchen_success_food', 'picto' => ['r_cookr_#00'] ],
+                'home_kitchen_success' => [ 'spawn' => 'kitchen_success_food' ],
                 'home_kitchen_failure' => [ 'spawn' => 'kitchen_fail_food' ],
             ],
 
@@ -448,9 +449,7 @@ class ActionDataService implements FixtureProcessorInterface {
                     'satisfy_ghoul_10' => [ 'hunger' => -15 ],
                 ],
                 'item' => [],
-                'picto' => [
-                    'picto_break' => ['r_broken_#00']
-                ],
+                'picto' => [],
 
                 'spawn' => [
                     'xmas_dv' => [ ['omg_this_will_kill_you_#00', 8], ['pocket_belt_#00', 8], ['christmas_candy_#00', 8], 'rp_manual_#00', 'rp_sheets_#00', 'rp_letter_#00', 'rp_scroll_#00', 'rp_book_#00', 'rp_book_#01', 'rp_book2_#00' ],
@@ -633,41 +632,41 @@ class ActionDataService implements FixtureProcessorInterface {
                 'cyanide'    => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_before_day_2' ], 'result' => [ 'contaminated_zone_infect', 'cyanide', 'consume_item' ] ],
 
                 'bandage' => [ 'label' => 'Verbinden', 'at00' => true, 'meta' => [ 'is_wounded', 'is_not_bandaged' ], 'result' => [ 'heal_wound', 'consume_item', 'add_bandage' ], 'message' => 'So, zur Desinfektion nur noch draufspucken und hopp: Sieht wie neu aus!' ],
-                'emt'     => [ 'label' => 'Einsetzen', 'at00' => true, 'meta' => [ 'is_not_wounded' ], 'result' => [ 'just_ap6', 'inflict_wound', ['item' => [ 'consume' => false, 'morph' => 'sport_elec_empty_#00' ]], ['picto' => ['r_maso_#00']] ], 'message' => 'Es geht doch nichts über einen schönen Stromstoß in die Wirbelsäule, um so richtig wach zu werden! Aber irgendwie riecht es jetzt hier nach verbranntem Fleisch...' ],
+                'emt'     => [ 'label' => 'Einsetzen', 'at00' => true, 'meta' => [ 'is_not_wounded' ], 'result' => [ 'just_ap6', 'inflict_wound', 'picto_masochism', ['item' => [ 'consume' => false, 'morph' => 'sport_elec_empty_#00' ]] ], 'message' => 'Es geht doch nichts über einen schönen Stromstoß in die Wirbelsäule, um so richtig wach zu werden! Aber irgendwie riecht es jetzt hier nach verbranntem Fleisch...' ],
 
-                'drug_rand_1'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
+                'drug_rand_1'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', 'picto_drug_exp', ['group' => [
                     [ ['drug_any', 'just_ap6', 'msg_drug_normal_ap'], 40 ],
                     [ ['drug_any', 'terrorize', 'msg_drug_terror'], 20 ],
                     [ ['drug_any', 'drug_addict', 'just_ap7', 'msg_drug_addict_ap'], 20 ],
                     [ ['do_nothing', 'msg_drug_no_effect'], 20 ],
                 ]] ] ] ,
-                'drug_rand_2'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
+                'drug_rand_2'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', 'picto_drug_exp', ['group' => [
                     [ ['drug_addict', 'just_ap6', 'msg_drug_normal_ap'], 40 ],
                     [ ['drug_addict', 'terrorize', 'msg_drug_terror'], 20 ],
                     [ ['drug_addict', 'just_ap7', 'msg_drug_addict_ap'], 20 ],
                     [ ['do_nothing', 'msg_drug_no_effect'], 20 ],
                 ]] ] ] , /* Unlabelled drugs, based on Igloo stats (1 894 test) */
-                'drug_lsd_1'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
+                'drug_lsd_1'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', 'picto_drug_exp', ['group' => [
                     [ ['drug_any', 'just_ap6', 'msg_drug_normal_ap'], 75 ],
                     [ ['drug_any', 'just_ap6', 'terrorize', 'msg_drug_terror'], 25 ],
                 ]] ] ] ,
-                'drug_lsd_2'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
+                'drug_lsd_2'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', 'picto_drug_exp', ['group' => [
                     [ ['drug_addict', 'just_ap6', 'msg_drug_normal_ap'], 75 ],
                     [ ['drug_addict', 'just_ap6', 'terrorize', 'msg_drug_terror'], 25 ],
                 ]] ] ] ,
-                'drug_beta_bad_1'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
+                'drug_beta_bad_1'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', 'picto_drug_exp', ['group' => [
                     [ ['drug_any', 'just_ap6', 'msg_drug_normal_ap'], 4 ],
                     [ ['drug_any', 'terrorize', 'msg_drug_terror'], 2 ],
                     [ ['drug_any', 'drug_addict', 'just_ap7', 'msg_drug_addict_ap'], 2 ],
                     [ ['do_nothing', 'msg_drug_no_effect'], 2 ],
                 ]] ] ] ,
-                'drug_beta_bad_2'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
+                'drug_beta_bad_2'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', 'picto_drug_exp', ['group' => [
                     [ ['drug_addict', 'just_ap6', 'msg_drug_normal_ap'], 4 ],
                     [ ['drug_addict', 'terrorize', 'msg_drug_terror'], 2 ],
                     [ ['drug_addict', 'just_ap7', 'msg_drug_addict_ap'], 2 ],
                     [ ['do_nothing', 'msg_drug_no_effect'], 2 ],
                 ]] ] ] ,
-                'drug_rand_xmas' => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
+                'drug_rand_xmas' => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', 'picto_drug_exp', ['group' => [
                     [ ['plus_ap8_30', 'drug_addict_no_msg', 'msg_drug_candy_addict'], 18 ],
                     [ ['plus_ap8_30', 'terrorize', 'msg_drug_candy_terror'], 50 ],
                     [ ['plus_ap8_30', 'infect_no_msg', 'msg_drug_candy_infect'], 30 ],
@@ -774,11 +773,11 @@ class ActionDataService implements FixtureProcessorInterface {
                 'fire_splash1'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'watergun_empty_#00',     'consume' => false] ], 'kill_1_zombie' ] ],
                 'fire_ksplash'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'kalach_#01',             'consume' => false] ], 'kill_3_zombie' ] ],
 
-                'throw_animal'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'consume_item', 'kill_1_zombie_s', ['picto' => ['r_animal_#00']] ], 'message_key' => 'throw_animal' ],
-                'throw_animal_cat'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'], 80], [['consume_item', ['picto' => ['r_animal_#00']]], 20] ] ], 'kill_1_zombie_s' ], 'message_key' => 'throw_animal' ], /* based on Igloo stats (5 288 tests) */
-                'throw_animal_dog'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'], 90], [['consume_item', ['picto' => ['r_animal_#00']]], 10] ] ], 'kill_1_zombie_s' ], 'message_key' => 'throw_animal' ], /* based on Hordes data */
-                'throw_animal_tekel'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'], 85], [['consume_item', ['picto' => ['r_animal_#00']]], 15] ] ], 'kill_1_zombie_s' ], 'message_key' => 'throw_animal' ], /* Hordes was at 5% of fail */
-                'throw_animal_angryc' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'consume_item', [ 'group' => [ [['inflict_wound'], 50], [[ 'kill_all_zombie'], 50] ] ], ['picto' => ['r_animal_#00']] ], 'message' => '<nt-kills>Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dir. Das Tier springt dir an die Kehle und vergräbt seine Krallen tief in deinem Fleisch.</nt-kills><t-kills>Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dem abartigen Gestank der Zombies. Mit mehr Zerstörungskraft als der Duracell-Hase und das Killer-Kaninchen von Caerbannog hat sie die Zone komplett bereinigt.</t-kills>' ], /* based on Hordes data */
+                'throw_animal'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'consume_item', 'kill_1_zombie_s', 'picto_animal' ], 'message_key' => 'throw_animal' ],
+                'throw_animal_cat'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'], 80], [['consume_item', 'picto_animal'], 20] ] ], 'kill_1_zombie_s' ], 'message_key' => 'throw_animal' ], /* based on Igloo stats (5 288 tests) */
+                'throw_animal_dog'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'], 90], [['consume_item', 'picto_animal'], 10] ] ], 'kill_1_zombie_s' ], 'message_key' => 'throw_animal' ], /* based on Hordes data */
+                'throw_animal_tekel'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'], 85], [['consume_item', 'picto_animal'], 15] ] ], 'kill_1_zombie_s' ], 'message_key' => 'throw_animal' ], /* Hordes was at 5% of fail */
+                'throw_animal_angryc' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'consume_item', 'picto_animal', [ 'group' => [ [['inflict_wound'], 50], [[ 'kill_all_zombie'], 50] ] ] ], 'message' => '<nt-kills>Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dir. Das Tier springt dir an die Kehle und vergräbt seine Krallen tief in deinem Fleisch.</nt-kills><t-kills>Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dem abartigen Gestank der Zombies. Mit mehr Zerstörungskraft als der Duracell-Hase und das Killer-Kaninchen von Caerbannog hat sie die Zone komplett bereinigt.</t-kills>' ], /* based on Hordes data */
 
                 'throw_b_machine_1'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => 'g_break_40'], 'kill_1_zombie' ] ], /* based on Hordes data */
                 'throw_b_bone'          => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => 'g_break_80'], 'kill_1_zombie' ] ], /* based on Hordes data */
@@ -831,10 +830,10 @@ class ActionDataService implements FixtureProcessorInterface {
 
                 'read_banned_note' => [ 'label' => 'Lesen', 'cover' => true, 'at00' => true, 'meta' => [], 'result' => [ 'consume_item', 'casino_banned_note' ], 'message' => 'Der Text ist überschrieben mit {item}. Du beginnst, ihn zu lesen.<t-bannote_ok>Diese gekritzelte Notiz gehörte früher einem verbanntem Bürger... Das einzige, was du lesen kannst, ist "{zone}"... Seltsam. Du zerstörst die Seite, nur um sicherzugehen, dass niemand die Nachricht liest...</t-bannote_ok><t-bannote_fail>Leider ist der Inhalt dieses Manuskripts völlig unleserlich.</t-bannote_fail>' ],
 
-                'vibrator' => [ 'label' => 'Verwenden', 'meta' => [ 'must_be_inside', 'must_be_terrorized' ], 'result' => [ 'unterrorize', ['item' => ['morph' => 'vibr_empty_#00', 'consume' => false]], ['picto' => ['r_maso_#00']] ], 'message' => 'Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.' ],
+                'vibrator' => [ 'label' => 'Verwenden', 'meta' => [ 'must_be_inside', 'must_be_terrorized' ], 'result' => [ 'unterrorize', 'picto_masochism', ['item' => ['morph' => 'vibr_empty_#00', 'consume' => false]] ], 'message' => 'Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.' ],
 
-                'watercup_1' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_inside', 'must_have_micropur_in', 'must_not_have_purifier', 'must_not_have_filter', 'must_not_be_banished' ], 'result' => [ 'consume_micropur', 'consume_item', ['spawn' => [ ['water_cup_#00', 2] ], 'picto' => ['r_solban_#00'] ] ], 'message_key' => 'item_clean_watercup' ],
-                'watercup_2' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_micropur' ], 'result' => [ 'consume_micropur', 'consume_item', ['spawn' => [ ['water_cup_#00', 2] ], 'picto' => ['r_solban_#00'] ] ], 'message_key' => 'item_clean_watercup' ],
+                'watercup_1' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_inside', 'must_have_micropur_in', 'must_not_have_purifier', 'must_not_have_filter', 'must_not_be_banished' ], 'result' => [ 'consume_micropur', 'consume_item', 'picto_ban_emanc', ['spawn' => [ ['water_cup_#00', 2] ] ] ], 'message_key' => 'item_clean_watercup' ],
+                'watercup_2' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_micropur' ], 'result' => [ 'consume_micropur', 'consume_item', 'picto_ban_emanc', ['spawn' => [ ['water_cup_#00', 2] ] ] ], 'message_key' => 'item_clean_watercup' ],
                 'watercup_3' => [ 'label' => 'In den Brunnen schütten', 'meta' => [ 'must_be_inside', 'must_have_purifier', 'must_not_be_banished' ], 'result' => [ 'consume_item', [ 'well' => [ 'min' => 2, 'max' => 2 ] ] ], 'message_key' => 'water_to_well' ],
                 'jerrycan_1' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_inside', 'must_have_micropur_in', 'must_not_have_purifier', 'must_not_be_banished' ], 'result' => [ 'consume_micropur', 'consume_item', ['group' => [
                     [ [ ['spawn' => [ 'what' => [['water_#00', 2]], 'where' => AffectItemSpawn::DropTargetPreferRucksack ] ] ], 1 ],
@@ -843,19 +842,18 @@ class ActionDataService implements FixtureProcessorInterface {
                 'jerrycan_2' => [ 'label' => 'In den Brunnen schütten', 'meta' => [ 'must_be_inside', 'must_have_purifier', 'must_not_have_filter', 'must_not_be_banished' ], 'result' => [ 'consume_item', [ 'well' => [ 'min' => 1, 'max' => 3 ] ] ], 'message_key' => 'water_to_well' ],
                 'jerrycan_3' => [ 'label' => 'In den Brunnen schütten', 'meta' => [ 'must_be_inside', 'must_have_filter', 'must_not_be_banished' ], 'result' => [ 'consume_item', [ 'well' => [ 'min' => 4, 'max' => 9 ] ] ], 'message_key' => 'water_to_well' ],
 
-                'watercup_1b' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_inside',  'must_have_micropur_in', 'must_be_banished' ], 'result' => [ 'consume_micropur', 'consume_item', ['spawn' => [ ['water_cup_#00', 2] ], 'picto' => ['r_solban_#00'] ] ], 'message_key' => 'item_clean_watercup' ],
+                'watercup_1b' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_inside',  'must_have_micropur_in', 'must_be_banished' ], 'result' => [ 'consume_micropur', 'consume_item', 'picto_ban_emanc', ['spawn' => [ ['water_cup_#00', 2] ] ] ], 'message_key' => 'item_clean_watercup' ],
                 'jerrycan_1b' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_inside', 'must_have_micropur_in', 'must_be_banished' ], 'result' => [ 'consume_micropur', 'consume_item', ['group' => [
                     [ [ ['spawn' => [ ['water_#00', 2] ] ] ], 1 ],
                     [ [ ['spawn' => [ ['water_#00', 3] ] ] ], 1 ]
                 ]] ], 'message_key' => 'item_clean' ],
 
-                'home_def_plus'    => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item',
-                    ['home' => ['def' => 1]], ['picto' => ['r_hbuild_#00']]], 'message' => 'Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament <strong>{home_defense} zusätzliche Verteidigungspunkt(e).</strong>'],
-                'home_store_plus'  => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['home' => ['store' => 1]], ['picto' => ['r_hbuild_#00']]], 'message' => 'Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: <strong>{home_storage}</strong>.'],
-                'home_store_plus2' => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['home' => ['store' => 2]], ['picto' => ['r_hbuild_#00']]], 'message' => 'Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: <strong>{home_storage}</strong>.'],
+                'home_def_plus'    => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', 'picto_home_upgrade', ['home' => ['def' => 1]]], 'message' => 'Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament <strong>{home_defense} zusätzliche Verteidigungspunkt(e).</strong>'],
+                'home_store_plus'  => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', 'picto_home_upgrade', ['home' => ['store' => 1]]], 'message' => 'Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: <strong>{home_storage}</strong>.'],
+                'home_store_plus2' => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', 'picto_home_upgrade', ['home' => ['store' => 2]]], 'message' => 'Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: <strong>{home_storage}</strong>.'],
 
-                'repair_1' => [ 'label' => 'Reparieren mit', 'at00' => true, 'target' => ['broken' => true], 'meta' => [ 'min_1_ap', 'not_tired', 'is_not_wounded_hands_repair' ], 'result' => [ 'minus_1ap', 'consume_item', 'repair_target', ['picto' => ['r_repair_#00'] ] ], 'message' => 'Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.' ],
-                'repair_2' => [ 'label' => 'Reparieren mit', 'at00' => true, 'target' => ['broken' => true], 'meta' => [ 'min_1_ap', 'not_tired', 'is_not_wounded_hands_repair' ], 'result' => [ 'minus_1ap', ['item' => ['consume' => false, 'morph' => 'repair_kit_part_#00'], 'picto' => ['r_repair_#00'] ], 'repair_target' ], 'message' => 'Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.' ],
+                'repair_1' => [ 'label' => 'Reparieren mit', 'at00' => true, 'target' => ['broken' => true], 'meta' => [ 'min_1_ap', 'not_tired', 'is_not_wounded_hands_repair' ], 'result' => [ 'minus_1ap', 'consume_item', 'repair_target', 'picto_repair' ], 'message' => 'Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.' ],
+                'repair_2' => [ 'label' => 'Reparieren mit', 'at00' => true, 'target' => ['broken' => true], 'meta' => [ 'min_1_ap', 'not_tired', 'is_not_wounded_hands_repair' ], 'result' => [ 'minus_1ap', 'picto_repair', 'repair_target', ['item' => ['consume' => false, 'morph' => 'repair_kit_part_#00'] ] ], 'message' => 'Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.' ],
                 'poison_1' => [ 'label' => 'Vergiften mit', 'at00' => true,  'target' => ['type' => ItemTargetDefinition::ItemSelectionTypePoison, 'property' => 'can_poison', 'poison' => false], 'meta' => [ ],               'result' => [ 'consume_item', 'poison_target' ], 'message' => 'Du hast {target} mit {item} kombiniert und {target} erzeugt.{hr}Achtung: Du hast {target} vergiftet. Es ist <strong>nahezu unmöglich, es vom Original zu unterscheiden</strong>, sei also vorsichtig... Es liegt ganz an dir, was du damit jetzt tun möchtest.' ],
                 'poison_2' => [ 'label' => 'Vergiften mit', 'at00' => true,  'target' => ['type' => ItemTargetDefinition::ItemSelectionTypePoison, 'property' => 'can_poison', 'poison' => false], 'meta' => [ ],               'result' => [ 'consume_item', 'poison_infect_target' ], 'message' => 'Du hast {target} mit {item} kombiniert und {target} erzeugt.{hr}Achtung: Du hast {target} vergiftet. Es ist <strong>nahezu unmöglich, es vom Original zu unterscheiden</strong>, sei also vorsichtig... Es liegt ganz an dir, was du damit jetzt tun möchtest.' ],
 
@@ -871,14 +869,14 @@ class ActionDataService implements FixtureProcessorInterface {
                 'eat_fleshroom_1'  => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item', ['status' => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 25, 'force' => true, 'probability' => 4 ]] ], 'escort_message_key' => 'escort_food_eat' ], /* based on Hordes data */
                 'eat_fleshroom_2'  => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item' ], 'escort_message_key' => 'escort_food_eat' ],
 
-                'eat_meat_1'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', 'consume_item', ['picto' => ['r_cannib_#00'], 'status' => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 25, 'force' => true, 'probability' => 5 ]] ], 'message_key' => 'eat_human_meat', 'escort_message_key' => 'escort_food_eat' ], /* based on Hordes data */
-                'eat_meat_2'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', 'consume_item', ['picto' => ['r_cannib_#00'], 'status' => 'satisfy_ghoul_10' ] ], 'message_key' => 'eat_human_meat_ghoul', 'escort_message_key' => 'escort_food_eat' ],
+                'eat_meat_1'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', 'consume_item', 'picto_cannibal', ['status' => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 25, 'force' => true, 'probability' => 5 ]] ], 'message_key' => 'eat_human_meat', 'escort_message_key' => 'escort_food_eat' ], /* based on Hordes data */
+                'eat_meat_2'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', 'consume_item', 'picto_cannibal', ['status' => 'satisfy_ghoul_10' ] ], 'message_key' => 'eat_human_meat_ghoul', 'escort_message_key' => 'escort_food_eat' ],
 
-                'eat_bone_1'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'bone_#00'], 'group' => [ ['do_nothing', 47], [ 'infect', 50 ], [[['status' => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 25, 'force' => true, 'probability' => 100 ]]], 3] ]] ], 'message_key' => 'eat_human_meat' ], /* based on Hordes data */
-                'eat_bone_2'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'bone_#00'], 'status' => 'satisfy_ghoul_10' ] ], 'message_key' => 'eat_human_meat_ghoul' ],
+                'eat_bone_1'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', 'picto_cannibal', ['item' => ['consume' => false, 'morph' => 'bone_#00'], 'group' => [ ['do_nothing', 47], [ 'infect', 50 ], [[['status' => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 25, 'force' => true, 'probability' => 100 ]]], 3] ]] ], 'message_key' => 'eat_human_meat' ], /* based on Hordes data */
+                'eat_bone_2'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', 'picto_cannibal', ['item' => ['consume' => false, 'morph' => 'bone_#00'], 'status' => 'satisfy_ghoul_10' ] ], 'message_key' => 'eat_human_meat_ghoul' ],
 
-                'eat_cadaver_1' => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'cadaver_remains_#00'] ], ['group' => [ [ 'infect', 10 ], [[['status' => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 5, 'force' => true, 'probability' => 100 ]]], 90] ]] ] ], /* based on Hordes data */
-                'eat_cadaver_2' => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'cadaver_remains_#00'], 'status' => 'satisfy_ghoul_30' ] ], 'message_key' => 'eat_human_meat_ghoul' ],
+                'eat_cadaver_1' => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'picto_cannibal', ['item' => ['consume' => false, 'morph' => 'cadaver_remains_#00'] ], ['group' => [ [ 'infect', 10 ], [[['status' => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 5, 'force' => true, 'probability' => 100 ]]], 90] ]] ] ], /* based on Hordes data */
+                'eat_cadaver_2' => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', 'picto_cannibal', ['item' => ['consume' => false, 'morph' => 'cadaver_remains_#00'], 'status' => 'satisfy_ghoul_30' ] ], 'message_key' => 'eat_human_meat_ghoul' ],
 
                 'ghoul_serum' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'role_ghoul_serum' ], 'result' => [ 'consume_item', ['status' => 'heal_ghoul' ] ], 'message' => 'Unglaublich! Die ganze Gier, die dich innerlich aufgefressen hat, verschwindet langsam. Ist es wirklich möglich, dass du wieder ein Mensch geworden bist?' ],
 
@@ -961,12 +959,12 @@ class ActionDataService implements FixtureProcessorInterface {
                 'home_kitchen_3b' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook', 'poison' => false, 'broken' => false], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v3', 'must_have_canteen',     'kitchen_counter_below_5' ], 'result' => [ 'consume_target', [ 'status' => 'increase_kitchen_counter' ], 'home_kitchen_success' ], 'message_key' => 'use_kitchen' ],
                 'home_kitchen_4b' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook', 'poison' => false, 'broken' => false], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v4', 'must_have_canteen',     'kitchen_counter_below_6' ], 'result' => [ 'consume_target', [ 'status' => 'increase_kitchen_counter' ], 'home_kitchen_success' ], 'message_key' => 'use_kitchen' ],
 
-                'slaughter_4xs' => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', [ 'spawn' => 'meat_4xs' ], ['picto' => ['r_animal_#00']] ], 'message_key' => 'use_butcher' ],
-                'slaughter_2xs' => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', [ 'spawn' => 'meat_2xs' ], ['picto' => ['r_animal_#00']] ], 'message_key' => 'use_butcher' ],
-                'slaughter_4x'  => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', [ 'spawn' => 'meat_4x'  ], ['picto' => ['r_animal_#00']] ], 'message_key' => 'use_butcher' ],
-                'slaughter_2x'  => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', [ 'spawn' => 'meat_2x'  ], ['picto' => ['r_animal_#00']] ], 'message_key' => 'use_butcher' ],
-                'slaughter_bmb' => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', [ 'spawn' => 'meat_bmb' ], ['picto' => ['r_animal_#00']] ], 'message_key' => 'use_butcher' ],
-                'purify_soul' => [ 'label' => 'Läutern', 'meta' => [ 'must_be_inside', 'must_have_hammam' ], 'result' => [ 'consume_item', [ 'town' => ['def' => 5]], ['picto' => ['r_collec_#00']], ['globalpicto' => ['r_mystic_#00']]],  'message' => "Du hast die Seele gereinigt und sie friedlich gemacht."],
+                'slaughter_4xs' => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', 'picto_animal', [ 'spawn' => 'meat_4xs' ] ], 'message_key' => 'use_butcher' ],
+                'slaughter_2xs' => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', 'picto_animal', [ 'spawn' => 'meat_2xs' ] ], 'message_key' => 'use_butcher' ],
+                'slaughter_4x'  => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', 'picto_animal', [ 'spawn' => 'meat_4x'  ] ], 'message_key' => 'use_butcher' ],
+                'slaughter_2x'  => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', 'picto_animal', [ 'spawn' => 'meat_2x'  ] ], 'message_key' => 'use_butcher' ],
+                'slaughter_bmb' => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', 'picto_animal', [ 'spawn' => 'meat_bmb' ] ], 'message_key' => 'use_butcher' ],
+                'purify_soul' => [ 'label' => 'Läutern', 'meta' => [ 'must_be_inside', 'must_have_hammam' ], 'result' => [ 'consume_item', 'picto_soul_purify', [ 'town' => ['def' => 5]] ],  'message' => "Du hast die Seele gereinigt und sie friedlich gemacht."],
                 'brew_shamanic_potion' => ['label' => 'Herstellung eines Mystischern Trank', 'poison' => ItemAction::PoisonHandlerTransgress, 'tooltip' => 'Du kannst einen schamanischen Trank zubereiten, der den Rezipienten vor bösen Geistern schützt.', 'meta' => [ 'must_be_inside', 'have_water_shaman', 'min_1_pm', 'role_shaman' ], 'result' => ['consume_water', 'minus_1pm', ['spawn' => 'potion']], 'message' => 'Das ist ein Musterbeispiel eines schamanischen Tranks! Nun liegt es an die, der Stadt dessen Wirksamkeit zu vermitteln und sie von deinen schamanischen Fähigkeiten zu überzeugen.' ],
 
                 'home_rest_1'     => [ 'label' => 'Nickerchen machen', 'meta' => [ 'must_be_inside', 'must_have_home_rest_v1', 'not_yet_rested', 'no_full_ap_msg' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_rested' ], 'group' => [ ['plus_2ap_7', 33], [ 'do_nothing', 66 ] ] ] ], 'message_key' => 'use_bed' ],
@@ -989,8 +987,8 @@ class ActionDataService implements FixtureProcessorInterface {
                 'nw_empty_dildo'        => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'vibr_empty_#00',          'consume' => false]] ] ],
                 'nw_empty_watercan'     => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'water_can_empty_#00',     'consume' => false]] ] ],
                 'nw_empty_kalach'       => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'kalach_#01',              'consume' => false]] ] ],
-                'nw_meat'               => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'undef_#00',               'consume' => false]], ['picto' => ['r_animal_#00']] ] ],
-                'nw_meat_tasty'         => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'meat_#00',                'consume' => false]], ['picto' => ['r_animal_#00']] ] ],
+                'nw_meat'               => [ 'label' => '', 'meta' => [], 'result' => [ 'picto_animal', ['item' => ['morph' => 'undef_#00',               'consume' => false]] ] ],
+                'nw_meat_tasty'         => [ 'label' => '', 'meta' => [], 'result' => [ 'picto_animal', ['item' => ['morph' => 'meat_#00',                'consume' => false]] ] ],
             ],
 
             'heroics' => [
@@ -1500,29 +1498,72 @@ class ActionDataService implements FixtureProcessorInterface {
         $effects_container->add()->identifier('msg_break_item')->add((new MessageEffect())->text('Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...')->order(100))->commit();
         //</editor-fold>
 
+        //<editor-fold desc="PictoEffects">
+        $effects_container->add()->identifier('picto_drug_exp')->add((new PictoEffect())->picto('r_cobaye_#00'))->commit();
+        $effects_container->add()->identifier('picto_animal')->add((new PictoEffect())->picto('r_animal_#00'))->commit();
+        $effects_container->add()->identifier('picto_masochism')->add((new PictoEffect())->picto('r_maso_#00'))->commit();
+        $effects_container->add()->identifier('picto_ban_emanc')->add((new PictoEffect())->picto('r_solban_#00'))->commit();
+        $effects_container->add()->identifier('picto_home_upgrade')->add((new PictoEffect())->picto('r_hbuild_#00'))->commit();
+        $effects_container->add()->identifier('picto_repair')->add((new PictoEffect())->picto('r_repair_#00'))->commit();
+        $effects_container->add()->identifier('picto_cannibal')->add((new PictoEffect())->picto('r_cannib_#00'))->commit();
+        $effects_container->add()->identifier('picto_soul_purify')
+            ->add((new PictoEffect())->picto('r_collec_#00'))
+            ->add((new PictoEffect())->picto('r_mystic_#00')->forEntireTown(true))
+            ->commit();
+        //</editor-fold>
+
         // INCOMPLETE
         $effects_container->add()->identifier('break_item')
-            ->add((new MessageEffect())->text('Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...')->order(100))->commit();
+            ->add((new PictoEffect())->picto('r_broken_#00'))
+            ->add((new MessageEffect())->text('Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...')->order(100))
+            ->commit();
+
+        $effects_container->add()->identifier('drunk')
+            ->add((new PictoEffect())->picto('r_alcool_#00'))->commit();
+
+        $effects_container->add()->identifier('drug_any')
+            ->add((new PictoEffect())->picto('r_drug_#00'))->commit();
+
+        $effects_container->add()->identifier('drug_addict_no_msg')
+            ->add((new PictoEffect())->picto('r_drug_#00'))->commit();
+
+        $effects_container->clone('drug_addict_no_msg')->identifier('drug_addict')
+            ->add((new MessageEffect())->text( '<t-stat-up-addict>Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!</t-stat-up-addict>')->order(100))
+            ->commit();
+
+
         $effects_container->add()->identifier('eat_ap6')
             ->add((new MessageEffect())->escort(false)->text( 'Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...'))->commit();
+
         $effects_container->add()->identifier('eat_ap7')
             ->add((new MessageEffect())->escort(false)->text( 'Einmal ist zwar keinmal, dennoch genießt du dein(e) <span class="tool">{item}</span>. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast <strong>1 zusätzlichen AP erhalten!</strong>'))->commit();
-        $effects_container->add()->identifier('drug_addict')
-            ->add((new MessageEffect())->text( '<t-stat-up-addict>Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!</t-stat-up-addict>')->order(100))->commit();
+
         $effects_container->add()->identifier('infect')
             ->add((new MessageEffect())->text( 'Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!'))->commit();
+
         $effects_container->add()->identifier('kill_1_zombie')
             ->add((new MessageEffect())->text( Arr::get($data,'message_keys.weapon_use')))->commit();
+
         $effects_container->add()->identifier('kill_1_2_zombie')
             ->add((new MessageEffect())->text( Arr::get($data,'message_keys.weapon_use')))->commit();
+
         $effects_container->add()->identifier('kill_2_zombie')
             ->add((new MessageEffect())->text( Arr::get($data,'message_keys.weapon_use')))->commit();
+
         $effects_container->add()->identifier('kill_3_zombie')
             ->add((new MessageEffect())->text( Arr::get($data,'message_keys.weapon_use')))->commit();
+
         $effects_container->add()->identifier('home_lab_success')
-            ->add((new MessageEffect())->text( Arr::get($data,'message_keys.use_lab_success')))->commit();
+            ->add((new PictoEffect())->picto('r_drgmkr_#00'))
+            ->add((new MessageEffect())->text( Arr::get($data,'message_keys.use_lab_success')))
+            ->commit();
+
         $effects_container->add()->identifier('home_lab_failure')
             ->add((new MessageEffect())->text( Arr::get($data,'message_keys.use_lab_fail')))->commit();
+
+        $effects_container->add()->identifier('home_kitchen_success')
+            ->add((new PictoEffect())->picto('r_cookr_#00'))
+            ->commit();
 
         $data['meta_results'] = array_merge_recursive(
             $data['meta_results'],

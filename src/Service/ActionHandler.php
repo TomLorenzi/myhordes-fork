@@ -856,19 +856,6 @@ class ActionHandler
                 }
             }
 
-            if($picto = $result->getPicto()){
-                $this->picto_handler->give_picto($citizen, $picto->getPrototype());
-            }
-
-            if($picto = $result->getGlobalPicto()){
-                $citizens = $citizen->getTown()->getCitizens();
-                foreach($citizens as $curCitizen) {
-                    /** @var Citizen $curCitizen */
-                    if(!$curCitizen->getAlive()) continue;
-                    $this->picto_handler->give_picto($curCitizen, $picto->getPrototype());
-                }
-            }
-
             if ($result->getCustom())
             {
                 $ap     = false;

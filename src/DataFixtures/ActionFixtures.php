@@ -10,7 +10,6 @@ use App\Entity\AffectHome;
 use App\Entity\AffectItemConsume;
 use App\Entity\AffectItemSpawn;
 use App\Entity\AffectOriginalItem;
-use App\Entity\AffectPicto;
 use App\Entity\AffectPM;
 use App\Entity\AffectResultGroup;
 use App\Entity\AffectResultGroupEntry;
@@ -35,12 +34,7 @@ use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
 use App\Entity\PictoPrototype;
-use App\Entity\RequireHome;
-use App\Entity\RequireItem;
-use App\Entity\RequireLocation;
 use App\Entity\Requirement;
-use App\Entity\RequireZombiePresence;
-use App\Entity\RequireZone;
 use App\Entity\Result;
 use App\Entity\SpecialActionPrototype;
 use App\Enum\ItemPoisonType;
@@ -201,12 +195,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                         break;
                     case 'rp':
                         $result->setRolePlayText( $sub_data[0] );
-                        break;
-                    case 'picto':
-                        $result->setPicto( $this->process_picto_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
-                        break;
-                    case 'globalpicto':
-                        $result->setGlobalPicto( $this->process_picto_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
                         break;
                     case 'town':
                         $result->setTown( $this->process_town_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
@@ -726,33 +714,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             $manager->persist( $cache[$id] = $result );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>group/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-
-        return $cache[$id];
-    }
-
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
-     * @return AffectPicto
-     */
-    private function process_picto_effect(
-        ObjectManager $manager, ConsoleOutputInterface $out,
-        array &$cache, string $id, array $data): AffectPicto
-    {
-        if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectPicto::class)->findOneBy(['name' => $id]);
-            if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>picto/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            else {
-                $result = new AffectPicto();
-                $out->writeln( "\t\t\t<comment>Create</comment> effect <info>picto/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-
-            $result->setName( $id )->setPrototype(  $manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $data[0]]));
-            $manager->persist( $cache[$id] = $result );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>picto/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 
         return $cache[$id];
     }

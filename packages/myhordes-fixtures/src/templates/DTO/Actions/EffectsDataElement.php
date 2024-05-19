@@ -4,6 +4,7 @@ namespace MyHordes\Fixtures\DTO\Actions;
 
 /**
  * @property EffectAtom[] $atomList
+ * @method self identifier(string $v)
  * @method self add(EffectAtom $atom)
  * @method self atomList(EffectAtom[] $atom)
  * @method EffectsDataContainer commit(string &$id = null)

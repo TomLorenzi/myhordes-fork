@@ -51,17 +51,12 @@ class Result
     private $target;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectZone')]
     private $zone;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectPicto')]
-    private $picto;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectTown')]
     private $town;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectPM')]
     private $pm;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectCP')]
     private $cp;
-    #[ORM\ManyToOne(targetEntity: AffectPicto::class)]
-    #[ORM\JoinTable(name: 'global_picto_id')]
-    private $globalPicto;
 
     #[ORM\Column(nullable: true)]
     private ?array $atoms = null;
@@ -239,16 +234,7 @@ class Result
 
         return $this;
     }
-    public function getPicto(): ?AffectPicto
-    {
-        return $this->picto;
-    }
-    public function setPicto(?AffectPicto $picto): self
-    {
-        $this->picto = $picto;
 
-        return $this;
-    }
     public function getTown(): ?AffectTown
     {
         return $this->town;
@@ -276,17 +262,6 @@ class Result
     public function setCp(?AffectCP $cp): self
     {
         $this->cp = $cp;
-
-        return $this;
-    }
-
-    public function getGlobalPicto(): ?AffectPicto
-    {
-        return $this->globalPicto;
-    }
-    public function setGlobalPicto(?AffectPicto $globalPicto): self
-    {
-        $this->globalPicto = $globalPicto;
 
         return $this;
     }

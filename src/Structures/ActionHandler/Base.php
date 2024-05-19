@@ -37,8 +37,8 @@ class Base
         $this->originalInventory = $item?->getInventory();
     }
 
-    public function addMessage(string $message, array $variables = [], string $translationDomain = null): void {
-        $this->messages[] = [$message, $variables, $translationDomain];
+    public function addMessage(string $message, array $variables = [], string $translationDomain = null, int $order = 0): void {
+        $this->messages[] = [$message, $variables, $translationDomain,$order,count($this->messages)];
     }
 
     public function addTranslationKey(string $key, string $value, bool $wrap = false): void {
@@ -94,9 +94,12 @@ class Base
         $messages = [];
         $tags = $this->calculateTags();
 
+        $ordered = $this->messages;
+        usort($ordered, fn($m1, $m2) => $m1[3] <=> $m2[3] ?: $m1[4] <=> $m2[4]);
+
         foreach (array_map(
                      fn(array $m) => $trans->trans( $m[0], [...$m[1], ...$composite_keys], $m[2] ?? 'game' ),
-                     $this->messages
+                     $ordered
                  ) as $contentMessage) {
             do {
                 $contentMessage = preg_replace_callback( '/<t-(.*?)>(.*?)<\/t-\1>/' , function(array $m) use ($tags): string {
