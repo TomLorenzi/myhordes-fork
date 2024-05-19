@@ -193,9 +193,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                     case 'group':
                         $result->setResultGroup( $this->process_group_effect($manager, $out, $sub_cache[$sub_id], $cache, $sub_cache, $sub_res, $sub_data) );
                         break;
-                    case 'rp':
-                        $result->setRolePlayText( $sub_data[0] );
-                        break;
                     case 'town':
                         $result->setTown( $this->process_town_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
                         break;

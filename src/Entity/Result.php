@@ -37,8 +37,6 @@ class Result
     private $zombies;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectBlueprint')]
     private $blueprint;
-    #[ORM\Column(type: 'boolean', nullable: true)]
-    private $rolePlayerText;
     #[ORM\Column(type: 'integer', nullable: true)]
     private $custom;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectWell')]
@@ -80,8 +78,8 @@ class Result
     }
     public function clear(): self {
         $this->ap = $this->status = $this->item = $this->spawn = $this->consume = $this->resultGroup = $this->zombies =
-        $this->blueprint = $this->rolePlayerText = $this->custom = $this->well = $this->home = $this->death =
-        $this->target = $this->zone = $this->picto = $this->pm = $this->cp = $this->message = $this->atoms = null;
+        $this->blueprint = $this->custom = $this->well = $this->home = $this->death =
+        $this->target = $this->zone = $this->pm = $this->cp = $this->atoms = null;
         return $this;
     }
     public function getAp(): ?AffectAP
@@ -161,16 +159,6 @@ class Result
     public function setBlueprint(?AffectBlueprint $blueprint): self
     {
         $this->blueprint = $blueprint;
-
-        return $this;
-    }
-    public function getRolePlayText(): ?bool
-    {
-        return $this->rolePlayerText;
-    }
-    public function setRolePlayText(?bool $rolePlayerText): self
-    {
-        $this->rolePlayerText = $rolePlayerText;
 
         return $this;
     }

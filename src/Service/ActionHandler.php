@@ -834,28 +834,6 @@ class ActionHandler
                     $this->entity_manager->persist( $this->log->wellAdd( $citizen, $cache->originalPrototype, $add) );
             }
 
-            if ($result->getRolePlayText()) {
-                /** @var RolePlayText|null $text */
-                $text = $this->random_generator->pickEntryFromRandomArray(
-                    ($citizen->getTown()->getLanguage() === 'multi' || $citizen->getTown()->getLanguage() === null)
-                        ? $this->entity_manager->getRepository(RolePlayText::class)->findAll()
-                        : $this->entity_manager->getRepository(RolePlayText::class)->findAllByLang($citizen->getTown()->getLanguage() ));
-                $alreadyfound = !$text || $this->entity_manager->getRepository(FoundRolePlayText::class)->findByUserAndText($citizen->getUser(), $text);
-                $cache->addTranslationKey('rp_text', $text->getTitle(), true);
-                if ($alreadyfound)
-                    $cache->addTag('rp_fail');
-                elseif ($text) {
-                    $cache->addTag('rp_ok');
-                    $foundrp = new FoundRolePlayText();
-                    $foundrp->setUser($citizen->getUser())->setText($text)->setNew(true)->setDateFound(new DateTime());
-                    $citizen->getUser()->getFoundTexts()->add($foundrp);
-
-                    $this->entity_manager->persist($foundrp);
-                    $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_rp_#00']);
-                    $this->picto_handler->give_picto($citizen, $pictoPrototype);
-                }
-            }
-
             if ($result->getCustom())
             {
                 $ap     = false;

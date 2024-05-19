@@ -73,6 +73,8 @@ services:
       public: true
     App\Service\PictoHandler:
       public: true
+    App\Service\RandomGenerator:
+      public: true
 
     # This aliases the classes used by the translation tool commands
     translation.tools.loader:

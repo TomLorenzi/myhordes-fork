@@ -16,6 +16,7 @@ use App\Structures\TownConf;
 use ArrayHelpers\Arr;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\MessageEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\PictoEffect;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\RolePlayTextEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\BuildingRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\ConfigRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\CounterRequirement;
@@ -348,8 +349,6 @@ class ActionDataService implements FixtureProcessorInterface {
                 'kill_2_zombie' => [ 'zombies' => 'kill_2z' ],
                 'kill_3_zombie' => [ 'zombies' => 'kill_3z' ],
                 'kill_all_zombie' => [ 'zombies' => 'kill_all_z' ],
-
-                'find_rp' => [ 'rp' => [true] ],
 
                 'casino_dice'   => [ 'custom' => [1], 'status' => [ 'from' => null, 'to' => 'tg_dice' ] ],
                 'casino_card'   => [ 'custom' => [2], 'status' => [ 'from' => null, 'to' => 'tg_cards' ] ],
@@ -1510,6 +1509,10 @@ class ActionDataService implements FixtureProcessorInterface {
             ->add((new PictoEffect())->picto('r_collec_#00'))
             ->add((new PictoEffect())->picto('r_mystic_#00')->forEntireTown(true))
             ->commit();
+        //</editor-fold>
+
+        //<editor-fold desc="Various">
+        $effects_container->add()->identifier('find_rp')->add(new RolePlayTextEffect())->commit();
         //</editor-fold>
 
         // INCOMPLETE
