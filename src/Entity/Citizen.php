@@ -623,10 +623,7 @@ class Citizen
         $this->addActionCounter($a);
         return $a;
     }
-    public function isOnline(): bool {
-        $ts = $this->getLastActionTimestamp();
-        return $ts ? (time() - $ts) < 300 : false;
-    }
+
     public function isDigging(): bool {
         $zone = $this->getZone();
         if (!$zone) return false;
@@ -635,30 +632,7 @@ class Citizen
                 return !$digTimer->getPassive();
         return false;
     }
-    public function hasDigTimer(): bool {
-        $zone = $this->getZone();
-        if (!$zone) return false;
-        foreach ($this->getDigTimers() as $digTimer)
-            if ($digTimer->getZone()->getId() === $zone->getId())
-                return true;
-        return false;
-    }
-    public function hasPassiveDigTimer(): bool {
-        $zone = $this->getZone();
-        if (!$zone) return false;
-        foreach ($this->getDigTimers() as $digTimer)
-            if ($digTimer->getZone()->getId() === $zone->getId())
-                return $digTimer->getPassive();
-        return false;
-    }
-    public function getDigTimeout(): int {
-        $zone = $this->getZone();
-        if (!$zone) return -1;
-        foreach ($this->getDigTimers() as $digTimer)
-            if ($digTimer->getZone()->getId() === $zone->getId())
-                return $digTimer->getTimestamp()->getTimestamp() - (new DateTime())->getTimestamp();
-        return -1;
-    }
+
     public function isCamping(): bool {
         foreach ($this->getStatus() as $status)
             if (in_array( $status->getName(), ['tg_tomb','tg_hide'] ))
