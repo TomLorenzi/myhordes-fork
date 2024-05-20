@@ -155,7 +155,7 @@ const TwinoEditorControlsTabListOverlay = ({emotes,show,current,mounted}: {emote
     </div>
 }
 
-const ControlButton = ({fa = null, img = null, label = null, control = null, handler, dialogHandler = null, children = null, dialogTitle = null, manualConfirm = true}: ControlButtonDefinition & {handler: ()=>void|boolean, dialogHandler?: (boolean)=>void|boolean, dialogTitle?: string|null, manualConfirm?: boolean}) => {
+const ControlButton = ({fa = null, img = null, label = null, control = null, handler, dialogHandler = null, children = null, dialogTitle = null, manualConfirm = true, preConfirmHandler = null}: ControlButtonDefinition & {handler: ()=>void|boolean, dialogHandler?: (boolean)=>void|boolean, dialogTitle?: string|null, manualConfirm?: boolean, preConfirmHandler?: (HTMLFormElement)=>void}) => {
     const globals = useContext(Globals);
 
     const button = useRef<HTMLDivElement>();
@@ -177,6 +177,7 @@ const ControlButton = ({fa = null, img = null, label = null, control = null, han
     }, [])
 
     const confirmDialog = () => {
+        if (preConfirmHandler) preConfirmHandler(form.current);
         if (!form.current.checkValidity()) return;
         const l = (dialogHandler === null || dialogHandler(true) !== false) && handler() !== false;
         if (l) dialog.current.close();
@@ -236,15 +237,17 @@ const ControlButtonNodeWrap = ({
                                    children = null,
                                    dialogHandler = null,
                                    dialogTitle = null,
+                                   preConfirmHandler = null,
                                }: ControlButtonDefinition & BaseNodeDefinition & ExtendedNodeDefinition & {
     children?: any | null
     dialogHandler?: (boolean)=>void|boolean,
-    dialogTitle?: string|null
+    dialogTitle?: string|null,
+    preConfirmHandler?: (HTMLFormElement)=>void
 }) => {
 
     const globals = useContext(Globals);
 
-    return <ControlButton {...{fa, label, control, dialogHandler, dialogTitle}} handler={() => {
+    return <ControlButton {...{fa, label, control, dialogHandler, dialogTitle, preConfirmHandler}} handler={() => {
         const body = `${globals.getField('body') ?? ''}`;
         const selection = [globals.selection.start, globals.selection.end]
 
@@ -360,11 +363,13 @@ const ControlButtonInsertURL = ({
                                     control,
                                     dialogTitle = null,
                                     urlField,
-                                    textField
+                                    textField,
+                                    autoCompleteUrl,
                                 }: BaseNodeDefinition & ControlButtonDefinition & {
     dialogTitle?: string | null,
     urlField: string | null,
-    textField: string | null
+    textField: string | null,
+    autoCompleteUrl: boolean | null
 }) => {
 
     const globals = useContext(Globals);
@@ -372,8 +377,11 @@ const ControlButtonInsertURL = ({
     const text = useRef<HTMLInputElement>()
     const link = useRef<HTMLInputElement>()
 
-    const checkLink = (link: string): boolean => {
-        return link.match(/^https?:\/\/(\w+:?\w*)?(\S+)(:\d+)?(?:\/|\/([\w#!:.?+=&%\-\/]))?$/) !== null;
+    const checkLink = (link: string, noProtocol: boolean = false): boolean => {
+        return link.match(noProtocol
+            ? /^(\w+:?\w*)?(\S+)(:\d+)?(?:\/|\/([\w#!:.?+=&%\-\/]))?$/
+            : /^https?:\/\/(\w+:?\w*)?(\S+)(:\d+)?(?:\/|\/([\w#!:.?+=&%\-\/]))?$/
+        ) !== null;
     }
 
     return <ControlButtonNodeWrap {...{node,label,control,fa,block,dialogTitle}}
@@ -403,6 +411,10 @@ const ControlButtonInsertURL = ({
                 return !link.current || checkLink(link.current.value);
             }
         }}
+        preConfirmHandler={() => {
+            if (!checkLink( link.current.value ) && checkLink( link.current.value, true ))
+                link.current.value = `https://${link.current.value}`
+        }}
     >
         <div className="flex">
             <div className="modal-form">
@@ -424,6 +436,7 @@ const ControlButtonInsertLink = () => {
     return <ControlButtonInsertURL node="link" label={globals.strings.controls.link} control="k" fa="link"
                                    urlField={globals.strings.controls["link-url"]}
                                    textField={globals.strings.controls["link-text"]}
+                                   autoCompleteUrl={true}
     />
 }
 const ControlButtonInsertImage = () => {
@@ -431,6 +444,7 @@ const ControlButtonInsertImage = () => {
     return <ControlButtonInsertURL node="image" label={globals.strings.controls.image} fa="image" block={false}
                                    urlField={globals.strings.controls["image-url"]}
                                    textField={globals.strings.controls["image-text"]}
+                                   autoCompleteUrl={false}
     />
 }
 
@@ -585,7 +599,7 @@ const ControlButtonInsertWithAttribute = ({
     attribute: string,
     dialogTitle?: string | null
 }) => <ControlButtonInsertURL {...{node, label, fa, block, control, dialogTitle}} urlField={null}
-                              textField={attribute}/>
+                              textField={attribute} autoCompleteUrl={false}/>
 
 const EmoteTabSection = ({emotes}: { emotes: null | Array<Emote> }) => {
     return <div className="lightbox">
