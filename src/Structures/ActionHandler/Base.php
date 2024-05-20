@@ -7,6 +7,7 @@ use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
 use App\Service\Actions\Game\WrapObjectsForOutputAction;
+use App\Structures\FriendshipActionTarget;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
@@ -16,6 +17,8 @@ class Base
 {
     public readonly ItemPrototype|null $originalPrototype;
     public readonly Inventory|null $originalInventory;
+    public readonly ItemPrototype|null $originalTargetPrototype;
+    public readonly Inventory|null $originalTargetInventory;
     private array $messages = [];
     private array $trans = [];
     private array $metaTrans = [];
@@ -31,12 +34,25 @@ class Base
     public function __construct(
         public readonly EntityManagerInterface $em,
         public readonly Citizen $citizen,
-        public readonly ?Item $item,
+        public readonly Item|null $item,
+        public readonly Item|ItemPrototype|Citizen|FriendshipActionTarget|null $target,
         public readonly TownConf $conf,
         public readonly MyHordesConf $sysConf
     ) {
         $this->originalPrototype = $item?->getPrototype();
         $this->originalInventory = $item?->getInventory();
+
+        if (is_a($target, Item::class)) {
+            $this->originalTargetPrototype = $target->getPrototype();
+            $this->originalTargetInventory = $target->getInventory();
+        } elseif (is_a($target, ItemPrototype::class)) {
+            $this->originalTargetPrototype = $target;
+            $this->originalTargetInventory = null;
+        } else {
+            $this->originalTargetPrototype = null;
+            $this->originalTargetInventory = null;
+        }
+
     }
 
     public function addMessage(string $message, array $variables = [], string $translationDomain = null, int $order = 0): void {

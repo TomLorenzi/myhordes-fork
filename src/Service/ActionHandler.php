@@ -91,7 +91,7 @@ class ActionHandler
         if ($target && (!$action->getTarget() || !$this->targetDefinitionApplies($target, $action->getTarget())))
             return ActionValidity::None;
 
-        $cache = new Evaluation($this->entity_manager, $citizen, $item, $this->conf->getTownConfiguration( $citizen->getTown() ), $this->conf->getGlobalConf());
+        $cache = new Evaluation($this->entity_manager, $citizen, $item, $target, $this->conf->getTownConfiguration( $citizen->getTown() ), $this->conf->getGlobalConf());
 
         $current_state = ActionValidity::Full;
         foreach ($action->getRequirements() as $meta_requirement) {
@@ -398,7 +398,7 @@ class ActionHandler
         if ($target && is_a( $target, Item::class )) $target_item_prototype = $target->getPrototype();
         if ($target && is_a( $target, ItemPrototype::class )) $target_item_prototype = $target;
 
-        $cache = new Execution($this->entity_manager, $citizen, $item, $this->conf->getTownConfiguration( $citizen->getTown() ), $this->conf->getGlobalConf());
+        $cache = new Execution($this->entity_manager, $citizen, $item, $target, $this->conf->getTownConfiguration( $citizen->getTown() ), $this->conf->getGlobalConf());
         $default_message = $escort_mode ? $action->getEscortMessage() : $action->getMessage();
         $cache->setEscortMode($escort_mode);
         $cache->setAction($action);

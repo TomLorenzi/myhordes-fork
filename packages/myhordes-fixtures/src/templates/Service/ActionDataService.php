@@ -282,16 +282,16 @@ class ActionDataService implements FixtureProcessorInterface {
 
                 'contaminated_zone_infect'  => [ 'collection' => [ 'custom' => [22] ] ],
 
-                'consume_item'    => [ 'item' => [ 'consume' => true,  'morph' => null, 'break' => null, 'poison' => null ] ],
-                'break_item'      => [ 'collection' => ['item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => null ]]],
-                'cleanse_item'    => [ 'item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => false ] ],
+                //'consume_item'    => [ 'item' => [ 'consume' => true,  'morph' => null, 'break' => null, 'poison' => null ] ],
+                //'break_item'      => [ 'collection' => ['item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => null ]]],
+                //'cleanse_item'    => [ 'item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => false ] ],
                 'empty_jerrygun'  => [ 'item' => [ 'consume' => false, 'morph' => 'jerrygun_off_#00', 'break' => null, 'poison' => null ] ],
 
-                'spawn_target'    => [ 'target' => [ 'consume' => false, 'morph' => null, 'break' => null, 'poison' => null ] ],
-                'consume_target'  => [ 'target' => [ 'consume' => true, 'morph' => null, 'break' => null, 'poison' => null ] ],
-                'repair_target'   => [ 'target' => [ 'consume' => false, 'morph' => null, 'break' => false, 'poison' => null ] ],
-                'poison_target'   => [ 'target' => [ 'consume' => false, 'morph' => null, 'break' => null, 'poison' => ItemPoisonType::Deadly  ] ],
-                'poison_infect_target'   => [ 'target' => [ 'consume' => false, 'morph' => null, 'break' => null, 'poison' => ItemPoisonType::Infectious  ] ],
+                //'spawn_target'    => [ 'target' => [ 'consume' => false, 'morph' => null, 'break' => null, 'poison' => null ] ],
+                //'consume_target'  => [ 'target' => [ 'consume' => true, 'morph' => null, 'break' => null, 'poison' => null ] ],
+                //'repair_target'   => [ 'target' => [ 'consume' => false, 'morph' => null, 'break' => false, 'poison' => null ] ],
+                //'poison_target'   => [ 'target' => [ 'consume' => false, 'morph' => null, 'break' => null, 'poison' => ItemPoisonType::Deadly  ] ],
+                //'poison_infect_target'   => [ 'target' => [ 'consume' => false, 'morph' => null, 'break' => null, 'poison' => ItemPoisonType::Infectious  ] ],
 
                 'drink_ap_1'  => [ 'status' => 'add_has_drunk', 'ap' => 'to_max_plus_0' ],
                 'drink_ap_2'  => [ 'status' => 'remove_thirst' ],
@@ -1473,6 +1473,16 @@ class ActionDataService implements FixtureProcessorInterface {
         //</editor-fold>
 
         //<editor-fold desc="ItemEffects">
+        $effects_container->add()->identifier('consume_item')->add((new ItemEffect())->consumeSource())->commit();
+        $effects_container->add()->identifier('break_item')->add((new ItemEffect())->morphSource(break: true))->commit();
+        $effects_container->add()->identifier('cleanse_item')->add((new ItemEffect())->morphSource(poison: false))->commit();
+
+        $effects_container->add()->identifier('spawn_target')->add((new ItemEffect())->spawnTarget())->commit();
+        $effects_container->add()->identifier('consume_target')->add((new ItemEffect())->consumeTarget())->commit();
+        $effects_container->add()->identifier('repair_target')->add((new ItemEffect())->morphTarget(break: false))->commit();
+        $effects_container->add()->identifier('poison_target')->add((new ItemEffect())->morphTarget(poison: true))->commit();
+        $effects_container->add()->identifier('poison_infect_target')->add((new ItemEffect())->morphTarget(poison: ItemPoisonType::Infectious))->commit();
+
         $effects_container->add()->identifier('consume_water')->add((new ItemEffect())->consume('water_#00'))->commit();
         $effects_container->add()->identifier('consume_matches')->add((new ItemEffect())->consume('lights_#00'))->commit();
         $effects_container->add()->identifier('consume_battery')->add((new ItemEffect())->consume('pile_#00'))->commit();

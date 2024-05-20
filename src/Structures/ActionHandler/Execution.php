@@ -37,8 +37,6 @@ class Execution extends Base
 
     private bool $escort_mode = false;
 
-    private ?ItemPrototype $target_item_prototype = null;
-
     public function addPoints(PointType $type, int $value): void {
         $this->points[$type->value] = $this->getPoints($type) + $value;
     }
@@ -101,10 +99,6 @@ class Execution extends Base
 
     public function addDiscoveredBlueprint( BuildingPrototype $building ): void {
         $this->discovered_plans[] = $building;
-    }
-
-    public function setTargetItemPrototype( ItemPrototype $prototype ): void {
-        $this->target_item_prototype = $prototype;
     }
 
     public function setEscortMode(bool $escort): void {
@@ -171,7 +165,7 @@ class Execution extends Base
             ...$dynamic,
             '{user}'          => $wrapper($this->citizen),
             '{citizen}'       => $wrapper($this->target_citizen),
-            '{target}'        => $wrapper($this->target_item_prototype),
+            '{target}'        => $wrapper($this->originalTargetPrototype),
             '{item_initial}'  => $wrapper($this->originalPrototype),
             '{item_from}'     => $wrapper($this->morphed_items[0] ?? $this->consumed_items[0] ?? null),
             '{item_to}'       => $wrapper($this->morphed_items[1] ?? $this->spawned_items[0] ?? null),

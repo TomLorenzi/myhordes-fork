@@ -2,7 +2,9 @@
 
 namespace App\Service\Actions\Game\AtomProcessors\Effect;
 
+use App\Entity\Item;
 use App\Entity\ItemAction;
+use App\Entity\ItemPrototype;
 use App\Enum\ActionHandler\ItemDropTarget;
 use App\Enum\ItemPoisonType;
 use App\Service\ActionHandler;
@@ -13,6 +15,7 @@ use App\Service\RandomGenerator;
 use App\Structures\ActionHandler\Execution;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
+use App\Translation\T;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\ItemEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\ItemRequirement;
 use MyHordes\Fixtures\DTO\Actions\EffectAtom;
@@ -30,6 +33,15 @@ class ProcessItemEffect extends AtomEffectProcessor
         $rg = $this->container->get(RandomGenerator::class);
         /** @var EventProxyService $proxy */
         $proxy = $this->container->get(EventProxyService::class);
+
+        if (!$cache->citizen->getZone())
+            $floor_inventory = $cache->citizen->getHome()->getChest();
+        elseif ($cache->citizen->getZone()->getX() === 0 && $cache->citizen->getZone()->getY() === 0)
+            $floor_inventory = $cache->citizen->getTown()->getBank();
+        elseif (!$cache->getTargetRuinZone())
+            $floor_inventory = $cache->citizen->getZone()->getFloor();
+        else
+            $floor_inventory = $cache->getTargetRuinZone()->getFloor();
 
         if ($data->consumeItem !== null && $data->consumeItemCount > 0) {
             $source = $cache->citizen->getZone() ? [$cache->citizen->getInventory()] : [$cache->citizen->getInventory(), $cache->citizen->getHome()->getChest()];
@@ -67,15 +79,6 @@ class ProcessItemEffect extends AtomEffectProcessor
         }
 
         if (!empty($data->spawn) && $data->spawnCount > 0) {
-            if (!$cache->citizen->getZone())
-                $floor_inventory = $cache->citizen->getHome()->getChest();
-            elseif ($cache->citizen->getZone()->getX() === 0 && $cache->citizen->getZone()->getY() === 0)
-                $floor_inventory = $cache->citizen->getTown()->getBank();
-            elseif (!$cache->getTargetRuinZone())
-                $floor_inventory = $cache->citizen->getZone()->getFloor();
-            else
-                $floor_inventory = $cache->getTargetRuinZone()->getFloor();
-
             for ($i = 0; $i < $data->spawnCount; $i++ ) {
                 [$proto,$count] = $rg->pickEntryFromRawRandomArray( $data->spawn );
                 $force = false;
@@ -114,6 +117,44 @@ class ProcessItemEffect extends AtomEffectProcessor
                     }
                 }
             }
+        }
+
+        if ($data->consumeSource) {
+            $ih->forceRemoveItem( $cache->item );
+            $cache->addConsumedItem($cache->item);
+        } elseif ($data->morphSource) {
+            if ($data->morphSourceType) {
+                $prototype = $cache->em->getRepository(ItemPrototype::class)->findOneBy(['name' => $data->morphSourceType]);
+                if ($prototype) {
+                    $cache->setItemMorph($cache->originalPrototype, $prototype);
+                    $cache->item->setPrototype( $prototype );
+                }
+            }
+
+            if ($data->breakSource !== null) $cache->item->setBroken( $data->breakSource );
+            if ($data->poisonSource !== null) $cache->item->setPoison( $data->poisonSource );
+        }
+
+        if ($data->spawnTarget && is_a($cache->target, ItemPrototype::class)) {
+            if ($i = $proxy->placeItem( $cache->citizen, $if->createItem( $cache->target ), [ $cache->citizen->getInventory(), $floor_inventory ], true)) {
+                if ($i !== $cache->citizen->getInventory())
+                    $cache->addMessage( T::__('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', 'game'), translationDomain: 'game' );
+                $cache->addSpawnedItem($cache->target);
+            }
+        } elseif ($data->consumeTarget && is_a($cache->target, Item::class)) {
+            $ih->forceRemoveItem( $cache->target);
+            $cache->addConsumedItem($cache->target);
+        } elseif ($data->morphTarget && is_a($cache->target, Item::class)) {
+            if ($data->morphTargetType) {
+                $prototype = $cache->em->getRepository(ItemPrototype::class)->findOneBy(['name' => $data->morphTargetType]);
+                if ($prototype) {
+                    $cache->setItemMorph($cache->originalTargetPrototype, $prototype, true);
+                    $cache->target->setPrototype( $prototype );
+                }
+            }
+
+            if ($data->breakTarget !== null) $cache->target->setBroken( $data->breakTarget );
+            if ($data->poisonTarget !== null) $cache->target->setPoison( $data->poisonTarget );
         }
     }
 }
