@@ -412,7 +412,7 @@ const ControlButtonInsertURL = ({
             }
         }}
         preConfirmHandler={() => {
-            if (!checkLink( link.current.value ) && checkLink( link.current.value, true ))
+            if (link.current && !checkLink( link.current.value ) && checkLink( link.current.value, true ))
                 link.current.value = `https://${link.current.value}`
         }}
     >
