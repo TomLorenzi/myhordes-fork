@@ -908,3 +908,6 @@ Teams: crwdns168383:0crwdne168383:0
 'Du kannst deinen Posten bis kurz vor dem Angriff verlassen.': 'crwdns204360:0crwdne204360:0'
 'Im Laufe des 5. Tages oder früher gestorben = kein Gewinn': 'crwdns204362:0crwdne204362:0'
 'Sobald du eine Seele in die Stadt gebracht hast, muss sie gereinigt werden. Hierfür ist das Gebäude Seelenreinigungsquelle erforderlich. <strong>Denk daran dass eine gequälte Seele bei jedem Angriff Unglück bringt, auch wenn sie in der Stadt ist!</strong>': 'crwdns204370:0crwdne204370:0'
+"<strong>EINEN BUG MELDEN:</strong>\nNutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden möchtest: {error_link}.": "crwdns205386:0{error_link}crwdne205386:0"
+'Wenn du ein <strong>Event</strong> ausrichten oder dich über die entsprechenden Möglichkeiten hierzu informieren möchtest, kontaktiere die <a x-group-connect="{oglink}" href="#">Gilde der Animateure</a>.': 'crwdns205388:0{oglink}crwdne205388:0'
+'Zu guter Letzt: Für sämtliche Anregungen und Fragen, die die <strong>MyHordes-Community</strong> betreffen, kannst die <a x-group-connect="{oglink}" href="#">Orakel</a> anschreiben.': 'crwdns205390:0{oglink}crwdne205390:0'
