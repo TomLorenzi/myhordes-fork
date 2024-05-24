@@ -282,17 +282,6 @@ class ActionDataService implements FixtureProcessorInterface {
 
                 'contaminated_zone_infect'  => [ 'collection' => [ 'custom' => [22] ] ],
 
-                //'consume_item'    => [ 'item' => [ 'consume' => true,  'morph' => null, 'break' => null, 'poison' => null ] ],
-                //'break_item'      => [ 'collection' => ['item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => null ]]],
-                //'cleanse_item'    => [ 'item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => false ] ],
-                'empty_jerrygun'  => [ 'item' => [ 'consume' => false, 'morph' => 'jerrygun_off_#00', 'break' => null, 'poison' => null ] ],
-
-                //'spawn_target'    => [ 'target' => [ 'consume' => false, 'morph' => null, 'break' => null, 'poison' => null ] ],
-                //'consume_target'  => [ 'target' => [ 'consume' => true, 'morph' => null, 'break' => null, 'poison' => null ] ],
-                //'repair_target'   => [ 'target' => [ 'consume' => false, 'morph' => null, 'break' => false, 'poison' => null ] ],
-                //'poison_target'   => [ 'target' => [ 'consume' => false, 'morph' => null, 'break' => null, 'poison' => ItemPoisonType::Deadly  ] ],
-                //'poison_infect_target'   => [ 'target' => [ 'consume' => false, 'morph' => null, 'break' => null, 'poison' => ItemPoisonType::Infectious  ] ],
-
                 'drink_ap_1'  => [ 'status' => 'add_has_drunk', 'ap' => 'to_max_plus_0' ],
                 'drink_ap_2'  => [ 'status' => 'remove_thirst' ],
                 'drink_no_ap' => [ 'status' => 'replace_dehydration' ],
@@ -333,11 +322,6 @@ class ActionDataService implements FixtureProcessorInterface {
 
                 'april' => [ 'status' => [ 'from' => null, 'to' => 'tg_april_ooze' ] ],
 
-                'produce_watercan3' => [ 'item' => [ 'consume' => false, 'morph' => 'water_can_3_#00' ] ],
-                'produce_watercan2' => [ 'item' => [ 'consume' => false, 'morph' => 'water_can_2_#00' ] ],
-                'produce_watercan1' => [ 'item' => [ 'consume' => false, 'morph' => 'water_can_1_#00' ] ],
-                'produce_watercan0' => [ 'item' => [ 'consume' => false, 'morph' => 'water_can_empty_#00', 'break' => null, 'poison' => false ] ],
-
                 'casino_dice'   => [ 'custom' => [1], 'status' => [ 'from' => null, 'to' => 'tg_dice' ] ],
                 'casino_card'   => [ 'custom' => [2], 'status' => [ 'from' => null, 'to' => 'tg_cards' ] ],
                 'casino_guitar' => [ 'custom' => [3] ],
@@ -354,7 +338,6 @@ class ActionDataService implements FixtureProcessorInterface {
                 'hero_tamer_2'  => [ 'custom' => [5] ],
                 'hero_tamer_1b' => [ 'custom' => [16] ],
                 'hero_tamer_2b' => [ 'custom' => [17] ],
-                'hero_tamer_3' => [ 'item' => [ 'consume' => false, 'morph' => 'tamed_pet_drug_#00' ] ],
 
                 'hero_surv_0' => [ 'status' => [ 'from' => null, 'to' => 'tg_sbook' ] ],
                 'hero_surv_1' => [ 'custom' => [6] ],
@@ -362,8 +345,6 @@ class ActionDataService implements FixtureProcessorInterface {
 
                 'hero_act'    => [ 'status' => [ 'from' => null, 'to' => 'tg_hero' ] ],
                 'hero_immune' => [ 'status' => [ 'from' => null, 'to' => 'hsurvive' ] ],
-
-                'hero_hunter' => [ 'item' => [ 'consume' => false, 'morph' => 'vest_on_#00' ] ],
 
                 'camp_hide' => [ 'status' => [ 'from' => null, 'to' => 'tg_hide' ] ],
                 'camp_tomb' => [ 'status' => [ 'from' => null, 'to' => 'tg_tomb' ] ],
@@ -522,9 +503,9 @@ class ActionDataService implements FixtureProcessorInterface {
                 'special_card'   => [ 'label' => 'Karte ziehen', 'at00' => true, 'meta' => [ 'not_yet_card', 'no_bonus_ap' ],      'result' => [ 'casino_card'   ], 'message' => '{casino}' ],
                 'special_guitar' => [ 'label' => 'Spielen',      'meta' => [ 'not_yet_guitar', 'must_be_inside' ], 'result' => [ 'casino_guitar' ], 'message' => '{casino}' ],
 
-                'can'       => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'not_profession_tech', 'have_can_opener', 'is_not_wounded_hands' ], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'can_open_#00' ] ] ], 'message_key' => 'container_open_tool' ],
-                'can_t1'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'profession_tech', 'have_can_opener_hd', 'is_not_wounded_hands' ], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'can_open_#00' ] ] ], 'message_key' => 'container_open_tool' ],
-                'can_t2'    => [ 'label' => 'Öffnen (1 BP)', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_can_opener_hd', 'min_1_cp_hd' ], 'result' => [ 'minus_1cp', [ 'item' => [ 'consume' => false, 'morph' => 'can_open_#00' ] ] ], 'message_key' => 'container_open' ],
+                'can'       => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'not_profession_tech', 'have_can_opener', 'is_not_wounded_hands' ], 'result' => [ 'morph_open_can' ], 'message_key' => 'container_open_tool' ],
+                'can_t1'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'profession_tech', 'have_can_opener_hd', 'is_not_wounded_hands' ], 'result' => [ 'morph_open_can' ], 'message_key' => 'container_open_tool' ],
+                'can_t2'    => [ 'label' => 'Öffnen (1 BP)', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_can_opener_hd', 'min_1_cp_hd' ], 'result' => [ 'minus_1cp', 'morph_open_can' ], 'message_key' => 'container_open' ],
                 'can_t3'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_can_opener_hd', 'have_can_opener', 'no_cp', 'is_not_wounded_hands' ], 'result' => [ ] ],
 
                 'eat_6ap'   => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item' ], 'escort_message_key' => 'escort_food_eat' ],
@@ -559,7 +540,7 @@ class ActionDataService implements FixtureProcessorInterface {
                 'cyanide'    => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_before_day_2' ], 'result' => [ 'contaminated_zone_infect', 'cyanide', 'consume_item' ] ],
 
                 'bandage' => [ 'label' => 'Verbinden', 'at00' => true, 'meta' => [ 'is_wounded', 'is_not_bandaged' ], 'result' => [ 'heal_wound', 'consume_item', 'add_bandage' ], 'message' => 'So, zur Desinfektion nur noch draufspucken und hopp: Sieht wie neu aus!' ],
-                'emt'     => [ 'label' => 'Einsetzen', 'at00' => true, 'meta' => [ 'is_not_wounded' ], 'result' => [ 'just_ap6', 'inflict_wound', 'picto_masochism', ['item' => [ 'consume' => false, 'morph' => 'sport_elec_empty_#00' ]] ], 'message' => 'Es geht doch nichts über einen schönen Stromstoß in die Wirbelsäule, um so richtig wach zu werden! Aber irgendwie riecht es jetzt hier nach verbranntem Fleisch...' ],
+                'emt'     => [ 'label' => 'Einsetzen', 'at00' => true, 'meta' => [ 'is_not_wounded' ], 'result' => [ 'just_ap6', 'inflict_wound', 'picto_masochism', 'morph_elec_empty' ], 'message' => 'Es geht doch nichts über einen schönen Stromstoß in die Wirbelsäule, um so richtig wach zu werden! Aber irgendwie riecht es jetzt hier nach verbranntem Fleisch...' ],
 
                 'drug_rand_1'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', 'picto_drug_exp', ['group' => [
                     [ ['drug_any', 'just_ap6', 'msg_drug_normal_ap'], 40 ],
@@ -613,12 +594,12 @@ class ActionDataService implements FixtureProcessorInterface {
                 'open_abox'     => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', 'spawn_abox' ], 'message_key' => 'container_open' ],
                 'open_cbox'     => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', 'spawn_cbox' ], 'message_key' => 'container_open_cbox' ],
 
-                'open_matbox3'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands','room_for_item'], 'result' => [ 'spawn_matbox', [ 'item' => [ 'consume' => false, 'morph' => 'rsc_pack_2_#00' ] ] ], 'message_key' => 'container_open_not_empty' ],
-                'open_matbox2'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands','room_for_item'], 'result' => [ 'spawn_matbox', [ 'item' => [ 'consume' => false, 'morph' => 'rsc_pack_1_#00' ] ] ], 'message_key' => 'container_open_not_empty' ],
+                'open_matbox3'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands','room_for_item'], 'result' => [ 'spawn_matbox', 'morph_rsc_pack_2' ], 'message_key' => 'container_open_not_empty' ],
+                'open_matbox2'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands','room_for_item'], 'result' => [ 'spawn_matbox', 'morph_rsc_pack_1' ], 'message_key' => 'container_open_not_empty' ],
                 'open_matbox1'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', 'spawn_matbox' ], 'message_key' => 'container_open_empty' ],
 
-                'open_xmasbox3'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'spawn_xmas_3', [ 'item' => [ 'consume' => false, 'morph' => 'chest_christmas_2_#00' ] ] ], 'message_key' => 'container_open_not_empty' ],
-                'open_xmasbox2'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'spawn_xmas_2', [ 'item' => [ 'consume' => false, 'morph' => 'chest_christmas_1_#00' ] ] ], 'message_key' => 'container_open_not_empty' ],
+                'open_xmasbox3'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'spawn_xmas_3', 'morph_christmas_2' ], 'message_key' => 'container_open_not_empty' ],
+                'open_xmasbox2'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'spawn_xmas_2', 'morph_christmas_1' ], 'message_key' => 'container_open_not_empty' ],
                 'open_xmasbox1'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', 'spawn_xmas_1' ], 'message_key' => 'container_open_empty' ],
 
                 'open_metalbox'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'not_profession_tech', 'have_can_opener', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', 'spawn_metalbox' ], 'message_key' => 'container_open_tool' ],
@@ -645,60 +626,60 @@ class ActionDataService implements FixtureProcessorInterface {
                 'open_safe'      => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'min_1_ap', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ 'minus_1ap', ['group' => [ [['do_nothing'], 95], [ ['consume_item', 'spawn_safe' ], 5 ] ]] ], 'message_key' => 'container_optional' ],
                 'open_asafe'     => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'min_1_ap', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ 'minus_1ap', ['group' => [ [['do_nothing'], 95], [ ['consume_item', 'spawn_asafe' ], 5 ] ]] ], 'message_key' => 'container_optional' ],
 
-                'load_pilegun'   => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', [ 'item' => [ 'consume' => false, 'morph' => 'pilegun_#00' ] ] ], 'message_key' => 'item_load' ],
-                'load_pilegun2'  => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', [ 'item' => [ 'consume' => false, 'morph' => 'pilegun_up_#00' ] ] ], 'message_key' => 'item_load' ],
-                'load_pilegun3'  => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', [ 'item' => [ 'consume' => false, 'morph' => 'big_pgun_#00' ] ] ], 'message_key' => 'item_load' ],
-                'load_mixergun'  => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', [ 'item' => [ 'consume' => false, 'morph' => 'mixergun_#00' ] ] ], 'message_key' => 'item_load' ],
-                'load_chainsaw'  => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', [ 'item' => [ 'consume' => false, 'morph' => 'chainsaw_#00' ] ] ], 'message_key' => 'item_load' ],
-                'load_taser'     => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', [ 'item' => [ 'consume' => false, 'morph' => 'taser_#00' ] ] ], 'message_key' => 'item_load' ],
-                'load_lpointer'  => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', [ 'item' => [ 'consume' => false, 'morph' => 'lpoint4_#00' ] ] ], 'message_key' => 'item_load' ],
+                'load_pilegun'   => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', 'morph_pilegun' ], 'message_key' => 'item_load' ],
+                'load_pilegun2'  => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', 'morph_pilegun_up' ], 'message_key' => 'item_load' ],
+                'load_pilegun3'  => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', 'morph_big_pgun' ], 'message_key' => 'item_load' ],
+                'load_mixergun'  => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', 'morph_mixergun' ], 'message_key' => 'item_load' ],
+                'load_chainsaw'  => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', 'morph_chainsaw' ], 'message_key' => 'item_load' ],
+                'load_taser'     => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', 'morph_taser' ], 'message_key' => 'item_load' ],
+                'load_lpointer'  => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', 'morph_lpoint4' ], 'message_key' => 'item_load' ],
 
-                'load_lamp'      => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', [ 'item' => [ 'consume' => false, 'morph' => 'lamp_on_#00' ] ] ], 'message_key' => 'item_load' ],
-                'load_dildo'     => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', [ 'item' => [ 'consume' => false, 'morph' => 'vibr_#00' ] ] ], 'message_key' => 'item_load' ],
-                'load_rmk2'      => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', [ 'item' => [ 'consume' => false, 'morph' => 'radius_mk2_#00' ] ] ], 'message_key' => 'item_load' ],
-                'load_maglite'   => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', [ 'item' => [ 'consume' => false, 'morph' => 'maglite_2_#00' ] ] ], 'message_key' => 'item_load' ],
-                'load_radio'     => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', [ 'item' => [ 'consume' => false, 'morph' => 'radio_on_#00' ] ] ], 'message_key' => 'item_load' ],
-                'load_emt'       => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', [ 'item' => [ 'consume' => false, 'morph' => 'sport_elec_#00' ] ] ], 'message_key' => 'item_load' ],
+                'load_lamp'      => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', 'morph_lamp_on' ], 'message_key' => 'item_load' ],
+                'load_dildo'     => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', 'morph_vibr' ], 'message_key' => 'item_load' ],
+                'load_rmk2'      => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', 'morph_radius_mk2' ], 'message_key' => 'item_load' ],
+                'load_maglite'   => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', 'morph_maglite_2' ], 'message_key' => 'item_load' ],
+                'load_radio'     => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', 'morph_radio_on' ], 'message_key' => 'item_load' ],
+                'load_emt'       => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', 'morph_sport_elec' ], 'message_key' => 'item_load' ],
 
                 'light_cig' => [ 'label' => 'Rauchen', 'meta' => [ 'have_matches', 'must_be_terrorized' ], 'result' => [ ['group' => [ [['do_nothing'],33], [['consume_matches'],66]]], ['group' => [ [['do_nothing'],66], [['consume_item'],33]]], 'unterrorize' ], 'message' => 'Du zündest eine Zigarette an. Der Rauch lässt dich kräftig Husten, vermutlich weil du daran nicht gewöhnt bist... Nach ein paar Minuten <strong>gelingt es dir dich zu beruhigen</strong>. Dieser Kurze Moment des Friedens ermöglicht lässt dich deinen Kummer vergessen und bringt dich zurück in die Wirklichkeit.<hr />Du drückst den Stummel auf dem Boden aus und bist bereit für einen weiteren Tag des Überlebens.!<t-consumed><hr />Dir fällt auf dass <strong>die Packung leer ist</strong>!</t-consumed><t-item-consumed>Das war dein <strong>letztes Streichholz</strong>... Es wird schwer sein, jetzt noch eine Zigarette anzuzünden.</t-item-consumed>' ],
 
-                'fill_jsplash'   => [ 'label' => 'Befüllen', 'at00' => true, 'meta' => [ 'have_canister' ], 'result' => [ 'consume_jerrycan', [ 'item' => [ 'consume' => false, 'morph' => 'jerrygun_#00' ] ] ], 'message_key' => 'item_fill' ],
+                'fill_jsplash'   => [ 'label' => 'Befüllen', 'at00' => true, 'meta' => [ 'have_canister' ], 'result' => [ 'consume_jerrycan', 'morph_jerrygun' ], 'message_key' => 'item_fill' ],
 
-                'fill_asplash1'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_not_have_valve', 'must_be_inside' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'watergun_opt_5_#00' ] ] ], 'message_key' => 'item_fill' ],
-                'fill_asplash2'   => [ 'label' => 'Befüllen', 'at00' => true, 'meta' => [ 'have_water', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'watergun_opt_5_#00' ] ] ], 'message_key' => 'item_fill' ],
-                'fill_splash1'    => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_not_have_valve', 'must_be_inside' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'watergun_3_#00' ] ] ], 'message_key' => 'item_fill' ],
-                'fill_splash2'    => [ 'label' => 'Befüllen', 'at00' => true, 'meta' => [ 'have_water', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'watergun_3_#00' ] ] ], 'message_key' => 'item_fill' ],
-                'fill_ksplash1'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_not_have_valve', 'must_be_inside' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'kalach_#00' ] ] ], 'message_key' => 'item_fill' ],
-                'fill_ksplash2'   => [ 'label' => 'Befüllen', 'at00' => true, 'meta' => [ 'have_water', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'kalach_#00' ] ] ], 'message_key' => 'item_fill' ],
-                'fill_grenade1'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_not_have_valve', 'must_be_inside' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'grenade_#00' ] ] ], 'message_key' => 'item_fill' ],
-                'fill_grenade2'   => [ 'label' => 'Befüllen', 'at00' => true, 'meta' => [ 'have_water', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'grenade_#00' ] ] ], 'message_key' => 'item_fill' ],
-                'fill_exgrenade1' => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_not_have_valve', 'must_be_inside' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'bgrenade_#00' ] ] ], 'message_key' => 'item_fill' ],
-                'fill_exgrenade2' => [ 'label' => 'Befüllen', 'at00' => true, 'meta' => [ 'have_water', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'bgrenade_#00' ] ] ], 'message_key' => 'item_fill' ],
+                'fill_asplash1'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_not_have_valve', 'must_be_inside' ], 'result' => [ 'consume_water', 'morph_watergun_opt_5' ], 'message_key' => 'item_fill' ],
+                'fill_asplash2'   => [ 'label' => 'Befüllen', 'at00' => true, 'meta' => [ 'have_water', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_water', 'morph_watergun_opt_5' ], 'message_key' => 'item_fill' ],
+                'fill_splash1'    => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_not_have_valve', 'must_be_inside' ], 'result' => [ 'consume_water', 'morph_watergun_3' ], 'message_key' => 'item_fill' ],
+                'fill_splash2'    => [ 'label' => 'Befüllen', 'at00' => true, 'meta' => [ 'have_water', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_water', 'morph_watergun_3' ], 'message_key' => 'item_fill' ],
+                'fill_ksplash1'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_not_have_valve', 'must_be_inside' ], 'result' => [ 'consume_water', 'morph_kalach' ], 'message_key' => 'item_fill' ],
+                'fill_ksplash2'   => [ 'label' => 'Befüllen', 'at00' => true, 'meta' => [ 'have_water', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_water', 'morph_kalach' ], 'message_key' => 'item_fill' ],
+                'fill_grenade1'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_not_have_valve', 'must_be_inside' ], 'result' => [ 'consume_water', 'morph_grenade' ], 'message_key' => 'item_fill' ],
+                'fill_grenade2'   => [ 'label' => 'Befüllen', 'at00' => true, 'meta' => [ 'have_water', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_water', 'morph_grenade' ], 'message_key' => 'item_fill' ],
+                'fill_exgrenade1' => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_not_have_valve', 'must_be_inside' ], 'result' => [ 'consume_water', 'morph_bgrenade' ], 'message_key' => 'item_fill' ],
+                'fill_exgrenade2' => [ 'label' => 'Befüllen', 'at00' => true, 'meta' => [ 'have_water', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_water', 'morph_bgrenade' ], 'message_key' => 'item_fill' ],
 
                 'fill_watercan0' => [ 'label' => 'Befüllen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerTransgress, 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', 'produce_watercan1' ], 'message_key' => 'item_fill' ],
                 'fill_watercan1' => [ 'label' => 'Befüllen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerTransgress, 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', 'produce_watercan2' ], 'message_key' => 'item_fill' ],
                 'fill_watercan2' => [ 'label' => 'Befüllen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerTransgress, 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', 'produce_watercan3' ], 'message_key' => 'item_fill' ],
 
-                'fire_pilegun'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'msg_battery_use', 'spawn_empty_battery', [ 'item' => ['morph' => 'pilegun_empty_#00',    'consume' => false], 'group' => 'g_kill_1z_90_msg2' ] ] ], /* based on Hordes data */
-                'fire_pilegun2'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['msg_battery_drop', 'spawn_battery', ['item' => ['morph' => 'pilegun_up_empty_#00', 'consume' => false]] ], 8],  [['msg_battery_destroy', 'spawn_empty_battery', ['item' => ['morph' => 'pilegun_up_empty_#00', 'consume' => false]] ], 2 ] ] ], 'kill_1_zombie' ] ], /* based on Hordes data */
-                'fire_pilegun3'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['msg_battery_destroy', 'spawn_empty_battery', ['item' => ['morph' => 'big_pgun_empty_#00',   'consume' => false]] ], 50], [['msg_battery_drop', 'spawn_battery', ['item' => ['morph' => 'big_pgun_empty_#00',   'consume' => false]] ], 50] ] ], 'kill_2_zombie' ] ], /* based on Hordes data */
-                'fire_mixergun'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'],  6], [['msg_battery_use', [ 'item' => ['morph' => 'mixergun_empty_#00', 'consume' => false] ] ], 4] ] ], 'kill_1_zombie' ] ], /* based on Hordes data */
-                'fire_chainsaw'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'],  7], [['msg_battery_use', [ 'item' => ['morph' => 'chainsaw_empty_#00', 'consume' => false] ] ], 3] ] ], 'kill_3_zombie' ] ], /* based on Hordes data */
-                'fire_taser'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => 'g_kill_1z_30_taser' ], [ 'group' => [ [['do_nothing' ],  3], [[ 'msg_battery_use', [ 'item' => ['morph' => 'taser_empty_#00', 'consume' => false] ]], 7] ] ] ] ], /* based on Hordes data */
-                'fire_lpointer4' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'lpoint3_#00', 'consume' => false] ], 'kill_2_zombie' ] ],
-                'fire_lpointer3' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'lpoint2_#00', 'consume' => false] ], 'kill_2_zombie' ] ],
-                'fire_lpointer2' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'lpoint1_#00', 'consume' => false] ], 'kill_2_zombie' ] ],
-                'fire_lpointer1' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'lpoint_#00',  'consume' => false] ], 'kill_2_zombie' ] ],
+                'fire_pilegun'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'msg_battery_use', 'spawn_empty_battery', 'morph_pilegun_empty', [ 'group' => 'g_kill_1z_90_msg2' ] ] ], /* based on Hordes data */
+                'fire_pilegun2'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['msg_battery_drop', 'spawn_battery', 'morph_pilegun_up_empty' ], 8],  [['msg_battery_destroy', 'spawn_empty_battery', 'morph_pilegun_up_empty' ], 2 ] ] ], 'kill_1_zombie' ] ], /* based on Hordes data */
+                'fire_pilegun3'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['msg_battery_destroy', 'spawn_empty_battery', 'morph_big_pgun_empty' ], 50], [['msg_battery_drop', 'spawn_battery', 'morph_big_pgun_empty' ], 50] ] ], 'kill_2_zombie' ] ], /* based on Hordes data */
+                'fire_mixergun'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'],  6], [['msg_battery_use', 'morph_mixergun_empty' ], 4] ] ], 'kill_1_zombie' ] ], /* based on Hordes data */
+                'fire_chainsaw'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'],  7], [['msg_battery_use', 'morph_chainsaw_empty' ], 3] ] ], 'kill_3_zombie' ] ], /* based on Hordes data */
+                'fire_taser'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => 'g_kill_1z_30_taser' ], [ 'group' => [ [['do_nothing' ],  3], [[ 'msg_battery_use', 'morph_taser_empty'], 7] ] ] ] ], /* based on Hordes data */
+                'fire_lpointer4' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'morph_lpoint3', 'kill_2_zombie' ] ],
+                'fire_lpointer3' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'morph_lpoint2', 'kill_2_zombie' ] ],
+                'fire_lpointer2' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'morph_lpoint1', 'kill_2_zombie' ] ],
+                'fire_lpointer1' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'morph_lpoint', 'kill_2_zombie' ] ],
 
-                'fire_asplash5'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'watergun_opt_4_#00',     'consume' => false] ], 'kill_1_zombie' ] ],
-                'fire_asplash4'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'watergun_opt_3_#00',     'consume' => false] ], 'kill_1_zombie' ] ],
-                'fire_asplash3'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'watergun_opt_2_#00',     'consume' => false] ], 'kill_1_zombie' ] ],
-                'fire_asplash2'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'watergun_opt_1_#00',     'consume' => false] ], 'kill_1_zombie' ] ],
-                'fire_asplash1'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'watergun_opt_empty_#00', 'consume' => false] ], 'kill_1_zombie' ] ],
-                'fire_splash3'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'watergun_2_#00',         'consume' => false] ], 'kill_1_zombie' ] ],
-                'fire_splash2'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'watergun_1_#00',         'consume' => false] ], 'kill_1_zombie' ] ],
-                'fire_splash1'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'watergun_empty_#00',     'consume' => false] ], 'kill_1_zombie' ] ],
-                'fire_ksplash'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'kalach_#01',             'consume' => false] ], 'kill_3_zombie' ] ],
+                'fire_asplash5'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'morph_watergun_opt_4', 'kill_1_zombie' ] ],
+                'fire_asplash4'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'morph_watergun_opt_3', 'kill_1_zombie' ] ],
+                'fire_asplash3'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'morph_watergun_opt_2', 'kill_1_zombie' ] ],
+                'fire_asplash2'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'morph_watergun_opt_1', 'kill_1_zombie' ] ],
+                'fire_asplash1'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'morph_watergun_opt_empty', 'kill_1_zombie' ] ],
+                'fire_splash3'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'morph_watergun_2', 'kill_1_zombie' ] ],
+                'fire_splash2'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'morph_watergun_1', 'kill_1_zombie' ] ],
+                'fire_splash1'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'morph_watergun_empty', 'kill_1_zombie' ] ],
+                'fire_ksplash'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'morph_kalach_empty', 'kill_3_zombie' ] ],
 
                 'throw_animal'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'consume_item', 'kill_1_zombie_s', 'picto_animal' ], 'message_key' => 'throw_animal' ],
                 'throw_animal_cat'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'], 80], [['consume_item', 'picto_animal'], 20] ] ], 'kill_1_zombie_s' ], 'message_key' => 'throw_animal' ], /* based on Igloo stats (5 288 tests) */
@@ -710,9 +691,9 @@ class ActionDataService implements FixtureProcessorInterface {
                 'throw_b_bone'          => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => 'g_break_80'], 'kill_1_zombie' ] ], /* based on Hordes data */
                 'throw_b_can_opener'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ 'break_item', ['group' => 'g_kill_1z_50'] ] ], /* based on Hordes data */
                 'throw_b_chair_basic'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => 'g_break_50'], ['group' => 'g_kill_1z_50'] ] ], /* based on Hordes data */
-                'throw_b_torch'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['item' => ['morph' => 'torch_off_#00', 'consume' => false]], 'kill_1_zombie' ] ], /* based on Hordes data */
+                'throw_b_torch'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ 'morph_torch_off', 'kill_1_zombie' ] ], /* based on Hordes data */
                 'throw_b_chain'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => 'g_break_25'], ['group' => 'g_kill_1z_50'] ] ], /* based on Hordes data */
-                'throw_b_staff'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => [[['do_nothing'], 60], [[ 'msg_break_item', [ 'item' => [ 'consume' => false, 'morph' => 'staff2_#00']] ], 60]]], ['group' => 'g_kill_1z_40'] ] ], /* based on Hordes data */
+                'throw_b_staff'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => [[['do_nothing'], 60], [[ 'msg_break_item', 'morph_staff2' ], 60]]], ['group' => 'g_kill_1z_40'] ] ], /* based on Hordes data */
                 'throw_b_knife'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => 'g_break_33'], 'kill_1_zombie' ] ], /* based on Hordes data */
                 'throw_b_machine_2'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => 'g_break_43'], 'kill_1_zombie' ] ], /* based on Hordes data */
                 'throw_b_small_knife'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => 'g_break_45'], ['group' => 'g_kill_1z_15'] ] ], /* based on Hordes data */
@@ -1490,6 +1471,65 @@ class ActionDataService implements FixtureProcessorInterface {
         $effects_container->add()->identifier('consume_drug')->add((new ItemEffect())->consume('drug_#00'))->commit();
         $effects_container->add()->identifier('consume_jerrycan')->add((new ItemEffect())->consume('jerrycan_#00'))->commit();
         $effects_container->add()->identifier('consume_2_pharma')->add((new ItemEffect())->consume('pharma_#00', 2))->commit();
+
+        $effects_container->add()->identifier('empty_jerrygun')->add((new ItemEffect())->morphSource('jerrygun_off_#00'))->commit();
+        $effects_container->add()->identifier('produce_watercan3')->add((new ItemEffect())->morphSource('water_can_3_#00'))->commit();
+        $effects_container->add()->identifier('produce_watercan2')->add((new ItemEffect())->morphSource('water_can_2_#00'))->commit();
+        $effects_container->add()->identifier('produce_watercan1')->add((new ItemEffect())->morphSource('water_can_1_#00'))->commit();
+        $effects_container->add()->identifier('produce_watercan0')->add((new ItemEffect())->morphSource('water_can_empty_#00', poison: false))->commit();
+        $effects_container->add()->identifier('hero_tamer_3')->add((new ItemEffect())->morphSource('tamed_pet_drug_#00'))->commit();
+        $effects_container->add()->identifier('hero_hunter')->add((new ItemEffect())->morphSource('vest_on_#00'))->commit();
+        $effects_container->add()->identifier('morph_open_can')->add((new ItemEffect())->morphSource('can_open_#00'))->commit();
+        $effects_container->add()->identifier('morph_elec_empty')->add((new ItemEffect())->morphSource('sport_elec_empty_#00'))->commit();
+        $effects_container->add()->identifier('morph_rsc_pack_2')->add((new ItemEffect())->morphSource('rsc_pack_2_#00'))->commit();
+        $effects_container->add()->identifier('morph_rsc_pack_1')->add((new ItemEffect())->morphSource('rsc_pack_1_#00'))->commit();
+        $effects_container->add()->identifier('morph_christmas_2')->add((new ItemEffect())->morphSource('chest_christmas_2_#00'))->commit();
+        $effects_container->add()->identifier('morph_christmas_1')->add((new ItemEffect())->morphSource('chest_christmas_1_#00'))->commit();
+
+        $effects_container->add()->identifier('morph_pilegun')->add((new ItemEffect())->morphSource('pilegun_#00'))->commit();
+        $effects_container->add()->identifier('morph_pilegun_up')->add((new ItemEffect())->morphSource('pilegun_up_#00'))->commit();
+        $effects_container->add()->identifier('morph_big_pgun')->add((new ItemEffect())->morphSource('big_pgun_#00'))->commit();
+        $effects_container->add()->identifier('morph_mixergun')->add((new ItemEffect())->morphSource('mixergun_#00'))->commit();
+        $effects_container->add()->identifier('morph_chainsaw')->add((new ItemEffect())->morphSource('chainsaw_#00'))->commit();
+        $effects_container->add()->identifier('morph_taser')->add((new ItemEffect())->morphSource('taser_#00'))->commit();
+        $effects_container->add()->identifier('morph_lpoint4')->add((new ItemEffect())->morphSource('lpoint4_#00'))->commit();
+
+        $effects_container->add()->identifier('morph_lamp_on')->add((new ItemEffect())->morphSource('lamp_on_#00'))->commit();
+        $effects_container->add()->identifier('morph_vibr')->add((new ItemEffect())->morphSource('vibr_#00'))->commit();
+        $effects_container->add()->identifier('morph_radius_mk2')->add((new ItemEffect())->morphSource('radius_mk2_#00'))->commit();
+        $effects_container->add()->identifier('morph_maglite_2')->add((new ItemEffect())->morphSource('maglite_2_#00'))->commit();
+        $effects_container->add()->identifier('morph_radio_on')->add((new ItemEffect())->morphSource('radio_on_#00'))->commit();
+        $effects_container->add()->identifier('morph_sport_elec')->add((new ItemEffect())->morphSource('sport_elec_#00'))->commit();
+        $effects_container->add()->identifier('morph_jerrygun')->add((new ItemEffect())->morphSource('jerrygun_#00'))->commit();
+
+        $effects_container->add()->identifier('morph_watergun_opt_5')->add((new ItemEffect())->morphSource('watergun_opt_5_#00'))->commit();
+        $effects_container->add()->identifier('morph_watergun_3')->add((new ItemEffect())->morphSource('watergun_3_#00'))->commit();
+        $effects_container->add()->identifier('morph_kalach')->add((new ItemEffect())->morphSource('kalach_#00'))->commit();
+        $effects_container->add()->identifier('morph_grenade')->add((new ItemEffect())->morphSource('grenade_#00'))->commit();
+        $effects_container->add()->identifier('morph_bgrenade')->add((new ItemEffect())->morphSource('bgrenade_#00'))->commit();
+
+        $effects_container->add()->identifier('morph_pilegun_empty')->add((new ItemEffect())->morphSource('pilegun_empty_#00'))->commit();
+        $effects_container->add()->identifier('morph_pilegun_up_empty')->add((new ItemEffect())->morphSource('pilegun_up_empty_#00'))->commit();
+        $effects_container->add()->identifier('morph_big_pgun_empty')->add((new ItemEffect())->morphSource('big_pgun_empty_#00'))->commit();
+        $effects_container->add()->identifier('morph_mixergun_empty')->add((new ItemEffect())->morphSource('mixergun_empty_#00'))->commit();
+        $effects_container->add()->identifier('morph_chainsaw_empty')->add((new ItemEffect())->morphSource('chainsaw_empty_#00'))->commit();
+        $effects_container->add()->identifier('morph_taser_empty')->add((new ItemEffect())->morphSource('taser_empty_#00'))->commit();
+        $effects_container->add()->identifier('morph_lpoint3')->add((new ItemEffect())->morphSource('lpoint3_#00'))->commit();
+        $effects_container->add()->identifier('morph_lpoint2')->add((new ItemEffect())->morphSource('lpoint2_#00'))->commit();
+        $effects_container->add()->identifier('morph_lpoint1')->add((new ItemEffect())->morphSource('lpoint1_#00'))->commit();
+        $effects_container->add()->identifier('morph_lpoint')->add((new ItemEffect())->morphSource('lpoint_#00'))->commit();
+
+        $effects_container->add()->identifier('morph_watergun_opt_4')->add((new ItemEffect())->morphSource('watergun_opt_4_#00'))->commit();
+        $effects_container->add()->identifier('morph_watergun_opt_3')->add((new ItemEffect())->morphSource('watergun_opt_3_#00'))->commit();
+        $effects_container->add()->identifier('morph_watergun_opt_2')->add((new ItemEffect())->morphSource('watergun_opt_2_#00'))->commit();
+        $effects_container->add()->identifier('morph_watergun_opt_1')->add((new ItemEffect())->morphSource('watergun_opt_1_#00'))->commit();
+        $effects_container->add()->identifier('morph_watergun_opt_empty')->add((new ItemEffect())->morphSource('watergun_opt_empty_#00'))->commit();
+        $effects_container->add()->identifier('morph_watergun_2')->add((new ItemEffect())->morphSource('watergun_2_#00'))->commit();
+        $effects_container->add()->identifier('morph_watergun_1')->add((new ItemEffect())->morphSource('watergun_1_#00'))->commit();
+        $effects_container->add()->identifier('morph_watergun_empty')->add((new ItemEffect())->morphSource('watergun_empty_#00'))->commit();
+        $effects_container->add()->identifier('morph_kalach_empty')->add((new ItemEffect())->morphSource('kalach_#01'))->commit();
+        $effects_container->add()->identifier('morph_torch_off')->add((new ItemEffect())->morphSource('torch_off_#00'))->commit();
+        $effects_container->add()->identifier('morph_staff2')->add((new ItemEffect())->morphSource('staff2_#00'))->commit();
 
         $effects_container->add()->identifier('spawn_doggy')->add((new ItemEffect())
             ->addSpawn('food_bar2_#00', 222)

@@ -404,7 +404,6 @@ class ActionHandler
         $cache->setAction($action);
 
         if ($default_message) $cache->addMessage($default_message, translationDomain: 'items');
-        if ($target_item_prototype) $cache->setTargetItemPrototype( $target_item_prototype );
         foreach ($evaluation?->getProcessedItems('item_tool') ?? [] as $tool) $cache->addToolItem( $tool );
 
         $cache->addTranslationKey('tamer_dog', LogTemplateHandler::generateDogName($citizen->getId(), $this->translator));
