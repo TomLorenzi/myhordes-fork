@@ -25,8 +25,6 @@ class Result
     private $status;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectResultGroup')]
     private $resultGroup;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectBlueprint')]
-    private $blueprint;
     #[ORM\Column(type: 'integer', nullable: true)]
     private $custom;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectDeath')]
@@ -90,16 +88,6 @@ class Result
     public function setResultGroup(?AffectResultGroup $resultGroup): self
     {
         $this->resultGroup = $resultGroup;
-
-        return $this;
-    }
-    public function getBlueprint(): ?AffectBlueprint
-    {
-        return $this->blueprint;
-    }
-    public function setBlueprint(?AffectBlueprint $blueprint): self
-    {
-        $this->blueprint = $blueprint;
 
         return $this;
     }

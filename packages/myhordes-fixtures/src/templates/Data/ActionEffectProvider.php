@@ -58,6 +58,23 @@ class ActionEffectProvider
         $effects_container->add()->identifier('town_well_1_3')->add((new TownEffect())->well(1,3))->commit();
         $effects_container->add()->identifier('town_well_4_9')->add((new TownEffect())->well(4,9))->commit();
         $effects_container->add()->identifier('town_sdef_5')->add((new TownEffect())->soulDefense(5))->commit();
+
+        $effects_container->add()->identifier('town_bp_lv1')->add((new TownEffect())->unlockBlueprint(1))->commit();
+        $effects_container->add()->identifier('town_bp_lv2')->add((new TownEffect())->unlockBlueprint(2))->commit();
+        $effects_container->add()->identifier('town_bp_lv3')->add((new TownEffect())->unlockBlueprint(3))->commit();
+        $effects_container->add()->identifier('town_bp_lv4')->add((new TownEffect())->unlockBlueprint(4))->commit();
+
+        $effects_container->add()->identifier('town_bp_hotel_lv2')->add((new TownEffect())->unlockBlueprint(['small_bamba_#00', 'small_catapult3_#00','small_howlingbait_#00', 'small_trash_#01', 'small_trash_#02', 'small_trash_#04', 'small_court_#00', 'item_plate_#03']))->commit();
+        $effects_container->add()->identifier('town_bp_hotel_lv3')->add((new TownEffect())->unlockBlueprint(['small_sprinkler_#00', 'item_digger_#00', 'item_shield_#00', 'small_city_up_#00', 'small_falsecity_#00', 'small_lastchance_#00', 'small_lighthouse_#00', 'small_strategy_#00', 'small_valve_#00']))->commit();
+        $effects_container->add()->identifier('town_bp_hotel_lv4')->add((new TownEffect())->unlockBlueprint(['small_cinema_#00', 'small_derrick_#01', 'small_trash_#06', 'small_castle_#00', 'small_coffin_#00']))->commit();
+
+        $effects_container->add()->identifier('town_bp_bunker_lv2')->add((new TownEffect())->unlockBlueprint(['item_bgrenade_#00', 'item_bgrenade_#01', 'small_trash_#03', 'small_trash_#05', 'small_watercanon_#00', 'small_tourello_#00', 'small_armor_#00']))->commit();
+        $effects_container->add()->identifier('town_bp_bunker_lv3')->add((new TownEffect())->unlockBlueprint(['item_home_def_#00', 'item_tube_#00', 'small_labyrinth_#00', 'small_eden_#00', 'small_rocket_#00', 'small_rocketperf_#00', 'small_trashclean_#00', 'small_valve_#00', 'item_jerrycan_#01']))->commit();
+        $effects_container->add()->identifier('town_bp_bunker_lv4')->add((new TownEffect())->unlockBlueprint(['small_waterdetect_#00', 'small_arma_#00', 'small_slave_#00', 'small_trash_#06', 'small_wheel_#00']))->commit();
+
+        $effects_container->add()->identifier('town_bp_hospital_lv2')->add((new TownEffect())->unlockBlueprint(['small_ikea_#00', 'item_hmeat_#00', 'small_tourello_#00', 'small_watchmen_#00']))->commit();
+        $effects_container->add()->identifier('town_bp_hospital_lv3')->add((new TownEffect())->unlockBlueprint(['item_digger_#00', 'item_jerrycan_#01', 'item_shield_#00', 'small_appletree_#00', 'small_chicken_#00', 'small_infirmary_#00', 'small_trashclean_#00', 'small_lighthouse_#00', 'small_rocketperf_#00']))->commit();
+        $effects_container->add()->identifier('town_bp_hospital_lv4')->add((new TownEffect())->unlockBlueprint(['small_strategy_#01', 'small_balloon_#00', 'small_crow_#00', 'small_derrick_#01', 'small_pmvbig_#00']))->commit();
         //</editor-fold>
 
         //<editor-fold desc="ZoneEffects">

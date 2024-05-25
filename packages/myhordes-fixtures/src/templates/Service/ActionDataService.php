@@ -183,8 +183,6 @@ class ActionDataService implements FixtureProcessorInterface {
                     'satisfy_ghoul_10' => [ 'hunger' => -15 ],
                 ],
 
-                'bp' => [],
-
                 'group' => [
                     'g_break_15' => [[['do_nothing'], 85], [['break_item'], 15]],
                     'g_break_20' => [[['do_nothing'], 80], [['break_item'], 20]],
@@ -490,22 +488,22 @@ class ActionDataService implements FixtureProcessorInterface {
                 'throw_boomfruit'       => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'consume_item', 'zone_kill_5_9'  ], 'message_key' => 'weapon_use' ],
                 'throw_jerrygun'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'kill_1_zombie', 'msg_throw_jerrycan', ['group' => 'g_empty_jerrygun']] ],
 
-                'bp_generic_1'          => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => [1] ] ], 'message_key' => 'read_blueprint' ],
-                'bp_generic_2'          => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => [2] ] ], 'message_key' => 'read_blueprint' ],
-                'bp_generic_3'          => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => [3] ] ], 'message_key' => 'read_blueprint' ],
-                'bp_generic_4'          => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => [4] ] ], 'message_key' => 'read_blueprint' ],
+                'bp_generic_1'          => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', 'town_bp_lv1'], 'message_key' => 'read_blueprint' ],
+                'bp_generic_2'          => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', 'town_bp_lv2'], 'message_key' => 'read_blueprint' ],
+                'bp_generic_3'          => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', 'town_bp_lv3'], 'message_key' => 'read_blueprint' ],
+                'bp_generic_4'          => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', 'town_bp_lv4'], 'message_key' => 'read_blueprint' ],
 
-                'bp_hotel_2'    => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_bamba_#00', 'small_catapult3_#00','small_howlingbait_#00', 'small_trash_#01', 'small_trash_#02', 'small_trash_#04', 'small_court_#00', 'item_plate_#03'] ] ],                     'message_key' => 'read_blueprint' ],
-                'bp_hotel_3'    => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_sprinkler_#00', 'item_digger_#00', 'item_shield_#00', 'small_city_up_#00', 'small_falsecity_#00', 'small_lastchance_#00', 'small_lighthouse_#00', 'small_strategy_#00', 'small_valve_#00'] ] ], 'message_key' => 'read_blueprint' ],
-                'bp_hotel_4'    => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_cinema_#00', 'small_derrick_#01', 'small_trash_#06', 'small_castle_#00', 'small_coffin_#00'] ] ],                                              'message_key' => 'read_blueprint' ],
+                'bp_hotel_2'    => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', 'town_bp_hotel_lv2'], 'message_key' => 'read_blueprint' ],
+                'bp_hotel_3'    => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', 'town_bp_hotel_lv3'], 'message_key' => 'read_blueprint' ],
+                'bp_hotel_4'    => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', 'town_bp_hotel_lv4'], 'message_key' => 'read_blueprint' ],
 
-                'bp_bunker_2'   => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['item_bgrenade_#00', 'item_bgrenade_#01', 'small_trash_#03', 'small_trash_#05', 'small_watercanon_#00', 'small_tourello_#00', 'small_armor_#00'] ] ],                                             'message_key' => 'read_blueprint' ],
-                'bp_bunker_3'   => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['item_home_def_#00', 'item_tube_#00', 'small_labyrinth_#00', 'small_eden_#00', 'small_rocket_#00', 'small_rocketperf_#00', 'small_trashclean_#00', 'small_valve_#00', 'item_jerrycan_#01'] ] ], 'message_key' => 'read_blueprint' ],
-                'bp_bunker_4'   => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_waterdetect_#00', 'small_arma_#00', 'small_slave_#00', 'small_trash_#06', 'small_wheel_#00'] ] ],                                                                                         'message_key' => 'read_blueprint' ],
+                'bp_bunker_2'   => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', 'town_bp_bunker_lv2'], 'message_key' => 'read_blueprint' ],
+                'bp_bunker_3'   => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', 'town_bp_bunker_lv3'], 'message_key' => 'read_blueprint' ],
+                'bp_bunker_4'   => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', 'town_bp_bunker_lv4'], 'message_key' => 'read_blueprint' ],
 
-                'bp_hospital_2' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_ikea_#00', 'item_hmeat_#00', 'small_tourello_#00', 'small_watchmen_#00'] ] ],                                                                            'message_key' => 'read_blueprint' ],
-                'bp_hospital_3' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['item_digger_#00', 'item_jerrycan_#01', 'item_shield_#00', 'small_appletree_#00', 'small_chicken_#00', 'small_infirmary_#00', 'small_trashclean_#00', 'small_lighthouse_#00', 'small_rocketperf_#00'] ] ], 'message_key' => 'read_blueprint' ],
-                'bp_hospital_4' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_strategy_#01', 'small_balloon_#00', 'small_crow_#00', 'small_derrick_#01', 'small_pmvbig_#00'] ] ],                                                                                               'message_key' => 'read_blueprint' ],
+                'bp_hospital_2' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', 'town_bp_hospital_lv2'], 'message_key' => 'read_blueprint' ],
+                'bp_hospital_3' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', 'town_bp_hospital_lv3'], 'message_key' => 'read_blueprint' ],
+                'bp_hospital_4' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', 'town_bp_hospital_lv4'], 'message_key' => 'read_blueprint' ],
 
                 'read_rp' => [ 'label' => 'Lesen', 'cover' => false, 'at00' => true, 'meta' => [], 'result' => [ 'consume_item', 'find_rp' ], 'message' => 'Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen<t-rp_ok>! Der Text wurde deinem Archiv hinzugefügt.</t-rp_ok><t-rp_fail>... Leider stellst du fest, dass du diesen Text bereits kennst.</t-rp_fail>' ],
                 'read_rp_cover' => [ 'label' => 'Lesen', 'cover' => true, 'at00' => true, 'meta' => [], 'result' => [ 'consume_item', 'find_rp' ], 'message' => 'Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen<t-rp_ok>! Der Text wurde deinem Archiv hinzugefügt.</t-rp_ok><t-rp_fail>... Leider stellst du fest, dass du diesen Text bereits kennst.</t-rp_fail>' ],

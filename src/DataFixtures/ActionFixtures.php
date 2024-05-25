@@ -3,7 +3,6 @@
 namespace App\DataFixtures;
 
 use App\Entity\AffectAP;
-use App\Entity\AffectBlueprint;
 use App\Entity\AffectCP;
 use App\Entity\AffectDeath;
 use App\Entity\AffectPM;
@@ -145,9 +144,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                         break;
                     case 'ap':
                         $result->setAp( $this->process_ap_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
-                        break;
-                    case 'bp':
-                        $result->setBlueprint( $this->process_blueprint_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
                         break;
                     case 'pm':
                         $result->setPm( $this->process_pm_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
@@ -341,51 +337,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             $result->setName( $id )->setCause( $causeOfDeath );
             $manager->persist( $cache[$id] = $result );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>death/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-
-        return $cache[$id];
-    }
-
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
-     * @return AffectBlueprint
-     * @throws Exception
-     */
-    private function process_blueprint_effect(
-        ObjectManager $manager, ConsoleOutputInterface $out,
-        array &$cache, string $id, array $data): AffectBlueprint
-    {
-        if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectBlueprint::class)->findOneBy(['name' => $id]);
-            if ($result) {
-                $result->getList()->clear();
-                $out->writeln( "\t\t\t<comment>Update</comment> effect <info>blueprint/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-            else {
-                $result = new AffectBlueprint();
-                $out->writeln("\t\t\t<comment>Create</comment> effect <info>blueprint/{$id}</info>", OutputInterface::VERBOSITY_DEBUG);
-            }
-
-            $result->setName( $id );
-            if (count($data) === 1 && is_numeric( $data[0] ))
-                $result->setType( $data[0] );
-            else {
-                $result->setType( -1 );
-                foreach ($data as $proto) {
-
-                    $bpp = $manager->getRepository(BuildingPrototype::class)->findOneByName($proto, false );
-                    if (!$bpp) throw new Exception("Building Prototype not found: {$proto}");
-
-                    $result->addList( $bpp );
-                }
-            }
-
-
-            $manager->persist( $cache[$id] = $result );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>blueprint/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 
         return $cache[$id];
     }

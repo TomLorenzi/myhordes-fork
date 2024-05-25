@@ -8,6 +8,8 @@ use MyHordes\Fixtures\DTO\Actions\EffectAtom;
 /**
  * @property-read ?int wellMin
  * @property-read ?int wellMax
+ * @property-read ?int unlockBlueprintType
+ * @property-read ?array unlockBlueprintList
  * @method self soulDefense(?int $v)
  * @property ?int soulDefense
  * @method
@@ -24,8 +26,18 @@ class TownEffect extends EffectAtom {
         return $this;
     }
 
+    public function unlockBlueprint(int|array $type): self {
+        $this->unlockBlueprintType = is_array( $type ) ? null : $type;
+        $this->unlockBlueprintList = is_array( $type ) ? $type : null;
+        return $this;
+    }
+
     public function hasWellEffect(): bool {
         return $this->wellMin !== 0 || $this->wellMax !== 0;
+    }
+
+    public function unlocksBlueprint(): bool {
+        return $this->unlockBlueprintType !== null || $this->unlockBlueprintList !== null;
     }
 
     protected function default(string $name): mixed {

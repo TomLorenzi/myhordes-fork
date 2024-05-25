@@ -30,10 +30,21 @@ abstract class ActionDataElementBase extends Element {
         return $this;
     }
 
-    public function clear( string $class ): self {
+    /**
+     * @template T
+     * @param class-string<T> $class
+     * @param callable $c
+     * @psalm-param Closure(T):void $c
+     * @return self
+     */
+    public function first(string $class, callable $c): self {
+        $c(array_values(array_filter($this->atomList, fn(Atom $a) => is_a( $a, $class ) || is_a( $a->getClass(), $class, true )))[0]);
+        return $this;
+    }
 
+    public function clear( string $class ): self {
         $this->atomList = array_values( array_filter( $this->atomList, fn(Atom $a) =>
-            !is_a( $a, $class, true ) && !is_a( $a->getClass(), $class, true )
+            !is_a( $a, $class ) && !is_a( $a->getClass(), $class, true )
         ) );
         return $this;
     }
