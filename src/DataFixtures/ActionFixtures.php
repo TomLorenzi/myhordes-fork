@@ -6,7 +6,6 @@ use App\Entity\AffectAP;
 use App\Entity\AffectBlueprint;
 use App\Entity\AffectCP;
 use App\Entity\AffectDeath;
-use App\Entity\AffectOriginalItem;
 use App\Entity\AffectPM;
 use App\Entity\AffectResultGroup;
 use App\Entity\AffectResultGroupEntry;
@@ -158,12 +157,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                         break;
                     case 'death':
                         $result->setDeath( $this->process_death_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
-                        break;
-                    case 'item':
-                        $result->setItem( $this->process_item_effect($manager, $out, $sub_cache[$sub_id], $sub_res, $sub_data) );
-                        break;
-                    case 'target':
-                        $result->setTarget( $this->process_item_effect($manager, $out, $sub_cache[$sub_id], $sub_res, $sub_data) );
                         break;
                     case 'group':
                         $result->setResultGroup( $this->process_group_effect($manager, $out, $sub_cache[$sub_id], $cache, $sub_cache, $sub_res, $sub_data) );
@@ -394,42 +387,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             $manager->persist( $cache[$id] = $result );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>blueprint/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 
-        return $cache[$id];
-    }
-
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
-     * @return AffectOriginalItem
-     * @throws Exception
-     */
-    private function process_item_effect(
-        ObjectManager $manager, ConsoleOutputInterface $out,
-        array &$cache, string $id, array $data): AffectOriginalItem 
-    {
-        if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectOriginalItem::class)->findOneBy(['name' => $id]);
-            if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>item/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            else {
-                $result = new AffectOriginalItem();
-                $out->writeln( "\t\t\t<comment>Create</comment> effect <info>item/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-            $morph_to = empty($data['morph']) ? null : $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $data['morph']]);
-            if (!$morph_to && !empty($data['morph'])) throw new Exception('Item prototype not found: ' . $data['morph']);
-
-            if ($morph_to && $data['consume']) throw new Exception('Item effects cannot morph and consume at the same time!');
-
-            if (($data['poison'] ?? null) === true) $data['poison'] = ItemPoisonType::Deadly;
-            if (($data['poison'] ?? null) === false) $data['poison'] = ItemPoisonType::None;
-            $result->setName( $id )->setConsume( $data['consume'] )->setMorph( $morph_to )
-                ->setBreak( $data['break'] ?? null )
-                ->setPoison( $data['poison'] ?? null );
-            $manager->persist( $cache[$id] = $result );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>item/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-        
         return $cache[$id];
     }
 

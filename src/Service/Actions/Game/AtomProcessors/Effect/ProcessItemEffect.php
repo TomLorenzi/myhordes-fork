@@ -119,10 +119,10 @@ class ProcessItemEffect extends AtomEffectProcessor
             }
         }
 
-        if ($data->consumeSource) {
+        if ($data->consumeSource && $cache->item) {
             $ih->forceRemoveItem( $cache->item );
             $cache->addConsumedItem($cache->item);
-        } elseif ($data->morphSource) {
+        } elseif ($data->morphSource && $cache->item) {
             if ($data->morphSourceType) {
                 $prototype = $cache->em->getRepository(ItemPrototype::class)->findOneBy(['name' => $data->morphSourceType]);
                 if ($prototype) {

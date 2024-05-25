@@ -86,7 +86,6 @@ class ActionEffectProvider
 
         //<editor-fold desc="ItemEffects">
         $effects_container->add()->identifier('consume_item')->add((new ItemEffect())->consumeSource())->commit();
-        $effects_container->add()->identifier('break_item')->add((new ItemEffect())->morphSource(break: true))->commit();
         $effects_container->add()->identifier('cleanse_item')->add((new ItemEffect())->morphSource(poison: false))->commit();
 
         $effects_container->add()->identifier('spawn_target')->add((new ItemEffect())->spawnTarget())->commit();
@@ -161,6 +160,22 @@ class ActionEffectProvider
         $effects_container->add()->identifier('morph_kalach_empty')->add((new ItemEffect())->morphSource('kalach_#01'))->commit();
         $effects_container->add()->identifier('morph_torch_off')->add((new ItemEffect())->morphSource('torch_off_#00'))->commit();
         $effects_container->add()->identifier('morph_staff2')->add((new ItemEffect())->morphSource('staff2_#00'))->commit();
+
+        $effects_container->add()->identifier('morph_repair_kit_part')->add((new ItemEffect())->morphSource('repair_kit_part_#00'))->commit();
+        $effects_container->add()->identifier('morph_radius_mk2_part')->add((new ItemEffect())->morphSource('radius_mk2_part_#00'))->commit();
+
+        $effects_container->add()->identifier('morph_bone')->add((new ItemEffect())->morphSource('bone_#00'))->commit();
+        $effects_container->add()->identifier('morph_cadaver_remains')->add((new ItemEffect())->morphSource('cadaver_remains_#00'))->commit();
+        $effects_container->add()->identifier('morph_basic_suit')->add((new ItemEffect())->morphSource('basic_suit_#00'))->commit();
+
+        $effects_container->add()->identifier('morph_photo_2')->add((new ItemEffect())->morphSource('photo_2_#00'))->commit();
+        $effects_container->add()->identifier('morph_photo_1')->add((new ItemEffect())->morphSource('photo_1_#00'))->commit();
+        $effects_container->add()->identifier('morph_photo_off')->add((new ItemEffect())->morphSource('photo_off_#00'))->commit();
+        $effects_container->add()->identifier('morph_alarm_on')->add((new ItemEffect())->morphSource('alarm_on_#00'))->commit();
+        $effects_container->add()->identifier('morph_pumpkin_off')->add((new ItemEffect())->morphSource('pumpkin_off_#00'))->commit();
+        $effects_container->add()->identifier('morph_vibr_empty')->add((new ItemEffect())->morphSource('vibr_empty_#00'))->commit();
+        $effects_container->add()->identifier('morph_undef')->add((new ItemEffect())->morphSource('undef_#00'))->commit();
+        $effects_container->add()->identifier('morph_meat')->add((new ItemEffect())->morphSource('meat_#00'))->commit();
 
         $effects_container->add()->identifier('spawn_doggy')->add((new ItemEffect())
                                                                       ->addSpawn('food_bar2_#00', 222)
@@ -325,6 +340,7 @@ class ActionEffectProvider
         // Composite
         $effects_container->add()->identifier('break_item')
             ->add((new PictoEffect())->picto('r_broken_#00'))
+            ->add((new ItemEffect())->morphSource(break: true))
             ->add((new MessageEffect())->text('Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...')->order(100))
             ->commit();
 

@@ -23,8 +23,6 @@ class Result
     private $ap;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectStatus')]
     private $status;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectOriginalItem')]
-    private $item;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectResultGroup')]
     private $resultGroup;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectBlueprint')]
@@ -33,8 +31,6 @@ class Result
     private $custom;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectDeath')]
     private $death;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectOriginalItem')]
-    private $target;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectPM')]
     private $pm;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectCP')]
@@ -86,16 +82,7 @@ class Result
 
         return $this;
     }
-    public function getItem(): ?AffectOriginalItem
-    {
-        return $this->item;
-    }
-    public function setItem(?AffectOriginalItem $item): self
-    {
-        $this->item = $item;
 
-        return $this;
-    }
     public function getResultGroup(): ?AffectResultGroup
     {
         return $this->resultGroup;
@@ -133,16 +120,6 @@ class Result
     public function setDeath(?AffectDeath $death): self
     {
         $this->death = $death;
-
-        return $this;
-    }
-    public function getTarget(): ?AffectOriginalItem
-    {
-        return $this->target;
-    }
-    public function setTarget(?AffectOriginalItem $target): self
-    {
-        $this->target = $target;
 
         return $this;
     }

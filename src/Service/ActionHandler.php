@@ -572,43 +572,6 @@ class ActionHandler
                 }
             }
 
-            if ($item && $item_result = $result->getItem()) {
-                if ($item_result->getConsume()) {
-                    $this->inventory_handler->forceRemoveItem( $item );
-                    $cache->addConsumedItem($item);
-                } else {
-                    if ($item_result->getMorph()) {
-                        $cache->setItemMorph(  $item->getPrototype(), $item_result->getMorph() );
-                        $item->setPrototype( $item_result->getMorph() );
-                    }
-
-                    if ($item_result->getBreak()  !== null) $item->setBroken( $item_result->getBreak() );
-                    if ($item_result->getPoison() !== null) $item->setPoison( $item_result->getPoison() );
-                }
-            }
-
-            if ($target && $target_result = $result->getTarget()) {
-                if (is_a($target, Item::class)) {
-                    if ($target_result->getConsume()) {
-                        $this->inventory_handler->forceRemoveItem( $target );
-                        $cache->addConsumedItem($target);
-                    } else {
-                        if ($target_result->getMorph()) {
-                            $cache->setItemMorph( $target->getPrototype(),  $target_result->getMorph(), true );
-                            $target->setPrototype($target_result->getMorph());
-                        }
-                        if ($target_result->getBreak()  !== null) $target->setBroken( $target_result->getBreak() );
-                        if ($target_result->getPoison() !== null) $target->setPoison( $target_result->getPoison() );
-                    }
-                } elseif (is_a($target, ItemPrototype::class)) {
-                    if ($i = $this->proxyService->placeItem( $citizen, $this->item_factory->createItem( $target ), [ $citizen->getInventory(), $floor_inventory ], true)) {
-                        if ($i !== $citizen->getInventory())
-                            $cache->addMessage( T::__('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', 'game') );
-                        $cache->addSpawnedItem($target);
-                    }
-                }
-            }
-
             if ($result->getCustom())
             {
                 $ap     = false;
