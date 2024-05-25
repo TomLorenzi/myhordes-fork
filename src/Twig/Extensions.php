@@ -24,6 +24,8 @@ use App\Structures\MyHordesConf;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use MyHordes\Fixtures\DTO\Actions\RequirementsDataContainer;
+use MyHordes\Fixtures\DTO\Container;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -78,6 +80,7 @@ class Extensions extends AbstractExtension implements GlobalsInterface
             new TwigFilter('color',  [$this, 'color']),
             new TwigFilter('textcolor',  [$this, 'color_tx']),
             new TwigFilter('translated_title',  [$this, 'translatedTitle']),
+            new TwigFilter('atomize',  [$this, 'atomize']),
         ];
     }
 
@@ -334,6 +337,10 @@ class Extensions extends AbstractExtension implements GlobalsInterface
 	public function gethostname(): string {
 		return getenv('LOAD_HOST') ?: gethostname();
 	}
+
+    public function atomize(array $data, string $class): Container {
+        return (new $class)->fromArray([['atomList' => $data]]);
+    }
 
     public function town_conf_explained(?array $conf): array {
         if (empty($conf)) return [];

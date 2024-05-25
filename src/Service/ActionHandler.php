@@ -394,10 +394,6 @@ class ActionHandler
             if ($mode != ActionValidity::Full) return self::ErrorActionUnregistered;
         }
 
-        $target_item_prototype = null;
-        if ($target && is_a( $target, Item::class )) $target_item_prototype = $target->getPrototype();
-        if ($target && is_a( $target, ItemPrototype::class )) $target_item_prototype = $target;
-
         $cache = new Execution($this->entity_manager, $citizen, $item, $target, $this->conf->getTownConfiguration( $citizen->getTown() ), $this->conf->getGlobalConf());
         $default_message = $escort_mode ? $action->getEscortMessage() : $action->getMessage();
         $cache->setEscortMode($escort_mode);
@@ -410,147 +406,25 @@ class ActionHandler
 
         if ($citizen->activeExplorerStats())
             $cache->setTargetRuinZone($ruinZone = $this->entity_manager->getRepository(RuinZone::class)->findOneByExplorerStats($citizen->activeExplorerStats()));
-        else $ruinZone = null;
 
-        $floor_inventory = null;
-        if (!$citizen->getZone())
-            $floor_inventory = $citizen->getHome()->getChest();
-        elseif ($citizen->getZone()->getX() === 0 && $citizen->getZone()->getY() === 0)
-            $floor_inventory = $citizen->getTown()->getBank();
-        elseif (!$ruinZone)
-            $floor_inventory = $citizen->getZone()->getFloor();
-        else
-            $floor_inventory = $ruinZone->getFloor();
+        $all_results = [];
+        $all_atoms = [];
 
-        $sort_result_list = function(array &$results) {
-            usort( $results, function(Result $a, Result $b) {
-                // Results with status effects are handled first
-                if (($a->getStatus() === null) !== ($b->getStatus() === null)) return $b->getStatus() ? 1 : -1;
-                // Results with custom code are handled second
-                if (($a->getCustom() === null) !== ($b->getCustom() === null)) return $b->getCustom() ? 1 : -1;
-                // Everything else is handled in "random" order
-                return $a->getId() - $b->getId();
-            } );
+        $processResultList = function(array $results) use (&$all_results, &$all_atoms, &$processResultList): void {
+
+            /** @var Result $result */
+            foreach ($results as $result) {
+
+                if ($result->getCustom()) $all_results[] = $result;
+                if ($result->getAtoms()) $all_atoms = [...$all_atoms, ...$result->getAtoms()];
+                if ($result_group = $result->getResultGroup())
+                    $processResultList($this->random_generator->pickResultsFromGroup( $result_group ));
+            }
+
         };
 
-        $execute_result = function(Result $result) use ($citizen, &$item, &$target, &$action, &$message, &$remove, &$cache, &$kill_by_poison, &$infect_by_poison, &$spread_poison, $town_conf, &$floor_inventory, &$ruinZone) {
+        $execute_result = function(Result $result) use ($citizen, &$item, &$target, &$action, &$message, &$remove, &$cache, &$kill_by_poison, &$infect_by_poison, &$spread_poison, $town_conf) {
             /** @var Citizen $citizen */
-            if ($status = $result->getStatus()) {
-
-                $p = $status->getProbability();
-                if ($p !== null && $status->isModifyProbability()) {
-
-                    if ($status->getRole()?->getName() === 'ghoul') {
-                        if ($citizen->getTown()->getType()->getName() === 'panda') $p += 3;
-                        if ($this->citizen_handler->hasStatusEffect($citizen, 'tg_home_clean')) $p -= 3;
-                    }
-
-                }
-
-                if ($p === null || $this->random_generator->chance( $p / 100 )) {
-                    if ($status->getResetThirstCounter())
-                        $citizen->setWalkingDistance(0);
-
-                    if ($status->getCounter() !== null)
-                        $citizen->getSpecificActionCounter( $status->getCounter() )->increment();
-
-                    if ($status->getCitizenHunger()) {
-                        $ghoul_mode = $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_GHOUL_MODE, 'normal');
-                        $hungry_ghouls = $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_GHOULS_HUNGRY, false);
-                        if (($hungry_ghouls || $citizen->hasRole('ghoul')) && ($status->getForced() || !in_array($ghoul_mode, ['bloodthirst','airbnb'])))
-                            $citizen->setGhulHunger( max(0,$citizen->getGhulHunger() + $status->getCitizenHunger()) );
-                    }
-
-                    if ($status->getRole() !== null && $status->getRoleAdd() !== null) {
-                        if ($status->getRoleAdd()) {
-                            if ($this->citizen_handler->addRole( $citizen, $status->getRole() )) {
-                                $cache->addTag('role-up');
-                                $cache->addTag("role-up-{$status->getRole()->getName()}");
-                            }
-                        } else {
-                            if ($this->citizen_handler->removeRole( $citizen, $status->getRole() )) {
-                                $cache->addTag('role-down');
-                                $cache->addTag("role-down-{$status->getRole()->getName()}");
-                            }
-                        }
-                    }
-
-                    if ($status->getInitial() && $status->getResult()) {
-                        if ($citizen->getStatus()->contains( $status->getInitial() )) {
-                            $this->citizen_handler->removeStatus( $citizen, $status->getInitial() );
-                            $this->citizen_handler->inflictStatus( $citizen, $status->getResult() );
-                            $cache->addTag('stat-change');
-                            $cache->addTag("stat-change-{$status->getInitial()->getName()}-{$status->getResult()->getName()}");
-                        }
-                    }
-                    elseif ($status->getInitial()) {
-                        if ($citizen->getStatus()->contains( $status->getInitial() ) && $this->citizen_handler->removeStatus( $citizen, $status->getInitial() )) {
-                            $cache->addTag('stat-down');
-                            $cache->addTag("stat-down-{$status->getInitial()->getName()}");
-                        }
-                    }
-                    elseif ($status->getResult()) {
-                        $inflict = true;
-
-                        if($inflict && $status->getResult()->getName() == "infect" && $this->citizen_handler->hasStatusEffect($citizen, "tg_infect_wtns")) {
-                            $inflict = $this->random_generator->chance(0.5);
-                            $this->citizen_handler->removeStatus( $citizen, 'tg_infect_wtns' );
-
-                            $cache->addMessage(
-                                $inflict
-                                    ? T::__('Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...', "items")
-                                    : T::__('Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.', "items"),
-                                translationDomain: 'items'
-                            );
-                        }
-                        if ($inflict){
-                            if (!$citizen->getStatus()->contains( $status->getResult() ) && $this->citizen_handler->inflictStatus($citizen, $status->getResult())) {
-                                $cache->addTag('stat-up');
-                                $cache->addTag("stat-up-{$status->getResult()->getName()}");
-                            }
-                        }
-                    }
-                }
-
-
-            }
-
-            if ($ap = $result->getAp()) {
-                $old_ap = $citizen->getAp();
-                if ($ap->getMax()) {
-                    $to = $this->citizen_handler->getMaxAP($citizen) + $ap->getAp();
-                    $this->citizen_handler->setAP( $citizen, false, max( $old_ap, $to ), null );
-                } else $this->citizen_handler->setAP( $citizen, true, $ap->getAp(), $ap->getAp() < 0 ? null :$ap->getBonus() );
-
-                $cache->addPoints( PointType::AP, $citizen->getAp() - $old_ap );
-            }
-
-            if ($pm = $result->getPm()) {
-                $old_pm = $citizen->getPm();
-                if ($pm->getMax()) {
-                    $to = $this->citizen_handler->getMaxPM($citizen) + $pm->getPm();
-                    $this->citizen_handler->setPM( $citizen, false, max( $old_pm, $to ) );
-                } else $this->citizen_handler->setPM( $citizen, true, $pm->getPm() );
-
-                $cache->addPoints( PointType::MP, $citizen->getPm() - $old_pm );
-            }
-
-            if ($cp = $result->getCp()) {
-                $old_cp = $citizen->getBp();
-                if ($cp->getMax()) {
-                    $to = $this->citizen_handler->getMaxBP($citizen) + $cp->getCp();
-                    $this->citizen_handler->setBP( $citizen, false, max( $old_cp, $to ) );
-                } else $this->citizen_handler->setBP( $citizen, true, $cp->getCp() );
-
-                $cache->addPoints( PointType::CP, $citizen->getBp() - $old_cp );
-            }
-
-            if ($death = $result->getDeath()) {
-                $this->death_handler->kill( $citizen, $death->getCause(), $r );
-                $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
-                foreach ($r as $r_entry) $remove[] = $r_entry;
-            }
-
             if ($result->getCustom())
             {
                 $ap     = false;
@@ -579,6 +453,7 @@ class ActionHandler
                             $cmg .= ' ' . $this->translator->trans('Nicht schlecht, du hast einen Pasch geworfen.', [], 'items');
                         else $cmg .= ' ' . $this->translator->trans('Was für ein Spaß!', [], 'items');
 
+                        $this->citizen_handler->inflictStatus($cache->citizen, 'tg_dice');
                         $cache->addTranslationKey('casino', $cmg);
                         break;
                     // Cards
@@ -613,6 +488,7 @@ class ActionHandler
                             }
                         }
 
+                        $this->citizen_handler->inflictStatus($cache->citizen, 'tg_cards');
                         $cache->addTranslationKey('casino', $cmg);
                         break;
                     // Guitar
@@ -1105,25 +981,28 @@ class ActionHandler
                     $this->citizen_handler->inflictStatus( $citizen, 'terror' );
             }
 
-            if ($result->getAtoms()) {
-                $container = (new EffectsDataContainer())->fromArray([['atomList' => $result->getAtoms()]]);
-                foreach ( $container->all() as $effectsDataElement )
-                    AtomEffectProcessor::process( $this->container, $cache, $effectsDataElement->atomList );
-            }
+            //if ($result->getAtoms()) {
+            //    $container = (new EffectsDataContainer())->fromArray([['atomList' => $result->getAtoms()]]);
+            //    foreach ( $container->all() as $effectsDataElement )
+            //        AtomEffectProcessor::process( $this->container, $cache, $effectsDataElement->atomList );
+            //}
 
             return $cache->getRegisteredError() ?? self::ErrorNone;
         };
 
-        $results = $action->getResults()->getValues();
-        foreach ($action->getResults() as $result) if ($result_group = $result->getResultGroup()) {
-            $r = $this->random_generator->pickResultsFromGroup( $result_group );
-            foreach ($r as $sub_result) $results[] = $sub_result;
-        }
+        $processResultList($action->getResults()->toArray());
 
-        $sort_result_list($results);
-        foreach ($results as $result) {
+        foreach ($all_results as $result) {
             $res = $execute_result($result);
             if($res !== self::ErrorNone) return $res;
+        }
+
+        if (!empty($all_atoms)) {
+            $container = (new EffectsDataContainer())->fromArray([['atomList' => $all_atoms]]);
+            foreach ( $container->all() as $effectsDataElement ) {
+                AtomEffectProcessor::process($this->container, $cache, $effectsDataElement->atomList);
+                if ($cache->getRegisteredError()) return $cache->getRegisteredError();
+            }
         }
 
         foreach (ItemPoisonType::cases() as $pt)

@@ -2,7 +2,10 @@
 
 namespace MyHordes\Fixtures\Data;
 
+use App\Entity\ActionCounter;
+use App\Entity\CauseOfDeath;
 use App\Enum\ActionHandler\ItemDropTarget;
+use App\Enum\ActionHandler\PointType;
 use App\Enum\ItemPoisonType;
 use ArrayHelpers\Arr;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\HomeEffect;
@@ -10,6 +13,7 @@ use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\ItemEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\MessageEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\PictoEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\RolePlayTextEffect;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\StatusEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\TownEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\ZoneEffect;
 use MyHordes\Fixtures\DTO\Actions\EffectsDataContainer;
@@ -350,6 +354,80 @@ class ActionEffectProvider
         )->commit();
         //</editor-fold>
 
+        //<editor-fold desc="Status">
+        $effects_container->add()->identifier('minus_1ap')->add( (new StatusEffect())->point( PointType::AP, -1, relativeToMax: false ) )->commit();
+        $effects_container->add()->identifier('minus_5ap')->add( (new StatusEffect())->point( PointType::AP, -5, relativeToMax: false ) )->commit();
+        $effects_container->add()->identifier('minus_6ap')->add( (new StatusEffect())->point( PointType::AP, -6, relativeToMax: false ) )->commit();
+        $effects_container->add()->identifier('plus_2ap')->add( (new StatusEffect())->point( PointType::AP, 2, relativeToMax: false ) )->commit();
+        $effects_container->add()->identifier('plus_2ap_7')->add( (new StatusEffect())->point( PointType::AP, 2, relativeToMax: false, exceedMax: 1 ) )->commit();
+        $effects_container->add()->identifier('plus_4ap')->add( (new StatusEffect())->point( PointType::AP, 4, relativeToMax: false ) )->commit();
+        $effects_container->add()->identifier('plus_ap8_30')->add( (new StatusEffect())->point( PointType::AP, 8, relativeToMax: false, exceedMax: 24 ) )->commit();
+        $effects_container->add()->identifier('just_ap6')->add( (new StatusEffect())->point( PointType::AP, 0 ) )->commit();
+        $effects_container->add()->identifier('just_ap7')->add( (new StatusEffect())->point( PointType::AP, 1 ) )->commit();
+        $effects_container->add()->identifier('just_ap8')->add( (new StatusEffect())->point( PointType::AP, 2 ) )->commit();
+        $effects_container->add()->identifier('just_ap26')->add( (new StatusEffect())->point( PointType::AP, 20 ) )->commit();
+
+        $effects_container->add()->identifier('minus_1pm')->add( (new StatusEffect())->point( PointType::MP, -1, relativeToMax: false ) )->commit();
+        $effects_container->add()->identifier('minus_2pm')->add( (new StatusEffect())->point( PointType::MP, -2, relativeToMax: false ) )->commit();
+        $effects_container->add()->identifier('minus_3pm')->add( (new StatusEffect())->point( PointType::MP, -3, relativeToMax: false ) )->commit();
+
+        $effects_container->add()->identifier('minus_1cp')->add( (new StatusEffect())->point( PointType::CP, -1, relativeToMax: false ) )->commit();
+
+        $effects_container->add()->identifier('drink_ap_1')->add( (new StatusEffect())->point( PointType::AP, 0, relativeToMax: true )->addsStatus('hasdrunk'))->commit();
+        $effects_container->add()->identifier('drink_ap_2')->add( (new StatusEffect())->removesStatus('thirst1'))->commit();
+        $effects_container->add()->identifier('drink_no_ap')->add( (new StatusEffect())->morphsStatus('thirst2', 'thirst1'))->commit();
+        $effects_container->add()->identifier('reset_thirst_counter')->add( (new StatusEffect())->resetsThirstCounter())->commit();
+
+        $effects_container->add()->identifier('terrorize')->add( (new StatusEffect())->addsStatus('terror'))->commit();
+        $effects_container->add()->identifier('unterrorize')->add( (new StatusEffect())->removesStatus('terror'))->commit();
+        $effects_container->add()->identifier('infect_no_msg')->add( (new StatusEffect())->addsStatus('infection'))->commit();
+        $effects_container->add()->identifier('disinfect')->add( (new StatusEffect())->removesStatus('infection'))->commit();
+        $effects_container->add()->identifier('immune')->add( (new StatusEffect())->addsStatus('immune'))->commit();
+        $effects_container->add()->identifier('give_shaman_immune')->add( (new StatusEffect())->addsStatus('tg_shaman_immune'))->commit();
+
+        $effects_container->add()->identifier('heal_wound')->add( (new StatusEffect())->removesStatus('tg_meta_wound'))->commit();
+        $effects_container->add()->identifier('inflict_wound')->add( (new StatusEffect())->addsStatus('tg_meta_wound'))->commit();
+        $effects_container->add()->identifier('add_bandage')->add( (new StatusEffect())->addsStatus('healed'))->commit();
+
+        $effects_container->add()->identifier('eat_ap6_silent')->add( (new StatusEffect())->point( PointType::AP, 0, relativeToMax: true )->addsStatus('haseaten'))->commit();
+
+        $effects_container->add()->identifier('increase_lab_counter')->add( (new StatusEffect())->count(ActionCounter::ActionTypeHomeLab))->commit();
+        $effects_container->add()->identifier('increase_kitchen_counter')->add( (new StatusEffect())->count(ActionCounter::ActionTypeHomeKitchen))->commit();
+
+        $effects_container->add()->identifier('heal_ghoul')->add( (new StatusEffect())->role('ghoul', false)->ghoulHunger(-9999999, true))->commit();
+        $effects_container->add()->identifier('satisfy_ghoul_50')->add( (new StatusEffect())->ghoulHunger(-50))->commit();
+        $effects_container->add()->identifier('satisfy_ghoul_30')->add( (new StatusEffect())->ghoulHunger(-30))->commit();
+        $effects_container->add()->identifier('satisfy_ghoul_10')->add( (new StatusEffect())->ghoulHunger(-10))->commit();
+
+        $effects_container->add()->identifier('april')->add( (new StatusEffect())->addsStatus('tg_april_ooze'))->commit();
+        $effects_container->add()->identifier('hero_surv_0')->add( (new StatusEffect())->addsStatus('tg_sbook'))->commit();
+        $effects_container->add()->identifier('hero_act')->add( (new StatusEffect())->addsStatus('tg_hero'))->commit();
+        $effects_container->add()->identifier('hero_immune')->add( (new StatusEffect())->addsStatus('hsurvive'))->commit();
+
+        $effects_container->add()->identifier('camp_hide')->add( (new StatusEffect())->addsStatus('tg_hide'))->commit();
+        $effects_container->add()->identifier('camp_tomb')->add( (new StatusEffect())->addsStatus('tg_tomb'))->commit();
+        $effects_container->add()->identifier('camp_unhide')->add( (new StatusEffect())->removesStatus('tg_hide'))->commit();
+        $effects_container->add()->identifier('camp_untomb')->add( (new StatusEffect())->removesStatus('tg_tomb'))->commit();
+
+        $effects_container->add()->identifier('status_betadrug')->add( (new StatusEffect())->addsStatus('tg_betadrug'))->commit();
+        $effects_container->add()->identifier('status_teddy')->add( (new StatusEffect())->addsStatus('tg_teddy'))->commit();
+        $effects_container->add()->identifier('status_home_heal_1')->add( (new StatusEffect())->addsStatus('tg_home_heal_1'))->commit();
+        $effects_container->add()->identifier('status_home_heal_2')->add( (new StatusEffect())->addsStatus('tg_home_heal_2'))->commit();
+        $effects_container->add()->identifier('status_home_defbuff')->add( (new StatusEffect())->addsStatus('tg_home_defbuff'))->commit();
+        $effects_container->add()->identifier('status_rested')->add( (new StatusEffect())->addsStatus('tg_rested'))->commit();
+        $effects_container->add()->identifier('status_clothes')->add( (new StatusEffect())->count(ActionCounter::ActionTypeClothes)->addsStatus('tg_clothes'))->commit();
+        $effects_container->add()->identifier('status_home_clean')->add( (new StatusEffect())->count(ActionCounter::ActionTypeHomeCleanup)->addsStatus('tg_home_clean'))->commit();
+        $effects_container->add()->identifier('status_home_shower')->add( (new StatusEffect())->count(ActionCounter::ActionTypeShower)->addsStatus('tg_home_shower'))->commit();
+
+        $effects_container->add()->identifier('ghoul_25_4')->add( (new StatusEffect())->role('ghoul')->probability(4)->ghoulHunger(25, true))->commit();
+        $effects_container->add()->identifier('ghoul_25_5')->add( (new StatusEffect())->role('ghoul')->probability(5)->ghoulHunger(25, true))->commit();
+        $effects_container->add()->identifier('ghoul_25_100')->add( (new StatusEffect())->role('ghoul')->probability(100)->ghoulHunger(25, true))->commit();
+        $effects_container->add()->identifier('ghoul_5_100')->add( (new StatusEffect())->role('ghoul')->probability(100)->ghoulHunger(25, true))->commit();
+
+        $effects_container->add()->identifier('cyanide')->add( (new StatusEffect())->kill( CauseOfDeath::Cyanide))->commit();
+        $effects_container->add()->identifier('death_poison')->add( (new StatusEffect())->kill( CauseOfDeath::Poison))->commit();
+        //</editor-fold>
+
         //<editor-fold desc="Various">
         $effects_container->add()->identifier('find_rp')->add(new RolePlayTextEffect())->commit();
         //</editor-fold>
@@ -362,27 +440,36 @@ class ActionEffectProvider
             ->commit();
 
         $effects_container->add()->identifier('drunk')
-            ->add((new PictoEffect())->picto('r_alcool_#00'))->commit();
+            ->add( (new StatusEffect())->addsStatus('drunk'))
+            ->add((new PictoEffect())->picto('r_alcool_#00'))
+            ->commit();
 
         $effects_container->add()->identifier('drug_any')
-            ->add((new PictoEffect())->picto('r_drug_#00'))->commit();
+            ->add( (new StatusEffect())->addsStatus('drugged'))
+            ->add((new PictoEffect())->picto('r_drug_#00'))
+            ->commit();
 
         $effects_container->add()->identifier('drug_addict_no_msg')
-            ->add((new PictoEffect())->picto('r_drug_#00'))->commit();
+            ->add((new StatusEffect())->addsStatus('addict'))
+            ->add((new PictoEffect())->picto('r_drug_#00'))
+            ->commit();
 
         $effects_container->clone('drug_addict_no_msg')->identifier('drug_addict')
             ->add((new MessageEffect())->text( '<t-stat-up-addict>Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!</t-stat-up-addict>')->order(100))
             ->commit();
 
 
-        $effects_container->add()->identifier('eat_ap6')
+        $effects_container->clone('eat_ap6_silent')->identifier('eat_ap6')
             ->add((new MessageEffect())->escort(false)->text( 'Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...'))->commit();
 
         $effects_container->add()->identifier('eat_ap7')
-            ->add((new MessageEffect())->escort(false)->text( 'Einmal ist zwar keinmal, dennoch genießt du dein(e) <span class="tool">{item}</span>. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast <strong>1 zusätzlichen AP erhalten!</strong>'))->commit();
+            ->add((new StatusEffect())->point( PointType::AP, 1, relativeToMax: true )->addsStatus('haseaten') )
+            ->add((new MessageEffect())->escort(false)->text( 'Einmal ist zwar keinmal, dennoch genießt du dein(e) <span class="tool">{item}</span>. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast <strong>1 zusätzlichen AP erhalten!</strong>'))
+            ->commit();
 
-        $effects_container->add()->identifier('infect')
-            ->add((new MessageEffect())->text( 'Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!'))->commit();
+        $effects_container->clone('infect_no_msg')->identifier('infect')
+            ->add((new MessageEffect())->text( 'Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!'))
+            ->commit();
 
         $effects_container->add()->identifier('kill_1_zombie_s')
             ->add((new ZoneEffect())->kills(1))

@@ -57,132 +57,21 @@ class ActionDataService implements FixtureProcessorInterface {
 
                 'contaminated_zone_infect'  => [ 'collection' => [ 'custom' => [22] ] ],
 
-                'drink_ap_1'  => [ 'status' => 'add_has_drunk', 'ap' => 'to_max_plus_0' ],
-                'drink_ap_2'  => [ 'status' => 'remove_thirst' ],
-                'drink_no_ap' => [ 'status' => 'replace_dehydration' ],
-                'reset_thirst_counter' => [ 'status' => 'reset_thirst_counter' ],
-
-                'eat_ap6'     => [ 'collection' => ['status' => 'add_has_eaten', 'ap' => 'to_max_plus_0'] ],
-                'eat_ap6_silent' => [ 'status' => 'add_has_eaten', 'ap' => 'to_max_plus_0' ],
-                'eat_ap7'     => [ 'collection' => ['status' => 'add_has_eaten', 'ap' => 'to_max_plus_1'] ],
-
-                'drunk' => [ 'status' => 'add_drunk' ],
-
-                'drug_any'              => [ 'status' => 'add_is_drugged' ],
-                'drug_addict'           => [ 'status' => 'add_addicted' ],
-                'drug_addict_no_msg'    => [ 'status' => 'add_addicted' ],
-                'terrorize'             => [ 'status' => 'add_terror' ],
-                'unterrorize'           => [ 'status' => 'remove_terror' ],
-
-                'infect'        => [ 'collection' => ['status' => 'add_infection'] ],
-                'infect_no_msg' => [ 'status' => 'add_infection' ],
-                'disinfect'     => [ 'status' => 'remove_infection' ],
-                'immune'        => [ 'status' => 'add_immune' ],
-                'give_shaman_immune'  => [ 'status' => 'shaman_immune'],
-
-                'minus_1ap'    => [ 'ap' => 'minus_1' ],
-                'minus_5ap'    => [ 'ap' => 'minus_5' ],
-                'minus_6ap'    => [ 'ap' => 'minus_6' ],
-                'minus_1pm'    => [ 'pm' => 'minus_1' ],
-                'minus_2pm'    => [ 'pm' => 'minus_2' ],
-                'minus_3pm'    => [ 'pm' => 'minus_3' ],
-                'minus_1cp'    => [ 'cp' => 'minus_1' ],
-                'plus_4ap'     => [ 'ap' => 'plus_4' ],
-                'plus_2ap'     => [ 'ap' => 'plus_2' ],
-                'plus_2ap_7'   => [ 'ap' => 'plus_2_7' ],
-                'just_ap6'     => [ 'ap' => 'to_max_plus_0' ],
-                'just_ap7'     => [ 'ap' => 'to_max_plus_1' ],
-                'just_ap8'     => [ 'ap' => 'to_max_plus_2' ],
-                'plus_ap8_30'  => [ 'ap' => 'plus_8_30' ],
-
-                'april' => [ 'status' => [ 'from' => null, 'to' => 'tg_april_ooze' ] ],
-
-                'casino_dice'   => [ 'custom' => [1], 'status' => [ 'from' => null, 'to' => 'tg_dice' ] ],
-                'casino_card'   => [ 'custom' => [2], 'status' => [ 'from' => null, 'to' => 'tg_cards' ] ],
+                'casino_dice'   => [ 'custom' => [1] ],
+                'casino_card'   => [ 'custom' => [2] ],
                 'casino_guitar' => [ 'custom' => [3] ],
                 'casino_banned_note' => [ 'custom' => [15] ],
-
-                'heal_wound'  => [ 'status' => 'heal_wound' ],
-                'add_bandage' => [ 'status' => 'add_bandage' ],
-                'inflict_wound' => [ 'status' => 'inflict_wound' ],
-
-                'cyanide' => [ 'death' => [ CauseOfDeath::Cyanide ] ],
-                'death_poison' => [ 'death' => [ CauseOfDeath::Poison ] ],
 
                 'hero_tamer_1'  => [ 'custom' => [4] ],
                 'hero_tamer_2'  => [ 'custom' => [5] ],
                 'hero_tamer_1b' => [ 'custom' => [16] ],
                 'hero_tamer_2b' => [ 'custom' => [17] ],
 
-                'hero_surv_0' => [ 'status' => [ 'from' => null, 'to' => 'tg_sbook' ] ],
                 'hero_surv_1' => [ 'custom' => [6] ],
                 'hero_surv_2' => [ 'custom' => [7] ],
-
-                'hero_act'    => [ 'status' => [ 'from' => null, 'to' => 'tg_hero' ] ],
-                'hero_immune' => [ 'status' => [ 'from' => null, 'to' => 'hsurvive' ] ],
-
-                'camp_hide' => [ 'status' => [ 'from' => null, 'to' => 'tg_hide' ] ],
-                'camp_tomb' => [ 'status' => [ 'from' => null, 'to' => 'tg_tomb' ] ],
-                'camp_unhide' => [ 'status' => [ 'from' => 'tg_hide', 'to' => null ] ],
-                'camp_untomb' => [ 'status' => [ 'from' => 'tg_tomb', 'to' => null ] ],
             ],
 
             'results' => [
-                'ap' => [
-                    'to_max_plus_0' => [ 'max' => true,  'num' => 0 ],
-                    'to_max_plus_1' => [ 'max' => true,  'num' => 1 ],
-                    'to_max_plus_2' => [ 'max' => true,  'num' => 2 ],
-                    'to_max_plus_3' => [ 'max' => true,  'num' => 3 ],
-                    'plus_4'        => [ 'max' => false, 'num' => 4 ],
-                    'plus_2'        => [ 'max' => false, 'num' => 2 ],
-                    'plus_2_7'      => [ 'max' => false, 'num' => 2, 'bonus' => 1  ],
-                    'plus_8_30'     => [ 'max' => false, 'num' => 8, 'bonus' => 24 ],
-                    'minus_1'       => [ 'max' => false, 'num' => -1 ],
-                    'minus_5'       => [ 'max' => false, 'num' => -5 ],
-                    'minus_6'       => [ 'max' => false, 'num' => -6 ],
-                ],
-                'pm' => [
-                    'to_max_plus_0' => [ 'max' => true,  'num' => 0 ],
-                    'minus_1'       => [ 'max' => false, 'num' => -1 ],
-                    'minus_2'       => [ 'max' => false, 'num' => -2 ],
-                    'minus_3'       => [ 'max' => false, 'num' => -3 ],
-                ],
-                'cp' => [
-                    'minus_1'       => [ 'max' => false, 'num' => -1 ],
-                ],
-                'status' => [
-                    'replace_dehydration' => [ 'from' => 'thirst2', 'to' => 'thirst1' ],
-                    'add_has_drunk' => [ 'from' => null, 'to' => 'hasdrunk' ],
-                    'remove_thirst' => [ 'from' => 'thirst1', 'to' => null ],
-                    'remove_dehydration' => [ 'from' => 'thirst2', 'to' => null ],
-                    'reset_thirst_counter' => [ 'reset_thirst' => true ],
-
-                    'add_infection'   => [ 'from' => null, 'to' => 'infection' ],
-                    'remove_infection'=> [ 'from' => 'infection', 'to' => null ],
-                    'add_immune'      => [ 'from' => null, 'to' => 'immune'],
-
-                    'add_drunk' => [ 'from' => null, 'to' => 'drunk' ],
-
-                    'add_has_eaten'  => [ 'from' => null, 'to' => 'haseaten' ],
-                    'add_is_drugged' => [ 'from' => null, 'to' => 'drugged' ],
-                    'add_addicted'   => [ 'from' => null, 'to' => 'addict' ],
-                    'add_terror'     => [ 'from' => null, 'to' => 'terror' ],
-                    'remove_terror'  => [ 'from' => 'terror', 'to' => null ],
-
-                    'inflict_wound' => [ 'from' => null, 'to' => 'tg_meta_wound' ],
-                    'heal_wound'    => [ 'from' => 'tg_meta_wound', 'to' => null ],
-                    'add_bandage'   => [ 'from' => null, 'to' => 'healed' ],
-                    'shaman_immune'   => [ 'from' => null, 'to' => 'tg_shaman_immune' ],
-
-                    'increase_lab_counter'     => [ 'counter' => ActionCounter::ActionTypeHomeLab ],
-                    'increase_kitchen_counter' => [ 'counter' => ActionCounter::ActionTypeHomeKitchen ],
-
-                    'heal_ghoul'   => [ 'role' => 'ghoul', 'enabled' => false, 'hunger' => -9999999, 'force' => true ],
-                    'satisfy_ghoul_50' => [ 'hunger' => -50 ],
-                    'satisfy_ghoul_30' => [ 'hunger' => -30 ],
-                    'satisfy_ghoul_10' => [ 'hunger' => -15 ],
-                ],
-
                 'group' => [
                     'g_break_15' => [[['do_nothing'], 85], [['break_item'], 15]],
                     'g_break_20' => [[['do_nothing'], 80], [['break_item'], 20]],
@@ -308,7 +197,7 @@ class ActionDataService implements FixtureProcessorInterface {
                 'drug_hyd_5' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1', 'drink_tl2' ], 'result' => [ 'contaminated_zone_infect', 'drug_any', 'drink_no_ap', 'consume_item' ], 'message_key' => 'drug_hyd' ],
                 'drug_hyd_6' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2', 'drink_tl2' ], 'result' => [ 'contaminated_zone_infect', 'drug_addict', 'drink_no_ap', 'consume_item' ], 'message_key' => 'drug_hyd' ],
 
-                'drug_beta'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_yet_beta' ], 'result' => [ ['ap' => [ 'max' => true,  'num' => 20 ], 'status' => [ 'from' => null, 'to' => 'tg_betadrug' ]] ] ],
+                'drug_beta'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_yet_beta' ], 'result' => [ 'just_ap26', 'status_betadrug' ] ],
                 'cyanide'    => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_before_day_2' ], 'result' => [ 'contaminated_zone_infect', 'cyanide', 'consume_item' ] ],
 
                 'bandage' => [ 'label' => 'Verbinden', 'at00' => true, 'meta' => [ 'is_wounded', 'is_not_bandaged' ], 'result' => [ 'heal_wound', 'consume_item', 'add_bandage' ], 'message' => 'So, zur Desinfektion nur noch draufspucken und hopp: Sieht wie neu aus!' ],
@@ -546,24 +435,24 @@ class ActionDataService implements FixtureProcessorInterface {
 
                 'smokebomb' => [ 'label' => 'Werfen', 'meta' => [ 'must_be_outside_not_at_doors' ], 'result' => [ 'consume_item', 'zone_chat_60' ], 'message' => 'Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine <strong>nächste Bewegungsaktion</strong> wird night in das Register eingetragen, wenn sie <strong>innerhalb von 1 Minute</strong> erfolgt.' ],
 
-                'eat_fleshroom_1'  => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item', ['status' => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 25, 'force' => true, 'probability' => 4 ]] ], 'escort_message_key' => 'escort_food_eat' ], /* based on Hordes data */
+                'eat_fleshroom_1'  => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item', 'ghoul_25_4' ], 'escort_message_key' => 'escort_food_eat' ], /* based on Hordes data */
                 'eat_fleshroom_2'  => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item' ], 'escort_message_key' => 'escort_food_eat' ],
 
-                'eat_meat_1'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', 'consume_item', 'picto_cannibal', ['status' => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 25, 'force' => true, 'probability' => 5 ]] ], 'message_key' => 'eat_human_meat', 'escort_message_key' => 'escort_food_eat' ], /* based on Hordes data */
-                'eat_meat_2'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', 'consume_item', 'picto_cannibal', ['status' => 'satisfy_ghoul_10' ] ], 'message_key' => 'eat_human_meat_ghoul', 'escort_message_key' => 'escort_food_eat' ],
+                'eat_meat_1'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', 'consume_item', 'picto_cannibal', 'ghoul_25_5' ], 'message_key' => 'eat_human_meat', 'escort_message_key' => 'escort_food_eat' ], /* based on Hordes data */
+                'eat_meat_2'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', 'consume_item', 'picto_cannibal', 'satisfy_ghoul_10' ], 'message_key' => 'eat_human_meat_ghoul', 'escort_message_key' => 'escort_food_eat' ],
 
-                'eat_bone_1'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', 'picto_cannibal', 'morph_bone', ['group' => [ ['do_nothing', 47], [ 'infect', 50 ], [[['status' => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 25, 'force' => true, 'probability' => 100 ]]], 3] ]] ], 'message_key' => 'eat_human_meat' ], /* based on Hordes data */
-                'eat_bone_2'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', 'picto_cannibal', 'morph_bone', ['status' => 'satisfy_ghoul_10' ] ], 'message_key' => 'eat_human_meat_ghoul' ],
+                'eat_bone_1'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', 'picto_cannibal', 'morph_bone', ['group' => [ ['do_nothing', 47], [ 'infect', 50 ], ['ghoul_25_100', 3] ]] ], 'message_key' => 'eat_human_meat' ], /* based on Hordes data */
+                'eat_bone_2'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', 'picto_cannibal', 'morph_bone', 'satisfy_ghoul_10' ], 'message_key' => 'eat_human_meat_ghoul' ],
 
-                'eat_cadaver_1' => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'picto_cannibal', 'morph_cadaver_remains', ['group' => [ [ 'infect', 10 ], [[['status' => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 5, 'force' => true, 'probability' => 100 ]]], 90] ]] ] ], /* based on Hordes data */
-                'eat_cadaver_2' => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', 'picto_cannibal', 'morph_cadaver_remains', ['status' => 'satisfy_ghoul_30' ] ], 'message_key' => 'eat_human_meat_ghoul' ],
+                'eat_cadaver_1' => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'picto_cannibal', 'morph_cadaver_remains', ['group' => [ [ 'infect', 10 ], ['ghoul_5_100', 90] ]] ] ], /* based on Hordes data */
+                'eat_cadaver_2' => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', 'picto_cannibal', 'morph_cadaver_remains', 'satisfy_ghoul_30' ], 'message_key' => 'eat_human_meat_ghoul' ],
 
-                'ghoul_serum' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'role_ghoul_serum' ], 'result' => [ 'consume_item', ['status' => 'heal_ghoul' ] ], 'message' => 'Unglaublich! Die ganze Gier, die dich innerlich aufgefressen hat, verschwindet langsam. Ist es wirklich möglich, dass du wieder ein Mensch geworden bist?' ],
+                'ghoul_serum' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'role_ghoul_serum' ], 'result' => [ 'consume_item', 'heal_ghoul' ], 'message' => 'Unglaublich! Die ganze Gier, die dich innerlich aufgefressen hat, verschwindet langsam. Ist es wirklich möglich, dass du wieder ein Mensch geworden bist?' ],
 
-                'cuddle_teddy_1' => [ 'label' => 'Knuddeln', 'meta' => [ 'must_be_terrorized', 'not_yet_teddy' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_teddy' ], 'group' => [ ['do_nothing', 70], ['unterrorize', 30] ] ] ], 'message' => 'Du drückst den {item} eng an deine Brust... <t-stat-down-terror>Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!</t-stat-down-terror><nt-stat-down-terror>Aber nichts geschieht!</nt-stat-down-terror>' ], /* based on Hordes data */
+                'cuddle_teddy_1' => [ 'label' => 'Knuddeln', 'meta' => [ 'must_be_terrorized', 'not_yet_teddy' ], 'result' => [ 'status_teddy', [ 'group' => [ ['do_nothing', 70], ['unterrorize', 30] ] ] ], 'message' => 'Du drückst den {item} eng an deine Brust... <t-stat-down-terror>Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!</t-stat-down-terror><nt-stat-down-terror>Aber nichts geschieht!</nt-stat-down-terror>' ], /* based on Hordes data */
                 'cuddle_teddy_2' => [ 'label' => 'Knuddeln', 'meta' => [ 'must_not_be_terrorized' ], 'result' => [ 'terrorize' ], 'message' => 'Du drückst den {item} eng an deine Brust... <t-stat-up-terror>Panik steigt in dir auf!</t-stat-up-terror><nt-stat-up-terror>Aber nichts geschieht!</nt-stat-up-terror>' ],
 
-                'clean_clothes' => [ 'label' => 'Reinigen (Kleidung)', 'meta' => [ 'must_be_inside' ], 'result' => [ 'morph_basic_suit', [ 'status' => [ 'from' => null, 'to' => 'tg_clothes', 'counter' => ActionCounter::ActionTypeClothes ] ] ], 'message' => 'Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.' ],
+                'clean_clothes' => [ 'label' => 'Reinigen (Kleidung)', 'meta' => [ 'must_be_inside' ], 'result' => [ 'morph_basic_suit', 'status_clothes' ], 'message' => 'Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.' ],
 
                 'flash_photo_3' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors', 'must_have_zombies', 'must_be_blocked' ], 'result' => [ 'morph_photo_2', ['group' => [ [['do_nothing'], 1], [['zone_escape_120'], 100]] ] ], 'message_key' => 'escape_item_camera' ],
                 'flash_photo_2' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors', 'must_have_zombies', 'must_be_blocked' ], 'result' => [ 'morph_photo_1', ['group' => [ [['do_nothing'], 30], [[ 'zone_escape_60'], 66]] ] ], 'message_key' => 'escape_item_camera' ],
@@ -611,33 +500,33 @@ class ActionDataService implements FixtureProcessorInterface {
                 'cm_campsite_unhide'  => [ 'label' => 'Versteck verlassen', 'meta' => [ 'must_be_outside', 'must_be_hidden' ], 'result' => [ 'camp_unhide', ['custom' => [11]] ], 'message' => 'Du hast Dein Versteck verlassen.' ],
                 'cm_campsite_untomb'  => [ 'label' => 'Grab verlassen', 'meta' => [ 'must_be_outside', 'must_be_tombed' ], 'result' => [ 'camp_untomb', ['custom' => [11]] ], 'message' => 'Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!' ],
 
-                'home_clean'     => [ 'label' => 'Haus aufräumen und putzen', 'meta' => [ 'must_be_inside', 'not_yet_home_cleaned' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_home_clean', 'counter' => ActionCounter::ActionTypeHomeCleanup ] ] ], 'message' => 'Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn\'s ne Bruchbude ist, es ist DEIN Zuhause...' ],
-                'home_shower'    => [ 'label' => 'Duschen', 'meta' => [ 'must_be_inside', 'must_have_shower', 'not_yet_home_showered' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_home_shower', 'counter' => ActionCounter::ActionTypeShower ] ] ], 'message' => 'Du springst unter die hausgemachte Dusche ohne weiter darüber nachzudenken. Das eiskalte Wasser erschreckt dich, aber dennoch bleibst du für einige Augenblicke unter dem schwachen Wasserstrahl stehen. In Ermangelung von Seife reibst du dich mit einem glatten Stein ab und versuchst, den Schlamm und die Blutflecken abzuwaschen. Dabei versuchst du, dir einzureden, dass es sich gut anfühlt.' ],
-                'home_heal_1'    => [ 'label' => 'Heilen', 'meta' => [ 'min_5_ap', 'must_be_inside', 'must_have_hospital', 'not_yet_home_heal_1', 'is_wounded_h', 'is_not_infected_h' ], 'result' => ['minus_5ap', 'heal_wound', [ 'status' => [ 'from' => null, 'to' => 'tg_home_heal_1' ] ] ], 'message_key' => 'home_heal_wound' ],
-                'home_heal_2'    => [ 'label' => 'Heilen', 'meta' => [ 'min_5_ap', 'must_be_inside', 'must_have_hospital', 'not_yet_home_heal_2', 'is_not_wounded_h', 'is_infected_h' ], 'result' => ['minus_5ap', 'disinfect',  [ 'status' => [ 'from' => null, 'to' => 'tg_home_heal_2' ] ] ], 'message_key' => 'home_heal_infect' ],
-                'home_heal_3'    => [ 'label' => 'Heilen', 'meta' => [ 'min_5_ap', 'must_be_inside', 'must_have_hospital', 'not_yet_home_heal_2', 'is_wounded_h', 'is_infected_h' ],     'result' => ['minus_5ap', 'disinfect',  [ 'status' => [ 'from' => null, 'to' => 'tg_home_heal_2' ] ] ], 'message_key' => 'home_heal_infect' ],
-                'home_defbuff'   => [ 'label' => 'Verteidigung organisieren', 'meta' => [ 'profession_guardian', 'min_1_ap', 'must_be_inside', 'must_have_guardtower', 'not_yet_home_defbuff', 'guard_tower_not_max' ], 'result' => ['minus_1ap', [ 'custom' => [13], 'status' => [ 'from' => null, 'to' => 'tg_home_defbuff' ] ] ], 'message' => 'Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.' ],
-                'home_crows'     => [ 'label' => 'Nach Ruinen Ausschau halten', 'meta' => [ 'profession_hunter', 'must_be_inside', 'must_have_crowsnest', 'not_yet_home_defbuff' ], 'result' => [[ 'custom' => [12], 'status' => [ 'from' => null, 'to' => 'tg_home_defbuff' ] ] ], 'message' => '<t-zone>Du hast ein neues Gebäude bei den Koordinaten {zone} entdeckt!</t-zone><nt-zone>Du suchst den gesamten Horizont mit deinen Adleraugen ab. Aber es scheint keine weiteren Gebäude zu entdecken zu geben.</nt-zone>' ],
+                'home_clean'     => [ 'label' => 'Haus aufräumen und putzen', 'meta' => [ 'must_be_inside', 'not_yet_home_cleaned' ], 'result' => [ 'status_home_clean' ], 'message' => 'Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn\'s ne Bruchbude ist, es ist DEIN Zuhause...' ],
+                'home_shower'    => [ 'label' => 'Duschen', 'meta' => [ 'must_be_inside', 'must_have_shower', 'not_yet_home_showered' ], 'result' => [ 'status_home_shower' ], 'message' => 'Du springst unter die hausgemachte Dusche ohne weiter darüber nachzudenken. Das eiskalte Wasser erschreckt dich, aber dennoch bleibst du für einige Augenblicke unter dem schwachen Wasserstrahl stehen. In Ermangelung von Seife reibst du dich mit einem glatten Stein ab und versuchst, den Schlamm und die Blutflecken abzuwaschen. Dabei versuchst du, dir einzureden, dass es sich gut anfühlt.' ],
+                'home_heal_1'    => [ 'label' => 'Heilen', 'meta' => [ 'min_5_ap', 'must_be_inside', 'must_have_hospital', 'not_yet_home_heal_1', 'is_wounded_h', 'is_not_infected_h' ], 'result' => ['minus_5ap', 'heal_wound', 'status_home_heal_1' ], 'message_key' => 'home_heal_wound' ],
+                'home_heal_2'    => [ 'label' => 'Heilen', 'meta' => [ 'min_5_ap', 'must_be_inside', 'must_have_hospital', 'not_yet_home_heal_2', 'is_not_wounded_h', 'is_infected_h' ], 'result' => ['minus_5ap', 'disinfect',  'status_home_heal_2' ], 'message_key' => 'home_heal_infect' ],
+                'home_heal_3'    => [ 'label' => 'Heilen', 'meta' => [ 'min_5_ap', 'must_be_inside', 'must_have_hospital', 'not_yet_home_heal_2', 'is_wounded_h', 'is_infected_h' ],     'result' => ['minus_5ap', 'disinfect',  'status_home_heal_2' ], 'message_key' => 'home_heal_infect' ],
+                'home_defbuff'   => [ 'label' => 'Verteidigung organisieren', 'meta' => [ 'profession_guardian', 'min_1_ap', 'must_be_inside', 'must_have_guardtower', 'not_yet_home_defbuff', 'guard_tower_not_max' ], 'result' => ['minus_1ap', 'status_home_defbuff', [ 'custom' => [13] ] ], 'message' => 'Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.' ],
+                'home_crows'     => [ 'label' => 'Nach Ruinen Ausschau halten', 'meta' => [ 'profession_hunter', 'must_be_inside', 'must_have_crowsnest', 'not_yet_home_defbuff' ], 'result' => ['status_home_defbuff', [ 'custom' => [12] ] ], 'message' => '<t-zone>Du hast ein neues Gebäude bei den Koordinaten {zone} entdeckt!</t-zone><nt-zone>Du suchst den gesamten Horizont mit deinen Adleraugen ab. Aber es scheint keine weiteren Gebäude zu entdecken zu geben.</nt-zone>' ],
                 'home_fillwater' => [ 'label' => 'Wasserwaffen füllen', 'meta' => [ 'must_be_inside', 'must_have_valve' ], 'result' => [[ 'custom' => [14]]], 'message' => '<t-fail>Du hast <strong>keine Wasserwaffen zum Befüllen</strong> in deinem Rucksack oder deiner Truhe.</t-fail><nt-fail>Du hast {items_spawn} dank des Wasserhahns kostenlos auffüllen können.</nt-fail>' ],
                 'home_cinema'    => [ 'label' => 'Ins Kino gehen', 'meta' => [ 'must_be_inside', 'must_have_cinema' ],  'result' => [ 'unterrorize'], 'message' => 'Ja, klar... Du hast ihn schon hunderte Male gesehen, das Thema ändert sich auch nicht allzu sehr, aber trotzdem: Es geht nichts über einen guten Zombie-Film zur Entspannung.<t-stat-down-terror><hr />Diese seltsam fernen Schreie des Schreckens haben dir den Kopf gerade gerückt: <strong>Du hast deine Angst abgeschüttelt</strong>.</t-stat-down-terror>' ],
 
-                'home_lab_1a' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v1', 'must_not_have_lab', 'have_2_pharma', 'lab_counter_below_1' ], 'result' => [ 'consume_2_pharma', [ 'status' => 'increase_lab_counter', 'group' => [ ['home_lab_success', 25], [ 'home_lab_failure', 75 ] ]],  ], 'message_key' => 'use_lab' ],
-                'home_lab_2a' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v2', 'must_not_have_lab', 'have_2_pharma', 'lab_counter_below_1' ], 'result' => [ 'consume_2_pharma', [ 'status' => 'increase_lab_counter', 'group' => [ ['home_lab_success', 50], [ 'home_lab_failure', 50 ] ]],  ], 'message_key' => 'use_lab' ],
-                'home_lab_3a' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v3', 'must_not_have_lab', 'have_2_pharma', 'lab_counter_below_1' ], 'result' => [ 'consume_2_pharma', [ 'status' => 'increase_lab_counter', 'group' => [ ['home_lab_success', 75], [ 'home_lab_failure', 25 ] ]],  ], 'message_key' => 'use_lab' ],
-                'home_lab_4a' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v4', 'must_not_have_lab', 'have_2_pharma', 'lab_counter_below_4' ], 'result' => [ 'consume_2_pharma', [ 'status' => 'increase_lab_counter' ], 'home_lab_success' ], 'message_key' => 'use_lab' ],
-                'home_lab_1b' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v1', 'must_have_lab',     'have_2_pharma', 'lab_counter_below_6' ], 'result' => [ 'consume_2_pharma', [ 'status' => 'increase_lab_counter', 'group' => [ ['home_lab_success', 25], [ 'home_lab_failure', 75 ] ]],  ], 'message_key' => 'use_lab' ],
-                'home_lab_2b' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v2', 'must_have_lab',     'have_2_pharma', 'lab_counter_below_6' ], 'result' => [ 'consume_2_pharma', [ 'status' => 'increase_lab_counter', 'group' => [ ['home_lab_success', 50], [ 'home_lab_failure', 50 ] ]],  ], 'message_key' => 'use_lab' ],
-                'home_lab_3b' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v3', 'must_have_lab',     'have_2_pharma', 'lab_counter_below_6' ], 'result' => [ 'consume_2_pharma', [ 'status' => 'increase_lab_counter', 'group' => [ ['home_lab_success', 75], [ 'home_lab_failure', 25 ] ]],  ], 'message_key' => 'use_lab' ],
-                'home_lab_4b' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v4', 'must_have_lab',     'have_2_pharma', 'lab_counter_below_9' ], 'result' => [ 'consume_2_pharma', [ 'status' => 'increase_lab_counter',], 'home_lab_success' ], 'message_key' => 'use_lab' ],
+                'home_lab_1a' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v1', 'must_not_have_lab', 'have_2_pharma', 'lab_counter_below_1' ], 'result' => [ 'consume_2_pharma', 'increase_lab_counter', ['group' => [ ['home_lab_success', 25], [ 'home_lab_failure', 75 ] ]],  ], 'message_key' => 'use_lab' ],
+                'home_lab_2a' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v2', 'must_not_have_lab', 'have_2_pharma', 'lab_counter_below_1' ], 'result' => [ 'consume_2_pharma', 'increase_lab_counter', ['group' => [ ['home_lab_success', 50], [ 'home_lab_failure', 50 ] ]],  ], 'message_key' => 'use_lab' ],
+                'home_lab_3a' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v3', 'must_not_have_lab', 'have_2_pharma', 'lab_counter_below_1' ], 'result' => [ 'consume_2_pharma', 'increase_lab_counter', ['group' => [ ['home_lab_success', 75], [ 'home_lab_failure', 25 ] ]],  ], 'message_key' => 'use_lab' ],
+                'home_lab_4a' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v4', 'must_not_have_lab', 'have_2_pharma', 'lab_counter_below_4' ], 'result' => [ 'consume_2_pharma', 'increase_lab_counter', 'home_lab_success' ], 'message_key' => 'use_lab' ],
+                'home_lab_1b' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v1', 'must_have_lab',     'have_2_pharma', 'lab_counter_below_6' ], 'result' => [ 'consume_2_pharma', 'increase_lab_counter', ['group' => [ ['home_lab_success', 25], [ 'home_lab_failure', 75 ] ]],  ], 'message_key' => 'use_lab' ],
+                'home_lab_2b' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v2', 'must_have_lab',     'have_2_pharma', 'lab_counter_below_6' ], 'result' => [ 'consume_2_pharma', 'increase_lab_counter', ['group' => [ ['home_lab_success', 50], [ 'home_lab_failure', 50 ] ]],  ], 'message_key' => 'use_lab' ],
+                'home_lab_3b' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v3', 'must_have_lab',     'have_2_pharma', 'lab_counter_below_6' ], 'result' => [ 'consume_2_pharma', 'increase_lab_counter', ['group' => [ ['home_lab_success', 75], [ 'home_lab_failure', 25 ] ]],  ], 'message_key' => 'use_lab' ],
+                'home_lab_4b' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v4', 'must_have_lab',     'have_2_pharma', 'lab_counter_below_9' ], 'result' => [ 'consume_2_pharma', 'increase_lab_counter', 'home_lab_success' ], 'message_key' => 'use_lab' ],
 
-                'home_kitchen_1a' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook', 'poison' => false, 'broken' => false], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v1', 'must_not_have_canteen', 'kitchen_counter_below_1' ], 'result' => [ 'consume_target', [ 'status' => 'increase_kitchen_counter', 'group' => [ ['home_kitchen_success', 33], [ 'home_kitchen_failure', 66 ] ]],  ], 'message_key' => 'use_kitchen' ],
-                'home_kitchen_2a' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook', 'poison' => false, 'broken' => false], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v2', 'must_not_have_canteen', 'kitchen_counter_below_1' ], 'result' => [ 'consume_target', [ 'status' => 'increase_kitchen_counter', 'group' => [ ['home_kitchen_success', 66], [ 'home_kitchen_failure', 33 ] ]],  ], 'message_key' => 'use_kitchen' ],
-                'home_kitchen_3a' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook', 'poison' => false, 'broken' => false], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v3', 'must_not_have_canteen', 'kitchen_counter_below_2' ], 'result' => [ 'consume_target', [ 'status' => 'increase_kitchen_counter' ], 'home_kitchen_success' ], 'message_key' => 'use_kitchen' ],
-                'home_kitchen_4a' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook', 'poison' => false, 'broken' => false], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v4', 'must_not_have_canteen', 'kitchen_counter_below_3' ], 'result' => [ 'consume_target', [ 'status' => 'increase_kitchen_counter' ], 'home_kitchen_success' ], 'message_key' => 'use_kitchen' ],
-                'home_kitchen_1b' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook', 'poison' => false, 'broken' => false], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v1', 'must_have_canteen',     'kitchen_counter_below_4' ], 'result' => [ 'consume_target', [ 'status' => 'increase_kitchen_counter', 'group' => [ ['home_kitchen_success', 33], [ 'home_kitchen_failure', 66 ] ]],  ], 'message_key' => 'use_kitchen' ],
-                'home_kitchen_2b' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook', 'poison' => false, 'broken' => false], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v2', 'must_have_canteen',     'kitchen_counter_below_4' ], 'result' => [ 'consume_target', [ 'status' => 'increase_kitchen_counter', 'group' => [ ['home_kitchen_success', 66], [ 'home_kitchen_failure', 33 ] ]],  ], 'message_key' => 'use_kitchen' ],
-                'home_kitchen_3b' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook', 'poison' => false, 'broken' => false], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v3', 'must_have_canteen',     'kitchen_counter_below_5' ], 'result' => [ 'consume_target', [ 'status' => 'increase_kitchen_counter' ], 'home_kitchen_success' ], 'message_key' => 'use_kitchen' ],
-                'home_kitchen_4b' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook', 'poison' => false, 'broken' => false], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v4', 'must_have_canteen',     'kitchen_counter_below_6' ], 'result' => [ 'consume_target', [ 'status' => 'increase_kitchen_counter' ], 'home_kitchen_success' ], 'message_key' => 'use_kitchen' ],
+                'home_kitchen_1a' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook', 'poison' => false, 'broken' => false], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v1', 'must_not_have_canteen', 'kitchen_counter_below_1' ], 'result' => [ 'consume_target', 'increase_kitchen_counter', [ 'group' => [ ['home_kitchen_success', 33], [ 'home_kitchen_failure', 66 ] ]],  ], 'message_key' => 'use_kitchen' ],
+                'home_kitchen_2a' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook', 'poison' => false, 'broken' => false], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v2', 'must_not_have_canteen', 'kitchen_counter_below_1' ], 'result' => [ 'consume_target', 'increase_kitchen_counter', [ 'group' => [ ['home_kitchen_success', 66], [ 'home_kitchen_failure', 33 ] ]],  ], 'message_key' => 'use_kitchen' ],
+                'home_kitchen_3a' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook', 'poison' => false, 'broken' => false], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v3', 'must_not_have_canteen', 'kitchen_counter_below_2' ], 'result' => [ 'consume_target', 'increase_kitchen_counter', 'home_kitchen_success' ], 'message_key' => 'use_kitchen' ],
+                'home_kitchen_4a' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook', 'poison' => false, 'broken' => false], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v4', 'must_not_have_canteen', 'kitchen_counter_below_3' ], 'result' => [ 'consume_target', 'increase_kitchen_counter', 'home_kitchen_success' ], 'message_key' => 'use_kitchen' ],
+                'home_kitchen_1b' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook', 'poison' => false, 'broken' => false], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v1', 'must_have_canteen',     'kitchen_counter_below_4' ], 'result' => [ 'consume_target', 'increase_kitchen_counter', [ 'group' => [ ['home_kitchen_success', 33], [ 'home_kitchen_failure', 66 ] ]],  ], 'message_key' => 'use_kitchen' ],
+                'home_kitchen_2b' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook', 'poison' => false, 'broken' => false], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v2', 'must_have_canteen',     'kitchen_counter_below_4' ], 'result' => [ 'consume_target', 'increase_kitchen_counter', [ 'group' => [ ['home_kitchen_success', 66], [ 'home_kitchen_failure', 33 ] ]],  ], 'message_key' => 'use_kitchen' ],
+                'home_kitchen_3b' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook', 'poison' => false, 'broken' => false], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v3', 'must_have_canteen',     'kitchen_counter_below_5' ], 'result' => [ 'consume_target', 'increase_kitchen_counter', 'home_kitchen_success' ], 'message_key' => 'use_kitchen' ],
+                'home_kitchen_4b' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook', 'poison' => false, 'broken' => false], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v4', 'must_have_canteen',     'kitchen_counter_below_6' ], 'result' => [ 'consume_target', 'increase_kitchen_counter', 'home_kitchen_success' ], 'message_key' => 'use_kitchen' ],
 
                 'slaughter_4xs' => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', 'picto_animal', 'spawn_meat_4xs' ], 'message_key' => 'use_butcher' ],
                 'slaughter_2xs' => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', 'picto_animal', 'spawn_meat_2xs' ], 'message_key' => 'use_butcher' ],
@@ -647,9 +536,9 @@ class ActionDataService implements FixtureProcessorInterface {
                 'purify_soul' => [ 'label' => 'Läutern', 'meta' => [ 'must_be_inside', 'must_have_hammam' ], 'result' => [ 'consume_item', 'picto_soul_purify', 'town_sdef_5' ],  'message' => "Du hast die Seele gereinigt und sie friedlich gemacht."],
                 'brew_shamanic_potion' => ['label' => 'Herstellung eines Mystischern Trank', 'poison' => ItemAction::PoisonHandlerTransgress, 'tooltip' => 'Du kannst einen schamanischen Trank zubereiten, der den Rezipienten vor bösen Geistern schützt.', 'meta' => [ 'must_be_inside', 'have_water_shaman', 'min_1_pm', 'role_shaman' ], 'result' => ['consume_water', 'minus_1pm', 'spawn_potion'], 'message' => 'Das ist ein Musterbeispiel eines schamanischen Tranks! Nun liegt es an die, der Stadt dessen Wirksamkeit zu vermitteln und sie von deinen schamanischen Fähigkeiten zu überzeugen.' ],
 
-                'home_rest_1'     => [ 'label' => 'Nickerchen machen', 'meta' => [ 'must_be_inside', 'must_have_home_rest_v1', 'not_yet_rested', 'no_full_ap_msg' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_rested' ], 'group' => [ ['plus_2ap_7', 33], [ 'do_nothing', 66 ] ] ] ], 'message_key' => 'use_bed' ],
-                'home_rest_2'     => [ 'label' => 'Nickerchen machen', 'meta' => [ 'must_be_inside', 'must_have_home_rest_v2', 'not_yet_rested', 'no_full_ap_msg' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_rested' ], 'group' => [ ['plus_2ap_7', 66], [ 'do_nothing', 33 ] ] ] ], 'message_key' => 'use_bed' ],
-                'home_rest_3'     => [ 'label' => 'Nickerchen machen', 'meta' => [ 'must_be_inside', 'must_have_home_rest_v3', 'not_yet_rested', 'no_full_ap_msg' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_rested' ], 'group' => [ ['plus_2ap_7', 100], [ 'do_nothing', 0 ] ] ] ], 'message_key' => 'use_bed' ],
+                'home_rest_1'     => [ 'label' => 'Nickerchen machen', 'meta' => [ 'must_be_inside', 'must_have_home_rest_v1', 'not_yet_rested', 'no_full_ap_msg' ], 'result' => [ 'status_rested', [ 'group' => [ ['plus_2ap_7', 33], [ 'do_nothing', 66 ] ] ] ], 'message_key' => 'use_bed' ],
+                'home_rest_2'     => [ 'label' => 'Nickerchen machen', 'meta' => [ 'must_be_inside', 'must_have_home_rest_v2', 'not_yet_rested', 'no_full_ap_msg' ], 'result' => [ 'status_rested', [ 'group' => [ ['plus_2ap_7', 66], [ 'do_nothing', 33 ] ] ] ], 'message_key' => 'use_bed' ],
+                'home_rest_3'     => [ 'label' => 'Nickerchen machen', 'meta' => [ 'must_be_inside', 'must_have_home_rest_v3', 'not_yet_rested', 'no_full_ap_msg' ], 'result' => [ 'status_rested', [ 'group' => [ ['plus_2ap_7', 100], [ 'do_nothing', 0 ] ] ] ], 'message_key' => 'use_bed' ],
 
                 'nw_break'   => [ 'label' => '', 'meta' => [], 'result' => [ 'break_item' ] ],
                 'nw_destroy' => [ 'label' => '', 'meta' => [], 'result' => [ 'consume_item' ] ],

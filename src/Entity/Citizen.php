@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\ActionHandler\PointType;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -1093,5 +1094,13 @@ class Citizen
     public function giveGenerosityBonus(int $number): self {
         $this->getRankingEntry()->setGenerosityBonus( $this->getRankingEntry()->getGenerosityBonus() + $number );
         return $this;
+    }
+
+    public function getPoints(PointType $t): int {
+        return match ($t) {
+            PointType::AP => $this->getAp(),
+            PointType::CP => $this->getBp(),
+            PointType::MP => $this->getPm(),
+        };
     }
 }

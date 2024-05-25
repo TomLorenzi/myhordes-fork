@@ -9,11 +9,17 @@ use MyHordes\Fixtures\DTO\ArrayDecoratorReadInterface;
 abstract class Atom implements ArrayDecoratorReadInterface {
 
     protected array $data;
+    public readonly SortDefinition $sort;
+
+    protected static function defaultSortDefinition(): SortDefinition {
+        return new SortDefinition();
+    }
 
     public function __construct(
-        public readonly SortDefinition $sort = new SortDefinition(),
+        ?SortDefinition $sort = null,
         $data = []
     ) {
+        $this->sort = $sort ?? self::defaultSortDefinition();
         $this->data = static::afterSerialization( $data );
     }
 

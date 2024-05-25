@@ -2,33 +2,20 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\AffectAP;
-use App\Entity\AffectCP;
-use App\Entity\AffectDeath;
-use App\Entity\AffectPM;
 use App\Entity\AffectResultGroup;
 use App\Entity\AffectResultGroupEntry;
-use App\Entity\AffectStatus;
-use App\Entity\BuildingPrototype;
 use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
-use App\Entity\CitizenHomeUpgradePrototype;
-use App\Entity\CitizenRole;
-use App\Entity\CitizenStatus;
 use App\Entity\EscortActionGroup;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\HomeActionPrototype;
 use App\Entity\ItemAction;
-use App\Entity\ItemGroup;
-use App\Entity\ItemGroupEntry;
 use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
-use App\Entity\PictoPrototype;
 use App\Entity\Requirement;
 use App\Entity\Result;
 use App\Entity\SpecialActionPrototype;
-use App\Enum\ItemPoisonType;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\ORM\EntityNotFoundException;
@@ -139,18 +126,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 if (!isset($sub_cache[$sub_id])) $sub_cache[$sub_id] = [];
 
                 switch ($sub_id) {
-                    case 'status':
-                        $result->setStatus( $this->process_status_effect($manager,$out,$sub_cache[$sub_id], $sub_res, $sub_data) );
-                        break;
-                    case 'ap':
-                        $result->setAp( $this->process_ap_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
-                        break;
-                    case 'pm':
-                        $result->setPm( $this->process_pm_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
-                        break;
-                    case 'cp':
-                        $result->setCp( $this->process_cp_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
-                        break;
                     case 'death':
                         $result->setDeath( $this->process_death_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
                         break;
@@ -167,176 +142,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             $manager->persist( $cache[$id] = $result );
         } else $out->writeln( "\t\t<comment>Skip</comment> meta effect <info>$id</info>", OutputInterface::VERBOSITY_DEBUG );
-
-        return $cache[$id];
-    }
-    
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
-     * @return AffectStatus
-     * @throws Exception
-     */
-    private function process_status_effect(
-        ObjectManager $manager, ConsoleOutputInterface $out,
-        array &$cache, string $id, array $data): AffectStatus
-    {
-        if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectStatus::class)->findOneBy(['name' => $id]);
-            if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>status/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            else {
-                $result = new AffectStatus();
-                $out->writeln( "\t\t\t<comment>Create</comment> effect <info>status/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-            $status_from = empty($data['from']) ? null : $manager->getRepository(CitizenStatus::class)->findOneBy(['name' => $data['from']]);
-            if (!$status_from && !empty($data['from'])) throw new Exception('Status effect not found: ' . $data['from']);
-            $status_to = empty($data['to']) ? null : $manager->getRepository(CitizenStatus::class)->findOneBy(['name' => $data['to']]);
-            if (!$status_to && !empty($data['to'])) throw new Exception('Status effect not found: ' . $data['to']);
-
-            $role = (empty($data['role']) || !isset( $data['enabled'] ) || $data['enabled'] === null) ? null : $manager->getRepository(CitizenRole::class)->findOneBy(['name' => $data['role']]);
-
-            $result
-                ->setResetThirstCounter( $data['reset_thirst'] ?? null )
-                ->setCitizenHunger( $data['hunger'] ?? null )
-                ->setForced( $data['force'] ?? false )
-                ->setCounter( $data['counter'] ?? null )
-                ->setProbability( $data['probability'] ?? null )
-                ->setModifyProbability( $data['modProbability'] ?? true );
-
-            if (!$status_from && !$status_to && !$result->getResetThirstCounter() && !$result->getCitizenHunger() && $result->getCounter() === null && $role === null) {
-                throw new Exception("Status effects must have at least one attached status ($id): " . print_r($data, true));
-            }
-
-            $result->setName( $id )->setInitial( $status_from )->setResult( $status_to )->setRole($role)->setRoleAdd( $data['enabled'] ?? null);
-            $manager->persist( $cache[$id] = $result );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>status/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-        
-        return $cache[$id];
-    }
-
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
-     * @return AffectAP
-     */
-    private function process_ap_effect(
-        ObjectManager $manager, ConsoleOutputInterface $out,
-        array &$cache, string $id, array $data): AffectAP
-    {
-        if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectAP::class)->findOneBy(['name' => $id]);
-            if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>ap/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            else {
-                $result = new AffectAP();
-                $out->writeln( "\t\t\t<comment>Create</comment> effect <info>ap/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-
-            $result->setName( $id )->setMax( $data['max'] )->setAp( $data['num'] );
-            if ($data['max']) $result->setBonus( $data['num'] );
-            else $result->setBonus( isset($data['bonus']) ? $data['bonus'] : 0 );
-            $manager->persist( $cache[$id] = $result );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>ap/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-        
-        return $cache[$id];
-    }
-
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
-     * @return AffectPM
-     */
-    private function process_pm_effect(
-        ObjectManager $manager, ConsoleOutputInterface $out,
-        array &$cache, string $id, array $data): AffectPM
-    {
-        if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectPM::class)->findOneBy(['name' => $id]);
-            if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>pm/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            else {
-                $result = new AffectPM();
-                $out->writeln( "\t\t\t<comment>Create</comment> effect <info>pm/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-
-            $result->setName( $id )->setMax( $data['max'] )->setPm( $data['num'] );
-            if ($data['max']) $result->setBonus( $data['num'] );
-            else $result->setBonus( isset($data['bonus']) ? $data['bonus'] : 0 );
-            $manager->persist( $cache[$id] = $result );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>pm/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-        
-        return $cache[$id];
-    }
-
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
-     * @return AffectCP
-     */
-    private function process_cp_effect(
-        ObjectManager $manager, ConsoleOutputInterface $out,
-        array &$cache, string $id, array $data): AffectCP
-    {
-        if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectCP::class)->findOneBy(['name' => $id]);
-            if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>cp/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            else {
-                $result = new AffectCP();
-                $out->writeln( "\t\t\t<comment>Create</comment> effect <info>cp/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-
-            $result->setName( $id )->setMax( $data['max'] )->setCp( $data['num'] );
-            if ($data['max']) $result->setBonus( $data['num'] );
-            else $result->setBonus( isset($data['bonus']) ? $data['bonus'] : 0 );
-            $manager->persist( $cache[$id] = $result );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>cp/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-
-        return $cache[$id];
-    }
-
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
-     * @return AffectDeath
-     */
-    private function process_death_effect(
-        ObjectManager $manager, ConsoleOutputInterface $out,
-        array &$cache, string $id, array $data): AffectDeath
-    {
-        if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectDeath::class)->findOneBy(['name' => $id]);
-            if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>death/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            else {
-                $result = new AffectDeath();
-                $out->writeln( "\t\t\t<comment>Create</comment> effect <info>death/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-
-			$causeOfDeath = $manager->getRepository(CauseOfDeath::class)->findOneBy( ['ref' => $data[0]] );
-
-			if (!$causeOfDeath) {
-				$all = $manager->getRepository(CauseOfDeath::class)->findBy([], ['ref' => 'asc']);
-				$list = "";
-				foreach ($all as $one)
-					$list .= "{$one->getRef()} :: {$one->getLabel()}\n";
-				throw new EntityNotFoundException("The Cause of Death with reference {$data[0]} does not exists.\nExisting Causes : $list");
-			}
-
-            $result->setName( $id )->setCause( $causeOfDeath );
-            $manager->persist( $cache[$id] = $result );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>death/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 
         return $cache[$id];
     }

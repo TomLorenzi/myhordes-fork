@@ -24,6 +24,7 @@ use App\Entity\PrivateMessage;
 use App\Entity\PrivateMessageThread;
 use App\Entity\Town;
 use App\Entity\Zone;
+use App\Enum\ActionHandler\PointType;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use DateTime;
@@ -167,7 +168,7 @@ class CitizenHandler
         return true;
     }
 
-    public function removeStatus( Citizen &$citizen, $status ): bool {
+    public function removeStatus( Citizen $citizen, $status ): bool {
         if (is_string( $status )) $status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName($status);
         if (!$status) return false;
 
@@ -359,7 +360,7 @@ class CitizenHandler
      * @param CitizenRole|string $role
      * @return bool
      */
-    public function addRole(Citizen $citizen, $role): bool {
+    public function addRole(Citizen $citizen, CitizenRole|string $role): bool {
 
         if (is_string($role)) $role = $this->entity_manager->getRepository(CitizenRole::class)->findOneByName($role);
         /** @var $role CitizenRole|null */
@@ -442,7 +443,7 @@ class CitizenHandler
      * @param Citizen $citizen The citizen on which we'll change AP
      * @param bool $relative Is this set relative to current citizen AP or not?
      * @param int $num The number of AP to set
-     * @param int $max_bonus The bonus to apply to max AP (default null)
+     * @param ?int $max_bonus The bonus to apply to max AP (default null)
      * @return int The number of affected AP to citizen (may be different from what was asked because of some rules)
      */
     public function setAP(Citizen $citizen, bool $relative, int $num, ?int $max_bonus = null): int {
@@ -459,11 +460,11 @@ class CitizenHandler
         return $citizen->getAp() - $beforeAp;
     }
 
-    public function getMaxBP(Citizen $citizen) {
+    public function getMaxBP(Citizen $citizen): int {
         return $citizen->getProfession()->getName() === 'tech' ? 6 : 0;
     }
 
-    public function setBP(Citizen &$citizen, bool $relative, int $num, ?int $max_bonus = null) {
+    public function setBP(Citizen $citizen, bool $relative, int $num, ?int $max_bonus = null): void {
         if ($max_bonus !== null)
             $citizen->setBp( max(0, min(max($this->getMaxBP( $citizen ) + $max_bonus, $citizen->getBp()), $relative ? ($citizen->getBp() + $num) : max(0,$num) )) );
         else $citizen->setBp( max(0, $relative ? ($citizen->getBp() + $num) : max(0,$num) ) );
@@ -474,7 +475,7 @@ class CitizenHandler
      * @param Citizen $citizen The citizen to look for
      * @return int Number of maximum PM available for the citizen
      */
-    public function getMaxPM(Citizen $citizen) {
+    public function getMaxPM(Citizen $citizen): int {
         $isShaman = false;
         foreach ($citizen->getRoles() as $role) {
             if($role->getName() == "shaman")
@@ -483,11 +484,13 @@ class CitizenHandler
         return $isShaman ? 5 : 0;
     }
 
-    public function setPM(Citizen &$citizen, bool $relative, int $num) {
-        $citizen->setPm(max(0, $relative ? ($citizen->getPm() + $num) : max(0,$num) ) );
+    public function setPM(Citizen &$citizen, bool $relative, int $num, ?int $max_bonus = null): void {
+        if ($max_bonus !== null)
+            $citizen->setPm( max(0, min(max($this->getMaxPM( $citizen ) + $max_bonus, $citizen->getPm()), $relative ? ($citizen->getPm() + $num) : max(0,$num) )) );
+        else $citizen->setPm(max(0, $relative ? ($citizen->getPm() + $num) : max(0,$num) ) );
     }
 
-    public function deductAPBP(Citizen &$citizen, int $ap, ?int &$usedap = 0, ?int &$usedbp = 0) {
+    public function deductAPBP(Citizen $citizen, int $ap, ?int &$usedap = 0, ?int &$usedbp = 0) {
         if ($ap <= $citizen->getBp()) {
             $usedbp = $ap;
             $this->setBP($citizen, true, -$ap);
@@ -500,7 +503,7 @@ class CitizenHandler
         }
     }
 
-    public function getCP(Citizen &$citizen): int {
+    public function getCP(Citizen $citizen): int {
         if ($this->hasStatusEffect( $citizen, 'terror', false )) $base = 0;
         else {
             $base = $citizen->getProfession()->getName() == 'guardian' ? 4 : 2;
@@ -523,6 +526,28 @@ class CitizenHandler
         }
 
         return $base;
+    }
+
+    public function getMaxPoints(Citizen $citizen, PointType $t): int {
+        return match ($t) {
+            PointType::AP => $this->getMaxAP($citizen),
+            PointType::CP => $this->getMaxBP($citizen),
+            PointType::MP => $this->getMaxPM($citizen),
+        };
+    }
+
+    public function setPoints(Citizen $citizen, PointType $t, bool $relative, int $num, ?int $max_bonus = null): void {
+        switch ($t) {
+            case PointType::AP:
+                $this->setAP( $citizen, $relative, $num, $max_bonus );
+                break;
+            case PointType::CP:
+                $this->setBP( $citizen, $relative, $num, $max_bonus);
+                break;
+            case PointType::MP:
+                $this->setPM( $citizen, $relative, $num, $max_bonus);
+                break;
+        }
     }
 
     public function applyProfession(Citizen &$citizen, CitizenProfession &$profession): void {
