@@ -3,10 +3,10 @@
 require("@ruffle-rs/ruffle");
 window.RufflePlayer.config = {
     "publicPath": "/build/ruffle",
-    "contextMenu": false,
+    "contextMenu": "off",
     "autoplay": "on",
     'unmuteOverlay': "hidden",
-    "preloader": false,
+    "splashScreen": false,
     "frameRate": 25
 }
 /*window.RufflePlayer.config.publicPath = "/build/ruffle";
@@ -20,9 +20,15 @@ customElements.define('hordes-flash', class FlashPlayer extends HTMLElement {
         let player = ruffle.createPlayer();
         this.innerHTML = '';
         this.appendChild(player);
+        player.addEventListener('loadedmetadata', () => console.log(player.metadata))
         player.load({
             url: this.dataset.src,
-            parameters: this.dataset.parameters ?? ''
+            parameters: this.dataset.parameters ?? '',
+            maxExecutionDuration: 2,
+            backgroundColor: '#5c2b20',
+            quality: "low",
+            scale: "noScale",
+            playerRuntime: "air"
         });
     }
 

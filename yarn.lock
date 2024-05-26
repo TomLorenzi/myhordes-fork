@@ -2158,10 +2158,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ruffle-rs/ruffle@npm:0.1.0-nightly.2024.4.5":
-  version: 0.1.0-nightly.2024.4.5
-  resolution: "@ruffle-rs/ruffle@npm:0.1.0-nightly.2024.4.5"
-  checksum: 10c0/86c43c0fdcb4b93ec8d9b121ade41217e301a6eef0857e4a76754d967e3dcd9fb68a7739c1e012405f4caf705cda06d6c9b83da6f727a85ad57d1eb1210d56ad
+"@ruffle-rs/ruffle@npm:0.1.0-nightly.2024.5.10":
+  version: 0.1.0-nightly.2024.5.10
+  resolution: "@ruffle-rs/ruffle@npm:0.1.0-nightly.2024.5.10"
+  checksum: 10c0/57bf686c7eecc3a57159f3bbd6e36e5926eb7fe4017c0781c165e52adb95c913f88796ab19ce29f0c776c4d1c90ec6ea81f899b9b2bb0caa0a58415d04ee5025
   languageName: node
   linkType: hard
 
@@ -9419,7 +9419,7 @@ __metadata:
     "@babel/preset-env": "npm:7.24.4"
     "@babel/preset-react": "npm:7.24.1"
     "@fortawesome/fontawesome-free": "npm:6.5.2"
-    "@ruffle-rs/ruffle": "npm:0.1.0-nightly.2024.4.5"
+    "@ruffle-rs/ruffle": "npm:0.1.0-nightly.2024.5.10"
     "@symfony/webpack-encore": "npm:4.6.1"
     "@types/react-dom": "npm:18.2.24"
     "@types/uuid": "npm:^9"

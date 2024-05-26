@@ -31,7 +31,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "@ruffle-rs/ruffle": "0.1.0-nightly.2024.4.5",
+        "@ruffle-rs/ruffle": "0.1.0-nightly.2024.5.10",
         "@types/react-dom": "18.2.24",
         "buffer": "6.0.3",
         "js-md5": "^0.8.3",
@@ -47,5 +47,5 @@
         "ua-parser-js": "1.0.37",
         "uuid": "9.0.1"
     },
-    "packageManager": "yarn@4.1.1"
+    "packageManager": "yarn@4.2.2"
 }
