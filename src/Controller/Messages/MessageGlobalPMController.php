@@ -217,7 +217,7 @@ class MessageGlobalPMController extends MessageController
             $official_meta = $this->entity_manager->getRepository(OfficialGroupMessageLink::class)->findOneBy(['messageGroup' => $association->getAssociation()]);
 
             $has_response = $association->getAssociationType() === UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember &&
-                $this->entity_manager->getRepository(GlobalPrivateMessage::class)->lastInGroup($association->getAssociation())->getSenderGroup() !== null;
+                $official_meta->getOfficialGroup()->isTicketStyleReadMarkers() && $this->entity_manager->getRepository(GlobalPrivateMessage::class)->lastInGroup($association->getAssociation())->getSenderGroup() !== null;
 
             $owner_assoc = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy([
                 'association' => $association->getAssociation(),

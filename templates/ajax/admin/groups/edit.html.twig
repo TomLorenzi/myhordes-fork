@@ -80,6 +80,11 @@
                 </div>
 
                 <div class="row">
+                    <div class="cell padded rw-4 note note-lightest"><label for="group-ticket">{{ 'Eingehende Nachrichten als Tickets behandeln'|trans({},'admin') }} {{ help_btn('Ist diese Option aktiviert, so wird eine eingehende Konversation für alle Gruppenmitglieder als "Gelesen" markiert, sobald ein Gruppenmitglied antwortet.'|trans({},'admin'))}}</label></div>
+                    <div class="cell padded rw-4"><input id="group-ticket" type="checkbox" {% if current_group is null or current_group.ticketStyleReadmarkers %}checked{% endif %} /></div>
+                </div>
+
+                <div class="row">
                     <div class="padded cell rw-4 ro-4">
                         {% if current_group is null %}
                             <button id="save_button">{{ 'Neue Gruppe anlegen'|trans({},'admin') }}</button>
@@ -211,6 +216,7 @@
                 desc: document.getElementById('group-desc').value,
                 lang: document.getElementById('group-lang').value,
                 anon: document.getElementById('group-anon').checked,
+                ticket: document.getElementById('group-ticket').checked,
                 icon: image_upload ? image_upload : false,
                 mime: image_upload ? image_mime : null,
                 m_add: members_added,

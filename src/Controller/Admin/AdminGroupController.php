@@ -109,6 +109,7 @@ class AdminGroupController extends AdminActionController
         $base_group->setName(trim($parser->get('name')));
         $group_meta
             ->setAnon( (bool)$parser->get('anon') )
+            ->setTicketStyleReadMarkers( (bool)$parser->get('ticket') )
             ->setLang( $parser->get('lang', 'multi', array_merge(['multi'], $this->generatedLangsCodes)) )
             ->setSemantic( $parser->get_int('type', 0) )
             ->setDescription($parser->get('desc'));
