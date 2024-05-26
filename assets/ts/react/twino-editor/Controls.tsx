@@ -248,11 +248,15 @@ const ControlButtonNodeWrap = ({
     const globals = useContext(Globals);
 
     return <ControlButton {...{fa, label, control, dialogHandler, dialogTitle, preConfirmHandler}} handler={() => {
+        const fixValue = (link: string|null|undefined): string|null => {
+            return link?.replaceAll('[', '［').replaceAll(']', '］') ?? null;
+        }
+
         const body = `${globals.getField('body') ?? ''}`;
         const selection = [globals.selection.start, globals.selection.end]
 
         const rawSelection = body.slice(selection[0], selection[1]);
-        const value = valueCallback ? valueCallback(rawSelection) : null;
+        const value = valueCallback ? fixValue(valueCallback(rawSelection)) : null;
         const content = contentCallback ? contentCallback(rawSelection) : null;
 
         const open = `[${node}${value ? `=${value}` : ''}]`;
@@ -377,6 +381,10 @@ const ControlButtonInsertURL = ({
     const text = useRef<HTMLInputElement>()
     const link = useRef<HTMLInputElement>()
 
+    const fixLink = (link: string): string => {
+        return link.replaceAll('[', '%5B').replaceAll(']', '%5D')
+    }
+
     const checkLink = (link: string, noProtocol: boolean = false): boolean => {
         return link.match(noProtocol
             ? /^(\w+:?\w*)?(\S+)(:\d+)?(?:\/|\/([\w#!:.?+=&%\-\/]))?$/
@@ -392,7 +400,7 @@ const ControlButtonInsertURL = ({
                 if (text.current && link.current) {
                     if (s && checkLink(s)) {
                         text.current.value = '';
-                        link.current.value = s;
+                        link.current.value = fixLink(s);
                         window.requestAnimationFrame(() => text.current.focus());
                     } else {
                         text.current.value = s;
@@ -404,7 +412,7 @@ const ControlButtonInsertURL = ({
                 return true;
             } else {
                 if (text.current && link.current && checkLink(text.current.value) && !checkLink(link.current.value))
-                    link.current.value = text.current.value;
+                    link.current.value = fixLink(text.current.value);
 
                 if (link.current && text.current && !text.current.value) text.current.value = link.current.value;
 
@@ -414,6 +422,9 @@ const ControlButtonInsertURL = ({
         preConfirmHandler={() => {
             if (link.current && !checkLink( link.current.value ) && checkLink( link.current.value, true ))
                 link.current.value = `https://${link.current.value}`
+
+            if (link.current)
+                link.current.value = fixLink(link.current.value);
         }}
     >
         <div className="flex">
