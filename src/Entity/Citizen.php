@@ -25,120 +25,124 @@ class Citizen
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    private ?int $id;
     #[ORM\Column(type: 'boolean')]
-    private $alive = true;
+    private bool $alive = true;
     #[ORM\Column(type: 'smallint')]
-    private $ap = 6;
+    private int $ap = 6;
     #[ORM\Column(type: 'boolean')]
-    private $active = true;
+    private bool $active = true;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\User', inversedBy: 'citizens')]
     #[ORM\JoinColumn(nullable: false)]
-    private $user;
+    private ?User $user;
     #[ORM\ManyToMany(targetEntity: 'App\Entity\CitizenStatus')]
-    private $status;
+    private Collection $status;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\CitizenProfession')]
     #[ORM\JoinColumn(nullable: false)]
-    private $profession;
+    private ?CitizenProfession $profession;
     #[ORM\ManyToMany(targetEntity: 'App\Entity\CitizenRole')]
-    private $roles;
+    private Collection $roles;
     #[ORM\ManyToMany(targetEntity: 'App\Entity\CitizenVote', orphanRemoval: true, cascade: ['persist', 'remove'])]
-    private $votes;
+    private Collection $votes;
     #[ORM\OneToOne(targetEntity: 'App\Entity\Inventory', inversedBy: 'citizen', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private $inventory;
+    private ?Inventory $inventory;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\Town', inversedBy: 'citizens')]
     #[ORM\JoinColumn(nullable: false)]
-    private $town;
+    private ?Town $town;
     #[ORM\OneToOne(targetEntity: 'App\Entity\CitizenHome', inversedBy: 'citizen', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private $home;
+    private ?CitizenHome $home;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\Zone', inversedBy: 'citizens', fetch: 'EXTRA_LAZY')]
-    private $zone;
+    private ?Zone $zone = null;
     #[ORM\OneToMany(targetEntity: 'App\Entity\DigTimer', mappedBy: 'citizen', orphanRemoval: true)]
-    private $digTimers;
+    private Collection $digTimers;
     #[ORM\OneToOne(targetEntity: 'App\Entity\DailyUpgradeVote', mappedBy: 'citizen', cascade: ['persist', 'remove'])]
-    private $dailyUpgradeVote;
+    private ?DailyUpgradeVote $dailyUpgradeVote = null;
     #[ORM\Column(type: 'integer')]
-    private $walkingDistance = 0;
+    private int $walkingDistance = 0;
     #[ORM\Column(type: 'integer')]
-    private $survivedDays = 0;
+    private int $survivedDays = 0;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\CauseOfDeath')]
     #[ORM\JoinColumn(nullable: false)]
-    private $causeOfDeath;
+    private ?CauseOfDeath $causeOfDeath;
     #[ORM\Column(type: 'integer')]
-    private $Bp;
+    private int $Bp = 0;
     #[ORM\OneToMany(targetEntity: 'App\Entity\ExpeditionRoute', mappedBy: 'owner', orphanRemoval: true, cascade: ['persist', 'remove'])]
-    private $expeditionRoutes;
+    private Collection $expeditionRoutes;
     #[ORM\Column(type: 'boolean')]
-    private $banished = false;
+    private bool $banished = false;
     #[ORM\OneToMany(targetEntity: 'App\Entity\Complaint', mappedBy: 'culprit', orphanRemoval: true)]
-    private $complaints;
+    private Collection $complaints;
     #[ORM\ManyToMany(targetEntity: 'App\Entity\HeroicActionPrototype')]
-    private $heroicActions;
+    private Collection $heroicActions;
     #[ORM\Column(type: 'integer')]
-    private $campingCounter = 0;
+    private int $campingCounter = 0;
     #[ORM\Column(type: 'integer')]
-    private $campingTimestamp = 0;
+    private int $campingTimestamp = 0;
     #[ORM\Column(type: 'float')]
-    private $campingChance = 0;
+    private int $campingChance = 0;
     #[ORM\OneToMany(targetEntity: 'App\Entity\ActionCounter', mappedBy: 'citizen', orphanRemoval: true, cascade: ['persist', 'remove'])]
-    private $actionCounters;
+    private Collection $actionCounters;
     #[ORM\Column(type: 'integer')]
-    private $lastActionTimestamp = 0;
+    private int $lastActionTimestamp = 0;
     #[ORM\Column(type: 'integer')]
-    private $pm;
+    private int $pm = 0;
     #[ORM\OneToOne(targetEntity: 'App\Entity\CitizenEscortSettings', inversedBy: 'citizen', cascade: ['persist', 'remove'], orphanRemoval: true)]
     #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
-    private $escortSettings;
+    private ?CitizenEscortSettings $escortSettings = null;
     #[ORM\OneToMany(targetEntity: 'App\Entity\CitizenEscortSettings', mappedBy: 'leader')]
-    private $leadingEscorts;
+    private Collection $leadingEscorts;
     #[ORM\Column(type: 'text', nullable: true)]
-    private $lastWords;
+    private ?string $lastWords = null;
     #[ORM\Column(type: 'text', nullable: true)]
-    private $comment;
+    private ?string $comment = null;
     #[ORM\Column(type: 'text', nullable: true, length: 24)]
-    private $alias;
+    private ?string $alias = null;
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $disposed;
+    private ?int $disposed = null;
     #[ORM\ManyToMany(targetEntity: 'App\Entity\Citizen')]
     #[ORM\JoinTable(name: 'citizen_disposed')]
     #[ORM\JoinColumn(name: 'id', referencedColumnName: 'id', unique: true)]
     #[ORM\InverseJoinColumn(name: 'disposed_by_id', referencedColumnName: 'id')]
-    private $disposedBy;
+    private Collection $disposedBy;
     #[ORM\OneToMany(targetEntity: 'App\Entity\CitizenWatch', mappedBy: 'citizen', orphanRemoval: true)]
-    private $citizenWatch;
+    private Collection $citizenWatch;
     #[ORM\Column(type: 'integer')]
-    private $ghulHunger = 0;
+    private int $ghulHunger = 0;
     #[ORM\OneToMany(targetEntity: PrivateMessageThread::class, mappedBy: 'recipient', orphanRemoval: true)]
-    private $privateMessageThreads;
+    private Collection $privateMessageThreads;
     #[ORM\OneToOne(targetEntity: CitizenRankingProxy::class, mappedBy: 'citizen', cascade: ['persist'])]
-    private $rankingEntry;
+    private ?CitizenRankingProxy $rankingEntry = null;
     #[ORM\OneToMany(targetEntity: RuinExplorerStats::class, mappedBy: 'citizen', orphanRemoval: true, cascade: ['persist', 'remove'])]
-    private $explorerStats;
+    private Collection $explorerStats;
     #[ORM\OneToOne(targetEntity: BuildingVote::class, mappedBy: 'citizen', cascade: ['persist', 'remove'])]
-    private $buildingVote;
+    private ?BuildingVote $buildingVote = null;
     #[ORM\ManyToMany(targetEntity: HelpNotificationMarker::class)]
-    private $helpNotifications;
+    private Collection $helpNotifications;
     #[ORM\Column(type: 'boolean')]
-    private $hasSeenGazette = false;
+    private bool $hasSeenGazette = false;
     #[ORM\Column(type: 'boolean')]
-    private $hasEaten = false;
+    private bool $hasEaten = false;
     #[ORM\ManyToMany(targetEntity: SpecialActionPrototype::class)]
-    private $specialActions;
+    private Collection $specialActions;
     #[ORM\Column(type: 'integer')]
-    private $dayOfDeath = 1;
+    private int $dayOfDeath = 1;
     #[ORM\ManyToMany(targetEntity: HeroicActionPrototype::class)]
     #[ORM\JoinTable(name: 'citizen_used_heroic_action_prototype')]
-    private $usedHeroicActions;
+    private Collection $usedHeroicActions;
     #[ORM\ManyToMany(targetEntity: Zone::class, orphanRemoval: true, cascade: ['persist'])]
     #[ORM\JoinTable(name: 'citizen_visited_zones')]
-    private $visitedZones;
+    private Collection $visitedZones;
     #[ORM\Column(type: 'boolean')]
-    private $coalized = false;
+    private bool $coalized = false;
 
     #[ORM\OneToMany(mappedBy: 'citizen', targetEntity: ZoneActivityMarker::class, cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY', orphanRemoval: true)]
     private Collection $zoneActivityMarkers;
+
+    #[ORM\Column]
+    private int $sp = 0;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -1101,6 +1105,19 @@ class Citizen
             PointType::AP => $this->getAp(),
             PointType::CP => $this->getBp(),
             PointType::MP => $this->getPm(),
+            PointType::SP => $this->getSp(),
         };
+    }
+
+    public function getSp(): ?int
+    {
+        return $this->sp;
+    }
+
+    public function setSp(int $sp): static
+    {
+        $this->sp = $sp;
+
+        return $this;
     }
 }

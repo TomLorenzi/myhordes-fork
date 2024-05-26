@@ -116,6 +116,8 @@ class CustomAbstractController extends CustomAbstractCoreController {
             $data['is_shaman_role'] = $this->citizen_handler->hasRole($activeCitizen, 'shaman');
             $data['hunger'] = $activeCitizen->getGhulHunger();
             $data['is_night'] = $this->getTownConf()->isNightTime();
+            $data['sp'] = $activeCitizen->getSp();
+            $data['max_sp'] = $this->citizen_handler->getMaxSP($activeCitizen);
         }
         return $data;
     }

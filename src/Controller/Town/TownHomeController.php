@@ -17,6 +17,7 @@ use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
 use App\Entity\PrivateMessage;
 use App\Entity\PrivateMessageThread;
+use App\Enum\ActionHandler\PointType;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\AdminHandler;
@@ -601,7 +602,7 @@ class TownHomeController extends TownController
         else $current->setLevel( $current->getLevel()+1 );
 
         // Deduct AP
-        $this->citizen_handler->deductAPBP( $citizen, $costs->getAp() );
+        $this->citizen_handler->deductPointsWithFallback( $citizen, PointType::AP, PointType::CP, $costs->getAp());
 
         // Give picto
         $pictoPrototype = $em->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_hbuild_#00"]);

@@ -554,138 +554,144 @@
                     {% for other_citizen in other_citizens|sort((a,b) => a.name|lower <=> b.name|lower) %}
                         {# @var other_citizen \App\Entity\Citizen #}
                         {% if other_citizen.escortSettings is not null and other_citizen.escortSettings.leader == citizen %}
-                            <div class="row beyond-escort-on">
-                                <div class="padded cell rw-4 rw-lg-5 rw-md-4 rw-sm-5 citizen-box">
-                                    {% if other_citizen.online %}
-                                        <img src="{{ asset('build/images/icons/player_online.gif') }}" alt="{{ 'Online'|trans({},'global') }}">
-                                    {% else %}
-                                        <img src="{{ asset('build/images/icons/player_offline.gif') }}" alt="{{ 'Offline'|trans({},'global') }}">
-                                    {% endif %}
-                                    <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}">
-                                    <div class="inline">
-                                        {% include 'ajax/soul/playername.html.twig' with {user: other_citizen.user} only %}
-                                        <div class="tooltip normal">
-                                            <span class="warning">{{ other_citizen.name }} : </span><br />
-                                            <span class="jobName"><img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}" /> {{ other_citizen.profession.label|trans({}, 'game') }}</span>  <br />
-                                            <em>
-                                                {% if other_citizen != citizen %}
-                                                    {{ 'Klicke hier, um seine Informationen anzuzeigen'|trans({}, 'game') }}
-                                                {% else %}
-                                                    {{ 'Ganz genau, das bist du!'|trans({}, 'game') }}
-                                                {% endif %}
-                                            </em>
+                            <div class="beyond-escort-on">
+                                <div class="row-flex wrap">
+                                    <div class="padded cell rw-4 rw-lg-5 rw-md-4 rw-sm-5 citizen-box">
+                                        {% if other_citizen.online %}
+                                            <img src="{{ asset('build/images/icons/player_online.gif') }}" alt="{{ 'Online'|trans({},'global') }}">
+                                        {% else %}
+                                            <img src="{{ asset('build/images/icons/player_offline.gif') }}" alt="{{ 'Offline'|trans({},'global') }}">
+                                        {% endif %}
+                                        <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}">
+                                        <div class="inline">
+                                            {% include 'ajax/soul/playername.html.twig' with {user: other_citizen.user} only %}
+                                            <div class="tooltip normal">
+                                                <span class="warning">{{ other_citizen.name }} : </span><br />
+                                                <span class="jobName"><img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}" /> {{ other_citizen.profession.label|trans({}, 'game') }}</span>  <br />
+                                                <em>
+                                                    {% if other_citizen != citizen %}
+                                                        {{ 'Klicke hier, um seine Informationen anzuzeigen'|trans({}, 'game') }}
+                                                    {% else %}
+                                                        {{ 'Ganz genau, das bist du!'|trans({}, 'game') }}
+                                                    {% endif %}
+                                                </em>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="padded cell rw-3 rw-lg-4 rw-md-3 rw-sm-4">
-                                    <ul class="status">
-                                        {% if zone.x != 0 or zone.y != 0 %}
-                                            {% if not other_citizen.digging %}
-                                                {% if other_citizen.digTimeout > 0 and conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ALLOW_REDIGS'),false) %}
+                                    <div class="padded cell rw-3 rw-lg-4 rw-md-3 rw-sm-4">
+                                        <ul class="status">
+                                            {% if zone.x != 0 or zone.y != 0 %}
+                                                {% if not other_citizen.digging %}
+                                                    {% if other_citizen.digTimeout > 0 and conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ALLOW_REDIGS'),false) %}
+                                                        <li class="status">
+                                                            <img src="{{ asset('build/images/icons/small_nogather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
+                                                            <div class="tooltip">
+                                                                {% trans from 'game' %}Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:{% endtrans %}
+                                                                <div class="center"><span x-countdown-to="{{ other_citizen.currentDigTimer.timestamp.timestamp }}" x-on-expire="">...</span></div>
+                                                            </div>
+                                                        </li>
+                                                    {% elseif other_citizen.passiveDigTimer and not conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ALLOW_REDIGS'),false) %}
+                                                        <li class="status">
+                                                            <img src="{{ asset('build/images/icons/small_nogather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
+                                                            <div class="tooltip">
+                                                                {% trans from 'game' %}Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.{% endtrans %}
+                                                            </div>
+                                                        </li>
+                                                    {% endif %}
+                                                {% else %}
                                                     <li class="status">
-                                                        <img src="{{ asset('build/images/icons/small_nogather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
+                                                        <img src="{{ asset('build/images/icons/small_gather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
                                                         <div class="tooltip">
-                                                            {% trans from 'game' %}Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:{% endtrans %}
+                                                            <b>{% trans from 'game' %}Nächste automatische Ausgrabung:{% endtrans %}</b>
                                                             <div class="center"><span x-countdown-to="{{ other_citizen.currentDigTimer.timestamp.timestamp }}" x-on-expire="">...</span></div>
                                                         </div>
                                                     </li>
-                                                {% elseif other_citizen.passiveDigTimer and not conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ALLOW_REDIGS'),false) %}
-                                                    <li class="status">
-                                                        <img src="{{ asset('build/images/icons/small_nogather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
-                                                        <div class="tooltip">
-                                                            {% trans from 'game' %}Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.{% endtrans %}
-                                                        </div>
-                                                    </li>
                                                 {% endif %}
-                                            {% else %}
-                                                <li class="status">
-                                                    <img src="{{ asset('build/images/icons/small_gather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
-                                                    <div class="tooltip">
-                                                        <b>{% trans from 'game' %}Nächste automatische Ausgrabung:{% endtrans %}</b>
-                                                        <div class="center"><span x-countdown-to="{{ other_citizen.currentDigTimer.timestamp.timestamp }}" x-on-expire="">...</span></div>
-                                                    </div>
-                                                </li>
                                             {% endif %}
-                                        {% endif %}
-                                        {% for role in other_citizen.roles %}
-                                            {# @var role \App\Entity\CitizenRole #}
-                                            {% if not role.hidden and not role.secret %}
-                                                <li class="status{% if role.helpSection is not null %} link{% endif %}" {% if role.helpSection is not null %}x-ajax-href="{{ path('help', {'name': role.helpSection}) }}"{% endif %}>
+                                            {% for role in other_citizen.roles %}
+                                                {# @var role \App\Entity\CitizenRole #}
+                                                {% if not role.hidden and not role.secret %}
+                                                    <li class="status{% if role.helpSection is not null %} link{% endif %}" {% if role.helpSection is not null %}x-ajax-href="{{ path('help', {'name': role.helpSection}) }}"{% endif %}>
                                                     <span>
                                                         <img alt="" src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" />
                                                         <div class="tooltip">{{'Diese Bürger is der {role} der Stadt'|trans({'role': role.label|trans({'ref': citizen}, 'game'), 'ref': citizen}, 'game')}}</div>
                                                     </span>
-                                                </li>
-                                            {% endif %}
-                                        {% endfor %}
-                                        {% for stat in other_citizen.status %}
-                                            {# @var stat \App\Entity\CitizenStatus #}
-                                            {% if not stat.hidden %}
-                                                <li class="status">
-                                                    <img src="{{ asset('build/images/status/status_' ~ stat.name ~ '.gif') }}" alt="{{ stat.label|trans({},'game') }}">
-                                                    {% if stat.description %}
-                                                        <div class="tooltip normal">
-                                                            <h1>{{ stat.label|trans({}, 'game') }}</h1>
-                                                            {{ stat.description|trans({}, 'game')|raw }}
-                                                        </div>
-                                                    {% endif %}
-                                                </li>
-                                            {% endif %}
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                                <div class="padded cell rw-1 rw-lg-3 rw-md-1 rw-sm-3">
-                                    <div class="ap small">{{ other_citizen.ap }}</div>
-                                </div>
-                                <div class="padded cell rw-4 rw-lg-12 rw-md-4 rw-sm-12 right">
-                                    <div class="inline-block" id="escort-act-{{ other_citizen.id }}">
-                                        {{ block('html_escort_actions', "ajax/game/beyond/partials/inventory.html.twig") }}
+                                                    </li>
+                                                {% endif %}
+                                            {% endfor %}
+                                            {% for stat in other_citizen.status %}
+                                                {# @var stat \App\Entity\CitizenStatus #}
+                                                {% if not stat.hidden %}
+                                                    <li class="status">
+                                                        <img src="{{ asset('build/images/status/status_' ~ stat.name ~ '.gif') }}" alt="{{ stat.label|trans({},'game') }}">
+                                                        {% if stat.description %}
+                                                            <div class="tooltip normal">
+                                                                <h1>{{ stat.label|trans({}, 'game') }}</h1>
+                                                                {{ stat.description|trans({}, 'game')|raw }}
+                                                            </div>
+                                                        {% endif %}
+                                                    </li>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </ul>
                                     </div>
-
-                                    {% if zone.x != 0 or zone.y != 0 %}
-                                        <button {% if other_citizen.digging or zone_blocked or other_citizen.digTimeout > 0 %}disabled{% else %}x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_dig_controller', {ext: other_citizen.id}) }}"{% endif %} class="small inline" ><img alt="" src="{{ asset('build/images/icons/small_gather.gif') }}" style="margin-right: 0;" />
-                                            <div class="tooltip">{{ '{citizen} befehlen die Umgebung abzusuchen.'|trans({'{citizen}': other_citizen.name},'game') }}</div>
-                                        </button>
-                                        {% if not (other_citizen.digging or zone_blocked or other_citizen.digTimeout > 0) %}
-                                            {% set can_escort_dig = can_escort_dig+1 %}
+                                    <div class="padded cell rw-1 rw-lg-3 rw-md-1 rw-sm-3">
+                                        <div class="ap small">{{ other_citizen.ap }}</div>
+                                        {% if other_citizen.sp > 0 %}
+                                            <div class="sp small">{{ other_citizen.sp }}</div>
                                         {% endif %}
-                                    {% endif %}
-
-                                    <button {% if not can_attack_citizen %}disabled{% endif %} x-attack-citizen="{{ path('beyond_desert_attack_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" style="margin-right: 0;"/>
-                                        <div class="tooltip">{{ '{citizen} angreifen. Diese Aktion kostet dich {ap}.'|trans({'{citizen}': other_citizen.name,'{ap}': '<div class="ap">' ~ conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ATTACK_AP'),5) ~ '</div>'},'game')|raw }}</div>
-                                    </button>
-                                    {% if can_devour_citizen %}
-                                        <button {% if not allow_devour_citizen %}disabled{% endif %} x-devour-citizen="{{ path('beyond_desert_devour_citizen_controller', {cid: other_citizen.id}) }}" class="small inline">
-                                            <img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" style="margin-right: 0;" />
-                                            <div class="tooltip help">{{ 'Als Ghul solltest du jeden Tag einen anderen Spieler auffressen.'|trans({}, 'game') }}</div>
-                                        </button>
-                                    {% endif %}
-                                    <button x-toggle-escort="0" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}" class="small inline" ><img alt="" src="{{ asset('build/images/icons/escort_off.gif') }}" style="margin-right: 0;" />
-                                        <div class="tooltip">{{ '{citizen} sagen mir nicht mehr zu folgen.'|trans({'{citizen}': other_citizen.name},'game') }}</div>
-                                    </button>
-
-                                    <div id="escort-act-list-{{ other_citizen.id }}">
-                                        {{ block('html_escort_action_lists', "ajax/game/beyond/partials/inventory.html.twig") }}
                                     </div>
-                                </div>
+                                    <div class="padded cell rw-4 rw-lg-12 rw-md-4 rw-sm-12 right">
+                                        <div class="inline-block" id="escort-act-{{ other_citizen.id }}">
+                                            {{ block('html_escort_actions', "ajax/game/beyond/partials/inventory.html.twig") }}
+                                        </div>
 
-                                {% if other_citizen.escortSettings.allowInventoryAccess %}
-                                    <div class="padded cell ro-4 rw-8 ro-lg-0 rw-lg-12">
-                                        <div data-escort-inventory="1" id="escort-inv-{{ other_citizen.id }}">
-                                            {{ block('html_escort', "ajax/game/beyond/partials/inventory.html.twig") }}
+                                        {% if zone.x != 0 or zone.y != 0 %}
+                                            <button {% if other_citizen.digging or zone_blocked or other_citizen.digTimeout > 0 %}disabled{% else %}x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_dig_controller', {ext: other_citizen.id}) }}"{% endif %} class="small inline" ><img alt="" src="{{ asset('build/images/icons/small_gather.gif') }}" style="margin-right: 0;" />
+                                                <div class="tooltip">{{ '{citizen} befehlen die Umgebung abzusuchen.'|trans({'{citizen}': other_citizen.name},'game') }}</div>
+                                            </button>
+                                            {% if not (other_citizen.digging or zone_blocked or other_citizen.digTimeout > 0) %}
+                                                {% set can_escort_dig = can_escort_dig+1 %}
+                                            {% endif %}
+                                        {% endif %}
+
+                                        <button {% if not can_attack_citizen %}disabled{% endif %} x-attack-citizen="{{ path('beyond_desert_attack_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" style="margin-right: 0;"/>
+                                            <div class="tooltip">{{ '{citizen} angreifen. Diese Aktion kostet dich {ap}.'|trans({'{citizen}': other_citizen.name,'{ap}': '<div class="ap">' ~ conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ATTACK_AP'),5) ~ '</div>'},'game')|raw }}</div>
+                                        </button>
+                                        {% if can_devour_citizen %}
+                                            <button {% if not allow_devour_citizen %}disabled{% endif %} x-devour-citizen="{{ path('beyond_desert_devour_citizen_controller', {cid: other_citizen.id}) }}" class="small inline">
+                                                <img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" style="margin-right: 0;" />
+                                                <div class="tooltip help">{{ 'Als Ghul solltest du jeden Tag einen anderen Spieler auffressen.'|trans({}, 'game') }}</div>
+                                            </button>
+                                        {% endif %}
+                                        <button x-toggle-escort="0" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}" class="small inline" ><img alt="" src="{{ asset('build/images/icons/escort_off.gif') }}" style="margin-right: 0;" />
+                                            <div class="tooltip">{{ '{citizen} sagen mir nicht mehr zu folgen.'|trans({'{citizen}': other_citizen.name},'game') }}</div>
+                                        </button>
+
+                                        <div id="escort-act-list-{{ other_citizen.id }}">
+                                            {{ block('html_escort_action_lists', "ajax/game/beyond/partials/inventory.html.twig") }}
                                         </div>
                                     </div>
-                                {% else %}
-                                    <div class="padded cell rw-12 escort-infos">
-                                        <span class="small">{{ 'Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.'|trans({}, 'game') }}</span>
-                                    </div>
-                                {% endif %}
+                                </div>
+                                <div class="row">
+                                    {% if other_citizen.escortSettings.allowInventoryAccess %}
+                                        <div class="padded cell ro-4 rw-8 ro-lg-0 rw-lg-12">
+                                            <div data-escort-inventory="1" id="escort-inv-{{ other_citizen.id }}">
+                                                {{ block('html_escort', "ajax/game/beyond/partials/inventory.html.twig") }}
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <div class="padded cell rw-12 escort-infos">
+                                            <span class="small">{{ 'Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.'|trans({}, 'game') }}</span>
+                                        </div>
+                                    {% endif %}
 
-                                {% if other_citizen.escortSettings.forceDirectReturn %}
-                                    <div class="padded cell rw-12 escort-infos force-town">
-                                        <span class="small">{{'Dieser Bürger möchte in die Stadt gebracht werden.'|trans({}, 'game')}}</span>
-                                    </div>
-                                {% endif %}
+                                    {% if other_citizen.escortSettings.forceDirectReturn %}
+                                        <div class="padded cell rw-12 escort-infos force-town">
+                                            <span class="small">{{'Dieser Bürger möchte in die Stadt gebracht werden.'|trans({}, 'game')}}</span>
+                                        </div>
+                                    {% endif %}
+                                </div>
                             </div>
                         {% endif %}
                     {% endfor %}

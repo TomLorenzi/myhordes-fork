@@ -1211,6 +1211,7 @@ class NightlyHandler
 
             $this->citizen_handler->setBP($citizen,false,$this->citizen_handler->getMaxBP( $citizen ),0);
             $this->citizen_handler->setPM($citizen,false,$this->citizen_handler->getMaxPM( $citizen ));
+            $this->citizen_handler->setSP($citizen,false,$this->citizen_handler->getMaxSP( $citizen ));
             foreach ($citizen->getActionCounters() as $counter)
                 if ($counter->getDaily()) {
                     $citizen->removeActionCounter($counter);

@@ -14,30 +14,30 @@ class ProcessPointRequirement extends AtomRequirementProcessor
     public function __invoke(Evaluation $cache, RequirementsAtom|PointRequirement $data): bool
     {
         if ($data->min === null && $data->max === null) return true;
+        /** @var CitizenHandler $citizenHandler */
         $citizenHandler = $data->fromLimit ? $this->container->get(CitizenHandler::class) : null;
 
-        [ $value, $min, $max, $key, $name ] = match ($data->require) {
+        $value = $cache->citizen->getPoints($data->require);
+        $min = $data->min === null ? null : (($citizenHandler?->getMaxPoints( $cache->citizen, $data->require) ?? 0) + $data->min);
+        $max = $data->max === null ? null : (($citizenHandler?->getMaxPoints( $cache->citizen, $data->require) ?? 0) + $data->max);
+
+        [ $key, $name ] = match ($data->require) {
             PointType::AP => [
-                $cache->citizen->getAp(),
-                $data->min === null ? null : (($citizenHandler?->getMaxAP( $cache->citizen ) ?? 0) + $data->min),
-                $data->max === null ? null : (($citizenHandler?->getMaxAP( $cache->citizen ) ?? 0) + $data->max),
                 'ap',
                 T::__('AP', 'game')
             ],
             PointType::CP => [
-                $cache->citizen->getBp(),
-                $data->min === null ? null : (($citizenHandler?->getMaxBP( $cache->citizen ) ?? 0) + $data->min),
-                $data->max === null ? null : (($citizenHandler?->getMaxBP( $cache->citizen ) ?? 0) + $data->max),
                 'cp',
                 T::__('CP', 'game')
             ],
             PointType::MP => [
-                $cache->citizen->getPm(),
-                $data->min === null ? null : (($citizenHandler?->getMaxPM( $cache->citizen ) ?? 0) + $data->min),
-                $data->max === null ? null : (($citizenHandler?->getMaxPM( $cache->citizen ) ?? 0) + $data->max),
                 'mp',
                 T::__('MP', 'game')
             ],
+            PointType::SP => [
+                'sp',
+                T::__('SP', 'game')
+            ]
         };
 
         $cache->addTranslationKey("{$key}_current", $value);

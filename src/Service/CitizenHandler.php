@@ -484,22 +484,37 @@ class CitizenHandler
         return $isShaman ? 5 : 0;
     }
 
+    /**
+     * Returns the maximum SP available for a citizen
+     * @param Citizen $citizen The citizen to look for
+     * @return int Number of maximum SP available for the citizen
+     */
+    public function getMaxSP(Citizen $citizen): int {
+        return $citizen->getProfession()->getName() === 'hunter' ? 2 : 0;
+    }
+
     public function setPM(Citizen &$citizen, bool $relative, int $num, ?int $max_bonus = null): void {
         if ($max_bonus !== null)
             $citizen->setPm( max(0, min(max($this->getMaxPM( $citizen ) + $max_bonus, $citizen->getPm()), $relative ? ($citizen->getPm() + $num) : max(0,$num) )) );
         else $citizen->setPm(max(0, $relative ? ($citizen->getPm() + $num) : max(0,$num) ) );
     }
 
-    public function deductAPBP(Citizen $citizen, int $ap, ?int &$usedap = 0, ?int &$usedbp = 0) {
-        if ($ap <= $citizen->getBp()) {
-            $usedbp = $ap;
-            $this->setBP($citizen, true, -$ap);
+    public function setSP(Citizen &$citizen, bool $relative, int $num, ?int $max_bonus = null): void {
+        if ($max_bonus !== null)
+            $citizen->setSp( max(0, min(max($this->getMaxSP( $citizen ) + $max_bonus, $citizen->getSp()), $relative ? ($citizen->getSp() + $num) : max(0,$num) )) );
+        else $citizen->setSp(max(0, $relative ? ($citizen->getSp() + $num) : max(0,$num) ) );
+    }
+
+    public function deductPointsWithFallback(Citizen $citizen, PointType $fallback, PointType $primary, int $points, ?int &$usedFallback = 0, ?int &$usedPrimary = 0) {
+        if ($points <= $citizen->getPoints($primary)) {
+            $usedPrimary = $points;
+            $this->setPoints($citizen, $primary, true, -$points);
         } else {
-            $ap -= $citizen->getBp();
-            $usedbp = $citizen->getBp();
-            $usedap = $ap;
-            $this->setAP($citizen, true, -$ap);
-            $this->setBP($citizen, false, 0);
+            $points -= $citizen->getPoints($primary);
+            $usedPrimary = $citizen->getPoints($primary);
+            $usedFallback = $points;
+            $this->setPoints($citizen, $fallback, true, -$points);
+            $this->setPoints($citizen, $primary, false, 0);
         }
     }
 
@@ -533,6 +548,7 @@ class CitizenHandler
             PointType::AP => $this->getMaxAP($citizen),
             PointType::CP => $this->getMaxBP($citizen),
             PointType::MP => $this->getMaxPM($citizen),
+            PointType::SP => $this->getMaxSP($citizen),
         };
     }
 
@@ -546,6 +562,9 @@ class CitizenHandler
                 break;
             case PointType::MP:
                 $this->setPM( $citizen, $relative, $num, $max_bonus);
+                break;
+            case PointType::SP:
+                $this->setSP( $citizen, $relative, $num, $max_bonus);
                 break;
         }
     }
@@ -589,6 +608,10 @@ class CitizenHandler
         if ($profession->getName() === 'tech')
             $this->setBP($citizen,false, $this->getMaxBP( $citizen ),0);
         else $this->setBP($citizen, false, 0);
+
+        if ($profession->getName() === 'hunter')
+            $this->setSP($citizen,false, $this->getMaxSP( $citizen ),0);
+        else $this->setSP($citizen, false, 0);
 
         $this->setPM($citizen, false, 0);
 

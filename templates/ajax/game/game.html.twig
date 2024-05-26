@@ -164,7 +164,17 @@
                 </div>
             </div>
         {% endif %}
-
+        {% if sp is defined and max_sp is defined and max_sp > 0 %}
+            <div>
+                <ul class="sp">
+                    <li><b class="{{ sp == 0 ? 'red' : '' }}">{{ sp }}</b><em>/{{ max_sp }}</em></li>
+                </ul>
+                <div class="tooltip help">
+                    <h1>{{ 'Schritt-Punkte'|trans({},'game') }}</h1>
+                    <em>{{ 'Mithilfe deiner Schritt-Punkte kannst du dich in der Außenwelt bewegen, ohne Aktionspunkte ausgeben zu müssen'|trans({},'game') }}</em>
+                </div>
+            </div>
+        {% endif %}
     </div>
     {% endif %}
 {% endblock %}

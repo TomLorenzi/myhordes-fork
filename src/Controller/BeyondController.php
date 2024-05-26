@@ -24,6 +24,7 @@ use App\Entity\RuinExplorerStats;
 use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
 use App\Entity\ZoneTag;
+use App\Enum\ActionHandler\PointType;
 use App\Enum\Configuration\TownSetting;
 use App\Enum\EventStages\BuildingValueQuery;
 use App\Enum\Game\TransferItemOption;
@@ -895,7 +896,7 @@ class BeyondController extends InventoryAwareController
 
             // Check if citizen can move (zone not blocked and enough AP)
             if (!$cp_ok && $this->get_escape_timeout( $mover, true ) < 0 && !$scouts[$mover->getId()]) return AjaxResponse::error( self::ErrorZoneBlocked );
-            if ($mover->getAp() < 1 || $this->citizen_handler->isTired( $mover ))
+            if (($mover->getAp() < 1 && $mover->getSp() < 1) || $this->citizen_handler->isTired( $mover ))
                 return AjaxResponse::error( $citizen->getId() === $mover->getId() ? ErrorHelper::ErrorNoAP : BeyondController::ErrorEscortFailure );
 
             // Check if escortee wants to go home
@@ -914,7 +915,7 @@ class BeyondController extends InventoryAwareController
             }
 
             if ($movement_interrupted) {
-                $this->citizen_handler->setAP( $mover, true, -1 );
+                $this->citizen_handler->deductPointsWithFallback($mover, PointType::AP, PointType::SP, 1 );
                 $this->entity_manager->persist($mover);
                 $this->entity_manager->flush();
                 return AjaxResponse::error( BeyondController::ErrorEscortFailure );
@@ -980,7 +981,7 @@ class BeyondController extends InventoryAwareController
             }
 
             // Set AP and increase walking distance counter
-            $this->citizen_handler->setAP($mover, true, -1);
+            $this->citizen_handler->deductPointsWithFallback($mover, PointType::AP, PointType::SP, 1 );
             $mover->setWalkingDistance( $mover->getWalkingDistance() + 1 );
             if ($mover->getWalkingDistance() > 10) {
                 $this->citizen_handler->increaseThirstLevel($mover);

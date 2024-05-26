@@ -118,6 +118,10 @@ class StatusEffect extends EffectAtom {
         return ($this->pointType === PointType::CP && !$this->pointRelativeToMax) ? $this->pointValue : 0;
     }
 
+    public function getSpCost(): int {
+        return ($this->pointType === PointType::SP && !$this->pointRelativeToMax) ? $this->pointValue : 0;
+    }
+
     protected static function beforeSerialization(array $data): array {
         $data['pointType'] = ($data['pointType'] ?? null) !== null ? $data['pointType']->value : null;
         return parent::beforeSerialization( $data );

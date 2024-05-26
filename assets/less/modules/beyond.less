@@ -160,6 +160,7 @@ div.zone-scout {
 
 div.beyond-escort-off, div.beyond-escort-on {
   font-size: 1.2rem;
+  background-color: #663024;
   &.beyond-escort-on-all { background-color: #25242c !important; }
   ul.status {
     padding: 0; margin: 0; font-size: 0;
@@ -171,19 +172,18 @@ div.beyond-escort-off, div.beyond-escort-on {
   }
 
   &:not(.beyond-escort-on-all) {
-    > div {
+    &>div,&>div.row-flex>div,&>div.row>div {
       min-height: 34px;
-      border-bottom: 1px solid #7e4d2a;
       &:not(:last-child) {
         border-right: 1px solid #7e4d2a;
       }
     }
+    &>div,&>div.row {
+      border-bottom: 1px solid #7e4d2a;
+    }
     &.beyond-escort-on {
       > div:nth-last-child(2) {
         border-right: none;
-      }
-      > div:last-child {
-        border-bottom: none;
       }
     }
   }

@@ -41,6 +41,7 @@ use App\Entity\UserGroupAssociation;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
+use App\Enum\ActionHandler\PointType;
 use App\Enum\AdminReportSpecification;
 use App\Enum\EventStages\BuildingValueQuery;
 use App\Enum\ItemPoisonType;
@@ -1200,7 +1201,7 @@ class TownController extends InventoryAwareController
 
         // Deduct AP and increase completion of the building
         $usedap = $usedbp = 0;
-        $this->citizen_handler->deductAPBP( $citizen, $ap, $usedap, $usedbp);
+        $this->citizen_handler->deductPointsWithFallback( $citizen, PointType::AP, PointType::CP, $ap, $usedap, $usedbp);
 
         if ($was_completed)
             $gps->recordBuildingRepairInvested( $building->getPrototype(), $town, $citizen, $usedap, $usedbp );
