@@ -114,7 +114,8 @@ class ProcessStatusEffect extends AtomEffectProcessor
         if ($data->pointType !== null) {
             $old_pt = $cache->citizen->getPoints( $data->pointType );
             if ($data->pointRelativeToMax) {
-                $to = $ch->getMaxPoints($cache->citizen, $data->pointType) + $data->pointValue;
+                $base = $ch->getMaxPoints($cache->citizen, $data->pointType);
+                $to = ($base > 0) ? ($base + $data->pointValue) : 0;
                 $ch->setPoints( $cache->citizen, $data->pointType, false, max( $old_pt, $to ), null );
             } else $ch->setPoints( $cache->citizen, $data->pointType, true, $data->pointValue, $data->pointValue < 0 ? null : $data->pointExceedMax );
 
