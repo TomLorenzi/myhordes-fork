@@ -2,43 +2,10 @@
 
 namespace MyHordes\Fixtures\Service;
 
-use App\Entity\ActionCounter;
-use App\Entity\CauseOfDeath;
 use App\Entity\ItemAction;
 use App\Entity\ItemTargetDefinition;
-use App\Entity\Requirement;
-use App\Enum\ActionHandler\ItemDropTarget;
-use App\Enum\ActionHandler\PointType;
-use App\Enum\ItemPoisonType;
-use App\Service\Actions\Game\AtomProcessors\Require\Custom\GuardTowerUseIsNotMaxed;
-use App\Service\Actions\Game\AtomProcessors\Require\Custom\RoleVote;
-use App\Structures\TownConf;
-use ArrayHelpers\Arr;
 use MyHordes\Fixtures\Data\ActionEffectProvider;
 use MyHordes\Fixtures\Data\ActionRequirementProvider;
-use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\HomeEffect;
-use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\ItemEffect;
-use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\MessageEffect;
-use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\PictoEffect;
-use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\RolePlayTextEffect;
-use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\TownEffect;
-use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\ZoneEffect;
-use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\BuildingRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\ConfigRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\CounterRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\CustomClassRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\EscortRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\FeatureRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\HomeRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\InventorySpaceRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\ItemRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\LocationRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\PointRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\ProfessionRoleRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\StatusRequirement;
-use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\TimeRequirement;
-use MyHordes\Fixtures\DTO\Actions\EffectsDataContainer;
-use MyHordes\Fixtures\DTO\Actions\RequirementsDataContainer;
 use MyHordes\Fixtures\DTO\ArrayDecoratorReadInterface;
 use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
