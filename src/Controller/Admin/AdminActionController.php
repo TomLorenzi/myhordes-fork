@@ -150,21 +150,10 @@ class AdminActionController extends CustomAbstractController
     }
 
 	public function getOrderedItemPrototypes($lang): array {
-		if (apcu_enabled()) {
-			$itemPrototypes = apcu_fetch("item_prototypes_" . $lang);
-			if (false === $itemPrototypes) {
-				$itemPrototypes = $this->entity_manager->getRepository(ItemPrototype::class)->findAll();
-				usort($itemPrototypes, function ($a, $b) use($lang) {
-					return strcmp($this->translator->trans($a->getLabel(), [], 'items', $lang), $this->translator->trans($b->getLabel(), [], 'items', $lang));
-				});
-				apcu_store("item_prototypes_" . $lang, $itemPrototypes);
-			}
-		} else {
-			$itemPrototypes = $this->entity_manager->getRepository(ItemPrototype::class)->findAll();
-			usort($itemPrototypes, function ($a, $b) use($lang) {
-				return strcmp($this->translator->trans($a->getLabel(), [], 'items', $lang), $this->translator->trans($b->getLabel(), [], 'items', $lang));
-			});
-		}
+        $itemPrototypes = $this->entity_manager->getRepository(ItemPrototype::class)->findAll();
+        usort($itemPrototypes, function ($a, $b) use($lang) {
+            return strcmp($this->translator->trans($a->getLabel(), [], 'items', $lang), $this->translator->trans($b->getLabel(), [], 'items', $lang));
+        });
 		return $itemPrototypes;
 	}
 

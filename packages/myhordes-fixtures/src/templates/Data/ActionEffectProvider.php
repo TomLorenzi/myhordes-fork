@@ -107,6 +107,8 @@ class ActionEffectProvider
 
         //<editor-fold desc="ItemEffects">
         $effects_container->add()->identifier('consume_item')->add((new ItemEffect())->consumeSource())->commit();
+        $effects_container->add()->identifier('equip_item')->add((new ItemEffect())->morphSource(equip: true))->commit();
+        $effects_container->add()->identifier('unequip_item')->add((new ItemEffect())->morphSource(equip: false))->commit();
         $effects_container->add()->identifier('cleanse_item')->add((new ItemEffect())->morphSource(poison: false))->commit();
 
         $effects_container->add()->identifier('spawn_target')->add((new ItemEffect())->spawnTarget())->commit();

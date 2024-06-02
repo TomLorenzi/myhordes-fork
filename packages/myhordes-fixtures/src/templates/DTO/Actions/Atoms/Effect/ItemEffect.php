@@ -16,12 +16,14 @@ use MyHordes\Fixtures\DTO\Actions\EffectAtom;
  * @property-read bool morphSource
  * @property-read ?string morphSourceType
  * @property-read ?bool breakSource
+ * @property-read ?bool equipSource
  * @property-read ?ItemPoisonType poisonSource
  * @property-read bool spawnTarget
  * @property-read bool consumeTarget
  * @property-read bool morphTarget
  * @property-read ?string morphTargetType
  * @property-read ?bool breakTarget
+ * @property-read ?bool equipTarget
  * @property-read ?ItemPoisonType poisonTarget
  * @method self spawnAt (ItemDropTarget $v)
  * @property ItemDropTarget spawnAt
@@ -68,10 +70,11 @@ class ItemEffect extends EffectAtom {
         $this->morphSourceType = null;
         $this->poisonSource = null;
         $this->breakSource = null;
+        $this->equipSource = null;
         return $this;
     }
 
-    public function morphSource(?string $prototype = null, ?bool $break = null, ItemPoisonType|bool|null $poison = null): self {
+    public function morphSource(?string $prototype = null, ?bool $break = null, ItemPoisonType|bool|null $poison = null, ?bool $equip = null): self {
         $this->consumeSource = false;
         $this->morphSource = true;
         $this->morphSourceType = $prototype;
@@ -81,6 +84,7 @@ class ItemEffect extends EffectAtom {
             default => $poison
         };
         $this->breakSource = $break;
+        $this->equipSource = $equip;
         return $this;
     }
 
@@ -91,6 +95,7 @@ class ItemEffect extends EffectAtom {
         $this->morphTargetType = null;
         $this->poisonTarget = null;
         $this->breakTarget = null;
+        $this->equipTarget = null;
         return $this;
     }
 
@@ -101,10 +106,11 @@ class ItemEffect extends EffectAtom {
         $this->morphTargetType = null;
         $this->poisonTarget = null;
         $this->breakTarget = null;
+        $this->equipTarget = null;
         return $this;
     }
 
-    public function morphTarget(?string $prototype = null, ?bool $break = null, ItemPoisonType|bool|null $poison = null): self {
+    public function morphTarget(?string $prototype = null, ?bool $break = null, ItemPoisonType|bool|null $poison = null, ?bool $equip = null): self {
         $this->spawnTarget = false;
         $this->consumeTarget = false;
         $this->morphTarget = true;
@@ -115,6 +121,7 @@ class ItemEffect extends EffectAtom {
             default => $poison
         };
         $this->breakTarget = $break;
+        $this->equipTarget = $equip;
         return $this;
     }
 

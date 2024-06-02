@@ -25,6 +25,7 @@ use App\Entity\PrivateMessageThread;
 use App\Entity\Town;
 use App\Entity\Zone;
 use App\Enum\ActionHandler\PointType;
+use App\Enum\EventStages\CitizenValueQuery;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use DateTime;
@@ -490,7 +491,8 @@ class CitizenHandler
      * @return int Number of maximum SP available for the citizen
      */
     public function getMaxSP(Citizen $citizen): int {
-        return $citizen->getProfession()->getName() === 'hunter' ? 2 : 0;
+        return ($citizen->getProfession()->getName() === 'hunter' ? 2 : 0) +
+            $this->events->queryCitizenParameter( $citizen, CitizenValueQuery::MaxSpExtension );
     }
 
     public function setPM(Citizen &$citizen, bool $relative, int $num, ?int $max_bonus = null): void {

@@ -9,11 +9,13 @@ use App\Entity\RuinZonePrototype;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Enum\Configuration\TownSetting;
+use App\Enum\EventStages\CitizenValueQuery;
 use App\Enum\ScavengingActionType;
 use App\Event\Game\Citizen\CitizenQueryNightwatchDeathChancesEvent;
 use App\Event\Game\Citizen\CitizenQueryDigChancesEvent;
 use App\Event\Game\Citizen\CitizenQueryNightwatchDefenseEvent;
 use App\Event\Game\Citizen\CitizenQueryNightwatchInfoEvent;
+use App\Event\Game\Citizen\CitizenQueryParameterEvent;
 use App\EventListener\ContainerTypeTrait;
 use App\Service\CitizenHandler;
 use App\Service\EventProxyService;
@@ -32,6 +34,7 @@ use Symfony\Contracts\Service\ServiceSubscriberInterface;
 #[AsEventListener(event: CitizenQueryNightwatchDeathChancesEvent::class, method: 'getNightWatchDeathChances', priority: 0)]
 #[AsEventListener(event: CitizenQueryNightwatchDefenseEvent::class, method: 'getNightWatchDefenses', priority: 0)]
 #[AsEventListener(event: CitizenQueryNightwatchInfoEvent::class, method: 'getNightWatchInfo', priority: 0)]
+#[AsEventListener(event: CitizenQueryParameterEvent::class, method: 'getParameterInfo', priority: 0)]
 final class CitizenChanceQueryListener implements ServiceSubscriberInterface
 {
     use ContainerTypeTrait;
@@ -232,4 +235,6 @@ final class CitizenChanceQueryListener implements ServiceSubscriberInterface
 
         $event->chance = min(max(0, $event->chance), 1.0);
     }
+
+    public function getParameterInfo(CitizenQueryParameterEvent $event): void {}
 }

@@ -133,6 +133,10 @@ class ProcessItemEffect extends AtomEffectProcessor
 
             if ($data->breakSource !== null) $cache->item->setBroken( $data->breakSource );
             if ($data->poisonSource !== null) $cache->item->setPoison( $data->poisonSource );
+            if ($data->equipSource !== null) {
+                $cache->item->setEssential( $data->equipSource );
+                if ($data->equipSource) $ih->forceMoveItem( $cache->citizen->getInventory(), $cache->item );
+            }
         }
 
         if ($data->spawnTarget && is_a($cache->target, ItemPrototype::class)) {
@@ -155,6 +159,10 @@ class ProcessItemEffect extends AtomEffectProcessor
 
             if ($data->breakTarget !== null) $cache->target->setBroken( $data->breakTarget );
             if ($data->poisonTarget !== null) $cache->target->setPoison( $data->poisonTarget );
+            if ($data->equipTarget !== null) {
+                $cache->target->setEssential( $data->equipTarget );
+                if ($data->equipTarget) $ih->forceMoveItem( $cache->citizen->getInventory(), $cache->target );
+            }
         }
     }
 }

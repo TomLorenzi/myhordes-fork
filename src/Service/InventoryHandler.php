@@ -249,8 +249,7 @@ class InventoryHandler
         if ($item->getInventory() && $item->getInventory()->getId() === $to->getId())
             return $item;
 
-        if ($item->getInventory()) {
-            $inv = $item->getInventory();
+        if ($inv = $item->getInventory()) {
             if ($item->getCount() > $count) {
                 $item->setCount( $item->getCount() - $count);
                 $this->entity_manager->persist( $item );

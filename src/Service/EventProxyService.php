@@ -24,6 +24,7 @@ use App\Entity\User;
 use App\Entity\Zone;
 use App\Enum\EventStages\BuildingEffectStage;
 use App\Enum\EventStages\BuildingValueQuery;
+use App\Enum\EventStages\CitizenValueQuery;
 use App\Enum\Game\TransferItemModality;
 use App\Enum\Game\TransferItemOption;
 use App\Enum\ScavengingActionType;
@@ -48,6 +49,7 @@ use App\Event\Game\Citizen\CitizenQueryDigChancesEvent;
 use App\Event\Game\Citizen\CitizenQueryNightwatchDeathChancesEvent;
 use App\Event\Game\Citizen\CitizenQueryNightwatchDefenseEvent;
 use App\Event\Game\Citizen\CitizenQueryNightwatchInfoEvent;
+use App\Event\Game\Citizen\CitizenQueryParameterEvent;
 use App\Event\Game\Citizen\CitizenWorkshopOptionsData;
 use App\Event\Game\Citizen\CitizenWorkshopOptionsEvent;
 use App\Event\Game\GameInteractionEvent;
@@ -189,6 +191,11 @@ class EventProxyService
 		$this->ed->dispatch($event = $this->ef->gameEvent(CitizenQueryNightwatchInfoEvent::class, $citizen->getTown())->setup($citizen));
 		return $event->nightwatchInfo;
 	}
+
+    public function queryCitizenParameter( Citizen $citizen, CitizenValueQuery $query, mixed $arg = null ): float|int {
+        $this->ed->dispatch( $event = $this->ef->gameEvent( CitizenQueryParameterEvent::class, $citizen->getTown() )->setup( $citizen, $query, $arg ) );
+        return $event->value;
+    }
 
     public function queryTownParameter( Town $town, BuildingValueQuery $query, mixed $arg = null ): float|int {
         $this->ed->dispatch( $event = $this->ef->gameEvent( BuildingQueryTownParameterEvent::class, $town )->setup( $query, $arg ) );
