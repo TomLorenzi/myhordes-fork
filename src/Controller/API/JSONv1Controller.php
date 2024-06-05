@@ -1182,6 +1182,12 @@ class JSONv1Controller extends CoreController {
             }
         }
 
+		if (!$this->conf->getTownConfiguration($this->town)->get(TownConf::CONF_FEATURE_XML, true)) {
+			return [
+				'error' => 'ApiDisabled'
+			];
+		}
+
         $data = [];
         foreach ($fields as $field) {
             if (is_array($field)) {
@@ -1541,7 +1547,6 @@ class JSONv1Controller extends CoreController {
                         return $return;
                     }
                 }
-				if ($this->conf->getTownConfiguration($this->town)->get(TownConf::CONF_FEATURE_XML, true))
 					switch ($field) {
 						case "homeMessage":
 							$user_data[$field] = $current_citizen->getHome()->getDescription();
@@ -1590,26 +1595,19 @@ class JSONv1Controller extends CoreController {
             if (is_array($field)) {
                 foreach ($field as $fieldName => $fieldValues) {
                     if ($current_citizen) {
-						if ($this->conf->getTownConfiguration($this->town)->get(TownConf::CONF_FEATURE_XML, true)) {
-							switch ($fieldName) {
-								case "map":
-									$fields_map = ['date', 'days', 'season', 'id', 'hei', 'wid', 'bonusPts', 'conspiracy', 'custom'];
-									if ($user->getId() == $this->user->getId() && !empty($fieldValues['fields'])) {
-										$fields_map = $fieldValues['fields'];
-									}
-									$user_data[$fieldName] = $this->getMapData($fields_map, [$current_citizen->getTown()->getId()]);
-									break;
-								case "job":
-									$user_data[$fieldName] =
-										$this->getJobData($current_citizen, $fieldValues['fields'] ?? []);
-									break;
-							}
-						} else {
-							$user_data["map"] = [
-								"error" => "ApiDisabled"
-							];
+						switch ($fieldName) {
+							case "map":
+								$fields_map = ['date', 'days', 'season', 'id', 'hei', 'wid', 'bonusPts', 'conspiracy', 'custom'];
+								if ($user->getId() == $this->user->getId() && !empty($fieldValues['fields'])) {
+									$fields_map = $fieldValues['fields'];
+								}
+								$user_data[$fieldName] = $this->getMapData($fields_map, [$current_citizen->getTown()->getId()]);
+								break;
+							case "job":
+								$user_data[$fieldName] =
+									$this->getJobData($current_citizen, $fieldValues['fields'] ?? []);
+								break;
 						}
-
                     }
                     switch($fieldName){
                         case "playedMaps":
