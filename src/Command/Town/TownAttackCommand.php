@@ -82,13 +82,18 @@ class TownAttackCommand extends Command
         $this->log->info("Attack processor has been invoked. Town: <info>$town_id</info>, Schedule: <info>$schedule_id</info>, Seed: <info>$seed</info>, Dry-Run Mode: <info>" . ($dry_run ? 'yes' : 'no') . "</info>");
         if ($dry_run) $output->writeln( "<bg=yellow;fg=white>Dry Run Mode. No changes will be persisted.</>", OutputInterface::VERBOSITY_VERBOSE );
 
-        $output->writeln( "Using seed <fg=yellow>$seed</>.", OutputInterface::VERBOSITY_VERBOSE );
-        mt_srand($seed);
-
         $town = $this->entityManager->getRepository(Town::class)->find($town_id);
         $schedule = $this->entityManager->getRepository(AttackSchedule::class)->find($schedule_id);
 
         if (!$town || (!$schedule && !$dry_run)) return -2;
+
+        if (!$dry_run && $town->getLastAttack()?->getId() === $schedule->getId()) {
+            $output->writeln( "<bg=yellow;fg=white>This schedule has already been processed.</> Exiting.", OutputInterface::VERBOSITY_VERBOSE );
+            return 0;
+        }
+
+        $output->writeln( "Using seed <fg=yellow>$seed</>.", OutputInterface::VERBOSITY_VERBOSE );
+        mt_srand($seed);
 
         $events = $this->conf_master->getCurrentEvents();
         $town_conf = $this->conf_master->getTownConfiguration($town);
@@ -108,7 +113,7 @@ class TownAttackCommand extends Command
             if ($this->night->advance_day($town, $town_events = $this->conf_master->getCurrentEvents( $town ))) {
 
                 foreach ($this->night->get_cleanup_container() as $c) $this->entityManager->remove($c);
-                if (!$dry_run) $town->setLastAttack($schedule)->setAttackFails(0);
+                if (!$dry_run) $town->setLastAttack($schedule)->setLastAttackProcessedAt(new \DateTimeImmutable())->setAttackFails(0);
 
                 $last_op = 'adv';
                 $this->entityManager->persist($town);

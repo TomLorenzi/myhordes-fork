@@ -198,13 +198,14 @@ class CronCommand extends Command implements SelfSchedulingCommand
         $s = $this->entityManager->getRepository(AttackSchedule::class)->findNextUncompleted();
         if ($s && $s->getTimestamp() < new DateTime('now')) {
 
-            $this->helper->capsule('app:cron backup nightly', $output, 'Creating database backup before the attack... ', true);
+            if ($s->getStartedAt() === null)
+                $this->helper->capsule('app:cron backup nightly', $output, 'Creating database backup before the attack... ', true);
 
             $try_limit = $this->conf->get(MyHordesConf::CONF_NIGHTLY_RETRIES, 3);
             $schedule_id = $s->getId();
 
             $this->entityManager->persist(
-                $s->setStartedAt( new DateTimeImmutable('now') )
+                $s->setStartedAt( $s->getStartedAt() ?? new DateTimeImmutable('now') )
             );
             $this->entityManager->flush();
 
@@ -214,6 +215,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
                 ->andWhere('(t.lastAttack != :last OR t.lastAttack IS NULL)')->setParameter('last', $s->getId())
                 ->andWhere('t.attackFails < :trylimit')->setParameter('trylimit', $try_limit)
                 ->andWhere('t.scheduledFor IS NULL OR t.scheduledFor < :now')->setParameter('now', new DateTime())
+                ->andWhere('(t.lastAttackProcessedAt < :schedule_time OR t.lastAttackProcessedAt IS NULL)')->setParameter('schedule_time', $s->getTimestamp())
                 ->getQuery()
                 ->getScalarResult(), 'id');
 
@@ -222,7 +224,15 @@ class CronCommand extends Command implements SelfSchedulingCommand
             $quarantined_towns = 0;
 
             $i = 1; $num = count($town_ids);
+            $skipped = 0;
             foreach ( $town_ids as $town_id ) {
+
+                $town_lock = $this->locksmith->getAcquiredLock("cron-attack-town-$town_id", 120);
+                if (!$town_lock) {
+                    $output->writeln("<fg=yellow>Could not aquire a lock for town $town_id. Skipping.</>");
+                    $skipped++; $i++;
+                    continue;
+                }
 
                 $failures = [];
                 while (count($failures) < $try_limit && !$this->helper->capsule("app:town:attack $town_id $schedule_id", $output, "Processing town <info>{$town_id}</info> <comment>($i/$num)</comment>... ", true, $ret))
@@ -249,6 +259,11 @@ class CronCommand extends Command implements SelfSchedulingCommand
 
                 }
 
+            }
+
+            if ($skipped > 0) {
+                $output->writeln("<fg=yellow>Skipped $skipped towns. Not marking the attack as completed for now.</>");
+                return 0;
             }
 
             $s = $this->entityManager->getRepository(AttackSchedule::class)->find($schedule_id);

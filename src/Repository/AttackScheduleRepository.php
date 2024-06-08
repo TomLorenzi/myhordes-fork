@@ -41,6 +41,20 @@ class AttackScheduleRepository extends ServiceEntityRepository
         try {
             return $this->createQueryBuilder('a')
                 ->andWhere('a.completed = :val')->setParameter('val', false)
+                ->orderBy('a.timestamp', 'ASC')
+                ->setMaxResults(1)
+                ->getQuery()
+                ->getOneOrNullResult();
+        } catch (NonUniqueResultException $e) {
+            return null;
+        }
+    }
+
+    public function findNextUnstarted(): ?AttackSchedule
+    {
+        try {
+            return $this->createQueryBuilder('a')
+                ->andWhere('a.completed = :val')->setParameter('val', false)
                 ->andWhere('a.startedAt IS NULL')
                 ->orderBy('a.timestamp', 'ASC')
                 ->setMaxResults(1)
