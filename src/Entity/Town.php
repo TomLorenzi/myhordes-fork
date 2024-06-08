@@ -124,6 +124,9 @@ class Town
     #[ORM\Column(length: 128, nullable: true)]
     private ?string $prime = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $lastAttackProcessedAt = null;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -897,6 +900,18 @@ class Town
     public function setBrokenDoor(bool $brokenDoor): self
     {
         $this->brokenDoor = $brokenDoor;
+
+        return $this;
+    }
+
+    public function getLastAttackProcessedAt(): ?\DateTimeImmutable
+    {
+        return $this->lastAttackProcessedAt;
+    }
+
+    public function setLastAttackProcessedAt(\DateTimeImmutable $lastAttackProcessedAt): static
+    {
+        $this->lastAttackProcessedAt = $lastAttackProcessedAt;
 
         return $this;
     }
