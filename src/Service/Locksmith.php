@@ -17,18 +17,18 @@ class Locksmith {
             extension_loaded('sysvmsg') ? new SemaphoreStore() : new FlockStore() );
     }
 
-    public function getLock( string $name ): LockInterface {
-        return $this->lock_factory->createLock( $name );
+    public function getLock( string $name, ?float $ttl = null ): LockInterface {
+        return $this->lock_factory->createLock( $name, $ttl );
     }
 
-    public function getAcquiredLock( string $name ): ?LockInterface {
-        $lock = $this->getLock( $name );
+    public function getAcquiredLock( string $name, ?float $ttl = null ): ?LockInterface {
+        $lock = $this->getLock( $name, $ttl );
         if ($lock->acquire()) return $lock;
         else return null;
     }
 
-    public function waitForLock( string $name ): LockInterface {
-        $lock = $this->getLock( $name );
+    public function waitForLock( string $name, ?float $ttl = null ): LockInterface {
+        $lock = $this->getLock( $name, $ttl );
         $lock->acquire( true );
         return $lock;
     }
