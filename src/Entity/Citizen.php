@@ -39,20 +39,20 @@ class Citizen
     private Collection $status;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\CitizenProfession')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?CitizenProfession $profession;
+    private ?CitizenProfession $profession = null;
     #[ORM\ManyToMany(targetEntity: 'App\Entity\CitizenRole')]
     private Collection $roles;
     #[ORM\ManyToMany(targetEntity: 'App\Entity\CitizenVote', orphanRemoval: true, cascade: ['persist', 'remove'])]
     private Collection $votes;
     #[ORM\OneToOne(targetEntity: 'App\Entity\Inventory', inversedBy: 'citizen', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Inventory $inventory;
+    private ?Inventory $inventory = null;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\Town', inversedBy: 'citizens')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Town $town;
+    private ?Town $town = null;
     #[ORM\OneToOne(targetEntity: 'App\Entity\CitizenHome', inversedBy: 'citizen', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private ?CitizenHome $home;
+    private ?CitizenHome $home = null;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\Zone', inversedBy: 'citizens', fetch: 'EXTRA_LAZY')]
     private ?Zone $zone = null;
     #[ORM\OneToMany(targetEntity: 'App\Entity\DigTimer', mappedBy: 'citizen', orphanRemoval: true)]
