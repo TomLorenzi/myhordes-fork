@@ -671,3 +671,5 @@ Erstellt: crwdns205332:0crwdne205332:0
 Veraltet!: crwdns205370:0crwdne205370:0
 Klicks: crwdns205374:0crwdne205374:0
 '{number} Auszeichnungen konnten nicht entfernt werden. Möglicherweise sind sie dem Spieler über Städte zugewiesen. In diesem Fall müssen sie über die Städteverwaltung entfernt werden.': 'crwdns205378:0{number}crwdne205378:0'
+'Eingehende Nachrichten als Tickets behandeln': 'crwdns205392:0crwdne205392:0'
+'Ist diese Option aktiviert, so wird eine eingehende Konversation für alle Gruppenmitglieder als "Gelesen" markiert, sobald ein Gruppenmitglied antwortet.': 'crwdns205394:0crwdne205394:0'

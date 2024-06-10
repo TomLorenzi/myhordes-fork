@@ -650,7 +650,7 @@ Fehlerberichte: Informes de errores
 'Nachricht an den Verfasser?': '¿Mensaje al autor?'
 'Letztes Update': 'Última actualización'
 Erstellt: Creado
-'Reports, die mit "v4" gekennzeichnet sind, neigen dazu Spieler als Multi-Accounts zu kennzeichnen, die sich einen Internetanschluss teilen (z.B. innerhalb derselben Wohnung, Schule, Arbeitsplatz, ...). Mit "v6" gekennzeichnete Reports sind wesentlich besser in der Lage, solche Spieler von echten Multi-Accounts zu trennen.': 'Reports, die mit "v4" gekennzeichnet sind, neigen dazu Spieler als Multi-Accounts zu kennzeichnen, die sich einen Internetanschluss teilen (z.B. innerhalb derselben Wohnung, Schule, Arbeitsplatz, ...). Mit "v6" gekennzeichnete Reports sind wesentlich besser in der Lage, solche Spieler von echten Multi-Accounts zu trennen.'
+'Reports, die mit "v4" gekennzeichnet sind, neigen dazu Spieler als Multi-Accounts zu kennzeichnen, die sich einen Internetanschluss teilen (z.B. innerhalb derselben Wohnung, Schule, Arbeitsplatz, ...). Mit "v6" gekennzeichnete Reports sind wesentlich besser in der Lage, solche Spieler von echten Multi-Accounts zu trennen.': 'Los reportes marcados como «v4» tienden a identificar a los jugadores como multicuentas que comparten una conexión a Internet (por ejemplo, dentro del mismo apartamento, escuela, lugar de trabajo, ...). Los reportes marcados como «v6» distinguen mucho mejor a estos jugadores de las verdaderas multicuentas.'
 '{prc}%': '{prc}%'
 '{hrs} Std. ({prc}%)': '{hrs} Std. ({prc}%)'
 'Letzte Woche': 'La semana pasada'
@@ -671,3 +671,5 @@ Erstellt: Creado
 Veraltet!: Obsoleto!
 Klicks: Clics
 '{number} Auszeichnungen konnten nicht entfernt werden. Möglicherweise sind sie dem Spieler über Städte zugewiesen. In diesem Fall müssen sie über die Städteverwaltung entfernt werden.': '{number} distinciones no han podido quitarse. Están posiblemente otorgadas por un pueblo, y tendrán que ser editadas por la IU de distinciones de pueblo.'
+'Eingehende Nachrichten als Tickets behandeln': 'Eingehende Nachrichten als Tickets behandeln'
+'Ist diese Option aktiviert, so wird eine eingehende Konversation für alle Gruppenmitglieder als "Gelesen" markiert, sobald ein Gruppenmitglied antwortet.': 'Ist diese Option aktiviert, so wird eine eingehende Konversation für alle Gruppenmitglieder als "Gelesen" markiert, sobald ein Gruppenmitglied antwortet.'
