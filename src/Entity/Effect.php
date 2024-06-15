@@ -11,7 +11,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 #[ORM\Entity(repositoryClass: EffectRepository::class)]
 #[UniqueEntity('name')]
 #[Table]
-#[UniqueConstraint(name: 'requirement_name_unique', columns: ['name'])]
+#[UniqueConstraint(name: 'effect_name_unique', columns: ['name'])]
 class Effect
 {
     #[ORM\Id]

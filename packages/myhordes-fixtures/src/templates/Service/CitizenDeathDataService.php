@@ -144,6 +144,12 @@ class CitizenDeathDataService implements FixtureProcessorInterface {
                 'icon' => 'eaten',
                 'desc' => 'Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?'
             ],
+            [
+                'ref' => CauseOfDeath::RabidDog,
+                'label' => 'Zerfleischt',
+                'icon' => 'eaten',
+                'desc' => 'Es gibt eine gute und eine schlechte Nachricht. Lass uns mit der Guten anfangen: Der Hund des Bürgers, in dessen Haus du soeben eingebrochen bist, muss heute nicht mehr gefüttert werden. Die Schlechte: Nunja...',
+            ],
         ]);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: 'App\Repository\CitizenHomeRepository')]
@@ -36,6 +37,12 @@ class CitizenHome
 
     #[ORM\Column(type: 'boolean')]
     private ?bool $alreadyAttacked = false;
+
+    #[ORM\Column(type: Types::JSON, nullable: true)]
+    private ?array $temporaryTags = null;
+
+    #[ORM\Column(type: Types::JSON, nullable: true)]
+    private ?array $permanentTags = null;
     public function __construct()
     {
         $this->citizenHomeUpgrades = new ArrayCollection();
@@ -168,5 +175,43 @@ class CitizenHome
         $this->alreadyAttacked = $alreadyAttacked;
 
         return $this;
+    }
+
+    public function getTemporaryTags(): array
+    {
+        return $this->temporaryTags ?? [];
+    }
+
+    public function setTemporaryTags(array $temporaryTags): static
+    {
+        $this->temporaryTags = $temporaryTags;
+
+        return $this;
+    }
+
+    public function getPermanentTags(): array
+    {
+        return $this->permanentTags ?? [];
+    }
+
+    public function getAllTags(): array
+    {
+        return array_unique([...$this->getTemporaryTags(), ...$this->getPermanentTags()]);
+    }
+
+    public function setPermanentTags(array $permanentTags): static
+    {
+        $this->permanentTags = $permanentTags;
+
+        return $this;
+    }
+
+    public function hasTag(string $tag): bool {
+        return in_array( $tag, $this->temporaryTags ?? [] ) || in_array( $tag, $this->permanentTags ?? [] );
+    }
+
+    public function addTag(string $tag, bool $permanent): static {
+        if ($permanent) return $this->setPermanentTags( [...$this->getPermanentTags(), $tag] );
+        else return $this->setTemporaryTags( [...$this->getTemporaryTags(), $tag] );
     }
 }

@@ -77,6 +77,8 @@ class CauseOfDeath
     const Apocalypse       = 20;
     // Old : --
     const LiverEaten       = 21;
+
+    const RabidDog = 22;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]

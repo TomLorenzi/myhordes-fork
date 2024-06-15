@@ -20,5 +20,7 @@ class ProcessHomeEffect extends AtomEffectProcessor
             $cache->addTranslationKey('home_defense', $data->defense);
         }
 
+        foreach ($data->tags_temp as $tag) $cache->citizen->getHome()->addTag( $tag, false );
+        foreach ($data->tags_perm as $tag) $cache->citizen->getHome()->addTag( $tag, true );
     }
 }

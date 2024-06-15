@@ -216,7 +216,7 @@ class ItemPropertyDataService implements FixtureProcessorInterface {
             'chkspk_#00'                 => [ 'impoundable' ],
             'claymo_#00'                 => [ 'impoundable' ],
             'paques_#00'                 => [ 'impoundable' ],
-            'trapma_#00'                 => [ 'impoundable' ],
+            'trapma_#00'                 => [ 'impoundable', 'nosteal' ],
             'christmas_suit_full_#00'    => [ 'impoundable' ],
             'christmas_suit_1_#00'       => [ 'impoundable' ],
             'christmas_suit_2_#00'       => [ 'impoundable' ],

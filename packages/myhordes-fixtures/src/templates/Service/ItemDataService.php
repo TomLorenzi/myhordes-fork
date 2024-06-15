@@ -323,6 +323,7 @@ class ItemDataService implements FixtureProcessorInterface {
 		$container->add()->label('Dreibeiniger Malteser')->icon('tamed_pet')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->sort(80)->commit();
 		$container->add()->label('Malteser Hündchen auf Droge')->icon('tamed_pet_drug')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->sort(80)->commit();
 		$container->add()->label('Müdes Malteser Hündchen')->icon('tamed_pet_off')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->sort(80)->commit();
+		$container->add()->label('Kein Malteser Hündchen')->icon('tamed_pet_gone')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->sort(80)->commit();
 		$container->add()->label('Survivalbuch')->icon('surv_book')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->sort(80)->commit();
 		$container->add()->label('Schraubenschlüssel')->icon('keymol')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->sort(80)->commit();
 		$container->add()->label('Schutzschild')->icon('shield')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->sort(80)->commit();
@@ -694,6 +695,7 @@ class ItemDataService implements FixtureProcessorInterface {
 		$container->modify('tamed_pet_#00')->description('Der kleine kläffende Malteser stinkt nach nassem Fell, humpelt und sabbert ohne Ende. Einmal pro Tag kannst du ihn mit deinem Rucksackinhalt in die Stadt schicken. Dabei spielt es keine Rolle, wo du dich gerade befindest... Dein treuer Begleiter schlägt sich.')->commit();
 		$container->modify('tamed_pet_drug_#00')->description('Nun, da dein Hündchen auf Droge ist, kann es selbst schwere und sperrige Gegenstände in die Stadt schleppen. Dir fällt auf, dass es ohne Ende sabbert. Es sieht aus, als würde er dich jeden Augenblick anspringen.')->commit();
 		$container->modify('tamed_pet_off_#00')->description('Dein Hündchen sieht *müde* aus... Es keucht die ganze Zeit und starrt dich aus erschöpften Augen an.')->commit();
+		$container->modify('tamed_pet_gone_#00')->description('Du hast dein Hündchen *in deinem Haus zurückgelassen*... Hoffentlich nimmt es dir das nicht übel.')->commit();
 		$container->modify('surv_book_#00')->description('Auch wenn der Titel anderes vermuten lässt: "Tick, Trick und Tracks Schlaues Buch" ist von unschätzbarem Wert. Es enthält zahlreiche Tipps und Tricks, wie man in der Natur am besten überleben und Nahrung finden kann.')->commit();
 		$container->modify('keymol_#00')->description('Unverzichtbar, um auf den Baustellen der Stadt herumzuwuseln, kann der Schraubenschlüssel auch dazu verwendet werden, verschlossene Türen ganz einfach zu öffnen.')->commit();
 		$container->modify('shield_#00')->description(' Ein großer Schutzschild, der keine Wünsche offen lässt, ermöglicht es dir, in der Wüste bis zu 2 zusätzliche Zombies auf Distanz zu halten.')->commit();

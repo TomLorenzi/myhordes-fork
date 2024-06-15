@@ -16,19 +16,19 @@
             {% if home.prototype.defense == 0 %}
                 {{ 'kein Verteidigungsbonus'|trans({}, 'game') }}
             {% else %}
-                + {{ home.prototype.defense }} <img src="{{ asset('build/images/icons/small_def.gif') }}" />
+                + {{ home.prototype.defense }} <img src="{{ asset('build/images/icons/small_def.gif') }}"  alt=""/>
             {% endif %}
             ]
         </div>
-        <div class="padded cell rw-4 ellipsis row-header"><img src="{{ asset('build/images/icons/small_home_up.gif') }}" /> {{'Bauarbeiten'|trans({}, 'game')}}</div>
+        <div class="padded cell rw-4 ellipsis row-header"><img src="{{ asset('build/images/icons/small_home_up.gif') }}"  alt=""/> {{'Bauarbeiten'|trans({}, 'game')}}</div>
         <div class="padded cell rw-8 ellipsis row-detail">{% if upgrade_count == 0 %}{{ 'Keine'|trans({}, 'game') }}{% else %}{% for upgrade in home.citizenHomeUpgrades %}
                 {% if loop.index0 > 0  %}, {% endif %}<b>{{ upgrade.prototype.label|trans({}, 'buildings') }} {{ upgrade.level }}</b>
             {% endfor %}{% endif %}</div>
-        <div class="padded cell rw-4 ellipsis row-header"><img src="{{ asset('build/images/icons/small_deco.gif') }}" /> {{'Einrichtung'|trans({}, 'game')}}</div>
+        <div class="padded cell rw-4 ellipsis row-header"><img src="{{ asset('build/images/icons/small_deco.gif') }}"  alt=""/> {{'Einrichtung'|trans({}, 'game')}}</div>
         <div class="padded cell rw-8 ellipsis row-detail">{{ deco }} {{ 'Punkt(e)'|trans({}, 'game') }} {% if protected %}<div class="inline-block"><em>(<img src="{{ asset('build/images/assets/img/icons/lock.gif') }}" alt="" /> {{ 'gesichertes Haus'|trans({}, 'game') }})</em><div class="tooltip normal">
                     {{ 'In dieses Haus kann <strong>nicht eingebrochen</strong> werden. Es ist durch ein Schloss oder etwas anderes gesichert...'|trans({}, 'game')|raw }}</div></div>{% endif %}</div>
-        <div class="padded cell rw-4 ellipsis row-header"><img src="{{ asset('build/images/item/item_plate.gif') }}" /> {{'Hausverteidigung'|trans({}, 'game')}}</div>
-        <div class="padded cell rw-8 ellipsis row-detail">{{ def.sum }} <img src="{{ asset('build/images/icons/small_def.gif') }}" />
+        <div class="padded cell rw-4 ellipsis row-header"><img src="{{ asset('build/images/item/item_plate.gif') }}"  alt=""/> {{'Hausverteidigung'|trans({}, 'game')}}</div>
+        <div class="padded cell rw-8 ellipsis row-detail">{{ def.sum }} <img src="{{ asset('build/images/icons/small_def.gif') }}"  alt=""/>
             {{ help_btn(
                 'Behausung'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.house_defense},'game') ~ '</strong><br />' ~
                 'Bauarbeiten'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.upgrades_defense},'game') ~ '</strong><br />' ~
@@ -42,10 +42,12 @@
         </div>
     </div>
     <div class="lightbox">
-        {% if decoItems|length == 0 %}
+        {% set hookContent = hook('HomeDecoValues', home.citizen) %}
+        {% if decoItems|length == 0 and hookContent is empty %}
             {{'Was soll denn das heißen, du hast noch keine Deko für dein bescheidenes Zuhause gefunden?! Worauf wartest du noch? In der Wüste findest du bestimmt ein wunderbares Sofa aus Zombiehaut! Oder darf es vielleicht eines dieser warmen, weichen Talismänner sein: Eine abgerissene Hand oder ein frisch abgetrennter Fuß?'|trans({}, 'game')}}
         {% else %}
             <ul class="list">
+                {{ hook('HomeDecoValues', home.citizen) }}
                 {% for item in decoItems %}
                     <li>
                         <img src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ ".gif") }}" alt="[]"/> <b>{{ item.prototype.label|trans({}, 'items') }}</b> {% if item.prototype.deco > 0 %}<em class="small">(+{{ item.prototype.deco }} {{ 'Deko-Punkte'|trans({}, 'game') }})</em>{% endif %}<br />

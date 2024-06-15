@@ -855,6 +855,7 @@ class CitizenHandler
         if (!$c->getAlive()) return false;
         if (!$c->getZone() && !$only_explicit_lock) return true;
         if ($c->getHome()->getPrototype()->getTheftProtection()) return true;
+        if ($c->getHome()->hasTag('lock')) return true;
         if ($this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(
             $c->getHome(),
             $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( 'lock' ) ))

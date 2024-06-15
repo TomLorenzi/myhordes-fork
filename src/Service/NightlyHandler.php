@@ -1139,6 +1139,8 @@ class NightlyHandler
         }
 
         foreach ($town->getCitizens() as $citizen) {
+            $citizen->getHome()->setTemporaryTags([]);
+
             if ($vote = $citizen->getDailyUpgradeVote()) {
                 $this->cleanup[] = $vote;
                 $this->entity_manager->persist( $vote->getBuilding()->removeDailyUpgradeVote( $vote ) );
@@ -1496,6 +1498,7 @@ class NightlyHandler
             'lamp_on_#00'  => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'lamp_#00']),
             // 'radio_on_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'radio_off_#00']),
             'tamed_pet_off_#00'  => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'tamed_pet_#00']),
+            'tamed_pet_gone_#00'  => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'tamed_pet_#00']),
             'tamed_pet_drug_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'tamed_pet_#00']),
             'maglite_2_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'maglite_1_#00']),
             'maglite_1_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'maglite_off_#00']),
