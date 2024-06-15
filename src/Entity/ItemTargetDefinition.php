@@ -16,6 +16,7 @@ class ItemTargetDefinition
     const ItemSelectionTypePoison = 6;
     const ItemCitizenVoteType = 7;
     const ItemFriendshipType = 8;
+    const ItemTypeChestSelectionType = 9;
 
 
     #[ORM\Id]

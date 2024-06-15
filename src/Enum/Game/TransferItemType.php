@@ -20,6 +20,7 @@ enum TransferItemType
         return match ($this) {
             self::Spawn => [ self::Rucksack, self::Bank, self::Home, self::Local, self::Tamer ],
             self::Rucksack => [ self::Bank, self::Local, self::Home, self::Consume, self::Steal, self::Tamer ],
+            self::Tamer => [ self::Rucksack ],
             self::Bank,
             self::Home => [ self::Rucksack, self::Consume ],
             self::Steal => [ self::Rucksack, self::Home ],
@@ -28,8 +29,7 @@ enum TransferItemType
             self::Impound => [ self::Tamer ],
 
             self::Unknown,
-            self::Consume,
-            self::Tamer => [],
+            self::Consume => [],
         };
     }
 

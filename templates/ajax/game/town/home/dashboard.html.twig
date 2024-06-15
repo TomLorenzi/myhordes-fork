@@ -81,9 +81,9 @@
             '{{ path('town_house_action_controller') }}', '{{ path('town_house_dash') }}'
         );
 
-        handleActionPopups( document.querySelectorAll('ul.actions>li[x-target-definition]') );
-        handleActionPopups( document.querySelectorAll('ul.heroic_actions>li[x-target-definition]') );
-        handleActionPopups( document.querySelectorAll('ul.special_actions>li[x-target-definition]') );
+        handleActionPopups( document.querySelectorAll('ul.actions [x-target-definition]') );
+        handleActionPopups( document.querySelectorAll('ul.heroic_actions [x-target-definition]') );
+        handleActionPopups( document.querySelectorAll('ul.special_actions [x-target-definition]') );
 
         handleRecipes(
             document.querySelectorAll('ul.actions>li[x-recipe-id]:not([disabled])'),

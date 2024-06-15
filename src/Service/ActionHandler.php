@@ -274,7 +274,7 @@ class ActionHandler
      */
     public function targetDefinitionApplies($target, ItemTargetDefinition $definition, bool $forSelection = false): bool {
         switch ($definition->getSpawner()) {
-            case ItemTargetDefinition::ItemSelectionType:case ItemTargetDefinition::ItemSelectionTypePoison:
+            case ItemTargetDefinition::ItemSelectionType:case ItemTargetDefinition::ItemSelectionTypePoison: case ItemTargetDefinition::ItemTypeChestSelectionType:
                 if (!is_a( $target, Item::class )) return false;
                 if ($definition->getHeavy() !== null && $target->getPrototype()->getHeavy() !== $definition->getHeavy()) return false;
                 if ($definition->getBroken() !== null && $target->getBroken() !== $definition->getBroken()) return false;

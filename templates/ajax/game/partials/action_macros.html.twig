@@ -1,0 +1,160 @@
+{% macro inline_action_renderer(scout, actions, pre = '') %}
+    {% for entry in actions|sort((a,b) => ( b.item.essential <=> a.item.essential ?: a.item.inventory.id <=> b.item.inventory.id ?: a.item.prototype.label|trans({}, 'items') <=> b.item.prototype.label|trans({}, 'items') ?: a.action.label|trans({},'items') <=> b.action.label|trans({},'items') )) %}
+        <span {{ {small: true, action: true, 'broken-item': entry.broken is defined and entry.broken, pointer: not (entry.broken is defined and entry.broken)}|classes }}
+                {% if entry.crossed %}
+                    disabled
+                {% elseif entry.broken is defined and entry.broken %}
+                {% elseif entry.targets is null %}
+                    x-action-id="{{ entry.id }}"
+                    {% if entry.action.confirm %}
+                        x-action-confirm="1"
+                    {% endif %}
+                    x-provoking-id="{{ entry.item.id }}"
+                {% else %}
+                    x-target-definition="{{ pre }}{{ entry.id }}--{{ entry.item.id }}"
+                {% endif %}>
+
+                {% if scout and entry.action.keepsCover %}
+                    <img class="float-right" src="{{ asset('build/images/icons/small_stealthy.gif') }}" alt="">
+                {% endif %}
+
+            {{ entry.action.label|trans({},'items') }}
+
+            {% if entry.message is defined and entry.message is not null and not (entry.broken is defined and entry.broken) %}
+                <div class="tooltip normal">{{ entry.message|raw }}</div>
+            {% endif %}
+            </span>
+
+            {% if entry.targets is not null and not entry.crossed and not ( entry.broken is defined and entry.broken ) %}
+                {{ _self.select_target_popup( entry.id, entry.target_mode, pre ~ entry.id ~ '--' ~ entry.item.id, entry.item.id, entry.targets, entry.action.confirm, entry.action.confirmMsg, entry.item) }}
+            {% endif %}
+        {% if entry.crossed and entry.message %}
+            <div class="tooltip normal">{{ entry.message|raw }}</div>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+{% macro target_popup( action_id, provoking_id, targets, target_for, text_having, text_missing, close_button = false, big = false, confirm = false, confirmMsg = null, action_button = null, item_tooltip = false ) %}
+    <div class="targets" x-target-selection-for="{{ target_for }}">
+        {% if text_having is iterable %}
+            {% set error = '' %}
+            {% for key,text in text_having %}
+                {% if targets|filter(t => t[4] == key) is empty %}
+                    {% set error = text_missing[key] %}
+                {% endif %}
+            {% endfor %}
+
+            {% if error is empty %}
+                {% for key,text in text_having %}
+                    <span class="header">{{ text }}</span>
+                    <ul>
+                        {% for target in targets|filter(t => t[4] == key) %}
+                            <li class="line line-check expanded">
+                                <input class="inline" type="radio" x-collection-for="{{ target_for }}" title="{{ target[1] }}" value="{{ key }}-{{ target[0] }}" id="{{ target_for }}-{{ key }}-{{ target[0] }}" name="{{ target_for }}-{{ key }}" />
+                                <label for="{{ target_for }}-{{ key }}-{{ target[0] }}">
+                                    <div><img src="{{ asset(target[2]) }}" alt="{{ target[1] }}"> {{ target[1] }}</div>
+                                </label>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+                <ul>
+                    <li class="line expanded">
+                        <div class="button small" x-action-id="{{ action_id }}" x-action-id="{{ action_id }}" {% if confirm %}x-action-confirm="1"{% endif%} {% if not confirmMsg is null %}x-confirm-msg="{{ confirmMsg|trans({}, 'items') }}"{% endif%} {% if provoking_id is not null %}x-provoking-id="{{ provoking_id }}"{% endif %} x-target-id="?" x-collection-target="{{ target_for }}">{{ 'Auswahl bestätigen'|trans({},'global') }}</div>
+                    </li>
+                </ul>
+            {% else %}
+                <span>{{ error|raw }}</span>
+            {% endif %}
+        {% else %}
+            {% if targets|length > 0 %}
+                <span>{{ text_having }}</span>
+                <ul>
+                    {% for target in targets %}
+                        <li {{ {'line': action_button is not null, 'expanded': big is same as 'big'}|classes }} {% if action_button is null %}x-action-id="{{ action_id }}" {% if confirm %}x-action-confirm="1"{% endif%} {% if not confirmMsg is null %}x-confirm-msg="{{ confirmMsg|trans({'{target}':target[1] }, 'items') }}"{% endif%} {% if provoking_id is not null %}x-provoking-id="{{ provoking_id }}"{% endif %} x-target-id="{{ target[0] }}"{% endif %} >
+                            {% if big or action_button is not null %}
+                                <div><img src="{{ asset(target[2]) }}" alt="{{ target[1] }}"> {{ target[1] }}</div>
+                                {% if action_button is not null %}
+                                    <button class="inline small" x-action-id="{{ action_id }}" {% if confirm %}x-action-confirm="1"{% endif%} {% if not confirmMsg is null %}x-confirm-msg="{{ confirmMsg|trans({'{target}':target[1] }, 'items') }}"{% endif%} {% if provoking_id is not null %}x-provoking-id="{{ provoking_id }}"{% endif %} x-target-id="{{ target[0] }}">{{ action_button }}</button>
+                                {% endif %}
+                            {% else %}
+                                <img src="{{ asset(target[2]) }}" alt="{{ target[1] }}">
+                            {% endif %}
+                            {% if item_tooltip %}{% embed "ajax/game/item_tooltip.html.twig" with {"item": target[3]} %}{% endembed %}{% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <span>{{ text_missing|raw }}</span>
+            {% endif %}
+        {% endif %}
+
+        {% if close_button %}
+            <div class="right"><span x-close-for="{{ target_for }}">{{ 'Schließen'|trans({},'global') }}</span></div>
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{% macro target_macro_renderer( scout, renderer, target_for, actions ) %}
+    <div class="targets rendered-targets" x-target-selection-for="{{ target_for }}">
+
+        {% set renderer_hook_content = hook('itemTargetRenderer:' ~ renderer, scout, renderer, target_for, actions) %}
+        {% if renderer_hook_content is not empty  %}
+            {{ renderer_hook_content|raw }}
+        {% else %}
+            {% if renderer == 'tamer_dog_popup' %}
+
+                <div>
+                    {{ 'Befiehl {dogname}, deinen Rucksackinhalt in die Stadt zu bringen:'|trans({'dogname': app.user|dogname}, 'items') }}
+                    <div class="relative">{{ _self.inline_action_renderer( scout, actions|filter(a => a.action.name == 'hero_tamer_1b' or a.action.name == 'hero_tamer_2b' ) ) }}</div>
+                    <div class="relative">{{ _self.inline_action_renderer( scout, actions|filter(a => a.action.name == 'hero_tamer_1' or a.action.name == 'hero_tamer_2' ) ) }}</div>
+                </div>
+
+                {% if actions|filter(a => a.action.name == 'hero_tamer_3' ) is not empty %}
+                    <div>
+                        {{ 'Du kannst ihn auch mit Drogen dopen:'|trans({}, 'items') }}
+                        <div class="relative"><img alt="" src="{{ asset('build/images/item/item_drug.gif') }}"> {{ _self.inline_action_renderer( scout, actions|filter(a => a.action.name == 'hero_tamer_3' ) ) }}</div>
+                    </div>
+                {% endif %}
+
+                <div class="help">
+                    {{ 'Achtung: Entferne alle Gegenstände aus deinem Rucksack, die du NICHT in die Stadt senden möchtest!'|trans({}, 'items') }}
+                </div>
+
+            {% elseif renderer == 'survivalist_popup' %}
+
+                <div>
+                    {{ 'Erhalten:'|trans({}, 'items') }}
+                    <div class="relative">{{ _self.inline_action_renderer( scout, actions|filter(a => a.action.name == 'hero_surv_1' ) ) }}</div>
+                    <div class="relative">{{ _self.inline_action_renderer( scout, actions|filter(a => a.action.name == 'hero_surv_2' ) ) }}</div>
+                </div>
+
+            {% else %}
+                [ WARNING: UNKNOWN ACTION ACCUMULATOR "{{ renderer }}" ]
+            {% endif %}
+        {% endif %}
+
+        <div class="right"><span x-close-for="{{ target_for }}">{{ 'Schließen'|trans({},'global') }}</span></div>
+    </div>
+{% endmacro %}
+
+{% macro select_target_popup( id, target_mode, key, provoking_id, targets, confirm = false, confirmMsg = null, provoking_item = null) %}
+    {% if target_mode == 0 %}
+        {{ _self.target_popup( id, provoking_id, targets, key, 'Bitte wähle einen Gegenstand:'|trans({},'game'), 'Du verfügst über keine geeigneten Gegenstände'|trans({},'game'), true, false, confirm, confirmMsg ) }}
+    {% elseif target_mode == 1 %}
+        {{ _self.target_popup( id, provoking_id, targets, key, 'Bitte wähle einen Gegenstand:'|trans({},'game'), 'Du verfügst über keine geeigneten Gegenstände'|trans({},'game'), true, false, confirm, confirmMsg, null, true ) }}
+    {% elseif target_mode == 2 %}
+        {{ _self.target_popup( id, provoking_id, targets|sort((a,b) => a[1]|lower <=> b[1]|lower), key, 'Einen Bürger heimbringen:'|trans({},'game'), 'Niemand ist in der Nähe der Stadt (maximal 2 Felder).'|trans({},'game'), true, 'big', confirm, confirmMsg ) }}
+    {% elseif target_mode in [3,4,5] %}
+        {{ _self.target_popup( id, provoking_id, targets|sort((a,b) => a[1]|lower <=> b[1]|lower), key, 'Bitte wähle einen Bürger:'|trans({},'game'), 'Es ist kein Bürger in der Nähe...'|trans({},'game'), true, true, confirm, confirmMsg ) }}
+    {% elseif target_mode == 6 %}
+        {% set target_poison = 'can_poison'|items|map(i => '<span class="highlight"><img src="' ~ asset('build/images/item/item_' ~ i.icon ~ '.gif')  ~ '" alt="">' ~ i.label|trans({},'items') ~ '</span>') %}
+        {{ _self.target_popup( id, provoking_id, targets, key, 'Bitte wähle einen Gegenstand:'|trans({},'game'), 'Du hast nichts, womit du {poison} kombinieren kannst. Du benötigst einen der folgenden Gegenstände:<br />{list_head} oder {list_tail}.'|trans({'poison': '<span class="highlight"><img src="' ~ asset('build/images/item/item_' ~ provoking_item.prototype.icon ~ '.gif')  ~ '" alt="">' ~ provoking_item.prototype.label|trans({},'items') ~ '</span>', 'list_head': target_poison|slice(0,-1)|join(', '), 'list_tail': target_poison|slice(-1,1)|join(', ')},'game')|raw, true, false, confirm, confirmMsg ) }}
+    {% elseif target_mode == 7 %}
+        {{ _self.target_popup( id, provoking_id, targets|sort((a,b) => a[1]|lower <=> b[1]|lower), key, 'Bitte wähle einen Bürger:'|trans({},'game'), 'Es ist kein Bürger in der Nähe...'|trans({},'game'), true, true, confirm, confirmMsg, 'Abstimmen'|trans({},'game') ) }}
+    {% elseif target_mode == 8 %}
+        {{ _self.target_popup( id, provoking_id, targets|sort((a,b) => a[1]|lower <=> b[1]|lower), key, {'Action': 'Bitte wähle eine Heldentat:'|trans({},'game'), 'Player': 'Bitte wähle einen Bürger:'|trans({},'game')}, {'Action': 'Du hast keine Heldentaten mehr, die du spenden könntest...'|trans({},'game'), 'Player': 'Es ist kein Bürger in der Nähe...'|trans({},'game')}, true, true, confirm, confirmMsg ) }}
+    {% elseif target_mode == 9 %}
+        {{ _self.target_popup( id, provoking_id, targets, key, 'Bitte wähle einen Gegenstand aus deiner Truhe:'|trans({},'game'), 'Du verfügst über keine geeigneten Gegenstände'|trans({},'game'), true, false, confirm, confirmMsg ) }}
+    {% endif %}
+{% endmacro %}

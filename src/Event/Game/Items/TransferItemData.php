@@ -48,6 +48,8 @@ class TransferItemData
 
     public int $error_code = 0;
 
+    public float $discovery_change = 0.5;
+
     public bool $invokeBankLock = false;
     public TransferItemType $type_from = TransferItemType::Unknown;
     public TransferItemType $type_to = TransferItemType::Unknown;

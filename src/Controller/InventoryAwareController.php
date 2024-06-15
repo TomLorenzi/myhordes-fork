@@ -176,19 +176,27 @@ class InventoryAwareController extends CustomAbstractController
     /**
      * @param Inventory[] $inventories
      * @param ItemTargetDefinition $definition
+     * @param Citizen|null $reference
      * @return array
      */
-    private function decodeActionItemTargets( array $inventories, ItemTargetDefinition $definition ) {
+    private function decodeActionItemTargets( array $inventories, ItemTargetDefinition $definition, ?Citizen $reference = null ): array
+    {
         $targets = [];
 
         switch ($definition->getSpawner()) {
             case ItemTargetDefinition::ItemSelectionType: case ItemTargetDefinition::ItemSelectionTypePoison:
-            foreach ($inventories as &$inv)
-                foreach ($inv->getItems() as &$item)
-                    if ($this->action_handler->targetDefinitionApplies($item,$definition,true))
-                        $targets[] = [ $item->getId(), $this->translator->trans( $item->getPrototype()->getLabel(), [], 'items' ), "build/images/item/item_{$item->getPrototype()->getIcon()}.gif" ];
+                foreach ($inventories as &$inv)
+                    foreach ($inv->getItems() as &$item)
+                        if ($this->action_handler->targetDefinitionApplies($item, $definition,true))
+                            $targets[] = [ $item->getId(), $this->translator->trans( $item->getPrototype()->getLabel(), [], 'items' ), "build/images/item/item_{$item->getPrototype()->getIcon()}.gif" ];
 
-            break;
+                break;
+            case ItemTargetDefinition::ItemTypeChestSelectionType:
+                if ($reference)
+                    foreach ($reference->getHome()->getChest()->getItems() as $item)
+                        if ($this->action_handler->targetDefinitionApplies($item, $definition,true))
+                            $targets[] = [ $item->getId(), $this->translator->trans( $item->getPrototype()->getLabel(), [], 'items' ), "build/images/item/item_{$item->getPrototype()->getIcon()}.gif" ];
+                break;
             case ItemTargetDefinition::ItemTypeSelectionType:
                 if ($definition->getTag())
                     foreach ($this->inventory_handler->resolveItemProperties($definition->getTag()) as &$prop)
@@ -253,7 +261,7 @@ class InventoryAwareController extends CustomAbstractController
         $this->action_handler->getAvailableIHeroicActions( $this->getActiveCitizen(),  $available, $crossed, $used );
         if (empty($available) && empty($crossed) && empty($used) ) return [];
 
-        foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'action' => $a->getAction(), 'renderer' => null, 'targets' => $a->getAction()->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getAction()->getTarget() ) : null, 'target_mode' => $a->getAction()->getTarget() ? $a->getAction()->getTarget()->getSpawner() : 0, 'crossed' => false ];
+        foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'action' => $a->getAction(), 'renderer' => null, 'targets' => $a->getAction()->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getAction()->getTarget(), $this->getActiveCitizen() ) : null, 'target_mode' => $a->getAction()->getTarget() ? $a->getAction()->getTarget()->getSpawner() : 0, 'crossed' => false ];
         foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'action' => $c->getAction(), 'renderer' => null, 'targets' => null, 'target_mode' => 0, 'crossed' => true ];
         foreach ($used as $c)      $ret[] = [ 'id' => $c->getId(), 'action' => $c->getAction(), 'renderer' => null, 'targets' => null, 'target_mode' => 0, 'crossed' => true, 'used' => true, 'used_message' => $c->getUsedMessage() ?? T::__('Du hast schon genug den Helden gespielt! Diese Heldentat kannst du erst im nächsten Leben wieder verbringen.', 'items') ];
 
@@ -268,7 +276,7 @@ class InventoryAwareController extends CustomAbstractController
         $this->action_handler->getAvailableISpecialActions( $this->getActiveCitizen(),  $available, $crossed );
         if (empty($available) && empty($crossed)) return [];
 
-        foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'icon' => $a->getIcon(), 'action' => $a->getAction(), 'renderer' => null, 'targets' => $a->getAction()->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getAction()->getTarget() ) : null, 'target_mode' => $a->getAction()->getTarget() ? $a->getAction()->getTarget()->getSpawner() : 0, 'crossed' => false ];
+        foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'icon' => $a->getIcon(), 'action' => $a->getAction(), 'renderer' => null, 'targets' => $a->getAction()->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getAction()->getTarget(), $this->getActiveCitizen() ) : null, 'target_mode' => $a->getAction()->getTarget() ? $a->getAction()->getTarget()->getSpawner() : 0, 'crossed' => false ];
         foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'icon' => $c->getIcon(), 'action' => $c->getAction(), 'renderer' => null, 'targets' => null, 'target_mode' => 0, 'crossed' => true ];
         return $ret;
 
@@ -294,7 +302,7 @@ class InventoryAwareController extends CustomAbstractController
         $av_inv = [$this->getActiveCitizen()->getInventory(), $this->getActiveCitizen()->getHome()->getChest()];
         $this->action_handler->getAvailableHomeActions( $this->getActiveCitizen(), $available, $crossed );
 
-        foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'icon' => $a->getIcon(), 'item' => null, 'action' => $a->getAction(), 'renderer' => null, 'targets' => $a->getAction()->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getAction()->getTarget() ) : null, 'target_mode' => $a->getAction()->getTarget() ? $a->getAction()->getTarget()->getSpawner() : 0, 'crossed' => false ];
+        foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'icon' => $a->getIcon(), 'item' => null, 'action' => $a->getAction(), 'renderer' => null, 'targets' => $a->getAction()->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getAction()->getTarget(), $this->getActiveCitizen() ) : null, 'target_mode' => $a->getAction()->getTarget() ? $a->getAction()->getTarget()->getSpawner() : 0, 'crossed' => false ];
         foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'icon' => $c->getIcon(), 'item' => null, 'action' => $c->getAction(), 'renderer' => null, 'targets' => null, 'target_mode' => 0, 'crossed' => true ];
 
         return $ret;
@@ -328,7 +336,7 @@ class InventoryAwareController extends CustomAbstractController
             $this->action_handler->getAvailableItemActions( $this->getActiveCitizen(), $item, $available, $crossed, $messages, $this->getActiveCitizen()->getZone() !== null );
             if (empty($available) && empty($crossed)) continue;
 
-            foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'random' => mt_rand(), 'item' => $item, 'broken' => $item->getBroken(), 'action' => $a, 'renderer' => $a->getRenderer(), 'targets' => $item->getBroken() ? null : ($a->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getTarget() ) : null), 'target_mode' => $item->getBroken() ? 0 : ($a->getTarget() ? $a->getTarget()->getSpawner() : 0), 'crossed' => false, 'message' => null ];
+            foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'random' => mt_rand(), 'item' => $item, 'broken' => $item->getBroken(), 'action' => $a, 'renderer' => $a->getRenderer(), 'targets' => $item->getBroken() ? null : ($a->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getTarget(), $this->getActiveCitizen() ) : null), 'target_mode' => $item->getBroken() ? 0 : ($a->getTarget() ? $a->getTarget()->getSpawner() : 0), 'crossed' => false, 'message' => null ];
             foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'random' => mt_rand(), 'item' => $item, 'broken' => $item->getBroken(), 'action' => $c, 'renderer' => $c->getRenderer(), 'targets' => null, 'target_mode' => 0, 'crossed' => true, 'message' => $item->getBroken() ? null : ($messages[$c->getId()] ?? null) ];
         }
 
@@ -748,22 +756,26 @@ class InventoryAwareController extends CustomAbstractController
     /**
      * @param int|string $id
      * @param ItemTargetDefinition|null $target
+     * @param Citizen $citizen
      * @param Inventory[] $inventories
      * @param object|null $return
      * @return bool
      */
-    private function extract_target_object(int|string $id, ?ItemTargetDefinition $target, array $inventories, ?object &$return): bool {
+    private function extract_target_object(int|string $id, ?ItemTargetDefinition $target, Citizen $citizen, array $inventories, ?object &$return): bool {
         $return = null;
         if (!$target) return true;
 
         switch ($target->getSpawner()) {
-            case ItemTargetDefinition::ItemSelectionType: case ItemTargetDefinition::ItemSelectionTypePoison:
-            $return = $this->entity_manager->getRepository(Item::class)->find( (int)$id );
-            if (!$return) return false;
+            case ItemTargetDefinition::ItemSelectionType: case ItemTargetDefinition::ItemSelectionTypePoison:case ItemTargetDefinition::ItemTypeChestSelectionType:
+                $return = $this->entity_manager->getRepository(Item::class)->find( (int)$id );
+                if (!$return) return false;
 
-            foreach ($inventories as $inventory)
-                if ($inventory->getItems()->contains( $return ))
-                    return true;
+                if ($target->getSpawner() === ItemTargetDefinition::ItemTypeChestSelectionType)
+                    $inventories = [$citizen->getHome()->getChest()];
+
+                foreach ($inventories as $inventory)
+                    if ($inventory->getItems()->contains( $return ))
+                        return true;
 
             return false;
             case ItemTargetDefinition::ItemTypeSelectionType:
@@ -843,7 +855,7 @@ class InventoryAwareController extends CustomAbstractController
         $zone = $citizen->getZone();
         if (!$citizen->getProfession()->getHeroic() || !$citizen->getHeroicActions()->contains( $heroic )) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-        if (!$this->extract_target_object( $target_id, $heroic->getAction()->getTarget(), [ $citizen->getInventory(), $zone ? $zone->getFloor() : $citizen->getHome()->getChest() ], $target ))
+        if (!$this->extract_target_object( $target_id, $heroic->getAction()->getTarget(), $citizen, [ $citizen->getInventory(), $zone ? $zone->getFloor() : $citizen->getHome()->getChest() ], $target ))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $item = null;
@@ -892,7 +904,7 @@ class InventoryAwareController extends CustomAbstractController
         $zone = $citizen->getZone();
         if (!$citizen->getSpecialActions()->contains( $special )) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-        if (!$this->extract_target_object( $target_id, $special->getAction()->getTarget(), [ $citizen->getInventory(), $zone ? $zone->getFloor() : $citizen->getHome()->getChest() ], $target ))
+        if (!$this->extract_target_object( $target_id, $special->getAction()->getTarget(), $citizen, [ $citizen->getInventory(), $zone ? $zone->getFloor() : $citizen->getHome()->getChest() ], $target ))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $item = null;
@@ -946,7 +958,7 @@ class InventoryAwareController extends CustomAbstractController
 
         if ($citizen->getZone()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-        if (!$this->extract_target_object( $target_id, $home_action->getAction()->getTarget(), [ $citizen->getInventory(), $citizen->getHome()->getChest() ], $target ))
+        if (!$this->extract_target_object( $target_id, $home_action->getAction()->getTarget(), $citizen, [ $citizen->getInventory(), $citizen->getHome()->getChest() ], $target ))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $item = null;
@@ -1074,7 +1086,7 @@ class InventoryAwareController extends CustomAbstractController
         }
 
         if (!$citizen->getInventory()->getItems()->contains( $item ) && ($secondary_inv && !$secondary_inv->getItems()->contains( $item ))) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-        if (!$this->extract_target_object( $target_id, $action->getTarget(), [ $citizen->getInventory(), $secondary_inv ], $target ))
+        if (!$this->extract_target_object( $target_id, $action->getTarget(), $citizen, [ $citizen->getInventory(), $secondary_inv ], $target ))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         $url = null;
 

@@ -1004,10 +1004,15 @@ ul.actions, ul.special_actions, ul.heroic_actions {
         background: @myhordes-building-complete-header-color;
       }
     }
-    &>div.targets {
+    div.targets {
       position: absolute; display: none; left:100%; right: -100%; top: 0; z-index: 1500;
       &.rendered-targets {background: #5c2b20; border: 1px solid #efdba8; color: white};
       &:not(.rendered-targets) {background: #3b3249; border: 1px solid #afacc1;};
+
+      div.targets {
+        left:0; right: 0;
+        top: 100%;
+      }
 
       color: #f0d79e; outline: 2px solid black;
       margin: 0; padding: 5px;

@@ -42,6 +42,7 @@ class HookFixtures extends Fixture
 				->setClassname($entry['classname'])
                 ->setActive($entry['active'])
 				->setPosition($entry['position'])
+                ->setFuncName($entry['function'] ?? null)
             ;
 
             $manager->persist($entity);

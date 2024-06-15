@@ -45,7 +45,12 @@ class LocationRequirement extends RequirementsAtom {
         return ProcessLocationRequirement::class;
     }
 
-
+    public function anywhere(bool $v = true): self {
+        $this->town($v ? null : false);
+        $this->beyond($v ? null : false);
+        $this->exploring($v ? null : false);
+        return $this;
+    }
 
     public function requiresZone(): bool {
         return $this->minKm !== null || $this->maxKm !== null || $this->minAp !== null || $this->maxAp !== null ||

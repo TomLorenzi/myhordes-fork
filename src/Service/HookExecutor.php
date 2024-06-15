@@ -53,7 +53,7 @@ class HookExecutor {
 		if (count($registeredHooks) === 0) return '';
 
 		usort($registeredHooks, fn($a, $b) => $a->getPosition() <=> $b->getPosition());
-		$hookFunction = 'hook' . ucfirst($hookName);
+
 		foreach ($registeredHooks as $registeredHook) {
 
 			$this->hookRegistry->hookHandledBy($registeredHook->getClassname(), $registeredHook->getPosition(), $registeredHook->isActive());
@@ -65,6 +65,7 @@ class HookExecutor {
 			$className = $registeredHook->getClassname();
 			$hook = new $className($this->translator, $this->router, $this->assets, $this->twig, $this->token, $this->container);
 
+            $hookFunction = $registeredHook->getFuncName() ?? ('hook' . ucfirst($hookName));
 			if (!is_callable([$hook, $hookFunction])) {
 				continue;
 			}

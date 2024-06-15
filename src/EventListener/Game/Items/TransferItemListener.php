@@ -165,6 +165,7 @@ final class TransferItemListener implements ServiceSubscriberInterface
         $event->type_from = $type_from;
         $event->type_to = $type_to;
 
+
         // Check inventory size
         if (!$opt_enforce_placement && ($event->to && ($max_size = $this->getService(InventoryHandler::class)->getSize($event->to)) > 0 && count($event->to->getItems()) >= $max_size ) ) {
             $event->pushError(InventoryHandler::ErrorInventoryFull);
@@ -288,6 +289,11 @@ final class TransferItemListener implements ServiceSubscriberInterface
         }
 
         if ($type_from === TransferItemType::Rucksack && $type_to === TransferItemType::Tamer && $event->modality !== TransferItemModality::Tamer && $event->modality !== TransferItemModality::Impound) {
+            $event->pushError(InventoryHandler::ErrorInvalidTransfer);
+            return;
+        }
+
+        if ($type_from === TransferItemType::Tamer && $type_to === TransferItemType::Rucksack && $event->modality !== TransferItemModality::Tamer) {
             $event->pushError(InventoryHandler::ErrorInvalidTransfer);
             return;
         }
@@ -463,7 +469,7 @@ final class TransferItemListener implements ServiceSubscriberInterface
                     $event->pushMessage( $this->getService(TranslatorInterface::class)->trans('Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.', ['victim' => $victim_home->getCitizen()->getName(), '{item}' => "<strong><img alt='' src='{$this->getService(Packages::class)->getUrl( "build/images/item/item_{$event->item->getPrototype()->getIcon()}.gif" )}'> {$this->getService(TranslatorInterface::class)->trans($event->item->getPrototype()->getLabel(),[],'items')}</strong>"], 'game'));
                     //$this->getService(CitizenHandler::class)->inflictStatus( $event->actor, 'terror' );
                     //$event->pushMessage($this->getService(TranslatorInterface::class)->trans('{victim}s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!', ['{victim}' => $victim_home->getCitizen()->getName()], 'game') );
-                } elseif ($this->getService(RandomGenerator::class)->chance(0.5) || !$victim_home->getCitizen()->getAlive()) {
+                } elseif ($this->getService(RandomGenerator::class)->chance($event->discovery_change) || !$victim_home->getCitizen()->getAlive()) {
                     if ($victim_home->getCitizen()->getAlive()){
                         $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->townSteal( $victim_home->getCitizen(), $event->actor, $event->item->getPrototype(), true, false, $event->item->getBroken() ) );
                         $event->pushMessage($this->getService(TranslatorInterface::class)->trans('Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.', ['victim' => $victim_home->getCitizen()->getName(), '{item}' => "<strong><img alt='' src='{$this->getService(Packages::class)->getUrl( "build/images/item/item_{$event->item->getPrototype()->getIcon()}.gif" )}'> {$this->getService(TranslatorInterface::class)->trans($event->item->getPrototype()->getLabel(),[],'items')}</strong>"], 'game'));

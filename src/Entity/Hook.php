@@ -28,6 +28,9 @@ class Hook
     #[ORM\Column(length: 255)]
     private ?string $hookname = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $funcName = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,6 +92,18 @@ class Hook
     public function setHookname(string $hookname): static
     {
         $this->hookname = $hookname;
+
+        return $this;
+    }
+
+    public function getFuncName(): ?string
+    {
+        return $this->funcName;
+    }
+
+    public function setFuncName(?string $funcName): static
+    {
+        $this->funcName = $funcName;
 
         return $this;
     }

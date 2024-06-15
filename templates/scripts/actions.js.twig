@@ -144,8 +144,14 @@ const handleActionPopups = function( actions ) {
                 e.style.display = "none";
             });
 
-            popup.style.display = 'block';
-            actions[i].classList.add('open');
+            let c = '';
+            id.split('/').forEach(s => {
+                c += s;
+                const p = document.querySelector('[x-target-selection-for="' + c + '"]');
+                if (p) p.style.display = 'block';
+                document.querySelectorAll('[x-target-definition="' + c + '"]').forEach(a => a.classList.add('open'));
+                c += '/';
+            });
         })
         let close_btn = document.querySelector('[x-close-for="' + id + '"]');
         close_btn.addEventListener('click', function(e) {
