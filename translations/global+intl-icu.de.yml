@@ -620,3 +620,10 @@ Testbenachrichtiung: Testbenachrichtiung
 'Dies ist Meldung #{num}.': 'Dies ist Meldung #{num}.'
 Community-Event: Community-Event
 'Die erhälst die gekennzeichneten Benachrichtigungen nur, wenn sie deiner gewählten Sprache entsprechen. Wenn du die entsprechenden Einstellungen änderst oder deine Sprache wechselst, kann es bis zu 24 Stunden dauern, bis die Änderungen für Benachrichtigungen übernommen werden.': 'Die erhälst die gekennzeichneten Benachrichtigungen nur, wenn sie deiner gewählten Sprache entsprechen. Wenn du die entsprechenden Einstellungen änderst oder deine Sprache wechselst, kann es bis zu 24 Stunden dauern, bis die Änderungen für Benachrichtigungen übernommen werden.'
+'Dieser Indikator zeigt an, ob du aktuell mit dem Live-Dienst von MyHordes verbunden bist.': 'Dieser Indikator zeigt an, ob du aktuell mit dem Live-Dienst von MyHordes verbunden bist.'
+'Mithilfe des Live-Dienstes erhälst dein System Benachrichtigungen vom MyHordes-Server in Echtzeit, beispielsweise über neue Forenposts oder PNs.': 'Mithilfe des Live-Dienstes erhälst dein System Benachrichtigungen vom MyHordes-Server in Echtzeit, beispielsweise über neue Forenposts oder PNs.'
+'Aktuell besteht keine Verbindung zum Live-Dienst. Du kannst dennoch wie gewohnt weiter spielen, da alle wichtigen Funktionen auch ohne den Live-Dienst arbeiten können.': 'Aktuell besteht keine Verbindung zum Live-Dienst. Du kannst dennoch wie gewohnt weiter spielen, da alle wichtigen Funktionen auch ohne den Live-Dienst arbeiten können.'
+'Nicht verbunden': 'Nicht verbunden'
+'Verbindung wird hergestellt': 'Verbindung wird hergestellt'
+'Verbunden, Verbindungsupdate angefordert': 'Verbunden, Verbindungsupdate angefordert'
+Verbunden: Verbunden
