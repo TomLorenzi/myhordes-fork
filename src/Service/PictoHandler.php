@@ -145,12 +145,9 @@ class PictoHandler
 
                 foreach ($keepPictos as $picto) {
                     /** @var Picto $picto */
-                    if ($picto->getPrototype()->getRare()) {
-                        $new_count = floor($picto->getCount() / 3);
-                        if ($new_count <= 0) $this->entity_manager->remove( $picto );
-                        else $picto->setCount(floor($picto->getCount() / 3));
-                        $this->entity_manager->persist($picto->setCount($new_count));
-                    }
+                    $new_count = floor($picto->getCount() / 3);
+                    if ($new_count <= 0) $this->entity_manager->remove( $picto );
+                    else $this->entity_manager->persist( $picto->setCount($new_count) );
                 }
 
             } else {

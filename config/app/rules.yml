@@ -187,6 +187,7 @@ parameters:
           instant: false
         attacks: 'normal'
         give_all_pictos: true
+        picto_classic_cull_mode: true
         enable_pictos: true
         give_soulpoints: true
         last_death: ['r_surlst_#00']
