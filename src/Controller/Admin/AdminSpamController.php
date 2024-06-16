@@ -84,11 +84,12 @@ class AdminSpamController extends AdminActionController
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         $body = $parser->get('list', '');
-        $lines = array_unique( explode( "\r\n", $body ) );
+        $lines = array_unique( explode( "\n", $body ) );
 
         $repo = $this->entity_manager->getRepository(AntiSpamDomains::class);
 
         foreach ($lines as $line) {
+            $line = trim($line ?? '');
             if (empty($line)) continue;
             if ($line[0] === '@' || $line[0] === '.') $line = substr($line, 1);
 
