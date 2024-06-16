@@ -314,7 +314,7 @@ class MessageForumController extends MessageController
 
         $user = $this->getUser();
         $permission = $this->perm->getEffectivePermissions($user,$forum);
-        if ($this->userHandler->isRestricted( $user, AccountRestriction::RestrictionForum ) || !$this->perm->isPermitted( $permission, ForumUsagePermissions::PermissionCreateThread ) || $this->isLimitedDuringAttack($forum))
+        if ($this->userHandler->isRestricted( $user, AccountRestriction::RestrictionForum ) || $this->userHandler->isRestricted( $user, AccountRestriction::RestrictionGameplay ) || !$this->perm->isPermitted( $permission, ForumUsagePermissions::PermissionCreateThread ) || $this->isLimitedDuringAttack($forum))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if (!$parser->has_all(['title','text'], true))
@@ -530,7 +530,7 @@ class MessageForumController extends MessageController
 
         $permissions = $this->perm->getEffectivePermissions($user, $forum);
 
-        if ($this->userHandler->isRestricted( $user, AccountRestriction::RestrictionForum ) || $this->isLimitedDuringAttack($forum))
+        if ($this->userHandler->isRestricted( $user, AccountRestriction::RestrictionForum ) || $this->userHandler->isRestricted( $user, AccountRestriction::RestrictionGameplay ) || $this->isLimitedDuringAttack($forum))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if (!$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionCreatePost )) {
