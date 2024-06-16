@@ -1095,7 +1095,7 @@ class ActionHandler
             $list[] = $item->getPrototype();
         }
 
-        $this->citizen_handler->deductPointsWithFallback( $citizen, PointType::AP, PointType::CP, $ap, $usedap, $usedbp);
+        $this->citizen_handler->deductPointsWithFallback( $citizen, PointType::AP, PointType::CP, $ap, $used_ap, $used_bp);
 
         if ($recipe->getType() === Recipe::WorkshopTypeTechSpecific)
             $citizen->getSpecificActionCounter(ActionCounter::ActionTypeSpecialActionTech)->increment();
