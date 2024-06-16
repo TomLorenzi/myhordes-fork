@@ -983,12 +983,76 @@
           "name": "citizen"
         }
       },
+      "XMLAvatarObject": {
+        "description": "Describes the avatar of a user.",
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "Avatar URL",
+            "example": "42/e8b3ac08be0c72dba1a9731fc48c4eff.jpeg",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "format": {
+            "type": "string",
+            "description": "Avatar image format",
+            "example": "jpeg",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "x": {
+            "type": "integer",
+            "minimum": 0,
+            "example": 100,
+            "description": "Width of the avatar image (in px)",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "y": {
+            "type": "integer",
+            "minimum": 0,
+            "example": 100,
+            "description": "Height of the avatar image (in px)",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "classic": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1,
+            "example": 0,
+            "description": "Is the avatar considered to be of classic 90x30ish format (1) or not (0)",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "compressed": {
+            "type": "string",
+            "description": "Compressed avatar URL; only set if the default avatar is not already in classic format and the user has chosen a manual cropping of the avatar.",
+            "example": "42/e8b3ac08be0c72dba1a9731fc48c4eff.jpeg",
+            "xml": {
+              "attribute": true
+            }
+          }
+        },
+        "xml": {
+          "name": "avatar"
+        }
+      },
       "XMLOwnerObject": {
         "description": "Describes the current user.",
         "type": "object",
         "properties": {
           "citizen": {
             "$ref": "#/components/schemas/XMLCitizenObject"
+          },
+          "avatar": {
+            "$ref": "#/components/schemas/XMLAvatarObject"
           },
           "myZone": {
             "$ref": "#/components/schemas/XMLMyZoneObject"
@@ -2342,6 +2406,9 @@
             "description": "User avatar path",
             "example": ""
           },
+          "avatarData": {
+            "$ref": "#/components/schemas/JSONAvatarObject"
+          },
           "isGhost": {
             "type": "boolean",
             "description": "User is currently NOT incarnated.",
@@ -2508,6 +2575,9 @@
             "description": "User avatar path",
             "example": ""
           },
+          "avatarData": {
+            "$ref": "#/components/schemas/JSONAvatarObject"
+          },
           "name": {
             "type": "string",
             "description": "User name",
@@ -2604,6 +2674,9 @@
             "type": "string",
             "description": "User avatar path",
             "example": ""
+          },
+          "avatarData": {
+            "$ref": "#/components/schemas/JSONAvatarObject"
           },
           "name": {
             "type": "string",
@@ -2708,6 +2781,44 @@
           },
           "desc": {
             "$ref": "#/components/schemas/JSONLanguageDependantField"
+          }
+        }
+      },
+      "JSONAvatarObject": {
+        "description": "A user avatar",
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "Avatar URL",
+            "example": ""
+          },
+          "format": {
+            "type": "string",
+            "description": "Avatar image format",
+            "example": "jpeg"
+          },
+          "x": {
+            "type": "integer",
+            "minimum": 0,
+            "example": 100,
+            "description": "Width of the avatar image (in px)"
+          },
+          "y": {
+            "type": "integer",
+            "minimum": 0,
+            "example": 100,
+            "description": "Height of the avatar image (in px)"
+          },
+          "classic": {
+            "type": "boolean",
+            "example": false,
+            "description": "Is the avatar considered to be of classic 90x30ish format (true) or not (false)"
+          },
+          "compressed": {
+            "type": "string",
+            "description": "Compressed avatar URL; only set if the default avatar is not already in classic format and the user has chosen a manual cropping of the avatar.",
+            "example": ""
           }
         }
       },
@@ -3017,6 +3128,9 @@
                       "type": "string",
                       "description": "Author avatar URL",
                       "example": ""
+                    },
+                    "avatarData": {
+                      "$ref": "#/components/schemas/JSONAvatarObject"
                     }
                   }
                 },
@@ -3132,7 +3246,7 @@
         "in": "query",
         "name": "fields",
         "allowEmptyValue": true,
-        "description": "Comma-separated list of fields to fetch for the result set. Check the example below for a list of valid fields.",
+        "description": "Comma-separated list of fields to fetch for the result set. Check the example below for a list of valid fields. To fetch fields from a nested object, use the syntax `a,b.fields(c,d)` *(fetch fields c and d from nested object b)*",
         "schema": {
           "type": "string"
         }

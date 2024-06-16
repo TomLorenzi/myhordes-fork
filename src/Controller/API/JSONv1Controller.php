@@ -1511,12 +1511,26 @@ class JSONv1Controller extends CoreController {
                 case "locale":
                     $user_data[$field] = $user->getLanguage();
                     break;
-                case "avatar":
+                case "avatar": case "avatarData":
                     $has_avatar = $user->getAvatar();
-                    if ($has_avatar) {
+                    if ($has_avatar && $field === "avatar") {
                         $user_data[$field] = $this->generateUrl('app_web_avatar', ['uid' => $user->getId(), 'name' => $has_avatar->getFilename(),
-                                                                                   'ext' => $has_avatar->getFormat()
-                        ],UrlGeneratorInterface::ABSOLUTE_URL);
+                            'ext' => $has_avatar->getFormat()
+                        ],                                      UrlGeneratorInterface::ABSOLUTE_URL);
+                    } elseif ($has_avatar && $field === "avatarData") {
+                        $user_data[$field] = [
+                            'url' => $this->generateUrl('app_web_avatar', ['uid' => $user->getId(), 'name' => $has_avatar->getFilename(),
+                                'ext' => $has_avatar->getFormat()
+                            ], UrlGeneratorInterface::ABSOLUTE_URL),
+                            'x' => $user->getAvatar()->getX(),
+                            'y' => $user->getAvatar()->getY(),
+                            'classic' => $user->getAvatar()->isClassic(),
+                            'format' => $user->getAvatar()->getFormat(),
+                        ];
+                        if (!$user->getAvatar()->isClassic() && $user->getAvatar()->getSmallName())
+                            $user_data[$field]['compressed'] = $this->generateUrl('app_web_avatar', ['uid' => $user->getId(), 'name' => $has_avatar->getSmallName(),
+                                'ext' => $has_avatar->getFormat()
+                            ], UrlGeneratorInterface::ABSOLUTE_URL);
                     } else {
                         $user_data[$field] = null;
                     }
