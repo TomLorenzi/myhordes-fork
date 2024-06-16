@@ -538,6 +538,7 @@ const AvatarEditor = ({data, mime, cancel, confirm}:{data:ArrayBuffer, mime: str
                     <select ref={format}>
                         <option value="avif">{ globals.strings.common.compression_avif }</option>
                         <option value="webp">{ globals.strings.common.compression_webp }</option>
+                        <option value="lossless">{ globals.strings.common.compression_noloss }</option>
                     </select>
                 </div>
             </div>
