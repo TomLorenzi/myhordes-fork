@@ -9,8 +9,12 @@ use App\Entity\ItemAction;
 use App\Entity\ItemTargetDefinition;
 use App\Entity\RequireLocation;
 use App\Entity\Requirement;
+use App\Enum\ActionHandler\PointType;
 use App\Enum\ItemPoisonType;
 use App\Structures\TownConf;
+use MyHordes\Fixtures\DTO\Actions\Atoms\PointRequirement;
+use MyHordes\Fixtures\DTO\Actions\RequirementsDataContainer;
+use MyHordes\Fixtures\DTO\ArrayDecoratorReadInterface;
 use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class ActionDataService implements FixtureProcessorInterface {
@@ -27,11 +31,22 @@ class ActionDataService implements FixtureProcessorInterface {
         unset($data['items_nw']['bone_meat_#00']);
         unset($data['items_nw']['music_#00']);
         unset($data['items_nw']['radio_on_#00']);
+        unset($data['actions']['bp_hotel_2']);
+        unset($data['actions']['bp_hotel_3']);
+        unset($data['actions']['bp_hotel_4']);
+        unset($data['actions']['bp_bunker_2']);
+        unset($data['actions']['bp_bunker_3']);
+        unset($data['actions']['bp_bunker_4']);
+        unset($data['actions']['bp_hospital_2']);
+        unset($data['actions']['bp_hospital_3']);
+        unset($data['actions']['bp_hospital_4']);
+
+        $requirement_container = new RequirementsDataContainer();
+        $requirement_container->add()->identifier('min_2_cp')->type( Requirement::CrossOnFail )->add( (new PointRequirement())->require(PointType::CP)->min(2) )->text_key('pt_required')->commit();
+        $requirement_container->add()->identifier('min_3_cp')->type( Requirement::CrossOnFail )->add( (new PointRequirement())->require(PointType::CP)->min(3) )->text_key('pt_required')->commit();
+
         $data = array_merge_recursive($data, [
-            'meta_requirements' => [
-                'min_2_cp' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'cp' => [ 'min' => 2, 'max' => 999999, 'relative' => true ] ], 'text' => 'Hierfür brauchst du mindestens 2 CP.'],
-                'min_3_cp' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'cp' => [ 'min' => 3, 'max' => 999999, 'relative' => true ] ], 'text' => 'Hierfür brauchst du mindestens 3 CP.'],
-            ],
+            'meta_requirements' => [],
 
             'meta_results' => [
                 'minus_2cp'    => [ 'cp' => 'minus_2' ],
@@ -55,6 +70,17 @@ class ActionDataService implements FixtureProcessorInterface {
                 'nw_empty_music'     => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'music_part_#00',         'consume' => false]] ] ],
                 'nw_empty_sport'     => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'sport_elec_empty_#00',   'consume' => false]] ] ],
                 'nw_empty_radio'     => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'radio_off_#00',          'consume' => false]] ] ],
+                'bp_hotel_2'    => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['item_pumpkin_raw_#00', 'small_score_#00','small_strategy_#02', 'item_rp_book2_#00', 'small_canon_#01', 'small_wallimprove_#03'] ] ],                     'message_key' => 'read_blueprint' ],
+                'bp_hotel_3'    => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_valve_#00', 'small_appletree_#00', 'small_scarecrow_#00', 'small_ikea_#00', 'small_moving_#00', 'small_labyrinth_#00', 'item_tamed_pet_#00', 'item_plate_#01', 'small_court_#00', 'small_coffin_#00'] ] ], 'message_key' => 'read_blueprint' ],
+                'bp_hotel_4'    => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_waterdetect_#00', 'small_pmvbig_#00', 'small_wheel_#00', 'small_cinema_#00', 'small_strategy_#01'] ] ],                                              'message_key' => 'read_blueprint' ],
+
+                'bp_bunker_2'   => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_rocketperf_#00', 'small_watercanon_#00', 'item_bgrenade_#00', 'item_courroie_#01', 'item_hmeat_#00', 'small_city_up_#00'] ] ],                                             'message_key' => 'read_blueprint' ],
+                'bp_bunker_3'   => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['item_tube_#01', 'item_boomfruit_#00', 'item_pet_pig_#00', 'small_watchmen_#00', 'item_cutcut_#00', 'small_underground_#00', 'small_rocket_#00', 'item_keymol_#00', 'item_home_def_#00', 'small_coffin_#00'] ] ], 'message_key' => 'read_blueprint' ],
+                'bp_bunker_4'   => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_water_#02', 'small_castle_#00', 'small_arma_#00', 'small_slave_#00', 'small_strategy_#01'] ] ],                                                                                         'message_key' => 'read_blueprint' ],
+
+                'bp_hospital_2' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['item_plate_#00', 'small_eden_#00', 'small_chicken_#00', 'small_cemetery_#00', 'small_spa4souls_#01', 'small_saw_#00'] ] ],                                                                            'message_key' => 'read_blueprint' ],
+                'bp_hospital_3' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['item_digger_#00', 'item_boomfruit_#01', 'item_vest_on_#00', 'small_tourello_#01', 'small_falsecity_#00', 'small_trashclean_#00', 'small_infirmary_#00', 'item_surv_book_#00', 'small_sprinkler_#00', 'small_coffin_#00'] ] ], 'message_key' => 'read_blueprint' ],
+                'bp_hospital_4' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_derrick_#00', 'small_crow_#00', 'small_pmvbig_#00', 'small_trash_#01', 'small_balloon_#00'] ] ],                                                                                                'message_key' => 'read_blueprint' ],
             ],
 
             'heroics' => [
@@ -117,5 +143,12 @@ class ActionDataService implements FixtureProcessorInterface {
 
             ],
         ]);
+
+        $data['meta_requirements'] = array_merge_recursive(
+            $data['meta_requirements'],
+            $requirement_container->toArray()
+        );
+
+        array_walk_recursive( $data, fn(&$value) => is_a( $value, ArrayDecoratorReadInterface::class ) ? $value = $value->toArray() : $value );
     }
 }

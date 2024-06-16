@@ -1,7 +1,7 @@
-commit 4fe5a2620e6e6dda5e842640674d8efa17ee3fe6
-Author:     Benjamin Behrendt <wvsgnovize@gmail.com>
-AuthorDate: Sun May 28 17:41:25 2023 +0200
-Commit:     Benjamin Behrendt <wvsgnovize@gmail.com>
-CommitDate: Sun May 28 17:41:25 2023 +0200
+commit ea2477ca891ad228863ba157103e358160878abd
+Author:     Dylan57 <dylandep57@gmail.com>
+AuthorDate: Fri Jul 7 22:34:54 2023 +0200
+Commit:     Dylan57 <dylandep57@gmail.com>
+CommitDate: Fri Jul 7 22:34:54 2023 +0200
 
-    Adjust award fixtures to new format
+    Add unset for new e-ruins blueprints + fix mistakes
