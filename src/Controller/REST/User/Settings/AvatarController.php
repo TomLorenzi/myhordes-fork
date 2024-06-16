@@ -89,9 +89,10 @@ class AvatarController extends AbstractController
                     'edit_now' => $trans->trans('Bearbeiten', [], 'soul'),
 
                     'compression' => $trans->trans('Bildformat', [], 'soul'),
-                    'compression_help' => $trans->trans('Die empfohlene Einstellung erzeugt in den allermeisten Fällen ein Bild in bestmöglicher Qualität. In seltenen Fällen, insbesondere bei sehr dunklen Bildern, kann das Ergebnis jedoch verwaschen aussehen. Versuche in diesem Fall, die alternative Option auszuwählen.', [], 'soul'),
-                    'compression_avif' => $trans->trans('Empfohlen (bevorzugt AV1)', [], 'soul'),
-                    'compression_webp' => $trans->trans('Alternativ (bevorzugt WebP)', [], 'soul'),
+                    'compression_help'   => $trans->trans('Die empfohlene Einstellung erzeugt in den allermeisten Fällen ein Bild in bestmöglicher Qualität. In seltenen Fällen, insbesondere bei sehr dunklen Bildern, kann das Ergebnis jedoch verwaschen aussehen. Versuche in diesem Fall, die alternative Option auszuwählen.', [], 'soul'),
+                    'compression_avif'   => $trans->trans('Empfohlen (bevorzugt AV1)', [], 'soul'),
+                    'compression_webp'   => $trans->trans('Alternativ (bevorzugt WebP)', [], 'soul'),
+                    'compression_noloss' => $trans->trans('Verlustlos (bevorzugt WebP, empfehlenswert für Pixel Art)', [], 'soul'),
                 ],
             ]
         ]);
@@ -183,6 +184,8 @@ class AvatarController extends AbstractController
     ): JsonResponse {
         $payload = $parser->get_base64('data');
         $format = $parser->get('format', 'avif');
+        $lossless = $format === 'lossless';
+        if ($lossless) $format = 'webp';
 
         $user = $this->getUser();
         if ($userHandler->isRestricted($user, AccountRestriction::RestrictionProfileAvatar))
@@ -220,12 +223,12 @@ class AvatarController extends AbstractController
         if (max( $image->width, $image->height ) > $final_d)
             ImageService::resize( $image, $final_d, $final_d, bestFit: true );
 
-        $converter_formats = ImageService::getCompressionOptions( $image, $format );
+        $converter_formats = ImageService::getCompressionOptions( $image, $format, $lossless );
 
         $format = null;
         $data = null;
         foreach ($converter_formats as $test_format) {
-            if (!($test_data = ImageService::save( $image, $test_format ))) continue;
+            if (!($test_data = ImageService::save( $image, $test_format, $lossless ? 1.0 : 0.9 ))) continue;
             if ($data === null || strlen( $data ) > strlen( $test_data )) {
                 $format = $test_format;
                 $data = $test_data;
