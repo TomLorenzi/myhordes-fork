@@ -759,7 +759,7 @@ class XMLv2Controller extends CoreController {
             ]
         ];
 
-        $avatar = $this->getAvatarInfo($user);
+        $avatar = $user ? $this->getAvatarInfo($user) : null;
         if($user && $secure){
             if ($citizen = $user->getActiveCitizen()) {
                 try {
