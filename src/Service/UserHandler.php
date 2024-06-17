@@ -478,6 +478,7 @@ class UserHandler
 
 		$parts = explode('@', $mail, 2);
 		if (count($parts) < 2) return false;
+        if (str_contains($parts[0], '+')) return false;
 		$parts = explode('.', $parts[1]);
 
 		$test = '';
@@ -500,7 +501,7 @@ class UserHandler
             $result = json_decode(curl_exec($ch) ?: '[]', true) ?? [];
             curl_close($ch);
 
-            if ($result["disposable"] ?? null) {
+            if ($result["disposable"] === 'true') {
                 // It is, let's deny it
                 // For quicker response, we save the domain in the AntiSpam list
                 $domain = substr($mail, stripos($mail, '@') + 1);
