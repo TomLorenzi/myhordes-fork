@@ -490,27 +490,28 @@ class UserHandler
 			}
 		}
 
-		// Let's check against Debounce.io if the email is disposable
-		$ch = curl_init("https://disposable.debounce.io/?email=$mail");
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_HEADER, false);
+        try {
+            // Let's check against Debounce.io if the email is disposable
+            $ch = curl_init("https://disposable.debounce.io/?email=$mail");
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HEADER, false);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 5000);
 
-		$result = json_decode(curl_exec($ch), true);
-		curl_close($ch);
+            $result = json_decode(curl_exec($ch) ?: '[]', true) ?? [];
+            curl_close($ch);
 
-		if ($result["disposable"]) {
-			// It is, let's deny it
-			// For quicker response, we save both email and domain in the AntiSpam list
-			$domain = substr($mail, stripos($mail, '@') + 1);
-			$blackList = new AntiSpamDomains();
-			$blackList->setType(DomainBlacklistType::EmailDomain)->setDomain(DomainBlacklistType::EmailDomain->convert( $domain ));
-			$this->entity_manager->persist($blackList);
-			$blackList = new AntiSpamDomains();
-			$blackList->setType(DomainBlacklistType::EmailAddress)->setDomain(DomainBlacklistType::EmailAddress->convert( $mail ));
-			$this->entity_manager->persist($blackList);
-			$this->entity_manager->flush();
-			return false;
-		}
+            if ($result["disposable"] ?? null) {
+                // It is, let's deny it
+                // For quicker response, we save the domain in the AntiSpam list
+                $domain = substr($mail, stripos($mail, '@') + 1);
+                $blackList = new AntiSpamDomains();
+                $blackList->setType(DomainBlacklistType::EmailDomain)->setDomain(DomainBlacklistType::EmailDomain->convert( $domain ));
+                $this->entity_manager->persist($blackList);
+                $this->entity_manager->flush();
+                return false;
+            }
+        } catch (\Throwable $th) {}
+
 		return true;
 	}
 
