@@ -52,7 +52,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 #[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
 class PublicController extends CustomAbstractController
 {
-    protected function addDefaultTwigArgs(?string $section = null, ?array $data = null): array {
+	protected function addDefaultTwigArgs(?string $section = null, ?array $data = null): array {
         $data = parent::addDefaultTwigArgs($section, $data);
 
         $headerStat = $this->entity_manager->getRepository(HeaderStat::class)->findOneBy([], ['timestamp' => 'DESC']);
@@ -358,32 +358,12 @@ class PublicController extends CustomAbstractController
             ],
             'mail1' => [
                 new Constraints\Email( message: $translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login')),
-                new Constraints\Callback( [ 'callback' => function(string $mail, ExecutionContextInterface $context) use ($entityManager,$translator) {
-                    $repo = $entityManager->getRepository(AntiSpamDomains::class);
-
-                    if ($repo->findOneBy( ['type' => DomainBlacklistType::EmailAddress, 'domain' => DomainBlacklistType::EmailAddress->convert( $mail )] )) {
-                        $context->buildViolation($translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login'))
-                            ->atPath('mail1')
-                            ->addViolation();
-                        return;
-                    }
-
-                    $parts = explode('@', $mail, 2);
-                    if (count($parts) < 2) return;
-                    $parts = explode('.', $parts[1]);
-
-                    $test = '';
-                    while (!empty($parts)) {
-                        $d = array_pop($parts);
-                        if (empty($d)) continue;
-                        $test = $d . (empty($test) ? '' : ".{$test}");
-                        if ($repo->findOneBy(['domain' => DomainBlacklistType::EmailDomain->convert($test), 'type' => DomainBlacklistType::EmailDomain])) {
-                            $context->buildViolation($translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login'))
-                                ->atPath('mail1')
-                                ->addViolation();
-                        }
-                    }
-                } ] )
+                new Constraints\Callback( [ 'callback' => function(string $mail, ExecutionContextInterface $context) use ($translator, $userHandler) {
+					if (!$userHandler->isEmailValid($mail)) {
+						$context->buildViolation($translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login'))->atPath('mail1')->addViolation()
+						;
+					}
+				} ] )
             ],
             'mail2' => new Constraints\EqualTo(
                 ['value' => $parser->trimmed( 'mail1'), 'message' => $translator->trans('Die eingegebenen E-Mail Adressen stimmen nicht überein.', [], 'login')]),
@@ -620,30 +600,12 @@ class PublicController extends CustomAbstractController
                 'fields' => [
                     'mail1' => [
                         new Constraints\Email( message: $translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login')),
-                        new Constraints\Callback( [ 'callback' => function(string $mail, ExecutionContextInterface $context) use ($translator) {
-                            $repo = $this->entity_manager->getRepository(AntiSpamDomains::class);
-                            if ($repo->findOneBy( ['type' => DomainBlacklistType::EmailAddress, 'domain' => DomainBlacklistType::EmailAddress->convert( $mail )] )) {
-                                $context->buildViolation($translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login'))
-                                    ->atPath('mail1')
-                                    ->addViolation();
-                                return;
-                            }
-
-                            $parts = explode('@', $mail, 2);
-                            if (count($parts) < 2) return;
-                            $parts = explode('.', $parts[1]);
-
-                            $test = '';
-                            while (!empty($parts)) {
-                                $d = array_pop($parts);
-                                if (empty($d)) continue;
-                                $test = $d . (empty($test) ? '' : ".{$test}");
-                                if ($repo->findOneBy(['domain' => DomainBlacklistType::EmailDomain->convert($test), 'type' => DomainBlacklistType::EmailDomain])) {
-                                    $context->buildViolation($translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login'))
-                                        ->atPath('mail1')
-                                        ->addViolation();
-                                }
-                            }
+                        new Constraints\Callback( [ 'callback' => function(string $mail, ExecutionContextInterface $context) use ($translator, $userHandler) {
+							if (!$userHandler->isEmailValid($mail)) {
+								$context->buildViolation($translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login'))
+									->atPath('mail1')
+									->addViolation();
+							}
                         } ] )
                     ],
                     'mail2' => new Constraints\EqualTo(
