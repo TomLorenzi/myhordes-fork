@@ -470,6 +470,50 @@ class UserHandler
         return ($disable_preg || !preg_match('/[^\p{L}\w]/u', $name)) && mb_strlen($name) >= 3 && !$too_long && $closestDistance[0] > $levenshtein_max;
     }
 
+	public function isEmailValid(string $mail): bool {
+		$repo = $this->entity_manager->getRepository(AntiSpamDomains::class);
+		if ($repo->findOneBy( ['type' => DomainBlacklistType::EmailAddress, 'domain' => DomainBlacklistType::EmailAddress->convert( $mail )] )) {
+			return false;
+		}
+
+		$parts = explode('@', $mail, 2);
+		if (count($parts) < 2) return false;
+		$parts = explode('.', $parts[1]);
+
+		$test = '';
+		while (!empty($parts)) {
+			$d = array_pop($parts);
+			if (empty($d)) continue;
+			$test = $d . (empty($test) ? '' : ".{$test}");
+			if ($repo->findOneBy(['domain' => DomainBlacklistType::EmailDomain->convert($test), 'type' => DomainBlacklistType::EmailDomain])) {
+				return false;
+			}
+		}
+
+		// Let's check against Debounce.io if the email is disposable
+		$ch = curl_init("https://disposable.debounce.io/?email=$mail");
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_HEADER, false);
+
+		$result = json_decode(curl_exec($ch), true);
+		curl_close($ch);
+
+		if ($result["disposable"]) {
+			// It is, let's deny it
+			// For quicker response, we save both email and domain in the AntiSpam list
+			$domain = substr($mail, stripos($mail, '@') + 1);
+			$blackList = new AntiSpamDomains();
+			$blackList->setType(DomainBlacklistType::EmailDomain)->setDomain($domain);
+			$this->entity_manager->persist($blackList);
+			$blackList = new AntiSpamDomains();
+			$blackList->setType(DomainBlacklistType::EmailAddress)->setDomain($mail);
+			$this->entity_manager->persist($blackList);
+			$this->entity_manager->flush();
+			return false;
+		}
+		return true;
+	}
+
     public function getMaximumEntryHidden(User $user): int {
         $limit = 0;
         if($this->hasSkill($user, 'manipulator'))
