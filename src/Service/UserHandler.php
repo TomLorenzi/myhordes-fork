@@ -485,7 +485,7 @@ class UserHandler
 			$d = array_pop($parts);
 			if (empty($d)) continue;
 			$test = $d . (empty($test) ? '' : ".{$test}");
-			if ($repo->findOneBy(['domain' => DomainBlacklistType::EmailDomain->convert($test), 'type' => DomainBlacklistType::EmailDomain])) {
+			if ($repo->findOneBy(['type' => DomainBlacklistType::EmailDomain, 'domain' => DomainBlacklistType::EmailDomain->convert($test)])) {
 				return false;
 			}
 		}
@@ -503,10 +503,10 @@ class UserHandler
 			// For quicker response, we save both email and domain in the AntiSpam list
 			$domain = substr($mail, stripos($mail, '@') + 1);
 			$blackList = new AntiSpamDomains();
-			$blackList->setType(DomainBlacklistType::EmailDomain)->setDomain($domain);
+			$blackList->setType(DomainBlacklistType::EmailDomain)->setDomain(DomainBlacklistType::EmailDomain->convert( $domain ));
 			$this->entity_manager->persist($blackList);
 			$blackList = new AntiSpamDomains();
-			$blackList->setType(DomainBlacklistType::EmailAddress)->setDomain($mail);
+			$blackList->setType(DomainBlacklistType::EmailAddress)->setDomain(DomainBlacklistType::EmailAddress->convert( $mail ));
 			$this->entity_manager->persist($blackList);
 			$this->entity_manager->flush();
 			return false;
