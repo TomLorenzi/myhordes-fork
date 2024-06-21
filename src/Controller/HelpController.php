@@ -12,6 +12,7 @@ use Psr\Container\NotFoundExceptionInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Attribute\Route;
+use Twig\Error\LoaderError;
 
 #[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
 #[GateKeeperProfile(allow_during_attack: true)]
@@ -23,15 +24,29 @@ class HelpController extends CustomAbstractController
             if ($partial)
                 return $this->renderBlocks( $section ? "ajax/help/$section/$page.html.twig" : "ajax/help/$page.html.twig", ["helpContent"], [], [], false, null, true);
             else {
-                $support_groups = $this->getUser() ? $this->entity_manager->getRepository(OfficialGroup::class)->findBy(['lang' => $this->getUserLanguage(), 'semantic' => OfficialGroup::SEMANTIC_SUPPORT]) : [];
+
+                $support_group = $this->getUser()
+                    ? $this->entity_manager->getRepository(OfficialGroup::class)->findOneBy(['lang' => $this->getUserLanguage(), 'semantic' => OfficialGroup::SEMANTIC_SUPPORT])
+                    : null;
+
+                $oracle_group = $this->getUser()
+                    ? $this->entity_manager->getRepository(OfficialGroup::class)->findOneBy(['lang' => $this->getUserLanguage(), 'semantic' => OfficialGroup::SEMANTIC_ORACLE])
+                    : null;
+
+                $animaction_group = $this->getUser()
+                    ? $this->entity_manager->getRepository(OfficialGroup::class)->findOneBy(['lang' => $this->getUserLanguage(), 'semantic' => OfficialGroup::SEMANTIC_ANIMACTION])
+                    : null;
+
                 return $this->render( $section ? "ajax/help/$section/$page.html.twig" : "ajax/help/$page.html.twig", $this->addDefaultTwigArgs(null, [
                     'directory' => $section,
                     'section' => $page,
                     'timezone' => date_default_timezone_get(),
-                    'support' => count($support_groups) === 1 ? $support_groups[0] : null
+                    'support' => $support_group,
+                    'oracle' => $oracle_group,
+                    'animaction' => $animaction_group,
                 ]));
             }
-        } catch (Exception $e){
+        } catch (LoaderError $e){
             return $this->redirectToRoute('help');
         }
     }

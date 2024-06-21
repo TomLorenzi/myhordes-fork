@@ -98,6 +98,8 @@ class NotificationManagerController extends AbstractController
 
                     'error_put_400' => $trans->trans('MyHordes ist nicht in der Lage, die von diesem Gerät angebotene Schnittstelle anzusprechen. Bitte versuche, dein Gerät oder Browser auf die neuste Version zu aktualisieren, oder verwende einen anderen Browser.', [], 'global'),
                     'error_put_409' => $trans->trans('Dieses Gerät ist bereits für Push-Benachrichtigungen eines anderen MyHordes-Account registriert. Ein Gerät kann nicht mehreren Accounts zugeordnet werden.', [], 'global'),
+
+                    'error_put_nsw' => $trans->trans('Dein Gerät konnte sich nicht beim Benachrichtigungsdienst anmelden. Dies kann durch einen kurzzeitigen Verbindungsausfall passieren. Möglicherweise musst du den Benachrichtigungsdienst auch zunächst in den Privatsphäre-Einstellungen deines Browsers aktivieren.', [], 'global'),
                 ],
                 'actions' => [
                     'add' => $trans->trans('Benachrichtigungen auf diesem Gerät erhalten', [], 'global'),

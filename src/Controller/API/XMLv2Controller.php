@@ -720,6 +720,26 @@ class XMLv2Controller extends CoreController {
         return $_xml->asXML();
     }
 
+    protected function getAvatarInfo(User $user): ?array {
+        // $user->getAvatar() !== null ? $user->getId() . "/" . $user->getAvatar()->getFilename() . "." . $user->getAvatar()->getFormat() : "",
+
+        $data = null;
+        if ($user->getAvatar() !== null) {
+            $data = ["attributes" => [
+                'url' => "{$user->getId()}/{$user->getAvatar()->getFilename()}.{$user->getAvatar()->getFormat()}",
+                'x' => $user->getAvatar()->getX(),
+                'y' => $user->getAvatar()->getY(),
+                'classic' => $user->getAvatar()->isClassic() ? 1 : 0,
+                'format' => $user->getAvatar()->getFormat(),
+            ]];
+
+            if (!$user->getAvatar()->isClassic() && $user->getAvatar()->getSmallName())
+                $data['attributes']['compressed'] = "{$user->getId()}/{$user->getAvatar()->getSmallName()}.{$user->getAvatar()->getFormat()}";
+        }
+
+        return $data;
+    }
+
     protected function getHeaders(?User $user = null, string $language = 'de', bool $secure = false): array {
         $base_url = Request::createFromGlobals()->getHost() . Request::createFromGlobals()->getBasePath();
         $icon_path = $base_url . '/build/images/';
@@ -733,12 +753,13 @@ class XMLv2Controller extends CoreController {
                     'secure' => intval($secure),
                     'author' => 'MyHordes',
                     'language' => $language,
-                    'version' => '2.1.3',
+                    'version' => '2.1.10',
                     'generator' => 'symfony',
                 ],
             ]
         ];
 
+        $avatar = $user ? $this->getAvatarInfo($user) : null;
         if($user && $secure){
             if ($citizen = $user->getActiveCitizen()) {
                 try {
@@ -751,6 +772,7 @@ class XMLv2Controller extends CoreController {
 
                 /** @var Town $town */
                 $town = $citizen->getTown();
+
                 $headers['headers']['owner'] = [
                     'citizen' => [
                         "attributes" => [
@@ -766,6 +788,7 @@ class XMLv2Controller extends CoreController {
                         ],
                         "cdata_value" => $citizen->getHome()->getDescription()
                     ],
+                    ...($avatar ? ['avatar' => $avatar] : [])
                 ];
                 if(!$citizen->getTown()->getChaos()){
                     $headers['headers']['owner']['citizen']['attributes']['x'] = $offset['x'] + ($citizen->getZone() !== null ? $citizen->getZone()->getX() : 0);
@@ -840,7 +863,8 @@ class XMLv2Controller extends CoreController {
                             'id' => $user->getId(),
                         ],
                         "cdata_value" => ""
-                    ]
+                    ],
+                    ...($avatar ? ['avatar' => $avatar] : [])
                 ];
             }
         }

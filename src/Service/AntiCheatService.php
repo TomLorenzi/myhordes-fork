@@ -8,22 +8,22 @@ use App\Entity\User;
 use App\Structures\CheatTable;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
-use Doctrine\DBAL\LockMode;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\NoResultException;
 use Doctrine\ORM\QueryBuilder;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Lock\LockFactory;
+use Symfony\Component\Lock\Store\SemaphoreStore;
 use Symfony\Contracts\Cache\ItemInterface;
 use Symfony\Contracts\Cache\TagAwareCacheInterface;
 use WhichBrowser\Parser;
 
-class AntiCheatService {
+readonly class AntiCheatService {
 
     public function __construct(
-        private readonly ConfMaster $conf,
-        private readonly EntityManagerInterface $em,
-        private readonly UserHandler $user_handler,
-        private readonly TagAwareCacheInterface $gameCachePool,
+        private EntityManagerInterface $em,
+        private UserHandler            $user_handler,
+        private TagAwareCacheInterface $gameCachePool,
+        private Locksmith              $locksmith,
     ) { }
 
     public function cleanseConnectionIdentifiers() {
@@ -41,7 +41,7 @@ class AntiCheatService {
     }
 
     public function recordConnection(?User $user, Request $request) {
-        if (!$user) return;
+        if (!$user || in_array('IS_IMPERSONATOR', $user->getRoles() ?? [])) return;
 
         $proxies = $request->getClientIps();
         $client_ip = array_pop($proxies);
@@ -58,32 +58,36 @@ class AntiCheatService {
         $prev_segment = $this->blockTime( new DateTime(), false );
         $next_segment = $this->blockTime( new DateTime(), true );
 
-        $this->em->wrapInTransaction(function(EntityManagerInterface $em) use ($user, $request, $client_ip, $prev_segment, $next_segment, $agent_string) {
-            try {
-                $existing = $em->getRepository(Activity::class)->createQueryBuilder('a')
-                    ->andWhere('a.user = :user')->setParameter('user', $user)
-                    ->andWhere('a.ip = :ip')->setParameter('ip', $client_ip)
-                    ->andWhere('a.agent = :agent')->setParameter('agent', $agent_string)
-                    ->andWhere('a.domain = :host')->setParameter('host', $request->getHost())
-                    ->andWhere('a.blockEnd >= :block')->setParameter('block', $prev_segment)
-                    ->orderBy('a.blockEnd', 'DESC')
-                    ->setMaxResults(1)
-                    ->getQuery()->setLockMode(LockMode::PESSIMISTIC_WRITE)->getSingleResult();
-            } catch (NoResultException $e) {
-                $existing = (new Activity())
-                    ->setUser( $user )
-                    ->setIp($client_ip)
-                    ->setAgent($agent_string)
-                    ->setDomain($request->getHost())
-                    ->setBlockBegin($prev_segment)
-                    ->setDateTimeBegin(new DateTime())
-                    ->setRequests(0);
+        if ($lock = $this->locksmith->getAcquiredLock("activity_record_{$user->getId()}_{$client_ip}")) {
+            $count = $this->em->getRepository(Activity::class)->createQueryBuilder('a')
+                ->update()
+                ->set('a.blockEnd', ':end')->setParameter('end', $next_segment)
+                ->set('a.dateTimeEnd', ':now')->setParameter('now', new DateTime())
+                ->set('a.requests', 'a.requests + 1')
+                ->andWhere('a.user = :user')->setParameter('user', $user)
+                ->andWhere('a.ip = :ip')->setParameter('ip', $client_ip)
+                ->andWhere('a.agent = :agent')->setParameter('agent', $agent_string)
+                ->andWhere('a.domain = :host')->setParameter('host', $request->getHost())
+                ->andWhere('a.blockEnd >= :block')->setParameter('block', $prev_segment)
+                ->getQuery()->execute();
+
+            if ($count === 0) {
+                $this->em->persist((new Activity())
+                                       ->setUser($user)
+                                       ->setIp($client_ip)
+                                       ->setAgent($agent_string)
+                                       ->setDomain($request->getHost())
+                                       ->setBlockBegin($prev_segment)
+                                       ->setDateTimeBegin(new DateTime())
+                                       ->setRequests(0)
+                                       ->setBlockEnd($next_segment)->setDateTimeEnd(new DateTime())
+                                       ->setRequests(1)
+                );
+                $this->em->flush();
             }
 
-            $existing->setBlockEnd($next_segment)->setDateTimeEnd(new DateTime())->setRequests( $existing->getRequests() + 1 );
-            $em->persist( $existing );
-        });
-
+            $lock->release();
+        }
     }
 
     /**

@@ -155,7 +155,7 @@ const TwinoEditorControlsTabListOverlay = ({emotes,show,current,mounted}: {emote
     </div>
 }
 
-const ControlButton = ({fa = null, img = null, label = null, control = null, handler, dialogHandler = null, children = null, dialogTitle = null, manualConfirm = true}: ControlButtonDefinition & {handler: ()=>void|boolean, dialogHandler?: (boolean)=>void|boolean, dialogTitle?: string|null, manualConfirm?: boolean}) => {
+const ControlButton = ({fa = null, img = null, label = null, control = null, handler, dialogHandler = null, children = null, dialogTitle = null, manualConfirm = true, preConfirmHandler = null}: ControlButtonDefinition & {handler: ()=>void|boolean, dialogHandler?: (boolean)=>void|boolean, dialogTitle?: string|null, manualConfirm?: boolean, preConfirmHandler?: (HTMLFormElement)=>void}) => {
     const globals = useContext(Globals);
 
     const button = useRef<HTMLDivElement>();
@@ -177,6 +177,7 @@ const ControlButton = ({fa = null, img = null, label = null, control = null, han
     }, [])
 
     const confirmDialog = () => {
+        if (preConfirmHandler) preConfirmHandler(form.current);
         if (!form.current.checkValidity()) return;
         const l = (dialogHandler === null || dialogHandler(true) !== false) && handler() !== false;
         if (l) dialog.current.close();
@@ -203,7 +204,11 @@ const ControlButton = ({fa = null, img = null, label = null, control = null, han
         {children && <dialog ref={dialog}>
             <div className="modal-title">{dialogTitle ?? label}</div>
             <form method="dialog" ref={form} onKeyDown={e => {
-                if (e.key === "enter") confirmDialog();
+                if (e.key.toLowerCase() === "enter") {
+                    confirmDialog();
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
             }} onSubmit={() => confirmDialog()}>
                 <div className="modal-content">{children}</div>
                 <div className="modal-actions">
@@ -232,20 +237,26 @@ const ControlButtonNodeWrap = ({
                                    children = null,
                                    dialogHandler = null,
                                    dialogTitle = null,
+                                   preConfirmHandler = null,
                                }: ControlButtonDefinition & BaseNodeDefinition & ExtendedNodeDefinition & {
     children?: any | null
     dialogHandler?: (boolean)=>void|boolean,
-    dialogTitle?: string|null
+    dialogTitle?: string|null,
+    preConfirmHandler?: (HTMLFormElement)=>void
 }) => {
 
     const globals = useContext(Globals);
 
-    return <ControlButton {...{fa, label, control, dialogHandler, dialogTitle}} handler={() => {
+    return <ControlButton {...{fa, label, control, dialogHandler, dialogTitle, preConfirmHandler}} handler={() => {
+        const fixValue = (link: string|null|undefined): string|null => {
+            return link?.replaceAll('[', '［').replaceAll(']', '］') ?? null;
+        }
+
         const body = `${globals.getField('body') ?? ''}`;
         const selection = [globals.selection.start, globals.selection.end]
 
         const rawSelection = body.slice(selection[0], selection[1]);
-        const value = valueCallback ? valueCallback(rawSelection) : null;
+        const value = valueCallback ? fixValue(valueCallback(rawSelection)) : null;
         const content = contentCallback ? contentCallback(rawSelection) : null;
 
         const open = `[${node}${value ? `=${value}` : ''}]`;
@@ -356,11 +367,13 @@ const ControlButtonInsertURL = ({
                                     control,
                                     dialogTitle = null,
                                     urlField,
-                                    textField
+                                    textField,
+                                    autoCompleteUrl,
                                 }: BaseNodeDefinition & ControlButtonDefinition & {
     dialogTitle?: string | null,
     urlField: string | null,
-    textField: string | null
+    textField: string | null,
+    autoCompleteUrl: boolean | null
 }) => {
 
     const globals = useContext(Globals);
@@ -368,8 +381,15 @@ const ControlButtonInsertURL = ({
     const text = useRef<HTMLInputElement>()
     const link = useRef<HTMLInputElement>()
 
-    const checkLink = (link: string): boolean => {
-        return link.match(/^https?:\/\/(\w+:?\w*)?(\S+)(:\d+)?(?:\/|\/([\w#!:.?+=&%\-\/]))?$/) !== null;
+    const fixLink = (link: string): string => {
+        return link.replaceAll('[', '%5B').replaceAll(']', '%5D')
+    }
+
+    const checkLink = (link: string, noProtocol: boolean = false): boolean => {
+        return link.match(noProtocol
+            ? /^(\w+:?\w*)?(\S+)(:\d+)?(?:\/|\/([\w#!:.?+=&%\-\/]))?$/
+            : /^https?:\/\/(\w+:?\w*)?(\S+)(:\d+)?(?:\/|\/([\w#!:.?+=&%\-\/]))?$/
+        ) !== null;
     }
 
     return <ControlButtonNodeWrap {...{node,label,control,fa,block,dialogTitle}}
@@ -380,7 +400,7 @@ const ControlButtonInsertURL = ({
                 if (text.current && link.current) {
                     if (s && checkLink(s)) {
                         text.current.value = '';
-                        link.current.value = s;
+                        link.current.value = fixLink(s);
                         window.requestAnimationFrame(() => text.current.focus());
                     } else {
                         text.current.value = s;
@@ -392,12 +412,19 @@ const ControlButtonInsertURL = ({
                 return true;
             } else {
                 if (text.current && link.current && checkLink(text.current.value) && !checkLink(link.current.value))
-                    link.current.value = text.current.value;
+                    link.current.value = fixLink(text.current.value);
 
                 if (link.current && text.current && !text.current.value) text.current.value = link.current.value;
 
                 return !link.current || checkLink(link.current.value);
             }
+        }}
+        preConfirmHandler={() => {
+            if (link.current && !checkLink( link.current.value ) && checkLink( link.current.value, true ))
+                link.current.value = `https://${link.current.value}`
+
+            if (link.current)
+                link.current.value = fixLink(link.current.value);
         }}
     >
         <div className="flex">
@@ -420,6 +447,7 @@ const ControlButtonInsertLink = () => {
     return <ControlButtonInsertURL node="link" label={globals.strings.controls.link} control="k" fa="link"
                                    urlField={globals.strings.controls["link-url"]}
                                    textField={globals.strings.controls["link-text"]}
+                                   autoCompleteUrl={true}
     />
 }
 const ControlButtonInsertImage = () => {
@@ -427,6 +455,7 @@ const ControlButtonInsertImage = () => {
     return <ControlButtonInsertURL node="image" label={globals.strings.controls.image} fa="image" block={false}
                                    urlField={globals.strings.controls["image-url"]}
                                    textField={globals.strings.controls["image-text"]}
+                                   autoCompleteUrl={false}
     />
 }
 
@@ -581,7 +610,7 @@ const ControlButtonInsertWithAttribute = ({
     attribute: string,
     dialogTitle?: string | null
 }) => <ControlButtonInsertURL {...{node, label, fa, block, control, dialogTitle}} urlField={null}
-                              textField={attribute}/>
+                              textField={attribute} autoCompleteUrl={false}/>
 
 const EmoteTabSection = ({emotes}: { emotes: null | Array<Emote> }) => {
     return <div className="lightbox">

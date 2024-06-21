@@ -1182,6 +1182,12 @@ class JSONv1Controller extends CoreController {
             }
         }
 
+		if (!$this->conf->getTownConfiguration($this->town)->get(TownConf::CONF_FEATURE_XML, true)) {
+			return [
+				'error' => 'ApiDisabled'
+			];
+		}
+
         $data = [];
         foreach ($fields as $field) {
             if (is_array($field)) {
@@ -1505,12 +1511,26 @@ class JSONv1Controller extends CoreController {
                 case "locale":
                     $user_data[$field] = $user->getLanguage();
                     break;
-                case "avatar":
+                case "avatar": case "avatarData":
                     $has_avatar = $user->getAvatar();
-                    if ($has_avatar) {
+                    if ($has_avatar && $field === "avatar") {
                         $user_data[$field] = $this->generateUrl('app_web_avatar', ['uid' => $user->getId(), 'name' => $has_avatar->getFilename(),
-                                                                                   'ext' => $has_avatar->getFormat()
-                        ],UrlGeneratorInterface::ABSOLUTE_URL);
+                            'ext' => $has_avatar->getFormat()
+                        ],                                      UrlGeneratorInterface::ABSOLUTE_URL);
+                    } elseif ($has_avatar && $field === "avatarData") {
+                        $user_data[$field] = [
+                            'url' => $this->generateUrl('app_web_avatar', ['uid' => $user->getId(), 'name' => $has_avatar->getFilename(),
+                                'ext' => $has_avatar->getFormat()
+                            ], UrlGeneratorInterface::ABSOLUTE_URL),
+                            'x' => $user->getAvatar()->getX(),
+                            'y' => $user->getAvatar()->getY(),
+                            'classic' => $user->getAvatar()->isClassic(),
+                            'format' => $user->getAvatar()->getFormat(),
+                        ];
+                        if (!$user->getAvatar()->isClassic() && $user->getAvatar()->getSmallName())
+                            $user_data[$field]['compressed'] = $this->generateUrl('app_web_avatar', ['uid' => $user->getId(), 'name' => $has_avatar->getSmallName(),
+                                'ext' => $has_avatar->getFormat()
+                            ], UrlGeneratorInterface::ABSOLUTE_URL);
                     } else {
                         $user_data[$field] = null;
                     }
@@ -1535,77 +1555,73 @@ class JSONv1Controller extends CoreController {
                     break;
             }
             if ($current_citizen) {
-
                 if (!isset($this->town) && $this->user->getId() == $user->getId()) {
                     $return = $this->getTownInformation($current_citizen->getTown()->getId());
                     if (!empty($return)) {
                         return $return;
                     }
                 }
-
-                switch ($field) {
-                    case "homeMessage":
-                        $user_data[$field] = $current_citizen->getHome()->getDescription();
-                        break;
-                    case "hero":
-                        $user_data[$field] = $current_citizen->getProfession()->getHeroic();
-                        break;
-                    case "dead":
-                        $user_data[$field] = !$current_citizen->getAlive();
-                        break;
-                    case "out":
-                        $user_data[$field] = (bool)$current_citizen->getZone();
-                        break;
-                    case "ban":
-                        $user_data[$field] = $current_citizen->getBanished();
-                        break;
-                    case "baseDef":
-                        $user_data[$field] = $current_citizen->getHome()->getPrototype()->getDefense();
-                        break;
-                    case "x":
-                    case "y":
-                        $zone = $current_citizen->getTown()->getChaos() ? null : $current_citizen->getZone();
-                        $method = 'get' . ucfirst($field);
-                        if ($field == "x") {
-                            $offset = $this->xTown;
-                            $sens = 1;
-                        } else {
-                            $offset = $this->yTown;
-                            $sens = -1;
-                        }
-                        $user_data[$field] = $zone ? $offset + $zone->$method() * $sens : $offset;
-                        break;
-                    case "mapId":
-                        $user_data[$field] = $current_citizen->getTown()->getId();
-                        break;
-                    case "map":
-                        $user_data[$field] = $this->getMapData(['date', 'days', 'season', 'id', 'hei', 'wid', 'bonusPts', 'conspiracy', 'custom'],
-                                                               [$current_citizen->getTown()->getId()]);
-                        break;
-                    case "job":
-                        $user_data[$field] = $this->getJobData($current_citizen);
-                        break;
-                }
-
-
+					switch ($field) {
+						case "homeMessage":
+							$user_data[$field] = $current_citizen->getHome()->getDescription();
+							break;
+						case "hero":
+							$user_data[$field] = $current_citizen->getProfession()->getHeroic();
+							break;
+						case "dead":
+							$user_data[$field] = !$current_citizen->getAlive();
+							break;
+						case "out":
+							$user_data[$field] = (bool)$current_citizen->getZone();
+							break;
+						case "ban":
+							$user_data[$field] = $current_citizen->getBanished();
+							break;
+						case "baseDef":
+							$user_data[$field] = $current_citizen->getHome()->getPrototype()->getDefense();
+							break;
+						case "x":
+						case "y":
+							$zone = $current_citizen->getTown()->getChaos() ? null : $current_citizen->getZone();
+							$method = 'get' . ucfirst($field);
+							if ($field == "x") {
+								$offset = $this->xTown;
+								$sens = 1;
+							} else {
+								$offset = $this->yTown;
+								$sens = -1;
+							}
+							$user_data[$field] = $zone ? $offset + $zone->$method() * $sens : $offset;
+							break;
+						case "mapId":
+							$user_data[$field] = $current_citizen->getTown()->getId();
+							break;
+						case "map":
+							$user_data[$field] = $this->getMapData(['date', 'days', 'season', 'id', 'hei', 'wid', 'bonusPts', 'conspiracy', 'custom'],
+																   [$current_citizen->getTown()->getId()]);
+							break;
+						case "job":
+							$user_data[$field] = $this->getJobData($current_citizen);
+							break;
+					}
             }
 
             if (is_array($field)) {
                 foreach ($field as $fieldName => $fieldValues) {
                     if ($current_citizen) {
-                        switch ($fieldName) {
-                            case "map":
-                                $fields_map = ['date', 'days', 'season', 'id', 'hei', 'wid', 'bonusPts', 'conspiracy', 'custom'];
-                                if ($user->getId() == $this->user->getId() && !empty($fieldValues['fields'])) {
-                                    $fields_map = $fieldValues['fields'];
-                                }
-                                $user_data[$fieldName] = $this->getMapData($fields_map, [$current_citizen->getTown()->getId()]);
-                                break;
-                            case "job":
-                                $user_data[$fieldName] =
-                                    $this->getJobData($current_citizen, $fieldValues['fields'] ?? []);
-                                break;
-                        }
+						switch ($fieldName) {
+							case "map":
+								$fields_map = ['date', 'days', 'season', 'id', 'hei', 'wid', 'bonusPts', 'conspiracy', 'custom'];
+								if ($user->getId() == $this->user->getId() && !empty($fieldValues['fields'])) {
+									$fields_map = $fieldValues['fields'];
+								}
+								$user_data[$fieldName] = $this->getMapData($fields_map, [$current_citizen->getTown()->getId()]);
+								break;
+							case "job":
+								$user_data[$fieldName] =
+									$this->getJobData($current_citizen, $fieldValues['fields'] ?? []);
+								break;
+						}
                     }
                     switch($fieldName){
                         case "playedMaps":

@@ -65,7 +65,7 @@ class GitlabController extends CustomAbstractCoreController
     #[Route(path: '', name: 'base', methods: ['GET'])]
     public function index(ConfMaster $confMaster, UserHandler $handler): JsonResponse {
 
-        $blocked = !$this->getUser() || ($handler->isRestricted($this->getUser(), AccountRestriction::RestrictionReportToGitlab));
+        $blocked = !$this->getUser() || ($handler->isRestricted($this->getUser(), AccountRestriction::RestrictionReportToGitlab)) || $handler->isRestricted( $this->getUser(), AccountRestriction::RestrictionGameplay );
 
         return new JsonResponse([
             'strings' => [
@@ -123,7 +123,7 @@ class GitlabController extends CustomAbstractCoreController
     #[Route(path: '', name: 'create_issue', methods: ['PUT'])]
     public function create_issue(ParameterBagInterface $params, JSONRequestParser $parser, ConfMaster $confMaster, VersionManagerInterface $version, UserHandler $handler, RateLimitingFactoryProvider $rateLimiter): JsonResponse {
 
-        if ($handler->isRestricted($this->getUser(), AccountRestriction::RestrictionReportToGitlab))
+        if (!$this->getUser() || !$this->isGranted('ROLE_USER') || $handler->isRestricted($this->getUser(), AccountRestriction::RestrictionReportToGitlab))
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
         if ( !$this->isGranted('ROLE_ELEVATED') && !$rateLimiter->reportLimiter($this->getUser())->create( $this->getUser()->getId() )->consume( 2 )->isAccepted())

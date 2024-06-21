@@ -240,10 +240,19 @@ class AdminUserController extends AdminActionController
 
         usort($clusters, fn(ActivityCluster $a, ActivityCluster $b) => $b->getUsers()->count() <=> $a->getUsers()->count() );
 
-        $clusters = array_filter( $clusters, fn(ActivityCluster $a) => $a->getUsers()->filter(fn(User $u) => !$this->user_handler->isRestricted( $u, AccountRestriction::RestrictionGameplay ))->count() > 0 );
+        $user_list = [];
+        foreach ($clusters as $cluster)
+            foreach ($cluster->getUsers() as $user)
+                if (!isset($user_list[$user->getId()]))
+                    $user_list[$user->getId()] = [
+                        'gameban' => $this->user_handler->isRestricted( $user, AccountRestriction::RestrictionGameplay )
+                    ];
+
+        $clusters = array_filter( $clusters, fn(ActivityCluster $a) => $a->getUsers()->filter(fn(User $u) => !$user_list[$u->getId()]['gameban'])->count() > 0 );
 
         return $this->render( 'ajax/admin/users/multi_index_ac.html.twig', $this->addDefaultTwigArgs("multi_list_ac", [
-            'clusters' => $clusters
+            'clusters' => $clusters,
+            'user_data' => $user_list
         ]));
     }
 
@@ -481,7 +490,7 @@ class AdminUserController extends AdminActionController
 
         if (in_array($action, [
                 'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset', 'twin_main_full_import', 'delete', 'rename',
-                'shadow', 'whitelist', 'unwhitelist', 'link', 'unlink', 'etwin_reset', 'initiate_pw_reset', 'name_manual', 'name_auto', 'herodays',
+                'shadow', 'whitelist', 'unwhitelist', 'link', 'unlink', 'etwin_reset', 'initiate_pw_reset', 'herodays',
                 'team', 'enforce_pw_reset', 'change_mail', 'ref_rename', 'ref_disable', 'ref_enable', 'set_sponsor', 'mh_unreset', 'forget_name_history',
             ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
@@ -1337,7 +1346,7 @@ class AdminUserController extends AdminActionController
         if (!$citizen) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         switch ($parser->get('subject')) {
             case 'comment':
-                $citizen->setComment('')->getRankingEntry()->setComment('');
+                $citizen->setComment('')->getRankingEntry()->setComment('')->setCommentLocked(true);
                 $this->entity_manager->persist($citizen);
                 $this->entity_manager->persist($citizen->getRankingEntry());
                 break;
@@ -1499,7 +1508,8 @@ class AdminUserController extends AdminActionController
             $prototypes = [$prototype];
         }
 
-        foreach ( $prototypes as $pictoPrototype ) {
+        if ($number > 0)
+            foreach ( $prototypes as $pictoPrototype ) {
             $picto = $this->entity_manager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, null, $pictoPrototype);
             if (null === $picto) {
                 $picto = new Picto();
@@ -1524,6 +1534,28 @@ class AdminUserController extends AdminActionController
             }
             else $this->entity_manager->remove($picto);
         }
+        else if ($number < 0)
+            foreach ( $prototypes as $pictoPrototype ) {
+                $n = -$number;
+                /** @var Picto $picto */
+                $picto = $this->entity_manager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, null, $pictoPrototype);
+                if ($picto?->getDisabled()) $picto = null;
+
+                if ($picto?->getCount() > $n) {
+                    $picto->setCount( $picto->getCount() - $n );
+                    $this->entity_manager->persist($picto);
+                    continue;
+                } elseif ($picto) {
+                    $n -= $picto->getCount();
+                    $user->removePicto($picto);
+                    $this->entity_manager->remove($picto);
+                }
+
+                if ($n > 0)
+                    $this->addFlash('error', $this->translator->trans('{number} Auszeichnungen konnten nicht entfernt werden. Möglicherweise sind sie dem Spieler über Städte zugewiesen. In diesem Fall müssen sie über die Städteverwaltung entfernt werden.', ['number' => $n], 'admin'));
+            }
+
+
 
         $this->entity_manager->flush();
 

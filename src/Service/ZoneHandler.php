@@ -23,6 +23,7 @@ use App\Entity\ZonePrototype;
 use App\Enum\Configuration\TownSetting;
 use App\Enum\ScavengingActionType;
 use App\Enum\ZoneActivityMarkerType;
+use App\Service\Actions\Cache\InvalidateLogCacheAction;
 use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Structures\EventConf;
 use App\Structures\TownConf;
@@ -52,11 +53,13 @@ class ZoneHandler
     private EventProxyService $proxy;
 
     private InvalidateTagsInAllPoolsAction $clear;
+    private InvalidateLogCacheAction $clearLog;
 
     public function __construct(
         EntityManagerInterface $em, ItemFactory $if, LogTemplateHandler $lh, TranslatorInterface $t,
         StatusFactory $sf, RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, PictoHandler $ph, Packages $a,
-        ConfMaster $conf, TownHandler $th, GameProfilerService $gps, EventProxyService $proxy, InvalidateTagsInAllPoolsAction $clear)
+        ConfMaster $conf, TownHandler $th, GameProfilerService $gps, EventProxyService $proxy,
+        InvalidateTagsInAllPoolsAction $clear, InvalidateLogCacheAction $clearLog)
     {
         $this->entity_manager = $em;
         $this->item_factory = $if;
@@ -73,6 +76,7 @@ class ZoneHandler
         $this->gps = $gps;
         $this->proxy = $proxy;
         $this->clear = $clear;
+        $this->clearLog = $clearLog;
     }
 
     public function updateRuinZone(?RuinExplorerStats $ex): ?string {
@@ -426,6 +430,7 @@ class ZoneHandler
             foreach ($zone->getChatSilenceTimers() as $cst)
                 $this->entity_manager->remove( $cst );
             $zone->getChatSilenceTimers()->clear();
+            ($this->clearLog)($zone);
             foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter( $zone->getTown(), zone: $zone ) as $entry) {
                 /** @var TownLogEntry $entry */
                 if ($entry->getLogEntryTemplate() === null || !$entry->getLogEntryTemplate()->getNonVolatile()) {

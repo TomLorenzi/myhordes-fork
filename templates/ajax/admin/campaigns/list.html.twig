@@ -7,7 +7,7 @@
                 <div class="row header">
                     <div class="padded cell rw-5 rw-md-4 rw-sm-12">{{ 'Name'|trans({},'admin') }}</div>
                     <div class="padded cell rw-5 rw-md-4 rw-sm-8">{{ 'Einstiegspunkt'|trans({},'admin') }}</div>
-                    <div class="padded cell rw-2 rw-md-4 rw-sm-4">{{ 'Geworbene Spieler'|trans({},'admin') }}</div>
+                    <div class="padded cell rw-2 rw-md-4 rw-sm-4">{{ 'Klicks'|trans({},'admin') }} / {{ 'Geworbene Spieler'|trans({},'admin') }}</div>
                 </div>
 
                 {% for campaign in campaigns %}
@@ -15,7 +15,7 @@
                     <div class="row">
                         <div class="padded cell rw-5 rw-md-4 rw-sm-12 pointer" x-ajax-href="{{ path('admin_campaign_edit', {id: campaign.id}) }}">{{ campaign.name }}</div>
                         <div class="padded cell rw-5 rw-md-4 rw-sm-8">{{ url('campaign_redirect', {'campaign_slug': campaign.slug}) }}</div>
-                        <div class="padded cell rw-1 rw-md-2 rw-sm-2">{{ campaign.conversions.count }}</div>
+                        <div class="padded cell rw-1 rw-md-2 rw-sm-2">{{ campaign.clicks }} / {{ campaign.conversions.count }}</div>
                         <div class="padded cell rw-1 rw-md-2 rw-sm-2 right">
                             <img alt="E" src="{{ asset('build/images/forum/edit.png') }}" x-ajax-href="{{ path('admin_campaign_edit', {id: campaign.id}) }}" class="pointer" />
                             {% if is_granted("ROLE_ADMIN") %}

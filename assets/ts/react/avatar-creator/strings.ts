@@ -38,5 +38,6 @@ export type TranslationStrings = {
         compression_help: string,
         compression_avif: string,
         compression_webp: string,
+        compression_noloss: string,
     },
 }

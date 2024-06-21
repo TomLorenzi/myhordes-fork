@@ -1,5 +1,6 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Hier erhältst du Hilfe'|trans({}, 'help')|raw}}{% endblock %}
+{% macro errorLink() %}<hordes-issue-report data-pass='{{ {'Button': 'Help'}|json_encode }}' data-selector="a" data-title="{{ 'Fehler melden'|trans({}, 'global') }}"><a href="#">{{ 'Fehler melden'|trans({}, 'global') }}</a></hordes-issue-report>{% endmacro %}
 {% block helpContent %}
 <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Hier erhältst du Hilfe'|trans({},'help')|raw }}</h1>
@@ -19,15 +20,21 @@ Wenn sich ein anderer Spieler daneben benommen hat oder ausfällig geworden ist,
 Wenn du beim <strong>Bezahlen</strong> Probleme hast, kannst du dich an uns wenden, indem du uns über folgende Seite anschreibst&nbsp;: <a href="/support?go=rentabiliweb">Zahlungssupport</a>.'|trans({},'help')|raw }}
 </li> #}
 <li>{{ '<strong>EINEN BUG MELDEN:</strong>
-Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden möchtest: <a href={url_git}>Buglisten</a>.'|trans({'{url_git}': 'https://gitlab.com/eternaltwin/myhordes/myhordes/-/issues'},'help')|raw }}
+Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden möchtest: {error_link}.'|trans({'{error_link}': _self.errorLink()|raw},'help')|raw }}
 </li>
 {% if support is defined and support is not null %}
 <li>{{ '<strong>DEN SUPPORT KONTAKTIEREN:</strong>
 Um Kontakt mit den Administratoren aufzunehmen, schreibe an die <a x-group-connect="{oglink}" href="#">Offizielle Gruppe</a> des Technischen Supports.'|trans({'{oglink}': 'oglink_' ~ support.id},'help')|raw }}
 </li>
 {% endif %}
-{# <li>{{ 'Zu guter Letzt: Für sämtliche Anregungen und Fragen, die die <strong>MyHordes-Community</strong> betreffen, kannst dem <span x-ajax-href="{url_oracle}">Orakels</span> anschreiben.'|trans({},'help')|raw }}
-</li> #}
+{% if animaction is defined and animaction is not null %}
+<li>{{ 'Wenn du ein <strong>Event</strong> ausrichten oder dich über die entsprechenden Möglichkeiten hierzu informieren möchtest, kontaktiere die <a x-group-connect="{oglink}" href="#">Gilde der Animateure</a>.'|trans({'{oglink}': 'oglink_' ~ animaction.id},'help')|raw }}
+</li>
+{% endif %}
+{% if oracle is defined and oracle is not null %}
+<li>{{ 'Zu guter Letzt: Für sämtliche Anregungen und Fragen, die die <strong>MyHordes-Community</strong> betreffen, kannst die <a x-group-connect="{oglink}" href="#">Orakel</a> anschreiben.'|trans({'{oglink}': 'oglink_' ~ oracle.id},'help')|raw }}
+</li>
+{% endif %}
 </ul>
 <div class="clear"></div>
 <a class="button" x-ajax-href="{{ url('help', {'name': 'choosing_a_good_password'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Wie wähle ich ein sicheres Passwort?'|trans({},'help') }}</strong></a>

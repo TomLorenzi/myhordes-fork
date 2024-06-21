@@ -542,9 +542,14 @@ const TwinoEditorEditor = ({body, fixed, prefs}: {body: string, fixed: boolean, 
                 globals.selection.end = textArea.current.selectionEnd;
             }
         }
+        const onKeyUp = (e) => onSelectionChange();
 
         document.addEventListener('selectionchange', onSelectionChange);
-        return () => document.removeEventListener('selectionchange', onSelectionChange);
+        textArea.current.addEventListener('keyup', onKeyUp);
+        return () => {
+            document.removeEventListener('selectionchange', onSelectionChange);
+            textArea.current.removeEventListener('keyup', onKeyUp);
+        }
     });
 
     useLayoutEffect(() => {

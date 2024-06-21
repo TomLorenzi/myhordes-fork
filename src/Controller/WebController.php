@@ -640,9 +640,16 @@ class WebController extends CustomAbstractController
     #[Route(path: '/c/{campaign_slug}', name: 'campaign_redirect', methods: ['GET'], condition: '!request.isXmlHttpRequest()')]
     public function redirect_campaign(
         #[MapEntity(mapping: ['campaign_slug' => 'slug'])] ?MarketingCampaign $campaign,
-        SessionInterface $session
+        SessionInterface $session,
+        EntityManagerInterface $em
     ) {
-        if ($campaign && !$this->getUser()) $session->set('campaign', $campaign->getId());
+        if ($campaign && !$this->getUser()) {
+            $session->set('campaign', $campaign->registerClick()->getId());
+            try {
+                $em->persist($campaign);
+                $em->flush();
+            } catch (\Throwable $e) {}
+        }
         return $this->redirectToRoute('home');
     }
 

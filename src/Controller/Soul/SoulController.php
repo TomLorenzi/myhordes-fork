@@ -1481,7 +1481,12 @@ class SoulController extends CustomAbstractController
                     new Constraints\Blank( ['message' => 'a' ] )
                 ])
             ],
-            'contact' => [ new Constraints\Email( ['message' => 'v']) ],
+            'contact' => [
+                new Constraints\AtLeastOneOf([
+                    new Constraints\Url( ['relativeProtocol' => false, 'protocols' => ['http', 'https'], 'message' => 'a' ] ),
+                    new Constraints\Email( ['message' => 'v'])
+                ])
+            ],
             'sk' => [  ]
         ]) );
 
@@ -1598,11 +1603,7 @@ class SoulController extends CustomAbstractController
         $this->entity_manager->flush();
 
         $proxy->friendListUpdatedEvent( $this->getUser(), $user, !!$action );
-
-        if ($action && $user->getSetting( UserSetting::NotifyMeOnFriendRequest )) {
-            $this->entity_manager->persist( $this->crow->createPM_friendNotification( $user, $this->getUser() ) );
-            try { $this->entity_manager->flush(); } catch (\Throwable) {}
-        }
+        try { $this->entity_manager->flush(); } catch (\Throwable) {}
 
         if($action){
             $this->addFlash("notice", $this->translator->trans("Du hast {username} zu deinen Kontakten hinzugefügt!", ['{username}' => $user], "soul"));

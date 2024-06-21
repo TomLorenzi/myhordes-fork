@@ -299,7 +299,7 @@ Etagen: Pisos
 'Mindestanzahl an Räumen pro Etage': 'Número mínimo de piezas por piso'
 Kartenbreite: Anchura del mapa
 Kartenhöhe: Altura del mapa
-'Abweichende Bedingungen für den automatischen Stadtabbruch': 'Abweichende Bedingungen für den automatischen Stadtabbruch'
+'Abweichende Bedingungen für den automatischen Stadtabbruch': 'Diferentes condiciones para la cancelación automática del pueblo'
 'Abweichende Bedingungen für den Mysteriösen Fremden': 'Abweichende Bedingungen für den Mysteriösen Fremden'
 'Stadttor ist bis zum Start der Stadt verschlossen': 'Stadttor ist bis zum Start der Stadt verschlossen'
 'Stadttor kann vor dem Start der Stadt geöffnet werden': 'Stadttor kann vor dem Start der Stadt geöffnet werden'
@@ -349,5 +349,9 @@ Seelenpunkte: Puntos de alma
 'Forenzugang (Gilde)': 'Acceso al foro (Gremio)'
 'Du und alle Mitglieder der Animateursgilde erhalten Zugang zum Stadtforum': 'Tú y todos los miembros del Animación tenéis acceso al foro de la ciudad.'
 Roulette: Ruleta
-'Spieler erhalten ein Drittel der Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben, in voller Höhe. Die restlichen Auszeichnungen werden entfernt. Welche Auszeichnungstypen entfernt werden ist zufällig.': 'Spieler erhalten ein Drittel der Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben, in voller Höhe. Die restlichen Auszeichnungen werden entfernt. Welche Auszeichnungstypen entfernt werden ist zufällig.'
-'Spieler erhalten alle Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben. Die Höhe aller Auszeichnungen wird gedrittelt.': 'Spieler erhalten alle Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben. Die Höhe aller Auszeichnungen wird gedrittelt.'
+'Spieler erhalten ein Drittel der Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben, in voller Höhe. Die restlichen Auszeichnungen werden entfernt. Welche Auszeichnungstypen entfernt werden ist zufällig.': 'Los jugadores reciben 1/3 de las distinciones no-raras conseguidas en el pueblo. Las demás distinciones serán eliminadas. Las distinciones restantes eliminadas serán aleatorias.'
+'Spieler erhalten alle Nicht-seltenen Auszeichnungstypen, die sie in der Stadt verdient haben. Die Höhe aller Auszeichnungen wird gedrittelt.': 'Los jugadores recibirán todas las distinciones no-raras conseguidas en el pueblo, pero por 1/3 de su valor.'
+'Dies ist eine Event-Stadt, in der möglicherweise andere Regeln gelten und/oder eine bestimmte Spielweise erforderlich ist.': 'Este es un pueblo de evento. Puede tener unas reglas específicas o una forma de jugar distinta a lo habitual.'
+'Damit alle Spieler an diesem Event Spaß haben können, tritt dieser Stadt bitte nur bei, wenn du dir über deren Regeln im Klaren bist.': 'Por favor, para que todos los jugadores se puedan divertir en este evento, no se unan a este pueblo sin familiarizarse con sus reglas.'
+'Deine Stadt wird gerade von den Zombies <strong>angegriffen</strong>! Du hörst wie sie <strong>grunzend</strong> gegen eure Hütten schlagen. Dazwischen immer wieder <strong>Hilferufe</strong> und Schreie... Sie scheinen überall zu sein...': '¡Tu pueblo está siendo <strong>atacado</strong> por una turba de zombies! <strong>Llegan de todas partes y se meten en las casas</strong>. Entre los gritos de pánico de tus compañeros y los <strong>gruñidos hambrientos</strong> de esos monstruos... ¡la <strong>zombinoia</strong> se apodera de ti!'
+'Was tust du, solange der Angriff tobt?': '¿<strong>Morirás devorado</strong> esta noche?'

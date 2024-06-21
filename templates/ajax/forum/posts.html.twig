@@ -491,7 +491,7 @@
                         html: content?.innerHTML ?? '',
                         insert: true,
                         wrap: [
-                            (quote ? (author ? ('[quote=' + (author_id > 0 ? author.replace(/[^\p{L}\d_-]/gu, '') : author) + (author_id > 0 ? (':' + author_id) : '') + ']') : '[quote]') : ''),
+                            (quote ? (author ? ('[quote=@' + (author_id > 0 ? author.replace(/[^\p{L}\d_-]/gu, '') : author) + (author_id > 0 ? (':' + author_id) : '') + ']') : '[quote]') : ''),
                             (quote ? "[/quote]\n" : "\n")
                         ],
                         opmode: $.html.twinoParser.OpModeQuote }

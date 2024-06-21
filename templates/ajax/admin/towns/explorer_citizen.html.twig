@@ -52,7 +52,7 @@
 									<em>{{ 'Rucksack'|trans({},'admin') }}</em><br />
 									{% for item in citizen.inventory.items %}
 										{# @var \App\Entity\Item item #}
-										<img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
+										<div class="inline-block" style="{{ item.broken ? 'outline: 1px dotted #ff0000;' : '' }}"><img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" /></div>
 									{% endfor %}
 								</div>
 							{% endif %}
@@ -67,7 +67,7 @@
 								{% endif %}
 								{% for item in citizen.home.chest.items %}
 									{# @var \App\Entity\Item item #}
-									<img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
+                                    <div class="inline-block" style="{{ item.broken ? 'outline: 1px dotted #ff0000;' : '' }}"><img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" /></div>
 								{% endfor %}
 							</div>
 						</div>
@@ -82,7 +82,7 @@
 									{% endif %}
 									{% for item in citizen.zone.floor.items %}
 										{# @var \App\Entity\Item item #}
-										<img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
+                                        <div class="inline-block" style="{{ item.broken ? 'outline: 1px dotted #ff0000;' : '' }}"><img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" /></div>
 									{% endfor %}
 								</div>
 							{% endif %}

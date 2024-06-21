@@ -97,8 +97,10 @@ const NotificationManagerWrapper = ( {}: {} ) => {
                     case 400: $.html.error( index.strings.common.error_put_400 ); break;
                     case 409: $.html.error( index.strings.common.error_put_409 ); break;
                     default:
-                        console.log(error);
-                        $.html.error( c.errors['com'] )
+                        switch (error.message ?? '') {
+                            case 'Could not get subscription from service worker.': $.html.error( index.strings.common.error_put_nsw ); break;
+                            default: $.html.error( error.message ?? c.errors['com'] )
+                        }
                 } else if (error !== null) $.html.error( c.errors['com'] )
             }
         }

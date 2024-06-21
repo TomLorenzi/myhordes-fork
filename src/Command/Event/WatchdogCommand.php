@@ -156,7 +156,7 @@ class WatchdogCommand extends Command
     {
         if ($input->getOption('create-towns')) $this->create_towns($output, false);
         if ($input->getOption('urgent-create-towns')) $this->create_towns($output, true);
-        if ($input->getOption('auto-end')) $this->create_towns($output);
+        if ($input->getOption('auto-end')) $this->auto_end_events($output);
 
         return 0;
     }

@@ -557,7 +557,7 @@ Bearbeiten: Edit
 Bildformat: Image format
 'Die empfohlene Einstellung erzeugt in den allermeisten Fällen ein Bild in bestmöglicher Qualität. In seltenen Fällen, insbesondere bei sehr dunklen Bildern, kann das Ergebnis jedoch verwaschen aussehen. Versuche in diesem Fall, die alternative Option auszuwählen.': 'In most cases, the recommended setting produces an image of the best possible quality. However, in rare cases, especially with very dark images, the result can look "washed out". In this case, try to select the alternative option.'
 'Empfohlen (bevorzugt AV1)': 'Recommended (AV1 preferred)'
-'Alternativ (bevorzugt WebP)': 'Alternatively (preferably WebP)'
+'Alternativ (bevorzugt WebP)': 'Alternative (preferably WebP)'
 'Andere Spieler sehen deinen Titel in ...': 'Other players will see your title in...'
 'ihrer eigenen Sprache': 'their language'
 'meiner Sprache': 'My language'
@@ -609,3 +609,4 @@ Push-Benachrichtigungen: Push notifications
 'Push-Benachrichrichtigung für offizielle Ankündigungen auf MyHordes erhalten.': 'Receive push notifications for official announcements of MyHordes.'
 'Push-Benachrichrichtigung für Community-Events erhalten.': 'Receive push notifications for community events.'
 'Wenn du diese Einstellung aktivierst, bekommst du eine Benachrichtung, wenn ein neues Community-Event in den Event-Kalender aufgenommen wurde.': 'If you enable this setting, you will receive a notification when a new community event is added to the events calendar.'
+'Verlustlos (bevorzugt WebP, empfehlenswert für Pixel Art)': 'Lossless (preferably WebP, recommended for pixel art)'

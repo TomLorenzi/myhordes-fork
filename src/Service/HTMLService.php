@@ -355,7 +355,7 @@ class HTMLService {
             '//div[@class=\'coin\']'     => function (DOMNode $d) use(&$insight) { $insight->editable = false; $d->nodeValue = $this->rand->pick([$this->translator->trans('Kopf',[],'global'),$this->translator->trans('Zahl',[],'global')]); },
             '//div[@class=\'card\']'     => function (DOMNode $d) use(&$insight) { $insight->editable = false;
                 $s_color = $this->rand->pick([$this->translator->trans('Kreuz',[],'items'),$this->translator->trans('Pik',[],'items'),$this->translator->trans('Herz',[],'items'),$this->translator->trans('Karo',[],'items')]);
-                $value = mt_rand(1,12);
+                $value = mt_rand(0,12);
                 $s_value = $value < 9 ? ('' . ($value+2)) : [$this->translator->trans('Bube',[],'items'),$this->translator->trans('Dame',[],'items'),$this->translator->trans('König',[],'items'),$this->translator->trans('Ass',[],'items')][$value-9];
                 $d->nodeValue = $this->translator->trans('{color} {value}', ['{color}' => $s_color, '{value}' => $s_value], 'global');
             },

@@ -2463,7 +2463,7 @@ Kantinenkoch_f: Cantine Cook
 Amateur-Laborratte_f: Amateur Lab Rat
 'Kleiner Präparator_f': 'Potion Preparer'
 'Chemiker von um die Ecke_f': 'Corner Chemist'
-Produkttester_f: Produkttesterin
+Produkttester_f: Product Tester
 Wüstenstadt-Dealer_f: Local Dealer
 'Ich koste alle meine Produkte_f': 'I taste all my products'
 'Rauchts? Dann ist es meins._f': 'Does it smoke? It is from me.'
@@ -2479,7 +2479,7 @@ Außenweltlegende_f: Legend of the World Beyond
 'Messie der verlorenen Welt_f': 'Lost World Messiah'
 'Mein Name ist Nobody_f': 'My name is nobody'
 'Ein Sternbild trägt meinen Namen_f': 'They named a constellation after me'
-Abstauber_f: Abstauberin
+Abstauber_f: Bin Raker
 Müllkind_f: Dumpster Diver
 'Autonomer Müll_f': 'Autonomous junk'
 'Freier Bürger_f': 'Free citizen!'
@@ -2487,41 +2487,41 @@ Müllkind_f: Dumpster Diver
 'Ich brauche niemanden_f': 'I do not need anyone'
 'Unabhängiger Großeinsiedler_f': 'Great Independent Hermitess'
 'Che Guevara der Wüste_f': 'Che Guevara of the desert'
-Maulheld_f: Maulheldin
+Maulheld_f: Tea Leaf
 Lump_f: Artful Dodger
-Schaumschläger_f: Schaumschlägerin
-Dieb_f: Diebin
+Schaumschläger_f: Chiseler
+Dieb_f: Sadie Farrell
 Fantomas_f: Rusty Ryan
 'Ali Baba_f': 'Debbie Ocean'
 Meisterdieb_f: Multipass
-Kleptomane_f: Kleptomanin
+Kleptomane_f: Kleptomaniac
 'Dein Haus ist mein Haus_f': 'Your home is my home'
 Ästhet_f: Coquette
-Schaufenstergestalter_f: Schaufenstergestalterin
-Innenarchitekt_f: Innenarchitektin
+Schaufenstergestalter_f: Good taste personified
+Innenarchitekt_f: Interior designer
 Möbelgourmet_f: Marquee Master
 'Ordnung muss sein!_f': 'Aesthetics Experta'
 'Ein schöneres Leben_f': 'Style is eternal...'
 'Großer E-KEA Katalog_f': 'Welcome to the palace.'
-Plünderer_f: Plünderin
+Plünderer_f: Pillager
 Aasgeier_f: Plunderess
 Hyäne_f: Hyena
 'Wegelagerer post mortem_f': 'Post-mortem Pickpocket'
 'Hungriger Schakal_f': 'Hungry Jackal'
 'Kojote der kargen Steppen_f': 'Fleet-footed Coyote'
-Fingerschmied_f: Fingerschmiedin
+Fingerschmied_f: Solicitor of the World Beyond
 'Nein, das Ding fasse ich nicht an._f': 'Silver Showerer'
-Leichenhygieniker_f: Leichenhygienikerin
+Leichenhygieniker_f: Golden Showerer
 'Ich liebe den Geruch von gewaschenen Leichen am Morgen._f': 'Platinum Showerer'
-Müllmann_f: Müllfrau
-'Erfahrener Müllmann_f': 'Erfahrene Müllfrau'
-Entsorgungsfachmann_f: Entsorgungsfachfrau
-Maccabees-Vertreiber_f: Maccabees-Vertreiberin
-'SM Anhänger_f': 'SM Anhängerin'
-'SM Spezialist_f': 'SM Spezialistin'
+Müllmann_f: Corpse Cop
+'Erfahrener Müllmann_f': 'Body Bouncer'
+Entsorgungsfachmann_f: Stiff Shifter
+Maccabees-Vertreiber_f: Apocalyptic Garbagewoman
+'SM Anhänger_f': 'Casual S+M Enthusiast'
+'SM Spezialist_f': 'Whip me harder!'
 'Nenn mich Herrin_f': 'Attach the nipple clamps!'
 'Ich möchte dein Objekt sein._f': 'Bring out the gimp!'
-Stadtmetzger_f: Stadtmetzgerin
+Stadtmetzger_f: Local Butcher
 'Spezialität: Hundesteaks_f': 'Anyone for a fat-cat-kebab?'
 'Miezi? Jaaaa, komm her..._f': 'Scourge of the animal kingdom...'
 'Fleisch ist mein Gemüse_f': 'If we''re meant to eat vegetables, why are animals so tasty?'
@@ -2531,10 +2531,10 @@ Stadtmetzger_f: Stadtmetzgerin
 Wachsam_f: Uber-Aware
 Paranoid_f: Paranoid and Proud
 'Fels in der Brandung_f': 'The Rock!'
-'Großer Baumeister_f': 'Große Baumeisterin'
-'Großer Architekt_f': 'Große Architektin'
-Freimauer_f: Freimauerin
-Terraformingspezialist_f: Terraformingspezialistin
+'Großer Baumeister_f': 'Master Builder'
+'Großer Architekt_f': 'Great Architect'
+Freimauer_f: Great Mason
+Terraformingspezialist_f: Terraforming Specialist
 'Allmächtiger Schöpfer_f': 'Allmächtige Schöpferin'
 'Archi-Mädlicher Illustrator von Pi_f': 'Archi-Mädliche Illustratorin von Pi'
 "Muad'Dib_f": "Three rivers dam... That's adorable."
@@ -2949,3 +2949,4 @@ Sandkasten-Scharfschütze_f: Sandstorm Sniper
 'Tief durchatmen!': 'Take a breath!'
 'Du kannst den Bürgern der Stadt die Errichtung eines bestimmten Gebäudes empfehlen. Klicke dafür auf den Namen des Bauprojektes, das du empfehlen willst.': 'You can recommend the construction of a specific site to the citizens of the city. To do this, click on the name of the construction site you want to recommend.'
 'Klicke hier, um deinen Mitbürgern die Errichtung dieses Bauwerks zu empfehlen.': 'Click here to recommend the construction of this project to your fellow citizens.'
+'Es konnten nicht alle Einträge geladen werden, da dieses Register zu viele Einträge enthält.': 'All registry entries could not be loaded because this registry contains too many entries.'

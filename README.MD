@@ -106,6 +106,34 @@ php composer.phar install
 yarn install
 ```
 
+### Distribution Packages (such as MyHordes Prime)
+
+MyHordes can be extended by custom distribution packages, adding or modifying constructions, items, game rules and much more. One of these distribution packages is the MyHordes Prime Closes Source Package (`myhordes/prime-csc`), which is used on the main MyHordes server (https://myhordes.eu).
+
+**If you do not have access to this package, or want to use your own package**, you need to update the composer lockfile:
+```bash
+php composer.phar update myhordes/prime --no-scripts
+```
+
+**If you have access to this package**, you can enable it using the following command after starting the docker containers:
+```bash
+ln -s .composer.dist.json composer.dist.json && php composer.phar update myhordes/prime --no-scripts
+```
+
+**If you wish to use your own distribution package**, create a file named `composer.dist.json` within the root folder:
+
+!! Unless you're using the prime package, please make sure you do not commit your composer or symfony lock file!
+
+```json
+{
+  "require": {
+    "my-custom/dist-package": "*"
+  },
+  "_ add repository to your dist package below if needed": true,
+  "repositories": [ ]
+}
+```
+
 ## Configuration
 
 Copy the example config file to the one we will be using

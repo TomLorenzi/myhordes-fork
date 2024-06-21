@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\GlobalPrivateMessage;
+use App\Entity\OfficialGroupMessageLink;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
@@ -133,10 +134,12 @@ class UserGroupAssociationRepository extends ServiceEntityRepository
                 ->andWhere('u.ref1 < g.ref1 OR u.ref1 IS NULL')
                 ->andWhere('u.bref = false')
                 ->andWhere('u.associationType IN (:assoc)')->setParameter('assoc', $filter)
-                ->getQuery()->getResult() as $group)
+                ->getQuery()->getResult() as $group) {
                 /** @var UserGroupAssociation $group */
-                if (!$this->getEntityManager()->getRepository(GlobalPrivateMessage::class)->lastInGroup($group->getAssociation())->getSenderGroup())
+                $official_meta = $this->getEntityManager()->getRepository(OfficialGroupMessageLink::class)->findOneBy(['messageGroup' => $group->getAssociation()]);
+                if (!$official_meta?->getOfficialGroup()?->isTicketStyleReadMarkers() || !$this->getEntityManager()->getRepository(GlobalPrivateMessage::class)->lastInGroup($group->getAssociation())->getSenderGroup())
                     $count++;
+            }
 
                 return $count;
         } else {

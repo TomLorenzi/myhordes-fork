@@ -7,14 +7,12 @@
                    data-src="{{ attack_running ? asset('build/flash/attack.swf') : asset('build/flash/desert.swf') }}"
                    data-parameters="lang={{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}&amp;data=null"></hordes-flash>
             {% if attack_running %}
-                {% trans from 'ghost' %}
-                    <p>
-                    Deine Stadt wird gerade von den Zombies <strong>angegriffen</strong>! Du hörst wie sie <strong>grunzend</strong> gegen eure Hütten schlagen. Dazwischen immer wieder <strong>Hilferufe</strong> und Schreie... Sie scheinen überall zu sein...
-                    </p>
-                    <p>
-                    Was tust du, solange der Angriff tobt?
-                    </p>
-                {% endtrans %}
+                <div class="p">
+                    {{ 'Deine Stadt wird gerade von den Zombies <strong>angegriffen</strong>! Du hörst wie sie <strong>grunzend</strong> gegen eure Hütten schlagen. Dazwischen immer wieder <strong>Hilferufe</strong> und Schreie... Sie scheinen überall zu sein...'|trans({},'ghost')|raw }}
+                </div>
+                <div class="p">
+                    {{ 'Was tust du, solange der Angriff tobt?'|trans({},'ghost')|raw }}
+                </div>
                 <p><button x-action="refresh"><img alt="" src="{{ asset('build/images/icons/small_action.gif') }}" /> {{ button_texts[0] }}</button></p>
                 <p><button x-action="refresh"><img alt="" src="{{ asset('build/images/icons/small_action.gif') }}" /> {{ button_texts[1] }}</button></p>
                 {% if app.user %}

@@ -142,6 +142,7 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
         if ($filter_special_users === true) $filter_special_users = UserAccountType::filterable();
         elseif ($filter_special_users === false) $filter_special_users = [];
 
+        $name = str_replace(['\\','%', '_'],['\\\\', '\\%','\\_'],$name);
         $qb = $this->createQueryBuilder('u')
             ->andWhere('u.name LIKE :val OR u.displayName LIKE :val')->setParameter('val', "%{$name}%");
 

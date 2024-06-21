@@ -36,6 +36,9 @@ class OfficialGroup
     private $avatarExt;
     #[ORM\Column(type: 'integer')]
     private $semantic = 0;
+
+    #[ORM\Column]
+    private bool $ticketStyleReadMarkers = false;
     public function getId(): ?int
     {
         return $this->id;
@@ -117,6 +120,18 @@ class OfficialGroup
     public function setSemantic(int $semantic): self
     {
         $this->semantic = $semantic;
+
+        return $this;
+    }
+
+    public function isTicketStyleReadMarkers(): bool
+    {
+        return $this->ticketStyleReadMarkers;
+    }
+
+    public function setTicketStyleReadMarkers(bool $ticketStyleReadMarkers): static
+    {
+        $this->ticketStyleReadMarkers = $ticketStyleReadMarkers;
 
         return $this;
     }
