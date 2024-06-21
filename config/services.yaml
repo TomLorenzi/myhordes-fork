@@ -81,6 +81,8 @@ services:
       public: true
     App\Service\EventProxyService:
       public: true
+    App\Service\Actions\Cache\InvalidateLogCacheAction:
+      public: true
 
     # This aliases the classes used by the translation tool commands
     translation.tools.loader:

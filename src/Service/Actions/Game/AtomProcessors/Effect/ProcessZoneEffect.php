@@ -8,6 +8,7 @@ use App\Entity\LogEntryTemplate;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
 use App\Enum\ActionHandler\CountType;
+use App\Service\Actions\Cache\InvalidateLogCacheAction;
 use App\Service\LogTemplateHandler;
 use App\Service\Maps\MazeMaker;
 use App\Service\PictoHandler;
@@ -143,10 +144,11 @@ class ProcessZoneEffect extends AtomEffectProcessor
                         }
 
                         $template = $cache->em->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'smokeBombReplacement' . $suffix]);
-                        if ($entry->getTimestamp() > $limit) {
+                        if ($template && $entry->getTimestamp() > $limit) {
+                            ($this->container->get(InvalidateLogCacheAction::class))($entry);
                             $entry->setLogEntryTemplate($template);
                             $cache->em->persist($entry);
-                        }
+                        } else break;
                     }
                 }
                 $cache->em->persist($lh->smokeBombUsage($base_zone));
