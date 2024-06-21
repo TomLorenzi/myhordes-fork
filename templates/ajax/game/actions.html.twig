@@ -165,20 +165,20 @@
                             {% if entry.action.results|length > 0 %}
                                 {% set ap = 0 %}{% set pm = 0 %}{% set cp = 0 %}
                                 {% for result in (entry.action.results|filter(result => result.atoms is not null)|map(result => result.atoms|atomize('\\MyHordes\\Fixtures\\DTO\\Actions\\EffectsDataContainer'))) %}
-                                    {% for effect in result.findEffects( '\\MyHordes\\Fixtures\\DTO\\Actions\\Atoms\\Atoms\\Effect\\StatusEffect' ) %}
+                                    {% for effect in result.findEffects( '\\MyHordes\\Fixtures\\DTO\\Actions\\Atoms\\Effect\\StatusEffect' ) %}
                                         {% set ap = ap + effect.apCost %}
                                         {% set pm = pm + effect.mpCost %}
                                         {% set cp = cp + effect.cpCost %}
                                     {% endfor %}
                                 {% endfor %}
                                 {% if ap < 0 %}
-                                    (<div class="ap">{{-ap}}</div>)
+                                    (<div class="ap">{{ap*(-1)}}</div>)
                                 {% endif %}
                                 {% if pm < 0 %}
-                                    (<div class="pm">{{-pm}}</div>{% if entry.action.name == 'brew_shamanic_potion' %}+<img src="{{ asset('build/images/item/item_water.gif') }}">{% endif %})
+                                    (<div class="pm">{{pm*(-1)}}</div>{% if entry.action.name == 'brew_shamanic_potion' %}+<img alt="" src="{{ asset('build/images/item/item_water.gif') }}">{% endif %})
                                 {% endif %}
                                 {% if cp < 0 %}
-                                    (<div class="cp">{{-cp}}</div>)
+                                    (<div class="cp">{{cp*(-1)}}</div>)
                                 {% endif %}
                             {% endif %}
                         </b>

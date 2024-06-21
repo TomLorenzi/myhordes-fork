@@ -2165,7 +2165,7 @@ class AdminTownController extends AdminActionController
         if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $point = $parser->get('point', '');
-        if (!in_array($point, ['ap','bp','mp','gh','cc','cn'])) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        if (!in_array($point, ['ap','bp','mp','sp','gh','cc','cn'])) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $number = $parser->get_int('num', 6);
 
@@ -2185,6 +2185,7 @@ class AdminTownController extends AdminActionController
                 case 'ap': $this->citizen_handler->setAP($citizen, false, ($control === 0) ? $number : $citizen->getAp() + $control * $number); break;
                 case 'bp': $this->citizen_handler->setBP($citizen, false, ($control === 0) ? $number : $citizen->getBp() + $control * $number); break;
                 case 'mp': $this->citizen_handler->setPM($citizen, false, ($control === 0) ? $number : $citizen->getPm() + $control * $number); break;
+                case 'sp': $this->citizen_handler->setSP($citizen, false, ($control === 0) ? $number : $citizen->getSp() + $control * $number); break;
                 case 'gh': $citizen->setGhulHunger( max(0, ($control === 0) ? $number : $citizen->getGhulHunger() + $control * $number) ); break;
                 case 'cc': $citizen->setCampingChance( min(100,max(0, ($control === 0) ? $number : $citizen->getCampingChance() + $control * $number)) / 100.0 ); break;
                 case 'cn': $citizen->setCampingCounter( max(0, ($control === 0) ? $number : $citizen->getCampingCounter() + $control * $number) ); break;

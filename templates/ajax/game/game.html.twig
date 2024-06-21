@@ -164,7 +164,7 @@
                 </div>
             </div>
         {% endif %}
-        {% if sp is defined and max_sp is defined and max_sp > 0 %}
+        {% if sp is defined and max_sp is defined and (max_sp > 0 or sp > 0) %}
             <div>
                 <ul class="sp">
                     <li><b class="{{ sp == 0 ? 'red' : '' }}">{{ sp }}</b><em>/{{ max_sp }}</em></li>
