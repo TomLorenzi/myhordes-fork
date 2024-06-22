@@ -343,7 +343,11 @@ class MessageForumController extends MessageController
         $valid = ['USER'];
         if ($this->perm->isPermitted( $permission, ForumUsagePermissions::PermissionPostAsAnim )) $valid[] = 'ANIM';
         if ($this->perm->isPermitted( $permission, ForumUsagePermissions::PermissionPostAsCrow )) $valid[] = 'CROW';
-        if ($this->perm->isPermitted( $permission, ForumUsagePermissions::PermissionPostAsDev )) $valid[] = 'DEV';
+        if ($this->perm->isPermitted( $permission, ForumUsagePermissions::PermissionPostAsDev )) {
+            $valid[] = 'DEV';
+            $valid[] = 'BISOU';
+        }
+        if ($this->userHandler->checkFeatureUnlock( $user, 'f_glory_temp', false )) $valid[] = 'GLORY';
         if (!in_array($type, $valid)) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if (mb_strlen($title) < 3 || mb_strlen($title) > 64)  return AjaxResponse::error( self::ErrorPostTitleLength );
@@ -391,6 +395,8 @@ class MessageForumController extends MessageController
 
         $forum->addThread($thread);
         $thread->addPost($post)->setLastPost( $post->getDate() );
+
+        if ($type === 'GLORY') $this->userHandler->checkFeatureUnlock( $user, 'f_glory_temp', true );
 
         try {
             if (!$user->getNoAutoFollowThreads()) $em->persist((new ForumThreadSubscription())->setThread($thread)->setUser($user));
@@ -569,7 +575,11 @@ class MessageForumController extends MessageController
         $valid = ['USER'];
         if ($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsAnim )) $valid[] = 'ANIM';
         if ($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsCrow )) $valid[] = 'CROW';
-        if ($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsDev )) $valid[] = 'DEV';
+        if ($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsDev )) {
+            $valid[] = 'DEV';
+            $valid[] = 'BISOU';
+        }
+        if ($this->userHandler->checkFeatureUnlock( $user, 'f_glory_temp', false )) $valid[] = 'GLORY';
         if (!in_array($type, $valid)) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         $map_type = [
@@ -596,6 +606,7 @@ class MessageForumController extends MessageController
         if (!$insight->editable) $post->setEditingMode(Post::EditorLocked);
 
         $thread->addPost($post)->setLastPost( $post->getDate() );
+        if ($type === 'GLORY') $this->userHandler->checkFeatureUnlock( $user, 'f_glory_temp', true );
 
         try {
             $em->persist($thread);

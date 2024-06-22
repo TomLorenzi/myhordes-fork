@@ -50,7 +50,15 @@
             {% endif %}
             {% if permission.post_as_dev() %}
                 data-with-role-dev="{{ 'Entwickler'|trans({},'global') }}"
+                data-with-role-bisou="{{ 'Die Taube'|trans({},'global') }}"
             {% endif %}
+        {% endif %}
+        {% if user and alt_post_mode and user|has_unlocked('f_glory_temp') %}
+            {% if not permission.alt_post_mode() %}
+                data-with-role-user="{{ 'Normaler Post'|trans({}, 'global') }}"
+                data-default-role="USER"
+            {% endif %}
+            data-with-role-glory="{{ 'Ruhm'|trans({}, 'global') }}"
         {% endif %}
     ></hordes-twino-editor>
 {% endmacro %}

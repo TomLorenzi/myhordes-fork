@@ -432,6 +432,25 @@ ul.subscriptions {
         background: url("../../img/forum/crowMsg_bg.gif") no-repeat top left;
       }
     }
+    &.header-variant-glory {
+      position: relative;
+      background: rgba(0,0,0,0.1);
+      &:after {
+        position: absolute; content: " ";
+        top: 100%; right: 0; width: 300px; height: 300px;
+        background: url("../../img/forum/winnerPost.png") no-repeat top right;
+      }
+    }
+    &.header-variant-bisou {
+      position: relative;
+      background: rgba(255,255,255,0.3);
+      .username { color: black; }
+      &:after {
+        position: absolute; content: " ";
+        top: 100%; right: 0; width: 300px; height: 300px;
+        background: url("../../img/forum/bisouPost.png") no-repeat top right;
+      }
+    }
     &.header-variant-dev { background: #006495; }
     a.link, span.link { color: white; text-decoration: none }
     .username { color: white; text-decoration: none; background: none !important; border: none !important; box-shadow: none; padding: 0;}
@@ -505,6 +524,25 @@ ul.subscriptions {
   &.forum-post-variant-crow {
     background: #5c2b20;
     overflow: hidden;
+  }
+
+  &.forum-post-variant-glory {
+    background: #280a14;
+    overflow: hidden;
+  }
+
+  &.forum-post-variant-bisou {
+    background: #f57ed8;
+    color: black;
+    overflow: hidden;
+
+    .forum-post-content {
+      border-top: 1px solid transparent;
+    }
+
+    .forum-post-footer .action-button {
+      color: black;
+    }
   }
 
   &.forum-post-search-result .forum-post-content {
