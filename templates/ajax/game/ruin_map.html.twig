@@ -93,7 +93,7 @@
                 {% endif %}
             <div class="scanner-fx"></div>
             <div class="frame"></div>
-            <div class="scanner"></div>
+            <div class="scanner" {% if map.activity is defined and map.activity < 1 %}style="transform: scaleY({{ map.activity }})"{% endif %}></div>
         </div>
     </div>
     <div class="controls"></div>

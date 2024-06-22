@@ -129,6 +129,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
                 : null;
 
         $in_grace = $ex->isGrace() && $ex->getStarted() !== null && (new DateTime())->modify('-30sec') < $ex->getStarted();
+        $guide = $citizen->hasRole('guide');
 
         return $this->render( 'ajax/game/beyond/ruin.html.twig', $this->addDefaultTwigArgs(null, [
             'prototype' => $citizen->getZone()->getPrototype(),
@@ -152,6 +153,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
                 'name' => $this->generateRuinName($citizen->getZone()),
                 'timeout' => max(0, $ex->getTimeout()->getTimestamp() - time()),
                 'zone' => $ruinZone,
+                'activity' => $guide ? 0.1 + 0.9 * (4-min(4,$ruinZone->getRoomDistance()))/4 : 1,
                 'shifted' => $ex->getInRoom(),
             ],
         ]) );
