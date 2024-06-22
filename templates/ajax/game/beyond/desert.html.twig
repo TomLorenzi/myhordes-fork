@@ -115,7 +115,7 @@
 
     {% set hour = "now"|date("G") %}
     <div class="row">
-        <div class="cell rw-12 zone-beyond time-{{ hour }} {% if conf.isNightTime %}night-{% endif %}{% if zone.x == 0 and zone.y == 0 %}city{% elseif zone.prototype and zone.prototype.id > 0 %}oldruins{% else %}outerworld{% endif %}{% if zone.x == 0 and zone.y == 0 and zone.town.door == 1 %}-open{% endif %}"></div>
+        <div class="cell rw-12 zone-beyond time-{{ hour }} {% if conf.isNightTime %} {% if nightlight is defined and nightlight %}nightlight-{% else %}night-{% endif %}{% endif %}{% if zone.x == 0 and zone.y == 0 %}city{% elseif zone.prototype and zone.prototype.id > 0 %}oldruins{% else %}outerworld{% endif %}{% if zone.x == 0 and zone.y == 0 and zone.town.door == 1 %}-open{% endif %}"></div>
     </div>
 
     <div class="row">

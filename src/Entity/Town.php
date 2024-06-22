@@ -14,6 +14,7 @@ use Doctrine\ORM\Event\PostPersistEventArgs;
 use Doctrine\ORM\Event\PreRemoveEventArgs;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\OrderBy;
+use Doctrine\ORM\PersistentCollection;
 
 #[ORM\Entity(repositoryClass: 'App\Repository\TownRepository')]
 #[ORM\HasLifecycleCallbacks]
@@ -393,12 +394,20 @@ class Town
         return $this;
     }
     /**
-     * @return Collection|Building[]
+     * @return ArrayCollection<Building>|PersistentCollection<Building>
      */
-    public function getBuildings(): Collection
+    public function getBuildings(): ArrayCollection|PersistentCollection
     {
         return $this->buildings;
     }
+
+    public function getBuilding(BuildingPrototype $prototype): ?Building
+    {
+        return $this->buildings->matching( (new Criteria())
+            ->where( new Comparison( 'prototype', Comparison::EQ, $prototype )  )
+        )->first() ?: null;
+    }
+
     public function addBuilding(Building $building): self
     {
         if (!$this->buildings->contains($building)) {

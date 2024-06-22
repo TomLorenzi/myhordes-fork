@@ -449,9 +449,18 @@ class BeyondController extends InventoryAwareController
         foreach ($this->getActiveCitizen()->getValidLeadingEscorts() as $escort)
             $escort_actions[ $escort->getCitizen()->getId() ] = $this->action_handler->getAvailableItemEscortActions( $escort->getCitizen() );
 
+        $nov = $this->town_handler->getBuilding( $citizen->getTown(), 'small_novlamps_#00', true );
+        $novlights = $citizen->hasStatus('tg_novlamps') && $nov && match(true) {
+                $citizen->getZone()->getDistance() <= 2 => true,
+                $citizen->getZone()->getDistance() <= 6 && $nov->getLevel() >= 1 => true,
+                $nov->getLevel() >= 2 => true,
+                default => false,
+        };
+
         return [
             'citizen' => $citizen,
             'conf' => $this->getTownConf(),
+            'nightlight' => $novlights,
             'other_citizens' => $citizen->getZone()->getCitizens(),
             'town_chaos' => $citizen->getTown()->getChaos(),
             'banished' => $citizen->getBanished(),

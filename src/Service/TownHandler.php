@@ -246,10 +246,8 @@ class TownHandler
             $prototype = $this->doctrineCache->getEntityByIdentifier(BuildingPrototype::class, $prototype);
 
         if (!$prototype) return null;
-        foreach ($town->getBuildings() as $b)
-            if ($b->getPrototype()->getId() === $prototype->getId())
-                return (!$finished || $b->getComplete()) ? $b : null;
-        return null;
+        $b = $town->getBuilding($prototype);
+        return (!$finished || $b?->getComplete()) ? $b : null;
     }
 
     private array $building_list_cache = [];
