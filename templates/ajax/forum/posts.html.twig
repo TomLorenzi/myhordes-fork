@@ -238,7 +238,7 @@
     <div class="forum-posts">
         {% for post in posts %}
             {% set variant = null %}
-            {% if post.owner.name == 'Der Rabe' %}{% set variant = 'crow' %}
+            {% if post.owner.id == 66 %}{% set variant = 'crow' %}
             {% elseif post.type != "USER" and post.type is not null %}{% set variant = post.type|lower %}{% endif %}
 
             {# @var post \App\Entity\Post #}

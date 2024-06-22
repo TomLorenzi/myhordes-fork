@@ -40,9 +40,10 @@ class TownRankingProxyRepository extends ServiceEntityRepository
      * @param Season|null $season
      * @param TownClass $class
      * @param int $additional
+     * @param int|null $fixed_limit
      * @return TownRankingProxy[] Returns an array of TownRankingProxy objects
      */
-    public function findTopOfSeason(?Season $season, TownClass $class, int $additional = 0): array
+    public function findTopOfSeason(?Season $season, TownClass $class, int $additional = 0, ?int $fixed_limit = null): array
     {
         $q = $this->createQueryBuilder('t')
             ->andWhere('BIT_AND(t.disableFlag, :flag) <> :flag')->setParameter('flag', TownRankingProxy::DISABLE_RANKING)
@@ -53,7 +54,7 @@ class TownRankingProxyRepository extends ServiceEntityRepository
 
         return $q->andWhere('t.type = :type')->setParameter('type', $class)
             ->andWhere('t.end IS NOT NULL')
-            ->setMaxResults( $additional + ($season?->getCurrent() ? $class->getRankingLow() : ($season?->getRankingRange($class)?->getLow() ?? 35)))
+            ->setMaxResults( $fixed_limit ?? ($additional + ($season?->getCurrent() ? $class->getRankingLow() : ($season?->getRankingRange($class)?->getLow() ?? 35))))
             ->addOrderBy('t.score', 'desc')
             ->addOrderBy('t.days', 'desc')
             ->addOrderBy('t.end', 'asc')
