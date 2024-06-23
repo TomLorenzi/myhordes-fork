@@ -68,7 +68,7 @@ class Execution extends Base
     public function setItemMorph(ItemPrototype $from, ItemPrototype $to, bool $forTargetItem = false): void {
         if (!$forTargetItem) {
             $this->morphed_items[] = [$from, $to];
-            $this->addConsumedItem( $from );
+            //$this->addConsumedItem( $from );
             $this->addSpawnedItem( $to );
         } else $this->target_morphed_items = [$from, $to];
     }
@@ -161,14 +161,16 @@ class Execution extends Base
 
         $zone = $this->target_zone ?? $this->citizen?->getZone() ?? null;
 
+        dump($this);
+
         return [
             ...$dynamic,
             '{user}'          => $wrapper($this->citizen),
             '{citizen}'       => $wrapper($this->target_citizen),
             '{target}'        => $wrapper($this->originalTargetPrototype),
             '{item_initial}'  => $wrapper($this->originalPrototype),
-            '{item_from}'     => $wrapper($this->morphed_items[0] ?? $this->consumed_items[0] ?? null),
-            '{item_to}'       => $wrapper($this->morphed_items[1] ?? $this->spawned_items[0] ?? null),
+            '{item_from}'     => $wrapper($this->morphed_items[0][0] ?? $this->consumed_items[0] ?? null),
+            '{item_to}'       => $wrapper($this->morphed_items[0][1] ?? $this->spawned_items[0] ?? null),
             '{item_tool}'     => $wrapper($this->used_tool_items),
             '{items_spawn}'   => $wrapper($this->spawned_items, accumulate: true),
             '{items_consume}' => $wrapper($this->consumed_items, accumulate: true),
