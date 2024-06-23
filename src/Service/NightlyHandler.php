@@ -1211,7 +1211,7 @@ class NightlyHandler
             $this->citizen_handler->setAP($citizen,false,max(1, $this->citizen_handler->getMaxAP( $citizen ) - $loan) ,0);
             if ($loan > 0) $this->crow->postAsPM($citizen, '', '', PrivateMessage::TEMPLATE_CROW_REDUCED_AP_REGEN);
 
-            $sp_init_bonus = $citizen->hasStatus('tg_start_sp') ? ($this->citizen_handler->getMaxSP( $citizen ) + 2) : 0;
+            $sp_init_bonus = $citizen->hasStatus('tg_start_sp') ? ($citizen->getProfession()->getName() === 'hunter' ? 4 : 2) : 0;
             $this->citizen_handler->setBP($citizen,false,$this->citizen_handler->getMaxBP( $citizen ),0);
             $this->citizen_handler->setPM($citizen,false,$this->citizen_handler->getMaxPM( $citizen ));
             $this->citizen_handler->setSP($citizen,false, $sp_init_bonus + $this->citizen_handler->getMaxSP( $citizen ));
