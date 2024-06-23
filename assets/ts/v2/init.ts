@@ -139,8 +139,8 @@ async function initSharedWorker(): Promise<boolean> {
                 const state = e.data.payload;
 
                 html().dispatchEvent(new CustomEvent('mercureState', {bubbles: true, cancelable: false, detail: state}));
-                const mercure = html()?.dataset?.mercureAuth as string;
-                if (!state.auth && mercure) sharedWorkerCall('mercure.authorize', {token: JSON.parse(mercure)});
+                const mercure = JSON.parse(html()?.dataset?.mercureAuth as string ?? 'null');
+                if (!state.auth && mercure?.t) sharedWorkerCall('mercure.authorize', {token: mercure});
                 break;
         }
 
