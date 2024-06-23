@@ -1,4 +1,5 @@
-when@dev:
+when@dev: &dev
     _errors:
         resource: '@FrameworkBundle/Resources/config/routing/errors.xml'
         prefix: /_error
+when@local: *dev
