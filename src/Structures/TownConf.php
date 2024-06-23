@@ -145,7 +145,6 @@ class TownConf extends Conf
     public function isNightTime(?DateTime $dateTime = null): bool {
         $h = (int)($dateTime ?? new DateTime())->format('H');
         $range = $this->get(TownConf::CONF_MODIFIER_DAYTIME_RANGE, [7,18]);
-        return true;
         return $this->get(TownConf::CONF_MODIFIER_DAYTIME_INVERT, false) !==
             ($h < $range[0] || $h > $range[1]);
     }
