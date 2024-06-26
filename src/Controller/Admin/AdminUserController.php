@@ -1664,7 +1664,10 @@ class AdminUserController extends AdminActionController
         $text = $parser->get('txt', null);
         if (empty($text)) $text = null;
 
-        if ($mode === 'last') $citizen_proxy->setLastWords($text);
+        if ($mode === 'last') {
+            $citizen_proxy->setLastWords($text);
+            $citizen_proxy->getCitizen()?->setLastWords($text);
+        }
         else $citizen_proxy->setComment($text)->setCommentLocked(true);
 
         $this->entity_manager->persist($citizen_proxy);
