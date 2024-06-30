@@ -87,7 +87,6 @@ export const TwinoEditorControls = ({emotes}: {emotes: null|Array<Emote>}) => {
             </div>
             <div onClick={()=>setShowOverlay(false)} className="forum-button-bar-section">
                 { globals.allowControl('extended') && <>
-                    <ControlButtonInsertWithAttribute node="quote" label={globals.strings.controls.quote} fa="quote-left" block={true} dialogTitle={globals.strings.controls['quote-dialog']} attribute={globals.strings.controls['quote-placeholder']} />
                     <ControlButtonInsertQuote/>
                     <ControlButtonNodeWrap node="spoiler" label={globals.strings.controls.spoiler} fa="eye-slash" block={true} />
                     <ControlButtonNodeWrap node="aparte" label={globals.strings.controls.aparte} fa="compress-alt" block={true} />
@@ -361,8 +360,6 @@ const ControlButtonInsertPlayer = () => {
 }
 
 const ControlButtonInsertQuote = () => {
-    // <ControlButtonInsertWithAttribute node="quote" label={globals.strings.controls.quote} fa="quote-left" block={true} dialogTitle={globals.strings.controls['quote-dialog']} attribute={globals.strings.controls['quote-placeholder']} />
-
     const globals = useContext(Globals);
 
     const parent = useRef<HTMLDivElement>()
