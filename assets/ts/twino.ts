@@ -887,6 +887,8 @@ export default class TwinoAlikeParser {
 
     parseTo( text: string, target: HTMLElement, resolver: emoteResolver, options: TwinoClientOptions = {}, targetCallback = (s:string)=>{} ): void {
 
+        text = text.replace('\u200B','');
+
         let container_node = document.createElement('p');
         container_node.innerText = TwinoAlikeParser.preprocessText( text );
 
