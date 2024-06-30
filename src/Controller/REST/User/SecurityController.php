@@ -12,9 +12,11 @@ use App\Service\Actions\EMail\GetEMailDomainAction;
 use App\Service\Actions\Security\GenerateKeyAction;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
+use App\Service\Locksmith;
 use App\Service\RandomGenerator;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
+use Psr\Cache\InvalidArgumentException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,6 +27,8 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Contracts\Cache\ItemInterface;
+use Symfony\Contracts\Cache\TagAwareCacheInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Environment;
 
@@ -37,20 +41,22 @@ class SecurityController extends CustomAbstractCoreController
      * @param string $ticket
      * @param Request $request
      * @param GenerateKeyAction $keygen
+     * @param Locksmith $locksmith
      * @return JsonResponse
+     * @throws InvalidArgumentException
      */
     #[Route(path: '/token/exchange/{ticket}', name: 'token_exchange', methods: ['GET'])]
-    public function find(string $ticket, Request $request, GenerateKeyAction $keygen): JsonResponse {
-        $tokens = $request->getSession()->get('token-ticket');
-        if ($ticket && isset($tokens[$ticket])) {
-            $token = $tokens[$ticket];
-            unset($tokens[$ticket]);
-            $request->getSession()->set('token-ticket', $tokens);
-        } else $token = null;
+    public function find(string $ticket, Request $request, GenerateKeyAction $keygen, Locksmith $locksmith, TagAwareCacheInterface $gameCachePool): JsonResponse {
+        $lock = $locksmith->waitForLock("ticketing_{$request->getSession()->getId()}");
 
-        if ($token === null) $token = $keygen(16);
+        $valid = $gameCachePool->get( "ticketing_{$ticket}", function (ItemInterface $item) use ($ticket, $request, $keygen) {
+            $item->expiresAfter(0);
+            return false;
+        } );
+        $gameCachePool->delete("ticketing_{$request->getSession()->getId()}_{$ticket}");
+        $lock->release();
 
-        return new JsonResponse(['token' => $token]);
+        return new JsonResponse(['token' => $valid ? $request->getSession()->get('token', ($keygen)(16)) : ($keygen)(16)]);
     }
 
     /**
