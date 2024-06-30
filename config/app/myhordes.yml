@@ -75,8 +75,8 @@ parameters:
       dual-stack: true
     soulpoints:
       limits:
-        remote: 100
-        panda: 500
+        remote: 0
+        panda: 200
         return_small: 0
         custom: 1000
     langs:
