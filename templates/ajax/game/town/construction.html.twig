@@ -365,14 +365,9 @@
 
         update_view_mode();
 
-        const is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
         const on_ressource_extend_click = (e) => {
             e.target.parentNode.classList.toggle('focused');
-            // firefox has compat fix
-            if(is_firefox) {
-                e.target.parentElement.parentElement.classList.toggle('has-focused');
-            }
-            // end firefix
+            e.target.parentElement.parentElement.classList.toggle('has-focused');
         }
         // firefox has compat fix
         const firefox_add_plus_mouse = (e) => {
@@ -390,11 +385,7 @@
             Array.from(document.getElementsByClassName('extend_resources')).forEach((plus_btn) => {
                 if($.client.config.extendConstructions.get()) {
                     plus_btn.classList.toggle('focused');
-                    // firefox has compat fix
-                    if(is_firefox) {
-                        plus_btn.parentElement.classList.toggle('has-focused');
-                    }
-                    // end firefix
+                    plus_btn.parentElement.classList.toggle('has-focused');
                     return;
                 }
                 let build_items = plus_btn.parentNode;
@@ -413,13 +404,9 @@
                         // overflow
                         plus_btn.addEventListener('click', on_ressource_extend_click);
                         build_items.classList.toggle('overflowing');
-                        
-                        // firefox has compat fix
-                        if(is_firefox) {
-                            plus_btn.addEventListener('mouseover', firefox_add_plus_mouse);
-                            plus_btn.addEventListener('mouseout', firefox_remove_plus_mouse);
-                        }
-                        // end firefix
+
+                        plus_btn.addEventListener('mouseover', firefox_add_plus_mouse);
+                        plus_btn.addEventListener('mouseout', firefox_remove_plus_mouse);
                     } else {
                         plus_btn.style.display = 'none';
                     }
