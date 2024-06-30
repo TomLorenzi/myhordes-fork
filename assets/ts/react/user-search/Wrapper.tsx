@@ -69,8 +69,9 @@ export class HordesUserSearchBar {
 }
 
 export const UserSearchBar = (
-    {title, callback, exclude, clearOnCallback, callbackOnClear, acceptCSVListSearch, withSelf, withFriends, withAlias, withPlainString, context}: {
+    {title, valueCallback, callback, exclude, clearOnCallback, callbackOnClear, acceptCSVListSearch, withSelf, withFriends, withAlias, withPlainString, context}: {
         title?: string,
+        valueCallback?: (string)=>void,
         callback: (UserResponses)=>void,
         exclude?: number[],
         clearOnCallback?: boolean
@@ -178,6 +179,10 @@ export const UserSearchBar = (
         }
     }
 
+    const keyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (valueCallback) valueCallback((e.target as HTMLInputElement).value);
+    }
+
     const keyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         clearTimeout();
         if (e.key === "Enter" && result.length > 0 && !searchTimeout.current) {
@@ -248,7 +253,10 @@ export const UserSearchBar = (
 
     return (
         <div className="userSearchWrapper" ref={wrapper}>
-            <div className="userSearchInputContainer"><label><input type="text" ref={input} onKeyDown={e=>keyDown(e)}/></label>
+            <div className="userSearchInputContainer"><label><input type="text" ref={input}
+                                                                    onKeyDown={e=>keyDown(e)}
+                                                                    onKeyUp={e=>keyUp(e)}
+            /></label>
                 { title && (
                     <Tooltip additionalClasses="help" html={title} />
                 ) }

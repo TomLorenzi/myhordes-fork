@@ -395,6 +395,9 @@ const ControlButtonInsertQuote = () => {
                 withAlias={globals.isEnabled('alias')}
                 title={globals.strings.controls['quote-placeholder']}
                 withSelf={true} withFriends={true} withPlainString={true}
+                valueCallback={s => {
+                    selected.current = {name: s, id: -1}
+                }}
                 callback={e => {
                     selected.current = e[0] ?? null;
                     (parent.current.closest('form') as HTMLFormElement).requestSubmit();
