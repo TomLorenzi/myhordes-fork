@@ -94,6 +94,11 @@ final class CitizenInitializerListener implements ServiceSubscriberInterface
 
         (new Inventory())->setCitizen( $citizen );
         $this->getService(CitizenHandler::class)->inflictStatus( $citizen, 'clean' );
+        foreach ($event->town->getCitizens() as $existing_citizen)
+            if ($existing_citizen->getAlive() && $existing_citizen->hasStatus('tg_guitar')) {
+                $this->getService(CitizenHandler::class)->inflictStatus($citizen, 'tg_guitar');
+                break;
+            }
 
         if ($this->getService(TownHandler::class)->getBuilding( $event->town, 'small_novlamps_#00' ))
             $this->getService(CitizenHandler::class)->inflictStatus( $citizen, 'tg_novlamps' );
