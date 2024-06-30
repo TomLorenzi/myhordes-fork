@@ -27,6 +27,14 @@ export type GroupResponse = {
 
 export type GroupResponses = GroupResponse[]
 
+export type TextResponse = {
+    'type': 'text'
+    id: -1,
+    name: string
+}
+
+export type TextResponses = TextResponse[]
+
 export class HordesUserSearchBar {
 
     #_root = null;
@@ -61,7 +69,7 @@ export class HordesUserSearchBar {
 }
 
 export const UserSearchBar = (
-    {title, callback, exclude, clearOnCallback, callbackOnClear, acceptCSVListSearch, withSelf, withFriends, withAlias, context}: {
+    {title, callback, exclude, clearOnCallback, callbackOnClear, acceptCSVListSearch, withSelf, withFriends, withAlias, withPlainString, context}: {
         title?: string,
         callback: (UserResponses)=>void,
         exclude?: number[],
@@ -71,6 +79,7 @@ export const UserSearchBar = (
         withSelf?: boolean,
         withFriends?: boolean,
         withAlias?: boolean,
+        withPlainString?: boolean,
         context?: string,
     }) => {
 
@@ -87,7 +96,7 @@ export const UserSearchBar = (
             entry.target.classList.toggle( 'compact', (entry.contentRect?.width ?? 200) < 200 );
     }));
 
-    let [result, setResult] = useState<UserResponses|GroupResponses>([]);
+    let [result, setResult] = useState<(UserResponse|GroupResponse|TextResponse)[]>([]);
     let [focus, setFocusState] = useState<boolean>(false);
     let [searching, setSearching] = useState<boolean>(false);
 
@@ -134,8 +143,12 @@ export const UserSearchBar = (
             return;
         }
 
+        const base = withPlainString && s.length >= 1
+            ? ([{type: "text", name: s, id: -1}] as TextResponses)
+            : [];
+
         if (s.length < 3) {
-            setResult([]);
+            setResult(base);
             if (callbackOnClear) execCallback([]);
         }
         else apiRef.current.from('find')
@@ -152,9 +165,9 @@ export const UserSearchBar = (
         ).then(r => {
             setSearching(false);
             if (autoTrigger && r.length > 0) {
-                setResult([]);
+                setResult(base);
                 execCallback(r.slice(0,1));
-            } else setResult(r as UserResponse[])
+            } else setResult([...base, ...(r as UserResponse[])])
         }).catch(()=>setSearching(false));
     }
 
@@ -244,6 +257,11 @@ export const UserSearchBar = (
             <div className="userSearchResultsContainer" ref={container}>
                 <div ref={overlay} style={{opacity: 0}}>
                     <div>
+                        { focus && result.map( u => u['type'] === 'text' && (
+                            <div key={u.id} className="users-list-entry" onClick={() => execCallback([u])}>
+                                <div style={{padding: '4px'}}>{u.name}</div>
+                            </div>
+                        ) ) }
                         { focus && result.map( u => u['type'] === 'group' && (u as GroupResponse).members.length > 0 && (
                             <div key={u.id} className="users-list-group-entry" onClick={() => execCallback((u as GroupResponse).members)}>
                                 <div>{ u.name }</div>
