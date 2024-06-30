@@ -13,6 +13,7 @@ export type TranslationStrings = {
 
         add_file: string,
         add_screenshot: string,
+        screenshot_failed: string,
         delete_file: string,
         ok: string,
         cancel: string,
