@@ -623,4 +623,12 @@ Community-Event: Événement Communautaire
 'Die erhälst die gekennzeichneten Benachrichtigungen nur, wenn sie deiner gewählten Sprache entsprechen. Wenn du die entsprechenden Einstellungen änderst oder deine Sprache wechselst, kann es bis zu 24 Stunden dauern, bis die Änderungen für Benachrichtigungen übernommen werden.': 'Vous ne recevrez les notifications marquées que si elles correspondent à la langue sélectionnée. Si vous modifiez les paramètres concernés ou changez votre langue, les notifications peuvent prendre jusqu''à 24 heures pour refléter les modifications.'
 'Alternativ zu einer E-Mail Adresse kannst du hier auch eine URL eintragen, auf der Spieler eine Kontaktmöglichkeit zu dir finden.': 'Au lieu d''une adresse e-mail, tu peux aussi indiquer ici une URL sur laquelle les joueurs trouveront un moyen de te contacter.'
 'Dein Gerät konnte sich nicht beim Benachrichtigungsdienst anmelden. Dies kann durch einen kurzzeitigen Verbindungsausfall passieren. Möglicherweise musst du den Benachrichtigungsdienst auch zunächst in den Privatsphäre-Einstellungen deines Browsers aktivieren.': 'Ton appareil n''a pas pu se connecter au service de notification. Cela peut être dû à une perte de connexion momentanée. Il est également possible que tu doives d''abord activer le service de notification dans les paramètres de confidentialité de ton navigateur.'
-'Leider scheint dein Gerät oder Browser diese Funktion nicht zu unterstützen.': 'Malheureusement, votre appareil ou votre navigateur ne semble pas prendre en charge cette fonctionnalité.'
+'Dieser Indikator zeigt an, ob du aktuell mit dem Live-Dienst von MyHordes verbunden bist.': 'Cet indicateur indique si vous êtes actuellement connecté au service en direct de MyHordes.'
+'Mithilfe des Live-Dienstes erhälst dein System Benachrichtigungen vom MyHordes-Server in Echtzeit, beispielsweise über neue Forenposts oder PNs.': 'Grâce au service en direct, votre système reçoit des notifications du serveur MyHordes en temps réel, par exemple concernant les nouveaux messages sur le forum ou les Messages Privés.'
+'Aktuell besteht keine Verbindung zum Live-Dienst. Du kannst dennoch wie gewohnt weiter spielen, da alle wichtigen Funktionen auch ohne den Live-Dienst arbeiten können.': 'Il n''y a actuellement aucune connexion au service en direct. Vous pouvez toujours continuer à jouer comme d''habitude, car toutes les fonctions importantes peuvent également fonctionner sans le service en direct.'
+'Nicht verbunden': 'Non connecté'
+'Verbindung wird hergestellt': 'Connexion en cours'
+'Verbunden, Verbindungsupdate angefordert': 'Connecté, mise à jour de connexion demandée'
+Verbunden: Connecté
+'Die Taube': 'La colombe'
+'Normaler Post': 'Post normal'

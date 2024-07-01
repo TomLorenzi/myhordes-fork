@@ -1,382 +1,381 @@
----
-Wassergraben: crwdns60446:0crwdne60446:0
-'Großer Graben': 'crwdns60448:0crwdne60448:0'
-'Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.': 'crwdns60450:0crwdne60450:0'
-'Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.': 'crwdns60452:0crwdne60452:0'
-'Der Verteidigungsbonus des Grabens steigt dauerhaft um 32.': 'crwdns60454:0crwdne60454:0'
-'Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.': 'crwdns60456:0crwdne60456:0'
-'Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.': 'crwdns60458:0crwdne60458:0'
-Rasierklingenmauer: crwdns60460:0crwdne60460:0
-Pfahlgraben: crwdns60462:0crwdne60462:0
-Köder: crwdns60464:0crwdne60464:0
-Stacheldraht: crwdns60466:0crwdne60466:0
-'Weiterentwickelte Stadtmauer': 'crwdns60468:0crwdne60468:0'
-'Groooße Mauer': 'crwdns60470:0crwdne60470:0'
-Zackenmauer: crwdns60472:0crwdne60472:0
-'Dritte Schicht': 'crwdns60474:0crwdne60474:0'
-'Zweite Schicht': 'crwdns60476:0crwdne60476:0'
-Betonschicht: crwdns60478:0crwdne60478:0
-'Entwicklungsfähige Stadtmauer': 'crwdns60480:0crwdne60480:0'
-'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.': 'crwdns60482:0crwdne60482:0'
-'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.': 'crwdns60484:0crwdne60484:0'
-'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 50.': 'crwdns60486:0crwdne60486:0'
-'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.': 'crwdns60488:0crwdne60488:0'
-'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.': 'crwdns60490:0crwdne60490:0'
-'Verstärkende Balken': 'crwdns60492:0crwdne60492:0'
-Zombiereibe: crwdns60494:0crwdne60494:0
-Fallgruben: crwdns60496:0crwdne60496:0
-Holzzaun: crwdns60498:0crwdne60498:0
-Sperrholz: crwdns60500:0crwdne60500:0
-'Rüstungsplatten 3.0': 'crwdns60502:0crwdne60502:0'
-Extramauer: crwdns60504:0crwdne60504:0
-Rüstungsplatten: crwdns60506:0crwdne60506:0
-'Rüstungsplatten 2.0': 'crwdns60508:0crwdne60508:0'
-Einseifer: crwdns60510:0crwdne60510:0
-Spraykanone: crwdns60512:0crwdne60512:0
-Säurespray: crwdns60514:0crwdne60514:0
-Zerstäuber: crwdns60516:0crwdne60516:0
-'Verstärkte Stadtmauer': 'crwdns60518:0crwdne60518:0'
-Minen: crwdns60520:0crwdne60520:0
-Wasserfilter: crwdns60522:0crwdne60522:0
-Wasserreiniger: crwdns60524:0crwdne60524:0
-Dünger: crwdns60526:0crwdne60526:0
-Granatapfel: crwdns60528:0crwdne60528:0
-Gemüsebeet: crwdns60530:0crwdne60530:0
-'Projekt Eden': 'crwdns60532:0crwdne60532:0'
-Brunnenbohrer: crwdns60534:0crwdne60534:0
-Kärcher: crwdns60536:0crwdne60536:0
-'Kreischender Rotor': 'crwdns60538:0crwdne60538:0'
-Sprinkleranlage: crwdns60540:0crwdne60540:0
-Dusche: crwdns60542:0crwdne60542:0
-Wasserleitungsnetz: crwdns60544:0crwdne60544:0
-Wasserturm: crwdns60546:0crwdne60546:0
-'Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.': 'crwdns60548:0crwdne60548:0'
-'Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.': 'crwdns60550:0crwdne60550:0'
-'Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.': 'crwdns60552:0crwdne60552:0'
-'Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 224.': 'crwdns60554:0crwdne60554:0'
-'Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 280.': 'crwdns60556:0crwdne60556:0'
-Wasserfänger: crwdns60558:0crwdne60558:0
-Wasserkanone: crwdns60560:0crwdne60560:0
-Schleuse: crwdns60562:0crwdne60562:0
-Wasserfall: crwdns60564:0crwdne60564:0
-Wünschelrakete: crwdns60566:0crwdne60566:0
-Wünschelrute: crwdns60568:0crwdne60568:0
-Apfelbaum: crwdns60570:0crwdne60570:0
-Pumpe: crwdns60572:0crwdne60572:0
-'Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt': 'crwdns60574:0crwdne60574:0'
-'Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt': 'crwdns60576:0crwdne60576:0'
-'Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt': 'crwdns60578:0crwdne60578:0'
-Kremato-Cue: crwdns60580:0crwdne60580:0
-Metzgerei: crwdns60582:0crwdne60582:0
-Verteidigungsanlage: crwdns60584:0crwdne60584:0
-'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.': 'crwdns60586:0crwdne60586:0'
-'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.': 'crwdns60588:0crwdne60588:0'
-'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.': 'crwdns60590:0crwdne60590:0'
-'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.': 'crwdns60592:0crwdne60592:0'
-'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.': 'crwdns60594:0crwdne60594:0'
-Steinkanone: crwdns60596:0crwdne60596:0
-'Selbstgebaute Railgun': 'crwdns60598:0crwdne60598:0'
-Blechplattenwerfer: crwdns60600:0crwdne60600:0
-'Brutale Kanone': 'crwdns60602:0crwdne60602:0'
-Kanonenhügel: crwdns60604:0crwdne60604:0
-Holzbalkendrehkreuz: crwdns60606:0crwdne60606:0
-Manufaktur: crwdns60608:0crwdne60608:0
-'Kreischende Sägen': 'crwdns60610:0crwdne60610:0'
-Bauhaus: crwdns60612:0crwdne60612:0
-'Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.': 'crwdns60614:0crwdne60614:0'
-'Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.': 'crwdns60616:0crwdne60616:0'
-'Die Stadt erhält nach dem nächsten Angriff einmalig 2 ungewöhnliche und 2 seltene Baupläne sowie - möglicherweise - eine nette Überraschung.': 'crwdns60618:0crwdne60618:0'
-Baustellenbuch: crwdns60620:0crwdne60620:0
-Galgen: crwdns60622:0crwdne60622:0
-'Kleines Cafe': 'crwdns60624:0crwdne60624:0'
-Sarg-Katapult: crwdns60626:0crwdne60626:0
-'Kleiner Friedhof': 'crwdns60628:0crwdne60628:0'
-Hühnerstall: crwdns60630:0crwdne60630:0
-Schlachthof: crwdns60632:0crwdne60632:0
-Pentagon: crwdns60634:0crwdne60634:0
-Kantine: crwdns60636:0crwdne60636:0
-Bollwerk: crwdns60638:0crwdne60638:0
-Baumarkt: crwdns60640:0crwdne60640:0
-Krankenstation: crwdns60642:0crwdne60642:0
-Labor: crwdns60644:0crwdne60644:0
-Werkstatt: crwdns60646:0crwdne60646:0
-'Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.': 'crwdns60648:0crwdne60648:0'
-'Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.': 'crwdns60650:0crwdne60650:0'
-'Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.': 'crwdns60652:0crwdne60652:0'
-Scanner: crwdns60654:0crwdne60654:0
-'Verbesserte Karte': 'crwdns60656:0crwdne60656:0'
-Rechenmaschine: crwdns60658:0crwdne60658:0
-Forschungsturm: crwdns60660:0crwdne60660:0
-'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.': 'crwdns60662:0crwdne60662:0'
-'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 49%.': 'crwdns60664:0crwdne60664:0'
-'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 61%.': 'crwdns60666:0crwdne60666:0'
-'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.': 'crwdns60668:0crwdne60668:0'
-'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.': 'crwdns60670:0crwdne60670:0'
-Verteidigungspfähle: crwdns60672:0crwdne60672:0
-Notfallabstützung: crwdns60674:0crwdne60674:0
-Guerilla: crwdns60676:0crwdne60676:0
-Trümmerberg: crwdns60678:0crwdne60678:0
-Abfallberg: crwdns60680:0crwdne60680:0
-Wolfsfalle: crwdns60682:0crwdne60682:0
-Sprengfalle: crwdns60684:0crwdne60684:0
-'Nackte Panik': 'crwdns60686:0crwdne60686:0'
-Dollhouse: crwdns60688:0crwdne60688:0
-'Heiliger Regen': 'crwdns60690:0crwdne60690:0'
-Voodoo-Puppe: crwdns60692:0crwdne60692:0
-'Spirituelles Wunder': 'crwdns60694:0crwdne60694:0'
-'Bokors Guillotine': 'crwdns60696:0crwdne60696:0'
-Notfallkonstruktion: crwdns60698:0crwdne60698:0
-'Verbesserter Katapult': 'crwdns60700:0crwdne60700:0'
-Katapult: crwdns60702:0crwdne60702:0
-'Kleine Waffenschmiede': 'crwdns60704:0crwdne60704:0'
-'Schwedische Schreinerei': 'crwdns60706:0crwdne60706:0'
-Schießstand: crwdns60708:0crwdne60708:0
-'Kleiner Tribok': 'crwdns60710:0crwdne60710:0'
-Wächter-Turm: crwdns60712:0crwdne60712:0
-Krähennest: crwdns60714:0crwdne60714:0
-Wachturm: crwdns60716:0crwdne60716:0
-'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.': 'crwdns60718:0crwdne60718:0'
-'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.': 'crwdns60720:0crwdne60720:0'
-'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.': 'crwdns60722:0crwdne60722:0'
-'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.': 'crwdns60724:0crwdne60724:0'
-'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.': 'crwdns60726:0crwdne60726:0'
-Bohrturm: crwdns60728:0crwdne60728:0
-'Falsche Stadt': 'crwdns60730:0crwdne60730:0'
-Wasserhahn: crwdns60732:0crwdne60732:0
-'Großer Umbau': 'crwdns60734:0crwdne60734:0'
-Vogelscheuche: crwdns60736:0crwdne60736:0
-Fleischkäfig: crwdns60738:0crwdne60738:0
-Bürgergericht: crwdns60740:0crwdne60740:0
-Befestigungen: crwdns60742:0crwdne60742:0
-Holzabfall: crwdns60744:0crwdne60744:0
-Metallabfall: crwdns60746:0crwdne60746:0
-Tierabfälle: crwdns60748:0crwdne60748:0
-'Müll für Alle': 'crwdns60750:0crwdne60750:0'
-Waffenabfall: crwdns60752:0crwdne60752:0
-Biomüll: crwdns60754:0crwdne60754:0
-Rüstungsabfall: crwdns60756:0crwdne60756:0
-'Verbesserte Müllhalde': 'crwdns60758:0crwdne60758:0'
-Müllhalde: crwdns60760:0crwdne60760:0
-Leuchtturm: crwdns60762:0crwdne60762:0
-Altar: crwdns60764:0crwdne60764:0
-'Riesige Sandburg': 'crwdns60766:0crwdne60766:0'
-Leuchtfeuer: crwdns60768:0crwdne60768:0
-'Ministerium für Sklaverei': 'crwdns60770:0crwdne60770:0'
-Reaktor: crwdns60772:0crwdne60772:0
-Labyrinth: crwdns60774:0crwdne60774:0
-'Alles oder nichts': 'crwdns60776:0crwdne60776:0'
-'Riesiger KVF': 'crwdns60778:0crwdne60778:0'
-Riesenrad: crwdns60780:0crwdne60780:0
-Feuerwerk: crwdns60782:0crwdne60782:0
-Krähenstatue: crwdns60784:0crwdne60784:0
-Kino: crwdns60786:0crwdne60786:0
-Luftschlag: crwdns60788:0crwdne60788:0
-Heißluftballon: crwdns60790:0crwdne60790:0
-Tunnelratte: crwdns60792:0crwdne60792:0
-Fundament: crwdns60794:0crwdne60794:0
-Torpanzerung: crwdns60796:0crwdne60796:0
-Automatiktür: crwdns60798:0crwdne60798:0
-Kolbenschließmechanismus: crwdns60800:0crwdne60800:0
-Ventilationssystem: crwdns60802:0crwdne60802:0
-Portal: crwdns60804:0crwdne60804:0
-Feldbett: crwdns60806:0crwdne60806:0
-Zelt: crwdns60808:0crwdne60808:0
-Baracke: crwdns60810:0crwdne60810:0
-Hütte: crwdns60812:0crwdne60812:0
-Haus: crwdns60814:0crwdne60814:0
-'Umzäuntes Haus': 'crwdns60816:0crwdne60816:0'
-'Befestigte Unterkunft': 'crwdns60818:0crwdne60818:0'
-Bunker: crwdns60820:0crwdne60820:0
-Schloss: crwdns60822:0crwdne60822:0
-'Großer Vorhang': 'crwdns60824:0crwdne60824:0'
-'Mit dieser alten, schmutzigen Jutesackleinwand kannst du deine Habseligkeiten vor den neugierigen Blicken deiner Nachbarn schützen.': 'crwdns60826:0crwdne60826:0'
-Hobbylabor: crwdns60828:0crwdne60828:0
-'Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.': 'crwdns60830:0crwdne60830:0'
-Küche: crwdns60832:0crwdne60832:0
-"In dieser notdürftig zusammengeschraubten Küche können schmackhafte und 'gesunde' Speisen zubereitet werden.": "crwdns136178:0crwdne136178:0"
-'Primitives Alarmsystem': 'crwdns60836:0crwdne60836:0'
-'Eisenteile, die an einem Faden hängen - so einfach und so effektiv kann ein Alarmsystem sein. Wenn jemand versuchen sollte, bei dir einzubrechen, wird er zwangsläufig die halbe Stadt aufwecken...': 'crwdns60838:0crwdne60838:0'
-Ruheecke: crwdns60840:0crwdne60840:0
-"Was hier als 'Ruhe-Ecke' bezeichnet wird, ist in Wahrheit nichts anderes als ein mit Kartons gefülltes Loch im Boden... der ideale Ort, wenn deine Kräfte schwinden und du dich für ein Nickerchen zurückziehen willst.": "crwdns136184:0crwdne136184:0"
-Türschloss: crwdns60844:0crwdne60844:0
-'Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.': 'crwdns60846:0crwdne60846:0'
-'Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.': 'crwdns60848:0crwdne60848:0'
-Stauraum: crwdns60850:0crwdne60850:0
-'Deine persönliche Truhe vergrößert sich. ': 'crwdns60852:0crwdne60852:0'
-Verstärkungen: crwdns60854:0crwdne60854:0
-'Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.': 'crwdns60856:0crwdne60856:0'
-Verteidigung: crwdns60858:0crwdne60858:0
-Brustwehr: crwdns60860:0crwdne60860:0
-Hammam: crwdns60862:0crwdne60862:0
-'Temporäre Konstruktion!': 'crwdns60864:0crwdne60864:0'
-'Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.': 'crwdns60866:0crwdne60866:0'
-'Wenn ihr wollt, könnt irh sie morgen nochmal bauen.': 'crwdns60868:0crwdne60868:0'
-'Verbessert die Stadtverteidigung erheblich.': 'crwdns60870:0crwdne60870:0'
-'Eine verbesserte Version des Großen Grabens. Muss mit Wasser gefüllt werden...': 'crwdns60872:0crwdne60872:0'
-'Der Große Graben ist eine sehr wirkungsvolle Verteidigungsmaßnahme, die sich insbesondere auf lange Sicht auszahlt. Der Graben lässt sich mit allerhand Dingen füllen.': 'crwdns60874:0crwdne60874:0'
-'Die Rasierklingenmauer folgt einem ganz einfachen Prinzip: Man nehme allerlei Eisenstücke, schärfe und spitze sie an und verteile sie anschließend über die ganze Stadtmauer. Die Mauer verwandelt sich so in eine überdimensionale Zombiefeile.': 'crwdns60876:0crwdne60876:0'
-'Diese verbesserte Variante des Großen Grabens besteht aus einer großen Anzahl zugespitzter Holzpfähle.': 'crwdns60878:0crwdne60878:0'
-"Mit diesem an einem Stacheldraht befestigtem Stück Fleisch kann man ein paar Zombies 'ne Zeit lang beschäftigen": "crwdns136194:0crwdne136194:0"
-'Na ja, dieser Stachel"draht" ist noch simpler als der normale... Der Grund: Der Draht fehlt.': 'crwdns60882:0crwdne60882:0'
-'Auf die Verteidigungsvorichtungen müssen wir heute Nacht verzichten, aber diese intelligent gebaute und ausbaufähige Stadtmauer hat mehr drauf, als man denkt.': 'crwdns60884:0crwdne60884:0'
-'Was ist besser als eine Mauer?... eine groooße Mauer.': 'crwdns60886:0crwdne60886:0'
-'Diese Mauer ist mit einer großen Anzahl an Metallspitzen gespickt, damit die Stadtbewohner beim Angriff um Mitternacht ein paar nette Spieße Zombieschaschlik herstellen können.': 'crwdns60888:0crwdne60888:0'
-'Eine dritte Schicht über der bestehenden Mauer bietet noch besseren Schutz gegen untote Eindringlinge.': 'crwdns60890:0crwdne60890:0'
-'Damit selbst hartnäckige Zombies draußen bleiben, bekommt die gesamte Stadtmauer eine zusätzliche Schicht verpasst.': 'crwdns60892:0crwdne60892:0'
-'Die Stadtmauer wird mit einem Eisengestell verstärkt und kann ab sofort jeden Tag ganz leicht um ein Stück erweitert werden!': 'crwdns60894:0crwdne60894:0'
-'Zu guter Letzt bekommt die Mauer noch eine Schicht aus Beton verpasst. Das sollte die Zombiehorden nun aber wirklich draußen halten.': 'crwdns60896:0crwdne60896:0'
-'Mit diesen Metallbalken können die schwächeren Stellen der Stadtmauer verstärkt werden.': 'crwdns60898:0crwdne60898:0'
-'Man bedecke eine große Bodenfläche mit einem Meer von zugespitzten und geschärften Metallstücken und schon erhält man die größte Käsereibe der Welt.': 'crwdns60900:0crwdne60900:0'
-'Ihr legt eine große Anzahl von verdeckten Fallgruben rund um die Stadt an und wartet bis irgendwas reinfällt. So einfach.': 'crwdns60902:0crwdne60902:0'
-'Die Stadt baut einen Holzzaun, der - zumindest theoretisch- die Bestien ausreichend verlangsamen sollte.': 'crwdns60904:0crwdne60904:0'
-'Warum ist da vorher noch niemand drauf gekommen? Anstatt Zeit mit Körperpflege zu verschwenden, benutzt eure Seife lieber dazu, die Stadtmauer schön glitschig zu machen. Vor allem im Zusammenspiel mit der Zombiereibe eine "saubere Lösung". Wen stören da schon die Geräusche?': 'crwdns60906:0crwdne60906:0'
-'Das wird die hübschen Antlitze der Zombies vor der Stadt sicher auch nicht verbessern.': 'crwdns60908:0crwdne60908:0'
-'Oft wird vergessen, dass Zombies ein Gehirn haben. Manchmal sogar zwei, wenn sie Glück haben. Trifft sich gut: Das mit dieser Kanone geschossene Konzentrat hat die erstaunliche Fähigkeit, Gehirne in Matsch zu verwandeln.': 'crwdns60910:0crwdne60910:0'
-'Ein simpler Verteidigungsgegenstand, aber du wirst ihn zu schätzen wissen, wenn dein Ex-Nachbar Kevo versuchen sollte, an deinem Gehirn rumzuknabbern..': 'crwdns60912:0crwdne60912:0'
-'Diese Verbesserung ist nicht der ganz große Wurf, aber sie erfüllt ihren Zweck: Sie verhindert, dass du zu schnell stirbst.': 'crwdns60914:0crwdne60914:0'
-'Simpel aber stabil: Was will man mehr?': 'crwdns60916:0crwdne60916:0'
-'Sperrholz. Du hast es nur genommen, weil du wirklich nichts besseres zu tun hattest. Dir war klar, dass es unnütz sein würde, aber das hat dich trotzdem nicht davon abgehalten. Na dann mal los...': 'crwdns60918:0crwdne60918:0'
-'Es war sicher kein Geniestreich dieses Bauwerk zu beginnen. Aber gut, letztlich haben alle zugestimmt und eine weitere große Mauer ist sicher keine schlechte Idee.': 'crwdns60920:0crwdne60920:0'
-'Ein handliches, hydraulisch betriebenes Gerät, das Wasserdampf versprühen kann (und weitere amüsante Chemikalien).': 'crwdns60922:0crwdne60922:0'
-'Hast du es satt, über die abgetrennten Gliedmaßen der Zombies zu stolpern, die du erledigt hast? Vielleicht ist es dann an der Zeit, in der Apokalypse aufzusteigen and und die Zombiehorden von oben zu beobachten. Mithilfe der Brustwehr kannst du des Nachts über die Stadt wachen und dem Himmel ein Stück näher zu kommen.': 'crwdns60924:0crwdne60924:0'
-'Raketenpulver, Zünder und reines Wasser: Das sind die Zutaten für einen saftigen Brei aus vermodertem Fleisch diese Nacht. Eine mächtige Verteidigung, leider kann sie nur einmal verwendet werden.': 'crwdns60926:0crwdne60926:0'
-'Verbessert die Ausbeute des Wasserreinigers erheblich (hoher Wirkungsgrad).': 'crwdns60928:0crwdne60928:0'
-'Verwandelt in der Wüste gefundenes Kanisterwasser in Trinkwasser.': 'crwdns60930:0crwdne60930:0'
-'Ein gewaltiger wissenschaftlicher Durchbruch: Durch die Aussaat von Dynamitstangen und gaaanz vorsichtiges Gießen, könnt ihr Granatäpfel anbauen!': 'crwdns60932:0crwdne60932:0'
-'Verbessert die Ausbeute des Gemüsebeets erheblich.': 'crwdns60934:0crwdne60934:0'
-'Mit einem Gemüsebeet könnt ihr leckere Früchte und nicht allzu verschimmeltes Gemüse anbauen. Ist zwar kein Bio, macht aber satt.': 'crwdns60936:0crwdne60936:0'
-'Eine radikale Lösung, wenn mal das Wasser ausgehen sollte: Mit ein paar gezielten Sprengungen können tiefergelegene Wasserschichten erschlossen und das Wasserreservoir vergrößert werden.': 'crwdns60938:0crwdne60938:0'
-'Mit diesem selbstgebauten Bohrer kann die Stadt ihre Wasserreserven beträchtlich vergrößern.': 'crwdns60940:0crwdne60940:0'
-'Dieser leistungsstarke Dampfstrahlreiniger versprüht feinen, siedend heißen Wasserdampf. Deine muffigen Freunde werden beim Anblick dieses Geräts wortwörtlich dahinschmelzen.': 'crwdns60942:0crwdne60942:0'
-'Es handelt sich um ein einfallsreiches und SEHR effektives System! Zwei schnell kreisende und mit geschliffenen Eisenstangen bestückte Drehscheiben, die von einem Kolbenmechanismus angetrieben werden, zerfetzen alles und jeden, der sich im Toreingang befindet!': 'crwdns60944:0crwdne60944:0'
-'Wie jeder weiß, wird eine Sprinkleranlage für gewöhnlich im Garten eingesetzt. Die wenigsten wissen jedoch, dass sie sich auch hervorragend gegen Zombiehorden eignet. Einziger Wermutstropfen: Die Anlage verbraucht relativ viel Wasser.': 'crwdns60946:0crwdne60946:0'
-'Nein, ganz ehrlich, dieser... dieser... Geruch ist einfach nicht auszuhalten: Nimm eine Dusche. Sofort!': 'crwdns60948:0crwdne60948:0'
-'Nach der Pumpe könnt ihr mit dem Wasserleitungsnetz die auf Wasser basierenden Verteidigungsmechanismen angehen! Zusätzlich vergrößert das Netz auch die Wasserreserven des Brunnens.': 'crwdns60950:0crwdne60950:0'
-'Mit dieser revolutionären Verteidigungsanlage ist die Stadt imstande, große Wasserdampfwolken zu erzeugen. Ein wohlig-warmes Dampfbad wird den vor den Stadtmauern herumlungernden Zombies gut tun und sie grundlegend "reinigen". Die Leistung kann mit ein wenig Feintuning noch gesteigert werden.': 'crwdns60952:0crwdne60952:0'
-'Wenn es um Wasser geht, zählt jeder Tropfen. Dieses Bauwerk fügt dem Brunnen +2 Rationen Wasser hinzu und kann jeden Tag gebaut werden.': 'crwdns60954:0crwdne60954:0'
-'Ein hübscher kleiner Wasserstrahl, um die wachsende Zombiemeute beim Stadttor zu sprengen.': 'crwdns60956:0crwdne60956:0'
-'Dieser Apfelbaum erinnert eher an einen verkümmerten und halbtoten Busch, aber er trägt wunderschöne blaue Äpfel. Äh, Moment mal,... wie bitte?': 'crwdns60958:0crwdne60958:0'
-'Selbst das Abwasser der Stadt kann noch genutzt werden: Wir müssen bloß alle Toiletten der Stadt über ein ausgeklügeltes System aus Rohren und Schlitten miteinander verbinden und dann um Mitternacht die Schleusen öffnen. Hat auch jeder sein Zelt korrekt aufgebaut?': 'crwdns60960:0crwdne60960:0'
-'Anfangs war es nur zur Dekontaminierung gedacht. Aber dann stellte es sich als äußerst effizientes Mittel gegen unsere pestilenten Freunde heraus. Man gebe noch einen Spritzer Kokosnuss-Duschgel hinzu und siehe da: Die meterhohen Leichenstapel, für die DU verantwortlich bist, verströmen ein betörendes Aroma.': 'crwdns60962:0crwdne60962:0'
-'Ein selbstgebauer Raketenwerfer feuert in den Boden: Denk mal drüber nach! Der Legende nach wollte der geistige Vater dieses Bauprojekts eigentlich den "Rocket Jump" erfinden. Egal, +60 Rationen Wasser werden so zum Brunnen hinzugefügt.': 'crwdns60964:0crwdne60964:0'
-'Dass "Hightech" nicht nur auf die Dezimierung von Zombiehorden beschränkt ist, beweist dieses Gebäude... Es fügt +100 Rationen Wasser zum Brunnen hinzu.': 'crwdns60966:0crwdne60966:0'
-'Die Pumpe ist die Grundvoraussetzung für alle auf Wasser basierenden Konstruktionen! Darüber hinaus steigert sie die Wasserergiebigkeit des Brunnens um ein Vielfaches.': 'crwdns60968:0crwdne60968:0'
-'Jeder weiß, was ein Krematorium ist, richtig? Und jeder weiß, wozu man einen Barbecuegrill verwendet? Dann einfach eins und eins zusammenzählen, dann wisst ihr auch wie ein "Kremato-Cue" funktioniert. Die Zeiten des Hungerns sind jedenfalls vorbei...': 'crwdns60970:0crwdne60970:0'
-'In der Metzgerei könnt ihr eure kleinen treuen Begleiter (Hunde, Katzen, Schlangen ...) in Lebensmittel verwandeln. Da gibt es doch tatsächlich noch Leute, die Vegetarier sind...': 'crwdns60972:0crwdne60972:0'
-'Für diese raffiniert durchdachte Anlage können alle Arten von Platten (z.B. Blech) verwendet werden. Jeder in der Bank abgelegte Verteidigungsgegenstand steuert zusätzliche Verteidigungspunkte bei!': 'crwdns60974:0crwdne60974:0'
-'Dieser automatisierte Wachturm verschießt um Mitternacht minutenlang Felsen mit hoher Geschwindigkeit in Richtung Stadttor. Solltest du vorgehabt haben zu schlafen, kannst du das hiermit vergessen!': 'crwdns60976:0crwdne60976:0'
-'Diese improvisierte Railgun funktioniert mit Luftdruck. Sie ist in der Lage, mehrere Ladungen Metallsplitter (verbogene Nägel und rostiges Metall) mit enormer Geschwindigkeit zu verschießen und faustgroße Löcher zu reißen.': 'crwdns60978:0crwdne60978:0'
-'Der Blechplattenwerfer schleudert schwere Blechplatten aufs Schlachtfeld. Die angerichtete Schweinerei willst du garantiert kein zweites Mal sehen...': 'crwdns60980:0crwdne60980:0'
-'Für diese Maschine möchte man sterben. ...im übertragenen Sinne. Ihr müsst sie allerdings jeden Tag nachladen.': 'crwdns60982:0crwdne60982:0'
-'Mehrere Erdhügel, die durch Holzbalken verstärkt wurden, bilden die Grundlage für diesen mächtigen Verteidigungsturm.': 'crwdns60984:0crwdne60984:0'
-'Schwere Holzbalken werden auf einem Drehkreuz befestigt und das Ganze wird dann in Bewegung gesetzt. Es dreht sich schnell... sehr schnell.': 'crwdns60986:0crwdne60986:0'
-'Die Manufaktur ist eine verbesserte Werkstatt. Sie senkt die Verarbeitungskosten aller darin erledigten Arbeiten um 1 AP.': 'crwdns60988:0crwdne60988:0'
-'Ein paar geschickt hergestelle Kreissägen, die durch ein ausgeklügeltes Gummizugsystem bewegt werden. Der schrille Rotationslärm erinnert seltsamerweise an einen menschlichen Schrei...': 'crwdns60990:0crwdne60990:0'
-'Wenn sich intelligente Leute abends beim Feuer unterhalten, können großartige Erfindungen dabei herauskommen. Zumindest wenn sie vorher ein Bauhaus errichtet haben. Dieses Bauwerk gibt der Stadt täglich einen (gewöhnlichen) Bauplan.': 'crwdns60992:0crwdne60992:0'
-'Mit diesem Register erhältst du eine bessere Übersicht zu allen aktuellen Konstruktionen samt der dafür benötigten Materialien.': 'crwdns60994:0crwdne60994:0'
-'An diesem prächtigen Galgen könnt ihr unliebsame (oder lästige) Mitbürger loswerden. Ist mal was "anderes" als die klassische Verbannung...': 'crwdns60996:0crwdne60996:0'
-'Ein Schlachthof, der direkt vor dem Stadttor errichtet wird und dessen Eingang zur Außenwelt zeigt. Schwierig ist eigentlich nur, jede Nacht einen Freiwilligen zu finden, der sich hineinstellt und so die Zombies anlockt.': 'crwdns60998:0crwdne60998:0'
-'Eine großangelegte Neuausrichtung aller Verteidigungsanlagen, um wirklich das Optimum herauszuholen (die Gesamtverteidigung der Stadt erhöht sich um 10%).': 'crwdns61000:0crwdne61000:0'
-"Das Mittagessen liegt schon lange zurück... Was gibt's da besseres als eine solide Holzplanke und altbackenes Brot.": "crwdns136202:0crwdne136202:0"
-'Von 2 Toten hat derjenige, der sich bewegt, die besten Chancen, dich zu verspeisen. Trickst eure Feinde aus, indem ihr eure Leichen in die herankommende Zombiehorde schleudert. Jeder Tote bringt +20 anstelle von +10 Verteidigungspunkten.': 'crwdns61004:0crwdne61004:0'
-'Bringt eure Toten! Denn diesmal werden sie sich noch als nützlich erweisen. Macht das beste aus ihnen und verbessert damit gemeinsam eure Verteidigung. Jeder zum Friedhof gebrachte tote Mitbürger bringt +10 Verteidigungspunkte für die Gesamtverteidigung der Stadt. Hinweis: Es spielt keine Rolle, wo und woran ein Mitbürger verstarb.': 'crwdns61006:0crwdne61006:0'
-'Die Kantine verbessert die Produktion in den Küchen, die die Helden in eurer Stadt gebaut haben.': 'crwdns61008:0crwdne61008:0'
-'Das Labor verbessert die Produktion in den Hobbylabors, die die Helden in eurer Stadt gebaut haben.': 'crwdns61010:0crwdne61010:0'
-'Falls du schon vor langer Zeit vergessen hast, wie köstlich ein Omelett mit gebratenen Chamignons, Kräutern und Speck ist, dürfte dieses Gebäude wohl eher unnütz für dich sein. Aber zumindest liefert es dir einige Eier. Was die Pilze betrifft, so musst du dich wohl an die Zombies draußen halten.': 'crwdns61012:0crwdne61012:0'
-'Egal ob kleines Wehwehchen oder irreparables Trauma - die Krankenstation empfängt dich mit offenen Armen. Zumindst solange du noch imstande bist, dich selbst zu verarzten, denn diese Einrichtung kommt ganz ohne medizinisches Personal daher.': 'crwdns61014:0crwdne61014:0'
-'Dank diesem wahrlich großen Bauwerk können Bürger ihre Häuser noch aufwändiger ausbauen.': 'crwdns61016:0crwdne61016:0'
-'Dieses ambitionierte Stadtbauprojekt hat zum Ziel, die Verteidigung der Bürgerbehausungen besser in die Stadtverteidigung zu integrieren. Dank dieses Bauwerks bringen Bürgerbehausungen fortan 80% statt 40% ihres Verteidigungswertes in die Stadtverteidigung ein.': 'crwdns61018:0crwdne61018:0'
-'Die Entwicklung einer jeden Stadt hängt vom Bau einer verdreckten Werkstatt ab. Sie ist die Voraussetzung für alle weiter entwickelten Gebäude.': 'crwdns61020:0crwdne61020:0'
-'Dieses erheblich verbesserte Katapult ist einfacher zu bedienen und benötigt weniger AP, um mit einem Gegenstand beladen zu werden!': 'crwdns61022:0crwdne61022:0'
-'Das Katapult ist ein äußerst mächtiges Werkzeug, mit dem die Stadt jede Art von Gegenstand in die Wüste schießen kann. Das ist sehr nützlich, wenn man weit entfernte Bürger versorgen möchte (Lebensmittel, Wasser, Waffen etc...).': 'crwdns61024:0crwdne61024:0'
-'Dieser selbstgebaute Zonenscanner erleichtert die Abschätzung des nächtlichen Angriffs erheblich. Wenn er richtig eingesetzt wird, sind nur halb so viele Bürger notwendig, um eine gute Schätzung zu bekommen.': 'crwdns61026:0crwdne61026:0'
-'Diese simple elektronische Konstruktion erleichtert das Lesen der Außenweltkarte. Konkret: Du erfährst die genaue Zombieanzahl jeder Zone und musst somit nicht mehr planlos in der Wüste rumlaufen...': 'crwdns61028:0crwdne61028:0'
-'Die Rechenmaschine ist ein etwas rustikaler Taschenrechner, mit dem man die Angriffsstärke des MORGIGEN Tages berechnen kann!': 'crwdns61030:0crwdne61030:0'
-'Mit dem Forschungsturm können in bereits "abgesuchten" Wüstenzonen jeden Tag neue Gegenstände gefunden werden! Der Forschungsturm versetzt dich in die Lage, jene anormalen meteorologischen Phänomene aufzuzeichnen und auszuwerten, die sich nachts in der Wüste abspielen. Die entsprechenden Fundstellen werden anschließend in der Zeitung veröffentlicht.': 'crwdns61032:0crwdne61032:0'
-'Wenn es brenzlig wird, ist es oft überlebenswichtig, hier und dort mit ein paar Holzplanken nachzuhelfen und alles nochmal dicht zu machen. Das bringt dir oft noch eine weitere Nacht.': 'crwdns61034:0crwdne61034:0'
-'Der gesamte Außenbereich der Stadt wird mit angespitzten Holzpfählen gespickt. Diese kostengünstige Verteidigungsmaßnahme verwandelt die Stadt in eine wahre Trutzburg und kann an manchen Abenden den Unterschied zwischen Leben und Tod ausmachen.': 'crwdns61036:0crwdne61036:0'
-'Dieses Arsenal an einfallsreichen Guerillafallen ermöglicht dir, die Zombiereihen zu lichten und die Last des Angriffs entscheidend zu senken.': 'crwdns61038:0crwdne61038:0'
-'Hast du erst mal einen großen Haufen Müll aufgeschüttet, kannst du ihn einfach noch mit Stacheln versehen, die ebenso rostig wie tödlich sind!': 'crwdns61040:0crwdne61040:0'
-'Wenn wirklich gar nichts mehr geht, sammelst du alles ein, was du findest und formst daraus einen großen Abfallhaufen... jetzt heißt es Daumen drücken und hoffen, dass das die Horde irgendwie aufhält... Ach ja, wenn du möchtest, kannst du diesen Abfallberg auch mit Fallen spicken.': 'crwdns61042:0crwdne61042:0'
-'Das wird den Zombies Beine machen - oder besser: ausreißen!': 'crwdns61044:0crwdne61044:0'
-'Dynamit, Zombies, Blut.': 'crwdns61046:0crwdne61046:0'
-'Falls die Lage wirklich verzweifelt ist, könnt ihr beschließen loszuschreien und in Panik zu verfallen. Falls alle Überlebenden mitmachen, wird es die Zombies verwirren (denn sie können mit dieser Art Stress nicht umgehen) und euch einige virtuelle Verteidigungespuntke einbringen... Genau, das ist natürlich Unsinn.': 'crwdns61048:0crwdne61048:0'
-'Feiern bis zum Abwinken ist immer noch die beste Art, all die schrecklichen Dinge der Außenwelt zu vergessen. Glücklicherweise sorgen die Zombies schon dafür, dass die Dinge nicht zu sehr ausschweifen.': 'crwdns61050:0crwdne61050:0'
-'Ein über 2 Meter hoher, schimmliger Wollballen, über und über mit Stricken und Nadeln bedeckt. In den mächtigen Händen des Schamanen wird dieses *Ding* zu einem XXL-Püppchen, das etliche Zombies niederstreckt, ehe es wieder eine unförmige, unbewegliche Masse wird.': 'crwdns61052:0crwdne61052:0'
-'Mit Hilfe einer teuflischen Guillotine und einer provisorischen Schaufensterpuppe, kann der Schamane aus der Entfernung den Kopf eines Zombierudel-Führers abschlagen. Die Zombies die ihm folgen, werden daraufhin abdrehen und wieder in die Wüste wandern.': 'crwdns61054:0crwdne61054:0'
-'Dieser Zauber des Schamanen erschafft ein Trugbild der Stadt. Als Folge verliert sich eine beträchtliche Anzahl Zombies heillos in der Wüste.': 'crwdns61056:0crwdne61056:0'
-'Nur der Schamane kennt das Geheimnis dieses rituellen Feuertanzes. Richtig ausgeführt, steigt eine kleine Wolke in den Himmel und bewirkt, dass ein Schauer heiligen Wassers auf die Zombiehorde niedergeht.': 'crwdns61058:0crwdne61058:0'
-'Die Stadt muss sich auch auf unvorhergesehene Ereignisse einstellen. Für diese Zwecke wurde diese Notfallkonstruktion entworfen: Sie hält in der Regel nur eine Nacht lang. Achtung! Es sollte darauf geachtet werden, nicht zu viele Rohstoffe für den Bau temporärer Konstruktionen zu verwenden!': 'crwdns61060:0crwdne61060:0'
-'Ein Schießstand mit Wasserpistolen, der wohl aus den Überresten eines Rummels geborgen wurde. Er zaubert eurer Nachtwache ein Lächeln ins Gesicht - damit schickt ihr sicher einen netten Schauer die Mauer runter! Verleiht jeder Wasserwaffe, die auf der Wacht genutzt wird, einen 20% Bonus.': 'crwdns61062:0crwdne61062:0'
-'Mit diesem Katapult kannst du deinen tierischen Freunden ein wenig Starthilfe geben, damit sie noch mehr Schaden in der angreifenden Horde anrichten. Zudem besitzt die Geräuschkulisse von Tieren, die mit hoher Geschwindigkeit durch die Luft fliegen, einen gewissen Unterhaltungswert. 20% auf die Angriffskraft jedes Tieres, das mit auf die Wacht genommen wird.': 'crwdns61064:0crwdne61064:0'
-'Diese Waffenwerkstatt ist euer Trumpf für die Nachtwache. Wird sie gebaut, wird jede Waffe, die während der Wacht zum Einsatz kommt um 20% verstärkt.': 'crwdns61066:0crwdne61066:0'
-'Dieser kleine Laden verbessert die Effektivität jedes Möbelstücks, das auf der Wache benutzt wird um 20%. Hach ja, die Schweden... Nie gab es bessere Billigmöbel!': 'crwdns61068:0crwdne61068:0'
-'Der Bau eines prächtigen Wachturms mit Kontrollgang macht die Nachtwächter unter den Helden glücklich. Dieses Bauwerk gibt pro Nachtwächter in der Stadt +10 Verteidigungspunkte und erlaubt ihnen, ihre AP in Verteidigungspunkte umzuwandeln und so noch mehr für die Verteidung zu tun.': 'crwdns61070:0crwdne61070:0'
-'Weniger ein Turm als ein seeeeehr hoher Mast, der fast bis in die Wolken reicht. Aufklärer können ihn erklimmen und so Gebäude in der Außenwelt erspähen (1x pro Tag und Held).': 'crwdns61072:0crwdne61072:0'
-'Mit dem Wachturm ist es möglich den nächtlichen Angriff abzuschätzen. Die Stadtbürger können dann die entsprechenden Gegenmaßnahmen vorbereiten (oder auch nicht...). Nach seiner Fertigstellung können Notfallkonstruktionen aller Art gebaut werden.': 'crwdns61074:0crwdne61074:0'
-'Dieses absurde Projekt hat den kompletten Umbau der Stadt zum Ziel. Jeder Stein, jedes Brett und jedes Gebäude wird gemäß eines neuen Verteidigungsplans neu ausgerichtet. Hierzu werden u.a. Häuser näher zusammengerückt, Gassen und selten benutzte Straßen versperrt und Wassergeschütztürme auf die Dächer der Stadt montiert. Ein richtig großer Umbau!': 'crwdns61076:0crwdne61076:0'
-'Auch der Bohrturm ist eine absurde Konstruktion. Mit ihm können selbst tiefste wasserführende Schichten angezapft werden! Er fügt +50 Rationen an Wasser dem Brunnen hinzu.': 'crwdns61078:0crwdne61078:0'
-'Es ist weithin bekannt, dass die Zombies nicht so ganz helle sind... Wenn ihr es schafft, eine Stadt nachzubauen, könntet ihr den überwiegenden Großteil des Angriffs auf diesen Nachbau umlenken...': 'crwdns61080:0crwdne61080:0'
-'Dank dieses kleinen, am Brunnen angebrachten Wasserhahns, kannst Du nun die Wassermengen abschöpfen, die ansonten durch das Filtersystem verschwendet werden (es braucht kein zusätzliches Brunnen-Wasser). Du kannst mit diesem Wasser alle auf Wasser basierenden Waffen KOSTENLOS auffüllen (Wasserbombe, Wasserkanone,...)!': 'crwdns61082:0crwdne61082:0'
-'Dieses Feld voller Vogelscheuchen würde noch viel besser mit der Kleidung der Stadtbewohner funktionieren. Allerdings würde das bedeuten, dass sich die Stadt in ein Nudisten-Camp verwandeln würde.': 'crwdns61084:0crwdne61084:0'
-'Ermöglicht die fachgerechte Entsorgung von Holz auf der Müllhalde.': 'crwdns61086:0crwdne61086:0'
-'Ermöglicht die fachgerechte Entsorgung von Metall auf der Müllhalde.': 'crwdns61088:0crwdne61088:0'
-'Ermöglicht die fachgerechte Entsorgung von Waffen auf der Müllhalde.': 'crwdns61090:0crwdne61090:0'
-'Ermöglicht die fachgerechte Entsorgung von Nahrung auf der Müllhalde.': 'crwdns61092:0crwdne61092:0'
-'Steigert die Ausbeute jedes auf den Müll geworfenen Verteidigungs-Gegenstandes.': 'crwdns61094:0crwdne61094:0'
-'Steigert die Ausbeute jedes auf den Müll geworfenen Gegenstandes um +1 Verteidigungspunkt.': 'crwdns61096:0crwdne61096:0'
-'Ermöglicht das fachgerechte Massakrieren unschuldiger Tiere auf der Müllhalde.': 'crwdns61098:0crwdne61098:0'
-'Senkt die Kosten der Nutzung der Müllhalde auf 0 AP. Achtung: Falls ihr Halunken in eurer Stadt habt, solltet ihr euch den Bau gut überlegen...': 'crwdns61100:0crwdne61100:0'
-'Der Eckpfeiler einer jeden großen Stadt: eine riesige, stinkende Müllhalde, die die ganze Stadt umgibt. Zugegeben, das ist nicht gerade ästhetisch, aber immerhin könnt ihr so Alltagsgegenstände in eine effektive Verteidigung verwandeln (nur eine Nacht haltbar).': 'crwdns61102:0crwdne61102:0'
-'Moderne Justiz in all seiner Pracht! Wird ein Mitbürger verbannt, kann er in den Fleischkäfig gesteckt werden, welcher sich wohlweislich direkt vor dem Stadttor befindet. Seine Schreie und Tränen dürften einen exzellenten Köder um Mitternacht abgeben. Jeder verbannte und in den Fleischkäfig gesteckte Mitbürger bringt der Stadt vorübergehende Verteidigungspuntke ein.': 'crwdns61104:0crwdne61104:0'
-'Dieser schöne, hohe Leuchtturm wird Licht in lange Winternächte bringen (hat er im Sommer eigentlich irgendeinen Nutzen?). Alle Stadtbewohner auf Camping-Ausflug haben eine höhere Überlebens-Chance.': 'crwdns61106:0crwdne61106:0'
-'Da Bürger normalerweise nicht direkt von Verteidigungsbauten profitieren, wollen wir uns mal nicht beschweren. Alle Bürgerbehausungen erhalten +4 Verteidigung.': 'crwdns61108:0crwdne61108:0'
-'Ein großes Leuchtfeuer, irgendwo weit abseits von der Stadt entzündet, soll die Zombies von unseren Häusern weglocken.': 'crwdns61110:0crwdne61110:0'
-'Wie jeder weiß, haben Helden immer recht. Um diesen Fakt weiter zu zementieren, zählen alle von Helden gegen andere Bürger ausgesprochenen Beschwerden doppelt.': 'crwdns61112:0crwdne61112:0'
-'Das Ministerium für Sklaverei hat beschlossen, dass Verbannte auf den Baustellen arbeiten dürfen. Außerdem erhält jeder von ihnen in ein Bauprojekt investierte AP einen 50%-Bonus (z.B. aus 6 AP werden so 9 AP, die in das Bauprojekt fließen).': 'crwdns61114:0%-Bcrwdne61114:0'
-'Da selbst der Bohrer des Bohrturms nicht durch jede Schicht durchkommt, muss man hin und wieder kleine und mit Dynamit bestückte Tiere in die Tiefe schicken. Dieses Projekt fügt den städtischen Wasserreserven +150 Rationen hinzu.': 'crwdns61116:0crwdne61116:0'
-'Sie zeigen Dawn of the Dead... zum 636. Mal. Bisher war dir die überzeugende Darstellung eines Nebendarstellers noch nie so richtig aufgefallen. Es gibt tatsächlich noch etwas Neues zu entdecken. Und wer weiß? Mit ein bisschen Glück bringt dich der Film ja sogar zum Lachen.': 'crwdns61118:0crwdne61118:0'
-'Ein großer, runder Ballon steigt hinauf in den Himmel. Aber nur solange, wie der "Freiwillige" in der Gondel braucht, um alles rund um die Stadt zu erfassen. Das Bauwerk ermöglicht es Dir, die gesamte Außenwelt zu entdecken.': 'crwdns61120:0crwdne61120:0'
-'Zombies sind bekanntermaßen einfach gestrickt. Warum ihnen dann nicht einfach ein kleines Labyrinth vor die Nase (das Stadttor) setzen und dabei zusehen, wie ihr Angriff an Schwung verliert. Das Ganze ist äußerst effektiv. Doch jeder Bürger, der die Stadt betreten will, muss dann 1 AP aufbringen.': 'crwdns61122:0crwdne61122:0'
-'Nicht mehr als ein Akt der Verzweiflung! Alle Gegenstände in der Bank werden zerstört und bringen jeweils +1 vorübergehende Verteidigung.': 'crwdns61124:0crwdne61124:0'
-'Vier feine Raketen werden gestartet und auf vier strategische Ziele rund um die Stadt (Norden, Süden, Osten, Westen) abgefeuert. Auf ihrem Weg töten sie jeden Zombie.': 'crwdns61126:0crwdne61126:0'
-'Es gibt nichts Besseres, um die Tristesse langer Wüstennächte zu vertreiben, als ein schönes, großes Feuerwerk. Diese spezielle Variante geht so: Man feuert die Raketen in die Bereiche rund um die Stadt ab und zündet sie dann um Punkt Mitternacht inmitten der Zombiehorden.': 'crwdns61128:0crwdne61128:0'
-'Weil der Rabe gut und gerecht ist, befreit dieser zu seinen Ehren errichtete Schrein alle Bürger, die aus der Stadt verbannt wurden.': 'crwdns61130:0crwdne61130:0'
-'Ein wirklich riesiger KVF, auf dem die Namen aller Bürger der Stadt eingraviert sind, erhebt sich stolz in den Himmel... äh. Genau, ein KVF. Niemand weiß warum, aber jemand hat am Fuße des Bauwerks "Eigentum der tiefsinnigen Nacht" eingraviert. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': 'crwdns61132:0crwdne61132:0'
-'Huldigt den Raben! Gelobt sei deine Milde und deine erhabene Austrahlung! Befreie uns vom Spam und vergib uns unsere Trollenbeiträge so wie auch wir vergeben anderen Trollen. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': 'crwdns61134:0crwdne61134:0'
-'Es ist wirklich eine enorme und beeindruckente Konstruktion. Ihr habt eure kostbarsten Materialien an dieses verdammte Ding verschwendet, und denoch seid ihr irgendwie stolz darauf. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': 'crwdns61136:0crwdne61136:0'
-'Wenn es eines gibt, woran hier wahrlich kein Mangel herrscht, dann ist es Sand. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': 'crwdns61138:0crwdne61138:0'
-'Dieses furchterregende Konstrukt stammt aus einem sowjetischen U-Boot und sendet gleißende Blitze knisternder Elektrizität rund um die Stadt aus. Einziger Haken an der Sache: Es muss jeden Tag repariert werden. Falls es zerstört wird, würde die Stadt mitsamt der gesamten Umgebung augenblicklich ausradiert werden (inklusive euch). Das Schild am Reaktor besagt: sowjetische Bauweise, hergestellt in « вшивый ».': 'crwdns61140:0crwdne61140:0'
-'Das Fundament ist die Grundvoraussetzung für "Absurde Projekte" (das sind langwierige und anstrengende Bauten, die jedoch für die Stadt mehr als nützlich sind).': 'crwdns61142:0crwdne61142:0'
-'Das Stadttor schließt sich selbsttätig um 23:59 anstatt 23:30.': 'crwdns61144:0crwdne61144:0'
-'Dieser äußerst leistungsstarke Kolbenmotor schließt und verriegelt das Stadttor eine halbe Stunde vor Mitternacht. Nach der Schließung kann das Tor nicht mehr geöffnet werden.': 'crwdns61146:0crwdne61146:0'
-'Ein paar improvisierte Panzerplatten werden direkt auf das Stadttor geschraubt und verbessern so die Widerstandskraft desselben.': 'crwdns61148:0crwdne61148:0'
-'Dieser Geheimgang erlaubt es Helden, ein- und auszugehen, ohne das Stadttor zu benutzen!': 'crwdns61150:0crwdne61150:0'
-'Eine rustikal anmutende Konstruktion, mit der die Öffnung des Stadttors nach 23:40 erfolgreich verhindert werden kann (es dürfte äußerst selten vorkommen, dass das Tor danach nochmal geöffnet werden muss). Das Stadttor muss nichtsdestotrotz zusätzlich noch per Hand geschlossen werden.': 'crwdns61152:0crwdne61152:0'
-'Ein Ort der Entspannung und der Meditation, perfekt geeignet um eine Seele auf die Andere Seite zu geleiten.': 'crwdns61154:0crwdne61154:0'
-'Die Verteidigung der Stadt wird um 12% erhöht.': 'crwdns61156:0crwdne61156:0'
-'Die Verteidigung der Stadt wird um 14% erhöht.': 'crwdns61158:0crwdne61158:0'
-'Zaun (Baustellen)': crwdns61160:0crwdne61160:0
-'Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.': 'crwdns61162:0crwdne61162:0'
-'Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.': 'crwdns61164:0crwdne61164:0'
-'Zaun (Haus)': crwdns61166:0crwdne61166:0
-Schokoladenkreuz: crwdns61168:0crwdne61168:0
-'Ein wunderschönes Kreuz aus Schokolade, an dem unliebsame (oder lästige) Mitbürger platziert werden können. Ist mal was "anderes" als die klassische Verbannung...': 'crwdns61170:0crwdne61170:0'
-Straßenbeleuchtung: crwdns61172:0crwdne61172:0
-'Selbst in der tiefsten Nacht erlaubt dir der fahle Schein der Laternenmasten, deine Ausgrabungen in der Wüste fortzusetzen. Keine Ausreden mehr, um früh ins Bett zu gehen.': 'crwdns61174:0crwdne61174:0'
-'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.': 'crwdns61176:0crwdne61176:0'
-'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 10km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.': 'crwdns61178:0crwdne61178:0'
-'Die Verringerung der Fundchancen bei Nacht wird auf der gesamten Karte negiert, pro Tag werden 2 Batterien verbraucht.': 'crwdns61180:0crwdne61180:0'
-'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert.': 'crwdns61182:0crwdne61182:0'
-'Kein besonderer Bonus': 'crwdns61184:0crwdne61184:0'
-'Die Verteidigung der Stadt wird um 10% erhöht.': 'crwdns61186:0crwdne61186:0'
-'Der Verteidigungswert der Stadt steigt mit dem Großen Graben auf 10 Punkte.': 'crwdns61188:0crwdne61188:0'
-'Die entwicklungsfähige Stadtmauer bringt der Stadt 55 Verteidigungspunkte.': 'crwdns61190:0crwdne61190:0'
-'Der Brunnen wird einmalig mit 5 Rationen Wasser befüllt.': 'crwdns61192:0crwdne61192:0'
-'Jeder in der Bank abgelegte Verteidigungsgegenstand bringt der Stadt 1.5 Verteidigungspunkte zusätzlich ein.': 'crwdns61194:0crwdne61194:0'
-'Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche Baupläne.': 'crwdns61196:0crwdne61196:0'
-'Der Wasserwerfer gibt 70 zusätzliche Verteidigungspunkte.': 'crwdns61198:0crwdne61198:0'
-'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.': 'crwdns74802:0crwdne74802:0'
-'Der Bau eines prächtigen Wachturms mit Kontrollgang macht die Wächter unter den Helden glücklich. Dieses Bauwerk gibt pro Wächter in der Stadt +5 Verteidigungspunkte und erlaubt ihnen, ihre AP in Verteidigungspunkte umzuwandeln und so noch mehr für die Verteidung zu tun.': 'crwdns136903:0crwdne136903:0'
-'Ermöglicht die Umwandlung von Objekten, mit etwas Anstrengung.': 'crwdns204376:0crwdne204376:0'
-'Zeigt die Windrichtung in der Zeitung an.': 'crwdns204378:0crwdne204378:0'
+Wassergraben: crwdns197719:0crwdne197719:0
+'Großer Graben': 'crwdns197721:0crwdne197721:0'
+'Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.': 'crwdns197723:0crwdne197723:0'
+'Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.': 'crwdns197725:0crwdne197725:0'
+'Der Verteidigungsbonus des Grabens steigt dauerhaft um 32.': 'crwdns197727:0crwdne197727:0'
+'Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.': 'crwdns197729:0crwdne197729:0'
+'Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.': 'crwdns197731:0crwdne197731:0'
+Rasierklingenmauer: crwdns197733:0crwdne197733:0
+Pfahlgraben: crwdns197735:0crwdne197735:0
+Köder: crwdns197737:0crwdne197737:0
+Stacheldraht: crwdns197739:0crwdne197739:0
+'Weiterentwickelte Stadtmauer': 'crwdns197741:0crwdne197741:0'
+'Groooße Mauer': 'crwdns197743:0crwdne197743:0'
+Zackenmauer: crwdns197745:0crwdne197745:0
+'Dritte Schicht': 'crwdns197747:0crwdne197747:0'
+'Zweite Schicht': 'crwdns197749:0crwdne197749:0'
+Betonschicht: crwdns197751:0crwdne197751:0
+'Entwicklungsfähige Stadtmauer': 'crwdns197753:0crwdne197753:0'
+'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.': 'crwdns197755:0crwdne197755:0'
+'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.': 'crwdns197757:0crwdne197757:0'
+'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 50.': 'crwdns197759:0crwdne197759:0'
+'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.': 'crwdns197761:0crwdne197761:0'
+'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.': 'crwdns197763:0crwdne197763:0'
+'Verstärkende Balken': 'crwdns197765:0crwdne197765:0'
+Zombiereibe: crwdns197767:0crwdne197767:0
+Fallgruben: crwdns197769:0crwdne197769:0
+Holzzaun: crwdns197771:0crwdne197771:0
+Sperrholz: crwdns197773:0crwdne197773:0
+'Rüstungsplatten 3.0': 'crwdns197775:0crwdne197775:0'
+Extramauer: crwdns197777:0crwdne197777:0
+Rüstungsplatten: crwdns197779:0crwdne197779:0
+'Rüstungsplatten 2.0': 'crwdns197781:0crwdne197781:0'
+Einseifer: crwdns197783:0crwdne197783:0
+Spraykanone: crwdns197785:0crwdne197785:0
+Säurespray: crwdns197787:0crwdne197787:0
+Zerstäuber: crwdns197789:0crwdne197789:0
+'Verstärkte Stadtmauer': 'crwdns197791:0crwdne197791:0'
+Minen: crwdns197793:0crwdne197793:0
+Wasserfilter: crwdns197795:0crwdne197795:0
+Wasserreiniger: crwdns197797:0crwdne197797:0
+Dünger: crwdns197799:0crwdne197799:0
+Granatapfel: crwdns197801:0crwdne197801:0
+Gemüsebeet: crwdns197803:0crwdne197803:0
+'Projekt Eden': 'crwdns197805:0crwdne197805:0'
+Brunnenbohrer: crwdns197807:0crwdne197807:0
+Kärcher: crwdns197809:0crwdne197809:0
+'Kreischender Rotor': 'crwdns197811:0crwdne197811:0'
+Sprinkleranlage: crwdns197813:0crwdne197813:0
+Dusche: crwdns197815:0crwdne197815:0
+Wasserleitungsnetz: crwdns197817:0crwdne197817:0
+Wasserturm: crwdns197819:0crwdne197819:0
+'Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.': 'crwdns197821:0crwdne197821:0'
+'Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.': 'crwdns197823:0crwdne197823:0'
+'Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.': 'crwdns197825:0crwdne197825:0'
+'Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 224.': 'crwdns197827:0crwdne197827:0'
+'Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 280.': 'crwdns197829:0crwdne197829:0'
+Wasserfänger: crwdns197831:0crwdne197831:0
+Wasserkanone: crwdns197833:0crwdne197833:0
+Schleuse: crwdns197835:0crwdne197835:0
+Wasserfall: crwdns197837:0crwdne197837:0
+Wünschelrakete: crwdns197839:0crwdne197839:0
+Wünschelrute: crwdns197841:0crwdne197841:0
+Apfelbaum: crwdns197843:0crwdne197843:0
+Pumpe: crwdns197845:0crwdne197845:0
+'Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt': 'crwdns197847:0crwdne197847:0'
+'Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt': 'crwdns197849:0crwdne197849:0'
+'Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt': 'crwdns197851:0crwdne197851:0'
+Kremato-Cue: crwdns197853:0crwdne197853:0
+Metzgerei: crwdns197855:0crwdne197855:0
+Verteidigungsanlage: crwdns197857:0crwdne197857:0
+'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.': 'crwdns197859:0crwdne197859:0'
+'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.': 'crwdns197861:0crwdne197861:0'
+'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.': 'crwdns197863:0crwdne197863:0'
+'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.': 'crwdns197865:0crwdne197865:0'
+'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.': 'crwdns197867:0crwdne197867:0'
+Steinkanone: crwdns197869:0crwdne197869:0
+'Selbstgebaute Railgun': 'crwdns197871:0crwdne197871:0'
+Blechplattenwerfer: crwdns197873:0crwdne197873:0
+'Brutale Kanone': 'crwdns197875:0crwdne197875:0'
+Kanonenhügel: crwdns197877:0crwdne197877:0
+Holzbalkendrehkreuz: crwdns197879:0crwdne197879:0
+Manufaktur: crwdns197881:0crwdne197881:0
+'Kreischende Sägen': 'crwdns197883:0crwdne197883:0'
+Bauhaus: crwdns197885:0crwdne197885:0
+'Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.': 'crwdns197887:0crwdne197887:0'
+'Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.': 'crwdns197889:0crwdne197889:0'
+'Die Stadt erhält nach dem nächsten Angriff einmalig 2 ungewöhnliche und 2 seltene Baupläne sowie - möglicherweise - eine nette Überraschung.': 'crwdns197891:0crwdne197891:0'
+Baustellenbuch: crwdns197893:0crwdne197893:0
+Galgen: crwdns197895:0crwdne197895:0
+'Kleines Cafe': 'crwdns197897:0crwdne197897:0'
+Sarg-Katapult: crwdns197899:0crwdne197899:0
+'Kleiner Friedhof': 'crwdns197901:0crwdne197901:0'
+Hühnerstall: crwdns197903:0crwdne197903:0
+Schlachthof: crwdns197905:0crwdne197905:0
+Pentagon: crwdns197907:0crwdne197907:0
+Kantine: crwdns197909:0crwdne197909:0
+Bollwerk: crwdns197911:0crwdne197911:0
+Baumarkt: crwdns197913:0crwdne197913:0
+Krankenstation: crwdns197915:0crwdne197915:0
+Labor: crwdns197917:0crwdne197917:0
+Werkstatt: crwdns197919:0crwdne197919:0
+'Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.': 'crwdns197921:0crwdne197921:0'
+'Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.': 'crwdns197923:0crwdne197923:0'
+'Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.': 'crwdns197925:0crwdne197925:0'
+Scanner: crwdns197927:0crwdne197927:0
+'Verbesserte Karte': 'crwdns197929:0crwdne197929:0'
+Rechenmaschine: crwdns197931:0crwdne197931:0
+Forschungsturm: crwdns197933:0crwdne197933:0
+'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.': 'crwdns197935:0crwdne197935:0'
+'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 49%.': 'crwdns197937:0crwdne197937:0'
+'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 61%.': 'crwdns197939:0crwdne197939:0'
+'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.': 'crwdns197941:0crwdne197941:0'
+'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.': 'crwdns197943:0crwdne197943:0'
+Verteidigungspfähle: crwdns197945:0crwdne197945:0
+Notfallabstützung: crwdns197947:0crwdne197947:0
+Guerilla: crwdns197949:0crwdne197949:0
+Trümmerberg: crwdns197951:0crwdne197951:0
+Abfallberg: crwdns197953:0crwdne197953:0
+Wolfsfalle: crwdns197955:0crwdne197955:0
+Sprengfalle: crwdns197957:0crwdne197957:0
+'Nackte Panik': 'crwdns197959:0crwdne197959:0'
+Dollhouse: crwdns197961:0crwdne197961:0
+'Heiliger Regen': 'crwdns197963:0crwdne197963:0'
+Voodoo-Puppe: crwdns197965:0crwdne197965:0
+'Spirituelles Wunder': 'crwdns197967:0crwdne197967:0'
+'Bokors Guillotine': 'crwdns197969:0crwdne197969:0'
+Notfallkonstruktion: crwdns197971:0crwdne197971:0
+'Verbesserter Katapult': 'crwdns197973:0crwdne197973:0'
+Katapult: crwdns197975:0crwdne197975:0
+'Kleine Waffenschmiede': 'crwdns197977:0crwdne197977:0'
+'Schwedische Schreinerei': 'crwdns197979:0crwdne197979:0'
+Schießstand: crwdns197981:0crwdne197981:0
+'Kleiner Tribok': 'crwdns197983:0crwdne197983:0'
+Wächter-Turm: crwdns197985:0crwdne197985:0
+Krähennest: crwdns197987:0crwdne197987:0
+Wachturm: crwdns197989:0crwdne197989:0
+'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.': 'crwdns197991:0crwdne197991:0'
+'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.': 'crwdns197993:0crwdne197993:0'
+'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.': 'crwdns197995:0crwdne197995:0'
+'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.': 'crwdns197997:0crwdne197997:0'
+'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.': 'crwdns197999:0crwdne197999:0'
+Bohrturm: crwdns198001:0crwdne198001:0
+'Falsche Stadt': 'crwdns198003:0crwdne198003:0'
+Wasserhahn: crwdns198005:0crwdne198005:0
+'Großer Umbau': 'crwdns198007:0crwdne198007:0'
+Vogelscheuche: crwdns198009:0crwdne198009:0
+Fleischkäfig: crwdns198011:0crwdne198011:0
+Bürgergericht: crwdns198013:0crwdne198013:0
+Befestigungen: crwdns198015:0crwdne198015:0
+Holzabfall: crwdns198017:0crwdne198017:0
+Metallabfall: crwdns198019:0crwdne198019:0
+Tierabfälle: crwdns198021:0crwdne198021:0
+'Müll für Alle': 'crwdns198023:0crwdne198023:0'
+Waffenabfall: crwdns198025:0crwdne198025:0
+Biomüll: crwdns198027:0crwdne198027:0
+Rüstungsabfall: crwdns198029:0crwdne198029:0
+'Verbesserte Müllhalde': 'crwdns198031:0crwdne198031:0'
+Müllhalde: crwdns198033:0crwdne198033:0
+Leuchtturm: crwdns198035:0crwdne198035:0
+Altar: crwdns198037:0crwdne198037:0
+'Riesige Sandburg': 'crwdns198039:0crwdne198039:0'
+Leuchtfeuer: crwdns198041:0crwdne198041:0
+'Ministerium für Sklaverei': 'crwdns198043:0crwdne198043:0'
+Reaktor: crwdns198045:0crwdne198045:0
+Labyrinth: crwdns198047:0crwdne198047:0
+'Alles oder nichts': 'crwdns198049:0crwdne198049:0'
+'Riesiger KVF': 'crwdns198051:0crwdne198051:0'
+Riesenrad: crwdns198053:0crwdne198053:0
+Feuerwerk: crwdns198055:0crwdne198055:0
+Krähenstatue: crwdns198057:0crwdne198057:0
+Kino: crwdns198059:0crwdne198059:0
+Luftschlag: crwdns198061:0crwdne198061:0
+Heißluftballon: crwdns198063:0crwdne198063:0
+Tunnelratte: crwdns198065:0crwdne198065:0
+Fundament: crwdns198067:0crwdne198067:0
+Torpanzerung: crwdns198069:0crwdne198069:0
+Automatiktür: crwdns198071:0crwdne198071:0
+Kolbenschließmechanismus: crwdns198073:0crwdne198073:0
+Ventilationssystem: crwdns198075:0crwdne198075:0
+Portal: crwdns198077:0crwdne198077:0
+Feldbett: crwdns198079:0crwdne198079:0
+Zelt: crwdns198081:0crwdne198081:0
+Baracke: crwdns198083:0crwdne198083:0
+Hütte: crwdns198085:0crwdne198085:0
+Haus: crwdns198087:0crwdne198087:0
+'Umzäuntes Haus': 'crwdns198089:0crwdne198089:0'
+'Befestigte Unterkunft': 'crwdns198091:0crwdne198091:0'
+Bunker: crwdns198093:0crwdne198093:0
+Schloss: crwdns198095:0crwdne198095:0
+'Großer Vorhang': 'crwdns198097:0crwdne198097:0'
+'Mit dieser alten, schmutzigen Jutesackleinwand kannst du deine Habseligkeiten vor den neugierigen Blicken deiner Nachbarn schützen.': 'crwdns198099:0crwdne198099:0'
+Hobbylabor: crwdns198101:0crwdne198101:0
+'Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.': 'crwdns198103:0crwdne198103:0'
+Küche: crwdns198105:0crwdne198105:0
+"In dieser notdürftig zusammengeschraubten Küche können schmackhafte und 'gesunde' Speisen zubereitet werden.": "crwdns198107:0crwdne198107:0"
+'Primitives Alarmsystem': 'crwdns198109:0crwdne198109:0'
+'Eisenteile, die an einem Faden hängen - so einfach und so effektiv kann ein Alarmsystem sein. Wenn jemand versuchen sollte, bei dir einzubrechen, wird er zwangsläufig die halbe Stadt aufwecken...': 'crwdns198111:0crwdne198111:0'
+Ruheecke: crwdns198113:0crwdne198113:0
+"Was hier als 'Ruhe-Ecke' bezeichnet wird, ist in Wahrheit nichts anderes als ein mit Kartons gefülltes Loch im Boden... der ideale Ort, wenn deine Kräfte schwinden und du dich für ein Nickerchen zurückziehen willst.": "crwdns198115:0crwdne198115:0"
+Türschloss: crwdns198117:0crwdne198117:0
+'Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.': 'crwdns198119:0crwdne198119:0'
+'Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.': 'crwdns198121:0crwdne198121:0'
+Stauraum: crwdns198123:0crwdne198123:0
+'Deine persönliche Truhe vergrößert sich. ': 'crwdns198125:0crwdne198125:0'
+Verstärkungen: crwdns198127:0crwdne198127:0
+'Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.': 'crwdns198129:0crwdne198129:0'
+Verteidigung: crwdns198131:0crwdne198131:0
+Brustwehr: crwdns198133:0crwdne198133:0
+Hammam: crwdns198135:0crwdne198135:0
+'Temporäre Konstruktion!': 'crwdns198137:0crwdne198137:0'
+'Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.': 'crwdns198139:0crwdne198139:0'
+'Wenn ihr wollt, könnt irh sie morgen nochmal bauen.': 'crwdns198141:0crwdne198141:0'
+'Verbessert die Stadtverteidigung erheblich.': 'crwdns198143:0crwdne198143:0'
+'Eine verbesserte Version des Großen Grabens. Muss mit Wasser gefüllt werden...': 'crwdns198145:0crwdne198145:0'
+'Der Große Graben ist eine sehr wirkungsvolle Verteidigungsmaßnahme, die sich insbesondere auf lange Sicht auszahlt. Der Graben lässt sich mit allerhand Dingen füllen.': 'crwdns198147:0crwdne198147:0'
+'Die Rasierklingenmauer folgt einem ganz einfachen Prinzip: Man nehme allerlei Eisenstücke, schärfe und spitze sie an und verteile sie anschließend über die ganze Stadtmauer. Die Mauer verwandelt sich so in eine überdimensionale Zombiefeile.': 'crwdns198149:0crwdne198149:0'
+'Diese verbesserte Variante des Großen Grabens besteht aus einer großen Anzahl zugespitzter Holzpfähle.': 'crwdns198151:0crwdne198151:0'
+"Mit diesem an einem Stacheldraht befestigtem Stück Fleisch kann man ein paar Zombies 'ne Zeit lang beschäftigen": "crwdns198153:0crwdne198153:0"
+'Na ja, dieser Stachel"draht" ist noch simpler als der normale... Der Grund: Der Draht fehlt.': 'crwdns198155:0crwdne198155:0'
+'Auf die Verteidigungsvorichtungen müssen wir heute Nacht verzichten, aber diese intelligent gebaute und ausbaufähige Stadtmauer hat mehr drauf, als man denkt.': 'crwdns198157:0crwdne198157:0'
+'Was ist besser als eine Mauer?... eine groooße Mauer.': 'crwdns198159:0crwdne198159:0'
+'Diese Mauer ist mit einer großen Anzahl an Metallspitzen gespickt, damit die Stadtbewohner beim Angriff um Mitternacht ein paar nette Spieße Zombieschaschlik herstellen können.': 'crwdns198161:0crwdne198161:0'
+'Eine dritte Schicht über der bestehenden Mauer bietet noch besseren Schutz gegen untote Eindringlinge.': 'crwdns198163:0crwdne198163:0'
+'Damit selbst hartnäckige Zombies draußen bleiben, bekommt die gesamte Stadtmauer eine zusätzliche Schicht verpasst.': 'crwdns198165:0crwdne198165:0'
+'Die Stadtmauer wird mit einem Eisengestell verstärkt und kann ab sofort jeden Tag ganz leicht um ein Stück erweitert werden!': 'crwdns198167:0crwdne198167:0'
+'Zu guter Letzt bekommt die Mauer noch eine Schicht aus Beton verpasst. Das sollte die Zombiehorden nun aber wirklich draußen halten.': 'crwdns198169:0crwdne198169:0'
+'Mit diesen Metallbalken können die schwächeren Stellen der Stadtmauer verstärkt werden.': 'crwdns198171:0crwdne198171:0'
+'Man bedecke eine große Bodenfläche mit einem Meer von zugespitzten und geschärften Metallstücken und schon erhält man die größte Käsereibe der Welt.': 'crwdns198173:0crwdne198173:0'
+'Ihr legt eine große Anzahl von verdeckten Fallgruben rund um die Stadt an und wartet bis irgendwas reinfällt. So einfach.': 'crwdns198175:0crwdne198175:0'
+'Die Stadt baut einen Holzzaun, der - zumindest theoretisch- die Bestien ausreichend verlangsamen sollte.': 'crwdns198177:0crwdne198177:0'
+'Warum ist da vorher noch niemand drauf gekommen? Anstatt Zeit mit Körperpflege zu verschwenden, benutzt eure Seife lieber dazu, die Stadtmauer schön glitschig zu machen. Vor allem im Zusammenspiel mit der Zombiereibe eine "saubere Lösung". Wen stören da schon die Geräusche?': 'crwdns198179:0crwdne198179:0'
+'Das wird die hübschen Antlitze der Zombies vor der Stadt sicher auch nicht verbessern.': 'crwdns198181:0crwdne198181:0'
+'Oft wird vergessen, dass Zombies ein Gehirn haben. Manchmal sogar zwei, wenn sie Glück haben. Trifft sich gut: Das mit dieser Kanone geschossene Konzentrat hat die erstaunliche Fähigkeit, Gehirne in Matsch zu verwandeln.': 'crwdns198183:0crwdne198183:0'
+'Ein simpler Verteidigungsgegenstand, aber du wirst ihn zu schätzen wissen, wenn dein Ex-Nachbar Kevo versuchen sollte, an deinem Gehirn rumzuknabbern..': 'crwdns198185:0crwdne198185:0'
+'Diese Verbesserung ist nicht der ganz große Wurf, aber sie erfüllt ihren Zweck: Sie verhindert, dass du zu schnell stirbst.': 'crwdns198187:0crwdne198187:0'
+'Simpel aber stabil: Was will man mehr?': 'crwdns198189:0crwdne198189:0'
+'Sperrholz. Du hast es nur genommen, weil du wirklich nichts besseres zu tun hattest. Dir war klar, dass es unnütz sein würde, aber das hat dich trotzdem nicht davon abgehalten. Na dann mal los...': 'crwdns198191:0crwdne198191:0'
+'Es war sicher kein Geniestreich dieses Bauwerk zu beginnen. Aber gut, letztlich haben alle zugestimmt und eine weitere große Mauer ist sicher keine schlechte Idee.': 'crwdns198193:0crwdne198193:0'
+'Ein handliches, hydraulisch betriebenes Gerät, das Wasserdampf versprühen kann (und weitere amüsante Chemikalien).': 'crwdns198195:0crwdne198195:0'
+'Hast du es satt, über die abgetrennten Gliedmaßen der Zombies zu stolpern, die du erledigt hast? Vielleicht ist es dann an der Zeit, in der Apokalypse aufzusteigen and und die Zombiehorden von oben zu beobachten. Mithilfe der Brustwehr kannst du des Nachts über die Stadt wachen und dem Himmel ein Stück näher zu kommen.': 'crwdns198197:0crwdne198197:0'
+'Raketenpulver, Zünder und reines Wasser: Das sind die Zutaten für einen saftigen Brei aus vermodertem Fleisch diese Nacht. Eine mächtige Verteidigung, leider kann sie nur einmal verwendet werden.': 'crwdns198199:0crwdne198199:0'
+'Verbessert die Ausbeute des Wasserreinigers erheblich (hoher Wirkungsgrad).': 'crwdns198201:0crwdne198201:0'
+'Verwandelt in der Wüste gefundenes Kanisterwasser in Trinkwasser.': 'crwdns198203:0crwdne198203:0'
+'Ein gewaltiger wissenschaftlicher Durchbruch: Durch die Aussaat von Dynamitstangen und gaaanz vorsichtiges Gießen, könnt ihr Granatäpfel anbauen!': 'crwdns198205:0crwdne198205:0'
+'Verbessert die Ausbeute des Gemüsebeets erheblich.': 'crwdns198207:0crwdne198207:0'
+'Mit einem Gemüsebeet könnt ihr leckere Früchte und nicht allzu verschimmeltes Gemüse anbauen. Ist zwar kein Bio, macht aber satt.': 'crwdns198209:0crwdne198209:0'
+'Eine radikale Lösung, wenn mal das Wasser ausgehen sollte: Mit ein paar gezielten Sprengungen können tiefergelegene Wasserschichten erschlossen und das Wasserreservoir vergrößert werden.': 'crwdns198211:0crwdne198211:0'
+'Mit diesem selbstgebauten Bohrer kann die Stadt ihre Wasserreserven beträchtlich vergrößern.': 'crwdns198213:0crwdne198213:0'
+'Dieser leistungsstarke Dampfstrahlreiniger versprüht feinen, siedend heißen Wasserdampf. Deine muffigen Freunde werden beim Anblick dieses Geräts wortwörtlich dahinschmelzen.': 'crwdns198215:0crwdne198215:0'
+'Es handelt sich um ein einfallsreiches und SEHR effektives System! Zwei schnell kreisende und mit geschliffenen Eisenstangen bestückte Drehscheiben, die von einem Kolbenmechanismus angetrieben werden, zerfetzen alles und jeden, der sich im Toreingang befindet!': 'crwdns198217:0crwdne198217:0'
+'Wie jeder weiß, wird eine Sprinkleranlage für gewöhnlich im Garten eingesetzt. Die wenigsten wissen jedoch, dass sie sich auch hervorragend gegen Zombiehorden eignet. Einziger Wermutstropfen: Die Anlage verbraucht relativ viel Wasser.': 'crwdns198219:0crwdne198219:0'
+'Nein, ganz ehrlich, dieser... dieser... Geruch ist einfach nicht auszuhalten: Nimm eine Dusche. Sofort!': 'crwdns198221:0crwdne198221:0'
+'Nach der Pumpe könnt ihr mit dem Wasserleitungsnetz die auf Wasser basierenden Verteidigungsmechanismen angehen! Zusätzlich vergrößert das Netz auch die Wasserreserven des Brunnens.': 'crwdns198223:0crwdne198223:0'
+'Mit dieser revolutionären Verteidigungsanlage ist die Stadt imstande, große Wasserdampfwolken zu erzeugen. Ein wohlig-warmes Dampfbad wird den vor den Stadtmauern herumlungernden Zombies gut tun und sie grundlegend "reinigen". Die Leistung kann mit ein wenig Feintuning noch gesteigert werden.': 'crwdns198225:0crwdne198225:0'
+'Wenn es um Wasser geht, zählt jeder Tropfen. Dieses Bauwerk fügt dem Brunnen +2 Rationen Wasser hinzu und kann jeden Tag gebaut werden.': 'crwdns198227:0crwdne198227:0'
+'Ein hübscher kleiner Wasserstrahl, um die wachsende Zombiemeute beim Stadttor zu sprengen.': 'crwdns198229:0crwdne198229:0'
+'Dieser Apfelbaum erinnert eher an einen verkümmerten und halbtoten Busch, aber er trägt wunderschöne blaue Äpfel. Äh, Moment mal,... wie bitte?': 'crwdns198231:0crwdne198231:0'
+'Selbst das Abwasser der Stadt kann noch genutzt werden: Wir müssen bloß alle Toiletten der Stadt über ein ausgeklügeltes System aus Rohren und Schlitten miteinander verbinden und dann um Mitternacht die Schleusen öffnen. Hat auch jeder sein Zelt korrekt aufgebaut?': 'crwdns198233:0crwdne198233:0'
+'Anfangs war es nur zur Dekontaminierung gedacht. Aber dann stellte es sich als äußerst effizientes Mittel gegen unsere pestilenten Freunde heraus. Man gebe noch einen Spritzer Kokosnuss-Duschgel hinzu und siehe da: Die meterhohen Leichenstapel, für die DU verantwortlich bist, verströmen ein betörendes Aroma.': 'crwdns198235:0crwdne198235:0'
+'Ein selbstgebauer Raketenwerfer feuert in den Boden: Denk mal drüber nach! Der Legende nach wollte der geistige Vater dieses Bauprojekts eigentlich den "Rocket Jump" erfinden. Egal, +60 Rationen Wasser werden so zum Brunnen hinzugefügt.': 'crwdns198237:0crwdne198237:0'
+'Dass "Hightech" nicht nur auf die Dezimierung von Zombiehorden beschränkt ist, beweist dieses Gebäude... Es fügt +100 Rationen Wasser zum Brunnen hinzu.': 'crwdns198239:0crwdne198239:0'
+'Die Pumpe ist die Grundvoraussetzung für alle auf Wasser basierenden Konstruktionen! Darüber hinaus steigert sie die Wasserergiebigkeit des Brunnens um ein Vielfaches.': 'crwdns198241:0crwdne198241:0'
+'Jeder weiß, was ein Krematorium ist, richtig? Und jeder weiß, wozu man einen Barbecuegrill verwendet? Dann einfach eins und eins zusammenzählen, dann wisst ihr auch wie ein "Kremato-Cue" funktioniert. Die Zeiten des Hungerns sind jedenfalls vorbei...': 'crwdns198243:0crwdne198243:0'
+'In der Metzgerei könnt ihr eure kleinen treuen Begleiter (Hunde, Katzen, Schlangen ...) in Lebensmittel verwandeln. Da gibt es doch tatsächlich noch Leute, die Vegetarier sind...': 'crwdns198245:0crwdne198245:0'
+'Für diese raffiniert durchdachte Anlage können alle Arten von Platten (z.B. Blech) verwendet werden. Jeder in der Bank abgelegte Verteidigungsgegenstand steuert zusätzliche Verteidigungspunkte bei!': 'crwdns198247:0crwdne198247:0'
+'Dieser automatisierte Wachturm verschießt um Mitternacht minutenlang Felsen mit hoher Geschwindigkeit in Richtung Stadttor. Solltest du vorgehabt haben zu schlafen, kannst du das hiermit vergessen!': 'crwdns198249:0crwdne198249:0'
+'Diese improvisierte Railgun funktioniert mit Luftdruck. Sie ist in der Lage, mehrere Ladungen Metallsplitter (verbogene Nägel und rostiges Metall) mit enormer Geschwindigkeit zu verschießen und faustgroße Löcher zu reißen.': 'crwdns198251:0crwdne198251:0'
+'Der Blechplattenwerfer schleudert schwere Blechplatten aufs Schlachtfeld. Die angerichtete Schweinerei willst du garantiert kein zweites Mal sehen...': 'crwdns198253:0crwdne198253:0'
+'Für diese Maschine möchte man sterben. ...im übertragenen Sinne. Ihr müsst sie allerdings jeden Tag nachladen.': 'crwdns198255:0crwdne198255:0'
+'Mehrere Erdhügel, die durch Holzbalken verstärkt wurden, bilden die Grundlage für diesen mächtigen Verteidigungsturm.': 'crwdns198257:0crwdne198257:0'
+'Schwere Holzbalken werden auf einem Drehkreuz befestigt und das Ganze wird dann in Bewegung gesetzt. Es dreht sich schnell... sehr schnell.': 'crwdns198259:0crwdne198259:0'
+'Die Manufaktur ist eine verbesserte Werkstatt. Sie senkt die Verarbeitungskosten aller darin erledigten Arbeiten um 1 AP.': 'crwdns198261:0crwdne198261:0'
+'Ein paar geschickt hergestelle Kreissägen, die durch ein ausgeklügeltes Gummizugsystem bewegt werden. Der schrille Rotationslärm erinnert seltsamerweise an einen menschlichen Schrei...': 'crwdns198263:0crwdne198263:0'
+'Wenn sich intelligente Leute abends beim Feuer unterhalten, können großartige Erfindungen dabei herauskommen. Zumindest wenn sie vorher ein Bauhaus errichtet haben. Dieses Bauwerk gibt der Stadt täglich einen (gewöhnlichen) Bauplan.': 'crwdns198265:0crwdne198265:0'
+'Mit diesem Register erhältst du eine bessere Übersicht zu allen aktuellen Konstruktionen samt der dafür benötigten Materialien.': 'crwdns198267:0crwdne198267:0'
+'An diesem prächtigen Galgen könnt ihr unliebsame (oder lästige) Mitbürger loswerden. Ist mal was "anderes" als die klassische Verbannung...': 'crwdns198269:0crwdne198269:0'
+'Ein Schlachthof, der direkt vor dem Stadttor errichtet wird und dessen Eingang zur Außenwelt zeigt. Schwierig ist eigentlich nur, jede Nacht einen Freiwilligen zu finden, der sich hineinstellt und so die Zombies anlockt.': 'crwdns198271:0crwdne198271:0'
+'Eine großangelegte Neuausrichtung aller Verteidigungsanlagen, um wirklich das Optimum herauszuholen (die Gesamtverteidigung der Stadt erhöht sich um 10%).': 'crwdns198273:0crwdne198273:0'
+"Das Mittagessen liegt schon lange zurück... Was gibt's da besseres als eine solide Holzplanke und altbackenes Brot.": "crwdns198275:0crwdne198275:0"
+'Von 2 Toten hat derjenige, der sich bewegt, die besten Chancen, dich zu verspeisen. Trickst eure Feinde aus, indem ihr eure Leichen in die herankommende Zombiehorde schleudert. Jeder Tote bringt +20 anstelle von +10 Verteidigungspunkten.': 'crwdns198277:0crwdne198277:0'
+'Bringt eure Toten! Denn diesmal werden sie sich noch als nützlich erweisen. Macht das beste aus ihnen und verbessert damit gemeinsam eure Verteidigung. Jeder zum Friedhof gebrachte tote Mitbürger bringt +10 Verteidigungspunkte für die Gesamtverteidigung der Stadt. Hinweis: Es spielt keine Rolle, wo und woran ein Mitbürger verstarb.': 'crwdns198279:0crwdne198279:0'
+'Die Kantine verbessert die Produktion in den Küchen, die die Helden in eurer Stadt gebaut haben.': 'crwdns198281:0crwdne198281:0'
+'Das Labor verbessert die Produktion in den Hobbylabors, die die Helden in eurer Stadt gebaut haben.': 'crwdns198283:0crwdne198283:0'
+'Falls du schon vor langer Zeit vergessen hast, wie köstlich ein Omelett mit gebratenen Chamignons, Kräutern und Speck ist, dürfte dieses Gebäude wohl eher unnütz für dich sein. Aber zumindest liefert es dir einige Eier. Was die Pilze betrifft, so musst du dich wohl an die Zombies draußen halten.': 'crwdns198285:0crwdne198285:0'
+'Egal ob kleines Wehwehchen oder irreparables Trauma - die Krankenstation empfängt dich mit offenen Armen. Zumindst solange du noch imstande bist, dich selbst zu verarzten, denn diese Einrichtung kommt ganz ohne medizinisches Personal daher.': 'crwdns198287:0crwdne198287:0'
+'Dank diesem wahrlich großen Bauwerk können Bürger ihre Häuser noch aufwändiger ausbauen.': 'crwdns198289:0crwdne198289:0'
+'Dieses ambitionierte Stadtbauprojekt hat zum Ziel, die Verteidigung der Bürgerbehausungen besser in die Stadtverteidigung zu integrieren. Dank dieses Bauwerks bringen Bürgerbehausungen fortan 80% statt 40% ihres Verteidigungswertes in die Stadtverteidigung ein.': 'crwdns198291:0crwdne198291:0'
+'Die Entwicklung einer jeden Stadt hängt vom Bau einer verdreckten Werkstatt ab. Sie ist die Voraussetzung für alle weiter entwickelten Gebäude.': 'crwdns198293:0crwdne198293:0'
+'Dieses erheblich verbesserte Katapult ist einfacher zu bedienen und benötigt weniger AP, um mit einem Gegenstand beladen zu werden!': 'crwdns198295:0crwdne198295:0'
+'Das Katapult ist ein äußerst mächtiges Werkzeug, mit dem die Stadt jede Art von Gegenstand in die Wüste schießen kann. Das ist sehr nützlich, wenn man weit entfernte Bürger versorgen möchte (Lebensmittel, Wasser, Waffen etc...).': 'crwdns198297:0crwdne198297:0'
+'Dieser selbstgebaute Zonenscanner erleichtert die Abschätzung des nächtlichen Angriffs erheblich. Wenn er richtig eingesetzt wird, sind nur halb so viele Bürger notwendig, um eine gute Schätzung zu bekommen.': 'crwdns198299:0crwdne198299:0'
+'Diese simple elektronische Konstruktion erleichtert das Lesen der Außenweltkarte. Konkret: Du erfährst die genaue Zombieanzahl jeder Zone und musst somit nicht mehr planlos in der Wüste rumlaufen...': 'crwdns198301:0crwdne198301:0'
+'Die Rechenmaschine ist ein etwas rustikaler Taschenrechner, mit dem man die Angriffsstärke des MORGIGEN Tages berechnen kann!': 'crwdns198303:0crwdne198303:0'
+'Mit dem Forschungsturm können in bereits "abgesuchten" Wüstenzonen jeden Tag neue Gegenstände gefunden werden! Der Forschungsturm versetzt dich in die Lage, jene anormalen meteorologischen Phänomene aufzuzeichnen und auszuwerten, die sich nachts in der Wüste abspielen. Die entsprechenden Fundstellen werden anschließend in der Zeitung veröffentlicht.': 'crwdns198305:0crwdne198305:0'
+'Wenn es brenzlig wird, ist es oft überlebenswichtig, hier und dort mit ein paar Holzplanken nachzuhelfen und alles nochmal dicht zu machen. Das bringt dir oft noch eine weitere Nacht.': 'crwdns198307:0crwdne198307:0'
+'Der gesamte Außenbereich der Stadt wird mit angespitzten Holzpfählen gespickt. Diese kostengünstige Verteidigungsmaßnahme verwandelt die Stadt in eine wahre Trutzburg und kann an manchen Abenden den Unterschied zwischen Leben und Tod ausmachen.': 'crwdns198309:0crwdne198309:0'
+'Dieses Arsenal an einfallsreichen Guerillafallen ermöglicht dir, die Zombiereihen zu lichten und die Last des Angriffs entscheidend zu senken.': 'crwdns198311:0crwdne198311:0'
+'Hast du erst mal einen großen Haufen Müll aufgeschüttet, kannst du ihn einfach noch mit Stacheln versehen, die ebenso rostig wie tödlich sind!': 'crwdns198313:0crwdne198313:0'
+'Wenn wirklich gar nichts mehr geht, sammelst du alles ein, was du findest und formst daraus einen großen Abfallhaufen... jetzt heißt es Daumen drücken und hoffen, dass das die Horde irgendwie aufhält... Ach ja, wenn du möchtest, kannst du diesen Abfallberg auch mit Fallen spicken.': 'crwdns198315:0crwdne198315:0'
+'Das wird den Zombies Beine machen - oder besser: ausreißen!': 'crwdns198317:0crwdne198317:0'
+'Dynamit, Zombies, Blut.': 'crwdns198319:0crwdne198319:0'
+'Falls die Lage wirklich verzweifelt ist, könnt ihr beschließen loszuschreien und in Panik zu verfallen. Falls alle Überlebenden mitmachen, wird es die Zombies verwirren (denn sie können mit dieser Art Stress nicht umgehen) und euch einige virtuelle Verteidigungespuntke einbringen... Genau, das ist natürlich Unsinn.': 'crwdns198321:0crwdne198321:0'
+'Feiern bis zum Abwinken ist immer noch die beste Art, all die schrecklichen Dinge der Außenwelt zu vergessen. Glücklicherweise sorgen die Zombies schon dafür, dass die Dinge nicht zu sehr ausschweifen.': 'crwdns198323:0crwdne198323:0'
+'Ein über 2 Meter hoher, schimmliger Wollballen, über und über mit Stricken und Nadeln bedeckt. In den mächtigen Händen des Schamanen wird dieses *Ding* zu einem XXL-Püppchen, das etliche Zombies niederstreckt, ehe es wieder eine unförmige, unbewegliche Masse wird.': 'crwdns198325:0crwdne198325:0'
+'Mit Hilfe einer teuflischen Guillotine und einer provisorischen Schaufensterpuppe, kann der Schamane aus der Entfernung den Kopf eines Zombierudel-Führers abschlagen. Die Zombies die ihm folgen, werden daraufhin abdrehen und wieder in die Wüste wandern.': 'crwdns198327:0crwdne198327:0'
+'Dieser Zauber des Schamanen erschafft ein Trugbild der Stadt. Als Folge verliert sich eine beträchtliche Anzahl Zombies heillos in der Wüste.': 'crwdns198329:0crwdne198329:0'
+'Nur der Schamane kennt das Geheimnis dieses rituellen Feuertanzes. Richtig ausgeführt, steigt eine kleine Wolke in den Himmel und bewirkt, dass ein Schauer heiligen Wassers auf die Zombiehorde niedergeht.': 'crwdns198331:0crwdne198331:0'
+'Die Stadt muss sich auch auf unvorhergesehene Ereignisse einstellen. Für diese Zwecke wurde diese Notfallkonstruktion entworfen: Sie hält in der Regel nur eine Nacht lang. Achtung! Es sollte darauf geachtet werden, nicht zu viele Rohstoffe für den Bau temporärer Konstruktionen zu verwenden!': 'crwdns198333:0crwdne198333:0'
+'Ein Schießstand mit Wasserpistolen, der wohl aus den Überresten eines Rummels geborgen wurde. Er zaubert eurer Nachtwache ein Lächeln ins Gesicht - damit schickt ihr sicher einen netten Schauer die Mauer runter! Verleiht jeder Wasserwaffe, die auf der Wacht genutzt wird, einen 20% Bonus.': 'crwdns198335:0crwdne198335:0'
+'Mit diesem Katapult kannst du deinen tierischen Freunden ein wenig Starthilfe geben, damit sie noch mehr Schaden in der angreifenden Horde anrichten. Zudem besitzt die Geräuschkulisse von Tieren, die mit hoher Geschwindigkeit durch die Luft fliegen, einen gewissen Unterhaltungswert. 20% auf die Angriffskraft jedes Tieres, das mit auf die Wacht genommen wird.': 'crwdns198337:0crwdne198337:0'
+'Diese Waffenwerkstatt ist euer Trumpf für die Nachtwache. Wird sie gebaut, wird jede Waffe, die während der Wacht zum Einsatz kommt um 20% verstärkt.': 'crwdns198339:0crwdne198339:0'
+'Dieser kleine Laden verbessert die Effektivität jedes Möbelstücks, das auf der Wache benutzt wird um 20%. Hach ja, die Schweden... Nie gab es bessere Billigmöbel!': 'crwdns198341:0crwdne198341:0'
+'Der Bau eines prächtigen Wachturms mit Kontrollgang macht die Nachtwächter unter den Helden glücklich. Dieses Bauwerk gibt pro Nachtwächter in der Stadt +10 Verteidigungspunkte und erlaubt ihnen, ihre AP in Verteidigungspunkte umzuwandeln und so noch mehr für die Verteidung zu tun.': 'crwdns198343:0crwdne198343:0'
+'Weniger ein Turm als ein seeeeehr hoher Mast, der fast bis in die Wolken reicht. Aufklärer können ihn erklimmen und so Gebäude in der Außenwelt erspähen (1x pro Tag und Held).': 'crwdns198345:0crwdne198345:0'
+'Mit dem Wachturm ist es möglich den nächtlichen Angriff abzuschätzen. Die Stadtbürger können dann die entsprechenden Gegenmaßnahmen vorbereiten (oder auch nicht...). Nach seiner Fertigstellung können Notfallkonstruktionen aller Art gebaut werden.': 'crwdns198347:0crwdne198347:0'
+'Dieses absurde Projekt hat den kompletten Umbau der Stadt zum Ziel. Jeder Stein, jedes Brett und jedes Gebäude wird gemäß eines neuen Verteidigungsplans neu ausgerichtet. Hierzu werden u.a. Häuser näher zusammengerückt, Gassen und selten benutzte Straßen versperrt und Wassergeschütztürme auf die Dächer der Stadt montiert. Ein richtig großer Umbau!': 'crwdns198349:0crwdne198349:0'
+'Auch der Bohrturm ist eine absurde Konstruktion. Mit ihm können selbst tiefste wasserführende Schichten angezapft werden! Er fügt +50 Rationen an Wasser dem Brunnen hinzu.': 'crwdns198351:0crwdne198351:0'
+'Es ist weithin bekannt, dass die Zombies nicht so ganz helle sind... Wenn ihr es schafft, eine Stadt nachzubauen, könntet ihr den überwiegenden Großteil des Angriffs auf diesen Nachbau umlenken...': 'crwdns198353:0crwdne198353:0'
+'Dank dieses kleinen, am Brunnen angebrachten Wasserhahns, kannst Du nun die Wassermengen abschöpfen, die ansonten durch das Filtersystem verschwendet werden (es braucht kein zusätzliches Brunnen-Wasser). Du kannst mit diesem Wasser alle auf Wasser basierenden Waffen KOSTENLOS auffüllen (Wasserbombe, Wasserkanone,...)!': 'crwdns198355:0crwdne198355:0'
+'Dieses Feld voller Vogelscheuchen würde noch viel besser mit der Kleidung der Stadtbewohner funktionieren. Allerdings würde das bedeuten, dass sich die Stadt in ein Nudisten-Camp verwandeln würde.': 'crwdns198357:0crwdne198357:0'
+'Ermöglicht die fachgerechte Entsorgung von Holz auf der Müllhalde.': 'crwdns198359:0crwdne198359:0'
+'Ermöglicht die fachgerechte Entsorgung von Metall auf der Müllhalde.': 'crwdns198361:0crwdne198361:0'
+'Ermöglicht die fachgerechte Entsorgung von Waffen auf der Müllhalde.': 'crwdns198363:0crwdne198363:0'
+'Ermöglicht die fachgerechte Entsorgung von Nahrung auf der Müllhalde.': 'crwdns198365:0crwdne198365:0'
+'Steigert die Ausbeute jedes auf den Müll geworfenen Verteidigungs-Gegenstandes.': 'crwdns198367:0crwdne198367:0'
+'Steigert die Ausbeute jedes auf den Müll geworfenen Gegenstandes um +1 Verteidigungspunkt.': 'crwdns198369:0crwdne198369:0'
+'Ermöglicht das fachgerechte Massakrieren unschuldiger Tiere auf der Müllhalde.': 'crwdns198371:0crwdne198371:0'
+'Senkt die Kosten der Nutzung der Müllhalde auf 0 AP. Achtung: Falls ihr Halunken in eurer Stadt habt, solltet ihr euch den Bau gut überlegen...': 'crwdns198373:0crwdne198373:0'
+'Der Eckpfeiler einer jeden großen Stadt: eine riesige, stinkende Müllhalde, die die ganze Stadt umgibt. Zugegeben, das ist nicht gerade ästhetisch, aber immerhin könnt ihr so Alltagsgegenstände in eine effektive Verteidigung verwandeln (nur eine Nacht haltbar).': 'crwdns198375:0crwdne198375:0'
+'Moderne Justiz in all seiner Pracht! Wird ein Mitbürger verbannt, kann er in den Fleischkäfig gesteckt werden, welcher sich wohlweislich direkt vor dem Stadttor befindet. Seine Schreie und Tränen dürften einen exzellenten Köder um Mitternacht abgeben. Jeder verbannte und in den Fleischkäfig gesteckte Mitbürger bringt der Stadt vorübergehende Verteidigungspuntke ein.': 'crwdns198377:0crwdne198377:0'
+'Dieser schöne, hohe Leuchtturm wird Licht in lange Winternächte bringen (hat er im Sommer eigentlich irgendeinen Nutzen?). Alle Stadtbewohner auf Camping-Ausflug haben eine höhere Überlebens-Chance.': 'crwdns198379:0crwdne198379:0'
+'Da Bürger normalerweise nicht direkt von Verteidigungsbauten profitieren, wollen wir uns mal nicht beschweren. Alle Bürgerbehausungen erhalten +4 Verteidigung.': 'crwdns198381:0crwdne198381:0'
+'Ein großes Leuchtfeuer, irgendwo weit abseits von der Stadt entzündet, soll die Zombies von unseren Häusern weglocken.': 'crwdns198383:0crwdne198383:0'
+'Wie jeder weiß, haben Helden immer recht. Um diesen Fakt weiter zu zementieren, zählen alle von Helden gegen andere Bürger ausgesprochenen Beschwerden doppelt.': 'crwdns198385:0crwdne198385:0'
+'Das Ministerium für Sklaverei hat beschlossen, dass Verbannte auf den Baustellen arbeiten dürfen. Außerdem erhält jeder von ihnen in ein Bauprojekt investierte AP einen 50%-Bonus (z.B. aus 6 AP werden so 9 AP, die in das Bauprojekt fließen).': 'crwdns198387:0%-Bcrwdne198387:0'
+'Da selbst der Bohrer des Bohrturms nicht durch jede Schicht durchkommt, muss man hin und wieder kleine und mit Dynamit bestückte Tiere in die Tiefe schicken. Dieses Projekt fügt den städtischen Wasserreserven +150 Rationen hinzu.': 'crwdns198389:0crwdne198389:0'
+'Sie zeigen Dawn of the Dead... zum 636. Mal. Bisher war dir die überzeugende Darstellung eines Nebendarstellers noch nie so richtig aufgefallen. Es gibt tatsächlich noch etwas Neues zu entdecken. Und wer weiß? Mit ein bisschen Glück bringt dich der Film ja sogar zum Lachen.': 'crwdns198391:0crwdne198391:0'
+'Ein großer, runder Ballon steigt hinauf in den Himmel. Aber nur solange, wie der "Freiwillige" in der Gondel braucht, um alles rund um die Stadt zu erfassen. Das Bauwerk ermöglicht es Dir, die gesamte Außenwelt zu entdecken.': 'crwdns198393:0crwdne198393:0'
+'Zombies sind bekanntermaßen einfach gestrickt. Warum ihnen dann nicht einfach ein kleines Labyrinth vor die Nase (das Stadttor) setzen und dabei zusehen, wie ihr Angriff an Schwung verliert. Das Ganze ist äußerst effektiv. Doch jeder Bürger, der die Stadt betreten will, muss dann 1 AP aufbringen.': 'crwdns198395:0crwdne198395:0'
+'Nicht mehr als ein Akt der Verzweiflung! Alle Gegenstände in der Bank werden zerstört und bringen jeweils +1 vorübergehende Verteidigung.': 'crwdns198397:0crwdne198397:0'
+'Vier feine Raketen werden gestartet und auf vier strategische Ziele rund um die Stadt (Norden, Süden, Osten, Westen) abgefeuert. Auf ihrem Weg töten sie jeden Zombie.': 'crwdns198399:0crwdne198399:0'
+'Es gibt nichts Besseres, um die Tristesse langer Wüstennächte zu vertreiben, als ein schönes, großes Feuerwerk. Diese spezielle Variante geht so: Man feuert die Raketen in die Bereiche rund um die Stadt ab und zündet sie dann um Punkt Mitternacht inmitten der Zombiehorden.': 'crwdns198401:0crwdne198401:0'
+'Weil der Rabe gut und gerecht ist, befreit dieser zu seinen Ehren errichtete Schrein alle Bürger, die aus der Stadt verbannt wurden.': 'crwdns198403:0crwdne198403:0'
+'Ein wirklich riesiger KVF, auf dem die Namen aller Bürger der Stadt eingraviert sind, erhebt sich stolz in den Himmel... äh. Genau, ein KVF. Niemand weiß warum, aber jemand hat am Fuße des Bauwerks "Eigentum der tiefsinnigen Nacht" eingraviert. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': 'crwdns198405:0crwdne198405:0'
+'Huldigt den Raben! Gelobt sei deine Milde und deine erhabene Austrahlung! Befreie uns vom Spam und vergib uns unsere Trollenbeiträge so wie auch wir vergeben anderen Trollen. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': 'crwdns198407:0crwdne198407:0'
+'Es ist wirklich eine enorme und beeindruckente Konstruktion. Ihr habt eure kostbarsten Materialien an dieses verdammte Ding verschwendet, und denoch seid ihr irgendwie stolz darauf. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': 'crwdns198409:0crwdne198409:0'
+'Wenn es eines gibt, woran hier wahrlich kein Mangel herrscht, dann ist es Sand. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': 'crwdns198411:0crwdne198411:0'
+'Dieses furchterregende Konstrukt stammt aus einem sowjetischen U-Boot und sendet gleißende Blitze knisternder Elektrizität rund um die Stadt aus. Einziger Haken an der Sache: Es muss jeden Tag repariert werden. Falls es zerstört wird, würde die Stadt mitsamt der gesamten Umgebung augenblicklich ausradiert werden (inklusive euch). Das Schild am Reaktor besagt: sowjetische Bauweise, hergestellt in « вшивый ».': 'crwdns198413:0crwdne198413:0'
+'Das Fundament ist die Grundvoraussetzung für "Absurde Projekte" (das sind langwierige und anstrengende Bauten, die jedoch für die Stadt mehr als nützlich sind).': 'crwdns198415:0crwdne198415:0'
+'Das Stadttor schließt sich selbsttätig um 23:59 anstatt 23:30.': 'crwdns198417:0crwdne198417:0'
+'Dieser äußerst leistungsstarke Kolbenmotor schließt und verriegelt das Stadttor eine halbe Stunde vor Mitternacht. Nach der Schließung kann das Tor nicht mehr geöffnet werden.': 'crwdns198419:0crwdne198419:0'
+'Ein paar improvisierte Panzerplatten werden direkt auf das Stadttor geschraubt und verbessern so die Widerstandskraft desselben.': 'crwdns198421:0crwdne198421:0'
+'Dieser Geheimgang erlaubt es Helden, ein- und auszugehen, ohne das Stadttor zu benutzen!': 'crwdns198423:0crwdne198423:0'
+'Eine rustikal anmutende Konstruktion, mit der die Öffnung des Stadttors nach 23:40 erfolgreich verhindert werden kann (es dürfte äußerst selten vorkommen, dass das Tor danach nochmal geöffnet werden muss). Das Stadttor muss nichtsdestotrotz zusätzlich noch per Hand geschlossen werden.': 'crwdns198425:0crwdne198425:0'
+'Ein Ort der Entspannung und der Meditation, perfekt geeignet um eine Seele auf die Andere Seite zu geleiten.': 'crwdns198427:0crwdne198427:0'
+'Die Verteidigung der Stadt wird um 12% erhöht.': 'crwdns198429:0crwdne198429:0'
+'Die Verteidigung der Stadt wird um 14% erhöht.': 'crwdns198431:0crwdne198431:0'
+'Zaun (Baustellen)': crwdns198433:0crwdne198433:0
+'Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.': 'crwdns198435:0crwdne198435:0'
+'Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.': 'crwdns198437:0crwdne198437:0'
+'Zaun (Haus)': crwdns198439:0crwdne198439:0
+Schokoladenkreuz: crwdns198441:0crwdne198441:0
+'Ein wunderschönes Kreuz aus Schokolade, an dem unliebsame (oder lästige) Mitbürger platziert werden können. Ist mal was "anderes" als die klassische Verbannung...': 'crwdns198443:0crwdne198443:0'
+Straßenbeleuchtung: crwdns198445:0crwdne198445:0
+'Selbst in der tiefsten Nacht erlaubt dir der fahle Schein der Laternenmasten, deine Ausgrabungen in der Wüste fortzusetzen. Keine Ausreden mehr, um früh ins Bett zu gehen.': 'crwdns198447:0crwdne198447:0'
+'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.': 'crwdns198449:0crwdne198449:0'
+'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 10km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.': 'crwdns198451:0crwdne198451:0'
+'Die Verringerung der Fundchancen bei Nacht wird auf der gesamten Karte negiert, pro Tag werden 2 Batterien verbraucht.': 'crwdns198453:0crwdne198453:0'
+'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert.': 'crwdns198455:0crwdne198455:0'
+'Kein besonderer Bonus': 'crwdns198457:0crwdne198457:0'
+'Die Verteidigung der Stadt wird um 10% erhöht.': 'crwdns198459:0crwdne198459:0'
+'Der Verteidigungswert der Stadt steigt mit dem Großen Graben auf 10 Punkte.': 'crwdns198461:0crwdne198461:0'
+'Die entwicklungsfähige Stadtmauer bringt der Stadt 55 Verteidigungspunkte.': 'crwdns198463:0crwdne198463:0'
+'Der Brunnen wird einmalig mit 5 Rationen Wasser befüllt.': 'crwdns198465:0crwdne198465:0'
+'Jeder in der Bank abgelegte Verteidigungsgegenstand bringt der Stadt 1.5 Verteidigungspunkte zusätzlich ein.': 'crwdns198467:0crwdne198467:0'
+'Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche Baupläne.': 'crwdns198469:0crwdne198469:0'
+'Der Wasserwerfer gibt 70 zusätzliche Verteidigungspunkte.': 'crwdns198471:0crwdne198471:0'
+'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.': 'crwdns198473:0crwdne198473:0'
+'Der Bau eines prächtigen Wachturms mit Kontrollgang macht die Wächter unter den Helden glücklich. Dieses Bauwerk gibt pro Wächter in der Stadt +5 Verteidigungspunkte und erlaubt ihnen, ihre AP in Verteidigungspunkte umzuwandeln und so noch mehr für die Verteidung zu tun.': 'crwdns198475:0crwdne198475:0'
+'Ermöglicht die Umwandlung von Objekten, mit etwas Anstrengung.': 'crwdns204638:0crwdne204638:0'
+'Zeigt die Windrichtung in der Zeitung an.': 'crwdns204640:0crwdne204640:0'
