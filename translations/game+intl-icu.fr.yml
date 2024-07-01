@@ -1,10 +1,10 @@
 ---
 'Deine Route wurde gespeichert.': 'Votre expédition a été sauvegardée.'
-'Du hast deine Beschreibung geändert.': 'Vous avez modifié votre annonce personnelle. Elle est visible dans l''annuaire des Citoyens.'
-'{citizen} hat {item} in den Brunnen geschüttet und damit {num} Rationen Wasser hinzugefügt.': '{citizen} a versé {item} dans le puits et a ajouté {num} ration(s) d''eau.'
-'{citizen} hat an dem Bauprojekt {plan} mitgearbeitet und dabei {ap} ausgegeben.': '{citizen} a travaillé sur le projet {plan} et a dépensé {ap}.'
+'Du hast deine Beschreibung geändert.': 'Vous avez modifié votre annonce personnelle. Elle est visible dans l’annuaire des Citoyens.'
+'{citizen} hat {item} in den Brunnen geschüttet und damit {num} Rationen Wasser hinzugefügt.': '{citizen} a versé {item} dans le puits et a ajouté {num} ration(s) d’eau.'
+'{citizen} hat an dem Bauprojekt {plan} mitgearbeitet und dabei {ap} ausgegeben.': '{citizen} a travaillé sur le chantier {plan} et a dépensé {ap}.'
 'Durch die Konstruktion von {building} hat die Stadt folgende Gegenstände erhalten: {list}': 'La construction du chantier {building} a donné à la ville : {list}'
-'Durch die Konstruktion von {building} wurde der Brunnen um {num} Rationen Wasser aufgefüllt!': 'La construction du chantier {building} a apporté {num} rations d''eau !'
+'Durch die Konstruktion von {building} wurde der Brunnen um {num} Rationen Wasser aufgefüllt!': 'La construction du chantier {building} a apporté {num} rations d’eau !'
 '{citizen} hat das Stadttor {action}.': '{citizen} a {action} les portes de la ville.'
 geöffnet: ouvert
 geschlossen: fermé
@@ -12,70 +12,70 @@ geschlossen: fermé
 '{citizen} hat die Stadt {action}.': '{citizen} {action}.'
 betreten: 'est de retour en ville'
 verlassen: 'a quitté la ville'
-'Ein neuer Bürger ist in der Stadt angekommen: {citizen}.': 'Un nouveau citoyen est arrivé : {citizen}.'
+'Ein neuer Bürger ist in der Stadt angekommen: {citizen}.': 'Un nouveau citoyen est arrivé : {citizen}.'
 '{citizen} hat seine neue Berufung als {profession} gefunden.': '{citizen} a choisi le métier {profession}.'
-'{citizen} hat seine Behausung in ein(e,n) {home} verwandelt...': '{citizen} a décidé d''améliorer sa maison en {home}...'
-'{zombie} ist von den Toten auferstanden und hat die Baustelle für {building} verwüstet!': '{zombie} s''est relevé et le bâtiment {building} a été détruit !'
-'{num} Zombies attackieren die Stadtbewohner!': '{num} zombies ont attaqué les citoyens !'
-'Der Einsatz von {building} für die Verteidigung der Stadt hat uns {num} Rationen Wasser gekostet.': 'L''utilisation de {building} pour défendre la ville nous a couté {num} ration(s) d''eau.'
-'Durch die Verbesserung von {building} wurdem dem Brunnen {num} Rationen Wasser hinzugefügt.': 'En améliorant le chantier {building}, {num} rations d''eau ont été ajoutées au puits.'
-'Durch die Verbesserung von {building} hat die Stadt folgende Gegenstände erhalten: {items}': 'En améliorant le chantier {building} la ville a reçu : {items}'
+'{citizen} hat seine Behausung in ein(e,n) {home} verwandelt...': '{citizen} a décidé d’améliorer sa maison en {home}…'
+'{zombie} ist von den Toten auferstanden und hat die Baustelle für {building} verwüstet!': '{zombie} s’est relevé et le bâtiment {building} a été détruit !'
+'{num} Zombies attackieren die Stadtbewohner!': '{num} zombies ont attaqué les citoyens !'
+'Der Einsatz von {building} für die Verteidigung der Stadt hat uns {num} Rationen Wasser gekostet.': 'L’utilisation de {building} pour défendre la ville nous a coûté {num} ration(s) d’eau.'
+'Durch die Verbesserung von {building} wurdem dem Brunnen {num} Rationen Wasser hinzugefügt.': 'En améliorant le chantier {building}, {num} rations d’eau ont été ajoutées au puits.'
+'Durch die Verbesserung von {building} hat die Stadt folgende Gegenstände erhalten: {items}': 'En améliorant le chantier {building}, la ville a reçu : {items}'
 'Was für ein Glück! Kurz nach dem Angriff wurde ein Bauplan in die Stadt geweht. Ihr erhaltet: {item}': '{item} a été découvert grâce à {building}. Cet objet a été déposé <span>à la banque</span>.'
-'Heute Nacht wurden von {building} folgende Gegenstände produziert: {items}': '{building} a produit "{items}". Ces objets ont été placés dans la banque.'
-'Die letzte Anzeige hat das Fass zum Überlaufen gebracht. {citizen} wurde von den Bürgern der Stadt verbannt!': 'Les citoyens ont décidé de bannir {citizen} de la communauté !'
+'Heute Nacht wurden von {building} folgende Gegenstände produziert: {items}': '{building} a produit {items}. Ces objets ont été placés dans la banque.'
+'Die letzte Anzeige hat das Fass zum Überlaufen gebracht. {citizen} wurde von den Bürgern der Stadt verbannt!': 'Les citoyens ont décidé de bannir {citizen} de la communauté !'
 'Du kannst die Stadt von hier aus nicht betreten.': 'Vous ne pouvez pas rentrer en ville.'
-'Du kannst diese Zone von hier aus nicht betreten.': 'Vous ne pouvez pas entrer dans cette zone d''ici.'
-'Zombies blockieren deine Zone!': 'Les zombies sont en surnombre !'
+'Du kannst diese Zone von hier aus nicht betreten.': 'Vous ne pouvez pas entrer dans cette zone d’ici.'
+'Zombies blockieren deine Zone!': 'Les zombies sont en surnombre !'
 'Diese Aktion kann nur in Zonen ausgeführt werden, die von Zombies kontrolliert werden.': 'Ces actions ne peuvent être effectuées que lorsque la zone est sous contrôle.'
 'Du kannst nicht angreifen wenn du bereits verwundet bist.': 'Vous ne pouvez pas attaquer si vous êtes blessé.'
 'Du kannst auf dieser Zone nicht graben.': 'Vous ne pouvez pas creuser dans cette zone.'
 'Deine Nachricht muss zwischen 2 und 256 Zeichen haben.': 'Votre message doit contenir entre 2 et 256 caractères.'
-'Heute wirst du nichts mehr im Müll finden.': 'Vous ne trouvez rien dans les poubelles aujourd''hui.'
+'Heute wirst du nichts mehr im Müll finden.': 'Vous ne trouvez rien dans les poubelles aujourd’hui.'
 'Du hast bereits einen Beruf gewählt.': 'Vous avez déjà choisi une profession.'
 'Ungültige Auswahl.': 'Sélection non valable.'
-'Der Brunnen ist leer!': 'Le puits est vide !'
-'Du kannst heute keine weiteren Rationen entnehmen.': 'Vous ne pouvez plus prendre de ration aujourd''hui.'
-'Hierfür brauchst du klares Wasser (keine Kanister)!': 'Vous devez avoir de l''eau pure (pas un jerrycan par exemple) dans votre sac à dos.'
+'Der Brunnen ist leer!': 'Le puits est vide !'
+'Du kannst heute keine weiteren Rationen entnehmen.': 'Vous ne pouvez plus prendre de ration aujourd’hui.'
+'Hierfür brauchst du klares Wasser (keine Kanister)!': 'Vous devez avoir de l’eau pure (pas un jerrycan par exemple) dans votre sac à dos.'
 'Das Tor ist bereits offen.': 'La porte est déjà ouverte.'
 'Für dieses Gebäude fehlen Baumaterialien.': 'Il manque des ressources pour ce chantier.'
-'Du hast heute bereits eine Verbesserung deines Hauses vorgenommen.': 'Vous avez déjà amélioré votre maison aujourd''hui.'
+'Du hast heute bereits eine Verbesserung deines Hauses vorgenommen.': 'Vous avez déjà amélioré votre maison aujourd’hui.'
 'Dieser Gegenstand ist außerhalb deiner Reichweite.': 'Cet endroit est hors de votre portée.'
-'Du hast keinen Platz mehr für diesen Gegenstand!': 'Vous n''avez plus de place pour cet objet !'
+'Du hast keinen Platz mehr für diesen Gegenstand!': 'Vous n’avez plus de place pour cet objet !'
 'Du kannst keinen weiteren schweren Gegenstand tragen!': 'Vous ne pouvez <strong>pas</strong> prendre cet objet.<hr />Vous êtes limité(e) à un objet encombrant à la fois sur vous.'
-'Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.': 'Cette action est bloquée pendant <strong>15 minutes environ</strong> (protection anti-abus).<hr /><strong>Attention : si vous tentez de répéter cette action avant la fin du délai, la durée de ce blocage sera prolongée !</strong>'
-'Du hast heute schon <strong>einen Diebstahl</strong> begangen.': 'Vous avez déjà commis <strong>un vol</strong> aujourd''hui.'
-'Du siehst keine Möglichkeit, hier einzubrechen ...': 'Cette maison est protégée (verrou ou autre...) et ne peut être cambriolée.'
+'Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.': 'Cette action est bloquée pendant <strong>15 minutes environ</strong> (protection anti-abus).<hr /><strong>Attention : si vous tentez de répéter cette action avant la fin du délai, la durée de ce blocage sera prolongée !</strong>'
+'Du hast heute schon <strong>einen Diebstahl</strong> begangen.': 'Vous avez déjà commis <strong>un vol</strong> aujourd’hui.'
+'Du siehst keine Möglichkeit, hier einzubrechen ...': 'Cette maison est protégée (verrou ou autre…) et ne peut être cambriolée.'
 'Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.': 'En tant que banni, vous ne pouvez retirer aucun objet de la banque.'
-'Diese Aktion ist ungültig.': 'Cette action n''est pas valide.'
-'Diese Aktion ist nicht verfügbar.': 'L''action n''est pas possible...'
+'Diese Aktion ist ungültig.': 'Cette action n’est pas valide.'
+'Diese Aktion ist nicht verfügbar.': 'L’action n’est pas possible…'
 'Das kannst du zur Zeit nicht tun.': 'Vous ne pouvez pas faire ça pour le moment.'
-'Leider gibt es aktuell keine Foren, auf die zu Zugriff hast. Bitte versuche es später erneut.': 'Malheureusement, vous n''avez actuellement accès à aucun forum. Veuillez réessayer ultérieurement.'
+'Leider gibt es aktuell keine Foren, auf die zu Zugriff hast. Bitte versuche es später erneut.': 'Malheureusement, vous n’avez actuellement accès à aucun forum. Veuillez réessayer ultérieurement.'
 'Verschüttete Ruine': 'Bâtiment non déterré'
 Zone: Zone
 Entfernung: Distance
 Routen: Expéditions
 Stadttor: Grande Porte
 Karte: Carte
-'Bitte wähle einen Gegenstand:': 'Choisissez un objet :'
-'Du verfügst über keine geeigneten Gegenstände': 'Vous n''avez pas d''objet pour cette action'
+'Bitte wähle einen Gegenstand:': 'Choisissez un objet :'
+'Du verfügst über keine geeigneten Gegenstände': 'Vous n’avez pas d’objet pour cette action.'
 Herstellen: Assembler
 aus: Nécessite
 Kombinieren: Combiner 
-'Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das Tor zu schließen!': 'Vous pouvez sortir de la ville et explorer l''Outre-Monde depuis ici. N''oubliez pas de garder la <strong>Grande Porte</strong> fermée lors de l''attaque à minuit !'
+'Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das Tor zu schließen!': 'Vous pouvez sortir de la ville et explorer l’Outre-Monde depuis ici. N’oubliez pas de garder la <strong>Grande Porte</strong> fermée lors de l’attaque à minuit !'
 'Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.': 'Vous avez été banni et ne pouvez donc ni ouvrir ni fermer la porte de la ville.'
 'Meine Aktionen': 'Mes Actions'
 'Tor schließen': 'Fermer les portes'
 'Tor öffnen': 'Ouvrir les portes'
 'Route planen...': 'Préparer une expédition'
-'Stadt verlassen': 'Sortir dans l''Outre-Monde...'
+'Stadt verlassen': 'Sortir dans l’Outre-Monde…'
 Stadttor-Register: Porte de la ville
-'Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.': 'La tour de guet construite en ville permet d''obtenir une estimation de l''attaque de ce soir. <strong>La qualité de l''estimation dépend directement du nombre de citoyens qui auront pris le temps de venir ici</strong>.'
-'Heutige Abschätzung': 'Si nos estimations tombent juste, nous devrions être attaqués par environ :'
+'Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.': 'La tour de guet construite en ville permet d’obtenir une estimation de l’attaque de ce soir. <strong>La qualité de l’estimation dépend directement du nombre de citoyens qui auront pris le temps de venir ici</strong>.'
+'Heutige Abschätzung': 'Si nos estimations tombent juste, nous devrions être attaqués par environ :'
 Zombies: Zombies
-'Qualität der Abschätzung': 'Qualité de l''estimation :'
+'Qualität der Abschätzung': 'Qualité de l’estimation :'
 'Abschätzung verbessern': 'Scruter les environs'
 'Morgige Abschätzung': 'Attaque du lendemain'
-"Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.": "Woaw ! Vous pouvez voir pratiquement tout d'ici ! C'est juste dommage que ce «tout» se limite à un désert de sable vide. Cependant, si vous y regardez de plus près, vous pouvez compter les zombies qui rampent vers la ville."
+"Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.": "Woaw ! Vous pouvez voir pratiquement tout d’ici ! C’est juste dommage que ce « tout » se limite à un désert de sable vide. Cependant, si vous y regardez de plus près, vous pouvez compter les zombies qui rampent vers la ville."
 'Tag {day}': 'Jour {day}'
 Rucksack: Sac à dos
 Truhe: Coffre
@@ -84,7 +84,7 @@ Bauarbeiten: Travaux
 'Dein Beschreibungstext': 'Votre message personnel'
 Speichern: Inscrire mon annonce
 'Du hast {num} anonyme Anzeige(n).': 'Vous avez reçu {num} plainte(s) anonyme(s).'
-'Anzeigen können zu deiner Verbannung oder sogar Hinrichtung führen. Vielleicht solltest du das Verhältnis zwischen dir und dem Rest der Stadt verbessern ...': 'Les plaintes peuvent entraîner votre bannissement ou même votre exécution. Vous devriez peut-être améliorer votre relation avec le reste de la ville...'
+'Anzeigen können zu deiner Verbannung oder sogar Hinrichtung führen. Vielleicht solltest du das Verhältnis zwischen dir und dem Rest der Stadt verbessern ...': 'Les plaintes peuvent entraîner votre bannissement ou même votre exécution. Vous devriez peut-être améliorer votre relation avec le reste de la ville…'
 'Meine Spezialaktionen': 'Mes actions spéciales'
 'Rucksack ausleeren': 'Vider mon sac à dos dans le coffre'
 'Mein Register': 'Mon registre'
@@ -92,25 +92,25 @@ Verteidigung: Défenses
 Dekoration: Décoration
 Gegenstände: objets
 'Mein Haus ausbauen': 'Améliorer ma maison'
-'Du kannst die Widerstandsfähigkeit deines Hauses verbessern, indem du es ausbaust.': 'En améliorant votre maison, vous augmentez la défense qu''elle vous procurera pendant l''attaque de minuit !'
-'Mit der ersten Verbesserungstufe bekommst du die Möglichkeit private Bauarbeiten durchführen zu können.': 'Le premier niveau d''amélioration vous donne aussi accès aux travaux personnels.'
+'Du kannst die Widerstandsfähigkeit deines Hauses verbessern, indem du es ausbaust.': 'En améliorant votre maison, vous augmentez la défense qu’elle vous procurera pendant l’attaque de minuit !'
+'Mit der ersten Verbesserungstufe bekommst du die Möglichkeit private Bauarbeiten durchführen zu können.': 'Le premier niveau d’amélioration vous donne aussi accès aux travaux personnels.'
 Bauen: Construire
-'Um dein Haus weiter auszubauen, muss die Stadt über folgendes Gebäude verfügen:': 'Pour améliorer votre maison, la ville a besoin du chantier suivant :'
-'Für diesen Ausbau benötigst du folgende Gegenstände:': 'Cette amélioration nécessite les ressources suivantes :'
+'Um dein Haus weiter auszubauen, muss die Stadt über folgendes Gebäude verfügen:': 'Pour améliorer votre maison, la ville a besoin du chantier suivant :'
+'Für diesen Ausbau benötigst du folgende Gegenstände:': 'Cette amélioration nécessite les ressources suivantes :'
 'Für diesen Ausbau werden keine Gegenstände benötigt.': 'Ne nécessite pas de matériel pour être construit(e).'
-'Die folgenden Bauarbeiten kannst du an deinem Haus durchführen. Jede Verbesserung bringt dir besondere Vorteile.': 'Voici la liste des travaux que vous pouvez effectuer chez vous. Chaque amélioration apporte des avantages spécifiques, mais attention, tout a un coût !'
+'Die folgenden Bauarbeiten kannst du an deinem Haus durchführen. Jede Verbesserung bringt dir besondere Vorteile.': 'Voici la liste des travaux que vous pouvez effectuer chez vous. Chaque amélioration apporte des avantages spécifiques, mais attention, tout a un coût !'
 'Du musst ein Held sein, um die folgenden Ausbauten vornehmen zu können.': 'Vous devez être un Héros pour effectuer les améliorations suivantes.'
 Erfordert: Nécessite
 Einbauen: Installer
 'Upgrade auf St. {level}': 'Améliorer au niv. {level}'
 'Kein weiterer Ausbau möglich': 'Aucune amélioration possible'
-'Leiche nicht beseitigt!': 'Corps non retiré !'
-Tot!: Mort !
+'Leiche nicht beseitigt!': 'Corps non retiré !'
+Tot!: Mort !
 'In der Stadt': '--'
 'Am Stadttor': '[0,0]'
 'Neue einfache Route': 'Nouvelle expédition simple'
 'Neue komplexe Route': 'Nouvelle expédition complexe'
-'Name der Route': 'Nom de l''expédition'
+'Name der Route': 'Nom de l’expédition'
 "Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer\n                    in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.": "Ici, vous pouvez planifier des itinéraires pour un voyage vers le monde extérieur.\n                    Des itinéraires simples commencent et finissent toujours dans la ville.\n                    Les itinéraires complexes peuvent commencer et se terminer à tout moment."
 'Nur Helden können komplexe Routen planen.': 'Seuls les héros peuvent créer des expéditions complexes.'
 'Bitte gib einen gültigen Namen ein (zwischen 3 und 32 Zeichen).': 'Veuillez saisir un nom valide (entre 3 et 32 caractères).'
@@ -122,24 +122,24 @@ Gemeinschaft: Espionnage et ragots de voisinage
 '{citizen} hat bereits {num} Anzeige(n).': '{citizen} a reçu {num} plainte(s).'
 Verbannung: un bannissement
 Todesstrafe: la peine de mort
-'Eine davon stammt von dir. Du hast {punishment} gefordert.': 'L''une d''entre elles est la vôtre. Vous avez demandé {punishment}.'
+'Eine davon stammt von dir. Du hast {punishment} gefordert.': 'L’une d’entre elles est la vôtre. Vous avez demandé {punishment}.'
 'Anzeige erstatten': 'Envoyer une dénonciation'
 'Anzeige zurückziehen': 'Retirer ma plainte'
-'Anzeige: Todesstrafe fordern': 'Plainte : Exiger la peine de mort'
-'Anzeige: Verbannung fordern': 'Plainte : Demander un bannissement'
+'Anzeige: Todesstrafe fordern': 'Plainte : Exiger la peine de mort'
+'Anzeige: Verbannung fordern': 'Plainte : Demander un bannissement'
 '{citizen}s Register': 'Citoyen {citizen}'
-'Bist du sicher, dass du hier einbrechen und einen Gegenstand hinterlassen willst?': 'Êtes-vous sûr de vouloir pénétrer ici et déposer un objet ?'
-'Bist du sicher, dass du hier einbrechen und einen Gegenstand stehlen willst?': 'Êtes-vous sûr de vouloir pénétrer ici et voler un objet ?'
-'Einmal pro Tag können bestimmte Konstruktionen umsonst verbessert werden (ohne Einsatz von AP oder Ressourcen). Das nennt sich die Verbesserung des Tages. Jede Verbesserung bringt verschiedene Vorteile mit sich (Verteidigung, Wasser, spezielle Fähigkeiten...). Es ist eure Aufgabe die Verbesserung des Tages zu wählen, die euch am geeignetsten scheint.': 'Une fois par jour, certains chantiers peuvent être améliorés gratuitement (sans PA, ni ressource) : c''est ce qu''on appelle l''<strong>évolution du jour</strong>.<br />Chaque amélioration apporte des avantages divers (défense, eau, capacités spéciales...). <strong>À vous de choisir l''évolution du jour en votant pour celle qui vous semble la plus adaptée.</strong>'
+'Bist du sicher, dass du hier einbrechen und einen Gegenstand hinterlassen willst?': 'Êtes-vous sûr de vouloir pénétrer ici et déposer un objet ?'
+'Bist du sicher, dass du hier einbrechen und einen Gegenstand stehlen willst?': 'Êtes-vous sûr de vouloir pénétrer ici et voler un objet ?'
+'Einmal pro Tag können bestimmte Konstruktionen umsonst verbessert werden (ohne Einsatz von AP oder Ressourcen). Das nennt sich die Verbesserung des Tages. Jede Verbesserung bringt verschiedene Vorteile mit sich (Verteidigung, Wasser, spezielle Fähigkeiten...). Es ist eure Aufgabe die Verbesserung des Tages zu wählen, die euch am geeignetsten scheint.': 'Une fois par jour, certains chantiers peuvent être améliorés gratuitement (sans PA, ni ressource) : c’est ce qu’on appelle l’<strong>évolution du jour</strong>.<br />Chaque amélioration apporte des avantages divers (défense, eau, capacités spéciales…). <strong>À vous de choisir l’évolution du jour en votant pour celle qui vous semble la plus adaptée.</strong>'
 'Du wurdest verbannt und kannst daher nicht länger für eine Verbesserung des Tages abstimmen.': 'Vous avez été banni et ne pouvez plus voter pour les projets.'
-'Du hast bereits für folgendes Projekt abgestimmt:': 'Vous avez voté pour le projet :'
-'Aktuelles Level:': 'Actuellement :'
-'Nächstes Level:': 'Prochain niveau :'
+'Du hast bereits für folgendes Projekt abgestimmt:': 'Vous avez voté pour le projet :'
+'Aktuelles Level:': 'Actuellement :'
+'Nächstes Level:': 'Prochain niveau :'
 'Max. Level': 'Niveau max.'
 'Level {lv}': 'Niveau {lv}'
 Abstimmen: Voter
 'Stimmen:': 'Vote(s) :'
-'Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.': 'Vous avez été banni et ne pouvez plus travailler à l''Atelier.'
+'Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.': 'Vous avez été banni et ne pouvez plus travailler à l’Atelier.'
 'Jede Verarbeitung kostet {ap} (manche Gegenstände und Konstruktionen können diese Verarbeitungskosten senken).': 'Chaque transformation coûte {ap} (certains objets peuvent réduire ce coût).'
 'Du trägst eine Säge bei dir.': 'Vous avez une scie.'
 'Die Stadt verfügt über eine Manufaktur.': 'La ville possède une manufacture.'
@@ -148,18 +148,18 @@ Umwandlung: Objet obtenu
 Anzahl: Stock
 'Zufälliger Gegenstand': 'Objet aléatoire'
 Werkstatt-Register: Atelier
-'Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.': 'Voici l''intégralité des objets qui sont actuellement stockés à la Banque. Ces objets sont le fruit des <strong>dons</strong> des citoyens. Ils serviront notamment à <strong>construire des bâtiments communautaires </strong>ou<strong> défendre la ville</strong> lors des attaques quotidiennes de la Horde.'
+'Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.': 'Voici l’intégralité des objets qui sont actuellement stockés à la Banque. Ces objets sont le fruit des <strong>dons</strong> des citoyens. Ils serviront notamment à <strong>construire des bâtiments communautaires </strong>ou<strong> défendre la ville</strong> lors des attaques quotidiennes de la Horde.'
 Bankregister: Banque
-"Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle\n                    arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten <div class=\"ap\"></div>.": 'La ville a légalisé l''esclavage. Désormais vous pouvez travailler sur un chantier malgré votre relégation et même obtenir un bonus de 50% pour chaque investissement de <div class="ap"></div>.'
+"Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle\n                    arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten <div class=\"ap\"></div>.": 'La ville a légalisé l’esclavage. Désormais vous pouvez travailler sur un chantier malgré votre relégation et même obtenir un bonus de 50% pour chaque investissement de <div class="ap"></div>.'
 'Du wurdest verbannt und kannst daher nicht länger auf einer Baustelle arbeiten.': 'Vous avez été banni et ne pouvez plus travailler aux chantiers.'
 Baustellenregister: Constructions
-'{rations} Rationen Wasser übrig': '{rations} rations d''eau restantes'
-'Aufgrund deiner Verbannung kannst du maximal eine Ration Wasser pro Tag entnehmen.': 'En raison de votre bannissement, vous pouvez prendre au maximum une ration d''eau par jour.'
-'Die Stadt verfügt über eine {pumpname}.': 'La ville dispose d''une Pompe pour le Puits.'
-'Deine Ration Wasser erhalten': 'Obtenir votre ration d''eau !'
-'Eine weitere Ration erhalten': 'Ration supplémentaire !'
-'Wasser hinzufügen': 'Ajouter de l''eau'
-'Wasser ist unersetzbar. Es ermöglicht dir einmal pro Tag deine Aktionspunkte durch Trinken wieder aufzufüllen. Des weiteren kann man es auch gegen Zombies einsetzen (reines Wasser zerstört sie).': 'L''eau est indispensable pour récupérer ses Points d''action une fois par jour (en buvant) et pour servir de munitions contre les zombies (l''eau pure détruit les morts-vivants).'
+'{rations} Rationen Wasser übrig': '{rations} rations d’eau restantes'
+'Aufgrund deiner Verbannung kannst du maximal eine Ration Wasser pro Tag entnehmen.': 'En raison de votre bannissement, vous pouvez prendre au maximum une ration d’eau par jour.'
+'Die Stadt verfügt über eine {pumpname}.': 'La ville dispose d’une Pompe pour le Puits.'
+'Deine Ration Wasser erhalten': 'Obtenir votre ration d’eau !'
+'Eine weitere Ration erhalten': 'Ration supplémentaire !'
+'Wasser hinzufügen': 'Ajouter de l’eau'
+'Wasser ist unersetzbar. Es ermöglicht dir einmal pro Tag deine Aktionspunkte durch Trinken wieder aufzufüllen. Des weiteren kann man es auch gegen Zombies einsetzen (reines Wasser zerstört sie).': 'L’eau est indispensable pour récupérer ses Points d''action une fois par jour (en buvant) et pour servir de munitions contre les zombies (l’eau pure détruit les morts-vivants).'
 Brunnenregister: Puits
 Stadt: Ville
 'Mein Haus': 'Ma Maison'
@@ -174,29 +174,29 @@ Konstruktionen: Chantiers
 Punkt(e): points
 'Am Boden': 'Par terre'
 'Temporäre Zonenkontrolle': 'Contrôle temporaire'
-'{z} Zombies kontrollieren diese Zone!': '{z} zombies contrôlent cette zone !'
-'Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Wenn du nichts unternimmst und dir niemand zu Hilfe eilt, wirst du ohne Zweifel heute Abend hier verrecken ...': 'Vous avez été submergé(e) et vous êtes maintenant bloqué(e) par les hordes de zombies qui vous entourent ! Si vous ne faites rien ou si personne ne vient vous secourir, vous mourrez sans aucun doute ce soir !'
-'Hilfe rufen!': 'Appeler à l''aide !'
-'Die Flucht wagen!': 'Tenter de fuir !'
-'Gegen einen Zombie kämpfen!': 'Lutter contre un zombie !'
+'{z} Zombies kontrollieren diese Zone!': '{z} zombies contrôlent cette zone !'
+'Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Wenn du nichts unternimmst und dir niemand zu Hilfe eilt, wirst du ohne Zweifel heute Abend hier verrecken ...': 'Vous avez été submergé(e) et vous êtes maintenant bloqué(e) par les hordes de zombies qui vous entourent ! Si vous ne faites rien ou si personne ne vient vous secourir, vous mourrez sans aucun doute ce soir !'
+'Hilfe rufen!': 'Appeler à l’aide !'
+'Die Flucht wagen!': 'Tenter de fuir !'
+'Gegen einen Zombie kämpfen!': 'Lutter contre un zombie !'
 'Es muss noch aufgeräumt werden': 'Reste à déblayer'
 Ruine: Bâtiment
-'Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.': 'La zone est épuisée, on ne pourra plus y trouver que des ressources de mauvaise qualité...'
+'Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.': 'La zone est épuisée, on ne pourra plus y trouver que des ressources de mauvaise qualité…'
 'Stadt betreten': 'Entrer en ville'
 'In die Stadt zurückkehren': 'Rapatriement en ville'
-'Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:': 'Vous avez déjà creusé dans cette zone. La prochaine fouille est possible dans :'
+'Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:': 'Vous avez déjà creusé dans cette zone. La prochaine fouille est possible dans :'
 'In dieser Zone graben': 'Fouiller les environs'
-'Nächste automatische Ausgrabung:': 'Prochaine fouille auto :'
-'{ruin} durchsuchen': 'Fouiller : <strong>{ruin}</strong>'
+'Nächste automatische Ausgrabung:': 'Prochaine fouille auto :'
+'{ruin} durchsuchen': 'Fouiller : <strong>{ruin}</strong>'
 'Zone freiräumen': 'Déblayer la zone'
 'Müll durchwühlen': 'Fouiller les déchets'
-'Wenn du einen Gegenstand aufnimmst oder ablegst, verlierst du deine Tarnung!': 'Si vous ramassez ou laissez tomber un objet, vous perdrez votre camouflage !'
+'Wenn du einen Gegenstand aufnimmst oder ablegst, verlierst du deine Tarnung!': 'Si vous ramassez ou laissez tomber un objet, vous perdrez votre camouflage !'
 Zonenregister: Discussions
-'Das Stadtregister steht nicht zur Verfügung.': 'Le Grand Registre de la Ville (où toutes les actions des joueurs sont consignées) est inaccessible lorsque vous êtes dans l''Outre-Monde...'
-'Herzlichen Glückwunsch, du bist TOT!': 'Félicitations, vous êtes mort !'
-'Du hast {sp} Seelenpunkte gewonnen!': 'Vous avez gagné {sp} points d''âme !'
-'Du hast folgende Auszeichnungen verliehen bekommen:': 'Vous avez gagné les distinctions suivantes :'
-'Begrüße den Tod wie es sich gehört...': 'Accueillez la mort comme il se doit...'
+'Das Stadtregister steht nicht zur Verfügung.': 'Le Grand Registre de la Ville (où toutes les actions des joueurs sont consignées) est inaccessible lorsque vous êtes dans l’Outre-Monde…'
+'Herzlichen Glückwunsch, du bist TOT!': 'Félicitations, vous êtes mort !'
+'Du hast {sp} Seelenpunkte gewonnen!': 'Vous avez gagné {sp} points d’âme !'
+'Du hast folgende Auszeichnungen verliehen bekommen:': 'Vous avez gagné les distinctions suivantes :'
+'Begrüße den Tod wie es sich gehört...': 'Accueillez la mort comme il se doit…'
 'Der Tod in "MyHordes" ist nicht weiter schlimm!': 'La mort dans "MyHordes" n''est pas grave !'
 'Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!': 'Vous pouvez vous incarner dans une nouvelle ville aussi souvent que vous le désirez. Jouez selon votre style, expérimentez, soyez imaginatif !'
 'Wiedergeboren werden': 'Valider pour vous réincarner immédiatement...'
@@ -342,10 +342,10 @@ Norden: le nord
 Südosten: le sud-est
 Südwesten: le sud-ouest
 Süden: le sud
-Osten: l'est
-Westen: l'ouest
-'Bitte wähle einen Bürger:': 'Veuillez choisir un citoyen :'
-'Es ist kein Bürger in der Nähe...': 'Il n''y a pas de citoyen à proximité...'
+Osten: l’est
+Westen: l’ouest
+'Bitte wähle einen Bürger:': 'Veuillez choisir un citoyen :'
+'Es ist kein Bürger in der Nähe...': 'Il n’y a pas de citoyen à proximité…'
 'Rucksack in der Bank ausleeren': 'Vider son sac dans la banque'
 'Meine objekte': 'Objets'
 Gammler: "\n            {ref__icu, select,\n                on {\n                    {ref__gender, select,\n                        female {Indécise}\n                        other {Indécis}\n                    }\n                }\n            other {Indécis}\n            }\n        "
@@ -358,8 +358,8 @@ Schamane: "Chaman"
 Einsiedler: "Ermite"
 'Verbesserung des Tages': 'Les évolutions du jour'
 Wachturm: Tour
-Werkstatt: L'atelier
-'Jemand hat eine anonyme Anzeige gegen {citizen} vorgebracht!': 'Une plainte anonyme a été envoyée contre {citizen} !'
+Werkstatt: L’atelier
+'Jemand hat eine anonyme Anzeige gegen {citizen} vorgebracht!': 'Une plainte anonyme a été déposée contre {citizen} !'
 'Jemand hat seine anonyme Anzeige gegen {citizen} zurückgezogen.': 'Quelqu''un a retiré sa plainte contre {citizen}.'
 'Wir haben noch nicht die Technologie, um den morgigen Angriff zu beurteilen.': 'Nous ne disposons pas de la technologie suffisante pour évaluer l''attaque du lendemain.'
 'Den morgigen Angriff berechnen': 'Calculer l''attaque du lendemain'
@@ -586,7 +586,7 @@ Drogenerfahrungen: Expérimentations
 'Komplexe Expeditionen': 'Explorations avancées'
 'Anzahl der entfernten Gebäude, die von dir erkundet wurden.': 'Nombre de bâtiments dans des zones éloignées que vous avez explorés.'
 Expertenexpeditionen: Explorations très lointaines
-'Anzahl SEHR WEIT entfernter Gebäude, die von dir erkundet wurden.': 'Nombre de bâtiments dans des zones éloignées que vous avez explorés.'
+'Anzahl SEHR WEIT entfernter Gebäude, die von dir erkundet wurden.': 'Nombre de bâtiments dans des zones vraiment très éloignées que vous avez explorés.'
 Großzügigkeit: Générosité
 'Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.': 'Nombre de jours de mode héros/actions héroïques que vous avez offert à un autre citoyen dans le besoin.'
 'Spiritueller Führer': 'Guide Spirituel'
@@ -731,7 +731,7 @@ Headshot: Balle dans la tête
 'Hier wurde bereits ein Bauplan gefunden.': 'Ce bâtiment a déjà été étudié par quelqu''un et il n''est plus possible d''obtenir de plan de chantier ici...'
 '{citizen} möchte nicht in diese Richtung gehen! <strong>Er bittet dich darum, ihn in die Stadt zu bringen...</strong>': '{citizen} refuse d''aller dans cette direction ! <strong>Ce citoyen vous demande de le ramener en ville...</strong>'
 'Die Tarnung von {name} ist aufgeflogen!': 'Le camouflage de {name} a été détruit !'
-'Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...': 'Vous ne pouvez pas emporter cet objet pour le moment, vous l''avez abandonné par terre.'
+'Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...': 'Vous ne pouvez pas emporter cet objet pour le moment, vous l’avez abandonné par terre.'
 'Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...': 'Vous <strong>déblayez</strong> une partie du secteur, mais de <strong>nombreux débris</strong> obstruent encore le passage...'
 'Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: {ruin} beginnen!': 'Félicitations, la zone a été entièrement déblayée ! Vous pouvez commencer à fouiller ce qui s''y cachait : {ruin}  !'
 'Du hast {count} Aktionspunkt(e) benutzt.': '{raw_count, plural,  one {Vous avez utilisé {count} point d''action.} other {Vous avez utilisé {count} points d''action.}}'
