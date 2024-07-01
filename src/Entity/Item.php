@@ -21,8 +21,8 @@ class Item
     #[ORM\JoinColumn(nullable: false)]
     private $prototype;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\Inventory', inversedBy: 'items')]
-    #[ORM\JoinColumn(nullable: false)]
-    private $inventory;
+    #[ORM\JoinColumn(nullable: true)]
+    private $inventory = null;
     #[ORM\Column(type: 'boolean')]
     private $essential = false;
     #[ORM\Column(type: 'integer')]

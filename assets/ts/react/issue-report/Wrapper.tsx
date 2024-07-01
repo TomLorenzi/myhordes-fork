@@ -345,7 +345,7 @@ const ReportIssueDialog = (props: {
                                         onClick={() => take_screenshot().then(file => {
                                             setAttachedFiles([...attachedFiles, file]);
                                             setAnimateImg( attachedFiles.length );
-                                        })}>{index.strings.common.add_screenshot}
+                                        }).catch(() => alert(index.strings.common.screenshot_failed))}>{index.strings.common.add_screenshot}
                                 </button>
                             </div>
                             <input ref={fileselect} multiple={true} className="hidden" type="file"

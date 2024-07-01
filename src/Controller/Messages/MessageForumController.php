@@ -135,7 +135,7 @@ class MessageForumController extends MessageController
                 $thread->setNew();
         }
 
-        usort( $threads, fn(Thread $a, Thread $b) => $b->lastPost( $show_hidden_threads )?->getDate() <=> $a->lastPost( $show_hidden_threads )?->getDate() );
+        usort( $threads, fn(Thread $a, Thread $b) => $b->getLastPost() <=> $a->getLastPost() );
 
         if ( $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionListThreads ) ) {
             $pinned_threads = $em->getRepository(Thread::class)->findPinnedByForum($forum, null, null, $show_hidden_threads);
@@ -1583,6 +1583,10 @@ class MessageForumController extends MessageController
                         $this->entity_manager->remove($n);
 
                     $this->entity_manager->flush();
+
+                    $this->entity_manager->persist( $thread->setLastPost( $thread->lastPost(false)?->getDate() ?? $thread->lastPost(true)?->getDate() ?? new DateTime() ) );
+                    $this->entity_manager->flush();
+
                     return AjaxResponse::success();
                 }
                 catch (Exception $e) {
@@ -1600,8 +1604,10 @@ class MessageForumController extends MessageController
 
                 try {
                     $post->setHidden(false);
-                    if ($ad = $this->entity_manager->getRepository(AdminDeletion::class)->findOneBy(['post' => $post]))
+                    if ($ad = $this->entity_manager->getRepository(AdminDeletion::class)->findOneBy(['post' => $post])) {
+                        $post->setAdminDeletion(null);
                         $this->entity_manager->remove($ad);
+                    }
 
                     if ($post === $thread->firstPost(true)) {
                         $thread->setHidden(false)->setLocked(false);
@@ -1611,6 +1617,10 @@ class MessageForumController extends MessageController
 
                     $this->entity_manager->persist( $post );
                     $this->entity_manager->flush();
+
+                    $this->entity_manager->persist( $thread->setLastPost( $thread->lastPost(false)?->getDate() ?? $thread->lastPost(true)?->getDate() ?? new DateTime() ) );
+                    $this->entity_manager->flush();
+
                     return AjaxResponse::success();
                 }
                 catch (Exception $e) {

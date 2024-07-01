@@ -188,6 +188,16 @@ class Post
     {
         return $this->adminDeletion;
     }
+
+    /**
+     * @param AdminDeletion $adminDeletion
+     * @return self
+     */
+    public function setAdminDeletion(?AdminDeletion $adminDeletion): self
+    {
+        $this->adminDeletion = $adminDeletion;
+        return $this;
+    }
     public function isNew(): bool {
         return $this->new;
     }

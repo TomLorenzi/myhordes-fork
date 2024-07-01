@@ -451,6 +451,7 @@ const TwinoEditorFields = ({tags}: { tags: { [index: string]: string } }) => {
                     <input type="text" id={`${globals.uuid}-title`} tabIndex={1}
                            defaultValue={globals.getField('title')}
                            onChange={v => globals.setField('title', v.target.value)}
+                           autoCapitalize="sentences"
                     />
                 </div>
                 {globals.isEnabled("tags") && !globals.getField('tag') && !showTagDropdown &&

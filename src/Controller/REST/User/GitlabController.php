@@ -77,6 +77,7 @@ class GitlabController extends CustomAbstractCoreController
 
                     'add_file' => $this->translator->trans('Datei anhängen', [], 'global'),
                     'add_screenshot' => $this->translator->trans('Screenshot anfertigen', [], 'global'),
+                    'screenshot_failed' => $this->translator->trans('Leider scheint dein Gerät oder Browser diese Funktion nicht zu unterstützen.', [], 'global'),
                     'delete_file' => $this->translator->trans('Anhang entfernen', [], 'global'),
 
                     'ok' => $this->translator->trans('Absenden', [], 'global'),

@@ -1720,8 +1720,9 @@ class NightlyHandler
         $this->log->info( "Nightly attack request received for town <info>{$town->getId()}</info> (<info>{$town->getName()}</info>)." );
         if (!$this->check_town($town)) {
             $this->log->info("Precondition failed. Attack is <info>cancelled</info>.");
-            if (!empty($town->getCitizens()))
+            if (!$town->getCitizens()->isEmpty())
                 $town->setDayWithoutAttack($town->getDayWithoutAttack() + 1);
+            else $town->setDayWithoutAttack(0);
             return false;
         } else $this->log->info("Precondition checks passed. Attack can <info>commence</info>.");
 

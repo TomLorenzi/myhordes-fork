@@ -87,7 +87,7 @@ export const TwinoEditorControls = ({emotes}: {emotes: null|Array<Emote>}) => {
             </div>
             <div onClick={()=>setShowOverlay(false)} className="forum-button-bar-section">
                 { globals.allowControl('extended') && <>
-                    <ControlButtonInsertWithAttribute node="quote" label={globals.strings.controls.quote} fa="quote-left" block={true} dialogTitle={globals.strings.controls['quote-dialog']} attribute={globals.strings.controls['quote-placeholder']} />
+                    <ControlButtonInsertQuote/>
                     <ControlButtonNodeWrap node="spoiler" label={globals.strings.controls.spoiler} fa="eye-slash" block={true} />
                     <ControlButtonNodeWrap node="aparte" label={globals.strings.controls.aparte} fa="compress-alt" block={true} />
                     <ControlButtonNodeWrap node="code" label={globals.strings.controls.code} fa="code" block={true} />
@@ -347,6 +347,57 @@ const ControlButtonInsertPlayer = () => {
                 withAlias={globals.isEnabled('alias')}
                 title={globals.strings.controls["@-placeholder"]}
                 withSelf={true} withFriends={true}
+                callback={e => {
+                    selected.current = e[0] ?? null;
+                    (parent.current.closest('form') as HTMLFormElement).requestSubmit();
+                }}
+                clearOnCallback={true}
+            />
+        </div>
+
+    </ControlButton>
+
+}
+
+const ControlButtonInsertQuote = () => {
+    const globals = useContext(Globals);
+
+    const parent = useRef<HTMLDivElement>()
+    const selected = useRef<{id: number, name: string}>();
+
+    return <ControlButton fa="quote-left" label={globals.strings.controls.quote} dialogTitle={globals.strings.controls['quote-dialog']} manualConfirm={true} handler={() => {
+        const body = `${globals.getField('body') ?? ''}`;
+
+        let before = body.slice(0, globals.selection.start);
+        if (before !== '' && !before.slice(-1).match(/\s/))
+            before = `${before} `;
+
+        let inner = body.slice(globals.selection.start, globals.selection.end);
+
+        let after = body.slice(globals.selection.end);
+        if (after !== '' && !after.slice(0,1).match(/\s/))
+            after = ` ${after}`;
+
+        let insert = '';
+        if (selected.current)
+            insert = selected.current.id < 0
+                ? `[quote=${selected.current.name.replaceAll(/[\[\]=]/gi, '')}]${inner}[/quote]`
+                : `[quote=@${selected.current.name.replaceAll(/[^\w_]/gi, '')}:${selected.current.id}]${inner}[/quote]`;
+        else insert = `[quote]${inner}[/quote]`;
+
+        globals.setField('body', `${before}${insert}${after}`);
+        globals.selection.update(before.length, before.length + insert.length);
+        selected.current = null;
+    }}>
+        <div ref={parent}>
+            <div>{ globals.strings.controls['quote-placeholder'] }</div>
+            <UserSearchBar
+                withAlias={globals.isEnabled('alias')}
+                title={globals.strings.controls['quote-placeholder']}
+                withSelf={true} withFriends={true} withPlainString={true}
+                valueCallback={s => {
+                    selected.current = {name: s, id: -1}
+                }}
                 callback={e => {
                     selected.current = e[0] ?? null;
                     (parent.current.closest('form') as HTMLFormElement).requestSubmit();

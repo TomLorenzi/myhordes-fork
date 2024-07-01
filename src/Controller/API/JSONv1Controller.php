@@ -1555,9 +1555,9 @@ class JSONv1Controller extends CoreController {
                     break;
             }
             if ($current_citizen) {
-                if (!isset($this->town) && $this->user->getId() == $user->getId()) {
+                if (!isset($this->town)) {
                     $return = $this->getTownInformation($current_citizen->getTown()->getId());
-                    if (!empty($return)) {
+                    if (!empty($return) && $this->user->getId() == $user->getId()) {
                         return $return;
                     }
                 }
