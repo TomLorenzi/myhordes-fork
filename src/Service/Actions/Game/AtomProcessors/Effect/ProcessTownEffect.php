@@ -37,7 +37,7 @@ class ProcessTownEffect extends AtomEffectProcessor
             $filtered = array_filter( $possible, fn(BuildingPrototype $proto) => match(true) {
                 in_array($proto->getName(), $blocked) => false,
                 $data->unlockBlueprintType !== null && $data->unlockBlueprintType === $proto->getBlueprint() => true,
-                default => in_array($proto->getName(), $data->unlockBlueprintList)
+                default => in_array($proto->getName(), $data->unlockBlueprintList ?? [])
             });
 
             if (!empty($filtered)) {
