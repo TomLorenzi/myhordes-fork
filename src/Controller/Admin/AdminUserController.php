@@ -1666,7 +1666,7 @@ class AdminUserController extends AdminActionController
 
         if ($mode === 'last') {
             $citizen_proxy->setLastWords($text);
-            $citizen_proxy->getCitizen()?->setLastWords($text);
+            $citizen_proxy->getCitizen()?->setLastWords($text ?? '');
         }
         else $citizen_proxy->setComment($text)->setCommentLocked(true);
 
