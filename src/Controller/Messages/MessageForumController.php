@@ -1159,6 +1159,9 @@ class MessageForumController extends MessageController
 
 		$queryBuilder = $this->entity_manager->getRepository(Post::class)->createQueryBuilder('p');
 
+        $queryBuilder->join('p.thread', 't');
+        $queryBuilder->andWhere('t.hidden = false OR t.hidden IS NULL');
+
         $queryBuilder
             ->andWhere('p.searchText IS NOT NULL')
             ->andWhere('p.hidden = false OR p.hidden IS NULL');
