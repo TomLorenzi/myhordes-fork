@@ -142,7 +142,7 @@
                                                 <option value="{{ url('admin_users_account_manage', {action: 'etwin_reset', id: user.id}) }}" x-query="{{ 'E-Mail eingeben.'|trans({},'admin') }}">{{ 'In lokalen Account umwandeln'|trans({},'admin') }}</option>
                                             </optgroup>
                                         {% endif %}
-                                        {% if app.environment == 'dev' %}
+                                        {% if app.environment == 'dev' or app.environment == 'local' %}
                                             <optgroup label="Debug">
                                                 <option value="{{ url('admin_users_account_manage', {action: 'dbg_soulpoints', id: user.id}) }}" x-query="{{ 'Neue Anzahl:'|trans({},'admin') }}">{{ 'Seelenpunkte setzen'|trans({},'admin') }}</option>
                                                 <option value="{{ url('admin_users_account_manage', {action: 'dbg_confirm_deaths', id: user.id}) }}">{{ 'Alle Tode bestätigen'|trans({},'admin') }}</option>

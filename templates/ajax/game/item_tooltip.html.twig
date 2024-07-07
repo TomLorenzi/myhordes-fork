@@ -25,7 +25,7 @@
     {% if item.prototype.hasProperty('weapon') %}<div class="item-tag item-tag-weapon">{{ 'Waffe'|trans({},'items') }}</div>{% endif %}
     {% if item.prototype.watchpoint != 0 %}<div class="item-tag item-tag-weapon">{{ 'Nachtwache-Waffen'|trans({},'items') }} <em>({{'{watchpoint} pkt attacke'|trans({'{watchpoint}': (virtual ? item.prototype : item)|watchpoint},'items')}})</em></div>{% endif %}
 
-    {% if not virtual and ((debug is defined and debug) or (is_granted('ROLE_CROW') and app.environment == 'dev')) %}
+    {% if not virtual and ((debug is defined and debug) or (is_granted('ROLE_CROW') and (app.environment == 'dev' or app.environment == 'local'))) %}
         <br/>
         <div><b>{{ 'Instanzeigenschaften'|trans({},'admin') }}</b></div>
         <div class="item-tag item-tag-item-id">{{ item.id }}</div>

@@ -495,7 +495,7 @@ class AdminUserController extends AdminActionController
             ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
-        if (str_starts_with($action, 'dbg_') && (!$this->isGranted('ROLE_ADMIN') || $kernel->getEnvironment() !== 'dev') )
+        if (str_starts_with($action, 'dbg_') && (!$this->isGranted('ROLE_ADMIN') || ($kernel->getEnvironment() !== 'dev' && $kernel->getEnvironment() !== 'local')) )
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if ($action === 'grant' && $param !== 'NONE' && !$userHandler->admin_canGrant( $this->getUser(), $param ))
@@ -1496,7 +1496,7 @@ class AdminUserController extends AdminActionController
         $number = $parser->get('number', 1);
         $text = $parser->trimmed('text');
 
-        if ($prototype_id === -42 && $kernel->getEnvironment() === 'dev' && $this->isGranted('ROLE_ADMIN', $user))
+        if ($prototype_id === -42 && ($kernel->getEnvironment() === 'dev' || $kernel->getEnvironment() !== 'local') && $this->isGranted('ROLE_ADMIN', $user))
             $prototypes = $this->entity_manager->getRepository(PictoPrototype::class)->findAll();
         else {
             /** @var PictoPrototype $prototype */

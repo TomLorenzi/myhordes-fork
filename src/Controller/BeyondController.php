@@ -886,6 +886,8 @@ class BeyondController extends InventoryAwareController
         $others_are_here = $zone->getCitizens()->count() > count($movers);
         $away_from_town = (abs($zone->getX()) + abs($zone->getY())) < (abs($new_zone->getX()) + abs($new_zone->getY()));
 
+        $primaryPointSource = $zone->getDistance() < 3 ? PointType::AP : PointType::SP;
+
         foreach ($movers as $mover) {
             // Check if citizen moves as a scout
             $scouts[$mover->getId()] = $this->inventory_handler->countSpecificItems(
@@ -894,7 +896,7 @@ class BeyondController extends InventoryAwareController
 
             // Check if citizen can move (zone not blocked and enough AP)
             if (!$cp_ok && $this->get_escape_timeout( $mover, true ) < 0 && !$scouts[$mover->getId()]) return AjaxResponse::error( self::ErrorZoneBlocked );
-            if (($mover->getAp() < 1 && $mover->getSp() < 1) || $this->citizen_handler->isTired( $mover ))
+            if (!$this->citizen_handler->checkPointsWithFallback($mover, PointType::AP, $primaryPointSource, 1) || $this->citizen_handler->isTired( $mover ))
                 return AjaxResponse::error( $citizen->getId() === $mover->getId() ? ErrorHelper::ErrorNoAP : BeyondController::ErrorEscortFailure );
 
             // Check if escortee wants to go home
@@ -913,7 +915,7 @@ class BeyondController extends InventoryAwareController
             }
 
             if ($movement_interrupted) {
-                $this->citizen_handler->deductPointsWithFallback($mover, PointType::AP, PointType::SP, 1 );
+                $this->citizen_handler->deductPointsWithFallback($mover, PointType::AP, $primaryPointSource, 1 );
                 $this->entity_manager->persist($mover);
                 $this->entity_manager->flush();
                 return AjaxResponse::error( BeyondController::ErrorEscortFailure );
@@ -979,7 +981,7 @@ class BeyondController extends InventoryAwareController
             }
 
             // Set AP and increase walking distance counter
-            $this->citizen_handler->deductPointsWithFallback($mover, PointType::AP, PointType::SP, 1 );
+            $this->citizen_handler->deductPointsWithFallback($mover, PointType::AP, $primaryPointSource, 1 );
             $mover->setWalkingDistance( $mover->getWalkingDistance() + 1 );
             if ($mover->getWalkingDistance() > 10) {
                 $this->citizen_handler->increaseThirstLevel($mover);

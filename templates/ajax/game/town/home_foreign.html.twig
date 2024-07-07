@@ -222,7 +222,7 @@
                     </ul>
                 {% endif %}
 
-                {% if is_granted('ROLE_CROW') and app.environment == 'dev' %}
+                {% if is_granted('ROLE_CROW') and (app.environment == 'dev' or app.environment == 'local') %}
                     <br />
                     <button x-ajax-href="{{ path('admin_users_account_view', {id: owner.user.id}) }}"><img alt="" src="{{ asset('build/images/icons/small_admin.gif') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</button>
                 {% endif %}

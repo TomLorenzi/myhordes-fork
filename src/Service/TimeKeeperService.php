@@ -88,7 +88,7 @@ class TimeKeeperService
 
     public function isDuringAttack( ?DateTimeInterface $time = null ): bool {
         if ($this->getCurrentAttackTime() < ($time ?? new DateTime('now'))) return true;
-        if ($this->env === 'dev') return false;
+        if ($this->env === 'dev' || $this->env === 'local') return false;
         else {
             $dif = $this->sinceLastAttack( $time );
             return ( $dif->i < 20 && $dif->h === 0 && $dif->d === 0 );

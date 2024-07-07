@@ -435,7 +435,9 @@ class CitizenHandler
         return false;
     }
 
-    public function getMaxAP(Citizen $citizen) {
+    public function getMaxAP(Citizen $citizen, bool $includeBase = true): int
+    {
+        if (!$includeBase) return 0;
         return $this->isWounded($citizen) ? 5 : 6;
     }
 
@@ -461,7 +463,14 @@ class CitizenHandler
         return $citizen->getAp() - $beforeAp;
     }
 
-    public function getMaxBP(Citizen $citizen): int {
+    /**
+     * Returns the max construction points for a citizen
+     * @param Citizen $citizen
+     * @param bool $includeBase True to include base CP (default)
+     * @return int
+     */
+    public function getMaxBP(Citizen $citizen, bool $includeBase = true): int {
+        if (!$includeBase) return 0;
         return $citizen->getProfession()->getName() === 'tech' ? 6 : 0;
     }
 
@@ -474,10 +483,12 @@ class CitizenHandler
     /**
      * Returns the maximum PM available for a citizen
      * @param Citizen $citizen The citizen to look for
+     * @param bool $includeBase True to include base MP (default)
      * @return int Number of maximum PM available for the citizen
      */
-    public function getMaxPM(Citizen $citizen): int {
+    public function getMaxPM(Citizen $citizen, bool $includeBase = true): int {
         $isShaman = false;
+        if (!$includeBase) return 0;
         foreach ($citizen->getRoles() as $role) {
             if($role->getName() == "shaman")
                 $isShaman = true;
@@ -488,10 +499,11 @@ class CitizenHandler
     /**
      * Returns the maximum SP available for a citizen
      * @param Citizen $citizen The citizen to look for
+     * @param bool $includeBase True to include base SP (default)
      * @return int Number of maximum SP available for the citizen
      */
-    public function getMaxSP(Citizen $citizen): int {
-        return ($citizen->getProfession()->getName() === 'hunter' ? 2 : 0) +
+    public function getMaxSP(Citizen $citizen, bool $includeBase = true): int {
+        return (($includeBase && $citizen->getProfession()->getName() === 'hunter') ? 2 : 0) +
             $this->events->queryCitizenParameter( $citizen, CitizenValueQuery::MaxSpExtension );
     }
 
@@ -507,10 +519,20 @@ class CitizenHandler
         else $citizen->setSp(max(0, $relative ? ($citizen->getSp() + $num) : max(0,$num) ) );
     }
 
-    public function deductPointsWithFallback(Citizen $citizen, PointType $fallback, PointType $primary, int $points, ?int &$usedFallback = 0, ?int &$usedPrimary = 0) {
+    public function checkPointsWithFallback(Citizen $citizen, PointType $fallback, PointType $primary, int $points): bool {
+        return $fallback === $primary
+            ? ($citizen->getPoints($primary) >= $points)
+            : (($citizen->getPoints($primary) + $citizen->getPoints($fallback)) >= $points);
+    }
+
+    public function deductPointsWithFallback(Citizen $citizen, PointType $fallback, PointType $primary, int $points, ?int &$usedFallback = 0, ?int &$usedPrimary = 0): void
+    {
         if ($points <= $citizen->getPoints($primary)) {
             $usedPrimary = $points;
             $this->setPoints($citizen, $primary, true, -$points);
+        } elseif ($primary === $fallback) {
+            $usedPrimary = $citizen->getPoints($primary);
+            $this->setPoints($citizen, $primary, false, 0);
         } else {
             $points -= $citizen->getPoints($primary);
             $usedPrimary = $citizen->getPoints($primary);
@@ -545,12 +567,12 @@ class CitizenHandler
         return $base;
     }
 
-    public function getMaxPoints(Citizen $citizen, PointType $t): int {
+    public function getMaxPoints(Citizen $citizen, PointType $t, bool $includeBase = true): int {
         return match ($t) {
-            PointType::AP => $this->getMaxAP($citizen),
-            PointType::CP => $this->getMaxBP($citizen),
-            PointType::MP => $this->getMaxPM($citizen),
-            PointType::SP => $this->getMaxSP($citizen),
+            PointType::AP => $this->getMaxAP($citizen, $includeBase),
+            PointType::CP => $this->getMaxBP($citizen, $includeBase),
+            PointType::MP => $this->getMaxPM($citizen, $includeBase),
+            PointType::SP => $this->getMaxSP($citizen, $includeBase),
         };
     }
 

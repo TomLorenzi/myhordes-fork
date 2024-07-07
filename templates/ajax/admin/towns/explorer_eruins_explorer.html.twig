@@ -73,7 +73,7 @@
 							<button x-ex-action="{{ url('admin_town_manage', {action: 'ex_co+', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline icon-only"><img alt="" src="{{ asset('build/images/icons/exit.gif') }}" /><div class="tooltip">{{ 'Herauswerfen (ohne Verletzung)'|trans({},'admin') }}</div></button>
 							<button x-ex-action="{{ url('admin_town_manage', {action: 'ex_co-', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline icon-only"><img alt="" src="{{ asset('build/images/emotes/wound.gif') }}" /><div class="tooltip">{{ 'Herauswerfen (mit Verletzung)'|trans({},'admin') }}</div></button>
 							<button x-ex-action="{{ url('admin_town_manage', {action: 'ex_ref', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline icon-only"><img alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}" /><div class="tooltip">{{ 'Timer erhöhen (1min)'|trans({},'admin') }}</div></button>
-							{% if app.environment == 'dev' %}
+							{% if app.environment == 'dev' or app.environment == 'local' %}
 								<button x-ex-action="{{ url('admin_town_manage', {action: 'ex_inf', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline icon-only"><img alt="+" src="{{ asset("build/images/item/item_alarm_on.gif") }}" /><div class="tooltip">{{ 'Timer erhöhen (24h)'|trans({},'admin') }}</div></button>
 							{% endif %}
 						</div>

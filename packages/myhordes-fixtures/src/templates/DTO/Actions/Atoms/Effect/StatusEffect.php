@@ -3,6 +3,7 @@
 namespace MyHordes\Fixtures\DTO\Actions\Atoms\Effect;
 
 use App\Enum\ActionHandler\PointType;
+use App\Enum\ActionHandler\RelativeMaxPoint;
 use App\Enum\SortDefinitionWord;
 use App\Service\Actions\Game\AtomProcessors\Effect\ProcessStatusEffect;
 use App\Structures\SortDefinition;
@@ -11,8 +12,9 @@ use MyHordes\Fixtures\DTO\Actions\EffectAtom;
 /**
  * @property-read ?PointType pointType
  * @property-read ?int pointValue
- * @property-read ?bool pointRelativeToMax
+ * @property-read ?RelativeMaxPoint pointRelativeToMax
  * @property-read ?int pointExceedMax
+ * @property-read ?int pointCapAt
  * @property-read ?bool resetThirstCounter
  * @property-read ?int actionCounterType
  * @property-read ?int actionCounterValue
@@ -38,12 +40,17 @@ class StatusEffect extends EffectAtom {
         return ProcessStatusEffect::class;
     }
 
-    public function point(PointType $type, int $value, bool $relativeToMax = true, ?int $exceedMax = 0): self
+    public function point(PointType $type, int $value, bool|RelativeMaxPoint $relativeToMax = RelativeMaxPoint::RelativeToMax, ?int $exceedMax = 0, ?int $capAt = null): self
     {
         $this->pointType = $type;
         $this->pointValue = $value;
-        $this->pointRelativeToMax = $relativeToMax;
+        $this->pointRelativeToMax = match ($relativeToMax) {
+            true => RelativeMaxPoint::RelativeToMax,
+            false => RelativeMaxPoint::Absolute,
+            default => $relativeToMax
+        };
         $this->pointExceedMax = $exceedMax;
+        $this->pointCapAt = $capAt;
         return $this;
     }
 
@@ -124,11 +131,13 @@ class StatusEffect extends EffectAtom {
 
     protected static function beforeSerialization(array $data): array {
         $data['pointType'] = ($data['pointType'] ?? null) !== null ? $data['pointType']->value : null;
+        $data['pointRelativeToMax'] = ($data['pointRelativeToMax'] ?? null) !== null ? $data['pointRelativeToMax']->value : null;
         return parent::beforeSerialization( $data );
     }
 
     protected static function afterSerialization(array $data): array {
         $data['pointType'] = ($data['pointType'] ?? null) !== null ? PointType::from( $data['pointType'] ) : null;
+        $data['pointRelativeToMax'] = ($data['pointRelativeToMax'] ?? null) !== null ? RelativeMaxPoint::from( $data['pointRelativeToMax'] ) : null;
         return parent::afterSerialization( $data );
     }
 

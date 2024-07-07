@@ -2,6 +2,7 @@
 
 namespace App\Service\Actions\Game\AtomProcessors\Effect;
 
+use App\Enum\ActionHandler\RelativeMaxPoint;
 use App\Service\CitizenHandler;
 use App\Service\DeathHandler;
 use App\Service\LogTemplateHandler;
@@ -113,11 +114,15 @@ class ProcessStatusEffect extends AtomEffectProcessor
 
         if ($data->pointType !== null) {
             $old_pt = $cache->citizen->getPoints( $data->pointType );
-            if ($data->pointRelativeToMax) {
-                $base = $ch->getMaxPoints($cache->citizen, $data->pointType);
-                $to = ($base > 0) ? ($base + $data->pointValue) : 0;
+            if ($data->pointRelativeToMax?->isRelative()) {
+                $base = $ch->getMaxPoints($cache->citizen, $data->pointType, $data->pointRelativeToMax !== RelativeMaxPoint::RelativeToExtensionMax );
+                $to = min(($base > 0) ? ($base + $data->pointValue) : 0, $data->pointCapAt ?? PHP_INT_MAX);
                 $ch->setPoints( $cache->citizen, $data->pointType, false, max( $old_pt, $to ), null );
-            } else $ch->setPoints( $cache->citizen, $data->pointType, true, $data->pointValue, $data->pointValue < 0 ? null : $data->pointExceedMax );
+            } else {
+                $base = $cache->citizen->getPoints( $data->pointType );
+                $to = min($base + $data->pointValue, $data->pointCapAt ?? PHP_INT_MAX);
+                $ch->setPoints($cache->citizen, $data->pointType, false, $to, $data->pointValue < 0 ? null : $data->pointExceedMax);
+            }
 
             $cache->addPoints( $data->pointType, $cache->citizen->getPoints( $data->pointType ) - $old_pt );
         }

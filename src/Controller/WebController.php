@@ -148,7 +148,7 @@ class WebController extends CustomAbstractController
         foreach (Request::createFromGlobals()->getAcceptableContentTypes() as $type)
             switch ($type) {
                 case 'application/json':
-                    return AjaxResponse::error( ErrorHelper::ErrorInternalError, $kernel->getEnvironment() === 'dev' ? [
+                    return AjaxResponse::error( ErrorHelper::ErrorInternalError, $kernel->getEnvironment() === 'dev' || $kernel->getEnvironment() !== 'local' ? [
                         'message' => $exception->getMessage(),
                         'trace' => $exception->getTrace()
                     ] : [] );
@@ -188,7 +188,7 @@ class WebController extends CustomAbstractController
             'supporters' => $supporters,
             'ajax_landing' => '',
             'langs' => $this->allLangs,
-            'exception' => $kernel->getEnvironment() === 'dev' ? $exception : 'Internal Error.',
+            'exception' => ($kernel->getEnvironment() === 'dev' || $kernel->getEnvironment() !== 'local') ? $exception : 'Internal Error.',
             'support' => count($support_groups) === 1 ? $support_groups[0] : null
 
         ] );

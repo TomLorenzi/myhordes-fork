@@ -74,7 +74,7 @@
                     </li>
                 {% endif %}
             {% endfor %}
-            {% if is_granted('ROLE_CROW') and app.environment == 'dev'  %}
+            {% if is_granted('ROLE_CROW') and (app.environment == 'dev' or app.environment == 'local') %}
                 <li class="status">
                     <img src="{{ asset('build/images/status/status_unknown.gif') }}" alt="[ ]">
                     <div class="tooltip item">
