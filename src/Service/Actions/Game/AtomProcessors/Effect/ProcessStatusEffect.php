@@ -76,7 +76,8 @@ class ProcessStatusEffect extends AtomEffectProcessor
             }
 
             if ($data->statusFrom && $data->statusTo) {
-                if ($cache->citizen->getStatus()->contains( $data->statusFrom )) {
+
+                if ($cache->citizen->hasStatus( $data->statusFrom )) {
                     $ch->removeStatus( $cache->citizen, $data->statusFrom );
                     $ch->inflictStatus( $cache->citizen, $data->statusTo );
                     $cache->addTag('stat-change');
