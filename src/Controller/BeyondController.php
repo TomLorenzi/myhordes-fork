@@ -170,7 +170,9 @@ class BeyondController extends InventoryAwareController
         $zone = $this->getActiveCitizen()->getZone();
         $blocked = !$this->zone_handler->isZoneUnderControl($zone, $cp);
         $escape = $this->get_escape_timeout( $this->getActiveCitizen(), true );
-        $citizen_tired = $this->getActiveCitizen()->getAp() <= 0 || $this->citizen_handler->isTired( $this->getActiveCitizen());
+
+        $primaryPointSource = $zone->getDistance() < 3 ? PointType::AP : PointType::SP;
+        $citizen_tired = !$this->citizen_handler->checkPointsWithFallback( $this->getActiveCitizen(), PointType::AP, $primaryPointSource, 1 );
         $citizen_hidden = !$this->activeCitizenIsNotCamping();
 
         $scavenger_sense = $this->getActiveCitizen()->getProfession()->getName() === 'collec';
@@ -290,7 +292,8 @@ class BeyondController extends InventoryAwareController
             $can_enter = $distance <= $port_distance && !$citizen->isCamping();
             $is_on_zero = $zone->getX() == 0 && $zone->getY() == 0;
 
-            $citizen_tired = $citizen->getAp() <= 0 || $this->citizen_handler->isTired($citizen);
+            $primaryPointSource = $zone->getDistance() < 3 ? PointType::AP : PointType::SP;
+            $citizen_tired = !$this->citizen_handler->checkPointsWithFallback( $citizen, PointType::AP, $primaryPointSource, 1 );
 
             $blocked = !$this->zone_handler->isZoneUnderControl($zone, $cp);
             $escape = $this->get_escape_timeout($citizen);
@@ -896,7 +899,7 @@ class BeyondController extends InventoryAwareController
 
             // Check if citizen can move (zone not blocked and enough AP)
             if (!$cp_ok && $this->get_escape_timeout( $mover, true ) < 0 && !$scouts[$mover->getId()]) return AjaxResponse::error( self::ErrorZoneBlocked );
-            if (!$this->citizen_handler->checkPointsWithFallback($mover, PointType::AP, $primaryPointSource, 1) || $this->citizen_handler->isTired( $mover ))
+            if (!$this->citizen_handler->checkPointsWithFallback($mover, PointType::AP, $primaryPointSource, 1))
                 return AjaxResponse::error( $citizen->getId() === $mover->getId() ? ErrorHelper::ErrorNoAP : BeyondController::ErrorEscortFailure );
 
             // Check if escortee wants to go home
