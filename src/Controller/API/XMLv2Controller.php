@@ -753,7 +753,7 @@ class XMLv2Controller extends CoreController {
                     'secure' => intval($secure),
                     'author' => 'MyHordes',
                     'language' => $language,
-                    'version' => '2.1.10',
+                    'version' => '2.1.12',
                     'generator' => 'symfony',
                 ],
             ]
@@ -902,6 +902,7 @@ class XMLv2Controller extends CoreController {
                     'chaos' => intval($town->getChaos()),
                     'devast' => intval( $town->getDevastated()),
                     'hard' => intval($town->getType()->getName() === 'panda'),
+                    'type' => $town->getType()->getName(),
                     'x' => $offset['x'],
                     'y' => $offset['y'],
                     'region' => $town->getLanguage()
