@@ -1210,7 +1210,8 @@ class MessageGlobalPMController extends MessageController
             return AjaxResponse::error( self::ErrorGPMThreadLimitHit);
 
         if (mb_strlen($title) < 3 || mb_strlen($title) > 64)  return AjaxResponse::error( self::ErrorPostTitleLength );
-        if (mb_strlen($text) < 2 || mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
+        if (mb_strlen($text) < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+        if (mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextTooLong );
 
         $ts = new DateTime();
 
@@ -1273,7 +1274,8 @@ class MessageGlobalPMController extends MessageController
         if (!$official_group) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if (mb_strlen($title) < 3 || mb_strlen($title) > 64)  return AjaxResponse::error( self::ErrorPostTitleLength );
-        if (mb_strlen($text) < 2 || mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
+        if (mb_strlen($text) < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+        if (mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextTooLong );
 
         $ts = new DateTime();
 
@@ -1361,7 +1363,8 @@ class MessageGlobalPMController extends MessageController
 
         $text  = $parser->trimmed('content');
 
-        if (mb_strlen($text) < 2 || mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
+        if (mb_strlen($text) < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+        if (mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextTooLong );
         $ts = new DateTime();
 
         $this->entity_manager->persist( $group->setRef1( $group->getRef1() + 1 )->setRef2( $ts->getTimestamp() ) );
