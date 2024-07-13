@@ -33,7 +33,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route(path: '/rest/v1/admin/perch', name: 'rest_admin_crow_management_', condition: "request.headers.get('Accept') === 'application/json'")]
-#[IsGranted('ROLE_ADMIN')]
+#[IsGranted('ROLE_SUB_ADMIN')]
 #[GateKeeperProfile('skip')]
 class CrowManagementController extends CustomAbstractCoreController
 {

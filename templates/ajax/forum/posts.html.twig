@@ -8,7 +8,7 @@
                     <img alt="ADM" src="{{ asset('build/images/icons/icon_mh_admin.gif') }}" />
                     <div class="tooltip">{{ 'Dieser Spieler ist ein Administrator auf diesem Server.'|trans({},'global') }}</div>
                 </div>
-            {% elseif user|is_granted('ROLE_ADMIN') %}
+            {% elseif user|is_granted('ROLE_SUB_ADMIN') %}
                 <div class="inline-block mh-icon">
                     <img alt="ADM" src="{{ asset('build/images/icons/icon_mh_admin.gif') }}" />
                     <div class="tooltip">{{ 'Dieser Spieler ist ein Entwickler von MyHordes.'|trans({},'global') }}</div>

@@ -18,7 +18,7 @@
                         <div class="padded cell rw-1 rw-md-2 rw-sm-2">{{ campaign.clicks }} / {{ campaign.conversions.count }}</div>
                         <div class="padded cell rw-1 rw-md-2 rw-sm-2 right">
                             <img alt="E" src="{{ asset('build/images/forum/edit.png') }}" x-ajax-href="{{ path('admin_campaign_edit', {id: campaign.id}) }}" class="pointer" />
-                            {% if is_granted("ROLE_ADMIN") %}
+                            {% if is_granted("ROLE_SUB_ADMIN") %}
                                 <img alt="E" src="{{ asset('build/images/icons/small_trash_red.png') }}" data-campaign-delete="{{ path('admin_campaign_delete', {id: campaign.id}) }}" class="pointer" />
                             {% endif %}
                         </div>

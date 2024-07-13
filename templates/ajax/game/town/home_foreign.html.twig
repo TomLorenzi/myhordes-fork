@@ -417,7 +417,7 @@
 
     <br />
 
-    {% if is_granted('ROLE_ADMIN') %}
+    {% if is_granted('ROLE_SUB_ADMIN') %}
     <div class="row">
         <div class="cell rw-14">
                 {% if owner.alive %}
@@ -461,7 +461,7 @@
                             $.ajax.load(null, '{{ path('town_visit', {id: owner.id}) }}', true);
                         } );
                 })
-            {% if is_granted('ROLE_ADMIN') %}
+            {% if is_granted('ROLE_SUB_ADMIN') %}
                 const adminButtons = document.querySelectorAll('[x-admin-action]');
                 for (let i = 0; i < adminButtons.length; i++)
                     adminButtons[i].addEventListener('click', function() {

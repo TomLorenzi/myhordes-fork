@@ -16,7 +16,7 @@
 				<div class="padded cell rw-1 rw-sm-2">{% if est.day == town.day %}<img alt=">" src="{{ asset('build/images/emotes/arrowright.gif') }}" />{% endif %}</div>
 				<div class="padded cell rw-1 rw-sm-0">{{ est.id }}</div>
 				<div class="padded cell rw-1 rw-sm-10">{{ est.day }}</div>
-				{% if is_granted("ROLE_ADMIN") or est.day < town.day %}
+				{% if is_granted("ROLE_SUB_ADMIN") or est.day < town.day %}
 					<div class="padded cell rw-2 rw-sm-4">{{ est.zombies }}</div>
 					<div class="padded cell rw-2 rw-sm-4">{{ est.offsetMin }}%</div>
 					<div class="padded cell rw-2 rw-sm-4">{{ est.offsetMax }}%</div>

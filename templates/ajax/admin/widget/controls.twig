@@ -98,7 +98,7 @@
                     {% for pictoPrototype in pictoPrototypes %}
                         <option value="{{pictoPrototype.id}}">{{ pictoPrototype.label|trans({}, 'game') }}</option>
                     {% endfor %}
-                    {% if app.environment == 'dev' and is_granted('ROLE_ADMIN') %}
+                    {% if app.environment == 'dev' and is_granted('ROLE_SUB_ADMIN') %}
                         <option value="-42">[ {{ 'Alle'|trans({}, 'game') }} ]</option>
                     {% endif %}
                 </select>

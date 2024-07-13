@@ -82,35 +82,35 @@
                                                 {% endif %}
                                             </div>
                                         </div>
-                                        {% if is_granted('ROLE_ADMIN') and restriction.active and (restriction.expires is null or restriction.expires > 'now'|to_date) %}
+                                        {% if is_granted('ROLE_SUB_ADMIN') and restriction.active and (restriction.expires is null or restriction.expires > 'now'|to_date) %}
                                             <div class="inline-block" data-edit="{{ restriction.id }}" data-reason="{{ restriction.publicReason }}" data-internal="{{ restriction.internalReason }}" data-duration="{{ restriction.originalDuration }}" data-type="{{ restriction.restriction }}">
                                                 <img alt="" src="{{ asset('build/images/forum/edit.png') }}" />
                                                 <div class="tooltip">{{ 'Bearbeiten'|trans({}, 'global') }}</div>
                                             </div>
                                         {% endif %}
                                     </div>
-                                    <div class="cell rw-2 rw-md-5 rw-sm-4 padded">{% if restriction.moderator|is_granted('ROLE_ADMIN') %}<img alt="[ADM]" src="{{ asset('build/images/icons/small_admin.gif') }}"> {% endif %}{{ restriction.moderator.name }}</div>
+                                    <div class="cell rw-2 rw-md-5 rw-sm-4 padded">{% if restriction.moderator|is_granted('ROLE_SUB_ADMIN') %}<img alt="[ADM]" src="{{ asset('build/images/icons/small_admin.gif') }}"> {% endif %}{{ restriction.moderator.name }}</div>
                                     <div class="cell rw-2 rw-md-5 padded">
                                         {% set confirmed_by_admin = false %}
                                         {% set confirmed_by_super = false %}
                                         {% if restriction.confirmedBy|filter(c => c != restriction.moderator) is empty %}<div>-</div>{% endif %}
                                         {% for confirmer in restriction.confirmedBy %}
-                                            {% if confirmer|is_granted('ROLE_ADMIN') %}{% set confirmed_by_admin = true %}{% endif %}
+                                            {% if confirmer|is_granted('ROLE_SUB_ADMIN') %}{% set confirmed_by_admin = true %}{% endif %}
                                             {% if confirmer|is_granted('ROLE_SUPER') %}{% set confirmed_by_super = true %}{% endif %}
-                                            {% if restriction.moderator|is_granted('ROLE_ADMIN') %}{% set confirmed_by_admin = true %}{% endif %}
+                                            {% if restriction.moderator|is_granted('ROLE_SUB_ADMIN') %}{% set confirmed_by_admin = true %}{% endif %}
                                             {% if restriction.moderator|is_granted('ROLE_SUPER') %}{% set confirmed_by_super = true %}{% endif %}
-                                            {% if confirmer != restriction.moderator %}<div>{% if confirmer|is_granted('ROLE_ADMIN') %}<img alt="[ADM]" src="{{ asset('build/images/icons/small_admin.gif') }}"> {% endif %}{{ confirmer.name }}</div>{% endif %}
+                                            {% if confirmer != restriction.moderator %}<div>{% if confirmer|is_granted('ROLE_SUB_ADMIN') %}<img alt="[ADM]" src="{{ asset('build/images/icons/small_admin.gif') }}"> {% endif %}{{ confirmer.name }}</div>{% endif %}
                                         {% endfor %}
                                         {% set confirmation_is_useful = true %}
                                         {% if confirmed_by_super and is_granted('ROLE_SUPER') %}{% set confirmation_is_useful = false %}{% endif %}
-                                        {% if confirmed_by_admin and is_granted('ROLE_ADMIN') and not is_granted('ROLE_SUPER') %}{% set confirmation_is_useful = false %}{% endif %}
+                                        {% if confirmed_by_admin and is_granted('ROLE_SUB_ADMIN') and not is_granted('ROLE_SUPER') %}{% set confirmation_is_useful = false %}{% endif %}
                                         {% if restriction.active and (restriction.expires is null or restriction.expires > 'now'|to_date) and confirmation_is_useful and app.user not in restriction.confirmedBy %}
                                             <button x-confirm-url="{{ path('admin_users_ban_confirm', {bid: restriction.id, uid: user.id}) }}"><img src="{{ asset('build/images/icons/escort_on.gif') }}"> {{ 'Bestätigen'|trans({},'admin') }}</button>
                                         {% endif %}
                                     </div>
                                     <div class="cell rw-2 rw-md-4 rw-sm-6 padded"><span class="small">{{ restriction.created|format_datetime('medium', 'short') }}</span></div>
                                     <div class="cell rw-2 rw-md-4 rw-sm-6 padded">
-                                        {% if (is_granted('ROLE_ADMIN') and restriction.active) or (restriction.moderator == app.user and restriction.confirmedBy|filter(c => c != restriction.moderator) is empty) %}
+                                        {% if (is_granted('ROLE_SUB_ADMIN') and restriction.active) or (restriction.moderator == app.user and restriction.confirmedBy|filter(c => c != restriction.moderator) is empty) %}
                                             <span class="small pointer" data-toggle-duration-for="{{ restriction.id }}">
                                                 {% if restriction.originalDuration < 0 %}<b>∞</b>{% else %}{{ '{d} Tage'|trans({'{d}': (restriction.originalDuration/86400)|round},'admin') }}{% endif %}
                                             </span>
@@ -118,11 +118,11 @@
                                                 <select data-update-url="{{ path('admin_users_ban_modify', {bid: restriction.id, uid: user.id}) }}">
                                                     <option {{ restriction.originalDuration == 86400 ? 'selected' : '' }} value="86400">{{ '24 Stunden'|trans({},'admin') }}</option>
                                                     {% for duration in [2,3,5,7,15,30,60,90,120,240] %}
-                                                        <option {{ restriction.originalDuration == duration * 86400 ? 'selected' : '' }} value="{{ duration * 86400 }}">{{ '{d} Tage'|trans({'{d}': duration},'admin') }}{% if duration > 30 and not is_granted('ROLE_ADMIN') %} ({{ 'Bestätigung erforderlich'|trans({},'admin') }}){% endif %}</option>
+                                                        <option {{ restriction.originalDuration == duration * 86400 ? 'selected' : '' }} value="{{ duration * 86400 }}">{{ '{d} Tage'|trans({'{d}': duration},'admin') }}{% if duration > 30 and not is_granted('ROLE_SUB_ADMIN') %} ({{ 'Bestätigung erforderlich'|trans({},'admin') }}){% endif %}</option>
                                                     {% endfor %}
-                                                    <option {{ restriction.originalDuration == 31536000 ? 'selected' : '' }} value="31536000">{{ '1 Jahr'|trans({},'admin') }}{% if not is_granted('ROLE_ADMIN') %} ({{ 'Admin-Bestätigung erforderlich'|trans({},'admin') }}){% endif %}</option>
-                                                    <option {{ restriction.originalDuration == 63072000 ? 'selected' : '' }} value="63072000">{{ '2 Jahre'|trans({},'admin') }}{% if not is_granted('ROLE_ADMIN') %} ({{ 'Admin-Bestätigung erforderlich'|trans({},'admin') }}){% endif %}</option>
-                                                    <option {{ restriction.originalDuration == -1 ? 'selected' : '' }} value="-1">{{ 'Dauerhaft'|trans({},'admin') }}{% if not is_granted('ROLE_ADMIN') %} ({{ 'Admin-Bestätigung erforderlich'|trans({},'admin') }}){% endif %}</option>
+                                                    <option {{ restriction.originalDuration == 31536000 ? 'selected' : '' }} value="31536000">{{ '1 Jahr'|trans({},'admin') }}{% if not is_granted('ROLE_SUB_ADMIN') %} ({{ 'Admin-Bestätigung erforderlich'|trans({},'admin') }}){% endif %}</option>
+                                                    <option {{ restriction.originalDuration == 63072000 ? 'selected' : '' }} value="63072000">{{ '2 Jahre'|trans({},'admin') }}{% if not is_granted('ROLE_SUB_ADMIN') %} ({{ 'Admin-Bestätigung erforderlich'|trans({},'admin') }}){% endif %}</option>
+                                                    <option {{ restriction.originalDuration == -1 ? 'selected' : '' }} value="-1">{{ 'Dauerhaft'|trans({},'admin') }}{% if not is_granted('ROLE_SUB_ADMIN') %} ({{ 'Admin-Bestätigung erforderlich'|trans({},'admin') }}){% endif %}</option>
                                                 </select>
                                             </label>
                                         {% else %}
@@ -151,11 +151,11 @@
                             <select x-confirmation id="rest_duration">
                                 <option value="86400">{{ '24 Stunden'|trans({},'admin') }}</option>
                                 {% for duration in [2,3,5,7,15,30,60,90,120,240] %}
-                                    <option {% if duration > 30%}x-confirmation="1"{% endif %} value="{{ duration * 86400 }}">{{ '{d} Tage'|trans({'{d}': duration},'admin') }}{% if duration > 30 and not is_granted('ROLE_ADMIN') %} ({{ 'Bestätigung erforderlich'|trans({},'admin') }}){% endif %}</option>
+                                    <option {% if duration > 30%}x-confirmation="1"{% endif %} value="{{ duration * 86400 }}">{{ '{d} Tage'|trans({'{d}': duration},'admin') }}{% if duration > 30 and not is_granted('ROLE_SUB_ADMIN') %} ({{ 'Bestätigung erforderlich'|trans({},'admin') }}){% endif %}</option>
                                 {% endfor %}
-                                <option x-confirmation="2" value="31536000">{{ '1 Jahr'|trans({},'admin') }}{% if not is_granted('ROLE_ADMIN') %} ({{ 'Admin-Bestätigung erforderlich'|trans({},'admin') }}){% endif %}</option>
-                                <option x-confirmation="2" value="63072000">{{ '2 Jahre'|trans({},'admin') }}{% if not is_granted('ROLE_ADMIN') %} ({{ 'Admin-Bestätigung erforderlich'|trans({},'admin') }}){% endif %}</option>
-                                <option x-confirmation="2" value="-1">{{ 'Dauerhaft'|trans({},'admin') }}{% if not is_granted('ROLE_ADMIN') %} ({{ 'Admin-Bestätigung erforderlich'|trans({},'admin') }}){% endif %}</option>
+                                <option x-confirmation="2" value="31536000">{{ '1 Jahr'|trans({},'admin') }}{% if not is_granted('ROLE_SUB_ADMIN') %} ({{ 'Admin-Bestätigung erforderlich'|trans({},'admin') }}){% endif %}</option>
+                                <option x-confirmation="2" value="63072000">{{ '2 Jahre'|trans({},'admin') }}{% if not is_granted('ROLE_SUB_ADMIN') %} ({{ 'Admin-Bestätigung erforderlich'|trans({},'admin') }}){% endif %}</option>
+                                <option x-confirmation="2" value="-1">{{ 'Dauerhaft'|trans({},'admin') }}{% if not is_granted('ROLE_SUB_ADMIN') %} ({{ 'Admin-Bestätigung erforderlich'|trans({},'admin') }}){% endif %}</option>
                             </select>
                             <br /><br />
                             <b><label for="rest_public">{{ 'Grund'|trans({},'admin') }}</label></b>
@@ -186,13 +186,13 @@
                                 <div class="cell rw-12">
                                     <label>
                                         <input x-confirmation="2" type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionGameplay') }}">
-                                        {{ 'Spielen verbieten'|trans({},'admin') }}{% if not is_granted('ROLE_ADMIN') %} ({{ 'Admin-Bestätigung erforderlich'|trans({},'admin') }}){% endif %}
+                                        {{ 'Spielen verbieten'|trans({},'admin') }}{% if not is_granted('ROLE_SUB_ADMIN') %} ({{ 'Admin-Bestätigung erforderlich'|trans({},'admin') }}){% endif %}
                                     </label>
                                 </div>
                                 <div class="cell rw-12">
                                     <label>
                                         <input x-confirmation="2" type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionGameplayLang') }}">
-                                        {{ 'Das Spielen in anderen Gemeinden verbieten'|trans({},'admin') }}{% if not is_granted('ROLE_ADMIN') %} ({{ 'Admin-Bestätigung erforderlich'|trans({},'admin') }}){% endif %}
+                                        {{ 'Das Spielen in anderen Gemeinden verbieten'|trans({},'admin') }}{% if not is_granted('ROLE_SUB_ADMIN') %} ({{ 'Admin-Bestätigung erforderlich'|trans({},'admin') }}){% endif %}
                                     </label>
                                 </div>
                                 <div class="cell rw-12"><label><input type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionProfile') }}"> {{ 'Änderungen am Profil verbieten'|trans({},'admin') }}</label></div>
@@ -273,7 +273,7 @@
                 $.html.forEach('#rest_info_lv1,#rest_info_lv2', element => element.classList.add('hidden'));
 
                 let lv = 0;
-                {% if not is_granted('ROLE_ADMIN') %}
+                {% if not is_granted('ROLE_SUB_ADMIN') %}
                     if (document.querySelector('[x-confirmation="1"]:checked')) lv = 1;
                     if (document.querySelector('[x-confirmation="2"]:checked')) lv = 2;
 

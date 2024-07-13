@@ -37,7 +37,7 @@
 {% block js %}
     {{ parent() }}
     <script>
-        {% if is_granted("ROLE_ADMIN") %}
+        {% if is_granted("ROLE_SUB_ADMIN") %}
             $.html.addEventListenerAll('button[x-action="add_tokens"]', 'click', function(){
                 let nb = 0;
                 if (!(nb = prompt("{{'Wie viele Token möchtest du erzeugen?'|trans({}, 'admin')}}")))

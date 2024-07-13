@@ -40,7 +40,7 @@ class AdminAppController extends AdminActionController
     {
         T::__("Neue Anwendung registrieren", "admin");
         T::__("Änderungen an '{appname}' speichern", "admin");
-        if (!$this->isGranted('ROLE_ADMIN')) $this->redirect($this->generateUrl('admin_app_view'));
+        if (!$this->isGranted('ROLE_SUB_ADMIN')) $this->redirect($this->generateUrl('admin_app_view'));
         $app = $this->entity_manager->getRepository(ExternalApp::class)->find($id);
         if ($app === null) return $this->redirect($this->generateUrl('admin_app_view'));
         return $this->render( 'ajax/admin/apps/edit.html.twig', $this->addDefaultTwigArgs(null, [
@@ -55,7 +55,7 @@ class AdminAppController extends AdminActionController
     #[Route(path: 'jx/admin/apps/new', name: 'admin_app_new')]
     public function ext_app_new(): Response
     {
-        if (!$this->isGranted('ROLE_ADMIN')) $this->redirect($this->generateUrl('admin_app_view'));
+        if (!$this->isGranted('ROLE_SUB_ADMIN')) $this->redirect($this->generateUrl('admin_app_view'));
         return $this->render( 'ajax/admin/apps/edit.html.twig', $this->addDefaultTwigArgs(null, [
             'current_app' => null,
             'icon_max_size' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)
@@ -70,7 +70,7 @@ class AdminAppController extends AdminActionController
     #[Route(path: 'api/admin/apps/toggle/{id<\d+>}', name: 'admin_toggle_ext_app')]
     #[AdminLogProfile(enabled: true)]
     public function ext_app_toggle(int $id, JSONRequestParser $parser): Response {
-        if (!$this->isGranted('ROLE_ADMIN')) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+        if (!$this->isGranted('ROLE_SUB_ADMIN')) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         $app = $this->entity_manager->getRepository(ExternalApp::class)->find($id);
         if ($app === null ) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
@@ -100,7 +100,7 @@ class AdminAppController extends AdminActionController
     #[AdminLogProfile(enabled: true)]
     public function ext_app_update(int $id, JSONRequestParser $parser, RandomGenerator $rand): Response
     {
-        if (!$this->isGranted('ROLE_ADMIN')) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+        if (!$this->isGranted('ROLE_SUB_ADMIN')) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if (!$parser->has_all(['name','owner','contact','url'], true)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 

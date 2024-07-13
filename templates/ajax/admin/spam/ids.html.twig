@@ -26,7 +26,7 @@
                 <div class="padded cell">
                     <button data-fetch="{{ path('rest_admin_blacklist_spam_check') }}" data-fetch-method="post" data-fetch-load="{{ path('admin_spam_identifiers_view') }}">{{ 'Prüfen'|trans({},'admin') }}</button>
                 </div>
-                {% if is_granted("ROLE_ADMIN") %}
+                {% if is_granted("ROLE_SUB_ADMIN") %}
                     <div class="padded cell">
                         <button data-fetch="{{ path('rest_admin_blacklist_spam_add') }}" data-fetch-method="put" data-fetch-load="{{ path('admin_spam_identifiers_view') }}">{{ 'Hinzufügen'|trans({},'admin') }}</button>
                     </div>

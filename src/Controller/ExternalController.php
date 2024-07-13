@@ -50,7 +50,7 @@ class ExternalController extends CustomAbstractController {
     #[Route(path: '/jx/disclaimer/{id<\d+>}', name: 'disclaimer', condition: 'request.isXmlHttpRequest()')]
     public function disclaimer(ExternalApp $app): Response {
         $user = $this->getUser();
-        if (!$user || ($app->getTesting() && $app->getOwner() !== $user && !$this->isGranted('ROLE_ADMIN')))
+        if (!$user || ($app->getTesting() && $app->getOwner() !== $user && !$this->isGranted('ROLE_SUB_ADMIN')))
             return $this->redirectToRoute('initial_landing');
 
         $key = $user->getExternalId();

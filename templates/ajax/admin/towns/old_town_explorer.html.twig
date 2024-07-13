@@ -51,7 +51,7 @@
                         <div class="row-table citizens-list">
                             <div class="row-flex header">
                                 <div class="padded cell left rw-12">{{ 'Bürger'|trans({},'game') }}</div>
-                                {% if is_granted("ROLE_ADMIN") %}
+                                {% if is_granted("ROLE_SUB_ADMIN") %}
                                     <div class="padded cell"><label><input data-distribute-to="*" type="checkbox"/></label></div>
                                 {% endif %}
                             </div>
@@ -71,7 +71,7 @@
                                         </a>&nbsp;
                                     </div>
 
-                                    {% if is_granted("ROLE_ADMIN") %}
+                                    {% if is_granted("ROLE_SUB_ADMIN") %}
                                         <div class="padded cell">
                                             <label><input data-distribute-to="{{ citizen.id }}" type="checkbox"/></label>
                                         </div>
@@ -88,7 +88,7 @@
                         </div>
                     </div>
                     <div class="cell rw-7 rw-sm-12 padded">
-                        {% if is_granted("ROLE_ADMIN") %}
+                        {% if is_granted("ROLE_SUB_ADMIN") %}
                         <div class="padded cell">
                             <label for="selectPicto">{{'Eine Auszeichnungen auswählen:'|trans({}, 'admin')}}</label>
                             <select id="selectPicto">
@@ -131,7 +131,7 @@
     <script>
         (function() {
 
-           {% if is_granted("ROLE_ADMIN") %}
+           {% if is_granted("ROLE_SUB_ADMIN") %}
 
                 let givebtn = document.getElementById("givebtn");
                 if (givebtn) givebtn.addEventListener('click', function(){

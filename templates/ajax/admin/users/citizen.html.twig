@@ -34,7 +34,7 @@
                                     {{ other_life.town.name }}
                                 </div>
                                 <div class="padded cell grow-0 shrink-0">
-                                    <button class="small inline icon-only" {% if not is_granted("ROLE_ADMIN") or other_life.rankingEntry.confirmed %}disabled{% endif %} x-engage="{{ path('admin_users_citizen_engage', {id: user.id, cid: other_life.id}) }}"><img src="{{ asset("build/images/icons/escort_off.gif") }}" alt="" /></button>
+                                    <button class="small inline icon-only" {% if not is_granted("ROLE_SUB_ADMIN") or other_life.rankingEntry.confirmed %}disabled{% endif %} x-engage="{{ path('admin_users_citizen_engage', {id: user.id, cid: other_life.id}) }}"><img src="{{ asset("build/images/icons/escort_off.gif") }}" alt="" /></button>
                                 </div>
                             </div>
                         {% endif %}
@@ -103,7 +103,7 @@
                             {% if alive %}
                                 <div class="row">
                                 {% if is_granted("ROLE_CROW") %}
-                                    {% if is_granted("ROLE_ADMIN") %}
+                                    {% if is_granted("ROLE_SUB_ADMIN") %}
                                         <div class="cell padded rw-2 text-center">
                                             <button class="small inline text-center" id="x-headshot">
                                                 <img src="{{ asset('build/images/actions/bullets.gif') }}" alt="" /><br />
@@ -120,7 +120,7 @@
                                 {% endif %}
 
                                 <div class="cell padded rw-2 text-center">
-                                    <button class="small inline text-center" {% if not is_granted("ROLE_ADMIN") %}disabled{% endif %} x-engage="{{ path('admin_users_citizen_engage', {id: user.id, cid: 0}) }}">
+                                    <button class="small inline text-center" {% if not is_granted("ROLE_SUB_ADMIN") %}disabled{% endif %} x-engage="{{ path('admin_users_citizen_engage', {id: user.id, cid: 0}) }}">
                                         <img src="{{ asset("build/images/icons/escort_off.gif") }}" alt="" /><br />
                                          <span class="hide-md hide-sm">{{ 'Entkoppeln'|trans({}, 'admin') }}</span>
                                     </button>
@@ -139,7 +139,7 @@
                                 </div>
                                 </div>
 
-                                {% if is_granted("ROLE_ADMIN") %}
+                                {% if is_granted("ROLE_SUB_ADMIN") %}
                                     <div class="cell padded rw-6 rw-md-12">{{ point_control() }}</div>
                                     <div class="cell padded rw-6 rw-md-12">{{ profession_control(citizenProfessions) }}</div>
                                     <div class="cell padded rw-12">{{ teleport_control() }}</div>
@@ -167,7 +167,7 @@
 {% endblock %}
 {% block js %}
     {{ parent() }}
-    {% if is_granted("ROLE_ADMIN") and alive %}
+    {% if is_granted("ROLE_SUB_ADMIN") and alive %}
         {{ home_control_js('#citizen_base_selector', path('admin_town_manage_home', {id: user_citizen.town.id}), path('admin_users_citizen_view', {id: user.id})) }}
         {{ status_control_js('#citizen_base_selector', path('admin_town_manage_status', {id: user_citizen.town.id}), path('admin_users_citizen_view', {id: user.id})) }}
         {{ role_control_js('#citizen_base_selector', path('admin_town_manage_role', {id: user_citizen.town.id}), path('admin_users_citizen_view', {id: user.id})) }}
@@ -177,7 +177,7 @@
         {{ alias_control_js('#citizen_base_selector', path('admin_alias_citizen', {id: user_citizen.town.id}), path('admin_users_citizen_view', {id: user.id})) }}
     {% endif %}
     <script>
-        {% if is_granted("ROLE_ADMIN") %}
+        {% if is_granted("ROLE_SUB_ADMIN") %}
             $.html.addEventListenerAll('[x-engage]', 'click', (e,elem) => {
                 $.ajax.easySend( elem.getAttribute('x-engage'), [],
                     function () {
@@ -198,7 +198,7 @@
 
         {% if active %}
             {% if alive %}
-                {% if is_granted("ROLE_ADMIN") %}
+                {% if is_granted("ROLE_SUB_ADMIN") %}
                 document.getElementById('x-headshot').addEventListener('click', function(e) {
                     e.preventDefault();
                     if (confirm('{{ 'Das Leben dieses Bürgers sofort beenden?'|trans({},'admin') }}'))
