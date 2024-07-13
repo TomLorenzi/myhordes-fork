@@ -57,7 +57,7 @@
             </div>
             <div class="forum-post-footer">
                 <div class="float-left small">
-                    {% if is_granted('ROLE_ADMIN') and post.moderator is not null %}
+                    {% if is_granted('ROLE_SUB_ADMIN') and post.moderator is not null %}
                         {{ 'MOD: ' ~ post.moderator.name }}
                     {% endif %}
                 </div>

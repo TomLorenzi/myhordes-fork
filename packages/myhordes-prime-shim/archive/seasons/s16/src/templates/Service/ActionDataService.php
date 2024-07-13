@@ -45,7 +45,7 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('min_2_cp')->type( Requirement::CrossOnFail )->add( (new PointRequirement())->require(PointType::CP)->min(2) )->text_key('pt_required')->commit();
         $requirement_container->add()->identifier('min_3_cp')->type( Requirement::CrossOnFail )->add( (new PointRequirement())->require(PointType::CP)->min(3) )->text_key('pt_required')->commit();
 
-        $data = array_merge_recursive($data, [
+        $data = array_replace_recursive($data, [
             'meta_requirements' => [],
 
             'meta_results' => [
@@ -78,9 +78,9 @@ class ActionDataService implements FixtureProcessorInterface {
                 'bp_bunker_3'   => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['item_tube_#01', 'item_boomfruit_#00', 'item_pet_pig_#00', 'small_watchmen_#00', 'item_cutcut_#00', 'small_underground_#00', 'small_rocket_#00', 'item_keymol_#00', 'item_home_def_#00', 'small_coffin_#00'] ] ], 'message_key' => 'read_blueprint' ],
                 'bp_bunker_4'   => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_water_#02', 'small_castle_#00', 'small_arma_#00', 'small_slave_#00', 'small_strategy_#01'] ] ],                                                                                         'message_key' => 'read_blueprint' ],
 
-                'bp_hospital_2' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['item_plate_#00', 'small_eden_#00', 'small_chicken_#00', 'small_cemetery_#00', 'small_spa4souls_#01', 'small_saw_#00'] ] ],                                                                            'message_key' => 'read_blueprint' ],
-                'bp_hospital_3' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['item_digger_#00', 'item_boomfruit_#01', 'item_vest_on_#00', 'small_tourello_#01', 'small_falsecity_#00', 'small_trashclean_#00', 'small_infirmary_#00', 'item_surv_book_#00', 'small_sprinkler_#00', 'small_coffin_#00'] ] ], 'message_key' => 'read_blueprint' ],
-                'bp_hospital_4' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_derrick_#00', 'small_crow_#00', 'small_pmvbig_#00', 'small_trash_#01', 'small_balloon_#00'] ] ],                                                                                                'message_key' => 'read_blueprint' ],
+                'bp_hospital_2' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['item_plate_#04', 'small_eden_#00', 'small_chicken_#00', 'small_cemetery_#00', 'small_spa4souls_#00', 'small_saw_#00'] ] ],                                                                            'message_key' => 'read_blueprint' ],
+                'bp_hospital_3' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['item_digger_#00', 'item_boomfruit_#01', 'small_watchmen_#01', 'small_tourello_#01', 'small_falsecity_#00', 'small_trashclean_#00', 'small_infirmary_#00', 'item_surv_book_#00', 'small_sprinkler_#00', 'small_coffin_#00'] ] ], 'message_key' => 'read_blueprint' ],
+                'bp_hospital_4' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_derrick_#01', 'small_crow_#00', 'small_pmvbig_#00', 'small_trash_#06', 'small_balloon_#00'] ] ],                                                                                                'message_key' => 'read_blueprint' ],
             ],
 
             'heroics' => [

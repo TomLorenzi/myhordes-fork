@@ -463,9 +463,9 @@ class AdminForumController extends AdminActionController
 
         if (!in_array($lang, $this->allLangsCodes)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        if ($role === '*' && !$this->isGranted('ROLE_ADMIN')) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+        if ($role === '*' && !$this->isGranted('ROLE_SUB_ADMIN')) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
         $available_roles = array_intersect(
-            ["ROLE_CROW", "ROLE_ADMIN", "ROLE_ORACLE", "ROLE_ANIMAC"],
+            ["ROLE_CROW", "ROLE_SUB_ADMIN", "ROLE_ORACLE", "ROLE_ANIMAC"],
             $roles->getReachableRoleNames( $this->getUser()->getRoles() )
         );
 
@@ -501,7 +501,7 @@ class AdminForumController extends AdminActionController
     #[Route(path: 'api/admin/com/forum/reports/snippet/remove/{id<\d+>}', name: 'admin_reports_remove_snippet')]
     #[AdminLogProfile(enabled: true)]
     public function remove_snippet(ForumModerationSnippet $snippet, RoleHierarchyInterface $roles): Response {
-        if ($snippet->getRole() === '*' && !$this->isGranted('ROLE_ADMIN'))
+        if ($snippet->getRole() === '*' && !$this->isGranted('ROLE_SUB_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if (!$this->isGranted($snippet->getRole()))
@@ -820,7 +820,7 @@ class AdminForumController extends AdminActionController
     public function forum_snippets(RoleHierarchyInterface $roles): Response
     {
         $user_roles = $roles->getReachableRoleNames( $this->getUser()->getRoles() );
-        $valid_roles = ["ROLE_CROW", "ROLE_ADMIN", "ROLE_ORACLE", "ROLE_ANIMAC"];
+        $valid_roles = ["ROLE_CROW", "ROLE_SUB_ADMIN", "ROLE_ORACLE", "ROLE_ANIMAC"];
         $available_roles = array_intersect(
             $valid_roles,
             $user_roles
@@ -828,7 +828,7 @@ class AdminForumController extends AdminActionController
 
         return $this->render( 'ajax/admin/reports/snippets.html.twig', $this->addDefaultTwigArgs(null, [
             'tab' => 'short',
-            'available_roles' => $this->isGranted('ROLE_ADMIN') ? [...$available_roles, '*'] : $available_roles,
+            'available_roles' => $this->isGranted('ROLE_SUB_ADMIN') ? [...$available_roles, '*'] : $available_roles,
             'snippets' => $this->entity_manager->getRepository(ForumModerationSnippet::class)->findBy(['role' => $user_roles], ['lang' => 'DESC', 'role' => 'DESC', 'short' => 'DESC'])
         ]));
     }

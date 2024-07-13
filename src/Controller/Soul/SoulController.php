@@ -449,10 +449,10 @@ class SoulController extends CustomAbstractController
     #[Route(path: 'jx/soul/polls/{id}/{group}/{tag}', name: 'soul_polls')]
     public function soul_polls(int $id = 0, string $group = '', string $tag = ''): Response
     {
-        if (($group !== '' || $tag !== '') && !$this->isGranted('ROLE_ADMIN'))
+        if (($group !== '' || $tag !== '') && !$this->isGranted('ROLE_SUB_ADMIN'))
             return $this->redirect($this->generateUrl( 'soul_polls' ));
 
-        if (!$this->isGranted('ROLE_ADMIN')) {
+        if (!$this->isGranted('ROLE_SUB_ADMIN')) {
             $group = 'antigrief';
             $tag = 'pass';
         }
@@ -469,7 +469,7 @@ class SoulController extends CustomAbstractController
         $selected = $selected ?? $polls[0] ?? null;
 
         return $this->render( 'ajax/soul/polls.html.twig', $this->addDefaultTwigArgs("soul_future", [
-            'all_tags' => $this->isGranted('ROLE_ADMIN') ? $selected?->getPoll()?->getAllAnswerTags() : [],
+            'all_tags' => $this->isGranted('ROLE_SUB_ADMIN') ? $selected?->getPoll()?->getAllAnswerTags() : [],
             'group' => $group, 'tag' => $tag,
             'polls' => $polls, 'selected' => $selected
         ]) );
@@ -1561,7 +1561,7 @@ class SoulController extends CustomAbstractController
             'is_deleted' => $is_deleted,
             'during_attack' => $timeKeeper->isDuringAttack(),
             'crow'   => $this->user_handler->hasRole($user,'ROLE_CROW'),
-            'admin'  => $this->user_handler->hasRole($user,'ROLE_ADMIN'),
+            'admin'  => $this->user_handler->hasRole($user,'ROLE_SUB_ADMIN'),
             'super'  => $this->user_handler->hasRole($user,'ROLE_SUPER'),
             'oracle' => $this->user_handler->hasRole($user,'ROLE_ORACLE'),
             'anim'   => $this->user_handler->hasRole($user,'ROLE_ANIMAC'),

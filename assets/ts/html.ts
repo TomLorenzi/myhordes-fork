@@ -506,8 +506,8 @@ export default class HTML {
                 }
             }
 
-            document.addEventListener("click", removeTooltip, {once: true});
-            window.addEventListener('popstate', removeTooltip, {once: true});
+            document.addEventListener("click", removeTooltip);
+            window.addEventListener('popstate', removeTooltip);
             window.addEventListener("scroll", scrollHandler, {capture: true});
             reposition();
 

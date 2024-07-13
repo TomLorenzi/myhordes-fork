@@ -17,20 +17,20 @@
                         <div class="row">
                             <div class="cell rw-4 rw-md-9 padded">
                                 <b>{{ table.principal.name }}</b>
-                                {% if is_granted('ROLE_ADMIN') %}
+                                {% if is_granted('ROLE_SUB_ADMIN') %}
                                     <br /><span>{{ table.principal.email }}</span>
                                 {% endif %}
                             </div>
                             <div class="cell rw-2 rw-md-3 padded">
                                 {{ table.likeliness }}
                             </div>
-                            <div class="cell rw-md-12 {% if is_granted('ROLE_ADMIN') %}rw-4{% else %}rw-6{% endif %}">
+                            <div class="cell rw-md-12 {% if is_granted('ROLE_SUB_ADMIN') %}rw-4{% else %}rw-6{% endif %}">
                                 {% set group = [] %}
                                 {% for multi in table.users %}
                                     {% set group = group|merge([multi.id]) %}
                                     <span class="small pointer" x-whitelist-alt="{{ url('admin_users_account_view', {id: multi.id}) }}" x-whitelist="{{ group|join('|') }}" x-api-endpoint="{{ url('admin_users_account_manage', {action: 'whitelist', id: table.principal.id}) }}" >
                                         <a class="pointer" x-ajax-href="{{ path('admin_users_account_view', {id: multi.id}) }}" {% if multi|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGameplay')) %}style="color:red; font-weight: bold"{% endif%}>{{ multi.name }}</a>
-                                        {% if is_granted('ROLE_ADMIN') %}
+                                        {% if is_granted('ROLE_SUB_ADMIN') %}
                                             <div class="tooltip">
                                                 <i>({{ multi.id }})</i> <b>{{ multi.email }}</b>
                                                 <hr/>
@@ -42,7 +42,7 @@
                                     </span>&nbsp;
                                 {% endfor %}
                             </div>
-                            {% if is_granted('ROLE_ADMIN') %}
+                            {% if is_granted('ROLE_SUB_ADMIN') %}
                                 <div class="cell rw-2 rw-md-12 padded">
                                     <button class="small inline" x-shadow="{{ table.principal.id }}" x-api-endpoint="{{ url('admin_users_account_manage', {action: 'shadow',    id: table.principal.id}) }}"><img alt="x" src="{{ asset('build/images/pictos/r_ban.gif') }}" /> <span class="hide-lg">{{ 'Bann'|trans({},'admin') }}</span></button><br />
                                     <button class="small inline" x-shadow="{{ group|join('|') }}" x-api-endpoint="{{ url('admin_users_account_manage', {action: 'shadow',    id: table.principal.id}) }}"><img alt="x" src="{{ asset('build/images/pictos/r_ban.gif') }}" /> <span class="hide-lg">{{ 'Alle bannen'|trans({},'admin') }}</span></button><br />
@@ -60,7 +60,7 @@
 {% block js %}
     {{ parent() }}
     <script>
-        {% if is_granted("ROLE_ADMIN") %}
+        {% if is_granted("ROLE_SUB_ADMIN") %}
             $.html.addEventListenerAll('[x-shadow][x-api-endpoint]', 'click', function(e,elem) {
                 if (confirm("{{ 'Bestätigen?'|trans({},'global')|e('js') }}\nBAN"))
                     $.ajax.easySend( elem.getAttribute('x-api-endpoint'), {param: {

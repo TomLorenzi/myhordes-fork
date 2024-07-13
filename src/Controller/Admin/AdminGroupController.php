@@ -54,7 +54,7 @@ class AdminGroupController extends AdminActionController
     #[Route(path: 'jx/admin/groups/new', name: 'admin_group_new')]
     public function group_new(): Response
     {
-        if (!$this->isGranted('ROLE_ADMIN')) $this->redirect($this->generateUrl('admin_group_view'));
+        if (!$this->isGranted('ROLE_SUB_ADMIN')) $this->redirect($this->generateUrl('admin_group_view'));
         return $this->render( 'ajax/admin/groups/edit.html.twig', $this->addDefaultTwigArgs(null, [
             'current_group' => null,
             'members' => [],
@@ -64,16 +64,16 @@ class AdminGroupController extends AdminActionController
     }
 
     /**
-     * @param int $id
+     * @param OfficialGroup $group_meta
      * @param PermissionHandler $perm
      * @return Response
+     * @throws Exception
      */
     #[Route(path: 'jx/admin/groups/{id<-?\d+>}', name: 'admin_group_edit')]
-    public function group_edit(int $id, PermissionHandler $perm): Response
+    public function group_edit(OfficialGroup $group_meta, PermissionHandler $perm): Response
     {
-        if (!$this->isGranted('ROLE_ADMIN')) $this->redirect($this->generateUrl('admin_group_view'));
-        $group_meta = $this->entity_manager->getRepository(OfficialGroup::class)->find($id);
-        if (!$group_meta)  $this->redirect($this->generateUrl('admin_group_view'));
+        if (!$this->isGranted('ROLE_SUB_ADMIN')) return $this->redirect($this->generateUrl('admin_group_view'));
+        if (!$this->isGranted('ROLE_ADMIN') && $group_meta->getAnon()) return $this->redirect($this->generateUrl('admin_group_view'));
 
         return $this->render( 'ajax/admin/groups/edit.html.twig', $this->addDefaultTwigArgs(null, [
             'current_group' => $group_meta,
@@ -90,7 +90,7 @@ class AdminGroupController extends AdminActionController
     #[Route(path: 'api/admin/groups/update/{id<-?\d+>}', name: 'admin_group_update')]
     public function update_group(int $id, JSONRequestParser $parser, PermissionHandler $perm): Response
     {
-        if (!$this->isGranted('ROLE_ADMIN')) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+        if (!$this->isGranted('ROLE_SUB_ADMIN')) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if (!$parser->has_all(['name','lang','desc'], true)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 

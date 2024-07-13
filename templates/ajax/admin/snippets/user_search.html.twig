@@ -7,7 +7,7 @@
             <li><b>i:</b><i>number</i> <span class="float-right">User ID</span></li>
             <li><b>u:</b><i>sting</i> <span class="float-right">User Name or Display Name (fuzzy)</span></li>
             <li><b>d:</b><i>sting</i> <span class="float-right">Display Name (fuzzy)</span></li>
-            {% if is_granted('ROLE_ADMIN') %}
+            {% if is_granted('ROLE_SUB_ADMIN') %}
                 <li><b>e:</b><i>sting</i> <span class="float-right">EMail (fuzzy)</span></li>
                 <li><b>eu:</b><i>sting</i> <span class="float-right">User Name/EMail (fuzzy)</span></li>
             {% endif %}

@@ -52,7 +52,7 @@
 				<div class="padded cell rw-8">
 					<select id="administer-town" style="width: 100%;">
 						<option value="">-</option>
-						{% if is_granted("ROLE_ADMIN") %}
+						{% if is_granted("ROLE_SUB_ADMIN") %}
 							<optgroup label="{{ 'Nächtlicher Angriff'|trans({},'admin') }}">
 								{% if town.attackFails >= 3 %}
 									<option value="{{ url('admin_town_manage', {action: 'release', id: town.id}) }}">{{ 'Quarantäne aufheben'|trans({},'admin') }}</option>
@@ -65,7 +65,7 @@
 							</optgroup>
 						{% endif %}
 						<optgroup label="{{ 'Verwaltung'|trans({},'admin') }}">
-							{% if is_granted("ROLE_ADMIN") %}
+							{% if is_granted("ROLE_SUB_ADMIN") %}
 								<option value="{{ url('admin_town_manage', {action: 'set_name', id: town.id}) }}" x-query="{{ 'Neuen Namen eingeben.'|trans({},'admin') }}">{{ 'Stadtnamen ändern'|trans({},'admin') }}</option>
 								<option value="{{ url('admin_town_manage', {action: 'dice_name', id: town.id}) }}">{{ 'Stadtnamen regenerieren'|trans({},'admin') }}</option>
 								<option x-alt-url="{{ path('admin_town_list') }}" value="{{ url('admin_town_manage', {action: 'nullify', id: town.id}) }}">{{ 'Annulieren'|trans({},'admin') }}</option>
@@ -95,7 +95,7 @@
 								{% endif %}
 							{% endif %}
 						</optgroup>
-						{% if is_granted("ROLE_ADMIN") %}
+						{% if is_granted("ROLE_SUB_ADMIN") %}
 							{% if app.environment == 'dev' or app.environment == 'local' %}
 								<optgroup label="Debug">
 									{% set ctz_engaged = 0 %}
@@ -177,7 +177,7 @@
 		</div>
 		<div class="cell padded rw-6 rw-sm-12">
 			<hordes-map id="global-map" data-react-mount="map" data-map="{{ map_public_json }}"></hordes-map>
-			{% if is_granted("ROLE_ADMIN") %}
+			{% if is_granted("ROLE_SUB_ADMIN") %}
 				<div id="zone_floor"></div>
 				<div id="dash_zone_generator" x-target="zone" x-id="">
 					{{ item_creator(itemPrototypes, 'zone') }}
@@ -238,7 +238,7 @@
 {% endblock %}
 {% block js %}
 	{{ parent() }}
-	{% if is_granted("ROLE_ADMIN") %}
+	{% if is_granted("ROLE_SUB_ADMIN") %}
 		{{ item_creator_js('[x-id][x-target="zone"]', path('admin_spawn_item', {id: town.id}), path('admin_town_dashboard', {id: town.id}), 'zone') }}
 	{% endif %}
 	<script>
@@ -270,7 +270,7 @@
             fun_api_call("{{ path('admin_town_set_lang', {id: town.id}) }}", document.querySelector('#switch-language option:checked'));
         });
 
-		{% if is_granted("ROLE_ADMIN") %}
+		{% if is_granted("ROLE_SUB_ADMIN") %}
         document.querySelector('hordes-map')?.addEventListener("zone-clicked", function(ev) {
             ev.preventDefault();
             ev.stopPropagation();

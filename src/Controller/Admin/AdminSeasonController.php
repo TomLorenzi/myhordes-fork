@@ -33,7 +33,7 @@ class AdminSeasonController extends CustomAbstractController
      * @return Response
      */
     #[Route(path: 'api/admin/seasons/toggle_current/{id}', name: 'admin_toggle_current_season')]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_SUB_ADMIN')]
     public function seasons_toggle_current(int $id): Response
     {
         $seasons = $this->entity_manager->getRepository(Season::class)->findAll();
@@ -55,7 +55,7 @@ class AdminSeasonController extends CustomAbstractController
     public function season_edit(int $id): Response
     {
         T::__("Neue Saison", "admin");
-        if (!$this->isGranted('ROLE_ADMIN')) $this->redirect($this->generateUrl('admin_seasons_view'));
+        if (!$this->isGranted('ROLE_SUB_ADMIN')) $this->redirect($this->generateUrl('admin_seasons_view'));
         $season = $this->entity_manager->getRepository(Season::class)->find($id);
         if ($season === null) return $this->redirect($this->generateUrl('admin_seasons_view'));
         return $this->render( 'ajax/admin/seasons/edit.html.twig', $this->addDefaultTwigArgs(null, ['current_season' => $season]));
@@ -67,7 +67,7 @@ class AdminSeasonController extends CustomAbstractController
     #[Route(path: 'jx/admin/seasons/new', name: 'admin_season_new')]
     public function season_new(): Response
     {
-        if (!$this->isGranted('ROLE_ADMIN')) $this->redirect($this->generateUrl('admin_seasons_view'));
+        if (!$this->isGranted('ROLE_SUB_ADMIN')) $this->redirect($this->generateUrl('admin_seasons_view'));
         return $this->render( 'ajax/admin/seasons/edit.html.twig', $this->addDefaultTwigArgs(null, ['current_season' => null]));
     }
 
@@ -80,7 +80,7 @@ class AdminSeasonController extends CustomAbstractController
     #[Route(path: 'api/admin/seasons/register/{id<-?\d+>}', name: 'admin_update_season')]
     public function season_update(int $id, JSONRequestParser $parser, RandomGenerator $rand): Response
     {
-        if (!$this->isGranted('ROLE_ADMIN')) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+        if (!$this->isGranted('ROLE_SUB_ADMIN')) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if (!$parser->has_all(['number','subnumber','current'])) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 

@@ -3,7 +3,7 @@
 {% block explorer_content %}
 	<div class="row">
 		<div x-target="bank" x-id="{{ town.id }}" class="padded cell rw-6 rw-md-12">
-			{% if is_granted("ROLE_ADMIN") %}
+			{% if is_granted("ROLE_SUB_ADMIN") %}
 				<div class="lightbox">
 					{{ 'Aktion bei Klick:'|trans({}, 'admin') }}
 					<div class="note note-lightest">
@@ -13,13 +13,13 @@
 					</div>
 				</div>
 			{% endif %}
-			{% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': bank, 'bankmode': true, 'debug': is_granted("ROLE_ADMIN")} %}
+			{% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': bank, 'bankmode': true, 'debug': is_granted("ROLE_SUB_ADMIN")} %}
 				{% block class %}bank{% endblock %}
 				{% block title %}{% endblock %}
 			{% endembed %}
 		</div>
 		<div class="padded cell rw-6 rw-md-12">
-			{% if is_granted("ROLE_ADMIN") %}
+			{% if is_granted("ROLE_SUB_ADMIN") %}
 				{{ item_creator(itemPrototypes, 'bnk', true) }}
 			{% endif %}
 		</div>
@@ -27,7 +27,7 @@
 {% endblock %}
 {% block js %}
 	{{ parent() }}
-	{% if is_granted("ROLE_ADMIN") %}
+	{% if is_granted("ROLE_SUB_ADMIN") %}
         {{ item_creator_js('[x-id][x-target="bank"]', path('admin_spawn_item', {id: town.id}), path('admin_town_bank', {id: town.id}), 'bnk') }}
 	{% endif %}
 	<script>

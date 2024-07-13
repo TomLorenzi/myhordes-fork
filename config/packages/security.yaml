@@ -38,7 +38,8 @@ security:
         ROLE_ANIMAC:    ROLE_ELEVATED
         ROLE_ORACLE:    ROLE_ELEVATED
         ROLE_CROW:      ROLE_ELEVATED
-        ROLE_ADMIN:     [ROLE_CROW, ROLE_ORACLE, ROLE_ANIMAC, ROLE_TEAM]
+        ROLE_SUB_ADMIN: [ROLE_CROW, ROLE_ORACLE, ROLE_ANIMAC, ROLE_TEAM]
+        ROLE_ADMIN:     ROLE_SUB_ADMIN
         ROLE_SUPER:     ROLE_ADMIN
 
     # Easy way to control access for large sections of your site

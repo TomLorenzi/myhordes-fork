@@ -112,7 +112,10 @@ class ItemDataService implements FixtureProcessorInterface {
 		    ->modify('rlaunc_#00')->watchpoint(30)->commit()
 		    ->modify('hurling_stick_#00')->watchpoint(15)->commit()
 		    ->modify('badge_#00')->watchpoint(14)->commit()
-		    ->modify('distri_#00')->watchpoint(20)->commit();
+		    ->modify('distri_#00')->watchpoint(25)->commit()
+		    ->modify('bed_#00')->watchpoint(20)->commit()
+		    ->modify('deco_box_#00')->watchpoint(15)->commit()
+		    ->modify('pilegun_#00')->watchpoint(8)->commit();
 
         $data = $container->toArray();
     }
