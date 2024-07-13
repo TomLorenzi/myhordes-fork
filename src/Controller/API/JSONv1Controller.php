@@ -1259,7 +1259,7 @@ class JSONv1Controller extends CoreController {
                             };
                         else $data[$field] = 'www.myhordes.eu'; break;
                     case "bonusPts":
-                        $data[$field] = 0;
+                        $data[$field] = $this->town->getBonusScore();
                         break;
                     case "guide":
                         $latest_guide = $this->entity_manager->getRepository(Citizen::class)
