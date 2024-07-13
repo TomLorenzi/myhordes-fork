@@ -47,7 +47,7 @@
             {% endif %}
 
             {% if (key is not empty) or ex.linkOnly %}
-                <form action="{{ url }}" method="post" target="_self">
+                <form action="{{ url }}" method="{{ ex.linkOnly ? 'get' : 'post' }}" target="_self">
                     {% if not ex.linkOnly %}
                         <input type="hidden" name="key" value="{{ key }}">
                     {% endif %}
