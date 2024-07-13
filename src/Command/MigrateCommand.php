@@ -1009,7 +1009,7 @@ class MigrateCommand extends Command
                 ) $fun_assoc($current_user, $g_elev); else $fun_dis_assoc($current_user, $g_elev);
                 if ($this->user_handler->hasRole($current_user, "ROLE_ORACLE")) $fun_assoc($current_user, $g_oracle); else $fun_dis_assoc($current_user, $g_oracle);
                 if ($this->user_handler->hasRole($current_user, "ROLE_CROW"))   $fun_assoc($current_user, $g_mods); else $fun_dis_assoc($current_user, $g_mods);
-                if ($this->user_handler->hasRole($current_user, "ROLE_ADMIN"))  $fun_assoc($current_user, $g_admin); else $fun_dis_assoc($current_user, $g_admin);
+                if ($this->user_handler->hasRole($current_user, "ROLE_SUB_ADMIN"))  $fun_assoc($current_user, $g_admin); else $fun_dis_assoc($current_user, $g_admin);
                 if ($this->user_handler->hasRole($current_user, "ROLE_ANIMAC")) $fun_assoc($current_user, $g_anim); else $fun_dis_assoc($current_user, $g_anim);
                 if ($this->user_handler->hasRole($current_user, "ROLE_DEV"))    $fun_assoc($current_user, $g_dev); else $fun_dis_assoc($current_user, $g_dev);
 

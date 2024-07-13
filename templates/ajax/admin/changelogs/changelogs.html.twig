@@ -48,7 +48,7 @@
                                 <span>{{ new.version }}</span>
                             </div>
                             <div class="cell padded rw-2 rw-lg-3 rw-sm-4 right">
-                                {% if is_granted('ROLE_ADMIN') or new.author == app.user %}
+                                {% if is_granted('ROLE_SUB_ADMIN') or new.author == app.user %}
                                     <span data-return="{{ path('admin_changelogs', {tab: 'changelog'}) }}" data-url="{{ path('admin_changelog_del_changelog', {id: new.id}) }}" class="pointer"><img alt="" src="{{ asset('build/images/icons/small_remove.gif') }}"></span>
                                 {% endif %}
                             </div>
@@ -82,10 +82,10 @@
                                 <span {{ {'style': new.validated ? '' : 'opacity: 0.5'}|attributes }}>{{ new.title }}</span>
                             </div>
                             <div class="cell padded rw-2 right">
-                                {% if is_granted('ROLE_ADMIN') and not new.validated %}
+                                {% if is_granted('ROLE_SUB_ADMIN') and not new.validated %}
                                     <span data-return="{{ path('admin_changelogs', {tab: 'announcement'}) }}" data-url="{{ path('admin_changelog_val_announcement', {id: new.id}) }}" class="pointer"><img alt="" src="{{ asset('build/images/icons/done.png') }}"></span>
                                 {% endif %}
-                                {% if is_granted('ROLE_ADMIN') or new.sender == app.user %}
+                                {% if is_granted('ROLE_SUB_ADMIN') or new.sender == app.user %}
                                     <span data-return="{{ path('admin_changelogs', {tab: 'announcement'}) }}" data-url="{{ path('admin_changelog_del_announcement', {id: new.id}) }}" class="pointer"><img alt="" src="{{ asset('build/images/icons/small_remove.gif') }}"></span>
                                 {% endif %}
                                 <span data-load="{{ path('admin_changelog_render_announcement', {id: new.id}) }}" data-load-into-all="[id^='pm-loader-target-']" data-load-into="#pm-loader-target-{{ new.id }}" class="pointer"><img alt="" src="{{ asset('build/images/icons/small_more.gif') }}"></span>

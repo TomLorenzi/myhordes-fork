@@ -39,6 +39,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     const USER_ROLE_ANIMAC = 1 << 1;
     const USER_ROLE_TEAM   = 1 << 2;
     const USER_ROLE_DEV    = 1 << 3;
+    const USER_ROLE_ADMIN_SUB = 1 << 4;
 
     const USER_ROLE_LIMIT_MODERATION = 1 << 10;
 
@@ -284,8 +285,9 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         if ($this->isDisabled()) return $roles;
 
         if     ($this->rightsElevation >= self::USER_LEVEL_SUPER)  $roles[] = 'ROLE_SUPER';
-        elseif ($this->rightsElevation >= self::USER_LEVEL_ADMIN)  $roles[] = 'ROLE_ADMIN';
-        elseif ($this->rightsElevation >= self::USER_LEVEL_CROW)   $roles[] = 'ROLE_CROW';
+        elseif ($this->rightsElevation === self::USER_LEVEL_ADMIN && !$this->hasRoleFlag(self::USER_ROLE_ADMIN_SUB))  $roles[] = 'ROLE_ADMIN';
+        elseif ($this->rightsElevation === self::USER_LEVEL_ADMIN && $this->hasRoleFlag(self::USER_ROLE_ADMIN_SUB))  $roles[] = 'ROLE_SUB_ADMIN';
+        elseif ($this->rightsElevation === self::USER_LEVEL_CROW)   $roles[] = 'ROLE_CROW';
 
         if ($this->hasRoleFlag( self::USER_ROLE_ORACLE )) $roles[] = 'ROLE_ORACLE';
         if ($this->hasRoleFlag( self::USER_ROLE_ANIMAC )) $roles[] = 'ROLE_ANIMAC';

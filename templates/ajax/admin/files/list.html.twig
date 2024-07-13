@@ -43,6 +43,8 @@
                                 <div class="padded cell rw-2 right">
                                     {% if is_granted("ROLE_ADMIN") %}
                                         <button class="small inline icon-only" x-file-log x-clear="{{ path('api_admin_clear_log', {'f': log.access}) }}"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></button>
+                                    {% endif %}
+                                    {% if is_granted("ROLE_SUB_ADMIN") %}
                                         <button class="small inline icon-only" x-file-log x-view="{{ path('admin_log', {'a': 'view', 'f': log.access}) }}"><img src="{{ asset("build/images/heroskill/small_view.gif") }}" alt="" /></button>
                                         <button class="small inline icon-only" x-file-log x-download="{{ path('admin_log', {'a': 'download', 'f': log.access}) }}"><img alt="" src="{{ asset('build/images/icons/download.gif') }}" /></button>
                                     {% endif %}
@@ -92,7 +94,7 @@
 {% block js %}
     {{ parent() }}
     <script>
-        {% if is_granted("ROLE_ADMIN") %}
+        {% if is_granted("ROLE_SUB_ADMIN") %}
             $.html.addEventListenerAll('[x-file-log][x-download]', 'click', (e,elem) => {
                 window.open( elem.getAttribute('x-download') );
             });

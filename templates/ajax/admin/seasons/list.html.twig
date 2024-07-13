@@ -19,14 +19,14 @@
                         <div class="padded cell rw-2 rw-sm-3">{{ season.subNumber }}</div>
                         <div class="padded cell rw-6 rw-sm-10">{{ ('Saison ' ~ season.number ~ '.' ~ season.subNumber)|trans({}, "season")}}</div>
                         <div class="padded cell rw-1 rw-sm-2 right">
-                            {% if is_granted("ROLE_ADMIN") %}
+                            {% if is_granted("ROLE_SUB_ADMIN") %}
                                 <button x-ajax-href="{{ path('admin_season_edit', {id: season.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/forum/edit.png') }}" /></button>
                             {% endif %}
                         </div>
                     </div>
                 {% endfor %}
 
-                {% if is_granted("ROLE_ADMIN") %}
+                {% if is_granted("ROLE_SUB_ADMIN") %}
                     <div class="row">
                         <div class="padded cell ro-11 rw-1 right">
                             <button x-ajax-href="{{ path('admin_season_new') }}" class="small inline"><img alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}" /></button>

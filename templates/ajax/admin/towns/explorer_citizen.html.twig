@@ -184,7 +184,7 @@
 			</div>
 		</div>
 		<div class="cell rw-6 rw-md-12 padded">
-			{% if is_granted("ROLE_ADMIN") %}
+			{% if is_granted("ROLE_SUB_ADMIN") %}
 				<div class="padded cell">
 					{{ item_creator(itemPrototypes, 'ctz') }}
 					<hr />
@@ -252,7 +252,7 @@
 				</div>
 				<br />
 			{% endif %}
-			{% if is_granted("ROLE_ADMIN") %}
+			{% if is_granted("ROLE_SUB_ADMIN") %}
 				<button id="dropall">{{ 'Alle Gegenstände aller Bürger ablegen'|trans({},'admin') }}</button>
 			{% endif %}
 			<button id="townpm">{{ 'Rundmail als Rabe'|trans({},'admin') }}</button>
@@ -264,7 +264,7 @@
 {% endblock %}
 {% block js %}
 	{{ parent() }}
-	{% if is_granted("ROLE_ADMIN") %}
+	{% if is_granted("ROLE_SUB_ADMIN") %}
 		{{ item_creator_js('input[x-id][x-target="rucksack"]:checked,input[x-id][x-target="chest"]:checked,input[x-id][x-target="zone"]:checked', path('admin_spawn_item', {id: town.id}), path('admin_town_citizens', {id: town.id}), 'ctz') }}
 		{{ teleport_control_js('input[x-id][x-target="status"]:checked', path('admin_teleport_citizen', {id: town.id}), path('admin_town_citizens', {id: town.id})) }}
 		{{ picto_creator_js('input[x-id][x-target="status"]:checked', path('admin_town_give_picto', {id: town.id}), path('admin_town_citizens', {id: town.id})) }}
@@ -288,7 +288,7 @@
             );
         } );
 
-        {% if is_granted("ROLE_ADMIN") %}
+        {% if is_granted("ROLE_SUB_ADMIN") %}
         $.html.addEventListenerAll('.citizen-main[x-citizen-id]', 'click',  (e,elem) => {
             if (e.target.tagName === 'INPUT') return;
             const details = document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"]');

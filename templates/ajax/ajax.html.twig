@@ -2,7 +2,7 @@
 
 {% macro external_app(ex) %}
     {# @var ex \App\Entity\ExternalApp #}
-    {% if not ex.testing or ex.owner == app.user or is_granted('ROLE_ADMIN') %}
+    {% if not ex.testing or ex.owner == app.user or is_granted('ROLE_SUB_ADMIN') %}
         <li class="app-external" data-id="{{ ex.id }}">
             <a target="_blank" href="{{ path('disclaimer', { 'id': ex.id }) }}">
                 {% if ex.imageName is not null %}

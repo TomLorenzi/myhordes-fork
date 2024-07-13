@@ -47,7 +47,7 @@
                     {% if is_granted("ROLE_CROW") %}
                         {{ picto_creator(pictoPrototypes) }}
                     {% endif %}
-                    {% if is_granted("ROLE_ADMIN") %}
+                    {% if is_granted("ROLE_SUB_ADMIN") %}
                         {{ title_creator(user.awards) }}
                     {% endif %}
                     <ul class="inventory soul">
@@ -76,7 +76,7 @@
                             </li>
                         {% endfor %}
                     </ul>
-                    {% if is_granted("ROLE_ADMIN") %}
+                    {% if is_granted("ROLE_SUB_ADMIN") %}
                         {{ feature_creator(featurePrototypes) }}
                     {% endif %}
                 </div>
@@ -90,7 +90,7 @@
     {% if is_granted("ROLE_CROW") %}
         {{ picto_creator_js(null, path('admin_user_give_picto', {id: user.id}), path('admin_users_pictos_view', {id: user.id})) }}
     {% endif %}
-    {% if is_granted("ROLE_ADMIN") %}
+    {% if is_granted("ROLE_SUB_ADMIN") %}
         {{ title_creator_js(icon_max_size, path('admin_user_manage_unique_award', {id: user.id}), path('admin_users_pictos_view', {id: user.id})) }}
         {{ feature_creator_js(path('admin_user_give_feature', {id: user.id}), path('admin_users_pictos_view', {id: user.id})) }}
     {% endif %}

@@ -130,6 +130,8 @@ test:
   dependencies:
     - build
   script:
+    # build cache
+    - php bin/console cache:warmup --env=dev
     # run phpstan
     - vendor/bin/phpstan analyse --no-progress --error-format=gitlab > phpstan.json
     - export APP_ENV=test

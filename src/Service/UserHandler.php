@@ -207,7 +207,7 @@ class UserHandler
      * @return string[]
      */
     public function admin_validRoles(): array {
-        return ['ROLE_CROW', 'ROLE_ADMIN', 'ROLE_SUPER'];
+        return ['ROLE_CROW', 'ROLE_SUB_ADMIN', 'ROLE_ADMIN', 'ROLE_SUPER'];
     }
 
     /**
@@ -226,7 +226,7 @@ class UserHandler
      */
     public function admin_canAdminister( User $principal, User $target ): bool {
         // Only crows and admins can administer
-        if (!$this->capability->hasAnyRole( $principal, ['ROLE_CROW','ROLE_ADMIN'] )) return false;
+        if (!$this->capability->hasAnyRole( $principal, ['ROLE_CROW','ROLE_SUB_ADMIN','ROLE_ADMIN'] )) return false;
 
         // Crows / Admins can administer themselves
         if ($principal === $target) return true;
@@ -237,8 +237,11 @@ class UserHandler
         // Only super admins can administer admins
         if ($this->capability->hasRole( $target, 'ROLE_ADMIN' ) && !$this->capability->hasRole( $principal, 'ROLE_SUPER')) return false;
 
-        // Only admins can administer crows
-        if ($this->capability->hasRole( $target, 'ROLE_CROW' ) && !$this->capability->hasRole( $principal, 'ROLE_ADMIN')) return false;
+        // Only admins can administer sub admins
+        if ($this->capability->hasRole( $target, 'ROLE_SUB_ADMIN' ) && !$this->capability->hasRole( $principal, 'ROLE_ADMIN')) return false;
+
+        // Only sub admins can administer crows
+        if ($this->capability->hasRole( $target, 'ROLE_CROW' ) && !$this->capability->hasRole( $principal, 'ROLE_SUB_ADMIN')) return false;
 
         return true;
     }
@@ -253,7 +256,6 @@ class UserHandler
         // Only admins can grant roles
         if (!$this->capability->hasRole( $principal, 'ROLE_ADMIN' )) return false;
 
-
         // Make sure only valid roles can be granted
         if (str_starts_with($role, 'ROLE_') && !in_array($role, $this->admin_validRoles()))                      return false;
         elseif (str_starts_with($role, 'FLAG_') && !in_array($role, $this->admin_validFlags()))                  return false;
@@ -264,6 +266,9 @@ class UserHandler
 
         // Only super admins can grant admin role
         if ($role === 'ROLE_ADMIN' && !$this->capability->hasRole( $principal, 'ROLE_SUPER' )) return false;
+
+        // Only super admins can grant admin role
+        if ($role === 'ROLE_SUB_ADMIN' && !$this->capability->hasRole( $principal, 'ROLE_ADMIN' )) return false;
 
         // Super admin role can be granted by admins only if no super admin exists yet
         if ($role === 'ROLE_SUPER' &&  !$this->capability->hasRole( $principal, 'ROLE_SUPER' ) &&

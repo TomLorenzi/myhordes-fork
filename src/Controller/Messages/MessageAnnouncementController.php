@@ -68,7 +68,7 @@ class MessageAnnouncementController extends MessageController
      */
     #[Route(path: 'api/admin/com/changelogs/new_poll', name: 'admin_changelog_new_poll')]
     public function create_poll_api(JSONRequestParser $parser, HTMLService $html): Response {
-        if ($this->isGranted('ROLE_ADMIN')) $p = ForumUsagePermissions::PermissionOwn;
+        if ($this->isGranted('ROLE_SUB_ADMIN')) $p = ForumUsagePermissions::PermissionOwn;
         elseif ($this->isGranted('ROLE_CROW')) $p = ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingModerator;
         else $p = ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingOracle;
 
@@ -151,7 +151,7 @@ class MessageAnnouncementController extends MessageController
     #[Route(path: 'api/admin/changelogs/poll/{id}/{action}', name: 'admin_changelog_poll_control')]
     public function modify_poll_api(int $id, string $action): Response {
 
-        if (!$this->isGranted('ROLE_ADMIN'))
+        if (!$this->isGranted('ROLE_SUB_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         $poll = $this->entity_manager->getRepository(GlobalPoll::class)->find($id);
@@ -180,7 +180,7 @@ class MessageAnnouncementController extends MessageController
     public function admin_new_changelog_editor_controller(): Response {
         return $this->render( 'ajax/editor/changelog.html.twig', [
             'permission' => $this->getPermissionObject( match(true) {
-                $this->isGranted('ROLE_ADMIN') => ForumUsagePermissions::PermissionOwn,
+                $this->isGranted('ROLE_SUB_ADMIN') => ForumUsagePermissions::PermissionOwn,
                 $this->isGranted('ROLE_CROW') => ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingModerator,
                 default => ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingOracle,
             } ),
@@ -195,7 +195,7 @@ class MessageAnnouncementController extends MessageController
         return $this->render( 'ajax/editor/announcement.html.twig', [
             'uuid' => Uuid::v4(),
             'permission' => $this->getPermissionObject( match(true) {
-                $this->isGranted('ROLE_ADMIN') => ForumUsagePermissions::PermissionOwn,
+                $this->isGranted('ROLE_SUB_ADMIN') => ForumUsagePermissions::PermissionOwn,
                 $this->isGranted('ROLE_CROW') => ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingModerator,
                 default => ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingOracle,
             } ),
@@ -251,7 +251,7 @@ class MessageAnnouncementController extends MessageController
 
         $announcement = (new Announcement())
             ->setTitle($title)->setText($content)->setLang($lang)->setSender($author)->setTimestamp(new DateTime())
-            ->setValidated( $this->isGranted( 'ROLE_CROW' ) || $this->isGranted( 'ROLE_ADMIN' ) );
+            ->setValidated( $this->isGranted( 'ROLE_CROW' ) || $this->isGranted( 'ROLE_SUB_ADMIN' ) );
 
         if (!$this->preparePost($author,null,$announcement))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
@@ -299,7 +299,7 @@ class MessageAnnouncementController extends MessageController
      */
     #[Route(path: 'api/admin/com/changelogs/del_c/{id<\d+>}', name: 'admin_changelog_del_changelog')]
     public function delete_changelog_api(Changelog $changelog, EntityManagerInterface $em): Response {
-        if (!$this->isGranted('ROLE_ADMIN') && $this->getUser() !== $changelog->getAuthor())
+        if (!$this->isGranted('ROLE_SUB_ADMIN') && $this->getUser() !== $changelog->getAuthor())
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $em->remove($changelog);
@@ -315,7 +315,7 @@ class MessageAnnouncementController extends MessageController
      */
     #[Route(path: 'api/admin/com/changelogs/del_a/{id<\d+>}', name: 'admin_changelog_del_announcement')]
     public function delete_announcement_api(Announcement $announcement, EntityManagerInterface $em): Response {
-        if (!$this->isGranted('ROLE_ADMIN') && $this->getUser() !== $announcement->getSender())
+        if (!$this->isGranted('ROLE_SUB_ADMIN') && $this->getUser() !== $announcement->getSender())
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $em->remove($announcement);
@@ -331,7 +331,7 @@ class MessageAnnouncementController extends MessageController
      */
     #[Route(path: 'api/admin/com/changelogs/validate/{id<\d+>}', name: 'admin_changelog_val_announcement')]
     public function validate_announcement_api(Announcement $announcement, EntityManagerInterface $em, EventProxyService $proxy): Response {
-        if (!$this->isGranted('ROLE_ADMIN'))
+        if (!$this->isGranted('ROLE_SUB_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         if (!$announcement->isValidated()) {

@@ -9,7 +9,7 @@
         <li class="tab{% if admin_tab == "multi_list_ac" %} selected{% endif %}">
             <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('admin_users_multi_ac') }}">{% trans from 'admin' %}Multi-Account Report V2{% endtrans %}</div>
         </li>
-        {% if is_granted('ROLE_ADMIN') %}
+        {% if is_granted('ROLE_SUB_ADMIN') %}
             <li class="tab{% if admin_tab == "settings" %} selected{% endif %}">
                 <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('admin_users_settings') }}">{% trans from 'admin' %}Konfiguration{% endtrans %}</div>
             </li>

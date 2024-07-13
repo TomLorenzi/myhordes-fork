@@ -581,7 +581,7 @@ class AdminTownController extends AdminActionController
 	 * @return Response
 	 */
 	#[Route(path: 'api/admin/town/old/{id}/get_citizen_infos', name: 'get_old_citizen_infos', requirements: ['id' => '\d+'])]
-	#[IsGranted('ROLE_ADMIN')]
+	#[IsGranted('ROLE_SUB_ADMIN')]
 	#[AdminLogProfile(enabled: true)]
 	public function get_old_citizen_infos(int $id, JSONRequestParser  $parser): Response{
 		$town = $this->entity_manager->getRepository(TownRankingProxy::class)->find($id);
@@ -627,12 +627,12 @@ class AdminTownController extends AdminActionController
                 'dbg_fill_town', 'dbg_fill_bank', 'dgb_empty_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage',
                 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set', 'dbg_adv_days',
                 'dbg_set_attack', 'dbg_toggle_chaos', 'dbg_toggle_devas', 'dbg_enable_stranger', 'dropall',
-            ]) && !$this->isGranted('ROLE_ADMIN'))
+            ]) && !$this->isGranted('ROLE_SUB_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         if (in_array($action, [
                 'set_name',
-            ]) && !($this->isGranted('ROLE_ADMIN') || $town->getType()->getName() === 'custom'))
+            ]) && !($this->isGranted('ROLE_SUB_ADMIN') || $town->getType()->getName() === 'custom'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $this->logger->invoke("[town_manager] Admin <info>{$this->getUser()->getName()}</info> did the action <info>$action</info> in the town <info>{$town->getName()}</info> (id: {$town->getId()})");
@@ -1144,7 +1144,7 @@ class AdminTownController extends AdminActionController
      * @return Response
      */
     #[Route(path: 'api/admin/town/{id}/item', name: 'admin_town_item', requirements: ['id' => '\d+'])]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_SUB_ADMIN')]
     #[AdminLogProfile(enabled: true)]
     public function town_item_action(int $id, JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $itemFactory): Response
     {
@@ -1183,7 +1183,7 @@ class AdminTownController extends AdminActionController
      * @return Response
      */
     #[Route(path: 'api/admin/town/{id}/teleport', name: 'admin_teleport_citizen', requirements: ['id' => '\d+'])]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_SUB_ADMIN')]
     #[AdminLogProfile(enabled: true)]
     public function teleport_citizen(int $id, JSONRequestParser $parser, ZoneHandler $handler, TownHandler $townHandler): Response
     {
@@ -1274,7 +1274,7 @@ class AdminTownController extends AdminActionController
      * @return Response
      */
     #[Route(path: 'api/admin/town/{id}/alias', name: 'admin_alias_citizen', requirements: ['id' => '\d+'])]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_SUB_ADMIN')]
     #[AdminLogProfile(enabled: true)]
     public function alias_citizen(int $id, JSONRequestParser $parser, ConfMaster $cf, TownHandler $townHandler): Response
     {
@@ -1321,7 +1321,7 @@ class AdminTownController extends AdminActionController
      * @return Response
      */
     #[Route(path: 'api/admin/town/{id}/spawn_item', name: 'admin_spawn_item', requirements: ['id' => '\d+'])]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_SUB_ADMIN')]
     #[AdminLogProfile(enabled: true)]
     public function spawn_item(int $id, JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $itemFactory): Response
     {
@@ -1413,7 +1413,7 @@ class AdminTownController extends AdminActionController
      * @return Response
      */
     #[Route(path: 'api/admin/town/{id}/get_zone_infos', name: 'get_zone_infos', requirements: ['id' => '\d+'])]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_SUB_ADMIN')]
     #[AdminLogProfile(enabled: true)]
     public function get_zone_infos(int $id, JSONRequestParser  $parser): Response{
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
@@ -1448,7 +1448,7 @@ class AdminTownController extends AdminActionController
      * @return Response
      */
     #[Route(path: 'api/admin/town/{id}/get_citizen_infos', name: 'get_citizen_infos', requirements: ['id' => '\d+'])]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_SUB_ADMIN')]
     #[AdminLogProfile(enabled: true)]
     public function get_citizen_infos(int $id, JSONRequestParser  $parser): Response{
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
@@ -1521,7 +1521,7 @@ class AdminTownController extends AdminActionController
      * @return Response
      */
     #[Route(path: 'api/admin/town/{id}/set_zone_attribs', name: 'set_zone_attribs', requirements: ['id' => '\d+'])]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_SUB_ADMIN')]
     #[AdminLogProfile(enabled: true)]
     public function set_zone_attribs(int $id, JSONRequestParser  $parser): Response{
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
@@ -1570,7 +1570,7 @@ class AdminTownController extends AdminActionController
      * @return Response
      */
     #[Route(path: 'api/admin/town/{id}/modify_prof', name: 'admin_modify_profession', requirements: ['id' => '\d+'])]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_SUB_ADMIN')]
     #[AdminLogProfile(enabled: true)]
     public function modify_profession(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
     {
@@ -1779,7 +1779,7 @@ class AdminTownController extends AdminActionController
      * @return Response
      */
     #[Route(path: 'api/admin/town/{id}/picto/give', name: 'admin_town_give_picto', requirements: ['id' => '\d+'])]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_SUB_ADMIN')]
     #[AdminLogProfile(enabled: true)]
     public function town_give_picto(int $id, JSONRequestParser $parser, EventProxyService $proxy): Response
     {
@@ -1852,7 +1852,7 @@ class AdminTownController extends AdminActionController
      * @return Response
      */
     #[Route(path: 'api/admin/town/{id}/home/manage', name: 'admin_town_manage_home', requirements: ['id' => '\d+'])]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_SUB_ADMIN')]
     #[AdminLogProfile(enabled: true)]
     public function town_manage_home(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
     {
@@ -1939,7 +1939,7 @@ class AdminTownController extends AdminActionController
      * @return Response
      */
     #[Route(path: 'api/admin/town/{id}/status/manage', name: 'admin_town_manage_status', requirements: ['id' => '\d+'])]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_SUB_ADMIN')]
     #[AdminLogProfile(enabled: true)]
     public function town_manage_status(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
     {
@@ -2116,7 +2116,7 @@ class AdminTownController extends AdminActionController
      * @return Response
      */
     #[Route(path: 'api/admin/town/{id}/role/manage', name: 'admin_town_manage_role', requirements: ['id' => '\d+'])]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_SUB_ADMIN')]
     #[AdminLogProfile(enabled: true)]
     public function town_manage_role(int $id, JSONRequestParser $parser, TownHandler $handler): Response
     {
@@ -2157,7 +2157,7 @@ class AdminTownController extends AdminActionController
      * @return Response
      */
     #[Route(path: 'api/admin/town/{id}/pp/alter', name: 'admin_town_alter_pp', requirements: ['id' => '\d+'])]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_SUB_ADMIN')]
     #[AdminLogProfile(enabled: true)]
     public function town_alter_points(int $id, JSONRequestParser $parser): Response
     {
@@ -2206,7 +2206,7 @@ class AdminTownController extends AdminActionController
      * @return Response
      */
     #[Route(path: 'api/admin/town/{id}/buildings/add', name: 'admin_town_add_building', requirements: ['id' => '\d+'])]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_SUB_ADMIN')]
     #[AdminLogProfile(enabled: true)]
     public function town_add_building(Town $town, JSONRequestParser $parser, TownHandler $th, GameProfilerService $gps)
     {
@@ -2249,7 +2249,7 @@ class AdminTownController extends AdminActionController
      * @throws NotFoundExceptionInterface
      */
     #[Route(path: 'api/admin/town/{id}/buildings/set-ap', name: 'admin_town_set_building_ap', requirements: ['id' => '\d+'])]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_SUB_ADMIN')]
     #[AdminLogProfile(enabled: true)]
     public function town_set_building_ap(int $id, JSONRequestParser $parser, EventProxyService $events)
     {
@@ -2298,7 +2298,7 @@ class AdminTownController extends AdminActionController
      * @return Response
      */
     #[Route(path: 'api/admin/town/{id}/buildings/set-hp', name: 'admin_town_set_building_hp', requirements: ['id' => '\d+'])]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_SUB_ADMIN')]
     #[AdminLogProfile(enabled: true)]
     public function town_set_building_hp(int $id, JSONRequestParser $parser, EventProxyService $events)
     {
@@ -2362,7 +2362,7 @@ class AdminTownController extends AdminActionController
      * @throws NotFoundExceptionInterface
      */
     #[Route(path: 'api/admin/town/{id}/buildings/set-level', name: 'admin_town_set_building_level', requirements: ['id' => '\d+'])]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_SUB_ADMIN')]
     #[AdminLogProfile(enabled: true)]
     public function town_set_building_level(Town $town, JSONRequestParser $parser, EventProxyService $events): Response
     {
@@ -2407,7 +2407,7 @@ class AdminTownController extends AdminActionController
      * @throws NotFoundExceptionInterface
      */
     #[Route(path: 'api/admin/town/{id}/buildings/exec-nightly', name: 'admin_town_trigger_building_nightly_effect', requirements: ['id' => '\d+'])]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_SUB_ADMIN')]
     #[AdminLogProfile(enabled: true)]
     public function town_trigger_building_nightly_effect(Town $town, JSONRequestParser $parser, EventProxyService $events): Response
     {

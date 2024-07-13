@@ -170,7 +170,7 @@ class EventController extends CustomAbstractCoreController
         UserCapabilityService $capability
     ): JsonResponse {
 
-        $can_view_proposals = $capability->hasAnyRole( $this->getUser(), ['ROLE_ADMIN','ROLE_CROW'] );
+        $can_view_proposals = $capability->hasAnyRole( $this->getUser(), ['ROLE_SUB_ADMIN','ROLE_CROW'] );
 
         $is_owner = Criteria::expr()->eq('owner', $this->getUser() );
         $is_proposed = Criteria::expr()->eq('proposed', true );
@@ -250,7 +250,7 @@ class EventController extends CustomAbstractCoreController
         UserCapabilityService $capability,
         EntityManagerInterface $em
     ): JsonResponse {
-        if (!$capability->hasAnyRole( $this->getUser(), ['ROLE_ADMIN','ROLE_CROW','ROLE_ANIMAC','ROLE_ORACLE'] ))
+        if (!$capability->hasAnyRole( $this->getUser(), ['ROLE_SUB_ADMIN','ROLE_ADMIN','ROLE_CROW','ROLE_ANIMAC','ROLE_ORACLE'] ))
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
         $em->persist( $event = (new CommunityEvent())

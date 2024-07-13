@@ -17,13 +17,13 @@
                 <div class="padded cell grow-1">
                     <label><input type="text" id="domain_search" placeholder="{{ 'Domain-Suche'|trans({},'admin') }}" /></label>
                 </div>
-                {% if is_granted("ROLE_ADMIN") %}
+                {% if is_granted("ROLE_SUB_ADMIN") %}
                     <div class="padded cell">
                         <button id="domain_delete">{{ 'Gewählte entfernen'|trans({},'admin') }}</button>
                     </div>
                 {% endif %}
             </div>
-            {% if is_granted("ROLE_ADMIN") %}
+            {% if is_granted("ROLE_SUB_ADMIN") %}
                 <hr />
                 <label for="domain_new">{{ 'Domains hinzufügen'|trans({},'admin') }}</label>
                 <textarea id="domain_new" style="height: 250px;"></textarea>
@@ -38,7 +38,7 @@
 {% block js %}
     {{ parent() }}
     <script>
-        {% if is_granted("ROLE_ADMIN") %}
+        {% if is_granted("ROLE_SUB_ADMIN") %}
             $.html.addEventListenerAll('#domain_add', 'click', function() {
                 $.ajax.easySend( '{{ path('admin_add_spam_domain') }}', {'list': document.getElementById("domain_new").value},
                     function () {

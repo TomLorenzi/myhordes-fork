@@ -27,7 +27,7 @@ class AdminCampaignController extends CustomAbstractController
     {
         $campaigns = $this->entity_manager->getRepository(MarketingCampaign::class)->findAll();
 
-        if (!$this->isGranted('ROLE_ADMIN')) {
+        if (!$this->isGranted('ROLE_SUB_ADMIN')) {
             $campaigns = array_filter($campaigns, fn(MarketingCampaign $c) => $c->getManagers()->contains($this->getUser()));
             if (empty($campaigns)) return new Response('', 403);
         }

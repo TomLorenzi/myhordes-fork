@@ -74,10 +74,12 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="cell padded rw-4 note note-lightest"><label for="group-anon">{{ 'Anonyme Gruppe'|trans({},'admin') }}</label></div>
-                    <div class="cell padded rw-4"><input id="group-anon" type="checkbox" {% if current_group is null or current_group.anon %}checked{% endif %} /></div>
-                </div>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <div class="row">
+                        <div class="cell padded rw-4 note note-lightest"><label for="group-anon">{{ 'Anonyme Gruppe'|trans({},'admin') }}</label></div>
+                        <div class="cell padded rw-4"><input id="group-anon" type="checkbox" {% if current_group is null or current_group.anon %}checked{% endif %} /></div>
+                    </div>
+                {% endif %}
 
                 <div class="row">
                     <div class="cell padded rw-4 note note-lightest"><label for="group-ticket">{{ 'Eingehende Nachrichten als Tickets behandeln'|trans({},'admin') }} {{ help_btn('Ist diese Option aktiviert, so wird eine eingehende Konversation für alle Gruppenmitglieder als "Gelesen" markiert, sobald ein Gruppenmitglied antwortet.'|trans({},'admin'))}}</label></div>
@@ -215,7 +217,7 @@
                 type: document.getElementById('group-semantic').value,
                 desc: document.getElementById('group-desc').value,
                 lang: document.getElementById('group-lang').value,
-                anon: document.getElementById('group-anon').checked,
+                anon: document.getElementById('group-anon')?.checked ?? false,
                 ticket: document.getElementById('group-ticket').checked,
                 icon: image_upload ? image_upload : false,
                 mime: image_upload ? image_mime : null,

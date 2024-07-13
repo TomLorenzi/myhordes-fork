@@ -37,20 +37,20 @@
                                 <select id="administer-user" style="width: 30rem;">
                                     <option value="">-</option>
                                     <optgroup label="{{ 'Validierung'|trans({},'admin') }}">
-                                        {% if is_granted("ROLE_ADMIN") %}
+                                        {% if is_granted("ROLE_SUB_ADMIN") %}
                                             {% if user.validated %}
                                                 <option value="{{ url('admin_users_account_manage', {action: 'invalidate', id: user.id}) }}">{{ 'Erneute Validierung erzwingen'|trans({},'admin') }}</option>
                                             {% else %}
                                                 <option value="{{ url('admin_users_account_manage', {action: 'validate', id: user.id}) }}">{{ 'Manuell validieren'|trans({},'admin') }}</option>
                                             {% endif %}
                                         {% endif %}
-                                        {% if not is_granted("ROLE_ADMIN") or validations|length > 0 %}
+                                        {% if not is_granted("ROLE_SUB_ADMIN") or validations|length > 0 %}
                                             <option value="{{ url('admin_users_account_manage', {action: 'refresh_tokens', id: user.id}) }}">{{ 'Offene Token erneut ankündigen'|trans({},'admin') }}</option>
                                             <option value="{{ url('admin_users_account_manage', {action: 'regen_tokens', id: user.id}) }}">{{ 'Offene Token regenerieren'|trans({},'admin') }}</option>
                                         {% endif %}
                                     </optgroup>
                                     <optgroup label="{{ 'Profil'|trans({},'admin') }}">
-                                        {% if is_granted("ROLE_ADMIN") %}
+                                        {% if is_granted("ROLE_SUB_ADMIN") %}
                                             <option value="{{ url('admin_users_account_manage', {action: 'rename', id: user.id}) }}" x-confirm="RENAME" x-query="{{ 'Neuen Namen eingeben.'|trans({},'admin') }}">{{ 'Umbenennen'|trans({},'admin') }}</option>
                                         {% endif %}
                                         {% if user.eternalID is not null and not user.noAutomaticNameManagement %}
@@ -59,7 +59,7 @@
                                         {% if user.noAutomaticNameManagement %}
                                             <option value="{{ url('admin_users_account_manage', {action: 'name_auto', id: user.id}) }}" x-confirm="AUTO_NAME">{{ 'Automatische Verwaltung des Spielernamens wiederherstellen'|trans({},'admin') }}</option>
                                         {% endif %}
-                                        {% if is_granted("ROLE_ADMIN") %}
+                                        {% if is_granted("ROLE_SUB_ADMIN") %}
                                             <option value="{{ url('admin_users_account_manage', {action: 'forget_name_history', id: user.id}) }}" x-confirm="FORGET NAME HISTORY">{{ 'Liste vergangener Namen löschen'|trans({},'admin') }}</option>
                                         {% endif %}
                                         <option value="{{ url('admin_users_account_manage', {action: 'rename_pseudo', id: user.id}) }}" x-confirm="RENAME PSEUDO" x-query="{{ 'Neuen Namen eingeben.'|trans({},'admin') }}">{{ 'Anzeigenamen ändern'|trans({},'admin') }}</option>
@@ -68,10 +68,14 @@
                                         {% endif %}
                                         {% if is_granted("ROLE_ADMIN") %}
                                             <option value="{{ url('admin_users_account_manage', {action: 'delete', id: user.id}) }}" x-confirm="DELETE">{{ 'Löschen'|trans({},'admin') }}</option>
+                                        {% endif %}
+                                        {% if is_granted("ROLE_SUB_ADMIN") %}
                                             {% if user.eternalID is null %}
                                                 <option value="{{ url('admin_users_account_manage', {action: 'change_mail', id: user.id}) }}" x-query="{{ 'E-Mail eingeben.'|trans({},'admin') }}">{{ 'E-Mail ändern'|trans({},'admin') }}</option>
                                             {% endif %}
                                             <option value="{{ url('admin_users_account_manage', {action: 'whitelist', id: user.id}) }}" x-confirm="WHITELIST" x-query="{{ 'Spieler-ID'|trans({},'admin') }}">{{ 'Multi-Account Whitelist-Eintrag hinzufügen'|trans({},'admin') }}</option>
+                                        {% endif %}
+                                        {% if is_granted("ROLE_ADMIN") %}
                                             <option value="{{ url('admin_users_account_manage', {action: 'link', id: user.id}) }}" x-confirm="LINK" x-query="{{ 'Spieler-ID'|trans({},'admin') }}">{{ 'Sekundäraccount verknüpfen'|trans({},'admin') }}</option>
                                         {% endif %}
                                         {% if user.avatar is not null %}
@@ -83,7 +87,7 @@
                                         {% if user.activeTitle or user.activeIcon %}
                                             <option value="{{ url('admin_users_account_manage', {action: 'clear_title', id: user.id}) }}" x-confirm="CLEAR TITLE">{{ 'Titel & Icon entfernen'|trans({},'admin') }}</option>
                                         {% endif %}
-                                        {% if is_granted("ROLE_ADMIN") %}
+                                        {% if is_granted("ROLE_SUB_ADMIN") %}
                                             <option value="{{ url('admin_users_account_manage', {action: 'herodays', id: user.id}) }}" x-query="{{ 'Neue Anzahl:'|trans({},'admin') }}">{{ 'Heldentage setzen'|trans({},'admin') }}</option>
                                             <option value="{{ url('admin_users_account_manage', {action: 'team', id: user.id}) }}" x-query="{{ 'Team'|trans({},'admin') }}">{{ 'Team setzen'|trans({},'admin') }}</option>
                                         {% endif %}
@@ -96,7 +100,7 @@
                                             {% endif %}
                                         </optgroup>
                                     {% endif %}
-                                    {% if is_granted("ROLE_ADMIN") %}
+                                    {% if is_granted("ROLE_SUB_ADMIN") %}
                                         <optgroup label="{{ 'Freundschaftswerbung'|trans({},'admin') }}">
                                             {% if ref is null or ref.active %}
                                                 <option value="{{ url('admin_users_account_manage', {action: 'ref_rename', id: user.id}) }}" x-confirm="MOD_REF" x-query="{{ 'Neuen Namen eingeben.'|trans({},'admin') }}">{{ 'Ref-Namen ändern'|trans({},'admin') }}</option>
@@ -110,11 +114,13 @@
                                                 <option value="{{ url('admin_users_account_manage', {action: 'set_sponsor', id: user.id}) }}" x-confirm="LINK_REF" x-query="{{ 'Spieler-ID'|trans({},'admin') }}">{{ 'Sponsor setzen'|trans({},'admin') }}</option>
                                             {% endif %}
                                         </optgroup>
-                                        <optgroup label="{{ 'Sicherheit'|trans({},'admin') }}">
-                                            <option value="{{ url('admin_users_account_manage', {action: 'initiate_pw_reset', id: user.id}) }}">{{ 'Passwort-Reset auslösen'|trans({},'admin') }}</option>
-                                            <option value="{{ url('admin_users_account_manage', {action: 'enforce_pw_reset', id: user.id}) }}">{{ 'Passwort-Reset erzwingen'|trans({},'admin') }}</option>
-                                            <option value="{{ url('admin_users_account_manage', {action: 'overwrite_pw', id: user.id}) }}" x-query="{{ 'Neues Passwort eingeben.'|trans({},'admin') }}">{{ 'Neues Passwort setzen'|trans({},'admin') }}</option>
-                                        </optgroup>
+                                        {% if is_granted("ROLE_ADMIN") %}
+                                            <optgroup label="{{ 'Sicherheit'|trans({},'admin') }}">
+                                                <option value="{{ url('admin_users_account_manage', {action: 'initiate_pw_reset', id: user.id}) }}">{{ 'Passwort-Reset auslösen'|trans({},'admin') }}</option>
+                                                <option value="{{ url('admin_users_account_manage', {action: 'enforce_pw_reset', id: user.id}) }}">{{ 'Passwort-Reset erzwingen'|trans({},'admin') }}</option>
+                                                <option value="{{ url('admin_users_account_manage', {action: 'overwrite_pw', id: user.id}) }}" x-query="{{ 'Neues Passwort eingeben.'|trans({},'admin') }}">{{ 'Neues Passwort setzen'|trans({},'admin') }}</option>
+                                            </optgroup>
+                                        {% endif %}
                                         <optgroup label="{{ 'Berechtigungen'|trans({},'admin') }}">
                                             {% for role in user_handler.admin_validRoles %}
                                                 {% if user_handler.admin_canGrant(app.user,role) and not user_handler.hasRole( user,role ) %}
@@ -273,7 +279,7 @@
                         <div class="cell padded rw-9 rw-sm-12">
                             {% set parts = user.email|split('@',2) %}
                             {% if parts|length > 1 and parts[1] == 'localhost' %}
-                                {% if is_granted("ROLE_ADMIN") %}
+                                {% if is_granted("ROLE_SUB_ADMIN") %}
                                     {{ 'Lokal: {account}'|trans({'{account}': parts[0]}, 'admin') }}
                                 {% else %}
                                     [{{ 'Nur für Administratoren sichtbar'|trans({}, 'admin') }}]
@@ -281,7 +287,7 @@
                             {% elseif parts|length > 1 and parts[1] == 'user.eternal-twin.net' %}
                                 [{{ 'Von EternalTwin verwaltet'|trans({}, 'admin') }}]
                             {% else %}
-                                {% if is_granted("ROLE_ADMIN") %}
+                                {% if is_granted("ROLE_SUB_ADMIN") %}
                                     {{ user.email }}
                                 {% else %}
                                     [{{ 'Nur für Administratoren sichtbar'|trans({}, 'admin') }}]
@@ -301,6 +307,7 @@
                         <div class="cell padded rw-3 rw-sm-12">
                             {% if     user.rightsElevation == 0 %} {{ 'Spieler'|trans({}, 'admin') }}
                             {% elseif user.rightsElevation == 3 %} {{ 'Krähe'|trans({}, 'admin') }}
+                            {% elseif user.rightsElevation == 4 and not user|is_granted('ROLE_ADMIN') %} {{ 'Admin'|trans({}, 'admin') }}[-]
                             {% elseif user.rightsElevation == 4 %} {{ 'Admin'|trans({}, 'admin') }}
                             {% elseif user.rightsElevation == 5 %} {{ 'Admin'|trans({}, 'admin') }}[+]
                             {% else                             %} {{ user.rightsElevation }} {% endif %}
@@ -318,7 +325,7 @@
                             {{ 'Sonstige Accountmarkierungen'|trans({}, 'admin') }}
                         </div>
                         <div class="cell padded rw-9 rw-sm-12">
-                            <div><label><input {% if user.hasRoleFlag( constant('App\\Entity\\User::USER_ROLE_LIMIT_MODERATION') ) %}checked{% endif %} {% if not is_granted("ROLE_ADMIN") or user.rightsElevation >= 3 %}disabled{% endif%} type="checkbox" x-trigger-flag="FLAG_RUFFIAN" /> {{ 'Strenges Report Rate Limiting'|trans({}, 'admin') }}</label></div><br />
+                            <div><label><input {% if user.hasRoleFlag( constant('App\\Entity\\User::USER_ROLE_LIMIT_MODERATION') ) %}checked{% endif %} {% if not is_granted("ROLE_SUB_ADMIN") or user.rightsElevation >= 3 %}disabled{% endif%} type="checkbox" x-trigger-flag="FLAG_RUFFIAN" /> {{ 'Strenges Report Rate Limiting'|trans({}, 'admin') }}</label></div><br />
                         </div>
                     </div>
 
@@ -342,7 +349,7 @@
                                     {% if spon is not null %}
                                         <div>
                                             <a class="pointer" x-ajax-href="{{ path('admin_users_account_view', {id: spon.sponsor.id}) }}">{{ spon.sponsor.name }}</a>
-                                            {% if is_granted("ROLE_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ spon.id }}"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></div>{% endif %}
+                                            {% if is_granted("ROLE_SUB_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ spon.id }}"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></div>{% endif %}
                                         </div>
                                     {% else %}-{% endif %}
                                 </div>
@@ -360,13 +367,13 @@
                                     {% for entry in spon_active %}
                                         <div>
                                             <a class="pointer" x-ajax-href="{{ path('admin_users_account_view', {id: entry.user.id}) }}">{{ entry.user.name }}</a>
-                                            {% if is_granted("ROLE_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ entry.id }}"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></div>{% endif %}
+                                            {% if is_granted("ROLE_SUB_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ entry.id }}"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></div>{% endif %}
                                         </div>
                                     {% endfor %}
                                     {% for entry in spon_inactive %}
                                         <div>
                                             <strike><a class="pointer" x-ajax-href="{{ path('admin_users_account_view', {id: entry.user.id}) }}">{{ entry.user.name }}</a></strike>
-                                            {% if is_granted("ROLE_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ entry.id }}"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></div>{% endif %}
+                                            {% if is_granted("ROLE_SUB_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ entry.id }}"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></div>{% endif %}
                                         </div>
                                     {% endfor %}
                                 </div>
@@ -414,7 +421,7 @@
                             </div>
                         {% endif %}
 
-                        {% if is_granted("ROLE_ADMIN") %}
+                        {% if is_granted("ROLE_SUB_ADMIN") %}
                             <div class="cell padded rw-3 rw-sm-12 note note-lightest">
                                 {{ 'Validierungstokens'|trans({}, 'admin') }}
                             </div>
@@ -464,19 +471,21 @@
                                 {% endfor %}
                             </div>
 
-                            <div class="cell padded rw-3 rw-sm-12 note note-lightest">
-                                {{ 'Sekundäre Accounts'|trans({}, 'admin') }}
-                            </div>
-                            <div class="cell padded rw-9 rw-sm-12">
-                                {% if swap_pivots|length == 0 %}{{ 'Keine'|trans({}, 'admin') }}{% endif %}
-                                {% for pivot in swap_pivots %}
-                                    {% if pivot.secondary.id != user.id %}
-                                        <div>
-                                            {{ pivot.secondary.name }} <span class="pointer" data-unlink="{{ pivot.secondary.id }}"><i class="fa fa-trash"></i></span>
-                                        </div>
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
+                            {% if is_granted("ROLE_ADMIN") %}
+                                <div class="cell padded rw-3 rw-sm-12 note note-lightest">
+                                    {{ 'Sekundäre Accounts'|trans({}, 'admin') }}
+                                </div>
+                                <div class="cell padded rw-9 rw-sm-12">
+                                    {% if swap_pivots|length == 0 %}{{ 'Keine'|trans({}, 'admin') }}{% endif %}
+                                    {% for pivot in swap_pivots %}
+                                        {% if pivot.secondary.id != user.id %}
+                                            <div>
+                                                {{ pivot.secondary.name }} <span class="pointer" data-unlink="{{ pivot.secondary.id }}"><i class="fa fa-trash"></i></span>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
                         {% endif %}
                     </div>
                 </div>
@@ -530,7 +539,7 @@
             });
         {% endif %}
 
-        {% if is_granted("ROLE_ADMIN") %}
+        {% if is_granted("ROLE_SUB_ADMIN") %}
             $.html.addEventListenerAll('[x-delete-token]', 'click', function(e,elem) {
                 $.ajax.easySend( '{{ path('admin_users_account_manage', {id: user.id, action: 'delete_token'}) }}', {tid: elem.getAttribute('x-delete-token')},
                     function () {
