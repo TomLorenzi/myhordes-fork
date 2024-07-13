@@ -45,7 +45,7 @@ class AdminFileSystemController extends AdminActionController
     #[AdminLogProfile(enabled: true)]
     public function log(ParameterBagInterface $params, string $a = '', string $f = ''): Response
     {
-        if (!$this->isGranted('ROLE_ADMIN')) return new Response('', 403);
+        if (!$this->isGranted('ROLE_SUB_ADMIN')) return new Response('', 403);
 
         if (empty($f)) $f = $params->get('kernel.environment');
         $f = str_replace(['..','::'],['','/'],$f);

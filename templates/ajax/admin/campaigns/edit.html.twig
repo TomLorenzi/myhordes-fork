@@ -18,7 +18,7 @@
                     <div class="cell padded rw-4"><input id="campaign-slug" type="text" value="{{ current_campaign is not null ? current_campaign.slug : '' }}" /></div>
                 </div>
 
-                {% if is_granted('ROLE_ADMIN') %}
+                {% if is_granted('ROLE_SUB_ADMIN') %}
                     <div class="row">
                         <div class="cell padded rw-4 note note-lightest">{{ 'Zusätzliche Verwalter'|trans({},'admin') }}</div>
                         <div class="cell padded rw-4">
@@ -61,7 +61,7 @@
         let managers_added = [];
         let managers_removed = [];
 
-        {% if is_granted('ROLE_ADMIN') %}
+        {% if is_granted('ROLE_SUB_ADMIN') %}
             let typingTimer, doneTypingInterval = 500;
             let searchBox = document.getElementById('user-search');
     

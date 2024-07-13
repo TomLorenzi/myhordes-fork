@@ -813,7 +813,7 @@
                         <p class="small">{% trans from 'soul' %}Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.{% endtrans %}</p>
                     </div>
                 </div>
-                {% if is_granted("ROLE_ADMIN") %}
+                {% if is_granted("ROLE_SUB_ADMIN") %}
                     <h5>{{ 'Standardrolle im Forum'|trans({},'soul') }}</h5>
                     <div class="row">
                         <div class="padded cell rw-12">
@@ -994,7 +994,7 @@
                 } )
         });
 
-        {% if is_granted("ROLE_ADMIN") %}
+        {% if is_granted("ROLE_SUB_ADMIN") %}
         $.html.addEventListenerAll('[x-default-role-setting]', 'change', function(e,elem) {
             $.ajax.easySend( '{{ path('api_soul_defaultrole') }}', {
                     dev: document.getElementById('setting_default_forum_role').checked

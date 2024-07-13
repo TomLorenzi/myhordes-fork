@@ -40,15 +40,16 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 #[IsGranted('ROLE_USER')]
 class MessageController extends CustomAbstractController
 {
-    const ErrorForumNotFound     = ErrorHelper::BaseForumErrors + 1;
-    const ErrorPostTextLength    = ErrorHelper::BaseForumErrors + 2;
-    const ErrorPostTitleLength   = ErrorHelper::BaseForumErrors + 3;
-    const ErrorPMItemLimitHit    = ErrorHelper::BaseForumErrors + 4;
-    const ErrorForumLimitHit     = ErrorHelper::BaseForumErrors + 5;
-    const ErrorGPMMemberLimitHit = ErrorHelper::BaseForumErrors + 6;
-    const ErrorGPMThreadLimitHit = ErrorHelper::BaseForumErrors + 7;
-    const ErrorPMItemChaosOut    = ErrorHelper::BaseForumErrors + 8;
-    const ErrorPostTitleTextMissing  = ErrorHelper::BaseForumErrors + 9;
+    const int ErrorForumNotFound     = ErrorHelper::BaseForumErrors + 1;
+    const int ErrorPostTextLength    = ErrorHelper::BaseForumErrors + 2;
+    const int ErrorPostTitleLength   = ErrorHelper::BaseForumErrors + 3;
+    const int ErrorPMItemLimitHit    = ErrorHelper::BaseForumErrors + 4;
+    const int ErrorForumLimitHit     = ErrorHelper::BaseForumErrors + 5;
+    const int ErrorGPMMemberLimitHit = ErrorHelper::BaseForumErrors + 6;
+    const int ErrorGPMThreadLimitHit = ErrorHelper::BaseForumErrors + 7;
+    const int ErrorPMItemChaosOut    = ErrorHelper::BaseForumErrors + 8;
+    const int ErrorPostTitleTextMissing  = ErrorHelper::BaseForumErrors + 9;
+    const int ErrorPostTextTooLong   = ErrorHelper::BaseForumErrors + 10;
 
     protected HTMLService $html;
     protected RandomGenerator $rand;
@@ -71,7 +72,7 @@ class MessageController extends CustomAbstractController
             $town = $forum->getTown();
 
         $p = $forum ? $this->perm->getEffectivePermissions($this->getUser(), $forum) : (
-            ($this->isGranted("ROLE_ADMIN")  * ForumUsagePermissions::PermissionFormattingAdmin) |
+            ($this->isGranted("ROLE_SUB_ADMIN")  * ForumUsagePermissions::PermissionFormattingAdmin) |
             ($this->isGranted("ROLE_CROW")   * ForumUsagePermissions::PermissionFormattingModerator) |
             (($this->isGranted("ROLE_ORACLE") || $this->isGranted("ROLE_ANIMAC")) * ForumUsagePermissions::PermissionFormattingOracle)
         );

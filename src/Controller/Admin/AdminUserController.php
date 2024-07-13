@@ -267,7 +267,7 @@ class AdminUserController extends AdminActionController
         $user = $this->entity_manager->getRepository(User::class)->find($id);
         if (!$user) return $this->redirect( $this->generateUrl('admin_users') );
 
-        $validations = $this->isGranted('ROLE_ADMIN') ? $this->entity_manager->getRepository(UserPendingValidation::class)->findByUser($user) : [];
+        $validations = $this->isGranted('ROLE_SUB_ADMIN') ? $this->entity_manager->getRepository(UserPendingValidation::class)->findByUser($user) : [];
         $desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
 
         $all_sponsored = $this->entity_manager->getRepository(UserSponsorship::class)->findBy(['sponsor' => $user]);
@@ -301,7 +301,7 @@ class AdminUserController extends AdminActionController
      * @return Response
      */
     #[Route(path: 'jx/admin/users/settings', name: 'admin_users_settings')]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_SUB_ADMIN')]
     public function settings(): Response
     {
         return $this->render( 'ajax/admin/users/settings_index.html.twig', $this->addDefaultTwigArgs("settings", [
@@ -315,7 +315,7 @@ class AdminUserController extends AdminActionController
      * @return Response
      */
     #[Route(path: 'jx/admin/users/perch', name: 'admin_users_crow_management')]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_SUB_ADMIN')]
     public function crowManagementUI(): Response
     {
         return $this->render( 'ajax/admin/users/crow_management.html.twig', $this->addDefaultTwigArgs("perch", [
@@ -490,18 +490,21 @@ class AdminUserController extends AdminActionController
 
         if (in_array($action, [
                 'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset', 'twin_main_full_import', 'delete', 'rename',
-                'shadow', 'whitelist', 'unwhitelist', 'link', 'unlink', 'etwin_reset', 'initiate_pw_reset', 'herodays',
-                'team', 'enforce_pw_reset', 'change_mail', 'ref_rename', 'ref_disable', 'ref_enable', 'set_sponsor', 'mh_unreset', 'forget_name_history',
-            ]) && !$this->isGranted('ROLE_ADMIN'))
+                'shadow', 'whitelist', 'unwhitelist', 'etwin_reset', 'herodays',
+                'team', 'change_mail', 'ref_rename', 'ref_disable', 'ref_enable', 'set_sponsor', 'mh_unreset', 'forget_name_history',
+            ]) && !$this->isGranted('ROLE_SUB_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
-        if (str_starts_with($action, 'dbg_') && (!$this->isGranted('ROLE_ADMIN') || $kernel->getEnvironment() !== 'dev') )
+        if (in_array($action, ['delete', 'link', 'unlink', 'initiate_pw_reset', 'enforce_pw_reset']) && !$this->isGranted('ROLE_ADMIN'))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        if (str_starts_with($action, 'dbg_') && (!$this->isGranted('ROLE_SUB_ADMIN') || $kernel->getEnvironment() === 'prod') )
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if ($action === 'grant' && $param !== 'NONE' && !$userHandler->admin_canGrant( $this->getUser(), $param ))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
-        if ($action === 'grant' && $param === 'NONE' && !$this->isGranted('ROLE_ADMIN'))
+        if ($action === 'grant' && $param === 'NONE' && !$this->isGranted('ROLE_SUB_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if (!$userHandler->admin_canAdminister( $this->getUser(), $user )) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
@@ -878,14 +881,16 @@ class AdminUserController extends AdminActionController
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                         break;
-                    case 'ROLE_ADMIN': case 'ROLE_SUPER':
-                    $user->setRightsElevation( max($user->getRightsElevation(), $param === 'ROLE_ADMIN' ? User::USER_LEVEL_ADMIN : User::USER_LEVEL_SUPER) );
+                    case 'ROLE_SUB_ADMIN': case 'ROLE_ADMIN': case 'ROLE_SUPER':
+                        $user->setRightsElevation( max($user->getRightsElevation(), $param === 'ROLE_SUPER' ? User::USER_LEVEL_SUPER : User::USER_LEVEL_ADMIN) );
+                        if ($param === 'ROLE_SUB_ADMIN') $user->addRoleFlag(User::USER_ROLE_ADMIN_SUB);
+                        else $user->removeRoleFlag(User::USER_ROLE_ADMIN_SUB);
 
-                    $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
-                    $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
-                    $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAnimactorGroup ) );
-                    $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
-                    $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAnimactorGroup ) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                     break;
 
                     case 'FLAG_RUFFIAN':
@@ -1001,12 +1006,12 @@ class AdminUserController extends AdminActionController
 
         if ($a->getConfirmed()) return true;
 
-        if (!$this->user_handler->hasRole( $this->getUser(), 'ROLE_ADMIN' )) {
+        if (!$this->user_handler->hasRole( $this->getUser(), 'ROLE_SUB_ADMIN' )) {
 
             if ($this->requires_crow_confirmation($a) && count($a->getConfirmedBy()) < 2) return false;
             if ($this->requires_admin_confirmation($a)) {
                 $confirmed_by_admin = false;
-                foreach ($a->getConfirmedBy() as $u) if ($this->user_handler->hasRole( $u, 'ROLE_ADMIN' )) $confirmed_by_admin = true;
+                foreach ($a->getConfirmedBy() as $u) if ($this->user_handler->hasRole( $u, 'ROLE_SUB_ADMIN' )) $confirmed_by_admin = true;
                 if (!$confirmed_by_admin) return false;
             }
         }
@@ -1073,14 +1078,16 @@ class AdminUserController extends AdminActionController
 
         if (!$a->getActive() || $a->getExpires() && $a->getExpires() < new \DateTime()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $is_admin_confirmed = $is_super_confirmed = false;
+        $is_sub_confirmed = $is_admin_confirmed = $is_super_confirmed = false;
         foreach ($a->getConfirmedBy() as $confirmer) {
+            if ($this->user_handler->hasRole($confirmer, 'ROLE_SUB_ADMIN')) $is_sub_confirmed = true;
             if ($this->user_handler->hasRole($confirmer, 'ROLE_ADMIN')) $is_admin_confirmed = true;
             if ($this->user_handler->hasRole($confirmer, 'ROLE_SUPER')) $is_super_confirmed = true;
         }
 
         if ($is_super_confirmed && !$this->user_handler->hasRole( $this->getUser(), 'ROLE_SUPER' )) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
         if ($is_admin_confirmed && !$this->user_handler->hasRole( $this->getUser(), 'ROLE_ADMIN' )) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+        if ($is_sub_confirmed && !$this->user_handler->hasRole( $this->getUser(), 'ROLE_SUB_ADMIN' )) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $a->setActive(false)->setInternalReason($a->getInternalReason() . " ~ [DISABLED BY {$this->getUser()->getName()}]");
         $this->entity_manager->persist($a);
@@ -1119,7 +1126,7 @@ class AdminUserController extends AdminActionController
         if ($a === null || $a->getUser()->getId() !== $uid) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         if (!$parser->has('duration', true)) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         if (
-            !$this->user_handler->hasRole( $this->getUser(), 'ROLE_ADMIN' ) && (
+            !$this->user_handler->hasRole( $this->getUser(), 'ROLE_SUB_ADMIN' ) && (
                 $a->getModerator() !== $this->getUser() ||
                 $a->getConfirmedBy()->filter( fn(User $u) => $u !== $this->getUser() )->count() > 0
             )
@@ -1173,7 +1180,7 @@ class AdminUserController extends AdminActionController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $edit_id = $parser->get_int('existing', 0);
-        if ($edit_id && !$this->user_handler->hasRole( $this->getUser(), 'ROLE_ADMIN' ))
+        if ($edit_id && !$this->user_handler->hasRole( $this->getUser(), 'ROLE_SUB_ADMIN' ))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $edit = $edit_id ? $this->entity_manager->getRepository( AccountRestriction::class )->find( $edit_id ) : null;
@@ -1186,7 +1193,9 @@ class AdminUserController extends AdminActionController
         $user = $this->entity_manager->getRepository(User::class)->find($id);
         if (!$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if ($this->user_handler->hasRole( $user, 'ROLE_CROW' ) && !$this->user_handler->hasRole( $this->getUser(), 'ROLE_ADMIN' ))
+        if ($this->user_handler->hasRole( $user, 'ROLE_CROW' ) && !$this->user_handler->hasRole( $this->getUser(), 'ROLE_SUB_ADMIN' ))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+        if ($this->user_handler->hasRole( $user, 'ROLE_SUB_ADMIN' ) && !$this->user_handler->hasRole( $this->getUser(), 'ROLE_ADMIN' ))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
         if ($this->user_handler->hasRole( $user, 'ROLE_ADMIN' ) && !$this->user_handler->hasRole( $this->getUser(), 'ROLE_SUPER' ))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
@@ -1252,8 +1261,8 @@ class AdminUserController extends AdminActionController
             case 'i': $users = $em->getRepository(User::class)->findBy(['id' => (int)$searchName]); break; // ID
             case 'u': $users = $em->getRepository(User::class)->findByNameContains($searchName); break; // Username & Display name
             case 'd': $users = $em->getRepository(User::class)->findByDisplayNameContains($searchName); break; // Only Display name
-            case 'e': $users = $this->isGranted('ROLE_ADMIN') ? $em->getRepository(User::class)->findByMailContains($searchName) : []; break; // Mail
-            case 'ue':case 'eu': $users = $this->isGranted('ROLE_ADMIN') ? $em->getRepository(User::class)->findByNameOrMailContains($searchName) : []; break; // Username & Mail
+            case 'e': $users = $this->isGranted('ROLE_SUB_ADMIN') ? $em->getRepository(User::class)->findByMailContains($searchName) : []; break; // Mail
+            case 'ue':case 'eu': $users = $this->isGranted('ROLE_SUB_ADMIN') ? $em->getRepository(User::class)->findByNameOrMailContains($searchName) : []; break; // Username & Mail
             case 't':  // Twinoid ID
                 $users = $em->getRepository(User::class)->findBy(['twinoidID' => (int)$searchName]);
                 foreach ($em->getRepository(TwinoidImportPreview::class)->findBy(['twinoidID' => (int)$searchName]) as $ip)
@@ -1471,7 +1480,7 @@ class AdminUserController extends AdminActionController
 
         return $this->render( 'ajax/admin/users/pictos.html.twig', $this->addDefaultTwigArgs("admin_users_pictos", [
             'user' => $user,
-            'pictoPrototypes' => $this->isGranted("ROLE_ADMIN", $user) ? $protos : array_filter($protos, fn(PictoPrototype $p) => $p->getCommunity()),
+            'pictoPrototypes' => $this->isGranted("ROLE_SUB_ADMIN", $user) ? $protos : array_filter($protos, fn(PictoPrototype $p) => $p->getCommunity()),
             'features' => $features,
             'featurePrototypes' => $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findAll(),
             'icon_max_size' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)
@@ -1496,13 +1505,13 @@ class AdminUserController extends AdminActionController
         $number = $parser->get('number', 1);
         $text = $parser->trimmed('text');
 
-        if ($prototype_id === -42 && $kernel->getEnvironment() === 'dev' && $this->isGranted('ROLE_ADMIN', $user))
+        if ($prototype_id === -42 && $kernel->getEnvironment() === 'dev' && $this->isGranted('ROLE_SUB_ADMIN', $user))
             $prototypes = $this->entity_manager->getRepository(PictoPrototype::class)->findAll();
         else {
             /** @var PictoPrototype $prototype */
             $prototype = $this->entity_manager->getRepository(PictoPrototype::class)->find($prototype_id);
             if ($prototype === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-            if (!$prototype->getCommunity() && !$this->isGranted('ROLE_ADMIN', $user))
+            if (!$prototype->getCommunity() && !$this->isGranted('ROLE_SUB_ADMIN', $user))
                 return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
             $prototypes = [$prototype];
@@ -1572,7 +1581,7 @@ class AdminUserController extends AdminActionController
      * @return Response
      */
     #[Route(path: 'api/admin/users/{id}/unique_award/manage', name: 'admin_user_manage_unique_award', requirements: ['id' => '\d+'])]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_SUB_ADMIN')]
     #[AdminLogProfile(enabled: true)]
     public function user_manage_unique_award(int $id, JSONRequestParser $parser, CrowService $crow): Response {
         $user = $this->entity_manager->getRepository(User::class)->find($id);
@@ -1683,7 +1692,7 @@ class AdminUserController extends AdminActionController
      * @throws Exception
      */
     #[Route(path: 'api/admin/users/{id}/feature/give', name: 'admin_user_give_feature', requirements: ['id' => '\d+'])]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_SUB_ADMIN')]
     #[AdminLogProfile(enabled: true)]
     public function user_give_feature(int $id, JSONRequestParser $parser): Response
     {

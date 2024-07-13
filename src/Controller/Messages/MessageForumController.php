@@ -346,7 +346,8 @@ class MessageForumController extends MessageController
         if (!in_array($type, $valid)) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if (mb_strlen($title) < 3 || mb_strlen($title) > 64)  return AjaxResponse::error( self::ErrorPostTitleLength );
-        if (mb_strlen($text) < 2 || mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
+        if (mb_strlen($text) < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+        if (mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextTooLong );
 
         if ($town_citizen)
             $title = $this->html->htmlDistort( $title,

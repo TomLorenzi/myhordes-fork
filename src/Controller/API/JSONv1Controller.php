@@ -7,6 +7,7 @@ use App\Annotations\ExternalAPI;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AwardPrototype;
 use App\Entity\BuildingPrototype;
+use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenRole;
@@ -728,6 +729,9 @@ class JSONv1Controller extends CoreController {
                     case "hard":
                         $data[$field] = $this->town->getType()->getName() === 'panda';
                         break;
+                    case "type":
+                        $data[$field] = $this->town->getType()->getName();
+                        break;
                     case "devast":
                         $data[$field] = $this->town->getDevastated();
                         break;
@@ -1256,7 +1260,7 @@ class JSONv1Controller extends CoreController {
                             };
                         else $data[$field] = 'www.myhordes.eu'; break;
                     case "bonusPts":
-                        $data[$field] = 0;
+                        $data[$field] = $this->town->getBonusScore();
                         break;
                     case "guide":
                         $latest_guide = $this->entity_manager->getRepository(Citizen::class)
@@ -1915,6 +1919,12 @@ class JSONv1Controller extends CoreController {
                     case "day":
                         $data[$field] = $citizen->getTown()->getDays();
                         break;
+                    case "type":
+                        $data[$field] = $citizen->getTown()->getType()->getName();
+                        break;
+                    case "hard":
+                        $data[$field] = $citizen->getTown()->getType()->getName() === 'panda';
+                        break;
                     case "avatar":
                         $has_avatar = $citizen->getUser()->getAvatar();
                         if ($has_avatar) {
@@ -1948,7 +1958,7 @@ class JSONv1Controller extends CoreController {
                             $data[$field] = 'native';
                         break;
                     case "dtype":
-                        $data[$field] = $citizen->getCod()->getRef();
+                        $data[$field] = $citizen->getCod()?->getRef() ?? CauseOfDeath::Unknown;
                         break;
                     case "v1":
                         $data[$field] = 0;

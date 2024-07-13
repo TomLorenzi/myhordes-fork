@@ -7,7 +7,7 @@
         </div><br />
     {% endif %}
 
-    {% if user_handler.hasRole(badger, "ROLE_ADMIN") %}
+    {% if user_handler.hasRole(badger, "ROLE_SUB_ADMIN") %}
         <div class="badge {{ user_handler.hasRole(badger, "ROLE_SUPER") ? 'badge-admin-master' : 'badge-admin' }}">
             <div><i class="fa fa-hammer"></i></div>
             <div class="tooltip badge-tooltip">
@@ -25,7 +25,7 @@
         </div>
     {% endif %}
 
-    {% if not user_handler.hasRole(badger, "ROLE_ADMIN") %}
+    {% if not user_handler.hasRole(badger, "ROLE_SUB_ADMIN") %}
         {% if user_handler.hasRole(badger, "ROLE_ORACLE") %}
             <div class="badge badge-oracle">
                 <div><i class="fa fa-bullhorn"></i></div>

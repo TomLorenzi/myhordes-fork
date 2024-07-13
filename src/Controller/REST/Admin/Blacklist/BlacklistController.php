@@ -62,7 +62,7 @@ class BlacklistController extends CustomAbstractCoreController
      * @return JsonResponse
      */
     #[Route(path: '/itentifier', name: 'add', methods: ['PUT'])]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_SUB_ADMIN')]
     public function add(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $translator): JsonResponse {
         if (!$this->decode( $parser, $type, $value ))
             return new JsonResponse([], Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -85,7 +85,7 @@ class BlacklistController extends CustomAbstractCoreController
      * @return JsonResponse
      */
     #[Route(path: '/itentifier', name: 'delete', methods: ['DELETE'])]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_SUB_ADMIN')]
     public function delete(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $translator): JsonResponse {
         if (!$this->decode( $parser, $type, $value ))
             return new JsonResponse([], Response::HTTP_UNPROCESSABLE_ENTITY);

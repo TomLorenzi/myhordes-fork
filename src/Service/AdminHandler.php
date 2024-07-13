@@ -41,9 +41,9 @@ class AdminHandler
     private MyHordesConf $conf;
 
     private $requiredRole = [
-        'headshot' => 'ROLE_ADMIN',
+        'headshot' => 'ROLE_SUB_ADMIN',
         'suicid' => 'ROLE_CROW',
-        'setDefaultRoleDev' => 'ROLE_ADMIN',
+        'setDefaultRoleDev' => 'ROLE_SUB_ADMIN',
         'liftAllBans' => 'ROLE_CROW',
         'ban' => 'ROLE_CROW',
         'clearReports' => 'ROLE_CROW',

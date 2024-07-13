@@ -66,7 +66,7 @@
                         {{ 'Die Ergebnisse dieser Umfrage sind für normale Spieler erst nach ihrem Ende sichtbar. Da du ein Orakel bist, kannst du die Zwischenergebnisse sehen.'|trans({},'soul') }}
                     </div>
                 {% endif %}
-                {% if app.user|is_granted('ROLE_ADMIN') %}
+                {% if app.user|is_granted('ROLE_SUB_ADMIN') %}
                     {% if all_tags is not empty %}
                         <div class="row-flex v-center">
                             <div class="cell rw-6 rw-sm-12 padded note note-lightest">
@@ -171,11 +171,11 @@
 {% block js %}
     {{parent()}}
     <script>
-        $.html.addEventListenerAll('#change_poll{% if app.user|is_granted('ROLE_ADMIN') %},#change_filter{% endif %}', 'change', function (e,elem) {
+        $.html.addEventListenerAll('#change_poll{% if app.user|is_granted('ROLE_SUB_ADMIN') %},#change_filter{% endif %}', 'change', function (e,elem) {
             $.ajax.load(null, elem.value, true);
         });
 
-        {% if app.user|is_granted('ROLE_ADMIN') %}
+        {% if app.user|is_granted('ROLE_SUB_ADMIN') %}
             $.html.addEventListenerAll('[data-action]', 'click', function (e,elem) {
                 if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                     $.ajax.easySend( elem.dataset.action, {},

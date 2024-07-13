@@ -80,7 +80,7 @@ class AdminSpamController extends AdminActionController
     #[AdminLogProfile(enabled: true)]
     public function spam_domain_add(JSONRequestParser $parser): Response
     {
-        if (!$this->isGranted('ROLE_ADMIN'))
+        if (!$this->isGranted('ROLE_SUB_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         $body = $parser->get('list', '');
@@ -115,7 +115,7 @@ class AdminSpamController extends AdminActionController
     #[AdminLogProfile(enabled: true)]
     public function spam_domain_remove(JSONRequestParser $parser): Response
     {
-        if (!$this->isGranted('ROLE_ADMIN'))
+        if (!$this->isGranted('ROLE_SUB_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         $list = $parser->get('list', []);

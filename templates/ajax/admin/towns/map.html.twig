@@ -26,7 +26,7 @@
                 {% for x in map.map_x0..map.map_x1 %}
                     {% if map.zones[x] and map.zones[x][y] %}
                         {% set classes = map.zones_classes[x][y] %}
-                        <div class="{{ classes|join(' ') }}" style="width: {{ size }}%; padding-top: {{ size }}%" x-zone-x="{{ x }}" x-zone-y="{{ y }}"{% if is_granted("ROLE_ADMIN") %} x-id="{{ map.zones[x][y].id }}"{% endif %}>
+                        <div class="{{ classes|join(' ') }}" style="width: {{ size }}%; padding-top: {{ size }}%" x-zone-x="{{ x }}" x-zone-y="{{ y }}"{% if is_granted("ROLE_SUB_ADMIN") %} x-id="{{ map.zones[x][y].id }}"{% endif %}>
                             {% if 'soul' in classes %}
                                 <div class="soul-area"><span></span></div>
                             {% endif %}
