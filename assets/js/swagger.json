@@ -7,7 +7,7 @@
       "name": "AGPL3",
       "url": "https://spdx.org/licenses/AGPL-3.0-or-later.html"
     },
-    "version": "2.1.0"
+    "version": "2.1.12"
   },
   "servers": [
     {
@@ -1786,6 +1786,15 @@
               "attribute": true
             }
           },
+          "type": {
+            "type": "string",
+            "enum": ["small","remote","panda","custom"],
+            "description": "Specific town type",
+            "example": "remote",
+            "xml": {
+              "attribute": true
+            }
+          },
           "x": {
             "type": "integer",
             "description": "Town position on the map (x)",
@@ -2560,6 +2569,17 @@
             "description": "Numeric map ID",
             "example": 1
           },
+          "type": {
+            "type": "string",
+            "enum": ["small","remote","panda","custom"],
+            "description": "Specific town type",
+            "example": "remote"
+          },
+          "hard": {
+            "type": "boolean",
+            "description": "True if this is a pandemonium town",
+            "example": false
+          },
           "survival": {
             "type": "integer",
             "description": "Number of survived days.",
@@ -2947,6 +2967,53 @@
           "city": {
             "type": "object",
             "properties": {
+              "name": {
+                "type": "string",
+                "description": "City name",
+                "example": "Alberner Seelenfänger"
+              },
+              "door": {
+                "type": "boolean",
+                "description": "Is the door open (true) or closed",
+                "example": true
+              },
+              "water": {
+                "type": "integer",
+                "description": "Amount of water rations in the well",
+                "minimum": 0,
+                "example": 120
+              },
+              "chaos": {
+                "type": "boolean",
+                "description": "Has chaos erupted in town (true) or not",
+                "example": false
+              },
+              "devast": {
+                "type": "boolean",
+                "description": "Is the town destroyed (true)",
+                "example": false
+              },
+              "hard": {
+                "type": "boolean",
+                "description": "Is this a pandemonium town (true)",
+                "example": false
+              },
+              "type": {
+                "type": "string",
+                "enum": ["small","remote","panda","custom"],
+                "description": "Specific town type",
+                "example": "remote"
+              },
+              "x": {
+                "type": "integer",
+                "description": "Town position on the map (x)",
+                "example": 16
+              },
+              "y": {
+                "type": "integer",
+                "description": "Town position on the map (y)",
+                "example": 7
+              },
               "buildings": {
                 "type": "array",
                 "description": "Town buildings.",

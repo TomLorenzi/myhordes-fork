@@ -728,6 +728,9 @@ class JSONv1Controller extends CoreController {
                     case "hard":
                         $data[$field] = $this->town->getType()->getName() === 'panda';
                         break;
+                    case "type":
+                        $data[$field] = $this->town->getType()->getName();
+                        break;
                     case "devast":
                         $data[$field] = $this->town->getDevastated();
                         break;
@@ -1914,6 +1917,12 @@ class JSONv1Controller extends CoreController {
                         break;
                     case "day":
                         $data[$field] = $citizen->getTown()->getDays();
+                        break;
+                    case "type":
+                        $data[$field] = $citizen->getTown()->getType()->getName();
+                        break;
+                    case "hard":
+                        $data[$field] = $citizen->getTown()->getType()->getName() === 'panda';
                         break;
                     case "avatar":
                         $has_avatar = $citizen->getUser()->getAvatar();
