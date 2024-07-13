@@ -7,6 +7,7 @@ use App\Annotations\ExternalAPI;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AwardPrototype;
 use App\Entity\BuildingPrototype;
+use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenRole;
@@ -1957,7 +1958,7 @@ class JSONv1Controller extends CoreController {
                             $data[$field] = 'native';
                         break;
                     case "dtype":
-                        $data[$field] = $citizen->getCod()->getRef();
+                        $data[$field] = $citizen->getCod()?->getRef() ?? CauseOfDeath::Unknown;
                         break;
                     case "v1":
                         $data[$field] = 0;
