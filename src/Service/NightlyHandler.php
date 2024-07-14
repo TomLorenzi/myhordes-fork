@@ -1238,12 +1238,28 @@ class NightlyHandler
 
             if ($citizen->hasRole('ghoul')) $this->citizen_handler->removeStatus($citizen, 'infection');
 
-            $alarm = $this->inventory_handler->fetchSpecificItems($citizen->getInventory(), [new ItemRequest("alarm_on_#00")]);
+            /*$alarm = $this->inventory_handler->fetchSpecificItems($citizen->getInventory(), [new ItemRequest("alarm_on_#00")]);
             if (count($alarm) > 0) {
 
                 $this->citizen_handler->setAP($citizen, true, 1);
                 $alarm[0]->setPrototype($this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'alarm_off_#00']));
                 $this->entity_manager->persist($alarm[0]);
+            }*/
+            $alarm1 = $this->inventory_handler->fetchSpecificItems($citizen->getInventory(), [new ItemRequest("alarm_1_#00")]);
+            $alarm2 = $this->inventory_handler->fetchSpecificItems($citizen->getInventory(), [new ItemRequest("alarm_2_#00")]);
+            $alarm3 = $this->inventory_handler->fetchSpecificItems($citizen->getInventory(), [new ItemRequest("alarm_3_#00")]);
+            if (count($alarm1) > 0) {
+                $this->citizen_handler->setAP($citizen, true, 1);
+                $alarm1[0]->setPrototype($this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'alarm_off_#00']));
+                $this->entity_manager->persist($alarm1[0]);
+            } elseif (count($alarm2) > 0) {
+                $this->citizen_handler->setAP($citizen, true, 1);
+                $alarm2[0]->setPrototype($this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'alarm_1_#00']));
+                $this->entity_manager->persist($alarm2[0]);
+            } elseif (count($alarm3) > 0) {
+                $this->citizen_handler->setAP($citizen, true, 1);
+                $alarm3[0]->setPrototype($this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'alarm_2_#00']));
+                $this->entity_manager->persist($alarm3[0]);
             }
 
             if ($this->citizen_handler->hasStatusEffect($citizen, 'tg_air_infected') && !$citizen->hasRole('ghoul')) {

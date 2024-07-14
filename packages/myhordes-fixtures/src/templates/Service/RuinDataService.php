@@ -943,6 +943,7 @@ class RuinDataService implements FixtureProcessorInterface {
                     'bumpKey_#00' => 3,
                     'repair_kit_part_raw_#00' => 2,
                     'classicKey_#00' => 3,
+                    'alarm_off_#00' => 3,
                     'infect_poison_part_#00' => [10, DropMod::Infective]
                 ], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
 

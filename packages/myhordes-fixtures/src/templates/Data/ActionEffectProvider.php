@@ -199,6 +199,9 @@ class ActionEffectProvider
         $effects_container->add()->identifier('morph_vibr_empty')->add((new ItemEffect())->morphSource('vibr_empty_#00'))->commit();
         $effects_container->add()->identifier('morph_undef')->add((new ItemEffect())->morphSource('undef_#00'))->commit();
         $effects_container->add()->identifier('morph_meat')->add((new ItemEffect())->morphSource('meat_#00'))->commit();
+        $effects_container->add()->identifier('morph_alarm_1')->add((new ItemEffect())->morphSource('alarm_1_#00'))->commit();
+        $effects_container->add()->identifier('morph_alarm_2')->add((new ItemEffect())->morphSource('alarm_2_#00'))->commit();
+        $effects_container->add()->identifier('morph_alarm_3')->add((new ItemEffect())->morphSource('alarm_3_#00'))->commit();
 
         $effects_container->add()->identifier('spawn_doggy')->add((new ItemEffect())
                                                                       ->addSpawn('food_bar2_#00', 222)

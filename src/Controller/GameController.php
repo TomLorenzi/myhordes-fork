@@ -320,10 +320,10 @@ class GameController extends CustomAbstractController
             }
         }
 
-        if ($this->user_handler->checkFeatureUnlock( $citizen->getUser(), 'f_alarm', true ) ) {
+        /*if ($this->user_handler->checkFeatureUnlock( $citizen->getUser(), 'f_alarm', true ) ) {
             $item = ($if->createItem( "alarm_off_#00" ))->setEssential(true);
             $proxy->transferItem($citizen, $item, to: $inventory);
-        }
+        }*/
 
         if ($this->user_handler->checkFeatureUnlock( $citizen->getUser(), 'f_arma', true ) ) {
             $armag_day   = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_armag_d"]);
