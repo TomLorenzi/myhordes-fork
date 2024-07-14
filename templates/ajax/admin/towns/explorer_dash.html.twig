@@ -52,7 +52,7 @@
 				<div class="padded cell rw-8">
 					<select id="administer-town" style="width: 100%;">
 						<option value="">-</option>
-						{% if is_granted("ROLE_SUB_ADMIN") %}
+						{% if is_granted("ROLE_ADMIN") %}
 							<optgroup label="{{ 'Nächtlicher Angriff'|trans({},'admin') }}">
 								{% if town.attackFails >= 3 %}
 									<option value="{{ url('admin_town_manage', {action: 'release', id: town.id}) }}">{{ 'Quarantäne aufheben'|trans({},'admin') }}</option>
@@ -68,7 +68,9 @@
 							{% if is_granted("ROLE_SUB_ADMIN") %}
 								<option value="{{ url('admin_town_manage', {action: 'set_name', id: town.id}) }}" x-query="{{ 'Neuen Namen eingeben.'|trans({},'admin') }}">{{ 'Stadtnamen ändern'|trans({},'admin') }}</option>
 								<option value="{{ url('admin_town_manage', {action: 'dice_name', id: town.id}) }}">{{ 'Stadtnamen regenerieren'|trans({},'admin') }}</option>
-								<option x-alt-url="{{ path('admin_town_list') }}" value="{{ url('admin_town_manage', {action: 'nullify', id: town.id}) }}">{{ 'Annulieren'|trans({},'admin') }}</option>
+                                {% if is_granted("ROLE_ADMIN") %}
+                                    <option x-alt-url="{{ path('admin_town_list') }}" value="{{ url('admin_town_manage', {action: 'nullify', id: town.id}) }}">{{ 'Annulieren'|trans({},'admin') }}</option>
+                                {% endif %}
 								{% if town.open %}
 									{% if town.password is not null %}
 										<option value="{{ url('admin_town_manage', {action: 'pw_change', id: town.id}) }}" x-query="{{ 'Neues Passwort eingeben.'|trans({},'admin') }}">{{ 'Passwort ändern'|trans({},'admin') }}</option>
