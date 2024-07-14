@@ -3,12 +3,13 @@
 
 namespace App\Service;
 
+use Adbar\Dot;
 use Symfony\Component\HttpFoundation\Request;
 
 class JSONRequestParser
 {
-    protected $data = null;
-    protected $trimmed_data = null;
+    protected ?Dot $data = null;
+    protected ?Dot $trimmed_data = null;
 
     protected function deep_trim( &$value ): void {
         // Remove all space characters (based on the Unicode "Space Separator - Zs" category ) from the beginning and end of the string
@@ -21,9 +22,11 @@ class JSONRequestParser
         $request = Request::createFromGlobals();
         $ct = $request->getContentTypeFormat();
         if ($ct === 'json') {
-            $this->trimmed_data = $this->data =
-                json_decode($request->getContent(), true, 512, JSON_INVALID_UTF8_IGNORE );
-            $this->deep_trim( $this->trimmed_data );
+            $data = $trimmed = json_decode($request->getContent(), true, 512, JSON_INVALID_UTF8_IGNORE );
+            $this->deep_trim( $trimmed );
+
+            $this->data = new Dot($data);
+            $this->trimmed_data = new Dot($trimmed);
         }
 
     }
@@ -33,22 +36,26 @@ class JSONRequestParser
     }
 
     public function inject( string $key, $data ): void {
-        $this->data[$key] = $data;
+        if (!$this->data) $this->data = new Dot([]);
+        $this->data->set($key, $data);
+        $data = $this->data->all();
         $this->deep_trim($data);
-        $this->trimmed_data[$key] = $data;
+        $this->trimmed_data = new Dot($data);
     }
 
     public function has( string $key, bool $not_empty = false ): bool {
-        return isset( $this->data[$key] ) && ( !$not_empty || !empty( $this->data[$key] ) );
+        return $this->data && $this->data->has( $key ) && !empty( $this->data->get($key ) );
     }
 
     public function has_all( array $keys, bool $not_empty = false ): bool {
+        if (!$this->data) return false;
         foreach ($keys as &$key) if (!$this->has( $key, $not_empty )) return false;
         return true;
     }
 
     public function get( string $key, $default = null, ?array $from = null ) {
-        return $this->has( $key ) ? ( $from === null || in_array($this->data[$key], $from) ? $this->data[$key] : $default) : $default;
+        $data = $this->data?->get( $key, $default ) ?? $default;
+        return ( $data === null || $from === null || in_array($data, $from) ) ? $data : $default;
     }
 
     public function get_array( string $key, $default = [] ): array {
@@ -105,15 +112,16 @@ class JSONRequestParser
     }
 
     public function get_base64( string $key, $default = null ) {
-        return $this->has( $key ) ? base64_decode($this->data[$key], true) : $default;
+        return $this->has( $key ) ? base64_decode($this->get($key), true) : $default;
     }
 
     public function trimmed( string $key, $default = null, ?array $from = null ) {
-        return $this->has( $key ) ? ( $from === null || in_array($this->trimmed_data[$key], $from) ? $this->trimmed_data[$key] : $default) : $default;
+        $data = $this->trimmed_data?->get( $key, $default ) ?? $default;
+        return ( $data === null || $from === null || in_array($data, $from) ) ? $data : $default;
     }
 
-    public function all( bool $trimmed = false ) {
-        return $trimmed ? $this->trimmed_data : $this->data;
+    public function all( bool $trimmed = false ): array {
+        return ($trimmed ? $this->trimmed_data?->all() : $this->data?->all()) ?? [];
     }
 
 }

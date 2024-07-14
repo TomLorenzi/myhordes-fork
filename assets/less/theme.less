@@ -1406,7 +1406,10 @@ span.defense,div.defense               { .icon_div("../img/icons/small_def.gif",
 span.defense-broken,div.defense-broken { .icon_div("../img/icons/small_def_broken.gif", middle, 2px); color:#f18766;font-weight: bold; }
 
 .jobs-choice {
-  border: 1px solid #7e4d2a; width: 100%; opacity: .6;
+  border: 1px solid transparent; width: 100%; opacity: .6;
+
+  transition: opacity 0.20s ease-in-out;
+
   input[type='radio'] {
     display: none;
   }
@@ -1414,7 +1417,8 @@ span.defense-broken,div.defense-broken { .icon_div("../img/icons/small_def_broke
   &>.text {
     color: #b37c4a; font-weight: bold; font-variant: small-caps;
   }
-  &>label>img {
+
+  &>img {
     width: 100%;
   }
   &.selected {

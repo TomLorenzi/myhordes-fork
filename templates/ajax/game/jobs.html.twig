@@ -1,29 +1,13 @@
 {% extends "ajax/ajax.html.twig" %}
 {% block title %}{{'Wiedergeburt: Wähle einen Beruf'|trans({}, 'game')|raw}}{% endblock %}
-{% block jobhelp %}
-    <div class="help">
-        <p>{% trans from 'game' %}
-                Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in dieser Stadt zur Verfügung.
-            {% endtrans %}</p>
-        {# <p>{% trans with { '{hero}': '<b><img alt="" src="' ~ asset('build/images/professions/hero.gif') ~ '"> ' ~ 'Held'|trans({},'game') ~ '</b>' } from 'game'  %}
-                Spielst du als {hero}, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
-                Stadt aus, musst du als einfacher Einwohner weiterspielen.
-            {% endtrans %}</p> #}
-        {# <p>{% trans with { '{citizen}': '<b>' ~ 'Einwohner'|trans({},'game') ~ '</b>' } from 'game'  %}
-                Spielst du als {citizen}, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage
-                verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.
-            {% endtrans %}</p> #}
-    </div>
-{% endblock %}
-
 {% block ajax %}
     <div class="row">
         <div class="cell padded rw-4 hide-md hide-sm">
             {% set img = random(['welcome1','welcome2']) ~ (app.request.locale != 'de' ? ('_' ~ app.request.locale) : '') ~ '.jpg' %}
             <img style="width: 100%; border: 1px solid #5c2b20;" alt="" src="{{ asset('build/images/professions/select/' ~ img) }}">
-            {{ block('jobhelp') }}
         </div>
         <div class="cell padded rw-8 rw-md-12">
+            <hordes-town-onboarding data-town="{{ town.id }}"></hordes-town-onboarding>
             {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_CITIZEN_ALIAS'),false) %}
                 <h5>{{'Deine Identität'|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Diese Stadt erlaubt es, einen Spitznamen zu tragen.'|trans({},'game') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
                 <div class="row-flex v-center">
@@ -40,101 +24,6 @@
                     </div>
                 </div>
             {% endif %}
-
-            <h5>{% trans from 'game' %}Wähle einen Beruf{% endtrans %}</h5>
-            <div class="row">
-                {% for job in professions %}
-                    {# @var job \App\Entity\CitizenProfession #}
-                    <div class="jobs-choice padded cell rw-4 rw-md-6 pointer">
-                        <div class="text center">
-                            <input type="radio" id="jb_{{ job.name }}" name="job" value="{{ job.id }}">
-                            <label for="jb_{{ job.name }}">
-                                <img alt="{{ job.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ job.icon ~ '.gif') }}">
-                                {{ job.label|trans({}, 'game') }}
-                            </label>
-                        </div>
-                        <label for="jb_{{ job.name }}">
-                            <div class="helpbtn">
-                                <a class="help-button" x-ajax-href="{{ url('help', {'name': job.name}) }}">
-                                    <div class="tooltip help">{{ job.description|trans({}, 'game')}}<br /><em>{{ 'Klick hier, um mehr über diesen Beruf zu erfahren...'|trans({},'game') }}</em></div>
-                                    {{ 'Hilfe'|trans({},'global') }}
-                                </a>
-                            </div>
-                            <img class="pointer" alt="{{ job.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/select/' ~ job.icon ~ '.gif') }}">
-                        </label>
-                        
-                    </div>
-                {% endfor %}
-            </div>
-            <h5>{{'Zur zeit in der Stadt'|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.'|trans({},'game') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
-            <div class="row prof-list">
-            {% for elem in prof_count %}
-                <div class="padded cell small center rw-4 rw-lg-6">
-                    <img alt="{{ elem[1].label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ elem[1].icon ~ '.gif') }}" />
-                    {{ elem[1].label|trans({},'game') }} x {{ elem[0] }}
-                </div>
-            {% endfor %}
-        </div>
-            <br/>
-            <p class="ambiant hide-sm">
-                {{ 'Du suchst dir besser eine Beschäftigung aus, denn es gilt: Ohne Job, kein Leben. Wozu bist du denn sonst gut? Die Gemeinschaft, der du angehören wirst, braucht jede Art von Personen. Die Zusammenarbeit mit den anderen wird zweifelsohne deine Überlebensdauer entscheidend beeinflussen...'|trans({},'game') }}
-                <br />
-            </p>
-            <div class="cell rw-12">
-                <div class="row">
-                    <div class="cell ro-8 rw-4 ro-lg-7 rw-lg-5 ro-md-6 rw-md-6 ro-sm-0 rw-sm-12 right">
-                        <button disabled id="job_confirm">{{ 'Auswahl bestätigen'|trans({},'global') }}</button>
-                    </div>
-                    <div class="cell rw-12 hide-desktop hide-lg">
-                        {{ block('jobhelp') }}
-                    </div>
-                </div>
-            </div>
-            <p class="ambiant hide-md hide-lg hide-desktop">
-                {{ 'Du suchst dir besser eine Beschäftigung aus, denn es gilt: Ohne Job, kein Leben. Wozu bist du denn sonst gut? Die Gemeinschaft, der du angehören wirst, braucht jede Art von Personen. Die Zusammenarbeit mit den anderen wird zweifelsohne deine Überlebensdauer entscheidend beeinflussen...'|trans({},'game') }}
-                <br />
-            </p>
         </div>
     </div>
-{% endblock %}
-{% block js %}
-    {{ parent() }}
-    <script>
-
-        let selected_profession = 0;
-        let jobConfirm = document.getElementById('job_confirm');
-        let form = {}
-
-        let jobSelect = document.querySelectorAll('input[type=radio][name=job]');
-        for (let i = 0; i < jobSelect.length; i++)
-            jobSelect[i].addEventListener('click', function () {
-                jobConfirm.removeAttribute('disabled')
-                form.job = parseInt(this.value);
-                let previous = document.querySelectorAll('.jobs-choice.selected');
-                for (let i = previous.length - 1; i >= 0; i--) {
-                	previous[i].classList.remove('selected');
-                }
-                let div = this.closest('.jobs-choice');
-                if(div) div.classList.add('selected')
-            });
-
-        jobConfirm.addEventListener('click', function(e) {
-            e.preventDefault();
-            {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_CITIZEN_ALIAS'),false) %}
-                form.citizenalias = document.getElementById('citizenalias').value;
-                if (form.citizenalias && form.citizenalias.length < 4) {
-                    $.html.error('{{ 'Dein Name muss mindestens {limit} Zeichen umfassen.'|trans({limit: '4'},'login')|e('js') }}');
-                    return;
-                }
-                if (form.citizenalias && form.citizenalias.length > 22) {
-                    $.html.error('{{ 'Dein Name kann höchstens {limit} Zeichen umfassen.'|trans({limit: '22'},'login')|e('js') }}');
-                    return;
-                }
-            {% endif %}
-            $.ajax.easySend( '{{ path('api_jobcenter') }}', form,
-                    function () {
-                        $.ajax.load(null, '{{ path('game_landing') }}', true);
-                    } );
-        });
-    </script>
 {% endblock %}
