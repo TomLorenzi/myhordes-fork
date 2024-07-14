@@ -890,7 +890,8 @@ class AdminUserController extends AdminActionController
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAnimactorGroup ) );
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
-                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
+                        if ($param === 'ROLE_SUB_ADMIN') $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
+                        else $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                     break;
 
                     case 'FLAG_RUFFIAN':
