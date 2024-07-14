@@ -27,26 +27,31 @@ readonly class GenerateMercureToken
         ];
     }
 
-    public function __invoke(): array
+    public function __invoke(string|array|null $topics = null, int $expiration = 7200): array
     {
         /** @var ?User $user */
         $user = $this->security->getUser();
         $path = $this->registry->getHub()?->getPublicUrl();
 
-        return $user ? $this->gameCachePool->get("mh_mercure_{$user->getId()}_{$user->getCheckInt()}", function (ItemInterface $item) use ($user, $path) {
-            $expires = new \DateTimeImmutable("+2hours");
+        $topics ??= [
+            "myhordes://live/concerns/{$user->getId()}",
+            "myhordes://live/concerns/authorized",
+        ];
+        if (!is_array($topics)) $topics = [$topics];
+
+        $key = str_replace(['{','}','(',')','/','\\','@',':'], '', $topics[0]);
+
+        return $user ? $this->gameCachePool->get("mh_mercure_{$user->getId()}_{$user->getCheckInt()}_$key", function (ItemInterface $item) use ($user, $path, $expiration, $topics) {
+            $expires = new \DateTimeImmutable("+{$expiration}seconds");
             $t = $this->registry->getHub()?->getFactory()?->create(
-                subscribe: [
-                    "myhordes://live/concerns/{$user->getId()}",
-                    "myhordes://live/concerns/authorized",
-                ],
+                subscribe: $topics,
                 additionalClaims: [
                     RegisteredClaims::EXPIRATION_TIME => $expires,
                     RegisteredClaims::ISSUED_AT => new \DateTimeImmutable()
                 ],
             );
 
-            $item->expiresAfter($t ? 3600 : 1)->tag(['mercure',"mercure_{$user->getId()}"]);
+            $item->expiresAfter($t ? (int)round($expiration / 4) : 1)->tag(['mercure',"mercure_{$user->getId()}"]);
 
             return self::format( $path, $user, $t, $expires->getTimestamp() );
         }) : self::format($path);

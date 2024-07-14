@@ -8,16 +8,51 @@ type MercureAuthorization = {
     t: string|null
 }
 
+type MercureConnection = {
+    auth: MercureAuthorization|null;
+    eventSource: EventSource|null;
+    pendingEventSource: EventSource|null;
+
+    connectionFails: number;
+    reconnectTimeout: null|any;
+
+    reserves: number,
+
+    config: {
+        reconnect: boolean
+    };
+}
+
 export default class MercureServiceModule extends ServiceModule{
 
-    private auth: MercureAuthorization|null;
-    private eventSource: EventSource|null;
-    private pendingEventSource: EventSource|null;
+    private readonly connections: {[key: string]: MercureConnection}
 
-    private connectionFails = 0;
-    private reconnectTimeout = null;
+    //private auth: MercureAuthorization|null;
+    //private eventSource: EventSource|null;
+    //private pendingEventSource: EventSource|null;
 
-    constructor(p) { super(p); }
+    //private connectionFails = 0;
+    //private reconnectTimeout = null;
+
+    constructor(p) {
+        super(p);
+        this.connections = {};
+    }
+
+    private initializeConnection(connection: string) {
+        if (!this.connections.hasOwnProperty(connection))
+            this.connections[connection] = {
+                auth: null,
+                eventSource: null,
+                pendingEventSource: null,
+                connectionFails: 0,
+                reconnectTimeout: null,
+                reserves: 0,
+                config: {
+                    reconnect: true
+                }
+            }
+    }
 
     private static eventSourceState(e: EventSource|null): string {
         if (!e || e?.readyState === EventSource.CLOSED ) return 'closed';
@@ -25,33 +60,36 @@ export default class MercureServiceModule extends ServiceModule{
         else if (e.readyState === EventSource.OPEN) return 'open';
     }
 
-    private incoming(data: object) {
-        this.broadcast('mercure.incoming', data);
+    private incoming(connection: string, data: object) {
+        this.broadcast('mercure.incoming', {connection, data});
     }
 
-    private swap() {
-        if (MercureServiceModule.eventSourceState(this.pendingEventSource) !== 'open')
+    private swap(connection: string) {
+        this.initializeConnection(connection);
+
+        if (MercureServiceModule.eventSourceState(this.connections[connection].pendingEventSource) !== 'open')
             return;
 
-        const old = this.eventSource;
-        const update = this.pendingEventSource;
+        const old = this.connections[connection].eventSource;
+        const update = this.connections[connection].pendingEventSource;
 
-        this.pendingEventSource.addEventListener('message', e => this.incoming( JSON.parse(e.data) ));
-        this.pendingEventSource.addEventListener('error', () => {
+        this.connections[connection].pendingEventSource.addEventListener('message', e => this.incoming( connection, JSON.parse(e.data) ));
+        this.connections[connection].pendingEventSource.addEventListener('error', () => {
             update.close();
-            this.eventSource = null;
-            this.broadcastState();
-            this.connect();
+            this.connections[connection].eventSource = null;
+            this.broadcastState(connection);
+            if (this.connections[connection].config.reconnect) this.connect(connection);
         }, {once: true});
         if (MercureServiceModule.eventSourceState( old ) !== 'closed') old.close();
 
-        this.eventSource = update;
-        this.pendingEventSource = null;
+        this.connections[connection].eventSource = update;
+        this.connections[connection].pendingEventSource = null;
     }
 
-    private renderState(): object {
-        const e = MercureServiceModule.eventSourceState( this.eventSource );
-        const p = MercureServiceModule.eventSourceState( this.pendingEventSource );
+    private renderState(connection: string): object {
+        this.initializeConnection(connection);
+        const e = MercureServiceModule.eventSourceState( this.connections[connection].eventSource );
+        const p = MercureServiceModule.eventSourceState( this.connections[connection].pendingEventSource );
 
         let state = 'indeterminate';
 
@@ -67,12 +105,12 @@ export default class MercureServiceModule extends ServiceModule{
         return {
             connected: e === 'open',
             state,
-            auth: !!this.auth?.t
+            auth: !!this.connections[connection].auth?.t
         };
     }
 
-    private broadcastState() {
-        this.broadcast('mercure.connection_state', this.renderState());
+    private broadcastState(connection: string) {
+        this.broadcast('mercure.connection_state', {connection, state: this.renderState(connection)});
     }
 
     handle(event: MessageEvent): void {
@@ -80,72 +118,103 @@ export default class MercureServiceModule extends ServiceModule{
     }
 
     handleMessage(event: MessageEvent, message: string): void {
+        const connection = event.data.connection ?? 'default';
         switch (message) {
+            case 'configure':
+                this.initializeConnection(connection);
+                this.connections[connection].config = {
+                    ...this.connections[connection].config,
+                    ...event.data.config
+                }
+                break;
+
+            case 'alloc':
+                this.initializeConnection(connection);
+                this.connections[connection].reserves++;
+                break;
+
+            case 'dealloc':
+                this.initializeConnection(connection);
+                this.connections[connection].reserves--;
+                if (this.connections[connection].reserves <= 0) {
+                    this.connections[connection].reserves = 0;
+                    this.connections[connection].eventSource?.close();
+                    this.connections[connection].pendingEventSource?.close();
+                    this.connections[connection].eventSource = null;
+                    this.connections[connection].pendingEventSource = null;
+                    this.broadcastState(connection);
+                }
+                break;
+
             case 'authorize':
                 const auth = event.data.token as MercureAuthorization;
 
-                if (auth.m !== this.auth?.m || auth.u !== this.auth?.u) {
-                    this.eventSource?.close();
-                    this.pendingEventSource?.close();
-                    clearTimeout( this.reconnectTimeout );
-                    this.connectionFails = 0;
-                    this.broadcastState();
-                    this.auth = auth;
-                    this.connect();
+                this.initializeConnection(connection);
+
+                if (auth.m !== this.connections[connection].auth?.m || auth.u !== this.connections[connection].auth?.u) {
+                    this.connections[connection].eventSource?.close();
+                    this.connections[connection].pendingEventSource?.close();
+                    clearTimeout( this.connections[connection].reconnectTimeout );
+                    this.connections[connection].connectionFails = 0;
+                    this.broadcastState(connection);
+                    this.connections[connection].auth = auth;
+                    this.connect(connection);
                 }
-                else if ( auth.p > (this.auth?.p ?? -1) ) {
-                    this.pendingEventSource?.close();
-                    clearTimeout( this.reconnectTimeout );
-                    this.connectionFails = 0;
-                    this.auth = auth;
-                    this.connect();
-                } else if (MercureServiceModule.eventSourceState(this.eventSource) === 'closed' && !this.reconnectTimeout)
-                    this.connect();
+                else if ( auth.p > (this.connections[connection].auth?.p ?? -1) ) {
+                    this.connections[connection].pendingEventSource?.close();
+                    clearTimeout( this.connections[connection].reconnectTimeout );
+                    this.connections[connection].connectionFails = 0;
+                    this.connections[connection].auth = auth;
+                    this.connect(connection);
+                } else if (MercureServiceModule.eventSourceState(this.connections[connection].eventSource) === 'closed' && !this.connections[connection].reconnectTimeout)
+                    this.connect(connection);
                 else Console.debug('Keeping connection');
                 break;
             case 'state':
-                this.respond(event, this.renderState());
+                this.respond(event, this.renderState(connection));
                 break;
 
         }
     }
 
-    private factory(): EventSource|null {
-        if (!this.auth?.m || !this.auth?.t || this.auth.m === '#') return null;
+    private factory(connection: string): EventSource|null {
+        this.initializeConnection(connection);
+        if (!this.connections[connection].auth?.m || !this.connections[connection].auth?.t || this.connections[connection].auth.m === '#') return null;
 
-        const url = new URL(this.auth?.m);
-        url.searchParams.append('authorization', this.auth.t);
+        const url = new URL(this.connections[connection].auth?.m);
+        url.searchParams.append('authorization', this.connections[connection].auth.t);
         url.searchParams.append('topic', '*');
         return new EventSource(url, { withCredentials: false });
     }
 
-    private connect() {
-        if (MercureServiceModule.eventSourceState(this.pendingEventSource) !== 'closed')
+    private connect(connection: string) {
+        this.initializeConnection(connection);
+        if (MercureServiceModule.eventSourceState(this.connections[connection].pendingEventSource) !== 'closed')
             return;
 
         const errorHandler = (e) => {
             Console.error(e);
-            this.connectionFails++;
+            this.connections[connection].connectionFails++;
             let timeout = 60000;
-            if (this.connectionFails <= 10)
+            if (this.connections[connection].connectionFails <= 10)
                 timeout = 1000;
-            else if (this.connectionFails <= 20)
+            else if (this.connections[connection].connectionFails <= 20)
                 timeout = 5000;
-            this.reconnectTimeout = setTimeout(() => {
-                this.reconnectTimeout = null;
-                this.connect()
+            this.connections[connection].reconnectTimeout = setTimeout(() => {
+                this.connections[connection].reconnectTimeout = null;
+                this.connect(connection)
             }, timeout);
-            this.broadcastState();
+            this.broadcastState(connection);
         }
 
-        this.pendingEventSource = this.factory();
-        this.pendingEventSource?.addEventListener('open', () => {
-            this.pendingEventSource.removeEventListener('error', errorHandler);
-            this.swap();
-            this.broadcastState();
+        this.connections[connection].pendingEventSource = this.factory(connection);
+        this.connections[connection].pendingEventSource?.addEventListener('open', () => {
+            this.connections[connection].pendingEventSource.removeEventListener('error', errorHandler);
+            this.swap(connection);
+            this.broadcastState(connection);
         }, {once: true});
-        this.pendingEventSource?.addEventListener('error', errorHandler, {once: true});
-        this.broadcastState();
+        this.connections[connection].pendingEventSource?.addEventListener('error', errorHandler, {once: true});
+        this.broadcastState(connection);
     }
 
     event(message: string, data: any = null): void {
@@ -153,8 +222,11 @@ export default class MercureServiceModule extends ServiceModule{
 
         switch (message) {
             case 'activate': case 'install':
-                if (MercureServiceModule.eventSourceState(this.eventSource) === 'closed' && !this.reconnectTimeout)
-                    this.connect();
+                Object.keys(this.connections).forEach(connection => {
+                    if (MercureServiceModule.eventSourceState(this.connections[connection].eventSource) === 'closed' && !this.connections[connection].reconnectTimeout)
+                        this.connect(connection);
+                })
+
             break;
         }
     }

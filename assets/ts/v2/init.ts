@@ -136,11 +136,14 @@ async function initSharedWorker(): Promise<boolean> {
                 break;
 
             case 'mercure.connection_state':
-                const state = e.data.payload;
+                const state = e.data.payload.state;
 
-                html().dispatchEvent(new CustomEvent('mercureState', {bubbles: true, cancelable: false, detail: state}));
-                const mercure = JSON.parse(html()?.dataset?.mercureAuth as string ?? 'null');
-                if (!state.auth && mercure?.t) sharedWorkerCall('mercure.authorize', {token: mercure});
+                html().dispatchEvent(new CustomEvent('mercureState', {bubbles: true, cancelable: false, detail: e.data.payload}));
+                if (state.connection === 'live') {
+                    const mercure = JSON.parse(html()?.dataset?.mercureAuth as string ?? 'null');
+                    if (!state.auth && mercure?.t) sharedWorkerCall('mercure.authorize', {connection: 'live', token: mercure});
+                }
+
                 break;
         }
 
@@ -154,7 +157,7 @@ async function initSharedWorker(): Promise<boolean> {
 
     const mercure = html()?.dataset?.mercureAuth as string;
     if (mercure)
-        sharedWorkerCall('mercure.authorize', {token: JSON.parse(mercure)});
+        sharedWorkerCall('mercure.authorize', {connection: 'live', token: JSON.parse(mercure)});
 }
 
 export function init () {

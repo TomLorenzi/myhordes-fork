@@ -2,6 +2,7 @@ import * as React from "react";
 import {useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
 import {Const, Global} from "../../defaults";
 import {
+    CitizenCount,
     GameOnboardingAPI,
     OnboardingIdentityPayload, OnboardingPayload,
     OnboardingProfessionPayload, ResponseCitizenCount,
@@ -11,6 +12,7 @@ import {
 import {createRoot} from "react-dom/client";
 import {TranslationStrings} from "./strings";
 import {Tooltip} from "../tooltip/Wrapper";
+import {sharedWorkerCall} from "../../v2/init";
 
 declare var c: Const;
 declare var $: Global;
@@ -173,18 +175,33 @@ const JobSelection = (props: OnboardingProfessionPayloadProps) => {
     const globals = useContext(Globals);
 
     const [jobs, setJobs] = useState<ResponseJobs>();
-    const [citizens, setCitizens] = useState<ResponseCitizenCount>();
+    const [citizens, setCitizens] = useState<CitizenCount[]>();
+    const [token, setToken] = useState<object>();
 
     const jobContainer = useRef<HTMLDivElement>();
 
     useEffect(() => {
         globals.api.jobs(globals.town).then(i => setJobs(i));
-        globals.api.citizens(globals.town).then(i => setCitizens(i));
+        globals.api.citizens(globals.town).then(i => {
+            setCitizens(i.list)
+            setToken(i.token ?? null)
+        });
         return () => {
             setJobs(null);
             setCitizens(null);
         }
     }, [globals.town]);
+
+    useEffect(() => {
+        if (token) {
+            sharedWorkerCall('mercure.configure', {connection: 'town-lobby', config: {reconnect: false}});
+            sharedWorkerCall('mercure.alloc', {connection: 'town-lobby'});
+            sharedWorkerCall('mercure.authorize', {connection: 'town-lobby', token});
+            return () => {
+                sharedWorkerCall('mercure.dealloc', {connection: 'town-lobby'});
+            }
+        }
+    }, [token]);
 
     useLayoutEffect(() => {
         if (!jobContainer.current) return;
@@ -235,7 +252,11 @@ const JobSelection = (props: OnboardingProfessionPayloadProps) => {
         </div> }
         <div>
             <div className="cell rw-12">
-                <h5>{globals.strings.jobs.in_town}</h5>
+                <h5>
+                    <hordes-service-worker-indicator data-connection="town-lobby"/>
+                    &nbsp;
+                    {globals.strings.jobs.in_town}
+                </h5>
                 {(!jobs || !citizens) && <div className="loading"/>}
                 {jobs && citizens && <div className="row prof-list">
                     {jobs?.filter(job => existingProfessions.includes(job.id))?.map(job => <div key={job.id} className="padded cell small center rw-4 rw-lg-6">

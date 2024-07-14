@@ -38,13 +38,14 @@ type State = {
 }
 
 const ServiceWorkerIndicator = (props: {
-    textTitle: string
-    textHelp: string
-    textNoSw: string,
-    textOffline: string,
-    textConnecting: string,
-    textUpgrading: string,
-    textOnline: string,
+    textTitle?: string
+    textHelp?: string
+    textNoSw?: string,
+    textOffline?: string,
+    textConnecting?: string,
+    textUpgrading?: string,
+    textOnline?: string,
+    connection: string,
 }) => {
 
     const [state, setState] = useState<State | null>()
@@ -54,7 +55,7 @@ const ServiceWorkerIndicator = (props: {
     pingRef.current = ping;
 
     useEffect(() => {
-        sharedWorkerCall('mercure.state')
+        sharedWorkerCall('mercure.state', {connection: props.connection})
             .then(s => {
                 if (!state) setState(s);
             })
@@ -63,13 +64,16 @@ const ServiceWorkerIndicator = (props: {
             })
 
         const stateUpdate = e => {
-            setState(e.detail as State);
+            if (e.detail.connection === props.connection)
+                setState(e.detail.state as State);
         };
 
         let timeout = null;
         const pingUpdate = e => {
-            setPing(pingRef.current + 1);
-            timeout = setTimeout(() => setPing(pingRef.current - 1), 100);
+            if (e.detail.connection === props.connection) {
+                setPing(pingRef.current + 1);
+                timeout = setTimeout(() => setPing(pingRef.current - 1), 100);
+            }
         };
 
         html().addEventListener('mercureState', stateUpdate);
@@ -91,12 +95,12 @@ const ServiceWorkerIndicator = (props: {
         else return `rgba(128,128,128,${o})`;
     }
 
-    const getStateString = (s:string, c: boolean): string => {
-        if (c && s === 'connecting') return props.textUpgrading;
-        else if (c) return props.textOnline;
-        else if (s === 'connecting') return props.textConnecting;
-        else if (s === 'closed') return props.textOffline;
-        else return '?';
+    const getStateString = (s:string, c: boolean): null|string => {
+        if (c && s === 'connecting') return props.textUpgrading ?? null;
+        else if (c) return props.textOnline ?? null;
+        else if (s === 'connecting') return props.textConnecting ?? null;
+        else if (s === 'closed') return props.textOffline ?? null;
+        else return null;
     }
 
     const makeDiv = () => <div style={{
@@ -107,15 +111,19 @@ const ServiceWorkerIndicator = (props: {
         background: `${getStateColor(state.state, state.connected, ping > 0 ? 1 : 0.5)}`
     }}/>
 
+    const stateString = state ? getStateString( state.state, state.connected ) : null;
+
     return !state ? <></> : <>
         <div style={{display: 'inline-flex', alignItems: 'center', gap: '4px'}}>
             <div>{ makeDiv() }</div>
-            <div style={{fontSize: '0.75rem', fontWeight: 'bold'}}>{ getStateString( state.state, state.connected ) }</div>
-            <Tooltip additionalClasses="help">
-                <div><b>{ props.textTitle }</b></div>
-                <div>{ props.textHelp }</div>
-                <div>{ !state.connected && props.textNoSw }</div>
-            </Tooltip>
+            {stateString && <div style={{fontSize: '0.75rem', fontWeight: 'bold'}}>{ stateString }</div>}
+            { (props.textTitle || props.textHelp || props.textNoSw) &&
+                <Tooltip additionalClasses="help">
+                    {props.textTitle && <div><b>{ props.textTitle }</b></div>}
+                    {props.textHelp && <div>{ props.textHelp }</div>}
+                    {props.textNoSw && <div>{ !state.connected && props.textNoSw }</div>}
+                </Tooltip>
+            }
         </div>
     </>
 

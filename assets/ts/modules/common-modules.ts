@@ -151,7 +151,7 @@ customElements.define('hordes-service-worker-indicator', class HordesServiceWork
     }
 
     protected static observedAttributeNames() {
-        return [ 'data-text-title', 'data-text-help', 'data-text-no-sw', 'data-text-offline', 'data-text-connecting', 'data-text-upgrading', 'data-text-online' ];
+        return [ 'data-text-title', 'data-text-help', 'data-text-no-sw', 'data-text-offline', 'data-text-connecting', 'data-text-upgrading', 'data-text-online', 'data-connection' ];
     }
 
 }, {  });

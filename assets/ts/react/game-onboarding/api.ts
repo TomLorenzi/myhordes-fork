@@ -38,7 +38,10 @@ export type OnboardingPayload = {
 
 export type ResponseJobs = JobDescription[]
 
-export type ResponseCitizenCount = CitizenCount[]
+export type ResponseCitizenCount = {
+    list: CitizenCount[],
+    token?: object,
+}
 
 export type ResponseConfirm = {
     url: string

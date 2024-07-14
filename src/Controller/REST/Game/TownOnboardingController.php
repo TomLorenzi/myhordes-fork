@@ -18,6 +18,7 @@ use App\Response\AjaxResponse;
 use App\Service\Actions\Cache\CalculateBlockTimeAction;
 use App\Service\Actions\Cache\InvalidateLogCacheAction;
 use App\Service\Actions\Game\OnboardCitizenIntoTownAction;
+use App\Service\Actions\Security\GenerateMercureToken;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\HTMLService;
@@ -160,19 +161,20 @@ class TownOnboardingController extends AbstractController
 
     #[Route(path: '/{town}/citizens', name: 'citizens', methods: ['GET'])]
     #[GateKeeperProfile(only_incarnated: true)]
-    public function citizens(Town $town, EntityManagerInterface $em): JsonResponse
+    public function citizens(Town $town, EntityManagerInterface $em, GenerateMercureToken $token): JsonResponse
     {
         $activeCitizen = $this->fetchActiveCitizen($town);
         if (!$activeCitizen) return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
-        return new JsonResponse(
-            $em->createQueryBuilder()
+        return new JsonResponse([
+            'list' => $em->createQueryBuilder()
                 ->select('COUNT(c.id) AS n', 'p.id AS id')
                 ->from(Citizen::class, 'c')
                 ->leftJoin(CitizenProfession::class, 'p', 'WITH', 'c.profession = p.id')
                 ->where('c.town = :town')->setParameter('town', $town)
                 ->groupBy('p.id')
-                ->getQuery()->getArrayResult()
-        );
+                ->getQuery()->getArrayResult(),
+            'token' => ($token)("myhordes://live/concerns/town-lobby/{$town->getId()}", 300),
+        ]);
     }
 }
