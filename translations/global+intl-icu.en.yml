@@ -1,4 +1,3 @@
----
 'Allgemeiner Fehler.': 'Common error.'
 'Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.': 'The selected forum doesn''t exist or you are lacking the permission to view it.'
 'Dein Text muss mindestens 2 Zeichen lang sein.': 'Your text has to be at least 2 characters long.'
@@ -481,7 +480,7 @@ Nutzungsbedingungen: Terms of Service
 'Hier kannst du eine URL für eine Test- oder Entwicklungsumgebung hinterlegen (z.B. "localhost"). Du siehst dann einen zusätzlichen Button, der dich auf diese Umgebung weiterleitet. Diese URL sowie der zusätzliche Button sind ausschließlich für dich sichtbar.': 'Here you can enter a URL for a test or development environment (e.g. "localhost"). You will then see an additional button that redirects you to this environment. This URL and the additional button are only visible to you.'
 Kopiert!: Copied!
 'Du kannst diese Aktion nicht ausführen, da du <strong>verbannt</strong> wurdest!': 'It is impossible to do this when you have been <strong>shunned by the community</strong>!'
-'Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>{def} Verteidigungspunkt(e)</strong>.': 'Each <strong>Defence Object</strong> in the bank gives the city <strong>{def, select, 1 {1 defense point} other {{def} defense points}}</strong>.'
+'Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>{def} Verteidigungspunkt(e)</strong>.': 'Each <strong>Defence Object</strong> in the bank gives the town <strong>{def, select, 1 {1 defense point} other {{def} defense points}}</strong>.'
 'Eigenes Event organisieren': 'Organize an event'
 'Zurück zur Übersicht': 'Return to overview'
 'Event-Verifizierung beantragen': 'Request event verification'
@@ -503,7 +502,7 @@ Kopiert!: Copied!
 'Bist du sicher, dass du dieses Event löschen möchtest?': 'Are you sure you wish to delete this event?'
 'Weitere Informationen und Regeln anzeigen.': 'View more information and rules.'
 Event-Städte: Event towns
-'Hier kannst du Städte für dein Event anlegen, welche zusammen mit deinem Event gestartet werden. Dir stehen hierfür fast alle Optionen zur Verfügung, die auch Raben für die Erstellung von Städten haben.': 'Here you can create towns for your event, which will be started together with the event. You have almost all the options available to you that Crows have for creating cities.'
+'Hier kannst du Städte für dein Event anlegen, welche zusammen mit deinem Event gestartet werden. Dir stehen hierfür fast alle Optionen zur Verfügung, die auch Raben für die Erstellung von Städten haben.': 'Here you can create towns for your event, which will be started together with the event. You have almost all the options available to you that Crows have for creating towns.'
 'Deiner Kreativität sind somit keine Grenzen gesetzt!': 'There are no limits to your creativity!'
 'Aktuell werden keine Städte mit dem Start des Events automatisch angelegt.': 'Currently, no towns are automatically created with the start of the event.'
 'Automatisch generierter Name': 'Automatically generated name'
@@ -623,6 +622,8 @@ Community-Event: Community Event
 'Die erhälst die gekennzeichneten Benachrichtigungen nur, wenn sie deiner gewählten Sprache entsprechen. Wenn du die entsprechenden Einstellungen änderst oder deine Sprache wechselst, kann es bis zu 24 Stunden dauern, bis die Änderungen für Benachrichtigungen übernommen werden.': 'You will only receive marked notifications if they match the selected language. If you change the affected settings or change your language, notifications may take up to 24 hours to reflect the changes.'
 'Alternativ zu einer E-Mail Adresse kannst du hier auch eine URL eintragen, auf der Spieler eine Kontaktmöglichkeit zu dir finden.': 'Alternatively to an email adress, you may also specify an URL where players can contact you.'
 'Dein Gerät konnte sich nicht beim Benachrichtigungsdienst anmelden. Dies kann durch einen kurzzeitigen Verbindungsausfall passieren. Möglicherweise musst du den Benachrichtigungsdienst auch zunächst in den Privatsphäre-Einstellungen deines Browsers aktivieren.': 'Your device indicated that it failed to register with its push service. This may be the result of a temporary connection problem. It''s also possible that you need to manually enable the push service in your browser''s privacy settings.'
+'Leider scheint dein Gerät oder Browser diese Funktion nicht zu unterstützen.': 'Unfortunately, your device or browser does not seem to support this feature.'
+'Dieser Text ist zu lang. Bitte kürze deinen Text oder zerlege ihn in mehrere Posts.': 'This text is too long. Please shorten your text or split it into several posts.'
 'Dieser Indikator zeigt an, ob du aktuell mit dem Live-Dienst von MyHordes verbunden bist.': 'This indicator shows whether you are currently connected to the MyHordes live service.'
 'Mithilfe des Live-Dienstes erhälst dein System Benachrichtigungen vom MyHordes-Server in Echtzeit, beispielsweise über neue Forenposts oder PNs.': 'With the help of the live service, your system receives notifications from the MyHordes server in real time, for example about new forum posts or PMs.'
 'Aktuell besteht keine Verbindung zum Live-Dienst. Du kannst dennoch wie gewohnt weiter spielen, da alle wichtigen Funktionen auch ohne den Live-Dienst arbeiten können.': 'There is currently no connection to the live service. You can still continue to play as usual, as all important functions can also work without the live service.'

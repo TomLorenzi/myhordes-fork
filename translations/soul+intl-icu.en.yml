@@ -1,4 +1,3 @@
----
 E-Mail-Adresse: Email address
 'Externe ID für Apps': 'External ID for apps'
 'Neue ID generieren': 'Generate a new ID'
@@ -269,7 +268,7 @@ Spieler: Player
 'Stadtübergreifende Kommunikation': 'Intertown communication'
 'Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.': 'You cannot send messages through the message center.'
 Kommentare: Comments
-'Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.': 'You can''t write final words or comments about the city.'
+'Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.': 'You can''t write final words or comments about the town.'
 Gruppenorganisation: Group organization
 'Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.': 'You can''t form or join coalitions.'
 Spielen: Play
@@ -456,9 +455,9 @@ Koalitionseinladungen: my coalition invitations
 'Wenn du eine Seele trotz der Import-Einstränkungen vollständig importieren möchtest, hast du <b>einmalig</b> die Option, deine MyHordes-Seele zurückzusetzen.': 'If you want to fully import a soul despite the import restrictions, you have a <b>one-time</b> option to reset your MyHordes soul.'
 'Folgende Aspekte deiner Seele sind von diesem Reset <b>betroffen</b>:': 'The following aspects of your soul are <b>affected</b> by this reset:'
 'Deine nach dem Ende der Alpha-Phase auf MyHordes erworbenen Seelenpunkte': 'Your soul points earned after the end of the alpha phase on MyHordes'
-'Deine nach dem Ende der Alpha-Phase im Rahmen von Städten erworbenen Auszeichnungen (einschließlich Ranking-Auszeichnungen, die am Ende einer Saison vergeben werden!)': 'Your distinctions earned in cities after the end of the alpha phase (including ranking distinctions given at the end of a season!)'
+'Deine nach dem Ende der Alpha-Phase im Rahmen von Städten erworbenen Auszeichnungen (einschließlich Ranking-Auszeichnungen, die am Ende einer Saison vergeben werden!)': 'Your distinctions earned in towns after the end of the alpha phase (including ranking distinctions given at the end of a season!)'
 'Folgende Aspekte deiner Seele sind von diesem Reset <b>nicht betroffen</b>:': 'The following aspects of your soul are <b>not affected</b> by this reset:'
-'Die Liste deiner bisher auf MyHordes gespielten Städte mit allen angehängten Informationen (Todesart, letzte Worte, überlebte Tage, etc)': 'The list of your cities played on MyHordes so far with all attached information (cause of death, last words, days survived, etc).'
+'Die Liste deiner bisher auf MyHordes gespielten Städte mit allen angehängten Informationen (Todesart, letzte Worte, überlebte Tage, etc)': 'The list of your towns played on MyHordes so far with all attached information (cause of death, last words, days survived, etc.)'
 'Spezielle Auszeichnungen, wie beispielsweise die Alpha-Auszeichnung': 'Special distinctions, such as the Alpha distinction'
 'Gegenstände in deinem spiritueller Rucksack': 'Items in your spiritual backpack'
 'Deine gespielten Heldentage': 'The number of days you played as a hero'
@@ -498,7 +497,7 @@ Umfragen: Surveys
 Deaktiviert: Disabled
 'Nur in Stadtforen': 'Only in the town forum'
 'In allen Foren': 'In all forums'
-'Zum Schutz vor Spam wirst du unabhängig von dieser Einstellung keine Benachrichtigung erhalten, wenn in einem Post mehr als 5 Spieler (10 in Stadtforen) markiert sind.': 'To protect against spam, regardless of this setting, you will not receive a notification if more than 5 players (10 in city forums) are tagged in a post.'
+'Zum Schutz vor Spam wirst du unabhängig von dieser Einstellung keine Benachrichtigung erhalten, wenn in einem Post mehr als 5 Spieler (10 in Stadtforen) markiert sind.': 'To protect against spam, regardless of this setting, you will not receive a notification if more than 5 players (10 in town forums) are tagged in a post.'
 'Der angegebene Spielername ist zu lang.': 'The given username is too long. Please choose a username with 16 characters or less.'
 'Saisonale Events': 'Seasonal Events'
 'Saisonale Events fügen für eine begrenzte Zeit neue Spielinhalte zu allen Städten hinzu. Diese Events werden zu den angegebenen Zeiten automatisch aktiviert und deaktiviert.': 'Seasonal events add new game content to all towns for a limited time. These events are automatically activated and deactivated at the specified times.'

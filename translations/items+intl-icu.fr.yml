@@ -1,4 +1,3 @@
----
 'Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.': 'Vous lancez les dés, vous obtenez {dc1}, {dc2} et {dc3}.'
 'Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!': 'Bravo, vous obtenez un <strong>triplet</strong> ! Qu''est-ce qu''on s''amuse !<hr />Ça vous fait tellement plaisir que vous gagnez <strong>1 PA</strong>.'
 'Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!': 'Vous formez une suite ! C''est toujours sympa pour le moral. <hr />Et ça vous fait tellement plaisir que vous gagnez <strong>1 PA</strong>.'
@@ -989,3 +988,7 @@ Freundschaft: Camaraderie
 'Du hast dein Hündchen *in deinem Haus zurückgelassen*... Hoffentlich nimmt es dir das nicht übel.': 'Vous *avez laissé votre chiot chez vous*... J''espère qu''il ne s''en offusquera pas.'
 'Flammen des Ruhms': 'Flammes de gloire'
 'Als Champion der letzten Saison hast du die Möglichkeit, deine Nachrichten im Forum besonders hervorzuheben.': 'En tant que champion de la saison précédente, vous avez la possibilité de mettre en avant vos messages sur le forum.'
+'Kreischender Wecker (1 Schuss)': 'Réveil-Hurleur (1 charge)'
+'Kreischender Wecker (2 Schuss)': 'Réveil-Hurleur (2 charges)'
+'Kreischender Wecker (3 Schuss)': 'Réveil-Hurleur (3 charges)'
+'Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei und lässt dich nach dem Angriff energetisch mit einem Bonus-AP in den Tag starten.': 'Rien de tel qu''un bon réveil pour vous stimuler les tympans le matin. Fonctionne parfaitement et vous permettra de démarrer votre journée en enfer du bon pied en recevant 1 PA supplémentaire après l''attaque.'

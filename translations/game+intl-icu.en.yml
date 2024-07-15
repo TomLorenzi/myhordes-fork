@@ -1,4 +1,3 @@
----
 'Deine Route wurde gespeichert.': 'Your expedition has been saved.'
 'Du hast deine Beschreibung geändert.': 'You have changed your announcement.'
 '{citizen} hat {item} in den Brunnen geschüttet und damit {num} Rationen Wasser hinzugefügt.': '{citizen} poured {item} into the well and it added {num} water ration(s).'
@@ -455,7 +454,7 @@ Kopfschuss: Shot in the head
 'Soll das eine Schule, ein Parkhaus oder vielleicht ein Kaufhaus sein? Du kannst es nicht erkennen... Das einzige, was von diesem geheimnisvollen Projekt noch übrig ist, sind ein paar verrostete Metallstrukturen.': 'It''s impossible to guess what they were wanting to build here. It could have been a school, a car park, a department store... The rusting metal supports are the only remaining evidence of whatever mysterious project was underway here.'
 "Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: 'Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...'. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...": "Wow - this is a bloody godsend! A well which still works! Completely lost in the middle of nowhere there is nobody here with their rulebook to tell you 'Don't do this, don't do that, don't take too much water, blah blah blah...' Go on, take a drink, it'll be our little secret..."
 'Ursprünglich zur Lagerung von Getreide konstruiert, aber als die Zeit verging und das Getreide knapp wurde, füllten sich die Tanks mit Regenwasser (und einer toten Ratte). Sie brauchen allerdings den richtigen Bausatz, um sie zu benutzen...': 'Originally constructed for storing grain, but as time passed and the grain ran out, the tanks filled with rainwater (and a dead rat). You''ll need the right kit to make use of it though...'
-'Was hier passiert ist erschließt sich dir nicht so ganz... Ein riesiger Felsen ist mit voller Wucht auf die Straße geschleudert worden - doch woher kam er? Rings um dich ist nichts als Wüste...': 'Something truly bizarre seems to have happened here: a huge rock seems to have crash landed in the middle of the road, like some kind of tombstone...Something truly bizarre seems to have happened here: a huge rock seems to have crash landed in the middle of the road, like some kind of tombstone...'
+'Was hier passiert ist erschließt sich dir nicht so ganz... Ein riesiger Felsen ist mit voller Wucht auf die Straße geschleudert worden - doch woher kam er? Rings um dich ist nichts als Wüste...': 'Something truly bizarre seems to have happened here: a huge rock seems to have crash landed in the middle of the road, like some kind of tombstone...'
 'Ein Ort des Friedens und der Gelassenheit... Wenn Sie bewaffnet und bereit sind, um Ihr Leben zu kämpfen. Die umgebende Vegetation ist unheimlich und riecht stark nach Tod, unidentifizierte Kreaturen lauern im Schatten... Sie haben das überwältigende Gefühl, dass eine Kreatur aus einer Hecke ausbrechen und Sie angreifen wird.': 'A place of peace and serenity... If you are armed and ready to fight for your life. The surrounding vegetation is sinister and smells strongly of death, unidentified creatures lurk in the shadows... You have the overwhelming feeling that some creature is going to burst out from a hedge and attack you.'
 "Wenn Sie drohen, verstümmeln oder morden wollen, haben Sie hier die Hauptader getroffen... Die in den Wänden steckenden Schrapnelle, Einschusslöcher und Trümmer ringsum geben Ihnen eine gute Vorstellung davon, welche Art von 'Ereignissen' sich hier abgespielt haben...": "If you like to menace, maim or murder, you've hit the mother lode here... The shrapnel stuck in the walls, bullet holes and wreckage all around give you a good idea of what genre of 'events' took place here..."
 'Das Schiebetor dieses Supermarktlagers hat allen Plünderungsversuchen erfolgreich getrotzt. Durch einen etwas versteckten Seiteneingang gelangst du ins Innere und machst dich sofort auf die Suche nach Dingen, die du noch gebrauchen kannst...': 'The door to this supermarket stockroom has thus far resisted would-be pillagers... surely there must be something tasty inside worth having...'
@@ -481,7 +480,7 @@ Wächt: W-Men
 Müllhalde: Dump
 Katapult: Catapult
 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...': 'After exhaustive searching, the only thing you have discovered is the emptiness of wasted time...'
-'Nach einigen Anstrengungen hast du folgendes gefunden: {item}!': 'Scavengin in the rubbish lying around near the town, you manage to find: {item}!'
+'Nach einigen Anstrengungen hast du folgendes gefunden: {item}!': 'Scavenging in the rubbish lying around near the town, you manage to find: {item}!'
 'Du kannst nur einen Behälter auf einmal tragen.': 'You can only carry one container at a time.'
 'Die Wüste erstreckt sich, so weit das Auge reicht... Wie viele Männer sind in dieser Weite verloren gegangen? Wer weiß, ob Sie nicht der Nächste sind?': 'The desert stretches for as far as the eye can see... How many lives were lost in its vastness? Who is to say that you won''t be next?'
 'Sie sind allein in dieser Gegend...': 'You are alone in the zone...'
@@ -731,7 +730,7 @@ Headshot: Headshot
 'Hier wurde bereits ein Bauplan gefunden.': 'Someone has already studied this building so it is no longer possible to obtain the construction blueprint here...'
 '{citizen} möchte nicht in diese Richtung gehen! <strong>Er bittet dich darum, ihn in die Stadt zu bringen...</strong>': '{citizen} wants to go back to the Town and <strong>will not follow you in this direction...</strong>'
 'Die Tarnung von {name} ist aufgeflogen!': '{name}''s camouflage has been blown!'
-'Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...': 'The object you have just found cannot fit in your rucksack, so you have left it on the ground...'
+'Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...': 'This item cannot fit in your rucksack, so you have left it on the ground...'
 'Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...': 'You have uncovered some of the sector, but there is still a substantial amount of debris blocking the way...'
 'Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: {ruin} beginnen!': 'Congratulations, the zone has been completely uncovered! You can now start to search for items in the: {ruin}!'
 'Du hast {count} Aktionspunkt(e) benutzt.': 'You have used {count} action point(s).'
@@ -870,7 +869,7 @@ Umdrehen: Turn around
 'Der {rolename} der Stadt ist {username}': "The {rolename} of the town is {username}"
 Status: Status
 Notruf: Call for help
-'Rohstoff am Boden (Holz, Metall...)': 'Ressource(s) (wood, metal...)'
+'Rohstoff am Boden (Holz, Metall...)': 'Resource(s) (wood, metal...)'
 'Verschiedene Gegenstände am Boden': 'Item(s)'
 'Wichtige(r) Gegenstand/-ände!': 'Important object(s)!'
 'Zone leer': 'Depleted zone'
@@ -1217,7 +1216,7 @@ Dieb: Ali Baba
 Fantomas: Rusty Ryan
 'Ali Baba': 'Danny Ocean'
 Meisterdieb: Master Thief
-Kleptomane: Cleptomaniac
+Kleptomane: Kleptomaniac
 'Dein Haus ist mein Haus': 'Your home is my home'
 Ästhet: Coquette
 Schaufenstergestalter: Good taste personified
@@ -2193,7 +2192,7 @@ Fortfahren...: Continue...
 'Ganz genau, das bist du!': 'Yes, it''s really you...'
 'gesichertes Haus': 'protected house'
 'In dieses Haus kann <strong>nicht eingebrochen</strong> werden. Es ist durch ein Schloss oder etwas anderes gesichert...': 'This house <strong>cannot be burgled</strong>. It has a lock or something...'
-'Das Stadttor wurde bereits von einem anderen pflichtbewussten Bürger geschlossen.': 'The city gates have been closed by another conscientious citizen.'
+'Das Stadttor wurde bereits von einem anderen pflichtbewussten Bürger geschlossen.': 'The town gates have been closed by another conscientious citizen.'
 'Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.': 'You grab this wandering soul and pray that the shaman knows how to brew this potion! And you survive! What a luck, you wouldn''t have bet a kopek on this charlatan.'
 'Die Seele in MyHordes': 'The Soul in MyHordes'
 'Gerechtigkeit in MyHordes': 'Justice in MyHordes'
@@ -2202,7 +2201,7 @@ Def.: Def.
 'Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.': 'This score reflects how active a player is and whether they connect regularly.'
 Löschen: Delete
 'Meine persönliche Nachricht ändern': 'Change my personal message'
-'Einen Aufstand der Verbannten vorbereiten (optional).': 'Help prepare the uprising (optional).'
+'Einen Aufstand der Verbannten vorbereiten (optional).': 'Help prepare the uprising (optional)'
 'Solange dieser Bürger <strong>vor Angst erstarrt</strong> ist, wird es für ihn unmöglich sein, inmitten von Zombies zu handeln...': 'As long as this citizen is <strong>terrorized</strong>, it will be impossible for him to act in the midst of zombies...'
 'Mit dieser Aktion kannst du die Stadt betreten, ohne dass es ins Stadtregister eingetragen wird. Wenn du ein paar Spieler eskortierst, werden diese am Stadttor zurückgelassen.': 'This action allows you to go through the town gates without it being recorded in the Register. If you are escorting players, they will be left at the town gates.'
 'Mit dieser Aktion kannst du deinen unersättlichen Hunger nach Menschenfleisch stillen!': 'With this action, you can satisfy your insatiable hunger for human flesh!'
@@ -2935,7 +2934,7 @@ Sandkasten-Scharfschütze_f: Sandstorm Sniper
 'Es scheint, dass alle guten Verstecke bereits von deinen "Freunden" besetzt sind. Du musst also einen anderen Ort finden oder improvisieren...': 'It seems that all the good hideouts are already occupied. You''ll have to find another place, or improvise...'
 'Entfernung von hier': 'Distance from here'
 'Entfernung zur Stadt': 'Distance from town'
-'Bei {citizens} Bürgern in der Stadt': 'With {citizens} citizens in the city'
+'Bei {citizens} Bürgern in der Stadt': 'With {citizens} citizens in town'
 'Du bist erschöpft!': 'You are exhausted!'
 'Du hast dich gestern so sehr verausgabt, dass du in der Nacht nicht genug Kraft schöpfen konntest, um deine Aktionspunkte vollständig zu regenerieren.': 'You exhausted yourself so much yesterday by hanging a garland that you couldn''t gain enough strength during the night to fully regenerate your action points.'
 'Das Stadttor kann während eines Lockdowns nicht geöffnet werden!': 'It is impossible to open the town gates during a quarantine period!'
@@ -2956,5 +2955,5 @@ Sandkasten-Scharfschütze_f: Sandstorm Sniper
 Zerfleischt: Mutilated
 'Es gibt eine gute und eine schlechte Nachricht. Lass uns mit der Guten anfangen: Der Hund des Bürgers, in dessen Haus du soeben eingebrochen bist, muss heute nicht mehr gefüttert werden. Die Schlechte: Nunja...': 'There is good news and bad news. Let''s start with the good news: the citizen''s dog you just broke into doesn''t need to be fed today. The Bad: Well...'
 SP: EP
-Schritt-Punkte: Exploration Point
+Schritt-Punkte: Exploration Points
 'Mithilfe deiner Schritt-Punkte kannst du dich in der Außenwelt bewegen, ohne Aktionspunkte ausgeben zu müssen': 'You can use your Exploration Points to move around the World-Beyond without having to spend Action Points.'

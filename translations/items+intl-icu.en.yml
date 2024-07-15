@@ -1,4 +1,3 @@
----
 'Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.': 'You roll the dice, you get a {dc1}, a {dc2} and a {dc3}.'
 'Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!': 'Nicely done, you got three of a kind! This is a great game!<hr />You''re enjoying it so much that you have gained <strong>1AP</strong>!'
 'Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!': 'You have rolled a straight ! That always raises the spirits.<hr />You''re enjoying it so much that you have gained <strong>1AP</strong>!'
@@ -30,7 +29,7 @@ Machete: Machete
 Teppichmesser: Box Cutter
 Einkaufswagen: Shopping Trolley
 Dosenöffner: Can Opener
-'Extra Tasche': 'Manbag'
+'Extra Tasche': 'Extra Backpack'
 Streichholzschachtel: Box of Matches
 Beruhigungsspritze: Valium Shot
 Schaukelstuhl: Rocking Chair
@@ -153,7 +152,7 @@ Metallsäge: Hacksaw
 'Gut erhaltener Holzscheit': 'Quality Log'
 'Defektes Elektrogerät': 'Broken Electronic Device'
 Möbelpackung: Flatpacked Furniture
-'Beschädigte Metallsäge': 'Broken Hacksaw'
+'Beschädigte Metallsäge': 'Damaged Hacksaw'
 Getriebe: Mechanism
 Holzbock: Trestle
 Järpen-Tisch: Järpen Table
@@ -902,7 +901,7 @@ Ruhm: Glory
 'Dieses Gefühl des Wohlbefindens, das dieser kleine Kaffee hervorruft, bringt dich sofort wieder auf die Beine. Aah!': 'The sensation of well-being brought about by this small coffee puts you back on your feet instantly. Aah !'
 '{watchpoint} pkt attacke': "\n          {ref__icu, select,\n            on {\n              {watchpoint, plural,\n                =-1 {# attack pt}\n                =1 {# attack pt}\n                other {# attack pts}\n              }\n            }\n            other {{watchpoint__copy} attack pts}\n          }\n        "
 'Vorsicht, zu viel Musik ist schädlich, und einer deiner Mitbürger hat dieses Instrument heute bereits benutzt. Deine Ohren würden das nicht überleben.': 'Warning, overplaying is as bad as not playing at all, and one of the townspeople has already played it today. Your ears wouldn''t be able to handle it!'
-'<t-fail>Du hast <strong>keine Wasserwaffen zum Befüllen</strong> in deinem Rucksack oder deiner Truhe.</t-fail><nt-fail>Du hast {items_spawn} dank des Wasserhahns kostenlos auffüllen können.</nt-fail>': '<t-fail>You have <strong>no water weapons to fill</strong> in your bag or in your chest.</t-fail><nt-fail>You have filled {items_spawn} for free thanks to the <strong>Faucets</strong> of your city!</nt-fail>'
+'<t-fail>Du hast <strong>keine Wasserwaffen zum Befüllen</strong> in deinem Rucksack oder deiner Truhe.</t-fail><nt-fail>Du hast {items_spawn} dank des Wasserhahns kostenlos auffüllen können.</nt-fail>': '<t-fail>You have <strong>no water weapons to fill</strong> in your bag or in your chest.</t-fail><nt-fail>You have filled {items_spawn} for free thanks to the <strong>Faucets</strong> of your town!</nt-fail>'
 'Diese Aktion wurde in dieser Partie schon ausgeführt.': 'This action has already been used in this game.'
 '<nt-morphed>Gute Nachrichten: Es ist noch Wasser im Kanister!</nt-morphed><t-morphed><strong>Der Kanister ist LEER</strong>!</t-morphed>': '<nt-morphed>Good news, the jerrycan still contains water...</nt-morphed><t-morphed><strong>The jerrycan is EMPTY</strong>!</t-morphed>'
 'Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: <strong>{home_storage}</strong>.': "\n          You install {item} at home. It's not very aesthetic. But honestly... who cares?{hr}\n          {ref__icu, select,\n            on {\n              {home_storage, plural,\n                =1 {This item allows you to permanently add <strong># slot</strong> to your chest.}\n                other {This item allows you to permanently add <strong># slots</strong> to your chest.}\n              }\n            }\n            other { This item allows you to add <strong>{home_storage__copy} slot(s)</strong> permanently to your chest.}\n          }\n        "
@@ -923,7 +922,7 @@ Ruhm: Glory
 'Verbessert die Verteidigung': 'Increases defense'
 'Verhindert Diebstähle': 'Prevents thefts'
 'Sieht schön aus, wenn es zu einer Girlande gebunden wird.': 'It''s pretty, once tied in a garland.'
-'Sie ist beängstigend.': 'Sie ist beängstigend.'
+'Sie ist beängstigend.': 'It''s frightening.'
 'Macht Miau': 'He is Meowing'
 'Befiehl {dogname}, deinen Rucksackinhalt in die Stadt zu bringen:': 'Ask {dogname} to take the contents of your rucksack back to town and put them in:'
 'Du kannst ihn auch mit Drogen dopen:': 'Alternatively you could drug him:'
@@ -935,9 +934,9 @@ Ruhm: Glory
 'Wenn du den Plan studieren willst, musst du in die relative Ruhe der Stadt zurückkehren.': 'To study the plans, head back to the relative calm of the town.'
 'Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.': 'You have to be more than 3 kilometers from the town to do that.'
 'Hierfür hast du keinen Platz.': 'You have no room for this.'
-'Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...': 'You can''t use this vaccine against yourself or become a ghoul''s best friend...'
+'Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...': 'You can''t use this vaccine on yourself or become a ghoul''s best friend...'
 Eintrittskarte: Admission ticket
-'Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.': 'This allows you to join cities even though you haven''t reached the minimum number of soul points.'
+'Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.': 'This allows you to join towns even though you haven''t reached the minimum number of soul points.'
 'Du bist <strong>zu weit von der Stadt entfernt</strong>, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.': 'You are currently <strong>too far from the town to use this power</strong>! You are {km_from_town} km away, and the maximum distance is 11 km.</div>'
 Toxin: Toxin
 'Du hältst das Fläschchen an deine Nase....WOOOW! Der Gestank alleine könnte ein Pferd töten.': 'You bring the vial close to your nose and take a whiff. Whew! The smell alone is enough to kill a horse. '
@@ -989,3 +988,7 @@ Freundschaft: Brothers in Arms
 'Du hast dein Hündchen *in deinem Haus zurückgelassen*... Hoffentlich nimmt es dir das nicht übel.': 'You left your doggie *at home*... I hope it''s not offended.'
 'Flammen des Ruhms': 'Flames of Glory'
 'Als Champion der letzten Saison hast du die Möglichkeit, deine Nachrichten im Forum besonders hervorzuheben.': 'As champion of the previous season, you have the opportunity to highlight your messages on the forum.'
+'Kreischender Wecker (1 Schuss)': 'Screaming Alarm Clock (1 charge)'
+'Kreischender Wecker (2 Schuss)': 'Screaming Alarm Clock (2 charges)'
+'Kreischender Wecker (3 Schuss)': 'Screaming Alarm Clock (3 charges)'
+'Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei und lässt dich nach dem Angriff energetisch mit einem Bonus-AP in den Tag starten.': 'There''s nothing quite like a good alarm to stimulate the old eardrums of a morning. Works perfectly and lets you start your day in hell on the right foot with a bonus of 1 extra AP given after the attack.'

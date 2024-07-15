@@ -1,4 +1,3 @@
----
 'Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.': 'Lanzas los dados y obtienes {dc1}, {dc2} y {dc3}.'
 'Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!': '¡Bravo, obtienes un Trío! ¡Es genial!<hr />Eso te pone tan contento que <strong>ganas 1PA</strong>.'
 'Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!': '¡Formas una escalera!<hr />Eso te pone tan contento que <strong>ganas 1PA</strong>.'
@@ -295,10 +294,10 @@ Tretmine: Mina antipersonal
 Laserdiode: Diodo láser
 'Selbstgebaute Gitarre': 'Guitarra artesanal'
 LSD: LSD
-'Starker Laserpointer (4 Schuss)': 'Puntero láser potente de 4 cargas'
-'Starker Laserpointer (3 Schuss)': 'Puntero láser potente de 3 cargas'
-'Starker Laserpointer (2 Schuss)': 'Puntero láser potente de 2 cargas'
-'Starker Laserpointer (1 Schuss)': 'Puntero láser potente de 1 carga'
+'Starker Laserpointer (4 Schuss)': 'Puntero láser potente (4 cargas)'
+'Starker Laserpointer (3 Schuss)': 'Puntero láser potente (3 cargas)'
+'Starker Laserpointer (2 Schuss)': 'Puntero láser potente (2 cargas)'
+'Starker Laserpointer (1 Schuss)': 'Puntero láser potente (1 carga)'
 'Starker Laserpointer (Leer)': 'Puntero láser potente descargado'
 Teleskop: Telescopio
 'Unpersönliche Explodierende Fußmatte': 'Felpudo explosivo'
@@ -989,3 +988,7 @@ Freundschaft: Camaradería
 'Du hast dein Hündchen *in deinem Haus zurückgelassen*... Hoffentlich nimmt es dir das nicht übel.': '*Dejaste a tu cachorro en casa*... Espero que no se ofenda.'
 'Flammen des Ruhms': 'Llamas de gloria'
 'Als Champion der letzten Saison hast du die Möglichkeit, deine Nachrichten im Forum besonders hervorzuheben.': 'Como campeón de la temporada anterior, tienes la oportunidad de resaltar tus mensajes en el foro.'
+'Kreischender Wecker (1 Schuss)': 'Despertador chillón (1 carga)'
+'Kreischender Wecker (2 Schuss)': 'Despertador chillón (2 cargas)'
+'Kreischender Wecker (3 Schuss)': 'Despertador chillón (3 cargas)'
+'Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei und lässt dich nach dem Angriff energetisch mit einem Bonus-AP in den Tag starten.': 'Nada mejor que perforarte los tímpanos para empezar la mañana. Funciona perfectamente y te permitirá empezar tu día en el infierno con el pie derecho recibiendo 1 PA adicional tras el ataque.'
