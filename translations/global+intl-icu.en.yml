@@ -481,7 +481,7 @@ Nutzungsbedingungen: Terms of Service
 'Hier kannst du eine URL für eine Test- oder Entwicklungsumgebung hinterlegen (z.B. "localhost"). Du siehst dann einen zusätzlichen Button, der dich auf diese Umgebung weiterleitet. Diese URL sowie der zusätzliche Button sind ausschließlich für dich sichtbar.': 'Here you can enter a URL for a test or development environment (e.g. "localhost"). You will then see an additional button that redirects you to this environment. This URL and the additional button are only visible to you.'
 Kopiert!: Copied!
 'Du kannst diese Aktion nicht ausführen, da du <strong>verbannt</strong> wurdest!': 'It is impossible to do this when you have been <strong>shunned by the community</strong>!'
-'Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>{def} Verteidigungspunkt(e)</strong>.': 'Each <strong>Defence Object</strong> in the bank gives the city <strong>{def, select, 1 {1 defense point} other {{def} defense points}}</strong>.'
+'Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>{def} Verteidigungspunkt(e)</strong>.': 'Each <strong>Defence Object</strong> in the bank gives the town <strong>{def, select, 1 {1 defense point} other {{def} defense points}}</strong>.'
 'Eigenes Event organisieren': 'Organize an event'
 'Zurück zur Übersicht': 'Return to overview'
 'Event-Verifizierung beantragen': 'Request event verification'
@@ -503,7 +503,7 @@ Kopiert!: Copied!
 'Bist du sicher, dass du dieses Event löschen möchtest?': 'Are you sure you wish to delete this event?'
 'Weitere Informationen und Regeln anzeigen.': 'View more information and rules.'
 Event-Städte: Event towns
-'Hier kannst du Städte für dein Event anlegen, welche zusammen mit deinem Event gestartet werden. Dir stehen hierfür fast alle Optionen zur Verfügung, die auch Raben für die Erstellung von Städten haben.': 'Here you can create towns for your event, which will be started together with the event. You have almost all the options available to you that Crows have for creating cities.'
+'Hier kannst du Städte für dein Event anlegen, welche zusammen mit deinem Event gestartet werden. Dir stehen hierfür fast alle Optionen zur Verfügung, die auch Raben für die Erstellung von Städten haben.': 'Here you can create towns for your event, which will be started together with the event. You have almost all the options available to you that Crows have for creating towns.'
 'Deiner Kreativität sind somit keine Grenzen gesetzt!': 'There are no limits to your creativity!'
 'Aktuell werden keine Städte mit dem Start des Events automatisch angelegt.': 'Currently, no towns are automatically created with the start of the event.'
 'Automatisch generierter Name': 'Automatically generated name'
@@ -624,3 +624,4 @@ Community-Event: Community Event
 'Alternativ zu einer E-Mail Adresse kannst du hier auch eine URL eintragen, auf der Spieler eine Kontaktmöglichkeit zu dir finden.': 'Alternatively to an email adress, you may also specify an URL where players can contact you.'
 'Dein Gerät konnte sich nicht beim Benachrichtigungsdienst anmelden. Dies kann durch einen kurzzeitigen Verbindungsausfall passieren. Möglicherweise musst du den Benachrichtigungsdienst auch zunächst in den Privatsphäre-Einstellungen deines Browsers aktivieren.': 'Your device indicated that it failed to register with its push service. This may be the result of a temporary connection problem. It''s also possible that you need to manually enable the push service in your browser''s privacy settings.'
 'Leider scheint dein Gerät oder Browser diese Funktion nicht zu unterstützen.': 'Unfortunately, your device or browser does not seem to support this feature.'
+'Dieser Text ist zu lang. Bitte kürze deinen Text oder zerlege ihn in mehrere Posts.': 'This text is too long. Please shorten your text or split it into several posts.'
