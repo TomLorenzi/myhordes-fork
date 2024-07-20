@@ -35,6 +35,27 @@ class HeroSkillPrototype
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?HeroicActionPrototype $unlocked_action = null;
 
+    #[ORM\Column]
+    private ?bool $legacy = null;
+
+    #[ORM\Column(length: 16, nullable: true)]
+    private ?string $groupIdentifier = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $level = null;
+
+    #[ORM\Column]
+    private ?bool $enabled = null;
+
+    #[ORM\Column]
+    private ?bool $professionItems = null;
+
+    #[ORM\ManyToOne]
+    private ?FeatureUnlockPrototype $inhibitedBy = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $grantsChestSpace = null;
+
     public function __construct()
     {
         $this->start_items = new ArrayCollection();
@@ -126,6 +147,90 @@ class HeroSkillPrototype
     public function setUnlockedAction(?HeroicActionPrototype $unlocked_action): static
     {
         $this->unlocked_action = $unlocked_action;
+
+        return $this;
+    }
+
+    public function isLegacy(): ?bool
+    {
+        return $this->legacy;
+    }
+
+    public function setLegacy(bool $legacy): static
+    {
+        $this->legacy = $legacy;
+
+        return $this;
+    }
+
+    public function getGroupIdentifier(): ?string
+    {
+        return $this->groupIdentifier;
+    }
+
+    public function setGroupIdentifier(?string $groupIdentifier): static
+    {
+        $this->groupIdentifier = $groupIdentifier;
+
+        return $this;
+    }
+
+    public function getLevel(): ?int
+    {
+        return $this->level;
+    }
+
+    public function setLevel(?int $level): static
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
+    public function isEnabled(): ?bool
+    {
+        return $this->enabled;
+    }
+
+    public function setEnabled(bool $enabled): static
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    public function isProfessionItems(): ?bool
+    {
+        return $this->professionItems;
+    }
+
+    public function setProfessionItems(bool $professionItems): static
+    {
+        $this->professionItems = $professionItems;
+
+        return $this;
+    }
+
+    public function getInhibitedBy(): ?FeatureUnlockPrototype
+    {
+        return $this->inhibitedBy;
+    }
+
+    public function setInhibitedBy(?FeatureUnlockPrototype $inhibitedBy): static
+    {
+        $this->inhibitedBy = $inhibitedBy;
+
+        return $this;
+    }
+
+    public function getGrantsChestSpace(): ?int
+    {
+        return $this->grantsChestSpace;
+    }
+
+    public function setGrantsChestSpace(?int $grantsChestSpace): static
+    {
+        $this->grantsChestSpace = $grantsChestSpace;
 
         return $this;
     }

@@ -30,6 +30,8 @@ class HeroSkillPrototypeRepository extends ServiceEntityRepository
     public function getNextUnlockable(int $currentDays) {
         return $this->createQueryBuilder('h')
             ->andWhere('h.daysNeeded > :days')
+            ->andWhere('h.enabled = 1')
+            ->andWhere('h.legacy = 1')
             ->orderBy('h.daysNeeded', 'ASC')
             ->addOrderBy('h.id', 'ASC')
             ->setParameter('days', $currentDays)
@@ -41,6 +43,8 @@ class HeroSkillPrototypeRepository extends ServiceEntityRepository
     public function getUnlocked(int $currentDays) {
         return $this->createQueryBuilder('h')
             ->andWhere('h.daysNeeded <= :days')
+            ->andWhere('h.enabled = 1')
+            ->andWhere('h.legacy = 1')
             ->orderBy('h.daysNeeded', 'ASC')
             ->addOrderBy('h.id', 'ASC')
             ->setParameter('days', $currentDays)
@@ -51,6 +55,8 @@ class HeroSkillPrototypeRepository extends ServiceEntityRepository
     public function getLatestUnlocked(int $currentDays) {
         return $this->createQueryBuilder('h')
             ->andWhere('h.daysNeeded <= :days')
+            ->andWhere('h.enabled = 1')
+            ->andWhere('h.legacy = 1')
             ->orderBy('h.daysNeeded', 'DESC')
             ->addOrderBy('h.id', 'DESC')
             ->setParameter('days', $currentDays)

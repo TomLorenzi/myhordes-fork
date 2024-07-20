@@ -90,8 +90,11 @@ class UserHandler
                 return false;
         }
 
-        $skills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getUnlocked($user->getAllHeroDaysSpent());
-        return in_array($skill, $skills);
+        if (!$skill->isEnabled()) return false;
+        if ($skill->isLegacy()) {
+            $skills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getUnlocked($user->getAllHeroDaysSpent());
+            return in_array($skill, $skills);
+        } else return false;
     }
 
     public function hasSeenLatestChangelog(User $user, ?string $fallback_lang): bool {

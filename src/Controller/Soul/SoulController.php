@@ -391,7 +391,9 @@ class SoulController extends CustomAbstractController
         $latestSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getLatestUnlocked($user->getAllHeroDaysSpent());
         $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($user->getAllHeroDaysSpent());
 
-        $allSkills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->findAll();
+        $allSkills = array_filter( $this->entity_manager->getRepository(HeroSkillPrototype::class)->findAll(),
+            fn(HeroSkillPrototype $p) => $p->isEnabled() && $p->isLegacy()
+        );
 
         $factor1 = $latestSkill !== null ? $latestSkill->getDaysNeeded() : 0;
         $progress = $nextSkill !== null ? ($user->getAllHeroDaysSpent() - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 0;

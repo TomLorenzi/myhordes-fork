@@ -66,24 +66,24 @@ readonly class OnboardCitizenIntoTownAction
 
             /** @var HeroSkillPrototype $skill */
             foreach ($skills as $skill) {
-                switch($skill->getName()){
-                    case "largechest1":
-                    case "largechest2":
-                        $citizen->getHome()->setAdditionalStorage($citizen->getHome()->getAdditionalStorage() + 1);
-                        break;
-                    case 'apag':
-                        // Only give the APAG via Hero XP if it is not unlocked via Soul Inventory
-                        if (!$this->userHandler->checkFeatureUnlock( $citizen->getUser(), 'f_cam', false ) ) {
-                            $item = ($this->itemFactory->createItem( "photo_3_#00" ))->setEssential(true);
-                            $this->proxy->transferItem($citizen, $item, to: $inventory);
-                        }
-                        break;
+
+                if ($feature = $skill->getInhibitedBy()) {
+                    if ($this->userHandler->checkFeatureUnlock( $citizen->getUser(), $feature, false ) )
+                        continue;
                 }
+
+                // Grant chest space
+                if ($skill->getGrantsChestSpace() > 0)
+                    $citizen->getHome()->setAdditionalStorage($citizen->getHome()->getAdditionalStorage() + $skill->getGrantsChestSpace());
 
                 // If we have Start Items linked to the Skill, add them to the chest
                 if ($skill->getStartItems()->count() > 0) {
                     foreach ($skill->getStartItems() as $prototype) {
-                        $this->inventoryHandler->forceMoveItem($citizen->getHome()->getChest(), $this->itemFactory->createItem($prototype));
+
+                        if ($skill->isProfessionItems()) {
+                            $item = ($this->itemFactory->createItem( $prototype ))->setEssential(true);
+                            $this->proxy->transferItem($citizen, $item, to: $inventory);
+                        } else $this->inventoryHandler->forceMoveItem($citizen->getHome()->getChest(), $this->itemFactory->createItem($prototype));
                     }
                 }
 

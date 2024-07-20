@@ -26,6 +26,11 @@ abstract class Element implements ElementInterface
         return $this->data[$name] ?? $this->provide_default($name);
     }
 
+    public function __isset(string $name): bool
+    {
+        return isset($this->data[$name]) || !empty($this->provide_default($name));
+    }
+
     /**
      * @throws \Exception
      */
