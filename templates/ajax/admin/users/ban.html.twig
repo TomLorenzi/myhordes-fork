@@ -227,6 +227,46 @@
 
             </div>
 
+            <div class="row">
+                <div class="cell rw-12 padded">
+                    <h5>{{ 'Weitere Aktionen'|trans({},'admin') }}</h5>
+                    <div class="row">
+                        <div class="cell padded rw-3 rw-sm-12 note note-lightest">
+                            {{ 'Bekannte IP-Adressen'|trans({}, 'admin') }}
+                        </div>
+                        <div class="cell padded rw-3 rw-sm-12">
+                            {% if blocked_ips > 0 %}
+                                {{ '{n} (davon {n2} bereits blockiert)'|trans({n: known_ips, n2: blocked_ips},'admin') }}
+                            {% elseif known_ips > 0 %}
+                                {{ known_ips }}
+                            {% endif %}
+                        </div>
+                        <div class="cell padded rw-6 rw-sm-12 right">
+                            {% if blocked_ips < known_ips %}
+                                <button class="inline" data-fetch="{{ path('rest_admin_blacklist_spam_add_user_ips', {id: user.id}) }}" data-fetch-method="put" data-fetch-load="{{ path('admin_users_ban_view', {id: user.id}) }}">{{ 'Temporär für Neuregistrierungen sperren' }}</button>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="cell padded rw-3 rw-sm-12 note note-lightest">
+                            {{ 'Foren-Posts'|trans({}, 'admin') }}
+                        </div>
+                        <div class="cell padded rw-6 rw-sm-12">
+                            {% if closed_posts > 0 %}
+                                {{ '{n} (davon {n2} gelöscht)'|trans({n: open_posts + closed_posts, n2: closed_posts},'admin') }}
+                            {% elseif open_posts > 0 %}
+                                {{ open_posts }}
+                            {% endif %}
+                        </div>
+                        <div class="cell padded rw-3 rw-sm-12 right">
+                            {% if open_posts > 0 and is_granted("ROLE_SUB_ADMIN") %}
+                                <button class="inline" data-fetch="{{ path('rest_admin_forum_management_purge_user_posts', {id: user.id}) }}" data-fetch-method="delete" data-fetch-load="{{ path('admin_users_ban_view', {id: user.id}) }}" data-fetch-confirm="{{ 'Bestätigen?'|trans({},'global') }}">{{ 'Alle Posts löschen' }}</button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
 

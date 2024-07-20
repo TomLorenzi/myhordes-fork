@@ -94,12 +94,13 @@ class AdminSpamController extends AdminActionController
             if ($line[0] === '@' || $line[0] === '.') $line = substr($line, 1);
 
             $this_entry = DomainBlacklistType::EmailDomain->convert( $line );
-            if (!$repo->findOneBy(['domain' => $this_entry, 'type' => DomainBlacklistType::EmailDomain]))
+            if (!($existing = $repo->findOneBy(['domain' => $this_entry, 'type' => DomainBlacklistType::EmailDomain])))
                 $this->entity_manager->persist(
                     (new AntiSpamDomains())
                         ->setDomain($this_entry)
                         ->setType(DomainBlacklistType::EmailDomain)
                 );
+            else $this->entity_manager->persist($existing->setUntil(null));
         }
 
         $this->entity_manager->flush();

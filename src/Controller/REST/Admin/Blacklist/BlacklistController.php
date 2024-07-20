@@ -11,6 +11,7 @@ use App\Entity\User;
 use App\Enum\DomainBlacklistType;
 use App\Enum\UserAccountType;
 use App\Service\JSONRequestParser;
+use App\Service\User\UserAccountService;
 use App\Structures\MyHordesConf;
 use DateTime;
 use DateTimeImmutable;
@@ -43,7 +44,7 @@ class BlacklistController extends CustomAbstractCoreController
      * @param TranslatorInterface $translator
      * @return JsonResponse
      */
-    #[Route(path: '/itentifier', name: 'check', methods: ['POST'])]
+    #[Route(path: '/identifier', name: 'check', methods: ['POST'])]
     public function check(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $translator): JsonResponse {
         if (!$this->decode( $parser, $type, $value ))
             return new JsonResponse([], Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -61,7 +62,7 @@ class BlacklistController extends CustomAbstractCoreController
      * @param TranslatorInterface $translator
      * @return JsonResponse
      */
-    #[Route(path: '/itentifier', name: 'add', methods: ['PUT'])]
+    #[Route(path: '/identifier', name: 'add', methods: ['PUT'])]
     #[IsGranted('ROLE_SUB_ADMIN')]
     public function add(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $translator): JsonResponse {
         if (!$this->decode( $parser, $type, $value ))
@@ -71,7 +72,7 @@ class BlacklistController extends CustomAbstractCoreController
             $em->getRepository( AntiSpamDomains::class )->findOneBy([ 'type' => $type, 'domain' => $value ]) ??
             (new AntiSpamDomains())->setType( $type )->setDomain( $value );
 
-        $em->persist( $entity );
+        $em->persist( $entity->setUntil(null) );
         $em->flush();
         $this->addFlash('notice', $translator->trans('Erfolgreich hinzugefügt.', [], 'admin'));
 
@@ -84,7 +85,7 @@ class BlacklistController extends CustomAbstractCoreController
      * @param TranslatorInterface $translator
      * @return JsonResponse
      */
-    #[Route(path: '/itentifier', name: 'delete', methods: ['DELETE'])]
+    #[Route(path: '/identifier', name: 'delete', methods: ['DELETE'])]
     #[IsGranted('ROLE_SUB_ADMIN')]
     public function delete(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $translator): JsonResponse {
         if (!$this->decode( $parser, $type, $value ))
@@ -99,6 +100,35 @@ class BlacklistController extends CustomAbstractCoreController
         $em->remove( $entity );
         $em->flush();
         $this->addFlash('notice', $translator->trans('Erfolgreich entfernt.', [], 'admin'));
+
+        return new JsonResponse([ 'success' => true ]);
+    }
+
+    /**
+     * @param User $user
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @param TranslatorInterface $translator
+     * @param UserAccountService $service
+     * @return JsonResponse
+     */
+    #[Route(path: '/ips/user/{id}', name: 'add_user_ips', methods: ['PUT'])]
+    public function addUserIPs(User $user, EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $translator, UserAccountService $service): JsonResponse {
+
+        foreach ($service->getKnownIPsForUser($user) as $ip) {
+            $goal = new DateTime('+48hours');
+            $entity =
+                $em->getRepository( AntiSpamDomains::class )->findOneBy([ 'type' => DomainBlacklistType::IPAddress, 'domain' => DomainBlacklistType::IPAddress->convert($ip) ]) ??
+                (new AntiSpamDomains())->setType( DomainBlacklistType::IPAddress )->setDomain( DomainBlacklistType::IPAddress->convert($ip) )->setUntil( $goal );
+
+            if ($entity->getUntil() !== null && $entity->getUntil() < $goal)
+                $entity->setUntil($goal);
+
+            $em->persist( $entity );
+        }
+
+        $em->flush();
+        $this->addFlash('notice', $translator->trans('Erfolgreich hinzugefügt.', [], 'admin'));
 
         return new JsonResponse([ 'success' => true ]);
     }

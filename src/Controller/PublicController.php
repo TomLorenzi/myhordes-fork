@@ -390,7 +390,13 @@ class PublicController extends CustomAbstractController
                 }
             }
 
-            if ($entityManager->getRepository(RegistrationLog::class)->countRecentRegistrations($request->getClientIp()) >= $conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_REG, 2))
+            $proxies = $request->getClientIps();
+            $client_ip = array_pop($proxies);
+
+            if ($entityManager->getRepository(RegistrationLog::class)->countRecentRegistrations($client_ip) >= $conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_REG, 2))
+                return AjaxResponse::error(UserFactory::ErrorTooManyRegistrations);
+
+            if ($this->entity_manager->getRepository(AntiSpamDomains::class)->findActive( DomainBlacklistType::IPAddress, $client_ip ))
                 return AjaxResponse::error(UserFactory::ErrorTooManyRegistrations);
 
             $referred_player = null;
@@ -419,6 +425,9 @@ class PublicController extends CustomAbstractController
 
             $user?->setTosver(1);
 
+            $proxies = $request->getClientIps();
+            $client_ip = array_pop($proxies);
+
             switch ($error) {
                 case UserFactory::ErrorNone:
                     try {
@@ -426,7 +435,7 @@ class PublicController extends CustomAbstractController
                         $entityManager->persist( (new RegistrationLog())
                             ->setUser($user)
                             ->setDate(new \DateTime())
-                            ->setIdentifier( md5($request->getClientIp()) )
+                            ->setIdentifier( md5($client_ip) )
                         );
 
                         if ($campaign = $session->get('campaign')) {
@@ -586,10 +595,16 @@ class PublicController extends CustomAbstractController
 
         // Case B - Account Creation
         elseif ($myhordes_user === null && $session->has('_etwin_user') && !$session->get('_etwin_login', false)) {
-            if ($this->entity_manager->getRepository(RegistrationLog::class)->countRecentRegistrations($request->getClientIp()) >= $conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_REG, 2))
+            $proxies = $request->getClientIps();
+            $client_ip = array_pop($proxies);
+
+            if ($this->entity_manager->getRepository(RegistrationLog::class)->countRecentRegistrations($client_ip) >= $conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_REG, 2))
                 return AjaxResponse::error(UserFactory::ErrorTooManyRegistrations);
 
-            if ($this->entity_manager->getRepository(AntiSpamDomains::class)->findOneBy( ['type' => DomainBlacklistType::EternalTwinID, 'domain' => DomainBlacklistType::EternalTwinID->convert( $etwin_user->getID() )] ))
+            if ($this->entity_manager->getRepository(AntiSpamDomains::class)->findActive( DomainBlacklistType::IPAddress, $client_ip ))
+                return AjaxResponse::error(UserFactory::ErrorTooManyRegistrations);
+
+            if ($this->entity_manager->getRepository(AntiSpamDomains::class)->findActive( DomainBlacklistType::EternalTwinID, $etwin_user->getID() ))
                 return AjaxResponse::error(UserFactory::ErrorUserExists);
 
             if (!$parser->valid()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -660,7 +675,7 @@ class PublicController extends CustomAbstractController
                         $this->entity_manager->persist( (new RegistrationLog())
                                                             ->setUser($new_user)
                                                             ->setDate(new \DateTime())
-                                                            ->setIdentifier( md5($request->getClientIp()) )
+                                                            ->setIdentifier( md5($client_ip) )
                         );
 
                         if ($override_name !== null) $new_user->setNoAutomaticNameManagement(true);

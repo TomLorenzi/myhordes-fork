@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\AntiSpamDomains;
+use App\Enum\DomainBlacklistType;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -17,6 +18,20 @@ class AntiSpamDomainsRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, AntiSpamDomains::class);
+    }
+
+    public function findActive(DomainBlacklistType $type, string $value): ?AntiSpamDomains
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->andWhere('a.type = :type')->setParameter('type', $type)
+            ->andWhere('a.domain = :value')->setParameter('value', $type->convert($value));
+
+        $qb->andWhere( $qb->expr()->orX(
+            'a.until IS NULL',
+            'a.until > :now',
+        ) )->setParameter('now', new \DateTime());
+
+        return $qb->getQuery()->getOneOrNullResult();
     }
 
     // /**
