@@ -22,6 +22,8 @@ use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Component\Mercure\HubInterface;
+use Symfony\Component\Mercure\Update;
 
 readonly class OnboardCitizenIntoTownAction
 {
@@ -33,6 +35,8 @@ readonly class OnboardCitizenIntoTownAction
         private ItemFactory $itemFactory,
         private EventProxyService $proxy,
         private InventoryHandler $inventoryHandler,
+        private HubInterface $hub,
+        private CountCitizenProfessionsAction $counter,
     ) { }
 
     /**
@@ -145,6 +149,17 @@ readonly class OnboardCitizenIntoTownAction
             $this->entityManager->persist( $chest );
             $this->entityManager->flush();
         } catch (Exception $e) {}
+
+        try {
+            $this->hub->publish(new Update(
+                topics: "myhordes://live/concerns/town-lobby/{$town->getId()}",
+                data: json_encode([
+                    'message' => 'citizen-count-update',
+                    'list' => ($this->counter)($town)
+                ]),
+                private: true
+            ));
+        } catch (\Throwable $t) {}
 
         return true;
     }

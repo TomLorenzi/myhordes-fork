@@ -1,11 +1,13 @@
 import ServiceModule from "./common";
 import Console from "../debug";
+import {Fetch} from "../fetch";
 
 type MercureAuthorization = {
     m: string,
     u: number|null,
     p: number,
     t: string|null
+    r?: [number,string]
 }
 
 type MercureConnection = {
@@ -15,24 +17,19 @@ type MercureConnection = {
 
     connectionFails: number;
     reconnectTimeout: null|any;
+    retokenizeTimeout: null|any;
 
     reserves: number,
 
     config: {
-        reconnect: boolean
+        reconnect: boolean,
+        retokenize: boolean,
     };
 }
 
 export default class MercureServiceModule extends ServiceModule{
 
     private readonly connections: {[key: string]: MercureConnection}
-
-    //private auth: MercureAuthorization|null;
-    //private eventSource: EventSource|null;
-    //private pendingEventSource: EventSource|null;
-
-    //private connectionFails = 0;
-    //private reconnectTimeout = null;
 
     constructor(p) {
         super(p);
@@ -47,9 +44,11 @@ export default class MercureServiceModule extends ServiceModule{
                 pendingEventSource: null,
                 connectionFails: 0,
                 reconnectTimeout: null,
+                retokenizeTimeout: null,
                 reserves: 0,
                 config: {
-                    reconnect: true
+                    reconnect: true,
+                    retokenize: true
                 }
             }
     }
@@ -117,6 +116,26 @@ export default class MercureServiceModule extends ServiceModule{
         Console.warn('MercureServiceModule: Invalid unscoped call.');
     }
 
+    private upgrade(connection: string, auth: MercureAuthorization) {
+        this.connections[connection].pendingEventSource?.close();
+        clearTimeout( this.connections[connection].reconnectTimeout );
+        clearTimeout( this.connections[connection].retokenizeTimeout );
+        this.connections[connection].connectionFails = 0;
+        this.connections[connection].auth = auth;
+        this.connect(connection);
+    }
+
+    private replace(connection: string, auth: MercureAuthorization) {
+        this.connections[connection].eventSource?.close();
+        this.connections[connection].pendingEventSource?.close();
+        clearTimeout( this.connections[connection].reconnectTimeout );
+        clearTimeout( this.connections[connection].retokenizeTimeout );
+        this.connections[connection].connectionFails = 0;
+        this.broadcastState(connection);
+        this.connections[connection].auth = auth;
+        this.connect(connection);
+    }
+
     handleMessage(event: MessageEvent, message: string): void {
         const connection = event.data.connection ?? 'default';
         switch (message) {
@@ -151,21 +170,10 @@ export default class MercureServiceModule extends ServiceModule{
 
                 this.initializeConnection(connection);
 
-                if (auth.m !== this.connections[connection].auth?.m || auth.u !== this.connections[connection].auth?.u) {
-                    this.connections[connection].eventSource?.close();
-                    this.connections[connection].pendingEventSource?.close();
-                    clearTimeout( this.connections[connection].reconnectTimeout );
-                    this.connections[connection].connectionFails = 0;
-                    this.broadcastState(connection);
-                    this.connections[connection].auth = auth;
-                    this.connect(connection);
-                }
+                if (auth.m !== this.connections[connection].auth?.m || auth.u !== this.connections[connection].auth?.u)
+                    this.replace(connection, auth);
                 else if ( auth.p > (this.connections[connection].auth?.p ?? -1) ) {
-                    this.connections[connection].pendingEventSource?.close();
-                    clearTimeout( this.connections[connection].reconnectTimeout );
-                    this.connections[connection].connectionFails = 0;
-                    this.connections[connection].auth = auth;
-                    this.connect(connection);
+                    this.upgrade(connection, auth);
                 } else if (MercureServiceModule.eventSourceState(this.connections[connection].eventSource) === 'closed' && !this.connections[connection].reconnectTimeout)
                     this.connect(connection);
                 else Console.debug('Keeping connection');
@@ -185,6 +193,27 @@ export default class MercureServiceModule extends ServiceModule{
         url.searchParams.append('authorization', this.connections[connection].auth.t);
         url.searchParams.append('topic', '*');
         return new EventSource(url, { withCredentials: false });
+    }
+
+    private handleTokenRenewCallback(connection: string, try_in: number = null): void {
+        const retokenize_in = try_in ?? Math.max(0, (this.connections[connection].auth.r[0] * 1000) - Date.now());
+        const retokenize_url = this.connections[connection].auth.r[1];
+
+        clearTimeout(this.connections[connection].retokenizeTimeout);
+
+        this.connections[connection].retokenizeTimeout = setTimeout(() => {
+            Console.debug(`Attempting to renew token for ${connection} from ${retokenize_url}.`);
+            (new Fetch(retokenize_url, false)).fromEndpoint().throwResponseOnError().request().get()
+                .then((r: {token: MercureAuthorization}) => {
+                    Console.debug(`Renewed token for ${connection}.`, r);
+                    this.upgrade(connection, r.token)
+                }).catch(r => {
+                    if (r.status !== 406) {
+                        Console.error(`Renewed token for ${connection} failed.`, r.status);
+                        this.handleTokenRenewCallback(connection, 60000);
+                    } else Console.error(`Server indicated that it will not renew ${connection}. Ceasing to retry.`, r.status);
+                })
+        }, retokenize_in);
     }
 
     private connect(connection: string) {
@@ -212,6 +241,8 @@ export default class MercureServiceModule extends ServiceModule{
             this.connections[connection].pendingEventSource.removeEventListener('error', errorHandler);
             this.swap(connection);
             this.broadcastState(connection);
+            if (this.connections[connection].config.retokenize && this.connections[connection].auth.r)
+                this.handleTokenRenewCallback( connection );
         }, {once: true});
         this.connections[connection].pendingEventSource?.addEventListener('error', errorHandler, {once: true});
         this.broadcastState(connection);

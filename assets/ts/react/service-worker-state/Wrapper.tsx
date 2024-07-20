@@ -37,7 +37,7 @@ type State = {
     auth: boolean
 }
 
-const ServiceWorkerIndicator = (props: {
+export const ServiceWorkerIndicator = (props: {
     textTitle?: string
     textHelp?: string
     textNoSw?: string,

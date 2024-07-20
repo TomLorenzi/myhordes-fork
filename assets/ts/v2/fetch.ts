@@ -235,11 +235,11 @@ export class Fetch {
     }
 
     constructor(rest_endpoint?: string, version: false|number = 1) {
-        const base_url = this.remove_slashes( document.querySelector('base[href]').getAttribute('href') ?? '' );
-
-        this.rest = version === false
-            ? rest_endpoint
-            : `${window.location.protocol}//${window.location.host}/${base_url ? `${base_url}/rest` : 'rest'}/v${version}/${this.remove_slashes( rest_endpoint ?? '' )}`;
+        if (version === false) this.rest = rest_endpoint;
+        else {
+            const base_url = this.remove_slashes( document.querySelector('base[href]').getAttribute('href') ?? '' );
+            this.rest = `${window.location.protocol}//${window.location.host}/${base_url ? `${base_url}/rest` : 'rest'}/v${version}/${this.remove_slashes( rest_endpoint ?? '' )}`;
+        }
     }
 
     private handle_response_headers( response: Response ) {

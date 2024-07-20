@@ -18,20 +18,23 @@ readonly class GenerateMercureToken
         private HubRegistry $registry
     ) { }
 
-    private static function format(?string $path, ?User $user = null, ?string $token = null, int $priority = 0): array {
+    private static function format(?string $path, ?User $user = null, ?string $token = null, int $priority = 0, ?int $renew_after = null, ?string $renew_url = null): array {
         return [
             'm' => $path ?? '#',
             'u' => ($user && $token) ? $user->getId() : null,
             'p' => ($user && $token) ? $priority : 0,
-            't' => ($user && $token) ? $token : null
+            't' => ($user && $token) ? $token : null,
+            ...($renew_after && $renew_url ? ['r' => [$renew_after, $renew_url]] : []),
         ];
     }
 
-    public function __invoke(string|array|null $topics = null, int $expiration = 7200): array
+    public function __invoke(string|array|null $topics = null, int $expiration = 7200, ?string $renew_url = null): array
     {
         /** @var ?User $user */
         $user = $this->security->getUser();
         $path = $this->registry->getHub()?->getPublicUrl();
+
+        if ($topics === null && !$user) return [];
 
         $topics ??= [
             "myhordes://live/concerns/{$user->getId()}",
@@ -41,7 +44,7 @@ readonly class GenerateMercureToken
 
         $key = str_replace(['{','}','(',')','/','\\','@',':'], '', $topics[0]);
 
-        return $user ? $this->gameCachePool->get("mh_mercure_{$user->getId()}_{$user->getCheckInt()}_$key", function (ItemInterface $item) use ($user, $path, $expiration, $topics) {
+        return $user ? $this->gameCachePool->get("mh_mercure_{$user->getId()}_{$user->getCheckInt()}_$key", function (ItemInterface $item) use ($user, $path, $expiration, $topics, $renew_url) {
             $expires = new \DateTimeImmutable("+{$expiration}seconds");
             $t = $this->registry->getHub()?->getFactory()?->create(
                 subscribe: $topics,
@@ -53,7 +56,7 @@ readonly class GenerateMercureToken
 
             $item->expiresAfter($t ? (int)round($expiration / 4) : 1)->tag(['mercure',"mercure_{$user->getId()}"]);
 
-            return self::format( $path, $user, $t, $expires->getTimestamp() );
+            return self::format( $path, $user, $t, $expires->getTimestamp(), $renew_url ? time() + (int)($expiration * 0.75) : null, $renew_url );
         }) : self::format($path);
     }
 }

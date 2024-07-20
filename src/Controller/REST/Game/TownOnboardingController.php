@@ -17,6 +17,7 @@ use App\Entity\ZoneTag;
 use App\Response\AjaxResponse;
 use App\Service\Actions\Cache\CalculateBlockTimeAction;
 use App\Service\Actions\Cache\InvalidateLogCacheAction;
+use App\Service\Actions\Game\CountCitizenProfessionsAction;
 use App\Service\Actions\Game\OnboardCitizenIntoTownAction;
 use App\Service\Actions\Security\GenerateMercureToken;
 use App\Service\CitizenHandler;
@@ -34,6 +35,7 @@ use Doctrine\Common\Collections\Order;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -89,6 +91,14 @@ class TownOnboardingController extends AbstractController
         return $activeCitizen;
     }
 
+    private function generateToken( Town $town, GenerateMercureToken $token ): array {
+        return ($token)(
+            topics: "myhordes://live/concerns/town-lobby/{$town->getId()}",
+            expiration: 300,
+            renew_url: $this->generateUrl('rest_game_welcome_renew_token', ['town' => $town->getId()], UrlGeneratorInterface::ABSOLUTE_URL)
+        );
+    }
+
     #[Route(path: '/{town}', name: 'config', methods: ['GET'])]
     #[GateKeeperProfile(only_incarnated: true)]
     public function town_config(Town $town, ConfMaster $conf): JsonResponse
@@ -105,6 +115,18 @@ class TownOnboardingController extends AbstractController
                 'abilities' => false,
             ]
         ]);
+    }
+
+    #[Route(path: '/{town}/live', name: 'renew_token', methods: ['GET'])]
+    #[GateKeeperProfile(only_incarnated: true)]
+    public function renew_token(Town $town, GenerateMercureToken $token): JsonResponse
+    {
+        $activeCitizen = $this->fetchActiveCitizen($town);
+        if (!$activeCitizen) return new JsonResponse([], Response::HTTP_NOT_ACCEPTABLE);
+
+        return new JsonResponse(
+            ['token' => $this->generateToken($town, $token)]
+        );
     }
 
     #[Route(path: '/{town}', name: 'onboard', methods: ['PATCH'])]
@@ -161,20 +183,14 @@ class TownOnboardingController extends AbstractController
 
     #[Route(path: '/{town}/citizens', name: 'citizens', methods: ['GET'])]
     #[GateKeeperProfile(only_incarnated: true)]
-    public function citizens(Town $town, EntityManagerInterface $em, GenerateMercureToken $token): JsonResponse
+    public function citizens(Town $town, GenerateMercureToken $token, CountCitizenProfessionsAction $counter): JsonResponse
     {
         $activeCitizen = $this->fetchActiveCitizen($town);
         if (!$activeCitizen) return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
         return new JsonResponse([
-            'list' => $em->createQueryBuilder()
-                ->select('COUNT(c.id) AS n', 'p.id AS id')
-                ->from(Citizen::class, 'c')
-                ->leftJoin(CitizenProfession::class, 'p', 'WITH', 'c.profession = p.id')
-                ->where('c.town = :town')->setParameter('town', $town)
-                ->groupBy('p.id')
-                ->getQuery()->getArrayResult(),
-            'token' => ($token)("myhordes://live/concerns/town-lobby/{$town->getId()}", 300),
+            'list' => ($counter)($town),
+            'token' => $this->generateToken($town, $token),
         ]);
     }
 }

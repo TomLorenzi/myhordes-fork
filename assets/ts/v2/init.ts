@@ -38,6 +38,16 @@ export function sharedWorkerCall(request: string, args: object = {}): Promise<an
     })
 }
 
+export function sharedWorkerMessageHandler(connection: string = null, message: string = null, callback: (any)=>void ) {
+    return (e) => {
+        if (
+            e.detail?.data &&
+            (connection === null || e.detail.connection === connection) &&
+            (message === null || e.detail.data.message === message)
+        ) callback( e.detail.data );
+    }
+}
+
 export function broadcast(message: string, args: object = {}): void {
     window.mhWorker.port.postMessage( {payload: {...args, message}, request: 'broadcast', except: window.mhWorkerIdList} )
 }

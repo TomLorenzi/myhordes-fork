@@ -5,14 +5,15 @@ import {
     CitizenCount,
     GameOnboardingAPI,
     OnboardingIdentityPayload, OnboardingPayload,
-    OnboardingProfessionPayload, ResponseCitizenCount,
+    OnboardingProfessionPayload,
     ResponseConfig,
     ResponseJobs
 } from "./api";
 import {createRoot} from "react-dom/client";
 import {TranslationStrings} from "./strings";
 import {Tooltip} from "../tooltip/Wrapper";
-import {sharedWorkerCall} from "../../v2/init";
+import {html, sharedWorkerCall, sharedWorkerMessageHandler} from "../../v2/init";
+import {ServiceWorkerIndicator} from "../service-worker-state/Wrapper";
 
 declare var c: Const;
 declare var $: Global;
@@ -192,12 +193,18 @@ const JobSelection = (props: OnboardingProfessionPayloadProps) => {
         }
     }, [globals.town]);
 
+    const mercureHandler = sharedWorkerMessageHandler('town-lobby', 'citizen-count-update', s => {
+        if (s.list) setCitizens(s.list)
+    });
+
     useEffect(() => {
         if (token) {
+            html().addEventListener('mercureMessage', mercureHandler);
             sharedWorkerCall('mercure.configure', {connection: 'town-lobby', config: {reconnect: false}});
             sharedWorkerCall('mercure.alloc', {connection: 'town-lobby'});
             sharedWorkerCall('mercure.authorize', {connection: 'town-lobby', token});
             return () => {
+                html().removeEventListener('mercureMessage', mercureHandler);
                 sharedWorkerCall('mercure.dealloc', {connection: 'town-lobby'});
             }
         }
@@ -253,7 +260,7 @@ const JobSelection = (props: OnboardingProfessionPayloadProps) => {
         <div>
             <div className="cell rw-12">
                 <h5>
-                    <hordes-service-worker-indicator data-connection="town-lobby"/>
+                    <ServiceWorkerIndicator connection="town-lobby"/>
                     &nbsp;
                     {globals.strings.jobs.in_town}
                 </h5>
