@@ -673,3 +673,9 @@ Klicks: Clicks
 '{number} Auszeichnungen konnten nicht entfernt werden. Möglicherweise sind sie dem Spieler über Städte zugewiesen. In diesem Fall müssen sie über die Städteverwaltung entfernt werden.': '{number} disctinctions could not be removed. They are possibly assigned via a town and must be removed via the town distinction UI.'
 'Eingehende Nachrichten als Tickets behandeln': 'Treat incoming messages as tickets'
 'Ist diese Option aktiviert, so wird eine eingehende Konversation für alle Gruppenmitglieder als "Gelesen" markiert, sobald ein Gruppenmitglied antwortet.': 'If this option is activated, an incoming conversation is marked as "Read" for all group members as soon as a group member replies.'
+'Es wurden {n} Posts gelöscht.': 'Es wurden {n} Posts gelöscht.'
+'Weitere Aktionen': 'Weitere Aktionen'
+'Bekannte IP-Adressen': 'Bekannte IP-Adressen'
+'{n} (davon {n2} bereits blockiert)': '{n} (davon {n2} bereits blockiert)'
+Foren-Posts: Foren-Posts
+'{n} (davon {n2} gelöscht)': '{n} (davon {n2} gelöscht)'
