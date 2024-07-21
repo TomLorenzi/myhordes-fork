@@ -5,9 +5,9 @@ import {
     CitizenCount,
     GameOnboardingAPI,
     OnboardingIdentityPayload, OnboardingPayload,
-    OnboardingProfessionPayload,
+    OnboardingProfessionPayload, OnboardingSkillPayload,
     ResponseConfig,
-    ResponseJobs
+    ResponseJobs, ResponseSkills, Skill
 } from "./api";
 import {createRoot} from "react-dom/client";
 import {TranslationStrings} from "./strings";
@@ -49,6 +49,11 @@ type OnboardingProfessionPayloadProps = {
     setPayload: (p:OnboardingProfessionPayload|null)=>void,
 }
 
+type OnboardingSkillPayloadProps = {
+    setting: OnboardingSkillPayload|null,
+    setPayload: (p:OnboardingSkillPayload|null)=>void,
+}
+
 type TownOnboardingGlobals = {
     disabled: boolean,
     api: GameOnboardingAPI,
@@ -61,10 +66,14 @@ export const Globals = React.createContext<TownOnboardingGlobals>(null);
 
 const HordesTownOnboardingWrapper = (props: Props) => {
 
+    const [page, setPage] = useState(0);
+    const head = useRef<HTMLDivElement>();
+
     const apiRef = useRef(new GameOnboardingAPI());
     const [payload, setPayload] = useState<OnboardingPayload>({
         identity: null,
-        profession: null
+        profession: null,
+        skills: null
     });
 
     const [submitting, setSubmitting] = useState<boolean>(false);
@@ -81,63 +90,115 @@ const HordesTownOnboardingWrapper = (props: Props) => {
         return () => setStrings(null);
     }, []);
 
+    useLayoutEffect(() => {
+        head.current?.scrollIntoView();
+    }, [page]);
+
     const ready = config && strings;
     const canSubmit = ready &&
         ( payload.identity !== null || !config.features.alias ) &&
         ( payload.profession !== null || !config.features.job );
 
+    const need_multipage = config?.features.skills && config?.features.job;
+
+    const render_alias = () => <>
+        <h5>
+            {strings.identity.headline}
+            &nbsp;
+            <a className="help-button">
+                <Tooltip additionalClasses="help">
+                    {strings.identity.help}
+                </Tooltip>
+                {strings.common.help}
+            </a>
+        </h5>
+        <IdentitySelection setting={payload.identity}
+                           setPayload={identity => setPayload({...payload, identity})}/>
+    </>
+
+    const render_skills = () => <>
+        <h5>
+            {strings.skills.headline}
+            &nbsp;
+            <a className="help-button">
+                <Tooltip additionalClasses="help">
+                    {strings.skills.help}
+                </Tooltip>
+                {strings.common.help}
+            </a>
+        </h5>
+        <SkillSelection setting={payload.skills}
+                        setPayload={skills => setPayload({...payload, skills})}/>
+    </>
+
+    const render_jobs = () => <>
+        <h5>
+            {strings.jobs.headline}
+            &nbsp;
+            <a className="help-button">
+                <Tooltip additionalClasses="help">
+                    {strings.jobs.help}
+                </Tooltip>
+                {strings.common.help}
+            </a>
+        </h5>
+        <JobSelection setting={payload.profession}
+                      setPayload={profession => setPayload({...payload, profession})}/>
+    </>
+
     return <>
-        { !ready && <div className="loading"/> }
-        { ready && <Globals.Provider value={{api: apiRef.current, strings, town: props.town, payload, disabled: submitting}}>
+        {!ready && <div className="loading"/>}
+        {ready &&
+            <Globals.Provider value={{api: apiRef.current, strings, town: props.town, payload, disabled: submitting}}>
 
-            {config.features.alias && <>
-                <h5>
-                    {strings.identity.headline}
-                    &nbsp;
-                    <a className="help-button">
-                        <Tooltip additionalClasses="help">
-                            {strings.identity.help}
-                        </Tooltip>
-                        {strings.common.help}
-                    </a>
-                </h5>
-                <IdentitySelection setting={payload.identity}
-                              setPayload={identity => setPayload({...payload, identity})}/>
-            </>}
+                <div ref={head}/>
 
-            {config.features.job && <>
-                <h5>
-                    {strings.jobs.headline}
-                    &nbsp;
-                    <a className="help-button">
-                        <Tooltip additionalClasses="help">
-                            {strings.jobs.help}
-                        </Tooltip>
-                        {strings.common.help}
-                    </a>
-                </h5>
-                <JobSelection setting={payload.profession}
-                              setPayload={profession => setPayload({...payload, profession})}/>
-            </>}
+                {need_multipage && page === 0 && <>
+                    {config.features.alias && render_alias()}
+                    {config.features.job && render_jobs()}
+                </>}
 
-            <div className="row">
+                {need_multipage && page === 1 && <>
+                    {config.features.skills && render_skills()}
+                </>}
+
+                {!need_multipage && <>
+                    {config.features.alias && render_alias()}
+                    {config.features.job && render_jobs()}
+                    {config.features.skills && render_skills()}
+                </>}
+
                 <br/>
-                <div className="cell ro-8 rw-4 ro-lg-7 rw-lg-5 ro-md-6 rw-md-6 ro-sm-0 rw-sm-12 right">
-                    <button
-                        disabled={!canSubmit || submitting}
-                        onClick={() => {
-                            setSubmitting(true);
-                            apiRef.current.confirm(props.town, payload)
-                                .then(({url}) => $.ajax.load(null, url, true))
-                                .catch(() => setSubmitting(false));
-                        }}
-                    >
-                        { strings.common.confirm }
-                    </button>
-                </div>
-            </div>
+                <div className="row">
+                    <div className="cell rw-4 rw-lg-5 rw-md-6 rw-sm-12">
+                        {need_multipage && page === 1 && <button onClick={() => setPage(0)}>
+                            {strings.common.return}
+                        </button>}
+                        &nbsp;
+                    </div>
+                    <div className="cell ro-4 rw-4 ro-lg-2 rw-lg-5 ro-md-0 rw-md-6 ro-sm-0 rw-sm-12 right">
+                        {need_multipage && page === 0 && <button
+                            disabled={payload.profession === null}
+                            onClick={() => setPage(1)}
+                        >
+                            {strings.common.continue}
+                        </button>}
 
-        </Globals.Provider>}
+                        {(!need_multipage || page === 1) && <button
+                            disabled={!canSubmit || submitting}
+                            onClick={() => {
+                                setSubmitting(true);
+                                apiRef.current.confirm(props.town, payload)
+                                    .then(({url}) => $.ajax.load(null, url, true))
+                                    .catch(() => setSubmitting(false));
+                            }}
+                        >
+                            {strings.common.confirm}
+                        </button>}
+                    </div>
+                </div>
+
+            </Globals.Provider>}
     </>;
 }
 
@@ -152,7 +213,7 @@ const IdentitySelection = (props: OnboardingIdentityPayloadProps) => {
 
     return <div className="row-flex v-center">
         <div className="cell padded note note-lightest rw-3">
-            <label htmlFor="onb_citizen_identity">{ globals.strings.identity.field }</label>
+            <label htmlFor="onb_citizen_identity">{globals.strings.identity.field}</label>
         </div>
         <div className="padded cell rw-9">
             <input type="text" id="onb_citizen_identity" ref={inputRef} maxLength={22} minLength={4}
@@ -278,6 +339,127 @@ const JobSelection = (props: OnboardingProfessionPayloadProps) => {
                     {globals.strings.jobs.flavour}
                 </p>
             </div>
+        </div>
+    </>
+}
+
+const SkillSelection = (props: OnboardingSkillPayloadProps) => {
+    const globals = useContext(Globals);
+
+    const [skills, setSkills] = useState<ResponseSkills>();
+    const [levels, setLevels] = useState<{ [key: string]: number; }>();
+
+    const skillContainer = useRef<HTMLDivElement>()
+
+    useEffect(() => {
+        globals.api.skills(globals.town).then(i => {
+            setSkills(i);
+
+            let initial_ids = props.setting?.ids ?? [];
+            let changed = false;
+            i.skills.list.forEach(skill => {
+                if (skill.level === 0 && initial_ids.includes(skill.id)) {
+                    changed = true;
+                    initial_ids.push(skill.id);
+                }
+            });
+            if (changed) props.setPayload({ids: initial_ids});
+
+            let g = {};
+            i.skills?.groups?.forEach(s => {
+                g[s] = i.skills.list
+                    .filter(skill => skill.group === s && initial_ids.includes(skill.id))
+                    .reduce((c,v) => Math.max(v.level,c), 0);
+            });
+
+            setLevels(g);
+        });
+        return () => {
+            setSkills(null);
+            setLevels(null);
+        }
+    }, [globals.town]);
+
+    useLayoutEffect(() => {
+        if (!skillContainer.current) return;
+
+        console.log(skillContainer.current, skillContainer.current.querySelectorAll('div.skillset-group'));
+
+        skillContainer.current.querySelectorAll('div.skillset-parent').forEach((div, n) => div.animate([
+            {opacity: 0, transform: 'translateY(-24px)'},
+            {transform: 'translateY(0)'},
+        ], {
+            duration: 300,
+            delay: n * 200,
+            fill: "backwards",
+            easing: "ease-in-out",
+        }));
+
+    }, [skills]);
+
+    const applySkill = (skill: Skill) => {
+        const skill_group = skills.skills.list.filter(s => s.group === skill.group);
+
+        const ids_all =  skill_group.map(s => s.id);
+        const ids_on = skill_group.filter(s => s.level <= skill.level).map(s => s.id);
+        const ids_off= skill_group.filter(s => s.level > skill.level).map(s => s.id);
+
+        let tmp_levels = {...levels};
+        tmp_levels[skill.group] = skill.level;
+        setLevels(tmp_levels);
+
+        props.setPayload({ids: [
+                ...((props.setting?.ids ?? []).filter( n => !ids_off.includes(n) )),
+                ...ids_on
+            ]});
+    }
+
+    const applyPreviousSkill = (skill: Skill) => {
+        const prev_skill = skills.skills.list
+            .filter(s => s.group === skill.group && s.level < skill.level)
+            .sort((a,b) => b.level - a.level)
+            [0] ?? null;
+
+        if (prev_skill) applySkill(prev_skill);
+    }
+
+    const pts_left = (skills?.skills?.pts ?? 0) - Object.values(levels ?? {}).reduce((c,v) => c + v, 0);
+
+    return <>
+        {!skills && <div className="loading"/>}
+        { skills?.skills && <div className="note current-pts" dangerouslySetInnerHTML={{__html: globals.strings.skills.pts.replace('{pts}', `${pts_left}`)}} /> }
+        <div ref={skillContainer}>
+            { skills?.skills?.groups.map(g => <div className="row" key={g}>
+                <div className="padded cell rw-12">
+                    <div className="note note-lightest skillset-parent">
+                        <div className="skillset-group">
+                            <strong className="group-title">
+                                <span className="first-letter">{g.slice(0, 1)}</span>
+                                <span className="last-letters">{g.slice(1)}</span>
+                            </strong>
+                            <div className="row">
+                                { skills.skills.list.filter(s => s.group === g).sort((a,b) => a.level - b.level).map(skill => <div className={`padded cell rw-12 ${((skill.level - levels[g]) > pts_left) ? 'skill-unreachable' : 'pointer' }`} key={skill.id}>
+                                    <div className="row-flex gap v-center" onClick={()=>{
+                                        if ((skill.level - levels[g]) > pts_left) return;
+                                        if (levels[g] === skill.level) applyPreviousSkill(skill)
+                                        else applySkill(skill);
+                                    }}>
+                                        <div className="cell factor-0">
+                                            {levels[g] >= skill.level && <img alt="" src={globals.strings.common.on}/>}
+                                            {levels[g] < skill.level && <img alt="" src={globals.strings.common.off}/>}
+                                        </div>
+                                        <div className="cell factor-1">
+                                            <b>{ globals.strings.skills.level.replace('{skill-level}', `${skill.level}`) }:&nbsp;</b>
+                                            { skill.description }
+                                        </div>
+                                    </div>
+                                </div>) }
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>)}
         </div>
     </>
 }

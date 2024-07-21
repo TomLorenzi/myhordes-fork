@@ -30,6 +30,8 @@ use MyHordes\Fixtures\DTO\LabeledIconElementInterface;
  * @method self grantsItems(array $v)
  * @property int $level
  * @method self level(int $v)
+ * @property int $sort
+ * @method self sort(int $v)
  * @property string $group
  * @method self group(string $v)
  * @property int $chestSpace
@@ -87,6 +89,7 @@ class HeroicExperienceDataElement extends Element {
                 ->setDaysNeeded( $this->unlockAt )
                 ->setUnlockedAction( $protoAction )
                 ->setLevel( $this->legacy ? null : $this->level )
+                ->setSort( $this->legacy ? $this->unlockAt : ($this->sort ?? 0) )
                 ->setEnabled( true )
                 ->setGroupIdentifier( $this->legacy ? null : $this->group )
                 ->setInhibitedBy( $blockedByFeature )

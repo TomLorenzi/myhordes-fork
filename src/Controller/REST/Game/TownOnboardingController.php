@@ -9,6 +9,7 @@ use App\Controller\CustomAbstractCoreController;
 use App\Entity\ActionCounter;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
+use App\Entity\HeroSkillPrototype;
 use App\Entity\LogEntryTemplate;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
@@ -34,6 +35,7 @@ use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Collections\Order;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use MyHordes\Plugins\Fixtures\HeroSkill;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
@@ -60,11 +62,17 @@ class TownOnboardingController extends AbstractController
 
     #[Route(path: '', name: 'base', methods: ['GET'])]
     #[GateKeeperProfile('skip')]
-    public function index(TranslatorInterface $trans): JsonResponse {
+    public function index(TranslatorInterface $trans, Packages $asset): JsonResponse {
         return new JsonResponse([
             'common' => [
                 'help' => $trans->trans('Hilfe', [], 'global'),
                 'confirm' => $trans->trans('Auswahl bestätigen', [], 'global'),
+                'continue' => $trans->trans('Nächste Seite', [], 'soul'),
+                'return' => $trans->trans('Vorherige Seite', [], 'soul'),
+
+                'on' => $asset->getUrl('build/images/icons/player_online.gif'),
+                'off' => $asset->getUrl('build/images/icons/player_offline.gif'),
+                'lock' => $asset->getUrl('build/images/icons/lock.gif'),
             ],
             'identity' => [
                 'headline' => $trans->trans('Deine Identität', [], 'game'),
@@ -80,6 +88,12 @@ class TownOnboardingController extends AbstractController
                 'in_town' => $trans->trans('Zur zeit in der Stadt', [], 'game'),
                 'in_town_help' => $trans->trans('Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.', [], 'game'),
                 'flavour' => $trans->trans('Du suchst dir besser eine Beschäftigung aus, denn es gilt: Ohne Job, kein Leben. Wozu bist du denn sonst gut? Die Gemeinschaft, der du angehören wirst, braucht jede Art von Personen. Die Zusammenarbeit mit den anderen wird zweifelsohne deine Überlebensdauer entscheidend beeinflussen...', [], 'game'),
+            ],
+            'skills' => [
+                'headline' => $trans->trans('Wähle deine Fähigkeiten', [], 'game'),
+                'help' => $trans->trans('Deine Fähigkeiten verleihen dir bestimmte Boni im Spiel. Du kannst nicht alle auf einmal aktivieren, also wähle weise!', [], 'game'),
+                'level' => $trans->trans('Level {skill-level}', [], 'game'),
+                'pts' => $trans->trans('Dir stehen noch <em>{pts}</em> Punkte zur Verfügung!', [], 'game'),
             ]
         ]);
     }
@@ -112,7 +126,7 @@ class TownOnboardingController extends AbstractController
             'features' => [
                 'job'       => true,
                 'alias'     => $townConf->get( TownConf::CONF_FEATURE_CITIZEN_ALIAS, false ),
-                'abilities' => false,
+                'skills'    => true,
             ]
         ]);
     }
@@ -179,6 +193,55 @@ class TownOnboardingController extends AbstractController
             'poster' => $asset->getUrl("build/images/professions/select/{$profession->getIcon()}.gif"),
             'help'   => $this->generateUrl('help', ['name' => $profession->getName()])
         ], array_filter( $jobs, fn( CitizenProfession $job ) => !in_array( $job->getName(), $disabledJobs, true ) ))));
+    }
+
+    #[Route(path: '/{town}/skills', name: 'skills', methods: ['GET'])]
+    #[GateKeeperProfile(only_incarnated: true)]
+    public function skills(Town $town, EntityManagerInterface $em, Packages $asset, TranslatorInterface $trans): JsonResponse
+    {
+        $activeCitizen = $this->fetchActiveCitizen($town);
+        if (!$activeCitizen) return new JsonResponse([], Response::HTTP_FORBIDDEN);
+
+        $all_skills = $em->getRepository(HeroSkillPrototype::class)->findBy(['enabled' => true], [
+            'legacy' => Order::Descending->value,
+            'sort' => Order::Ascending->value,
+            'level' => Order::Ascending->value,
+            'id' => Order::Ascending->value,
+        ]);
+
+        $legacy_skills = array_filter($all_skills, fn(HeroSkillPrototype $s) => $s->isLegacy());
+        $skills = array_filter($all_skills, fn(HeroSkillPrototype $s) => !$s->isLegacy());
+        $skill_groups = [];
+        foreach ($skills as $skill)
+            if (!in_array($skill->getGroupIdentifier(), $skill_groups, true))
+                $skill_groups[] = $skill->getGroupIdentifier();
+
+
+        return new JsonResponse([
+            'legacy' => [
+                'level' => $activeCitizen->getUser()->getAllHeroDaysSpent(),
+                'list' => array_values(array_map(fn(HeroSkillPrototype $p) => [
+                    'id' => $p->getId(),
+                    'title' => $trans->trans($p->getTitle(), [], 'game'),
+                    'description' => $trans->trans($p->getDescription(), [], 'game'),
+                    'icon' => $asset->getUrl("build/images/heroskill/{$p->getIcon()}.gif"),
+                    'needed' => $p->getDaysNeeded()
+                ], $legacy_skills))
+            ],
+            'skills' => [
+                'pts' => 5,
+                'groups' => array_map(fn(string $s) => $trans->trans($s, [], 'game'), $skill_groups),
+                'list' => array_values(array_map(fn(HeroSkillPrototype $p) => [
+                    'id' => $p->getId(),
+                    'title' => $trans->trans($p->getTitle(), [], 'game'),
+                    'description' => $trans->trans($p->getDescription(), [], 'game'),
+                    'icon' => $asset->getUrl("build/images/heroskill/{$p->getIcon()}.gif"),
+                    'level' => $p->getLevel(),
+                    'sort' => $p->getSort(),
+                    'group' => $trans->trans($p->getGroupIdentifier(), [], 'game')
+                ], $skills))
+            ]
+        ]);
     }
 
     #[Route(path: '/{town}/citizens', name: 'citizens', methods: ['GET'])]

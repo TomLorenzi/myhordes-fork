@@ -1,7 +1,13 @@
 export type TranslationStrings = {
     "common": {
         "help": string,
-        "confirm": string
+        "confirm": string,
+        "continue": string,
+        "return": string,
+
+        "on": string,
+        "off": string,
+        "lock": string
     },
     "identity": {
         "headline": string,
@@ -17,5 +23,11 @@ export type TranslationStrings = {
         "more": string,
         "in_town_help": string,
         "flavour": string
+    },
+    "skills": {
+        "headline": string,
+        "help": string,
+        "level": string,
+        "pts": string,
     }
 }

@@ -1436,6 +1436,33 @@ span.defense-broken,div.defense-broken { .icon_div("../img/icons/small_def_broke
   }
 }
 
+.skillset-group {
+
+  padding: 12px;
+
+  .group-title {
+    display: block;
+    .first-letter {
+      font-size: 2rem;
+      text-shadow: 0 0 5px black;
+      transform: scale(1.8);
+      transform-origin: bottom right;
+      display: inline-block;
+      vertical-align: top;
+      margin-right: 3px;
+    }
+    .last-letters {
+      font-size: 1.5rem;
+    }
+  }
+
+  .skill-unreachable {
+    opacity: 0.5;
+    filter: grayscale(50%);
+    cursor: not-allowed;
+  }
+}
+
 .tabs {
   font-size: 1.2rem; color: #ddab76; border-bottom: 1px solid #ddab76;
   margin-bottom: 20px; padding: 0 5px; position: relative; top: -2px; margin-left: -2px;

@@ -56,6 +56,9 @@ class HeroSkillPrototype
     #[ORM\Column(nullable: true)]
     private ?int $grantsChestSpace = null;
 
+    #[ORM\Column]
+    private int $sort = 0;
+
     public function __construct()
     {
         $this->start_items = new ArrayCollection();
@@ -231,6 +234,18 @@ class HeroSkillPrototype
     public function setGrantsChestSpace(?int $grantsChestSpace): static
     {
         $this->grantsChestSpace = $grantsChestSpace;
+
+        return $this;
+    }
+
+    public function getSort(): int
+    {
+        return $this->sort;
+    }
+
+    public function setSort(int $sort): static
+    {
+        $this->sort = $sort;
 
         return $this;
     }
