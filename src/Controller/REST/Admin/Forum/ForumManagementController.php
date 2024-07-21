@@ -44,7 +44,6 @@ class ForumManagementController extends CustomAbstractCoreController
      * @return JsonResponse
      */
     #[Route(path: '/user/{id}', name: 'purge_user_posts', methods: ['DELETE'])]
-    #[IsGranted('ROLE_SUB_ADMIN')]
     public function purgeUserPosts(User $user, EntityManagerInterface $em, TranslatorInterface $translator, PostService $postService): JsonResponse {
 
         $success = 0;
