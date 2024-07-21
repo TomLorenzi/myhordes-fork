@@ -356,14 +356,13 @@ const SkillSelection = (props: OnboardingSkillPayloadProps) => {
             setSkills(i);
 
             let initial_ids = props.setting?.ids ?? [];
-            let changed = false;
-            i.skills.list.forEach(skill => {
-                if (skill.level === 0 && initial_ids.includes(skill.id)) {
-                    changed = true;
-                    initial_ids.push(skill.id);
-                }
-            });
-            if (changed) props.setPayload({ids: initial_ids});
+            if (initial_ids.length === 0) {
+                i.skills.list.forEach(skill => {
+                    if (skill.level === 0 && !initial_ids.includes(skill.id))
+                        initial_ids.push(skill.id);
+                });
+                props.setPayload({ids: initial_ids});
+            }
 
             let g = {};
             i.skills?.groups?.forEach(s => {
@@ -383,8 +382,6 @@ const SkillSelection = (props: OnboardingSkillPayloadProps) => {
     useLayoutEffect(() => {
         if (!skillContainer.current) return;
 
-        console.log(skillContainer.current, skillContainer.current.querySelectorAll('div.skillset-group'));
-
         skillContainer.current.querySelectorAll('div.skillset-parent').forEach((div, n) => div.animate([
             {opacity: 0, transform: 'translateY(-24px)'},
             {transform: 'translateY(0)'},
@@ -400,9 +397,8 @@ const SkillSelection = (props: OnboardingSkillPayloadProps) => {
     const applySkill = (skill: Skill) => {
         const skill_group = skills.skills.list.filter(s => s.group === skill.group);
 
-        const ids_all =  skill_group.map(s => s.id);
-        const ids_on = skill_group.filter(s => s.level <= skill.level).map(s => s.id);
-        const ids_off= skill_group.filter(s => s.level > skill.level).map(s => s.id);
+        const ids_on = skill_group.filter(s => s.level === skill.level).map(s => s.id);
+        const ids_off= skill_group.filter(s => s.level !== skill.level).map(s => s.id);
 
         let tmp_levels = {...levels};
         tmp_levels[skill.group] = skill.level;
