@@ -454,9 +454,8 @@ class BeyondController extends InventoryAwareController
 
         $nov = $this->town_handler->getBuilding( $citizen->getTown(), 'small_novlamps_#00', true );
         $novlights = $citizen->hasStatus('tg_novlamps') && $nov && match(true) {
-                $citizen->getZone()->getDistance() <= 2 => true,
-                $citizen->getZone()->getDistance() <= 6 && $nov->getLevel() >= 1 => true,
-                $nov->getLevel() >= 2 => true,
+                $citizen->getZone()->getDistance() <= 6 => true,
+                $nov->getLevel() >= 1 => true,
                 default => false,
         };
 
