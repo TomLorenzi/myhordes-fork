@@ -16,6 +16,7 @@ use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\RuinZone;
 use App\Entity\Town;
+use App\Enum\Configuration\CitizenProperties;
 use App\Enum\ItemPoisonType;
 use App\Structures\ItemRequest;
 use Doctrine\ORM\AbstractQuery;
@@ -38,7 +39,7 @@ class InventoryHandler
     public function getSize( Inventory $inventory ): int {
         if ($inventory->getCitizen()) {
             $hero = $inventory->getCitizen()->getProfession() && $inventory->getCitizen()->getProfession()->getHeroic();
-            $base = 4 + $this->countEssentialItems($inventory) + ($hero ? 1 : 0);
+            $base = 4 + $this->countEssentialItems($inventory) + ($hero ? 1 : 0) + $inventory->getCitizen()->property( CitizenProperties::InventorySpaceBonus );
 
             if (
                 !empty($this->fetchSpecificItems( $inventory, [ new ItemRequest( 'bagxl_#00' ) ] )) ||
@@ -50,9 +51,6 @@ class InventoryHandler
 
             if (!empty($this->fetchSpecificItems( $inventory, [ new ItemRequest( 'pocket_belt_#00' ) ] )))
                 $base += 2;
-
-            if($hero && $this->user_handler->hasSkill($inventory->getCitizen()->getUser(), 'largerucksack1'))
-                $base += 1;
 
             return $base;
         }

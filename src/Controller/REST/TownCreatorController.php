@@ -485,9 +485,6 @@ class TownCreatorController extends CustomAbstractCoreController
         if ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return AjaxResponse::success( true, ['url' => $this->generateUrl('soul_death')] );
 
-        if (!$this->isGranted('ROLE_CROW') && !$userHandler->hasSkill($user, 'mayor'))
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable, ['url' => $this->generateUrl('initial_landing')] );
-
         $limit = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_TOWNS_MAX_PRIVATE, 10);
         if (!$this->isGranted('ROLE_CROW') && count(array_filter($em->getRepository(Town::class)->findOpenTown(), fn(Town $t) => $t->getType()->getName() === 'custom')) >= $limit)
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );

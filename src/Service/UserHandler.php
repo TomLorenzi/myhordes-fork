@@ -83,20 +83,6 @@ class UserHandler
         ), fn(int $carry, CitizenRankingProxy $next) => $carry + ($next->getPoints() ?? 0), 0 );
     }
 
-    public function hasSkill(User $user, $skill){
-        if(is_string($skill)) {
-            $skill = $this->doctrineCache->getEntityByIdentifier(HeroSkillPrototype::class, $skill);
-            if($skill === null)
-                return false;
-        }
-
-        if (!$skill->isEnabled()) return false;
-        if ($skill->isLegacy()) {
-            $skills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getUnlocked($user->getAllHeroDaysSpent());
-            return in_array($skill, $skills);
-        } else return false;
-    }
-
     public function hasSeenLatestChangelog(User $user, ?string $fallback_lang): bool {
 
         $lang = $user->getLanguage() ?? $fallback_lang ?? 'de';
@@ -523,17 +509,6 @@ class UserHandler
 
 		return true;
 	}
-
-    public function getMaximumEntryHidden(User $user): int {
-        $limit = 0;
-        if($this->hasSkill($user, 'manipulator'))
-            $limit = 2;
-
-        if($this->hasSkill($user, 'treachery'))
-            $limit = 4;
-
-        return $limit;
-    }
 
     public function confirmNextDeath(User $user, string $lastWords): bool {
 

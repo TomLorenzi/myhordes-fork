@@ -81,7 +81,7 @@ class Citizen
     #[ORM\Column(type: 'integer')]
     private int $campingTimestamp = 0;
     #[ORM\Column(type: 'float')]
-    private int $campingChance = 0;
+    private float $campingChance = 0;
     #[ORM\OneToMany(targetEntity: 'App\Entity\ActionCounter', mappedBy: 'citizen', orphanRemoval: true, cascade: ['persist', 'remove'])]
     private Collection $actionCounters;
     #[ORM\Column(type: 'integer')]
@@ -142,6 +142,10 @@ class Citizen
 
     #[ORM\Column]
     private int $sp = 0;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'], fetch: 'LAZY', orphanRemoval: true)]
+    #[ORM\JoinColumn(nullable: true)]
+    private ?CitizenProperties $properties = null;
 
     public function __construct()
     {
@@ -1119,5 +1123,22 @@ class Citizen
         $this->sp = $sp;
 
         return $this;
+    }
+
+    public function getProperties(): ?CitizenProperties
+    {
+        return $this->properties;
+    }
+
+    public function setProperties(CitizenProperties $properties): static
+    {
+        $this->properties = $properties;
+
+        return $this;
+    }
+
+    public function property(\App\Enum\Configuration\CitizenProperties $v): mixed {
+        $props = $this->getProperties();
+        return $props ? $props->get( $v ) : $v->default();
     }
 }

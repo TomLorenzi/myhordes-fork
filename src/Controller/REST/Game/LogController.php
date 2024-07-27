@@ -12,6 +12,7 @@ use App\Entity\LogEntryTemplate;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
+use App\Enum\Configuration\CitizenProperties;
 use App\Response\AjaxResponse;
 use App\Service\Actions\Cache\CalculateBlockTimeAction;
 use App\Service\Actions\Cache\InvalidateLogCacheAction;
@@ -269,10 +270,13 @@ class LogController extends CustomAbstractCoreController
         ]);
     }
 
-    protected function getManipulationsLeft(Citizen $citizen, UserHandler $userHandler): int {
-        return $citizen->getAlive() && $citizen->getProfession()->getHeroic() && $userHandler->hasSkill($this->getUser(), 'manipulator')
-            ? max(0, ($userHandler->getMaximumEntryHidden($this->getUser()) - $citizen->getSpecificActionCounterValue(ActionCounter::ActionTypeRemoveLog)))
-            : 0;
+    protected function getManipulationsLeft(Citizen $citizen): int {
+        if (!$citizen->getAlive()) return 0;
+
+        return max(
+            0,
+                   $citizen->property( CitizenProperties::LogManipulationLimit ) - $citizen->getSpecificActionCounterValue(ActionCounter::ActionTypeRemoveLog)
+        );
     }
 
     /**
@@ -287,7 +291,7 @@ class LogController extends CustomAbstractCoreController
     #[Route(path: '/citizen/{id}', name: 'town_citizen', methods: ['GET'])]
     #[GateKeeperProfile(only_with_profession: true, only_in_town: true)]
     #[Toaster]
-    public function town(Request $request, EntityManagerInterface $em, UserHandler $userHandler, ?Citizen $citizen = null): JsonResponse {
+    public function town(Request $request, EntityManagerInterface $em, ?Citizen $citizen = null): JsonResponse {
 
         $active_citizen = $this->getUser()->getActiveCitizen();
 
@@ -315,7 +319,7 @@ class LogController extends CustomAbstractCoreController
         return new JsonResponse([
             'entries' => $this->renderCachedLogEntries( $em, $criteria, $cache_ident, canHide: true ),
             'total' => $em->getRepository(TownLogEntry::class)->matching( $countCriteria )->count(),
-            'manipulations' => $this->getManipulationsLeft( $active_citizen, $userHandler )
+            'manipulations' => $this->getManipulationsLeft( $active_citizen )
         ]);
 
     }

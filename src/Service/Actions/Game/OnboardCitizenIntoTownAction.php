@@ -5,6 +5,7 @@ namespace App\Service\Actions\Game;
 use App\Controller\Soul\SoulController;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
+use App\Entity\CitizenProperties;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\ItemPrototype;
@@ -20,6 +21,7 @@ use App\Service\ItemFactory;
 use App\Service\UserHandler;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
+use ArrayHelpers\Arr;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Mercure\HubInterface;
@@ -43,16 +45,20 @@ readonly class OnboardCitizenIntoTownAction
      * @param Citizen $citizen
      * @param CitizenProfession $profession
      * @param string|null $alias
+     * @param HeroSkillPrototype[] $heroSkills
      * @return bool
      */
     public function __invoke(
         Citizen $citizen,
         CitizenProfession $profession,
         ?string $alias = null,
+        array $heroSkills = [],
     ): bool
     {
         if ($citizen->getProfession()->getName() !== CitizenProfession::DEFAULT)
             return false;
+
+        $citizenPropConfig = [];
 
         $town = $citizen->getTown();
         $citizen->setAlias( $alias );
@@ -61,12 +67,15 @@ readonly class OnboardCitizenIntoTownAction
         $inventory = $citizen->getInventory();
 
         if($profession->getHeroic()) {
-            $skills = $this->entityManager->getRepository(HeroSkillPrototype::class)->getUnlocked($citizen->getUser()->getAllHeroDaysSpent());
-
             if ($this->userHandler->checkFeatureUnlock( $citizen->getUser(), 'f_cam', true ) ) {
                 $item = ($this->itemFactory->createItem( "photo_3_#00" ))->setEssential(true);
                 $this->proxy->transferItem($citizen, $item, to: $inventory);
             }
+
+            $skills = [
+                ...$this->entityManager->getRepository(HeroSkillPrototype::class)->getUnlocked($citizen->getUser()->getAllHeroDaysSpent()),
+                ...$heroSkills
+            ];
 
             /** @var HeroSkillPrototype $skill */
             foreach ($skills as $skill) {
@@ -75,6 +84,9 @@ readonly class OnboardCitizenIntoTownAction
                     if ($this->userHandler->checkFeatureUnlock( $citizen->getUser(), $feature, false ) )
                         continue;
                 }
+
+                foreach ($skill->getCitizenProperties() ?? [] as $propPath => $value)
+                    Arr::set($citizenPropConfig, $propPath, $value);
 
                 // Grant chest space
                 if ($skill->getGrantsChestSpace() > 0)
@@ -132,6 +144,8 @@ readonly class OnboardCitizenIntoTownAction
 
         if ($this->userHandler->checkFeatureUnlock( $citizen->getUser(), 'f_wtns', true ) )
             $this->citizenHandler->inflictStatus($citizen, 'tg_infect_wtns');
+
+        $citizen->setProperties( (new CitizenProperties())->setProps( $citizenPropConfig ) );
 
         try {
             $this->entityManager->persist( $citizen );

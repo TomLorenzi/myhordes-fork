@@ -59,6 +59,9 @@ class HeroSkillPrototype
     #[ORM\Column]
     private int $sort = 0;
 
+    #[ORM\Column(nullable: true)]
+    private ?array $citizenProperties = null;
+
     public function __construct()
     {
         $this->start_items = new ArrayCollection();
@@ -246,6 +249,18 @@ class HeroSkillPrototype
     public function setSort(int $sort): static
     {
         $this->sort = $sort;
+
+        return $this;
+    }
+
+    public function getCitizenProperties(): ?array
+    {
+        return $this->citizenProperties;
+    }
+
+    public function setCitizenProperties(?array $citizenProperties): static
+    {
+        $this->citizenProperties = $citizenProperties;
 
         return $this;
     }

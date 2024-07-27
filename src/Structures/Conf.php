@@ -5,7 +5,7 @@ namespace App\Structures;
 
 use Adbar\Dot;
 use App\Enum\Configuration\Configuration;
-use ArrayHelpers\Arr;
+use Exception;
 
 class Conf
 {
@@ -13,7 +13,8 @@ class Conf
     private ?Dot $dot = null;
     private bool $is_complete = false;
 
-    private function deep_merge( array &$base, array $inc ) {
+    private function deep_merge( array &$base, array $inc ): void
+    {
         foreach ($inc as $key => $data) {
             if (!isset($base[$key])) $base[$key] = $data;
             elseif ( is_array( $base[$key] ) === is_array( $data ) ) {
@@ -23,16 +24,6 @@ class Conf
                 elseif (is_array($data)) $this->deep_merge( $base[$key], $data );
                 else $base[$key] = $data;
             }
-        }
-    }
-
-    private function flatten(array &$data, ?array &$lines = [], string $prefix = '' ) {
-        foreach ($data as $key => $entry) {
-            $go_deeper = is_array($entry) && !empty($entry) && count(array_filter( array_keys( $entry ), function ($k) { return is_numeric($k); } )) !== count($entry);
-
-            $current_key = empty($prefix) ? $key : "{$prefix}.{$key}";
-            if ($go_deeper) $this->flatten( $entry, $lines, $current_key );
-            else $lines[$current_key] = $entry;
         }
     }
 
@@ -58,26 +49,31 @@ class Conf
         return $this->dot?->flatten() ?? (new Dot($this->data))->flatten();
     }
 
-    public function getData() {
+    public function getData(): array
+    {
         return $this->data;
     }
 
     public function get(string|Configuration $key, $default = null) {
         if ( is_a( $key, Configuration::class ) ) {
 
-            if ($key->abstract()) throw new \Exception("Cannot read data from abstract setting '{$key->name()}'.");
+            if ($key->abstract()) throw new Exception("Cannot read data from abstract setting '{$key->name()}'.");
             return $this->dot->get( $key->key(), $key->default() ?? $default );
 
         } else return $this->dot->get( $key, $default );
     }
 
     /**
+     * @throws Exception
      * @deprecated
      */
     public function getSubKey(string $key, string $subKey, $default = null) {
         return $this->get( "{$key}.{$subKey}", $default );
     }
 
+    /**
+     * @throws Exception
+     */
     public function is(string $key, $values, $default = null): bool {
         return is_array( $values )
             ? in_array( $this->get($key,$default), $values )

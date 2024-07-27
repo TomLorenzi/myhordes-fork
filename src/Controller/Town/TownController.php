@@ -43,6 +43,7 @@ use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
 use App\Enum\ActionHandler\PointType;
 use App\Enum\AdminReportSpecification;
+use App\Enum\Configuration\CitizenProperties;
 use App\Enum\EventStages\BuildingValueQuery;
 use App\Enum\ItemPoisonType;
 use App\Enum\ZoneActivityMarkerType;
@@ -224,9 +225,9 @@ class TownController extends InventoryAwareController
             foreach ($roles as $role)
                 $has_voted[$role->getName()] = ($this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($this->getActiveCitizen(), $role) !== null);
 
-        $can_edit_blackboard = $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'dictator') && !$this->getActiveCitizen()->getBanished();
-        $has_dictator = $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'dictator');
-        
+        $has_dictator = $this->getActiveCitizen()->property(CitizenProperties::EnableBlackboard);
+        $can_edit_blackboard = $has_dictator && !$this->getActiveCitizen()->getBanished();
+
         $sb = $this->user_handler->getShoutbox($this->getUser());
         $messages = false;
         if ($sb) {
@@ -383,13 +384,10 @@ class TownController extends InventoryAwareController
         $is_admin      = $c->getUser()->getRightsElevation() >= User::USER_LEVEL_ADMIN;
         $already_stolen = $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_steal') && !$this->getActiveCitizen()->getTown()->getChaos();
 
-        $hasClairvoyance = false;
-        $clairvoyanceLevel = 0;
-
-        if ($this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'clairvoyance')) {
-            $hasClairvoyance = true;
-            $clairvoyanceLevel = $this->citizen_handler->getActivityLevel($c);
-        }
+        $hasClairvoyance = $this->getActiveCitizen()->property( CitizenProperties::EnableClairvoyance );
+        $clairvoyanceLevel = $hasClairvoyance
+            ? $this->citizen_handler->getActivityLevel($c)
+            : 0;
 
         $criteria = new Criteria();
         $criteria->andWhere($criteria->expr()->gte('severity', Complaint::SeverityBanish));
@@ -437,7 +435,7 @@ class TownController extends InventoryAwareController
             'clairvoyanceLevel' => $clairvoyanceLevel,
             'attackAP' => $this->getTownConf()->get( TownConf::CONF_MODIFIER_ATTACK_AP, 5 ),
             'can_recycle' => $can_recycle,
-            'has_omniscience' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
+            'has_omniscience' => $hasClairvoyance && $this->getActiveCitizen()->property( CitizenProperties::EnableOmniscience ),
             'intruding' => $intrusion === null ? 0 : ( $intrusion->getSteal() ? 1 : -1 ),
             'recycle_ap' => $recycleAP
         ]) );
@@ -965,7 +963,7 @@ class TownController extends InventoryAwareController
             'hidden' => $hidden,
             'prof_count' => $prof_count,
             'death_count' => $death_count,
-            'has_omniscience' => $activeCitizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($activeCitizen->getUser(), 'omniscience'),
+            'has_omniscience' => $this->getActiveCitizen()->property( CitizenProperties::EnableClairvoyance ) && $this->getActiveCitizen()->property( CitizenProperties::EnableOmniscience ),
             'is_ghoul' => $activeCitizen->hasRole('ghoul'),
             'caught_chance' => $cc
         ]) );
@@ -1001,7 +999,7 @@ class TownController extends InventoryAwareController
             'me' => $this->getActiveCitizen(),
             'selectedRole' => $role,
             'vote' => $vote,
-            'has_omniscience' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
+            'has_omniscience' => $this->getActiveCitizen()->property( CitizenProperties::EnableClairvoyance ) && $this->getActiveCitizen()->property( CitizenProperties::EnableOmniscience ),
         ]) );
     }
 
@@ -1074,7 +1072,7 @@ class TownController extends InventoryAwareController
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
 
-        if (!$this->getActiveCitizen()->getProfession()->getHeroic() || !$this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'))
+        if (!$this->getActiveCitizen()->property( CitizenProperties::EnableClairvoyance ) || !$this->getActiveCitizen()->property( CitizenProperties::EnableOmniscience ))
             return $this->redirect($this->generateUrl('town_citizens'));
 
         $citizens = [];
@@ -1102,7 +1100,7 @@ class TownController extends InventoryAwareController
 
         return $this->render( 'ajax/game/town/citizen_omniscience.html.twig', $this->addDefaultTwigArgs('citizens', [
             'citizens' => $citizens,
-            'has_omniscience' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
+            'has_omniscience' => $this->getActiveCitizen()->property( CitizenProperties::EnableClairvoyance ) && $this->getActiveCitizen()->property( CitizenProperties::EnableOmniscience ),
             'me' => $this->getActiveCitizen(),
             'hidden' => $hidden
         ]) );
@@ -1339,7 +1337,7 @@ class TownController extends InventoryAwareController
             'workshopBonus' => $workshopBonus,
             'hpToAp' => $hpToAp,
             'day' => $this->getActiveCitizen()->getTown()->getDay(),
-            'canvote' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), "dictator") && !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_build_vote'),
+            'canvote' => $this->getActiveCitizen()->property(CitizenProperties::EnableBuildingRecommendation) && !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_build_vote'),
             'voted_building' => $votedBuilding,
         ]) );
     }
@@ -1353,7 +1351,7 @@ class TownController extends InventoryAwareController
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
 
-        if (!$this->getActiveCitizen()->getProfession()->getHeroic() || !$this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'dictator'))
+        if (!$this->getActiveCitizen()->property(CitizenProperties::EnableBuildingRecommendation))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         if ($citizen->getBuildingVote() || $citizen->getBanished())

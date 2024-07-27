@@ -18,6 +18,7 @@ use App\Entity\PictoPrototype;
 use App\Entity\PrivateMessage;
 use App\Entity\PrivateMessageThread;
 use App\Enum\ActionHandler\PointType;
+use App\Enum\Configuration\CitizenProperties;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\AdminHandler;
@@ -87,7 +88,7 @@ class TownHomeController extends TownController
         $town = $citizen->getTown();
         $home = $citizen->getHome();
 
-        $can_send_global_pm = !$citizen->getBanished() && $citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'writer');
+        $can_send_global_pm = !$citizen->getBanished() && $citizen->property( CitizenProperties::EnableGroupMessages );
 
         $possible_dests = [];
         foreach ($town->getCitizens() as $dest) {

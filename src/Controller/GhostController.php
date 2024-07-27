@@ -96,7 +96,7 @@ class GhostController extends CustomAbstractController
             'userCanJoin' => $this->getUserTownClassAccess($this->conf->getGlobalConf()),
             'userCantJoinReason' => $this->getUserTownClassAccessLimitReason($this->conf->getGlobalConf()),
             'sp_limits' => $this->getTownClassAccessLimits($this->conf->getGlobalConf()),
-            'canCreateTown' => /*!$this->conf->getGlobalConf()->get( MyHordesConf::CONF_STAGING_ENABLED, false ) &&*/ ($this->user_handler->hasSkill($user, 'mayor') || $user->getRightsElevation() >= User::USER_LEVEL_CROW),
+            'canCreateTown' => true,
         ] ));
     }
 
@@ -146,10 +146,6 @@ class GhostController extends CustomAbstractController
         /** @var CitizenRankingProxy $nextDeath */
         if ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
-
-        if(!$this->user_handler->hasSkill($user, 'mayor') && $user->getRightsElevation() < User::USER_LEVEL_CROW){
-            return $this->redirect($this->generateUrl( 'initial_landing' ));
-        }
 
         $limit = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_TOWNS_MAX_PRIVATE, 10);
 

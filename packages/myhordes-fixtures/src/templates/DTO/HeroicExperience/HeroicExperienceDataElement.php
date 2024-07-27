@@ -2,14 +2,13 @@
 
 namespace MyHordes\Fixtures\DTO\HeroicExperience;
 
-use App\Entity\FeatureUnlock;
 use App\Entity\FeatureUnlockPrototype;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\ItemPrototype;
+use App\Enum\Configuration\CitizenProperties;
 use Doctrine\ORM\EntityManagerInterface;
 use MyHordes\Fixtures\DTO\Element;
-use MyHordes\Fixtures\DTO\LabeledIconElementInterface;
 
 /**
  * @property string $name
@@ -36,15 +35,34 @@ use MyHordes\Fixtures\DTO\LabeledIconElementInterface;
  * @method self group(string $v)
  * @property int $chestSpace
  * @method self chestSpace(int $v)
+ * @property int $disabled
+ * @method self disabled(bool $v)
  * @property string $itemsGrantedAsProfessionItems
  * @method self itemsGrantedAsProfessionItems(bool $v)
  * @property string $inhibitedByFeatureUnlock
  * @method self inhibitedByFeatureUnlock(string $v)
+ * @property array $citizenProperties
+ * @method self citizenProperties(array $v)
  *
  * @method HeroicExperienceDataContainer commit()
  * @method HeroicExperienceDataContainer discard()
  */
 class HeroicExperienceDataElement extends Element {
+
+    protected function provide_default(string $name): mixed {
+        return match ($name) {
+            'citizenProperties' => [],
+            default => parent::provide_default($name),
+        };
+    }
+
+    public function addCitizenProperty(CitizenProperties $prop, mixed $value): self {
+        $this->citizenProperties = [
+            ...$this->citizenProperties,
+            $prop->value => $value,
+        ];
+        return $this;
+    }
 
     /**
      * @throws \Exception
@@ -90,11 +108,12 @@ class HeroicExperienceDataElement extends Element {
                 ->setUnlockedAction( $protoAction )
                 ->setLevel( $this->legacy ? null : $this->level )
                 ->setSort( $this->legacy ? $this->unlockAt : ($this->sort ?? 0) )
-                ->setEnabled( true )
+                ->setEnabled( !$this->disabled )
                 ->setGroupIdentifier( $this->legacy ? null : $this->group )
                 ->setInhibitedBy( $blockedByFeature )
                 ->setProfessionItems( $this->itemsGrantedAsProfessionItems ?? false )
                 ->setGrantsChestSpace( $this->chestSpace ?? 0 )
+                ->setCitizenProperties( $this->citizenProperties )
                 ->setLegacy( $this->legacy );
 
             $entity->getStartItems()->clear();

@@ -8,6 +8,7 @@ use App\Entity\Citizen;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\User;
+use App\Enum\Configuration\CitizenProperties;
 use App\Service\CitizenHandler;
 use App\Service\CommandHelper;
 use App\Service\InventoryHandler;
@@ -137,10 +138,10 @@ class CitizenInspectorCommand extends LanguageCommand
 
         if (($ban = $input->getOption('set-banned')) !== '') {
             $citizen->setBanished($ban);
-            if($ban && $citizen->getProfession()->getHeroic() && $this->userHandler->hasSkill($citizen->getUser(), 'revenge') && $citizen->getTown()->getDay() >= 3) {
-                $this->inventoryHandler->forceMoveItem( $citizen->getInventory(), $this->itemFactory->createItem( 'poison_#00' ) );
-                $this->inventoryHandler->forceMoveItem( $citizen->getInventory(), $this->itemFactory->createItem( 'poison_#00' ) );
-            }
+            if ($ban && $citizen->getTown()->getDay() >= 3)
+                foreach ($citizen->property( CitizenProperties::RevengeItems ) as $item)
+                    $this->inventoryHandler->forceMoveItem( $citizen->getInventory(), $this->itemFactory->createItem( $item ) );
+
             $updated = true;
         }
 

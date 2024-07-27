@@ -16,6 +16,7 @@ use App\Entity\PrivateMessage;
 use App\Entity\PrivateMessageThread;
 use App\Entity\Town;
 use App\Entity\User;
+use App\Enum\Configuration\CitizenProperties;
 use App\Response\AjaxResponse;
 use App\Service\CrowService;
 use App\Service\ErrorHelper;
@@ -74,7 +75,7 @@ class MessageTownMessageController extends MessageController
 
         $sender = $this->getUser()->getActiveCitizen();
 
-        if ($type === "global" && !$sender->getProfession()->getHeroic() && !$userHandler->hasSkill($sender->getUser(), 'writer'))
+        if ($type === "global" && !$sender->property( CitizenProperties::EnableGroupMessages ))
             return AjaxResponse::error(ErrorHelper::ErrorMustBeHero);
 
         if ($type === "global" && !$sender->getTown()->isOpen() && $sender->getTown()->getAliveCitizenCount() <= 1)

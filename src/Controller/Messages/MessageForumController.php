@@ -322,10 +322,9 @@ class MessageForumController extends MessageController
             return AjaxResponse::error(self::ErrorPostTitleTextMissing );
 
         $town_citizen = $forum->getTown() ? $user->getCitizenFor( $forum->getTown() ) : null;
-        $is_heroic = !$forum->getTown() || ( $town_citizen && $town_citizen->getAlive() && $town_citizen->getProfession()->getHeroic() );
 
         $title = $parser->trimmed('title');
-        $tag   = ($this->userHandler->hasSkill($user, 'writer') && $is_heroic) ? $parser->trimmed('tag') : null;
+        $tag   = $parser->trimmed('tag');
         $text  = $parser->trimmed('text');
 
         if (empty($tag) || $tag === '-none-')
@@ -726,9 +725,7 @@ class MessageForumController extends MessageController
             $title = $parser->trimmed('title');
 
             $town_citizen = $forum->getTown() ? $user->getCitizenFor( $forum->getTown() ) : null;
-            $is_heroic = !$forum->getTown() || ( $town_citizen && $town_citizen->getAlive() && $town_citizen->getProfession()->getHeroic() );
-
-            $tag = ($this->userHandler->hasSkill($user, 'writer') && $is_heroic) ? $parser->trimmed('tag') : null;
+            $tag = $parser->trimmed('tag');
 
             if (empty($tag) || $tag === '-none-')
                 $tag = null;
@@ -1021,11 +1018,9 @@ class MessageForumController extends MessageController
 
         $town_citizen = $forum->getTown() ? $user->getCitizenFor( $forum->getTown() ) : null;
 
-        $is_heroic = !$forum->getTown() || ( $town_citizen && $town_citizen->getAlive() && $town_citizen->getProfession()->getHeroic() );
-
-        $tags = ($this->userHandler->hasSkill($user, 'writer') && $is_heroic) ? array_filter( $forum->getAllowedTags()->getValues(),
+        $tags = array_filter( $forum->getAllowedTags()->getValues(),
             fn(ThreadTag $tag) => $tag->getPermissionMap() === null || $this->perm->isPermitted( $permissions, $tag->getPermissionMap() )
-        ) : [];
+        );
 
         return $this->render( 'ajax/editor/forum-thread.html.twig', [
             'fid' => $forum->getId(),
@@ -1337,9 +1332,9 @@ class MessageForumController extends MessageController
         $is_heroic = !$forum->getTown() || ( $town_citizen && $town_citizen->getAlive() && $town_citizen->getProfession()->getHeroic() );
 
         if ($post !== null && $thread->firstPost(true) === $post && !$thread->getTranslatable())
-            $tags = ($this->userHandler->hasSkill($user, 'writer') && $is_heroic) ? array_filter( $forum->getAllowedTags()->getValues(),
+            $tags = array_filter( $forum->getAllowedTags()->getValues(),
                 fn(ThreadTag $tag) => $tag->getPermissionMap() === null || $this->perm->isPermitted( $permissions, $tag->getPermissionMap() )
-            ) : [];
+            );
         else $tags = [];
 
         return $this->render( 'ajax/editor/forum-post.html.twig', [

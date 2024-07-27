@@ -520,46 +520,7 @@ class NightlyHandler
             if (!$citizen->getProfession()->getHeroic())
                 continue;
 
-            // Check hero skills
-            $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($citizen->getUser()->getAllHeroDaysSpent());
-
             $citizen->getUser()->setHeroDaysSpent($citizen->getUser()->getHeroDaysSpent() + 1);
-
-            if($nextSkill !== null && $citizen->getUser()->getAllHeroDaysSpent() >= $nextSkill->getDaysNeeded()){
-                $this->log->info("Citizen <info>{$citizen->getUser()->getUsername()}</info> has unlocked a new skill : <info>{$nextSkill->getTitle()}</info>");
-
-                $null = null;
-
-                switch($nextSkill->getName()){
-                    case "brothers":
-                        //TODO: add the heroic power
-                        break;
-                    case "largechest1":
-                    case "largechest2":
-                        $citizen->getHome()->setAdditionalStorage($citizen->getHome()->getAdditionalStorage() + 1);
-                        break;
-                }
-
-				// If the HeroSkill unlocks a Heroic Action, give it
-				if ($nextSkill->getUnlockedAction()) {
-					$previouslyUsed = false;
-					// A heroic action can replace one. Let's handle it!
-					if ($nextSkill->getUnlockedAction()->getReplacedAction() !== null) {
-						$proto = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => $nextSkill->getUnlockedAction()->getReplacedAction()]);
-						$previouslyUsed = $citizen->getUsedHeroicActions()->contains($proto);
-						$citizen->removeHeroicAction($proto);
-						$citizen->removeUsedHeroicAction($proto);
-					}
-					if ($previouslyUsed)
-						$citizen->addUsedHeroicAction($nextSkill->getUnlockedAction());
-					else
-						$citizen->addHeroicAction($nextSkill->getUnlockedAction());
-					$this->entity_manager->persist($citizen);
-				}
-
-                $this->entity_manager->persist($citizen);
-                $this->entity_manager->persist($citizen->getHome());
-            }
         }
     }
 

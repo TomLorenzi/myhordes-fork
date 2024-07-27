@@ -25,6 +25,7 @@ use App\Entity\PrivateMessageThread;
 use App\Entity\Town;
 use App\Entity\Zone;
 use App\Enum\ActionHandler\PointType;
+use App\Enum\Configuration\CitizenProperties;
 use App\Enum\EventStages\CitizenValueQuery;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
@@ -297,10 +298,9 @@ class CitizenHandler
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, null ) );
             foreach ($rem as $r) $this->entity_manager->remove( $r );
 
-        } else if ($action && $citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'revenge') && $citizen->getTown()->getDay() >= 3) {
-            $this->inventory_handler->forceMoveItem( $citizen->getInventory(), $this->item_factory->createItem( 'poison_#00' ));
-            $this->inventory_handler->forceMoveItem( $citizen->getInventory(), $this->item_factory->createItem( 'poison_#00' ));
-        }
+        } else if ($citizen->getTown()->getDay() >= 3)
+            foreach ($citizen->property( CitizenProperties::RevengeItems ) as $item)
+                $this->inventory_handler->forceMoveItem( $citizen->getInventory(), $this->item_factory->createItem( $item ));
 
         if (!empty($itemsForLog))
             $this->entity_manager->persist(
@@ -545,16 +545,11 @@ class CitizenHandler
     public function getCP(Citizen $citizen): int {
         if ($this->hasStatusEffect( $citizen, 'terror', false )) $base = 0;
         else {
-            $base = $citizen->getProfession()->getName() == 'guardian' ? 4 : 2;
+            $base = ($citizen->getProfession()->getName() == 'guardian' ? 4 : 2) +
+                $citizen->property( CitizenProperties::ZoneControlBonus );
 
-            $has_healthy_body = $citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'healthybody');
-            $has_body_armor   = $citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'brick');
-
-            if ($has_healthy_body && $this->hasStatusEffect( $citizen, 'clean', false ))
-                $base += 1;
-
-            if ($has_body_armor)
-                $base += 1;
+            if ($citizen->hasStatus('clean'))
+                $base += $citizen->property( CitizenProperties::ZoneControlCleanBonus );
 
             if (!empty($this->inventory_handler->fetchSpecificItems(
                 $citizen->getInventory(), [new ItemRequest( 'car_door_#00' )]
@@ -667,7 +662,7 @@ class CitizenHandler
 
 		// Generic infos
 		$is_panda = $citizen->getTown()->getType()->getName() === 'panda';
-		$has_pro_camper = $citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'procamp');
+		$has_pro_camper = $citizen->property( CitizenProperties::EnableProCamper );
 		$config = $this->conf->getTownConfiguration($citizen->getTown());
 		$has_scout_protection = $this->inventory_handler->countSpecificItems(
 			$citizen->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
@@ -826,7 +821,7 @@ class CitizenHandler
     public function getDeathChances(Citizen $citizen, bool $during_attack = false): float {
         $fatigue = $this->getNightwatchBaseFatigue($citizen);
 
-        $is_pro = ($citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'prowatch'));
+        $is_pro = $citizen->property(CitizenProperties::EnableProWatchman);
 
         for($i = 1 ; $i <= $citizen->getTown()->getDay() - ($during_attack ? 2 : 1); $i++){
             /** @var CitizenWatch|null $previousWatches */

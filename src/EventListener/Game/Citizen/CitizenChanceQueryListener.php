@@ -8,6 +8,7 @@ use App\Entity\CitizenWatch;
 use App\Entity\RuinZonePrototype;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
+use App\Enum\Configuration\CitizenProperties;
 use App\Enum\Configuration\TownSetting;
 use App\Enum\EventStages\CitizenValueQuery;
 use App\Enum\ScavengingActionType;
@@ -65,7 +66,7 @@ final class CitizenChanceQueryListener implements ServiceSubscriberInterface
 		$em = $this->container->get(EntityManagerInterface::class);
 
 		$fatigue = $citizen_handler->getNightwatchBaseFatigue($citizen);
-		$is_pro = ($citizen->getProfession()->getHeroic() && $user_handler->hasSkill($citizen->getUser(), 'prowatch'));
+		$is_pro = $citizen->property(CitizenProperties::EnableProWatchman);
 
 		for($i = 1 ; $i <= $citizen->getTown()->getDay() - ($event->during_attack ? 2 : 1); $i++){
 			/** @var CitizenWatch|null $previousWatches */
