@@ -30,9 +30,13 @@ class ActionCounter
     const ActionTypeSpecialActionSurv	= 17;
     const ActionTypeSpecialActionHunter	= 18;
     const ActionTypeSpecialActionAPLoan	= 19;
+    const ActionTypeAnonMessage     	= 20;
+    const ActionTypeAnonPost         	= 21;
     const PerGameActionTypes = [
         self::ActionTypeRemoveLog,
-		self::ActionTypePool
+		self::ActionTypePool,
+		self::ActionTypeAnonMessage,
+		self::ActionTypeAnonPost,
     ];
     #[ORM\Id]
     #[ORM\GeneratedValue]

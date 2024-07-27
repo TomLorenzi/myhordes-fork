@@ -72,13 +72,7 @@ readonly class OnboardCitizenIntoTownAction
                 $this->proxy->transferItem($citizen, $item, to: $inventory);
             }
 
-            $skills = [
-                ...$this->entityManager->getRepository(HeroSkillPrototype::class)->getUnlocked($citizen->getUser()->getAllHeroDaysSpent()),
-                ...$heroSkills
-            ];
-
-            /** @var HeroSkillPrototype $skill */
-            foreach ($skills as $skill) {
+            foreach ($heroSkills as $skill) {
 
                 if ($feature = $skill->getInhibitedBy()) {
                     if ($this->userHandler->checkFeatureUnlock( $citizen->getUser(), $feature, false ) )
@@ -96,7 +90,7 @@ readonly class OnboardCitizenIntoTownAction
                 if ($skill->getStartItems()->count() > 0) {
                     foreach ($skill->getStartItems() as $prototype) {
 
-                        if ($skill->isProfessionItems()) {
+                        if ($skill->isProfessionItems() || in_array( $prototype->getName(), $skill->getEssentialItemTypes() ?? [] )) {
                             $item = ($this->itemFactory->createItem( $prototype ))->setEssential(true);
                             $this->proxy->transferItem($citizen, $item, to: $inventory);
                         } else $this->inventoryHandler->forceMoveItem($citizen->getHome()->getChest(), $this->itemFactory->createItem($prototype));

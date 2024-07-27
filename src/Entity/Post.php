@@ -59,6 +59,9 @@ class Post
     private $searchForum = null;
     #[ORM\Column(type: 'boolean', nullable: true)]
     private $reported;
+
+    #[ORM\Column]
+    private bool $anonymous = false;
     public function __construct()
     {
         $this->adminReports = new ArrayCollection();
@@ -291,6 +294,18 @@ class Post
     public function setReported(?bool $reported): self
     {
         $this->reported = $reported;
+
+        return $this;
+    }
+
+    public function isAnonymous(): bool
+    {
+        return $this->anonymous;
+    }
+
+    public function setAnonymous(bool $anonymous): static
+    {
+        $this->anonymous = $anonymous;
 
         return $this;
     }

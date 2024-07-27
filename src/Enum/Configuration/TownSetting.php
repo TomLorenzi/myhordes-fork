@@ -19,6 +19,7 @@ enum TownSetting: string implements Configuration
     case LockDoorUntilTownIsFull = 'lock_door_until_full';
     case PopulationMin = 'population.min';
     case PopulationMax = 'population.max';
+    case SkillMode = 'skill_mode';
     //</editor-fold>
 
     //<editor-fold desc="Town Well Settings">
@@ -147,7 +148,8 @@ enum TownSetting: string implements Configuration
             self::SpawnStrangerAfterCitizenCount,
             self::LockDoorUntilTownIsFull,
             self::PopulationMin,
-            self::PopulationMax => self::Section_TownStartMeta,
+            self::PopulationMax,
+            self::SkillMode => self::Section_TownStartMeta,
 
             self::DefaultWellFillMin,
             self::DefaultWellFillMax => self::Section_Well,
@@ -232,6 +234,7 @@ enum TownSetting: string implements Configuration
             self::LockDoorUntilTownIsFull               =>  false,
             self::PopulationMin                         =>  0,
             self::PopulationMax                         =>  0,
+            self::SkillMode                             =>  false,
 
             self::DefaultWellFillMin => 0,
             self::DefaultWellFillMax => 0,

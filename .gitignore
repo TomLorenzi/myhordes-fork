@@ -37,6 +37,7 @@ composer.phar
 composer.dist.json
 
 # Migrations
+migrations/*.php
 src/Migrations/*.php
 
 # Local webpack config
@@ -44,6 +45,7 @@ webpack.config.local.js
 webpack.config.deploy.js
 
 # Local app configs
+config/packages/local/app/*.yml
 config/packages/dev/app/*.yml
 config/packages/prod/app/*.yml
 etwin.toml

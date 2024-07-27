@@ -62,6 +62,12 @@ class HeroSkillPrototype
     #[ORM\Column(nullable: true)]
     private ?array $citizenProperties = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?array $bullets = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?array $essentialItemTypes = null;
+
     public function __construct()
     {
         $this->start_items = new ArrayCollection();
@@ -261,6 +267,30 @@ class HeroSkillPrototype
     public function setCitizenProperties(?array $citizenProperties): static
     {
         $this->citizenProperties = $citizenProperties;
+
+        return $this;
+    }
+
+    public function getBullets(): ?array
+    {
+        return $this->bullets;
+    }
+
+    public function setBullets(?array $bullets): static
+    {
+        $this->bullets = $bullets;
+
+        return $this;
+    }
+
+    public function getEssentialItemTypes(): ?array
+    {
+        return $this->essentialItemTypes;
+    }
+
+    public function setEssentialItemTypes(?array $essentialItemTypes): static
+    {
+        $this->essentialItemTypes = $essentialItemTypes;
 
         return $this;
     }

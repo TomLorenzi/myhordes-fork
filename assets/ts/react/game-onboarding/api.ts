@@ -30,6 +30,7 @@ export type Skill = {
     "id": number,
     "title": string,
     "description": string,
+    "bullets": string[],
     "icon": string,
     "level": number,
     "sort": number,

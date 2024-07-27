@@ -32,6 +32,9 @@ class PrivateMessageThread
     private $archived = false;
     #[ORM\Column(type: 'boolean')]
     private $locked;
+
+    #[ORM\Column]
+    private ?bool $anonymous = false;
     public function __construct()
     {
         $this->messages = new ArrayCollection();
@@ -146,5 +149,17 @@ class PrivateMessageThread
         }
 
         return false;
+    }
+
+    public function isAnonymous(): bool
+    {
+        return $this->anonymous;
+    }
+
+    public function setAnonymous(bool $anonymous): static
+    {
+        $this->anonymous = $anonymous;
+
+        return $this;
     }
 }

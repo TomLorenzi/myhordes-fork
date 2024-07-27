@@ -5,6 +5,7 @@
     enable_alias,
     header,
     town_controls,
+    anon,
     enable_title,
     default_title,
     alt_post_mode,
@@ -53,12 +54,17 @@
                 data-with-role-bisou="{{ 'Die Taube'|trans({},'global') }}"
             {% endif %}
         {% endif %}
-        {% if user and alt_post_mode and user|has_unlocked('f_glory_temp') %}
+        {% if user and alt_post_mode and (user|has_unlocked('f_glory_temp') or anon) %}
             {% if not permission.alt_post_mode() %}
                 data-with-role-user="{{ 'Normaler Post'|trans({}, 'global') }}"
                 data-default-role="USER"
             {% endif %}
-            data-with-role-glory="{{ 'Ruhm'|trans({}, 'global') }}"
+            {% if anon %}
+                data-with-role-anon="{{ 'Anonymer Post'|trans({}, 'global') }}"
+            {% endif %}
+            {% if user|has_unlocked('f_glory_temp') %}
+                data-with-role-glory="{{ 'Ruhm'|trans({}, 'global') }}"
+            {% endif %}
         {% endif %}
     ></hordes-twino-editor>
 {% endmacro %}

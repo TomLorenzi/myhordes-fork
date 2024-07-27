@@ -4,6 +4,7 @@ namespace App\Controller\Messages;
 
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AccountRestriction;
+use App\Entity\ActionCounter;
 use App\Entity\AdminDeletion;
 use App\Entity\Citizen;
 use App\Entity\Forum;
@@ -19,6 +20,7 @@ use App\Entity\Thread;
 use App\Entity\ThreadReadMarker;
 use App\Entity\ThreadTag;
 use App\Entity\User;
+use App\Enum\Configuration\CitizenProperties;
 use App\Response\AjaxResponse;
 use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\Actions\Mercure\BroadcastPMUpdateViaMercureAction;
@@ -571,6 +573,10 @@ class MessageForumController extends MessageController
 
         $text = $parser->get('text');
 
+        $town_citizen = $forum->getTown() ? $user->getCitizenFor( $forum->getTown() ) : null;
+        $anon_post_limit = $town_citizen?->property( CitizenProperties::AnonymousPostLimit ) ?? 0;
+        $can_post_anon = ($anon_post_limit < 0) || ($anon_post_limit > ($town_citizen->getSpecificActionCounterValue( ActionCounter::ActionTypeAnonPost ) ?? 0));
+
         $type = $parser->get('type') ?? 'USER';
         $valid = ['USER'];
         if ($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsAnim )) $valid[] = 'ANIM';
@@ -580,6 +586,7 @@ class MessageForumController extends MessageController
             $valid[] = 'BISOU';
         }
         if ($this->userHandler->checkFeatureUnlock( $user, 'f_glory_temp', false )) $valid[] = 'GLORY';
+        if ($can_post_anon) $valid[] = 'ANON';
         if (!in_array($type, $valid)) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         $map_type = [
@@ -594,7 +601,12 @@ class MessageForumController extends MessageController
             ->setText( $text )
             ->setDate( new DateTime('now') )
             ->setType($type)
-            ->setEditingMode( $type !== "USER" ? Post::EditorPerpetual : Post::EditorTimed )
+            ->setAnonymous($type === 'ANON')
+            ->setEditingMode( match($type) {
+                'USER', 'GLORY' => Post::EditorTimed,
+                'ANON' => Post::EditorLocked,
+                default => Post::EditorPerpetual,
+            })
             ->setLastAdminActionBy($type === "CROW" ? $user : null);
 
         /** @var HTMLParserInsight $insight */
@@ -607,6 +619,7 @@ class MessageForumController extends MessageController
 
         $thread->addPost($post)->setLastPost( $post->getDate() );
         if ($type === 'GLORY') $this->userHandler->checkFeatureUnlock( $user, 'f_glory_temp', true );
+        if ($type === 'ANON') $em->persist( $town_citizen->getSpecificActionCounter( ActionCounter::ActionTypeAnonPost )->increment() );
 
         try {
             $em->persist($thread);
@@ -1027,6 +1040,7 @@ class MessageForumController extends MessageController
             'permission' => $this->getPermissionObject( $permissions ),
             'username' => $town_citizen?->getName() ?? $user->getName(),
             'town_controls' => $forum->getTown() !== null,
+            'anon' => false,
             'tags' => $tags,
             'alias' => !!$town_citizen
         ] );
@@ -1183,7 +1197,7 @@ class MessageForumController extends MessageController
             $queryBuilder->andWhere('p.id NOT IN (:list)')->setParameter('list', array_map( fn(Post $pr) => $pr->getId(), $result ));
 
         if ($search_user !== null)
-            $queryBuilder->andWhere('p.owner = :user')->setParameter('user', $search_user);
+            $queryBuilder->andWhere('p.owner = :user')->andWhere('p.anonymous != 1')->setParameter('user', $search_user);
 
         if ($forum) $queryBuilder->andWhere('p.searchForum = :forum')->setParameter('forum', $forum);
         else $queryBuilder->andWhere('p.searchForum IN (:forum)')->setParameter('forum', $domain);
@@ -1337,6 +1351,8 @@ class MessageForumController extends MessageController
             );
         else $tags = [];
 
+        $anon_post_limit = $town_citizen?->property( CitizenProperties::AnonymousPostLimit ) ?? 0;
+
         return $this->render( 'ajax/editor/forum-post.html.twig', [
             'fid' => $forum->getId(),
             'tid' => $thread->getId(),
@@ -1348,6 +1364,7 @@ class MessageForumController extends MessageController
 
             'username' => $town_citizen?->getName() ?? $user->getName(),
             'town_controls' => !!$forum->getTown(),
+            'anon' => ($anon_post_limit < 0) || ($anon_post_limit > ($town_citizen?->getSpecificActionCounterValue( ActionCounter::ActionTypeAnonPost ) ?? 0)),
             'tags' => $tags,
             'current_tag' => $thread->getTag()?->getName() ?? '',
             'alias' => !!$town_citizen

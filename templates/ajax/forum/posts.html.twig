@@ -254,23 +254,28 @@
                                 {{ post.date|format_datetime('medium', 'short') }}
                             {% endif %}
                         </i>
-                        {% include "ajax/soul/playeravatar.html.twig" with {user: post.owner} only %}
-                        {% include 'ajax/soul/playername.html.twig' with {user: post.owner, globalSpace: post.thread.forum.town is null} only %}{{ post.translate ? ('') : (_self.icon_master(post))}}<br />
-                        {% if post.owner.name == 'Der Rabe' %}
-                            <span class="small"><i>{{ 'Ich beobachte euch...'|trans({},'game') }}</i></span>
-                        {% elseif post.owner.activeTitle or post.owner.activeIcon %}
-                            <span class="small">
-                                {% if post.owner.activeIcon %}<img alt="" src="{{ post.owner.activeIcon.customIcon ? url('app_web_customicon', {uid: post.owner.id, aid: post.owner.activeIcon.id, name: post.owner.activeIcon.customIconName, ext: post.owner.activeIcon.customIconFormat}) : asset('build/images/icons/title/' ~ post.owner.activeIcon.prototype.icon ~ '.gif') }}" />{% endif %}
-                                {% if post.owner.activeTitle %}<i>{{ post.owner.activeTitle.customTitle ?? post.owner|translated_title(app.user)|raw }}</i>{% endif %}
-                            </span>
+                        {% if not post.anonymous %}
+                            {% include "ajax/soul/playeravatar.html.twig" with {user: post.owner} only %}
+                            {% include 'ajax/soul/playername.html.twig' with {user: post.owner, globalSpace: post.thread.forum.town is null} only %}{{ post.translate ? ('') : (_self.icon_master(post))}}<br />
+                            {% if post.owner.name == 'Der Rabe' %}
+                                <span class="small"><i>{{ 'Ich beobachte euch...'|trans({},'game') }}</i></span>
+                            {% elseif post.owner.activeTitle or post.owner.activeIcon %}
+                                <span class="small">
+                                    {% if post.owner.activeIcon %}<img alt="" src="{{ post.owner.activeIcon.customIcon ? url('app_web_customicon', {uid: post.owner.id, aid: post.owner.activeIcon.id, name: post.owner.activeIcon.customIconName, ext: post.owner.activeIcon.customIconFormat}) : asset('build/images/icons/title/' ~ post.owner.activeIcon.prototype.icon ~ '.gif') }}" />{% endif %}
+                                    {% if post.owner.activeTitle %}<i>{{ post.owner.activeTitle.customTitle ?? post.owner|translated_title(app.user)|raw }}</i>{% endif %}
+                                </span>
+                            {% endif %}
+                            {% if post.note is not null %}<div class="float-right post-note">{{ post.note|replace({'{at_00}': '<span class="hide-sm hide-md">' ~ 'in der Stadt oder am Stadttor'|trans({},'game') ~ '</span><span class="hide-lg hide-desktop">' ~ 'Stadt/Stadttor'|trans({}, 'game') ~ '</span>' })|raw }}</div>{% endif %}
                         {% endif %}
-                        {% if post.note is not null %}<div class="float-right post-note">{{ post.note|replace({'{at_00}': '<span class="hide-sm hide-md">' ~ 'in der Stadt oder am Stadttor'|trans({},'game') ~ '</span><span class="hide-lg hide-desktop">' ~ 'Stadt/Stadttor'|trans({}, 'game') ~ '</span>' })|raw }}</div>{% endif %}
                     </div>
                     {% if permission.moderate() %}
                         {% if post.adminReports(true)|length > 0 %}
+
                             <div class="modrev modWarnText pointer">
                                 <span>{{ '{num} Meldungen. Klicken, um Benutzer anzuzeigen.'|trans({'{num}': post.adminReports(true)|length},'global') }}</span>
                                 <div>
+                                    {% include 'ajax/soul/playername.html.twig' with {user: post.owner, globalSpace: post.thread.forum.town is null} only %}{{ post.translate ? ('') : (_self.icon_master(post))}}<br />
+
                                     {% set complaint_list = [
                                         'Keinen Grund angeben','Cheating','Flooding oder Spam','Verwendung einer anderen als der Forensprache',
                                         'Beleidigungen / Unangemessener Ausdruck','Pornographie','Hassrede','Verbreitung persönlicher Informationen',
@@ -309,7 +314,7 @@
                     {% endif %}
 
 
-                    <div class="forum-post-content" x-post-content-id="{{ post.id }}" x-post-content-author-id="{{ post.owner.id }}" x-post-content-author="{% include 'ajax/soul/playername.html.twig' with {user: post.owner, plain: true, globalSpace: post.thread.forum.town is null} only %}">
+                    <div class="forum-post-content" x-post-content-id="{{ post.id }}" x-post-content-author-id="{{ post.anonymous ? -1 : post.owner.id }}" x-post-content-author="{% if not post.anonymous %}{% include 'ajax/soul/playername.html.twig' with {user: post.owner, plain: true, globalSpace: post.thread.forum.town is null} only %}{% endif %}">
                         {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
                         {% if thread.semantic != 0 and post.translate and conf().addendumFor(thread.semantic,app.user.language) %}
                             {{ conf().addendumFor(thread.semantic,app.user.language)|raw }}

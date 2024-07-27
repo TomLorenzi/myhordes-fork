@@ -599,7 +599,7 @@ class TownController extends InventoryAwareController
 
         if ($severity > Complaint::SeverityNone) {
             $counter = $this->getActiveCitizen()->getSpecificActionCounter(ActionCounter::ActionTypeComplaint);
-            if ($counter->getCount() >= 4)
+            if ($counter->getCount() >= $this->getActiveCitizen()->property( CitizenProperties::ComplaintLimit ))
                 return AjaxResponse::error(self::ErrorComplaintLimitHit );
             $counter->increment();
             $severity = ($has_gallows || $has_cage) ? Complaint::SeverityKill : Complaint::SeverityBanish;

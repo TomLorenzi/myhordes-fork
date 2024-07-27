@@ -19,6 +19,8 @@ use MyHordes\Fixtures\DTO\Element;
  * @method self title(string $v)
  * @property string $description
  * @method self description(string $v)
+ * @property array $bullets
+ * @method self bullets(array $v)
  * @property bool $legacy
  * @method self legacy(bool $v)
  * @property int $unlockAt
@@ -39,6 +41,8 @@ use MyHordes\Fixtures\DTO\Element;
  * @method self disabled(bool $v)
  * @property string $itemsGrantedAsProfessionItems
  * @method self itemsGrantedAsProfessionItems(bool $v)
+ * @property array $itemTypesGrantedAsProfessionItems
+ * @method self itemTypesGrantedAsProfessionItems(array $v)
  * @property string $inhibitedByFeatureUnlock
  * @method self inhibitedByFeatureUnlock(string $v)
  * @property array $citizenProperties
@@ -51,7 +55,9 @@ class HeroicExperienceDataElement extends Element {
 
     protected function provide_default(string $name): mixed {
         return match ($name) {
-            'citizenProperties' => [],
+            'citizenProperties',
+            'itemTypesGrantedAsProfessionItems',
+            'grantsItems' => [],
             default => parent::provide_default($name),
         };
     }
@@ -61,6 +67,19 @@ class HeroicExperienceDataElement extends Element {
             ...$this->citizenProperties,
             $prop->value => $value,
         ];
+        return $this;
+    }
+
+    public function addItemGrant(string $item, ?string $key = null, $as_essential = false): self {
+        $this->grantsItems = [
+            ...$this->grantsItems,
+            ...($key === null ? [$item] : [$key => $item]),
+        ];
+        if ($as_essential)
+            $this->itemTypesGrantedAsProfessionItems = array_unique([
+                ...$this->itemTypesGrantedAsProfessionItems,
+                $item,
+            ]);
         return $this;
     }
 
@@ -103,7 +122,8 @@ class HeroicExperienceDataElement extends Element {
                 ->setName( $this->name )
                 ->setIcon( $this->icon )
                 ->setTitle( $this->title )
-                ->setDescription( $this->description )
+                ->setDescription( $this->description ?? '' )
+                ->setBullets( $this->bullets ?? [] )
                 ->setDaysNeeded( $this->unlockAt )
                 ->setUnlockedAction( $protoAction )
                 ->setLevel( $this->legacy ? null : $this->level )
@@ -112,6 +132,7 @@ class HeroicExperienceDataElement extends Element {
                 ->setGroupIdentifier( $this->legacy ? null : $this->group )
                 ->setInhibitedBy( $blockedByFeature )
                 ->setProfessionItems( $this->itemsGrantedAsProfessionItems ?? false )
+                ->setEssentialItemTypes( $this->itemTypesGrantedAsProfessionItems ?? [] )
                 ->setGrantsChestSpace( $this->chestSpace ?? 0 )
                 ->setCitizenProperties( $this->citizenProperties )
                 ->setLegacy( $this->legacy );

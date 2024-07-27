@@ -23,8 +23,10 @@
                             {{ post.date|format_datetime('medium', 'short') }}
                         {% endif %}
                     </i>
-                    {% include "ajax/soul/playeravatar.html.twig" with {user: post.owner} only %}
-                    {% include 'ajax/soul/playername.html.twig' with {user: post.owner, globalSpace: post.thread.forum.town is null} only %}
+                    {% if not post.anonymous %}
+                        {% include "ajax/soul/playeravatar.html.twig" with {user: post.owner} only %}
+                        {% include 'ajax/soul/playername.html.twig' with {user: post.owner, globalSpace: post.thread.forum.town is null} only %}
+                    {% endif %}
                     <div class="found-in">{{ post.searchForum.localizedTitle(app.locale) }} <img alt=">" src="{{ asset('build/images/icons/small_caret_right.gif') }}" /> <a x-ajax-href="{{ path('forum_jump_view', {pid: post.id}) }}" x-ajax-transient x-ajax-target="#content" >{{ post.thread.translatable ? post.thread.title|trans({},'game') : post.thread.title }}</a></div>
                 </div>
                 <div class="forum-post-content">

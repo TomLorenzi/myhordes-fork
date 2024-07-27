@@ -61,6 +61,9 @@ class PrivateMessage
     private $originalRecipient;
     #[ORM\Column(type: 'json', nullable: true)]
     private $additionalData = [];
+
+    #[ORM\Column]
+    private bool $anonymous = false;
     public function __construct()
     {
         $this->adminReports = new ArrayCollection();
@@ -234,6 +237,18 @@ class PrivateMessage
     public function setAdditionalData(?array $additionalData): self
     {
         $this->additionalData = $additionalData;
+
+        return $this;
+    }
+
+    public function isAnonymous(): bool
+    {
+        return $this->anonymous;
+    }
+
+    public function setAnonymous(bool $anonymous): static
+    {
+        $this->anonymous = $anonymous;
 
         return $this;
     }

@@ -15,6 +15,7 @@ use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
 use App\Entity\ZoneTag;
+use App\Enum\Configuration\TownSetting;
 use App\Response\AjaxResponse;
 use App\Service\Actions\Cache\CalculateBlockTimeAction;
 use App\Service\Actions\Cache\InvalidateLogCacheAction;
@@ -113,6 +114,10 @@ class TownOnboardingController extends AbstractController
         );
     }
 
+    private function getCitizenPts(Citizen $c): int {
+        return 5;
+    }
+
     #[Route(path: '/{town}', name: 'config', methods: ['GET'])]
     #[GateKeeperProfile(only_incarnated: true)]
     public function town_config(Town $town, ConfMaster $conf): JsonResponse
@@ -126,7 +131,7 @@ class TownOnboardingController extends AbstractController
             'features' => [
                 'job'       => true,
                 'alias'     => $townConf->get( TownConf::CONF_FEATURE_CITIZEN_ALIAS, false ),
-                'skills'    => true,
+                'skills'    => $townConf->get( TownSetting::SkillMode ),
             ]
         ]);
     }
@@ -166,7 +171,26 @@ class TownOnboardingController extends AbstractController
             ) return new JsonResponse([], Response::HTTP_BAD_REQUEST);
         }
 
-        $success = ($action)($activeCitizen, $profession, $alias);
+        $skills = [];
+        if ($townConf->get( TownSetting::SkillMode )) {
+
+            $skillIds = $parser->get_array('skills.ids');
+            $skills = $em->getRepository(HeroSkillPrototype::class)->findBy(['id' => $skillIds, 'enabled' => true, 'legacy' => false]);
+
+            $known_groups = [];
+            $pts_sum = 0;
+            foreach ($skills as $skill) {
+                if (in_array($skill->getGroupIdentifier(), $known_groups, true))
+                    return new JsonResponse([], Response::HTTP_BAD_REQUEST);
+                $pts_sum += $skill->getLevel();
+            }
+
+            if ($pts_sum > $this->getCitizenPts($activeCitizen))
+                return new JsonResponse([], Response::HTTP_BAD_REQUEST);
+
+        } else $skills = $em->getRepository(HeroSkillPrototype::class)->getUnlocked($activeCitizen->getUser()->getAllHeroDaysSpent());
+
+        $success = ($action)($activeCitizen, $profession, $alias, $skills);
         return $success ? new JsonResponse([
             'url' => $this->generateUrl('game_landing')
         ]) : new JsonResponse([], Response::HTTP_BAD_REQUEST);
@@ -229,12 +253,13 @@ class TownOnboardingController extends AbstractController
                 ], $legacy_skills))
             ],
             'skills' => [
-                'pts' => 5,
+                'pts' => $this->getCitizenPts($activeCitizen),
                 'groups' => array_map(fn(string $s) => $trans->trans($s, [], 'game'), $skill_groups),
                 'list' => array_values(array_map(fn(HeroSkillPrototype $p) => [
                     'id' => $p->getId(),
                     'title' => $trans->trans($p->getTitle(), [], 'game'),
                     'description' => $trans->trans($p->getDescription(), [], 'game'),
+                    'bullets' => array_map(fn(string $s) => $trans->trans($s, [], 'game'), $p->getBullets()),
                     'icon' => $asset->getUrl("build/images/heroskill/{$p->getIcon()}.gif"),
                     'level' => $p->getLevel(),
                     'sort' => $p->getSort(),

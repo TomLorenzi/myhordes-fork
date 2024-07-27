@@ -53,8 +53,10 @@
 
                     <div class="forum-post forum-post-small {% if not loop.last %}hide-sm{% endif%} {% if variant is not null %}forum-post-variant-{{ variant }}{% endif %} {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}" id="{{post.id}}">
                         <div class="forum-post-content">
-                            {% include "ajax/soul/playeravatar.html.twig" with {user: post.owner, small: true} only %}
-                            {% include 'ajax/soul/playername.html.twig' with {user: post.owner} only %} {{ post.translate ? ('') : (_self.icon_master(post))}}:
+                            {% if not post.anonymous %}
+                                {% include "ajax/soul/playeravatar.html.twig" with {user: post.owner, small: true} only %}
+                                {% include 'ajax/soul/playername.html.twig' with {user: post.owner} only %} {{ post.translate ? ('') : (_self.icon_master(post))}}:
+                            {% endif %}
                             {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
                             {% if post.thread.semantic != 0 and post.translate and conf().addendumFor(post.thread.semantic,app.user.language) %}
                                 {{ conf().addendumFor(post.thread.semantic,app.user.language)|raw }}

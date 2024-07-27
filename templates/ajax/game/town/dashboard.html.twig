@@ -223,28 +223,31 @@
                     {% endif %}
                 </li>
                 {% endif %}
-                <li>{{'Konstruktionen'|trans({}, 'game')}} : {{def_summary.building_def_base + def_summary.building_def_vote }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> {% if def_summary.building_def_vote > 0 %}( {{ def_summary.building_def_base }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> + {{ def_summary.building_def_vote }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> ){% endif %}</li>
-                <li>{{'Häuser der Bürger'|trans({}, 'game')}} : + {{def_summary.house_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>
+                <li>{{'Konstruktionen'|trans({}, 'game')}} : {{def_summary.building_def_base + def_summary.building_def_vote }} <img src="{{ asset('build/images/icons/small_def.gif') }}"  alt=""/> {% if def_summary.building_def_vote > 0 %}( {{ def_summary.building_def_base }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> + {{ def_summary.building_def_vote }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> ){% endif %}</li>
+                <li>{{'Häuser der Bürger'|trans({}, 'game')}} : + {{def_summary.house_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" alt=""/></li>
+                {% if def_summary.citizen_defense > 0 %}
+                    <li>{{'Einwohner in der Stadt'|trans({}, 'game')}} : + {{ def_summary.citizen_defense }} <img src="{{ asset('build/images/icons/small_def.gif') }}"  alt=""/> {{ help_btn(('Diesen Bonus gibt es nur dann, wenn sich die Bürger während eines Angriffs in der Stadt befinden.'|trans({},'global'))) }}</li>
+                {% endif %}
                 {% if def_summary.guardian_defense > 0 %}
-                <li>{{'Wächter'|trans({}, 'game')}} : + {{ def_summary.guardian_defense }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> {{ help_btn(('Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.'|trans({},'global'))) }}</li>
+                <li>{{'Wächter'|trans({}, 'game')}} : + {{ def_summary.guardian_defense }} <img src="{{ asset('build/images/icons/small_def.gif') }}"  alt=""/> {{ help_btn(('Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.'|trans({},'global'))) }}</li>
                 {% endif %}
                 {% if def_summary.temp_defense > 0 %}
-                <li>{{'Temporäre Verteidigung'|trans({}, 'game')}} : + {{def_summary.temp_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>
+                <li>{{'Temporäre Verteidigung'|trans({}, 'game')}} : + {{def_summary.temp_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}"  alt=""/></li>
                 {% endif %}
                 {% if def_summary.cemetery > 0 %}
-                <li>{{'Leichen-Bonus'|trans({}, 'game')}} : + {{def_summary.cemetery}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> <a class="help-button"><div class="tooltip help">{{ 'Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude <strong>Kleiner Friedhof</strong>.'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global')|raw }}</a> </li>
+                <li>{{'Leichen-Bonus'|trans({}, 'game')}} : + {{def_summary.cemetery}} <img src="{{ asset('build/images/icons/small_def.gif') }}"  alt=""/> <a class="help-button"><div class="tooltip help">{{ 'Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude <strong>Kleiner Friedhof</strong>.'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global')|raw }}</a> </li>
                 {% endif %}
                 {% if def_summary.overall_scale > 1 %}
                 <li>{{'Bonus'|trans({}, 'game')}} : + {{ ((def_summary.overall_scale - 1) * 100)|round(2)}} % </li>
                 {% endif %}
                 {% if (has_battlement or act_as_battlement) and def_summary.nightwatch_defense > 0 %}
-                <li>{{'Nachtwächter'|trans({}, 'game')}} : + {{def_summary.nightwatch_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> <a class="help-button"><div class="tooltip help">{{ 'Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></li>
+                <li>{{'Nachtwächter'|trans({}, 'game')}} : + {{def_summary.nightwatch_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}"  alt=""/> <a class="help-button"><div class="tooltip help">{{ 'Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></li>
                 {% endif %}
                 {% if def_summary.soul_defense > 0 %}
-                <li>{{'Gereinigte Seelen'|trans({}, 'game')}} : + {{def_summary.soul_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> <a class="help-button"><div class="tooltip help">{{ 'Diese Abwehrkräfte werden von gereinigten Seelen gebracht.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></li>
+                <li>{{'Gereinigte Seelen'|trans({}, 'game')}} : + {{def_summary.soul_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}"  alt=""/> <a class="help-button"><div class="tooltip help">{{ 'Diese Abwehrkräfte werden von gereinigten Seelen gebracht.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></li>
                 {% endif %}
 
-                <li class="separator">TOTAL : {{def}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>
+                <li class="separator">TOTAL : {{def}} <img src="{{ asset('build/images/icons/small_def.gif') }}"  alt=""/></li>
             </ul>
 
             <em>{{'Anmerkung: Verteidigungsgegenstände (Holzplatten etc...) müssen in der Bank abgelegt werden.'|trans({}, 'game')}}</em>

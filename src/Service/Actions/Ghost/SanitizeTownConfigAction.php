@@ -56,6 +56,8 @@ class SanitizeTownConfigAction
         if ($trimTo < User::USER_LEVEL_CROW) unset($rules['modifiers']['strict_picto_distribution']);
         if (!($rules['lock_door_until_full'] ?? true)) $elevation = max($elevation, User::USER_LEVEL_CROW);
         if ($trimTo < User::USER_LEVEL_CROW) unset($rules['lock_door_until_full']);
+        if ($rules['skill_mode'] ?? false) $elevation = max($elevation, User::USER_LEVEL_CROW);
+        if ($trimTo < User::USER_LEVEL_CROW) unset($rules['skill_mode']);
         if (isset($rules['open_town_limit'])) $elevation = max($elevation, User::USER_LEVEL_CROW);
         if ($trimTo < User::USER_LEVEL_CROW) unset($rules['open_town_limit']);
 

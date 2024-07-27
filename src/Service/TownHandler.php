@@ -28,6 +28,7 @@ use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
 use App\Entity\ZoneTag;
+use App\Enum\Configuration\CitizenProperties;
 use App\Enum\Configuration\TownSetting;
 use App\Enum\EventStages\BuildingValueQuery;
 use App\Enum\ZoneActivityMarkerType;
@@ -402,8 +403,13 @@ class TownHandler
                 /** @var HomeDefenseSummary $home_summary */
                 $f_house_def += ($home_summary->house_defense + $home_summary->job_defense + $home_summary->upgrades_defense) * $home_def_factor;
 
-                if ($citizen->getProfession()->getName() === 'guardian' && !$citizen->getZone())
-                    $summary->guardian_defense += $guardian_bonus;
+                if (!$citizen->getZone()) {
+                    $summary->citizen_defense += $citizen->property( CitizenProperties::TownDefense );
+                    if ($citizen->getProfession()->getName() === 'guardian')
+                        $summary->guardian_defense += $guardian_bonus;
+                }
+
+
             } else {
                 $deadCitizens++;
             }

@@ -3,6 +3,7 @@
     tid,
     user,
     username,
+    anon,
     header,
     enable_title,
     enable_include,
@@ -25,11 +26,16 @@
         data-redirect-after-submit="1"
 
         data-target-url="{{ url }}"
-        data-target-map="html:content,type,title,tid"
+        data-target-map="html:content,role,type,title,tid"
         data-default-type="{{ type }}"
         {% if tid %}data-default-tid="{{ tid }}"{% endif %}
         {% if enable_include %}
             data-target-include="{{ enable_include }}"
+        {% endif %}
+        {% if anon %}
+            data-with-role-user="{{ 'Normaler Post'|trans({}, 'global') }}"
+            data-default-role="USER"
+            data-with-role-anon="{{ 'Anonymer Post'|trans({}, 'global') }}"
         {% endif %}
         {{ additional }}
     ></hordes-twino-editor>

@@ -53,6 +53,7 @@ class MessageTownMessageController extends MessageController
         if ($userHandler->isRestricted($this->getUser(), AccountRestriction::RestrictionTownCommunication))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
+        $role      = $parser->get('role', "USER");
         $type      = $parser->get('type', "");
         $recipient = $parser->get('recipient', '');
         $title     = $parser->get('title', '');
@@ -60,7 +61,18 @@ class MessageTownMessageController extends MessageController
         $items     = $parser->get('items', '');
         $tid       = $parser->get('tid', -1);
 
+        $sender = $this->getUser()->getActiveCitizen();
+
+        $anon_post_limit = $sender?->property( CitizenProperties::AnonymousMessageLimit ) ?? 0;
+        $can_post_anon = ($anon_post_limit < 0) || ($anon_post_limit > $anon_post_limit->getSpecificActionCounterValue( ActionCounter::ActionTypeAnonMessage ));
+
+        $allowed_roles = ['USER'];
+        if ($can_post_anon && $type !== 'global') $allowed_roles[] = 'ANON';
         $allowed_types = ['pm', 'global'];
+
+        if(!in_array($role, $allowed_roles)) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
 
         if(!in_array($type, $allowed_types) || mb_strlen( $content ) > 16384) {
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -72,8 +84,6 @@ class MessageTownMessageController extends MessageController
         if(($tid === -1 && empty($title)) || empty($content)) {
             return AjaxResponse::error(self::ErrorMessageOrTitleEmpty);
         }
-
-        $sender = $this->getUser()->getActiveCitizen();
 
         if ($type === "global" && !$sender->property( CitizenProperties::EnableGroupMessages ))
             return AjaxResponse::error(ErrorHelper::ErrorMustBeHero);
@@ -117,7 +127,7 @@ class MessageTownMessageController extends MessageController
         $global_thread = null;
         if ($tid !== -1) {
             $global_thread = $em->getRepository(PrivateMessageThread::class)->find($tid);
-            if ($global_thread === null || $global_thread->getSender() === null)
+            if ($global_thread === null || $global_thread->getSender() === null || $global_thread->isAnonymous())
                 return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
             if ($global_thread->getSender() !== $sender && $global_thread->getRecipient() !== $sender)
@@ -215,6 +225,7 @@ class MessageTownMessageController extends MessageController
                     ->setTitle($title ?: "...")
                     ->setLocked(false)
                     ->setLastMessage(new DateTime('now'))
+                    ->setAnonymous( $role === 'ANON' )
                     ->setRecipient($recipient);
             } else
                 $thread = $global_thread;
@@ -225,6 +236,7 @@ class MessageTownMessageController extends MessageController
                 ->setPrivateMessageThread($thread)
                 ->setOwner($sender)
                 ->setNew(true)
+                ->setAnonymous( $role === 'ANON' )
                 ->setOriginalRecipient( $correct_receiver )
                 ->setRecipient($recipient);
 
@@ -239,6 +251,9 @@ class MessageTownMessageController extends MessageController
                 $personal_counter->increment();
                 $em->persist($personal_counter);
             }
+
+            if ($role === 'ANON')
+                $em->persist($sender->getSpecificActionCounter(ActionCounter::ActionTypeAnonMessage)->increment());
 
             $post->setItems($items_prototype);
 
@@ -472,9 +487,13 @@ class MessageTownMessageController extends MessageController
         if ($this->userHandler->isRestricted($user, AccountRestriction::RestrictionTownCommunication))
             return new Response("");
 
+        $anon_post_limit = $user->getActiveCitizen()?->property( CitizenProperties::AnonymousMessageLimit ) ?? 0;
+        $can_post_anon = ($anon_post_limit < 0) || ($anon_post_limit > $user->getActiveCitizen()->getSpecificActionCounterValue( ActionCounter::ActionTypeAnonMessage ));
+
         return $this->render( 'ajax/editor/pm-thread.html.twig', [
             'username' => $user->getActiveCitizen()->getName(),
             'type' => $type,
+            'anon' => $can_post_anon && $type !== 'global',
         ] );
     }
 

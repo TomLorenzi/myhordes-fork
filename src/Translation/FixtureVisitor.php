@@ -152,7 +152,9 @@ final class FixtureVisitor extends AbstractVisitor implements NodeVisitor
             Log::class,
             CitizenComplaint::class => $this->extractColumnData( $data, 'text', 'game'),
             GazetteEntry::class => $this->extractColumnData( $data, 'text', 'gazette'),
-            HeroSkill::class => $this->extractColumnData( $data, ['title','description'], 'game'),
+            HeroSkill::class =>
+                $this->extractColumnData( $data, ['title','description','group'], 'game') &&
+                $this->extractNestedArrayData( array_column( $data, 'bullets' ), 'game'),
             ForumThreadTag::class => $this->extractColumnData( $data, 'label', 'global'),
             CouncilEntry::class => $this->extractColumnData( $data, 'text', 'council'),
             default => true,

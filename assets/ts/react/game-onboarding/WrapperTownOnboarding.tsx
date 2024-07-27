@@ -447,6 +447,9 @@ const SkillSelection = (props: OnboardingSkillPayloadProps) => {
                                         <div className="cell factor-1">
                                             <b>{ globals.strings.skills.level.replace('{skill-level}', `${skill.level}`) }:&nbsp;</b>
                                             { skill.description }
+                                            { skill.bullets.length > 0 && <ul>
+                                                { skill.bullets.map((bullet, i) => <li key={i}>{bullet}</li>) }
+                                            </ul> }
                                         </div>
                                     </div>
                                 </div>) }

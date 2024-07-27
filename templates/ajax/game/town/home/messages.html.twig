@@ -48,7 +48,7 @@
                     {% for thread in nonArchivedMessages %}
                         <div class="row small link {% if thread.new %}new{% endif %}" x-thread-id="{{ thread.id }}" x-pm-source="{{ path('home_view_thread_controller', {tid: thread.id }) }}">
                             <div class="padded cell rw-6 rw-md-12">{% if thread.new %}<img src="{{ asset("build/images/icons/small_new.gif") }}" alt="*" /> {% endif %}{% if thread.hasItems %}<img src="{{ asset("build/images/icons/small_attach.gif") }}" alt="" /> {% endif %} {{ thread.title }}</div>
-                            <div class="padded cell rw-2 rw-md-6">{{ thread.sender ? (thread.sender.user == app.user ? thread.recipient.name : thread.sender.name) : ('Der Rabe'|trans({},'global')) }}</div>
+                            <div class="padded cell rw-2 rw-md-6">{{ thread.sender ? (thread.anonymous ? '' : (thread.sender.user == app.user ? thread.recipient.name : thread.sender.name)) : ('Der Rabe'|trans({},'global')) }}</div>
                             <div class="padded cell rw-1">{{ thread.messages|length }}</div>
                             <div class="padded cell rw-3 rw-md-5">{{ thread.lastMessage|format_datetime('short', 'short') }}</div>
                         </div>
@@ -77,7 +77,7 @@
                     {% for thread in archivedMessages %}
                         <div class="row small link {% if thread.new %}new{% endif %}" x-archived-thread-id="{{ thread.id }}" x-pm-source="{{ path('home_view_thread_controller', {tid: thread.id }) }}">
                             <div class="padded cell rw-6 rw-md-12">{% if thread.hasItems %}<img src="{{ asset("build/images/icons/small_attach.gif") }}" alt="" /> {% endif %} {{ thread.title }}</div>
-                            <div class="padded cell rw-2 rw-md-6">{{ thread.sender ? thread.sender.name : ('Der Rabe'|trans({},'global')) }}</div>
+                            <div class="padded cell rw-2 rw-md-6">{{ thread.sender ? (thread.anonymous ? '' : thread.sender.name) : ('Der Rabe'|trans({},'global')) }}</div>
                             <div class="padded cell rw-1">{{ thread.messages|length }}</div>
                             <div class="padded cell rw-3 rw-md-5">{{ thread.lastMessage|format_datetime('short', 'short') }}</div>
                         </div>

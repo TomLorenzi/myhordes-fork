@@ -10,6 +10,8 @@ parameters:
       stranger_citizen_limit: 0
       lock_door_until_full: false
 
+      skill_mode: true,
+
       well:       { min: 90, max: 180 }
       map:        { min: 25, max:  27, margin: 0.25 }
       population: { min: 40, max:  40 }
