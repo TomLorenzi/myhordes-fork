@@ -33,6 +33,7 @@ class HeroSkillDataService implements FixtureProcessorInterface {
             ->addCitizenProperty( CitizenProperties::ZoneControlCleanBonus, 1 )
             ->unlockAt(61)->legacy(true)->commit();
         $container->add()->name('omniscience')->title('Allwissenheit')->description('Allwissenheit funktioniert wie Hellseherei, außer, dass du jetzt eine Übersicht zur Aktivität aller Stadteinwohner bekommst. Klicke dazu in der Bürgerliste einfach auf den Button "Allwissenheit".')->icon('small_view')
+            ->addCitizenProperty( CitizenProperties::EnableOmniscience, true )
             ->unlockAt(75)->legacy(true)->commit();
         $container->add()->name('resourcefulness')->title('Einfallsreichtum')->description('Du beginnst jede neue Stadt mit einem zusätzlichen nützlichen Gegenstand.')->icon('item_chest_hero')
             ->unlockAt(91)->legacy(true)->grantsItems(['chest_hero_#00'])->commit();

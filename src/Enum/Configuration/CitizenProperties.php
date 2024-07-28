@@ -27,6 +27,8 @@ enum CitizenProperties: string implements Configuration
     case WatchSurvivalBonus = 'props.bonus.watch.survival';
     case ZoneControlBonus = 'props.bonus.zone_control.base';
     case ZoneControlCleanBonus = 'props.bonus.zone_control.clean';
+    case ZoneControlHydratedBonus = 'props.bonus.zone_control.hydrated';
+    case ZoneControlSoberBonus = 'props.bonus.zone_control.sober';
     case InventorySpaceBonus = 'props.bonus.rucksack_space';
     //</editor-fold>
 
@@ -64,6 +66,8 @@ enum CitizenProperties: string implements Configuration
             self::LogManipulationLimit,
             self::ZoneControlBonus,
             self::ZoneControlCleanBonus,
+            self::ZoneControlHydratedBonus,
+            self::ZoneControlSoberBonus,
             self::InventorySpaceBonus,
                 => self::Section_Properties,
 
@@ -108,6 +112,8 @@ enum CitizenProperties: string implements Configuration
             self::LogManipulationLimit           => 0,
             self::ZoneControlBonus               => 0,
             self::ZoneControlCleanBonus          => 0,
+            self::ZoneControlHydratedBonus       => 0,
+            self::ZoneControlSoberBonus          => 0,
             self::WatchSurvivalBonus             => 0.0,
             self::InventorySpaceBonus            => 0,
 
