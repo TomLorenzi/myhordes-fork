@@ -673,3 +673,9 @@ Klicks: crwdns205374:0crwdne205374:0
 '{number} Auszeichnungen konnten nicht entfernt werden. Möglicherweise sind sie dem Spieler über Städte zugewiesen. In diesem Fall müssen sie über die Städteverwaltung entfernt werden.': 'crwdns205378:0{number}crwdne205378:0'
 'Eingehende Nachrichten als Tickets behandeln': 'crwdns205392:0crwdne205392:0'
 'Ist diese Option aktiviert, so wird eine eingehende Konversation für alle Gruppenmitglieder als "Gelesen" markiert, sobald ein Gruppenmitglied antwortet.': 'crwdns205394:0crwdne205394:0'
+'Es wurden {n} Posts gelöscht.': 'crwdns205554:0{n}crwdne205554:0'
+'Weitere Aktionen': 'crwdns205556:0crwdne205556:0'
+'Bekannte IP-Adressen': 'crwdns205558:0crwdne205558:0'
+'{n} (davon {n2} bereits blockiert)': 'crwdns205560:0{n}crwdnd205560:0{n2}crwdne205560:0'
+Foren-Posts: crwdns205562:0crwdne205562:0
+'{n} (davon {n2} gelöscht)': 'crwdns205564:0{n}crwdnd205564:0{n2}crwdne205564:0'

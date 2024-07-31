@@ -2,323 +2,523 @@
 
 namespace MyHordes\Prime\Service;
 
+use MyHordes\Fixtures\DTO\Buildings\BuildingPrototypeDataContainer;
 use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class BuildingDataService implements FixtureProcessorInterface {
 
     public function process(array &$data): void
     {
-        $data = [
-            ["name" => "Verstärkte Stadtmauer",'desc' => 'Verbessert die Stadtverteidigung erheblich.', "temporary" => 0,"img" => "small_wallimprove","vp" => 30,"ap" => 30, "hp" => 30,"bp" => 0,"rsc" => ["wood2_#00" => 10,"metal_#00" => 5,], "orderby" => 0, "children" => [//todo: build this construction in small town
-                ["name" => "Großer Graben",'desc' => 'Der Große Graben ist eine sehr wirkungsvolle Verteidigungsmaßnahme, die sich insbesondere auf lange Sicht auszahlt. Der Graben lässt sich mit allerhand Dingen füllen.', "maxLevel" => 5,"temporary" => 0,"img" => "small_gather","vp" => 10,"ap" => 70, "hp" => 70,"bp" => 0,"rsc" => [], "orderby" => 0,
-                    "lv0text" => 'Der Verteidigungswert der Stadt steigt mit dem Großen Graben auf 10 Punkte.',
-                    "upgradeTexts" => [
-                        'Der Verteidigungsbonus des Grabens steigt dauerhaft um 20.',
-                        'Der Verteidigungsbonus des Grabens steigt dauerhaft um 25.',
-                        'Der Verteidigungsbonus des Grabens steigt dauerhaft um 30.',
-                        'Der Verteidigungsbonus des Grabens steigt dauerhaft um 35.',
-                        'Der Verteidigungsbonus des Grabens steigt dauerhaft um 40.',
-                    ], "children" => [
-                    ["name" => "Wassergraben",'desc' => 'Eine verbesserte Version des Großen Grabens. Muss mit Wasser gefüllt werden...', "temporary" => 0,"img" => "small_waterhole","vp" => 60,"ap" => 60, "hp" => 60,"bp" => 0,"rsc" => ["water_#00" => 20,], "orderby" => 0, ],
-                    ["name" => "Pfahlgraben",'desc' => 'Diese verbesserte Variante des Großen Grabens besteht aus einer großen Anzahl zugespitzter Holzpfähle.', "temporary" => 0,"img" => "small_spears","vp" => 45,"ap" => 35, "hp" => 35,"bp" => 0,"rsc" => ["metal_#00" => 2,"wood_beam_#00" => 8,], "orderby" => 1],
-                    ["name" => "Fallgruben",'desc' => 'Ihr legt eine große Anzahl von verdeckten Fallgruben rund um die Stadt an und wartet bis irgendwas reinfällt. So einfach.', "temporary" => 0,"img" => "small_gather","vp" => 35,"ap" => 25, "hp" => 25,"bp" => 0,"rsc" => ["metal_beam_#00" => 1, "plate_#00" => 2,], "orderby" => 2],
-                    ["name" => "Buddelgruben",'desc' => 'Seitengänge, die Buddler direkt vom Großen Grube aus in die Wüste treiben, um noch nie zuvor ausgebeutete Bereiche zu erkunden. Hoffentlich finden sie dort einige interessante Dinge!', "temporary" => 0,"img" => "item_shovel","vp" => 0,"ap" => 25, "hp" => 25,"bp" => 3,"rsc" => ["explo_#00" => 1,], "orderby" => 3],//todo : effect
-                ]],
-                ["name" => "Weiterentwickelte Stadtmauer",'desc' => 'Auf die Verteidigungsvorichtungen müssen wir heute Nacht verzichten, aber diese intelligent gebaute und ausbaufähige Stadtmauer hat mehr drauf, als man denkt.', "temporary" => 0,"img" => "small_wallimprove","vp" => 20,"ap" => 40, "hp" => 40,"bp" => 0,"rsc" => ["meca_parts_#00" => 2,"wood_beam_#00" => 5,"metal_beam_#00" => 5,], "orderby" => 3, "children" => [
-                    ["name" => "Zweite Schicht",'desc' => 'Damit selbst hartnäckige Zombies draußen bleiben, bekommt die gesamte Stadtmauer eine zusätzliche Schicht verpasst.', "temporary" => 0,"img" => "item_plate","vp" => 70,"ap" => 60, "hp" => 60,"bp" => 2,"rsc" => ["wood2_#00" => 35,"metal_beam_#00" => 5,], "orderby" => 0, "children" => [
-                        ["name" => "Dritte Schicht", 'desc' => 'Eine dritte Schicht über der bestehenden Mauer bietet noch besseren Schutz gegen untote Eindringlinge.',"temporary" => 0,"img" => "item_plate","vp" => 100,"ap" => 60, "hp" => 60,"bp" => 3,"rsc" => ["metal_#00" => 35,"plate_#00" => 3,"metal_beam_#00" => 5,], "orderby" => 0],
-                    ]],
-                    ["name" => "Groooße Mauer", 'desc' => 'Was ist besser als eine Mauer?... eine groooße Mauer.',"temporary" => 0,"img" => "item_plate","vp" => 80,"ap" => 50, "hp" => 50,"bp" => 2,"rsc" => ["wood2_#00" => 10, "metal_#00" => 10,"concrete_wall_#00" => 2,"wood_beam_#00" => 10,"metal_beam_#00" => 10,], "orderby" => 1],
-                    ["name" => "Entwicklungsfähige Stadtmauer", 'desc' => 'Die Stadtmauer wird mit einem Eisengestell verstärkt und kann ab sofort jeden Tag ganz leicht um ein Stück erweitert werden!',"maxLevel" => 5,"temporary" => 0,"img" => "item_home_def","vp" => 55,"ap" => 65, "hp" => 65,"bp" => 3,"rsc" => ["wood2_#00" => 5,"metal_#00" => 15,"concrete_wall_#00" => 2,], "orderby" => 2,
-                        'lv0text' => "Die entwicklungsfähige Stadtmauer bringt der Stadt 55 Verteidigungspunkte.",
-                        "upgradeTexts" => [
-                            'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.',
-                            'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.',
-                            'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 50.',
-                            'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.',
-                            'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.',
-                        ]],
-                    ["name" => "Verstärkende Balken",'desc' => 'Mit diesen Metallbalken können die schwächeren Stellen der Stadtmauer verstärkt werden.', "temporary" => 0,"img" => "item_plate","vp" => 35,"ap" => 15, "hp" => 45,"bp" => 1,"rsc" => ["wood_beam_#00" => 5,"metal_beam_#00" => 3,], "orderby" => 3],
-                    ["name" => "Zackenmauer",'desc' => 'Diese Mauer ist mit einer großen Anzahl an Metallspitzen gespickt, damit die Stadtbewohner beim Angriff um Mitternacht ein paar nette Spieße Zombieschaschlik herstellen können.', "temporary" => 0,"img" => "item_plate","vp" => 45,"ap" => 35, "hp" => 35,"bp" => 1,"rsc" => ["wood2_#00" => 5,"metal_#00" => 2,"concrete_wall_#00" => 1,], "orderby" => 4],
-                ]],
-                ["name" => "Einseifer", 'desc' => 'Warum ist da vorher noch niemand drauf gekommen? Anstatt Zeit mit Körperpflege zu verschwenden, benutzt eure Seife lieber dazu, die Stadtmauer schön glitschig zu machen. Vor allem im Zusammenspiel mit der Zombiereibe eine "saubere Lösung". Wen stören da schon die Geräusche?', "temporary" => 0,"img" => "small_wallimprove","vp" => 60,"ap" => 35, "hp" => 35,"bp" => 0,"rsc" => ["metal_#00" => 20, "water_#00" => 10,"tube_#00" => 1,"plate_#00" => 2,"pharma_#00" => 2,], "orderby" => 4, "children" => [
-                    ["name" => "Rasierklingenmauer",'desc' => 'Die Rasierklingenmauer folgt einem ganz einfachen Prinzip: Man nehme allerlei Eisenstücke, schärfe und spitze sie an und verteile sie anschließend über die ganze Stadtmauer. Die Mauer verwandelt sich so in eine überdimensionale Zombiefeile.', "temporary" => 0,"img" => "item_plate","vp" => 50,"ap" => 40, "hp" => 40,"bp" => 1,"rsc" => ["metal_#00" => 15,"meca_parts_#00" => 2,], "orderby" => 0],
-                    ["name" => "Zombiereibe",'desc' => 'Man bedecke eine große Bodenfläche mit einem Meer von zugespitzten und geschärften Metallstücken und schon erhält man die größte Käsereibe der Welt.', "temporary" => 0,"img" => "small_grater","vp" => 55,"ap" => 40, "hp" => 40,"bp" => 1,"rsc" => ["meca_parts_#00" => 3,"metal_beam_#00" => 5,"metal_#00" => 15,"plate_#00" => 1,"wire_#00" => 1,], "orderby" => 1],
-                    ["name" => "Kreischende Sägen",'desc' => 'Ein paar geschickt hergestelle Kreissägen, die durch ein ausgeklügeltes Gummizugsystem bewegt werden. Der schrille Rotationslärm erinnert seltsamerweise an einen menschlichen Schrei...', "temporary" => 0,"img" => "small_saw","vp" => 55,"ap" => 45, "hp" => 45,"bp" => 2,"rsc" => ["meca_parts_#00" => 1,"metal_#00" => 10,"rustine_#00" => 2,"metal_beam_#00" => 5,"plate_#00" => 2,"wire_#00" => 1,], "orderby" => 2],
-                ]],
-                ["name" => "Zaun (Baustellen)", 'desc' => 'Die Stadt baut einen Holzzaun, der - zumindest theoretisch- die Bestien ausreichend verlangsamen sollte.',"temporary" => 0,"img" => "small_fence","vp" => 40,"ap" => 60, "hp" => 60,"bp" => 0,"rsc" => ["wood2_#00" => 15,"wood_beam_#00" => 5,], "orderby" => 5, "children" => [
-                    ["name" => "Holzzaun", 'desc' => 'Verbessert die Stadtverteidigung erheblich.',"temporary" => 0,"img" => "small_fence","vp" => 60,"ap" => 50, "hp" => 50,"bp" => 1,"rsc" => ["wood2_#00" => 10,"wood_beam_#00" => 8,"metal_beam_#00" => 2,"plate_#00" => 1,], "orderby" => 0],
-                ]],
-                ["name" => "Stacheldraht",'desc' => 'Na ja, dieser Stachel"draht" ist noch simpler als der normale... Der Grund: Der Draht fehlt.', "temporary" => 0,"img" => "small_barbed","vp" => 20,"ap" => 10, "hp" => 10,"bp" => 0,"rsc" => ["metal_#00" => 1,"wire_#00" => 2,], "orderby" => 6, "children" => [
-                    ["name" => "Köder",'desc' => 'Mit diesem an einem Stacheldraht befestigtem Stück Fleisch kann man ein paar Zombies \'ne Zeit lang beschäftigen', "temporary" => 1,"img" => "small_meatbarbed","vp" => 30,"ap" => 10, "hp" => 0,"bp" => 1,"rsc" => ["bone_meat_#00" => 2,], "orderby" => 0],
-                ]],
-                ["name" => "Sperrholz", 'desc' => 'Sperrholz. Du hast es nur genommen, weil du wirklich nichts besseres zu tun hattest. Dir war klar, dass es unnütz sein würde, aber das hat dich trotzdem nicht davon abgehalten. Na dann mal los...',"temporary" => 0,"img" => "item_plate","vp" => 15,"ap" => 30, "hp" => 30,"bp" => 0,"rsc" => ["wood2_#00" => 2,"metal_#00" => 2,], "orderby" => 7, "children" => [
-                    ["name" => "Betonschicht",'desc' => 'Zu guter Letzt bekommt die Mauer noch eine Schicht aus Beton verpasst. Das sollte die Zombiehorden nun aber wirklich draußen halten.', "temporary" => 0,"img" => "small_wallimprove","vp" => 80,"ap" => 40, "hp" => 40,"bp" => 2,"rsc" => ["wood2_#00" => 5,"concrete_wall_#00" => 5,"metal_beam_#00" => 10,], "orderby" => 0],
-                ]],
-                ["name" => "Rüstungsplatten", 'desc' => 'Ein simpler Verteidigungsgegenstand, aber du wirst ihn zu schätzen wissen, wenn dein Ex-Nachbar Kevo versuchen sollte, an deinem Gehirn rumzuknabbern..',"temporary" => 0,"img" => "item_plate","vp" => 30,"ap" => 30, "hp" => 30,"bp" => 0,"rsc" => ["wood2_#00" => 10,], "orderby" => 8],
-                ["name" => "Rüstungsplatten 2.0", 'desc' => 'Diese Verbesserung ist nicht der ganz große Wurf, aber sie erfüllt ihren Zweck: Sie verhindert, dass du zu schnell stirbst.',"temporary" => 0,"img" => "item_plate","vp" => 30,"ap" => 30, "hp" => 30,"bp" => 0,"rsc" => ["metal_#00" => 10,], "orderby" => 9],
-                ["name" => "Rüstungsplatten 3.0", 'desc' => 'Simpel aber stabil: Was will man mehr?',"temporary" => 0,"img" => "item_plate","vp" => 45,"ap" => 30, "hp" => 30,"bp" => 0,"rsc" => ["wood2_#00" => 8,"metal_#00" => 8,], "orderby" => 10],
-                ["name" => "Extramauer", 'desc' => 'Es war sicher kein Geniestreich dieses Bauwerk zu beginnen. Aber gut, letztlich haben alle zugestimmt und eine weitere große Mauer ist sicher keine schlechte Idee.',"temporary" => 0,"img" => "item_plate","vp" => 50,"ap" => 25, "hp" => 25,"bp" => 1,"rsc" => ["wood2_#00" => 15,"metal_#00" => 15,], "orderby" => 11],
-                ["name" => "Portal",'desc' => 'Eine rustikal anmutende Konstruktion, mit der die Öffnung des Stadttors nach 23:40 erfolgreich verhindert werden kann (es dürfte äußerst selten vorkommen, dass das Tor danach nochmal geöffnet werden muss). Das Stadttor muss nichtsdestotrotz zusätzlich noch per Hand geschlossen werden.', "temporary" => 0,"img" => "small_door_closed","vp" => 5,"ap" => 15, "hp" => 15,"bp" => 0,"rsc" => ["metal_#00" => 2,"plate_#00" => 1,], "orderby" => 12, "children" => [
-                    ["name" => "Kolbenschließmechanismus",'desc' => 'Dieser äußerst leistungsstarke Kolbenmotor schließt und verriegelt das Stadttor eine halbe Stunde vor Mitternacht. Nach der Schließung kann das Tor nicht mehr geöffnet werden.', "temporary" => 0,"img" => "small_door_closed","vp" => 30,"ap" => 25, "hp" => 25,"bp" => 1,"rsc" => ["meca_parts_#00" => 1,"metal_#00" => 10,"tube_#00" => 2,"metal_beam_#00" => 2, "diode_#00" => 1,], "orderby" => 0, "children" => [
-                        ["name" => "Automatiktür",'desc' => 'Das Stadttor schließt sich selbsttätig um 23:59 anstatt 23:30.', "temporary" => 0,"img" => "small_door_closed","vp" => 0,"ap" => 10, "hp" => 10,"bp" => 1,"rsc" => ["diode_#00" => 1,], "orderby" => 0, ],
-                    ]],
-                    ["name" => "Torpanzerung",'desc' => 'Ein paar improvisierte Panzerplatten werden direkt auf das Stadttor geschraubt und verbessern so die Widerstandskraft desselben.', "temporary" => 0,"img" => "item_plate","vp" => 25,"ap" => 35, "hp" => 35,"bp" => 0,"rsc" => ["wood2_#00" => 3,], "orderby" => 1,],
-                    ["name" => "Ventilationssystem",'desc' => 'Dieser Geheimgang erlaubt es Helden, ein- und auszugehen, ohne das Stadttor zu benutzen!', "temporary" => 0,"img" => "small_ventilation","vp" => 20,"ap" => 40, "hp" => 40,"bp" => 1,"rsc" => ["meca_parts_#00" => 2,"metal_beam_#00" => 2,"metal_#00" => 10,], "orderby" => 2,],
-                    ["name" => "Holzbalkendrehkreuz",'desc' => 'Schwere Holzbalken werden auf einem Drehkreuz befestigt und das Ganze wird dann in Bewegung gesetzt. Es dreht sich schnell... sehr schnell.', "temporary" => 0,"img" => "item_wood_beam","vp" => 20,"ap" => 25, "hp" => 25,"bp" => 1,"rsc" => ["wood_beam_#00" => 4,"rustine_#00" => 2,], "orderby" => 3],
-                    ["name" => "Kreischender Rotor",'desc' => 'Es handelt sich um ein einfallsreiches und SEHR effektives System! Zwei schnell kreisende und mit geschliffenen Eisenstangen bestückte Drehscheiben, die von einem Kolbenmechanismus angetrieben werden, zerfetzen alles und jeden, der sich im Toreingang befindet!', "temporary" => 0,"img" => "small_grinder","vp" => 50,"ap" => 55, "hp" => 55,"bp" => 1,"rsc" => ["plate_#00" => 2,"tube_#00" => 2,"wood_beam_#00" => 4,"metal_beam_#00" => 10,], "orderby" => 4],
-                ]],
-                ["name" => "Notfallkonstruktion",'desc' => 'Die Stadt muss sich auch auf unvorhergesehene Ereignisse einstellen. Für diese Zwecke wurde diese Notfallkonstruktion entworfen: Sie hält in der Regel nur eine Nacht lang. Achtung! Es sollte darauf geachtet werden, nicht zu viele Rohstoffe für den Bau temporärer Konstruktionen zu verwenden!', "temporary" => 0,"img" => "status_terror","vp" => 0,"ap" => 40, "hp" => 40,"bp" => 0,"rsc" => ["wood2_#00" => 5,"metal_#00" => 5,], "orderby" => 13, "children" => [
-                    ["name" => "Notfallabstützung",'desc' => 'Wenn es brenzlig wird, ist es oft überlebenswichtig, hier und dort mit ein paar Holzplanken nachzuhelfen und alles nochmal dicht zu machen. Das bringt dir oft noch eine weitere Nacht.', "temporary" => 1,"img" => "item_wood_plate","vp" => 40,"ap" => 20, "hp" => 0,"bp" => 0,"rsc" => ["wood2_#00" => 6,], "orderby" => 0],
-                    ["name" => "Guerilla",'desc' => 'Dieses Arsenal an einfallsreichen Guerillafallen ermöglicht dir, die Zombiereihen zu lichten und die Last des Angriffs entscheidend zu senken.', "temporary" => 1,"img" => "small_trap","vp" => 60,"ap" => 30, "hp" => 0,"bp" => 0,"rsc" => ["wood_beam_#00" => 3,"metal_beam_#00" => 3,"metal_#00" => 5,"rustine_#00" => 1,"wire_#00" => 1,], "orderby" => 1],
-                    ["name" => "Abfallberg",'desc' => 'Wenn wirklich gar nichts mehr geht, sammelst du alles ein, was du findest und formst daraus einen großen Abfallhaufen... jetzt heißt es Daumen drücken und hoffen, dass das die Horde irgendwie aufhält... Ach ja, wenn du möchtest, kannst du diesen Abfallberg auch mit Fallen spicken.', "temporary" => 1,"img" => "small_dig","vp" => 5,"ap" => 10, "hp" => 0,"bp" => 0,"rsc" => ["wood2_#00" => 2,"metal_#00" => 2,], "orderby" => 2, "children" => [
-                        ["name" => "Trümmerberg",'desc' => 'Hast du erst mal einen großen Haufen Müll aufgeschüttet, kannst du ihn einfach noch mit Stacheln versehen, die ebenso rostig wie tödlich sind!', "temporary" => 1,"img" => "small_dig","vp" => 60,"ap" => 40, "hp" => 0,"bp" => 1,"rsc" => ["metal_#00" => 2,], "orderby" => 0],
-                        ["name" => "Verteidigungspfähle",'desc' => 'Der gesamte Außenbereich der Stadt wird mit angespitzten Holzpfählen gespickt. Diese kostengünstige Verteidigungsmaßnahme verwandelt die Stadt in eine wahre Trutzburg und kann an manchen Abenden den Unterschied zwischen Leben und Tod ausmachen.', "temporary" => 1,"img" => "small_trap","vp" => 30,"ap" => 15, "hp" => 0,"bp" => 0,"rsc" => ["wood2_#00" => 5,], "orderby" => 1],
-                        ["name" => "Wolfsfalle",'desc' => 'Das wird den Zombies Beine machen - oder besser: ausreißen!', "temporary" => 1,"img" => "small_trap","vp" => 30,"ap" => 15, "hp" => 0,"bp" => 0,"rsc" => ["metal_#00" => 5,"hmeat_#00" => 1,], "orderby" => 2],
-                    ]],
-                    ["name" => "Sprengfalle",'desc' => 'Dynamit, Zombies, Blut.', "temporary" => 1,"img" => "small_tnt","vp" => 35,"ap" => 30, "hp" => 0,"bp" => 1,"rsc" => ["explo_#00" => 2,], "orderby" => 3],
-                    ["name" => "Nackte Panik",'desc' => 'Falls die Lage wirklich verzweifelt ist, könnt ihr beschließen loszuschreien und in Panik zu verfallen. Falls alle Überlebenden mitmachen, wird es die Zombies verwirren (denn sie können mit dieser Art Stress nicht umgehen) und euch einige virtuelle Verteidigungespuntke einbringen... Genau, das ist natürlich Unsinn.', "temporary" => 1,"img" => "status_terror","vp" => 70,"ap" => 25, "hp" => 25,"bp" => 1,"rsc" => ["water_#00" => 2,"wood2_#00" => 5,"metal_#00" => 5,"meca_parts_#00" => 1,], "orderby" => 4],
-                    ["name" => "Dollhouse",'desc' => 'Feiern bis zum Abwinken ist immer noch die beste Art, all die schrecklichen Dinge der Außenwelt zu vergessen. Glücklicherweise sorgen die Zombies schon dafür, dass die Dinge nicht zu sehr ausschweifen.', "temporary" => 1,"img" => "small_bamba","vp" => 50,"ap" => 20, "hp" => 0,"bp" => 1,"rsc" => ["wood2_#00" => 3,"diode_#00" => 1,"radio_on_#00" => 3,"guitar_#00" => 1,], "orderby" => 5],
-                ]],   
-            ]],
+        $container = new BuildingPrototypeDataContainer($data);
 
-            ["name" => "Pumpe",'desc' => 'Die Pumpe ist die Grundvoraussetzung für alle auf Wasser basierenden Konstruktionen! Darüber hinaus steigert sie die Wasserergiebigkeit des Brunnens um ein Vielfaches.', "maxLevel" => 5,"temporary" => 0,"img" => "small_water","vp" => 0,"ap" => 25, "hp" => 0,"bp" => 0,"rsc" => ["metal_#00" => 8,"tube_#00" => 1,], "orderby" => 1, "impervious" => true,
-                "lv0text" => 'Der Brunnen wird einmalig mit 5 Rationen Wasser befüllt.',//todo new water gain : 15
-                "upgradeTexts" => [
-                    'Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt',
-                    'Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt',
-                    'Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt',
-                    'Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt',
-                    'Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt',
-                ], "children" => [
-                ["name" => "Wasserfänger",'desc' => 'Wenn es um Wasser geht, zählt jeder Tropfen. Dieses Bauwerk fügt dem Brunnen +2 Rationen Wasser hinzu und kann jeden Tag gebaut werden.', "temporary" => 1,"img" => "item_tube","vp" => 0,"ap" => 10, "hp" => 0,"bp" => 0,"rsc" => ["metal_#00" => 2,], "orderby" => 0],
-                ["name" => "Brunnenbohrer", 'desc' => 'Mit diesem selbstgebauten Bohrer kann die Stadt ihre Wasserreserven beträchtlich vergrößern.',"temporary" => 0,"img" => "small_water","vp" => 0,"ap" => 55, "hp" => 0,"bp" => 0,"rsc" => ["wood_beam_#00" => 7,"metal_beam_#00" => 2,], "orderby" => 1, "impervious" => true, "children" => [
-                    ["name" => "Tunnelratte",'desc' => 'Da selbst der Bohrer des Bohrturms nicht durch jede Schicht durchkommt, muss man hin und wieder kleine und mit Dynamit bestückte Tiere in die Tiefe schicken. Dieses Projekt fügt den städtischen Wasserreserven +150 Rationen hinzu.', "temporary" => 0,"img" => "small_derrick","vp" => 0,"ap" => 150, "hp" => 0,"bp" => 4,"rsc" => ["tube_#00" => 2, "oilcan_#00" => 2,"wood_beam_#00" => 15,"metal_beam_#00" => 15,], "orderby" => 0],//todo: edit effect, give now 150 water
-                    ["name" => "Wünschelrakete",'desc' => 'Ein selbstgebauer Raketenwerfer feuert in den Boden: Denk mal drüber nach! Der Legende nach wollte der geistige Vater dieses Bauprojekts eigentlich den "Rocket Jump" erfinden. Egal, +60 Rationen Wasser werden so zum Brunnen hinzugefügt.', "temporary" => 0,"img" => "small_rocketperf","vp" => 0,"ap" => 80, "hp" => 0,"bp" => 2,"rsc" => ["explo_#00" => 1,"tube_#00" => 1,"deto_#00" => 1,"meca_parts_#00" => 1,"wood_beam_#00" => 5,"metal_beam_#00" => 5,], "orderby" => 1, "impervious" => true],//todo: check water gain; should be 60
-                ]],
-                ["name" => "Projekt Eden",'desc' => 'Eine radikale Lösung, wenn mal das Wasser ausgehen sollte: Mit ein paar gezielten Sprengungen können tiefergelegene Wasserschichten erschlossen und das Wasserreservoir vergrößert werden.', "temporary" => 0,"img" => "small_eden","vp" => 0,"ap" => 60, "hp" => 0,"bp" => 2,"rsc" => ["wood2_#00" => 10,"explo_#00" => 2,"deto_#00" => 1,"metal_beam_#00" => 5,], "orderby" => 2, "impervious" => true, "children" => [//todo: adjust water gain; should be 50
-                    ["name" => "Bohrturm",'desc' => 'Auch der Bohrturm ist eine absurde Konstruktion. Mit ihm können selbst tiefste wasserführende Schichten angezapft werden! Er fügt +75 Rationen an Wasser dem Brunnen hinzu.', "temporary" => 0,"img" => "small_derrick","vp" => 0,"ap" => 86, "hp" => 0,"bp" => 3,"rsc" => ["wood2_#00" => 5,"wood_beam_#00" => 10,"metal_beam_#00" => 15,"tube_#00" => 1,], "orderby" => 0],//todo adjust water gain: 75
-                ]],
-                ["name" => "Wünschelrute",'desc' => 'Dass "Hightech" nicht nur auf die Dezimierung von Zombiehorden beschränkt ist, beweist dieses Gebäude... Es fügt +100 Rationen Wasser zum Brunnen hinzu.', "temporary" => 0,"img" => "small_waterdetect","vp" => 0,"ap" => 130, "hp" => 0,"bp" => 4,"rsc" => ["electro_#00" => 5,"wood_beam_#00" => 10,"metal_beam_#00" => 10,"tube_#00" => 1,"diode_#00" => 2,], "orderby" => 3, "impervious" => true],//todo check water gain ; should be 100
-                ["name" => "Wasserreiniger", 'desc' => 'Verwandelt in der Wüste gefundenes Kanisterwasser in Trinkwasser.',"temporary" => 0,"img" => "item_jerrycan","vp" => 0,"ap" => 75, "hp" => 75,"bp" => 0,"rsc" => ["meca_parts_#00" => 1,"wood2_#00" => 5,"metal_#00" => 5,"tube_#00" => 2,"oilcan_#00" => 2,], "orderby" => 4, "children" => [
-                    ["name" => "Wasserfilter", 'desc' => 'Verbessert die Ausbeute des Wasserreinigers erheblich (hoher Wirkungsgrad).',"temporary" => 0,"img" => "item_jerrycan","vp" => 0,"ap" => 60, "hp" => 50,"bp" => 3,"rsc" => ["metal_#00" => 10,"electro_#00" => 2,"wire_#00" => 1,"oilcan_#00" => 1,"fence_#00" => 1,], "orderby" => 0],
-                ]],
-                ["name" => "Zerstäuber", 'desc' => 'Ein handliches, hydraulisch betriebenes Gerät, das Wasserdampf versprühen kann (und weitere amüsante Chemikalien).',"temporary" => 0,"img" => "small_waterspray","vp" => 0,"ap" => 50, "hp" => 50,"bp" => 0,"rsc" => ["meca_parts_#00" => 2,"metal_#00" => 8,"tube_#00" => 2,"metal_beam_#00" => 2,"wire_#00" => 2,"deto_#00" => 1,], "orderby" => 5, "children" => [
-                    ["name" => "Kärcher",'desc' => 'Dieser leistungsstarke Dampfstrahlreiniger versprüht feinen, siedend heißen Wasserdampf. Deine muffigen Freunde werden beim Anblick dieses Geräts wortwörtlich dahinschmelzen.', "temporary" => 0,"img" => "small_waterspray","vp" => 60,"ap" => 40, "hp" => 40,"bp" => 1,"rsc" => ["water_#00" => 10,"tube_#00" => 1,"wood2_#00" => 10,"metal_beam_#00" => 5,"oilcan_#00" => 1,], "orderby" => 0],
-                    ["name" => "Säurespray",'desc' => 'Das wird die hübschen Antlitze der Zombies vor der Stadt sicher auch nicht verbessern.', "temporary" => 1,"img" => "small_acidspray","vp" => 40,"ap" => 25, "hp" => 0,"bp" => 1,"rsc" => ["water_#00" => 3,"pharma_#00" => 2,], "orderby" => 1],
-                    ["name" => "Spraykanone", 'desc' => 'Oft wird vergessen, dass Zombies ein Gehirn haben. Manchmal sogar zwei, wenn sie Glück haben. Trifft sich gut: Das mit dieser Kanone geschossene Konzentrat hat die erstaunliche Fähigkeit, Gehirne in Matsch zu verwandeln.', "temporary" => 0,"img" => "small_gazspray","vp" => 140,"ap" => 60, "hp" => 60,"bp" => 2,"rsc" => ["metal_beam_#00" => 5,"water_#00" => 5,"meca_parts_#00" => 1,"tube_#00" => 1,"pharma_#00" => 2,"poison_part_#00" => 1,], "orderby" => 2],//todo add in description "You're just a little afraid that the product will fall on your watchmen... but when you have to go, you have to go!" (hidden effect : +10% terror chance in Watch)
-                    ["name" => "Sprinkleranlage",'desc' => 'Wie jeder weiß, wird eine Sprinkleranlage für gewöhnlich im Garten eingesetzt. Die wenigsten wissen jedoch, dass sie sich auch hervorragend gegen Zombiehorden eignet. Einziger Wermutstropfen: Die Anlage verbraucht relativ viel Wasser.', "temporary" => 0,"img" => "small_sprinkler","vp" => 185,"ap" => 85, "hp" => 85,"bp" => 3,"rsc" => ["water_#00" => 20,"tube_#00" => 1,"wood_beam_#00" => 7,"metal_beam_#00" => 15,"diode_#00" => 1,], "orderby" => 3],//todo add in description "and the ramparts become a bit more slippery. Constant vigilance!" (hidden effect : +4% death chance in Watch)
-                    ["name" => "Wasserkanone",'desc' => 'Ein hübscher kleiner Wasserstrahl, um die wachsende Zombiemeute beim Stadttor zu sprengen.', "temporary" => 0,"img" => "small_watercanon","vp" => 80,"ap" => 40, "hp" => 40,"bp" => 2,"rsc" => ["water_#00" => 15,"wood2_#00" => 5,"metal_#00" => 5,"metal_beam_#00" => 5,], "orderby" => 4],
-                ]],
-                ["name" => "Wasserturm","maxLevel" => 5,'desc' => 'Mit dieser revolutionären Verteidigungsanlage ist die Stadt imstande, große Wasserdampfwolken zu erzeugen. Ein wohlig-warmes Dampfbad wird den vor den Stadtmauern herumlungernden Zombies gut tun und sie grundlegend "reinigen". Die Leistung kann mit ein wenig Feintuning noch gesteigert werden.', "temporary" => 0,"img" => "item_tube","vp" => 70,"ap" => 50, "hp" => 50,"bp" => 3,"rsc" => ["water_#00" => 25,"tube_#00" => 6,"metal_beam_#00" => 10,], "orderby" => 6,
-                    "lv0text" => "Der Wasserwerfer gibt 70 zusätzliche Verteidigungspunkte.",
-                    "upgradeTexts" => [
-                        'Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.',
-                        'Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.',
-                        'Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.',
-                        'Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 224.',//todo now +252
-                        'Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 280.',//todo now +336
-                ]],
-                ["name" => "Schießstand",'desc' => 'Ein Geschützturm, der Wasserbomben abfeuert. Unhandlich, aber mit gutem Flächenschaden, jeder wird ihn von der Stadtmauer abreißen wollen!', "temporary" => 0,"img" => "small_tourello","vp" => 60,"ap" => 30, "hp" => 30,"bp" => 1,"rsc" => ["water_#00" => 20,"tube_#00" => 1,"wood_beam_#00" => 2,"metal_beam_#00" => 2,"meca_parts_#00" => 1,"rustine_#00" => 2,"deto_#00" => 1,], "orderby" => 7],
-                ["name" => "Wasserleitungsnetz",'desc' => 'Indem du die ganze Stadt mit einem ganzen Netz von Rohren verbindest, kannst du starke wasserbasierte Verteidigungsanlagen in der Stadt aufbauen... Und wer weiß, vielleicht verbessern Sie nebenbei auch noch die Körperhygiene?', "temporary" => 0,"img" => "item_firework_tube","vp" => 0,"ap" => 40, "hp" => 0,"bp" => 0,"rsc" => ["meca_parts_#00" => 2,"metal_#00" => 5,"tube_#00" => 2,"metal_beam_#00" => 5,"rustine_#00" => 1,], "orderby" => 8, "impervious" => true, "children" => [
-                    ["name" => "Wasserhahn",'desc' => 'Dank dieses kleinen, am Brunnen angebrachten Wasserhahns, kannst Du nun die Wassermengen abschöpfen, die ansonten durch das Filtersystem verschwendet werden (es braucht kein zusätzliches Brunnen-Wasser). Du kannst mit diesem Wasser alle auf Wasser basierenden Waffen KOSTENLOS auffüllen (Wasserbombe, Wasserkanone,...)!', "temporary" => 0,"img" => "small_valve","vp" => 0,"ap" => 130, "hp" => 130,"bp" => 3,"rsc" => ["engine_#00" => 1,"meca_parts_#00" => 4,"metal_#00" => 10,"wood_beam_#00" => 6,"metal_beam_#00" => 3,"oilcan_#00" => 3,], "orderby" => 0],
-                    ["name" => "Wasserfall",'desc' => 'Anfangs war es nur zur Dekontaminierung gedacht. Aber dann stellte es sich als äußerst effizientes Mittel gegen unsere pestilenten Freunde heraus. Man gebe noch einen Spritzer Kokosnuss-Duschgel hinzu und siehe da: Die meterhohen Leichenstapel, für die DU verantwortlich bist, verströmen ein betörendes Aroma.', "temporary" => 0,"img" => "small_shower","vp" => 35,"ap" => 20, "hp" => 20,"bp" => 1,"rsc" => ["water_#00" => 10,], "orderby" => 1],
-                    ["name" => "Schleuse",'desc' => 'Selbst das Abwasser der Stadt kann noch genutzt werden: Wir müssen bloß alle Toiletten der Stadt über ein ausgeklügeltes System aus Rohren und Schlitten miteinander verbinden und dann um Mitternacht die Schleusen öffnen. Hat auch jeder sein Zelt korrekt aufgebaut?', "temporary" => 0,"img" => "small_shower","vp" => 60,"ap" => 50, "hp" => 50,"bp" => 1,"rsc" => ["water_#00" => 15,"wood2_#00" => 8,"tube_#00" => 1,], "orderby" => 2],
-                    ["name" => "Dusche",'desc' => 'Nein, ganz ehrlich, dieser... dieser... Geruch ist einfach nicht auszuhalten: Nimm eine Dusche. Sofort!', "temporary" => 0,"img" => "small_shower","vp" => 0,"ap" => 25, "hp" => 25,"bp" => 1,"rsc" => ["water_#00" => 5,"wood2_#00" => 4,"metal_#00" => 1,"tube_#00" => 1,"oilcan_#00" => 1,], "orderby" => 3],
-                    ["name" => "Naturbereich der Überlebenskünstler",'desc' => 'Anstatt die Überlebenskünstler überall in der Stadt urinieren zu lassen, habt ihr ihnen ein kleines Stück Paradies gebaut, nur für sie! Der Vorteil ist, dass es direkt über einem Gemüsegarten liegt und wir so täglich die Wasserreserven aufstocken können. Nun, zumindest wenn ihr bereit sind, das zu trinken...', "temporary" => 0,"img" => "item_surv_book","vp" => 0,"ap" => 30, "hp" => 30,"bp" => 3,"rsc" => ["ryebag_#00" => 2,"wood2_#00" => 5,"radio_on_#00" => 1,"oilcan_#00" => 2,], "orderby" => 4],//todo: effect
-                ]],
-                ["name" => "Gemüsebeet", 'desc' => 'Mit einem Gemüsebeet könnt ihr leckere Früchte und nicht allzu verschimmeltes Gemüse anbauen. Ist zwar kein Bio, macht aber satt.',"temporary" => 0,"img" => "item_vegetable_tasty","vp" => 0,"ap" => 60, "hp" => 60,"bp" => 0,"rsc" => ["water_#00" => 10,"pharma_#00" => 1,"wood_beam_#00" => 10,], "orderby" => 9, "children" => [
-                    ["name" => "Dünger", 'desc' => 'Erhöht den Ertrag des Gemüsegartens und aller umliegenden Gärten erheblich.',"temporary" => 0,"img" => "item_digger","vp" => 0,"ap" => 30, "hp" => 30,"bp" => 3,"rsc" => ["water_#00" => 10,"drug_#00" => 2,"metal_#00" => 5,"pharma_#00" => 8,"ryebag_#00" => 3,], "orderby" => 0],
-                    ["name" => "Granatapfel", 'desc' => 'Ein gewaltiger wissenschaftlicher Durchbruch: Durch die Aussaat von Dynamitstangen und gaaanz vorsichtiges Gießen, könnt ihr Granatäpfel anbauen!',"temporary" => 0,"img" => "item_bgrenade","vp" => 0,"ap" => 40, "hp" => 40,"bp" => 2,"rsc" => ["water_#00" => 10,"wood2_#00" => 5,"explo_#00" => 5,"oilcan_#00" => 1,], "orderby" => 1, "children" => [
-                        ["name" => "Granatwerfer", "maxLevel" => 5, 'desc' => 'Ein Mini-Katapult auf der Stadtmauer, garniert mit explosiven Pampelmusen. Alles, was ihr tun müsst, ist warten und schießen! Mit ein wenig extra Arbeit können wir ihn sogar automatisieren und seine Leistung verbessern.',"temporary" => 0,"img" => "item_boomfruit","vp" => 40,"ap" => 60, "hp" => 60,"bp" => 3,"rsc" => ["wood_beam_#00" => 7,"metal_beam_#00" => 2,"meca_parts_#00" => 2,"rustine_#00" => 2,"wire_#00" => 2,"lens_#00" => 1,"boomfruit_#00" => 4,], "orderby" => 0,
-                            "lv0text" => "Der Granatwerfer gibt 70 zusätzliche Verteidigungspunkte.",
-                            "upgradeTexts" => [//todo: nightly effect similar than Water Turrets but with explosive grapfruits
-                                'Der Granatwerfer verbraucht beim nächtlichen Angriff 1 Explosive Pampelmuse und steigert seinen Verteidigungswert dafür um 30.',
-                                'Der Granatwerfer verbraucht beim nächtlichen Angriff 2 Explosive Pampelmusen und steigert seinen Verteidigungswert dafür um 75.',
-                                'Der Granatwerfer verbraucht beim nächtlichen Angriff 3 Explosive Pampelmusen und steigert seinen Verteidigungswert dafür um 150.',
-                                'Der Granatwerfer verbraucht beim nächtlichen Angriff 4 Explosive Pampelmusen und steigert seinen Verteidigungswert dafür um 240.',
-                                'Der Granatwerfer verbraucht beim nächtlichen Angriff 5 Explosive Pampelmusen und steigert seinen Verteidigungswert dafür um 340.',
-                        ]],
-                        ["name" => "Vitaminen", 'desc' => 'Wenn wir ein paar explosive Pampelmusen in der Nähe der Stadtmauer in den Boden stecken, sollten wir heute Abend ein schönes Leichenfeuerwerk sehen. Aber morgen müssen wir wieder ganz von vorne anfangen...',"temporary" => 1,"img" => "item_boomfruit","vp" => 100,"ap" => 40, "hp" => 40,"bp" => 3,"rsc" => ["metal_beam_#00" => 2,"wire_#00" => 1,"deto_#00" => 1,"boomfruit_#00" => 5,], "orderby" => 1],
-                    ]],
-                    
-                ["name" => "Apfelbaum",'desc' => 'Dieser Apfelbaum erinnert eher an einen verkümmerten und halbtoten Busch, aber er trägt wunderschöne blaue Äpfel. Äh, Moment mal,... wie bitte?', "temporary" => 0,"img" => "small_appletree","vp" => 0,"ap" => 30, "hp" => 0,"bp" => 3,"rsc" => ["water_#00" => 10,"hmeat_#00" => 2,"pharma_#00" => 3,"wood_beam_#00" => 1,], "orderby" => 2],
-                ["name" => "Verwüstete Kürbisse",'desc' => 'Ein düsterer Ort, den man nur ungern zu betreten wagt, der aber seltsamerweise schöne Kürbisse hervorbringt... Man muss sie nur transportieren können.', "temporary" => 0,"img" => "item_pumpkin_raw","vp" => 0,"ap" => 30, "hp" => 0,"bp" => 3,"rsc" => ["water_#00" => 10,"hmeat_#00" => 2,"pharma_#00" => 3,"wood_beam_#00" => 1,], "orderby" => 2, "children" => [
-                    ["name" => "Vogelscheuche",'desc' => 'Um Tiere (und vor allem diese verdammten Raben) von deiner Plantage fernzuhalten, hast du beschlossen, ein paar alte Holzbretter mit dem Outfit deines alten Nachbarn zu verkleiden. In der Hoffnung, dass er es dir nicht übel nehmen wird!', "temporary" => 0,"img" => "small_scarecrow","vp" => 15,"ap" => 20, "hp" => 20,"bp" => 3,"rsc" => ["wood2_#00" => 5,"wood_beam_#00" => 3,"rustine_#00" => 3,], "orderby" => 0],
-                    ]],
-                ]],
-                ["name" => "Minen", 'desc' => 'Raketenpulver, Zünder und reines Wasser: Das sind die Zutaten für einen saftigen Brei aus vermodertem Fleisch diese Nacht. Eine mächtige Verteidigung, leider kann sie nur einmal verwendet werden.',"temporary" => 1,"img" => "item_bgrenade","vp" => 115,"ap" => 50, "hp" => 0,"bp" => 1,"rsc" => ["water_#00" => 10,"metal_#00" => 3,"explo_#00" => 1,"deto_#00" => 1,], "orderby" => 10],
-            ]],
+        //Verstärkte Stadtmauer, todo: build this construction in small town
+        $container->modify('small_wallimprove_#00')->description('Mauern um die Stadt zu errichten, darüber müsste man nachdenken! Dies ist der Anfang der Befestigungsanlagen.')->resource('wood2_#00', 10)->commit();
 
-            ["name" => "Werkstatt","maxLevel" => 5,'desc' => 'Die Entwicklung einer jeden Stadt hängt vom Bau einer verdreckten Werkstatt ab. Sie ist die Voraussetzung für alle weiter entwickelten Gebäude.', "temporary" => 0,"img" => "small_refine","vp" => 0,"ap" => 25, "hp" => 25,"bp" => 0,"rsc" => ["wood2_#00" => 10,"metal_#00" => 8,], "orderby" => 2,
-                "upgradeTexts" => [
-                    'Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.',
-                    'Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.',
-                    'Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.',
-                    'Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.',//todo: now 25%
-                    'Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.',//todo: now 35%
-                ], "children" => [
-                ["name" => "Manufaktur",'desc' => 'Indem wir in der Werkstatt ein wenig aufräumen und die Ausstattung verbessern, senken wir zwangsläufig die Produktionskosten für alle durchzuführenden Umbauten!', "temporary" => 0,"img" => "small_factory","vp" => 0,"ap" => 40, "hp" => 40,"bp" => 0,"rsc" => ["wood_beam_#00" => 5,"metal_beam_#00" => 5,"table_#00" => 1,], "orderby" => 0],
-                ["name" => "Defensivanpassung",'desc' => 'Eine umfassende Umstrukturierung unserer Verteidigung, um das Beste daraus zu machen.', "temporary" => 0,"img" => "item_rp_book2","vp" => 0,"ap" => 15, "hp" => 0,"bp" => 0,"rsc" => ["table_#00" => 1,"chair_basic_#00" => 1,], "orderby" => 1, "impervious" => true, "children" => [
-                    ["name" => "Defensive Adjustment",'maxLevel' => 3, 'desc' => 'Eine großangelegte Neuausrichtung aller Verteidigungsanlagen, um wirklich das Optimum herauszuholen (die Gesamtverteidigung der Stadt erhöht sich um 10%).', "temporary" => 0,"img" => "item_shield","vp" => 8,"ap" => 60, "hp" => 60,"bp" => 2,"rsc" => ["wood_beam_#00" => 5,"metal_beam_#00" => 10,"meca_parts_#00" => 2,"wire_#00" => 1,], "orderby" => 0,
-                    "lv0text" => 'Die Verteidigung der Stadt wird um 10% erhöht.',
-                    "upgradeTexts" => [
-                        'Die Verteidigung der Stadt wird um 12% erhöht.',//todo now 11%
-                        'Die Verteidigung der Stadt wird um 14% erhöht.',//todo now 13%
-                        'Die Verteidigung der Stadt wird um 15% erhöht.'//todo new level 15%
-                    ]],
-                    ["name" => "Bürgergericht",'desc' => 'Wie jeder weiß, haben Helden immer recht. Um diesen Fakt weiter zu zementieren, zählen alle von Helden gegen andere Bürger ausgesprochenen Beschwerden doppelt.', "temporary" => 0,"img" => "small_court","vp" => 0,"ap" => 12, "hp" => 12,"bp" => 3,"rsc" => ["wood2_#00" => 10,"metal_#00" => 10,"table_#00" => 1,"wire_#00" => 1,"radio_on_#00" => 2,], "orderby" => 1],
-                    ["name" => "Techniker-Werkstatt",'desc' => 'Mit einem eigenen Arbeitsplatz sind Techniker in der Lage, McGyver zu spielen und aus allem, was herumliegt, nützliches Zeug zu bauen.', "temporary" => 0,"img" => "item_keymol","vp" => 0,"ap" => 60, "hp" => 60,"bp" => 3,"rsc" => ["wood_beam_#00" => 5,"metal_beam_#00" => 10,"plate_#00" => 1,"wire_#00" => 2,"ryebag_#00" => 1,"table_#00" => 1,"coffee_machine_#00" => 1,], "orderby" => 2],//todo : effect
-                    ["name" => "Ministerium für Sklaverei",'desc' => 'Das Ministerium für Sklaverei hat beschlossen, dass Verbannte auf den Baustellen arbeiten dürfen. Außerdem erhält jeder von ihnen in ein Bauprojekt investierte AP einen 50%-Bonus (z.B. aus 6 AP werden so 9 AP, die in das Bauprojekt fließen).', "temporary" => 0,"img" => "small_slave","vp" => 0,"ap" => 15, "hp" => 15,"bp" => 4,"rsc" => ["wood_beam_#00" => 10,"metal_beam_#00" => 5,"chain_#00" => 2,"table_#00" => 1,], "orderby" => 3],
-                    ["name" => "Altar",'desc' => 'Weil der Rabe gut und gerecht ist, befreit dieser zu seinen Ehren errichtete Schrein alle Bürger, die aus der Stadt verbannt wurden.', "temporary" => 0,"img" => "small_redemption","vp" => 0,"ap" => 24, "hp" => 0,"bp" => 1,"rsc" => ["pet_pig_#00" => 1,"wood_beam_#00" => 3,"metal_beam_#00" => 2,], "impervious" => true, "orderby" => 4],
-                ]],
-                ["name" => "Metzgerei",'desc' => 'In der Metzgerei könnt ihr eure kleinen treuen Begleiter (Hunde, Katzen, Schlangen ...) in Lebensmittel verwandeln. Da gibt es doch tatsächlich noch Leute, die Vegetarier sind...', "temporary" => 0,"img" => "item_meat","vp" => 0,"ap" => 40, "hp" => 40,"bp" => 0,"rsc" => ["wood2_#00" => 9,"metal_#00" => 4,], "orderby" => 2, "children" => [
-                    ["name" => "Schlachthof",'desc' => 'Ein Schlachthof, der direkt vor dem Stadttor errichtet wird und dessen Eingang zur Außenwelt zeigt. Schwierig ist eigentlich nur, jede Nacht einen Freiwilligen zu finden, der sich hineinstellt und so die Zombies anlockt.', "temporary" => 0,"img" => "small_slaughterhouse","vp" => 45,"ap" => 35, "hp" => 35,"bp" => 1,"rsc" => ["wood_beam_#00" => 1,"plate_#00" => 2,"metal_beam_#00" => 8,"hmeat_#00" => 1,], "orderby" => 0],
-                    ["name" => "Kremato-Cue",'desc' => 'Jeder weiß, was ein Krematorium ist, richtig? Und jeder weiß, wozu man einen Barbecuegrill verwendet? Dann einfach eins und eins zusammenzählen, dann wisst ihr auch wie ein "Kremato-Cue" funktioniert. Die Zeiten des Hungerns sind jedenfalls vorbei...', "temporary" => 0,"img" => "item_hmeat","vp" => 0,"ap" => 40, "hp" => 40,"bp" => 2,"rsc" => ["wood_beam_#00" => 6,"metal_beam_#00" => 1,], "orderby" => 1],
-                    ["name" => "Schweinestall",'desc' => 'Seit ihr erfolgreich mit der Schweinezucht begonnen habt, kommt jeden Morgen frisches Fleisch in der Bank an. Ihr solltet nur über die Arbeitshygiene niemals nachdenken... ', "temporary" => 0,"img" => "item_pet_pig","vp" => 0,"ap" => 35, "hp" => 35,"bp" => 3,"rsc" => ["wood2_#00" => 8,"wood_beam_#00" => 4,"meca_parts_#00" => 1,"ryebag_#00" => 3,"pet_pig_#00" => 3,], "orderby" => 2],//todo effect : add between 2-4 good steak (7AP)
-                ]],
-                ["name" => "Hühnerstall",'desc' => 'Falls du schon vor langer Zeit vergessen hast, wie köstlich ein Omelett mit gebratenen Chamignons, Kräutern und Speck ist, dürfte dieses Gebäude wohl eher unnütz für dich sein. Aber zumindest liefert es dir einige Eier. Was die Pilze betrifft, so musst du dich wohl an die Zombies draußen halten.', "temporary" => 0,"img" => "small_chicken","vp" => 0,"ap" => 25, "hp" => 25,"bp" => 2,"rsc" => ["pet_chick_#00" => 2,"wood2_#00" => 5,"wood_beam_#00" => 5,"fence_#00" => 2,"ryebag_#00" => 1,], "orderby" => 3],
-                ["name" => "Kantine",'desc' => 'Die Kantine verbessert die Produktion in den Küchen, die die Helden in eurer Stadt gebaut haben.', "temporary" => 0,"img" => "small_cafet","vp" => 0,"ap" => 20, "hp" => 20,"bp" => 1,"rsc" => ["pharma_#00" => 1,"wood_beam_#00" => 5,"metal_beam_#00" => 1,"table_#00" => 1,"ryebag_#00" => 1,"machine_2_#00" => 1,], "orderby" => 4],
-                ["name" => "Kleines Cafe",'desc' => 'Das Mittagessen liegt schon lange zurück... Was gibt\'s da besseres als eine solide Holzplanke und altbackenes Brot.', "temporary" => 1,"img" => "small_cafet","vp" => 0,"ap" => 5, "hp" => 0,"bp" => 1,"rsc" => ["water_#00" => 1,"wood2_#00" => 3,"pharma_#00" => 1,], "orderby" => 5],
-                ["name" => "Labor",'desc' => 'Das Kollektiv, es gibt nichts Vergleichbares. Was für eine Freude, alles zu teilen! Persönliche Labore werden effizienter.', "temporary" => 0,"img" => "item_acid","vp" => 0,"ap" => 20, "hp" => 20,"bp" => 1,"rsc" => ["meca_parts_#00" => 1,"pharma_#00" => 4,"wood_beam_#00" => 5,"metal_beam_#00" => 5,"ryebag_#00" => 2,"lens_#00" => 1,"machine_1_#00" => 1,], "orderby" => 6, "children" => [
-                    ["name" => "Die Höhle der Aufklärer",'desc' => 'Die Aufklärer haben dich schon immer fasziniert und nie verraten, was sie unter ihrer Haube verbergen... Aber vielleicht ist es das Beste, sie in Ruhe zu lassen. Mit diesem speziellen Keller können sie sich endlich an die Arbeit machen, schließlich mögen alle ihre Kräuter.', "temporary" => 0,"img" => "item_vest_on","vp" => 0,"ap" => 25, "hp" => 25,"bp" => 3,"rsc" => ["meca_parts_#00" => 1,"tube_#00" => 2,"metal_beam_#00" => 3,"plate_#00" => 1,"ryebag_#00" => 3,"machine_1_#00" => 1,], "orderby" => 0],//todo new Krähennest effect
-                ]],
-                ["name" => "Galgen",'desc' => 'An diesem prächtigen Galgen könnt ihr unliebsame (oder lästige) Mitbürger loswerden. Ist mal was "anderes" als die klassische Verbannung...', "temporary" => 0,"img" => "r_dhang","vp" => 0,"ap" => 13, "hp" => 0,"bp" => 0,"rsc" => ["wood_beam_#00" => 1,"chain_#00" => 1,], "orderby" => 7],
-                ["name" => "Schokoladenkreuz",'desc' => 'Ein wunderschönes Kreuz aus Schokolade, an dem unliebsame (oder lästige) Mitbürger platziert werden können. Ist mal was "anderes" als die klassische Verbannung...', "temporary" => 0,"img" => "small_eastercross","vp" => 0,"ap" => 13, "hp" => 0,"bp" => 5,"rsc" => ["wood_beam_#00" => 1,"chain_#00" => 1,], "orderby" => 7],
-                ["name" => "Fleischkäfig",'desc' => 'Moderne Justiz in all seiner Pracht! Wird ein Mitbürger verbannt, kann er in den Fleischkäfig gesteckt werden, welcher sich wohlweislich direkt vor dem Stadttor befindet. Seine Schreie und Tränen dürften einen exzellenten Köder um Mitternacht abgeben. Jeder verbannte und in den Fleischkäfig gesteckte Mitbürger bringt der Stadt vorübergehende Verteidigungspuntke ein.', "temporary" => 0,"img" => "small_fleshcage","vp" => 0,"ap" => 40, "hp" => 0,"bp" => 0,"rsc" => ["meca_parts_#00" => 2,"metal_#00" => 8,"chair_basic_#00" => 1,"metal_beam_#00" => 1,], "orderby" => 8],
-            ]],
+        //Großer Graben
+        $container->modify('small_gather_#00')->ap(70)->health(70)->upgradeTexts([
+            'Der Verteidigungsbonus des Grabens steigt dauerhaft um 20.',
+            'Der Verteidigungsbonus des Grabens steigt dauerhaft um 25.',
+            'Der Verteidigungsbonus des Grabens steigt dauerhaft um 30.',
+            'Der Verteidigungsbonus des Grabens steigt dauerhaft um 35.',
+            'Der Verteidigungsbonus des Grabens steigt dauerhaft um 40.',
+        ])->commit();
+        // Wassergraben
+        $container->modify('small_waterhole_#00')->parentBuilding('small_gather_#00')->defense(60)->ap(60)->health(60)->blueprintLevel(0)->commit();
+        // Pfahlgraben
+        $container->modify('small_spears_#00')->parentBuilding('small_gather_#00')->description('Ein guter Weg, um die Große Grube zu füllen, mit scharfen Pfählen, um zu sehen, wie sich die Zombies dort aufspießen.')->defense(45)->ap(35)->health(35)->blueprintLevel(0)->resources(["metal_#00" => 2,"wood_beam_#00" => 8,])->orderBy(1)->commit();
+        // Fallgruben
+        $container->modify('small_gather_#01')->parentBuilding('small_gather_#00')->parentBuilding('small_gather_#00')->description('Mit tieferen Löchern und darüber ausgelegten Planen, einfach abwarten und zusehen, wie etwas (oder jemand?) hineinfällt!')->ap(25)->health(25)->resources(["metal_beam_#00" => 1, "plate_#00" => 2,])->orderBy(2)->commit();
+        //Buddelgruben, todo effect
+        $container->add()->parentBuilding('small_gather_#00')
+            ->icon('item_shovel')->label('Buddelgruben')->description('Seitengänge, die Buddler direkt vom Großen Grube aus in die Wüste treiben, um noch nie zuvor ausgebeutete Bereiche zu erkunden. Hoffentlich finden sie dort einige interessante Dinge!')
+            ->isTemporary(0)->defense(0)->ap(25)->health(25)->blueprintLevel(3)->resources(["explo_#00" => 1,])->orderBy(3)->commit();
 
-            ["name" => "Wachturm", 'desc' => 'Dieser Turm, der sich in der Nähe des Eingangs befindet, bietet einen perfekten Überblick über die Umgebung und ermöglicht es, den nächtlichen Angriff abzuschätzen und sich somit besser vorzubereiten.', "temporary" => 0,"img" => "item_tagger","vp" => 10,"ap" => 15, "hp" => 15,"bp" => 0,"rsc" => ["wood2_#00" => 3,"metal_beam_#00" => 1,"metal_#00" => 1,], "orderby" => 3, "children" => [
-                    ["name" => "Aussichtsplattform","maxLevel" => 5,'desc' => 'Wenn wir den Wachturm noch ein wenig vergrößern, hält die Außenwelt keine Geheimnisse mehr für uns. Dank seines soliden Fundaments können wir sogar noch ein paar Stockwerke hinzufügen, um noch weiter sehen zu können.', "temporary" => 0,"img" => "item_scope","vp" => 0,"ap" => 30, "hp" => 30,"bp" => 0,"rsc" => ["wood2_#00" => 5,"scope_#00" => 1,], "orderby" => 0,
-                    "lv0text" => 'Die Aussichtsplattform ermöglicht es, den Bürger zu wählen, der am besten bei Expeditionen führen kann.',//todo: now this constructions has the evolutions, and has a lvl0 which allows to elect a Guide
-                    "upgradeTexts" => [
-                        'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.',
-                        'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.',
-                        'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.',
-                        'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.',
-                        'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.',
-                        ], "children" => [
-                        ["name" => "Scanner",'desc' => 'Dieser selbstgebaute Zonenscanner erleichtert die Abschätzung des nächtlichen Angriffs erheblich. Wenn er richtig eingesetzt wird, sind nur halb so viele Bürger notwendig, um eine gute Schätzung zu bekommen.', "temporary" => 0,"img" => "item_tagger","vp" => 0,"ap" => 20, "hp" => 20,"bp" => 1,"rsc" => ["metal_#00" => 5,"pile_#00" => 2,"diode_#00" => 1,"electro_#00" => 1,"radio_on_#00" => 2,], "orderby" => 0],
-                        ["name" => "Verbesserte Karte",'desc' => 'Diese simple elektronische Konstruktion erleichtert das Lesen der Außenweltkarte. Konkret: Du erfährst die genaue Zombieanzahl jeder Zone und musst somit nicht mehr planlos in der Wüste rumlaufen...', "temporary" => 0,"img" => "item_electro","vp" => 0,"ap" => 25, "hp" => 25,"bp" => 1,"rsc" => ["pile_#00" => 2,"metal_#00" => 5,"plate_#00" => 1,"diode_#00" => 1,"radio_on_#00" => 2,], "orderby" => 1],
-                    ]],
-                    ["name" => "Rechenmaschine",'desc' => 'Die Rechenmaschine ist ein etwas rustikaler Taschenrechner, mit dem man die Angriffsstärke des MORGIGEN Tages berechnen kann!', "temporary" => 0,"img" => "item_tagger","vp" => 0,"ap" => 20, "hp" => 20,"bp" => 1,"rsc" => ["rustine_#00" => 1,"electro_#00" => 1,], "orderby" => 1],
-                    ["name" => "Leuchtturm",'desc' => 'Dieser schöne, hohe Leuchtturm wird Licht in lange Winternächte bringen (hat er im Sommer eigentlich irgendeinen Nutzen?). Alle Stadtbewohner auf Camping-Ausflug haben eine höhere Überlebens-Chance.', "temporary" => 0,"img" => "small_lighthouse","vp" => 0,"ap" => 30, "hp" => 30,"bp" => 3,"rsc" => ["electro_#00" => 2,"wood_beam_#00" => 5,"metal_beam_#00" => 5,"pile_#00" => 1,"diode_#00" => 1,], "orderby" => 2],
-                    ["name" => "Brustwehr", "maxLevel" => 3, 'desc' => 'Hast du es satt, über die abgetrennten Gliedmaßen der Zombies zu stolpern, die du erledigt hast? Vielleicht ist es dann an der Zeit, in der Apokalypse aufzusteigen and und die Zombiehorden von oben zu beobachten. Mithilfe der Brustwehr kannst du des Nachts über die Stadt wachen und dem Himmel ein Stück näher zu kommen.',"temporary" => 0,"img" => "small_round_path","vp" => 0,"ap" => 25, "hp" => 25,"bp" => 0,"rsc" => ["wood2_#00" => 6,"wood_beam_#00" => 2,"metal_beam_#00" => 2,"meca_parts_#00" => 1,], "orderby" => 3,//todo : this constructions allows players to Watch. 10 watchers max at lvl0. Votable, PLEASE NOTE, WITHOUT ARMOURY, THE ITEMS ARE NOT COUNTED IN THE BAGS.
-                        "lv0text" => 'Diese Brustwehr um die Stadt erlaubt es einigen Wächtern, die Stadt von der Mauer aus zu schützen.',
-                        "upgradeTexts" => [
-                            'Indem man die Zinnen etwas erweitert, können mehr Wächter während des Angriffs kämpfen.',
-                            'Der Brustwehr ist so breit, dass die ganze Stadt dort übernachten kann.',
-                            'Durch den Ausbau der Brustwehr können sich die Wächter dort etwas sicherer fühlen.',
-                        ], "children" => [
-                            ["name" => "Wächter-Turm",'desc' => 'Die Installation eines großen Turms, der den Wächtern gewidmet ist, in der Mitte der Festungsmauern, um ihre Effizienz zu verbessern. Von nun an werden die heldenhaften Wächter in der Lage sein, dort während ihrer Ruhezeiten  die Verteidigung der Stadt gegen ein wenig von ihrer Energie zu verbessern.', "temporary" => 0,"img" => "small_watchmen","vp" => 0,"ap" => 35, "hp" => 35,"bp" => 3,"rsc" => ["meca_parts_#00" => 1,"plate_#00" => 1,"wood_beam_#00" => 10,"metal_beam_#00" => 2,], "orderby" => 0],//todo: edit effect ; remove the static defense gain obtained by guardians
-                            ["name" => "Wachstube",'desc' => 'Ein alter Raum, der nach Kaffee und Tabak riecht, in dem man sich aber viel besser auf die langen Nächte vorbereiten kann, die die Bürger auf der Stadtmauer erwarten.', "temporary" => 0,"img" => "small_watchmen","vp" => 0,"ap" => 50, "hp" => 50,"bp" => 3,"rsc" => ["wood_beam_#00" => 5,"metal_#00" => 10,"meca_parts_#00" => 2,"metal_beam_#00" => 5,"rustine_#00" => 1,"ryebag_#00" => 2,"oilcan_#00" => 1,"lights_#00" => 1,"coffee_machine_#00" => 1,"cigs_#00" => 1,"trestle_#00" => 1,"chair_basic_#00" => 2,], "orderby" => 1],//todo effect: +5% survival chance in Watch
-                            ["name" => "Kleine Waffenschmiede",'desc' => 'Nach dem harten Kampf mit Fäusten und Füßen ist es an der Zeit, zu etwas Ernsthafterem überzugehen. Mit einem Waffenvorrat in der Nähe der Stadtmauer wirst du nicht mehr mit leeren Händen auf die Wache zugehen.', "temporary" => 0,"img" => "small_armor","vp" => 0,"ap" => 40, "hp" => 40,"bp" => 0,"rsc" => ["meca_parts_#00" => 1,"wood2_#00" => 10,"metal_#00" => 8,"plate_#00" => 2,"rustine_#00" => 2,], "orderby" => 2, "children" => [//todo: edit effect ; don't provide Watch bonus but now items in bag are counted in Watch 
-                                ["name" => "Schwedische Schreinerei",'desc' => 'Dieser kleine Laden verbessert die Effektivität jedes Möbelstücks, das auf der Wache benutzt wird um 20%. Hach ja, die Schweden... Nie gab es bessere Billigmöbel!', "temporary" => 0,"img" => "small_ikea","vp" => 0,"ap" => 50, "hp" => 50,"bp" => 3,"rsc" => ["meca_parts_#00" => 2,"wood2_#00" => 10,"metal_#00" => 10,"plate_#00" => 2,"concrete_wall_#00" => 3,"wood_beam_#00" => 5,"radio_on_#00" => 1,], "orderby" => 0],//todo: adjust nw_ikea bonus to 30%
-                                ["name" => "Waffenschmiede",'desc' => 'Indem man jede Klinge vor Einbruch der Nacht gewissenhaft schärft, kann die Wacht nun noch effektiver werden. Jede scharfe Waffe hat einen 20%igen Wächterbonus.', "temporary" => 0,"img" => "item_cutcut","vp" => 0,"ap" => 50, "hp" => 50,"bp" => 3,"rsc" => ["meca_parts_#00" => 3,"wood2_#00" => 10,"metal_#00" => 10,"metal_beam_#00" => 5,"plate_#00" => 2,"concrete_wall_#00" => 2,], "orderby" => 1],//todo: new effect nw_smith and remove nw_armory
-                                ["name" => "Tierhandlung",'desc' => 'Indem du deine Tiere direkt auf der Stadtmauer hälst, ist es viel effizienter, sie in die Schlacht zu führen. Und ihr könnt sicher sein, dass sie nicht wieder entkommen! Erhöht die Effizienz von Haustieren während der Wache um 40%.', "temporary" => 0,"img" => "small_catapult3","vp" => 0,"ap" => 40, "hp" => 40,"bp" => 3,"rsc" => ["wood2_#00" => 5,"wood_beam_#00" => 4,"metal_beam_#00" => 2,"ryebag_#00" => 2,"oilcan_#00" => 1,"fence_#00" => 1,], "orderby" => 3],//replace Trebuchet functionning, todo: adjust nw_trebuchet bonus to 40%
-                            ]],
-                            ["name" => "Dompteur-Spa",'desc' => 'Eure Hunde verdienen nur das Beste, und wenn sie euch auf die Wacht begleiten, heißt es, ihre Zähne zu schärfen und ihre Locken zu bürsten. Alles, damit eure Schuckel die schönsten auf der Stadtmauer sind! Außerdem soll es ihre Effektivität verbessern und Ihre Überlebenschancen in der Nacht erhöhen.', "temporary" => 0,"img" => "item_tamed_pet","vp" => 0,"ap" => 40, "hp" => 40,"bp" => 3,"rsc" => ["wood2_#00" => 4,"water_#00" => 10,"meca_parts_#00" => 1,"drug_#00" => 1,"oilcan_#00" => 1,"fence_#00" => 1,], "orderby" => 3],
-                            ["name" => "Verschmutzte Rinnen",'desc' => 'Wenn wir die Abwässer der Stadt mit Hilfe eines Pumpensystems direkt an die Spitze der Stadtmauer leiten, können usere Wasserwaffen 20% effizienter eingesetzt werden. Könnte aber ein bisschen stinken...', "temporary" => 0,"img" => "small_tourello","vp" => 0,"ap" => 35, "hp" => 35,"bp" => 3,"rsc" => ["wood2_#00" => 10,"tube_#00" => 1,"metal_beam_#00" => 3,"meca_parts_#00" => 1,"tube_#00" => 3,"concrete_wall_#00" => 1,"plate_#00" => 1,"oilcan_#00" => 1,], "orderby" => 4],//todo: edit has_shooting_gallery functions for using _#01
-                    ]],
-                    ["name" => "Katapult",'desc' => 'Das Katapult ist ein äußerst mächtiges Werkzeug, mit dem die Stadt jede Art von Gegenstand in die Wüste schießen kann. Das ist sehr nützlich, wenn man weit entfernte Bürger versorgen möchte (Lebensmittel, Wasser, Waffen etc...).', "temporary" => 0,"img" => "item_courroie","vp" => 0,"ap" => 40, "hp" => 40,"bp" => 1,"rsc" => ["wood2_#00" => 2,"metal_#00" => 1,"wood_beam_#00" => 1,"metal_beam_#00" => 1,], "orderby" => 4, "children" => [
-                        ["name" => "Verbesserter Katapult",'desc' => 'Dieses erheblich verbesserte Katapult ist einfacher zu bedienen und benötigt weniger AP, um mit einem Gegenstand beladen zu werden!', "temporary" => 0,"img" => "item_courroie","vp" => 0,"ap" => 30, "hp" => 30,"bp" => 1,"rsc" => ["tube_#00" => 1,"courroie_#00" => 1,"wood2_#00" => 2,"metal_#00" => 2,"electro_#00" => 1,"lens_#00" => 1,], "orderby" => 0],
-                        ["name" => "Kleiner Tribok",'desc' => 'Ein paar spezielle Riemen für deine tierischen Freunde, und es ist an der Zeit, sie zu den Zombies zu schicken. Du wirst sehen, es macht wirklich Spaß, ihnen zuzusehen.', "temporary" => 0,"img" => "small_catapult3","vp" => 60,"ap" => 30, "hp" => 30,"bp" => 2,"rsc" => ["metal_#00" => 2,"wood_beam_#00" => 3,"metal_beam_#00" => 2,"meca_parts_#00" => 1,"ryebag_#00" => 1,"pet_pig_#00" => 1,], "orderby" => 1],//todo: adjust nw_trebuchet bonus to 40%
-                    ]],
-                    ["name" => "Forschungsturm","maxLevel" => 5,'desc' => 'Mit dem Forschungsturm können in bereits "abgesuchten" Wüstenzonen jeden Tag neue Gegenstände gefunden werden! Der Forschungsturm versetzt dich in die Lage, jene anormalen meteorologischen Phänomene aufzuzeichnen und auszuwerten, die sich nachts in der Wüste abspielen. Die entsprechenden Fundstellen werden anschließend in der Zeitung veröffentlicht.', "temporary" => 0,"img" => "small_gather","vp" => 0,"ap" => 30, "hp" => 30,"bp" => 2,"rsc" => ["electro_#00" => 1,"wood_beam_#00" => 3,"metal_beam_#00" => 1,"table_#00" => 1,"scope_#00" => 1,"diode_#00" => 2,], "orderby" => 5,
-                        "upgradeTexts" => [
-                            'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.',
-                            'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 49%.',
-                            'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 61%.',
-                            'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.',
-                            'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.',
-                    ]],
-                    ["name" => "Kanonenhügel",'desc' => 'Mehrere Erdhügel, die durch Holzbalken verstärkt wurden, bilden die Grundlage für diesen mächtigen Verteidigungsturm.', "temporary" => 0,"img" => "small_dig","vp" => 30,"ap" => 60, "hp" => 60,"bp" => 0,"rsc" => ["concrete_wall_#00" => 1,"wood_beam_#00" => 8,"metal_beam_#00" => 1,"meca_parts_#00" => 1,], "orderby" => 6, "children" => [
-                        ["name" => "Steinkanone",'desc' => 'Dieser automatisierte Wachturm verschießt um Mitternacht minutenlang Felsen mit hoher Geschwindigkeit in Richtung Stadttor. Solltest du vorgehabt haben zu schlafen, kannst du das hiermit vergessen!', "temporary" => 0,"img" => "small_canon","vp" => 50,"ap" => 40, "hp" => 40,"bp" => 1,"rsc" => ["tube_#00" => 1,"electro_#00" => 1,"concrete_wall_#00" => 3,"wood_beam_#00" => 3,"metal_beam_#00" => 5,], "orderby" => 0],
-                        ["name" => "Selbstgebaute Railgun",'desc' => 'Diese improvisierte Railgun funktioniert mit Luftdruck. Sie ist in der Lage, mehrere Ladungen Metallsplitter (verbogene Nägel und rostiges Metall) mit enormer Geschwindigkeit zu verschießen und faustgroße Löcher zu reißen.', "temporary" => 0,"img" => "small_canon","vp" => 50,"ap" => 35, "hp" => 35,"bp" => 2,"rsc" => ["wood_beam_#00" => 2,"metal_#00" => 10,"meca_parts_#00" => 2,"plate_#00" => 1,"metal_beam_#00" => 2,], "orderby" => 1],
-                        ["name" => "Blechplattenwerfer",'desc' => 'Der Blechplattenwerfer schleudert schwere Blechplatten aufs Schlachtfeld. Die angerichtete Schweinerei willst du garantiert kein zweites Mal sehen...', "temporary" => 0,"img" => "small_canon","vp" => 60,"ap" => 50, "hp" => 50,"bp" => 1,"rsc" => ["meca_parts_#00" => 2,"plate_#00" => 3,"explo_#00" => 2,"wood_beam_#00" => 5,"metal_beam_#00" => 1,], "orderby" => 2],
-                        ["name" => "Brutale Kanone",'desc' => 'Für diese Maschine möchte man sterben. ...im übertragenen Sinne. Ihr müsst sie allerdings jeden Tag nachladen.', "temporary" => 1,"img" => "small_canon","vp" => 50,"ap" => 25, "hp" => 0,"bp" => 1,"rsc" => ["plate_#00" => 1,"metal_beam_#00" => 1,], "orderby" => 3],
-                ]],
-                ["name" => "Straßenbeleuchtung","maxLevel" => 3,'desc' => 'Selbst in der tiefsten Nacht erlaubt dir der fahle Schein der Laternenmasten, deine Ausgrabungen in der Wüste fortzusetzen. Keine Ausreden mehr, um früh ins Bett zu gehen.', "temporary" => 0,"img" => "small_novlamps","vp" => 0,"ap" => 25, "hp" => 25,"bp" => 1,"rsc" => ["meca_parts_#00" => 1,"deto_#00" => 1,"lens_#00" => 2,"diode_#00" => 2,"metal_beam_#00" => 8,"wire_#00" => 1, "pile_#00" => 4], "orderby" => 7,
-                    "lv0text" => 'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert.',
-                    "upgradeTexts" => [
-                        /* 'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.', */
-                        'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.',
-                        'Die Verringerung der Fundchancen bei Nacht wird auf der gesamten Karte negiert, pro Tag werden 2 Batterien verbraucht.',
-                        'Bietet nur nachts einen leichten Suchbonus, pro Tag werden 3 Batterien verbraucht.',//todo: new lvl effect of Public lights, provide +10% search bonus during night only
-                ]],
-            ]],
+        //Weiterentwickelte Stadtmauer
+        $container->modify('small_wallimprove_#01')->defense(20)->blueprintLevel(0)->resources(["meca_parts_#00" => 2,"wood_beam_#00" => 5,"metal_beam_#00" => 5,])->orderBy(3)->commit();
+        //Zweite Schicht
+        $container->modify('item_plate_#04')->parentBuilding('small_wallimprove_#01')->defense(70)->ap(60)->health(60)->blueprintLevel(2)->orderBy(0)->commit();
+        //Dritte Schicht
+        $container->modify('item_plate_#05')->parentBuilding('item_plate_#04')->description('Nach der zweiten Wand dachten wir, warum nicht eine dritte? Die Isolierung wird einfach besser sein!')->ap(60)->health(60)->blueprintLevel(3)->resources(["metal_#00" => 35,"plate_#00" => 3,"metal_beam_#00" => 5,])->orderBy(0)->commit();
+        //Groooße Mauer
+        $container->modify('item_plate_#03')->parentBuilding('small_wallimprove_#01')->description('Eine Mauer ist gut, eine große Mauer ist besser.')->blueprintLevel(1)->resources(["wood2_#00" => 10, "metal_#00" => 10,"concrete_wall_#00" => 2,"wood_beam_#00" => 10,"metal_beam_#00" => 10,])->orderBy(1)->commit();
+        //Entwicklungsfähige Stadtmauer
+        $container->modify('item_home_def_#00')->parentBuilding('small_wallimprove_#01')->resource('metal_#00', 15)->resource('concrete_wall_#00', 2)->commit();
+        //Verstärkende Balken
+        $container->modify('item_plate_#01')->parentBuilding('small_wallimprove_#01')->description('Eine verstärkte Struktur für die schwächeren Teile der Mauer.')->defense(35)->ap(15)->health(15)->blueprintLevel(1)->resource('wood_beam_#00', 5)->orderBy(3)->commit();
+        //Zackenmauer
+        $container->modify('item_plate_#02')->parentBuilding('small_wallimprove_#01')->orderBy(4)->commit();
 
-            ["name" => "Fundament",'desc' => 'Das Fundament ist die Grundvoraussetzung für "Absurde Projekte" (das sind langwierige und anstrengende Bauten, die jedoch für die Stadt mehr als nützlich sind).', "temporary" => 0,"img" => "small_building","vp" => 0,"ap" => 30, "hp" => 30,"bp" => 0,"rsc" => ["wood2_#00" => 8,"metal_#00" => 8,"concrete_wall_#00" => 2,], "orderby" => 4, "children" => [
-                ["name" => "Großer Umbau",'desc' => 'Dieses absurde Projekt hat den kompletten Umbau der Stadt zum Ziel. Jeder Stein, jedes Brett und jedes Gebäude wird gemäß eines neuen Verteidigungsplans neu ausgerichtet. Hierzu werden u.a. Häuser näher zusammengerückt, Gassen und selten benutzte Straßen versperrt und Wassergeschütztürme auf die Dächer der Stadt montiert. Ein richtig großer Umbau!', "temporary" => 0,"img" => "small_moving","vp" => 300,"ap" => 300, "hp" => 300,"bp" => 3,"rsc" => ["wood2_#00" => 20,"metal_#00" => 20,"concrete_wall_#00" => 5,"wood_beam_#00" => 10,"metal_beam_#00" => 10,], "orderby" => 0],
-                ["name" => "Falsche Stadt",'desc' => 'Es ist weithin bekannt, dass die Zombies nicht so ganz helle sind... Wenn ihr es schafft, eine Stadt nachzubauen, könntet ihr den überwiegenden Großteil des Angriffs auf diesen Nachbau umlenken...', "temporary" => 0,"img" => "small_falsecity","vp" => 400,"ap" => 400, "hp" => 400,"bp" => 3,"rsc" => ["meca_parts_#00" => 15,"wood2_#00" => 20,"metal_#00" => 20,"wood_beam_#00" => 20,"metal_beam_#00" => 20,], "orderby" => 1],
-                ["name" => "Unterirdische Stadt",'desc' => 'Indem wir einen großen Teil der Stadt unter der Erde vergraben, schaffen wir neuen Platz für die Verteidigungsanlagen über unseren Köpfen. Sehr es positiv: wir sind dann vor der Sonne geschützt.', "temporary" => 0,"img" => "small_underground","vp" => 400,"ap" => 500, "hp" => 500,"bp" => 3,"rsc" => ["meca_parts_#00" => 3,"explo_#00" => 5,"metal_#00" => 10,"wood_beam_#00" => 20,"metal_beam_#00" => 20,], "orderby" => 2],
-                ["name" => "Labyrinth",'desc' => 'Zombies sind bekanntermaßen einfach gestrickt. Warum ihnen dann nicht einfach ein kleines Labyrinth vor die Nase (das Stadttor) setzen und dabei zusehen, wie ihr Angriff an Schwung verliert. Das Ganze ist äußerst effektiv. Doch jeder Bürger, der die Stadt betreten will, muss dann 1 AP aufbringen.', "temporary" => 0,"img" => "small_labyrinth","vp" => 150,"ap" => 200, "hp" => 200,"bp" => 3,"rsc" => ["meca_parts_#00" => 2,"wood2_#00" => 20,"metal_#00" => 10,"concrete_wall_#00" => 4,], "orderby" => 3],
-                ["name" => "Müllhalde","maxLevel" => 3,'desc' => 'Der Eckpfeiler einer jeden großen Stadt: eine riesige, stinkende Müllhalde, die die ganze Stadt umgibt. Zugegeben, das ist nicht gerade ästhetisch, aber immerhin könnt ihr so Alltagsgegenstände in eine effektive Verteidigung verwandeln (nur eine Nacht haltbar).', "temporary" => 0,"img" => "small_trash","vp" => 0,"ap" => 70, "hp" => 70,"bp" => 0,"rsc" => ["concrete_wall_#00" => 5,"wood_beam_#00" => 15,"metal_beam_#00" => 15,], "orderby" => 4,
-                    "lv0text" => 'Ermöglicht das Zerstören von Gegenständen für 1 Verteidigungspunkt.',//todo: new functionning of Dump sites (deposit / taking objects)
-                    "upgradeTexts" => [//todo: instead multiple dumps construction, this constructions has evolutions which has same effects than previous dumps
-                        'Ermöglicht die fachgerechte Entsorgung von Waffen und Nahrung auf der Müllhalde.',//alows weapons & food dump
-                        'Ermöglicht das fachgerechte Massakrieren unschuldiger Tiere und Steigert die Ausbeute jedes auf den Müll geworfenen Verteidigungs-Gegenstandes.',//increase defense provided by defense objects & allows animal dump
-                        'Ermöglicht die fachgerechte Entsorgung von Holz und Metall auf der Müllhalde.',//alows wood & metal dump
-                        ], "children" => [
-                            ["name" => "Müll für Alle",'desc' => 'Durch besseres Sortieren und Klassifizieren von weggeworfenen Gegenständen wird wertvolle Zeit in der Abfallwirtschaft eingespart. Reduziert jede Aktion auf der Müllhalde um 1 AP.', "temporary" => 0,"img" => "small_trashclean","vp" => 0,"ap" => 20, "hp" => 20,"bp" => 3,"rsc" => ["meca_parts_#00" => 2,"concrete_wall_#00" => 1,"wood_beam_#00" => 10,"metal_beam_#00" => 5,"trestle_#00" => 2,], "orderby" => 0],//todo: adjust effect : must reduce from 1AP the dump cost, not 0AP anymore
-                            ["name" => "Verbesserte Müllhalde",'desc' => 'SWenn alle Gegenstände vor dem Wegwerfen eingeweicht werden, scheint sich ihre Wirksamkeit nach Einbruch der Dunkelheit zu verzehnfachen.', "temporary" => 0,"img" => "small_trash","vp" => 65,"ap" => 150, "hp" => 150,"bp" => 4,"rsc" => ["water_#00" => 20,"wood_beam_#00" => 15,"metal_beam_#00" => 15,"concrete_wall_#00" => 5,"poison_part_#00" => 1,], "orderby" => 1],
-                    
-                ]],
-                ["name" => "Alles oder nichts",'desc' => 'Nicht mehr als ein Akt der Verzweiflung! Alle Gegenstände in der Bank werden zerstört und bringen jeweils +2 vorübergehende Verteidigung.', "temporary" => 0,"img" => "small_lastchance","vp" => 50,"ap" => 200, "hp" => 0,"bp" => 0,"rsc" => ["meca_parts_#00" => 1,"wood2_#00" => 10,"metal_#00" => 15,], "impervious" => true, "orderby" => 5],//todo: adjust effect ; now give +2 def / item
-                ["name" => "Befestigungen",'desc' => 'Da Bürger normalerweise nicht direkt von Verteidigungsbauten profitieren, wollen wir uns mal nicht beschweren. Alle Bürgerbehausungen erhalten +4 Verteidigung.', "temporary" => 0,"img" => "small_city_up","vp" => 0,"ap" => 50, "hp" => 0,"bp" => 2,"rsc" => ["concrete_wall_#00" => 2,"wood_beam_#00" => 15,"metal_#00" => 5,"metal_beam_#00" => 10,], "orderby" => 6, "children" => [
-                    ["name" => "Bollwerk",'desc' => 'Dieses ambitionierte Stadtbauprojekt hat zum Ziel, die Verteidigung der Bürgerbehausungen besser in die Stadtverteidigung zu integrieren. Dank dieses Bauwerks bringen Bürgerbehausungen fortan 80% statt 40% ihres Verteidigungswertes in die Stadtverteidigung ein.', "temporary" => 0,"img" => "small_strategy","vp" => 0,"ap" => 60, "hp" => 60,"bp" => 3,"rsc" => ["meca_parts_#00" => 3,"wood_beam_#00" => 15,"metal_beam_#00" => 15,], "orderby" => 0],
-                    ["name" => "Stadtplan",'desc' => 'Mit genau definierten Grundstücken für jede Behausung können wir endlich sehen, wie viel man noch ausbauen kann! Es ist an der Zeit, etwas Neues zu versuchen.', "temporary" => 0,"img" => "small_strategy","vp" => 0,"ap" => 20, "hp" => 20,"bp" => 4,"rsc" => ["meca_parts_#00" => 1,"wood_beam_#00" => 1,"wood2_#00" => 5,"rustine_#00" => 3,"wire_#00" => 5,"diode_#00" => 4,], "orderby" => 1],//todo: check effect
-                ]],
-                ["name" => "Verteidigungsanlage","maxLevel" => 3,'desc' => 'Für diese raffiniert durchdachte Anlage können alle Arten von Platten (z.B. Blech) verwendet werden. Jeder in der Bank abgelegte Verteidigungsgegenstand steuert zusätzliche Verteidigungspunkte bei!', "temporary" => 0,"img" => "item_meca_parts","vp" => 0,"ap" => 50, "hp" => 50,"bp" => 0,"rsc" => ["meca_parts_#00" => 3,"wood_beam_#00" => 8,"metal_beam_#00" => 8,], "orderby" => 7,
-                    "lv0text" => 'Jeder in der Bank abgelegte Verteidigungsgegenstand bringt der Stadt 1.5 Verteidigungspunkte zusätzlich ein.',
-                    "upgradeTexts" => [//todo: only 3 levels now + todo: delete the 500 OD limit (even if this construction is not built)
-                        'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.',
-                        'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.',
-                        'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.',
-                        /*'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.',
-                        'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.',*/
-                ]],
-                ["name" => "Kino",'desc' => 'Sie zeigen Dawn of the Dead... zum 636. Mal. Bisher war dir die überzeugende Darstellung eines Nebendarstellers noch nie so richtig aufgefallen. Es gibt tatsächlich noch etwas Neues zu entdecken. Und wer weiß? Mit ein bisschen Glück bringt dich der Film ja sogar zum Lachen.', "temporary" => 0,"img" => "small_cinema","vp" => 0,"ap" => 75, "hp" => 75,"bp" => 4,"rsc" => ["electro_#00" => 3,"wood_beam_#00" => 10,"metal_beam_#00" => 5,"lens_#00" => 1,"cinema_#00" => 1,], "orderby" => 8],
-                ["name" => "Luftschlag",'desc' => 'Vier feine Raketen werden gestartet und auf vier strategische Ziele rund um die Stadt (Norden, Süden, Osten, Westen) abgefeuert. Auf ihrem Weg töten sie jeden Zombie.', "temporary" => 1,"img" => "small_rocket","vp" => 0,"ap" => 50, "hp" => 0,"bp" => 3,"rsc" => ["water_#00" => 10,"meca_parts_#00" => 1,"diode_#00" => 1,"metal_#00" => 5,"explo_#00" => 1,"deto_#00" => 2,], "orderby" => 9],
-                ["name" => "Feuerwerk",'desc' => 'Es gibt nichts Besseres, um die Tristesse langer Wüstennächte zu vertreiben, als ein schönes, großes Feuerwerk. Diese spezielle Variante geht so: Man feuert die Raketen in die Bereiche rund um die Stadt ab und zündet sie dann um Punkt Mitternacht inmitten der Zombiehorden.', "temporary" => 0,"img" => "small_fireworks","vp" => 100,"ap" => 90, "hp" => 90,"bp" => 0,"rsc" => ["firework_powder_#00" => 1,"firework_tube_#00" => 1,"firework_box_#00" => 2], "orderby" => 10],
-                ["name" => "Leuchtfeuer",'desc' => 'Ein großes Leuchtfeuer, irgendwo weit abseits von der Stadt entzündet, soll die Zombies von unseren Häusern weglocken.', "temporary" => 1,"img" => "small_score","vp" => 30,"ap" => 15, "hp" => 15,"bp" => 2,"rsc" => ["lights_#00" => 1,"wood2_#00" => 5,], "orderby" => 11],
-                ["name" => "Heißluftballon",'desc' => 'Ein großer, runder Ballon steigt hinauf in den Himmel. Aber nur solange, wie der "Freiwillige" in der Gondel braucht, um alles rund um die Stadt zu erfassen. Das Bauwerk ermöglicht es Dir, die gesamte Außenwelt zu entdecken.', "temporary" => 0,"img" => "small_balloon","vp" => 0,"ap" => 80, "hp" => 80,"bp" => 4,"rsc" => ["wood2_#00" => 2,"meca_parts_#00" => 1,"lights_#00" => 1,"sheet_#00" => 2,"wood_beam_#00" => 5,"metal_beam_#00" => 5,], "orderby" => 12],
-                ["name" => "Riesiger KVF",'desc' => 'Ein wirklich riesiger KVF, auf dem die Namen aller Bürger der Stadt eingraviert sind, erhebt sich stolz in den Himmel... äh. Genau, ein KVF. Niemand weiß warum, aber jemand hat am Fuße des Bauwerks "Eigentum der tiefsinnigen Nacht" eingraviert. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.', "temporary" => 0,"img" => "small_pmvbig","vp" => 0,"ap" => 300, "hp" => 0,"bp" => 4,"rsc" => ["meca_parts_#00" => 2,"metal_#00" => 30,], "orderby" => 13],
-                ["name" => "Riesenrad",'desc' => 'Es ist wirklich eine enorme und beeindruckente Konstruktion. Ihr habt eure kostbarsten Materialien an dieses verdammte Ding verschwendet, und denoch seid ihr irgendwie stolz darauf. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.', "temporary" => 0,"img" => "small_wheel","vp" => 0,"ap" => 300, "hp" => 0,"bp" => 4,"rsc" => ["water_#00" => 20,"meca_parts_#00" => 5,"concrete_wall_#00" => 3,"metal_beam_#00" => 5,], "orderby" => 14],
-                ["name" => "Riesige Sandburg",'desc' => 'Wenn es eines gibt, woran hier wahrlich kein Mangel herrscht, dann ist es Sand. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.', "temporary" => 0,"img" => "small_castle","vp" => 0,"ap" => 300, "hp" => 0,"bp" => 4,"rsc" => ["water_#00" => 30,"wood_beam_#00" => 15,"metal_beam_#00" => 10,], "orderby" => 15],
-                ["name" => "Reaktor",'desc' => 'Dieses furchterregende Konstrukt stammt aus einem sowjetischen U-Boot und sendet gleißende Blitze knisternder Elektrizität rund um die Stadt aus. Einziger Haken an der Sache: Es muss jeden Tag repariert werden. Falls es zerstört wird, würde die Stadt mitsamt der gesamten Umgebung augenblicklich ausradiert werden (inklusive euch). Das Schild am Reaktor besagt: sowjetische Bauweise, hergestellt in « вшивый ».', "temporary" => 0,"img" => "small_arma","vp" => 500,"ap" => 100, "hp" => 250,"bp" => 4, "impervious" => true, "rsc" => ["pile_#00" => 10,"engine_#00" => 1,"electro_#00" => 4,"concrete_wall_#00" => 2,"metal_beam_#00" => 15,], "orderby" => 16],
-            ]],
+        //Einseifer
+        $container->modify('small_wallimprove_#03')->parentBuilding('small_wallimprove_#00')->description('Warum ist das nicht schon früher jemandem eingefallen? Anstatt sich um die persönliche Hygiene zu kümmern, benutzen wir Seife, um die Wälle der Stadt rutschig zu machen.')->ap(35)->health(35)->blueprintLevel(0)->resources(["metal_#00" => 10, "water_#00" => 10,"tube_#00" => 1,"plate_#00" => 2,"pharma_#00" => 2,])->orderBy(4)->commit();
 
-            ["name" => "Sanktuarium",'desc' => 'Auch wenn dir das Spirituelle ein wenig über den Kopf wächst - ein Raum, der dem Wohlbefinden und der Entspannung gewidmet ist, hilft dir, dich weniger um die kommenden Tage zu sorgen. Nun... wenn du denn Zeit hättest, es zu besuchen.', "temporary" => 0,"img" => "small_spa4souls","vp" => 30,"ap" => 20, "hp" => 20,"bp" => 0,"rsc" => ["wood2_#00" => 2,"wood_beam_#00" => 3,"ryebag_#00" => 1,], "orderby" => 5, "children" => [
-                ["name" => "Seelenreinigungsquelle","maxLevel" => 3,'desc' => 'Ein Ort der Entspannung, der sich hervorragend für die Überführung von Seelen in die ewige Ruhe eignet.', "temporary" => 0,"img" => "item_soul_blue_static","vp" => 20,"ap" => 30, "hp" => 30,"bp" => 0,"rsc" => ["metal_#00" => 1,"rustine_#00" => 1,"ryebag_#00" => 2,"lens_#00" => 1,"oilcan_#00" => 1,], "orderby" => 0,//todo: edit, this construction replace small_spa4souls for purifying souls
-                    "lv0text" => 'Du kannst jetzt die Seelen deiner verstorbenen Mitbürger reinigen, um ein wenig zusätzliche Verteidigung zu erhalten.',
-                    "upgradeTexts" => [//todo: now it has evolutions level
-                        'Jede gereinigte Seele bringt der Stadt ein wenig mehr Verteidigung.',
-                        'Jede gereinigte Seele bringt Verteidigungspunkte und jede gequälte Seele hat weniger Auswinkungen auf den Angriff.',//todo: at this level each tortured soul has 2% impact instead 4%
-                        'Jede gereinigte Seele bringt Verteidigungspunkte und 2 Rangpunkte, jede gequälte Seele hat weniger Auswinkungen auf den Angriff.',//todo: at this level each tortured soul has 2% impact instead 4% + each purified soul provide 2 ranking points (brings back the old Hordes soul purification system)
-                    ], "children" => [
-                    ["name" => "Hammam",'desc' => 'Mit einer solchen Erweiterung der SRQ haben es die Seelen noch eiliger, ihn zu erreichen. Ihr könnt sicher sein, dass sie von nun an näher bei euch auftauchen werden.', "temporary" => 0,"img" => "small_spa4souls","vp" => 20,"ap" => 20, "hp" => 20,"bp" => 2,"rsc" => ["wood2_#00" => 2,"plate_#00" => 2,], "orderby" => 0],//todo effect: Souls are limited to 11km from the city, any souls that were further away at the time of construction move within the 11km zone.
-                ]],
-                ["name" => "Pool",'desc' => 'Ein großer Pool, der nur für euer Wohlbefinden eingerichtet ist. Wenn man nicht auf seine Mitbürger achtet, die panisch um einen herumlaufen, könnte man den Angriff heute Abend glatt vergessen.', "temporary" => 0,"img" => "small_water","vp" => 0,"ap" => 150, "hp" => 150,"bp" => 4,"rsc" => ["wood2_#00" => 18,"plate_#00" => 2,"metal_beam_#00" => 1,"water_#00" => 20,"meca_parts_#00" => 2,"tube_#00" => 1,"ryebag_#00" => 2,], "orderby" => 1],//todo effect: allow to take a bath at Home (provide +1% watch survival chance, cumulative, limited to once a day, until the next watch performed, once watch done, the bonus is resets)
-                ["name" => "Kleiner Friedhof",'desc' => 'Bringt eure Toten! Denn diesmal werden sie sich noch als nützlich erweisen. Macht das beste aus ihnen und verbessert damit gemeinsam eure Verteidigung. Jeder zum Friedhof gebrachte tote Mitbürger bringt +10 Verteidigungspunkte für die Gesamtverteidigung der Stadt. Hinweis: Es spielt keine Rolle, wo und woran ein Mitbürger verstarb.', "temporary" => 0,"img" => "small_cemetery","vp" => 0,"ap" => 42, "hp" => 42,"bp" => 2,"rsc" => ["meca_parts_#00" => 1,"wood2_#00" => 10,], "orderby" => 2, "children" => [
-                    ["name" => "Sarg-Katapult",'desc' => 'Von 2 Toten hat derjenige, der sich bewegt, die besten Chancen, dich zu verspeisen. Trickst eure Feinde aus, indem ihr eure Leichen in die herankommende Zombiehorde schleudert. Jeder Tote bringt +20 anstelle von +10 Verteidigungspunkten.', "temporary" => 0,"img" => "small_coffin","vp" => 0,"ap" => 85, "hp" => 85,"bp" => 3,"rsc" => ["courroie_#00" => 1,"concrete_wall_#00" => 2,"wire_#00" => 2,"meca_parts_#00" => 3,"wood2_#00" => 5,"metal_#00" => 15,], "orderby" => 0],
-                ]],
-                ["name" => "Krankenstation",'desc' => 'Egal ob kleines Wehwehchen oder irreparables Trauma - die Krankenstation empfängt dich mit offenen Armen. Zumindst solange du noch imstande bist, dich selbst zu verarzten, denn diese Einrichtung kommt ganz ohne medizinisches Personal daher.', "temporary" => 0,"img" => "small_infirmary","vp" => 0,"ap" => 40, "hp" => 40,"bp" => 3,"rsc" => ["pharma_#00" => 6,"disinfect_#00" => 1,"wood_beam_#00" => 5,"metal_beam_#00" => 5,], "orderby" => 3],
-                ["name" => "Bauhaus",'desc' => 'Wenn sich intelligente Leute abends beim Feuer unterhalten, können großartige Erfindungen dabei herauskommen. Zumindest wenn sie vorher ein Bauhaus errichtet haben. Dieses Bauwerk gibt der Stadt täglich einen (gewöhnlichen) Bauplan.', "temporary" => 0,"img" => "small_refine","vp" => 0,"ap" => 50, "hp" => 50,"bp" => 0,"rsc" => ["drug_#00" => 1,"vodka_#00" => 1,"wood_beam_#00" => 5,"ryebag_#00" => 2,], "orderby" => 4, "children" => [//todo: edit evolutions, now this construction don't has level but its children has them
-                    ["name" => "Baumarkt","maxLevel" => 3,'desc' => 'Wenn alle Bürgerinnen und Bürger an den Diskussionstisch eingeladen werden, entstehen neue Ideen. Die Eliten müssen sie nur stehlen und als ihre eigenen ausgeben.', "temporary" => 0,"img" => "small_strategy","vp" => 0,"ap" => 40, "hp" => 40,"bp" => 2,"rsc" => ["wood2_#00" => 10,"water_#00" => 5,"wood_beam_#00" => 2,"metal_beam_#00" => 8,"meca_parts_#00" => 1,"plate_#00" => 2,"ryebag_#00" => 1,"drug_hero_#00" => 1,"vodka_#00" => 1,"coffee_machine_#00" => 1,"cigs_#00" => 1,"trestle_#00" => 2,"chair_basic_#00" => 1,], "orderby" => 0, //todo: now this constructions has Architect's Study evolutions levels
-                        "lv0text" => "Die Stadt erhält nach dem nächsten Angriff einmalig 1 ungewöhnliche Baupläne.",//todo: provide 1 uncom blueprints per day at lvl0
-                        "upgradeTexts" => [
-                            'Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche und 1 ungewöhnliche Baupläne sowie.',//todo effect: provide 1 commun & 1uncom per day at lvl1
-                            'Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche und 1 seltene Baupläne sowie.',//todo: provide 1uncom & 1 rare blueprints per day at lvl2
-                            'Die Stadt erhält nach dem nächsten Angriff einmalig 1 seltene Baupläne - möglicherweise - eine nette Überraschung.',//todo: provide 1 rare blueprint per day & 10% chance to get an epic blueprint per day
-                    ]],
-                ]],
-                ["name" => "Krähenstatue",'desc' => 'Huldigt den Raben! Gelobt sei deine Milde und deine erhabene Austrahlung! Befreie uns vom Spam und vergib uns unsere Trollenbeiträge so wie auch wir vergeben anderen Trollen. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.', "temporary" => 0,"img" => "small_crow","vp" => 0,"ap" => 300, "hp" => 0,"bp" => 4,"rsc" => ["hmeat_#00" => 3,"wood_beam_#00" => 35,], "orderby" => 5],
-                ["name" => "Voodoo-Puppe",'desc' => 'Ein über 2 Meter hoher, schimmliger Wollballen, über und über mit Stricken und Nadeln bedeckt. In den mächtigen Händen des Schamanen wird dieses *Ding* zu einem XXL-Püppchen, das etliche Zombies niederstreckt, ehe es wieder eine unförmige, unbewegliche Masse wird.', "temporary" => 0,"img" => "small_vaudoudoll","vp" => 65,"ap" => 40, "hp" => 40,"bp" => 0,"rsc" => ["water_#00" => 2,"meca_parts_#00" => 3,"metal_#00" => 2,"plate_#00" => 2,"soul_yellow_#00" => 2,], "orderby" => 6],
-                ["name" => "Bokors Guillotine",'desc' => 'Mit Hilfe einer teuflischen Guillotine und einer provisorischen Schaufensterpuppe, kann der Schamane aus der Entfernung den Kopf eines Zombierudel-Führers abschlagen. Die Zombies die ihm folgen, werden daraufhin abdrehen und wieder in die Wüste wandern.', "temporary" => 0,"img" => "small_bokorsword","vp" => 100,"ap" => 60, "hp" => 60,"bp" => 0,"rsc" => ["plate_#00" => 3,"wood_beam_#00" => 8,"metal_beam_#00" => 5,"soul_yellow_#00" => 3,], "orderby" => 7],
-                ["name" => "Spirituelles Wunder",'desc' => 'Dieser Zauber des Schamanen erschafft ein Trugbild der Stadt. Als Folge verliert sich eine beträchtliche Anzahl Zombies heillos in der Wüste.', "temporary" => 0,"img" => "small_spiritmirage","vp" => 80,"ap" => 30, "hp" => 30,"bp" => 0,"rsc" => ["wood2_#00" => 6,"plate_#00" => 2,"wood_beam_#00" => 6,"soul_yellow_#00" => 2,], "orderby" => 8],
-                ["name" => "Heiliger Regen",'desc' => 'Nur der Schamane kennt das Geheimnis dieses rituellen Feuertanzes. Richtig ausgeführt, steigt eine kleine Wolke in den Himmel und bewirkt, dass ein Schauer heiligen Wassers auf die Zombiehorde niedergeht.', "temporary" => 1,"img" => "small_holyrain","vp" => 200,"ap" => 40, "hp" => 0,"bp" => 0,"rsc" => ["water_#00" => 5,"wood2_#00" => 5,"wood_beam_#00" => 9,"soul_yellow_#00" => 4,], "orderby" => 9],
-            ]], 
-        ];
+        //Rasierklingenmauer
+        $container->modify('item_plate_#00')->parentBuilding('small_wallimprove_#03')->orderBy(0)->commit();
+        //Zombiereibe
+        $container->modify('small_grater_#00')->parentBuilding('small_wallimprove_#03')->description('Bedecken wir einen großen Teil der Mauer mit einer Vielzahl von scharfen Metallstücken, dann haben wir die größte Käsereibe der Welt. Man kann zusehen, wie die Zombies hineinrutschen. Das einzige Problem ist der Lärm.')->ap(40)->health(40)->resources(["meca_parts_#00" => 3,"metal_beam_#00" => 5,"metal_#00" => 15,"plate_#00" => 1,"wire_#00" => 1,])->orderBy(1)->commit();
+        //Kreischende Sägen
+        $container->modify('small_saw_#00')->parentBuilding('small_wallimprove_#03')->description('Kreissägen, die am Fuße der Mauer durch ein geschicktes elastisches System aktiviert werden. Das Geräusch, das beim Drehen der Sägen entsteht, erinnert seltsamerweise an einen menschlichen Schrei...')->defense(55)->ap(45)->health(45)->blueprintLevel(2)->resources(["meca_parts_#00" => 1,"metal_#00" => 10,"rustine_#00" => 2,"metal_beam_#00" => 5,"plate_#00" => 2,"wire_#00" => 1,])->orderBy(2)->commit();
+
+        //Zaun
+        $container->modify('small_fence_#00')->parentBuilding('small_wallimprove_#00')->description('Holzzäune, die vor der Mauer errichtet wurden, um die auf die Stadt zustürmenden Zombies zu verlangsamen (oder es zumindest zu versuchen).')->defense(40)->ap(60)->health(60)->resources(["wood2_#00" => 15,"wood_beam_#00" => 5,])->orderBy(5)->commit();
+        // Holzzaun
+        $container->modify('small_fence_#01')->parentBuilding('small_fence_#00')->description('Verstärken wir die Barrieren und erhöhen sie ein wenig, um ihre Wirkung auf die Verteidigung der Stadt zu verbessern.')->defense(60)->resources(["wood2_#00" => 10,"wood_beam_#00" => 8,"metal_beam_#00" => 2,"plate_#00" => 1,])->orderBy(0)->commit();
+
+        // Stacheldraht
+        $container->modify('small_barbed_#00')->parentBuilding('small_wallimprove_#00')->description('Bedecken wir die Mauern mit Stacheldraht, so dass ein paar kleine Stücke an der Passage hängen bleiben.')->defense(20)->ap(10)->health(10)->resources(["metal_#00" => 1,"wire_#00" => 2,])->orderBy(6)->commit();
+        // Köder
+        $container->modify('small_meatbarbed_#00')->defense(30)->blueprintLevel(0)->resource('bone_meat_#00', 2)->commit();
+
+        // Sperrholz
+        $container->modify('item_plate_#09')->parentBuilding('small_wallimprove_#00')->defense(15)->resources(["wood2_#00" => 2,"metal_#00" => 2,])->orderBy(7)->commit();
+
+        // Betonschicht
+        $container->modify('small_wallimprove_#02')->parentBuilding('item_plate_#09')->description('Mit den Betonblöcken, die wir gefunden haben, können wir die Sperrholzplatten verstärken, damit sie endlich für etwas nützlich sind.')->defense(80)->ap(40)->health(40)->blueprintLevel(2)->resources(["wood2_#00" => 5,"concrete_wall_#00" => 5,"metal_beam_#00" => 10,])->orderBy(0)->commit();
+
+        // Rüstungsplatten
+        $container->modify('item_plate_#06')->defense(30)->orderBy(8)->commit();
+        // Rüstungsplatten 2.0
+        $container->modify('item_plate_#07')->description('Es ist nicht sehr fortschrittlich oder gut durchdacht, aber es erfüllt seinen Zweck ... es verzögert unseren Tod. Ein wenig.')->defense(30)->orderBy(9)->commit();
+        // Rüstungsplatten 3.0
+        $container->modify('item_plate_#08')->defense(45)->ap(30)->health(30)->orderBy(10)->resources(["wood2_#00" => 8,"metal_#00" => 8,])->commit();
+        // Extramauer
+        $container->modify('item_plate_#10')->description('Schützt das Herz der Stadt mit einer zusätzlichen Mauer. Man muss keine helle Leuchte sein, um auf diese Idee zu kommen, aber es kann auch nicht schaden.')->defense(50)->ap(25)->health(25)->orderBy(11)->commit();
+
+        // Portal
+        $container->modify('small_door_closed_#00')->parentBuilding('small_wallimprove_#00')->defense(5)->ap(15)->health(15)->resource('plate_#00', 1)->orderBy(12)->commit();
+        // Kolbenschließmechanismus
+        $container->modify('small_door_closed_#01')->ap(45)->health(45)->resources(["meca_parts_#00" => 1,"metal_#00" => 10,"tube_#00" => 2,"metal_beam_#00" => 2, "diode_#00" => 1,])->commit();
+        // Automatiktür
+        $container->modify('small_door_closed_#02')->resource('diode_#00', 1)->commit();
+        // Torpanzerung
+        $container->modify('item_plate_#11')->defense(25)->commit();
+        // Ventilationssystem
+        $container->modify('small_ventilation_#00')->ap(45)->health(45)->blueprintLevel(1)->resources(["meca_parts_#00" => 2,"metal_beam_#00" => 2,"metal_#00" => 10,])->orderBy(2)->commit();
+        // Holzbalkendrehkreuz
+        $container->modify('item_wood_beam_#00')->parentBuilding('small_door_closed_#00')->description('Große Balken um eine Achse direkt vor dem Eingang befestigt. Und es dreht sich. Sehr schnell.')->defense(20)->ap(25)->health(25)->blueprintLevel(1)->resources(["wood_beam_#00" => 4,"rustine_#00" => 2,])->orderBy(3)->commit();
+        // Kreischender Rotor
+        $container->modify('small_grinder_#00')->parentBuilding('small_door_closed_#00')->orderBy(4)->commit();
+
+        // Notfallkonstruktion
+        $container->modify('status_terror_#00')->parentBuilding('small_wallimprove_#00')->description('Um mit bestimmten unvorhergesehenen Ereignissen fertig zu werden, ist es manchmal notwendig, ein paar Verteidigungsanlagen für den Notfall zu bauen, ohne sich Sorgen zu machen, dass sie länger als eine Nacht halten werden. Achten wir sollten darauf achten, nicht zu viele Ressourcen und Energie für dieses Provisorium ausgeben!')->resources(["wood2_#00" => 5,"metal_#00" => 5,])->orderBy(13)->commit();
+        // Notfallabstützung
+        $container->modify('item_wood_plate_#00')->description('Wir verstärken alles, was wir können, mit ein paar Holzbrettern und drücken die Daumen, dass es in der Nacht hält.')->ap(20)->resources(["wood2_#00" => 6,])->orderBy(0)->commit();
+        // Guerilla
+        $container->modify('small_trap_#01')->defense(60)->ap(30)->blueprintLevel(0)->resources(["wood_beam_#00" => 3,"metal_beam_#00" => 3,"metal_#00" => 5,"rustine_#00" => 1,"wire_#00" => 1,])->orderBy(1)->commit();
+        // Abfallberg
+        $container->modify('small_dig_#01')->orderBy(2)->commit();
+        // Trümmerberg
+        $container->modify('small_dig_#02')->parentBuilding('small_dig_#01')->commit();
+        // Verteidigungspfähle
+        $container->modify('small_trap_#00')->parentBuilding('small_dig_#01')->description('Indem wir schnell ein paar scharfe Holzpfähle in die Mitte des Haufens pflanzen, wird uns das hoffentlich über die Nacht retten.')->defense(30)->ap(15)->resource('wood2_#00', 5)->commit();
+        // Wolfsfalle
+        $container->modify('small_trap_#02')->parentBuilding('small_dig_#01')->description('Das Hinzufügen von Metall auf Bodenhöhe wird die Zombies nicht aufhalten, aber es könnte sie verlangsamen.')->defense(30)->ap(15)->health(15)->resources(["metal_#00" => 5,"hmeat_#00" => 1,])->orderBy(2)->commit();
+        // Sprengfalle
+        $container->modify('small_tnt_#00')->ap(30)->blueprintLevel(1)->resource('explo_#00', 2)->orderBy(3)->commit();
+        // Nackte Panik
+        $container->modify('status_terror_#01')->defense(70)->blueprintLevel(1)->resource('water_#00', 2)->resource('meca_parts_#00', 1)->orderBy(4)->commit();
+        // Dollhouse
+        $container->modify('small_bamba_#00')->defense(50)->ap(20)->blueprintLevel(1)->resources(["wood2_#00" => 3,"diode_#00" => 1,"radio_on_#00" => 3,"guitar_#00" => 1,])->orderBy(5)->commit();
+
+        //Pumpe, now gives 15 water
+        $container->modify('small_water_#00')->description('Die Pumpe ermöglicht alle Konstruktionen, die mit Wasser zu tun haben. Indem man kräftig pumpt, ist es möglich, die Wassermenge im Brunnen leicht zu erhöhen.')->baseVoteText('Der Brunnen wird einmalig mit 15 Rationen Wasser befüllt.')->commit();
+        // Wasserfänger, gives 2 water
+        $container->modify('item_tube_#01')->ap(10)->resources(["metal_#00" => 2,])->orderBy(0)->commit();
+        // Brunnenbohrer, now gives 50 water
+        $container->modify('small_water_#01')->ap(55)->orderBy(1)->commit();
+        //Tunnelratte, now gives 100 water
+        $container->modify('small_derrick_#01')->parentBuilding('small_water_#01')->ap(150)->resources(["tube_#00" => 2, "oilcan_#00" => 2,"wood_beam_#00" => 15,"metal_beam_#00" => 15,])->orderBy(0)->commit();
+        //Wünschelrakete, gives 60 water
+        $container->modify('small_rocketperf_#00')->parentBuilding('small_water_#01')->ap(80)->blueprintLevel(2)->resources(["explo_#00" => 1,"tube_#00" => 1,"deto_#00" => 1,"meca_parts_#00" => 1,"wood_beam_#00" => 5,"metal_beam_#00" => 5,])->orderBy(1)->commit();
+        //Projekt Eden, now gives 50 water
+        $container->modify('small_eden_#00')->parentBuilding('small_water_#00')->ap(50)->blueprintLevel(2)->resources(["wood2_#00" => 10,"explo_#00" => 2,"deto_#00" => 1,"metal_beam_#00" => 5,])->orderBy(2)->commit();
+        //Bohrturm, now gives 75 water
+        $container->modify('small_derrick_#00')->parentBuilding('small_eden_#00')
+            ->description('Auch der Bohrturm ist eine absurde Konstruktion. Mit ihm können selbst tiefste wasserführende Schichten angezapft werden! Er fügt +75 Rationen an Wasser dem Brunnen hinzu.')
+            ->ap(86)->resources(["wood2_#00" => 5,"wood_beam_#00" => 10,"metal_beam_#00" => 15,"tube_#00" => 1,])->orderBy(0)
+            ->commit();
+        //Wünschelrute, gives 100 water
+        $container->modify('small_waterdetect_#00')->resources(["electro_#00" => 5,"wood_beam_#00" => 10,"metal_beam_#00" => 10,"tube_#00" => 1,"diode_#00" => 2,])->orderBy(3)->commit();
+        // Wasserreiniger
+        $container->modify('item_jerrycan_#00')->resources(["meca_parts_#00" => 1,"wood2_#00" => 5,"metal_#00" => 5,"tube_#00" => 2,"oilcan_#00" => 2,])->orderBy(4)->commit();
+        // Wasserfilter
+        $container->modify('item_jerrycan_#01')->parentBuilding('item_jerrycan_#00')->ap(50)->health(50)->resources(["metal_#00" => 10,"electro_#00" => 2,"wire_#00" => 1,"oilcan_#00" => 1,"fence_#00" => 1,])->orderBy(0)->commit();
+
+        //Zerstäuber
+        $container->modify('small_waterspray_#00')->parentBuilding('small_water_#00')->blueprintLevel(0)->resources(["meca_parts_#00" => 2,"metal_#00" => 8,"tube_#00" => 2,"metal_beam_#00" => 2,"wire_#00" => 2,"deto_#00" => 1,])->orderBy(5)->commit();
+        //Kärcher
+        $container->modify('small_waterspray_#01')->parentBuilding('small_waterspray_#00')->defense(60)->ap(40)->health(40)->blueprintLevel(1)->resources(["water_#00" => 10,"tube_#00" => 1,"wood2_#00" => 10,"metal_beam_#00" => 5,"oilcan_#00" => 1,])->orderBy(0)->commit();
+        //Säurespray
+        $container->modify('small_acidspray_#00')->description('Das Hinzufügen einiger Chemikalien zum verwendeten Wasser wird das hübsche Gesicht der Zombies vor der Stadt definitiv nicht verschönern.')->ap(25)->resources(["water_#00" => 3,"pharma_#00" => 2,])->orderBy(1)->commit();
+        //Spraykanone, todo hidden effect : +10% terror chance in Watch
+        $container->modify('small_gazspray_#00')->description('Oft wird vergessen, dass Zombies ein Gehirn haben. Manchmal sogar zwei, wenn sie Glück haben. Trifft sich gut: Das mit dieser Kanone geschossene Konzentrat hat die erstaunliche Fähigkeit, Gehirne in Matsch zu verwandeln. Es könnte allerdings sein, dass sie auf eure Wächter herunterfällt... aber wo gehobelt wird, da fallen Späne.')->defense(140)->ap(60)->health(60)->blueprintLevel(1)->resources(["metal_beam_#00" => 5,"water_#00" => 5,"meca_parts_#00" => 1,"tube_#00" => 1,"pharma_#00" => 2,"poison_part_#00" => 1,])->orderBy(2)->commit();
+        //Sprinkleranlage, todo hidden effect : +4% death chance in Watch
+        $container->modify('small_sprinkler_#00')->description('Wie jeder weiß, wird eine Sprinkleranlage für gewöhnlich im Garten eingesetzt. Die wenigsten wissen jedoch, dass sie sich auch hervorragend gegen Zombiehorden eignet. Einziger Wermutstropfen: Die Anlage verbraucht relativ viel Wasser und die Mauer wird etwas rutschiger. Immer vorsichtig laufen!')->parentBuilding('small_waterspray_#00')->defense(185)->resource('diode_#00', 1)->orderBy(3)->commit();
+        //Wasserkanone
+        $container->modify('small_watercanon_#00')->parentBuilding('small_waterspray_#00')->orderBy(4)->commit();
+
+        // Wasserturm
+        $container->modify('item_tube_#00')->ap(50)->health(50)->resources(["water_#00" => 25,"tube_#00" => 6,"metal_beam_#00" => 10,])->orderBy(6)
+            ->upgradeTexts([
+                               'Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.',
+                               'Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.',
+                               'Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.',
+                               'Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 252.',//todo edit effect; now +252
+                               'Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 336.',//todo edit effect; now +336
+                           ])
+            ->commit();
+        //Schießstand
+        $container->modify('small_tourello_#00')->parentBuilding('small_water_#00')
+            ->description('Ein Geschützturm, der Wasserbomben abfeuert. Unhandlich, aber mit gutem Flächenschaden, jeder wird ihn von der Stadtmauer abreißen wollen!')
+            ->defense(60)->ap(30)->health(30)->blueprintLevel(1)->resources(["water_#00" => 20,"tube_#00" => 1,"wood_beam_#00" => 2,"metal_beam_#00" => 2,"meca_parts_#00" => 1,"rustine_#00" => 2,"deto_#00" => 1,])->orderBy(7)
+            ->commit();
+
+        // Wasserleitungsnetz, now gives 5 water
+        $container->modify('item_firework_tube_#00')->description('Indem du die ganze Stadt mit einem ganzen Netz von Rohren verbindest, kannst du starke wasserbasierte Verteidigungsanlagen in der Stadt aufbauen... Und wer weiß, vielleicht verbessern Sie nebenbei auch noch die Körperhygiene?')
+            ->resources(["meca_parts_#00" => 2,"metal_#00" => 5,"tube_#00" => 2,"metal_beam_#00" => 5,"rustine_#00" => 1,])->orderBy(8)
+            ->commit();
+        // Wasserhahn
+        $container->modify('small_valve_#00')->parentBuilding('item_firework_tube_#00')->resource('oilcan_#00', 3)->orderBy(0)->commit();
+        // Wasserfall
+        $container->modify('small_shower_#02')->parentBuilding('item_firework_tube_#00')->orderBy(1)->commit();
+        // Schleuse
+        $container->modify('small_shower_#01')->parentBuilding('item_firework_tube_#00')->resources(["water_#00" => 15,"wood2_#00" => 8,"tube_#00" => 1,])->orderBy(2)->commit();
+        // Dusche, todo effect
+        $container->modify('small_shower_#00')->blueprintLevel(1)->resource('oilcan_#00', 1)->commit();
+        //Naturbereich der Überlebenskünstler, todo effect
+        $container->add()->parentBuilding('item_firework_tube_#00')
+            ->icon('item_surv_book')->label('Naturbereich der Überlebenskünstler')->description('Anstatt die Überlebenskünstler überall in der Stadt urinieren zu lassen, habt ihr ihnen ein kleines Stück Paradies gebaut, nur für sie! Der Vorteil ist, dass es direkt über einem Gemüsegarten liegt und wir so täglich die Wasserreserven aufstocken können. Nun, zumindest wenn ihr bereit sind, das zu trinken...')
+            ->isTemporary(0)->defense(0)->ap(30)->blueprintLevel(3)->resources(["ryebag_#00" => 2,"wood2_#00" => 5,"radio_on_#00" => 1,"oilcan_#00" => 2,])->orderBy(4)->commit();
+
+        // Gemüsebeet
+        $container->modify('item_vegetable_tasty_#00')->blueprintLevel(0)->orderBy(9)->commit();
+        // Dünger
+        $container->modify('item_digger_#00')->description('Erhöht den Ertrag des Gemüsegartens und aller umliegenden Gärten erheblich.')->resource('ryebag_#00', 3)->orderBy(0)->commit();
+        // Granatapfel
+        $container->modify('item_bgrenade_#01')->ap(40)->health(40)->resource('oilcan_#00', 1)->orderBy(1)->commit();
+        //Granatwerfer, todo: nightly effect similar than Water Turrets but with explosive grapefruits
+        $container->add()->parentBuilding('item_bgrenade_#01')
+            ->icon('item_boomfruit')->label('Granatwerfer')->description('Ein Mini-Katapult auf der Stadtmauer, garniert mit explosiven Pampelmusen. Alles, was ihr tun müsst, ist warten und schießen! Mit ein wenig extra Arbeit können wir ihn sogar automatisieren und seine Leistung verbessern.')
+            ->isTemporary(0)->defense(40)->ap(60)->health(60)->blueprintLevel(3)->resources(["wood_beam_#00" => 7,"metal_beam_#00" => 2,"meca_parts_#00" => 2,"rustine_#00" => 2,"wire_#00" => 2,"lens_#00" => 1,"boomfruit_#00" => 4,])->orderBy(0)
+            ->voteLevel(5)->baseVoteText('Der Granatwerfer gibt 40 zusätzliche Verteidigungspunkte.')
+            ->upgradeTexts([
+                'Der Granatwerfer verbraucht beim nächtlichen Angriff 1 Explosive Pampelmuse und steigert seinen Verteidigungswert dafür um 30.',
+                'Der Granatwerfer verbraucht beim nächtlichen Angriff 2 Explosive Pampelmusen und steigert seinen Verteidigungswert dafür um 75.',
+                'Der Granatwerfer verbraucht beim nächtlichen Angriff 3 Explosive Pampelmusen und steigert seinen Verteidigungswert dafür um 150.',
+                'Der Granatwerfer verbraucht beim nächtlichen Angriff 4 Explosive Pampelmusen und steigert seinen Verteidigungswert dafür um 240.',
+                'Der Granatwerfer verbraucht beim nächtlichen Angriff 5 Explosive Pampelmusen und steigert seinen Verteidigungswert dafür um 340.',
+            ])->commit();
+        //Vitaminen
+        $container->add()->parentBuilding('item_bgrenade_#01')
+            ->icon('item_boomfruit')->label('Vitaminen')->description('Wenn wir ein paar explosive Pampelmusen in der Nähe der Stadtmauer in den Boden stecken, sollten wir heute Abend ein schönes Leichenfeuerwerk sehen. Aber morgen müssen wir wieder ganz von vorne anfangen...')
+            ->isTemporary(1)->defense(100)->ap(40)->blueprintLevel(3)->resources(["metal_beam_#00" => 2,"wire_#00" => 1,"deto_#00" => 1,"boomfruit_#00" => 5,])->orderBy(1)->commit();
+        // Apfelbaum
+        $container->modify('small_appletree_#00')->parentBuilding('item_vegetable_tasty_#00')->orderBy(2)->commit();
+        //Wüste Kürbisse, todo effect : provide 1-2 pumpkins / day (1-3 pumpkins if Fertiliser is built)
+        $container->add()->parentBuilding('item_vegetable_tasty_#00')
+            ->icon('item_pumpkin_raw')->label('Wüste Kürbisse')->description('Ein düsterer Ort, den man nur ungern zu betreten wagt, der aber seltsamerweise schöne Kürbisse hervorbringt... Man muss sie nur transportieren können.')
+            ->isTemporary(0)->defense(0)->ap(45)->health(45)->blueprintLevel(2)->resources(["water_#00" => 15,"wood2_#00" => 5,"metal_#00" => 2,"ryebag_#00" => 3,"drug_#00" => 1,])->orderBy(3)->commit($item_pumpkin_raw);
+        // Vogelscheuche, todo effect : improves pummpkins production
+        $container->modify('small_scarecrow_#00')->parentBuilding($item_pumpkin_raw)
+            ->description('Um Tiere (und vor allem diese verdammten Raben) von deiner Plantage fernzuhalten, hast du beschlossen, ein paar alte Holzbretter mit dem Outfit deines alten Nachbarn zu verkleiden. In der Hoffnung, dass er es dir nicht übel nehmen wird!')
+            ->defense(15)->ap(40)->health(40)->blueprintLevel(3)->resources(["wood2_#00" => 5,"wood_beam_#00" => 3,"rustine_#00" => 3,])->orderBy(0)
+            ->commit();
+        // Minen
+        $container->modify('item_bgrenade_#00')->parentBuilding('item_vegetable_tasty_#00')->blueprintLevel(1)->orderBy(10)->commit();
+
+        //Werkstatt
+        $container->modify('small_refine_#00')->orderBy(2)
+            ->upgradeTexts([
+                               'Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.',
+                               'Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.',
+                               'Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.',
+                               'Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.',//todo edit effect: now -25% for AP-cost
+                               'Die AP-Kosten aller Bauprojekte werden um 35% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.',//todo edit effect: now -35% for AP-cost
+                           ])
+            ->commit();
+        // Manufaktur
+        $container->modify('small_factory_#00')->description('Indem wir in der Werkstatt ein wenig aufräumen und die Ausstattung verbessern, senken wir zwangsläufig die Produktionskosten für alle durchzuführenden Umbauten!')->orderBy(0)->commit();
+        //Baustellenbuch
+            $container->modify('item_rp_book2_#00')->parentBuilding('small_refine_#00')->resources(["table_#00" => 1,"chair_basic_#00" => 1,])->orderBy(1)->commit();
+        //Defensivanpassung, replace the Pentagon construction (new name)
+            $container->modify('item_shield_#00')->parentBuilding('item_rp_book2_#00')->label('Defensivanpassung')->description('Eine umfassende Umstrukturierung unserer Verteidigung, um das Beste daraus zu machen.')
+            ->defense(0)->ap(60)->blueprintLevel(2)->resources(["wood_beam_#00" => 5,"metal_beam_#00" => 10,"meca_parts_#00" => 2,"wire_#00" => 1,])->orderBy(0)
+            ->upgradeTexts([
+                               'Die Verteidigung der Stadt wird um 11% erhöht.',//todo: now 11%
+                               'Die Verteidigung der Stadt wird um 13% erhöht.',//todo: now 13%
+                               'Die Verteidigung der Stadt wird um 15% erhöht.'//todo: new level 15%
+                           ])
+            ->commit();
+        //Bürgergericht
+        $container->modify('small_court_#00')->parentBuilding('item_rp_book2_#00')->blueprintLevel(3)->resources(["wood2_#00" => 10,"metal_#00" => 10,"table_#00" => 1,"wire_#00" => 1,"radio_on_#00" => 2,])->orderBy(1)->commit();
+        //Techniker-Werkstatt, todo : effect
+        $container->add()->parentBuilding('item_rp_book2_#00')
+            ->icon('item_keymol')->label('Techniker-Werkstatt')->description('Mit einem eigenen Arbeitsplatz sind Techniker in der Lage, McGyver zu spielen und aus allem, was herumliegt, nützliches Zeug zu bauen.')
+            ->isTemporary(0)->defense(0)->ap(60)->health(60)->blueprintLevel(3)->resources(["wood_beam_#00" => 5,"metal_beam_#00" => 10,"plate_#00" => 1,"wire_#00" => 2,"ryebag_#00" => 1,"lens_#00" => 1,"coffee_machine_#00" => 1,"table_#00" => 1,])->orderBy(2)->commit($item_keymol);
+        //Ministerium für Sklaverei
+        $container->modify('small_slave_#00')->parentBuilding('item_rp_book2_#00')->ap(15)->health(15)->resource('table_#00', 1)->orderBy(3)->commit();
+        //Altar
+        $container->modify('small_redemption_#00')->parentBuilding('item_rp_book2_#00')->blueprintLevel(1)->orderBy(4)->commit();
+
+        // Metzgerei
+        $container->modify('item_meat_#00')->parentBuilding('small_refine_#00')->commit();
+        //Schlachthof
+        $container->modify('small_slaughterhouse_#00')->parentBuilding('item_meat_#00')->defense(45)->ap(35)->health(35)->resources(["wood_beam_#00" => 1,"plate_#00" => 2,"metal_beam_#00" => 8,"hmeat_#00" => 1,])->orderBy(0)->commit();
+        //Kremato-Cue
+        $container->modify('item_hmeat_#00')->ap(40)->health(40)->resource('wood_beam_#00', 6)->orderBy(1)->commit();
+        //Schweinestall, todo effect : add between 2-4 good steak (7AP) per day
+        $container->add()->parentBuilding('item_meat_#00')
+            ->icon('item_pet_pig')->label('Schweinestall')->description('Seit ihr erfolgreich mit der Schweinezucht begonnen habt, kommt jeden Morgen frisches Fleisch in der Bank an. Ihr solltet nur über die Arbeitshygiene niemals nachdenken... ')
+            ->isTemporary(0)->defense(0)->ap(35)->health(35)->blueprintLevel(3)->resources(["wood2_#00" => 8,"wood_beam_#00" => 4,"meca_parts_#00" => 1,"ryebag_#00" => 3,"pet_pig_#00" => 3,])->orderBy(2)->commit();
+
+        // Hühnerstall
+        $container->modify('small_chicken_#00')->blueprintLevel(2)->resource('ryebag_#00', 1)->orderBy(3)->commit();
+        // Kantine
+        $container->modify('small_cafet_#01')->description('Durch die Zentralisierung der Produktion sind persönliche Küchen viel effizienter.')->resources(["pharma_#00" => 1,"wood_beam_#00" => 5,"metal_beam_#00" => 1,"table_#00" => 1,"ryebag_#00" => 1,"machine_2_#00" => 1,])->orderBy(4)->commit();
+        // Kleines Cafe
+        $container->modify('small_cafet_#00')->ap(5)->blueprintLevel(1)->resources(["water_#00" => 1,"wood2_#00" => 3,])->orderBy(5)->commit();
+        // Labor
+        $container->modify('item_acid_#00')->description('Das Kollektiv, es gibt nichts Vergleichbares. Was für eine Freude, alles zu teilen! Persönliche Labore werden effizienter.')
+            ->ap(20)->health(20)->resources(["meca_parts_#00" => 1,"pharma_#00" => 4,"wood_beam_#00" => 5,"metal_beam_#00" => 5,"ryebag_#00" => 2,"lens_#00" => 1,"machine_1_#00" => 1,])->orderBy(6)->commit();
+        //Die Höhle der Aufklärer, todo: new effect, replace the old Krähennest (small_watchmen_#01)
+            $container->modify('small_watchmen_#01')->parentBuilding('item_acid_#00')->icon('item_vest_on')->label('Die Höhle der Aufklärer')->description('Die Aufklärer haben dich schon immer fasziniert und nie verraten, was sie unter ihrer Haube verbergen... Aber vielleicht ist es das Beste, sie in Ruhe zu lassen. Mit diesem speziellen Keller können sie sich endlich an die Arbeit machen, schließlich mögen alle ihre Kräuter.')
+            ->defense(0)->ap(25)->blueprintLevel(3)->resources(["tube_#00" => 2,"metal_beam_#00" => 3,"plate_#00" => 1,"ryebag_#00" => 3,"machine_1_#00" => 1,])->orderBy(0)->commit();
+        // Galgen
+        $container->modify('r_dhang_#00')->orderBy(7)->commit();
+        // Schokoladenkreuz
+        $container->modify('small_eastercross_#00')->orderBy(7)->commit();
+        //Fleischkäfig
+        $container->modify('small_fleshcage_#00')->parentBuilding('small_refine_#00')->resources(["meca_parts_#00" => 2,"metal_#00" => 8,"chair_basic_#00" => 1,"metal_beam_#00" => 1,])->orderBy(8)->commit();
+
+        // Wachturm
+        $container->modify('item_tagger_#00')->description('Dieser Turm, der sich in der Nähe des Eingangs befindet, bietet einen perfekten Überblick über die Umgebung und ermöglicht es, den nächtlichen Angriff abzuschätzen und sich somit besser vorzubereiten.')
+            ->voteLevel(0)->defense(10)->ap(15)->health(15)->resources(["wood2_#00" => 3,"wood_beam_#00" => 1,"metal_#00" => 1,])->orderBy(3)->commit();
+        //Aussichtsplattform, todo: now this constructions has the Wachturm evolutions, and has a lvl0 which allows to elect a Guide
+        $container->add()->parentBuilding('item_tagger_#00')
+            ->icon('item_scope')->label('Aussichtsplattform')->description( 'Wenn wir den Wachturm noch ein wenig vergrößern, hält die Außenwelt keine Geheimnisse mehr für uns. Dank seines soliden Fundaments können wir sogar noch ein paar Stockwerke hinzufügen, um noch weiter sehen zu können.')
+            ->isTemporary(0)->defense(0)->ap(30)->blueprintLevel(0)->resources(["wood2_#00" => 5,"scope_#00" => 1,"lens_#00" => 1,])->orderBy(0)
+            ->voteLevel(5)->baseVoteText('Die Aussichtsplattform ermöglicht es, den Bürger zu wählen, der am besten bei Expeditionen führen kann.')
+            ->upgradeTexts([
+                               'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.',
+                               'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.',
+                               'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.',
+                               'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.',
+                               'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.',
+                           ])
+            ->commit($item_scope);
+        // Scanner
+        $container->modify('item_tagger_#01')->parentBuilding($item_scope)->blueprintLevel(1)->resources(["metal_#00" => 5,"pile_#00" => 2,"diode_#00" => 1,"electro_#00" => 1,"radio_on_#00" => 2,])->orderBy(0)->commit();
+        // Verbesserte Karte
+        $container->modify('item_electro_#00')->parentBuilding($item_scope)->ap(25)->health(25)->resources(["pile_#00" => 2,"metal_#00" => 5,"plate_#00" => 1,"diode_#00" => 1,"radio_on_#00" => 2,])->orderBy(1)->commit();
+        // Rechenmaschine
+        $container->modify('item_tagger_#02')->parentBuilding('item_tagger_#00')->orderBy(1)->commit();
+        // Leuchtturm
+        $container->modify('small_lighthouse_#00')->parentBuilding('item_tagger_#00')->resources(["electro_#00" => 2,"wood_beam_#00" => 5,"metal_beam_#00" => 5,"pile_#00" => 1,"diode_#00" => 1,])->orderBy(2)->commit();
+        // Brustwehr, todo : this constructions allows players to Watch once built. 10 watchers max at lvl0. Votable, PLEASE NOTE, WITHOUT ARMOURY (small_armor_#00), THE ITEMS (WHATEVER THE ITEM) ARE NOT COUNTED IN THE BAGS.
+        $container->modify('small_round_path_#00')->parentBuilding('item_tagger_#00')->ap(25)->health(25)->resources(["wood2_#00" => 6,"wood_beam_#00" => 2,"metal_beam_#00" => 2,"meca_parts_#00" => 1,])->orderBy(3)
+            ->voteLevel(3)->baseVoteText('Diese Brustwehr um die Stadt erlaubt es einigen Wächtern, die Stadt von der Mauer aus zu schützen.')
+            ->upgradeTexts([
+                               'Indem man die Zinnen etwas erweitert, können mehr Wächter während des Angriffs kämpfen.',
+                               'Der Brustwehr ist so breit, dass die ganze Stadt dort übernachten kann.',
+                               'Durch den Ausbau der Brustwehr können sich die Wächter dort etwas sicherer fühlen.',
+                           ])
+            ->commit();
+        // Wächter-Turm, todo: edit effect ; remove the passive defense gain obtained by guardians
+        $container->modify('small_watchmen_#00')->parentBuilding('small_round_path_#00')
+            ->description('Die Installation eines großen Turms, der den Wächtern gewidmet ist, in der Mitte der Festungsmauern, um ihre Effizienz zu verbessern. Von nun an werden die heldenhaften Wächter in der Lage sein, dort während ihrer Ruhezeiten  die Verteidigung der Stadt gegen ein wenig von ihrer Energie zu verbessern.')
+            ->defense(0)->ap(35)->health(35)->blueprintLevel(3)->orderBy(0)
+            ->commit();
+        // Wachstube, todo effect: +5% survival chance in Watch
+        $container->add()->parentBuilding('small_round_path_#00')
+            ->icon('small_watchmen')->label('Wachstube')->description('Ein alter Raum, der nach Kaffee und Tabak riecht, in dem man sich aber viel besser auf die langen Nächte vorbereiten kann, die die Bürger auf der Stadtmauer erwarten.')
+            ->isTemporary(0)->defense(0)->ap(50)->blueprintLevel(3)->resources(["wood_beam_#00" => 5,"metal_#00" => 10,"meca_parts_#00" => 2,"metal_beam_#00" => 5,"rustine_#00" => 1,"ryebag_#00" => 2,"oilcan_#00" => 1,"lights_#00" => 1,"coffee_machine_#00" => 1,"cigs_#00" => 1,"trestle_#00" => 1,"chair_basic_#00" => 2,])->orderBy(1)->commit();
+        // Kleine Waffenschmiede, todo: edit effect ; don't provide Watch bonus but now items in bag are counted in Watch 
+        $container->modify('small_armor_#00')->parentBuilding('small_round_path_#00')
+            ->description('Nach dem harten Kampf mit Fäusten und Füßen ist es an der Zeit, zu etwas Ernsthafterem überzugehen. Mit einem Waffenvorrat in der Nähe der Stadtmauer wirst du nicht mehr mit leeren Händen auf die Wache zugehen.')
+            ->ap(40)->health(40)->blueprintLevel(0)->resources(["meca_parts_#00" => 1,"wood2_#00" => 10,"metal_#00" => 8,"plate_#00" => 2,"rustine_#00" => 2,])->orderBy(2)
+            ->commit();
+        // Schwedische Schreinerei, now provides nw_ikea bonus (30%)
+        $container->modify('small_ikea_#00')->parentBuilding('small_armor_#00')->description('Dieser kleine Laden verbessert die Effektivität jedes Möbelstücks, das auf der Wache benutzt wird um 30%. Hach ja, die Schweden... Nie gab es bessere Billigmöbel!')->blueprintLevel(3)->resources(["meca_parts_#00" => 2,"wood2_#00" => 10,"metal_#00" => 10,"plate_#00" => 2,"concrete_wall_#00" => 3,"wood_beam_#00" => 5,"radio_on_#00" => 1,])->orderBy(0)->commit();
+        // Waffenschmiede, now provides nw_armory bonus
+        $container->add()->parentBuilding('small_armor_#00')
+            ->icon('small_blacksmith')->label('Waffenschmiede')->description('Indem man jede Klinge vor Einbruch der Nacht gewissenhaft schärft, kann die Wacht nun noch effektiver werden. Jede scharfe Waffe hat einen 20%igen Wächterbonus.')
+            ->isTemporary(0)->defense(0)->ap(50)->blueprintLevel(3)->resources(["meca_parts_#00" => 3,"wood2_#00" => 10,"metal_#00" => 10,"metal_beam_#00" => 5,"plate_#00" => 2,"concrete_wall_#00" => 2,])->orderBy(1)->commit();
+        // Tierhandlung, replace Trebuchet functionning (provide nw_trebuchet bonus)
+        $container->add()->parentBuilding('small_armor_#00')
+            ->icon('small_animfence')->label('Tierhandlung')->description('Indem du deine Tiere direkt auf der Stadtmauer hälst, ist es viel effizienter, sie in die Schlacht zu führen. Und ihr könnt sicher sein, dass sie nicht wieder entkommen! Erhöht die Effizienz von Haustieren während der Wache um 40%.')
+            ->isTemporary(0)->defense(0)->ap(40)->blueprintLevel(3)->resources(["wood2_#00" => 5,"wood_beam_#00" => 4,"metal_beam_#00" => 2,"ryebag_#00" => 2,"oilcan_#00" => 1,"fence_#00" => 1,])->orderBy(3)->commit();
+        // Dompteur-Spa, todo effect
+        $container->add()->parentBuilding('small_round_path_#00')
+            ->icon('item_tamed_pet')->label('Dompteur-Spa')->description('Eure Hunde verdienen nur das Beste, und wenn sie euch auf die Wacht begleiten, heißt es, ihre Zähne zu schärfen und ihre Locken zu bürsten. Alles, damit eure Schuckel die schönsten auf der Stadtmauer sind! Außerdem soll es ihre Effektivität verbessern und Ihre Überlebenschancen in der Nacht erhöhen.')
+            ->isTemporary(0)->defense(0)->ap(40)->blueprintLevel(3)->resources(["wood2_#00" => 4,"water_#00" => 10,"meca_parts_#00" => 1,"drug_#00" => 1,])->orderBy(3)->commit();
+        //Verschmutzte Rinnen, todo: edit has_shooting_gallery functions for using Verschmutzte Rinnen
+        $container->add()->parentBuilding('small_round_path_#00')
+            ->icon('small_sewers')->label('Verschmutzte Rinnen')->description('Wenn wir die Abwässer der Stadt mit Hilfe eines Pumpensystems direkt an die Spitze der Stadtmauer leiten, können usere Wasserwaffen 20% effizienter eingesetzt werden. Könnte aber ein bisschen stinken...')
+            ->isTemporary(0)->defense(0)->ap(35)->blueprintLevel(3)->resources(["wood2_#00" => 10,"tube_#00" => 1,"metal_beam_#00" => 3,"tube_#00" => 3,"concrete_wall_#00" => 1,"plate_#00" => 1,"oilcan_#00" => 1,])->orderBy(4)->commit();
+
+        // Katapult
+        $container->modify('item_courroie_#00')->orderBy(4)->commit();
+        // Verbesserter Katapult
+        $container->modify('item_courroie_#01')->blueprintLevel(1)->resources(["tube_#00" => 1,"courroie_#00" => 1,"wood2_#00" => 2,"metal_#00" => 2,"electro_#00" => 1,"lens_#00" => 1,])->commit();
+        // Kleiner Tribok, this no longer provide nw_trebuchet (now it's Tierhandlung who provide the bonus). Todo effect: this construction allows to throw Animals without killing them in the Catapult
+        $container->modify('small_catapult3_#00')->parentBuilding('item_courroie_#00')
+            ->description('Ein paar spezielle Riemen für deine tierischen Freunde, und es ist an der Zeit, sie zu den Zombies zu schicken. Du wirst sehen, es macht wirklich Spaß, ihnen zuzusehen.')
+            ->defense(60)->resources(["metal_#00" => 2,"wood_beam_#00" => 3,"meca_parts_#00" => 1,"ryebag_#00" => 1,"pet_pig_#00" => 1,])
+            ->commit();
+
+        // Forschungsturm
+        $container->modify('small_gather_#02')->blueprintLevel(2)->resource('scope_#00', 1)->resource('diode_#00', 2)->orderBy(5)->commit();
+
+        // Kanonenhügel
+        $container->modify('small_dig_#00')->parentBuilding('item_tagger_#00')->ap(60)->health(60)->resources(["concrete_wall_#00" => 1,"wood_beam_#00" => 8,"metal_beam_#00" => 1,"meca_parts_#00" => 1,])->orderBy(6)->commit();
+        // Steinkanone
+        $container->modify('small_canon_#00')->ap(40)->health(40)->resources(["tube_#00" => 1,"electro_#00" => 1,"concrete_wall_#00" => 3,"wood_beam_#00" => 3,"metal_beam_#00" => 5,])->commit();
+        // Selbstgebaute Railgun
+        $container->modify('small_canon_#01')->ap(35)->health(35)->blueprintLevel(2)->resources(["wood_beam_#00" => 2,"metal_#00" => 10,"meca_parts_#00" => 2,"plate_#00" => 1,"metal_beam_#00" => 2,])->commit();
+        // Blechplattenwerfer
+        $container->modify('small_canon_#02')->resources(["meca_parts_#00" => 2,"plate_#00" => 3,"explo_#00" => 2,"wood_beam_#00" => 5,"metal_beam_#00" => 1,])->commit();
+        // Brutale Kanone
+        $container->modify('small_canon_#03')->blueprintLevel(1)->commit();
+
+        // Straßenbeleuchtung
+        $container->modify('small_novlamps_#00')->resources(["meca_parts_#00" => 1,"deto_#00" => 1,"lens_#00" => 2,"diode_#00" => 2,"metal_beam_#00" => 8,"wire_#00" => 1, "pile_#00" => 4])->orderBy(7)
+            ->voteLevel(3)
+            ->upgradeTexts([
+                'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.',
+                'Die Verringerung der Fundchancen bei Nacht wird auf der gesamten Karte negiert, pro Tag werden 2 Batterien verbraucht.',
+                'Bietet nur nachts einen leichten Suchbonus, pro Tag werden 3 Batterien verbraucht.',//todo: new lvl effect of Public lights, provide +10% search bonus during night only (the +10% is hidden for the regular user)
+            ])->commit();
+
+        // Fundament
+        $container->modify('small_building_#00')->resources(["wood2_#00" => 8,"metal_#00" => 8,"concrete_wall_#00" => 2,])->orderBy(4)->commit();
+        //Großer Umbau (no edit)
+        // Falsche Stadt
+        $container->modify('small_falsecity_#00')->orderBy(1)->commit();
+        //Unterirdische Stadt
+        $container->add()->parentBuilding('small_building_#00')
+            ->icon('small_underground')->label('Unterirdische Stadt')->description('Indem wir einen großen Teil der Stadt unter der Erde vergraben, schaffen wir neuen Platz für die Verteidigungsanlagen über unseren Köpfen. Sehr es positiv: wir sind dann vor der Sonne geschützt.')
+            ->isTemporary(0)->defense(400)->ap(500)->blueprintLevel(3)->resources(["meca_parts_#00" => 3,"explo_#00" => 5,"metal_#00" => 10,"wood_beam_#00" => 20,"metal_beam_#00" => 20,])->orderBy(2)->commit();
+        // Labyrinth
+        $container->modify('small_labyrinth_#00')->orderBy(3)->commit();
+        // Müllhalde, todo: new functionning of Dump sites (deposit / taking objects)
+        $container->modify('small_trash_#00')->ap(80)->health(80)->blueprintLevel(1)->resources(["wood2_#00" => 5,"wood_beam_#00" => 15,"metal_#00" => 10,"metal_beam_#00" => 15,"meca_parts_#00" => 1,"concrete_wall_#00" => 3,])->orderBy(4)
+            ->voteLevel(3)->baseVoteText('Ermöglicht das Zerstören von Gegenständen für 1 Verteidigungspunkt.')//todo: instead multiple dumps construction, this constructions has evolutions which has same effects than previous dumps
+            ->upgradeTexts([
+                               'Ermöglicht die fachgerechte Entsorgung von Waffen und Nahrung auf der Müllhalde.',//alows weapons & food dump
+                               'Ermöglicht das fachgerechte Massakrieren unschuldiger Tiere und Steigert die Ausbeute jedes auf den Müll geworfenen Verteidigungs-Gegenstandes.',//increase defense provided by defense objects & allows animal dump
+                               'Ermöglicht die fachgerechte Entsorgung von Holz und Metall auf der Müllhalde.',//alows wood & metal dump
+                           ])
+            ->commit();
+        // Müll für Alle, todo: adjust effect : must reduce from 1AP the dump cost, not 0AP anymore
+        $container->modify('small_trashclean_#00')->description('Durch besseres Sortieren und Klassifizieren von weggeworfenen Gegenständen wird wertvolle Zeit in der Abfallwirtschaft eingespart. Reduziert jede Aktion auf der Müllhalde um 1 AP.')
+            ->ap(20)->health(20)->resource('metal_beam_#00', 5)->orderBy(0)->commit();
+        // Verbesserte Müllhalde
+        $container->modify('small_trash_#06')->description('Wenn alle Gegenstände vor dem Wegwerfen eingeweicht werden, scheint sich ihre Wirksamkeit nach Einbruch der Dunkelheit zu verzehnfachen.')
+            ->defense(65)->ap(150)->health(150)->resource('concrete_wall_#00', 5)->resource('poison_part_#00', 1)->resource('meca_parts_#00', 1)->orderBy(1)->commit();
+
+        // Previous sub-constructions, their effects will be included into Müllhalde evolutions
+        $container->delete('small_trash_#01');
+        $container->delete('small_trash_#02');
+        $container->delete('small_trash_#03');
+        $container->delete('small_trash_#04');
+        $container->delete('small_trash_#05');
+        $container->delete('small_howlingbait_#00');
+
+        // Alles oder Nichts, now give +2 def / item
+        $container->modify('small_lastchance_#00')->description('Nicht mehr als ein Akt der Verzweiflung! Alle Gegenstände in der Bank werden zerstört und bringen jeweils +2 vorübergehende Verteidigung.')
+            ->defense(50)->ap(200)->health(200)->blueprintLevel(0)->resources(["meca_parts_#00" => 1,"wood2_#00" => 10,"metal_#00" => 15,])->orderBy(5)->commit();
+        // Befestigungen
+        $container->modify('small_city_up_#00')->blueprintLevel(2)->resource('metal_#00', 5)->orderBy(6)->commit();
+        // Bollwerk
+        $container->modify('small_strategy_#00')->parentBuilding('small_city_up_#00')->orderBy(0)->commit();
+        // Stadtplan, todo: this constructions allows to build personal defense above level 4, todo: edit the constructions which allows it (must be small_strategy_#02)
+        $container->add()->parentBuilding('small_city_up_#00')
+            ->icon('small_urban')->label('Stadtplan')->description('Mit genau definierten Grundstücken für jede Behausung können wir endlich sehen, wie viel man noch ausbauen kann! Es ist an der Zeit, etwas Neues zu versuchen.')
+            ->isTemporary(0)->defense(0)->ap(20)->health(20)->blueprintLevel(4)->resources(["meca_parts_#00" => 1,"wood_beam_#00" => 1,"wood2_#00" => 5,"rustine_#00" => 3,"wire_#00" => 5,"diode_#00" => 4,])->orderBy(1)->commit();
+        //Verteidigungsanlage
+        $container->modify('item_meca_parts_#00')->parentBuilding('small_building_#00')
+            ->voteLevel(3)->resources(["meca_parts_#00" => 3,"wood_beam_#00" => 8,"metal_beam_#00" => 8,])->orderBy(7)
+            ->upgradeTexts([//todo: only 3 levels now + todo: delete the 500 OD limit (even if this construction is not built)
+                'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.',
+                'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.',
+                'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.',
+            ])
+            ->commit();
+        // Kino
+        $container->modify('small_cinema_#00')->resources(["electro_#00" => 3,"wood_beam_#00" => 10,"metal_beam_#00" => 5,"lens_#00" => 1,"cinema_#00" => 1,])->orderBy(8)->commit();
+        // Luftschlag
+        $container->modify('small_rocket_#00')->resources(["water_#00" => 10,"meca_parts_#00" => 1,"diode_#00" => 1,"metal_#00" => 5,"explo_#00" => 1,"deto_#00" => 2,])->orderBy(9)->commit();
+        // Feuerwerk
+        $container->modify('small_fireworks_#00')->orderBy(10)->commit();
+        // Leuchtfeuer
+        $container->modify('small_score_#00')->orderBy(11)->commit();
+        // Heißluftballon
+        $container->modify('small_balloon_#00')->resources(["wood2_#00" => 2,"meca_parts_#00" => 1,"lights_#00" => 1,"sheet_#00" => 2,"wood_beam_#00" => 5,"metal_beam_#00" => 5,])->orderBy(12)->commit();
+        // Riesiger KVF
+        $container->modify('small_pmvbig_#00')->orderBy(13)->commit();
+        // Riesenrad, todo: add in the description "It's a beautiful and great achievement, designed by a madman from a distant land, it drained a good part of our resources but you are very proud of it."
+        $container->modify('small_wheel_#00')->orderBy(14)->commit();
+        // Riesige Sandburg
+        $container->modify('small_castle_#00')->orderBy(15)->commit();
+        //new wonder : Blue Gold Thermal baths
+        // Reaktor
+        $container->modify('small_arma_#00')->orderBy(16)->commit();
+
+
+        // Sanktuarium, todo: edit effect : this construction allows now the town to elect a Shaman
+        $container->add()
+            ->icon('small_spa4souls')->label('Sanktuarium')->description('Auch wenn dir das Spirituelle ein wenig über den Kopf wächst - ein Raum, der dem Wohlbefinden und der Entspannung gewidmet ist, hilft dir, dich weniger um die kommenden Tage zu sorgen. Nun... wenn du denn Zeit hättest, es zu besuchen.')
+            ->isTemporary(0)->defense(0)->ap(20)->health(20)->blueprintLevel(0)->resources(["wood2_#00" => 2,"wood_beam_#00" => 3,"ryebag_#00" => 1,])->orderBy(5)
+            ->commit($small_spa4souls);
+        //Seelenreinigungsquelle, this construction replace the old Hammam (small_spa4souls_#00) for purifying souls
+        $container->add()->parentBuilding($small_spa4souls)
+            ->icon('item_soul_blue_static')->label('Seelenreinigungsquelle')->description('Ein Ort der Entspannung, der sich hervorragend für die Überführung von Seelen in die ewige Ruhe eignet.')
+            ->isTemporary(0)->defense(20)->ap(30)->health(30)->blueprintLevel(0)->resources(["metal_#00" => 1,"rustine_#00" => 1,"ryebag_#00" => 2,"lens_#00" => 1,"oilcan_#00" => 1,])->orderBy(0)
+            ->voteLevel(3)->baseVoteText('Du kannst jetzt die Seelen deiner verstorbenen Mitbürger reinigen, um ein wenig zusätzliche Verteidigung zu erhalten.')
+            ->upgradeTexts([//todo: now it has evolutions level
+                               'Jede gereinigte Seele bringt der Stadt ein wenig mehr Verteidigung.',
+                               'Jede gereinigte Seele bringt Verteidigungspunkte und jede gequälte Seele hat weniger Auswinkungen auf den Angriff.',//todo: at this level each tortured soul has 2% impact instead 4%
+                               'Jede gereinigte Seele bringt Verteidigungspunkte und 2 Rangpunkte, jede gequälte Seele hat weniger Auswinkungen auf den Angriff.',//todo: at this level each tortured soul has 2% impact instead 4% + each purified soul provide 2 ranking points (brings back the old Hordes soul purification system)
+                           ])
+            ->commit($item_soul_blue_static);
+        // Hammam, todo edit effect: once built Souls are limited to 11km from the city, any souls that were further away at the time of construction move within the 11km zone.
+        $container->modify('small_spa4souls_#00')->parentBuilding($item_soul_blue_static)
+            ->description('Mit einer solchen Erweiterung der Seelenreinigungsquelle haben es die Seelen noch eiliger, ihn zu erreichen. Ihr könnt sicher sein, dass sie von nun an näher bei euch auftauchen werden.')
+            ->defense(20)->blueprintLevel(2)->orderBy(0)
+            ->commit();
+        // Pool, todo effect: allow to take a bath at Home (provide +1% watch survival chance, cumulative, limited to once a day, until the next watch performed, once watch done, the bonus is resets)
+        $container->add()->parentBuilding($small_spa4souls)
+            ->icon('small_pool')->label('Pool')->description('Ein großer Pool, der nur für euer Wohlbefinden eingerichtet ist. Wenn man nicht auf seine Mitbürger achtet, die panisch um einen herumlaufen, könnte man den Angriff heute Abend glatt vergessen.')
+            ->isTemporary(0)->defense(0)->ap(150)->blueprintLevel(4)->resources(["wood2_#00" => 18,"plate_#00" => 2,"metal_beam_#00" => 1,"water_#00" => 20,"meca_parts_#00" => 2,"tube_#00" => 1,"ryebag_#00" => 2,])->orderBy(1)
+            ->commit();
+        // Kleiner Friedhof
+        $container->modify('small_cemetery_#00')->parentBuilding($small_spa4souls)->ap(42)->health(42)->blueprintLevel(2)->orderBy(2)->commit();
+        //Sarg-Katapult
+        $container->modify('small_coffin_#00')->ap(85)->health(85)->blueprintLevel(3)->resources(["courroie_#00" => 1,"concrete_wall_#00" => 2,"wire_#00" => 2,"meca_parts_#00" => 3,"wood2_#00" => 5,"metal_#00" => 15,])->commit();
+        // Krankenstation
+        $container->modify('small_infirmary_#00')->parentBuilding($small_spa4souls)->orderBy(3)->commit();
+        // Bauhaus, todo: edit evolutions, now this construction don't has level but its children (Baumarkt) has them. This construction only provide 1 common blueprint / day
+        $container->modify('small_refine_#01')->parentBuilding($small_spa4souls)->voteLevel(0)->ap(50)->health(50)->resources(["drug_#00" => 1,"vodka_#00" => 1,"wood_beam_#00" => 5,"ryebag_#00" => 2,])->orderBy(4)->commit();
+        // Baumarkt, todo: now this constructions has Bauhaus evolutions levels
+        $container->modify('small_strategy_#01')->parentBuilding('small_refine_#01')->description('Wenn alle Bürger an den Diskussionstisch eingeladen werden, entstehen neue Ideen. Die Eliten der Stadt brauchen sie dann nur zu stehlen und als ihre eigenen auszugeben.')
+            ->ap(40)->health(40)->blueprintLevel(2)->resources(["wood2_#00" => 10,"water_#00" => 5,"wood_beam_#00" => 2,"metal_beam_#00" => 8,"meca_parts_#00" => 1,"plate_#00" => 2,"ryebag_#00" => 1,"drug_hero_#00" => 1,"vodka_#00" => 1,"coffee_machine_#00" => 1,"cigs_#00" => 1,"trestle_#00" => 2,"chair_basic_#00" => 1,])->orderBy(0)
+            ->voteLevel(3)->baseVoteText('Die Stadt erhält nach dem nächsten Angriff einmalig 1 ungewöhnliche Baupläne.')//todo edit effect: provide 1 uncommon blueprint per day at lvl0
+            ->upgradeTexts([
+                               'Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche und 1 ungewöhnliche Baupläne sowie.',//todo edit effect: provide 1 common & 1 uncommon per day at lvl1
+                               'Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche und 1 seltene Baupläne sowie.',//todo edit effect: provide 1 uncommon & 1 rare blueprints per day at lvl2
+                               'Die Stadt erhält nach dem nächsten Angriff einmalig 1 seltene Baupläne - möglicherweise - eine nette Überraschung.',//todo edit effect: provide 1 rare blueprint per day & 10% chance to get an epic blueprint per day at lvl3
+                           ])
+            ->commit();
+        // Krähenstatue
+        $container->modify('small_crow_#00')->parentBuilding($small_spa4souls)->orderBy(5)->commit();
+        // Voodoo-Puppe
+        $container->modify('small_vaudoudoll_#00')->parentBuilding($small_spa4souls)->orderBy(6)->commit();
+        // Bokors Guillotine
+        $container->modify('small_bokorsword_#00')->parentBuilding($small_spa4souls)->orderBy(7)->commit();
+        // Spirituelles Wunder
+        $container->modify('small_spiritmirage_#00')->parentBuilding($small_spa4souls)->orderBy(8)->commit();
+        // Heiliger Regen
+        $container->modify('small_holyrain_#00')->parentBuilding($small_spa4souls)->orderBy(9)->commit();
+
+        $data = $container->toArray();
     }
 }

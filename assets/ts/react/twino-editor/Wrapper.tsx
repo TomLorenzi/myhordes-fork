@@ -579,6 +579,7 @@ const TwinoEditorEditor = ({body, fixed, prefs}: {body: string, fixed: boolean, 
             ref={textArea} enterKeyHint={prefs.enterKeyHint}
             tabIndex={0} id={`${globals.uuid}-editor`}
             onInput={e => globals.setField('body', e.currentTarget.value)}
+            autoCapitalize="sentences"
         />
         : <textarea ref={textArea}
             value={body} maxLength={prefs.maxLength} placeholder={prefs.placeholder}

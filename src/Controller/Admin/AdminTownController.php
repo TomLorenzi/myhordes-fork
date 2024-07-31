@@ -622,8 +622,7 @@ class AdminTownController extends AdminActionController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if (in_array($action, [
-                'release', 'quarantine', 'advance', 'nullify', 'pw_change',
-                'ex_del', 'ex_co+', 'ex_co-', 'ex_ref', 'ex_inf',
+                'pw_change', 'ex_del', 'ex_co+', 'ex_co-', 'ex_ref', 'ex_inf',
                 'dbg_fill_town', 'dbg_fill_bank', 'dgb_empty_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage',
                 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set', 'dbg_adv_days',
                 'dbg_set_attack', 'dbg_toggle_chaos', 'dbg_toggle_devas', 'dbg_enable_stranger', 'dropall',
@@ -633,6 +632,11 @@ class AdminTownController extends AdminActionController
         if (in_array($action, [
                 'set_name',
             ]) && !($this->isGranted('ROLE_SUB_ADMIN') || $town->getType()->getName() === 'custom'))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        if (in_array($action, [
+                'release', 'quarantine', 'advance', 'nullify'
+            ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $this->logger->invoke("[town_manager] Admin <info>{$this->getUser()->getName()}</info> did the action <info>$action</info> in the town <info>{$town->getName()}</info> (id: {$town->getId()})");
@@ -1475,7 +1479,7 @@ class AdminTownController extends AdminActionController
         ]);
 
         return AjaxResponse::success(true, [
-            'desc' => $citizen->getAlive() ? $citizen->getHome()->getDescription() : $citizen->getRankingEntry()->getLastWords(),
+            'desc' => $citizen->getHome()->getDescription(),
             'rucksack' => $rucksack,
             'chest' => $chest,
             'pictos' => $pictos,

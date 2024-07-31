@@ -162,14 +162,16 @@
                             {% endif %}
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="cell padded rw-3 rw-sm-12 note note-lightest">
-                            {{ "Benutzer impersonifizieren"|trans({}, "admin") }}
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <div class="row">
+                            <div class="cell padded rw-3 rw-sm-12 note note-lightest">
+                                {{ "Benutzer impersonifizieren"|trans({}, "admin") }}
+                            </div>
+                            <div class="cell padded rw-9 rw-sm-12">
+                                <div id="impersonate_user" class="button inline small">{{ "Fortfahren"|trans({}, 'admin') }}</div>
+                            </div>
                         </div>
-                        <div class="cell padded rw-9 rw-sm-12">
-                            <div id="impersonate_user" class="button inline small">{{ "Fortfahren"|trans({}, 'admin') }}</div>
-                        </div>
-                    </div>
+                    {% endif %}
 
                     <h5>{{ 'Info'|trans({}, 'admin') }}</h5>
                     <div class="row">

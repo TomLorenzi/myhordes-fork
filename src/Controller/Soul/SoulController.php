@@ -1146,7 +1146,7 @@ class SoulController extends CustomAbstractController
             if ($this->entity_manager->getRepository(User::class)->findOneByMail( $new_email ))
                 return AjaxResponse::error(UserFactory::ErrorMailExists);
 
-            if ($this->entity_manager->getRepository(AntiSpamDomains::class)->findOneBy( ['type' => DomainBlacklistType::EmailAddress, 'domain' => DomainBlacklistType::EmailAddress->convert( $new_email )] ))
+            if ($this->entity_manager->getRepository(AntiSpamDomains::class)->findActive( DomainBlacklistType::EmailAddress, $new_email ))
                 return AjaxResponse::error(UserFactory::ErrorMailExists);
 
             $user->setPendingEmail($new_email);
