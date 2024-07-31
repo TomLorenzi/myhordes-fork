@@ -1283,7 +1283,7 @@ class NightlyHandler
                 $this->log->debug("There is <info>$aliveCitizenInTown</info> citizens alive AND in town, setting the town to <info>devastated</info> mode and to <info>chaos</info> mode");
 
                 $last_stand_day = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_FEATURE_LAST_DEATH_DAY, 5);
-                if($town->getDay() >= $last_stand_day){
+                if($town->getDay() > $last_stand_day){ // Strictly superior, since $town->getDay() is the day AFTER the attack
                     $this->log->debug("Town has lived for $last_stand_day days or more, we give the <info>Last Man Standing</info> picto to a lucky citizen that died in town");
                     $citizen_eligible = [];
                     foreach ($town->getCitizens() as $citizen) {
@@ -1304,11 +1304,12 @@ class NightlyHandler
                         /** @var Citizen $winner */
                         $winner = $this->random->pick($citizen_eligible);
 
-                        if     ($winner->getSurvivedDays() <   6) $wonHeroDays = 0;
-                        elseif ($winner->getSurvivedDays() <=  8) $wonHeroDays = 1;
-                        elseif ($winner->getSurvivedDays() <= 10) $wonHeroDays = 2;
-                        elseif ($winner->getSurvivedDays() <= 15) $wonHeroDays = 3;
-                        elseif ($winner->getSurvivedDays() <= 20) $wonHeroDays = 4;
+                        // Strictly inferior, since $winner->getSurvivedDays() is the day BEFORE the attack
+                        if     ($winner->getSurvivedDays() <  5) $wonHeroDays = 0;
+                        elseif ($winner->getSurvivedDays() <  8) $wonHeroDays = 1;
+                        elseif ($winner->getSurvivedDays() < 10) $wonHeroDays = 2;
+                        elseif ($winner->getSurvivedDays() < 15) $wonHeroDays = 3;
+                        elseif ($winner->getSurvivedDays() < 20) $wonHeroDays = 4;
                         else $wonHeroDays = 5;
                         if ($this->conf->getTownConfiguration($town)->get(TownConf::CONF_FEATURE_GIVE_ALL_PICTOS, true))
                             $wonHeroDays = floor($wonHeroDays * $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_GENEROSITY_LAST, 1) );
