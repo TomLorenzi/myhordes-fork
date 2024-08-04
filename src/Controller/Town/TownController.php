@@ -1631,8 +1631,12 @@ class TownController extends InventoryAwareController
     {
         if ($id === $this->getActiveCitizen()->getId())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
-        
+
         $citizen = $this->getActiveCitizen();
+
+        if (!$citizen->hasRole('shaman') && $citizen->getProfession()->getName() !== "shaman")
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
+
         $message = [];
         if($this->citizen_handler->hasStatusEffect($citizen, ['drugged', 'drunk', 'infected', 'terror'])) {
             $message[] = $this->translator->trans('In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.', [], 'game');
