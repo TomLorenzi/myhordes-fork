@@ -844,7 +844,7 @@ class BeyondController extends InventoryAwareController
         if (!$new_zone) return AjaxResponse::error( self::ErrorNotReachableFromHere );
 
         $cp_ok_new_zone = $this->zone_handler->isZoneUnderControl($new_zone, $cp_before_new_zone);
-        if($cp_before_new_zone <= 0) $cp_ok_new_zone = null;
+        if($cp_before_new_zone <= 0 && !$new_zone->getCitizens()->count()) $cp_ok_new_zone = null;
 
         $movement_interrupted = false;
 
