@@ -2,6 +2,7 @@
 
 namespace MyHordes\Fixtures\DTO\Actions\Atoms\Effect;
 
+use App\Enum\Configuration\CitizenProperties;
 use App\Service\Actions\Game\AtomProcessors\Effect\ProcessZoneEffect;
 use MyHordes\Fixtures\DTO\Actions\EffectAtom;
 
@@ -11,7 +12,7 @@ use MyHordes\Fixtures\DTO\Actions\EffectAtom;
  * @property-read ?int cleanMax
  * @property-read ?int zombieMin
  * @property-read ?int zombieMax
- * @method self escape(?int $v)
+ * @method self escape(int|CitizenProperties|null $v)
  * @property ?int escape
  * @method self escapeTag(?string $v)
  * @property ?string escapeTag
@@ -26,13 +27,13 @@ class ZoneEffect extends EffectAtom {
         return ProcessZoneEffect::class;
     }
 
-    public function uncover(?int $radius = 1): self
+    public function uncover(int|CitizenProperties|null $radius = 1): self
     {
         $this->uncover = $radius;
         return $this;
     }
 
-    public function clean(int $min, ?int $max = null): self {
+    public function clean(int|CitizenProperties $min, int|CitizenProperties|null $max = null): self {
         $this->cleanMin = $min;
         $this->cleanMax = $max ?? $min;
         return $this;
@@ -42,7 +43,7 @@ class ZoneEffect extends EffectAtom {
         return $this->cleanMin !== 0 || $this->cleanMax !== 0;
     }
 
-    public function kills(int $min, ?int $max = null): self {
+    public function kills(int|CitizenProperties $min, int|CitizenProperties|null $max = null): self {
         $this->zombieMin = $min;
         $this->zombieMax = $max ?? $min;
         return $this;

@@ -1141,4 +1141,13 @@ class Citizen
         $props = $this->getProperties();
         return $props ? $props->get( $v ) : $v->default();
     }
+
+    private ?array $fullPropertySet = null;
+
+    public function fullPropertySet(): array {
+        return $this->fullPropertySet ?? ($this->fullPropertySet = array_combine(
+            array_map( fn(\App\Enum\Configuration\CitizenProperties $s) => "cfg.ctp.{$s->value}", \App\Enum\Configuration\CitizenProperties::validCases() ),
+            array_map( fn(\App\Enum\Configuration\CitizenProperties $s) => $this->property($s), \App\Enum\Configuration\CitizenProperties::validCases() ),
+        ));
+    }
 }

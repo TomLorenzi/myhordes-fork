@@ -25,6 +25,7 @@ use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
 use App\Entity\ZoneTag;
 use App\Enum\ActionHandler\PointType;
+use App\Enum\Configuration\CitizenProperties;
 use App\Enum\Configuration\TownSetting;
 use App\Enum\EventStages\BuildingValueQuery;
 use App\Enum\Game\TransferItemOption;
@@ -483,15 +484,15 @@ class BeyondController extends InventoryAwareController
     }
 
     protected function desert_partial_item_action_args(): array {
-
         return [
+            'citizen' => $this->getActiveCitizen(),
             'actions' => $this->getItemActions(),
             'recipes' => $this->getItemCombinations(false),
             'citizen_hidden' => !$this->activeCitizenIsNotCamping(),
             'active_scout_mode' => $this->inventory_handler->countSpecificItems(
                     $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
                 ) > 0,
-			'conf' => $this->getTownConf()
+            'conf' => $this->getTownConf()
         ];
     }
 
@@ -816,7 +817,7 @@ class BeyondController extends InventoryAwareController
                                           ? TownSetting::TimingExplorationCollector
                                           : TownSetting::TimingExplorationDefault
             )
-        ) )->modify('+30sec')));
+        ) )->modify("+{$citizen->property(CitizenProperties::OxygenTimeBonus)}sec")->modify('+30sec')));
         $this->entity_manager->persist($citizen);
         try {
             $this->entity_manager->flush();

@@ -463,11 +463,11 @@
                     {% endif %}
 
                     <div id="wb-item-action-section" style="display: contents">
-                        {% embed "ajax/game/actions.html.twig" with {'scout': active_scout_mode, 'hidden': citizen_hidden, 'iec': true, item_action_proxy: path('beyond_dashboard_partial_item_actions')} %}
+                        {% embed "ajax/game/actions.html.twig" with {'t': citizen.fullPropertySet, 'scout': active_scout_mode, 'hidden': citizen_hidden, 'iec': true, item_action_proxy: path('beyond_dashboard_partial_item_actions')} %}
                         {% endembed %}
                     </div>
 
-                    {% embed "ajax/game/actions.html.twig" with {'special_action_list': specials, 'scout': active_scout_mode, 'hidden': citizen_hidden, 'iec': true, 'hidden_warning': false} %}
+                    {% embed "ajax/game/actions.html.twig" with {'special_action_list': specials,'t': citizen.fullPropertySet,  'scout': active_scout_mode, 'hidden': citizen_hidden, 'iec': true, 'hidden_warning': false} %}
                     {% endembed %}
 
                     {% if not citizen_hidden and is_shaman %}
@@ -500,7 +500,7 @@
                     {% endif %}
 
                     {% if not citizen_hidden %}
-                        {% embed "ajax/game/actions.html.twig" with { 'heroic_action_list': heroics, 'scout': active_scout_mode } %}
+                        {% embed "ajax/game/actions.html.twig" with { 'heroic_action_list': heroics,'t': citizen.fullPropertySet, 'scout': active_scout_mode } %}
                         {% endembed %}
                     {% endif %}
                 </div>

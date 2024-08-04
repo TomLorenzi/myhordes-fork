@@ -114,7 +114,7 @@
                     {% endif %}
                 {% endif %}
 
-                {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes, 'scout': false, 'hidden': false} %}
+                {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes,'t': citizen.fullPropertySet, 'scout': false, 'hidden': false} %}
                 {% endembed %}
             </div>
 

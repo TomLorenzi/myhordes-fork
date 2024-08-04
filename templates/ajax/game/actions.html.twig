@@ -187,7 +187,7 @@
                         {{ select_target_popup( entry.id, entry.target_mode, entry.id ~ '--special', null, entry.targets, entry.action.confirm, entry.action.confirmMsg) }}
                     {% endif %}
                     {% if not entry.action.tooltip is null %}
-                        <div class="tooltip help">{{ entry.action.tooltip|trans({}, 'items')|raw }}</div>
+                        <div class="tooltip help">{{ entry.action.tooltip|trans(t, 'items')|raw }}</div>
                     {% endif %}
                 </li>
             {% endfor %}
@@ -221,7 +221,7 @@
                         <div class="tooltip normal">{{ 'Diese Aktion wurde in dieser Partie schon ausgeführt.'|trans({}, 'items') }}</div>
                     {% endif %}
                     {% if not entry.action.tooltip is null %}
-                        <em class="em" style="font-variant: none;">{{ entry.action.tooltip|trans({}, 'items')|raw }}</em>
+                        <em class="em" style="font-variant: none;">{{ entry.action.tooltip|trans(t, 'items')|raw }}</em>
                     {% endif %}
                 </li>
             {% endfor %}

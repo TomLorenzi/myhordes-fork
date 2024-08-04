@@ -22,13 +22,13 @@
     <div class="row">
         <div class="padded cell rw-6 rw-md-12 citizen-home actions-box">
             <h5>{% trans from 'game' %}Meine Spezialaktionen{% endtrans %}</h5>
-            {% embed "ajax/game/actions.html.twig" with {'special_action_list': home_actions, 'prefix': 'home'} %}
+            {% embed "ajax/game/actions.html.twig" with {'t': citizen.fullPropertySet, 'special_action_list': home_actions, 'prefix': 'home'} %}
             {% endembed %}
-            {% embed "ajax/game/actions.html.twig" with {'special_action_list': special_actions} %}
+            {% embed "ajax/game/actions.html.twig" with {'t': citizen.fullPropertySet, 'special_action_list': special_actions} %}
             {% endembed %}
 
             <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %} <a class="help-button"><div class="tooltip help">{% trans from 'global' %}Manche deiner Gegenstände sind <strong>benutzbar</strong>. Klick einfach auf einen Link hier unten, um den jeweiligen Gegenstand zu gebrauchen. Andere Gegenstände wiederum, wie zum Beispiel Waffen, können nur <strong>außerhalb der Stadt</strong> verwendet werden..{% endtrans %}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
-            {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes} %}
+            {% embed "ajax/game/actions.html.twig" with {'t': citizen.fullPropertySet, 'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes} %}
             {% endembed %}
 
             {% if is_granted('ROLE_CROW') and (app.environment == 'dev' or app.environment == 'local') %}

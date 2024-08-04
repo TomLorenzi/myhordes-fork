@@ -32,8 +32,8 @@ class HeroSkillPrototype
     #[ORM\ManyToMany(targetEntity: ItemPrototype::class)]
     private Collection $start_items;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?HeroicActionPrototype $unlocked_action = null;
+    #[ORM\ManyToMany(targetEntity: HeroicActionPrototype::class)]
+    private Collection $unlocked_actions;
 
     #[ORM\Column]
     private ?bool $legacy = null;
@@ -71,6 +71,7 @@ class HeroSkillPrototype
     public function __construct()
     {
         $this->start_items = new ArrayCollection();
+        $this->unlocked_actions = new ArrayCollection();
     }
     public function getId(): ?int
     {
@@ -151,14 +152,23 @@ class HeroSkillPrototype
         return $this;
     }
 
-    public function getUnlockedAction(): ?HeroicActionPrototype
+    public function getUnlockedActions(): Collection
     {
-        return $this->unlocked_action;
+        return $this->unlocked_actions;
     }
 
-    public function setUnlockedAction(?HeroicActionPrototype $unlocked_action): static
+    public function addUnlockedAction(HeroicActionPrototype $unlockedAction): static
     {
-        $this->unlocked_action = $unlocked_action;
+        if (!$this->unlocked_actions->contains($unlockedAction)) {
+            $this->unlocked_actions->add($unlockedAction);
+        }
+
+        return $this;
+    }
+
+    public function removeUnlockedAction(ItemPrototype $unlockedAction): static
+    {
+        $this->unlocked_actions->removeElement($unlockedAction);
 
         return $this;
     }

@@ -289,4 +289,12 @@ enum TownSetting: string implements Configuration
     {
         return [];
     }
+
+    /**
+     * @return TownSetting[]
+     */
+    public static function validCases(): array
+    {
+        return array_filter(self::cases(), fn(TownSetting $s) => !$s->abstract());
+    }
 }

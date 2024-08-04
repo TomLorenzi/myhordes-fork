@@ -7,6 +7,7 @@ namespace App\Twig;
 use Adbar\Dot;
 use App\Entity\Award;
 use App\Entity\AwardPrototype;
+use App\Entity\Citizen;
 use App\Entity\Hook;
 use App\Entity\Item;
 use App\Entity\Town;
@@ -81,6 +82,7 @@ class Extensions extends AbstractExtension implements GlobalsInterface
             new TwigFilter('textcolor',  [$this, 'color_tx']),
             new TwigFilter('translated_title',  [$this, 'translatedTitle']),
             new TwigFilter('atomize',  [$this, 'atomize']),
+            new TwigFilter('cfg',  [$this, 'cfg']),
         ];
     }
 

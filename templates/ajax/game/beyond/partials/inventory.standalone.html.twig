@@ -4,7 +4,7 @@
 <div data-trigger-event-name="mh-current-log-update"></div>
 
 <div x-render-target="#wb-item-action-section">
-    {% embed "ajax/game/actions.html.twig" with {'scout': active_scout_mode, 'hidden': citizen_hidden, 'iec': true, item_action_proxy: path('beyond_dashboard_partial_item_actions')} %}
+    {% embed "ajax/game/actions.html.twig" with {'t': citizen.fullPropertySet, 'scout': active_scout_mode, 'hidden': citizen_hidden, 'iec': true, item_action_proxy: path('beyond_dashboard_partial_item_actions')} %}
     {% endembed %}
 </div>
 

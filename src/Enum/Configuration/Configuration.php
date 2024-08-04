@@ -8,6 +8,11 @@ interface Configuration
     public function parent(): ?Configuration;
 
     /**
+     * @return static[]
+     */
+    public static function validCases(): array;
+
+    /**
      * @return array<Configuration>
      */
     public function children(): array;

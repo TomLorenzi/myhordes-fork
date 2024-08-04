@@ -4,6 +4,7 @@ namespace MyHordes\Fixtures\DTO\Actions\Atoms\Effect;
 
 use App\Enum\ActionHandler\PointType;
 use App\Enum\ActionHandler\RelativeMaxPoint;
+use App\Enum\Configuration\CitizenProperties;
 use App\Enum\SortDefinitionWord;
 use App\Service\Actions\Game\AtomProcessors\Effect\ProcessStatusEffect;
 use App\Structures\SortDefinition;
@@ -40,7 +41,7 @@ class StatusEffect extends EffectAtom {
         return ProcessStatusEffect::class;
     }
 
-    public function point(PointType $type, int $value, bool|RelativeMaxPoint $relativeToMax = RelativeMaxPoint::RelativeToMax, ?int $exceedMax = 0, ?int $capAt = null): self
+    public function point(PointType $type, int|CitizenProperties $value, bool|RelativeMaxPoint $relativeToMax = RelativeMaxPoint::RelativeToMax, ?int $exceedMax = 0, ?int $capAt = null): self
     {
         $this->pointType = $type;
         $this->pointValue = $value;

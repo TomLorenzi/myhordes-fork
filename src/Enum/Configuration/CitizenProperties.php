@@ -30,6 +30,12 @@ enum CitizenProperties: string implements Configuration
     case ZoneControlHydratedBonus = 'props.bonus.zone_control.hydrated';
     case ZoneControlSoberBonus = 'props.bonus.zone_control.sober';
     case InventorySpaceBonus = 'props.bonus.rucksack_space';
+    case OxygenTimeBonus = 'props.bonus.oxygen_time';
+    case ChestSpaceBonus = 'props.bonus.chest_space';
+    case HeroPunchKills = 'props.actions.hero_punch.kills';
+    case HeroPunchEscapeTime = 'props.actions.hero_punch.escape';
+    case HeroSecondWindBaseSP = 'props.actions.hero_sw.sp';
+    case HeroSecondWindBonusAP = 'props.actions.hero_sw.ap';
     //</editor-fold>
 
     //<editor-fold desc="Config Values">
@@ -41,6 +47,8 @@ enum CitizenProperties: string implements Configuration
     {
         return match ($this) {
             self::Section_Features,
+            self::Section_Properties,
+            self::Section_Config,
                 => true,
 
             default => false
@@ -69,6 +77,12 @@ enum CitizenProperties: string implements Configuration
             self::ZoneControlHydratedBonus,
             self::ZoneControlSoberBonus,
             self::InventorySpaceBonus,
+            self::ChestSpaceBonus,
+            self::OxygenTimeBonus,
+            self::HeroPunchKills,
+            self::HeroPunchEscapeTime,
+            self::HeroSecondWindBaseSP,
+            self::HeroSecondWindBonusAP,
                 => self::Section_Properties,
 
             self::RevengeItems,
@@ -116,6 +130,12 @@ enum CitizenProperties: string implements Configuration
             self::ZoneControlSoberBonus          => 0,
             self::WatchSurvivalBonus             => 0.0,
             self::InventorySpaceBonus            => 0,
+            self::ChestSpaceBonus                => 0,
+            self::OxygenTimeBonus                => 0,
+            self::HeroPunchKills                 => 2,
+            self::HeroPunchEscapeTime            => 0,
+            self::HeroSecondWindBaseSP           => 0,
+            self::HeroSecondWindBonusAP          => 0,
 
             self::RevengeItems                   => [],
 
@@ -126,5 +146,13 @@ enum CitizenProperties: string implements Configuration
     public function fallback(): array
     {
         return [];
+    }
+
+    /**
+     * @return CitizenProperties[]
+     */
+    public static function validCases(): array
+    {
+        return array_filter(self::cases(), fn(CitizenProperties $s) => !$s->abstract());
     }
 }

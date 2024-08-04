@@ -1,5 +1,5 @@
 <div x-render-target="#wb-item-action-section">
-    {% embed "ajax/game/actions.html.twig" with {'item_action_list': actions, 'recipe_list': recipes, 'scout': active_scout_mode, 'hidden': citizen_hidden, 'iec': true, 'open': true} %}
+    {% embed "ajax/game/actions.html.twig" with {'item_action_list': actions, 'recipe_list': recipes,'t': citizen.fullPropertySet, 'scout': active_scout_mode, 'hidden': citizen_hidden, 'iec': true, 'open': true} %}
     {% endembed %}
 </div>
 

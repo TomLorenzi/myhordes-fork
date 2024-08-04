@@ -98,19 +98,19 @@ readonly class OnboardCitizenIntoTownAction
                 }
 
                 // If the HeroSkill unlocks a Heroic Action, give it
-                if ($skill->getUnlockedAction()) {
+                foreach ($skill->getUnlockedActions() as $unlockedAction) {
                     $previouslyUsed = false;
                     // A heroic action can replace one. Let's handle it!
-                    if ($skill->getUnlockedAction()->getReplacedAction() !== null) {
-                        $proto = $this->entityManager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => $skill->getUnlockedAction()->getReplacedAction()]);
+                    if ($unlockedAction->getReplacedAction() !== null) {
+                        $proto = $this->entityManager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => $unlockedAction->getReplacedAction()]);
                         $previouslyUsed = $citizen->getUsedHeroicActions()->contains($proto);
                         $citizen->removeHeroicAction($proto);
                         $citizen->removeUsedHeroicAction($proto);
                     }
                     if ($previouslyUsed)
-                        $citizen->addUsedHeroicAction($skill->getUnlockedAction());
+                        $citizen->addUsedHeroicAction($unlockedAction);
                     else
-                        $citizen->addHeroicAction($skill->getUnlockedAction());
+                        $citizen->addHeroicAction($unlockedAction);
                     $this->entityManager->persist($citizen);
                 }
             }

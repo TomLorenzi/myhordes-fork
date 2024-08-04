@@ -6,6 +6,7 @@ use App\Entity\ActionCounter;
 use App\Entity\CauseOfDeath;
 use App\Enum\ActionHandler\ItemDropTarget;
 use App\Enum\ActionHandler\PointType;
+use App\Enum\Configuration\CitizenProperties;
 use App\Enum\ItemPoisonType;
 use ArrayHelpers\Arr;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\HomeEffect;
@@ -94,6 +95,10 @@ class ActionEffectProvider
         $effects_container->add()->identifier('zone_improve_5')->add((new ZoneEffect())->improveLevel(5.0))->commit();
         $effects_container->add()->identifier('zone_improve_9')->add((new ZoneEffect())->improveLevel(9.0))->commit();
         $effects_container->add()->identifier('zone_kill_2')->add((new ZoneEffect())->kills(2))->commit();
+        $effects_container->add()->identifier('zone_kill_punch')->add((new ZoneEffect())
+            ->kills(CitizenProperties::HeroPunchKills)
+            ->escape(CitizenProperties::HeroPunchEscapeTime)
+        )->commit();
         $effects_container->add()->identifier('zone_kill_2_4')->add((new ZoneEffect())->kills(2,4))->commit();
         $effects_container->add()->identifier('zone_kill_5_9')->add((new ZoneEffect())->kills(5,9))->commit();
         $effects_container->add()->identifier('zone_kill_6_10')->add((new ZoneEffect())->kills(6,10))->commit();
@@ -364,6 +369,10 @@ class ActionEffectProvider
         $effects_container->add()->identifier('plus_2ap_7')->add( (new StatusEffect())->point( PointType::AP, 2, relativeToMax: false, exceedMax: 1 ) )->commit();
         $effects_container->add()->identifier('plus_4ap')->add( (new StatusEffect())->point( PointType::AP, 4, relativeToMax: false ) )->commit();
         $effects_container->add()->identifier('plus_ap8_30')->add( (new StatusEffect())->point( PointType::AP, 8, relativeToMax: false, exceedMax: 24 ) )->commit();
+        $effects_container->add()->identifier('just_ap_sw')
+            ->add( (new StatusEffect())->point( PointType::AP, CitizenProperties::HeroSecondWindBonusAP ) )
+            ->add( (new StatusEffect())->point( PointType::SP, CitizenProperties::HeroSecondWindBaseSP, relativeToMax: false) )
+            ->commit();
         $effects_container->add()->identifier('just_ap6')->add( (new StatusEffect())->point( PointType::AP, 0 ) )->commit();
         $effects_container->add()->identifier('just_ap7')->add( (new StatusEffect())->point( PointType::AP, 1 ) )->commit();
         $effects_container->add()->identifier('just_ap8')->add( (new StatusEffect())->point( PointType::AP, 2 ) )->commit();

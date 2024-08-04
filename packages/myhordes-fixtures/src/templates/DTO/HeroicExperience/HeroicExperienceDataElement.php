@@ -25,8 +25,8 @@ use MyHordes\Fixtures\DTO\Element;
  * @method self legacy(bool $v)
  * @property int $unlockAt
  * @method self unlockAt(int $v)
- * @property string $unlocksAction
- * @method self unlocksAction(string $v)
+ * @property array $unlocksActions
+ * @method self unlocksActions(array $v)
  * @property array $grantsItems
  * @method self grantsItems(array $v)
  * @property int $level
@@ -57,7 +57,7 @@ class HeroicExperienceDataElement extends Element {
         return match ($name) {
             'citizenProperties',
             'itemTypesGrantedAsProfessionItems',
-            'grantsItems' => [],
+            'grantsItems', 'unlocksActions' => [],
             default => parent::provide_default($name),
         };
     }
@@ -83,21 +83,32 @@ class HeroicExperienceDataElement extends Element {
         return $this;
     }
 
+    public function unlocksAction(string $action, ?string $key = null): self {
+        $this->unlocksActions = [
+            ...$this->unlocksActions,
+            ...($key === null ? [$action] : [$key => $action]),
+        ];
+
+        return $this;
+    }
+
     /**
      * @throws \Exception
      */
     public function toEntity(EntityManagerInterface $em, HeroSkillPrototype $entity): void {
-        $protoAction = null;
-        if ($this->unlocksAction) {
-            $protoAction = $em->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => $this->unlocksAction]);
+        $protoActions = [];
+        foreach ($this->unlocksActions as $unlockAction) {
+            $protoAction = $em->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => $unlockAction]);
             if ($protoAction === null)
-                throw new \Exception("Invalid unlock action '{$this->unlocksAction}' defined for skill '{$this->name}'.");
+                throw new \Exception("Invalid unlock action '{$unlockAction}' defined for skill '{$this->name}'.");
 
             if ($protoAction->getReplacedAction() !== null) {
                 $replacedProto = $em->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => $protoAction->getReplacedAction()]);
                 if (!$replacedProto)
-                    throw new \Exception("Invalid replaced unlock action '{$protoAction->getReplacedAction()}' from '{$this->unlocksAction}' defined for skill '{$this->name}'.");
+                    throw new \Exception("Invalid replaced unlock action '{$protoAction->getReplacedAction()}' from '{$unlockAction}' defined for skill '{$this->name}'.");
             }
+
+            $protoActions[] = $protoAction;
         }
 
         $grantedItems = [];
@@ -125,7 +136,6 @@ class HeroicExperienceDataElement extends Element {
                 ->setDescription( $this->description ?? '' )
                 ->setBullets( $this->bullets ?? [] )
                 ->setDaysNeeded( $this->unlockAt )
-                ->setUnlockedAction( $protoAction )
                 ->setLevel( $this->legacy ? null : $this->level )
                 ->setSort( $this->legacy ? $this->unlockAt : ($this->sort ?? 0) )
                 ->setEnabled( !$this->disabled )
@@ -140,6 +150,10 @@ class HeroicExperienceDataElement extends Element {
             $entity->getStartItems()->clear();
             foreach ($grantedItems as $item)
                 $entity->addStartItem( $item );
+
+            $entity->getUnlockedActions()->clear();
+            foreach ($protoActions as $action)
+                $entity->addUnlockedAction( $action );
 
         } catch (\Throwable $t) {
             throw new \Exception(
