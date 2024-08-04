@@ -2,14 +2,21 @@
 
 namespace MyHordes\Fixtures\DTO\Actions;
 
+use App\Entity\Citizen;
+use App\Enum\Configuration\CitizenProperties;
+use App\Enum\Configuration\TownSetting;
 use App\Enum\SortDefinitionWord;
 use App\Structures\SortDefinition;
+use App\Structures\TownConf;
 use MyHordes\Fixtures\DTO\ArrayDecoratorReadInterface;
 
 abstract class Atom implements ArrayDecoratorReadInterface {
 
     protected array $data;
     public readonly SortDefinition $sort;
+
+    protected ?Citizen $contextCitizen = null;
+    protected ?TownConf $contextTown = null;
 
     protected static function defaultSortDefinition(): SortDefinition {
         return new SortDefinition();
@@ -21,6 +28,12 @@ abstract class Atom implements ArrayDecoratorReadInterface {
     ) {
         $this->sort = $sort ?? self::defaultSortDefinition();
         $this->data = static::afterSerialization( $data );
+    }
+
+    final public function withContext(Citizen $citizen, TownConf $town): self {
+        $this->contextCitizen = $citizen;
+        $this->contextTown = $town;
+        return $this;
     }
 
     abstract public function getClass(): string;
@@ -42,6 +55,13 @@ abstract class Atom implements ArrayDecoratorReadInterface {
     }
 
     final public function toArray(): array {
+        $payload = static::beforeSerialization( $this->data );
+        array_walk_recursive( $payload, fn(&$value) => $value = match (true) {
+            is_a( $value, CitizenProperties::class ) => "cfg://ctp/{$value->value}",
+            is_a( $value, TownSetting::class ) => "cfg://twn/{$value->value}",
+            default => $value,
+        });
+
         return [
             'sort' => [
                 $this->sort->word->value,
@@ -50,7 +70,7 @@ abstract class Atom implements ArrayDecoratorReadInterface {
             ],
             'processor' => $this->getClass(),
             'atom' => get_class($this),
-            'payload' => static::beforeSerialization( $this->data )
+            'payload' => $payload
         ];
     }
 
@@ -69,6 +89,12 @@ abstract class Atom implements ArrayDecoratorReadInterface {
 
         if (!is_a( $processor, static::getAtomProcessorClass(), true ))
             throw new \Exception("Atom references invalid processor class '$processor' (expected to be instance of '" . static::getAtomProcessorClass() . "')..");
+
+        array_walk_recursive( $payload, fn(&$value) => $value = match (true) {
+            is_string( $value ) && str_starts_with( $value, 'cfg://ctp/' ) => CitizenProperties::from( substr( $value, 10 ) ),
+            is_string( $value ) && str_starts_with( $value, 'cfg://twn/' ) => TownSetting::from( substr( $value, 10 ) ),
+            default => $value
+        } );
 
         $instance = new $atom(
             new SortDefinition( SortDefinitionWord::from( $sort_word ), $sort_ref, $sort_priority ),
@@ -96,7 +122,17 @@ abstract class Atom implements ArrayDecoratorReadInterface {
 
     public function __get(string $name): mixed
     {
-        return array_key_exists($name, $this->data) ? $this->data[$name] : $this->default($name);
+        $value = array_key_exists($name, $this->data) ? $this->data[$name] : $this->default($name);
+
+        return match (true) {
+            is_a( $value, CitizenProperties::class ) => $this->contextCitizen
+                ? $this->contextCitizen->property( $value )
+                : $value->default(),
+            is_a( $value, TownConf::class ) => $this->contextTown
+                ? $this->contextTown->get( $value )
+                : $value->default(),
+            default => $value
+        };
     }
 
     /**

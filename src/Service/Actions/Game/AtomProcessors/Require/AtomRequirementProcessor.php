@@ -17,7 +17,7 @@ abstract class AtomRequirementProcessor
         if (!is_array($data)) $data = [$data];
         return array_reduce(
             $data,
-            fn( bool $c, RequirementsAtom $atom ) => $c && (new ($atom->getClass())($container))( $cache, $atom ),
+            fn( bool $c, RequirementsAtom $atom ) => $c && (new ($atom->getClass())($container))( $cache, $atom->withContext( $cache->citizen, $cache->conf ) ),
             true
         );
     }

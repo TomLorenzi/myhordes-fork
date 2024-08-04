@@ -14,6 +14,6 @@ abstract class AtomEffectProcessor
     abstract public function __invoke( Execution $cache, EffectAtom $data ): void;
 
     public static function process( ContainerInterface $container, Execution $cache, EffectAtom|array $data ): void {
-        foreach (is_array($data) ? $data : [$data] as $atom) (new ($atom->getClass())($container))( $cache, $atom );
+        foreach (is_array($data) ? $data : [$data] as $atom) (new ($atom->getClass())($container))( $cache, $atom->withContext( $cache->citizen, $cache->conf ) );
     }
 }
