@@ -89,7 +89,8 @@ class Execution extends Base
         return $this->target_ruin_zone;
     }
 
-    public function setAction(ItemAction $action) {
+    public function setAction(ItemAction $action): void
+    {
         $this->action = $action;
     }
 

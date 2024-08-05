@@ -16,13 +16,11 @@ class Result
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    private ?int $id;
     #[ORM\Column(type: 'string', length: 32)]
-    private $name;
+    private ?string $name;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\AffectResultGroup')]
-    private $resultGroup;
-    #[ORM\Column(type: 'integer', nullable: true)]
-    private $custom;
+    private ?AffectResultGroup $resultGroup;
 
     #[ORM\Column(nullable: true)]
     private ?array $atoms = null;
@@ -45,7 +43,7 @@ class Result
         return $this;
     }
     public function clear(): self {
-        $this->resultGroup = $this->custom = $this->atoms = null;
+        $this->resultGroup = $this->atoms = null;
         return $this;
     }
     public function getResultGroup(): ?AffectResultGroup
@@ -55,16 +53,6 @@ class Result
     public function setResultGroup(?AffectResultGroup $resultGroup): self
     {
         $this->resultGroup = $resultGroup;
-
-        return $this;
-    }
-    public function getCustom(): ?int
-    {
-        return $this->custom;
-    }
-    public function setCustom(?int $custom): self
-    {
-        $this->custom = $custom;
 
         return $this;
     }

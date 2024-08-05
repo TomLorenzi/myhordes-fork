@@ -126,14 +126,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 if (!isset($sub_cache[$sub_id])) $sub_cache[$sub_id] = [];
 
                 switch ($sub_id) {
-                    case 'death':
-                        $result->setDeath( $this->process_death_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
-                        break;
                     case 'group':
                         $result->setResultGroup( $this->process_group_effect($manager, $out, $sub_cache[$sub_id], $cache, $sub_cache, $sub_res, $sub_data) );
-                        break;
-                    case 'custom':
-                        $result->setCustom( $sub_data[0] );
                         break;
                     default:
                         throw new Exception('No handler for effect type ' . $sub_id);

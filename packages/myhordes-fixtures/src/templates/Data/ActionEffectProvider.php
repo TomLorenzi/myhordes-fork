@@ -9,6 +9,7 @@ use App\Enum\ActionHandler\PointType;
 use App\Enum\Configuration\CitizenProperties;
 use App\Enum\ItemPoisonType;
 use ArrayHelpers\Arr;
+use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\CustomEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\HomeEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\ItemEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\MessageEffect;
@@ -441,6 +442,39 @@ class ActionEffectProvider
 
         //<editor-fold desc="Various">
         $effects_container->add()->identifier('find_rp')->add(new RolePlayTextEffect())->commit();
+
+        $effects_container->add()->identifier('casino_dice')->add((new CustomEffect())->effectIndex(1))->commit();
+        $effects_container->add()->identifier('casino_card')->add((new CustomEffect())->effectIndex(2))->commit();
+        $effects_container->add()->identifier('casino_guitar')->add((new CustomEffect())->effectIndex(3))->commit();
+
+        $effects_container->add()->identifier('hero_tamer_1')->add((new CustomEffect())->effectIndex(4))->commit();
+        $effects_container->add()->identifier('hero_tamer_2')->add((new CustomEffect())->effectIndex(5))->commit();
+
+        $effects_container->add()->identifier('hero_surv_1')->add((new CustomEffect())->effectIndex(6))->commit();
+        $effects_container->add()->identifier('hero_surv_2')->add((new CustomEffect())->effectIndex(7))->commit();
+
+        $effects_container->add()->identifier('hero_return')->add((new CustomEffect())->effectIndex(8))->commit();
+        $effects_container->add()->identifier('hero_rescue')->add((new CustomEffect())->effectIndex(9))->commit();
+
+        $effects_container->add()->identifier('camp_activate')->add((new CustomEffect())->effectIndex(10))->commit();
+        $effects_container->add()->identifier('camp_deactivate')->add((new CustomEffect())->effectIndex(11))->commit();
+
+        $effects_container->add()->identifier('discover_random_ruin')->add((new CustomEffect())->effectIndex(12))->commit();
+        $effects_container->add()->identifier('use_guard_tower')->add((new CustomEffect())->effectIndex(13))->commit();
+        $effects_container->add()->identifier('fill_all_water_wp')->add((new CustomEffect())->effectIndex(14))->commit();
+
+        $effects_container->add()->identifier('casino_banned_note')->add((new CustomEffect())->effectIndex(15))->commit();
+        $effects_container->add()->identifier('hero_tamer_1b')->add((new CustomEffect())->effectIndex(16))->commit();
+        $effects_container->add()->identifier('hero_tamer_2b')->add((new CustomEffect())->effectIndex(17))->commit();
+
+        $effects_container->add()->identifier('vote_role_shaman')->add((new CustomEffect())->effectIndex(18))->commit();
+        $effects_container->add()->identifier('vote_role_guide')->add((new CustomEffect())->effectIndex(19))->commit();
+
+        $effects_container->add()->identifier('sandball')->add((new CustomEffect())->effectIndex(20))->commit();
+        $effects_container->add()->identifier('flare')->add((new CustomEffect())->effectIndex(21))->commit();
+        $effects_container->add()->identifier('contaminated_zone_infect')->add((new CustomEffect())->effectIndex(22))->commit();
+
+        $effects_container->add()->identifier('hero_bia')->add((new CustomEffect())->effectIndex(70))->commit();
         //</editor-fold>
 
         // Composite
