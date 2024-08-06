@@ -29,6 +29,7 @@ use App\Entity\Recipe;
 use App\Entity\RuinZone;
 use App\Entity\SpecialActionPrototype;
 use App\Enum\AdminReportSpecification;
+use App\Enum\Configuration\CitizenProperties;
 use App\Enum\Game\TransferItemModality;
 use App\Enum\Game\TransferItemOption;
 use App\Event\Game\Items\TransferItemEvent;
@@ -187,14 +188,14 @@ class InventoryAwareController extends CustomAbstractController
             case ItemTargetDefinition::ItemSelectionType: case ItemTargetDefinition::ItemSelectionTypePoison:
                 foreach ($inventories as &$inv)
                     foreach ($inv->getItems() as &$item)
-                        if ($this->action_handler->targetDefinitionApplies($item, $definition,true))
+                        if ($this->action_handler->targetDefinitionApplies($item, $definition,true, $reference))
                             $targets[] = [ $item->getId(), $this->translator->trans( $item->getPrototype()->getLabel(), [], 'items' ), "build/images/item/item_{$item->getPrototype()->getIcon()}.gif" ];
 
                 break;
             case ItemTargetDefinition::ItemTypeChestSelectionType:
                 if ($reference)
                     foreach ($reference->getHome()->getChest()->getItems() as $item)
-                        if ($this->action_handler->targetDefinitionApplies($item, $definition,true))
+                        if ($this->action_handler->targetDefinitionApplies($item, $definition,true, $reference))
                             $targets[] = [ $item->getId(), $this->translator->trans( $item->getPrototype()->getLabel(), [], 'items' ), "build/images/item/item_{$item->getPrototype()->getIcon()}.gif" ];
                 break;
             case ItemTargetDefinition::ItemTypeSelectionType:
@@ -210,7 +211,7 @@ class InventoryAwareController extends CustomAbstractController
             case ItemTargetDefinition::ItemHeroicRescueType:
 
                 foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
-                    if ($citizen->getAlive() && $citizen->getZone() && round( sqrt(pow($citizen->getZone()->getX(),2 ) + pow($citizen->getZone()->getY(),2 )) ) <= 2)
+                    if ($citizen->getAlive() && $citizen->getZone() && $citizen->getZone()->getDistance() <= $this->getActiveCitizen()->property(CitizenProperties::HeroRescueRange))
                         $targets[] = [ $citizen->getId(), $citizen->getName(), "build/images/item/item_cart.gif" ];
 
                 break;

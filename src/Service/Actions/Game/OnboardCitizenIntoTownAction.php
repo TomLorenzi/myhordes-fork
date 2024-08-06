@@ -80,7 +80,13 @@ readonly class OnboardCitizenIntoTownAction
                 }
 
                 foreach ($skill->getCitizenProperties() ?? [] as $propPath => $value)
-                    Arr::set($citizenPropConfig, $propPath, $value);
+                    Arr::set(
+                        $citizenPropConfig,
+                        $propPath,
+                        \App\Enum\Configuration\CitizenProperties::from($propPath)->merge(Arr::get(
+                            $citizenPropConfig,
+                            $propPath
+                        ), $value));
 
                 // Grant chest space
                 if ($skill->getGrantsChestSpace() > 0)

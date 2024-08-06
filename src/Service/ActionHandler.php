@@ -36,6 +36,7 @@ use App\Entity\ZonePrototype;
 use App\Enum\ActionHandler\ActionValidity;
 use App\Enum\ActionHandler\CountType;
 use App\Enum\ActionHandler\PointType;
+use App\Enum\Configuration\CitizenProperties;
 use App\Enum\Game\TransferItemModality;
 use App\Enum\ItemPoisonType;
 use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
@@ -84,7 +85,7 @@ class ActionHandler
     protected function evaluate( Citizen $citizen, ?Item $item, $target, ItemAction $action, ?string &$message, ?Evaluation &$cache = null ): ActionValidity {
 
         if ($item && !$item->getPrototype()->getActions()->contains( $action )) return ActionValidity::None;
-        if ($target && (!$action->getTarget() || !$this->targetDefinitionApplies($target, $action->getTarget())))
+        if ($target && (!$action->getTarget() || !$this->targetDefinitionApplies($target, $action->getTarget(), reference: $citizen)))
             return ActionValidity::None;
 
         $cache = new Evaluation($this->entity_manager, $citizen, $item, $target, $this->conf->getTownConfiguration( $citizen->getTown() ), $this->conf->getGlobalConf());
@@ -264,11 +265,16 @@ class ActionHandler
     }
 
     /**
-     * @param Item|ItemPrototype|Citizen|FriendshipActionTarget $target
+     * @param Citizen|FriendshipActionTarget|Item|ItemPrototype $target
      * @param ItemTargetDefinition $definition
      * @return bool
      */
-    public function targetDefinitionApplies($target, ItemTargetDefinition $definition, bool $forSelection = false): bool {
+    public function targetDefinitionApplies(
+        Citizen|ItemPrototype|FriendshipActionTarget|Item $target,
+        ItemTargetDefinition $definition,
+        bool $forSelection = false,
+        ?Citizen $reference = null
+    ): bool {
         switch ($definition->getSpawner()) {
             case ItemTargetDefinition::ItemSelectionType:case ItemTargetDefinition::ItemSelectionTypePoison: case ItemTargetDefinition::ItemTypeChestSelectionType:
                 if (!is_a( $target, Item::class )) return false;
@@ -286,7 +292,7 @@ class ActionHandler
             case ItemTargetDefinition::ItemHeroicRescueType:
                 if (!is_a( $target, Citizen::class )) return false;
                 if (!$target->getZone() || !$target->getAlive()) return false;
-                if ( round( sqrt(pow($target->getZone()->getX(),2 ) + pow($target->getZone()->getY(),2 )) ) > 2 ) return false;
+                if ( $target->getZone()->getDistance() > ($reference?->property(CitizenProperties::HeroRescueRange) ?? CitizenProperties::HeroRescueRange->default()) ) return false;
                 break;
             case ItemTargetDefinition::ItemCitizenType: case ItemTargetDefinition::ItemCitizenVoteType: case ItemTargetDefinition::ItemCitizenOnZoneType: case ItemTargetDefinition::ItemCitizenOnZoneSBType:
                 if (!is_a( $target, Citizen::class )) return false;

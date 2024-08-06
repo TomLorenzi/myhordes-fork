@@ -9,6 +9,7 @@ use App\Enum\SortDefinitionWord;
 use App\Service\Actions\Game\AtomProcessors\Effect\ProcessStatusEffect;
 use App\Structures\SortDefinition;
 use MyHordes\Fixtures\DTO\Actions\EffectAtom;
+use phpDocumentor\Reflection\Types\Boolean;
 
 /**
  * @property-read ?PointType pointType
@@ -29,6 +30,9 @@ use MyHordes\Fixtures\DTO\Actions\EffectAtom;
  * @property-read ?bool statusProbabilityModifiable
  * @method self kill(?int $v)
  * @property ?int kill
+ * @method self enableIf(bool|CitizenProperties $v)
+ * @property ?bool enableIf
+ * @property-read  ?bool appliesToTarget
  */
 class StatusEffect extends EffectAtom {
 
@@ -39,6 +43,11 @@ class StatusEffect extends EffectAtom {
     public function getClass(): string
     {
         return ProcessStatusEffect::class;
+    }
+
+    public function applyEffectToTarget(?bool $v = true): self {
+        $this->appliesToTarget = true;
+        return $this;
     }
 
     public function point(PointType $type, int|CitizenProperties $value, bool|RelativeMaxPoint $relativeToMax = RelativeMaxPoint::RelativeToMax, ?int $exceedMax = 0, ?int $capAt = null): self
@@ -110,6 +119,7 @@ class StatusEffect extends EffectAtom {
         return match($name) {
             'pointValue', 'pointExceedMax', 'actionCounterValue' => 0,
             'resetThirstCounter' => false,
+            'enableIf' => true,
             default => null
         };
     }

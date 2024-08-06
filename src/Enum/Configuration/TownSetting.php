@@ -297,4 +297,9 @@ enum TownSetting: string implements Configuration
     {
         return array_filter(self::cases(), fn(TownSetting $s) => !$s->abstract());
     }
+
+    public function merge(mixed $old, mixed $new): mixed
+    {
+        return $new;
+    }
 }

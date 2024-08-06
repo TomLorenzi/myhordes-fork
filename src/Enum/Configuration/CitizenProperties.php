@@ -36,6 +36,9 @@ enum CitizenProperties: string implements Configuration
     case HeroPunchEscapeTime = 'props.actions.hero_punch.escape';
     case HeroSecondWindBaseSP = 'props.actions.hero_sw.sp';
     case HeroSecondWindBonusAP = 'props.actions.hero_sw.ap';
+    case HeroRescueRange = 'props.actions.hero_rescue.range';
+    case HeroImmuneStatusList = 'props.actions.hero_immune.protection';
+    case HeroImmuneHeals = 'props.actions.hero_immune.heals';
     //</editor-fold>
 
     //<editor-fold desc="Config Values">
@@ -83,6 +86,9 @@ enum CitizenProperties: string implements Configuration
             self::HeroPunchEscapeTime,
             self::HeroSecondWindBaseSP,
             self::HeroSecondWindBonusAP,
+            self::HeroRescueRange,
+            self::HeroImmuneStatusList,
+            self::HeroImmuneHeals,
                 => self::Section_Properties,
 
             self::RevengeItems,
@@ -118,6 +124,7 @@ enum CitizenProperties: string implements Configuration
             self::EnableAdvancedTheft            => false,
             self::EnableClairvoyance             => false,
             self::EnableOmniscience              => false,
+            self::HeroImmuneHeals                => false,
 
             self::TownDefense                    => 5,
             self::AnonymousMessageLimit          => 0,
@@ -136,8 +143,10 @@ enum CitizenProperties: string implements Configuration
             self::HeroPunchEscapeTime            => 0,
             self::HeroSecondWindBaseSP           => 0,
             self::HeroSecondWindBonusAP          => 0,
+            self::HeroRescueRange                => 2,
 
             self::RevengeItems                   => [],
+            self::HeroImmuneStatusList           => [],
 
             default => null,
         };
@@ -154,5 +163,47 @@ enum CitizenProperties: string implements Configuration
     public static function validCases(): array
     {
         return array_filter(self::cases(), fn(CitizenProperties $s) => !$s->abstract());
+    }
+
+    public function merge(mixed $old, mixed $new): mixed
+    {
+        $old ??= $this->default();
+
+        /** @noinspection PhpDuplicateMatchArmBodyInspection */
+        return match ($this) {
+            self::EnableBlackboard               => $this->default() ? ($old && $new) : ($old || $new),
+            self::EnableGroupMessages            => $this->default() ? ($old && $new) : ($old || $new),
+            self::EnableBuildingRecommendation   => $this->default() ? ($old && $new) : ($old || $new),
+            self::EnableProWatchman              => $this->default() ? ($old && $new) : ($old || $new),
+            self::EnableProCamper                => $this->default() ? ($old && $new) : ($old || $new),
+            self::EnableAdvancedTheft            => $this->default() ? ($old && $new) : ($old || $new),
+            self::EnableClairvoyance             => $this->default() ? ($old && $new) : ($old || $new),
+            self::EnableOmniscience              => $this->default() ? ($old && $new) : ($old || $new),
+            self::HeroImmuneHeals                => $this->default() ? ($old && $new) : ($old || $new),
+
+            self::TownDefense                    => ($old + $new) - $this->default(),
+            self::AnonymousMessageLimit          => ($old + $new) - $this->default(),
+            self::AnonymousPostLimit             => ($old + $new) - $this->default(),
+            self::ComplaintLimit                 => ($old + $new) - $this->default(),
+            self::LogManipulationLimit           => ($old + $new) - $this->default(),
+            self::ZoneControlBonus               => ($old + $new) - $this->default(),
+            self::ZoneControlCleanBonus          => ($old + $new) - $this->default(),
+            self::ZoneControlHydratedBonus       => ($old + $new) - $this->default(),
+            self::ZoneControlSoberBonus          => ($old + $new) - $this->default(),
+            self::WatchSurvivalBonus             => ($old + $new) - $this->default(),
+            self::InventorySpaceBonus            => ($old + $new) - $this->default(),
+            self::ChestSpaceBonus                => ($old + $new) - $this->default(),
+            self::OxygenTimeBonus                => ($old + $new) - $this->default(),
+            self::HeroPunchKills                 => ($old + $new) - $this->default(),
+            self::HeroPunchEscapeTime            => ($old + $new) - $this->default(),
+            self::HeroSecondWindBaseSP           => ($old + $new) - $this->default(),
+            self::HeroSecondWindBonusAP          => ($old + $new) - $this->default(),
+            self::HeroRescueRange                => ($old + $new) - $this->default(),
+
+            self::RevengeItems                   => [...$old,...$new],
+            self::HeroImmuneStatusList           => [...$old,...$new],
+
+            default => null,
+        };
     }
 }

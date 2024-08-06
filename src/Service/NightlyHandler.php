@@ -29,6 +29,7 @@ use App\Entity\TownRankingProxy;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZoneTag;
+use App\Enum\Configuration\CitizenProperties;
 use App\Enum\Configuration\TownSetting;
 use App\Enum\EventStages\BuildingEffectStage;
 use App\Enum\EventStages\BuildingValueQuery;
@@ -373,6 +374,8 @@ class NightlyHandler
 
         $status_infected  = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'infection']);
         $status_survive   = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'hsurvive']);
+        $status_survive2  = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'hsurvive2']);
+        $status_survive3  = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'hsurvive3']);
         $status_thirst2   = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'thirst2']);
         $status_drugged   = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'drugged']);
         $status_addicted  = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'addict']);
@@ -388,27 +391,34 @@ class NightlyHandler
                 continue;
             }
 
-            if ($citizen->getStatus()->contains( $status_thirst2 ) && !$ghoul) {
+            $protection_list = [];
+            if ($citizen->getStatus()->contains( $status_survive2 )) {
+                $this->log->debug( "Citizen <info>{$citizen->getUser()->getUsername()}</info> is <info>partially protected</info> by <info>{$status_survive2->getLabel()}</info>." );
+                $protection_list = $citizen->property(CitizenProperties::HeroImmuneStatusList);
+            } elseif ($citizen->getStatus()->contains( $status_survive3 ))
+                $protection_list = ['thirst', 'infection'];
+
+            if (!in_array('thirst', $protection_list) && $citizen->getStatus()->contains( $status_thirst2 ) && !$ghoul) {
                 $this->log->debug( "Citizen <info>{$citizen->getUser()->getUsername()}</info> has <info>{$status_thirst2->getLabel()}</info>." );
                 $this->kill_wrap( $citizen, $cod_thirst, true, 0, false, $town->getDay()+1 );
                 continue;
             }
 
-            if ($citizen->getStatus()->contains( $status_infected ) && !$ghoul) {
+            if (!in_array('infection', $protection_list) && $citizen->getStatus()->contains( $status_infected ) && !$ghoul) {
                 $this->log->debug( "Citizen <info>{$citizen->getUser()->getUsername()}</info> has <info>{$status_infected->getLabel()}</info>." );
                 if ($this->random->chance($this->conf->getTownConfiguration($town)->get( TownConf::CONF_MODIFIER_INFECT_DEATH, 0.5 ))) {
                     $this->kill_wrap( $citizen, $cod_infect, true, 0, false, $town->getDay()+1 );
                     continue;
-                    }
+                }
             }
 
-            if ($citizen->getStatus()->contains( $status_addicted ) && !$citizen->getStatus()->contains( $status_drugged )) {
+            if (!in_array('addiction', $protection_list) && $citizen->getStatus()->contains( $status_addicted ) && !$citizen->getStatus()->contains( $status_drugged )) {
                 $this->log->debug( "Citizen <info>{$citizen->getUser()->getUsername()}</info> has <info>{$status_addicted->getLabel()}</info>, but not <info>{$status_drugged->getLabel()}</info>." );
                 $this->kill_wrap( $citizen, $cod_addict, true, 0, false, $town->getDay()+1 );
                 continue;
             }
 
-            if ($ghoul && $citizen->getGhulHunger() > 40) {
+            if (!in_array('hunger', $protection_list) && $ghoul && $citizen->getGhulHunger() > 40) {
                 $this->log->debug( "Citizen <info>{$citizen->getUser()->getUsername()}</info> is a <info>hungry ghoul</info>." );
                 $this->kill_wrap( $citizen, $cod_ghoul, true, 0, false, $town->getDay()+1 );
                 continue;
@@ -1068,6 +1078,8 @@ class NightlyHandler
         $this->log->info('<info>Processing status changes</info> ...');
 
         $status_survive   = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'hsurvive'] );
+        $status_survive2   = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'hsurvive2'] );
+        $status_survive3   = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'hsurvive3'] );
         $status_hasdrunk  = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'hasdrunk'] );
         $status_infection = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'infection'] );
         $status_camping   = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'camper'] );
@@ -1130,9 +1142,11 @@ class NightlyHandler
             if($citizen->getZone() === null)
                 $aliveCitizenInTown++;
 
-            if ($citizen->getStatus()->contains($status_survive))
+            if ($citizen->getStatus()->contains($status_survive) || $citizen->getStatus()->contains($status_survive3))
                 $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> is <info>protected</info> by <info>{$status_survive->getLabel()}</info>.");
-            elseif (!$citizen->getStatus()->contains($status_hasdrunk)) {
+            elseif ($citizen->getStatus()->contains($status_survive2) && in_array( 'thirst', $citizen->property(CitizenProperties::HeroImmuneStatusList) )) {
+                $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> is <info>partially protected</info> by <info>{$status_survive2->getLabel()}</info>.");
+            } elseif (!$citizen->getStatus()->contains($status_hasdrunk)) {
                 $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has <info>not</info> drunk today. <info>Increasing</info> thirst level.");
                 $this->citizen_handler->increaseThirstLevel( $citizen );
             }

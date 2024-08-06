@@ -32,7 +32,6 @@ class InventoryHandler
     public function __construct(
         private readonly EntityManagerInterface $entity_manager,
         private readonly ItemFactory $item_factory,
-        private readonly UserHandler $user_handler,
         private readonly DoctrineCacheService $doctrineCache,
     ) {}
 
@@ -57,7 +56,7 @@ class InventoryHandler
 
         if ($inventory->getHome()) {
             $hero = $inventory->getHome()->getCitizen()->getProfession()->getHeroic();
-            $base = 4 + ($hero ? 1 : 0) + $inventory->getCitizen()->property( CitizenProperties::ChestSpaceBonus );
+            $base = 4 + ($hero ? 1 : 0) + ($inventory->getHome()->getCitizen()->property( CitizenProperties::ChestSpaceBonus ) ?? 0);
 
             // Check upgrades
             $upgrade = $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(

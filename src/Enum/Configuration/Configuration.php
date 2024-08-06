@@ -13,7 +13,7 @@ interface Configuration
     public static function validCases(): array;
 
     /**
-     * @return array<Configuration>
+     * @return array<static>
      */
     public function children(): array;
 
@@ -23,4 +23,12 @@ interface Configuration
     public function default(): mixed;
 
     public function fallback(): array;
+
+    /**
+     * @template T
+     * @param T|null $old
+     * @param T $new
+     * @return T
+     */
+    public function merge(mixed $old, mixed $new): mixed;
 }
