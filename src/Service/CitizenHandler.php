@@ -656,7 +656,11 @@ class CitizenHandler
     }
 
     public function getCampingOdds(Citizen $citizen): float {
-		return max(0, min(array_sum($this->getCampingValues($citizen)) / 100.0, $citizen->getProfession()->getName() === 'survivalist' ? 1.0 : 0.9));
+		$cap = max(
+            $citizen->getProfession()->getName() === 'survivalist' ? 1.0 : 0.0,
+            $citizen->property(CitizenProperties::CampingChanceCap),
+        );
+        return max(0, min(array_sum($this->getCampingValues($citizen)) / 100.0, $cap));
     }
 
     public function getCampingValues(Citizen $citizen): array {
@@ -668,7 +672,7 @@ class CitizenHandler
 
 		// Generic infos
 		$is_panda = $citizen->getTown()->getType()->getName() === 'panda';
-		$has_pro_camper = $citizen->property( CitizenProperties::EnableProCamper );
+		$has_pro_camper = $citizen->property( CitizenProperties::EnableProCamper ) && $citizen->getCampingCounter() < $citizen->property( CitizenProperties::ProCamperUsageLimit );
 		$config = $this->conf->getTownConfiguration($citizen->getTown());
 		$has_scout_protection = $this->inventory_handler->countSpecificItems(
 			$citizen->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])

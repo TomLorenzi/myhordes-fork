@@ -39,6 +39,7 @@ readonly class OnboardCitizenIntoTownAction
         private InventoryHandler $inventoryHandler,
         private HubInterface $hub,
         private CountCitizenProfessionsAction $counter,
+        private SpanHeroicActionInheritanceTreeAction $inheritanceTreeAction,
     ) { }
 
     /**
@@ -106,13 +107,13 @@ readonly class OnboardCitizenIntoTownAction
                 // If the HeroSkill unlocks a Heroic Action, give it
                 foreach ($skill->getUnlockedActions() as $unlockedAction) {
                     $previouslyUsed = false;
-                    // A heroic action can replace one. Let's handle it!
-                    if ($unlockedAction->getReplacedAction() !== null) {
-                        $proto = $this->entityManager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => $unlockedAction->getReplacedAction()]);
-                        $previouslyUsed = $citizen->getUsedHeroicActions()->contains($proto);
+                    // A heroic action can replace others. Let's handle it!
+                    foreach (($this->inheritanceTreeAction)($unlockedAction, -1) as $proto) {
+                        $previouslyUsed = $previouslyUsed || $citizen->getUsedHeroicActions()->contains($proto);
                         $citizen->removeHeroicAction($proto);
                         $citizen->removeUsedHeroicAction($proto);
                     }
+
                     if ($previouslyUsed)
                         $citizen->addUsedHeroicAction($unlockedAction);
                     else

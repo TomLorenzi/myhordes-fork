@@ -37,8 +37,12 @@ enum CitizenProperties: string implements Configuration
     case HeroSecondWindBaseSP = 'props.actions.hero_sw.sp';
     case HeroSecondWindBonusAP = 'props.actions.hero_sw.ap';
     case HeroRescueRange = 'props.actions.hero_rescue.range';
+    case HeroReturnRange = 'props.actions.hero_return.range';
     case HeroImmuneStatusList = 'props.actions.hero_immune.protection';
     case HeroImmuneHeals = 'props.actions.hero_immune.heals';
+    case ProCamperUsageLimit = 'props.limit.camping.pro';
+    case CampingChanceCap = 'props.limit.camping.cap';
+    case TrashSearchLimit = 'props.limit.trash.count';
     //</editor-fold>
 
     //<editor-fold desc="Config Values">
@@ -87,8 +91,12 @@ enum CitizenProperties: string implements Configuration
             self::HeroSecondWindBaseSP,
             self::HeroSecondWindBonusAP,
             self::HeroRescueRange,
+            self::HeroReturnRange,
             self::HeroImmuneStatusList,
             self::HeroImmuneHeals,
+            self::ProCamperUsageLimit,
+            self::CampingChanceCap,
+            self::TrashSearchLimit,
                 => self::Section_Properties,
 
             self::RevengeItems,
@@ -144,6 +152,10 @@ enum CitizenProperties: string implements Configuration
             self::HeroSecondWindBaseSP           => 0,
             self::HeroSecondWindBonusAP          => 0,
             self::HeroRescueRange                => 2,
+            self::HeroReturnRange                => 9,
+            self::ProCamperUsageLimit            => 0,
+            self::CampingChanceCap               => 0.9,
+            self::TrashSearchLimit               => 3,
 
             self::RevengeItems                   => [],
             self::HeroImmuneStatusList           => [],
@@ -199,6 +211,10 @@ enum CitizenProperties: string implements Configuration
             self::HeroSecondWindBaseSP           => ($old + $new) - $this->default(),
             self::HeroSecondWindBonusAP          => ($old + $new) - $this->default(),
             self::HeroRescueRange                => ($old + $new) - $this->default(),
+            self::HeroReturnRange                => ($old + $new) - $this->default(),
+            self::ProCamperUsageLimit            => ($old + $new) - $this->default(),
+            self::TrashSearchLimit               => ($old + $new) - $this->default(),
+            self::CampingChanceCap               => ($old + $new) - $this->default(),
 
             self::RevengeItems                   => [...$old,...$new],
             self::HeroImmuneStatusList           => [...$old,...$new],

@@ -2,6 +2,7 @@
 
 namespace MyHordes\Fixtures\DTO\Actions\Atoms\Requirement;
 
+use App\Enum\Configuration\CitizenProperties;
 use App\Service\Actions\Game\AtomProcessors\Require\ProcessLocationRequirement;
 use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 
@@ -14,7 +15,7 @@ use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
  * @property ?bool $exploring
  * @method self minKm(?int $v)
  * @property ?int $minKm
- * @method self maxKm(?int $v)
+ * @method self maxKm(int|CitizenProperties|null $v)
  * @property ?int $maxKm
  * @method self minAp(?int $v)
  * @property ?int $minAp

@@ -14,6 +14,7 @@ use App\Enum\Game\TransferItemModality;
 use App\Event\Game\Actions\CustomActionProcessorEvent;
 use App\EventListener\ContainerTypeTrait;
 use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
+use App\Service\Actions\Game\SpanHeroicActionInheritanceTreeAction;
 use App\Service\CitizenHandler;
 use App\Service\EventProxyService;
 use App\Service\InventoryHandler;
@@ -53,7 +54,8 @@ final class HeroicItemActionListener implements ServiceSubscriberInterface
             UserHandler::class,
             PictoHandler::class,
 
-            InvalidateTagsInAllPoolsAction::class
+            InvalidateTagsInAllPoolsAction::class,
+            SpanHeroicActionInheritanceTreeAction::class,
         ];
     }
 
@@ -237,13 +239,9 @@ final class HeroicItemActionListener implements ServiceSubscriberInterface
                 $event->citizen->getHeroicActions()->removeElement( $event->target->action() );
                 $event->citizen->getUsedHeroicActions()->add( $event->target->action() );
 
-                $upgrade_actions = [];
-                $downgrade_actions = [];
-
-                if ($event->target->action()->getName() === 'hero_generic_find' )
-                    $upgrade_actions[] = $this->getService(EntityManagerInterface::class)->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => 'hero_generic_find_lucky']);
-                if ($event->target->action()->getName() === 'hero_generic_find_lucky' )
-                    $downgrade_actions[] = $this->getService(EntityManagerInterface::class)->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => 'hero_generic_find']);
+                $treeService = $this->getService(SpanHeroicActionInheritanceTreeAction::class);
+                $upgrade_actions = ($treeService)( $event->target->action(), 1 );
+                $downgrade_actions = ($treeService)( $event->target->action(), -1 );
 
                 $valid = !$this->getService(CitizenHandler::class)->hasStatusEffect( $event->target->citizen(), 'tg_rec_heroic' );
 

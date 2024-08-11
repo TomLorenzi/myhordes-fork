@@ -552,7 +552,9 @@ class BeyondController extends InventoryAwareController
 
         $trashlock = $citizen->getSpecificActionCounter(ActionCounter::ActionTypeTrash);
 
-        $limit = $citizen->getProfession()->getName() === 'collec' ? 4 : 3;
+        $limit =
+            $citizen->property( CitizenProperties::TrashSearchLimit ) +
+            ($citizen->getProfession()->getName() === 'collec' ? 1 : 0);
         if ($trashlock->getCount() >= $limit) return AjaxResponse::error(self::ErrorTrashLimitHit);
 
         $inv_target = $citizen->getInventory();
