@@ -27,6 +27,7 @@ use App\Service\ConfMaster;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
+use App\Service\User\UserUnlockableService;
 use App\Service\UserHandler;
 use App\Structures\TownConf;
 use App\Traits\Controller\ActiveCitizen;
@@ -150,7 +151,7 @@ class TownOnboardingController extends AbstractController
 
     #[Route(path: '/{town}', name: 'onboard', methods: ['PATCH'])]
     #[GateKeeperProfile(only_incarnated: true)]
-    public function onboard_to_town(Town $town, EntityManagerInterface $em, ConfMaster $conf, JSONRequestParser $parser, OnboardCitizenIntoTownAction $action): JsonResponse
+    public function onboard_to_town(Town $town, EntityManagerInterface $em, ConfMaster $conf, JSONRequestParser $parser, UserUnlockableService $unlockService, OnboardCitizenIntoTownAction $action): JsonResponse
     {
         $activeCitizen = $this->fetchActiveCitizen($town);
         if (!$activeCitizen) return new JsonResponse([], Response::HTTP_FORBIDDEN);
@@ -188,7 +189,7 @@ class TownOnboardingController extends AbstractController
             if ($pts_sum > $this->getCitizenPts($activeCitizen))
                 return new JsonResponse([], Response::HTTP_BAD_REQUEST);
 
-        } else $skills = $em->getRepository(HeroSkillPrototype::class)->getUnlocked($activeCitizen->getUser()->getAllHeroDaysSpent());
+        } else $skills = $em->getRepository(HeroSkillPrototype::class)->getUnlocked( $unlockService->getHeroicExperience( $activeCitizen->getUser() ) );
 
         $success = ($action)($activeCitizen, $profession, $alias, $skills);
         return $success ? new JsonResponse([
@@ -221,7 +222,7 @@ class TownOnboardingController extends AbstractController
 
     #[Route(path: '/{town}/skills', name: 'skills', methods: ['GET'])]
     #[GateKeeperProfile(only_incarnated: true)]
-    public function skills(Town $town, EntityManagerInterface $em, Packages $asset, TranslatorInterface $trans): JsonResponse
+    public function skills(Town $town, EntityManagerInterface $em, Packages $asset, TranslatorInterface $trans, UserUnlockableService $unlockService): JsonResponse
     {
         $activeCitizen = $this->fetchActiveCitizen($town);
         if (!$activeCitizen) return new JsonResponse([], Response::HTTP_FORBIDDEN);
@@ -243,7 +244,7 @@ class TownOnboardingController extends AbstractController
 
         return new JsonResponse([
             'legacy' => [
-                'level' => $activeCitizen->getUser()->getAllHeroDaysSpent(),
+                'level' => $unlockService->getHeroicExperience( $activeCitizen->getUser() ),
                 'list' => array_values(array_map(fn(HeroSkillPrototype $p) => [
                     'id' => $p->getId(),
                     'title' => $trans->trans($p->getTitle(), [], 'game'),

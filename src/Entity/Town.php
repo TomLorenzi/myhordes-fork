@@ -82,7 +82,7 @@ class Town
     private int $dayWithoutAttack = 0;
     #[ORM\ManyToOne(targetEntity: User::class)]
     private ?User $creator = null;
-    #[ORM\OneToMany(targetEntity: 'App\Entity\TownLogEntry', mappedBy: 'town', cascade: ['remove'])]
+    #[ORM\OneToMany(mappedBy: 'town', targetEntity: 'App\Entity\TownLogEntry', cascade: ['remove'])]
     private $_townLogEntries;
     #[ORM\Column(type: 'string', length: 24, nullable: true)]
     private ?string $deriveConfigFrom = null;

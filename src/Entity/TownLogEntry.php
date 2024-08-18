@@ -13,31 +13,31 @@ class TownLogEntry
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    private ?int $id;
     #[ORM\Column(type: 'datetime')]
-    private $timestamp;
+    private ?\DateTimeInterface $timestamp;
     #[ORM\Column(type: 'integer')]
-    private $day;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\Town', inversedBy: '_townLogEntries')]
+    private ?int $day;
+    #[ORM\ManyToOne(targetEntity: Town::class, inversedBy: '_townLogEntries')]
     #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
-    private $town;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\Citizen')]
-    private $citizen;
-    #[ORM\Column(type: 'boolean')]
-    private $hidden = false;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\Zone')]
-    private $zone;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\Citizen')]
-    private $secondaryCitizen;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\LogEntryTemplate')]
-    #[ORM\JoinColumn(nullable: true, onDelete: 'CASCADE')]
-    private $logEntryTemplate;
-    #[ORM\Column(type: 'array', nullable: true)]
-    private $variables = [];
-    #[ORM\Column(type: 'boolean')]
-    private $adminOnly = false;
+    private ?Town $town;
     #[ORM\ManyToOne(targetEntity: Citizen::class)]
-    private $hiddenBy;
+    private ?Citizen $citizen;
+    #[ORM\Column(type: 'boolean')]
+    private bool $hidden = false;
+    #[ORM\ManyToOne(targetEntity: Zone::class)]
+    private ?Zone $zone;
+    #[ORM\ManyToOne(targetEntity: Citizen::class)]
+    private ?Citizen $secondaryCitizen;
+    #[ORM\ManyToOne(targetEntity: LogEntryTemplate::class)]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'CASCADE')]
+    private ?LogEntryTemplate $logEntryTemplate;
+    #[ORM\Column(nullable: true)]
+    private ?array $variables = null;
+    #[ORM\Column(type: 'boolean')]
+    private bool $adminOnly = false;
+    #[ORM\ManyToOne(targetEntity: Citizen::class)]
+    private ?Citizen $hiddenBy;
     public function getId(): ?int
     {
         return $this->id;

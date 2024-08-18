@@ -56,6 +56,7 @@ use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\RandomGenerator;
 use App\Service\RateLimitingFactoryProvider;
+use App\Service\User\UserUnlockableService;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
 use App\Service\AdminHandler;
@@ -189,7 +190,7 @@ class SoulController extends CustomAbstractController
      * @return Response
      */
     #[Route(path: 'jx/soul/me', name: 'soul_me')]
-    public function soul_me(HTMLService $html): Response
+    public function soul_me(HTMLService $html, UserUnlockableService $unlockService): Response
     {
         $user = $this->getUser();
 
@@ -197,12 +198,13 @@ class SoulController extends CustomAbstractController
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        $latestSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getLatestUnlocked($user->getAllHeroDaysSpent());
-        $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($user->getAllHeroDaysSpent());
+        $xp = $unlockService->getLegacyHeroDaysSpent( $user );
+        $latestSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getLatestUnlocked($xp);
+        $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($xp);
 
         $factor1 = $latestSkill !== null ? $latestSkill->getDaysNeeded() : 0;
 
-        $progress = $nextSkill !== null ? ($user->getAllHeroDaysSpent() - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 0;
+        $progress = $nextSkill !== null ? ($xp - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 0;
 
         $desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
 
@@ -379,7 +381,7 @@ class SoulController extends CustomAbstractController
      * @return Response
      */
     #[Route(path: 'jx/soul/heroskill', name: 'soul_heroskill')]
-    public function soul_heroskill(): Response
+    public function soul_heroskill(UserUnlockableService $unlockService): Response
     {
         $user = $this->getUser();
 
@@ -388,15 +390,16 @@ class SoulController extends CustomAbstractController
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
         // Get all the picto & count points
-        $latestSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getLatestUnlocked($user->getAllHeroDaysSpent());
-        $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($user->getAllHeroDaysSpent());
+        $xp = $unlockService->getLegacyHeroDaysSpent( $user );
+        $latestSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getLatestUnlocked($xp);
+        $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($xp);
 
         $allSkills = array_filter( $this->entity_manager->getRepository(HeroSkillPrototype::class)->findAll(),
             fn(HeroSkillPrototype $p) => $p->isEnabled() && $p->isLegacy()
         );
 
         $factor1 = $latestSkill !== null ? $latestSkill->getDaysNeeded() : 0;
-        $progress = $nextSkill !== null ? ($user->getAllHeroDaysSpent() - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 0;
+        $progress = $nextSkill !== null ? ($xp - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 0;
 
         return $this->render( 'ajax/soul/heroskills.html.twig', $this->addDefaultTwigArgs("soul_me", [
             'latestSkill' => $latestSkill,

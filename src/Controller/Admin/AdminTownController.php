@@ -28,6 +28,7 @@ use App\Entity\CouncilEntry;
 use App\Entity\DigTimer;
 use App\Entity\EventActivationMarker;
 use App\Entity\ExpeditionRoute;
+use App\Entity\HeroExperienceEntry;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
 use App\Entity\Item;
@@ -49,6 +50,7 @@ use App\Enum\EventStages\BuildingValueQuery;
 use App\Enum\ItemPoisonType;
 use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Response\AjaxResponse;
+use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\AdminLog;
 use App\Service\CrowService;
 use App\Service\CitizenHandler;
@@ -1643,7 +1645,7 @@ class AdminTownController extends AdminActionController
     #[Route(path: 'api/admin/town/{tid}/unrank/{act}', name: 'admin_town_town_ranking_control', requirements: ['tid' => '\d+', 'act' => '\d+'])]
     #[IsGranted('ROLE_CROW')]
     #[AdminLogProfile(enabled: true)]
-    public function ranking_toggle_town(int $tid, int $act, JSONRequestParser $request): Response
+    public function ranking_toggle_town(int $tid, int $act, JSONRequestParser $request, InvalidateTagsInAllPoolsAction $uncache): Response
     {
         $town_proxy = $this->entity_manager->getRepository(TownRankingProxy::class)->find($tid);
         if (!$town_proxy) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -1666,10 +1668,17 @@ class AdminTownController extends AdminActionController
                     ->setImportedSoulPoints($this->user_handler->fetchImportedSoulPoints($citizen->getUser()))
                 );
             }
+
             if(($flag & TownRankingProxy::DISABLE_PICTOS) === TownRankingProxy::DISABLE_PICTOS) {
                 foreach ($this->entity_manager->getRepository(Picto::class)->findNotPendingByUserAndTown($citizen->getUser(), $town_proxy) as $picto)
                     if (!$picto->isManual())
                         $this->entity_manager->persist($picto->setDisabled($citizen->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $town_proxy->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS)));
+            }
+
+            if(($flag & TownRankingProxy::DISABLE_HXP) === TownRankingProxy::DISABLE_HXP) {
+                foreach ($this->entity_manager->getRepository(HeroExperienceEntry::class)->findBy(['town' => $town_proxy]) as $hxp)
+                    $this->entity_manager->persist($hxp->setDisabled($citizen->hasDisableFlag(CitizenRankingProxy::DISABLE_HXP) || $town_proxy->hasDisableFlag(TownRankingProxy::DISABLE_HXP)));
+                ($uncache)("user-{$citizen->getUser()->getId()}-hxp");
             }
         }
 
@@ -1728,12 +1737,13 @@ class AdminTownController extends AdminActionController
      * @param int $cid
      * @param int $act
      * @param JSONRequestParser $parser
+     * @param InvalidateTagsInAllPoolsAction $uncache
      * @return Response
      */
     #[Route(path: 'api/admin/town/{tid}/unrank_single/{cid}/{act}', name: 'admin_town_citizen_ranking_control', requirements: ['tid' => '\d+', 'cid' => '\d+', 'act' => '\d+'])]
     #[IsGranted('ROLE_CROW')]
     #[AdminLogProfile(enabled: true)]
-    public function ranking_toggle_citizen(int $tid, int $cid, int $act, JSONRequestParser $parser): Response
+    public function ranking_toggle_citizen(int $tid, int $cid, int $act, JSONRequestParser $parser, InvalidateTagsInAllPoolsAction $uncache): Response
     {
         $town_proxy = $this->entity_manager->getRepository(TownRankingProxy::class)->find($tid);
         if (!$town_proxy) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -1771,6 +1781,11 @@ class AdminTownController extends AdminActionController
             foreach ($this->entity_manager->getRepository(Picto::class)->findNotPendingByUserAndTown($citizen_proxy->getUser(), $town_proxy) as $picto)
                 if (!$picto->isManual())
                     $this->entity_manager->persist($picto->setDisabled($citizen_proxy->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS)));
+        }
+        if(($flag & CitizenRankingProxy::DISABLE_HXP) === CitizenRankingProxy::DISABLE_HXP) {
+            foreach ($this->entity_manager->getRepository(HeroExperienceEntry::class)->findBy(['citizen' => $citizen_proxy]) as $hxp)
+                $this->entity_manager->persist($hxp->setDisabled($citizen_proxy->hasDisableFlag(CitizenRankingProxy::DISABLE_HXP)));
+            ($uncache)("user-{$citizen_proxy->getUser()->getId()}-hxp");
         }
 
         $this->entity_manager->flush();

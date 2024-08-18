@@ -50,6 +50,7 @@ use App\Service\JSONRequestParser;
 use App\Service\Media\ImageService;
 use App\Service\PermissionHandler;
 use App\Service\TwinoidHandler;
+use App\Service\User\UserUnlockableService;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
 use App\Structures\MyHordesConf;
@@ -479,7 +480,7 @@ class AdminUserController extends AdminActionController
     public function user_account_manager(int $id, string $action, JSONRequestParser $parser, UserFactory $uf,
                                          TwinoidHandler $twin, UserHandler $userHandler, PermissionHandler $perm,
                                          CrowService $crow, KernelInterface $kernel, InvalidateTagsInAllPoolsAction $clearCache,
-                                         EventProxyService $proxy,
+                                         EventProxyService $proxy, UserUnlockableService $unlockService,
                                          string $param = ''): Response
     {
         /** @var User $user */
@@ -954,7 +955,7 @@ class AdminUserController extends AdminActionController
 
             case 'herodays':
                 if (!is_numeric($param)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-                $user->setBonusHeroDaysSpent( (int)$param );
+                $unlockService->setLegacyHeroDaysSpent( $user, null, (int)$param );
                 $this->entity_manager->persist($user);
                 break;
             case "dbg_soulpoints":

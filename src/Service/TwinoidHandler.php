@@ -15,6 +15,7 @@ use App\Entity\Season;
 use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
+use App\Service\User\UserUnlockableService;
 use App\Structures\MyHordesConf;
 use App\Structures\TwinoidPayload;
 use Doctrine\ORM\EntityManagerInterface;
@@ -28,13 +29,15 @@ class TwinoidHandler
     private EntityManagerInterface $em;
     private RandomGenerator $rand;
     private UserHandler $userHandler;
+    private UserUnlockableService $unlockService;
 
-    public function __construct( ConfMaster $confMaster, UrlGeneratorInterface $generator, EntityManagerInterface $em, RandomGenerator $rand, UserHandler $uh) {
+    public function __construct( ConfMaster $confMaster, UrlGeneratorInterface $generator, EntityManagerInterface $em, RandomGenerator $rand, UserHandler $uh, UserUnlockableService $unlockService) {
         $this->conf = $confMaster->getGlobalConf();
         $this->generator = $generator;
         $this->em = $em;
         $this->rand = $rand;
         $this->userHandler = $uh;
+        $this->unlockService = $unlockService;
     }
 
     private function getScopeLanguage( string $scope ): ?string {
@@ -76,7 +79,7 @@ class TwinoidHandler
         }
 
         $user->setImportedSoulPoints( 0 );
-        $user->setImportedHeroDaysSpent( 0 );
+        $this->unlockService->setLegacyHeroDaysSpent( $user, true, 0 );
     }
 
     function importData( User $user, string $scope, TwinoidPayload $data, bool $isPrimary, bool $isLimited, bool $forceResetDisableFlag = false ): bool {
@@ -252,8 +255,7 @@ class TwinoidHandler
                     $this->em->remove( $pick );
                 }
             }
-
-            $user->setImportedHeroDaysSpent( $data->getSummaryHeroDays() );
+            $this->unlockService->setLegacyHeroDaysSpent( $user, true, $data->getSummaryHeroDays() );
             $this->em->persist($user);
         }
 

@@ -17,11 +17,12 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 #[ORM\Index(columns: ['base_id', 'imported'], name: 'town_ranking_proxy_by_base_imported_idx')]
 class TownRankingProxy
 {
-    const DISABLE_NOTHING = 0;
-    const DISABLE_RANKING = 1 << 0;
-    const DISABLE_PICTOS = 1 << 1;
-    const DISABLE_SOULPOINTS = 1 << 2;
-    const DISABLE_ALL = self::DISABLE_PICTOS | self::DISABLE_RANKING | self::DISABLE_SOULPOINTS;
+    const int DISABLE_NOTHING = 0;
+    const int DISABLE_RANKING = 1 << 0;
+    const int DISABLE_PICTOS = 1 << 1;
+    const int DISABLE_SOULPOINTS = 1 << 2;
+    const int DISABLE_HXP = 1 << 3;
+    const int DISABLE_ALL = self::DISABLE_PICTOS | self::DISABLE_RANKING | self::DISABLE_SOULPOINTS | self::DISABLE_HXP;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]

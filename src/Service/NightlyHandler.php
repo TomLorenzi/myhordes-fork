@@ -526,11 +526,6 @@ class NightlyHandler
                     $this->picto_handler->give_picto($citizen, 'r_guide_#00', $nbPicto);
                 }
             }
-
-            if (!$citizen->getProfession()->getHeroic())
-                continue;
-
-            $citizen->getUser()->setHeroDaysSpent($citizen->getUser()->getHeroDaysSpent() + 1);
         }
     }
 

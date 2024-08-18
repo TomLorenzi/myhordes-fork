@@ -77,7 +77,6 @@ class UserInfoCommand extends Command
             ->addOption('find-all-rps', null, InputOption::VALUE_REQUIRED, 'Gives all known RP to a user in the given lang')
 
             ->addOption('set-mod-level', null, InputOption::VALUE_REQUIRED, 'Sets the moderation level for a user (0 = normal user, 2 = oracle, 3 = mod, 4 = admin)')
-            ->addOption('set-hero-days', null, InputOption::VALUE_REQUIRED, 'Set the amount of hero days spent to a user (and the associated skills)')
             ->addOption('remove-avatar', null,  InputOption::VALUE_NONE,  'Removes a user avatar.')
             ->addOption('custom-awards', null,  InputOption::VALUE_NONE, 'Lists all custom award titles for a user.')
             ->addOption('add-custom-award', null,  InputOption::VALUE_REQUIRED, 'Adds a new custom award title to a user.')
@@ -290,11 +289,6 @@ class UserInfoCommand extends Command
 
                 $user->setPassword($this->pwenc->hashPassword($user, $newpw));
                 $output->writeln("New password set: <info>{$newpw}</info>");
-                $this->entityManager->persist($user);
-                $this->entityManager->flush();
-            } elseif ($heroDaysCount = $input->getOption('set-hero-days')) {
-                $user->setHeroDaysSpent($heroDaysCount);
-                $output->writeln("Hero Days updated.");
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
             } elseif ($input->getOption('remove-avatar')) {

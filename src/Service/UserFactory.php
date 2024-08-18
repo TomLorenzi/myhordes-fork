@@ -21,7 +21,9 @@ use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserPendingValidation;
+use App\Enum\HeroXPType;
 use App\Enum\ServerSetting;
+use App\Service\User\UserUnlockableService;
 use App\Structures\MyHordesConf;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -45,6 +47,7 @@ class UserFactory
     private PermissionHandler $perm;
     private MailerInterface $mailer;
     private ConfMaster $conf;
+    private UserUnlockableService $unlockService;
 
     private UserHandler $userHandler;
 
@@ -60,7 +63,7 @@ class UserFactory
 
     public function __construct( EntityManagerInterface $em, UserPasswordHasherInterface $passwordEncoder,
                                  Locksmith $l, UrlGeneratorInterface $url, Environment $e, TranslatorInterface $t,
-                                 PermissionHandler $p, MailerInterface $mailer, ConfMaster $conf, UserHandler $userHandler)
+                                 PermissionHandler $p, MailerInterface $mailer, ConfMaster $conf, UserHandler $userHandler, UserUnlockableService $unlockService)
     {
         $this->entity_manager = $em;
         $this->encoder = $passwordEncoder;
@@ -72,6 +75,7 @@ class UserFactory
         $this->mailer = $mailer;
         $this->conf = $conf;
         $this->userHandler = $userHandler;
+        $this->unlockService = $unlockService;
     }
 
     public function resetUserPassword( string $email, string $validation_key, string $password, ?int &$error ): ?User {
@@ -241,7 +245,9 @@ class UserFactory
                 );
             }
 
-            $user->setHeroDaysSpent( $user->getHeroDaysSpent() + $conf->get( MyHordesConf::CONF_STAGING_HERODAYS, 0 ) );
+            $base_hxp = $conf->get( MyHordesConf::CONF_STAGING_HERODAYS, 0 );
+            if ($base_hxp > 0)
+                $this->unlockService->setLegacyHeroDaysSpent( $user, false, $base_hxp );
 
             foreach ( $conf->get( MyHordesConf::CONF_STAGING_FEATURES, [] ) as $feature )
                 $this->entity_manager->persist(
