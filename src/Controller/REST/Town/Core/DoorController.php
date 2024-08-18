@@ -11,6 +11,7 @@ use App\Entity\HomeIntrusion;
 use App\Entity\Zone;
 use App\Enum\EventStages\BuildingValueQuery;
 use App\Response\AjaxResponse;
+use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
 use App\Service\EventProxyService;
@@ -50,7 +51,8 @@ class DoorController extends CustomAbstractCoreController
         TownHandler $townHandler,
         CitizenHandler $citizenHandler,
         LogTemplateHandler $log,
-        GameEventService $gameEvents
+        GameEventService $gameEvents,
+        InvalidateTagsInAllPoolsAction $uncache,
     ): JsonResponse {
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
@@ -117,6 +119,7 @@ class DoorController extends CustomAbstractCoreController
             $em->persist($citizen);
             $em->persist($town);
             $em->flush();
+            ($uncache)("town_{$citizen->getTown()->getId()}_zones");
         } catch (\Throwable $e) {
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
