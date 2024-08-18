@@ -37,6 +37,10 @@ class GazetteEntryTemplate
     const TypeGazetteMultiChocolateCross = 27;
     const TypeGazetteMultiRedSoul       = 28;
     const TypeGazetteDayOne             = 29;
+    const TypeGazetteShamanDeathChaos   = 30;
+    const TypeGazetteGuideDeathChaos    = 31;
+    const TypeGazetteGuideShamanDeathChaos = 32;
+
     const RequiresNothing       =  0;
     const BaseRequirementCitizen = 10;
     const RequiresOneCitizen    = 11;

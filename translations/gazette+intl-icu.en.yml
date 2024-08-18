@@ -310,3 +310,7 @@ Kätzchen: kitten
 'Das neueste Geschwätz:': 'Besides that:'
 'Unsere Späher berichten, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...': 'Our scouts report that they have spotted a mysterious stranger in the vicinity of the town...'
 '<strong>{citizen1}</strong> soll heute Morgen die Leiche von <strong>† {cadaver1}</strong> inmitten einer Baustelle gefunden haben. Laut diesem Bürger handelte es sich um einen Selbstmord.... Nur konnte <strong>{citizen1}</strong> uns das Messer, das im Rücken der Leiche steckte, nicht erklären...': '<strong>{citizen1}</strong> found <strong>† {cadaver1}</strong>''s body lying in a construction site this morning. According to them, it was suicide... Although, <strong>{citizen1}</strong> couldn''t explain the knife planted in the corpse''s back...'
+'Außerdem wäre es gut, daran zu denken, dass der Schamane der Stadt letzte Nacht gestorben ist.': 'By the way, your seer and resident mystic, the shaman died last night.'
+'Halten wir kurz inne und gedenken unserem verlorenen Schamanen. Auf Wiedersehen, nutzloser Scharlatan!': 'Spare a thought for our lost Shaman. Adieu useless charlatan!'
+'Unser geliebter Reiseleiter in der Außenwelt ist gestern verstorben.': 'Our wonderful guide went and got himself lost...'
+'Tolle Leistung gestern Abend, der Schamane und der Reiseleiter in der Außenwelt sind beide tot, daher könnte der heutige Tag etwas eintönig werden.': 'Great job last night, the shaman and the guide of the world beyond are both dead so today might get a little monotonous.'
