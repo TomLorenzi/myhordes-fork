@@ -842,7 +842,7 @@ Guiness: Winness
 'Du hast mit dem(r) {item_tool} ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.': 'You managed to open the {item_from} with the {item_tool}. You have obtained: {item_to}.'
 'Die Droge zeigt sofort Wirkung: Du bist auf einmal ganz <strong>ruhig</strong> geworden, so ausgeglichen... Die schrecklichen Ereignisse der letzten Tage erscheinen dir plötzlich bedeutungslos und ganz weit weg... Es geht dir schon viel besser.': 'The drug took effect rapidly... Everything suddenly seems calmer, more serene... Even the horrendous events of the past few days now seem unimportant... That''s better!'
 'Du hast {item} eingenommen, verspürst aber keine nennenswerte Wirkung... Vielleicht hast du das gar nicht gebraucht?': 'You take the {item}, but it seems to have no notable effect... Maybe you didn''t need it?'
-'Dir ist schwindelig und du würdest dich am liebsten übergeben... Egal was, Hauptsache <strong>du bekommst wieder einen klaren Kopf</strong>.': 'Your head is spinning, you almost want to be sick, but <strong>at least it woke you up</strong>. Now you just need to run because it''s better to be sober when blowing into it...'
+'Dir ist schwindelig und du würdest dich am liebsten übergeben... Egal was, Hauptsache <strong>du bekommst wieder einen klaren Kopf</strong>.': 'Dir ist schwindelig und du würdest dich am liebsten übergeben... Egal was, Hauptsache <strong>du bekommst wieder einen klaren Kopf</strong>, bevor du reinbläst.'
 '{citizen} befehlen etwas zu trinken.': 'Tell {citizen} to drink.'
 '{citizen} befehlen etwas zu essen.': 'Tell {citizen} to eat.'
 'Schwarzer Zervixschleim': 'Black Neck Ooze'
