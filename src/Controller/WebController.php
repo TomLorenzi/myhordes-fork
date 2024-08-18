@@ -64,7 +64,7 @@ class WebController extends CustomAbstractController
         [0, 'icon_mh_admin.gif', 'Ludovic "<i>Cheh\'Tan</i>" Le Brech'],
         [0, 'icon_mh_admin.gif', 'Adrien "<i>Adri</i>" Boitelle'],
         [0, 'icon_mh_admin.gif', 'Connor "<i>Dylan57</i>" Ottermann'],
-        [1, 'icon_mh_team.gif', 'Ryan "<i>Nayr</i>" Nayrovic'],
+        //[1, 'icon_mh_team.gif', 'Ryan "<i>Nayr</i>" Nayrovic'],
         [2, 'small_dev.png', 'Paul "<i>CountCount</i>" Bruhn'],
         [2, 'small_dev.png', 'Niklas "<i>Choreas</i>" Kosanke'],
         [2, 'small_dev.png', 'Christopher "<i>Vander</i>" Chalfant'],
@@ -75,7 +75,7 @@ class WebController extends CustomAbstractController
         'MOTZI', 'devwwm', 'alonsopor', 'Termineitron',
         'Rikrdo', 'Valedres', 'Yaken', 'Finne', 'Aeon',
         'Elara', 'MisterSimple', 'Eragony', 'Tristana', 'Bigonoud', 'Bacchus', 'unukun',
-        'Docteur'
+        'Docteur', 'Nayr'
     ];
 
     private VersionManager $version_manager;
