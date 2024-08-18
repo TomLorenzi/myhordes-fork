@@ -234,6 +234,12 @@ class NotificationManagerController extends AbstractController
         }
 
         if ($code >= 200 && $code <= 299) {
+
+            if ($em->getRepository(NotificationSubscription::class)->count([
+                'type' => $type,
+                'subscriptionHash' => $hash
+            ]) > 0) return new JsonResponse(status: Response::HTTP_CONFLICT);
+
             $em->persist( $subscription->setMaxPaddingLength($use_padding)->setSubscriptionHash( $hash )->setUser( $this->getUser() ) );
             $em->flush();
             return new JsonResponse(['subscription' => $this->renderNotifications( $subscription )]);
