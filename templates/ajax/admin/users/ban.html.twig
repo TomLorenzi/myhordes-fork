@@ -259,9 +259,7 @@
                             {% endif %}
                         </div>
                         <div class="cell padded rw-3 rw-sm-12 right">
-                            {% if open_posts > 0 and is_granted("ROLE_SUB_ADMIN") %}
-                                <button class="inline" data-fetch="{{ path('rest_admin_forum_management_purge_user_posts', {id: user.id}) }}" data-fetch-method="delete" data-fetch-load="{{ path('admin_users_ban_view', {id: user.id}) }}" data-fetch-confirm="{{ 'Bestätigen?'|trans({},'global') }}">{{ 'Alle Posts löschen' }}</button>
-                            {% endif %}
+                            <button class="inline" data-fetch="{{ path('rest_admin_forum_management_purge_user_posts', {id: user.id}) }}" data-fetch-method="delete" data-fetch-load="{{ path('admin_users_ban_view', {id: user.id}) }}" data-fetch-confirm="{{ 'Bestätigen?'|trans({},'global') }}">{{ 'Alle Posts löschen' }}</button>
                         </div>
                     </div>
                 </div>
