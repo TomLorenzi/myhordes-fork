@@ -401,7 +401,7 @@ class HTMLService {
                 } );
 
                 if (!$valid) {
-                    $d->nodeValue = 'NOVALID ???';
+                    $d->nodeValue = '???';
                     return;
                 }
 
