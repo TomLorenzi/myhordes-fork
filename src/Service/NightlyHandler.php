@@ -604,9 +604,11 @@ class NightlyHandler
 			$attackPlayer = ($town->getWell() > 0 ? 66 : 100);
 			if (mt_rand(0, 100) < $attackPlayer) {
 				$d = min($town->getWell(), 20);
-				$town->setWell(max(0, $town->getWell() - $d));
-				$this->log->debug("The corpse of citizen <info>{$corpse->getUser()->getUsername()}</info> removes <info>{$d} water rations</info> from the well.");
-				$this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackWell( $corpse, $d ) );
+                if ($d > 0) {
+                    $town->setWell(max(0, $town->getWell() - $d));
+                    $this->log->debug("The corpse of citizen <info>{$corpse->getUser()->getUsername()}</info> removes <info>{$d} water rations</info> from the well.");
+                    $this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackWell( $corpse, $d ) );
+                }
 			} else {
 				// No victim left, lucky them!
 				if (count($targets) === 0) continue;
