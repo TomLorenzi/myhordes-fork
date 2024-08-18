@@ -842,7 +842,7 @@ Guiness: Winness
 'Du hast mit dem(r) {item_tool} ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.': 'Abriste {item_from} gracias a la herramienta {item_tool} y ganas: {item_to}.'
 'Die Droge zeigt sofort Wirkung: Du bist auf einmal ganz <strong>ruhig</strong> geworden, so ausgeglichen... Die schrecklichen Ereignisse der letzten Tage erscheinen dir plötzlich bedeutungslos und ganz weit weg... Es geht dir schon viel besser.': 'La sustancia hace efecto rápidamente... De pronto todo te parece más <strong>sereno</strong>... Hasta los atroces hechos que presenciaste parecen sin importancia... Te sientes mejor.'
 'Du hast {item} eingenommen, verspürst aber keine nennenswerte Wirkung... Vielleicht hast du das gar nicht gebraucht?': 'Estás usando {item}, pero no parece estar haciendo ningún efecto. ¿Será que no era necesario?'
-'Dir ist schwindelig und du würdest dich am liebsten übergeben... Egal was, Hauptsache <strong>du bekommst wieder einen klaren Kopf</strong>.': 'Dir ist schwindelig und du würdest dich am liebsten übergeben... Egal was, Hauptsache <strong>du bekommst wieder einen klaren Kopf</strong>, bevor du reinbläst.'
+'Dir ist schwindelig und du würdest dich am liebsten übergeben... Egal was, Hauptsache <strong>du bekommst wieder einen klaren Kopf</strong>.': 'Tienes la cabeza que da vueltas, no ves más que destellos a tu alrededor, pero al menos <strong>eso te ha despertado</strong>. Todo lo que tienes que hacer es correr porque es mejor estar sobrio antes de explotar...'
 '{citizen} befehlen etwas zu trinken.': 'Pedirle a {citizen} que beba.'
 '{citizen} befehlen etwas zu essen.': 'Pedirle a {citizen} que coma.'
 'Schwarzer Zervixschleim': 'Moco de cuello negro'
