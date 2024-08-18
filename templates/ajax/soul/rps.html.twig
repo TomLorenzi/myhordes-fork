@@ -7,10 +7,10 @@
             {{ 'Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...'|trans({}, 'soul') }}
         </div>
         <div class="cell rw-8 center">
-            <h5><span id="sort_by_title">{{ 'Titel'|trans({}, 'soul') }}</span><span id="title_sort_indicator">⬍</span></h5>
+            <h5><span id="sort_by_title" class="pointer">{{ 'Titel'|trans({}, 'soul') }}</span><span id="title_sort_indicator">⬍</span></h5>
         </div>
         <div class="cell rw-4 center">
-            <h5><span id="sort_by_date">{{ 'Entdeckt'|trans({}, 'soul') }}</span><span id="date_sort_indicator">⬍</span></h5>
+            <h5><span id="sort_by_date" class="pointer">{{ 'Entdeckt'|trans({}, 'soul') }}</span><span id="date_sort_indicator">⬍</span></h5>
         </div>
     </div>
     <div class="row rp-list">
@@ -19,6 +19,7 @@
             <div class="cell padded rw-8 rp-text">
                 <span class="title">{{rp.text.title}}</span><br /><em>« {{rp.text.pages[0].content|striptags|slice(0,49)}}{% if rp.text.pages[0].content|striptags|length > 49 %}[...]{% endif %} »</em></div>
             <div class="cell padded rw-4 author datefound">{{rp.datefound|date('d/m/Y H:i')}}</div>
+            <div class="hidden">{{ rp.datefound.timestamp }}</div>
         </div>
         {% endfor %}
         <div class="cell padded rw-12 center small totalcount">{{'Gefundene Texte: {count}'|trans({'{count}': rps|length}, "soul")}}</div>
@@ -42,13 +43,13 @@
         function updateSortIndicators() {
             if (currentSortCriteria === 'title') {
                 titleSortIndicator.innerHTML = sortOrder.title === 'asc' ? '▲' : '▼';
-                dateSortIndicator.innerHTML = '⬍';
+                dateSortIndicator.innerHTML = '';
             } else if (currentSortCriteria === 'date') {
                 dateSortIndicator.innerHTML = sortOrder.date === 'asc' ? '▲' : '▼';
-                titleSortIndicator.innerHTML = '⬍';
+                titleSortIndicator.innerHTML = '';
             } else {
-                titleSortIndicator.innerHTML = '⬍';
-                dateSortIndicator.innerHTML = '⬍';
+                titleSortIndicator.innerHTML = '';
+                dateSortIndicator.innerHTML = '';
             }
         }
 
@@ -60,10 +61,11 @@
                     const titleB = b.querySelector('.title').innerText.trim().toLowerCase();
                     comparison = titleA.localeCompare(titleB);
                 } else if (criteria === 'date') {
-                    const dateA = new Date(a.querySelector('.author').innerText.trim());
-                    const dateB = new Date(b.querySelector('.author').innerText.trim());
+                    const dateA = parseInt(a.querySelector('.hidden').innerText.trim());
+                    const dateB = parseInt(b.querySelector('.hidden').innerText.trim());
                     comparison = dateA - dateB;
                 }
+
                 return order === 'asc' ? comparison : -comparison;
             });
         }
