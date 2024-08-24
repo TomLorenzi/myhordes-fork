@@ -143,6 +143,7 @@ class MigrateCommand extends Command
 		'348648aa18ba42e3ede0b5330275176cec60a27d' => [ ['app:migrate', ['--shuffle-zone-soul-offset' => true] ] ],
 		'7721bb3d28475c7c4fc6e474b579762c06fc4e8e' => [ ['app:migrate', ['--set-snippet-role' => true] ] ],
 		'62c2ac4ae51d51a24f59eb08726258c0e2ab572e' => [ ['app:migrate', ['--fix-top3' => true] ] ],
+		'd506ca974ffcd2b748e13bf9ebff01a7b22c6cd6' => [ ['app:user:migrate:herodays', [] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
