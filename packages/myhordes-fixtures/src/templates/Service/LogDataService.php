@@ -253,5 +253,9 @@ class LogDataService implements FixtureProcessorInterface {
             ['text'=>'{player} ist der Stadt "{town}" beigetreten. Dort ist noch Platz für dich, du könntest ihm also folgen...', 'name'=>'gpm_friend_enters_town', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"user",'name'=>'player'],['type'=>"string",'name'=>'town'])],
             ['text'=>'{player} sind der Stadt "{town}" beigetreten. Dort ist noch Platz für dich, du könntest ihnen also folgen...', 'name'=>'gpm_friends_enter_town', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"users",'name'=>'player'],['type'=>"string",'name'=>'town'])],
         ]);
+
+        $data = array_merge_recursive($data, [
+            ['text'=>'{days} Tage überlebt in "{town}"', 'name'=>'hxp_survived_days_base', 'type'=>LogEntryTemplate::TypeHXPLog, 'class' => LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"string",'name'=>'town'],['type'=>"num",'name'=>'days'])],
+        ]);
     }
 }

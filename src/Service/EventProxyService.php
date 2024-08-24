@@ -42,6 +42,9 @@ use App\Event\Common\Social\ContentReportEvents\PostContentReportEvent;
 use App\Event\Common\Social\ContentReportEvents\PrivateMessageContentReportEvent;
 use App\Event\Common\Social\ContentReportEvents\UserContentReportEvent;
 use App\Event\Common\Social\FriendEvent;
+use App\Event\Common\User\DeathConfirmedEvent;
+use App\Event\Common\User\DeathConfirmedPostPersistEvent;
+use App\Event\Common\User\DeathConfirmedPrePersistEvent;
 use App\Event\Common\User\PictoPersistedEvent;
 use App\Event\Game\Actions\CustomActionProcessorEvent;
 use App\Event\Game\Citizen\CitizenPostDeathEvent;
@@ -259,6 +262,12 @@ class EventProxyService
 
     public function pictosPersisted( User $user, ?Season $season = null, ?bool $old = null, ?bool $imported = null ): void {
         $this->ed->dispatch( (new PictoPersistedEvent())->setup( $user, $season, $old, $imported ) );
+    }
+
+    public function deathConfirmed( CitizenRankingProxy $death, string &$lastWords, bool $prePersist ): void {
+        $event = ($prePersist ? new DeathConfirmedPrePersistEvent() : new DeathConfirmedPostPersistEvent())->setup( $death->getUser(), $death, $lastWords );
+        $this->ed->dispatch( $event );
+        $lastWords = $event->lastWords;
     }
 
     /**

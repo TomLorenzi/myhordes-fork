@@ -28,6 +28,7 @@ class LogEntryTemplate
     const TypeCatapult        = 16;
     const TypeWellFill        = 17;
     const TypeGPMNotification = 100;
+    const TypeHXPLog = 200;
     const ClassNone                 = 0;
     const ClassWarning              = 1;
     const ClassCritical             = 2;

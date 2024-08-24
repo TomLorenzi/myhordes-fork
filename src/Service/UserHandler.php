@@ -51,7 +51,6 @@ class UserHandler
         private readonly EntityManagerInterface $entity_manager,
         private readonly ContainerInterface $container,
         private readonly ConfMaster $conf,
-        private readonly DoctrineCacheService $doctrineCache,
         private readonly InvalidateTagsInAllPoolsAction $clearCache,
         private readonly UserCapabilityService $capability,
         private readonly EventProxyService $proxy,
@@ -518,56 +517,13 @@ class UserHandler
             return false;
 
         $lastWords = $this->isRestricted( $user, AccountRestriction::RestrictionComments ) ? '' : $lastWords;
-
-        if ($nextDeath->getCod()->getRef() != CauseOfDeath::Poison && $nextDeath->getCod()->getRef() != CauseOfDeath::GhulEaten)
-            $last_words = str_replace(['{','}'], ['(',')'], $lastWords);
-        else $last_words = '{gotKilled}';
-
-        if ($nextDeath->getGenerosityBonus() > 0 && !$nextDeath->getDisabled() && !$nextDeath->getTown()->getDisabled()) {
-
-            $generosity = $this->doctrineCache->getEntityByIdentifier(FeatureUnlockPrototype::class, 'f_share');
-            /** @var FeatureUnlock $instance */
-            $instance = $this->entity_manager->getRepository(FeatureUnlock::class)->findBy([
-                'user' => $user, 'expirationMode' => FeatureUnlock::FeatureExpirationTownCount,
-                'prototype' =>$this->doctrineCache->getEntityByIdentifier(FeatureUnlockPrototype::class, 'f_share')
-            ])[0] ?? null;
-            if (!$instance) $instance = (new FeatureUnlock())->setPrototype( $generosity )->setUser( $user )
-                ->setExpirationMode( FeatureUnlock::FeatureExpirationTownCount )->setTownCount($nextDeath->getGenerosityBonus());
-            else $instance->setTownCount( $instance->getTownCount() + $nextDeath->getGenerosityBonus() );
-
-            $this->entity_manager->persist( $instance );
-        }
-
-        // Here, we delete picto with persisted = 0,
-        // and definitively validate picto with persisted = 1
-        /** @var Picto[] $pendingPictosOfUser */
-        $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUserAndTown($user, $nextDeath->getTown());
-        foreach ($pendingPictosOfUser as $pendingPicto) {
-            if($pendingPicto->getPersisted() == 0)
-                $this->entity_manager->remove($pendingPicto);
-            else {
-                $pendingPicto
-                    ->setPersisted(2)
-                    ->setDisabled( $nextDeath->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $nextDeath->getTown()->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS) );
-                $this->entity_manager->persist($pendingPicto);
-            }
-        }
-        if ($active = $nextDeath->getCitizen()) {
-            $active->setActive(false);
-            $active->setLastWords( $last_words);
-            $nextDeath = CitizenRankingProxy::fromCitizen( $active, true );
-            $this->entity_manager->persist( $active );
-        }
-
-        $nextDeath->setConfirmed(true)->setLastWords( $last_words );
+        $this->proxy->deathConfirmed( $nextDeath, $lastWords, true );
 
         $this->entity_manager->persist( $nextDeath );
         $this->entity_manager->flush();
 
-        $this->proxy->pictosPersisted( $user, $nextDeath->getTown()->getSeason() );
+        $this->proxy->deathConfirmed( $nextDeath, $lastWords, false );
 
-        // Update soul points
-        $user->setSoulPoints( $this->fetchSoulPoints( $user, false ) );
         $this->entity_manager->persist($user);
         $this->entity_manager->flush();
 
