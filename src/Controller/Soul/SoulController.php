@@ -402,6 +402,7 @@ class SoulController extends CustomAbstractController
         $progress = $nextSkill !== null ? ($xp - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 0;
 
         return $this->render( 'ajax/soul/heroskills.html.twig', $this->addDefaultTwigArgs("soul_me", [
+            'days' => $xp,
             'latestSkill' => $latestSkill,
             'nextSkill' => $nextSkill,
             'progress' => floor($progress),

@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="cell padded rw-4 ro-4 heroProgress">
-            {{'Du hast bisher:'|trans({}, 'game')}} <strong>{{"{days} Tage"|trans({'{days}': app.user.allHeroDaysSpent}, "game")}}</strong>{{'im Heldenmodus gespielt'|trans({}, 'game')}}
+            {{'Du hast bisher:'|trans({}, 'game')}} <strong>{{"{days} Tage"|trans({'{days}': days}, "game")}}</strong>{{'im Heldenmodus gespielt'|trans({}, 'game')}}
         </div>
     </div>
     <div class="skills-history">
@@ -31,7 +31,7 @@
             {% for heroSkill in skills %}
             <div class="row skillRow {% if heroSkill == latestSkill %}currentSkill{% endif %}">
                 <div class="cell padded rw-4 center skill">
-                    {% if heroSkill.daysNeeded <= app.user.allHeroDaysSpent %}
+                    {% if heroSkill.daysNeeded <= days %}
                         <img alt="" src="{{ asset('build/images/heroskill/'~heroSkill.icon~".gif") }}" /> <strong>{{heroSkill.title|trans({}, 'game')}}</strong>
                     {% elseif heroSkill == nextSkill %}
                         <span class="small">{{'Nächste:'|trans({}, 'game')}}<br /><strong>{{heroSkill.title|trans({}, 'game')}}</strong></span>
@@ -40,7 +40,7 @@
                     {% endif %}
                 </div>
                 <div class="cell padded rw-8 desc">
-                    {% if heroSkill.daysNeeded <= app.user.allHeroDaysSpent %}
+                    {% if heroSkill.daysNeeded <= days %}
                         <span>{{heroSkill.description|trans({}, 'game')}}</span>
                     {% else %}
                         <span class="small">{{'Diese Fähigkeit wurde noch nicht freigeschaltet...'|trans({}, 'game')}}</span>

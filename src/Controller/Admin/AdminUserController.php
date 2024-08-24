@@ -262,7 +262,7 @@ class AdminUserController extends AdminActionController
      * @return Response
      */
     #[Route(path: 'jx/admin/users/{id}/account/view', name: 'admin_users_account_view', requirements: ['id' => '\d+'])]
-    public function users_account_view(int $id, HTMLService $html): Response
+    public function users_account_view(int $id, HTMLService $html, UserUnlockableService $unlockable): Response
     {
         /** @var User $user */
         $user = $this->entity_manager->getRepository(User::class)->find($id);
@@ -282,7 +282,13 @@ class AdminUserController extends AdminActionController
             'spon'          => $this->entity_manager->getRepository(UserSponsorship::class)->findOneBy(['user' => $user]),
             'spon_active'   => array_filter( $all_sponsored, fn(UserSponsorship $s) => !$this->user_handler->hasRole($s->getUser(), 'ROLE_DUMMY') &&  $s->getUser()->getValidated() ),
             'spon_inactive' => array_filter( $all_sponsored, fn(UserSponsorship $s) =>  $this->user_handler->hasRole($s->getUser(), 'ROLE_DUMMY') || !$s->getUser()->getValidated() ),
-            'swap_pivots' => $this->entity_manager->getRepository(UserSwapPivot::class)->findBy(['principal' => $user])
+            'swap_pivots' => $this->entity_manager->getRepository(UserSwapPivot::class)->findBy(['principal' => $user]),
+            'xp' => [
+                'season' => $unlockable->getHeroicExperience( $user ),
+                'total' => $unlockable->getHeroicExperience( $user, null ),
+                'legacy_mh' => $unlockable->getLegacyHeroDaysSpent( $user, false ),
+                'legacy_twin' => $unlockable->getLegacyHeroDaysSpent( $user, true ),
+            ]
         ]));
     }
 

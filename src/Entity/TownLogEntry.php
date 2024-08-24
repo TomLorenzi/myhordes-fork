@@ -32,7 +32,7 @@ class TownLogEntry
     #[ORM\ManyToOne(targetEntity: LogEntryTemplate::class)]
     #[ORM\JoinColumn(nullable: true, onDelete: 'CASCADE')]
     private ?LogEntryTemplate $logEntryTemplate;
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(type: 'array', nullable: true)]
     private ?array $variables = null;
     #[ORM\Column(type: 'boolean')]
     private bool $adminOnly = false;

@@ -47,7 +47,8 @@ class UserUnlockableService implements ServiceSubscriberInterface
      * @return QueryBuilder
      */
     private function generateDefaultQuery(User $user): QueryBuilder {
-        return $this->getService(EntityManagerInterface::class)->createQueryBuilder('x')
+        return $this->getService(EntityManagerInterface::class)->createQueryBuilder()
+            ->from(HeroExperienceEntry::class, 'x')
             // Join ranking proxies so we can observe their DISABLED state
             ->leftJoin(TownRankingProxy::class, 't', 'WITH', 'x.town = t.id')
             ->leftJoin(CitizenRankingProxy::class, 'c', 'WITH', 'x.citizen = c.id')
@@ -67,7 +68,7 @@ class UserUnlockableService implements ServiceSubscriberInterface
      * @param string|null $subject Restrict to specific subject in addition to season
      * @return int
      */
-    public function getHeroicExperience(User $user, Season|bool|null $season = true, ?string $subject = null): int {
+    public function getHeroicExperience(User $user, Season|bool|null $season = true, ?string $subject = null, bool $include_legacy = false): int {
 
         $season = $season === true
             ? $this->getService(EntityManagerInterface::class)->getRepository(Season::class)->findOneBy(['current' => true])
@@ -80,13 +81,17 @@ class UserUnlockableService implements ServiceSubscriberInterface
         };
 
         if ($subject !== null) $key .= "_$subject";
+        if ($include_legacy) $key .= "_lgc";
 
         try {
-            return $this->gameCachePool->get($key, function (ItemInterface $item) use ($user, $season, $subject) {
+            return $this->gameCachePool->get($key, function (ItemInterface $item) use ($user, $season, $subject, $include_legacy) {
                 $item->expiresAfter(86400)->tag(["user-{$user->getId()}-hxp",'hxp']);
 
                 $qb = $this->generateDefaultQuery($user)
                     ->select('SUM(x.value)');
+
+                if (!$include_legacy)
+                    $qb->andWhere('x.type != :legacy')->setParameter('legacy', HeroXPType::Legacy);
 
                 if ($season === false)
                     $qb->andWhere('x.season IS NULL');
@@ -114,8 +119,8 @@ class UserUnlockableService implements ServiceSubscriberInterface
      */
     public function getLegacyHeroDaysSpent(User $user, ?bool $imported = null): int {
         return match ($imported) {
-            true => $this->getHeroicExperience( $user, false, 'legacy_heroDays_imported' ),
-            false => $this->getHeroicExperience( $user, false, 'legacy_heroDays' ) + $this->getHeroicExperience( $user, false, 'legacy_heroDays_bonus' ),
+            true => $this->getHeroicExperience( $user, false, 'legacy_heroDays_imported', include_legacy: true ),
+            false => $this->getHeroicExperience( $user, false, 'legacy_heroDays', include_legacy: true ) + $this->getHeroicExperience( $user, false, 'legacy_heroDays_bonus', include_legacy: true ),
             null => $this->getLegacyHeroDaysSpent($user, true) + $this->getLegacyHeroDaysSpent($user, false)
         };
     }
@@ -124,9 +129,10 @@ class UserUnlockableService implements ServiceSubscriberInterface
      * Helper function to set legacy hero xp (hero days spent). Will create a new entry or update an existing one
      * @param User $user User
      * @param bool|null $imported True to set imported hero days, false for MH hero days and null for bonus hero days
+     * @param bool $cumulative If set to true, the given points will be added to the current ones instead of replacing them
      * @throws \Exception
      */
-    public function setLegacyHeroDaysSpent(User $user, bool|null $imported, int $value): void {
+    public function setLegacyHeroDaysSpent(User $user, bool|null $imported, int $value, bool $cumulative = false): void {
         $subject = match ($imported) {
             true => 'legacy_heroDays_imported',
             false => 'legacy_heroDays',
@@ -134,8 +140,8 @@ class UserUnlockableService implements ServiceSubscriberInterface
         };
 
         $existing = $this->getService(EntityManagerInterface::class)->getRepository(HeroExperienceEntry::class)
-            ->findOneBy(['subject' => $subject]);
-        if ($existing) $this->getService(EntityManagerInterface::class)->persist($existing->setValue( $value ));
+            ->findOneBy(['user' => $user, 'subject' => $subject]);
+        if ($existing) $this->getService(EntityManagerInterface::class)->persist($existing->setValue($cumulative ? ($value + $existing->getValue()) : $value ));
         else $this->recordHeroicExperience( $user, HeroXPType::Legacy, $value, subject: $subject );
 
         ($this->getService(InvalidateTagsInAllPoolsAction::class))("user-{$user->getId()}-hxp");

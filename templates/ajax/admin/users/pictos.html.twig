@@ -19,22 +19,18 @@
                     </ul>
                     <div x-tab-group="picto-listing" x-tab-id="native" x-tab-target>
                         {{ "Seelenpunkte:"|trans({}, 'admin') }} {{ user.allSoulPoints }}<br />
-                        {{ "Heldentage:"|trans({}, 'admin') }} {{ user.allHeroDaysSpent }}<br />
                         <hordes-distinctions data-plain="0" data-source="soul" data-user="{{ user.id }}"></hordes-distinctions>
                     </div>
                     <div x-tab-group="picto-listing" x-tab-id="cumulative" x-tab-target>
                         {{ "Seelenpunkte:"|trans({}, 'admin') }} {{ user.allSoulPoints }}<br />
-                        {{ "Heldentage:"|trans({}, 'admin') }} {{ user.allHeroDaysSpent }}<br />
                         <hordes-distinctions data-plain="1" data-source="all" data-user="{{ user.id }}"></hordes-distinctions>
                     </div>
                     <div x-tab-group="picto-listing" x-tab-id="mh" x-tab-target>
                         {{ "Seelenpunkte:"|trans({}, 'admin') }} {{ user.soulPoints }}<br />
-                        {{ "Heldentage:"|trans({}, 'admin') }} {{ user.heroDaysSpent }}<br />
                         <hordes-distinctions data-plain="1" data-source="mh" data-user="{{ user.id }}"></hordes-distinctions>
                     </div>
                     <div x-tab-group="picto-listing" x-tab-id="import" x-tab-target>
                         {{ "Seelenpunkte:"|trans({}, 'admin') }} {{ user.importedSoulPoints }}<br />
-                        {{ "Heldentage:"|trans({}, 'admin') }} {{ user.importedHeroDaysSpent }}<br />
                         <hordes-distinctions data-plain="1" data-source="imported" data-user="{{ user.id }}"></hordes-distinctions>
                     </div>
                     <div x-tab-group="picto-listing" x-tab-id="old" x-tab-target>

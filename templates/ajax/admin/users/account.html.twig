@@ -186,14 +186,14 @@
                         </div>
 
                         <div class="cell padded rw-3 rw-sm-12 note note-lightest">
-                            <label>{{ 'Heldentage'|trans({}, 'admin') }}</label>
+                            <label>{{ 'Heldenerfahrung'|trans({}, 'admin') }}</label>
                         </div>
                         <div class="cell padded rw-3 rw-sm-12">
-                            {{ user.allHeroDaysSpent }}
+                            {{ xp.season }}
                             <div class="small">
-                                MH: {{ user.heroDaysSpent }} + {{ user.importedHeroDaysSpent }}
-                                {% if user.bonusHeroDaysSpent > 0 %} + BONUS: {{ user.bonusHeroDaysSpent }}
-                                {% elseif user.bonusHeroDaysSpent < 0 %} - MALUS: {{ -user.bonusHeroDaysSpent }}{% endif %}
+                                Total: {{ xp.total }}<br/>
+                                Legacy MH: {{ xp.legacy_mh }}<br/>
+                                Legacy Twin: {{ xp.legacy_twin }}<br/>
                             </div>
                         </div>
                     </div>
