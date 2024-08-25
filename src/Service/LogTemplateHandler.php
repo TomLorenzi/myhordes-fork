@@ -79,6 +79,7 @@ class LogTemplateHandler
         if ($obj instanceof CitizenProfession)    return "<img alt='' src='{$this->asset->getUrl( "build/images/professions/{$obj->getIcon()}.gif" )}' /> {$this->trans->trans($obj->getLabel(), ['ref' => $ref], 'game')}";
         if ($obj instanceof CitizenHomePrototype) return "<img alt='' src='{$this->asset->getUrl( "build/images/home/{$obj->getIcon()}.gif" )}' /> {$this->trans->trans($obj->getLabel(), [], 'buildings')}";
         if ($obj instanceof CauseOfDeath)         return $this->trans->trans($obj->getLabel(), [], 'game');
+        if ($obj instanceof PictoPrototype)       return "<img alt='' src='{$this->asset->getUrl( "build/images/pictos/{$obj->getIcon()}.gif" )}' /> {$this->trans->trans($obj->getLabel(), [], 'game')}";
         return "";
     }
 
@@ -107,6 +108,9 @@ class LogTemplateHandler
                 break;
             case 'cod':
                 $object = $this->entity_manager->getRepository(CauseOfDeath::class)->find($key);
+                break;
+            case 'picto':
+                $object = $this->entity_manager->getRepository(PictoPrototype::class)->find($key);
                 break;
         }
         return $object;
@@ -252,6 +256,9 @@ class LogTemplateHandler
                     $transParams['{'.$typeEntry['name'].'}'] = htmlentities($this->html->prepareEmotes( $variables[$typeEntry['name']] ));
                 }
                 elseif ($typeEntry['type'] === 'item') {
+                    $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), false, $variables['broken'] ?? false ), 'tool' );
+                }
+                elseif ($typeEntry['type'] === 'picto') {
                     $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), false, $variables['broken'] ?? false ), 'tool' );
                 }
                 elseif ($typeEntry['type'] === 'link_post') {

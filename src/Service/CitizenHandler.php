@@ -27,6 +27,7 @@ use App\Entity\Zone;
 use App\Enum\ActionHandler\PointType;
 use App\Enum\Configuration\CitizenProperties;
 use App\Enum\EventStages\CitizenValueQuery;
+use App\Enum\Game\CitizenPersistentCache;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use DateTime;
@@ -598,6 +599,7 @@ class CitizenHandler
         $item_type_cache = [];
 
         if ($citizen->getProfession() === $profession) return;
+        $citizen->registerPropInPersistentCache( CitizenPersistentCache::Profession, $profession->getId() );
 
         if ($citizen->getProfession()) {
             foreach ($citizen->getProfession()->getProfessionItems() as $pi)

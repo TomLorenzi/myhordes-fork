@@ -2,7 +2,9 @@
 
 namespace App\Entity;
 
+use App\Enum\Game\CitizenPersistentCache;
 use App\Repository\CitizenRankingProxyRepository;
+use ArrayHelpers\Arr;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
@@ -74,6 +76,9 @@ class CitizenRankingProxy
 
     #[ORM\Column]
     private ?int $generosityBonus = 0;
+
+    #[ORM\Column(nullable: true)]
+    private ?array $data = null;
     public function getId(): ?int
     {
         return $this->id;
@@ -388,6 +393,31 @@ class CitizenRankingProxy
     {
         $this->generosityBonus = max(0, $generosityBonus);
 
+        return $this;
+    }
+
+    public function getData(): ?array
+    {
+        return $this->data;
+    }
+
+    public function setData(?array $data): static
+    {
+        $this->data = $data;
+
+        return $this;
+    }
+
+    public function getProperty(CitizenPersistentCache|string $cache): int {
+        return Arr::get( $this->getData() ?? [], is_string($cache) ? $cache : $cache->value, 0 );
+    }
+
+    public function registerProperty(CitizenPersistentCache|string $cache, int $value = 1): static {
+        $data = $this->getData() ?? [];
+        $accumulate = is_string( $cache ) ? str_ends_with( $cache, '_count' ) : $cache->isAccumulative();
+        if ($accumulate)
+            Arr::set( $data, is_string($cache) ? $cache : $cache->value, $this->getProperty( $cache ) + $value );
+        else Arr::set( $data, is_string($cache) ? $cache : $cache->value, $value );
         return $this;
     }
 }

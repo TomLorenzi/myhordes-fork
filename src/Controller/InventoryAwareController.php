@@ -30,6 +30,7 @@ use App\Entity\RuinZone;
 use App\Entity\SpecialActionPrototype;
 use App\Enum\AdminReportSpecification;
 use App\Enum\Configuration\CitizenProperties;
+use App\Enum\Game\CitizenPersistentCache;
 use App\Enum\Game\TransferItemModality;
 use App\Enum\Game\TransferItemOption;
 use App\Event\Game\Items\TransferItemEvent;
@@ -475,7 +476,9 @@ class InventoryAwareController extends CustomAbstractController
             $this->picto_handler->give_picto($aggressor, 'r_cannib_#00');
             $this->citizen_handler->removeStatus($aggressor, 'tg_air_ghoul');
             if ($this->getTownConf()->get(TownConf::CONF_FEATURE_GIVE_ALL_PICTOS, true))
-                $aggressor->giveGenerosityBonus( $this->getTownConf()->get( TownConf::CONF_MODIFIER_GENEROSITY_GHOUL, 1 ) );
+                $aggressor
+                    ->giveGenerosityBonus( $this->getTownConf()->get( TownConf::CONF_MODIFIER_GENEROSITY_GHOUL, 1 ) )
+                    ->registerPropInPersistentCache( CitizenPersistentCache::Ghoul_Aggression );
 
             $stat_down = false;
             if (!$this->citizen_handler->hasStatusEffect($aggressor, 'drugged') && $this->citizen_handler->hasStatusEffect($victim, 'drugged')) {

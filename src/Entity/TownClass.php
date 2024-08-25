@@ -61,6 +61,10 @@ class TownClass implements NamedEntity
     {
         return $this->name;
     }
+    public function is(string $name): bool {
+        return $this->name === $name;
+    }
+
     public function setName(string $name): self
     {
         $this->name = $name;

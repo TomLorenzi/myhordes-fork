@@ -32,6 +32,7 @@ use Symfony\Contracts\Service\ServiceSubscriberInterface;
 #[AsEventListener(event: DeathConfirmedPrePersistEvent::class, method: 'persistDeath', priority: -300)]
 #[AsEventListener(event: DeathConfirmedPostPersistEvent::class, method: 'dispatchPictoUpdateEvent', priority: 0)]
 #[AsEventListener(event: DeathConfirmedPostPersistEvent::class, method: 'dispatchSoulPointUpdateEvent', priority: -100)]
+#[AsEventListener(event: DeathConfirmedPostPersistEvent::class, method: 'cleanPersistentProperties', priority: -1000)]
 final class DeathConfirmationEventListener implements ServiceSubscriberInterface
 {
     use ContainerTypeTrait;
@@ -98,12 +99,8 @@ final class DeathConfirmationEventListener implements ServiceSubscriberInterface
 
     public function awardHxp(DeathConfirmedEvent $event): void {
         if ($event->death->getDay() <= 0) return;
-        $template = $this->getService(EntityManagerInterface::class)
-            ->getRepository(LogEntryTemplate::class)
-            ->findOneBy(['name' => 'hxp_survived_days_base']);
-
         $this->getService(UserUnlockableService::class)
-            ->recordHeroicExperience($event->user, HeroXPType::Global, $event->death->getDay(), $template, null, [
+            ->recordHeroicExperience($event->user, HeroXPType::Global, $event->death->getDay(), 'hxp_survived_days_base', null, [
                 'town' => $event->death->getTown()->getName(),
                 'days' => $event->death->getDay()
             ], $event->death->getTown(), $event->death, $event->death->getTown()->getSeason());
@@ -143,5 +140,9 @@ final class DeathConfirmationEventListener implements ServiceSubscriberInterface
     public function dispatchSoulPointUpdateEvent(DeathConfirmedEvent $event): void {
         // Update soul points
         $event->user->setSoulPoints( $this->getService(UserHandler::class)->fetchSoulPoints( $event->user, false ) );
+    }
+
+    public function cleanPersistentProperties(DeathConfirmedEvent $event): void {
+        $event->death->setData(null);
     }
 }

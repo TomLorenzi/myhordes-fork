@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Enum\ActionHandler\PointType;
+use App\Enum\Game\CitizenPersistentCache;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -1102,6 +1103,15 @@ class Citizen
     public function giveGenerosityBonus(int $number): self {
         $this->getRankingEntry()->setGenerosityBonus( $this->getRankingEntry()->getGenerosityBonus() + $number );
         return $this;
+    }
+
+    public function registerPropInPersistentCache(CitizenPersistentCache|string $cache, int $value = 1): self {
+        $this->getRankingEntry()?->registerProperty( $cache, $value );
+        return $this;
+    }
+
+    public function getPropFromPersistentCache(CitizenPersistentCache|string $cache): int {
+        return $this->getRankingEntry()?->getProperty( $cache ) ?? 0;
     }
 
     public function getPoints(PointType $t): int {
