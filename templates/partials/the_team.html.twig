@@ -1,20 +1,26 @@
 <div>
-    <strong>{{ 'Aktuelles Team'|trans({}, 'global') }}</strong>
-    <div class="content">
-        {% for dev in devs|filter(a => a[0] == 0) %}
-            <div title="{{ dev[3]|trans({},'global') }}"><img alt="" src="{{ asset('build/images/icons/' ~ dev[1]) }}" /> {{ dev[2]|raw }}</div>
-        {% endfor %}
-    </div>
-    <strong>{{ 'Unterstützung'|trans({}, 'global') }}</strong>
-    <div class="content">
-        {% for dev in devs|filter(a => a[0] == 1) %}
-            <div title="{{ dev[3]|trans({},'global') }}"><img alt="" src="{{ asset('build/images/icons/' ~ dev[1]) }}" /> {{ dev[2]|raw }}</div>
-        {% endfor %}
-    </div>
-    <strong>{{ 'Inaktive'|trans({}, 'global') }}</strong>
-    <div class="content">
-        {% for dev in devs|filter(a => a[0] == 2) %}
-            <div title="{{ dev[3]|trans({},'global') }}"><img alt="" src="{{ asset('build/images/icons/' ~ dev[1]) }}" /> {{ dev[2]|raw }}</div>
-        {% endfor %}
-    </div>
+    {% if devs|filter(a => a[0] == 0) is not empty %}
+        <strong>{{ 'Aktuelles Team'|trans({}, 'global') }}</strong>
+        <div class="content">
+            {% for dev in devs|filter(a => a[0] == 0) %}
+                <div title="{{ dev[3]|trans({},'global') }}"><img alt="" src="{{ asset('build/images/icons/' ~ dev[1]) }}" /> {{ dev[2]|raw }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if devs|filter(a => a[0] == 1) is not empty %}
+        <strong>{{ 'Unterstützung'|trans({}, 'global') }}</strong>
+        <div class="content">
+            {% for dev in devs|filter(a => a[0] == 1) %}
+                <div title="{{ dev[3]|trans({},'global') }}"><img alt="" src="{{ asset('build/images/icons/' ~ dev[1]) }}" /> {{ dev[2]|raw }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if devs|filter(a => a[0] == 2) is not empty %}
+        <strong>{{ 'Inaktive'|trans({}, 'global') }}</strong>
+        <div class="content">
+            {% for dev in devs|filter(a => a[0] == 2) %}
+                <div title="{{ dev[3]|trans({},'global') }}"><img alt="" src="{{ asset('build/images/icons/' ~ dev[1]) }}" /> {{ dev[2]|raw }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
 </div>

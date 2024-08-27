@@ -152,14 +152,11 @@ class GazetteService
         $arg1 = intval(floor(($base-$class*100) / 10));
         $arg2 = intval($base-$class*100-$arg1*10);
 
-        switch ($class) {
-            case 1:case 2:case 3:case 5:
-                return [ $class * 10, $arg1 ];
-            case 4:case 6:
-                return [ $class*10 + $arg1, $arg2 ];
-            default:
-                return [0,0];
-        }
+        return match ($class) {
+            1, 2, 3, 5 => [$class * 10, $arg1],
+            4, 6 => [$class * 10 + $arg1, $arg2],
+            default => [0, 0],
+        };
     }
 
     /**
@@ -173,22 +170,22 @@ class GazetteService
     protected function select_gazette_template( Gazette $gazette, array $criteria, array $survivors = [], array $death_inside = [], array $death_outside = [] ): ?GazetteEntryTemplate {
         $templates = array_filter( $this->entity_manager->getRepository(GazetteEntryTemplate::class)->findBy($criteria), function(GazetteEntryTemplate $g) use ($gazette,$survivors,$death_inside,$death_outside) {
             list($class,$arg) = $this->decompose_requirements( $g );
-            switch ( $class ) {
-                case GazetteEntryTemplate::BaseRequirementCitizen:        return count( $survivors )    >= $arg;
-                case GazetteEntryTemplate::BaseRequirementCadaver:        return count( $death_inside ) >= $arg;
-                case GazetteEntryTemplate::BaseRequirementCitizenCadaver: return count( $survivors )    >= $arg && count( $death_inside ) >= $arg;
-                case GazetteEntryTemplate::BaseRequirementCitizenInTown:  return count( array_filter( $survivors, fn(Citizen $c) => $c->getZone() === null ) ) >= $arg;
-                case GazetteEntryTemplate::RequiresMultipleDehydrations:  return count( $survivors ) >= $arg && count( array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Dehydration ) ) >= 2;
-                case GazetteEntryTemplate::RequiresMultipleSuicides:      return count( $survivors ) >= $arg && count( array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Cyanide ) ) >= 2;
-                case GazetteEntryTemplate::RequiresMultipleInfections:    return count( $survivors ) >= $arg && count( array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Infection ) ) >= 2;
-                case GazetteEntryTemplate::RequiresMultipleVanished:      return count( $survivors ) >= $arg && count( array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Vanished ) ) >= 2;
-                case GazetteEntryTemplate::RequiresMultipleHangings:      return count( $survivors ) >= $arg && count( array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Hanging ) ) >= 2;
-                case GazetteEntryTemplate::RequiresMultipleCrosses:       return count( $survivors ) >= $arg && count( array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::ChocolateCross ) ) >= 2;
-                case GazetteEntryTemplate::RequiresMultipleRedSouls:      return count( $survivors ) >= $arg && count( array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Haunted ) ) >= 2;
-                case GazetteEntryTemplate::RequiresInvasion:              return $gazette->getInvasion() > 0;
-                case GazetteEntryTemplate::RequiresAttackDeaths:          return count( $survivors ) >= $arg && $gazette->getDeaths() > 0;
-                default: return true;
-            }
+            return match ($class) {
+                GazetteEntryTemplate::BaseRequirementCitizen        => count($survivors) >= $arg,
+                GazetteEntryTemplate::BaseRequirementCadaver        => count($death_inside) >= $arg,
+                GazetteEntryTemplate::BaseRequirementCitizenCadaver => count($survivors) >= $arg && count($death_inside) >= $arg,
+                GazetteEntryTemplate::BaseRequirementCitizenInTown  => count(array_filter($survivors, fn(Citizen $c) => $c->getZone() === null)) >= $arg,
+                GazetteEntryTemplate::RequiresMultipleDehydrations  => count($survivors) >= $arg && count(array_filter($death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Dehydration)) >= 2,
+                GazetteEntryTemplate::RequiresMultipleSuicides      => count($survivors) >= $arg && count(array_filter($death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Cyanide)) >= 2,
+                GazetteEntryTemplate::RequiresMultipleInfections    => count($survivors) >= $arg && count(array_filter($death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Infection)) >= 2,
+                GazetteEntryTemplate::RequiresMultipleVanished      => count($survivors) >= $arg && count(array_filter($death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Vanished)) >= 2,
+                GazetteEntryTemplate::RequiresMultipleHangings      => count($survivors) >= $arg && count(array_filter($death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Hanging)) >= 2,
+                GazetteEntryTemplate::RequiresMultipleCrosses       => count($survivors) >= $arg && count(array_filter($death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::ChocolateCross)) >= 2,
+                GazetteEntryTemplate::RequiresMultipleRedSouls      => count($survivors) >= $arg && count(array_filter($death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Haunted)) >= 2,
+                GazetteEntryTemplate::RequiresInvasion              => $gazette->getInvasion() > 0,
+                GazetteEntryTemplate::RequiresAttackDeaths          => count($survivors) >= $arg && $gazette->getDeaths() > 0,
+                default => true,
+            };
         });
 
         return $this->rand->pick( $templates );
@@ -513,8 +510,6 @@ class GazetteService
     protected function gazette_section_role_deaths( Gazette $gazette, Town $town, int $day, array $survivors = [], array $death_inside = [], array $death_outside = [] ): bool {
         if (!$town->getDevastated() && !$gazette->getReactorExplosion() && count($death_outside) > 0) {
 
-            $type = null;
-
             $shaman = $guide = $cata = $ghoul = false;
             foreach ($gazette->getVotesNeeded() as $role) {
                 $shaman = $shaman || $role->getName() === 'shaman';
@@ -523,9 +518,15 @@ class GazetteService
                 $ghoul  = $ghoul  || $role->getName() === 'ghoul';
             }
 
-            if ($shaman && $guide) $type = GazetteEntryTemplate::TypeGazetteGuideShamanDeath;
-            elseif ($shaman)       $type = GazetteEntryTemplate::TypeGazetteShamanDeath;
-            elseif ($guide)        $type = GazetteEntryTemplate::TypeGazetteGuideDeath;
+            $type = match(true) {
+                $town->getChaos() && $shaman && $guide  => GazetteEntryTemplate::TypeGazetteGuideShamanDeathChaos,
+                $town->getChaos() && $shaman            => GazetteEntryTemplate::TypeGazetteShamanDeathChaos,
+                $town->getChaos() && $guide             => GazetteEntryTemplate::TypeGazetteGuideDeathChaos,
+                $shaman && $guide                       => GazetteEntryTemplate::TypeGazetteGuideShamanDeath,
+                $shaman                                 => GazetteEntryTemplate::TypeGazetteShamanDeath,
+                $guide                                  => GazetteEntryTemplate::TypeGazetteGuideDeath,
+                default => null
+            };
 
             if ($type === null) return false;
 

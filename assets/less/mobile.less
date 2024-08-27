@@ -357,6 +357,27 @@
     }
   }
 
+  .forum-post > .forum-post-content, .forum-editor .twino-editor-preview {
+    .forum-content-format() {
+      .rpText {
+        margin: 0 5px 10px;
+        padding: 5px;
+      }
+      span.quoteauthor.quoteauthor {
+        margin-bottom: 5px;
+      }
+      span.quoteauthor.quoteauthor + blockquote {
+        margin-bottom: 10px;
+      }
+      span.quoteauthor.quoteauthor,
+      span.quoteauthor.quoteauthor + blockquote {
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+    }
+    .forum-content-format();
+  }
+
   .rucksack_status_union.status:before { background: url("../img/game-bar/cog2m.png") 0 0 no-repeat !important; }
 
   #beyond_chat { height: calc( 100% - 16px ); margin-top: 8px; margin-bottom: 8px; }

@@ -2,18 +2,95 @@
 {% block title %}{{'Die verfluchten Schriften'|trans({}, 'game')}}{% endblock %}
 {% block soul_content %}
     <div class="row rp-head">
-        <div class="cell padded rw-12 small center rp-context"><img alt="" src="{{ asset('build/images/icons/small_rp.gif') }}" /> {{'Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...'|trans({}, 'soul')}}</div>
-        <div class="cell rw-8 center"><h5>{{'Titel'|trans({}, 'soul')}}</h5></div>
-        <div class="cell rw-4 center"><h5>{{'Entdeckt'|trans({}, 'soul')}}</h5></div>
+        <div class="cell padded rw-12 small center rp-context">
+            <img alt="" src="{{ asset('build/images/icons/small_rp.gif') }}" /> 
+            {{ 'Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...'|trans({}, 'soul') }}
+        </div>
+        <div class="cell rw-8 center">
+            <h5><span id="sort_by_title" class="pointer">{{ 'Titel'|trans({}, 'soul') }}</span><span id="title_sort_indicator">⬍</span></h5>
+        </div>
+        <div class="cell rw-4 center">
+            <h5><span id="sort_by_date" class="pointer">{{ 'Entdeckt'|trans({}, 'soul') }}</span><span id="date_sort_indicator">⬍</span></h5>
+        </div>
     </div>
     <div class="row rp-list">
         {% for rp in rps %}
         <div class="row rp-row {% if rp.new %}new{% endif %}" x-ajax-href="{{path('soul_rp', {id: rp.id, page: 1})}}">
             <div class="cell padded rw-8 rp-text">
                 <span class="title">{{rp.text.title}}</span><br /><em>« {{rp.text.pages[0].content|striptags|slice(0,49)}}{% if rp.text.pages[0].content|striptags|length > 49 %}[...]{% endif %} »</em></div>
-            <div class="cell padded rw-4 author">{{rp.datefound|date('d/m/Y H:i')}}</div>
+            <div class="cell padded rw-4 author datefound">{{rp.datefound|date('d/m/Y H:i')}}</div>
+            <div class="hidden">{{ rp.datefound.timestamp }}</div>
         </div>
         {% endfor %}
-        <div class="cell padded rw-12 center small">{{'Gefundene Texte: {count}'|trans({'{count}': rps|length}, "soul")}}</div>
+        <div class="cell padded rw-12 center small totalcount">{{'Gefundene Texte: {count}'|trans({'{count}': rps|length}, "soul")}}</div>
     </div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        const sortByTitleLink = document.getElementById('sort_by_title');
+        const sortByDateLink = document.getElementById('sort_by_date');
+        const rpList = document.querySelector('.rp-list');
+        const totalCountElement = rpList.querySelector('.totalcount');
+        const titleSortIndicator = document.getElementById('title_sort_indicator');
+        const dateSortIndicator = document.getElementById('date_sort_indicator');
+        let currentSortCriteria = 'title';
+        let sortOrder = {
+            title: 'asc',
+            date: 'asc'
+        };
+
+        function updateSortIndicators() {
+            if (currentSortCriteria === 'title') {
+                titleSortIndicator.innerHTML = sortOrder.title === 'asc' ? '▲' : '▼';
+                dateSortIndicator.innerHTML = '';
+            } else if (currentSortCriteria === 'date') {
+                dateSortIndicator.innerHTML = sortOrder.date === 'asc' ? '▲' : '▼';
+                titleSortIndicator.innerHTML = '';
+            } else {
+                titleSortIndicator.innerHTML = '';
+                dateSortIndicator.innerHTML = '';
+            }
+        }
+
+        function sortRows(rows, criteria, order) {
+            return rows.sort((a, b) => {
+                let comparison = 0;
+                if (criteria === 'title') {
+                    const titleA = a.querySelector('.title').innerText.trim().toLowerCase();
+                    const titleB = b.querySelector('.title').innerText.trim().toLowerCase();
+                    comparison = titleA.localeCompare(titleB);
+                } else if (criteria === 'date') {
+                    const dateA = parseInt(a.querySelector('.hidden').innerText.trim());
+                    const dateB = parseInt(b.querySelector('.hidden').innerText.trim());
+                    comparison = dateA - dateB;
+                }
+
+                return order === 'asc' ? comparison : -comparison;
+            });
+        }
+
+        function handleSort(criteria) {
+            const rows = Array.from(rpList.querySelectorAll('.rp-row'));
+            currentSortCriteria = criteria;
+            sortOrder[criteria] = sortOrder[criteria] === 'asc' ? 'desc' : 'asc';
+            const sortedRows = sortRows(rows, criteria, sortOrder[criteria]);
+            sortedRows.forEach(row => rpList.appendChild(row));
+            rpList.appendChild(totalCountElement);
+            updateSortIndicators();
+        }
+
+        sortByTitleLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            handleSort('title');
+        });
+
+        sortByDateLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            handleSort('date');
+        });
+
+        // Initialize sort indicators
+        updateSortIndicators();
+    </script>
 {% endblock %}

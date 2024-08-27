@@ -217,6 +217,12 @@ class NotificationManagerController extends AbstractController
         $response = $sender->send( $notification, $subscription );
 
         if ($response->isSuccess()) {
+
+            if ($em->getRepository(NotificationSubscription::class)->count([
+                'type' => $type,
+                'subscriptionHash' => $hash
+            ]) > 0) return new JsonResponse(status: Response::HTTP_CONFLICT);
+
             $em->persist( $subscription->setSubscriptionHash( $hash )->setUser( $this->getUser() ) );
             $em->flush();
             return new JsonResponse(['subscription' => $this->renderNotifications( $subscription )]);

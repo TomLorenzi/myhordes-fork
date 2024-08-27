@@ -1,3 +1,4 @@
+---
 'Diesen Bürger töten?': '¿Matar a este habitante?'
 Status: Estados
 Dauer: Duración
@@ -657,19 +658,25 @@ Erstellt: Creado
 'Letzter Tag': 'Últimas 24 horas'
 'Diese Zeile enthält belastende Informationen über den Spieler.': 'Esta línea contiene información comprometedora sobre el jugador.'
 'Erster Wert:': 'Primer valor:'
-'Dauer und Gesamtanteil der aktiven Phasen, die sich mit min. einem anderen Spieler dieser Gruppe überschneiden.': 'Dauer und Gesamtanteil der aktiven Phasen, die sich mit min. einem anderen Spieler dieser Gruppe überschneiden.'
+'Dauer und Gesamtanteil der aktiven Phasen, die sich mit min. einem anderen Spieler dieser Gruppe überschneiden.': 'Duración y proporción total de fases activas que se superponen con al menos otro jugador de este grupo.'
 'Zweiter Wert:': 'Segundo valor:'
-'Durchschnittliche Dauer und Gesamtanteil der gemeinsamen aktiven Phasen über alle Spieler der Gruppe.': 'Durchschnittliche Dauer und Gesamtanteil der gemeinsamen aktiven Phasen über alle Spieler der Gruppe.'
+'Durchschnittliche Dauer und Gesamtanteil der gemeinsamen aktiven Phasen über alle Spieler der Gruppe.': 'Duración media y proporción total de fases activas compartidas entre todos los jugadores del grupo.'
 'Dritter Wert:': 'Tercero valor:'
-'Übereinstimmung der von dem Spieler genutzen Endgeräte mit denen des Rests der Gruppe.': 'Übereinstimmung der von dem Spieler genutzen Endgeräte mit denen des Rests der Gruppe.'
-'Diese Zeile enthält entlastende Informationen über den Spieler.': 'Diese Zeile enthält entlastende Informationen über den Spieler.'
-'Dauer und Verhältnis der aktiven Phasen dieses Spielers in anderen Gruppen, die keinerlei überschneidung mit den anderen Spielern dieser Gruppe haben.': 'Dauer und Verhältnis der aktiven Phasen dieses Spielers in anderen Gruppen, die keinerlei überschneidung mit den anderen Spielern dieser Gruppe haben.'
+'Übereinstimmung der von dem Spieler genutzen Endgeräte mit denen des Rests der Gruppe.': 'Coherencia de los dispositivos utilizados por el jugador con los del resto del grupo.'
+'Diese Zeile enthält entlastende Informationen über den Spieler.': 'Esta línea contiene información exculpatoria sobre el jugador. Si el valor que se muestra aquí es alto, significa que es menos probable que sea una cuenta múltiple.'
+'Dauer und Verhältnis der aktiven Phasen dieses Spielers in anderen Gruppen, die keinerlei überschneidung mit den anderen Spielern dieser Gruppe haben.': 'Duración y ratio de las fases activas de este jugador en otros grupos que no tienen conexión con otros jugadores de este grupo.'
 'Keine Daten': 'Ningún dato'
 'Multi-Account Report V2': 'Reporte de Multi-Cuentas V2'
 'Letzte {n} Tage': 'Últimos {n} días'
 Veraltet!: Obsoleto!
 Klicks: Clics
 '{number} Auszeichnungen konnten nicht entfernt werden. Möglicherweise sind sie dem Spieler über Städte zugewiesen. In diesem Fall müssen sie über die Städteverwaltung entfernt werden.': '{number} distinciones no han podido quitarse. Están posiblemente otorgadas por un pueblo, y tendrán que ser editadas por la IU de distinciones de pueblo.'
-'Eingehende Nachrichten als Tickets behandeln': 'Eingehende Nachrichten als Tickets behandeln'
-'Ist diese Option aktiviert, so wird eine eingehende Konversation für alle Gruppenmitglieder als "Gelesen" markiert, sobald ein Gruppenmitglied antwortet.': 'Ist diese Option aktiviert, so wird eine eingehende Konversation für alle Gruppenmitglieder als "Gelesen" markiert, sobald ein Gruppenmitglied antwortet.'
+'Eingehende Nachrichten als Tickets behandeln': 'Tratar los mensajes entrantes como tickets'
+'Ist diese Option aktiviert, so wird eine eingehende Konversation für alle Gruppenmitglieder als "Gelesen" markiert, sobald ein Gruppenmitglied antwortet.': 'Si está habilitado, una conversación entrante se marcará como "Leída" para todos los miembros del grupo tan pronto como un miembro del grupo responda.'
+'Es wurden {n} Posts gelöscht.': 'Se han eliminado {n} mensajes.'
+'Weitere Aktionen': 'Acciones adicionales'
+'Bekannte IP-Adressen': 'Direcciones IP conocidas'
+'{n} (davon {n2} bereits blockiert)': '{n} (incluido {n2} ya bloqueado)'
+Foren-Posts: Mensajes del foro
+'{n} (davon {n2} gelöscht)': '{n} (incluido {n2} ya eliminado)'
 SP: PE

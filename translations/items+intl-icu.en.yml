@@ -4,7 +4,7 @@
 'Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!': 'You got a 421 on your first shot... not bad.<hr />Furthermore, this has raised your morale so much that you have gained <strong>1AP</strong>!'
 'Nicht schlecht, du hast einen Pasch geworfen.': 'You rolled a double! Check you out! (no AP bonus)'
 'Was für ein Spaß!': 'What fun!'
-'Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!': 'You have drawn the... You scream as you discover your name is written on the card in blood ! You don''t care who is behind this evil joke... You are now terrorised !'
+'Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!': 'You have drawn the... You scream, discovering that your name is written on the card in blood! You don''t know who is behind this sick joke... You are now terrorized!'
 'Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.': 'You draw a card ... and find that you have drawn the card with the rules of the game! This amuses you so much that you win 1AP.'
 'Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.': 'It''s a sign ! It just goes to show that there is no place for morals in this world... You have won 1AP.'
 'Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.': 'The Queen of Hearts... The symbol of love... *sigh*... You have won 1AP as compensation for your disillusionment.'
@@ -29,7 +29,7 @@ Machete: Machete
 Teppichmesser: Box Cutter
 Einkaufswagen: Shopping Trolley
 Dosenöffner: Can Opener
-'Extra Tasche': 'Extra Backpack'
+'Extra Tasche': 'Manbag'
 Streichholzschachtel: Box of Matches
 Beruhigungsspritze: Valium Shot
 Schaukelstuhl: Rocking Chair
@@ -507,7 +507,7 @@ Rettung: Rescue
 'Trotz all der Jahre, die sie wahrscheinlich schon in dieser Wüste liegen, haben diese Nudeln ihr Aussehen und ihren Geschmack behalten. Erstaunlich.': 'Despite years spent in the desert, these chinese noodles still look and taste exactly the same.'
 'Ein Säckchen mit starken Gewürzen ...': 'A small sachet of mixed spices...'
 "Richtig gut gewürzte chinesische Nudeln! Das ist mal'ne Abwechslung von dem sonstigen verschimmelten Fraß.": "Heavily seasoned chinese noodles! This makes a pleasant change from eating things that are decomposing."
-'Ein Kartenset mit 54 abgegriffenen Karten, die ein paar Eselsohren haben... Du solltest gleich mal eine Runde zocken, denn oft wirst du hier nicht zum Spielen kommen.': 'What should be a 54 card deck is, well, not. The missing cards don''t stop you playing with them though, because every moment of enjoyment is to be treasured in this hellhole...'
+'Ein Kartenset mit 54 abgegriffenen Karten, die ein paar Eselsohren haben... Du solltest gleich mal eine Runde zocken, denn oft wirst du hier nicht zum Spielen kommen.': 'What should be a 54 card deck is, well, not. The missing cards don''t stop you playing with them though, because every moment of enjoyment is to be treasured in this hellhole... Go big or go broke !'
 'Ein altes Spiel welches du noch nicht kennst. Wow!': 'The box contains a game... probably !'
 'Eine furchterregende Waffe, der nur ein paar Teile fehlen...': 'A formidable weapon, but it needs a few more parts to get it working...'
 'Er vibriert und kitzelt dich am ganzen Körper und lässt dich für einen Augenblick all deine Sorgen vergessen (benötigt 1 Batterie).': 'It vibrates, tickles and titillates you and even makes you forget all your worries for a short while. (Requires 1 battery).'
@@ -841,7 +841,7 @@ Guiness: Winness
 'Du hast mit dem(r) {item_tool} ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.': 'You managed to open the {item_from} with the {item_tool}. You have obtained: {item_to}.'
 'Die Droge zeigt sofort Wirkung: Du bist auf einmal ganz <strong>ruhig</strong> geworden, so ausgeglichen... Die schrecklichen Ereignisse der letzten Tage erscheinen dir plötzlich bedeutungslos und ganz weit weg... Es geht dir schon viel besser.': 'The drug took effect rapidly... Everything suddenly seems calmer, more serene... Even the horrendous events of the past few days now seem unimportant... That''s better!'
 'Du hast {item} eingenommen, verspürst aber keine nennenswerte Wirkung... Vielleicht hast du das gar nicht gebraucht?': 'You take the {item}, but it seems to have no notable effect... Maybe you didn''t need it?'
-'Dir ist schwindelig und du würdest dich am liebsten übergeben... Egal was, Hauptsache <strong>du bekommst wieder einen klaren Kopf</strong>.': 'Your head is spinning, you almost want to be sick, but <strong>at least it woke you up</strong>. Now you just need to run...'
+'Dir ist schwindelig und du würdest dich am liebsten übergeben... Egal was, Hauptsache <strong>du bekommst wieder einen klaren Kopf</strong>.': 'Your head is spinning, you almost want to be sick, but <strong>at least it woke you up</strong>. Now you just need to run because it''s better to be sober when blowing into it...'
 '{citizen} befehlen etwas zu trinken.': 'Tell {citizen} to drink.'
 '{citizen} befehlen etwas zu essen.': 'Tell {citizen} to eat.'
 'Schwarzer Zervixschleim': 'Black Neck Ooze'
