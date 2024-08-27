@@ -4,27 +4,27 @@
     <div class="row me">
         {% include 'ajax/soul/badges.html.twig' with {badger: app.user} %}
         <div class="cell rw-12 center skills">
-            <div class="bar">
-                <div class="progresstext"></div>
-                <div class="progressbar left">
-                    <img alt="" src="{{ asset('build/images/soul/heroUp_bar.gif') }}" style="width : {{progress*1.001}}%;"/>
-                </div>
 
-            </div>
-            <div class="rp-context">
-                {{ 'Letzter freigeschalteter Heldenvorteil:'|trans({}, 'game') }}
-                <strong>{% if latestSkill is not null %}
-                        {# @var latestSkill \App\Entity\HeroSkillPrototype #}
-                        <img src="{{ asset('build/images/heroskill/' ~ latestSkill.icon ~ '.gif') }}" alt="">
-                        {{ latestSkill.title|trans({}, 'game') }} {{ help_btn(latestSkill.description|trans({}, 'game')) }}
-                    {% else %}
-                        {{ 'Niemand'|trans({}, 'game') }}
-                    {% endif %}</strong>
-            </div>
-            <div>
+            {% if skills %}
+                <hordes-progress-bar data-animate-from="0" data-animate-to="{{progress}}" data-xp="1" data-step="30"></hordes-progress-bar>
+            {% else %}
+                <hordes-progress-bar data-animate-from="0" data-animate-to="{{progress}}" data-limit="100"></hordes-progress-bar>
+
+                <div class="rp-context">
+                    {{ 'Letzter freigeschalteter Heldenvorteil:'|trans({}, 'game') }}
+                    <strong>{% if latestSkill is not null %}
+                            {# @var latestSkill \App\Entity\HeroSkillPrototype #}
+                            <img src="{{ asset('build/images/heroskill/' ~ latestSkill.icon ~ '.gif') }}" alt="">
+                            {{ latestSkill.title|trans({}, 'game') }} {{ help_btn(latestSkill.description|trans({}, 'game')) }}
+                        {% else %}
+                            {{ 'Niemand'|trans({}, 'game') }}
+                        {% endif %}</strong>
+                </div>
+                <div>
                 <span class="small link"
                       x-ajax-href="{{ path('soul_heroskill') }}">{{ 'Alle freigeschalteten Vorteile anzeigen'|trans({}, 'game') }}</span>
-            </div>
+                </div>
+            {% endif %}
         </div>
         <div class="cell rw-5 rw-sm-12 center padded ">
             <hordes-distinctions data-plain="0" data-source="soul" data-user="{{ app.user.id }}" data-interactive="1"></hordes-distinctions>

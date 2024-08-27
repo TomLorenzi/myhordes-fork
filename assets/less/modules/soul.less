@@ -95,21 +95,6 @@ div.tooltip.badge-tooltip {
     }
 
     .skills {
-        .bar {
-            max-width: 614px; height: 32px; margin: 10px auto 0; padding-left: 3px; padding-right: 3px;
-
-            .progresstext {
-                background: url('../../img/soul/heroUp_front.gif') round;
-                max-width: 614px; height: 32px; line-height: 32px; z-index: 2; position: relative;
-                color: #f0d79e; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-            }
-
-            .progressbar {
-                background: url('../../img/soul/heroUp_bg.gif') round;
-                max-width: 614px; height: 30px; overflow: hidden; padding-right: 4px; margin-top: -31px;
-                img { height: 32px; }
-            }
-        }
 
         .heroProgress {
             color: #f0d79e; background-color: #4d5537; border: 1px solid #ddab76; outline: 2px solid #5c2b20;
@@ -847,5 +832,38 @@ hr.section {
 
   .small-preview div {
     aspect-ratio: 3/1;
+  }
+}
+
+.fancy-progress-bar {
+  max-width: 614px; height: 32px; margin: 10px auto 0; padding-left: 3px; padding-right: 3px;
+
+  .text {
+    background: url('../../img/soul/heroUp_front.gif') round;
+    max-width: 614px; height: 32px; line-height: 32px; z-index: 2; position: relative;
+    color: #f0d79e; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  }
+
+  .progressbar {
+    background: url('../../img/soul/heroUp_bg.gif') round;
+    max-width: 614px; height: 30px; overflow: hidden; padding-right: 4px; margin-top: -31px;
+    position: relative;
+    .progressbar-container {
+      position: absolute; top: 0; bottom: 0; left: 4%; right: 1%;
+
+      @keyframes flashy-inner {
+        0% { filter: saturate(100%) brightness(100%); }
+        45% { filter: saturate(100%) brightness(100%); }
+        50% { filter: saturate(125%) brightness(125%); }
+        55% { filter: saturate(100%) brightness(100%); }
+        100% { filter: saturate(100%) brightness(100%); }
+      }
+
+      .inner {
+        height: 32px; background: url('../../img/soul/heroUp_bar.gif');
+        &.flashy { animation: flashy-inner 3s ease-in-out 1s infinite; }
+      }
+    }
+
   }
 }

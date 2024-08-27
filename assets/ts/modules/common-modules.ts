@@ -11,6 +11,7 @@ import {HordesTooltip} from "../react/tooltip/Wrapper";
 import {HordesContentReport} from "../react/content-report/Wrapper";
 import {HordesIssueReport} from "../react/issue-report/Wrapper";
 import {HordesServiceWorkerIndicator} from "../react/service-worker-state/Wrapper";
+import {HordesProgressBar} from "../react/progress-bar/Wrapper";
 
 // Define web component <hordes-user-search />
 export class HordesUserSearchElement extends Shim<HordesUserSearchBar> {
@@ -152,6 +153,28 @@ customElements.define('hordes-service-worker-indicator', class HordesServiceWork
 
     protected static observedAttributeNames() {
         return [ 'data-text-title', 'data-text-help', 'data-text-no-sw', 'data-text-offline', 'data-text-connecting', 'data-text-upgrading', 'data-text-online', 'data-connection' ];
+    }
+
+}, {  });
+
+customElements.define('hordes-progress-bar', class HordesProgressBarElement extends Shim<HordesProgressBar> {
+
+    protected generateInstance(): HordesProgressBar {
+        return new HordesProgressBar();
+    }
+
+    protected generateProps(): object | null {
+        return {
+            animateFrom: parseInt( this.dataset.animateFrom ?? '0' ),
+            animateTo: parseInt( this.dataset.animateTo ?? '0' ),
+            limit: parseInt( this.dataset.limit ?? '0' ),
+            xp: parseInt( this.dataset.xp ?? '0' ) !== 0,
+            step: parseInt( this.dataset.step ?? '0' ),
+        }
+    }
+
+    protected static observedAttributeNames() {
+        return ['data-animate-from', 'data-animate-to', 'data-limit', 'data-xp', 'data-step'];
     }
 
 }, {  });

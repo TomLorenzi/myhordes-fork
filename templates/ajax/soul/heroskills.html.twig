@@ -6,14 +6,7 @@
                 {{'Komm zurück zu meiner Seele'|trans({}, 'game')}}
             </label>
         </div>
-        <div class="cell rw-12 center">
-            <div class="bar">
-                <div class="progresstext"></div>
-                <div class="progressbar left">
-                    <img src="{{ asset('build/images/soul/heroUp_bar.gif') }}" style="width : {{progress*1.001}}%;" />
-                </div>
-            </div>
-        </div>
+        <hordes-progress-bar data-animate-from="0" data-animate-to="{{progress}}" data-limit="100"></hordes-progress-bar>
         <div class="cell padded rw-4 ro-4 heroProgress">
             {{'Du hast bisher:'|trans({}, 'game')}} <strong>{{"{days} Tage"|trans({'{days}': days}, "game")}}</strong>{{'im Heldenmodus gespielt'|trans({}, 'game')}}
         </div>

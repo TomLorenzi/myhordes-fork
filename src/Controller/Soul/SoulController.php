@@ -198,13 +198,19 @@ class SoulController extends CustomAbstractController
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        $xp = $unlockService->getLegacyHeroDaysSpent( $user );
-        $latestSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getLatestUnlocked($xp);
-        $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($xp);
+        $hasNewSkills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->count(['enabled' => true, 'legacy' => false]) > 0;
 
-        $factor1 = $latestSkill !== null ? $latestSkill->getDaysNeeded() : 0;
+        if (!$hasNewSkills) {
+            $xp = $unlockService->getLegacyHeroDaysSpent( $user );
+            $latestSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getLatestUnlocked($xp);
+            $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($xp);
 
-        $progress = $nextSkill !== null ? ($xp - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 0;
+            $factor1 = $latestSkill !== null ? $latestSkill->getDaysNeeded() : 0;
+            $progress = floor($nextSkill !== null ? ($xp - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 0);
+        } else {
+            $progress = $unlockService->getHeroicExperience( $user );
+            $latestSkill = null;
+        }
 
         $desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
 
@@ -218,7 +224,8 @@ class SoulController extends CustomAbstractController
             'user' => $user,
             'features' => $features,
             'latestSkill' => $latestSkill,
-            'progress' => floor($progress),
+            'progress' => $progress,
+            'skills' => $hasNewSkills,
             'seasons' => $this->entity_manager->getRepository(Season::class)->findPastAndPresent(),
             'user_desc' => $desc ? $html->prepareEmotes($desc->getText(), $this->getUser()) : null
         ]));
