@@ -123,10 +123,10 @@ readonly class OnboardCitizenIntoTownAction
             }
         }
 
-        if ($this->userHandler->checkFeatureUnlock( $citizen->getUser(), 'f_alarm', true ) ) {
+        /*if ($this->userHandler->checkFeatureUnlock( $citizen->getUser(), 'f_alarm', true ) ) {
             $item = ($this->itemFactory->createItem( "alarm_off_#00" ))->setEssential(true);
             $this->proxy->transferItem($citizen, $item, to: $inventory);
-        }
+        }*/
 
         if ($this->userHandler->checkFeatureUnlock( $citizen->getUser(), 'f_arma', true ) ) {
             $armag_day   = $this->entityManager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_armag_d"]);
