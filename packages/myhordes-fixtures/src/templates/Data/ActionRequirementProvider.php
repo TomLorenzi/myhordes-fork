@@ -178,7 +178,7 @@ class ActionRequirementProvider
         $requirement_container->add()->identifier('must_have_hammam')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('small_spa4souls_#00', true) )->commit();
 
         $requirement_container->add()->identifier('must_have_lab')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('item_acid_#00', true) )->commit();
-        $requirement_container->add()->identifier('must_not_have_lab')->type( Requirement::MessageOnFail )->add( (new BuildingRequirement())->building('item_acid_#00', false) )->text('Vielleicht solltest du stattdessen dein Labor benutzen...')->commit();
+        $requirement_container->add()->identifier('must_not_have_lab')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('item_acid_#00', false) )->text('Vielleicht solltest du stattdessen dein Labor benutzen...')->commit();
         $requirement_container->add()->identifier('must_have_canteen')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('small_cafet_#01', true) )->commit();
         $requirement_container->add()->identifier('must_not_have_canteen')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('small_cafet_#01', false) )->commit();
 
