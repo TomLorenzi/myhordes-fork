@@ -387,8 +387,13 @@ class TwinoConverterToBlocks {
                 blocks.push( new TwinoInterimBlock( '???', 'div', 'card') ); break;
             case 'citizen': case 'rnduser': case 'user': case 'spieler': case 'habitant': case 'habitante': case'einwohner':
                 attribs = match.nodeInfo() ? match.nodeInfo().split(',') : [];
-                if (!attribs[0]) attribs[0] = 'any';
-                if (!attribs[1]) attribs[1] = '0';
+                if (typeof attribs[0] !== 'undefined' && typeof attribs[1] === 'undefined' && !isNaN(attribs[0]))
+                    attribs = ['any', attribs[0]];
+                else {
+                    if (!attribs[0]) attribs[0] = 'any';
+                    if (!attribs[1]) attribs[1] = '0';
+                }
+
                 blocks.push( new TwinoInterimBlock( attribs[1] === '0' ? '???' : '??? [' + attribs[1] + ']', 'div', 'citizen', [['x-a', attribs[0]], ['x-b', attribs[1]]]) );
                 break;
             case 'coalition':

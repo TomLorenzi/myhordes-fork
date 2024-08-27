@@ -411,7 +411,8 @@ class ActionDataService implements FixtureProcessorInterface {
                 'flash_photo_2' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors', 'must_have_zombies', 'must_be_blocked' ], 'result' => [ 'morph_photo_1', ['group' => [ [['do_nothing'], 30], [[ 'zone_escape_60'], 66]] ] ], 'message_key' => 'escape_item_camera' ],
                 'flash_photo_1' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors', 'must_have_zombies', 'must_be_blocked' ], 'result' => [ 'morph_photo_off', ['group' => [ [['do_nothing'], 60], [[ 'zone_escape_30'], 33]] ] ], 'message_key' => 'escape_item_camera' ],
 
-                'alarm_clock' => [ 'label' => 'Benutzen', 'at00' => true, 'meta' => [  ], 'result' => [ 'morph_alarm_on' ],  'message' => 'Du hast {item_from} in {item_to} verwandelt.' ],
+                //'alarm_clock' => [ 'label' => 'Benutzen', 'at00' => true, 'meta' => [  ], 'result' => [ 'morph_alarm_on' ],  'message' => 'Du hast {item_from} in {item_to} verwandelt.' ],
+                'alarm_clock' => [ 'label' => 'Benutzen', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', 'morph_alarm_3' ],  'message' => 'Du hast {item_from} in {item_to} verwandelt.' ],
 
                 'pumpkin' => ['label' => 'Einsetzen', 'meta' => [ ], 'result' => [ 'morph_pumpkin_off' ] ],
                 'flare' => [ 'label' => 'Benutzen', 'meta' => [], 'result' => [ 'flare' ], 'message' => '<t-flare_ok>Die Leuchtrakete hat neue Informationen zu folgender Zone geliefert: {zone}</t-flare_ok><t-flare_ok_ruin>Mit Hilfe der Leuchrakete wurde ein neues Gebäude entdeckt: {zone_ruin}. Seine Koordinaten lauten: {zone}</t-flare_ok_ruin><t-flare_fail>Es gibt keine weitere Zone zu entdecken.</t-flare_fail>' ],

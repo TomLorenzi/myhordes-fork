@@ -1,4 +1,3 @@
----
 'Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.': 'Lanzas los dados y obtienes {dc1}, {dc2} y {dc3}.'
 'Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!': '¡Bravo, obtienes un Trío! ¡Es genial!<hr />Eso te pone tan contento que <strong>ganas 1PA</strong>.'
 'Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!': '¡Formas una escalera!<hr />Eso te pone tan contento que <strong>ganas 1PA</strong>.'
@@ -295,10 +294,10 @@ Tretmine: Mina antipersonal
 Laserdiode: Diodo láser
 'Selbstgebaute Gitarre': 'Guitarra artesanal'
 LSD: LSD
-'Starker Laserpointer (4 Schuss)': 'Puntero láser potente de 4 cargas'
-'Starker Laserpointer (3 Schuss)': 'Puntero láser potente de 3 cargas'
-'Starker Laserpointer (2 Schuss)': 'Puntero láser potente de 2 cargas'
-'Starker Laserpointer (1 Schuss)': 'Puntero láser potente de 1 carga'
+'Starker Laserpointer (4 Schuss)': 'Puntero láser potente (4 cargas)'
+'Starker Laserpointer (3 Schuss)': 'Puntero láser potente (3 cargas)'
+'Starker Laserpointer (2 Schuss)': 'Puntero láser potente (2 cargas)'
+'Starker Laserpointer (1 Schuss)': 'Puntero láser potente (1 carga)'
 'Starker Laserpointer (Leer)': 'Puntero láser potente descargado'
 Teleskop: Telescopio
 'Unpersönliche Explodierende Fußmatte': 'Felpudo explosivo'
@@ -508,7 +507,7 @@ Rettung: Rescate
 'Trotz all der Jahre, die sie wahrscheinlich schon in dieser Wüste liegen, haben diese Nudeln ihr Aussehen und ihren Geschmack behalten. Erstaunlich.': 'A pesar del tiempo, este platillo ha mantenido su aspecto, sabor y textura. ¡No cabe duda, la cocina china es la mejor!'
 'Ein Säckchen mit starken Gewürzen ...': '¡Nadie puede vivir sin esto!'
 "Richtig gut gewürzte chinesische Nudeln! Das ist mal'ne Abwechslung von dem sonstigen verschimmelten Fraß.": "Mmmmm ¡La comida descompuesta es para los pobres!"
-'Ein Kartenset mit 54 abgegriffenen Karten, die ein paar Eselsohren haben... Du solltest gleich mal eine Runde zocken, denn oft wirst du hier nicht zum Spielen kommen.': 'A pesar de la ausencia de algunas cartas, te ayudará a distraerte en el pueblo...'
+'Ein Kartenset mit 54 abgegriffenen Karten, die ein paar Eselsohren haben... Du solltest gleich mal eine Runde zocken, denn oft wirst du hier nicht zum Spielen kommen.': 'A pesar de la ausencia de algunas cartas, te ayudará a distraerte en el pueblo... ¡Hazlo a lo grande o arruinate!'
 'Ein altes Spiel welches du noch nicht kennst. Wow!': 'Te servirá para entretenerte en medio de tanta desgracia, ¡claro que sí!'
 'Eine furchterregende Waffe, der nur ein paar Teile fehlen...': "Un arma temible, pero le faltan algunas piezas para que funcione...\n"
 'Er vibriert und kitzelt dich am ganzen Körper und lässt dich für einen Augenblick all deine Sorgen vergessen (benötigt 1 Batterie).': 'Vibra, hace cosquillas y te hace olvidar tus problemas por unos instantes (necesita 1 pila).'
@@ -842,7 +841,7 @@ Guiness: Winness
 'Du hast mit dem(r) {item_tool} ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.': 'Abriste {item_from} gracias a la herramienta {item_tool} y ganas: {item_to}.'
 'Die Droge zeigt sofort Wirkung: Du bist auf einmal ganz <strong>ruhig</strong> geworden, so ausgeglichen... Die schrecklichen Ereignisse der letzten Tage erscheinen dir plötzlich bedeutungslos und ganz weit weg... Es geht dir schon viel besser.': 'La sustancia hace efecto rápidamente... De pronto todo te parece más <strong>sereno</strong>... Hasta los atroces hechos que presenciaste parecen sin importancia... Te sientes mejor.'
 'Du hast {item} eingenommen, verspürst aber keine nennenswerte Wirkung... Vielleicht hast du das gar nicht gebraucht?': 'Estás usando {item}, pero no parece estar haciendo ningún efecto. ¿Será que no era necesario?'
-'Dir ist schwindelig und du würdest dich am liebsten übergeben... Egal was, Hauptsache <strong>du bekommst wieder einen klaren Kopf</strong>.': 'Tienes la cabeza que da vueltas, no ves más que destellos a tu alrededor, pero al menos <strong>eso te ha despertado</strong>. Ahora solo te queda correr...'
+'Dir ist schwindelig und du würdest dich am liebsten übergeben... Egal was, Hauptsache <strong>du bekommst wieder einen klaren Kopf</strong>.': 'Tienes la cabeza que da vueltas, no ves más que destellos a tu alrededor, pero al menos <strong>eso te ha despertado</strong>. Todo lo que tienes que hacer es correr porque es mejor estar sobrio antes de explotar...'
 '{citizen} befehlen etwas zu trinken.': 'Pedirle a {citizen} que beba.'
 '{citizen} befehlen etwas zu essen.': 'Pedirle a {citizen} que coma.'
 'Schwarzer Zervixschleim': 'Moco de cuello negro'
@@ -989,3 +988,7 @@ Freundschaft: Camaradería
 'Du hast dein Hündchen *in deinem Haus zurückgelassen*... Hoffentlich nimmt es dir das nicht übel.': '*Dejaste a tu cachorro en casa*... Espero que no se ofenda.'
 'Flammen des Ruhms': 'Llamas de gloria'
 'Als Champion der letzten Saison hast du die Möglichkeit, deine Nachrichten im Forum besonders hervorzuheben.': 'Como campeón de la temporada anterior, tienes la oportunidad de resaltar tus mensajes en el foro.'
+'Kreischender Wecker (1 Schuss)': 'Despertador chillón (1 carga)'
+'Kreischender Wecker (2 Schuss)': 'Despertador chillón (2 cargas)'
+'Kreischender Wecker (3 Schuss)': 'Despertador chillón (3 cargas)'
+'Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei und lässt dich nach dem Angriff energetisch mit einem Bonus-AP in den Tag starten.': 'Nada mejor que perforarte los tímpanos para empezar la mañana. Funciona perfectamente y te permitirá empezar tu día en el infierno con el pie derecho recibiendo 1 PA adicional tras el ataque.'

@@ -5,7 +5,9 @@ namespace App\Controller\Admin;
 use App\Annotations\AdminLogProfile;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AccountRestriction;
+use App\Entity\Activity;
 use App\Entity\ActivityCluster;
+use App\Entity\AntiSpamDomains;
 use App\Entity\Award;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
@@ -21,6 +23,7 @@ use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoComment;
 use App\Entity\PictoPrototype;
+use App\Entity\Post;
 use App\Entity\RegistrationToken;
 use App\Entity\Season;
 use App\Entity\SocialRelation;
@@ -35,8 +38,10 @@ use App\Entity\UserPendingValidation;
 use App\Entity\UserReferLink;
 use App\Entity\UserSponsorship;
 use App\Entity\UserSwapPivot;
+use App\Enum\DomainBlacklistType;
 use App\Enum\ServerSetting;
 use App\Exception\DynamicAjaxResetException;
+use App\Repository\AntiSpamDomainsRepository;
 use App\Response\AjaxResponse;
 use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\AdminHandler;
@@ -45,12 +50,14 @@ use App\Service\CrowService;
 use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\EventProxyService;
+use App\Service\Forum\PostService;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\Media\ImageService;
 use App\Service\PermissionHandler;
 use App\Service\TwinoidHandler;
 use App\Service\User\UserUnlockableService;
+use App\Service\User\UserAccountService;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
 use App\Structures\MyHordesConf;
@@ -897,7 +904,8 @@ class AdminUserController extends AdminActionController
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAnimactorGroup ) );
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
-                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
+                        if ($param === 'ROLE_SUB_ADMIN') $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
+                        else $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                     break;
 
                     case 'FLAG_RUFFIAN':
@@ -986,17 +994,29 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @param int $id
+     * @param User $user
+     * @param UserAccountService $accountService
      * @return Response
      */
-    #[Route(path: 'jx/admin/users/{id}/ban/view', name: 'admin_users_ban_view', requirements: ['id' => '\d+'])]
-    public function users_ban_view(int $id): Response
+    #[Route(path: 'jx/admin/users/{id}/ban/view', name: 'admin_users_ban_view')]
+    public function users_ban_view(User $user, UserAccountService $accountService): Response
     {
-        $user = $this->entity_manager->getRepository(User::class)->find($id);
-        if (!$user) throw new DynamicAjaxResetException(Request::createFromGlobals());
+        $known_ips = $accountService->getKnownIPsForUser($user);
+        $blocked_ips = array_filter($known_ips, fn(string $ip) => $this->entity_manager->getRepository(AntiSpamDomains::class)
+            ->findActive( DomainBlacklistType::IPAddress, $ip ) !== null);
+
+        $open_posts = $this->entity_manager->getRepository(Post::class)->count(['owner' => $user, 'hidden' => false]);
+        $closed_posts = $this->entity_manager->getRepository(Post::class)->count(['owner' => $user, 'hidden' => true]);
 
         return $this->render( 'ajax/admin/users/ban.html.twig', $this->addDefaultTwigArgs("admin_users_ban", [
             'user' => $user,
+
+            'known_ips' => count($known_ips),
+            'blocked_ips' => count($blocked_ips),
+
+            'open_posts' => $open_posts,
+            'closed_posts' => $closed_posts,
+
             'existing' => $this->entity_manager->getRepository(AccountRestriction::class)->findBy(['user' => $user], ['active' => 'ASC', 'confirmed' => 'ASC', 'created' => 'ASC'])
         ]));
     }

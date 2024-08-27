@@ -28,6 +28,7 @@ use App\Service\CitizenHandler;
 use App\Service\CrowService;
 use App\Service\ErrorHelper;
 use App\Service\EventProxyService;
+use App\Service\Forum\PostService;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\Locksmith;
@@ -1442,7 +1443,7 @@ class MessageForumController extends MessageController
      * @return Response
      */
     #[Route(path: 'api/forum/{fid<\d+>}/{tid<\d+>}/moderate/{mod}', name: 'forum_thread_mod_controller')]
-    public function mod_thread_api(int $fid, int $tid, string $mod, JSONRequestParser $parser, CrowService $crow): Response {
+    public function mod_thread_api(int $fid, int $tid, string $mod, JSONRequestParser $parser, CrowService $crow, PostService $postService): Response {
         $success = false;
 
         /** @var Forum $forum */
@@ -1546,69 +1547,12 @@ class MessageForumController extends MessageController
                 }
 
             case 'delete':
-
                 /** @var Post $post */
                 $post = $this->entity_manager->getRepository(Post::class)->find((int)$parser->get('postId'));
-                $reason = $parser->get( 'reason', '' );
-                if (!$post) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-                if (empty($reason)) $reason = "---";
+                if (!$postService->hidePost( $post, $this->getUser(), $parser->get( 'reason' ) ))
+                    return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-                if (!$this->perm->checkEffectivePermissions($this->getUser(), $forum, ForumUsagePermissions::PermissionModerate))
-                    return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-
-                if ($post->getHidden() || $post->getThread() !== $thread) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
-                try {
-                    $post->setHidden(true);
-                    $this->entity_manager->persist( $post );
-                    $this->entity_manager->persist( (new AdminDeletion())
-                                                        ->setSourceUser( $this->getUser() )
-                                                        ->setTimestamp( new DateTime('now') )
-                                                        ->setReason( $reason )
-                                                        ->setPost( $post ) );
-                    $reports = $post->getAdminReports(true);
-                    foreach ($reports as $report)
-                        $this->entity_manager->persist($report->setSeen(true));
-
-                    if ($post === $thread->firstPost(true)) {
-                        $thread->setHidden(true)->setLocked(true);
-                        $this->entity_manager->persist($thread);
-
-                        $notification = $crow->createPM_moderation( $post->getOwner(),
-                            CrowService::ModerationActionDomainForum, CrowService::ModerationActionTargetThread, CrowService::ModerationActionDelete,
-                            $post, $reason
-                        );
-
-                    } else {
-                        $notification = $crow->createPM_moderation( $post->getOwner(),
-                            CrowService::ModerationActionDomainForum, CrowService::ModerationActionTargetPost, CrowService::ModerationActionDelete,
-                            $post, $reason
-                        );
-                    }
-
-                    if ($notification) $this->entity_manager->persist($notification);
-
-                    $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gpm_post_notification']);
-                    $relatedNotifications = $this->entity_manager->getRepository(GlobalPrivateMessage::class)
-                        ->createQueryBuilder('g')
-                        ->where( 'g.template = :value' )->setParameter('value', $template)
-                        ->andWhere("JSON_EXTRACT(g.data, '$.link_post') = :pid")->setParameter('pid', $post->getId())
-                        ->getQuery()->getResult();
-
-                    foreach ($relatedNotifications as $n)
-                        $this->entity_manager->remove($n);
-
-                    $this->entity_manager->flush();
-
-                    $this->entity_manager->persist( $thread->setLastPost( $thread->lastPost(false)?->getDate() ?? $thread->lastPost(true)?->getDate() ?? new DateTime() ) );
-                    $this->entity_manager->flush();
-
-                    return AjaxResponse::success();
-                }
-                catch (Exception $e) {
-                    throw $e;
-                    //return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
-                }
+                return AjaxResponse::success();
 
             case 'undelete':
                 if (!$this->perm->checkEffectivePermissions($this->getUser(), $forum, ForumUsagePermissions::PermissionModerate))

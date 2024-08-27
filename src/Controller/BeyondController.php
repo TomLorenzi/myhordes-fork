@@ -455,9 +455,8 @@ class BeyondController extends InventoryAwareController
 
         $nov = $this->town_handler->getBuilding( $citizen->getTown(), 'small_novlamps_#00', true );
         $novlights = $citizen->hasStatus('tg_novlamps') && $nov && match(true) {
-                $citizen->getZone()->getDistance() <= 2 => true,
-                $citizen->getZone()->getDistance() <= 6 && $nov->getLevel() >= 1 => true,
-                $nov->getLevel() >= 2 => true,
+                $citizen->getZone()->getDistance() <= 6 => true,
+                $nov->getLevel() >= 1 => true,
                 default => false,
         };
 
@@ -860,7 +859,7 @@ class BeyondController extends InventoryAwareController
         if (!$new_zone) return AjaxResponse::error( self::ErrorNotReachableFromHere );
 
         $cp_ok_new_zone = $this->zone_handler->isZoneUnderControl($new_zone, $cp_before_new_zone);
-        if($cp_before_new_zone <= 0) $cp_ok_new_zone = null;
+        if($cp_before_new_zone <= 0 && !$new_zone->getCitizens()->count()) $cp_ok_new_zone = null;
 
         $movement_interrupted = false;
 

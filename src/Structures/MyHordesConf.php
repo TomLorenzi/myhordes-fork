@@ -103,7 +103,7 @@ class MyHordesConf extends Conf
     }
 
     public function getBlackboardOverrideFor(?string $lang): ?string {
-        return $this->get( self::CONF_OVERRIDE_BLACKBOARD, null ) ?? $this->getSubKey( self::CONF_OVERRIDE_BLACKBOARD, $lang, null );
+        return $this->getSubKey( self::CONF_OVERRIDE_BLACKBOARD, $lang, null ) ?? $this->get( self::CONF_OVERRIDE_BLACKBOARD, null );
     }
 
     public function getVersionLinkOverrideFor(?string $lang): ?string {

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Enum\DomainBlacklistType;
 use App\Repository\AntiSpamDomainsRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
@@ -12,6 +13,7 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 #[Table]
 #[ORM\Index(columns: ['domain'], name: 'nospam_content_idx')]
 #[ORM\Index(columns: ['type'], name: 'nospam_type_idx')]
+#[ORM\Index(columns: ['until'], name: 'nospam_until_idx')]
 #[UniqueConstraint(name: 'anti_spam_domain_unique', columns: ['domain'])]
 class AntiSpamDomains
 {
@@ -24,6 +26,9 @@ class AntiSpamDomains
 
     #[ORM\Column(type: 'integer', enumType: DomainBlacklistType::class)]
     private DomainBlacklistType $type = DomainBlacklistType::EmailDomain;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $until = null;
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +56,18 @@ class AntiSpamDomains
     public function setType(DomainBlacklistType $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getUntil(): ?\DateTimeInterface
+    {
+        return $this->until;
+    }
+
+    public function setUntil(?\DateTimeInterface $until): static
+    {
+        $this->until = $until;
 
         return $this;
     }

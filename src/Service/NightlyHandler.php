@@ -570,9 +570,11 @@ class NightlyHandler
 			$attackPlayer = ($town->getWell() > 0 ? 66 : 100);
 			if (mt_rand(0, 100) < $attackPlayer) {
 				$d = min($town->getWell(), 20);
-				$town->setWell(max(0, $town->getWell() - $d));
-				$this->log->debug("The corpse of citizen <info>{$corpse->getUser()->getUsername()}</info> removes <info>{$d} water rations</info> from the well.");
-				$this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackWell( $corpse, $d ) );
+                if ($d > 0) {
+                    $town->setWell(max(0, $town->getWell() - $d));
+                    $this->log->debug("The corpse of citizen <info>{$corpse->getUser()->getUsername()}</info> removes <info>{$d} water rations</info> from the well.");
+                    $this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackWell( $corpse, $d ) );
+                }
 			} else {
 				// No victim left, lucky them!
 				if (count($targets) === 0) continue;
@@ -1208,12 +1210,28 @@ class NightlyHandler
 
             if ($citizen->hasRole('ghoul')) $this->citizen_handler->removeStatus($citizen, 'infection');
 
-            $alarm = $this->inventory_handler->fetchSpecificItems($citizen->getInventory(), [new ItemRequest("alarm_on_#00")]);
+            /*$alarm = $this->inventory_handler->fetchSpecificItems($citizen->getInventory(), [new ItemRequest("alarm_on_#00")]);
             if (count($alarm) > 0) {
 
                 $this->citizen_handler->setAP($citizen, true, 1);
                 $alarm[0]->setPrototype($this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'alarm_off_#00']));
                 $this->entity_manager->persist($alarm[0]);
+            }*/
+            $alarm1 = $this->inventory_handler->fetchSpecificItems($citizen->getInventory(), [new ItemRequest("alarm_1_#00")]);
+            $alarm2 = $this->inventory_handler->fetchSpecificItems($citizen->getInventory(), [new ItemRequest("alarm_2_#00")]);
+            $alarm3 = $this->inventory_handler->fetchSpecificItems($citizen->getInventory(), [new ItemRequest("alarm_3_#00")]);
+            if (count($alarm1) > 0) {
+                $this->citizen_handler->setAP($citizen, true, 1);
+                $alarm1[0]->setPrototype($this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'alarm_off_#00']));
+                $this->entity_manager->persist($alarm1[0]);
+            } elseif (count($alarm2) > 0) {
+                $this->citizen_handler->setAP($citizen, true, 1);
+                $alarm2[0]->setPrototype($this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'alarm_1_#00']));
+                $this->entity_manager->persist($alarm2[0]);
+            } elseif (count($alarm3) > 0) {
+                $this->citizen_handler->setAP($citizen, true, 1);
+                $alarm3[0]->setPrototype($this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'alarm_2_#00']));
+                $this->entity_manager->persist($alarm3[0]);
             }
 
             if ($this->citizen_handler->hasStatusEffect($citizen, 'tg_air_infected') && !$citizen->hasRole('ghoul')) {
@@ -1258,7 +1276,7 @@ class NightlyHandler
                 $this->log->debug("There is <info>$aliveCitizenInTown</info> citizens alive AND in town, setting the town to <info>devastated</info> mode and to <info>chaos</info> mode");
 
                 $last_stand_day = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_FEATURE_LAST_DEATH_DAY, 5);
-                if($town->getDay() >= $last_stand_day){
+                if($town->getDay() > $last_stand_day){ // Strictly superior, since $town->getDay() is the day AFTER the attack
                     $this->log->debug("Town has lived for $last_stand_day days or more, we give the <info>Last Man Standing</info> picto to a lucky citizen that died in town");
                     $citizen_eligible = [];
                     foreach ($town->getCitizens() as $citizen) {
@@ -1279,11 +1297,12 @@ class NightlyHandler
                         /** @var Citizen $winner */
                         $winner = $this->random->pick($citizen_eligible);
 
-                        if     ($winner->getSurvivedDays() <   6) $wonHeroDays = 0;
-                        elseif ($winner->getSurvivedDays() <=  8) $wonHeroDays = 1;
-                        elseif ($winner->getSurvivedDays() <= 10) $wonHeroDays = 2;
-                        elseif ($winner->getSurvivedDays() <= 15) $wonHeroDays = 3;
-                        elseif ($winner->getSurvivedDays() <= 20) $wonHeroDays = 4;
+                        // Strictly inferior, since $winner->getSurvivedDays() is the day BEFORE the attack
+                        if     ($winner->getSurvivedDays() <  5) $wonHeroDays = 0;
+                        elseif ($winner->getSurvivedDays() <  8) $wonHeroDays = 1;
+                        elseif ($winner->getSurvivedDays() < 10) $wonHeroDays = 2;
+                        elseif ($winner->getSurvivedDays() < 15) $wonHeroDays = 3;
+                        elseif ($winner->getSurvivedDays() < 20) $wonHeroDays = 4;
                         else $wonHeroDays = 5;
                         if ($this->conf->getTownConfiguration($town)->get(TownConf::CONF_FEATURE_GIVE_ALL_PICTOS, true))
                             $wonHeroDays = floor($wonHeroDays * $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_GENEROSITY_LAST, 1) );

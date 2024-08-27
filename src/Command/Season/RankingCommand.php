@@ -247,7 +247,7 @@ class RankingCommand extends Command
 
         $award_glory            = $this->entityManager->getRepository(FeatureUnlockPrototype::class)->findOneByName('f_glory');
         $award_seasonal_glory   = $this->entityManager->getRepository(FeatureUnlockPrototype::class)->findOneByName('f_glory_temp');
-        $award_alarm            = $this->entityManager->getRepository(FeatureUnlockPrototype::class)->findOneByName('f_alarm');
+        //$award_alarm            = $this->entityManager->getRepository(FeatureUnlockPrototype::class)->findOneByName('f_alarm');
 
         $io->section("Global Results");
         $global_citizen_list = [];
@@ -303,7 +303,7 @@ class RankingCommand extends Command
         $all_rank_pictos  = array_filter( $this->entityManager->getRepository(Picto::class)->findBy(['prototype' => [$part_picto,$ranking_picto,$top_ranking_picto]]), fn(Picto $p) => $p->getTownEntry() !== null && $p->getTownEntry()->getSeason() === $season);
         /** @var FeatureUnlock[] $all_rank_rewards */
         $all_rank_rewards = ($upcoming_season && !$seasonal_merge)
-            ? $this->entityManager->getRepository(FeatureUnlock::class)->findBy(['prototype' => [$award_seasonal_glory,$award_alarm], 'expirationMode' => FeatureUnlock::FeatureExpirationSeason, 'season' => $upcoming_season])
+            ? $this->entityManager->getRepository(FeatureUnlock::class)->findBy(['prototype' => [$award_seasonal_glory/*,$award_alarm*/], 'expirationMode' => FeatureUnlock::FeatureExpirationSeason, 'season' => $upcoming_season])
             : [];
 
         foreach ($all_rank_pictos as $rank_picto)
@@ -330,9 +330,9 @@ class RankingCommand extends Command
 
 
             /** @var FeatureUnlock[] $existing_alarms */
-            $existing_alarms = $upcoming_season
+            /*$existing_alarms = $upcoming_season
                 ? $this->entityManager->getRepository(FeatureUnlock::class)->findBy(['prototype' => $award_alarm, 'user' => $citizen_ranking_entry[3], 'expirationMode' => FeatureUnlock::FeatureExpirationSeason, 'season' => $upcoming_season])
-                : [];
+                : [];*/
 
             /** @var FeatureUnlock[] $existing_glory */
             $existing_glory = $upcoming_season
@@ -376,13 +376,13 @@ class RankingCommand extends Command
                 } else $already[2][] = $existing_part_picto->getTownEntry();
             }
 
-            if ($upcoming_season)
+            /*if ($upcoming_season)
                 foreach ($existing_alarms as $n => $alarm) {
                     if ((empty($citizen_ranking_entry[0]) && !$seasonal_merge) || $n > 0) {
                         $minus[3]++;
                         $this->entityManager->remove($alarm);
                     } else $already[3] = true;
-                }
+                }*/
 
             if ($upcoming_season)
                 foreach ($existing_glory as $n => $glory) {
@@ -410,10 +410,10 @@ class RankingCommand extends Command
                     $plus[2]++;
                 }
 
-            if (!empty($citizen_ranking_entry[0]) && !$already[3] && $upcoming_season) {
+            /*if (!empty($citizen_ranking_entry[0]) && !$already[3] && $upcoming_season) {
                 $this->entityManager->persist((new FeatureUnlock())->setPrototype($award_alarm)->setUser($citizen_ranking_entry[3])->setExpirationMode(FeatureUnlock::FeatureExpirationSeason)->setSeason($upcoming_season));
                 $plus[3]++;
-            }
+            }*/
             if ((!empty($citizen_ranking_entry[0])) && !$already[4] && $upcoming_season) {
                 $this->entityManager->persist((new FeatureUnlock())->setPrototype($award_seasonal_glory)->setUser($citizen_ranking_entry[3])->setExpirationMode(FeatureUnlock::FeatureExpirationSeason)->setSeason($upcoming_season));
                 $plus[4]++;
@@ -458,10 +458,10 @@ class RankingCommand extends Command
                 $top_ranking_picto = $this->entityManager->getRepository(PictoPrototype::class)->findOneByName('r_wintop_#00');
 
                 $award_seasonal_glory  = $this->entityManager->getRepository(FeatureUnlockPrototype::class)->findOneByName('f_glory_temp');
-                $award_alarm           = $this->entityManager->getRepository(FeatureUnlockPrototype::class)->findOneByName('f_alarm');
+                //$award_alarm           = $this->entityManager->getRepository(FeatureUnlockPrototype::class)->findOneByName('f_alarm');
 
                 $features = [];
-                if ($citizen_ranking_entry[1][3] > 0) $features[] = $award_alarm;
+                //if ($citizen_ranking_entry[1][3] > 0) $features[] = $award_alarm;
                 if ($citizen_ranking_entry[1][4] > 0) $features[] = $award_seasonal_glory;
 
                 if (array_reduce( $citizen_ranking_entry[1], fn(int $carry, int $value) => max( $carry, $value ), 0 ) > 0)

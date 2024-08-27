@@ -108,17 +108,23 @@ class UserHandler
     {
         $repo = $this->entity_manager->getRepository(AntiSpamDomains::class);
 
-        if (!empty($user->getEmail()) && !$repo->findOneBy( ['type' => DomainBlacklistType::EmailAddress, 'domain' => DomainBlacklistType::EmailAddress->convert( $user->getEmail() )] ))
-            $this->entity_manager->persist( (new AntiSpamDomains())
-                ->setType( DomainBlacklistType::EmailAddress )
-                ->setDomain( DomainBlacklistType::EmailAddress->convert( $user->getEmail() ) )
+        if (!empty($user->getEmail())) {
+            $existing = $repo->findOneBy( ['type' => DomainBlacklistType::EmailAddress, 'domain' => DomainBlacklistType::EmailAddress->convert( $user->getEmail() )] );
+            $this->entity_manager->persist(($existing ?? new AntiSpamDomains())
+                ->setType(DomainBlacklistType::EmailAddress)
+                ->setDomain(DomainBlacklistType::EmailAddress->convert($user->getEmail()))
+                ->setUntil(null)
             );
+        }
 
-        if (!empty($user->getEternalID()) && !$repo->findOneBy( ['type' => DomainBlacklistType::EternalTwinID, 'domain' => DomainBlacklistType::EternalTwinID->convert( $user->getEternalID() )] ))
-            $this->entity_manager->persist( (new AntiSpamDomains())
-                ->setType( DomainBlacklistType::EternalTwinID )
-                ->setDomain( DomainBlacklistType::EternalTwinID->convert( $user->getEternalID() ) )
+        if (!empty($user->getEternalID())) {
+            $existing = $repo->findOneBy(['type' => DomainBlacklistType::EternalTwinID, 'domain' => DomainBlacklistType::EternalTwinID->convert($user->getEternalID())]);
+            $this->entity_manager->persist(($existing ?? new AntiSpamDomains())
+                ->setType(DomainBlacklistType::EternalTwinID)
+                ->setDomain(DomainBlacklistType::EternalTwinID->convert($user->getEternalID()))
+                ->setUntil(null)
             );
+        }
 
         $user
             ->setEmail("$ deleted <{$user->getId()}>")->setDisplayName(null)
@@ -465,9 +471,8 @@ class UserHandler
 
 	public function isEmailValid(string $mail): bool {
 		$repo = $this->entity_manager->getRepository(AntiSpamDomains::class);
-		if ($repo->findOneBy( ['type' => DomainBlacklistType::EmailAddress, 'domain' => DomainBlacklistType::EmailAddress->convert( $mail )] )) {
+		if ($repo->findActive( DomainBlacklistType::EmailAddress, $mail ))
 			return false;
-		}
 
 		$parts = explode('@', $mail, 2);
 		if (count($parts) < 2) return false;
@@ -479,7 +484,7 @@ class UserHandler
 			$d = array_pop($parts);
 			if (empty($d)) continue;
 			$test = $d . (empty($test) ? '' : ".{$test}");
-			if ($repo->findOneBy(['type' => DomainBlacklistType::EmailDomain, 'domain' => DomainBlacklistType::EmailDomain->convert($test)])) {
+			if ($repo->findActive(DomainBlacklistType::EmailDomain, $test)) {
 				return false;
 			}
 		}
@@ -498,8 +503,8 @@ class UserHandler
                 // It is, let's deny it
                 // For quicker response, we save the domain in the AntiSpam list
                 $domain = substr($mail, stripos($mail, '@') + 1);
-                $blackList = new AntiSpamDomains();
-                $blackList->setType(DomainBlacklistType::EmailDomain)->setDomain(DomainBlacklistType::EmailDomain->convert( $domain ));
+                $blackList = $repo->findOneBy( ['type' => DomainBlacklistType::EmailAddress, 'domain' => DomainBlacklistType::EmailAddress->convert( $domain )] ) ?? new AntiSpamDomains();
+                $blackList->setType(DomainBlacklistType::EmailDomain)->setDomain(DomainBlacklistType::EmailDomain->convert( $domain ))->setUntil(null);
                 $this->entity_manager->persist($blackList);
                 $this->entity_manager->flush();
                 return false;

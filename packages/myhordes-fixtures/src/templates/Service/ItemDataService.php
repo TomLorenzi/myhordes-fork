@@ -200,9 +200,9 @@ class ItemDataService implements FixtureProcessorInterface {
 		$container->add()->label('Magnet-Schlüssel')->icon('magneticKey')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Schlagschlüssel')->icon('bumpKey')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Flaschenöffner')->icon('classicKey')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Abdruck vom Magnet-Schlüssel')->icon('prints')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
+		$container->add()->label('Abdruck vom Magnet-Schlüssel')->icon('magnetic_print')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Abdruck vom Schlagschlüssel')->icon('prints')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Abdruck vom Flaschenöffner')->icon('prints')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
+		$container->add()->label('Abdruck vom Flaschenöffner')->icon('bottle_print')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Ration Wasser')->icon('water')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Offene Konservendose')->icon('can_open')->category('Food')->deco(0)->heavy(false)->watchpoint(2)->commit();
 		$container->add()->label('Undefinierbares Fleisch')->icon('undef')->category('Food')->deco(0)->heavy(false)->watchpoint(2)->commit();
@@ -334,6 +334,9 @@ class ItemDataService implements FixtureProcessorInterface {
 		$container->add()->label('Kamera aus Vorkriegs-Tagen')->icon('photo_off')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->sort(61)->commit();
 		$container->add()->label('Kreischender Wecker (entladen)')->icon('alarm_off')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->sort(60)->commit();
 		$container->add()->label('Kreischender Wecker (mit Strom)')->icon('alarm_on')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->sort(60)->commit();
+		$container->add()->label('Kreischender Wecker (1 Schuss)')->icon('alarm_1')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->sort(60)->commit();
+		$container->add()->label('Kreischender Wecker (2 Schuss)')->icon('alarm_2')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->sort(60)->commit();
+		$container->add()->label('Kreischender Wecker (3 Schuss)')->icon('alarm_3')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->sort(60)->commit();
 		$container->add()->label('Huhn')->icon('pet_chick')->category('Misc')->deco(0)->heavy(false)->watchpoint(8)->fragile(true)->commit();
 		$container->add()->label('Übelriechendes Schwein')->icon('pet_pig')->category('Misc')->deco(0)->heavy(true)->watchpoint(20)->fragile(true)->commit();
 		$container->add()->label('Riesige Ratte')->icon('pet_rat')->category('Misc')->deco(0)->heavy(false)->watchpoint(4)->fragile(true)->commit();
@@ -623,9 +626,9 @@ class ItemDataService implements FixtureProcessorInterface {
 		$container->modify('magneticKey_#00')->description('Mit diesem HighTech-Schlüssel lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen. Nur Angehörige der Elite können sich damit brüsten, so einen Schlüssel zu besitzen. Leider ist der Schlüssel in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.')->commit();
 		$container->modify('bumpKey_#00')->description('Dieser Schlüssel ist der Liebling aller Einbrecher und öffnet Türen so rasend schnell, dass man sich glatt fragt, warum man überhaupt noch normale Schlüssel benutzt. Leider ist der Schlüssel in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.')->commit();
 		$container->modify('classicKey_#00')->description('Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen! Leider ist der Flaschenöffner in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.')->commit();
-		$container->modify('prints_#00')->description('Mit diesem Abdruck des HighTech-Schlüssels lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen.')->commit();
-		$container->modify('prints_#01')->description('Mit diesem Abdruck kannst du einen Schlagschlüssel, den Liebling aller Einbrecher, herstellen. Damit lassen sich Türen so rasend schnell öffnen, dass man sich glatt fragt, warum man überhaupt noch normale Schlüssel benutzt.')->commit();
-		$container->modify('prints_#02')->description('Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen! Dank dieses Abdrucks kannst du einen solchen Schlüssel herstellen.')->commit();
+		$container->modify('magnetic_print_#00')->description('Mit diesem Abdruck des HighTech-Schlüssels lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen.')->commit();
+		$container->modify('prints_#00')->description('Mit diesem Abdruck kannst du einen Schlagschlüssel, den Liebling aller Einbrecher, herstellen. Damit lassen sich Türen so rasend schnell öffnen, dass man sich glatt fragt, warum man überhaupt noch normale Schlüssel benutzt.')->commit();
+		$container->modify('bottle_print_#00')->description('Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen! Dank dieses Abdrucks kannst du einen solchen Schlüssel herstellen.')->commit();
 		$container->modify('vagoul_#00')->description('Dieses extrem seltene Serum wurde durch der Untersuchung der DNA eines fast immunen Wesens gewonnen. Es hatte zuvor 3 Tage überlebt, obwohl es von einem Infizierten gebissen wurde. Mit dem Serum kann man einen Ghul wieder in einen normalen Menschen verwandeln.')->commit();
 		$container->modify('hbplan_u_#00')->description('Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.')->commit();
 		$container->modify('hbplan_r_#00')->description('Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.')->commit();
@@ -720,6 +723,9 @@ class ItemDataService implements FixtureProcessorInterface {
 		$container->modify('christmas_candy_#00')->description('Es sieht aus wie eine Art Schokoladenbonbon mit alkoholischem Likör darin. Oder eine andere Füllung...')->commit();
 		$container->modify('alarm_off_#00')->description('Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert.')->commit();
 		$container->modify('alarm_on_#00')->description('Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei.')->commit();
+		$container->modify('alarm_1_#00')->description('Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei und lässt dich nach dem Angriff energetisch mit einem Bonus-AP in den Tag starten.')->commit();
+		$container->modify('alarm_2_#00')->description('Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei und lässt dich nach dem Angriff energetisch mit einem Bonus-AP in den Tag starten.')->commit();
+		$container->modify('alarm_3_#00')->description('Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei und lässt dich nach dem Angriff energetisch mit einem Bonus-AP in den Tag starten.')->commit();
 		$container->modify('hurling_stick_#00')->description('Ein kleiner Ratschlag. Wenn du schon den falschen Kampf wählst... dann wähle wenigstens die richtige Waffe.')->commit();
 		$container->modify('guiness_#00')->description('Nichts ist besser als ein Pint des schwarzen Zeugs, um Poesie, Lachen und ähm, den Kampf gegen die Zombies zu inspirieren... *Genehmigt von Charlie Sheen')->commit();
 		$container->modify('april_drug_#00')->description('Ein Gift welches bei der Einnahme EXTREM virulent wirkt, wenn man dem Etikett Glauben schenken darf: Die Ingestion des Zervixschleim führt zu Tod, spontaner Verbrennung, Explosion der Lunge und zum Austritt des Gehirns aus allen Körperöffnungen. Aber nicht unbedingt in dieser Reihenfolge.')->commit();

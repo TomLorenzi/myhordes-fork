@@ -1,4 +1,3 @@
----
 'Deine Route wurde gespeichert.': 'Tu ruta ha sido guardada.'
 'Du hast deine Beschreibung geändert.': 'Has cambiado tu anuncio personal. Ahora es visible en El Anuario de los Habitantes.'
 '{citizen} hat {item} in den Brunnen geschüttet und damit {num} Rationen Wasser hinzugefügt.': '{citizen} ha añadido <strong>{item}</strong>, y con ello obtuvimos <strong>{num} Raciones de Agua.</strong>'
@@ -864,7 +863,7 @@ Zusammenbauen: Ensamblar
 'Tote in der Stadt': 'Muertos en el pueblo'
 Niemand!: '¡Ninguno!'
 'Sonstige Opfer': 'Otras víctimas'
-Opfer: Vícitma
+Opfer: Víctima
 'Keine Opfer': 'Ningún muerto'
 Umdrehen: Voltear
 'Der {rolename} der Stadt ist {username}': "{username} ha sido escogido como el {rolename} del pueblo"

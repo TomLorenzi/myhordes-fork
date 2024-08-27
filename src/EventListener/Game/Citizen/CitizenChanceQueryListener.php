@@ -160,9 +160,8 @@ final class CitizenChanceQueryListener implements ServiceSubscriberInterface
 
             if (
                 !$novelty_lamps ||
-                ($novelty_lamps->getLevel() === 0 && $zoneDistance >   2) ||
-                ($novelty_lamps->getLevel() === 1 && $zoneDistance >   6) ||
-                ($novelty_lamps->getLevel() === 2 && $zoneDistance > 999)
+                ($novelty_lamps->getLevel() === 0 && $zoneDistance >   6) ||
+                ($novelty_lamps->getLevel() === 1 && $zoneDistance > 999)
             ) return $malus;
 
             // NovLamps are in effect, no malus

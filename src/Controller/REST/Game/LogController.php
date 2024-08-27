@@ -213,7 +213,9 @@ class LogController extends CustomAbstractCoreController
         $first = true;
         $h = $canHide ? 'h' : 'n';
         while (!$entries->isEmpty()) {
-            $next = ($this->blockTime)($entries->first()->getTimestamp());
+            $nextElement = $entries->first();
+            if ($nextElement === false) break;
+            $next = ($this->blockTime)($nextElement->getTimestamp());
             [$c, $entries] = $entries->partition( fn(int $i, TownLogEntry $t) => $t->getTimestamp() >= $next );
 
             if ($first || $current_block->getTimestamp() === $next->getTimestamp()) $result = $this->renderLogEntries( $c, $canHide, $admin );

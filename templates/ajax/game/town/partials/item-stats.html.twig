@@ -19,7 +19,7 @@
             ) }}
         </div>
         <div class="padded cell rw-6 rw-lg-12 left medium" {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionTownCommunication')) %}disabled{% endif %}>
-            <label><input id="desc_edit" type="text" maxlength="64" placeholder="{{ 'Dein Beschreibungstext'|trans({},'game') }}" value="{{ home.description }}"></label>
+            <label><input id="desc_edit" type="text" maxlength="64" placeholder="{{ 'Dein Beschreibungstext'|trans({},'game') }}" value="{{ home.description }}" autocapitalize="sentences"></label>
             <div class="small">
                 <button style="margin-top: 3px;" class="inline small" id="desc_edit_button">{{ 'Speichern'|trans({},'game') }}</button>
                 <a id="desc_remove_button" href="">{{ 'Löschen'|trans({},'game') }}</a>

@@ -1481,7 +1481,7 @@ class AdminTownController extends AdminActionController
         ]);
 
         return AjaxResponse::success(true, [
-            'desc' => $citizen->getAlive() ? $citizen->getHome()->getDescription() : $citizen->getRankingEntry()->getLastWords(),
+            'desc' => $citizen->getHome()->getDescription(),
             'rucksack' => $rucksack,
             'chest' => $chest,
             'pictos' => $pictos,

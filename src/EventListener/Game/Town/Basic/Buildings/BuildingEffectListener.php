@@ -132,7 +132,7 @@ final class BuildingEffectListener implements ServiceSubscriberInterface
         switch ($event->building->getPrototype()->getName()) {
 
             case 'small_novlamps_#00':
-                $bats = $event->building->getLevel();
+                $bats = $event->building->getLevel()*2;
 
                 $inventoryHandler = $this->getService(InventoryHandler::class);
                 $citizenHandler = $this->getService(CitizenHandler::class);
