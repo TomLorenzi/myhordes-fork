@@ -169,7 +169,7 @@ customElements.define('hordes-progress-bar', class HordesProgressBarElement exte
             animateTo: parseInt( this.dataset.animateTo ?? '0' ),
             limit: parseInt( this.dataset.limit ?? '0' ),
             xp: parseInt( this.dataset.xp ?? '0' ) !== 0,
-            step: parseInt( this.dataset.step ?? '0' ),
+            step: (this.dataset.step ?? '100').split(',').map(i => parseInt(i)),
         }
     }
 

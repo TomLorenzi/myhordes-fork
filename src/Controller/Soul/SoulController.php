@@ -207,9 +207,11 @@ class SoulController extends CustomAbstractController
 
             $factor1 = $latestSkill !== null ? $latestSkill->getDaysNeeded() : 0;
             $progress = floor($nextSkill !== null ? ($xp - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 0);
+            $steps = [];
         } else {
             $progress = $unlockService->getHeroicExperience( $user );
             $latestSkill = null;
+            $steps = array_map( fn(HeroSkillPrototype $skill) => $skill->getDaysNeeded(), $unlockService->getUnlockableHeroicSkillsByUser( $user, limitToCurrent: false ) );
         }
 
         $desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
@@ -224,6 +226,7 @@ class SoulController extends CustomAbstractController
             'user' => $user,
             'features' => $features,
             'latestSkill' => $latestSkill,
+            'steps' => $steps,
             'progress' => $progress,
             'skills' => $hasNewSkills,
             'seasons' => $this->entity_manager->getRepository(Season::class)->findPastAndPresent(),

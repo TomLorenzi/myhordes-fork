@@ -6,7 +6,7 @@
         <div class="cell rw-12 center skills">
 
             {% if skills %}
-                <hordes-progress-bar data-animate-from="0" data-animate-to="{{progress}}" data-xp="1" data-step="30"></hordes-progress-bar>
+                <hordes-progress-bar data-animate-from="0" data-animate-to="{{progress}}" data-xp="1" data-step="{{ steps|join(',') }}"></hordes-progress-bar>
             {% else %}
                 <hordes-progress-bar data-animate-from="0" data-animate-to="{{progress}}" data-limit="100"></hordes-progress-bar>
 

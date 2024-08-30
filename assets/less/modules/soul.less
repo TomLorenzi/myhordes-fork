@@ -859,10 +859,20 @@ hr.section {
         100% { filter: saturate(100%) brightness(100%); }
       }
 
+      @keyframes flashy-inner-alt {
+        0% { filter: hue-rotate(45deg) saturate(100%) brightness(170%); }
+        45% { filter: hue-rotate(45deg) saturate(100%) brightness(170%); }
+        50% { filter: hue-rotate(45deg) saturate(125%) brightness(195%); }
+        55% { filter: hue-rotate(45deg) saturate(100%) brightness(170%); }
+        100% { filter: hue-rotate(45deg) saturate(100%) brightness(170%); }
+      }
+
       .inner {
         height: 32px; background: url('../../img/soul/heroUp_bar.gif');
-        &.flashy { animation: flashy-inner 3s ease-in-out 1s infinite; }
+        position: absolute; left: 0; top: 0;
       }
+
+      .completed-layers>.inner.flashy { filter: hue-rotate(45deg) brightness(170%); border-right: 2px solid rgba(0,0,0,0.2); box-shadow: 0 0 5px black; }
     }
 
   }

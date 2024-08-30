@@ -5,6 +5,8 @@ namespace App\Service\User;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\HeroExperienceEntry;
+use App\Entity\HeroSkillPrototype;
+use App\Entity\HeroSkillUnlock;
 use App\Entity\LogEntryTemplate;
 use App\Entity\OfficialGroup;
 use App\Entity\Season;
@@ -16,6 +18,10 @@ use App\EventListener\ContainerTypeTrait;
 use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\PermissionHandler;
 use App\Service\UserHandler;
+use ArrayHelpers\Arr;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Criteria;
+use Doctrine\Common\Collections\Expr\Comparison;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\QueryBuilder;
 use Psr\Cache\InvalidArgumentException;
@@ -66,6 +72,7 @@ class UserUnlockableService implements ServiceSubscriberInterface
      * @param User $user User
      * @param Season|bool|null $season Season; can be an explicit Season object, true (current season), false (no season) or null (any season or no season)
      * @param string|null $subject Restrict to specific subject in addition to season
+     * @param bool $include_legacy
      * @return int
      */
     public function getHeroicExperience(User $user, Season|bool|null $season = true, ?string $subject = null, bool $include_legacy = false): int {
@@ -211,4 +218,75 @@ class UserUnlockableService implements ServiceSubscriberInterface
         return true;
     }
 
+    /**
+     * Returns all heroic skills unlocked by a particular user within the given season. This includes skills that are
+     * unlocked by default.
+     * @param User $user The user to check
+     * @param Season|true $season The season (true to use current season, default)
+     * @return array<HeroSkillPrototype>
+     */
+    public function getUnlockedHeroicSkillsByUser(User $user, Season|true $season = true): array {
+
+        // Get skills unlocked by default
+        $defaultSkills = $this->getService(EntityManagerInterface::class)->getRepository(HeroSkillPrototype::class)->matching(
+            (new Criteria())
+                ->andWhere( new Comparison( 'enabled', Comparison::EQ, true )  )
+                ->andWhere( new Comparison( 'legacy', Comparison::EQ, false )  )
+                ->andWhere( new Comparison( 'daysNeeded', Comparison::EQ, 0 )  )
+        );
+
+        // Resolve season
+        $season = $season === true
+            ? $this->getService(EntityManagerInterface::class)->getRepository(Season::class)->findOneBy(['current' => true])
+            : $season;
+
+        // Unlocked skills
+        $unlockedSkills = $this->getService(EntityManagerInterface::class)->getRepository(HeroSkillUnlock::class)->matching(
+            (new Criteria())
+                ->andWhere( new Comparison( 'user', Comparison::EQ, $user )  )
+                ->andWhere( new Comparison( 'season', Comparison::EQ, $season )  )
+        )->map( fn(HeroSkillUnlock $skill) => $skill->getSkill() );
+
+        $mergedCollection = new ArrayCollection( $defaultSkills->toArray() );
+        foreach ($unlockedSkills as $skill)
+            if (!$mergedCollection->contains($skill))
+                $mergedCollection->add($skill);
+
+        return $mergedCollection->toArray();
+    }
+
+    /**
+     * Returns heroic skills that are not yet unlocked by the given user in the given season. If $limitToCurrent is set,
+     * only those that can be unlocked right now based on their level are returned.
+     * @param User $user The user to check
+     * @param Season|true $season The season (true to use current season, default)
+     * @param bool $limitToCurrent Only return skills that can be unlocked right now
+     * @return array<HeroSkillPrototype>
+     */
+    public function getUnlockableHeroicSkillsByUser(User $user, Season|true $season = true, bool $limitToCurrent = true): array {
+        $unlockedSkills = $this->getUnlockedHeroicSkillsByUser($user, $season);
+
+        // Calculate the current unlock level by skill group
+        $g = [];
+        foreach ($unlockedSkills as $skill)
+            Arr::set( $g, $skill->getGroupIdentifier(), max( $skill->getLevel(), Arr::get( $g, $skill->getGroupIdentifier(), 0 ) ) );
+
+        $lockedSkills = $this->getService(EntityManagerInterface::class)->getRepository(HeroSkillPrototype::class)->matching(
+            (new Criteria())
+                ->andWhere( new Comparison( 'enabled', Comparison::EQ, true )  )
+                ->andWhere( new Comparison( 'legacy', Comparison::EQ, false )  )
+                ->andWhere( new Comparison( 'id', Comparison::NIN, array_map( fn(HeroSkillPrototype $skill) => $skill->getId(), $unlockedSkills )  ) )
+        );
+
+        if ($limitToCurrent) $lockedSkills = $lockedSkills->filter( fn(HeroSkillPrototype $skill) => $skill->getLevel() === 1+Arr::get( $g, $skill->getGroupIdentifier(), 0 ) );
+
+        $a = $lockedSkills->toArray();
+        usort($a, fn(HeroSkillPrototype $a, HeroSkillPrototype $b) =>
+            $a->getDaysNeeded() <=> $b->getDaysNeeded() ?:
+            ($a->getLevel() - Arr::get( $g, $a->getGroupIdentifier(), 0 )) <=> ($b->getLevel() - Arr::get( $g, $b->getGroupIdentifier(), 0 )) ?:
+            $a->getSort() <=> $b->getSort()
+        );
+
+        return $a;
+    }
 }
