@@ -29,5 +29,8 @@ export type TranslationStrings = {
         "help": string,
         "level": string,
         "pts": string,
+        "unlock": string,
+        "unlock_button": string,
+        "unlock_img": string,
     }
 }

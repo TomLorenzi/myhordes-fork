@@ -22,6 +22,7 @@ use ArrayHelpers\Arr;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Collections\Expr\Comparison;
+use Doctrine\Common\Collections\Order;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\QueryBuilder;
 use Psr\Cache\InvalidArgumentException;
@@ -75,7 +76,7 @@ class UserUnlockableService implements ServiceSubscriberInterface
      * @param bool $include_legacy
      * @return int
      */
-    public function getHeroicExperience(User $user, Season|bool|null $season = true, ?string $subject = null, bool $include_legacy = false): int {
+    public function getHeroicExperience(User $user, Season|bool|null $season = true, ?string $subject = null, bool $include_legacy = false, bool $include_deductions = true): int {
 
         $season = $season === true
             ? $this->getService(EntityManagerInterface::class)->getRepository(Season::class)->findOneBy(['current' => true])
@@ -89,9 +90,10 @@ class UserUnlockableService implements ServiceSubscriberInterface
 
         if ($subject !== null) $key .= "_$subject";
         if ($include_legacy) $key .= "_lgc";
+        if (!$include_deductions) $key .= '_pos';
 
         try {
-            return $this->gameCachePool->get($key, function (ItemInterface $item) use ($user, $season, $subject, $include_legacy) {
+            return $this->gameCachePool->get($key, function (ItemInterface $item) use ($user, $season, $subject, $include_legacy, $include_deductions) {
                 $item->expiresAfter(86400)->tag(["user-{$user->getId()}-hxp",'hxp']);
 
                 $qb = $this->generateDefaultQuery($user)
@@ -99,6 +101,9 @@ class UserUnlockableService implements ServiceSubscriberInterface
 
                 if (!$include_legacy)
                     $qb->andWhere('x.type != :legacy')->setParameter('legacy', HeroXPType::Legacy);
+
+                if (!$include_deductions)
+                    $qb->andWhere('x.value > 0');
 
                 if ($season === false)
                     $qb->andWhere('x.season IS NULL');
@@ -166,7 +171,7 @@ class UserUnlockableService implements ServiceSubscriberInterface
         string|array $variables = [],
         Town|TownRankingProxy|null $town = null,
         Citizen|CitizenRankingProxy|null $citizen = null,
-        ?Season $season = null,
+        Season|true|null $season = null,
         ?\DateTimeInterface $date = null,
     ): bool {
 
@@ -175,6 +180,7 @@ class UserUnlockableService implements ServiceSubscriberInterface
         if (is_a($town, Town::class)) $town = $town->getRankingEntry();
         if (is_a($citizen, Citizen::class)) $citizen = $citizen->getRankingEntry();
 
+        if ($season === true) $season = $this->getService(EntityManagerInterface::class)->getRepository(Season::class)->findOneBy(['current' => true]);
         $season ??= $town?->getSeason() ?? $citizen?->getTown()?->getSeason();
 
         if ( $type === HeroXPType::Seasonal && (!$season || !$subject) )
@@ -219,6 +225,38 @@ class UserUnlockableService implements ServiceSubscriberInterface
     }
 
     /**
+     * @param User $user
+     * @return array<HeroSkillPrototype>
+     */
+    public function getUnlockedLegacyHeroicPowersByUser(User $user): array {
+        // Get skills unlocked by default
+        $xp = $this->getLegacyHeroDaysSpent( $user );
+        return $this->getService(EntityManagerInterface::class)->getRepository(HeroSkillPrototype::class)->matching(
+            (new Criteria())
+                ->andWhere( new Comparison( 'enabled', Comparison::EQ, true )  )
+                ->andWhere( new Comparison( 'legacy', Comparison::EQ, true )  )
+                ->andWhere( new Comparison( 'daysNeeded', Comparison::LTE, $xp )  )
+                ->orderBy([ 'daysNeeded' => Order::Ascending ])
+        )->toArray();
+    }
+
+    /**
+     * @param User $user
+     * @return array<HeroSkillPrototype>
+     */
+    public function getUnlockableLegacyHeroicPowersByUser(User $user): array {
+        // Get skills unlocked by default
+        $xp = $this->getLegacyHeroDaysSpent( $user );
+        return $this->getService(EntityManagerInterface::class)->getRepository(HeroSkillPrototype::class)->matching(
+            (new Criteria())
+                ->andWhere( new Comparison( 'enabled', Comparison::EQ, true )  )
+                ->andWhere( new Comparison( 'legacy', Comparison::EQ, true )  )
+                ->andWhere( new Comparison( 'daysNeeded', Comparison::GT, $xp )  )
+                ->orderBy([ 'daysNeeded' => Order::Ascending ])
+        )->toArray();
+    }
+
+    /**
      * Returns all heroic skills unlocked by a particular user within the given season. This includes skills that are
      * unlocked by default.
      * @param User $user The user to check
@@ -252,7 +290,11 @@ class UserUnlockableService implements ServiceSubscriberInterface
             if (!$mergedCollection->contains($skill))
                 $mergedCollection->add($skill);
 
-        return $mergedCollection->toArray();
+        $list = $mergedCollection->toArray();
+        usort($list, fn(HeroSkillPrototype $a, HeroSkillPrototype $b) =>
+            $a->getSort() <=> $b->getSort() ?: $a->getLevel() <=> $b->getLevel() ?: $a->getId() <=> $b->getId()
+        );
+        return $list;
     }
 
     /**
@@ -288,5 +330,24 @@ class UserUnlockableService implements ServiceSubscriberInterface
         );
 
         return $a;
+    }
+
+    public function unlockSkillForUser(User $user, HeroSkillPrototype $skill, Season|true $season): bool {
+        if ($season === true)
+            $season = $this->getService(EntityManagerInterface::class)->getRepository(Season::class)->findOneBy(['current' => true]);
+
+        if ($skill->isLegacy()) return false;
+        try {
+            $this->getService(EntityManagerInterface::class)->persist( (new HeroSkillUnlock())
+                ->setSkill($skill)
+                ->setUser($user)
+                ->setSeason($season)
+            );
+            $this->getService(EntityManagerInterface::class)->flush();
+        } catch ( \Exception $e ) {
+            return false;
+        }
+
+        return true;
     }
 }

@@ -353,10 +353,12 @@ div.tooltip.badge-tooltip {
             background-color: #5c2b20;
             .row-flex:nth-child(odd) {
                 background-color: #663024;
+                &.unlocked { background-color: #3b3249; }
             }
 
             .row-flex:nth-child(even) {
                 background-color: #5c2b20;
+                &.unlocked { background-color: #2f283b; }
             }
 
             .row-flex.played {
@@ -379,6 +381,28 @@ div.tooltip.badge-tooltip {
               background-color: @myhordes-green-color;
             }
             border-bottom: 1px solid #ddab76;
+
+            .level-indicator {
+              display: flex; flex-direction: column;
+
+              .unlock {
+                flex-grow: 1; display: flex; flex-direction: column; row-gap: @myhordes-grid-padsize-small; justify-content: center; padding: 4px 0;
+
+                .needed { font-size: 1.45rem; color: #f0d79e }
+              }
+            }
+
+            .ability-indicator {
+              display: flex; flex-direction: column; justify-content: center;
+              ul {
+                margin: 0; list-style: none;
+                li {
+                  display: flex; column-gap: @myhordes-grid-padsize; align-items: flex-start;
+                  &:before { content: " "; height: 16px; width: 16px; background: url("../../img/icons/small_middot.gif"); flex-shrink: 0}
+                  font-size: 1.2rem;
+                }
+              }
+            }
 
             .town-name {
                 font-size: 1.2rem;

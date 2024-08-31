@@ -153,3 +153,20 @@
     &.padded-none  {padding: 0}
   }
 }
+
+.flex {
+  &.inline {display: inline-flex; }
+  &:not(.inline) {display: flex; }
+
+  &.column { flex-direction: column }
+
+  &.top { align-items: flex-start; }
+  &.middle { align-items: center; }
+  &.bottom { align-items: flex-end; }
+
+  &.left { justify-content: flex-start; }
+  &.center { justify-content: center; }
+  &.right { justify-content: flex-end; }
+
+  gap: @myhordes-grid-padsize-small;
+}

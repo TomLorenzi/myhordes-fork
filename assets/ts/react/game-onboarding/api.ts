@@ -69,6 +69,7 @@ export type ResponseSkills = {
     },
     skills?: {
         pts: number,
+        unlock_url: string|null
         groups: string[],
         list: Skill[]
     }

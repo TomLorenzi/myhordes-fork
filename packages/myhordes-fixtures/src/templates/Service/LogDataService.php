@@ -256,6 +256,7 @@ class LogDataService implements FixtureProcessorInterface {
 
         $data = array_merge_recursive($data, [
             ['text'=>'{days} Tage überlebt in "{town}"', 'name'=>'hxp_survived_days_base', 'type'=>LogEntryTemplate::TypeHXPLog, 'class' => LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"string",'name'=>'town'],['type'=>"num",'name'=>'days'])],
+            ['text'=>'Fähigkeit erworben', 'name'=>'hxp_debit_base', 'type'=>LogEntryTemplate::TypeHXPLog, 'class' => LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array()],
         ]);
     }
 }

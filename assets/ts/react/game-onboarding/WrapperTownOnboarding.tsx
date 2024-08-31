@@ -423,6 +423,11 @@ const SkillSelection = (props: OnboardingSkillPayloadProps) => {
 
     return <>
         {!skills && <div className="loading"/>}
+        { skills?.skills?.unlock_url && <div className="note green-note flex column middle">
+            <img src={globals.strings.skills.unlock_img} alt="" />
+            { globals.strings.skills.unlock }
+            <button onClick={() => $.ajax.load(null, skills.skills.unlock_url, true)}>{ globals.strings.skills.unlock_button }</button>
+        </div> }
         { skills?.skills && <div className="note current-pts" dangerouslySetInnerHTML={{__html: globals.strings.skills.pts.replace('{pts}', `${pts_left}`)}} /> }
         <div ref={skillContainer}>
             { skills?.skills?.groups.map(g => <div className="row" key={g}>
@@ -445,7 +450,7 @@ const SkillSelection = (props: OnboardingSkillPayloadProps) => {
                                             {levels[g] < skill.level && <img alt="" src={globals.strings.common.off}/>}
                                         </div>
                                         <div className="cell factor-1">
-                                            <b>{ globals.strings.skills.level.replace('{skill-level}', `${skill.level}`) }:&nbsp;</b>
+                                            <b>{ globals.strings.skills.level.replace('{skill_level}', `${skill.level}`) }:&nbsp;</b>
                                             { skill.description }
                                             { skill.bullets.length > 0 && <ul>
                                                 { skill.bullets.map((bullet, i) => <li key={i}>{bullet}</li>) }

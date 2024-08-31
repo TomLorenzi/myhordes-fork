@@ -202,8 +202,12 @@ class SoulController extends CustomAbstractController
 
         if (!$hasNewSkills) {
             $xp = $unlockService->getLegacyHeroDaysSpent( $user );
-            $latestSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getLatestUnlocked($xp);
-            $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($xp);
+
+            $unlocked = $unlockService->getUnlockedLegacyHeroicPowersByUser( $this->getUser() );
+            $locked = $unlockService->getUnlockableLegacyHeroicPowersByUser( $this->getUser() );
+
+            $latestSkill = empty($unlocked) ? null : $unlocked[array_key_last($unlocked)];
+            $nextSkill = empty($locked) ? null : $locked[array_key_first($locked)];
 
             $factor1 = $latestSkill !== null ? $latestSkill->getDaysNeeded() : 0;
             $progress = floor($nextSkill !== null ? ($xp - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 0);
@@ -386,27 +390,24 @@ class SoulController extends CustomAbstractController
         return AjaxResponse::success( true, ['data' => $return] );
     }
 
-
     /**
+     * @param UserUnlockableService $unlockService
      * @return Response
      */
-    #[Route(path: 'jx/soul/heroskill', name: 'soul_heroskill')]
-    public function soul_heroskill(UserUnlockableService $unlockService): Response
-    {
-        $user = $this->getUser();
-
-        /** @var CitizenRankingProxy $nextDeath */
-        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
-            return $this->redirect($this->generateUrl( 'soul_death' ));
-
+    private function soul_heroskill_legacy( UserUnlockableService $unlockService ): Response {
         // Get all the picto & count points
-        $xp = $unlockService->getLegacyHeroDaysSpent( $user );
-        $latestSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getLatestUnlocked($xp);
-        $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($xp);
+        $xp = $unlockService->getLegacyHeroDaysSpent( $this->getUser() );
 
-        $allSkills = array_filter( $this->entity_manager->getRepository(HeroSkillPrototype::class)->findAll(),
-            fn(HeroSkillPrototype $p) => $p->isEnabled() && $p->isLegacy()
-        );
+        $unlocked = $unlockService->getUnlockedLegacyHeroicPowersByUser( $this->getUser() );
+        $locked = $unlockService->getUnlockableLegacyHeroicPowersByUser( $this->getUser() );
+
+        $latestSkill = empty($unlocked) ? null : $unlocked[array_key_last($unlocked)];
+        $nextSkill = empty($locked) ? null : $locked[array_key_first($locked)];
+
+        $allSkills = [
+            ...$unlocked,
+            ...$locked
+        ];
 
         $factor1 = $latestSkill !== null ? $latestSkill->getDaysNeeded() : 0;
         $progress = $nextSkill !== null ? ($xp - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 0;
@@ -418,6 +419,62 @@ class SoulController extends CustomAbstractController
             'progress' => floor($progress),
             'skills' => $allSkills
         ]));
+    }
+
+    /**
+     * @param UserUnlockableService $unlockService
+     * @return Response
+     */
+    private function soul_heroskill_new( UserUnlockableService $unlockService ): Response {
+
+        $xp = $unlockService->getHeroicExperience( $this->getUser() );
+        $xp_total = $unlockService->getHeroicExperience( $this->getUser(), include_deductions: false );
+
+        $unlocked       = $unlockService->getUnlockedHeroicSkillsByUser( $this->getUser() );
+        $locked         = $unlockService->getUnlockableHeroicSkillsByUser( $this->getUser(), limitToCurrent: false );
+        $unlockable     = $unlockService->getUnlockableHeroicSkillsByUser( $this->getUser() );
+
+        /** @var HeroSkillPrototype[] $allSkills */
+        $allSkills = [...$unlocked, ...$locked];
+        usort($allSkills, fn(HeroSkillPrototype $a, HeroSkillPrototype $b) => $a->getSort() <=> $b->getSort() ?: $a->getLevel() <=> $b->getLevel() ?: $a->getId() <=> $b->getId());
+
+        $groups = [];
+        foreach ($allSkills as $skill)
+            if (!in_array($skill->getGroupIdentifier(), $groups))
+                $groups[] = $skill->getGroupIdentifier();
+
+
+
+        return $this->render( 'ajax/soul/heroskills_new.html.twig', $this->addDefaultTwigArgs("soul_me", [
+            'xp' => $xp,
+            'xp_total' => $xp_total,
+            'steps' => array_map( fn(HeroSkillPrototype $skill) => $skill->getDaysNeeded(), $unlockService->getUnlockableHeroicSkillsByUser( $this->getUser(), limitToCurrent: false ) ),
+
+            'groups' => $groups,
+            'skills' => $allSkills,
+            'unlocked' => array_map( fn(HeroSkillPrototype $skill) => $skill->getId(), $unlocked ),
+            'unlockable' => array_map( fn(HeroSkillPrototype $skill) => $skill->getId(), $unlockable ),
+        ]));
+
+    }
+
+    /**
+     * @param UserUnlockableService $unlockService
+     * @param bool|null $legacy
+     * @return Response
+     */
+    #[Route(path: 'jx/soul/heroskill', name: 'soul_heroskill')]
+    #[Route(path: 'jx/soul/hordes-heroskill', name: 'soul_heroskill_legacy', defaults: ['legacy' => true])]
+    public function soul_heroskill(UserUnlockableService $unlockService, ?bool $legacy = null): Response
+    {
+        $user = $this->getUser();
+        $legacy ??= $this->entity_manager->getRepository(HeroSkillPrototype::class)->count(['enabled' => true, 'legacy' => false]) === 0;
+
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
+        return $legacy ? $this->soul_heroskill_legacy($unlockService) : $this->soul_heroskill_new($unlockService);
     }
 
     /**

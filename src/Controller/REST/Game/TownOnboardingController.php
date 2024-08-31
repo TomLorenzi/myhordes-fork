@@ -94,8 +94,14 @@ class TownOnboardingController extends AbstractController
             'skills' => [
                 'headline' => $trans->trans('Wähle deine Fähigkeiten', [], 'game'),
                 'help' => $trans->trans('Deine Fähigkeiten verleihen dir bestimmte Boni im Spiel. Du kannst nicht alle auf einmal aktivieren, also wähle weise!', [], 'game'),
-                'level' => $trans->trans('Level {skill-level}', [], 'game'),
+                'level' => $trans->trans('Level {skill_level}', [], 'game'),
                 'pts' => $trans->trans('Dir stehen noch <em>{pts}</em> Punkte zur Verfügung!', [], 'game'),
+                'unlock' => $trans->trans('Du verfügst über ausreichend Heldenerfahrung um eine neue Fähigkeit freizuschalten, welche dir daraufhin in dieser Auswahl zur Verfügung stehen wird.', [], 'game'),
+                'unlock_button' => $trans->trans('Zur Übersicht meiner Fähigkeiten', [], 'game'),
+                'unlock_img' => $asset->getUrl('build/images/anims/heroLogo' . match ($this->getUser()?->getLanguage()) {
+                   'de', null => '',
+                   default => "_{$this->getUser()?->getLanguage()}"
+                }  .'.gif'),
             ]
         ]);
     }
@@ -172,24 +178,27 @@ class TownOnboardingController extends AbstractController
             ) return new JsonResponse([], Response::HTTP_BAD_REQUEST);
         }
 
-        $skills = [];
         if ($townConf->get( TownSetting::SkillMode )) {
 
             $skillIds = $parser->get_array('skills.ids');
-            $skills = $em->getRepository(HeroSkillPrototype::class)->findBy(['id' => $skillIds, 'enabled' => true, 'legacy' => false]);
+            $skills = array_filter(
+                $unlockService->getUnlockedHeroicSkillsByUser( $activeCitizen->getUser() ),
+                fn(HeroSkillPrototype $p) => in_array($p->getId(), $skillIds)
+            );
 
             $known_groups = [];
             $pts_sum = 0;
             foreach ($skills as $skill) {
                 if (in_array($skill->getGroupIdentifier(), $known_groups, true))
                     return new JsonResponse([], Response::HTTP_BAD_REQUEST);
+                $known_groups[] = $skill->getGroupIdentifier();
                 $pts_sum += $skill->getLevel();
             }
 
             if ($pts_sum > $this->getCitizenPts($activeCitizen))
                 return new JsonResponse([], Response::HTTP_BAD_REQUEST);
 
-        } else $skills = $em->getRepository(HeroSkillPrototype::class)->getUnlocked( $unlockService->getHeroicExperience( $activeCitizen->getUser() ) );
+        } else $skills = $unlockService->getUnlockedLegacyHeroicPowersByUser( $activeCitizen->getUser() );
 
         $success = ($action)($activeCitizen, $profession, $alias, $skills);
         return $success ? new JsonResponse([
@@ -227,15 +236,19 @@ class TownOnboardingController extends AbstractController
         $activeCitizen = $this->fetchActiveCitizen($town);
         if (!$activeCitizen) return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
-        $all_skills = $em->getRepository(HeroSkillPrototype::class)->findBy(['enabled' => true], [
-            'legacy' => Order::Descending->value,
+        $legacy_skills = $em->getRepository(HeroSkillPrototype::class)->findBy(['enabled' => true, 'legacy' => true], [
             'sort' => Order::Ascending->value,
             'level' => Order::Ascending->value,
             'id' => Order::Ascending->value,
         ]);
+        $skills = $unlockService->getUnlockedHeroicSkillsByUser( $activeCitizen->getUser() );
 
-        $legacy_skills = array_filter($all_skills, fn(HeroSkillPrototype $s) => $s->isLegacy());
-        $skills = array_filter($all_skills, fn(HeroSkillPrototype $s) => !$s->isLegacy());
+        $xp = $unlockService->getHeroicExperience( $activeCitizen->getUser() );
+        $can_unlock = !empty(array_filter(
+            $unlockService->getUnlockableHeroicSkillsByUser( $activeCitizen->getUser() ),
+            fn(HeroSkillPrototype $p) => $p->getDaysNeeded() <= $xp
+        ));
+
         $skill_groups = [];
         foreach ($skills as $skill)
             if (!in_array($skill->getGroupIdentifier(), $skill_groups, true))
@@ -256,6 +269,7 @@ class TownOnboardingController extends AbstractController
             'skills' => [
                 'pts' => $this->getCitizenPts($activeCitizen),
                 'groups' => array_map(fn(string $s) => $trans->trans($s, [], 'game'), $skill_groups),
+                'unlock_url' => $can_unlock ? $this->generateUrl('soul_heroskill') : null,
                 'list' => array_values(array_map(fn(HeroSkillPrototype $p) => [
                     'id' => $p->getId(),
                     'title' => $trans->trans($p->getTitle(), [], 'game'),

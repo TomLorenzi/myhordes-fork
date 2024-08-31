@@ -1,0 +1,82 @@
+{% extends "ajax/soul/shell.html.twig" %}
+{% block soul_content %}
+    <div class="row skills">
+        <div class="row skillBack">
+            <label style="position: relative" class="button" x-ajax-href="{{ path('soul_me') }}">
+                {{'Komm zurück zu meiner Seele'|trans({}, 'game')}}
+            </label>
+        </div>
+        <hordes-progress-bar data-animate-from="0" data-animate-to="{{xp}}" data-xp="1" data-step="{{ steps|join(',') }}"></hordes-progress-bar>
+        <div class="row-flex h-center v-center gap">
+            <div class="cell padded rw-4 rw-md-6 rw-sm-12 heroProgress">
+                {{'Du hast bisher:'|trans({}, 'game')}} <strong>{{"{xp} Punkte"|trans({xp: xp_total}, "game")}}</strong>{{'an Heldenerfahrung gesammelt.'|trans({}, 'game')}}
+            </div>
+            {% if xp != xp_total %}
+                <div class="cell padded rw-4 rw-md-6 rw-sm-12 heroProgress">
+                    {{'Dir stehen aktuell:'|trans({}, 'game')}} <strong>{{"{xp} Punkte"|trans({xp: xp}, "game")}}</strong>{{'an Heldenerfahrung zur Verfügung.'|trans({}, 'game')}}
+                </div>
+            {% endif %}
+        </div>
+
+    </div>
+    <div class="row">
+        {% for group in groups %}
+            <div class="padded cell rw-12">
+                <div class="skills-history">
+                    <div class="row header">
+                        <div class="cell padded rw-12 center">
+                            {{group|trans({}, 'game')}}
+                        </div>
+                    </div>
+                    <div class="skills-container">
+                        {% for skill in skills|filter(s => s.groupIdentifier == group) %}
+                            <div class="row-flex v-top gap {{ skill.id in unlocked ? 'unlocked' : '' }}">
+                                <div class="padded cell rw-3 level-indicator">
+                                    <div class="flex center middle">
+                                        {% if skill.id in unlocked %}
+                                            <img src="{{ asset('build/images/icons/done.png') }}" alt=""/>
+                                        {% elseif skill.id in unlockable and skill.daysNeeded <= xp %}
+                                            <img src="{{ asset('build/images/icons/small_hero_up.gif') }}" alt="">
+                                        {% else %}
+                                            <img src="{{ asset('build/images/icons/lock.gif' ) }}" alt="">
+                                        {% endif %}
+                                        <b class="level">{{ 'Level {skill_level}'|trans({'skill-level': skill.level}, 'game') }}</b>
+                                    </div>
+                                    {% if skill.id in unlockable %}
+                                        <div class="inline-block center unlock">
+                                            <div class="small">{{ 'Benötigt'|trans({},'game') }}</div>
+                                            <div><b class="needed">{{"{xp} Punkte"|trans({xp: skill.daysNeeded}, "game")}}</b></div>
+                                            {% if skill.daysNeeded <= xp %}
+                                                <button
+                                                        class="center"
+                                                        data-fetch="{{ path('rest_user_soul_skills_debit_unlock', {id: skill.id}) }}"
+                                                        data-fetch-load="{{ path('soul_heroskill') }}"
+                                                        data-fetch-method="patch"
+                                                        data-fetch-confirm="{{ 'Bestätigen?'|trans({},'global') }}"
+                                                >{{ 'Freischalten'|trans({}, 'game') }}</button>
+                                            {% else %}
+                                                <button class="center" disabled="disabled">{{ 'Freischalten'|trans({}, 'game') }}</button>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <div class="padded cell rw-9 ability-indicator">
+                                    {% if skill.id in unlocked or skill.id in unlockable %}
+                                    <ul>
+                                        {% for bullet in skill.bullets %}
+                                            <li>{{ bullet|trans({},'game') }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% else %}
+                                        <div class="center"><b>???</b></div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

@@ -5,8 +5,22 @@
         {% include 'ajax/soul/badges.html.twig' with {badger: app.user} %}
         <div class="cell rw-12 center skills">
 
-            {% if skills %}
-                <hordes-progress-bar data-animate-from="0" data-animate-to="{{progress}}" data-xp="1" data-step="{{ steps|join(',') }}"></hordes-progress-bar>
+            {% if skills and steps is not empty %}
+                {% if steps is not empty %}
+                    <hordes-progress-bar data-animate-from="0" data-animate-to="{{progress}}" data-xp="1" data-step="{{ steps|join(',') }}"></hordes-progress-bar>
+                {% else %}
+                    <hordes-progress-bar data-animate-from="100" data-animate-to="100" data-limit="100"></hordes-progress-bar>
+                {% endif %}
+                <span class="small">{{ 'Du verfügst aktuell über <strong>{xp} Punkte</strong> an Heldenerfahrung.'|trans({xp: progress},'game')|raw }}</span>
+                <br/>
+                <div class="inline flex middle">
+                    {% if steps is not empty and progress > steps[0] %}
+                        <img src="{{ asset('build/images/icons/small_hero_up.gif') }}" alt="" />
+                        <span class="small bold">{{ 'Du kannst eine neue {heroskill_link}!'|trans({heroskill_link: '<a href="#" x-ajax-href="' ~ path('soul_heroskill') ~ '">' ~ ('Heldenfähigkeit freischalten'|trans({},'game')) ~ '</a>'},'game')|raw }}</span>
+                    {% else %}
+                        <a class="small" href="#" x-ajax-href="{{ path('soul_heroskill') }}">{{ 'Meine freigeschalteten Fähigkeiten ansehen'|trans({},'game') }}</a>
+                    {% endif %}
+                </div>
             {% else %}
                 <hordes-progress-bar data-animate-from="0" data-animate-to="{{progress}}" data-limit="100"></hordes-progress-bar>
 
