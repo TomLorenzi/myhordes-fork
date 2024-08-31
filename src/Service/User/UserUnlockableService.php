@@ -16,8 +16,10 @@ use App\Entity\User;
 use App\Enum\HeroXPType;
 use App\EventListener\ContainerTypeTrait;
 use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
+use App\Service\ConfMaster;
 use App\Service\PermissionHandler;
 use App\Service\UserHandler;
+use App\Structures\MyHordesConf;
 use ArrayHelpers\Arr;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Criteria;
@@ -44,7 +46,8 @@ class UserUnlockableService implements ServiceSubscriberInterface
     {
         return [
             EntityManagerInterface::class,
-            InvalidateTagsInAllPoolsAction::class
+            InvalidateTagsInAllPoolsAction::class,
+            ConfMaster::class
         ];
     }
 
@@ -93,7 +96,7 @@ class UserUnlockableService implements ServiceSubscriberInterface
         if (!$include_deductions) $key .= '_pos';
 
         try {
-            return $this->gameCachePool->get($key, function (ItemInterface $item) use ($user, $season, $subject, $include_legacy, $include_deductions) {
+            $value = $this->gameCachePool->get($key, function (ItemInterface $item) use ($user, $season, $subject, $include_legacy, $include_deductions) {
                 $item->expiresAfter(86400)->tag(["user-{$user->getId()}-hxp",'hxp']);
 
                 $qb = $this->generateDefaultQuery($user)
@@ -113,8 +116,14 @@ class UserUnlockableService implements ServiceSubscriberInterface
                 if ($subject !== null)
                     $qb->andWhere('x.subject = :subject')->setParameter('subject', $subject);
 
-                return $qb->getQuery()->getSingleScalarResult() ?? 0;
+                return ($qb->getQuery()->getSingleScalarResult() ?? 0);
             });
+
+
+            return max(0, $value + ($this->getService(ConfMaster::class)->getGlobalConf()->get(MyHordesConf::CONF_STAGING_ENABLED, false)
+                ? $this->getService(ConfMaster::class)->getGlobalConf()->get(MyHordesConf::CONF_STAGING_HXP, 0)
+                : 0
+            ));
         } catch (InvalidArgumentException $t) {
             return 0;
         }

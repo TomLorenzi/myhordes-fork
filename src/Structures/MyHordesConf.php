@@ -79,6 +79,7 @@ class MyHordesConf extends Conf
     const CONF_STAGING_TOWN_DAYS    = 'staging.prototown.days';
     const CONF_STAGING_FEATURES    = 'staging.features';
     const CONF_STAGING_HERODAYS    = 'staging.herodays';
+    const CONF_STAGING_HXP    = 'staging.hxp';
 
     const CONF_ISSUE_REPORTING_FALLBACK    = 'issue_tracking.fallback-url';
     const CONF_ISSUE_REPORTING_GITLAB    = 'issue_tracking.gitlab';
