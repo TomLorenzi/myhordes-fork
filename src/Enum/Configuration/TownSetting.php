@@ -302,4 +302,9 @@ enum TownSetting: string implements Configuration
     {
         return $new;
     }
+
+    public function translationKey(): string
+    {
+        return "cfg_ts_" . str_replace(".", "_", $this->value);
+    }
 }

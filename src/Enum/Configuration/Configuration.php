@@ -31,4 +31,6 @@ interface Configuration
      * @return T
      */
     public function merge(mixed $old, mixed $new): mixed;
+
+    public function translationKey(): string;
 }

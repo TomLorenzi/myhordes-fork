@@ -673,3 +673,10 @@ Klicks: Klicks
 'Eingehende Nachrichten als Tickets behandeln': 'Eingehende Nachrichten als Tickets behandeln'
 'Ist diese Option aktiviert, so wird eine eingehende Konversation für alle Gruppenmitglieder als "Gelesen" markiert, sobald ein Gruppenmitglied antwortet.': 'Ist diese Option aktiviert, so wird eine eingehende Konversation für alle Gruppenmitglieder als "Gelesen" markiert, sobald ein Gruppenmitglied antwortet.'
 SP: SP
+'Es wurden {n} Posts gelöscht.': 'Es wurden {n} Posts gelöscht.'
+'Weitere Aktionen': 'Weitere Aktionen'
+'Bekannte IP-Adressen': 'Bekannte IP-Adressen'
+'{n} (davon {n2} bereits blockiert)': '{n} (davon {n2} bereits blockiert)'
+Foren-Posts: Foren-Posts
+'{n} (davon {n2} gelöscht)': '{n} (davon {n2} gelöscht)'
+Heldenerfahrung: Heldenerfahrung

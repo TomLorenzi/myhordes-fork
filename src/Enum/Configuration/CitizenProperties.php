@@ -222,4 +222,9 @@ enum CitizenProperties: string implements Configuration
             default => null,
         };
     }
+
+    public function translationKey(): string
+    {
+        return "cfg_ctp_" . str_replace(".", "_", $this->value);
+    }
 }

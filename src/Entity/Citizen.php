@@ -1156,7 +1156,7 @@ class Citizen
 
     public function fullPropertySet(): array {
         return $this->fullPropertySet ?? ($this->fullPropertySet = array_combine(
-            array_map( fn(\App\Enum\Configuration\CitizenProperties $s) => "cfg.ctp.{$s->value}", \App\Enum\Configuration\CitizenProperties::validCases() ),
+            array_map( fn(\App\Enum\Configuration\CitizenProperties $s) => $s->translationKey(), \App\Enum\Configuration\CitizenProperties::validCases() ),
             array_map( fn(\App\Enum\Configuration\CitizenProperties $s) => $this->property($s), \App\Enum\Configuration\CitizenProperties::validCases() ),
         ));
     }
