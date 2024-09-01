@@ -200,10 +200,12 @@ class ItemDataService implements FixtureProcessorInterface {
 		$container->add()->label('Magnet-Schlüssel')->icon('magneticKey')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Schlagschlüssel')->icon('bumpKey')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Flaschenöffner')->icon('classicKey')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Abdruck vom Magnet-Schlüssel')->icon('magnetic_print')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
+		$container->add()->label('Abdruck vom Magnet-Schlüssel')->icon('prints')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
+		$container->modify('prints_#00')->icon('magnetic_print')->commit();
 		$container->add()->label('Abdruck vom Schlagschlüssel')->icon('prints')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Abdruck vom Flaschenöffner')->icon('bottle_print')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Ration Wasser')->icon('water')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
+		$container->add()->label('Abdruck vom Flaschenöffner')->icon('prints')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
+        $container->modify('prints_#03')->icon('bottle_print')->commit();
+        $container->add()->label('Ration Wasser')->icon('water')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Offene Konservendose')->icon('can_open')->category('Food')->deco(0)->heavy(false)->watchpoint(2)->commit();
 		$container->add()->label('Undefinierbares Fleisch')->icon('undef')->category('Food')->deco(0)->heavy(false)->watchpoint(2)->commit();
         $container->add()->label('Heißer Kaffee')->icon('coffee')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->fragile(true)->commit();

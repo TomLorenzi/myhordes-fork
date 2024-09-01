@@ -14,17 +14,17 @@ class RuinRoomDataService implements FixtureProcessorInterface {
             ],
             [
                 "label" => "Verschlossene Tür (Flaschenöffner)",
-                "lock_mold" => 'bottle_print_#00',
+                "lock_mold" => 'prints_#02',
                 "lock_item" => 'classicKey_#00',
             ],
             [
                 "label" => "Verschlossene Tür (Schlagschlüssel)",
-                "lock_mold" => 'prints_#00',
+                "lock_mold" => 'prints_#01',
                 "lock_item" => 'bumpKey_#00',
             ],
             [
                 "label" => "Verschlossene Tür (Magnetschlüssel)",
-                "lock_mold" => 'magnetic_print_#00',
+                "lock_mold" => 'prints_#00',
                 "lock_item" => 'magneticKey_#00',
             ],
             [
