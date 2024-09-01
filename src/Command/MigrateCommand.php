@@ -583,7 +583,11 @@ class MigrateCommand extends Command
                 $hashes = file($this->kernel->getProjectDir() . '/.vslist', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES );
             } else {
                 $output->writeln('Getting revision list from <info>git</info>.');
-                $hashes = array_reverse( $this->helper->bin( 'git rev-list HEAD', $ret ) );
+                // git tag -l "mig-*" --sort=creatordate | cut -c 5-
+                $hashes = array_map(
+                    fn(string $s) => substr($s, 4),
+                    array_reverse( $this->helper->bin( 'git tag -l "mig-*" --sort=creatordate', $ret ) )
+                );
             }
 
             $output->writeln('Found <info>' . count($hashes) . '</info> installed patches.');
