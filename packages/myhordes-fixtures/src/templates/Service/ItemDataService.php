@@ -204,7 +204,7 @@ class ItemDataService implements FixtureProcessorInterface {
 		$container->modify('prints_#00')->icon('magnetic_print')->commit();
 		$container->add()->label('Abdruck vom Schlagschlüssel')->icon('prints')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Abdruck vom Flaschenöffner')->icon('prints')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
-        $container->modify('prints_#03')->icon('bottle_print')->commit();
+        $container->modify('prints_#02')->icon('bottle_print')->commit();
         $container->add()->label('Ration Wasser')->icon('water')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Offene Konservendose')->icon('can_open')->category('Food')->deco(0)->heavy(false)->watchpoint(2)->commit();
 		$container->add()->label('Undefinierbares Fleisch')->icon('undef')->category('Food')->deco(0)->heavy(false)->watchpoint(2)->commit();
