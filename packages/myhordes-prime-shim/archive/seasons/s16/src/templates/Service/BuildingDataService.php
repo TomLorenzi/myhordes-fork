@@ -28,7 +28,7 @@ class BuildingDataService implements FixtureProcessorInterface {
         $container->modify('small_spears_#00')->parentBuilding('small_gather_#00')->description('Ein guter Weg, um die Große Grube zu füllen, mit scharfen Pfählen, um zu sehen, wie sich die Zombies dort aufspießen.')->defense(45)->ap(35)->health(35)->blueprintLevel(0)->resources(["metal_#00" => 2,"wood_beam_#00" => 8,])->orderBy(1)->commit();
         // Fallgruben
         $container->modify('small_gather_#01')->parentBuilding('small_gather_#00')->parentBuilding('small_gather_#00')->description('Mit tieferen Löchern und darüber ausgelegten Planen, einfach abwarten und zusehen, wie etwas (oder jemand?) hineinfällt!')->ap(25)->health(25)->resources(["metal_beam_#00" => 1, "plate_#00" => 2,])->orderBy(2)->commit();
-        //Buddelgruben, todo effect
+        //Buddelgruben
         $container->add()->parentBuilding('small_gather_#00')
             ->icon('item_shovel')->label('Buddelgruben')->description('Seitengänge, die Buddler direkt vom Großen Grube aus in die Wüste treiben, um noch nie zuvor ausgebeutete Bereiche zu erkunden. Hoffentlich finden sie dort einige interessante Dinge!')
             ->isTemporary(0)->defense(0)->ap(25)->health(25)->blueprintLevel(3)->resources(["explo_#00" => 1,])->orderBy(3)->commit();
@@ -84,7 +84,13 @@ class BuildingDataService implements FixtureProcessorInterface {
         $container->modify('item_plate_#10')->description('Schützt das Herz der Stadt mit einer zusätzlichen Mauer. Man muss keine helle Leuchte sein, um auf diese Idee zu kommen, aber es kann auch nicht schaden.')->defense(50)->ap(25)->health(25)->orderBy(11)->commit();
 
         // Portal
-        $container->modify('small_door_closed_#00')->parentBuilding('small_wallimprove_#00')->defense(5)->ap(15)->health(15)->resource('plate_#00', 1)->orderBy(12)->commit();
+        $container->modify('small_door_closed_#00')->parentBuilding('small_wallimprove_#00')->defense(5)->ap(15)->health(15)->resource('plate_#00', 1)->orderBy(12)
+        ->voteLevel(3)->baseVoteText('Das Portal bringt 5 Verteidigungspunkte.')
+            ->upgradeTexts([
+                'Das Portal bringt 20 Verteidigungspunkte.',
+                'Das Portal bringt 50 Verteidigungspunkte.',
+                'Das Portal bringt 80 Verteidigungspunkte und die Öffnung der Tür ist bis zum Mittag kostenlos.', //todo: free door opening before midday
+            ])->commit();
         // Kolbenschließmechanismus
         $container->modify('small_door_closed_#01')->ap(45)->health(45)->resources(["meca_parts_#00" => 1,"metal_#00" => 10,"tube_#00" => 2,"metal_beam_#00" => 2, "diode_#00" => 1,])->commit();
         // Automatiktür
@@ -149,9 +155,9 @@ class BuildingDataService implements FixtureProcessorInterface {
         $container->modify('small_waterspray_#01')->parentBuilding('small_waterspray_#00')->defense(60)->ap(40)->health(40)->blueprintLevel(1)->resources(["water_#00" => 10,"tube_#00" => 1,"wood2_#00" => 10,"metal_beam_#00" => 5,"oilcan_#00" => 1,])->orderBy(0)->commit();
         //Säurespray
         $container->modify('small_acidspray_#00')->description('Das Hinzufügen einiger Chemikalien zum verwendeten Wasser wird das hübsche Gesicht der Zombies vor der Stadt definitiv nicht verschönern.')->ap(25)->resources(["water_#00" => 3,"pharma_#00" => 2,])->orderBy(1)->commit();
-        //Spraykanone, todo hidden effect : +10% terror chance in Watch
+        //Spraykanone
         $container->modify('small_gazspray_#00')->description('Oft wird vergessen, dass Zombies ein Gehirn haben. Manchmal sogar zwei, wenn sie Glück haben. Trifft sich gut: Das mit dieser Kanone geschossene Konzentrat hat die erstaunliche Fähigkeit, Gehirne in Matsch zu verwandeln. Es könnte allerdings sein, dass sie auf eure Wächter herunterfällt... aber wo gehobelt wird, da fallen Späne.')->defense(140)->ap(60)->health(60)->blueprintLevel(1)->resources(["metal_beam_#00" => 5,"water_#00" => 5,"meca_parts_#00" => 1,"tube_#00" => 1,"pharma_#00" => 2,"poison_part_#00" => 1,])->orderBy(2)->commit();
-        //Sprinkleranlage, todo hidden effect : +4% death chance in Watch
+        //Sprinkleranlage
         $container->modify('small_sprinkler_#00')->description('Wie jeder weiß, wird eine Sprinkleranlage für gewöhnlich im Garten eingesetzt. Die wenigsten wissen jedoch, dass sie sich auch hervorragend gegen Zombiehorden eignet. Einziger Wermutstropfen: Die Anlage verbraucht relativ viel Wasser und die Mauer wird etwas rutschiger. Immer vorsichtig laufen!')->parentBuilding('small_waterspray_#00')->defense(185)->resource('diode_#00', 1)->orderBy(3)->commit();
         //Wasserkanone
         $container->modify('small_watercanon_#00')->parentBuilding('small_waterspray_#00')->orderBy(4)->commit();
@@ -162,8 +168,8 @@ class BuildingDataService implements FixtureProcessorInterface {
                                'Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.',
                                'Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.',
                                'Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.',
-                               'Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 252.',//todo edit effect; now +252
-                               'Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 336.',//todo edit effect; now +336
+                               'Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 252.',//now +252
+                               'Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 336.',//now +336
                            ])
             ->commit();
         //Schießstand
@@ -182,7 +188,7 @@ class BuildingDataService implements FixtureProcessorInterface {
         $container->modify('small_shower_#02')->parentBuilding('item_firework_tube_#00')->orderBy(1)->commit();
         // Schleuse
         $container->modify('small_shower_#01')->parentBuilding('item_firework_tube_#00')->resources(["water_#00" => 15,"wood2_#00" => 8,"tube_#00" => 1,])->orderBy(2)->commit();
-        // Dusche, todo effect
+        // Dusche
         $container->modify('small_shower_#00')->blueprintLevel(1)->resource('oilcan_#00', 1)->commit();
         //Naturbereich der Überlebenskünstler, todo effect
         $container->add()->parentBuilding('item_firework_tube_#00')
@@ -190,7 +196,15 @@ class BuildingDataService implements FixtureProcessorInterface {
             ->isTemporary(0)->defense(0)->ap(30)->blueprintLevel(3)->resources(["ryebag_#00" => 2,"wood2_#00" => 5,"radio_on_#00" => 1,"oilcan_#00" => 2,])->orderBy(4)->commit();
 
         // Gemüsebeet
-        $container->modify('item_vegetable_tasty_#00')->blueprintLevel(0)->orderBy(9)->commit();
+        $container->modify('item_vegetable_tasty_#00')->blueprintLevel(0)->orderBy(9)
+        ->voteLevel(5)->baseVoteText('Produziert Verdächtiges Gemüse und Darmmelone.')
+            ->upgradeTexts([
+                'Produziert täglich zusätzlich zu seiner ursprünglichen Produktion Aasbeeren und Trockene Kräuter.',
+                'Produziert täglich zusätzlich zu seiner Produktion aus der vorherigen Stufe Mutterkorn',
+                'Produziert täglich zusätzlich zu seiner Produktion aus den vorherigen Stufen Explosive Pampelmusen.',
+                'Produziert täglich zu seiner Produktion aus den vorherigen Stufen Apfel.',
+                'Produziert täglich zusätzlich zu seiner Produktion der vorherigen Stufen Toller Kürbis.',
+            ])->commit();
         // Dünger
         $container->modify('item_digger_#00')->description('Erhöht den Ertrag des Gemüsegartens und aller umliegenden Gärten erheblich.')->resource('ryebag_#00', 3)->orderBy(0)->commit();
         // Granatapfel
@@ -213,11 +227,11 @@ class BuildingDataService implements FixtureProcessorInterface {
             ->isTemporary(1)->defense(100)->ap(40)->blueprintLevel(3)->resources(["metal_beam_#00" => 2,"wire_#00" => 1,"deto_#00" => 1,"boomfruit_#00" => 5,])->orderBy(1)->commit();
         // Apfelbaum
         $container->modify('small_appletree_#00')->parentBuilding('item_vegetable_tasty_#00')->orderBy(2)->commit();
-        //Wüste Kürbisse, todo effect : provide 1-2 pumpkins / day (1-3 pumpkins if Fertiliser is built)
+        //Wüste Kürbisse
         $container->add()->parentBuilding('item_vegetable_tasty_#00')
             ->icon('item_pumpkin_raw')->label('Wüste Kürbisse')->description('Ein düsterer Ort, den man nur ungern zu betreten wagt, der aber seltsamerweise schöne Kürbisse hervorbringt... Man muss sie nur transportieren können.')
             ->isTemporary(0)->defense(0)->ap(45)->health(45)->blueprintLevel(2)->resources(["water_#00" => 15,"wood2_#00" => 5,"metal_#00" => 2,"ryebag_#00" => 3,"drug_#00" => 1,])->orderBy(3)->commit($item_pumpkin_raw);
-        // Vogelscheuche, todo effect : improves pummpkins production
+        // Vogelscheuche
         $container->modify('small_scarecrow_#00')->parentBuilding($item_pumpkin_raw)
             ->description('Um Tiere (und vor allem diese verdammten Raben) von deiner Plantage fernzuhalten, hast du beschlossen, ein paar alte Holzbretter mit dem Outfit deines alten Nachbarn zu verkleiden. In der Hoffnung, dass er es dir nicht übel nehmen wird!')
             ->defense(15)->ap(40)->health(40)->blueprintLevel(3)->resources(["wood2_#00" => 5,"wood_beam_#00" => 3,"rustine_#00" => 3,])->orderBy(0)
@@ -265,7 +279,7 @@ class BuildingDataService implements FixtureProcessorInterface {
         $container->modify('small_slaughterhouse_#00')->parentBuilding('item_meat_#00')->defense(45)->ap(35)->health(35)->resources(["wood_beam_#00" => 1,"plate_#00" => 2,"metal_beam_#00" => 8,"hmeat_#00" => 1,])->orderBy(0)->commit();
         //Kremato-Cue
         $container->modify('item_hmeat_#00')->ap(40)->health(40)->resource('wood_beam_#00', 6)->orderBy(1)->commit();
-        //Schweinestall, todo effect : add between 2-4 good steak (7AP) per day
+        //Schweinestall
         $container->add()->parentBuilding('item_meat_#00')
             ->icon('item_pet_pig')->label('Schweinestall')->description('Seit ihr erfolgreich mit der Schweinezucht begonnen habt, kommt jeden Morgen frisches Fleisch in der Bank an. Ihr solltet nur über die Arbeitshygiene niemals nachdenken... ')
             ->isTemporary(0)->defense(0)->ap(35)->health(35)->blueprintLevel(3)->resources(["wood2_#00" => 8,"wood_beam_#00" => 4,"meca_parts_#00" => 1,"ryebag_#00" => 3,"pet_pig_#00" => 3,])->orderBy(2)->commit();
@@ -296,7 +310,7 @@ class BuildingDataService implements FixtureProcessorInterface {
         $container->add()->parentBuilding('item_tagger_#00')
             ->icon('item_scope')->label('Aussichtsplattform')->description( 'Wenn wir den Wachturm noch ein wenig vergrößern, hält die Außenwelt keine Geheimnisse mehr für uns. Dank seines soliden Fundaments können wir sogar noch ein paar Stockwerke hinzufügen, um noch weiter sehen zu können.')
             ->isTemporary(0)->defense(0)->ap(30)->blueprintLevel(0)->resources(["wood2_#00" => 5,"scope_#00" => 1,"lens_#00" => 1,])->orderBy(0)
-            ->voteLevel(5)->baseVoteText('Die Aussichtsplattform ermöglicht es, den Bürger zu wählen, der am besten bei Expeditionen führen kann.')
+            ->voteLevel(5)->baseVoteText('Die Aussichtsplattform ermöglicht es, den Bürger zu wählen, der am besten bei Expeditionen führen kann.') //todo: this lvl0 allows the town to elect Guide of the World Beyond
             ->upgradeTexts([
                                'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.',
                                'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.',
@@ -313,7 +327,7 @@ class BuildingDataService implements FixtureProcessorInterface {
         $container->modify('item_tagger_#02')->parentBuilding('item_tagger_#00')->orderBy(1)->commit();
         // Leuchtturm
         $container->modify('small_lighthouse_#00')->parentBuilding('item_tagger_#00')->resources(["electro_#00" => 2,"wood_beam_#00" => 5,"metal_beam_#00" => 5,"pile_#00" => 1,"diode_#00" => 1,])->orderBy(2)->commit();
-        // Brustwehr, todo : this constructions allows players to Watch once built. 10 watchers max at lvl0. Votable, PLEASE NOTE, WITHOUT ARMOURY (small_armor_#00), THE ITEMS (WHATEVER THE ITEM) ARE NOT COUNTED IN THE BAGS.
+        // Brustwehr
         $container->modify('small_round_path_#00')->parentBuilding('item_tagger_#00')->ap(25)->health(25)->resources(["wood2_#00" => 6,"wood_beam_#00" => 2,"metal_beam_#00" => 2,"meca_parts_#00" => 1,])->orderBy(3)
             ->voteLevel(3)->baseVoteText('Diese Brustwehr um die Stadt erlaubt es einigen Wächtern, die Stadt von der Mauer aus zu schützen.')
             ->upgradeTexts([
@@ -322,16 +336,16 @@ class BuildingDataService implements FixtureProcessorInterface {
                                'Durch den Ausbau der Brustwehr können sich die Wächter dort etwas sicherer fühlen.',
                            ])
             ->commit();
-        // Wächter-Turm, todo: edit effect ; remove the passive defense gain obtained by guardians
+        // Wächter-Turm
         $container->modify('small_watchmen_#00')->parentBuilding('small_round_path_#00')
             ->description('Die Installation eines großen Turms, der den Wächtern gewidmet ist, in der Mitte der Festungsmauern, um ihre Effizienz zu verbessern. Von nun an werden die heldenhaften Wächter in der Lage sein, dort während ihrer Ruhezeiten  die Verteidigung der Stadt gegen ein wenig von ihrer Energie zu verbessern.')
             ->defense(0)->ap(35)->health(35)->blueprintLevel(3)->orderBy(0)
             ->commit();
-        // Wachstube, todo effect: +5% survival chance in Watch
+        // Wachstube
         $container->add()->parentBuilding('small_round_path_#00')
             ->icon('small_watchmen')->label('Wachstube')->description('Ein alter Raum, der nach Kaffee und Tabak riecht, in dem man sich aber viel besser auf die langen Nächte vorbereiten kann, die die Bürger auf der Stadtmauer erwarten.')
-            ->isTemporary(0)->defense(0)->ap(50)->blueprintLevel(3)->resources(["wood_beam_#00" => 5,"metal_#00" => 10,"meca_parts_#00" => 2,"metal_beam_#00" => 5,"rustine_#00" => 1,"ryebag_#00" => 2,"oilcan_#00" => 1,"lights_#00" => 1,"coffee_machine_#00" => 1,"cigs_#00" => 1,"trestle_#00" => 1,"chair_basic_#00" => 2,])->orderBy(1)->commit();
-        // Kleine Waffenschmiede, todo: edit effect ; don't provide Watch bonus but now items in bag are counted in Watch 
+            ->isTemporary(0)->defense(0)->ap(50)->blueprintLevel(3)->resources(["wood_beam_#00" => 6,"metal_#00" => 10,"meca_parts_#00" => 2,"metal_beam_#00" => 5,"ryebag_#00" => 2,"lights_#00" => 1,"coffee_machine_#00" => 1,"cigs_#00" => 1,"trestle_#00" => 1,"chair_basic_#00" => 2,])->orderBy(1)->commit();
+        // Kleine Waffenschmiede
         $container->modify('small_armor_#00')->parentBuilding('small_round_path_#00')
             ->description('Nach dem harten Kampf mit Fäusten und Füßen ist es an der Zeit, zu etwas Ernsthafterem überzugehen. Mit einem Waffenvorrat in der Nähe der Stadtmauer wirst du nicht mehr mit leeren Händen auf die Wache zugehen.')
             ->ap(40)->health(40)->blueprintLevel(0)->resources(["meca_parts_#00" => 1,"wood2_#00" => 10,"metal_#00" => 8,"plate_#00" => 2,"rustine_#00" => 2,])->orderBy(2)
@@ -346,14 +360,14 @@ class BuildingDataService implements FixtureProcessorInterface {
         $container->add()->parentBuilding('small_armor_#00')
             ->icon('small_animfence')->label('Tierhandlung')->description('Indem du deine Tiere direkt auf der Stadtmauer hälst, ist es viel effizienter, sie in die Schlacht zu führen. Und ihr könnt sicher sein, dass sie nicht wieder entkommen! Erhöht die Effizienz von Haustieren während der Wache um 40%.')
             ->isTemporary(0)->defense(0)->ap(40)->blueprintLevel(3)->resources(["wood2_#00" => 5,"wood_beam_#00" => 4,"metal_beam_#00" => 2,"ryebag_#00" => 2,"oilcan_#00" => 1,"fence_#00" => 1,])->orderBy(3)->commit();
-        // Dompteur-Spa, todo effect
+        //Verschmutzte Rinnen, todo: edit has_shooting_gallery functions for using Verschmutzte Rinnen
+        $container->add()->parentBuilding('small_armor_#00')
+            ->icon('small_sewers')->label('Verschmutzte Rinnen')->description('Wenn wir die Abwässer der Stadt mit Hilfe eines Pumpensystems direkt an die Spitze der Stadtmauer leiten, können usere Wasserwaffen 20% effizienter eingesetzt werden. Könnte aber ein bisschen stinken...')
+            ->isTemporary(0)->defense(0)->ap(35)->blueprintLevel(3)->resources(["wood2_#00" => 10,"tube_#00" => 1,"metal_beam_#00" => 3,"tube_#00" => 3,"concrete_wall_#00" => 1,"plate_#00" => 1,"oilcan_#00" => 1,])->orderBy(4)->commit();
+        // Dompteur-Spa
         $container->add()->parentBuilding('small_round_path_#00')
             ->icon('item_tamed_pet')->label('Dompteur-Spa')->description('Eure Hunde verdienen nur das Beste, und wenn sie euch auf die Wacht begleiten, heißt es, ihre Zähne zu schärfen und ihre Locken zu bürsten. Alles, damit eure Schuckel die schönsten auf der Stadtmauer sind! Außerdem soll es ihre Effektivität verbessern und Ihre Überlebenschancen in der Nacht erhöhen.')
             ->isTemporary(0)->defense(0)->ap(40)->blueprintLevel(3)->resources(["wood2_#00" => 4,"water_#00" => 10,"meca_parts_#00" => 1,"drug_#00" => 1,])->orderBy(3)->commit();
-        //Verschmutzte Rinnen, todo: edit has_shooting_gallery functions for using Verschmutzte Rinnen
-        $container->add()->parentBuilding('small_round_path_#00')
-            ->icon('small_sewers')->label('Verschmutzte Rinnen')->description('Wenn wir die Abwässer der Stadt mit Hilfe eines Pumpensystems direkt an die Spitze der Stadtmauer leiten, können usere Wasserwaffen 20% effizienter eingesetzt werden. Könnte aber ein bisschen stinken...')
-            ->isTemporary(0)->defense(0)->ap(35)->blueprintLevel(3)->resources(["wood2_#00" => 10,"tube_#00" => 1,"metal_beam_#00" => 3,"tube_#00" => 3,"concrete_wall_#00" => 1,"plate_#00" => 1,"oilcan_#00" => 1,])->orderBy(4)->commit();
 
         // Katapult
         $container->modify('item_courroie_#00')->orderBy(4)->commit();
@@ -403,9 +417,9 @@ class BuildingDataService implements FixtureProcessorInterface {
         $container->modify('small_trash_#00')->ap(80)->health(80)->blueprintLevel(1)->resources(["wood2_#00" => 5,"wood_beam_#00" => 15,"metal_#00" => 10,"metal_beam_#00" => 15,"meca_parts_#00" => 1,"concrete_wall_#00" => 3,])->orderBy(4)
             ->voteLevel(3)->baseVoteText('Ermöglicht das Zerstören von Gegenständen für 1 Verteidigungspunkt.')//todo: instead multiple dumps construction, this constructions has evolutions which has same effects than previous dumps
             ->upgradeTexts([
-                               'Ermöglicht die fachgerechte Entsorgung von Waffen und Nahrung auf der Müllhalde.',//alows weapons & food dump
-                               'Ermöglicht das fachgerechte Massakrieren unschuldiger Tiere und Steigert die Ausbeute jedes auf den Müll geworfenen Verteidigungs-Gegenstandes.',//increase defense provided by defense objects & allows animal dump
-                               'Ermöglicht die fachgerechte Entsorgung von Holz und Metall auf der Müllhalde.',//alows wood & metal dump
+                               'Ermöglicht die fachgerechte Entsorgung von Waffen und Nahrung auf der Müllhalde.',//todo: allows weapons & food dump
+                               'Ermöglicht das fachgerechte Massakrieren unschuldiger Tiere und Steigert die Ausbeute jedes auf den Müll geworfenen Verteidigungs-Gegenstandes.',//todo : increase defense provided by defense objects & allows animal dump
+                               'Ermöglicht die fachgerechte Entsorgung von Holz und Metall auf der Müllhalde.',//todo : allows wood & metal dump
                            ])
             ->commit();
         // Müll für Alle, todo: adjust effect : must reduce from 1AP the dump cost, not 0AP anymore
@@ -430,10 +444,10 @@ class BuildingDataService implements FixtureProcessorInterface {
         $container->modify('small_city_up_#00')->blueprintLevel(2)->resource('metal_#00', 5)->orderBy(6)->commit();
         // Bollwerk
         $container->modify('small_strategy_#00')->parentBuilding('small_city_up_#00')->orderBy(0)->commit();
-        // Stadtplan, todo: this constructions allows to build personal defense above level 4, todo: edit the constructions which allows it (must be small_strategy_#02)
+        // Stadtplan, todo: this constructions allows to build personal defense above level 4, todo: edit the constructions which allows it (must be small_urban_#00)
         $container->add()->parentBuilding('small_city_up_#00')
             ->icon('small_urban')->label('Stadtplan')->description('Mit genau definierten Grundstücken für jede Behausung können wir endlich sehen, wie viel man noch ausbauen kann! Es ist an der Zeit, etwas Neues zu versuchen.')
-            ->isTemporary(0)->defense(0)->ap(20)->health(20)->blueprintLevel(4)->resources(["meca_parts_#00" => 1,"wood_beam_#00" => 1,"wood2_#00" => 5,"rustine_#00" => 3,"wire_#00" => 5,"diode_#00" => 4,])->orderBy(1)->commit();
+            ->isTemporary(0)->defense(0)->ap(20)->health(20)->blueprintLevel(2)->resources(["meca_parts_#00" => 1,"wood_beam_#00" => 1,"wood2_#00" => 5,"rustine_#00" => 3,"wire_#00" => 5,"diode_#00" => 4,])->orderBy(1)->commit();
         //Verteidigungsanlage
         $container->modify('item_meca_parts_#00')->parentBuilding('small_building_#00')
             ->voteLevel(3)->resources(["meca_parts_#00" => 3,"wood_beam_#00" => 8,"metal_beam_#00" => 8,])->orderBy(7)
@@ -459,7 +473,6 @@ class BuildingDataService implements FixtureProcessorInterface {
         $container->modify('small_wheel_#00')->orderBy(14)->commit();
         // Riesige Sandburg
         $container->modify('small_castle_#00')->orderBy(15)->commit();
-        //new wonder : Blue Gold Thermal baths
         // Reaktor
         $container->modify('small_arma_#00')->orderBy(16)->commit();
 
@@ -473,19 +486,19 @@ class BuildingDataService implements FixtureProcessorInterface {
         $container->add()->parentBuilding($small_spa4souls)
             ->icon('item_soul_blue_static')->label('Seelenreinigungsquelle')->description('Ein Ort der Entspannung, der sich hervorragend für die Überführung von Seelen in die ewige Ruhe eignet.')
             ->isTemporary(0)->defense(20)->ap(30)->health(30)->blueprintLevel(0)->resources(["metal_#00" => 1,"rustine_#00" => 1,"ryebag_#00" => 2,"lens_#00" => 1,"oilcan_#00" => 1,])->orderBy(0)
-            ->voteLevel(3)->baseVoteText('Du kannst jetzt die Seelen deiner verstorbenen Mitbürger reinigen, um ein wenig zusätzliche Verteidigung zu erhalten.')
+            ->voteLevel(3)->baseVoteText('Du kannst jetzt die Seelen deiner verstorbenen Mitbürger reinigen, um ein wenig zusätzliche Verteidigung zu erhalten.') //todo check : at lvl0, each purified soul provide 5 defense points
             ->upgradeTexts([//todo: now it has evolutions level
-                               'Jede gereinigte Seele bringt der Stadt ein wenig mehr Verteidigung.',
-                               'Jede gereinigte Seele bringt Verteidigungspunkte und jede gequälte Seele hat weniger Auswinkungen auf den Angriff.',//todo: at this level each tortured soul has 2% impact instead 4%
+                               'Jede gereinigte Seele bringt der Stadt ein wenig mehr Verteidigung.', //todo : at this level, a purified soul brings 10 defense points
+                               'Jede gereinigte Seele bringt Verteidigungspunkte und jede gequälte Seele hat weniger Auswinkungen auf den Angriff.',//todo: at this level each tortured soul has 2% impact instead 4% (and still provide 10 defense)
                                'Jede gereinigte Seele bringt Verteidigungspunkte und 2 Rangpunkte, jede gequälte Seele hat weniger Auswinkungen auf den Angriff.',//todo: at this level each tortured soul has 2% impact instead 4% + each purified soul provide 2 ranking points (brings back the old Hordes soul purification system)
                            ])
             ->commit($item_soul_blue_static);
-        // Hammam, todo edit effect: once built Souls are limited to 11km from the city, any souls that were further away at the time of construction move within the 11km zone.
+        // Hammam
         $container->modify('small_spa4souls_#00')->parentBuilding($item_soul_blue_static)
             ->description('Mit einer solchen Erweiterung der Seelenreinigungsquelle haben es die Seelen noch eiliger, ihn zu erreichen. Ihr könnt sicher sein, dass sie von nun an näher bei euch auftauchen werden.')
             ->defense(20)->blueprintLevel(2)->orderBy(0)
             ->commit();
-        // Pool, todo effect: allow to take a bath at Home (provide +1% watch survival chance, cumulative, limited to once a day, until the next watch performed, once watch done, the bonus is resets)
+        // Pool
         $container->add()->parentBuilding($small_spa4souls)
             ->icon('small_pool')->label('Pool')->description('Ein großer Pool, der nur für euer Wohlbefinden eingerichtet ist. Wenn man nicht auf seine Mitbürger achtet, die panisch um einen herumlaufen, könnte man den Angriff heute Abend glatt vergessen.')
             ->isTemporary(0)->defense(0)->ap(150)->blueprintLevel(4)->resources(["wood2_#00" => 18,"plate_#00" => 2,"metal_beam_#00" => 1,"water_#00" => 20,"meca_parts_#00" => 2,"tube_#00" => 1,"ryebag_#00" => 2,])->orderBy(1)
@@ -496,28 +509,33 @@ class BuildingDataService implements FixtureProcessorInterface {
         $container->modify('small_coffin_#00')->ap(85)->health(85)->blueprintLevel(3)->resources(["courroie_#00" => 1,"concrete_wall_#00" => 2,"wire_#00" => 2,"meca_parts_#00" => 3,"wood2_#00" => 5,"metal_#00" => 15,])->commit();
         // Krankenstation
         $container->modify('small_infirmary_#00')->parentBuilding($small_spa4souls)->orderBy(3)->commit();
-        // Bauhaus, todo: edit evolutions, now this construction don't has level but its children (Baumarkt) has them. This construction only provide 1 common blueprint / day
+        // Bauhaus
         $container->modify('small_refine_#01')->parentBuilding($small_spa4souls)->voteLevel(0)->ap(50)->health(50)->resources(["drug_#00" => 1,"vodka_#00" => 1,"wood_beam_#00" => 5,"ryebag_#00" => 2,])->orderBy(4)->commit();
         // Baumarkt, todo: now this constructions has Bauhaus evolutions levels
         $container->modify('small_strategy_#01')->parentBuilding('small_refine_#01')->description('Wenn alle Bürger an den Diskussionstisch eingeladen werden, entstehen neue Ideen. Die Eliten der Stadt brauchen sie dann nur zu stehlen und als ihre eigenen auszugeben.')
-            ->ap(40)->health(40)->blueprintLevel(2)->resources(["wood2_#00" => 10,"water_#00" => 5,"wood_beam_#00" => 2,"metal_beam_#00" => 8,"meca_parts_#00" => 1,"plate_#00" => 2,"ryebag_#00" => 1,"drug_hero_#00" => 1,"vodka_#00" => 1,"coffee_machine_#00" => 1,"cigs_#00" => 1,"trestle_#00" => 2,"chair_basic_#00" => 1,])->orderBy(0)
-            ->voteLevel(3)->baseVoteText('Die Stadt erhält nach dem nächsten Angriff einmalig 1 ungewöhnliche Baupläne.')//todo edit effect: provide 1 uncommon blueprint per day at lvl0
+            ->ap(45)->health(45)->blueprintLevel(2)->resources(["wood2_#00" => 10,"water_#00" => 5,"metal_beam_#00" => 8,"plate_#00" => 2,"drug_hero_#00" => 1,"vodka_#00" => 1,"coffee_machine_#00" => 1,"cigs_#00" => 1,"trestle_#00" => 2,"chair_basic_#00" => 1,])->orderBy(0)
+            ->voteLevel(4)->baseVoteText('Die Stadt erhält nach dem nächsten Angriff einmalig 1 ungewöhnliche Baupläne.')
             ->upgradeTexts([
-                               'Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche und 1 ungewöhnliche Baupläne sowie.',//todo edit effect: provide 1 common & 1 uncommon per day at lvl1
-                               'Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche und 1 seltene Baupläne sowie.',//todo edit effect: provide 1 uncommon & 1 rare blueprints per day at lvl2
-                               'Die Stadt erhält nach dem nächsten Angriff einmalig 1 seltene Baupläne - möglicherweise - eine nette Überraschung.',//todo edit effect: provide 1 rare blueprint per day & 10% chance to get an epic blueprint per day at lvl3
+                               'Die Stadt erhält nach jedem Angriff 1 gewöhnliche und 1 ungewöhnliche Baupläne sowie.',
+                               'Die Stadt erhält nach jedem Angriff 1 ungewöhnliche und 1 seltene Baupläne sowie.',
+                               'Die Stadt erhält nach jedem Angriff 2 seltene Baupläne.',
+                               'Die Stadt erhält nach jedem Angriff 1 seltene Baupläne und - möglicherweise - eine nette Überraschung.',
                            ])
             ->commit();
         // Krähenstatue
         $container->modify('small_crow_#00')->parentBuilding($small_spa4souls)->orderBy(5)->commit();
+        //Blue Gold Thermal baths, todo: todo don't get damage in Hardcore, todo implement golden distinction, todo new distinction
+        $container->add()->parentBuilding($small_spa4souls)
+            ->icon('small_thermal')->label('Blaugoldige Thermalbäder')->description('Zuerst warst du etwas skeptisch gegenüber dieser Konstruktion, aber das Zitat eines Überlebenskünstlers, das auf dem Plan stand, hat dich motiviert: "Die Liebe beginnt im Rosenwasser und endet im blutigen Wasser". Also nutze die Vorteile dieser Thermalbäder!')
+            ->isTemporary(0)->defense(0)->ap(300)->health(300)->blueprintLevel(4)->resources(["water_#00" => 100,"metal_beam_#00" => 8,"tube_#00" => 6,"wood_beam_#00" => 6,"concrete_wall_#00" => 2,"fence_#00" => 1,"water_cleaner_#00" => 4,])->orderBy(6)->commit();
         // Voodoo-Puppe
-        $container->modify('small_vaudoudoll_#00')->parentBuilding($small_spa4souls)->orderBy(6)->commit();
+        $container->modify('small_vaudoudoll_#00')->parentBuilding($small_spa4souls)->orderBy(7)->commit();
         // Bokors Guillotine
-        $container->modify('small_bokorsword_#00')->parentBuilding($small_spa4souls)->orderBy(7)->commit();
+        $container->modify('small_bokorsword_#00')->parentBuilding($small_spa4souls)->orderBy(8)->commit();
         // Spirituelles Wunder
-        $container->modify('small_spiritmirage_#00')->parentBuilding($small_spa4souls)->orderBy(8)->commit();
+        $container->modify('small_spiritmirage_#00')->parentBuilding($small_spa4souls)->orderBy(9)->commit();
         // Heiliger Regen
-        $container->modify('small_holyrain_#00')->parentBuilding($small_spa4souls)->orderBy(9)->commit();
+        $container->modify('small_holyrain_#00')->parentBuilding($small_spa4souls)->orderBy(10)->commit();
 
         $data = $container->toArray();
     }
