@@ -23,6 +23,7 @@ symfony.lock
 /node_modules/
 /public/build/
 /public/service/
+/public/shared/
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
@@ -42,6 +43,7 @@ webpack.config.local.js
 webpack.config.deploy.js
 
 # Local app configs
+config/packages/local/app/*.yml
 config/packages/dev/app/*.yml
 config/packages/prod/app/*.yml
 etwin.toml
