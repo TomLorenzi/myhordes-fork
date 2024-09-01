@@ -15,7 +15,14 @@ class ProcessHomeEffect extends AtomEffectProcessor
             $cache->addTranslationKey('home_storage', $data->storage);
         }
 
-        if ($data->defense <> 0) {
+        if ($data->defense <> 0 || $data->temporaryDefense <> 0) {
+            $cache->citizen->getHome()
+                ->setAdditionalDefense( $cache->citizen->getHome()->getAdditionalDefense() + $data->defense )
+                ->setTemporaryDefense( $cache->citizen->getHome()->getTemporaryDefense() + $data->temporaryDefense );
+            $cache->addTranslationKey('home_defense', $data->defense + $data->temporaryDefense);
+        }
+
+        if ($data->temporaryDefense <> 0) {
             $cache->citizen->getHome()->setAdditionalDefense( $cache->citizen->getHome()->getAdditionalDefense() + $data->defense );
             $cache->addTranslationKey('home_defense', $data->defense);
         }

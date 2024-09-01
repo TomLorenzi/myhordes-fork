@@ -1109,7 +1109,7 @@ class NightlyHandler
         }
 
         foreach ($town->getCitizens() as $citizen) {
-            $citizen->getHome()->setTemporaryTags([]);
+            $citizen->getHome()->setTemporaryTags([])->setTemporaryDefense(0);
 
             if ($vote = $citizen->getDailyUpgradeVote()) {
                 $this->cleanup[] = $vote;

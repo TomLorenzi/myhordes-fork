@@ -43,6 +43,9 @@ class CitizenHome
 
     #[ORM\Column(type: Types::JSON, nullable: true)]
     private ?array $permanentTags = null;
+
+    #[ORM\Column]
+    private int $temporaryDefense = 0;
     public function __construct()
     {
         $this->citizenHomeUpgrades = new ArrayCollection();
@@ -213,5 +216,17 @@ class CitizenHome
     public function addTag(string $tag, bool $permanent): static {
         if ($permanent) return $this->setPermanentTags( [...$this->getPermanentTags(), $tag] );
         else return $this->setTemporaryTags( [...$this->getTemporaryTags(), $tag] );
+    }
+
+    public function getTemporaryDefense(): int
+    {
+        return $this->temporaryDefense;
+    }
+
+    public function setTemporaryDefense(int $temporaryDefense): static
+    {
+        $this->temporaryDefense = $temporaryDefense;
+
+        return $this;
     }
 }

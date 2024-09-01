@@ -8,6 +8,8 @@ use MyHordes\Fixtures\DTO\Actions\EffectAtom;
 /**
  * @method self defense(?int $v)
  * @property ?int defense
+ * @method self temporaryDefense(?int $v)
+ * @property ?int temporaryDefense
  * @method self storage(?int $v)
  * @property ?int storage
  * @property string[] tags_temp
@@ -28,7 +30,7 @@ class HomeEffect extends EffectAtom {
 
     protected function default(string $name): mixed {
         return match($name) {
-            'defense', 'storage' => 0,
+            'defense', 'temporaryDefense', 'storage' => 0,
             'tags_temp', 'tags_perm' => [],
             default => null
         };

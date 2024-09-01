@@ -314,7 +314,7 @@ class TownHandler
         if ($this->getBuilding($town, 'small_city_up_#00', true))
             $summary->house_defense += 4;
 
-        $summary->upgrades_defense = $home->getAdditionalDefense();
+        $summary->upgrades_defense = $home->getAdditionalDefense() + $home->getTemporaryDefense();
 
         if ($home->getCitizen()->getProfession()->getHeroic()) {
             /** @var CitizenHomeUpgrade|null $n */
