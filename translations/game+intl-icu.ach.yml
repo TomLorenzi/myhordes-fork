@@ -2957,3 +2957,25 @@ Zerfleischt: crwdns205462:0crwdne205462:0
 SP: crwdns205508:0crwdne205508:0
 Schritt-Punkte: crwdns205538:0crwdne205538:0
 'Mithilfe deiner Schritt-Punkte kannst du dich in der Außenwelt bewegen, ohne Aktionspunkte ausgeben zu müssen': 'crwdns205540:0crwdne205540:0'
+'Wähle deine Fähigkeiten': 'crwdns205638:0crwdne205638:0'
+'Deine Fähigkeiten verleihen dir bestimmte Boni im Spiel. Du kannst nicht alle auf einmal aktivieren, also wähle weise!': 'crwdns205640:0crwdne205640:0'
+'Level {skill_level}': 'crwdns205642:0{skill_level}crwdne205642:0'
+'Dir stehen noch <em>{pts}</em> Punkte zur Verfügung!': 'crwdns205644:0{pts}crwdne205644:0'
+'Du verfügst über ausreichend Heldenerfahrung um eine neue Fähigkeit freizuschalten, welche dir daraufhin in dieser Auswahl zur Verfügung stehen wird.': 'crwdns205646:0crwdne205646:0'
+'Zur Übersicht meiner Fähigkeiten': 'crwdns205648:0crwdne205648:0'
+'Du hast eine neue Fähigkeit erworben. Herzlichen Glückwunsch!': 'crwdns205650:0crwdne205650:0'
+'Du verfügst aktuell über <strong>{xp} Punkte</strong> an Heldenerfahrung.': 'crwdns205652:0{xp}crwdne205652:0'
+'Du kannst eine neue {heroskill_link}!': 'crwdns205654:0{heroskill_link}crwdne205654:0'
+'Heldenfähigkeit freischalten': 'crwdns205656:0crwdne205656:0'
+'Meine freigeschalteten Fähigkeiten ansehen': 'crwdns205658:0crwdne205658:0'
+'{xp} Punkte': 'crwdns205660:0{xp}crwdne205660:0'
+'an Heldenerfahrung gesammelt.': 'crwdns205662:0crwdne205662:0'
+'Dir stehen aktuell:': 'crwdns205664:0crwdne205664:0'
+'an Heldenerfahrung zur Verfügung.': 'crwdns205666:0crwdne205666:0'
+Benötigt: crwdns205668:0crwdne205668:0
+Freischalten: crwdns205670:0crwdne205670:0
+'Einwohner in der Stadt': 'crwdns205672:0crwdne205672:0'
+'{days} Tage überlebt in "{town}"': 'crwdns205674:0{days}crwdnd205674:0{town}crwdne205674:0'
+'Fähigkeit erworben': 'crwdns205676:0crwdne205676:0'
+'Rudimentärer Schutz': 'crwdns205678:0crwdne205678:0'
+'Dank der Hilfe eines anderen Bürgers wirst du diese Nacht keine Durst- oder Krankheitssymptome verspüren.': 'crwdns205680:0crwdne205680:0'

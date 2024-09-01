@@ -507,7 +507,7 @@ Rettung: crwdns199267:0crwdne199267:0
 'Trotz all der Jahre, die sie wahrscheinlich schon in dieser Wüste liegen, haben diese Nudeln ihr Aussehen und ihren Geschmack behalten. Erstaunlich.': 'crwdns199505:0crwdne199505:0'
 'Ein Säckchen mit starken Gewürzen ...': 'crwdns199507:0crwdne199507:0'
 "Richtig gut gewürzte chinesische Nudeln! Das ist mal'ne Abwechslung von dem sonstigen verschimmelten Fraß.": "crwdns199509:0crwdne199509:0"
-'Ein Kartenset mit 54 abgegriffenen Karten, die ein paar Eselsohren haben... Du solltest gleich mal eine Runde zocken, denn oft wirst du hier nicht zum Spielen kommen.': 'crwdns199511:0crwdne199511:0'
+'Ein Kartenset mit 54 abgegriffenen Karten, die ein paar Eselsohren haben... Du solltest gleich mal eine Runde zocken, denn oft wirst du hier nicht zum Spielen kommen.': 'crwdns205694:0crwdne205694:0'
 'Ein altes Spiel welches du noch nicht kennst. Wow!': 'crwdns199513:0crwdne199513:0'
 'Eine furchterregende Waffe, der nur ein paar Teile fehlen...': 'crwdns199515:0crwdne199515:0'
 'Er vibriert und kitzelt dich am ganzen Körper und lässt dich für einen Augenblick all deine Sorgen vergessen (benötigt 1 Batterie).': 'crwdns199517:0crwdne199517:0'
@@ -841,7 +841,7 @@ Guiness: crwdns200167:0crwdne200167:0
 'Du hast mit dem(r) {item_tool} ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.': 'crwdns200173:0{item_tool}crwdnd200173:0{item_from}crwdnd200173:0{item_to}crwdne200173:0'
 'Die Droge zeigt sofort Wirkung: Du bist auf einmal ganz <strong>ruhig</strong> geworden, so ausgeglichen... Die schrecklichen Ereignisse der letzten Tage erscheinen dir plötzlich bedeutungslos und ganz weit weg... Es geht dir schon viel besser.': 'crwdns200175:0crwdne200175:0'
 'Du hast {item} eingenommen, verspürst aber keine nennenswerte Wirkung... Vielleicht hast du das gar nicht gebraucht?': 'crwdns200177:0{item}crwdne200177:0'
-'Dir ist schwindelig und du würdest dich am liebsten übergeben... Egal was, Hauptsache <strong>du bekommst wieder einen klaren Kopf</strong>.': 'crwdns200179:0crwdne200179:0'
+'Dir ist schwindelig und du würdest dich am liebsten übergeben... Egal was, Hauptsache <strong>du bekommst wieder einen klaren Kopf</strong>.': 'crwdns205696:0crwdne205696:0'
 '{citizen} befehlen etwas zu trinken.': 'crwdns200181:0{citizen}crwdne200181:0'
 '{citizen} befehlen etwas zu essen.': 'crwdns200183:0{citizen}crwdne200183:0'
 'Schwarzer Zervixschleim': 'crwdns200185:0crwdne200185:0'
@@ -992,3 +992,4 @@ Freundschaft: crwdns200401:0crwdne200401:0
 'Kreischender Wecker (2 Schuss)': 'crwdns205548:0crwdne205548:0'
 'Kreischender Wecker (3 Schuss)': 'crwdns205550:0crwdne205550:0'
 'Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei und lässt dich nach dem Angriff energetisch mit einem Bonus-AP in den Tag starten.': 'crwdns205552:0crwdne205552:0'
+'Damit kannst du mit einem Schlag {cfg_ctp_props_actions_hero_punch_kills} Zombies umbringen!': 'crwdns205698:0{cfg_ctp_props_actions_hero_punch_kills}crwdne205698:0'

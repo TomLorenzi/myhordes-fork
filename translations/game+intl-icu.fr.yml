@@ -2957,3 +2957,25 @@ Zerfleischt: Mutilé
 SP: PE
 Schritt-Punkte: Point d'Exploration
 'Mithilfe deiner Schritt-Punkte kannst du dich in der Außenwelt bewegen, ohne Aktionspunkte ausgeben zu müssen': 'Vous pouvez utiliser vos Points d''Exploration pour vous déplacer dans l''Outre-Monde sans avoir à dépenser de Points d''Action.'
+'Wähle deine Fähigkeiten': 'Choisissez vos compétences'
+'Deine Fähigkeiten verleihen dir bestimmte Boni im Spiel. Du kannst nicht alle auf einmal aktivieren, also wähle weise!': 'Vos compétences vous donnent certains bonus dans le jeu. Vous ne pouvez pas tous les activer en même temps, alors choisissez judicieusement !'
+'Level {skill_level}': 'Niveau {skill_level}'
+'Dir stehen noch <em>{pts}</em> Punkte zur Verfügung!': 'Il vous reste encore <em>{pts}</em> points disponibles !'
+'Du verfügst über ausreichend Heldenerfahrung um eine neue Fähigkeit freizuschalten, welche dir daraufhin in dieser Auswahl zur Verfügung stehen wird.': 'Vous disposez de suffisamment d''expérience héroïque pour débloquer une nouvelle capacité, qui vous sera ensuite proposée dans cette sélection.'
+'Zur Übersicht meiner Fähigkeiten': 'Pour un aperçu de mes compétences'
+'Du hast eine neue Fähigkeit erworben. Herzlichen Glückwunsch!': 'Vous avez acquis une nouvelle compétence. Félicitations !'
+'Du verfügst aktuell über <strong>{xp} Punkte</strong> an Heldenerfahrung.': 'Vous disposez actuellement de <strong>{xp} points</strong> d''expérience héroïque.'
+'Du kannst eine neue {heroskill_link}!': 'Vous pouvez créer un nouveau {heroskill_link} !'
+'Heldenfähigkeit freischalten': 'Débloquer la capacité héroïque'
+'Meine freigeschalteten Fähigkeiten ansehen': 'Voir mes compétences débloquées'
+'{xp} Punkte': '{xp} points'
+'an Heldenerfahrung gesammelt.': 'd''expérience héroïque.'
+'Dir stehen aktuell:': 'Vous disposez actuellement de :'
+'an Heldenerfahrung zur Verfügung.': 'd''expérience héroïque disponible.'
+Benötigt: Nécessaire
+Freischalten: Déverrouiller
+'Einwohner in der Stadt': 'Les citoyens de la ville'
+'{days} Tage überlebt in "{town}"': '{days} jours survécu dans "{town}"'
+'Fähigkeit erworben': 'Compétence acquise'
+'Rudimentärer Schutz': 'Protection rudimentaire'
+'Dank der Hilfe eines anderen Bürgers wirst du diese Nacht keine Durst- oder Krankheitssymptome verspüren.': 'Grâce à l''aide d''un autre citoyen, vous ne ressentirez aucun symptôme de soif ou de maladie cette nuit.'

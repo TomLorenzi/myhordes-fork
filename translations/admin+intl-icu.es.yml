@@ -1,4 +1,3 @@
----
 'Diesen Bürger töten?': '¿Matar a este habitante?'
 Status: Estados
 Dauer: Duración
@@ -673,10 +672,11 @@ Klicks: Clics
 '{number} Auszeichnungen konnten nicht entfernt werden. Möglicherweise sind sie dem Spieler über Städte zugewiesen. In diesem Fall müssen sie über die Städteverwaltung entfernt werden.': '{number} distinciones no han podido quitarse. Están posiblemente otorgadas por un pueblo, y tendrán que ser editadas por la IU de distinciones de pueblo.'
 'Eingehende Nachrichten als Tickets behandeln': 'Tratar los mensajes entrantes como tickets'
 'Ist diese Option aktiviert, so wird eine eingehende Konversation für alle Gruppenmitglieder als "Gelesen" markiert, sobald ein Gruppenmitglied antwortet.': 'Si está habilitado, una conversación entrante se marcará como "Leída" para todos los miembros del grupo tan pronto como un miembro del grupo responda.'
+SP: PE
 'Es wurden {n} Posts gelöscht.': 'Se han eliminado {n} mensajes.'
 'Weitere Aktionen': 'Acciones adicionales'
 'Bekannte IP-Adressen': 'Direcciones IP conocidas'
 '{n} (davon {n2} bereits blockiert)': '{n} (incluido {n2} ya bloqueado)'
 Foren-Posts: Mensajes del foro
 '{n} (davon {n2} gelöscht)': '{n} (incluido {n2} ya eliminado)'
-SP: PE
+Heldenerfahrung: Experiencia heroica

@@ -673,3 +673,10 @@ Klicks: crwdns205492:0crwdne205492:0
 'Eingehende Nachrichten als Tickets behandeln': 'crwdns205496:0crwdne205496:0'
 'Ist diese Option aktiviert, so wird eine eingehende Konversation für alle Gruppenmitglieder als "Gelesen" markiert, sobald ein Gruppenmitglied antwortet.': 'crwdns205498:0crwdne205498:0'
 SP: crwdns205500:0crwdne205500:0
+'Es wurden {n} Posts gelöscht.': 'crwdns205578:0{n}crwdne205578:0'
+'Weitere Aktionen': 'crwdns205580:0crwdne205580:0'
+'Bekannte IP-Adressen': 'crwdns205582:0crwdne205582:0'
+'{n} (davon {n2} bereits blockiert)': 'crwdns205584:0{n}crwdnd205584:0{n2}crwdne205584:0'
+Foren-Posts: crwdns205586:0crwdne205586:0
+'{n} (davon {n2} gelöscht)': 'crwdns205588:0{n}crwdnd205588:0{n2}crwdne205588:0'
+Heldenerfahrung: crwdns205590:0crwdne205590:0

@@ -204,7 +204,7 @@ Autotür: Portière de voiture
 'Beschädigte Autotür': 'Portière de voiture incomplète'
 Giftfläschchen: Fiole de poison
 Ätzmittel: Produit corrosif
-'Vorräte eines umsichtigen Bürgers': 'Réserves d''un citoyen avisé'
+'Vorräte eines umsichtigen Bürgers': 'Réserves d’un citoyen avisé'
 Postpaket: Colis postal
 Lunch-Box: Boîte-déjeuner
 'Eine Handvoll Bonbons': 'Poignée de bonbons'
@@ -992,3 +992,4 @@ Freundschaft: Camaraderie
 'Kreischender Wecker (2 Schuss)': 'Réveil-Hurleur (2 charges)'
 'Kreischender Wecker (3 Schuss)': 'Réveil-Hurleur (3 charges)'
 'Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei und lässt dich nach dem Angriff energetisch mit einem Bonus-AP in den Tag starten.': 'Rien de tel qu''un bon réveil pour vous stimuler les tympans le matin. Fonctionne parfaitement et vous permettra de démarrer votre journée en enfer du bon pied en recevant 1 PA supplémentaire après l''attaque.'
+'Damit kannst du mit einem Schlag {cfg_ctp_props_actions_hero_punch_kills} Zombies umbringen!': 'Cela vous permet de tuer {cfg_ctp_props_actions_hero_punch_kills} zombies d''un seul coup !'

@@ -2957,3 +2957,25 @@ Zerfleischt: Mutilado
 SP: PE
 Schritt-Punkte: Punto de Exploración
 'Mithilfe deiner Schritt-Punkte kannst du dich in der Außenwelt bewegen, ohne Aktionspunkte ausgeben zu müssen': 'Puedes usar tus Puntos de Exploración para moverte por el Ultramundo sin tener que gastar Puntos de Acción.'
+'Wähle deine Fähigkeiten': 'Elige tus habilidades'
+'Deine Fähigkeiten verleihen dir bestimmte Boni im Spiel. Du kannst nicht alle auf einmal aktivieren, also wähle weise!': 'Tus habilidades te otorgan ciertas bonificaciones en el juego. No puedes activarlas todas a la vez, ¡así que elige sabiamente!'
+'Level {skill_level}': 'Nivel {skill_level}'
+'Dir stehen noch <em>{pts}</em> Punkte zur Verfügung!': '¡Aún tienes <em>{pts}</em> puntos disponibles!'
+'Du verfügst über ausreichend Heldenerfahrung um eine neue Fähigkeit freizuschalten, welche dir daraufhin in dieser Auswahl zur Verfügung stehen wird.': 'Tienes suficiente experiencia heroica para desbloquear una nueva habilidad, que luego se te ofrecerá en esta selección.'
+'Zur Übersicht meiner Fähigkeiten': 'Para una visión general de mis habilidades'
+'Du hast eine neue Fähigkeit erworben. Herzlichen Glückwunsch!': 'Has aprendido una nueva habilidad. ¡Felicitaciones!'
+'Du verfügst aktuell über <strong>{xp} Punkte</strong> an Heldenerfahrung.': 'Actualmente tienes <strong>{xp} puntos</strong> de experiencia heroica.'
+'Du kannst eine neue {heroskill_link}!': '¡Puedes crear un nuevo {heroskill_link}!'
+'Heldenfähigkeit freischalten': 'Desbloquear habilidad heroica'
+'Meine freigeschalteten Fähigkeiten ansehen': 'Ver mis habilidades desbloqueadas'
+'{xp} Punkte': '{xp} Puntos'
+'an Heldenerfahrung gesammelt.': 'de experiencia heroica.'
+'Dir stehen aktuell:': 'Actualmente tienes:'
+'an Heldenerfahrung zur Verfügung.': 'Experiencia heroica disponible.'
+Benötigt: Necesario
+Freischalten: Desbloquear
+'Einwohner in der Stadt': 'Los ciudadanos de la ciudad'
+'{days} Tage überlebt in "{town}"': '{days} días sobrevivieron en "{town}"'
+'Fähigkeit erworben': 'Habilidad adquirida'
+'Rudimentärer Schutz': 'Protección rudimentaria'
+'Dank der Hilfe eines anderen Bürgers wirst du diese Nacht keine Durst- oder Krankheitssymptome verspüren.': 'Gracias a la ayuda de otro ciudadano, esta noche no sentirás ningún síntoma de sed o enfermedad.'
