@@ -84,6 +84,36 @@ class SkillController extends CustomAbstractCoreController
     }
 
     /**
+     * @param UserUnlockableService $unlockableService
+     * @param Locksmith $locksmith
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    #[Route(path: '', name: 'debit_delete', methods: ['DELETE'])]
+    public function reset(
+        UserUnlockableService $unlockableService,
+        Locksmith $locksmith
+    ): JsonResponse {
+        $user = $this->getUser();
+
+        $lock = $locksmith->waitForLock("debit_unlock_{$user->getId()}");
+
+        $xp = $unlockableService->getHeroicExperience( $user );
+        $all_xp = $unlockableService->getHeroicExperience( $user, include_deductions: false );
+
+        if ($all_xp - $xp < 150)
+            return new JsonResponse([], Response::HTTP_NOT_ACCEPTABLE);
+
+        if (!$unlockableService->performSkillResetForUser($user, true))
+            return new JsonResponse([], Response::HTTP_INTERNAL_SERVER_ERROR);
+
+        $lock->release();
+
+        $this->addFlash('notice', $this->translator->trans( 'Du hast deine Fähigkeiten und Heldenerfahrung zurückgesetzt und dafür einen zusätzlichen Fähigkeiten-Punkt erhalten!', [], 'game'));
+        return new JsonResponse(['success' => true]);
+    }
+
+    /**
      * @param Packages $assets
      * @return JsonResponse
      */

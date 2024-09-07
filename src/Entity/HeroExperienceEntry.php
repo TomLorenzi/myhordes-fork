@@ -54,6 +54,9 @@ class HeroExperienceEntry
     #[ORM\Column]
     private bool $disabled = false;
 
+    #[ORM\Column]
+    private int $reset = 0;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -187,6 +190,18 @@ class HeroExperienceEntry
     public function setDisabled(bool $disabled): static
     {
         $this->disabled = $disabled;
+
+        return $this;
+    }
+
+    public function getReset(): int
+    {
+        return $this->reset;
+    }
+
+    public function setReset(int $reset): static
+    {
+        $this->reset = $reset;
 
         return $this;
     }

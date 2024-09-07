@@ -121,10 +121,6 @@ class TownOnboardingController extends AbstractController
         );
     }
 
-    private function getCitizenPts(Citizen $c): int {
-        return 5;
-    }
-
     #[Route(path: '/{town}', name: 'config', methods: ['GET'])]
     #[GateKeeperProfile(only_incarnated: true)]
     public function town_config(Town $town, ConfMaster $conf): JsonResponse
@@ -195,7 +191,7 @@ class TownOnboardingController extends AbstractController
                 $pts_sum += $skill->getLevel();
             }
 
-            if ($pts_sum > $this->getCitizenPts($activeCitizen))
+            if ($pts_sum > $unlockService->getPackPoints( $activeCitizen->getUser() ))
                 return new JsonResponse([], Response::HTTP_BAD_REQUEST);
 
         } else $skills = $unlockService->getUnlockedLegacyHeroicPowersByUser( $activeCitizen->getUser() );
@@ -267,7 +263,7 @@ class TownOnboardingController extends AbstractController
                 ], $legacy_skills))
             ],
             'skills' => [
-                'pts' => $this->getCitizenPts($activeCitizen),
+                'pts' => $unlockService->getPackPoints( $activeCitizen->getUser() ),
                 'groups' => array_map(fn(string $s) => $trans->trans($s, [], 'game'), $skill_groups),
                 'unlock_url' => $can_unlock ? $this->generateUrl('soul_heroskill') : null,
                 'list' => array_values(array_map(fn(HeroSkillPrototype $p) => [

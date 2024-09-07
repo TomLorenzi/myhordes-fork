@@ -9,6 +9,8 @@ use App\Entity\HeroSkillPrototype;
 use App\Entity\HeroSkillUnlock;
 use App\Entity\LogEntryTemplate;
 use App\Entity\OfficialGroup;
+use App\Entity\Picto;
+use App\Entity\PictoPrototype;
 use App\Entity\Season;
 use App\Entity\Town;
 use App\Entity\TownRankingProxy;
@@ -18,14 +20,17 @@ use App\EventListener\ContainerTypeTrait;
 use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\ConfMaster;
 use App\Service\PermissionHandler;
+use App\Service\PictoHandler;
 use App\Service\UserHandler;
 use App\Structures\MyHordesConf;
 use ArrayHelpers\Arr;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Collections\Expr\Comparison;
 use Doctrine\Common\Collections\Order;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\QueryBuilder;
 use Psr\Cache\InvalidArgumentException;
 use Psr\Container\ContainerInterface;
@@ -54,10 +59,11 @@ class UserUnlockableService implements ServiceSubscriberInterface
     /**
      * Generates default query builder to query for hxp entries
      * @param User $user
+     * @param bool $ignore_reset
      * @return QueryBuilder
      */
-    private function generateDefaultQuery(User $user): QueryBuilder {
-        return $this->getService(EntityManagerInterface::class)->createQueryBuilder()
+    private function generateDefaultQuery(User $user, bool $ignore_reset = false): QueryBuilder {
+        $qb = $this->getService(EntityManagerInterface::class)->createQueryBuilder()
             ->from(HeroExperienceEntry::class, 'x')
             // Join ranking proxies so we can observe their DISABLED state
             ->leftJoin(TownRankingProxy::class, 't', 'WITH', 'x.town = t.id')
@@ -68,6 +74,9 @@ class UserUnlockableService implements ServiceSubscriberInterface
             ->andWhere('x.disabled = 0')
             ->andWhere('(t.disabled = 0 OR t.disabled IS NULL)')
             ->andWhere('(c.disabled = 0 OR c.disabled IS NULL)');
+
+        if (!$ignore_reset) $qb->andWhere('x.reset = 0');
+        return $qb;
     }
 
     /**
@@ -77,6 +86,7 @@ class UserUnlockableService implements ServiceSubscriberInterface
      * @param Season|bool|null $season Season; can be an explicit Season object, true (current season), false (no season) or null (any season or no season)
      * @param string|null $subject Restrict to specific subject in addition to season
      * @param bool $include_legacy
+     * @param bool $include_deductions
      * @return int
      * @throws \Exception
      */
@@ -132,12 +142,103 @@ class UserUnlockableService implements ServiceSubscriberInterface
     }
 
     /**
+     * Returns the amount of resets the user has done
+     * @note The return value of this function is cached
+     * @param User $user User
+     * @param Season|bool|null $season Season; can be an explicit Season object or true (current season)
+     * @return int
+     * @throws \Exception
+     */
+    public function getResetPackPoints(User $user, Season|true $season = true): int {
+
+        $season = $season === true
+            ? $this->getService(EntityManagerInterface::class)->getRepository(Season::class)->findOneBy(['current' => true])
+            : $season;
+
+        if (!$season) return 0;
+
+        $key = "hxp_pts_{$user->getId()}_s{$season->getId()}";
+
+        try {
+            $value = $this->gameCachePool->get($key, function (ItemInterface $item) use ($user, $season) {
+                $item->expiresAfter(86400)->tag(["user-{$user->getId()}-hxp",'hxp']);
+
+                $qb = $this->generateDefaultQuery($user, true)
+                    ->select('MAX(x.reset)')
+                    ->andWhere('x.type != :legacy')->setParameter('legacy', HeroXPType::Legacy->value)
+                    ->andWhere('x.season = :season')->setParameter('season', $season);
+
+                return ($qb->getQuery()->getSingleScalarResult() ?? 0);
+            });
+
+            return max(0, $value);
+        } catch (InvalidArgumentException $t) {
+            return 0;
+        }
+    }
+
+    public function getTemporaryPackPoints(User $user, ?\DateTimeImmutable &$end = null): int {
+        try {
+            /** @var CitizenRankingProxy $latest_citizen */
+            $latest_citizen = $this->getService(EntityManagerInterface::class)->getRepository(CitizenRankingProxy::class)->createQueryBuilder('c')
+                ->where('c.user = :user')->setParameter('user', $user)
+                ->andWhere('c.end IS NOT NULL')
+                ->andWhere('c.end >= :cutoff')
+                ->setParameter('cutoff', new \DateTime('now - 3days'))
+                ->orderBy('c.end', 'ASC')
+                ->setMaxResults(1)->getQuery()->getOneOrNullResult();
+        } catch (NonUniqueResultException $t) {
+            $latest_citizen = null;
+        }
+
+        if (!$latest_citizen) return 0;
+
+        $lms_picto = $this->getService(EntityManagerInterface::class)->getRepository(Picto::class)->createQueryBuilder('p')
+            ->where('p.user = :user')->setParameter('user', $user)
+            ->andWhere('p.townEntry = :town')->setParameter('town', $latest_citizen->getTown())
+            ->andWhere('p.count > 0')
+            ->andWhere('p.persisted = 2')
+            ->andWhere('p.disabled = 0')
+            ->andWhere('p.prototype IN (:lms)')->setParameter('lms',
+                $this->getService(EntityManagerInterface::class)->getRepository(PictoPrototype::class)->findBy(['name' => ['r_surlst_#00', 'r_suhard_#00']])
+            )
+            ->setMaxResults(1)->getQuery()->getOneOrNullResult();
+
+        if ($lms_picto) {
+            $end = \DateTimeImmutable::createFromInterface( $latest_citizen->getEnd() )->modify('+3 days');
+            return $latest_citizen->getDay() >= 10 ? 2 : 1;
+        } else return 0;
+    }
+
+    public function getBasePackPoints(User $user): int {
+        $sp = $user->getAllSoulPoints();
+        return
+            (($sp >= 100) ? 2 : 0) +
+            (($sp >= 200) ? 2 : 0);
+    }
+
+    /**
+     * Returns the amount of pack points a user has
+     * @note The return value of this function is partially cached
+     * @param User $user User
+     * @return int
+     * @throws \Exception
+     */
+    public function getPackPoints(User $user): int {
+        return
+            $this->getResetPackPoints($user,true) +
+            $this->getTemporaryPackPoints($user) +
+            $this->getBasePackPoints($user);
+    }
+
+    /**
      * Helper function to query specifically for legacy hero xp (hero days spent)
      * @note Calls getHeroicExperience internally
      * @param User $user User
      * @param bool|null $imported True to query for imported xp, false for MH xp or null for both
-     * @see getHeroicExperience
      * @return int
+     * @throws \Exception
+     * @see getHeroicExperience
      */
     public function getLegacyHeroDaysSpent(User $user, ?bool $imported = null): int {
         return match ($imported) {
@@ -211,6 +312,7 @@ class UserUnlockableService implements ServiceSubscriberInterface
                 ->andWhere('x.season = :season')->setParameter('season', $season)
                 ->andWhere('x.type = :type')->setParameter('type', $type)
                 ->andWhere('x.subject = :subject')->setParameter('subject', $subject)
+                ->andWhere('x.reset = 0')
                 ->getQuery()->getSingleScalarResult();
 
             if ($prev > 0) return false;
@@ -357,6 +459,35 @@ class UserUnlockableService implements ServiceSubscriberInterface
         } catch ( \Exception $e ) {
             return false;
         }
+
+        return true;
+    }
+
+    public function performSkillResetForUser(User $user, Season|true $season): bool {
+        $em = $this->getService(EntityManagerInterface::class);
+
+        if ($season === true)
+            $season = $em->getRepository(Season::class)->findOneBy(['current' => true]);
+
+        $criteria = (new Criteria())
+            ->andWhere( new Comparison( 'user', Comparison::EQ, $user ) )
+            ->andWhere( new Comparison( 'season', Comparison::EQ, $season ) );
+
+        /** @var Collection<HeroExperienceEntry> $allEntries */
+        $allEntries = $em->getRepository(HeroExperienceEntry::class)->matching($criteria);
+
+        /** @var Collection<HeroSkillUnlock> $allEntries */
+        $unlocks = $em->getRepository(HeroSkillUnlock::class)->matching($criteria);
+
+        if ($allEntries->isEmpty() || $unlocks->isEmpty()) return false;
+
+        foreach ($allEntries as $entry)
+            $em->persist( $entry->setReset( $entry->getReset() + 1 ) );
+        foreach ($unlocks as $unlock)
+            $em->remove($unlock);
+
+        $em->flush();
+        ($this->getService(InvalidateTagsInAllPoolsAction::class))("user-{$user->getId()}-hxp");
 
         return true;
     }
