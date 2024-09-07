@@ -7,6 +7,7 @@ export interface LogEntry {
     value: number,
     text: string,
     'type': number,
+    reset: boolean
 }
 
 export interface LogEntryResponse {

@@ -121,8 +121,9 @@ class SkillController extends CustomAbstractCoreController
     public function index(Packages $assets): JsonResponse {
         return new JsonResponse([
             'common' => [
-                'empty' => $this->translator->trans( 'Keine Heldenerfahrung gesammelt', [], 'soul'),
-                'unique' => $this->translator->trans( 'Einmaliger Verdienst', [], 'soul')
+                'empty'  => $this->translator->trans( 'Keine Heldenerfahrung gesammelt', [], 'soul'),
+                'unique' => $this->translator->trans( 'Einmaliger Verdienst', [], 'soul'),
+                'reset'  => $this->translator->trans( 'Zurückgesetzt!', [], 'soul')
             ],
         ]);
     }
@@ -142,7 +143,8 @@ class SkillController extends CustomAbstractCoreController
                 'id'         => $entry->getId(),
                 'timestamp'  => $entry->getCreated()->getTimestamp(),
                 'value'      => $entry->getValue(),
-                'type'       => $entry->getType()->value
+                'type'       => $entry->getType()->value,
+                'reset'      => $entry->getReset() > 0
             ];
 
             if ($entry->isDisabled()) $json['text'] = null;
