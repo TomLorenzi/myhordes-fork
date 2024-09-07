@@ -1471,7 +1471,8 @@ class SoulController extends CustomAbstractController
             'pictos' => $pictosWonDuringTown,
             'gazette' => $canSeeGazette,
             'denied_pictos' => $pictosNotWonDuringTown,
-            'obituary' => !$latest
+            'obituary' => !$latest,
+            'show_hxp' => !$latest && $this->entity_manager->getRepository(HeroSkillPrototype::class)->count(['enabled' => true, 'legacy' => false]) > 0
         ]) );
     }
 

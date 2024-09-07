@@ -79,6 +79,18 @@
                 </div>
             {% endif %}
         </div>
+        {% if hxp > 0 %}
+            <div class="cell ro-2 rw-8 ro-lg-1 rw-lg-10 ro-md-0 rw-md-12">
+                <h5 class="center">
+                    {{ 'Gesammelte Erfahrung'|trans({},'ghost') }}
+                </h5>
+                <p><span class="small">
+                        <b>{{ 'Mit jedem Leben auf MyHordes sammelst du neue Erfahrung.'|trans({},'ghost') }}</b>
+                        {{ 'Dies geschieht sowohl passiv durch deinen Überlebenskampf als auch aktiv durch bestimmte Taten, die du vollbringst. Hier findest du eine Auflistung der Erfahrung, die du in diesem Leben gesammelt hast.'|trans({},'ghost') }}
+                    </span></p>
+                <hordes-hxp-log data-focus="{{ hxp }}"></hordes-hxp-log>
+            </div>
+        {% endif %}
         <div class="cell ro-2 rw-8 ro-lg-1 rw-lg-10 ro-md-0 rw-md-12" style="margin-top: 25px;">
             <div class="row">
                 <div class="padded cell rw-8 ro-2 rw-lg-10 ro-lg-1 rw-md-12 ro-md-0">

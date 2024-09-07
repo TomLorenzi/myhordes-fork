@@ -10,6 +10,7 @@ use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenRole;
+use App\Entity\HeroSkillPrototype;
 use App\Entity\Season;
 use App\Entity\SpecialActionPrototype;
 use App\Entity\TeamTicket;
@@ -37,6 +38,7 @@ use App\Structures\TownSetup;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -113,7 +115,7 @@ class GhostController extends CustomAbstractController
      * @return Response
      */
     #[Route(path: 'jx/ghost/postgame', name: 'postgame')]
-    public function postgame_screen(): Response
+    public function postgame_screen(Request $request): Response
     {
         $last_game_sp = $this->entity_manager->getRepository( CitizenRankingProxy::class )->matching(
             (new Criteria())
@@ -129,7 +131,12 @@ class GhostController extends CustomAbstractController
         $all_sp = $this->user_handler->fetchSoulPoints($this->getUser(), true);
         $town_limit = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE);
 
-        return $this->render( 'ajax/ghost/donate.html.twig', ['exp' => $all_sp >= $town_limit && ($all_sp - $last_game_sp) < $town_limit] );
+        $has_skills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->count(['enabled' => true, 'legacy' => false]) > 0;
+
+        return $this->render( 'ajax/ghost/donate.html.twig', [
+            'exp' => $town_limit > 0 && ($all_sp >= $town_limit && ($all_sp - $last_game_sp) < $town_limit),
+            'hxp' => $has_skills ? $request->query->get('t', 0) : 0,
+        ] );
     }
 
     /**

@@ -42,7 +42,6 @@ use App\Event\Common\Social\ContentReportEvents\PostContentReportEvent;
 use App\Event\Common\Social\ContentReportEvents\PrivateMessageContentReportEvent;
 use App\Event\Common\Social\ContentReportEvents\UserContentReportEvent;
 use App\Event\Common\Social\FriendEvent;
-use App\Event\Common\User\DeathConfirmedEvent;
 use App\Event\Common\User\DeathConfirmedPostPersistEvent;
 use App\Event\Common\User\DeathConfirmedPrePersistEvent;
 use App\Event\Common\User\PictoPersistedEvent;

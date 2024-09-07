@@ -12,6 +12,7 @@ import {HordesContentReport} from "../react/content-report/Wrapper";
 import {HordesIssueReport} from "../react/issue-report/Wrapper";
 import {HordesServiceWorkerIndicator} from "../react/service-worker-state/Wrapper";
 import {HordesProgressBar} from "../react/progress-bar/Wrapper";
+import {HordesHxpLog} from "../react/hxp-log/Wrapper";
 
 // Define web component <hordes-user-search />
 export class HordesUserSearchElement extends Shim<HordesUserSearchBar> {
@@ -175,6 +176,24 @@ customElements.define('hordes-progress-bar', class HordesProgressBarElement exte
 
     protected static observedAttributeNames() {
         return ['data-animate-from', 'data-animate-to', 'data-limit', 'data-xp', 'data-step'];
+    }
+
+}, {  });
+
+customElements.define('hordes-hxp-log', class HordesHxpLogElement extends Shim<HordesHxpLog> {
+
+    protected generateInstance(): HordesHxpLog {
+        return new HordesHxpLog();
+    }
+
+    protected generateProps(): object | null {
+        return {
+            focus: parseInt( this.dataset.focus ?? '0' ),
+        }
+    }
+
+    protected static observedAttributeNames() {
+        return ['data-focus'];
     }
 
 }, {  });

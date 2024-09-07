@@ -78,6 +78,7 @@ class UserUnlockableService implements ServiceSubscriberInterface
      * @param string|null $subject Restrict to specific subject in addition to season
      * @param bool $include_legacy
      * @return int
+     * @throws \Exception
      */
     public function getHeroicExperience(User $user, Season|bool|null $season = true, ?string $subject = null, bool $include_legacy = false, bool $include_deductions = true): int {
 
@@ -103,7 +104,7 @@ class UserUnlockableService implements ServiceSubscriberInterface
                     ->select('SUM(x.value)');
 
                 if (!$include_legacy)
-                    $qb->andWhere('x.type != :legacy')->setParameter('legacy', HeroXPType::Legacy);
+                    $qb->andWhere('x.type != :legacy')->setParameter('legacy', HeroXPType::Legacy->value);
 
                 if (!$include_deductions)
                     $qb->andWhere('x.value > 0');

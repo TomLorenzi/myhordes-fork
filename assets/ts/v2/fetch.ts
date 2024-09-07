@@ -326,9 +326,17 @@ export class Fetch {
         return data;
     }
 
-    public from( endpoint: string ) {
+    public from( endpoint: string, params: object = {} ) {
+        const query = Object.entries(params)
+            .filter(([key,value]) => value !== null && typeof value !== 'undefined')
+            .map( ([key,value]) => `${key}=${encodeURIComponent(value)}` ).join('&');
         const e = this.remove_slashes( endpoint );
-        return new FetchOptionBuilder( e ? `${this.rest}/${e}` : this.rest,
+
+        const full_uri = this.rest +
+            (e ? `/${e}` : '') +
+            (query ? `?${query}` : '');
+
+        return new FetchOptionBuilder(full_uri,
             (r,opt) => this.preprocess_response(r,opt),
             (e,opt) => this.process_network_failure(e,opt) );
     }

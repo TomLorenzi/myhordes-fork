@@ -114,6 +114,15 @@
             </div>
 
             {% if obituary %}
+                {% if show_hxp %}
+                    <div class="row">
+                        <div class="padded cell rw-12">
+                            <h5>{{ 'Heldenerfahrung, die du in dieser Stadt gesammelt hast'|trans({},'soul') }}</h5>
+                            <hordes-hxp-log data-focus="{{ dead_citizen.town.id }}"></hordes-hxp-log>
+                        </div>
+                    </div>
+                {% endif %}
+
                 <div class="row">
                     <div class="padded cell rw-12">
                         <button x-ajax-href="{{ path('soul_view_town', {idtown: dead_citizen.town.id}) }}">{{ 'Zurück zur Übersicht'|trans({},'soul') }}</button>
@@ -165,7 +174,7 @@
                 
                 $.ajax.easySend( '{{ path('api_unsubscribe') }}', {lastwords: lastWords},
                     function () {
-                        $.ajax.load(null, '{{ path('postgame') }}', true);
+                        $.ajax.load(null, '{{ path('postgame', {t: dead_citizen.town.id}) }}', true);
                     } );
             }
         });
