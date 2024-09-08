@@ -56,6 +56,22 @@ class ItemEffect extends EffectAtom {
         return $this;
     }
 
+    public function addSpawnWithVariableCount(string $item, int $chance = 1, int $min = 0, int $max = 1): self {
+        $this->spawn = [
+            ...$this->spawn,
+            [[$item,['min' => $min, 'max' => $max]],$chance]
+        ];
+        return $this;
+    }
+
+    public function addSpawnWithCustomCount(string $item, int $chance = 1, array $options = [0,1]): self {
+        $this->spawn = [
+            ...$this->spawn,
+            [[$item,array_values($options)],$chance]
+        ];
+        return $this;
+    }
+
     public function addSpawnList(array $items, int $chance = 1, int $count = 1): self {
         $this->spawn = [
             ...$this->spawn,

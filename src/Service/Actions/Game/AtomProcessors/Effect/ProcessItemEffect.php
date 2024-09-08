@@ -16,6 +16,7 @@ use App\Structures\ActionHandler\Execution;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use App\Translation\T;
+use ArrayHelpers\Arr;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\ItemEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\ItemRequirement;
 use MyHordes\Fixtures\DTO\Actions\EffectAtom;
@@ -105,6 +106,9 @@ class ProcessItemEffect extends AtomEffectProcessor
                         $targetInv = [$cache->originalInventory ?? null, $cache->citizen->getInventory(), $floor_inventory, $cache->citizen->getZone() ? null : $cache->citizen->getTown()->getBank() ];
                         break;
                 }
+
+                if (is_array($count) && array_is_list($count)) $count = $rg->pick($count);
+                elseif (is_array($count)) $count = mt_rand( Arr::get($count, 'min', 0), Arr::get($count, 'max', 1) );
 
                 if ($proto && $count > 0) {
                     for ($j = 0; $j < $count; $j++) {
