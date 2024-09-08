@@ -95,23 +95,35 @@ class MessageController extends CustomAbstractController
 
         if ($post instanceof Post && !$is_update) {
             $post->setSearchText( strip_tags( $tx ) );
-
-            if ($post->getType() !== 'CROW' && $post->getType() !== 'ANIM' && $forum !== null && $forum->getTown()){
+            
+            if ($post->getType() !== 'CROW' && $post->getType() !== 'ANIM'){
                 $citizen = $user->getActiveCitizen();
-                if ($citizen && $citizen->getTown() === $forum->getTown()) {
-
-                    if ($citizen->getZone() && ($citizen->getZone()->getX() !== 0 || $citizen->getZone()->getY() !== 0))  {
-                        if($citizen->getTown()->getChaos()){
-                            $note = $this->translator->trans('Draußen', [], 'game');
-                        } else {
-                            $note = "[{$citizen->getZone()->getX()}, {$citizen->getZone()->getY()}]";
+                // Town forum message
+                if($forum !== null && $forum->getTown()) {
+                    if ($citizen && $citizen->getTown() === $forum->getTown()) {
+    
+                        if ($citizen->getZone() && ($citizen->getZone()->getX() !== 0 || $citizen->getZone()->getY() !== 0))  {
+                            if($citizen->getTown()->getChaos()){
+                                $note = $this->translator->trans('Draußen', [], 'game');
+                            } else {
+                                $note = "[{$citizen->getZone()->getX()}, {$citizen->getZone()->getY()}]";
+                            }
                         }
+                        else {
+                            $note = '{at_00}';
+                        }
+    
+                        $post->setNote("<img alt='' src='{$this->asset->getUrl("build/images/professions/{$citizen->getProfession()->getIcon()}.gif")}' /> <img alt='' src='{$this->asset->getUrl('build/images/icons/item_map.gif')}' /> <span>$note</span>");
                     }
-                    else {
-                        $note = '{at_00}';
+                } else { // World forum message
+                    if($citizen && $citizen->getTown() !== null) {
+                        $town_name = $citizen->getTown()->getName();
+                        $town_link = "/jx/soul/{$user->getId()}/town/{$citizen->getTown()->getId()}";
+                        $post->setNote("<img alt='' src='{$this->asset->getUrl("build/images/soul/small_falsecity.gif")}' /> <span class='pointer' x-ajax-href='$town_link'>$town_name</span>");
+                    } else {
+                        $note = $this->translator->trans('Ancienne cité oubliée', [], 'game');
+                        $post->setNote("<img alt='' src='{$this->asset->getUrl("build/images/emotes/buried.gif")}' /> <span>$note</span>");
                     }
-
-                    $post->setNote("<img alt='' src='{$this->asset->getUrl("build/images/professions/{$citizen->getProfession()->getIcon()}.gif")}' /> <img alt='' src='{$this->asset->getUrl('build/images/icons/item_map.gif')}' /> <span>$note</span>");
                 }
             }
         }
