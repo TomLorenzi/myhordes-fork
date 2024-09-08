@@ -32,6 +32,9 @@ class RecipeDataService implements FixtureProcessorInterface {
             'ws020' => ['type' => Recipe::WorkshopType, 'in' => 'prints_#01',          'out' => 'bumpKey_#00', 'action' => 'Wandeln' ],       // Bump key
             'ws021' => ['type' => Recipe::WorkshopType, 'in' => 'prints_#02',          'out' => 'classicKey_#00', 'action' => 'Wandeln' ],    // Bottle Opener key
             'ws023' => ['type' => Recipe::WorkshopType, 'in' => 'food_xmas_#00',       'out' => 'wood_xmas_#00', 'action' => 'Wandeln' ],    // Chocolate log food
+            'ws024' => ['type' => Recipe::WorkshopType, 'in' => 'noodle_prints_#00',   'out' => 'magneticKey_#00', 'action' => 'Wandeln' ],   // Magnetic key
+            'ws025' => ['type' => Recipe::WorkshopType, 'in' => 'noodle_prints_#01',   'out' => 'bumpKey_#00', 'action' => 'Wandeln' ],       // Bump key
+            'ws026' => ['type' => Recipe::WorkshopType, 'in' => 'noodle_prints_#02',   'out' => 'classicKey_#00', 'action' => 'Wandeln' ],    // Bottle Opener key
 
             // Shaman Specific recipes
             'ws022' => ['type' => Recipe::WorkshopTypeShamanSpecific, 'in' => 'soul_blue_#00',      'out' => 'soul_yellow_#00', 'action' => 'Wandeln', "picto"=> "r_mystic2_#00" ],

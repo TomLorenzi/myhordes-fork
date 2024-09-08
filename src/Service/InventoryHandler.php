@@ -145,7 +145,7 @@ class InventoryHandler
 
     /**
      * @param Inventory|Inventory[] $inventory
-     * @param ItemGroup|ItemRequest[] $requests
+     * @param ItemGroup|ItemRequest[]|string[] $requests
      * @return Item[]
      */
     public function fetchSpecificItems(Inventory|array $inventory, ItemGroup|array $requests): array {
@@ -159,7 +159,7 @@ class InventoryHandler
             foreach ($requests->getEntries() as $entry)
                 $tmp[] = new ItemRequest( $entry->getPrototype()->getName(), $entry->getChance(), false, false, false );
             $requests = $tmp;
-        }
+        } else $requests = array_map( fn(string|ItemRequest $r) => is_string($r) ? new ItemRequest( $r ) : $r, $requests );
 
         foreach ($requests as $request) {
             $id_list = [];

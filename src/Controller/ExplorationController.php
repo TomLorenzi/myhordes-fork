@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Annotations\GateKeeperProfile;
 use App\Annotations\Semaphore;
+use App\Entity\ItemPrototype;
 use App\Entity\RuinZone;
 use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
@@ -131,6 +132,14 @@ class ExplorationController extends InventoryAwareController implements HookedIn
         $in_grace = $ex->isGrace() && $ex->getStarted() !== null && (new DateTime())->modify('-30sec') < $ex->getStarted();
         $guide = $citizen->hasRole('guide');
 
+        $imprint_source = ($ruinZone->getPrototype()?->getKeyImprintAlternative() && $citizen->getProfession()->getName() !== 'tech')
+            ? $this->entity_manager->getRepository(ItemPrototype::class)->findBy( ['name' => ['food_noodles_#00', 'pharma_#00']] )
+            : [];
+
+        $imprint_goal = $citizen->getProfession()->getName() !== 'tech'
+            ? $ruinZone->getPrototype()?->getKeyImprintAlternative()
+            : $ruinZone->getPrototype()?->getKeyImprint();
+
         return $this->render( 'ajax/game/beyond/ruin.html.twig', $this->addDefaultTwigArgs(null, [
             'prototype' => $citizen->getZone()->getPrototype(),
             'exploration' => $ex,
@@ -145,7 +154,9 @@ class ExplorationController extends InventoryAwareController implements HookedIn
             'zone_zombies_dead' => $ruinZone->getKilledZombies(),
             'shifted' => $ex->getInRoom(),
             'scavenge' => !$ex->getScavengedRooms()->contains($ruinZone),
-            'can_imprint' => $citizen->getProfession()->getName() === 'tech',
+            'can_imprint' => !!$imprint_goal,
+            'imprint_source' => $imprint_source,
+            'imprint_goal' => $imprint_goal,
 
             'ruin_map_data' => [
                 'paused' => $in_grace,
@@ -462,13 +473,23 @@ class ExplorationController extends InventoryAwareController implements HookedIn
         if (!$ruinZone->getPrototype() || !$ruinZone->getLocked() || !$ruinZone->getPrototype()->getKeyImprint())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
+        $alt = $citizen->getProfession()->getName() !== 'tech';
+        if ($alt && !$ruinZone->getPrototype()->getKeyImprintAlternative())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
         if ($ex->getInRoom() || $ex->getScavengedRooms()->contains( $ruinZone ))
             return AjaxResponse::error( BeyondController::ErrorNotDiggable );
 
-        if ($handler->getFreeSize( $citizen->getInventory() ) < 1)
+        if (!$alt && $handler->getFreeSize( $citizen->getInventory() ) < 1)
             return AjaxResponse::error( InventoryHandler::ErrorInventoryFull );
 
-        $item = $this->item_factory->createItem($ruinZone->getPrototype()->getKeyImprint());
+        $items = [];
+        if ($alt && empty($items = $handler->fetchSpecificItems( $citizen->getInventory(), ['food_noodles_#00', 'pharma_#00'] )))
+            return AjaxResponse::error( ErrorHelper::ErrorItemsMissing );
+
+        foreach ($items as $item) $handler->forceRemoveItem($item);
+
+        $item = $this->item_factory->createItem($alt ? $ruinZone->getPrototype()->getKeyImprintAlternative() : $ruinZone->getPrototype()->getKeyImprint());
         $proxy->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getFloor()]);
 
         $this->addFlash( 'notice', $this->translator->trans( 'Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst {item}!', [

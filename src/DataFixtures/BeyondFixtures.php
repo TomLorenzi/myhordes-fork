@@ -115,6 +115,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
 
             // Items
             $lock_mold = ($entry['lock_mold'] ?? null) ? $this->entityManager->getRepository(ItemPrototype::class)->findOneBy(['name' => $entry['lock_mold']]) : null;
+            $lock_mold_alt = ($entry['lock_mold_alt'] ?? null) ? $this->entityManager->getRepository(ItemPrototype::class)->findOneBy(['name' => $entry['lock_mold_alt']]) : null;
             $lock_item = ($entry['lock_item'] ?? null) ? $this->entityManager->getRepository(ItemPrototype::class)->findOneBy(['name' => $entry['lock_item']]) : null;
 
             if ( !is_null($entry['lock_mold'] ?? $entry['lock_item'] ?? null) && ($lock_mold === null || $lock_item === null) )
@@ -125,6 +126,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
                 ->setLabel( $entry['label'] )
                 ->setLevel( $entry['level'] ?? 0 )
                 ->setKeyImprint($lock_mold ?? null)
+                ->setKeyImprintAlternative($lock_mold_alt ?? null)
                 ->setKeyItem($lock_item ?? null)
             ;
             $manager->persist( $entity );

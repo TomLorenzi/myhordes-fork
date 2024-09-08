@@ -103,8 +103,11 @@
                     {% if zone.locked and not shifted and zone.prototype.keyImprint and zone.prototype.keyItem %}
                         {% if can_imprint %}
                             <button {% if not scavenge %}disabled{% endif %} id="imprint_button">
-                                <img class="icon left" alt="" src="{{ asset('build/images/item/item_' ~ zone.prototype.keyImprint.icon ~ '.gif') }}" />
+                                {% for item in imprint_source %}
+                                    <img class="icon left" alt="" title="{{ item.label|trans({},'item') }}" src="{{ asset('build/images/item/item_' ~ item.icon ~ '.gif') }}" />
+                                {% endfor %}
                                 {{ 'Abdruck nehmen'|trans({},'game') }}
+                                <img class="icon right" alt="" title="{{ imprint_goal.label|trans({},'item') }}" src="{{ asset('build/images/item/item_' ~ imprint_goal.icon ~ '.gif') }}" />
                             </button>
                         {% endif %}
                         <button id="unlock_button">

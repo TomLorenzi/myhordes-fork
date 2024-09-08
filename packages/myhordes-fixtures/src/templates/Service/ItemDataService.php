@@ -373,6 +373,11 @@ class ItemDataService implements FixtureProcessorInterface {
 		$container->add()->label('Guiness')->icon('guiness')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Schwarzer Zervixschleim')->icon('april_drug')->category('Drug')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Toxin')->icon('infect_poison')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
+        $container->add()->label('Nudelabdruck vom Magnet-Schlüssel')->icon('noodle_prints')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
+        $container->modify('noodle_prints_#00')->icon('noodle_magnetic_print')->commit();
+        $container->add()->label('Nudelabdruck vom Schlagschlüssel')->icon('noodle_prints')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
+        $container->add()->label('Nudelabdruck vom Flaschenöffner')->icon('noodle_prints')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
+        $container->modify('noodle_prints_#02')->icon('noodle_bottle_print')->commit();
 
         $container->modify('water_#00')->description('Das Wasser gibt dir einmal pro Tag deine Aktionpunkte zurück oder löscht alternativ deinen Durst (unbegrenzt).')->commit();
         $container->modify('pile_#00')->description('Die Batterie ist für vieles nützlich. Allerdings ist sie auch ziemlich schnell leer ...')->commit();
@@ -732,6 +737,9 @@ class ItemDataService implements FixtureProcessorInterface {
 		$container->modify('guiness_#00')->description('Nichts ist besser als ein Pint des schwarzen Zeugs, um Poesie, Lachen und ähm, den Kampf gegen die Zombies zu inspirieren... *Genehmigt von Charlie Sheen')->commit();
 		$container->modify('april_drug_#00')->description('Ein Gift welches bei der Einnahme EXTREM virulent wirkt, wenn man dem Etikett Glauben schenken darf: Die Ingestion des Zervixschleim führt zu Tod, spontaner Verbrennung, Explosion der Lunge und zum Austritt des Gehirns aus allen Körperöffnungen. Aber nicht unbedingt in dieser Reihenfolge.')->commit();
 		$container->modify('infect_poison_#00')->description('Du hältst das Fläschchen an deine Nase....WOOOW! Der Gestank alleine könnte ein Pferd töten.')->commit();
+        $container->modify('noodle_prints_#00')->description('Mit diesem Abdruck des HighTech-Schlüssels lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen.')->commit();
+        $container->modify('noodle_prints_#01')->description('Mit diesem Abdruck kannst du einen Schlagschlüssel, den Liebling aller Einbrecher, herstellen. Damit lassen sich Türen so rasend schnell öffnen, dass man sich glatt fragt, warum man überhaupt noch normale Schlüssel benutzt.')->commit();
+        $container->modify('noodle_prints_#02')->description('Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen! Dank dieses Abdrucks kannst du einen solchen Schlüssel herstellen.')->commit();
 
         $data = $container->toArray();
     }
