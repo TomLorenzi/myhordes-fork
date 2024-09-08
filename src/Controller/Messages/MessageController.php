@@ -119,9 +119,9 @@ class MessageController extends CustomAbstractController
                     if($citizen && $citizen->getTown() !== null) {
                         $town_name = $citizen->getTown()->getName();
                         $town_link = "/jx/soul/{$user->getId()}/town/{$citizen->getTown()->getId()}";
-                        $post->setNote("<img alt='' src='{$this->asset->getUrl("build/images/soul/small_falsecity.gif")}' /> <span class='pointer' x-ajax-href='$town_link'>$town_name</span>");
+                        $post->setNote("<span class='pointer' x-ajax-href='$town_link'><img alt='' src='{$this->asset->getUrl("build/images/soul/small_falsecity.gif")}' /> {town_start}$town_name{town_end}</span>");
                     } else {
-                        $note = $this->translator->trans('Ancienne cité oubliée', [], 'game');
+                        $note = '{not_alive}';
                         $post->setNote("<img alt='' src='{$this->asset->getUrl("build/images/emotes/buried.gif")}' /> <span>$note</span>");
                     }
                 }

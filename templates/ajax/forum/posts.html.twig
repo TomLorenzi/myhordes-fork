@@ -267,6 +267,12 @@
                             {% endif %}
                             {% if post.note is not null %}<div class="float-right post-note">{{ post.note|replace({'{at_00}': '<span class="hide-sm hide-md">' ~ 'in der Stadt oder am Stadttor'|trans({},'game') ~ '</span><span class="hide-lg hide-desktop">' ~ 'Stadt/Stadttor'|trans({}, 'game') ~ '</span>' })|raw }}</div>{% endif %}
                         {% endif %}
+                        {% if post.note is not null %}<div class="float-right post-note">
+                            {{ post.note|replace({'{at_00}': '<span class="hide-sm hide-md">' ~ 'in der Stadt oder am Stadttor'|trans({},'game') ~ '</span><span class="hide-lg hide-desktop">' ~ 'Stadt/Stadttor'|trans({}, 'game') ~ '</span>' })|raw 
+                            |replace({'{not_alive}': '<span class="hide-sm hide-md">' ~ 'Ancienne cité oubliée'|trans({},'game') ~ '</span>' })|raw
+                            |replace({'{town_start}': '<span class="hide-sm hide-md">' })|raw
+                            |replace({'{town_end}': '</span>' })|raw}}
+                        </div>{% endif %}
                     </div>
                     {% if permission.moderate() %}
                         {% if post.adminReports(true)|length > 0 %}
