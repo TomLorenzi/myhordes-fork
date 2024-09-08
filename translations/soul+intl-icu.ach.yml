@@ -609,3 +609,17 @@ Push-Benachrichtigungen: crwdns204420:0crwdne204420:0
 'Push-Benachrichrichtigung für Community-Events erhalten.': 'crwdns205450:0crwdne205450:0'
 'Wenn du diese Einstellung aktivierst, bekommst du eine Benachrichtung, wenn ein neues Community-Event in den Event-Kalender aufgenommen wurde.': 'crwdns205452:0crwdne205452:0'
 'Verlustlos (bevorzugt WebP, empfehlenswert für Pixel Art)': 'crwdns205514:0crwdne205514:0'
+'Keine Heldenerfahrung gesammelt': 'crwdns205700:0crwdne205700:0'
+'Einmaliger Verdienst': 'crwdns205702:0crwdne205702:0'
+'Heldenerfahrung, die du in dieser Stadt gesammelt hast': 'crwdns205704:0crwdne205704:0'
+'Deine bisherigen Verdienste': 'crwdns205706:0crwdne205706:0'
+Beschreibung: crwdns205714:0crwdne205714:0
+'{num} oder mehr Seelenpunkte gesammelt': 'crwdns205716:0{num}crwdne205716:0'
+Fähigkeiten-Resets: crwdns205718:0crwdne205718:0
+'Sobald du mindestens {num} Erfahrungspunkte ausgegeben hast, kannst du deine Fertigkeiten zurücksetzen.': 'crwdns205720:0{num}crwdne205720:0'
+'Du verlierst dann alle Erfahrungspunkte und Fertigkeiten, die du in dieser Saison erspielt hast, erhälst aber für den Rest der Saison einen zusätzlichen Fähigkeitenpunkt.': 'crwdns205722:0crwdne205722:0'
+'Pro Saison kannst du deine Fähigkeiten maximal {num} Mal zurücksetzen.': 'crwdns205724:0{num}crwdne205724:0'
+'Wenn du eine Stadt als Letzter Toter beendest, erhälst du einen temporären Bonus auf deine Fertigkeitenpunkte.': 'crwdns205726:0crwdne205726:0'
+'Achtung: Dieser Bonus verfällt nach {num} Tagen!': 'crwdns205728:0{num}crwdne205728:0'
+'Verbleibende Zeit': 'crwdns205730:0crwdne205730:0'
+Zurückgesetzt!: crwdns205732:0crwdne205732:0

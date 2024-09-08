@@ -2974,8 +2974,12 @@ Schritt-Punkte: Point d'Exploration
 'an Heldenerfahrung zur Verfügung.': 'd''expérience héroïque disponible.'
 Benötigt: Nécessaire
 Freischalten: Déverrouiller
-'Einwohner in der Stadt': 'Les citoyens de la ville'
+'Einwohner in der Stadt': 'Citoyens de la ville'
 '{days} Tage überlebt in "{town}"': '{days} jours survécu dans "{town}"'
 'Fähigkeit erworben': 'Compétence acquise'
 'Rudimentärer Schutz': 'Protection rudimentaire'
 'Dank der Hilfe eines anderen Bürgers wirst du diese Nacht keine Durst- oder Krankheitssymptome verspüren.': 'Grâce à l''aide d''un autre citoyen, vous ne ressentirez aucun symptôme de soif ou de maladie cette nuit.'
+'Du hast deine Fähigkeiten und Heldenerfahrung zurückgesetzt und dafür einen zusätzlichen Fähigkeiten-Punkt erhalten!': 'Vous avez réinitialisé vos compétences et votre expérience héroïque et reçu un point de compétence supplémentaire !'
+'Du kannst momentan:': 'Vous pouvez actuellement :'
+'{pack} Fähigkeiten': '{pack} compétences'
+'beim Stadtstart aktivieren.': 'Activer au départ de la ville.'

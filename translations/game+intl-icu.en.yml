@@ -2979,3 +2979,7 @@ Freischalten: Unlock
 'Fähigkeit erworben': 'Skill acquired'
 'Rudimentärer Schutz': 'Rudimentary protection'
 'Dank der Hilfe eines anderen Bürgers wirst du diese Nacht keine Durst- oder Krankheitssymptome verspüren.': 'Thanks to the help of another citizen, you will not experience any symptoms of thirst or illness this night.'
+'Du hast deine Fähigkeiten und Heldenerfahrung zurückgesetzt und dafür einen zusätzlichen Fähigkeiten-Punkt erhalten!': 'You have reset your skills and heroic experience and received an additional skill point!'
+'Du kannst momentan:': 'You can activate:'
+'{pack} Fähigkeiten': '{pack} Skills'
+'beim Stadtstart aktivieren.': 'when joining a city.'

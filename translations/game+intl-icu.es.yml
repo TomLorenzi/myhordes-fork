@@ -2974,8 +2974,12 @@ Schritt-Punkte: Punto de Exploración
 'an Heldenerfahrung zur Verfügung.': 'Experiencia heroica disponible.'
 Benötigt: Necesario
 Freischalten: Desbloquear
-'Einwohner in der Stadt': 'Los ciudadanos de la ciudad'
+'Einwohner in der Stadt': 'Ciudadanos de la ciudad'
 '{days} Tage überlebt in "{town}"': '{days} días sobrevivieron en "{town}"'
 'Fähigkeit erworben': 'Habilidad adquirida'
 'Rudimentärer Schutz': 'Protección rudimentaria'
 'Dank der Hilfe eines anderen Bürgers wirst du diese Nacht keine Durst- oder Krankheitssymptome verspüren.': 'Gracias a la ayuda de otro ciudadano, esta noche no sentirás ningún síntoma de sed o enfermedad.'
+'Du hast deine Fähigkeiten und Heldenerfahrung zurückgesetzt und dafür einen zusätzlichen Fähigkeiten-Punkt erhalten!': '¡Has reiniciado tus habilidades y experiencia heroica y has recibido un punto de habilidad extra!'
+'Du kannst momentan:': 'Actualmente puedes:'
+'{pack} Fähigkeiten': '{pack} habilidades'
+'beim Stadtstart aktivieren.': 'Activar al salir de la ciudad.'

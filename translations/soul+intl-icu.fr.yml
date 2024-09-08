@@ -609,3 +609,17 @@ Push-Benachrichtigungen: Notifications push
 'Push-Benachrichrichtigung für Community-Events erhalten.': 'Recevoir des notifications push pour les événements communautaires.'
 'Wenn du diese Einstellung aktivierst, bekommst du eine Benachrichtung, wenn ein neues Community-Event in den Event-Kalender aufgenommen wurde.': 'Si vous activez ce paramètre, vous recevrez une notification lorsqu''un nouvel événement communautaire sera ajouté au calendrier des événements.'
 'Verlustlos (bevorzugt WebP, empfehlenswert für Pixel Art)': 'Sans perte (WebP, recommandé pour le pixel art)'
+'Keine Heldenerfahrung gesammelt': 'Aucune expérience héroïque acquise'
+'Einmaliger Verdienst': 'Gains ponctuels'
+'Heldenerfahrung, die du in dieser Stadt gesammelt hast': 'Expérience héroïque que vous avez acquise dans cette ville'
+'Deine bisherigen Verdienste': 'Vos mérites antérieurs'
+Beschreibung: Description
+'{num} oder mehr Seelenpunkte gesammelt': '{num} ou plus de points d''âme collectés'
+Fähigkeiten-Resets: Réinitialisation des compétences
+'Sobald du mindestens {num} Erfahrungspunkte ausgegeben hast, kannst du deine Fertigkeiten zurücksetzen.': 'Une fois que vous avez dépensé au moins {num} points d''expérience héroïque, vous pouvez réinitialiser vos compétences.'
+'Du verlierst dann alle Erfahrungspunkte und Fertigkeiten, die du in dieser Saison erspielt hast, erhälst aber für den Rest der Saison einen zusätzlichen Fähigkeitenpunkt.': 'Vous perdrez alors tous les points d’expérience héroïque et compétences que vous avez gagnés cette saison, mais gagnerez un point de compétence supplémentaire pour le reste de la saison.'
+'Pro Saison kannst du deine Fähigkeiten maximal {num} Mal zurücksetzen.': 'Vous pouvez réinitialiser vos compétences au maximum {num} fois par saison.'
+'Wenn du eine Stadt als Letzter Toter beendest, erhälst du einen temporären Bonus auf deine Fertigkeitenpunkte.': 'Si vous terminez une ville comme dernier mort, vous recevrez un bonus temporaire à vos points de compétence.'
+'Achtung: Dieser Bonus verfällt nach {num} Tagen!': 'Attention : ce bonus expire après {num} jours !'
+'Verbleibende Zeit': 'Temps restant'
+Zurückgesetzt!: Réinitialiser!

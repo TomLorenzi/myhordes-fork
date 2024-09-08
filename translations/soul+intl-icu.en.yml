@@ -609,3 +609,17 @@ Push-Benachrichtigungen: Push notifications
 'Push-Benachrichrichtigung für Community-Events erhalten.': 'Receive push notifications for community events.'
 'Wenn du diese Einstellung aktivierst, bekommst du eine Benachrichtung, wenn ein neues Community-Event in den Event-Kalender aufgenommen wurde.': 'If you enable this setting, you will receive a notification when a new community event is added to the events calendar.'
 'Verlustlos (bevorzugt WebP, empfehlenswert für Pixel Art)': 'Lossless (preferably WebP, recommended for pixel art)'
+'Keine Heldenerfahrung gesammelt': 'No heroic experience gained'
+'Einmaliger Verdienst': 'One-time earnings'
+'Heldenerfahrung, die du in dieser Stadt gesammelt hast': 'Heroic experience you gained in this city'
+'Deine bisherigen Verdienste': 'Your previous merits'
+Beschreibung: Description
+'{num} oder mehr Seelenpunkte gesammelt': '{num} or more soul points collected'
+Fähigkeiten-Resets: Skill resets
+'Sobald du mindestens {num} Erfahrungspunkte ausgegeben hast, kannst du deine Fertigkeiten zurücksetzen.': 'Once you have spent at least {num} experience points, you can reset your skills.'
+'Du verlierst dann alle Erfahrungspunkte und Fertigkeiten, die du in dieser Saison erspielt hast, erhälst aber für den Rest der Saison einen zusätzlichen Fähigkeitenpunkt.': 'You will then lose all experience points and skills you have earned this season, but will receive an additional skill point for the rest of the season.'
+'Pro Saison kannst du deine Fähigkeiten maximal {num} Mal zurücksetzen.': 'You can reset your skills a maximum of {num} times per season.'
+'Wenn du eine Stadt als Letzter Toter beendest, erhälst du einen temporären Bonus auf deine Fertigkeitenpunkte.': 'If you finish a city as the last person dead, you receive a temporary bonus to your skill points.'
+'Achtung: Dieser Bonus verfällt nach {num} Tagen!': 'Attention: This bonus expires after {num} days!'
+'Verbleibende Zeit': 'Remaining time'
+Zurückgesetzt!: Reset!
