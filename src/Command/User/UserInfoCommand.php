@@ -131,7 +131,7 @@ class UserInfoCommand extends Command
                 }
                 $pictoPrototypes = $this->entityManager->getRepository(PictoPrototype::class)->findAll();
                 foreach ($pictoPrototypes as $pictoPrototype) {
-                    $picto = $this->entityManager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, $town, $pictoPrototype);
+                    $picto = $this->entityManager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, $town, $pictoPrototype, false);
                     if (null === $picto) {
                         $picto = new Picto();
                         $picto->setPrototype($pictoPrototype)
@@ -174,7 +174,7 @@ class UserInfoCommand extends Command
                     $count = 1;
                 }
 
-                $picto = $this->entityManager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, $town, $pictoPrototype);
+                $picto = $this->entityManager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, $town, $pictoPrototype, false);
                 if (null === $picto) {
                     $picto = new Picto();
                     $picto->setPrototype($pictoPrototype)
