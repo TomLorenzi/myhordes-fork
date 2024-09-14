@@ -9,6 +9,7 @@ use App\Entity\TownClass;
 use App\Entity\User;
 use App\Enum\Configuration\TownSetting;
 use App\Service\ConfMaster;
+use ArrayHelpers\Arr;
 use Doctrine\ORM\EntityManagerInterface;
 
 
@@ -212,6 +213,22 @@ class SanitizeTownConfigAction
             default => '_custom'
         };
         if ($map_preset !== null) $rules['mapPreset'] = $map_preset;
+
+        $map_margin_preset = match (true) {
+            Arr::get( $rules, 'margin_custom.enabled' ) => '_custom',
+            Arr::get( $rules, 'map.margin' ) === 0.25 => 'normal',
+            Arr::get( $rules, 'map.margin' ) === 0.33 => 'close',
+            Arr::get( $rules, 'map.margin' ) === 0.50 => 'central',
+            default => '_custom'
+        };
+
+        if ($map_margin_preset !== null) $rules['mapMarginPreset'] = $map_margin_preset;
+        if ($map_margin_preset === '_custom') {
+            Arr::set( $rules, 'margin_custom.north', Arr::get( $rules, 'margin_custom.north', 0.25 ) * 100 );
+            Arr::set( $rules, 'margin_custom.south', Arr::get( $rules, 'margin_custom.south', 0.25 ) * 100 );
+            Arr::set( $rules, 'margin_custom.east', Arr::get( $rules, 'margin_custom.east', 0.25 ) * 100 );
+            Arr::set( $rules, 'margin_custom.west', Arr::get( $rules, 'margin_custom.west', 0.25 ) * 100 );
+        }
 
         return $rules;
     }
