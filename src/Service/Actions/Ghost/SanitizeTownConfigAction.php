@@ -388,12 +388,15 @@ class SanitizeTownConfigAction
                 case 'normal':
                     $tc = $this->conf->getTownConfigurationByType( $base )->getData();
                     $conf['map']['margin'] = $tc['map']['margin'] ?? 0.25;
+                    $margin_custom = null;
                     break;
                 case 'close':
                     $conf['map']['margin'] = 0.33;
+                    $margin_custom = null;
                     break;
                 case 'central':
                     $conf['map']['margin'] = 0.50;
+                    $margin_custom = null;
                     break;
                 case '_custom':
                     if($margin_custom) {
