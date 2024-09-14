@@ -1267,7 +1267,7 @@ class MigrateCommand extends Command
 
                     $forum = $this->entity_manager->getRepository(Forum::class)->findOneBy(['town' => null, 'title' => $title, 'worldForumLanguage' => $lang]);
                     if (!$forum) {
-                        if (!$this->helper->capsule('app:forum:create ' . escapeshellarg($title) . ' 0 --lang ' . $lang, $output))
+                        if (!$this->helper->capsule('app:forum:create ' . escapeshellarg($title) . ' 0 --no-description --lang ' . $lang, $output))
                             return 2;
 
                         $forum = $this->entity_manager->getRepository(Forum::class)->findOneBy(['town' => null, 'title' => $title, 'worldForumLanguage' => $lang]);
