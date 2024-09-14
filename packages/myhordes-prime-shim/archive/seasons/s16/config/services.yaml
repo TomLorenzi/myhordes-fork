@@ -30,6 +30,9 @@ services:
     MyHordes\Prime\Service\CitizenStatusDataService:
       tags: [ { name: 'myhordes.fixtures.citizen.status', priority: 1 } ]
 
+    MyHordes\Prime\Service\HeroSkillDataService:
+      tags: [ { name: 'myhordes.fixtures.heroskills', priority: 1 } ]
+
     MyHordes\Prime\Service\ItemDataService:
       tags: [ { name: 'myhordes.fixtures.items.list', priority: 1 } ]
     MyHordes\Prime\Service\ItemPropertyDataService:

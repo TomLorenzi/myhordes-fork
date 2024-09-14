@@ -23,3 +23,46 @@ Antivax: Antivax
 'Nobelpreis für Gesundheit': 'Prix Nobel de Santé'
 'Wenn Zombies es nicht tun... Warum sollte ich es tun?': 'Si les zombies ne le font pas... Pourquoi le ferais-je ?'
 'Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.': 'Nombre de fois où vous avez partagé votre pouvoir héroïque à un autre citoyen dans le besoin.'
+'Auf den Zinnen fühlst du dich unbesiegbar. Nichts wird dich heute Nacht zum Wanken bringen.': 'Du haut des remparts, vous vous sentez invincible. Rien ne vous fera chanceler cette nuit.'
+'Auf den Zinnen fühlst du dich gut. Du willst morgen noch am Leben sein.': 'Du haut des remparts, vous vous sentez serein. Vous comptez bien être encore en vie demain.'
+'Auf den Zinnen fühlst du dich sicher. Du wartest auf die Zombies, die du bereits herannahen siehst.': 'Du haut des remparts, vous vous sentez confiant. Vous attendez la hordes, que vous apercevez déjà.'
+'Auf den Zinnen blickst du in den Horizont. Du hoffst, morgen noch einmal die Sonne aufgehen zu sehen.': "Du haut des remparts, vous observez l'horizon. Vous espérez voir le soleil se lever demain, encore une fois."
+'Auf den Zinnen fühlst du dich unschlüssig und deine Laune ist schlecht. Vielleicht gibt es kein Morgen für dich...': "Du haut des remparts, Vous vous sentez hésitant et le moral faible. Il n'y aura peut-être pas de lendemain pour vous..."
+'Auf den Zinnen bist du zittrig und deine Laune ist am Tiefpunkt. Du weißt nicht, ob du das Licht des Tages erblicken wirst...': 'Du haut des remparts, vous êtes chancelant et vous le moral au plus bas, vous ne savez pas si vous verrez la lumière du jour...'
+'Auf den Zinnen wird dein Herz von Angst erdrückt. Du spürst, dass dein Leben am seidenen Faden hängt...': "Du haut des remparts, vous avez le cœur serré. Vous sentez que votre vie ne tient qu'à un fil..."
+'Du fühlst dich großartig.': 'Vous vous sentez en forme.'
+'Du bist eingeschüchtert von der Zahl der Zombies, die du siehst. Du hoffst, dass du keinen Arm oder ein Bein verlierst.': 'La quantité de zombies que vous apercevez vous intimide. Vous espérez ne pas y laisser un bras ou une jambe.'
+'Du bist eingeschüchtert von der Zahl der Zombies, die du siehst. Du bist vorbereitet, Gliedmaßen zu verlieren, aber hoffentlich nicht deinen Kopf...': 'La quantité de zombies que vous apercevez vous intimide. Vous êtes prêt à y laisser un membre, espérons que ça ne soit pas la tête...'
+'Du bist eingeschüchtert von der Zahl der Zombies, die du siehst. Du hoffst, dass es noch Verbandszeug in der Bank gibt...': "La quantité de zombies que vous apercevez vous intimide. Pourvu qu'il y ait des bandages en banque..."
+'Selbst wenn du dir vorstellst, was dich heute Abend erwartet, bleibst du zumindest ein wenig gelassen.': 'Même en imaginant ce qui vous attend ce soir, vous restez un minimum serein.'
+'Du spürst die Aufregung. Es wird eine gruselige Nacht werden.': "L'agitation environnante ne vous laisse pas indifférent. Cette nuit risque d'être effrayante."
+'Du versuchst, deine Gedanken positiv zu halten, aber dir kommt nur der Tod in den Sinn... Glücklich! Es wird eine lange Nacht werden.': "Vous essayez de garder des pensées positives, mais seule la mort vous vient à l'esprit... Joyeux ! La nuit sera longue."
+'Der Anblick der Zombies, die sich den Festungsmauern nähern, versetzt dich in Panik.': "Rien qu'en voyant la hordes s'approcher des remparts, vous êtes pris de panique."
+'Keine Titel zum Freischalten_f': 'Keine Titel zum Freischalten_f'
+'Selbst wenn es kostenlos ist - ich zahle trotzdem nicht!_f': 'Selbst wenn es kostenlos ist - ich zahle trotzdem nicht!_f'
+Muggel_f: Muggel_f
+'Otto Normalverbraucher_f': 'Otto Normalverbraucher_f'
+'Stärke: Zu schwach._f': 'Stärke: Zu schwach._f'
+'Proletarier aller Wüsten, vereinigt euch!_f': 'Proletarier aller Wüsten, vereinigt euch!_f'
+'Was? Warum hat mir das niemand vorher gesagt?_f': 'Was? Warum hat mir das niemand vorher gesagt?_f'
+'Festliche Kleidung wird vorausgesetzt._f': 'Festliche Kleidung wird vorausgesetzt._f'
+'Ich bin nicht da_f': 'Ich bin nicht da_f'
+'Nur ich und die Sterne ..._f': 'Nur ich und die Sterne ..._f'
+'Immun gegen Mücken_f': 'Immun gegen Mücken_f'
+'In der Stadt schlafen? Warum?_f': 'In der Stadt schlafen? Warum?_f'
+'Abenteuer Freiheit_f': 'Abenteuer Freiheit_f'
+'Besser allein als schlecht begleitet_f': 'Besser allein als schlecht begleitet_f'
+Obdachloser_f: Obdachloser_f
+'König der Wüste_f': 'König der Wüste_f'
+'Breaking Good_f': 'Breaking Good_f'
+'Zu sauber, um ehrlich zu sein_f': 'Zu sauber, um ehrlich zu sein_f'
+'Ist das auch wirklich bio?_f': 'Ist das auch wirklich bio?_f'
+Antivax_f: Antivax_f
+"Drogen sind schlecht, m'kay_f": "Drogen sind schlecht, m'kay_f"
+'Süchtig nach meinem Kontrollpunkt_f': 'Süchtig nach meinem Kontrollpunkt_f'
+'Nobelpreis für Gesundheit_f': 'Nobelpreis für Gesundheit_f'
+'Wenn Zombies es nicht tun... Warum sollte ich es tun?_f': 'Wenn Zombies es nicht tun... Warum sollte ich es tun?_f'
+'Deine Anstrengungen in den Buddelgruben haben sich gelohnt! Du hast folgendes gefunden: {items_spawn}!': 'Vos efforts lors des fouilles ont porté leurs fruits ! Vous avez trouvé : {items_spawn}!'
+'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...': "Malheureusement, malgré tous vos efforts, vous n'avez rien trouvé ici..."
+'Dein <strong>Trunkenheitszustand</strong> hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.': "Votre <strong>état d’ivresse</strong> ne vous aide vraiment pas. Ce n'est pas vraiment facile quand tout tourne et qu'on n'y voit plus clair."
+'Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.': "Votre blessure à l'œil ne facilite pas vos recherches."

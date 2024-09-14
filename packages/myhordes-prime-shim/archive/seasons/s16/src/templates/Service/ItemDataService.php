@@ -117,6 +117,19 @@ class ItemDataService implements FixtureProcessorInterface {
 		    ->modify('deco_box_#00')->watchpoint(15)->commit()
 		    ->modify('pilegun_#00')->watchpoint(8)->commit();
 
+		// Add nightwatch survival bonus/malus
+		$container->modify('taser_#00')->watchimpact(-1)->commit()
+				->modify('lamp_on_#00')->watchimpact(1)->commit()
+				->modify('music_#00')->watchimpact(2)->commit()
+				->modify('coffee_#00')->watchimpact(-1)->commit()
+				->modify('car_door_#00')->watchimpact(-3)->commit();
+
+		$container->add()->label('Toller Kürbis')->icon('pumpkin_tasty')->category('Food')->deco(0)->heavy(true)->watchpoint(15)->commit();
+		$container->modify('pumpkin_tasty_#00')->description('Dieses riesige orangefarbene Gemüse ist das einzig Bunte, das an diesem gruseligen Ort wächst... da möchte man am liebsten hineinbeißen!')->watchimpact(1)->commit();
+
+		$container->add()->label('Erste Hilfe Tasche')->icon('medic')->category('Drug')->deco(0)->heavy(false)->watchpoint(0)->commit();
+		$container->modify('medic_#00')->description('Was willst du mit diesen ganzen Verbänden? Was abgerissen wurde ist weg. Die kleine Pillen hingegen sind immer von Nutzen.')->commit();
+
         $data = $container->toArray();
     }
 }

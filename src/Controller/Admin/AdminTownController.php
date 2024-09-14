@@ -1824,7 +1824,7 @@ class AdminTownController extends AdminActionController
             /** @var Citizen $citizen */
             if (!in_array( $citizen->getId(), $to )) continue;
 
-            $picto = $this->entity_manager->getRepository(Picto::class)->findByUserAndTownAndPrototype($citizen->getUser(), $town, $pictoPrototype);
+            $picto = $this->entity_manager->getRepository(Picto::class)->findByUserAndTownAndPrototype($citizen->getUser(), $town, $pictoPrototype, false);
             if (null === $picto) {
                 $picto = new Picto();
                 $picto->setPrototype($pictoPrototype)

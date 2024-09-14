@@ -1546,35 +1546,35 @@ class AdminUserController extends AdminActionController
 
         if ($number > 0)
             foreach ( $prototypes as $pictoPrototype ) {
-            $picto = $this->entity_manager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, null, $pictoPrototype);
-            if (null === $picto) {
-                $picto = new Picto();
-                $picto->setPrototype($pictoPrototype)
-                    ->setPersisted(2)
-                    ->setUser($user);
-                $user->addPicto($picto);
-                $this->entity_manager->persist($user);
-            }
-
-            $picto->setCount($picto->getCount() + $number);
-            if ($picto->getCount() > 0) {
-                $this->entity_manager->persist($picto);
-                if (!empty($text)) {
-
-                    $comment = ($picto->getId() !== null ? $this->entity_manager->getRepository(PictoComment::class)->findOneBy(['picto' => $picto]) : null)
-                        ?? (new PictoComment())->setPicto( $picto )->setOwner( $user )->setDisplay( true );
-
-                    $comment->setText( $text );
-                    $this->entity_manager->persist($comment);
+                $picto = $this->entity_manager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, null, $pictoPrototype, false);
+                if (null === $picto) {
+                    $picto = new Picto();
+                    $picto->setPrototype($pictoPrototype)
+                        ->setPersisted(2)
+                        ->setUser($user);
+                    $user->addPicto($picto);
+                    $this->entity_manager->persist($user);
                 }
+
+                $picto->setCount($picto->getCount() + $number);
+                if ($picto->getCount() > 0) {
+                    $this->entity_manager->persist($picto);
+                    if (!empty($text)) {
+
+                        $comment = ($picto->getId() !== null ? $this->entity_manager->getRepository(PictoComment::class)->findOneBy(['picto' => $picto]) : null)
+                            ?? (new PictoComment())->setPicto( $picto )->setOwner( $user )->setDisplay( true );
+
+                        $comment->setText( $text );
+                        $this->entity_manager->persist($comment);
+                    }
+                }
+                else $this->entity_manager->remove($picto);
             }
-            else $this->entity_manager->remove($picto);
-        }
         else if ($number < 0)
             foreach ( $prototypes as $pictoPrototype ) {
                 $n = -$number;
                 /** @var Picto $picto */
-                $picto = $this->entity_manager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, null, $pictoPrototype);
+                $picto = $this->entity_manager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, null, $pictoPrototype, false);
                 if ($picto?->getDisabled()) $picto = null;
 
                 if ($picto?->getCount() > $n) {
@@ -1590,8 +1590,6 @@ class AdminUserController extends AdminActionController
                 if ($n > 0)
                     $this->addFlash('error', $this->translator->trans('{number} Auszeichnungen konnten nicht entfernt werden. Möglicherweise sind sie dem Spieler über Städte zugewiesen. In diesem Fall müssen sie über die Städteverwaltung entfernt werden.', ['number' => $n], 'admin'));
             }
-
-
 
         $this->entity_manager->flush();
 

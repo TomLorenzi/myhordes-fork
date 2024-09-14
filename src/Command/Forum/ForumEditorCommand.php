@@ -37,15 +37,13 @@ use Symfony\Component\HttpKernel\KernelInterface;
 )]
 class ForumEditorCommand extends Command
 {
-    private EntityManagerInterface $entityManager;
-    private CommandHelper $helper;
-    private KernelInterface $kernel;
+    use ForumIconCollectorTrait;
 
-    public function __construct(EntityManagerInterface $em, CommandHelper $comh, KernelInterface $kernel)
+    public function __construct(
+        private readonly EntityManagerInterface $entityManager,
+        private readonly CommandHelper $helper,
+        private readonly KernelInterface $kernel)
     {
-        $this->entityManager = $em;
-        $this->helper = $comh;
-        $this->kernel = $kernel;
         parent::__construct();
     }
 
@@ -99,10 +97,7 @@ class ForumEditorCommand extends Command
 
         if ($input->getOption('icon') !== false) {
             if ($input->getOption('icon') === null) {
-                $icons = ['- None -'];
-                foreach (scandir("{$this->kernel->getProjectDir()}/assets/img/forum/banner") as $f)
-                    if ($f !== '.' && $f !== '..' && $f !== 'bannerForumVoid.gif') $icons[] = $f;
-
+                $icons = $this->listAllIcons('- None -');
                 $str = $helper->ask($input, $output, new ChoiceQuestion('Please select the forum icon:', $icons));
                 $forum->setIcon($str !== '- None -' ? $str : null);
             } else $forum->setIcon($input->getOption('icon'));
