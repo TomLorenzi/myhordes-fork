@@ -94,6 +94,7 @@ class TownOnboardingController extends AbstractController
             'skills' => [
                 'headline' => $trans->trans('Wähle deine Fähigkeiten', [], 'game'),
                 'help' => $trans->trans('Deine Fähigkeiten verleihen dir bestimmte Boni im Spiel. Du kannst nicht alle auf einmal aktivieren, also wähle weise!', [], 'game'),
+                'help_no_hero' => $trans->trans('Heldenhafte Fähigkeiten sind den Helden vorbehalten. Da du keinen Heldenberuf gewählt hast, stehen dir keine besonderen Fähigkeiten zur Verfügung.', [], 'game'),
                 'level' => $trans->trans('Level {skill_level}', [], 'game'),
                 'pts' => $trans->trans('Dir stehen noch <em>{pts}</em> Punkte zur Verfügung!', [], 'game'),
                 'unlock' => $trans->trans('Du verfügst über ausreichend Heldenerfahrung um eine neue Fähigkeit freizuschalten, welche dir daraufhin in dieser Auswahl zur Verfügung stehen wird.', [], 'game'),
@@ -218,6 +219,7 @@ class TownOnboardingController extends AbstractController
             'id'     => $profession->getId(),
             'name'   => $trans->trans( $profession->getLabel(), [], 'game' ),
             'desc'   => $trans->trans( $profession->getDescription(), [], 'game' ),
+            'hero'   => $profession->getHeroic(),
 
             'icon'   => $asset->getUrl("build/images/professions/{$profession->getIcon()}.gif"),
             'poster' => $asset->getUrl("build/images/professions/select/{$profession->getIcon()}.gif"),

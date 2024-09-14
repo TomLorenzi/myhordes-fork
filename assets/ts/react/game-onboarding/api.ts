@@ -13,6 +13,7 @@ export type JobDescription = {
     "id": number,
     "name": string,
     "desc": string,
+    "hero": boolean,
     "icon": string,
     "poster": string,
     "help": string,

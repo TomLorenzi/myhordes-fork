@@ -47,9 +47,11 @@ type OnboardingIdentityPayloadProps = {
 type OnboardingProfessionPayloadProps = {
     setting: OnboardingProfessionPayload|null,
     setPayload: (p:OnboardingProfessionPayload|null)=>void,
+    setHeroMode: (h:boolean)=>void,
 }
 
 type OnboardingSkillPayloadProps = {
+    hero: boolean,
     setting: OnboardingSkillPayload|null,
     setPayload: (p:OnboardingSkillPayload|null)=>void,
 }
@@ -79,6 +81,7 @@ const HordesTownOnboardingWrapper = (props: Props) => {
     const [submitting, setSubmitting] = useState<boolean>(false);
     const [config, setConfig] = useState<ResponseConfig>();
     const [strings, setStrings] = useState<TranslationStrings>();
+    const [hero, setHero] = useState<boolean>(false);
 
     useEffect(() => {
         apiRef.current.config( props.town ).then(i => setConfig(i));
@@ -127,7 +130,10 @@ const HordesTownOnboardingWrapper = (props: Props) => {
                 {strings.common.help}
             </a>
         </h5>
-        <SkillSelection setting={payload.skills}
+        { !hero && <div className="note note-critical">
+            { strings.skills.help_no_hero }
+        </div> }
+        <SkillSelection setting={payload.skills} hero={hero}
                         setPayload={skills => setPayload({...payload, skills})}/>
     </>
 
@@ -142,7 +148,7 @@ const HordesTownOnboardingWrapper = (props: Props) => {
                 {strings.common.help}
             </a>
         </h5>
-        <JobSelection setting={payload.profession}
+        <JobSelection setting={payload.profession} setHeroMode={b => setHero(b)}
                       setPayload={profession => setPayload({...payload, profession})}/>
     </>
 
@@ -295,7 +301,10 @@ const JobSelection = (props: OnboardingProfessionPayloadProps) => {
                 key={job.id}
                 data-disabled={globals.disabled ? 'disabled' : ''}
                 className={`jobs-choice padded cell rw-4 rw-md-6 pointer ${props.setting?.id === job.id ? 'selected' : null}`}
-                onClick={() => props.setPayload(props.setting?.id === job.id ? null : {id: job.id})}
+                onClick={() => {
+                    props.setPayload(props.setting?.id === job.id ? null : {id: job.id});
+                    props.setHeroMode(job.hero);
+                }}
             >
                 <div className="text center">
                     <img alt={job.name} src={job.icon}/>
@@ -410,6 +419,10 @@ const SkillSelection = (props: OnboardingSkillPayloadProps) => {
             ]});
     }
 
+    useEffect(() => {
+        if (!props.hero) props.setPayload({ids: []});
+    }, [props.hero]);
+
     const applyPreviousSkill = (skill: Skill) => {
         const prev_skill = skills.skills.list
             .filter(s => s.group === skill.group && s.level < skill.level)
@@ -423,47 +436,49 @@ const SkillSelection = (props: OnboardingSkillPayloadProps) => {
 
     return <>
         {!skills && <div className="loading"/>}
-        { skills?.skills?.unlock_url && <div className="note green-note flex column middle">
-            <img src={globals.strings.skills.unlock_img} alt="" />
-            { globals.strings.skills.unlock }
-            <button onClick={() => $.ajax.load(null, skills.skills.unlock_url, true)}>{ globals.strings.skills.unlock_button }</button>
-        </div> }
-        { skills?.skills && <div className="note current-pts" dangerouslySetInnerHTML={{__html: globals.strings.skills.pts.replace('{pts}', `${pts_left}`)}} /> }
-        <div ref={skillContainer}>
-            { skills?.skills?.groups.map(g => <div className="row" key={g}>
-                <div className="padded cell rw-12">
-                    <div className="note note-lightest skillset-parent">
-                        <div className="skillset-group">
-                            <strong className="group-title">
-                                <span className="first-letter">{g.slice(0, 1)}</span>
-                                <span className="last-letters">{g.slice(1)}</span>
-                            </strong>
-                            <div className="row">
-                                { skills.skills.list.filter(s => s.group === g).sort((a,b) => a.level - b.level).map(skill => <div className={`padded cell rw-12 ${((skill.level - levels[g]) > pts_left) ? 'skill-unreachable' : 'pointer' }`} key={skill.id}>
-                                    <div className="row-flex gap v-center" onClick={()=>{
-                                        if ((skill.level - levels[g]) > pts_left) return;
-                                        if (levels[g] === skill.level) applyPreviousSkill(skill)
-                                        else applySkill(skill);
-                                    }}>
-                                        <div className="cell factor-0">
-                                            {levels[g] >= skill.level && <img alt="" src={globals.strings.common.on}/>}
-                                            {levels[g] < skill.level && <img alt="" src={globals.strings.common.off}/>}
+        { props.hero && <>
+            { skills?.skills?.unlock_url && <div className="note green-note flex column middle">
+                <img src={globals.strings.skills.unlock_img} alt="" />
+                { globals.strings.skills.unlock }
+                <button onClick={() => $.ajax.load(null, skills.skills.unlock_url, true)}>{ globals.strings.skills.unlock_button }</button>
+            </div> }
+            { skills?.skills && <div className="note current-pts" dangerouslySetInnerHTML={{__html: globals.strings.skills.pts.replace('{pts}', `${pts_left}`)}} /> }
+            <div ref={skillContainer}>
+                { skills?.skills?.groups.map(g => <div className="row" key={g}>
+                    <div className="padded cell rw-12">
+                        <div className="note note-lightest skillset-parent">
+                            <div className="skillset-group">
+                                <strong className="group-title">
+                                    <span className="first-letter">{g.slice(0, 1)}</span>
+                                    <span className="last-letters">{g.slice(1)}</span>
+                                </strong>
+                                <div className="row">
+                                    { skills.skills.list.filter(s => s.group === g).sort((a,b) => a.level - b.level).map(skill => <div className={`padded cell rw-12 ${((skill.level - levels[g]) > pts_left) ? 'skill-unreachable' : 'pointer' }`} key={skill.id}>
+                                        <div className="row-flex gap v-center" onClick={()=>{
+                                            if ((skill.level - levels[g]) > pts_left) return;
+                                            if (levels[g] === skill.level) applyPreviousSkill(skill)
+                                            else applySkill(skill);
+                                        }}>
+                                            <div className="cell factor-0">
+                                                {levels[g] >= skill.level && <img alt="" src={globals.strings.common.on}/>}
+                                                {levels[g] < skill.level && <img alt="" src={globals.strings.common.off}/>}
+                                            </div>
+                                            <div className="cell factor-1">
+                                                <b>{ globals.strings.skills.level.replace('{skill_level}', `${skill.level}`) }:&nbsp;</b>
+                                                { skill.description }
+                                                { skill.bullets.length > 0 && <ul>
+                                                    { skill.bullets.map((bullet, i) => <li key={i}>{bullet}</li>) }
+                                                </ul> }
+                                            </div>
                                         </div>
-                                        <div className="cell factor-1">
-                                            <b>{ globals.strings.skills.level.replace('{skill_level}', `${skill.level}`) }:&nbsp;</b>
-                                            { skill.description }
-                                            { skill.bullets.length > 0 && <ul>
-                                                { skill.bullets.map((bullet, i) => <li key={i}>{bullet}</li>) }
-                                            </ul> }
-                                        </div>
-                                    </div>
-                                </div>) }
+                                    </div>) }
+                                </div>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
-                </div>
-            </div>)}
-        </div>
+                </div>)}
+            </div>
+        </> }
     </>
 }

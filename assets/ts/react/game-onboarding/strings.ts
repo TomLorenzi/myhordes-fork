@@ -27,6 +27,7 @@ export type TranslationStrings = {
     "skills": {
         "headline": string,
         "help": string,
+        "help_no_hero": string,
         "level": string,
         "pts": string,
         "unlock": string,
