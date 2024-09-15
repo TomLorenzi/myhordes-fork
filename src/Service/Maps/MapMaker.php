@@ -224,9 +224,9 @@ class MapMaker
 
     public function dailyZombieSpawn( Town $town, int $cycles = 1, int $mode = self::RespawnModeAuto, ?int $override_day = null ): void
     {
-        $gov = HordeSpawnGovernor::MyHordes;
+        $gov = HordeSpawnGovernor::Hordes;
 
-        if ($gov->myHordes()) $this->zombieSpawnGovernorMH( $town, $cycles, $mode, $override_day );
+        if ($gov->myHordes()) $this->zombieSpawnGovernorMH( $town, $gov, $cycles, $mode, $override_day );
         elseif ($gov->hordes()) for ($i = 0; $i < $cycles; $i++) $this->zombieSpawnGovernorHordes( $town, $gov, $override_day );
     }
 
@@ -291,7 +291,7 @@ class MapMaker
                 ->setPlayerDeaths(0);
 
         $i = 0;
-        $this->dailyZombieSpawn($town, cycles: 2, mode: self::RespawnModeNone);
+        $this->dailyZombieSpawn($town, cycles: 3, mode: self::RespawnModeNone);
         while ($i < 3 && !$this->aboveMinNumberOfZombies( $zones, $conf, 1 )) {
             $this->dailyZombieSpawn($town, mode: self::RespawnModeNone);
             $i++;
@@ -314,10 +314,140 @@ class MapMaker
         return $zombies >= $conf->get( TownConf::CONF_MODIFIER_RESPAWN_THRESHOLD, 50 ) * $day * $conf->get( TownConf::CONF_MODIFIER_RESPAWN_FACTOR, 0.5 ) * $factor;
     }
 
-    private function zombieSpawnGovernorMH( Town $town, int $cycles = 1, int $mode = self::RespawnModeAuto, ?int $override_day = null ): void {
+    private function spreadCycleH(bool $observe_despair, array &$zone_db, array $despair_db, array $ctx_db): int {
+        $cycle_result = 0;
+        $zone_original_db = $zone_db;
+
+        $spread_db = [];
+        foreach ($zone_db as $x => &$zone_row)
+            foreach ($zone_row as $y => &$current_zone_zombies) {
+
+                if (($x === 0 && $y === 0) || $ctx_db[$x][$y] > 0 || ($despair_db[$x][$y] > 0 && $observe_despair))
+                    continue;
+
+                $before = $current_zone_zombies;
+
+                // We're iterating over the adjacent zones
+                $spread_targets = [];
+                for ($dx = -1; $dx <= 1; $dx++)
+                    if (isset($zone_original_db[$x + $dx]))
+                        for ($dy = -1; $dy <= 1; $dy++) if (($dx !== 0 || $dy !== 0) && abs($dx) !== abs($dy))
+                            if (isset($zone_original_db[$x + $dx][$y + $dy]) && $zone_original_db[$x + $dx][$y + $dy] < 3)
+                                $spread_targets[] = [$x + $dx, $y + $dy];
+
+                if ($current_zone_zombies >= 3) {
+                    if (empty($spread_targets)) {
+                        $current_zone_zombies += 1;
+                    } else {
+                        $spread = 2;
+                        while ($spread > 0) {
+                            $spread_zone = $this->random->pick( $spread_targets );
+                            $spread_count = mt_rand(0, $spread);
+                            $spread_db[] = [$spread_zone, $spread_count];
+                            $spread -= $spread_count;
+                        }
+
+                        if ($this->random->chance(0.75))
+                            $current_zone_zombies += 1;
+                    }
+
+                } elseif ($current_zone_zombies > 0 && $this->random->chance(0.5))
+                    $current_zone_zombies += 1;
+
+                $cycle_result += ($current_zone_zombies - $before);
+            }
+
+        foreach ($spread_db as [[$x,$y], $num]) {
+            $zone_db[$x][$y] += $num;
+            $cycle_result += $num;
+        }
+
+        return $cycle_result;
+    }
+
+    private function spreadCycleMH(bool $observe_despair, bool $diagonal_spawn, array &$zone_db, array $despair_db): int {
+        $cycle_result = 0;
+        $zone_original_db = $zone_db;
+        foreach ($zone_db as $x => &$zone_row)
+            foreach ($zone_row as $y => &$current_zone_zombies) {
+
+                if (($x === 0 && $y === 0) || ($despair_db[$x][$y] > 0 && $observe_despair)) continue;
+
+                $before = $current_zone_zombies;
+
+                // We're iterating over the adjacent zones
+                $adj_zones_total = $adj_zones_infected = $direct_adj_zones_infected = $neighboring_zombies = $max_neighboring_zombies = 0;
+                for ($dx = -1; $dx <= 1; $dx++)
+                    if (isset($zone_original_db[$x + $dx]))
+                        for ($dy = -1; $dy <= 1; $dy++) if (($dx !== 0 || $dy !== 0) && ( $diagonal_spawn || abs($dx) !== abs($dy) )) {
+                            if (isset($zone_original_db[$x + $dx][$y + $dy])) {
+                                // If the zone exist, increase number of neighboring zones
+                                $adj_zones_total++;
+
+                                // Count the number of neighboring zombies
+                                $neighboring_zombies += $zone_original_db[$x + $dx][$y + $dy];
+                                $max_neighboring_zombies = max( $max_neighboring_zombies, $zone_original_db[$x + $dx][$y + $dy] );
+
+                                // If the zone has zombies, increase the number of infected neighboring zones
+                                if ($zone_original_db[$x + $dx][$y + $dy] > $zone_original_db[$x][$y]) {
+                                    $adj_zones_infected++;
+                                    if (abs($dx) !== abs($dy)) $direct_adj_zones_infected++;
+                                }
+                            }
+                        }
+
+                if ($current_zone_zombies > 0) {
+                    $new_zeds = $this->random->chance(0.9)
+                        ? 1
+                        : ( $this->random->chance(0.5) ? 0 : 2 );
+
+                    $current_zone_zombies += $new_zeds;
+                } else {
+                    // Otherwise, count the total number of adjacent zones with zombies
+
+                    // If we have infected neighboring zones
+                    if ($adj_zones_infected > 0) {
+                        // Number of zones with zombies, balanced by total number of neighboring zones
+                        $target_number = (int)round($adj_zones_infected * (($diagonal_spawn ? 8.0 : 4.0) / $adj_zones_total));
+                        $limit = ($direct_adj_zones_infected > 0) ? 4 : 3;
+
+                        // Depending on the number of neighboring zombies, we create a bias towards not spawning
+                        // any new zombies. More neighboring zombies = less bias.
+                        $bias = 0;
+                        if ($max_neighboring_zombies >= 5 && $adj_zones_infected >= 2) $bias = -1;
+                        elseif ($max_neighboring_zombies >= 15)    $bias = -1;
+                        elseif ($max_neighboring_zombies >= 8) $bias =  0;
+                        elseif ($neighboring_zombies < 5)  $bias = min(4, $limit);
+                        elseif ($neighboring_zombies < 10) $bias = 3;
+                        elseif ($neighboring_zombies < 15) $bias = 2;
+                        elseif ($neighboring_zombies < 20) $bias = 1;
+
+                        // Calculate random value between bias and 4
+                        $new_zeds = mt_rand(-$bias, $limit);
+
+                        // Repeat if the result is > 0 and not the same as the number of neighboring infected zones
+                        // This created a bias towards spawning the same number of zombies as there are infected zones
+                        if ($new_zeds > 0 && $new_zeds !== $target_number)
+                            $new_zeds = mt_rand(-$bias, $limit);
+
+                        // Limit to 1-2, bias towards 1 if using diagonal spread
+                        if ($new_zeds > 0 && $diagonal_spawn) $new_zeds = max(1, min(2, mt_rand( -2, 3 )));
+
+                        // Clamp the result to a 0 - 4 range.
+                        $current_zone_zombies += max(0, min($limit, $new_zeds));
+                    }
+                }
+
+                $cycle_result += ($current_zone_zombies - $before);
+            }
+
+        return $cycle_result;
+    }
+
+    private function zombieSpawnGovernorMH( Town $town, HordeSpawnGovernor $gov, int $cycles = 1, int $mode = self::RespawnModeAuto, ?int $override_day = null ): void {
         /** @var Zone[] $zones */
         $zones = $town->getZones()->getValues();
-        $zone_db = []; $despair_db = [];
+        $ctx_db = []; $zone_db = []; $despair_db = [];
         $killedZombies = 0;
 
         $total_zombies = 0;
@@ -327,6 +457,7 @@ class MapMaker
 
             $despair = (int)floor(max(0,( ($zone->getInitialZombies() - $zone->getZombies()) - 1 ) / 2));
             if (!isset($zone_db[$zone->getX()])) $zone_db[$zone->getX()] = [];
+            $ctx_db[$zone->getX()][$zone->getY()] = $zone->getCitizens()->count();
             $zone_db[$zone->getX()][$zone->getY()] = $zone->getZombies();
             $despair_db[$zone->getX()][$zone->getY()] = $despair;
 
@@ -337,86 +468,10 @@ class MapMaker
 
         $town->getMapSize($map_x,$map_y);
 
-        $fun_cycle = function(bool $observe_despair = false, $diagonal_spawn = true) use (&$zone_db,$despair_db): int {
-            $cycle_result = 0;
-            $zone_original_db = $zone_db;
-            foreach ($zone_db as $x => &$zone_row)
-                foreach ($zone_row as $y => &$current_zone_zombies) {
-
-                    if (($x === 0 && $y === 0) || ($despair_db[$x][$y] > 0 && $observe_despair)) continue;
-
-                    $before = $current_zone_zombies;
-
-                    // We're iterating over the adjacent zones
-                    $adj_zones_total = $adj_zones_infected = $direct_adj_zones_infected = $neighboring_zombies = $max_neighboring_zombies = 0;
-                    for ($dx = -1; $dx <= 1; $dx++)
-                        if (isset($zone_original_db[$x + $dx]))
-                            for ($dy = -1; $dy <= 1; $dy++) if (($dx !== 0 || $dy !== 0) && ( $diagonal_spawn || abs($dx) !== abs($dy) )) {
-                                if (isset($zone_original_db[$x + $dx][$y + $dy])) {
-                                    // If the zone exist, increase number of neighboring zones
-                                    $adj_zones_total++;
-
-                                    // Count the number of neighboring zombies
-                                    $neighboring_zombies += $zone_original_db[$x + $dx][$y + $dy];
-                                    $max_neighboring_zombies = max( $max_neighboring_zombies, $zone_original_db[$x + $dx][$y + $dy] );
-
-                                    // If the zone has zombies, increase the number of infected neighboring zones
-                                    if ($zone_original_db[$x + $dx][$y + $dy] > $zone_original_db[$x][$y]) {
-                                        $adj_zones_infected++;
-                                        if (abs($dx) !== abs($dy)) $direct_adj_zones_infected++;
-                                    }
-                                }
-                            }
-
-                    if ($current_zone_zombies > 0) {
-                        $new_zeds = $this->random->chance(0.9)
-                            ? 1
-                            : ( $this->random->chance(0.5) ? 0 : 2 );
-
-                        $current_zone_zombies += $new_zeds;
-                    } else {
-                        // Otherwise, count the total number of adjacent zones with zombies
-
-                        // If we have infected neighboring zones
-                        if ($adj_zones_infected > 0) {
-                            // Number of zones with zombies, balanced by total number of neighboring zones
-                            $target_number = (int)round($adj_zones_infected * (($diagonal_spawn ? 8.0 : 4.0) / $adj_zones_total));
-                            $limit = ($direct_adj_zones_infected > 0) ? 4 : 3;
-
-                            // Depending on the number of neighboring zombies, we create a bias towards not spawning
-                            // any new zombies. More neighboring zombies = less bias.
-                            $bias = 0;
-                            if ($max_neighboring_zombies >= 5 && $adj_zones_infected >= 2) $bias = -1;
-                            elseif ($max_neighboring_zombies >= 15)    $bias = -1;
-                            elseif ($max_neighboring_zombies >= 8) $bias =  0;
-                            elseif ($neighboring_zombies < 5)  $bias = min(4, $limit);
-                            elseif ($neighboring_zombies < 10) $bias = 3;
-                            elseif ($neighboring_zombies < 15) $bias = 2;
-                            elseif ($neighboring_zombies < 20) $bias = 1;
-
-
-
-                            // Calculate random value between bias and 4
-                            $new_zeds = mt_rand(-$bias, $limit);
-
-                            // Repeat if the result is > 0 and not the same as the number of neighboring infected zones
-                            // This created a bias towards spawning the same number of zombies as there are infected zones
-                            if ($new_zeds > 0 && $new_zeds !== $target_number)
-                                $new_zeds = mt_rand(-$bias, $limit);
-
-                            // Limit to 1-2, bias towards 1 if using diagonal spread
-                            if ($new_zeds > 0 && $diagonal_spawn) $new_zeds = max(1, min(2, mt_rand( -2, 3 )));
-
-                            // Clamp the result to a 0 - 4 range.
-                            $current_zone_zombies += max(0, min($limit, $new_zeds));
-                        }
-
-                    }
-
-                    $cycle_result += ($current_zone_zombies - $before);
-                }
-
-            return $cycle_result;
+        $fun_cycle = function(bool $observe_despair = false, $diagonal_spawn = true) use (&$zone_db,$despair_db,$ctx_db,$gov): int {
+            return $gov === HordeSpawnGovernor::Hordes
+                ? $this->spreadCycleH( $observe_despair, $zone_db, $despair_db, $ctx_db )
+                : $this->spreadCycleMH( $observe_despair, $diagonal_spawn, $zone_db, $despair_db );
         };
 
         // Respawn
@@ -439,7 +494,7 @@ class MapMaker
                 $total_zombies += ($zone_db[$zone->getX()][$zone->getY()] = $zone->getStartZombies() ?? 0);
 
             // Step 3: Spread until the min zombie count is reached again
-            while ( !$this->aboveMinNumberOfZombies($total_zombies, $conf, $d, 1.5) )
+            while ( !$this->aboveMinNumberOfZombies($total_zombies, $conf, $d) )
                 $total_zombies += $fun_cycle();
 
             // Step 4: Add the original zombies back onto the map
