@@ -4,6 +4,7 @@ namespace App\Service\Maps;
 
 use App\Entity\Inventory;
 use App\Entity\Town;
+use App\Entity\TownClass;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
@@ -17,6 +18,7 @@ use App\Service\RandomGenerator;
 use App\Structures\TownConf;
 use App\Structures\ZombieSpawnBehaviour;
 use App\Structures\ZombieSpawnZone;
+use ArrayHelpers\Arr;
 use Doctrine\ORM\EntityManagerInterface;
 
 class MapMaker
@@ -237,43 +239,79 @@ class MapMaker
 
         $empty_zones = [];
         $ruin_zones = [];
+        $e_ruin_zones = [];
         $zone_db = [];
 
+        $set = function(Zone $zone, int $value) use (&$zone_db) { Arr::set($zone_db, "{$zone->getX()}.{$zone->getY()}", $value); };
+        $get = function(Zone $zone) use (&$zone_db): int { return Arr::get($zone_db, "{$zone->getX()}.{$zone->getY()}", 0); };
+
         foreach ($zones as $zone) {
-            if ($zone->getPrototype())
+            if ($zone->getPrototype()?->getExplorable() )
+                $e_ruin_zones[] = $zone;
+            elseif ($zone->getPrototype())
                 $ruin_zones[] = $zone;
             elseif (!$zone->isTownZone()) $empty_zones[] = $zone;
 
-            if (!isset($zone_db[$zone->getX()])) $zone_db[$zone->getX()] = [];
-            $zone_db[$zone->getX()][$zone->getY()] = 0;
+            $set($zone, 0);
         }
 
-        for ($i = 0; $i < $conf->get(TownConf::CONF_MAP_FREE_SPAWN_COUNT, 2); $i++)
-            if ($this->random->chance( $conf->get(TownConf::CONF_MAP_FREE_SPAWN_PROB, 0.1) ))
-                $ruin_zones[] = $this->random->draw( $empty_zones );
+        $min_dist = $conf->get(TownConf::CONF_MAP_FREE_SPAWN_DIST, 0);
+        $spawn_zones = $this->random->draw(
+            $empty_zones,
+            $conf->get(TownConf::CONF_MAP_FREE_SPAWN_COUNT, 3),
+            true,
+            fn(Zone $zone) => $zone->getDistance() >= $min_dist,
+        );
 
         foreach ($ruin_zones as $zone) {
-            $zombies_base = 1 + (min(1,sqrt( pow($zone->getX(),2) + pow($zone->getY(),2) )/18) * ($zone->getPrototype()?->getExplorable() ? 3 : 18));
-            $zone_db[$zone->getX()][$zone->getY()] = max(1, mt_rand( floor($zombies_base * 0.8), ceil($zombies_base * 1.2) ) );
+            $zombies_base = $zone->getDistance();
+            $set($zone, max(1, mt_rand( floor($zombies_base * 0.8), ceil($zombies_base * 1.2) ) ) );
         }
 
-        foreach ($ruin_zones as $zone) {
-            $empty_surrounding_zones = [];
-            for ($x = $zone->getX() - 1; $x <= $zone->getX() + 1; $x++)
-                for ($y = $zone->getY() - 1; $y <= $zone->getY() + 1; $y++)
-                    if (isset( $zone_db[$x] ) && isset($zone_db[$x][$y]) && $zone_db[$x][$y] === 0 && ($x !== 0 || $y !== 0))
-                        $empty_surrounding_zones[] = [$x,$y];
+        foreach ($spawn_zones as $zone)
+            if (!$town->getType()->is(TownClass::EASY) || $zone->getDistance() >= 3)
+                $set($zone, mt_rand(0, 2));
 
-            $picked = $this->random->pick( $empty_surrounding_zones, mt_rand( 2, 5 ), true );
-            foreach ($picked as [$x,$y]) $zone_db[$x][$y] = mt_rand(1, min(5, $zone_db[$zone->getX()][$zone->getY()] ));
-        }
+        //foreach ($ruin_zones as $zone) {
+        //    $empty_surrounding_zones = [];
+        //    for ($x = $zone->getX() - 1; $x <= $zone->getX() + 1; $x++)
+        //        for ($y = $zone->getY() - 1; $y <= $zone->getY() + 1; $y++)
+        //            if (isset( $zone_db[$x] ) && isset($zone_db[$x][$y]) && $zone_db[$x][$y] === 0 && ($x !== 0 || $y !== 0))
+        //                $empty_surrounding_zones[] = [$x,$y];
+
+        //    $picked = $this->random->pick( $empty_surrounding_zones, mt_rand( 2, 5 ), true );
+        //    foreach ($picked as [$x,$y]) $zone_db[$x][$y] = mt_rand(1, min(5, $zone_db[$zone->getX()][$zone->getY()] ));
+        //}
 
         foreach ($zones as $zone)
             $zone
-                ->setZombies( $zone->isTownZone() ? 0 : $zone_db[$zone->getX()][$zone->getY()] )
-                ->setInitialZombies( $zone->isTownZone() ? 0 : $zone_db[$zone->getX()][$zone->getY()] )
+                ->setZombies( $zone->isTownZone() ? 0 : $get($zone) )
+                ->setInitialZombies( $zone->isTownZone() ? 0 : $get($zone) )
                 ->setScoutEstimationOffset( mt_rand(-2,2) )
                 ->setPlayerDeaths(0);
+
+        $i = 0;
+        $this->dailyZombieSpawn($town, cycles: 2, mode: self::RespawnModeNone);
+        while ($i < 3 && !$this->aboveMinNumberOfZombies( $zones, $conf, 1 )) {
+            $this->dailyZombieSpawn($town, mode: self::RespawnModeNone);
+            $i++;
+        }
+
+        foreach ($e_ruin_zones as $zone) {
+            $zombies = $zone->getDistance();
+            $zone->setZombies( $zombies / 2 )->setInitialZombies( $zombies / 2 );
+        }
+    }
+
+    private function aboveMinNumberOfZombies(int|Town|array $data, TownConf $conf, ?int $day = null, float $factor = 1.0): bool {
+        $zombies = match (true) {
+            is_a($data, Town::class) => $data->getZones()->reduce( fn(int $carry, Zone $z) => $carry + $z->getZombies(), 0 ),
+            is_array( $data ) => array_reduce( $data, fn(int $carry, Zone $z) => $carry + $z->getZombies(), 0 ),
+            default => $data
+        };
+
+        $day ??= is_a($data, Town::class) ? $data->getDay() : 1;
+        return $zombies >= $conf->get( TownConf::CONF_MODIFIER_RESPAWN_THRESHOLD, 50 ) * $day * $conf->get( TownConf::CONF_MODIFIER_RESPAWN_FACTOR, 0.5 ) * $factor;
     }
 
     private function zombieSpawnGovernorMH( Town $town, int $cycles = 1, int $mode = self::RespawnModeAuto, ?int $override_day = null ): void {
@@ -295,7 +333,7 @@ class MapMaker
             $zone->setScoutEstimationOffset( mt_rand(-2,2) );
         }
 
-        $factor = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RESPAWN_FACTOR, 1);
+        $conf = $this->conf->getTownConfiguration($town);
 
         $town->getMapSize($map_x,$map_y);
 
@@ -381,14 +419,10 @@ class MapMaker
             return $cycle_result;
         };
 
-        $fun_check_respawn = function(int $zombies, int $mapx, int $mapy, int $day, float $f) : bool {
-            return $day > 3 && ($zombies < sqrt($mapx * $mapy) * $day * 2 * $f);
-        };
-
         // Respawn
         $d = $override_day ?? $town->getDay();
         if ($mode === self::RespawnModeForce ||
-            ($mode === self::RespawnModeAuto && $fun_check_respawn($total_zombies,$map_x,$map_y,$d,$factor))) {
+            ($mode === self::RespawnModeAuto && !$this->aboveMinNumberOfZombies($total_zombies, $conf, $d))) {
 
             //$keys = $d == 1 ? [array_rand($empty_zones)] : array_rand($empty_zones, min($d,count($empty_zones)));
             //foreach ($keys as $spawn_zone_id)
@@ -405,7 +439,7 @@ class MapMaker
                 $total_zombies += ($zone_db[$zone->getX()][$zone->getY()] = $zone->getStartZombies() ?? 0);
 
             // Step 3: Spread until the min zombie count is reached again
-            while ( $fun_check_respawn($total_zombies,$map_x,$map_y,$d,$factor*2) )
+            while ( !$this->aboveMinNumberOfZombies($total_zombies, $conf, $d, 1.5) )
                 $total_zombies += $fun_cycle();
 
             // Step 4: Add the original zombies back onto the map

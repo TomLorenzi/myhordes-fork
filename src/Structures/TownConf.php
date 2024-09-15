@@ -27,7 +27,7 @@ class TownConf extends Conf
     const CONF_INSTANT_PICTOS = 'instant_pictos';
 
     const CONF_MAP_FREE_SPAWN_COUNT = 'map_params.free_spawn_zones.count';
-    const CONF_MAP_FREE_SPAWN_PROB  = 'map_params.free_spawn_zones.probability';
+    const CONF_MAP_FREE_SPAWN_DIST  = 'map_params.free_spawn_zones.min_dist';
     const CONF_MAP_BURIED_PROB      = 'map_params.buried_ruins.probability';
     const CONF_MAP_BURIED_DIGS_MIN  = 'map_params.buried_ruins.digs.min';
     const CONF_MAP_BURIED_DIGS_MAX  = 'map_params.buried_ruins.digs.max';
@@ -75,6 +75,7 @@ class TownConf extends Conf
     const CONF_MODIFIER_WIND_DISTANCE        = 'modifiers.wind_distance';
     const CONF_MODIFIER_STRICT_PICTOS        = 'modifiers.strict_picto_distribution';
     const CONF_MODIFIER_RESPAWN_FACTOR       = 'modifiers.massive_respawn_factor';
+    const CONF_MODIFIER_RESPAWN_THRESHOLD    = 'modifiers.massive_respawn_threshold';
     const CONF_MODIFIER_AUTOGHOUL_FROM       = 'modifiers.ghoul_infection_begin';
     const CONF_MODIFIER_AUTOGHOUL_NEXT       = 'modifiers.ghoul_infection_next';
     const CONF_MODIFIER_DAYTIME_RANGE        = 'modifiers.daytime.range';
