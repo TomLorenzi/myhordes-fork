@@ -405,6 +405,7 @@ class ActionEffectProvider
         $effects_container->add()->identifier('add_bandage')->add( (new StatusEffect())->addsStatus('healed'))->commit();
 
         $effects_container->add()->identifier('eat_ap6_silent')->add( (new StatusEffect())->point( PointType::AP, 0, relativeToMax: true )->addsStatus('haseaten'))->commit();
+        $effects_container->add()->identifier('eat_ap4')->add( (new StatusEffect())->point( PointType::AP, 4, relativeToMax: false )->addsStatus('haseaten'))->add((new MessageEffect())->escort(false)->text( 'Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...'))->commit();
 
         $effects_container->add()->identifier('increase_lab_counter')->add( (new StatusEffect())->count(ActionCounter::ActionTypeHomeLab))->commit();
         $effects_container->add()->identifier('increase_kitchen_counter')->add( (new StatusEffect())->count(ActionCounter::ActionTypeHomeKitchen))->commit();

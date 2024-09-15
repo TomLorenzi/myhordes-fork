@@ -124,6 +124,7 @@ class ActionDataService implements FixtureProcessorInterface {
 
                 'eat_6ap'   => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item' ], 'escort_message_key' => 'escort_food_eat' ],
                 'eat_7ap'   => [ 'label' => 'Essen', 'priority' => 1, 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap7', 'consume_item' ], 'escort_message_key' => 'escort_food_eat' ],
+                'eat_4ap'   => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap4', 'consume_item' ], 'escort_message_key' => 'escort_food_eat' ],
 
                 'drug_xana1' => [ 'label' => 'Einsetzen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1', 'must_be_terrorized_hd' ],  'result' => [ 'contaminated_zone_infect', 'drug_any', 'unterrorize', 'consume_item' ], 'message_key' => 'drug_xanax' ],
                 'drug_xana2' => [ 'label' => 'Einsetzen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2', 'must_be_terrorized_hd' ],  'result' => [ 'contaminated_zone_infect', 'drug_addict', 'unterrorize', 'consume_item' ], 'message_key' => 'drug_xanax' ],
@@ -588,6 +589,9 @@ class ActionDataService implements FixtureProcessorInterface {
                 'food_sandw_#00'      => [ 'eat_6ap'],
                 'food_noodles_#00'    => [ 'eat_6ap'],
                 'wood_xmas_#00'       => [ 'eat_6ap'],
+                'noodle_prints_#00'   => [ 'eat_4ap'],
+                'noodle_prints_#01'   => [ 'eat_4ap'],
+                'noodle_prints_#02'   => [ 'eat_4ap'],
                 'fruit_#00'           => [ 'eat_fleshroom_1', 'eat_fleshroom_2'],
                 'hmeat_#00'           => [ 'eat_meat_1', 'eat_meat_2' ],
                 'bone_meat_#00'       => [ 'eat_bone_1', 'eat_bone_2' ],
