@@ -103,6 +103,12 @@ class TownOnboardingController extends AbstractController
                    'de', null => '',
                    default => "_{$this->getUser()?->getLanguage()}"
                 }  .'.gif'),
+                'levels' => [
+                    $trans->trans('Anfänger', [], 'game'),
+                    $trans->trans('Lehrling', [], 'game'),
+                    $trans->trans('Experte', [], 'game'),
+                    $trans->trans('Meister', [], 'game'),
+                ]
             ]
         ]);
     }

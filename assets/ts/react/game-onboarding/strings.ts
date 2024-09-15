@@ -33,5 +33,6 @@ export type TranslationStrings = {
         "unlock": string,
         "unlock_button": string,
         "unlock_img": string,
+        "levels": string[],
     }
 }

@@ -14,6 +14,7 @@ import {TranslationStrings} from "./strings";
 import {Tooltip} from "../tooltip/Wrapper";
 import {html, sharedWorkerCall, sharedWorkerMessageHandler} from "../../v2/init";
 import {ServiceWorkerIndicator} from "../service-worker-state/Wrapper";
+import HTML from "../../html";
 
 declare var c: Const;
 declare var $: Global;
@@ -357,6 +358,7 @@ const SkillSelection = (props: OnboardingSkillPayloadProps) => {
 
     const [skills, setSkills] = useState<ResponseSkills>();
     const [levels, setLevels] = useState<{ [key: string]: number; }>();
+    const [current, setCurrent] = useState(0);
 
     const skillContainer = useRef<HTMLDivElement>()
 
@@ -391,7 +393,7 @@ const SkillSelection = (props: OnboardingSkillPayloadProps) => {
     useLayoutEffect(() => {
         if (!skillContainer.current) return;
 
-        skillContainer.current.querySelectorAll('div.skillset-parent').forEach((div, n) => div.animate([
+        skillContainer.current.querySelectorAll('div.skill-nav>div').forEach((div, n) => div.animate([
             {opacity: 0, transform: 'translateY(-24px)'},
             {transform: 'translateY(0)'},
         ], {
@@ -401,7 +403,27 @@ const SkillSelection = (props: OnboardingSkillPayloadProps) => {
             easing: "ease-in-out",
         }));
 
+        skillContainer.current.querySelectorAll('div.skill-slider > div').forEach(
+            div => (div as HTMLDivElement).style.left = '0%'
+        );
+
     }, [skills]);
+
+    useLayoutEffect(() => {
+        if (!skillContainer.current) return;
+
+        skillContainer.current.querySelectorAll('div.skill-slider > div').forEach(div => div.animate([
+            {offset: 0,   transform: 'scale(1)'},
+            {offset: 0.1, transform: 'scale(0.8)'},
+            {offset: 0.9, transform: 'scale(0.8)', left: `${current*-100}%`},
+            {offset: 1,   transform: 'scale(1)', left: `${current*-100}%`},
+        ], {
+            duration: 1000,
+            delay: 0,
+            fill: "forwards",
+            easing: "ease-in-out",
+        }));
+    }, [current]);
 
     const applySkill = (skill: Skill) => {
         const skill_group = skills.skills.list.filter(s => s.group === skill.group);
@@ -444,40 +466,58 @@ const SkillSelection = (props: OnboardingSkillPayloadProps) => {
             </div> }
             { skills?.skills && <div className="note current-pts" dangerouslySetInnerHTML={{__html: globals.strings.skills.pts.replace('{pts}', `${pts_left}`)}} /> }
             <div ref={skillContainer}>
-                { skills?.skills?.groups.map(g => <div className="row" key={g}>
+                <div className="row">
                     <div className="padded cell rw-12">
-                        <div className="note note-lightest skillset-parent">
-                            <div className="skillset-group">
-                                <strong className="group-title">
-                                    <span className="first-letter">{g.slice(0, 1)}</span>
-                                    <span className="last-letters">{g.slice(1)}</span>
-                                </strong>
-                                <div className="row">
-                                    { skills.skills.list.filter(s => s.group === g).sort((a,b) => a.level - b.level).map(skill => <div className={`padded cell rw-12 ${((skill.level - levels[g]) > pts_left) ? 'skill-unreachable' : 'pointer' }`} key={skill.id}>
-                                        <div className="row-flex gap v-center" onClick={()=>{
-                                            if ((skill.level - levels[g]) > pts_left) return;
-                                            if (levels[g] === skill.level) applyPreviousSkill(skill)
-                                            else applySkill(skill);
-                                        }}>
-                                            <div className="cell factor-0">
-                                                {levels[g] >= skill.level && <img alt="" src={globals.strings.common.on}/>}
-                                                {levels[g] < skill.level && <img alt="" src={globals.strings.common.off}/>}
-                                            </div>
-                                            <div className="cell factor-1">
-                                                <b>{ globals.strings.skills.level.replace('{skill_level}', `${skill.level}`) }:&nbsp;</b>
-                                                { skill.description }
-                                                { skill.bullets.length > 0 && <ul>
-                                                    { skill.bullets.map((bullet, i) => <li key={i}>{bullet}</li>) }
-                                                </ul> }
+                        <div className="skill-nav">
+                            {skills?.skills?.groups.map((g,i) =>
+                                <div className={i === current ? 'current' : ''} key={g} onClick={() => setCurrent(i)}>
+                                    {g.slice(0, 1)}
+                                </div>
+                            )}
+                        </div>
+                        <div className="padded cell rw-12">
+                            <div className="skill-slider">
+                                {skills?.skills?.groups.map(g =>
+                                    <div key={g} className="note note-lightest skillset-parent">
+                                        <div className="skillset-group">
+                                            <strong className="group-title">
+                                                <span className="first-letter">{g.slice(0, 1)}</span>
+                                                <span className="last-letters">{g.slice(1)}</span>
+                                            </strong>
+                                            <div>
+                                                {skills.skills.list.filter(s => s.group === g).sort((a, b) => a.level - b.level).map(skill =>
+                                                    <div
+                                                        className={`${((skill.level - levels[g]) > pts_left) ? 'skill-unreachable' : 'pointer'}`}
+                                                        key={skill.id}>
+                                                        <div className="row-flex gap v-center" onClick={() => {
+                                                            if ((skill.level - levels[g]) > pts_left) return;
+                                                            if (levels[g] === skill.level) applyPreviousSkill(skill)
+                                                            else applySkill(skill);
+                                                        }}>
+                                                            <div className="cell factor-0">
+                                                                {levels[g] >= skill.level &&
+                                                                    <img alt="" src={globals.strings.common.on}/>}
+                                                                {levels[g] < skill.level &&
+                                                                    <img alt="" src={globals.strings.common.off}/>}
+                                                            </div>
+                                                            <div className="cell factor-1">
+                                                                <b>{globals.strings.skills.levels[skill.level] ?? globals.strings.skills.level.replace('{skill_level}', `${skill.level}`)}:&nbsp;</b>
+                                                                {skill.description}
+                                                                {skill.bullets.length > 0 && <ul>
+                                                                    {skill.bullets.map((bullet, i) => <li
+                                                                        key={i}>{bullet}</li>)}
+                                                                </ul>}
+                                                            </div>
+                                                        </div>
+                                                    </div>)}
                                             </div>
                                         </div>
-                                    </div>) }
-                                </div>
+                                    </div>
+                                )}
                             </div>
-
                         </div>
                     </div>
-                </div>)}
+                </div>
             </div>
         </> }
     </>

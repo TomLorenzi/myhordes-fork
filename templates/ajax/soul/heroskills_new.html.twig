@@ -52,7 +52,12 @@
                                                 {% else %}
                                                     <img src="{{ asset('build/images/icons/lock.gif' ) }}" alt="">
                                                 {% endif %}
-                                                <b class="level">{{ 'Level {skill_level}'|trans({'skill_level': skill.level}, 'game') }}</b>
+                                                <b class="level">{{ [
+                                                        'Anfänger'|trans({}, 'game'),
+                                                        'Lehrling'|trans({}, 'game'),
+                                                        'Experte'|trans({}, 'game'),
+                                                        'Meister'|trans({}, 'game'),
+                                                    ][skill.level] }}</b>
                                             </div>
                                             {% if skill.id in unlockable %}
                                                 <div class="inline-block center unlock">

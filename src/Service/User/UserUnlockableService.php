@@ -206,7 +206,7 @@ class UserUnlockableService implements ServiceSubscriberInterface
 
         if ($lms_picto) {
             $end = \DateTimeImmutable::createFromInterface( $latest_citizen->getEnd() )->modify('+3 days');
-            return $latest_citizen->getDay() >= 10 ? 2 : 1;
+            return 1;
         } else return 0;
     }
 

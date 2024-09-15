@@ -1441,7 +1441,10 @@ span.defense-broken,div.defense-broken { .icon_div("../img/icons/small_def_broke
   padding: 12px;
 
   .group-title {
-    display: block;
+    display: block; text-align: center;
+    position: absolute; top: 20px; left: 20px; right: 20px;
+    border-bottom: 2px solid #f0d79e;
+
     .first-letter {
       font-size: 2rem;
       text-shadow: 0 0 5px black;
@@ -1456,10 +1459,42 @@ span.defense-broken,div.defense-broken { .icon_div("../img/icons/small_def_broke
     }
   }
 
+  ul {
+    list-style: none; padding-left: 10px;
+
+    li { padding-left: 16px; background: url('../img/icons/small_middot.gif') center left no-repeat }
+  }
+
   .skill-unreachable {
     opacity: 0.5;
     filter: grayscale(50%);
     cursor: not-allowed;
+  }
+}
+
+.skill-nav {
+  display: flex; gap: @myhordes-grid-padsize; justify-content: center;
+
+  &>div {
+    font-size: 7rem; text-shadow: 0 0 5px transparent; cursor: pointer;
+    -webkit-text-stroke: 3px black; text-stroke: 3px black; font-weight: bold;
+    color: #7e4d2a; transition: all 0.5s ease-in-out;
+    &.current { color: #d8a841; text-shadow: 0 0 5px #efc05e; -webkit-text-stroke: 3px #a72f05; text-stroke: 3px #a72f05;  }
+  }
+}
+
+.skill-slider {
+  display: flex; gap: 0;
+  width: 100%; overflow: hidden;
+
+  & > * {
+    flex-basis: 100%; flex-grow: 0; flex-shrink: 0;
+    position: relative;
+  }
+
+  .skillset-parent {
+    display: flex; align-items: center; justify-content: center;
+    padding: 50px 15px 15px !important;
   }
 }
 
