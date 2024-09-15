@@ -24,6 +24,7 @@ enum CitizenProperties: string implements Configuration
     case AnonymousPostLimit = 'props.limit.anonymous.posts';
     case ComplaintLimit = 'props.limit.anonymous.complaint';
     case LogManipulationLimit = 'props.limit.log_manipulation';
+    case LogPurgeLimit = 'props.limit.log_purge';
     case WatchSurvivalBonus = 'props.bonus.watch.survival';
     case ZoneControlBonus = 'props.bonus.zone_control.base';
     case ZoneControlCleanBonus = 'props.bonus.zone_control.clean';
@@ -79,6 +80,7 @@ enum CitizenProperties: string implements Configuration
             self::ComplaintLimit,
             self::WatchSurvivalBonus,
             self::LogManipulationLimit,
+            self::LogPurgeLimit,
             self::ZoneControlBonus,
             self::ZoneControlCleanBonus,
             self::ZoneControlHydratedBonus,
@@ -139,6 +141,7 @@ enum CitizenProperties: string implements Configuration
             self::AnonymousPostLimit             => 0,
             self::ComplaintLimit                 => 4,
             self::LogManipulationLimit           => 0,
+            self::LogPurgeLimit                  => 0,
             self::ZoneControlBonus               => 0,
             self::ZoneControlCleanBonus          => 0,
             self::ZoneControlHydratedBonus       => 0,
@@ -198,6 +201,7 @@ enum CitizenProperties: string implements Configuration
             self::AnonymousPostLimit             => ($old + $new) - $this->default(),
             self::ComplaintLimit                 => ($old + $new) - $this->default(),
             self::LogManipulationLimit           => ($old + $new) - $this->default(),
+            self::LogPurgeLimit                  => ($old + $new) - $this->default(),
             self::ZoneControlBonus               => ($old + $new) - $this->default(),
             self::ZoneControlCleanBonus          => ($old + $new) - $this->default(),
             self::ZoneControlHydratedBonus       => ($old + $new) - $this->default(),

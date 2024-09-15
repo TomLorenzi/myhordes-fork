@@ -63,6 +63,7 @@ const HordesLogWrapper = (props: mountProps) => {
     const [currentDay, setCurrentDay] = useState<number>( props.day );
     const [currentData, setCurrentData] = useState<DailyCache>( null );
     const [manipulations, setManipulations] = useState<number>( 0 );
+    const [purges, setPurges] = useState<number>( 0 );
 
     const [refreshID, setRefreshID] = useState<number>( 0 );
     const [updateID, setUpdateID] = useState<number>( 0 );
@@ -123,12 +124,13 @@ const HordesLogWrapper = (props: mountProps) => {
             .then(v => {
                 applyData(day, v.entries, true, v.entries.length >= v.total);
                 setManipulations( v.manipulations );
+                setPurges( v.purges );
                 setLoading(false);
                 setPlaceholder(false);
             })
     }, [props.domain,JSON.stringify(props.category),props.citizen,props.zone,props.inlineDays,refreshID] );
 
-    const applyData = (day: number, entries: LogEntry[], before: boolean, completed: boolean) => {
+    const applyData = (day: number, entries: LogEntry[], before: boolean, completed: boolean, without: number|null = null) => {
         const new_target = (cache.current[day] ?? null) === null ? { entries: [], completed } : {...cache.current[day]};
 
         let replaced = [];
@@ -150,6 +152,10 @@ const HordesLogWrapper = (props: mountProps) => {
             new_target.entries = before ? [...entries, ...new_target.entries] : [...new_target.entries, ...entries];
             new_target.completed = new_target.completed || (completed && !before);
         }
+
+        if (without !== null)
+            new_target.entries = new_target.entries.filter( f => f.id !== without);
+
         setCurrentDataCached( new_target, day );
     }
 
@@ -166,6 +172,7 @@ const HordesLogWrapper = (props: mountProps) => {
                     loaded.current = true;
                     applyData(day, v.entries, true, v.entries.length >= v.total);
                     setManipulations( v.manipulations );
+                    setPurges( v.purges );
                     setLoading(false);
                     setPlaceholder(false);
                 })
@@ -179,19 +186,21 @@ const HordesLogWrapper = (props: mountProps) => {
             .then( v => {
                 applyData( day, v.entries, false, v.entries.length >= v.total);
                 setManipulations( v.manipulations );
+                setPurges( v.purges );
                 setLoading( false );
                 if (v.entries.length < v.total)
                     $.html.notice( strings?.content.noMore )
             } )
     }
 
-    const deleteEntry = ( id: number ) => {
+    const deleteEntry = ( id: number, purge: boolean ) => {
         setInteractive( false );
-        api.deleteLog( id ).then( v => {
-            applyData( currentDay, v.entries, false, false);
+        api.deleteLog( id, purge ).then( v => {
+            applyData( currentDay, v.entries, false, false, purge ? id : null);
             setManipulations( v.manipulations );
+            setPurges( v.purges );
             setInteractive( true );
-            $.html.notice(strings?.content.manipulated.replace( '{times}', `${v.manipulations}` ))
+            $.html.notice(strings?.content.manipulated.replace( '{times}', `${purge ? v.purges : v.manipulations}` ))
         })
     }
 
@@ -199,10 +208,11 @@ const HordesLogWrapper = (props: mountProps) => {
         { props.chat && <HordesChatContainer zone={props.zone} refresh={()=>setUpdateID(updateID+1)}/> }
         <div ref={container} className="log-container" data-disabled={(interactive || loading) ? 'none' : 'blocked'}>
             <div className="log">
-                <HordesLogContentContainer day={currentDay} today={currentDay === props.day} manipulate={manipulations > 0}
+                <HordesLogContentContainer day={currentDay} today={currentDay === props.day}
+                    manipulate={manipulations > 0} purge={purges > 0}
                     loading={loading} data={currentData} placeholder={placeholder} indicators={props.indicators}
                     loadMore={()=>loadMore(currentDay)} inline={props.inlineDays}
-                    deleteEntry={(n)=>deleteEntry(n)}
+                    deleteEntry={(n,p)=>deleteEntry(n,p)}
                 />
             </div>
             { !props.inlineDays && <HordesLogDaySelector days={props.day} selectedDay={currentDay} setDay={n => setCurrentDay(n)}/> }
@@ -216,8 +226,9 @@ interface logContainerProps {
     data?: DailyCache,
     loading: boolean,
     loadMore: ()=>void,
-    deleteEntry: (number)=>void,
+    deleteEntry: (number,boolean)=>void,
     manipulate: boolean,
+    purge: boolean,
     placeholder?: boolean,
     indicators: boolean
     inline: boolean
@@ -266,12 +277,25 @@ const HordesLogContentContainer = (props: logContainerProps) => {
                             if (entry['protected']) $.html.error( globals.strings?.content['protected'] );
                             else {
                                 setInHiding(entry.id);
-                                props.deleteEntry(entry.id);
+                                props.deleteEntry(entry.id, false);
                             }
                         } }>
                             <img src={globals.strings?.content.falsify} alt="[X]" />
                             &nbsp;
                             <Tooltip additionalClasses="help" html={ globals.strings?.content.hide }></Tooltip>
+                        </span>
+                    }
+                    { entry.hideable && props.purge &&
+                        <span className="link undecorated remove-entry" onClick={ () => {
+                            if (entry['protected']) $.html.error( globals.strings?.content['protected'] );
+                            else {
+                                setInHiding(entry.id);
+                                props.deleteEntry(entry.id, true);
+                            }
+                        } }>
+                            <img src={globals.strings?.content.purgify} alt="[X]" />
+                            &nbsp;
+                            <Tooltip additionalClasses="help" html={ globals.strings?.content.purge }></Tooltip>
                         </span>
                     }
                     <span className="container" dangerouslySetInnerHTML={{__html: (entry.hidden && !entry.text) ? globals.strings?.content.hidden : entry.text}}></span>

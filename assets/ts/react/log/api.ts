@@ -25,6 +25,7 @@ export interface LogEntryResponse {
     entries: LogEntry[],
     total: number,
     manipulations: number
+    purges: number
 }
 
 export interface ChatResponse {
@@ -63,8 +64,8 @@ export class LogAPI {
             .request().secure().get() as Promise<LogEntryResponse>;
     }
 
-    public deleteLog( id: number ): Promise<LogEntryResponse> {
-        return this.fetch.from(`${id}`)
+    public deleteLog( id: number, purge: boolean ): Promise<LogEntryResponse> {
+        return this.fetch.from( purge ? `${id}/full` : `${id}`)
             .request().secure().delete() as Promise<LogEntryResponse>;
     }
 
