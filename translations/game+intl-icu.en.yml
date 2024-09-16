@@ -2862,7 +2862,7 @@ Ninja_f: Shadow Master
 AP: AP
 CP: CP
 MP: MP
-'Der Raum auf den Zinnen ist begrenzt! Aktuell haben <strong>{watchers} / {cap}</strong> Nachtwächter ihren Platz eingenommen.': 'Space on the Battlements is limited! Currently, <strong>{watchers} / {cap}</strong> watchmen are defending the city.'
+'Der Raum auf den Zinnen ist begrenzt! Aktuell haben <strong>{watchers} / {cap}</strong> Nachtwächter ihren Platz eingenommen.': 'The Battlements have limited available space! Currently, <strong>{watchers}/{cap}</strong> watchmen are defending the town.'
 '<strong>Achtung:</strong> In der Bank fehlen Gegenstände, die benötigt werden, damit die Verteidigungsanlagen mit voller Stärke arbeiten können!': '<strong>Warning:</strong> The bank is missing crucial items needed for the defenses to work at full strength!'
 '{building} hat folgende Gegenstände verbraucht: {items}.': '{building} consumed the following items: {items}.'
 Schamanenkreis: Shamanic circle
@@ -2944,12 +2944,12 @@ Sandkasten-Scharfschütze_f: Sandstorm Sniper
 'Zufälliges Koalitionsmitglied': 'Random coalition member'
 'Hiermit kannst du den Namen eines zufälligen Mitglieds deiner Koalition in deinen Post anfügen.': 'Allows you to add the name of a random member of your coalition to your post.'
 '{player} ist der Stadt "{town}" beigetreten. Dort ist noch Platz für dich, du könntest ihm also folgen...': '{ref__gender, select, female {{player} has joined "{town}". There is still an available place for you there, you could then follow them...} other {{player} has joined "{town}". There is still an available place for you there, you could then follow them...} }'
-'{player} sind der Stadt "{town}" beigetreten. Dort ist noch Platz für dich, du könntest ihnen also folgen...': '{player} have joined the city "{town}". There''s still room for you there, so you could follow them...'
+'{player} sind der Stadt "{town}" beigetreten. Dort ist noch Platz für dich, du könntest ihnen also folgen...': '{player} has joined the town "{town}". There''s still room for you there, so you could follow them...'
 'Tief durchatmen!': 'Take a breath!'
-'Du kannst den Bürgern der Stadt die Errichtung eines bestimmten Gebäudes empfehlen. Klicke dafür auf den Namen des Bauprojektes, das du empfehlen willst.': 'You can recommend the construction of a specific site to the citizens of the city. To do this, click on the name of the construction site you want to recommend.'
+'Du kannst den Bürgern der Stadt die Errichtung eines bestimmten Gebäudes empfehlen. Klicke dafür auf den Namen des Bauprojektes, das du empfehlen willst.': 'You can recommend the construction of a specific site to the town''s citizens. To do this, click on the name of the construction site you would like to recommend.'
 'Klicke hier, um deinen Mitbürgern die Errichtung dieses Bauwerks zu empfehlen.': 'Click here to recommend the construction of this project to your fellow citizens.'
 'Es konnten nicht alle Einträge geladen werden, da dieses Register zu viele Einträge enthält.': 'All registry entries could not be loaded because this registry contains too many entries.'
-'Huch! Scheint, als würde dein Mitbürger nicht wollen, dass jemand seine Sachen durchstöbert. Sein Hund hat dich angefallen und dir einige tiefe Bisswunden zugefügt!': 'Wow! It sounds like your fellow citizen doesn''t want anyone going through his stuff. His dog attacked you and inflicted deep bites on you!'
+'Huch! Scheint, als würde dein Mitbürger nicht wollen, dass jemand seine Sachen durchstöbert. Sein Hund hat dich angefallen und dir einige tiefe Bisswunden zugefügt!': 'Wow! It sounds like your fellow citizen doesn''t want anyone going through their stuff. Their dog attacked you and inflicted deep bites!'
 'Tja, das hast du davon bei einem Hundebesitzer einbrechen zu wollen. Dein Blut ist bis an die Decke gespritzt. Das ist lange nicht so spaßig, wie es klingt: Irgendjemand wird hier putzen müssen.': 'Well, that''s what you get for trying to break into a dog owner''s house. Your blood splattered all the way to the ceiling. It''s not as fun as it sounds: someone''s going to have to clean up here.'
 'Bitte wähle einen Gegenstand aus deiner Truhe:': 'Please select an item from your chest:'
 Zerfleischt: Mutilated
@@ -2982,4 +2982,10 @@ Freischalten: Unlock
 'Du hast deine Fähigkeiten und Heldenerfahrung zurückgesetzt und dafür einen zusätzlichen Fähigkeiten-Punkt erhalten!': 'You have reset your skills and heroic experience and received an additional skill point!'
 'Du kannst momentan:': 'You can activate:'
 '{pack} Fähigkeiten': '{pack} Skills'
-'beim Stadtstart aktivieren.': 'when joining a city.'
+'beim Stadtstart aktivieren.': 'when joining a town.'
+'Heldenhafte Fähigkeiten sind den Helden vorbehalten. Da du keinen Heldenberuf gewählt hast, stehen dir keine besonderen Fähigkeiten zur Verfügung.': 'Heroic Abilities are reserved for heroes. Since you haven''t chosen a hero profession, you don''t have any special abilities.'
+Anfänger: Beginner
+Lehrling: Apprentice
+Experte: Expert
+Meister: Master
+'Klick hier, wenn du mit deiner Heldenfähigkeit <strong>diesen Registereintrag löschen</strong> möchtest...': 'Click here if you want to <strong>delete this registry entry</strong> with your heroic ability...'

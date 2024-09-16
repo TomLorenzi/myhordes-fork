@@ -611,7 +611,7 @@ Push-Benachrichtigungen: Notificaciones push
 'Verlustlos (bevorzugt WebP, empfehlenswert für Pixel Art)': 'Sin pérdida (WebP, recomendado para pixel art)'
 'Keine Heldenerfahrung gesammelt': 'No se obtuvo experiencia heroica'
 'Einmaliger Verdienst': 'Ganancias únicas'
-'Heldenerfahrung, die du in dieser Stadt gesammelt hast': 'Experiencia heroica que obtuviste en esta ciudad'
+'Heldenerfahrung, die du in dieser Stadt gesammelt hast': 'Experiencia heroica que obtuviste en este pueblo'
 'Deine bisherigen Verdienste': 'Tus méritos anteriores'
 Beschreibung: Descripción
 '{num} oder mehr Seelenpunkte gesammelt': '{num} o más puntos de alma colectados'
@@ -619,7 +619,8 @@ Fähigkeiten-Resets: Restablecimiento de habilidades
 'Sobald du mindestens {num} Erfahrungspunkte ausgegeben hast, kannst du deine Fertigkeiten zurücksetzen.': 'Una vez que hayas gastado al menos {num} puntos de experiencia heroica, podrás restablecer tus habilidades.'
 'Du verlierst dann alle Erfahrungspunkte und Fertigkeiten, die du in dieser Saison erspielt hast, erhälst aber für den Rest der Saison einen zusätzlichen Fähigkeitenpunkt.': 'Luego perderás todos los puntos de experiencia heroica y las habilidades que obtuviste esta temporada, pero ganarás un punto de habilidad adicional durante el resto de la temporada.'
 'Pro Saison kannst du deine Fähigkeiten maximal {num} Mal zurücksetzen.': 'Puedes restablecer tus habilidades un máximo de {num} veces por temporada.'
-'Wenn du eine Stadt als Letzter Toter beendest, erhälst du einen temporären Bonus auf deine Fertigkeitenpunkte.': 'Si terminas una ciudad como último muerto, recibirás una bonificación temporal a tus puntos de habilidad.'
+'Wenn du eine Stadt als Letzter Toter beendest, erhälst du einen temporären Bonus auf deine Fertigkeitenpunkte.': 'Si acabas un pueblo como último superviviente, recibirás una bonificación temporal a tus puntos de habilidades.'
 'Achtung: Dieser Bonus verfällt nach {num} Tagen!': 'Tenga en cuenta: ¡este bono vence después de {num} días!'
 'Verbleibende Zeit': 'Tiempo restante'
 Zurückgesetzt!: '¡Reiniciar!'
+'Fähigkeiten jetzt zurücksetzen': 'Restablecer habilidades ahora'

@@ -2436,7 +2436,7 @@ Wüstenwurmzüchter_f: Devoradora de insectos
 'Schlimmer Finger_f': 'Charlatán Amateur'
 Seelenverwerter_f: Charlatana Profesional
 'Mystischer Seher_f': 'Recicladora de almas'
-'Voodoo Sorceror_f': 'Hechicero vudú'
+'Voodoo Sorceror_f': 'Hechicera vudú'
 'Yo, wir schaffen das!_f': 'Bricoloco'
 'Kleiner Schraubendreher_f': 'Destornillador Humano'
 'Schweizer Taschenmesser_f': 'Mascafierros'
@@ -2951,9 +2951,9 @@ Sandkasten-Scharfschütze_f: Francotiradora aislada
 'Es konnten nicht alle Einträge geladen werden, da dieses Register zu viele Einträge enthält.': 'Todas las entradas de registro no han podido cargarse porque el registro contiene demasiadas entradas.'
 'Huch! Scheint, als würde dein Mitbürger nicht wollen, dass jemand seine Sachen durchstöbert. Sein Hund hat dich angefallen und dir einige tiefe Bisswunden zugefügt!': '¡Guau! Parece que tu conciudadano no quiere que nadie revise sus cosas. ¡Su perro te atacó y te mordió profundamente!'
 'Tja, das hast du davon bei einem Hundebesitzer einbrechen zu wollen. Dein Blut ist bis an die Decke gespritzt. Das ist lange nicht so spaßig, wie es klingt: Irgendjemand wird hier putzen müssen.': 'Bueno, eso es lo que te pasa por intentar entrar en la casa del dueño de un perro. Tu sangre salpicó hasta el techo. No es tan divertido como parece: alguien tendrá que limpiar aquí.'
-'Bitte wähle einen Gegenstand aus deiner Truhe:': 'Por favor selecciona un artículo de tu cofre:'
+'Bitte wähle einen Gegenstand aus deiner Truhe:': 'Por favor selecciona un artículo de tu baúl:'
 Zerfleischt: Mutilado
-'Es gibt eine gute und eine schlechte Nachricht. Lass uns mit der Guten anfangen: Der Hund des Bürgers, in dessen Haus du soeben eingebrochen bist, muss heute nicht mehr gefüttert werden. Die Schlechte: Nunja...': 'Hay buenas noticias y malas noticias. Comencemos con las buenas noticias: el perro ciudadano al que acabas de irrumpir no necesita ser alimentado hoy. Lo malo: Bueno...'
+'Es gibt eine gute und eine schlechte Nachricht. Lass uns mit der Guten anfangen: Der Hund des Bürgers, in dessen Haus du soeben eingebrochen bist, muss heute nicht mehr gefüttert werden. Die Schlechte: Nunja...': 'Hay buenas noticias y malas noticias. Comencemos con las buenas noticias: el perro del habitante al que acabas de irrumpir no necesita ser alimentado hoy. Lo malo: Bueno...'
 SP: PE
 Schritt-Punkte: Punto de Exploración
 'Mithilfe deiner Schritt-Punkte kannst du dich in der Außenwelt bewegen, ohne Aktionspunkte ausgeben zu müssen': 'Puedes usar tus Puntos de Exploración para moverte por el Ultramundo sin tener que gastar Puntos de Acción.'
@@ -2974,12 +2974,18 @@ Schritt-Punkte: Punto de Exploración
 'an Heldenerfahrung zur Verfügung.': 'Experiencia heroica disponible.'
 Benötigt: Necesario
 Freischalten: Desbloquear
-'Einwohner in der Stadt': 'Ciudadanos de la ciudad'
+'Einwohner in der Stadt': 'Habitantes del pueblo'
 '{days} Tage überlebt in "{town}"': '{days} días sobrevivieron en "{town}"'
 'Fähigkeit erworben': 'Habilidad adquirida'
 'Rudimentärer Schutz': 'Protección rudimentaria'
-'Dank der Hilfe eines anderen Bürgers wirst du diese Nacht keine Durst- oder Krankheitssymptome verspüren.': 'Gracias a la ayuda de otro ciudadano, esta noche no sentirás ningún síntoma de sed o enfermedad.'
-'Du hast deine Fähigkeiten und Heldenerfahrung zurückgesetzt und dafür einen zusätzlichen Fähigkeiten-Punkt erhalten!': '¡Has reiniciado tus habilidades y experiencia heroica y has recibido un punto de habilidad extra!'
-'Du kannst momentan:': 'Actualmente puedes:'
+'Dank der Hilfe eines anderen Bürgers wirst du diese Nacht keine Durst- oder Krankheitssymptome verspüren.': 'Gracias al cuidado de otro habitante, esta noche no sentirás ningún síntoma de sed o enfermedad.'
+'Du hast deine Fähigkeiten und Heldenerfahrung zurückgesetzt und dafür einen zusätzlichen Fähigkeiten-Punkt erhalten!': '¡Has reiniciado tus habilidades y experiencia heroica, y has recibido un punto de habilidad extra!'
+'Du kannst momentan:': 'Puedes activar:'
 '{pack} Fähigkeiten': '{pack} habilidades'
-'beim Stadtstart aktivieren.': 'Activar al salir de la ciudad.'
+'beim Stadtstart aktivieren.': 'cuando llegas a un pueblo.'
+'Heldenhafte Fähigkeiten sind den Helden vorbehalten. Da du keinen Heldenberuf gewählt hast, stehen dir keine besonderen Fähigkeiten zur Verfügung.': 'Las habilidades heroicas están reservadas para los héroes. Como no has elegido una profesión de héroe, no tienes ninguna habilidad especial.'
+Anfänger: Nuevo
+Lehrling: Aprendiz
+Experte: Experto
+Meister: Elite
+'Klick hier, wenn du mit deiner Heldenfähigkeit <strong>diesen Registereintrag löschen</strong> möchtest...': 'Haz clic aquí si quieres <strong>eliminar esta entrada de registro</strong> con tu habilidad heroica...'

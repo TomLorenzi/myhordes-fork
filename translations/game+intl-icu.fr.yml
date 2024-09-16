@@ -2980,6 +2980,12 @@ Freischalten: Déverrouiller
 'Rudimentärer Schutz': 'Protection rudimentaire'
 'Dank der Hilfe eines anderen Bürgers wirst du diese Nacht keine Durst- oder Krankheitssymptome verspüren.': 'Grâce à l''aide d''un autre citoyen, vous ne ressentirez aucun symptôme de soif ou de maladie cette nuit.'
 'Du hast deine Fähigkeiten und Heldenerfahrung zurückgesetzt und dafür einen zusätzlichen Fähigkeiten-Punkt erhalten!': 'Vous avez réinitialisé vos compétences et votre expérience héroïque et reçu un point de compétence supplémentaire !'
-'Du kannst momentan:': 'Vous pouvez actuellement :'
+'Du kannst momentan:': 'Vous pouvez activer :'
 '{pack} Fähigkeiten': '{pack} compétences'
-'beim Stadtstart aktivieren.': 'Activer au départ de la ville.'
+'beim Stadtstart aktivieren.': 'au départ d''une ville.'
+'Heldenhafte Fähigkeiten sind den Helden vorbehalten. Da du keinen Heldenberuf gewählt hast, stehen dir keine besonderen Fähigkeiten zur Verfügung.': 'Les capacités héroïques sont réservées aux héros. Puisque vous n’avez pas choisi de métier de héros, vous ne disposez d’aucune capacité particulière.'
+Anfänger: Débutant
+Lehrling: Apprenti
+Experte: Expert
+Meister: Élite
+'Klick hier, wenn du mit deiner Heldenfähigkeit <strong>diesen Registereintrag löschen</strong> möchtest...': 'Cliquez ici si vous souhaitez <strong>supprimer cette entrée de registre</strong> avec votre capacité héroïque...'
