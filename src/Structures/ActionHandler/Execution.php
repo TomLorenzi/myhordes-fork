@@ -68,8 +68,8 @@ class Execution extends Base
     public function setItemMorph(ItemPrototype $from, ItemPrototype $to, bool $forTargetItem = false): void {
         if (!$forTargetItem) {
             $this->morphed_items[] = [$from, $to];
-            //$this->addConsumedItem( $from );
-            $this->addSpawnedItem( $to );
+            // $this->addConsumedItem( $from );
+            // $this->addSpawnedItem( $to );
         } else $this->target_morphed_items = [$from, $to];
     }
 
