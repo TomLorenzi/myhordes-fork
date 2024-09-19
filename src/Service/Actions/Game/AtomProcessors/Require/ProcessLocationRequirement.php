@@ -4,6 +4,7 @@ namespace App\Service\Actions\Game\AtomProcessors\Require;
 
 use App\Entity\EscapeTimer;
 use App\Entity\RuinZone;
+use App\Entity\Zone;
 use App\Service\CitizenHandler;
 use App\Structures\ActionHandler\Evaluation;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\LocationRequirement;
@@ -48,6 +49,8 @@ class ProcessLocationRequirement extends AtomRequirementProcessor
 
             if ($data->atRuin !== null && $data->atRuin !== !!$zone->getPrototype()) return false;
             if ($data->atBuriedRuin !== null && ($data->atBuriedRuin !== !!$zone->getPrototype() || $data->atBuriedRuin !== ($zone->getBuryCount() > 0))) return false;
+
+			if ($data->hasBp !== null && $data->hasBp !== ($zone->getBlueprint() === Zone::BlueprintAvailable)) return false;
 
             if ($data->minZombies !== null && $zombies < $data->minZombies) return false;
             if ($data->maxZombies !== null && $zombies > $data->maxZombies) return false;

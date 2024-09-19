@@ -32,7 +32,9 @@ use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
  * @method self atRuin(?bool $v)
  * @property ?bool $atRuin
  * @method self atBuriedRuin(?bool $v)
- * @property ?bool $atBuriedRuin
+ * * @property ?bool $atBuriedRuin
+ * @method self hasBp(?bool $v)
+ * @property ?bool $hasBp
  * @method self isControlled(?bool $v)
  * @property ?bool $isControlled
  * @method self isTempControlled(?bool $v)

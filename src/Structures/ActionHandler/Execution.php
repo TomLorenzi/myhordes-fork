@@ -162,8 +162,6 @@ class Execution extends Base
 
         $zone = $this->target_zone ?? $this->citizen?->getZone() ?? null;
 
-        dump($this);
-
         return [
             ...$dynamic,
             '{user}'          => $wrapper($this->citizen),
