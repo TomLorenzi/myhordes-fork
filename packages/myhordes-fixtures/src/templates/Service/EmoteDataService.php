@@ -153,6 +153,8 @@ class EmoteDataService implements FixtureProcessorInterface {
             ['tag'=>':eventwin:', 'path'=>'build/images/emotes/eventwin.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 117],
             ['tag'=>':eventpart:', 'path'=>'build/images/emotes/eventpart.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 118],
             ['tag'=>':thermal:', 'path'=>'build/images/emotes/thermal.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 80],
+            ['tag'=>':decofeist:', 'path'=>'build/images/emotes/decofeist.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 81],
+            ['tag'=>':cburn:', 'path'=>'build/images/emotes/cburn.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 82],
         ]);
     }
 }
