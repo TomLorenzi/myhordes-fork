@@ -56,6 +56,7 @@ use App\Event\Game\Citizen\CitizenWorkshopOptionsData;
 use App\Event\Game\Citizen\CitizenWorkshopOptionsEvent;
 use App\Event\Game\GameInteractionEvent;
 use App\Event\Game\Items\TransferItemEvent;
+use App\Event\Game\Town\Basic\Buildings\BuildingAddonProviderEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingCatapultItemTransformEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingDestroyedDuringAttackPostEvent;
@@ -212,6 +213,13 @@ class EventProxyService
     public function queryCatapultItemTransformation( Town $town, ItemPrototype $in ): ItemPrototype {
         $this->ed->dispatch( $event = $this->ef->gameEvent( BuildingCatapultItemTransformEvent::class, $town )->setup( $in ) );
         return $event->out ?? $in;
+    }
+
+    public function queryTownAddons( Town $town ): array {
+        $this->ed->dispatch( $event = $this->ef->gameEvent( BuildingAddonProviderEvent::class, $town )->setup( ) );
+        $data = $event->list ?? [];
+        uasort( $data, fn( $a, $b ) => $a[2] <=> $b[2]);
+        return $data;
     }
 
 

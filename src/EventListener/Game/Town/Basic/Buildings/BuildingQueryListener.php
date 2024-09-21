@@ -6,12 +6,15 @@ namespace App\EventListener\Game\Town\Basic\Buildings;
 use App\Entity\ItemPrototype;
 use App\Entity\Town;
 use App\Enum\EventStages\BuildingValueQuery;
+use App\Event\Game\Town\Basic\Buildings\BuildingAddonProviderEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingCatapultItemTransformEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingQueryNightwatchDefenseBonusEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingQueryTownParameterEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingQueryTownRoleEnabledEvent;
 use App\EventListener\ContainerTypeTrait;
 use App\Service\TownHandler;
+use App\Structures\TownConf;
+use App\Translation\T;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
@@ -24,6 +27,7 @@ use Symfony\Contracts\Service\ServiceSubscriberInterface;
 #[AsEventListener(event: BuildingQueryTownParameterEvent::class, method: 'onQueryTownParameter', priority: 0)]
 #[AsEventListener(event: BuildingQueryTownRoleEnabledEvent::class, method: 'onQueryTownRoleEnabled', priority: 0)]
 #[AsEventListener(event: BuildingCatapultItemTransformEvent::class, method: 'onQueryCatapultItemTransformation', priority: 0)]
+#[AsEventListener(event: BuildingAddonProviderEvent::class, method: 'onCollectAddons', priority: 0)]
 final class BuildingQueryListener implements ServiceSubscriberInterface
 {
     use ContainerTypeTrait;
@@ -142,6 +146,33 @@ final class BuildingQueryListener implements ServiceSubscriberInterface
         $event->out = $event->in->getFragile() ? (
             $this->getService(EntityManagerInterface::class)->getRepository( ItemPrototype::class )->findOneByName( $event->in->hasProperty('pet') ? 'undef_#00' : 'broken_#00' )
         ) : null;
+    }
+
+    public function onCollectAddons( BuildingAddonProviderEvent $event ): void {
+        if ($event->townConfig->get(TownConf::CONF_FEATURE_NIGHTWATCH_INSTANT, false) && $event->townConfig->get(TownConf::CONF_FEATURE_NIGHTWATCH, true))
+            $event->addAddon( T::__('Wächt', 'game'), 'battlement', 'town_nightwatch', 3 );
+
+        foreach ($event->town->getBuildings() as $b) if ($b->getComplete()) {
+
+            if ($b->getPrototype()->getMaxLevel() > 0)
+                $event->addAddon( T::__('Verbesserung des Tages (building)', 'game'), 'upgrade', 'town_upgrades', 0 );
+
+            if ($b->getPrototype()->getName() === 'item_tagger_#00')
+                $event->addAddon( T::__('Wachturm', 'game'), 'watchtower', 'town_watchtower', 1 );
+
+            if ($b->getPrototype()->getName() === 'small_refine_#00')
+                $event->addAddon( T::__('Werkstatt (building)', 'game'), 'workshop', 'town_workshop', 2 );
+
+            if (($b->getPrototype()->getName() === 'small_round_path_#00' && !$event->townConfig->get(TownConf::CONF_FEATURE_NIGHTWATCH_INSTANT, false)) && $event->townConfig->get(TownConf::CONF_FEATURE_NIGHTWATCH, true))
+                $event->addAddon( T::__('Wächt', 'game'), 'battlement', 'town_nightwatch', 3 );
+
+            if ($b->getPrototype()->getName() === 'small_trash_#00')
+                $event->addAddon( T::__('Müllhalde', 'game'), 'dump', 'town_dump', 4 );
+
+            if ($b->getPrototype()->getName() === 'item_courroie_#00')
+                $event->addAddon( T::__('Katapult', 'game'), 'catapult', 'town_catapult', 5 );
+
+        }
     }
 
 }
