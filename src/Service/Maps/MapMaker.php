@@ -224,7 +224,7 @@ class MapMaker
 
     public function dailyZombieSpawn( Town $town, int $cycles = 1, int $mode = self::RespawnModeAuto, ?int $override_day = null ): void
     {
-        $gov = HordeSpawnGovernor::Hordes;
+        $gov = HordeSpawnGovernor::MyHordes;
 
         if ($gov->myHordes()) $this->zombieSpawnGovernorMH( $town, $gov, $cycles, $mode, $override_day );
         elseif ($gov->hordes()) for ($i = 0; $i < $cycles; $i++) $this->zombieSpawnGovernorHordes( $town, $gov, $override_day );
