@@ -331,7 +331,7 @@
                             </div>
                         {% endif %}
                         <div {{ {'cell': true, 'rw-12': true, 'town-addons': true, 'no-town-addons': addons is empty}|classes }}>
-                            {% for name, addon in addons|sort((a, b) => a[2] <=> b[2]) %}
+                            {% for name, addon in addons|slice(0,6) %}
                                 <div x-ajax-href="{{ path(addon[1]) }}" class="town-addon {% if menu_section == name %}selected{% endif %} town-addon-{{ name }}">
                                     <div></div>
                                     <span>{{ addon[0]|trans({},'game') }}</span>
@@ -344,6 +344,22 @@
                                 </div>
                             {% endfor %}
                         </div>
+                        {% if addons|length > 6 %}
+                            <div {{ {'cell': true, 'rw-12': true, 'town-addons': true, 'no-town-addons': false }|classes }}>
+                                {% for name, addon in addons|slice(6,6) %}
+                                    <div x-ajax-href="{{ path(addon[1]) }}" class="town-addon {% if menu_section == name %}selected{% endif %} town-addon-{{ name }}">
+                                        <div></div>
+                                        <span>{{ addon[0]|trans({},'game') }}</span>
+                                    </div>
+                                {% endfor %}
+                                {% for i in 0..5 %}
+                                    <div class="town-addon town-addon-empty">
+                                        <div></div>
+                                        <span></span>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
                     </div>
                     {% if builtbuildings is not empty %}
                         <div id="town_list_sm_trigger" class="row hide-desktop hide-lg hide-md">
