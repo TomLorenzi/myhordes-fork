@@ -14,18 +14,26 @@ function applyFetchFunctions( node: HTMLElement ) {
             if (payload === null && node.dataset.fetchPayloadForm) payload = $.html.serializeForm( document.querySelector(node.dataset.fetchPayloadForm) );
             else if (payload === null && node.closest('form')) payload = $.html.serializeForm( node.closest('form') );
 
+            const spinner = node.dataset.fetchNoSpin !== "0";
+
+            if (spinner) $.html.addLoadStack();
+
             (new Fetch('', false))
                 .from( node.dataset.fetch ).bodyDeterminesSuccess().withErrorMessages().withXHRHeader()
                 .request()
                 .method( node.dataset.fetchMethod ?? 'post', payload )
                 .then(data => {
                     if (node.dataset.fetchMessage && data[node.dataset.fetchMessage]) $.html.notice( data[node.dataset.fetchMessage] );
+                    else if (data['message']) $.html.notice( data['message'] );
                     if (node.dataset.fetchMessageText) $.html.notice( node.dataset.fetchMessageText );
                     if (node.dataset.fetchLoadFrom) $.ajax.load(null, data[node.dataset.fetchLoadFrom] ?? node.dataset.fetchLoad, true)
-                    else if (node.dataset.fetchLoad) $.ajax.load(null, node.dataset.fetchLoad, true)
+                    else if (node.dataset.fetchLoad) $.ajax.load(null, node.dataset.fetchLoad, true);
+                    if (spinner) $.html.removeLoadStack();
                 } )
                 .catch(data => {
+                    if (spinner) $.html.removeLoadStack();
                     if (node.dataset.fetchMessage && data[node.dataset.fetchMessage]) $.html.error( 'X' + data[node.dataset.fetchMessage] );
+                    else if (data['message']) $.html.error( data['message'] );
                 })
         })
     )

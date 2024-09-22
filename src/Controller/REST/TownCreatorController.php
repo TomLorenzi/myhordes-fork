@@ -7,6 +7,7 @@ use App\Controller\CustomAbstractCoreController;
 use App\Entity\BuildingPrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
+use App\Entity\MayorMark;
 use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\TownRulesTemplate;
@@ -15,9 +16,14 @@ use App\Response\AjaxResponse;
 use App\Service\Actions\Ghost\CreateTownFromConfigAction;
 use App\Service\Actions\Ghost\SanitizeTownConfigAction;
 use App\Service\ErrorHelper;
+use App\Service\GameFactory;
+use App\Service\GameProfilerService;
 use App\Service\JSONRequestParser;
+use App\Service\TownHandler;
 use App\Service\UserHandler;
+use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
+use App\Structures\TownSetup;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -596,6 +602,90 @@ class TownCreatorController extends CustomAbstractCoreController
         SanitizeTownConfigAction $sanitizer
     ): JsonResponse {
         return new JsonResponse(['rules' => $sanitizer->restore( $template->getData() )]);
+    }
+
+    /**
+     * @param JSONRequestParser $parser
+     * @param GameFactory $gameFactory
+     * @param TownHandler $townHandler
+     * @param GameProfilerService $gps
+     * @param EntityManagerInterface $em
+     * @return Response
+     * @throws Exception
+     */
+    #[Route(path: '/create-town', name: 'create-town-mayor', methods: ['PUT'])]
+    public function add_town_mayor( JSONRequestParser $parser, GameFactory $gameFactory, TownHandler $townHandler, GameProfilerService $gps, EntityManagerInterface $em): Response {
+
+        if ($em->getRepository(Town::class)->count(['creator' => $this->getUser(), 'mayor' => true]) > 0)
+            return new JsonResponse([], Response::HTTP_CONFLICT);
+
+        if ($em->getRepository(Town::class)->count(['mayor' => true]) > 14)
+            return new JsonResponse(Response::HTTP_CONFLICT);
+
+        if ($this->getUser()->getAllSoulPoints() < 250)
+            return new JsonResponse([], Response::HTTP_CONFLICT);
+
+        $town_type = $parser->get('pTownType', null, ['small','remote','panda']);
+        $town_lang = $parser->get('pTownLang', null, [...$this->generatedLangsCodes, 'multi']);
+        $town_time = $parser->get('pTownStartDate', null);
+        $town_use_time = $parser->get('pTownStart', null, ['now','defer']);
+
+        if (empty($town_type) || empty($town_lang) || empty($town_use_time))
+            return new JsonResponse([], Response::HTTP_UNPROCESSABLE_ENTITY);
+
+        if ($town_use_time === 'now') $town_time = null;
+        else try {
+            $town_time = new \DateTime($town_time);
+            if ($town_time <= new \DateTime()) $town_time = null;
+        } catch (\Exception $e) {
+            return new JsonResponse([], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        if ($town_time && $town_time > (new DateTime('today+15days')))
+            return new JsonResponse([], Response::HTTP_UNPROCESSABLE_ENTITY);
+
+        $check_time = $town_time ? (clone $town_time) : new DateTime();
+
+        $current_events = $this->conf->getCurrentEvents();
+        $name_changers = array_values(
+            array_map( fn(EventConf $e) => $e->get( EventConf::EVENT_MUTATE_NAME ), array_filter($current_events,fn(EventConf $e) => $e->active() && $e->get( EventConf::EVENT_MUTATE_NAME )))
+        );
+
+        $town = $gameFactory->createTown( new TownSetup( $town_type, language: $town_lang, nameMutator: $name_changers[0] ?? null ));
+        if (!$town) return new JsonResponse([], Response::HTTP_INTERNAL_SERVER_ERROR);
+
+        $town
+            ->setScheduledFor( $town_time )
+            ->setMayor( true )
+            ->setCreator( $this->getUser() );
+
+        try {
+            $em->persist( $town );
+            $em->persist( (new MayorMark())
+                ->setUser( $this->getUser() )
+                ->setMayor( true )
+                ->setExpires( ($town_time ? (clone $town_time) : new DateTime())->modify('+30days') )
+            );
+
+            $em->flush();
+            $gps->recordTownCreated( $town, $this->getUser(), 'mayor' );
+            $em->flush();
+
+        } catch (Exception $e) {
+            return new JsonResponse([], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+
+        $current_event_names = array_map(fn(EventConf $e) => $e->name(), array_filter($current_events, fn(EventConf $e) => $e->active()));
+        if (!empty($current_event_names)) {
+            if (!$townHandler->updateCurrentEvents($town, $current_events)) {
+                $em->clear();
+            } else {
+                $em->persist($town);
+                $em->flush();
+            }
+        }
+
+        return AjaxResponse::successMessage($this->translator->trans('Deine Stadt wurde erfolgreich angelegt.', [], 'soul'));
     }
 
 }

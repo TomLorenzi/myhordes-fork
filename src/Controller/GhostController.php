@@ -11,6 +11,7 @@ use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenRole;
 use App\Entity\HeroSkillPrototype;
+use App\Entity\MayorMark;
 use App\Entity\Season;
 use App\Entity\SpecialActionPrototype;
 use App\Entity\TeamTicket;
@@ -35,7 +36,9 @@ use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Structures\TownSetup;
+use DateTime;
 use Doctrine\Common\Collections\Criteria;
+use Doctrine\Common\Collections\Expr\Comparison;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\HttpFoundation\Request;
@@ -143,9 +146,10 @@ class GhostController extends CustomAbstractController
      * @param EntityManagerInterface $em
      * @return Response
      */
-    #[Route(path: 'jx/ghost/create_town', name: 'ghost_create_town')]
-    #[Route(path: 'jx/ghost/create_town_rc', name: 'ghost_create_town_rc')]
-    public function create_town(EntityManagerInterface $em): Response
+    #[Route(path: 'jx/ghost/create_town', name: 'ghost_create_town', defaults: ['tab' => 'private'])]
+    #[Route(path: 'jx/ghost/create/private', name: 'ghost_create_private_town', defaults: ['tab' => 'private'])]
+    #[Route(path: 'jx/ghost/create/public', name: 'ghost_create_public_town', defaults: ['tab' => 'public'])]
+    public function create_town(EntityManagerInterface $em, string $tab): Response
     {
         /** @var User $user */
         $user = $this->getUser();
@@ -156,13 +160,24 @@ class GhostController extends CustomAbstractController
 
         $limit = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_TOWNS_MAX_PRIVATE, 10);
 
+        $open_town = $this->entity_manager->getRepository(Town::class)
+            ->findBy(['creator' => $user, 'mayor' => true]);
+
         return $this->render( 'ajax/ghost/create_town_rc.html.twig', $this->addDefaultTwigArgs(null, [
+            'tab' => $tab,
             'town_limit' => $limit,
             'limit_reached' => count(array_filter($em->getRepository(Town::class)->findOpenTown(), fn(Town $t) => $t->getType()->getName() === 'custom')) >= $limit,
             'townClasses' => $em->getRepository(TownClass::class)->findBy(['hasPreset' => true]),
             'professions' => array_filter( $em->getRepository(CitizenProfession::class)->findAll(), fn(CitizenProfession $pro) => $pro->getName() !== CitizenProfession::DEFAULT ),
             'constructions' => $em->getRepository(BuildingPrototype::class)->findAll(),
-            'langs' => $this->generatedLangs
+            'langs' => $this->generatedLangs,
+            'mayorTowns' => $open_town,
+            'canMayorTowns' => $user->getAllSoulPoints() >= 250,
+            'mayorBlocked' => !$em->getRepository(MayorMark::class)->matching( (new Criteria())
+                ->where( new Comparison( 'user', Comparison::EQ, $user )  )
+                ->andWhere( new Comparison( 'expires', Comparison::GT, new \DateTime() ) )
+            )->isEmpty(),
+            'tooMany' => $em->getRepository(Town::class)->count(['mayor' => true]) > 14,
         ]));
     }
 
@@ -214,6 +229,12 @@ class GhostController extends CustomAbstractController
         try {
             $this->entity_manager->persist($town);
             $this->entity_manager->persist($citizen);
+            if ($town->isMayor() && $town->getCreator()?->getId() !== $user->getId())
+                $this->entity_manager->persist( (new MayorMark())
+                    ->setUser( $this->getUser() )
+                    ->setCitizen( true )
+                    ->setExpires( (new DateTime())->modify('+15days') )
+                );
             $this->entity_manager->flush();
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);

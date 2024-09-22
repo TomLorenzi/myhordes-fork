@@ -26,12 +26,11 @@
                     <div class="tab tab-floater">
                         {% if canCreateTown %}
                             <div class="tab">
-                                <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('ghost_create_town') }}"><img src="{{ asset('build/images/item/item_chair.gif') }}" alt=""/><span class="hide-md hide-sm"> {% trans from 'ghost' %}Privatstadt gründen{% endtrans %}</span></div>
+                                <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('ghost_create_town') }}"><img src="{{ asset('build/images/emotes/hero.gif') }}" alt=""/><span class="hide-md hide-sm"> {% trans from 'ghost' %}Eine Stadt gründen{% endtrans %}</span></div>
                             </div>
                             <div class="tab selected">
                                 <div class="tab-link"><img src="{{ asset('build/images/icons/small_world.gif') }}" alt="" /><span class="hide-md hide-sm"> {% trans from 'ghost' %}Einer Stadt beitreten{% endtrans %}</span></div>
                             </div>
-
                         {% endif %}
                     </div>
                 </div>

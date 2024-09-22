@@ -15,6 +15,7 @@ use App\Entity\Forum;
 use App\Entity\Gazette;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
+use App\Entity\MayorMark;
 use App\Entity\Season;
 use App\Entity\Shoutbox;
 use App\Entity\ShoutboxEntry;
@@ -41,6 +42,8 @@ use App\Structures\TownSetup;
 use App\Traits\System\PrimeInfo;
 use App\Translation\T;
 use DateInterval;
+use Doctrine\Common\Collections\Criteria;
+use Doctrine\Common\Collections\Expr\Comparison;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -607,6 +610,18 @@ class GameFactory
         if (!$internal && $this->user_handler->getConsecutiveDeathLock($user)) {
             $error = ErrorHelper::ErrorPermissionError;
             return false;
+        }
+
+        if (!$internal && $town->isMayor() && $town->getCreator()?->getId() !== $user->getId()) {
+            $mark = !$this->entity_manager->getRepository(MayorMark::class)->matching( (new Criteria())
+                ->where( new Comparison( 'user', Comparison::EQ, $user )  )
+                ->andWhere( new Comparison( 'expires', Comparison::GT, new \DateTime() ) )
+            )->isEmpty();
+
+            if ($mark) {
+                $error = ErrorHelper::ErrorPermissionError;
+                return false;
+            }
         }
 
         if (!$internal && $this->user_handler->isRestricted($user, AccountRestriction::RestrictionGameplay )) {

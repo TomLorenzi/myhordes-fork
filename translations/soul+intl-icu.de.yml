@@ -624,3 +624,8 @@ Fähigkeiten-Resets: Fähigkeiten-Resets
 'Verbleibende Zeit': 'Verbleibende Zeit'
 Zurückgesetzt!: Zurückgesetzt!
 'Fähigkeiten jetzt zurücksetzen': 'Fähigkeiten jetzt zurücksetzen'
+'Deine Stadt wurde erfolgreich angelegt.': 'Deine Stadt wurde erfolgreich angelegt.'
+'Öffentliche Stadt': 'Öffentliche Stadt'
+'Du kannst aktuell keine öffentlichen Städte erstellen (Missbrauchsschutz). Bitte warte ein paar Tage und versuche es dann erneut.': 'Du kannst aktuell keine öffentlichen Städte erstellen (Missbrauchsschutz). Bitte warte ein paar Tage und versuche es dann erneut.'
+'Es sind bereits zu viele öffentliche Städte geplant. Du kannst aktuell keine weiteren Städte anfordern.': 'Es sind bereits zu viele öffentliche Städte geplant. Du kannst aktuell keine weiteren Städte anfordern.'
+'Du benötigst mindestens {sp} Seelenpunkte, um eine Stadt zu eröffnen.': 'Du benötigst mindestens {sp} Seelenpunkte, um eine Stadt zu eröffnen.'
