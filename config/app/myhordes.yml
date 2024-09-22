@@ -106,7 +106,7 @@ parameters:
       openmin:
         remote: 1
         panda: 1
-        small: 1
+        small: 0
         custom: 0
     soul_import:
       enabled: true

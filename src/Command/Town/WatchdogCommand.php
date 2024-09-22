@@ -60,7 +60,7 @@ class WatchdogCommand extends Command implements SelfSchedulingCommand
         }
 
         $minOpenTown = [
-            'small'  => $conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_SMALL, 1 ),
+            'small'  => $conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_SMALL, 0 ),
             'remote' => $conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_REMOTE, 1 ),
             'panda'  => $conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_PANDA, 1 ),
             'custom' => $conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_CUSTOM, 0 ),
