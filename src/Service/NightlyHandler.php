@@ -973,7 +973,10 @@ class NightlyHandler
                 $all_targets[$citizen->getId()] = $citizen;
 
         $max_active = $this->events->queryTownParameter( $town, BuildingValueQuery::MaxActiveZombies, count($all_targets) );
-		$in_town = min(10, ceil(count($all_targets) * 1.0));
+		$in_town = min(
+            10 + 5 * ceil(max(0, $town->getDay() - 10)/5),
+            ceil(count($all_targets) * 1.0)
+        );
 		
 		$attacking = min($max_active, $overflow);
 

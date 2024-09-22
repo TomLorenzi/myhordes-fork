@@ -65,7 +65,8 @@ class TownAttackCommand extends Command
             ->addArgument('schedule', InputArgument::OPTIONAL, 'Schedule ID. Can be omitted in dry run mode.')
 
             ->addOption('dry-run', null, InputOption::VALUE_NONE, 'Does not persist any changes.')
-            ->addOption('seed', null, InputOption::VALUE_REQUIRED, 'Provides a manual seed value. If unset, a random value will be used.');
+            ->addOption('seed', null, InputOption::VALUE_REQUIRED, 'Provides a manual seed value. If unset, a random value will be used.')
+            ->addOption('door', null, InputOption::VALUE_REQUIRED, 'Set to 1 to force the door to be open or 0 to force it closed, regardless of actual state');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -78,6 +79,10 @@ class TownAttackCommand extends Command
 
         $dry_run = $input->getOption('dry-run');
         $seed = $input->getOption('seed') ?? mt_rand();
+
+        $door = $input->getOption('door');
+        if ($door !== null)
+            $door = !!$door;
 
         $this->log->info("Attack processor has been invoked. Town: <info>$town_id</info>, Schedule: <info>$schedule_id</info>, Seed: <info>$seed</info>, Dry-Run Mode: <info>" . ($dry_run ? 'yes' : 'no') . "</info>");
         if ($dry_run) $output->writeln( "<bg=yellow;fg=white>Dry Run Mode. No changes will be persisted.</>", OutputInterface::VERBOSITY_VERBOSE );
@@ -94,6 +99,11 @@ class TownAttackCommand extends Command
 
         $output->writeln( "Using seed <fg=yellow>$seed</>.", OutputInterface::VERBOSITY_VERBOSE );
         mt_srand($seed);
+
+        if ($door !== null) {
+            $town->setDoor($door);
+            $output->writeln( "Forcing door " . ($door ? "<bg=yellow;fg=white>open</>" : "<bg=yellow;fg=white>closed</>."), OutputInterface::VERBOSITY_VERBOSE );
+        }
 
         $events = $this->conf_master->getCurrentEvents();
         $town_conf = $this->conf_master->getTownConfiguration($town);
