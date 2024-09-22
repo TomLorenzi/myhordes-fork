@@ -359,3 +359,15 @@ Roulette: crwdns205042:0crwdne205042:0
 'Dies geschieht sowohl passiv durch deinen Überlebenskampf als auch aktiv durch bestimmte Taten, die du vollbringst. Hier findest du eine Auflistung der Erfahrung, die du in diesem Leben gesammelt hast.': 'crwdns205712:0crwdne205712:0'
 Fähigkeiten: crwdns205744:0crwdne205744:0
 Fähigkeitenpunkte: crwdns205746:0crwdne205746:0
+'Eine Stadt gründen': 'crwdns205792:0crwdne205792:0'
+'Privatstädte ermöglichen es, zahlreiche Spielregeln anzupassen und den Zugang zur Stadt einzuschränken.': 'crwdns205794:0crwdne205794:0'
+'Sie sind jedoch grundsätzlich vom Ranking ausgeschlossen!': 'crwdns205796:0crwdne205796:0'
+'Öffentliche Städte folgen den normalen Regeln von MyHordes. Falls du mit einer größeren Gruppe von Spielern unterwegs bist, kannst du hier für eine öffentliche Stadt für einen bestimmten Zeitpunkt vormerken.': 'crwdns205798:0crwdne205798:0'
+'Ist eine solche Stadt erstellt, kann jeder Spieler ihr beitreten.': 'crwdns205800:0crwdne205800:0'
+'Öffentliche Städte sind im Gegensatz zu Privaten Städten NICHT vom Ranking ausgeschlossen.': 'crwdns205802:0crwdne205802:0'
+'Wichtig:': 'crwdns205804:0crwdne205804:0'
+'Wenn du eine öffentliche Stadt anlegst, kannst du für bis zu {days} Tage nach dem Stadtstart keiner öffentlichen Stadt beitreten, die von einem anderen Spieler angelegt wurde.': 'crwdns205806:0{days}crwdne205806:0'
+'Wenn du einer von einem anderen Spieler angelegten öffentlichen Stadt beitrittst, kannst du bis zu {days} Tage keine eigene Stadt eröffnen oder einer Stadt eines anderen Spielers beitreten.': 'crwdns205808:0{days}crwdne205808:0'
+Stadtstart: crwdns205810:0crwdne205810:0
+'Deine Stadt': 'crwdns205812:0crwdne205812:0'
+'Du kannst maximal eine öffentliche Stadt gleichzeitig gründen.': 'crwdns205814:0crwdne205814:0'

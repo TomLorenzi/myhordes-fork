@@ -2984,8 +2984,10 @@ Freischalten: Desbloquear
 '{pack} Fähigkeiten': '{pack} habilidades'
 'beim Stadtstart aktivieren.': 'cuando llegas a un pueblo.'
 'Heldenhafte Fähigkeiten sind den Helden vorbehalten. Da du keinen Heldenberuf gewählt hast, stehen dir keine besonderen Fähigkeiten zur Verfügung.': 'Las habilidades heroicas están reservadas para los héroes. Como no has elegido una profesión de héroe, no tienes ninguna habilidad especial.'
-Anfänger: Nuevo
+Anfänger: Novato
 Lehrling: Aprendiz
 Experte: Experto
 Meister: Elite
 'Klick hier, wenn du mit deiner Heldenfähigkeit <strong>diesen Registereintrag löschen</strong> möchtest...': 'Haz clic aquí si quieres <strong>eliminar esta entrada de registro</strong> con tu habilidad heroica...'
+Sofort: Sofort
+'Angegebener Zeitpunkt': 'Angegebener Zeitpunkt'

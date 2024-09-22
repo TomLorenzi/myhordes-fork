@@ -624,3 +624,8 @@ Fähigkeiten-Resets: crwdns205718:0crwdne205718:0
 'Verbleibende Zeit': 'crwdns205730:0crwdne205730:0'
 Zurückgesetzt!: crwdns205732:0crwdne205732:0
 'Fähigkeiten jetzt zurücksetzen': 'crwdns205748:0crwdne205748:0'
+'Deine Stadt wurde erfolgreich angelegt.': 'crwdns205778:0crwdne205778:0'
+'Öffentliche Stadt': 'crwdns205780:0crwdne205780:0'
+'Du kannst aktuell keine öffentlichen Städte erstellen (Missbrauchsschutz). Bitte warte ein paar Tage und versuche es dann erneut.': 'crwdns205782:0crwdne205782:0'
+'Es sind bereits zu viele öffentliche Städte geplant. Du kannst aktuell keine weiteren Städte anfordern.': 'crwdns205784:0crwdne205784:0'
+'Du benötigst mindestens {sp} Seelenpunkte, um eine Stadt zu eröffnen.': 'crwdns205786:0{sp}crwdne205786:0'

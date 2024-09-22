@@ -2211,7 +2211,7 @@ Löschen: crwdns194419:0crwdne194419:0
 'Die Anzahl der Sterne gibt dir eine Vorstellung von der heutigen Aktivität des Einwohners {citizen}: Anwesenheit, Besuche im Forum, Arbeit im Dorf, etc.': 'crwdns194437:0{citizen}crwdne194437:0'
 'Du kannst diese Aktion im Lernmodus nicht ausführen. <strong>Zuerst musst du noch etwas Spielerfahrung sammeln</strong>.<hr/>Klicke auf den Link bei Lernmodus, um diesen Modus zu deaktivieren.': 'crwdns194439:0crwdne194439:0'
 'Der Schwierigkeitsgrad ist in dieser Stadt geringer. Deswegen gilt sie nicht für das Saison-Ranking. Die Außenwelt ist durchschnittlich 13x13 Felder groß.': 'crwdns194441:0crwdne194441:0'
-'Bei den entfernten Regionen handelt es sich um Städte, die nur von sehr erfahrenen Spielern gespielt werden dürfen (<strong>{splimit} Seelenpunkte</strong>). <p>Diese Städte sind den Veteranen vorbehalten.</p><p>Die entsprechenden Karten der entfernten Regionen sind <strong>weitaus größer</strong> und es gibt mehr zu erforschen.</p>': 'crwdns194443:0{splimit}crwdne194443:0'
+'Bei den entfernten Regionen handelt es sich um Städte, die nur von sehr erfahrenen Spielern gespielt werden dürfen (<strong>{splimit} Seelenpunkte</strong>). <p>Diese Städte sind den Veteranen vorbehalten.</p><p>Die entsprechenden Karten der entfernten Regionen sind <strong>weitaus größer</strong> und es gibt mehr zu erforschen.</p>': 'crwdns205774:0crwdne205774:0'
 'Pandämoniumstädte sind <strong>weitaus schwieriger</strong> als normale Städte! Dementsprechend sind auch die Belohnungen und Gewinnmöglichkeiten besser.<br /><strong>Du benötigst mindestens {splimit} Seelenpunkte</strong>, um in diesen Städten spielen zu dürfen.': 'crwdns194445:0{splimit}crwdne194445:0'
 'Ein Moderator hat deinen Thread "{threadname}" in das Forum "{forumname}" verschoben. {link_post}': 'crwdns194447:0{threadname}crwdnd194447:0{forumname}crwdnd194447:0{link_post}crwdne194447:0'
 'Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.': 'crwdns194449:0crwdne194449:0'
@@ -2989,3 +2989,5 @@ Lehrling: crwdns205754:0crwdne205754:0
 Experte: crwdns205756:0crwdne205756:0
 Meister: crwdns205758:0crwdne205758:0
 'Klick hier, wenn du mit deiner Heldenfähigkeit <strong>diesen Registereintrag löschen</strong> möchtest...': 'crwdns205760:0crwdne205760:0'
+Sofort: crwdns205788:0crwdne205788:0
+'Angegebener Zeitpunkt': 'crwdns205790:0crwdne205790:0'
