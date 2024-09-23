@@ -266,6 +266,9 @@ class GameController extends CustomAbstractController
             $citizen->setAlias( $alias );
         }
 
+		if (in_array($new_profession->getName(), $town_conf->get(TownConf::CONF_DISABLED_JOBS)))
+			return AjaxResponse::error(self::ErrorJobInvalid);
+
         $this->citizen_handler->applyProfession( $citizen, $new_profession );
         $inventory = $citizen->getInventory();
 		$null = null;
