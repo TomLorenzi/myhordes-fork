@@ -363,7 +363,7 @@
                             {% block title %}{% trans from 'game' %}Mein Rucksack{% endtrans %}{% endblock %}
                         {% endembed %}
                     {% endif %}
-                    {% if owner.zone and not protect %}
+                    {% if (owner.zone or master_thief) and not protect %}
 
                         {% if intruding != 0 %}
                             <button x-action-id="leave">{{'Abbrechen'|trans({}, 'global')}}</button>
@@ -376,8 +376,8 @@
 
                     {% endif %}
 
-                    {% if not owner.zone and not hidden %}
-                    <div class="notice">{{'Du kannst nichts von {citizen} stehlen, solange <strong>er (sie) in der Stadt ist</strong>...'|trans({citizen: owner}, 'game')|raw}}</div>
+                    {% if not owner.zone and not master_thief and not hidden %}
+                        <div class="notice">{{'Du kannst nichts von {citizen} stehlen, solange <strong>er (sie) in der Stadt ist</strong>...'|trans({citizen: owner}, 'game')|raw}}</div>
                     {% endif %}
                     {% if protect %}
                         <div class="notice">{{'Du siehst keine Möglichkeit, hier einzubrechen ...'|trans({citizen: owner}, 'game')|raw}}</div>

@@ -880,9 +880,9 @@ class CitizenHandler
         return $all;
     }
 
-    public function houseIsProtected(Citizen $c, bool $only_explicit_lock = false) {
+    public function houseIsProtected(Citizen $c, bool $only_explicit_lock = false, Citizen $thief = null) {
         if (!$c->getAlive()) return false;
-        if (!$c->getZone() && !$only_explicit_lock) return true;
+        if (!$c->getZone() && !$thief?->property( CitizenProperties::EnableAdvancedTheft ) && !$only_explicit_lock) return true;
         if ($c->getHome()->getPrototype()->getTheftProtection()) return true;
         if ($c->getHome()->hasTag('lock')) return true;
         if ($this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(

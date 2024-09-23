@@ -376,6 +376,7 @@ class TownController extends InventoryAwareController
 
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
             'owner' => $c,
+            'master_thief' => $this->getActiveCitizen()->property( CitizenProperties::EnableAdvancedTheft ),
             'can_attack' => !$this->getActiveCitizen()->getBanished() && !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= $this->getTownConf()->get( TownConf::CONF_MODIFIER_ATTACK_AP, 5 ),
             'can_devour' => $this->getActiveCitizen()->hasRole('ghoul'),
             'allow_devour' => !$this->getActiveCitizen()->getBanished() && !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_eat'),
@@ -701,8 +702,9 @@ class TownController extends InventoryAwareController
 
         $action = $parser->get_int('action');
 
+        $master_thief = $this->getActiveCitizen()->property( CitizenProperties::EnableAdvancedTheft );
         $victim = $this->entity_manager->getRepository(Citizen::class)->find( $id );
-        if (!$victim || $victim->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId() || ($this->citizen_handler->houseIsProtected($victim, true) && $victim->getAlive()) || (!$victim->getZone() && $victim->getAlive()))
+        if (!$victim || $victim->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId() || ($this->citizen_handler->houseIsProtected($victim, true) && $victim->getAlive()) || ((!$victim->getZone() && !$master_thief) && $victim->getAlive()))
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
         if ($action !== 0) {

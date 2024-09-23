@@ -270,7 +270,7 @@ final class TransferItemListener implements ServiceSubscriberInterface
                 $ch = $this->getService(CitizenHandler::class);
 
                 // Check house protection
-                if ($ch->houseIsProtected( $victim )) {
+                if ($ch->houseIsProtected( $victim, thief: $event->actor )) {
                     $event->pushError(InventoryHandler::ErrorStealBlocked);
                     return;
                 }
