@@ -624,8 +624,8 @@ Fähigkeiten-Resets: Skill resets
 'Verbleibende Zeit': 'Remaining time'
 Zurückgesetzt!: Reset!
 'Fähigkeiten jetzt zurücksetzen': 'Reset skills now'
-'Deine Stadt wurde erfolgreich angelegt.': 'Deine Stadt wurde erfolgreich angelegt.'
-'Öffentliche Stadt': 'Öffentliche Stadt'
-'Du kannst aktuell keine öffentlichen Städte erstellen (Missbrauchsschutz). Bitte warte ein paar Tage und versuche es dann erneut.': 'Du kannst aktuell keine öffentlichen Städte erstellen (Missbrauchsschutz). Bitte warte ein paar Tage und versuche es dann erneut.'
-'Es sind bereits zu viele öffentliche Städte geplant. Du kannst aktuell keine weiteren Städte anfordern.': 'Es sind bereits zu viele öffentliche Städte geplant. Du kannst aktuell keine weiteren Städte anfordern.'
-'Du benötigst mindestens {sp} Seelenpunkte, um eine Stadt zu eröffnen.': 'Du benötigst mindestens {sp} Seelenpunkte, um eine Stadt zu eröffnen.'
+'Deine Stadt wurde erfolgreich angelegt.': 'Your city has been created successfully.'
+'Öffentliche Stadt': 'Public city'
+'Du kannst aktuell keine öffentlichen Städte erstellen (Missbrauchsschutz). Bitte warte ein paar Tage und versuche es dann erneut.': 'You cannot currently create public cities (abuse protection). Please wait a few days and then try again.'
+'Es sind bereits zu viele öffentliche Städte geplant. Du kannst aktuell keine weiteren Städte anfordern.': 'There are already too many public cities planned. You cannot request more cities at this time.'
+'Du benötigst mindestens {sp} Seelenpunkte, um eine Stadt zu eröffnen.': 'You need at least {sp} soul points to open a city.'

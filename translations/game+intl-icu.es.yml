@@ -2211,7 +2211,7 @@ Löschen: Borrar
 'Die Anzahl der Sterne gibt dir eine Vorstellung von der heutigen Aktivität des Einwohners {citizen}: Anwesenheit, Besuche im Forum, Arbeit im Dorf, etc.': 'Esta cantidad de estrellas te da una idea de la actividad del habitante {citizen}: hoy: presencia, visitas al foro, trabajo en el pueblo, etc.'
 'Du kannst diese Aktion im Lernmodus nicht ausführen. <strong>Zuerst musst du noch etwas Spielerfahrung sammeln</strong>.<hr/>Klicke auf den Link bei Lernmodus, um diesen Modus zu deaktivieren.': 'No puedes hacer eso en Modo Aprendizaje. <strong>Esta acción requiere una experiencia elevada en el juego</strong>.<hr/>Puedes desactivar el Modo Aprendizaje con el botón del mismo nombre.'
 'Der Schwierigkeitsgrad ist in dieser Stadt geringer. Deswegen gilt sie nicht für das Saison-Ranking. Die Außenwelt ist durchschnittlich 13x13 Felder groß.': 'En este pueblo, la dificultad es reducida, pero no participa en la clasificación de la temporada. El tamaño del mapa es en promedio de 13x13.'
-'Bei den entfernten Regionen handelt es sich um Städte, die nur von sehr erfahrenen Spielern gespielt werden dürfen (<strong>{splimit} Seelenpunkte</strong>). <p>Diese Städte sind den Veteranen vorbehalten.</p><p>Die entsprechenden Karten der entfernten Regionen sind <strong>weitaus größer</strong> und es gibt mehr zu erforschen.</p>': 'Son pueblos a los que solo pueden acceder los jugadores con suficiente experiencia en el juego (<strong>{splimit} Puntos de Alma</strong> como mínimo).'
+'Bei den entfernten Regionen handelt es sich um Städte, die nur von sehr erfahrenen Spielern gespielt werden dürfen (<strong>{splimit} Seelenpunkte</strong>). <p>Diese Städte sind den Veteranen vorbehalten.</p><p>Die entsprechenden Karten der entfernten Regionen sind <strong>weitaus größer</strong> und es gibt mehr zu erforschen.</p>': 'Todos los jugadores pueden unirse a pueblos leyenda. <p>Además los mapas de los pueblos leyenda son <strong>mucho más grandes</strong> que otros, y permiten una exploración más profunda.</p>'
 'Pandämoniumstädte sind <strong>weitaus schwieriger</strong> als normale Städte! Dementsprechend sind auch die Belohnungen und Gewinnmöglichkeiten besser.<br /><strong>Du benötigst mindestens {splimit} Seelenpunkte</strong>, um in diesen Städten spielen zu dürfen.': '¡Los pueblos de Pandemonio son famosos por ser <strong>mucho más difíciles que los demás</strong>!<br /><strong>Necesitas {splimit} Puntos de Alma</strong> como mínimo para entrar.'
 'Ein Moderator hat deinen Thread "{threadname}" in das Forum "{forumname}" verschoben. {link_post}': 'Tu tema "{threadname}" ha sido desplazado al Foro "{forumname}" por un moderador. {link_post}'
 'Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.': 'No puedes realizar esta acción actualmente.'
@@ -2989,5 +2989,5 @@ Lehrling: Aprendiz
 Experte: Experto
 Meister: Elite
 'Klick hier, wenn du mit deiner Heldenfähigkeit <strong>diesen Registereintrag löschen</strong> möchtest...': 'Haz clic aquí si quieres <strong>eliminar esta entrada de registro</strong> con tu habilidad heroica...'
-Sofort: Sofort
-'Angegebener Zeitpunkt': 'Angegebener Zeitpunkt'
+Sofort: Inmediatamente
+'Angegebener Zeitpunkt': 'Hora especificada'

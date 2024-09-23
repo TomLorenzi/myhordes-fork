@@ -359,15 +359,15 @@ Roulette: Roulette
 'Dies geschieht sowohl passiv durch deinen Überlebenskampf als auch aktiv durch bestimmte Taten, die du vollbringst. Hier findest du eine Auflistung der Erfahrung, die du in diesem Leben gesammelt hast.': 'Cela se produit à la fois passivement à travers votre lutte pour la survie et activement à travers certaines actions que vous effectuez. Vous trouverez ici une liste des expériences que vous avez acquises dans cette vie.'
 Fähigkeiten: Compétences
 Fähigkeitenpunkte: Points de compétence
-'Eine Stadt gründen': 'Eine Stadt gründen'
-'Privatstädte ermöglichen es, zahlreiche Spielregeln anzupassen und den Zugang zur Stadt einzuschränken.': 'Privatstädte ermöglichen es, zahlreiche Spielregeln anzupassen und den Zugang zur Stadt einzuschränken.'
-'Sie sind jedoch grundsätzlich vom Ranking ausgeschlossen!': 'Sie sind jedoch grundsätzlich vom Ranking ausgeschlossen!'
-'Öffentliche Städte folgen den normalen Regeln von MyHordes. Falls du mit einer größeren Gruppe von Spielern unterwegs bist, kannst du hier für eine öffentliche Stadt für einen bestimmten Zeitpunkt vormerken.': 'Öffentliche Städte folgen den normalen Regeln von MyHordes. Falls du mit einer größeren Gruppe von Spielern unterwegs bist, kannst du hier für eine öffentliche Stadt für einen bestimmten Zeitpunkt vormerken.'
-'Ist eine solche Stadt erstellt, kann jeder Spieler ihr beitreten.': 'Ist eine solche Stadt erstellt, kann jeder Spieler ihr beitreten.'
-'Öffentliche Städte sind im Gegensatz zu Privaten Städten NICHT vom Ranking ausgeschlossen.': 'Öffentliche Städte sind im Gegensatz zu Privaten Städten NICHT vom Ranking ausgeschlossen.'
-'Wichtig:': 'Wichtig:'
-'Wenn du eine öffentliche Stadt anlegst, kannst du für bis zu {days} Tage nach dem Stadtstart keiner öffentlichen Stadt beitreten, die von einem anderen Spieler angelegt wurde.': 'Wenn du eine öffentliche Stadt anlegst, kannst du für bis zu {days} Tage nach dem Stadtstart keiner öffentlichen Stadt beitreten, die von einem anderen Spieler angelegt wurde.'
-'Wenn du einer von einem anderen Spieler angelegten öffentlichen Stadt beitrittst, kannst du bis zu {days} Tage keine eigene Stadt eröffnen oder einer Stadt eines anderen Spielers beitreten.': 'Wenn du einer von einem anderen Spieler angelegten öffentlichen Stadt beitrittst, kannst du bis zu {days} Tage keine eigene Stadt eröffnen oder einer Stadt eines anderen Spielers beitreten.'
-Stadtstart: Stadtstart
-'Deine Stadt': 'Deine Stadt'
-'Du kannst maximal eine öffentliche Stadt gleichzeitig gründen.': 'Du kannst maximal eine öffentliche Stadt gleichzeitig gründen.'
+'Eine Stadt gründen': 'Créer une ville'
+'Privatstädte ermöglichen es, zahlreiche Spielregeln anzupassen und den Zugang zur Stadt einzuschränken.': 'Les villes privées permettent d''adapter de nombreuses règles du jeu et de restreindre l''accès à la ville.'
+'Sie sind jedoch grundsätzlich vom Ranking ausgeschlossen!': 'Pourtant, elles sont généralement exclus du classement !'
+'Öffentliche Städte folgen den normalen Regeln von MyHordes. Falls du mit einer größeren Gruppe von Spielern unterwegs bist, kannst du hier für eine öffentliche Stadt für einen bestimmten Zeitpunkt vormerken.': 'Les villes publiques suivent les règles normales de MyHordes. Si vous voyagez avec un plus grand groupe de joueurs, vous pouvez réserver ici une ville publique pour une heure précise.'
+'Ist eine solche Stadt erstellt, kann jeder Spieler ihr beitreten.': 'Une fois qu’une telle ville a été créée, n’importe quel joueur peut la rejoindre.'
+'Öffentliche Städte sind im Gegensatz zu Privaten Städten NICHT vom Ranking ausgeschlossen.': 'Contrairement aux villes privées, les villes publiques ne sont PAS exclues du classement.'
+'Wichtig:': 'Important :'
+'Wenn du eine öffentliche Stadt anlegst, kannst du für bis zu {days} Tage nach dem Stadtstart keiner öffentlichen Stadt beitreten, die von einem anderen Spieler angelegt wurde.': 'Lorsque vous créez une ville publique, vous ne pouvez pas rejoindre une ville publique créée par un autre joueur jusqu''à {days} jours après le début de la ville.'
+'Wenn du einer von einem anderen Spieler angelegten öffentlichen Stadt beitrittst, kannst du bis zu {days} Tage keine eigene Stadt eröffnen oder einer Stadt eines anderen Spielers beitreten.': 'Si vous rejoignez une ville publique créée par un autre joueur, vous ne pouvez pas ouvrir votre propre ville ni rejoindre la ville d''un autre joueur pendant {days} jours maximum.'
+Stadtstart: Départ en ville
+'Deine Stadt': 'Votre ville'
+'Du kannst maximal eine öffentliche Stadt gleichzeitig gründen.': 'Vous pouvez créer au maximum une ville publique à la fois.'
