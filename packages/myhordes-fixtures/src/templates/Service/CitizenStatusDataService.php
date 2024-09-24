@@ -33,6 +33,8 @@ class CitizenStatusDataService implements FixtureProcessorInterface {
             'wound5' 	=> ['name' => 'wound5',    'nw_def' => -20, 'nw_death' =>  0.20,  'label' => 'Verwundung - Auge', 'description' => 'Du bist an den Augen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.', 'volatile' => false],
             'wound6' 	=> ['name' => 'wound6',    'nw_def' => -20, 'nw_death' =>  0.20,  'label' => 'Verwundung - Fuß', 'description' => 'Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.', 'volatile' => false],
             'healed' 	=> ['name' => 'healed',    'nw_def' => -10, 'nw_death' =>  0.10,  'label' => 'Bandagiert', 'description' => 'Du hast dich bereits von einer Verletzung erholt. Du kannst heute nicht erneut geheilt werden.', 'volatile' => true],
+            'hydrated'  => ['name' => 'hydrated',                                         'label' => 'Gut hydriert', 'description' => 'Es ist wichtig, regelmäßig zu trinken!', 'volatile' => false],
+            'sober'     => ['name' => 'sober',                                            'label' => 'Nüchtern', 'description' => 'Du bist nüchtern, gut gemacht!', 'volatile' => false],
 
             'tg_dice' => ['name' => 'tg_dice', 'volatile' => true ],
             'tg_cards' => ['name' => 'tg_cards', 'volatile' => true],

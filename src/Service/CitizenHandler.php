@@ -552,11 +552,21 @@ class CitizenHandler
             if ($citizen->hasStatus('clean'))
                 $base += $citizen->property( CitizenProperties::ZoneControlCleanBonus );
 
-            if (!$citizen->hasAnyStatus('thirst1', 'thirst2'))
-                $base += $citizen->property( CitizenProperties::ZoneControlHydratedBonus );
+            $bonus = $citizen->property( CitizenProperties::ZoneControlHydratedBonus );
+            if (!$citizen->hasAnyStatus('thirst1', 'thirst2') && $bonus > 0) {
+                $base += $bonus;
+                $this->inflictStatus($citizen, "hydrated");
+            } elseif ($bonus > 0) {
+                $this->removeStatus($citizen, 'hydrated');
+            }
 
-            if (!$citizen->hasAnyStatus('drunk', 'hungover'))
-                $base += $citizen->property( CitizenProperties::ZoneControlSoberBonus );
+            $bonus = $citizen->property( CitizenProperties::ZoneControlSoberBonus );
+            if (!$citizen->hasAnyStatus('drunk', 'hungover') && $bonus > 0) {
+                $base += $bonus;
+                $this->inflictStatus($citizen, "sober");
+            } elseif ($bonus > 0) {
+                $this->removeStatus($citizen, 'sober');
+            }
 
             if (!empty($this->inventory_handler->fetchSpecificItems(
                 $citizen->getInventory(), [new ItemRequest( 'car_door_#00' )]
