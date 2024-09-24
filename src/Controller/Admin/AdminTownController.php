@@ -1590,12 +1590,9 @@ class AdminTownController extends AdminActionController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         /** @var CitizenProfession $profession */
-        $profession = $this->entity_manager->getRepository(CitizenProfession::class)->find($pro_id);
-        if (!$profession || $profession->getName() === CitizenProfession::DEFAULT || in_array($profession->getName(), $disabled_profs))
+        $profession = ($pro_id === -1 ? $this->entity_manager->getRepository(CitizenProfession::class)->findDefault() : $this->entity_manager->getRepository(CitizenProfession::class)->find($pro_id));
+        if (!$profession || in_array($profession->getName(), $disabled_profs))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        /** @var Inventory[] $inventories */
-        $inventories = [];
 
         foreach (array_unique($targets) as $target) {
             /** @var Citizen $citizen */

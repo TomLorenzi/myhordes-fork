@@ -541,6 +541,8 @@ class CitizenHandler
             if (!isset($item_type_cache[$pi->getId()])) $item_type_cache[$pi->getId()] = [1,$pi];
             else $item_type_cache[$pi->getId()] = [0,$pi];
 
+			dump($item_type_cache);
+
         $inventory = $citizen->getInventory(); $null = null;
         foreach ($item_type_cache as &$entry) {
             list($action,$proto) = $entry;
@@ -550,7 +552,7 @@ class CitizenHandler
             if ($action > 0) {
                 $item = $this->item_factory->createItem( $proto );
                 $item->setEssential(true);
-                $this->events->transferItem($citizen, $item, to: $inventory);
+                $this->events->placeItem($citizen, $item, inventories: [$inventory], force: true, silent: true);
             }
         }
 
@@ -574,7 +576,6 @@ class CitizenHandler
             foreach ($citizen->getSpecialActions() as $specialAction)
                 if ($specialAction->getProxyFor())
                     $citizen->removeSpecialAction( $specialAction );
-
     }
 
     public function getSoulpoints(Citizen $citizen): int {

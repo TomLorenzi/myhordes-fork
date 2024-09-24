@@ -1,11 +1,10 @@
----
 'Diesen Bürger töten?': 'Tuer ce citoyen ?'
 Status: États
 Dauer: Durée
 Grund: Raison
 'Derzeitiges Leben': 'Incarnation actuelle'
 'TOD NICHT BESTÄTIGT': 'MORT NON CONFIRMÉE'
-Kopfschuss: Tir dans la tête
+Kopfschuss: 'Tir dans la tête'
 'Tod bestätigen': 'Valider la mort'
 'Das Leben dieses Bürgers sofort beenden?': 'Terminer la vie de ce citoyen immédiatement ?'
 'Tod dieses Bürgers zwangsweise bestätigen?': 'Forcer la confirmation de mort de ce citoyen ?'
@@ -17,16 +16,16 @@ Verbannung: Bannissement
 Bürger: Citoyens
 'Suche:': 'Recherche :'
 Account: Compte
-Benutzername: Nom d'utilisateur
+Benutzername: "Nom d'utilisateur"
 E-Mail: E-mail
 Validiert: Validé
 Ja: Oui
 Nein: Non
-Berechtigungsstufe: Niveau d'autorisation
+Berechtigungsstufe: "Niveau d'autorisation"
 Spieler: Joueur
 Krähe: Corbeau
 Admin: Admin
-Validierungstokens: Jeton de validation
+Validierungstokens: 'Jeton de validation'
 Keine: Aucun
 'User administrieren': 'Administrer les utilisateurs'
 Validierung: Validation
@@ -48,7 +47,7 @@ Auszeichnungen: Distinctions
 Admin-Wachturm: TDG
 Ruinenscanner: Ruines
 ID: ID
-Stadtname: Nom de Ville
+Stadtname: 'Nom de Ville'
 Sprache: Langue
 Typ: Type
 Population: Population
@@ -60,8 +59,8 @@ Zerstört: Dévastée
 'Tor offen': 'Portail ouvert'
 Brunnen: Puits
 Angriff: Attaque
-'Bereich Min': 'Min'
-'Bereich Max': 'Max'
+'Bereich Min': Min
+'Bereich Max': Max
 Position: Position
 Distanz: Distance
 Zombies: Zombies
@@ -69,11 +68,11 @@ Abdruck: Empreinte
 Schlüssel: Clé
 Durchsucht: Fouilles
 'Aktuelle Sitzung': 'Session actuelle'
-Flucht: S'enfuir
+Flucht: "S'enfuir"
 Raum: Pièce
 Zeit: Temps
 'Alle Sitzungen': 'Toutes les sessions'
-Stadtübersicht: Liste des villes
+Stadtübersicht: 'Liste des villes'
 'Liste aller Städte': 'Liste de toutes les villes'
 Pop.: Pop.
 Aktionen: Actions
@@ -90,12 +89,12 @@ Version: Version
 'Soldatenberuf freischalten': 'Débloquer la profession militaire'
 '999 AP zuweisen': 'Attribuer 999 PA'
 'Munition erzeugen': 'Générer des munitions'
-'Admin-Berechtigung setzen': 'Définir l''autorisation administrateur'
-'+ 9999 Seelenpunkte': '+ 9999 points d''âme'
+'Admin-Berechtigung setzen': "Définir l'autorisation administrateur"
+'+ 9999 Seelenpunkte': "+ 9999 points d'âme"
 'Geheime Saison freischalten': 'Débloquer la saison secrète'
-'Computer sagt nein.': 'L''ordinateur a dit non.'
+'Computer sagt nein.': "L'ordinateur a dit non."
 'Du hast dich umgebracht.': 'Vous vous êtes suicidé.'
-'Du gehörst keiner Stadt an.': 'Vous n''appartenez pas à une ville.'
+'Du gehörst keiner Stadt an.': "Vous n'appartenez pas à une ville."
 'Selbstmord begehen': 'Se suicider'
 'PM vom Raben': 'MP du Corbeau'
 Stadtregister: Registre
@@ -105,20 +104,20 @@ Stadtregister: Registre
 'Quarantäne aufheben': 'Supprimer la quarantaine'
 'Unter Quarantäne stellen': 'Mettre en quarantaine'
 'Manueller Tageswechsel': 'Changement de jour manuel'
-Twinoid-Konto: Compte Twinoid
+Twinoid-Konto: 'Compte Twinoid'
 Orakel: Oracle
-Twinoid-Integration: Intégration Twinoid
+Twinoid-Integration: 'Intégration Twinoid'
 'Integrationen löschen': 'Supprimer les intégrations'
-'Hauptseele zurücksetzen': 'Réinitialiser l''âme principale'
-'Du hast keine Berechtigung, diesen Benutzer zu administrieren!': 'Vous n''avez aucune autorisation pour administrer cet utilisateur !'
+'Hauptseele zurücksetzen': "Réinitialiser l'âme principale"
+'Du hast keine Berechtigung, diesen Benutzer zu administrieren!': "Vous n'avez aucune autorisation pour administrer cet utilisateur !"
 Profil: Profil
 'Neuen Namen eingeben.': 'Entrez un nouveau nom.'
 Umbenennen: Renommer
 Löschen: Effacer
 Berechtigungen: Autorisations
 'Gewähren: {role}': 'Accorder : {role}'
-'Berechtigungsstufe zurücksetzen': 'Réinitialiser le niveau d''autorisation'
-'Bitte bestätige folgende Aktion:': 'Veuillez confirmer l''action suivante :'
+'Berechtigungsstufe zurücksetzen': "Réinitialiser le niveau d'autorisation"
+'Bitte bestätige folgende Aktion:': "Veuillez confirmer l'action suivante :"
 'Multi-Account Report': 'Rapport multi-comptes'
 Verdacht: Soupçon
 'Andere Accounts': 'Autres comptes'
@@ -127,38 +126,38 @@ Verwaltung: Administration
 Annulieren: Annuler
 Verschüttet: Enterré
 'Multi-Account Whitelist': 'Liste blanche multi-comptes'
-Spieler-ID: ID du joueur
+Spieler-ID: 'ID du joueur'
 'Multi-Account Whitelist-Eintrag hinzufügen': 'Ajouter une entrée de liste blanche multi-comptes'
 'Verwende folgende Syntax, um deine Suche zu spezifizieren:': 'Utilisez la syntaxe suivante pour spécifier votre recherche:'
 'Klick, um Profil in neuem Tab zu öffnen': 'Cliquez pour ouvrir le profil dans un nouvel onglet'
 'STRG+Klick, um zur Whitelist hinzuzufügen': 'Ctrl + clic pour ajouter à la liste blanche'
-Whitelist: Liste blanche
-'E-Mail eingeben.': 'Entrez l''email.'
-'E-Mail ändern': 'Changer l''e-mail'
+Whitelist: 'Liste blanche'
+'E-Mail eingeben.': "Entrez l'email."
+'E-Mail ändern': "Changer l'e-mail"
 'Neues Passwort eingeben.': 'Entrer un nouveau mot de passe.'
 'Neues Passwort setzen': 'Définir un nouveau mot de passe'
-EternalTwin-Integration: Intégration Eternaltwin
+EternalTwin-Integration: 'Intégration Eternaltwin'
 'In lokalen Account umwandeln': 'Convertir en compte local'
 Kartei: Fiche
-Anzeigename: Nom d'affichage
+Anzeigename: "Nom d'affichage"
 'Lokal: {account}': 'Local: {account}'
 'Von EternalTwin verwaltet': 'Géré par Eternaltwin'
 'Nur für Administratoren sichtbar': 'Uniquement visible par les administrateurs'
 'Verknüpfte Konten': 'Comptes liés'
-EternalTwin-Konto: Compte Eternaltwin
+EternalTwin-Konto: 'Compte Eternaltwin'
 Sonstiges: Divers
 AntiSpam: Anti-Spam
 'Account zur Löschung vorgemerkt!': 'Compte marqué pour suppression !'
 'Anzahl der gelisteten Domains: {number}': 'Nombre de domaines répertoriés: {number}'
-Domain-Suche: Recherche de domaine
+Domain-Suche: 'Recherche de domaine'
 'Gewählte entfernen': 'Enlever la sélection'
 'Domains hinzufügen': 'Ajouter des domaines'
 Hinzufügen: Ajouter
 'Nachricht?': 'Message?'
-Foren-Meldungen: Messages du forum
-PN-Meldungen: Messages MP
+Foren-Meldungen: 'Messages du forum'
+PN-Meldungen: 'Messages MP'
 Öffnen: Ouvrir
-Dashboard: Tableau de bord
+Dashboard: 'Tableau de bord'
 'Stadt {townname}': 'Ville {townname}'
 Bank: Banque
 Apps: Apps
@@ -166,32 +165,32 @@ Apps: Apps
 'Vergiftet:': 'Empoisonné :'
 'Zerstört:': 'Cassé :'
 'Essentiell:': 'Essentiel :'
-Erzeugen!: Créer !
+Erzeugen!: 'Créer !'
 Rucksack: Sac
 Truhe: Coffre
 'Leere Truhe': 'Coffre vide'
 Anwendung: Application
 Besitzer: Propriétaire
 Kontakt: Contact
-'Name der Anwendung': 'Nom de l''application'
+'Name der Anwendung': "Nom de l'application"
 Niemand: Aucun
 URL: URL
 Anzeige: Afficher
 'Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.': 'Les applications en mode test ne peuvent être utilisées que par leur propriétaire.'
-Testbetrieb: Test de fonctionnement
+Testbetrieb: 'Test de fonctionnement'
 Icon: Icône
-Datenzugriff: Accès aux données
+Datenzugriff: 'Accès aux données'
 'Anwendungen ohne API-Zugang werden nur als Links eingebunden.': 'Les applications sans accès API ne sont intégrées que sous forme de liens.'
-'Zugang zur API': 'Accès à l''API'
+'Zugang zur API': "Accès à l'API"
 'Wird automatisch generiert': 'Est généré automatiquement'
 'Schlüssel regenerieren': 'Régénérer la clé'
 Foren-Mod.: Forum-Mod.
 Kurztexte: Fast-Replace
 Inhalt: Contenu
 'Neuen Kurztext anlegen': 'Créer un nouveau Fast-Replace'
-'ID eingeben': 'Entrer l''ID'
+'ID eingeben': "Entrer l'ID"
 'Anzahl der Auszeichnungen:': 'Nombre de distinctions :'
-Vergeben!: Donner !
+Vergeben!: 'Donner !'
 'Aktuelle Städte': 'Villes actuelles'
 'Fertige Städte': 'Villes terminées'
 Importiert: Importée
@@ -226,26 +225,26 @@ Name: Nom
 AP: PA
 Setzen: Mettre
 Abziehen: Retirer
-Changelogs: Notes de versions
+Changelogs: 'Notes de versions'
 Ankündigungen: Annonces
 'Neue Ankündigung': 'Nouvelle annonce'
 Konstruktionen: Chantiers
-'Gib den Namen oder die ID der Stadt ein.': 'Entrez ici le nom ou l''ID de la ville.'
+'Gib den Namen oder die ID der Stadt ein.': "Entrez ici le nom ou l'ID de la ville."
 Stimmen: Votes
 'Für {target}': 'Pour {target}'
 Ersteller: Créateur
 'Existierende Beschränkungen': 'Sanctions existantes'
-'Dieser Spieler hat eine weiße Weste.': 'Ce joueur n''a aucune sanction existante.'
+'Dieser Spieler hat eine weiße Weste.': "Ce joueur n'a aucune sanction existante."
 'Bestätigt von': 'Confirmé par'
 Datum: Date
-Endet: Prend fin
+Endet: 'Prend fin'
 Info: Info
 'Neue Beschränkung hinzufügen': 'Ajouter une sanction'
 '24 Stunden': '24 Heures'
 '{d} Tage': '{d} Jours'
 'Bestätigung erforderlich': 'Confirmation nécessaire'
 '1 Jahr': '1 An'
-'Admin-Bestätigung erforderlich': 'Confirmation de l''administrateur requise'
+'Admin-Bestätigung erforderlich': "Confirmation de l'administrateur requise"
 '2 Jahre': '2 Ans'
 Dauerhaft: Permanent
 'Interner Vermerk': 'Note interne'
@@ -254,19 +253,19 @@ Dauerhaft: Permanent
 'Posten in Foren verbieten': 'Publication dans les forums'
 'Stadt-interne Kommunikation verbieten': 'Communication interne à la ville'
 'Stadtübergreifende Kommunikation verbieten': 'Communications hors de la ville (MPs)'
-'Kommentare verbieten': 'Commentaires'
+'Kommentare verbieten': Commentaires
 'Organisation in Gruppen verbieten': 'Organisation en groupe'
 'Spielen verbieten': 'Interdire de jeu'
-'Diese Account-Beschränkung muss von einem anderen Moderator bestätigt werden, bevor sie aktiv wird.': 'Cette restriction de compte doit être confirmée par un autre modérateur avant qu''elle ne devienne active.'
-'Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.': 'La durée de la restriction ne compte qu''à partir du moment où elle est activée.'
-'Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.': 'Cette restriction de compte doit être confirmée par un administrateur avant qu''elle ne devienne active.'
+'Diese Account-Beschränkung muss von einem anderen Moderator bestätigt werden, bevor sie aktiv wird.': "Cette restriction de compte doit être confirmée par un autre modérateur avant qu'elle ne devienne active."
+'Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.': "La durée de la restriction ne compte qu'à partir du moment où elle est activée."
+'Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.': "Cette restriction de compte doit être confirmée par un administrateur avant qu'elle ne devienne active."
 'Stadt ansehen': 'Voir la ville'
 'Nicht bestätigt!': 'Pas confirmé!'
 Abgelaufen: Expiré
 Deaktiviert: Désactivé
 Art: Type
 Sozial: Social
-Stadt-Kom.: Com. ville
+Stadt-Kom.: 'Com. ville'
 'Globale Kom.': 'Com. global'
 Kommentare: Commentaire
 Org.: Org.
@@ -275,7 +274,7 @@ Bestätigen: Confirmer
 'Schwarzes Brett': 'Tableau noir'
 'Stadt füllen': 'Remplir la ville de citoyens'
 'Bank füllen': 'Remplir la banque'
-'Banksperre aufheben': 'Retirer l''anti-abus de la banque'
+'Banksperre aufheben': "Retirer l'anti-abus de la banque"
 'Durst aufheben': 'Retirer la soif de tous les joueurs'
 'Alle Spieler entkoppeln': 'Désincarner tous les joueurs'
 'Alle Spieler koppeln': 'Engager tous les joueurs'
@@ -293,23 +292,23 @@ MP: PM
 'Einen Beruf auswählen:': 'Choisir un métier :'
 'Stadt anlegen': 'Créer une ville'
 Avatar: Avatar
-Profilbeschreibung: Description du profil
+Profilbeschreibung: 'Description du profil'
 'Änderungen am Profil verbieten': 'Interdire les modifications du profil'
-'Ändern des Avatars verbieten': 'Changement d''avatar'
+'Ändern des Avatars verbieten': "Changement d'avatar"
 'Ändern der Profilbeschreibung verbieten': 'Modification de la description du profil'
 'Ändern des Titels verbieten': 'Changer de titre'
-'Anzeigenamen ändern': 'Changer le nom d''affichage'
-'Anzeigenamen entfernen': 'Supprimer le nom d''affichage'
-'Avatar entfernen': 'Supprimer l''avatar'
+'Anzeigenamen ändern': "Changer le nom d'affichage"
+'Anzeigenamen entfernen': "Supprimer le nom d'affichage"
+'Avatar entfernen': "Supprimer l'avatar"
 'Profilbeschreibung entfernen': 'Supprimer la description du profil'
-'Titel & Icon entfernen': 'Supprimer le titre et l''icône'
+'Titel & Icon entfernen': "Supprimer le titre et l'icône"
 'Neuer Füllstand:': 'Nouveau niveau:'
 'Brunnen-Füllstand setzen': 'Régler le niveau de remplissage du puits'
 'Alle Gebäude freischalten': 'Déverrouiller tous les chantiers'
 'Baufortschritt setzen:': 'Définir la progression du chantier:'
 'Integrität setzen:': 'Définir les PA de réparation :'
 'Neue Anzahl:': 'Nouveau nombre :'
-'Heldentage setzen': 'Définir l''expérience héroïque'
+'Heldentage setzen': "Définir l'expérience héroïque"
 'Hausverbesserungen:': 'Améliorations de la maison:'
 'Teleportieren:': 'Téléportation :'
 'In die Stadt': 'En ville'
@@ -321,7 +320,7 @@ Freundschaftswerbung: Parrainage
 'Ref-Namen sperren': 'Bloquer le nom de référence'
 'Ref-Namen entsprerren': 'Débloquer le nom de référence'
 'Sponsor setzen': 'Définir le parrain'
-Ref-Name: Nom de référence
+Ref-Name: 'Nom de référence'
 'Gesponsort von': 'Parrainé par'
 'Gesponsorte Spieler': 'Joueurs parrainés'
 'Zombie-Spread ausführen': 'Lancer la prolifération des zombies'
@@ -340,7 +339,7 @@ Beschreibung: Description
 'Anonyme Gruppe': 'Groupe anonyme'
 'Neue Gruppe anlegen': 'Créer un nouveau groupe'
 'Anzahl der Tage': 'Nombre de jours à passer'
-Vorspulen: Avance rapide
+Vorspulen: 'Avance rapide'
 'Herauswerfen (ohne Verletzung)': 'Ejecter (sans blessure)'
 'Herauswerfen (mit Verletzung)': 'Ejecter (avec blessure)'
 'Timer erhöhen (1min)': 'Augmenter le temps restant (1min)'
@@ -353,29 +352,29 @@ Hunger: Voracité
 'Camp Chance': 'Chances camping'
 'Camp Zähler': 'Compteurs camping'
 'Verwendung des Schwarzen Bretts verbieten': 'Utilisation du tableau noir'
-Passwort-geschützt: Mot de passe protégé
+Passwort-geschützt: 'Mot de passe protégé'
 'Passwort ändern': 'Changer le mot de passe'
 'Passwort entfernen': 'Supprimer le mot de passe'
 'Passwort setzen': 'Définir un mot de passe'
-'Format: {zombies} (heutiger Angriff) oder {tag}:{zombies} (Angriff an einem bestimmten Tag). Es können keine Tage in der Vergangenheit gewählt werden.': 'Format : {zombies} (attaque du jour) ou {jour}:{zombies} (attaque pour un jour spécifique). Il n''est pas possible de sélectionner des jours passés.'
-'Stärke des Angriffs setzen': 'Définir la puissance de l''attaque'
-Chaos-Modus: Mode chaos
+'Format: {zombies} (heutiger Angriff) oder {tag}:{zombies} (Angriff an einem bestimmten Tag). Es können keine Tage in der Vergangenheit gewählt werden.': "Format : {zombies} (attaque du jour) ou {jour}:{zombies} (attaque pour un jour spécifique). Il n'est pas possible de sélectionner des jours passés."
+'Stärke des Angriffs setzen': "Définir la puissance de l'attaque"
+Chaos-Modus: 'Mode chaos'
 'Stadt zerstören': 'Dévaster la ville'
-'Ändern des Spielernamens verbieten': 'Changer de nom d''affichage'
-Spielername: Nom d'affichage
+'Ändern des Spielernamens verbieten': "Changer de nom d'affichage"
+Spielername: "Nom d'affichage"
 'Chaos-Modus deaktivieren': 'Désactiver le mode Chaos'
 'Stadt reparieren': 'Réparer la ville'
 'Versteckte Statuseffekte': 'Status cachés'
 'Ranking-Ausschluss zurücknehmen': 'Retirer l’exclusion du classement'
 'Diese Stadt aus dem Ranking ausschließen': 'Exclure cette ville du classement'
-Ranking-Eintrag: Entrée de classement
+Ranking-Eintrag: 'Entrée de classement'
 'Event-Markierung entfernen': 'Supprimer le marqueur d’événement'
 'Als Event-Stadt markieren': 'Marquer la ville comme événement'
 'Funktionen für Spezialrollen': 'Fonctions pour les rôles spéciaux'
-'Stadt-ID eingeben.': 'Entrez l''identifiant de la ville'
-'Zugang zu Stadtforum gewähren': 'Accorder l''accès au forum ville'
-'Zugang zu Stadtforum entziehen': 'Révoquer l''accès au forum ville'
-Spezialrollen: Rôles spéciaux
+'Stadt-ID eingeben.': "Entrez l'identifiant de la ville"
+'Zugang zu Stadtforum gewähren': "Accorder l'accès au forum ville"
+'Zugang zu Stadtforum entziehen': "Révoquer l'accès au forum ville"
+Spezialrollen: 'Rôles spéciaux'
 Animateur: Animacteur
 'Community Dashboard': 'Tableau de bord communautaire'
 Team: Equipe
@@ -393,7 +392,7 @@ Alt: Ancien
 'Neuer Titel': 'Nouveau titre'
 'Neues Icon': 'Nouvelle icône'
 Kernel: Kernel
-Update: Mise à jour
+Update: 'Mise à jour'
 Unbekannt: Inconnu
 Täglich: Journalier
 Wöchentlich: Hebdomadaire
@@ -401,13 +400,13 @@ Monatlich: Mensuel
 Manuell: Manuel
 'Nicht komprimiert': 'Non compressé'
 Systemlogs: Journaux
-Datenbank-Backups: Sauvegardes BDD
+Datenbank-Backups: 'Sauvegardes BDD'
 Tags: Tags
 Datei: Fichier
 'Dateigröße: {s}': 'Taille du fichier : {s}'
-Dateisystem: Fichiers système
+Dateisystem: 'Fichiers système'
 'Alle User': 'Tous les utilisateurs'
-Account-Zustand: Statut du compte
+Account-Zustand: 'Statut du compte'
 Aktiv: Actif
 Dummy: Dummy
 Spezial: Spécial
@@ -415,34 +414,34 @@ Spezial: Spécial
 Gelöscht: Supprimé
 Inkarnation: Incarnation
 'Zuletzt aktiv': 'Dernière activité'
-Hauptseele: Ame principale
-'Keine Hauptseele': 'Pas d''âme principale'
+Hauptseele: 'Ame principale'
+'Keine Hauptseele': "Pas d'âme principale"
 'Verknüpfte Seele': 'Ame liée'
-'Beliebige verknüpfte Seele': 'N''importe quelle âme liée'
-'Keine verknüpfte Seele': 'Pas d''âme liée'
-Accountbeschränkung: Restriction de compte
+'Beliebige verknüpfte Seele': "N'importe quelle âme liée"
+'Keine verknüpfte Seele': "Pas d'âme liée"
+Accountbeschränkung: 'Restriction de compte'
 'Nicht bestätigt': 'Non confirmé'
-'Nicht aktiv': 'Inactif'
+'Nicht aktiv': Inactif
 Rolle: Rôle
 'Aktion bei Klick:': 'Action au clic :'
 'Verbleibe Zonengrabungen:': 'Fouilles de zone restantes :'
 'Verbleibende Ruinengrabungen:': 'Fouilles de ruine restantes :'
 'Zurzeit in der Stadt': 'Actuellement en ville'
 'Eternal-Twin-Konto verlinkt': 'Compte Eternaltwin lié'
-Gruppentyp: Type de groupe
+Gruppentyp: 'Type de groupe'
 "Änderungen an '{appname}' speichern": "Enregistrer les modifications apportées à '{appname}'"
 'Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.': 'Ce picto ne sera pas gagné si le citoyen meurt ce soir.'
 'Diese Auszeichnung wurde verdient.': 'Ce picto a été gagné.'
-Freundesliste: Liste d'amis
-'Spieler, sie sich als Freund hinzugefügt haben': 'Joueurs qui l''ont ajouté à leur liste d''amis'
-'Spieler werben': 'Parrainage'
-Blockierliste: Liste noire
+Freundesliste: "Liste d'amis"
+'Spieler, sie sich als Freund hinzugefügt haben': "Joueurs qui l'ont ajouté à leur liste d'amis"
+'Spieler werben': Parrainage
+Blockierliste: 'Liste noire'
 'Blockiert von': 'Bloqué par'
-'Bürger-Alias ​​ändern:': 'Modifier l''alias du citoyen:'
+'Bürger-Alias ​​ändern:': "Modifier l'alias du citoyen:"
 'Kein Alias ​​angegeben': 'Aucun alias défini'
 'Bitte nicht für mehrere Bürger denselben Alias eingeben!': 'Merci de ne pas définir le même alias pour plusieurs citoyens !'
 'Bank leeren': 'Vider la banque'
-Stadt-Event: Évènement de la ville
+Stadt-Event: 'Évènement de la ville'
 Koalitionen: Coalitions
 Profiler: Profiler
 'Nicht installiert': 'Non installé'
@@ -463,7 +462,7 @@ Infektiös: Infectieux
 'Camping-Ausbaulevel:': 'Niveau du camping :'
 'Basis:': 'Base :'
 'MyHordes-Seele wiederherstellen': 'Restaurer l’âme MyHordes'
-'Seele zurückgesetzt': 'Réinitialisation d''âme'
+'Seele zurückgesetzt': "Réinitialisation d'âme"
 '{num} Städte betroffen': '{num} villes affectées'
 'Du siehst aktuell gelöschte Meldungen.': 'Vous affichez actuellement les signalements supprimés.'
 'Zurück zur Meldungsübersicht': 'Retour à la vue d’ensemble'
@@ -475,7 +474,7 @@ Infektiös: Infectieux
 'Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)': 'Télécharger les registres des villes et des zones (regroupés par zones)'
 'Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)': 'Télécharger les registres des villes et des zones (regroupés par citoyens)'
 'Stadt- und Zonenregister herunterladen (chronologisch)': 'Télécharger les registres des villes et des zones (chronologiquement)'
-Instanzeigenschaften: Propriétés de l’instance
+Instanzeigenschaften: 'Propriétés de l’instance'
 Vergiftet: Empoisonné
 Infiziert: Infecté
 'Noch nicht aufgehoben': 'Pas encore ramassé'
@@ -484,33 +483,33 @@ Infiziert: Infecté
 'Nicht von ET verwaltet.': 'Non géré par ET.'
 'Leber fressen': 'Manger son foie'
 'maskiert {playername}': '{playername} masqué'
-'Seelenpunkte setzen': 'Définir les points d''âme'
+'Seelenpunkte setzen': "Définir les points d'âme"
 'Alle Gegenstände aller Bürger ablegen': 'Faire lâcher tous les items de tous les citoyens'
 'Auszeichnungen wiederherstellen': 'Restaurer les pictos'
 'Auszeichnungen aller Einwohner dieser Stadt löschen': 'Supprimer les pictos de cette ville'
-'Seelenpunkte wiederherstellen': 'Restaurer les points d''âme'
-'Seelenpunkte aller Einwohner dieser Stadt löschen': 'Supprimer les points d''âme de cette ville'
+'Seelenpunkte wiederherstellen': "Restaurer les points d'âme"
+'Seelenpunkte aller Einwohner dieser Stadt löschen': "Supprimer les points d'âme de cette ville"
 'Alle Sanktionen entfernen': 'Enlever toutes les sanctions'
-'Stadt nicht in der Seele listen': 'Exclure cette ville de l''âme'
-'Seelenpunkte dieses Bürgers entfernen': 'Supprimer les points d''âme pour ce citoyen'
+'Stadt nicht in der Seele listen': "Exclure cette ville de l'âme"
+'Seelenpunkte dieses Bürgers entfernen': "Supprimer les points d'âme pour ce citoyen"
 'Ranking für diesen Bürger wiederherstellen': 'Réactiver le classement pour ce citoyen'
 'Bürger aus dem Ranking entfernen': 'Exclure ce citoyen du classement'
 'Auszeichnungen dieses Bürgers entfernen': 'Supprimer les pictos de ce citoyen'
-'Seelenpunkte für diesen Bürger wiederherstellen': 'Restaurer les points d''âme de ce citoyen'
+'Seelenpunkte für diesen Bürger wiederherstellen': "Restaurer les points d'âme de ce citoyen"
 'Auszeichnungen für diesen Bürger wiederherstellen': 'Restaurer les pictos de ce citoyen'
 'Eine neue Umfrage anlegen': 'Créer un nouveau sondage'
-Editoreinstellungen: Paramètres de l’éditeur
+Editoreinstellungen: 'Paramètres de l’éditeur'
 'Aktuelle Bearbeitungssprache': 'Langue d’édition actuelle'
 'Diese Einstellung steuert, welche Eingabefelder sichtbar sind. Unabhängig davon werden Umfragen immer in allen Sprachen erstellt, es müssen also alle Felder in allen Sprachen ausgefüllt werden.': 'Ce paramètre contrôle les champs de saisie visibles. Quoi qu’il arrive, les sondages sont toujours créés dans toutes les langues, de sorte que tous les champs doivent être remplis dans toutes les langues.'
-Umfragedaten: Données du sondage
+Umfragedaten: 'Données du sondage'
 'Titel der Umfrage': 'Titre du sondage'
 'Start der Umfrage': 'Début du sondage'
 'Ende der Umfrage': 'Fin du sondage'
 'Vorläufige Ergebnisse anzeigen': 'Afficher les résultats préliminaires'
-Kurzbeschreibung: Brève description
+Kurzbeschreibung: 'Brève description'
 'Beschreibung der Umfrage': 'Description du sondage'
 Antworten: Réponses
-Antwortstext: Texte de la réponse
+Antwortstext: 'Texte de la réponse'
 'Antwort hinzufügen': 'Ajouter une réponse'
 'Bearbeitung abschließen': 'Terminer l’édition'
 'Umfrage erstellen': 'Créer un sondage'
@@ -525,11 +524,11 @@ Antwortstext: Texte de la réponse
 'Aktiviert alle untergeordneten Beschränkungen.': 'Active toutes les restrictions subordonnées.'
 'Verbietet das Erstellen neuer Threads und Posts sowie das Bearbeiten existierender Posts in allen Foren (Stadt- und Weltforum). Verbietet zudem die Teilnahme an Foren-Umfragen.': 'Interdit la création de nouveaux sujets et messages, ainsi que l’édition de messages existants dans tous les forums (forums ville et monde). Interdit également la participation aux sondages du forum.'
 'Verbietet die Benutzung des Zonen-Chats und des Schwarzen Bretts, das Versenden von Stadt-PNs sowie die Änderung der persönlichen Ankündigung.': 'Interdit l’utilisation du chat de zone et du tableau noir, l’envoi de MP de ville et la modification des annonces personnelles.'
-'Verbietet die Verwendung des Schwarzen Bretts.': 'Interdit l''utilisation du tableau noir.'
+'Verbietet die Verwendung des Schwarzen Bretts.': "Interdit l'utilisation du tableau noir."
 'Verbietet die Erstellung neuer globaler PNs sowie das Antworten und die Hinzufügung neuer Spieler zu bestehenden PNs.': 'Interdit la création de nouveaux MP globaux ainsi que la réponse et l’ajout de nouveaux joueurs aux MP existants.'
-'Verbietet die Bearbeitung von Stadtkommentaren sowie das Setzen der Letzten Worte.': 'Interdit l’édition des commentaires de ville ainsi que l''écriture des derniers mots.'
+'Verbietet die Bearbeitung von Stadtkommentaren sowie das Setzen der Letzten Worte.': "Interdit l’édition des commentaires de ville ainsi que l'écriture des derniers mots."
 'Verbietet das Gründen neuer Koalitionen sowie die Mitgliederverwaltung und den Koalitionschat existierender Koalitionen.': 'Interdit la formation de nouvelles coalitions et la gestion des membres et le chat des coalitions existantes.'
-'Fortschritt des Aufstands': 'Prog. de l''insurrection'
+'Fortschritt des Aufstands': "Prog. de l'insurrection"
 'Neue Basis-Stadtverteidigung:': 'Nouvelle défense de base de la ville :'
 'Basis-Stadtverteidigung setzen': 'Modifier la défense de base de la ville'
 'Neue temporäre Stadtverteidigung:': 'Nouvelle défense temporaire de la ville :'
@@ -537,11 +536,11 @@ Antwortstext: Texte de la réponse
 'Alle Tode bestätigen': 'Valider toutes les morts'
 'Lege einen Zeitpunkt fest, an dem die Stadt eröffnet werden soll. Leer lassen oder einen Zeitpunkt in der Vergangenheit angeben, um die Stadt sofort zu öffnen.': 'Fixez une heure à laquelle la ville doit être ouverte. Laissez vide ou spécifiez une heure dans le passé pour ouvrir la ville immédiatement.'
 'Geplant für': 'Programmé pour'
-'Seelenpunkte:': 'Points d''âme :'
-'Heldentage:': 'Jours héros :'
-Vergleichswert: Valeur de référence
+'Seelenpunkte:': "Points d'âme :"
+'Heldentage:': "Jours héros\_:"
+Vergleichswert: 'Valeur de référence'
 Keiner: Aucun
-Basiskonfiguration: Configuration de base
+Basiskonfiguration: 'Configuration de base'
 'Sonstige Accountmarkierungen': 'Autres marqueurs de compte'
 'Strenges Report Rate Limiting': 'Limitation stricte des signalements'
 'Du bist im Begriff, eine bestehende Accountbeschränkung zu bearbeiten. Der Spieler wird über die Bearbeitung nicht informiert. Existierende Bestätigungen für diese Beschränkung werden entfernt. Fortsetzen?': 'Vous êtes sur le point de modifier une restriction de compte existante. Le joueur ne sera pas informé de cette modification. Les confirmations existantes pour cette restriction seront supprimées. Continuer ?'
@@ -551,19 +550,19 @@ Treppe: Escalier
 'Benutzer impersonifizieren': 'Se connecter en tant que cet utilisateur'
 Fortfahren: Procéder
 'Tokens erfolgreich erzeugt!': 'Jetons générés avec succès !'
-Registrierungstoken: Jeton d'inscription
-'Registration Token': 'Token d''inscription'
+Registrierungstoken: "Jeton d'inscription"
+'Registration Token': "Token d'inscription"
 'Wie viele Token möchtest du erzeugen?': 'Combien de jetons souhaitez-vous générer ?'
 Nachricht: Message
 'Stadtnamen ändern': 'Entrez le nom de la ville'
-'Registrierungstoken verteilen': 'Distribuer des jetons d''enregistrement'
-Nachrichtentext: Texte du message
+'Registrierungstoken verteilen': "Distribuer des jetons d'enregistrement"
+Nachrichtentext: 'Texte du message'
 CSV: CSV
 Senden: Envoyer
 'Es wurden {success} Nachrichten verschickt.': '{success} messages ont été envoyés.'
 'Es wurden {success} Nachrichten erfolgreich verschickt, bei {error} Nachrichten tragen Fehler auf.': '{success} ont été envoyés avec succès, {error} messages contenaient des erreurs.'
-Entwickler-URL: URL de développement
-Heldentage: Jours héros
+Entwickler-URL: 'URL de développement'
+Heldentage: 'Jours héros'
 'Sekundäraccount verknüpfen': 'Lier un compte secondaire'
 'Sekundäre Accounts': 'Comptes secondaires'
 'Team setzen': 'Définir la communauté'
@@ -576,42 +575,42 @@ Kampagne: Campagne
 Slug: Limace
 'Zusätzliche Verwalter': 'Gérants additionnels'
 'Neue Kampagne anlegen': 'Créer une nouvelle campagne'
-Einstiegspunkt: Point d'entrée
+Einstiegspunkt: "Point d'entrée"
 'Geworbene Spieler': 'Nouveaux joueurs'
 'Meldungen für das Schwarze Brett': 'Messages pour le Tableau Noir'
 Stadt: Ville
 'Gemeldete globale Nachrichten': 'Annonce globale signalée'
 'Private Nachrichten (Stadt)': 'Message Privé (Ville)'
 'Private Nachrichten (Global)': 'Message Privé (Global)'
-Bürgertexte: Annonce de citoyen
+Bürgertexte: 'Annonce de citoyen'
 Accounts: Comptes
-'Meldungen für Bürgertexte': 'Messages pour l''annonce de citoyen'
+'Meldungen für Bürgertexte': "Messages pour l'annonce de citoyen"
 'Gemeldete Stadtnachrichten': 'Annonce de ville signalée'
-'Meldungen für Benutzeraccounts': 'Messages comptes d''utilisateur'
+'Meldungen für Benutzeraccounts': "Messages comptes d'utilisateur"
 'Änderungen an {appname} speichern': 'Enregistrer les modifications de « {appname} »'
 'Wikis werden separat von anderen Anwendungen angezeigt.': 'Les wikis sont affichés séparément des autres applications.'
 Wiki: Wiki
 Entwickler: Développeur
-Angriffsplan: Plan d'attaque
+Angriffsplan: "Plan d'attaque"
 Uhrzeit: Heure
 Geplant: Planifié
 'Wartet auf Abarbeitung': 'En attente de traitement'
-'Wartet seit {s} Sekunden': 'Attendu {s} secondes'
+'Wartet seit {s} Sekunden': "Attendu {s}\_secondes"
 'Wird verarbeitet': 'En cours de traitement'
-'Arbeitet seit {s} Sekunden': 'Travaillé depuis {s} secondes'
+'Arbeitet seit {s} Sekunden': "Travaillé depuis {s}\_secondes"
 Abgeschlossen: Achevée
 Projiziert: Projeté
 'Nächsten Angriff verschieben': 'Reporter la prochaine attaque'
 'Ausgeführte Angriffe': 'Attaques exécutées'
 Start: Début
 Ende: Fin
-'Wartezeit: {s} Sekunden': 'Temps d''attente : {s} secondes'
-'Verarbeitungszeit: {s} Sekunden': 'Temps de traitement : {s} secondes'
+'Wartezeit: {s} Sekunden': "Temps d'attente\_: {s}\_secondes"
+'Verarbeitungszeit: {s} Sekunden': "Temps de traitement\_: {s}\_secondes"
 '{n} Städte in Quarantäne!': '{n} Ville(s) en Quarantaine !'
 Konfiguration: Configuration
 Option: Option
 Wert: Valeur
-'Keine Verifizierungsmails versenden': 'Ne pas envoyer d''e-mails de vérification'
+'Keine Verifizierungsmails versenden': "Ne pas envoyer d'e-mails de vérification"
 'Spielen in anderen Gemeinden': 'Jeu dans d’autres communautés'
 'Das Spielen in anderen Gemeinden verbieten': 'Interdire le jeu dans d’autres communautés'
 'Markieren, um diese Baustelle zur Liste der freizuschaltenden Baustellen in der Stadt hinzuzufügen.': 'Cochez cette case pour ajouter ce chantier à la liste des chantiers débloqués.'
@@ -619,16 +618,16 @@ Wert: Valeur
 'Markieren, um diese Baustelle aus der Stadt zu entfernen.': 'Cliquez pour supprimer le chantier de la ville.'
 'Dieses Gebäude ist veraltet.': 'Ce chantier est obsolète.'
 'Level {current} / {max}': 'Niveau {current} / {max}'
-'Anzahl Level: {max}': 'Niveau max : {max}'
-'Gebäude-Effekt auslösen': 'Déclencher l''action nocturne'
-'Nicht gefunden.': 'Introuvable.'
+'Anzahl Level: {max}': "Niveau max\_: {max}"
+'Gebäude-Effekt auslösen': "Déclencher l'action nocturne"
+'Nicht gefunden.': Introuvable.
 'Eintrag gefunden.': 'Entrée trouvée.'
 'Erfolgreich hinzugefügt.': 'Ajouté avec succès.'
 'Erfolgreich entfernt.': 'Supprimé avec succès.'
 'E-Mail Domains': 'Domaines de messagerie'
-Account-IDs: ID du compte
-'Anzahl der gelisteten E-Mail-Adressen: {number}': 'Nombre d''adresses e-mail répertoriées : {number}'
-'Anzahl der gelisteten Eternaltwin IDs: {number}': 'Nombre d''identifiants Eternaltwin répertoriés : {number}'
+Account-IDs: 'ID du compte'
+'Anzahl der gelisteten E-Mail-Adressen: {number}': "Nombre d'adresses e-mail répertoriées\_: {number}"
+'Anzahl der gelisteten Eternaltwin IDs: {number}': "Nombre d'identifiants Eternaltwin répertoriés\_: {number}"
 Suche: Recherche
 Prüfen: Vérifier
 Entfernen: Supprimer
@@ -644,38 +643,39 @@ Beginn: Début
 'Zugehöriger User (optional)': 'Utilisateur associé (facultatif)'
 'Zugehörige Rabennester': 'Nid de corbeaux associé'
 Raben: Corbeau
-Fehlerberichte: Rapports de bogues
+Fehlerberichte: 'Rapports de bogues'
 'Verfassen von Fehlerberichten für Gitlab verbieten': 'Interdire la rédaction de rapports de bogues pour Gitlab'
-'Zusätzliche Beschreibung:': 'Description supplémentaire :'
-'Nachricht an den Verfasser?': 'Avertir l''auteur ?'
+'Zusätzliche Beschreibung:': "Description supplémentaire\_:"
+'Nachricht an den Verfasser?': "Avertir l'auteur ?"
 'Letztes Update': 'Dernière mise à jour'
 Erstellt: Créé
-'Reports, die mit "v4" gekennzeichnet sind, neigen dazu Spieler als Multi-Accounts zu kennzeichnen, die sich einen Internetanschluss teilen (z.B. innerhalb derselben Wohnung, Schule, Arbeitsplatz, ...). Mit "v6" gekennzeichnete Reports sind wesentlich besser in der Lage, solche Spieler von echten Multi-Accounts zu trennen.': 'Les rapports marqués « v4 » ont tendance à identifier les joueurs comme multi-comptes partageant une connexion Internet (par exemple au sein du même appartement, école, lieu de travail, ...). Les rapports marqués « v6 » sont bien plus efficaces pour distinguer ces joueurs des véritables multi-comptes.'
+'Reports, die mit "v4" gekennzeichnet sind, neigen dazu Spieler als Multi-Accounts zu kennzeichnen, die sich einen Internetanschluss teilen (z.B. innerhalb derselben Wohnung, Schule, Arbeitsplatz, ...). Mit "v6" gekennzeichnete Reports sind wesentlich besser in der Lage, solche Spieler von echten Multi-Accounts zu trennen.': "Les rapports marqués «\_v4\_» ont tendance à identifier les joueurs comme multi-comptes partageant une connexion Internet (par exemple au sein du même appartement, école, lieu de travail, ...). Les rapports marqués «\_v6\_» sont bien plus efficaces pour distinguer ces joueurs des véritables multi-comptes."
 '{prc}%': '{prc}%'
 '{hrs} Std. ({prc}%)': '{hrs}h ({prc}%)'
 'Letzte Woche': 'La semaine dernière'
 'Letzte 3 Tage': 'Les 3 derniers jours'
 'Letzter Tag': '24 dernières heures'
-'Diese Zeile enthält belastende Informationen über den Spieler.': 'Cette ligne contient des informations à décharge sur le joueur. Si la valeur indiquée ici est élevée, cela signifie qu''il est moins probable qu''il s''agisse d''un multicompte.'
-'Erster Wert:': 'Première valeur :'
+'Diese Zeile enthält belastende Informationen über den Spieler.': "Cette ligne contient des informations à décharge sur le joueur. Si la valeur indiquée ici est élevée, cela signifie qu'il est moins probable qu'il s'agisse d'un multicompte."
+'Erster Wert:': "Première valeur\_:"
 'Dauer und Gesamtanteil der aktiven Phasen, die sich mit min. einem anderen Spieler dieser Gruppe überschneiden.': 'Durée et proportion totale de phases actives qui chevauchent avec au moins un autre joueur de ce groupe.'
 'Zweiter Wert:': 'Deuxième valeur :'
 'Durchschnittliche Dauer und Gesamtanteil der gemeinsamen aktiven Phasen über alle Spieler der Gruppe.': 'Durée moyenne et proportion totale de phases actives partagées entre tous les joueurs du groupe.'
-'Dritter Wert:': 'Troisième valeur :'
+'Dritter Wert:': "Troisième valeur\_:"
 'Übereinstimmung der von dem Spieler genutzen Endgeräte mit denen des Rests der Gruppe.': 'Cohérence des appareils utilisés par le joueur avec ceux du reste du groupe.'
-'Diese Zeile enthält entlastende Informationen über den Spieler.': 'Cette ligne contient des informations à décharge sur le joueur. Si la valeur indiquée ici est élevée, cela signifie qu''il est moins probable qu''il s''agisse d''un multicompte.'
-'Dauer und Verhältnis der aktiven Phasen dieses Spielers in anderen Gruppen, die keinerlei überschneidung mit den anderen Spielern dieser Gruppe haben.': 'Durée et ratio des phases actives de ce joueur dans d''autres groupes qui n''ont aucun lien avec les autres joueurs de ce groupe.'
+'Diese Zeile enthält entlastende Informationen über den Spieler.': "Cette ligne contient des informations à décharge sur le joueur. Si la valeur indiquée ici est élevée, cela signifie qu'il est moins probable qu'il s'agisse d'un multicompte."
+'Dauer und Verhältnis der aktiven Phasen dieses Spielers in anderen Gruppen, die keinerlei überschneidung mit den anderen Spielern dieser Gruppe haben.': "Durée et ratio des phases actives de ce joueur dans d'autres groupes qui n'ont aucun lien avec les autres joueurs de ce groupe."
 'Keine Daten': 'Pas de données'
 'Multi-Account Report V2': 'Rapport multi-comptes V2'
 'Letzte {n} Tage': '{n} derniers jours'
 Veraltet!: Dépassé!
 Klicks: Clics
-'{number} Auszeichnungen konnten nicht entfernt werden. Möglicherweise sind sie dem Spieler über Städte zugewiesen. In diesem Fall müssen sie über die Städteverwaltung entfernt werden.': '{number} pictos n''ont pas pu être supprimés. Il est possible qu''elles aient été attribuées au joueur via des villes. Dans ce cas, elles doivent être supprimées via la gestion des villes.'
+'{number} Auszeichnungen konnten nicht entfernt werden. Möglicherweise sind sie dem Spieler über Städte zugewiesen. In diesem Fall müssen sie über die Städteverwaltung entfernt werden.': "{number} pictos n'ont pas pu être supprimés. Il est possible qu'elles aient été attribuées au joueur via des villes. Dans ce cas, elles doivent être supprimées via la gestion des villes."
 'Eingehende Nachrichten als Tickets behandeln': 'Traiter les messages entrants comme des tickets'
-'Ist diese Option aktiviert, so wird eine eingehende Konversation für alle Gruppenmitglieder als "Gelesen" markiert, sobald ein Gruppenmitglied antwortet.': 'Si cette option est activée, une conversation entrante sera marquée comme « Lue » pour tous les membres du groupe dès qu''un membre du groupe répond.'
+'Ist diese Option aktiviert, so wird eine eingehende Konversation für alle Gruppenmitglieder als "Gelesen" markiert, sobald ein Gruppenmitglied antwortet.': "Si cette option est activée, une conversation entrante sera marquée comme «\_Lue\_» pour tous les membres du groupe dès qu'un membre du groupe répond."
 'Es wurden {n} Posts gelöscht.': '{n} messages ont été supprimés.'
 'Weitere Aktionen': 'Actions supplémentaires'
 'Bekannte IP-Adressen': 'Adresses IP connues'
 '{n} (davon {n2} bereits blockiert)': '{n} (dont {n2} déjà bloqués)'
-Foren-Posts: Messages du forum
+Foren-Posts: 'Messages du forum'
 '{n} (davon {n2} gelöscht)': '{n} (dont {n2} déjà supprimés)'
+Zurücksetzen: Non défini
