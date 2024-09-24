@@ -14,6 +14,7 @@ use App\Entity\HomeIntrusion;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\PrivateMessage;
+use App\Enum\Configuration\CitizenProperties;
 use App\Enum\Game\TransferItemModality;
 use App\Enum\Game\TransferItemOption;
 use App\Enum\Game\TransferItemType;
@@ -45,7 +46,9 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 #[AsEventListener(event: TransferItemEvent::class, method: 'onPostCreateBeyondLogEntries', priority: -10)]
 #[AsEventListener(event: TransferItemEvent::class, method: 'onPostHandleBankInteraction', priority: -11)]
 #[AsEventListener(event: TransferItemEvent::class, method: 'onPostHandleCitizenTheft', priority: -12)]
+#[AsEventListener(event: TransferItemEvent::class, method: 'onPostHandleChestDrop', priority: -20)]
 #[AsEventListener(event: TransferItemEvent::class, method: 'onPostHandleSoulPickup', priority: -90)]
+#[AsEventListener(event: TransferItemEvent::class, method: 'onPostHandleHiddenPickup', priority: -91)]
 #[AsEventListener(event: TransferItemEvent::class, method: 'onPersistItem', priority: -100)]
 final class TransferItemListener implements ServiceSubscriberInterface
 {
@@ -521,6 +524,18 @@ final class TransferItemListener implements ServiceSubscriberInterface
         }
     }
 
+    public function onPostHandleChestDrop( TransferItemEvent $event ): void {
+        if ($event->type_from === TransferItemType::Rucksack && $event->type_to === TransferItemType::Home) {
+
+            $hiddenStash = $event->from->getCitizen()->property(CitizenProperties::ChestHiddenStashLimit) ?? 0;
+            if ($hiddenStash && $event->to->getItems()->filter(fn(Item $i) => $i->getHidden())->count() < $hiddenStash) {
+                $event->item->setHidden(true);
+                $event->markModified()->shouldPersist();
+            }
+
+        }
+    }
+
     public function onPostHandleSoulPickup( TransferItemEvent $event ): void {
         if ($event->type_to->isRucksack() && $event->to->getCitizen() && $event->item->getPrototype()->getName() == 'soul_blue_#00' && $event->item->getFirstPick()) {
             // Set first pick to false
@@ -532,6 +547,14 @@ final class TransferItemListener implements ServiceSubscriberInterface
 
             // Persist item
             $this->getService(EntityManagerInterface::class)->persist($event->item);
+            $event->markModified()->shouldPersist();
+        }
+    }
+
+    public function onPostHandleHiddenPickup( TransferItemEvent $event ): void {
+        if ($event->type_to->isRucksack() && $event->to->getCitizen() && $event->item->getHidden()) {
+            // Set hidden to false
+            $event->item->setHidden(false);
             $event->markModified()->shouldPersist();
         }
     }

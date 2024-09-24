@@ -338,11 +338,11 @@
                     <p class="curtain-text">{{ 'Als du zum Fenster blickst, stellst du fest, dass ein großer Vorhang dir die Sicht versperrt. Du kannst deshalb nicht sehen, was {citizen} bei sich aufbewahrt...'|trans({'{citizen}': owner.name},'game') }}</p>
                 {% endif %}
                 {# {% if owner.zone %}<p {% if hidden %}class="hidden with-curtains"{% endif %}>{{ '{citizen} ist ausgegangen...'|trans({'{citizen}': owner.name}, 'game') }} {% endif %}</p>#}
-                {% if chest.items|filter(i => i.prototype.hideInForeignChest == false)|length > 0 and (not hidden or intruding) %}
+                {% if chest.items|filter(i => not i.prototype.hideInForeignChest and not i.hidden)|length > 0 and (not hidden or intruding) %}
                     {% if not intruding %}
                         <p>{{ 'Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:'|trans({},'game') }}</p>
                     {% endif %}
-                    {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items|filter(i => i.prototype.hideInForeignChest == false), 'foreignChestMode': true, 'showFreeSlots': false} %}
+                    {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items|filter(i => not i.prototype.hideInForeignChest and not i.hidden), 'foreignChestMode': true, 'showFreeSlots': false} %}
                         {% block class %}chest {% if owner.alive and intruding <= 0 %}locked{% endif %}{% endblock %}
                         {% block title %}{% endblock %}
                     {% endembed %}

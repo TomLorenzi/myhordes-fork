@@ -44,6 +44,7 @@ enum CitizenProperties: string implements Configuration
     case ProCamperUsageLimit = 'props.limit.camping.pro';
     case CampingChanceCap = 'props.limit.camping.cap';
     case TrashSearchLimit = 'props.limit.trash.count';
+    case ChestHiddenStashLimit = 'props.limit.chest.hidden.count';
     //</editor-fold>
 
     //<editor-fold desc="Config Values">
@@ -99,6 +100,7 @@ enum CitizenProperties: string implements Configuration
             self::ProCamperUsageLimit,
             self::CampingChanceCap,
             self::TrashSearchLimit,
+            self::ChestHiddenStashLimit,
                 => self::Section_Properties,
 
             self::RevengeItems,
@@ -159,6 +161,7 @@ enum CitizenProperties: string implements Configuration
             self::ProCamperUsageLimit            => 0,
             self::CampingChanceCap               => 0.9,
             self::TrashSearchLimit               => 3,
+            self::ChestHiddenStashLimit          => 0,
 
             self::RevengeItems                   => [],
             self::HeroImmuneStatusList           => [],
@@ -218,6 +221,7 @@ enum CitizenProperties: string implements Configuration
             self::HeroReturnRange                => ($old + $new) - $this->default(),
             self::ProCamperUsageLimit            => ($old + $new) - $this->default(),
             self::TrashSearchLimit               => ($old + $new) - $this->default(),
+            self::ChestHiddenStashLimit          => ($old + $new) - $this->default(),
             self::CampingChanceCap               => ($old + $new) - $this->default(),
 
             self::RevengeItems                   => [...$old,...$new],
