@@ -31,6 +31,17 @@
             <button x-advance-tutorial="3.text8">{{ 'Weiter...'|trans({},'help') }}</button>
         </div>
     </div>
+    <div x-tutorial-content="5.text3" class="toplevel text no-arrow">
+        <div class="help">
+            <p>{% trans from "help" %}
+                Aus entwicklungspsychologischer Sicht ist es immer hilfreich, mehr über sich selbst zu erfahren.
+            {% endtrans %}</p>
+            <p>{% trans from "help" %}
+                <strong>Aus der Sicht dieses Tutorials</strong> jedoch solltest du besser <strong>jemand anderen als dich selbst</strong> auswählen.
+            {% endtrans %}</p>
+            <button x-advance-tutorial="5.text1">{{ 'Ich versuchs...'|trans({},'help') }}</button>
+        </div>
+    </div>
 {% endblock %}
 
 {% block content %}

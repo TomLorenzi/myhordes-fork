@@ -1,5 +1,56 @@
 {% extends "ajax/game/town/town.html.twig" %}
 {% block title %}{{'Bauprojekte der Stadt'|trans({}, 'game')}}{% endblock %}
+
+{% block tutorial %}
+    <div x-tutorial-content="6.text3" class="toplevel text no-arrow">
+        <div class="help">
+            <p>{% trans from "help" %}
+                Hier siehst du alle <strong>aktuellen Bauprojekte</strong> deiner Stadt.
+            {% endtrans %}</p>
+            <p>{% trans from "help" %}
+                Jeder Eintrag entspricht einem Bauwerk, welches deine Stadt <strong>errichten kann</strong> oder bereits <strong>gerade errichtet</strong>.
+            {% endtrans %}</p>
+            <button x-advance-tutorial="6.text4">{{ 'Weiter...'|trans({},'help') }}</button>
+        </div>
+    </div>
+    <div x-tutorial-content="6.text4" class="toplevel text no-arrow">
+        <div class="help">
+            <p>{% trans from "help" %}
+                Um ein Gebäude zu errichten müssen sich zunächst <strong>alle erforderlichen Gegenstände</strong> in der Bank befinden.
+            {% endtrans %}</p>
+            <p>{% trans from "help" %}
+                Danach kannst du Aktionspunkte investieren, um an einem Bauwerk zu arbeiten.
+            {% endtrans %}</p>
+            <button x-advance-tutorial="6.text5">{{ 'Weiter...'|trans({},'help') }}</button>
+        </div>
+    </div>
+    <div x-tutorial-content="6.text5" class="toplevel text no-arrow">
+        <div class="help">
+            <p>{% trans from "help" %}
+                Die wenigsten Gebäude können von einer einzelnen Person errichtet werden. Die Bürger der Stadt müssen <strong>sich koordinieren</strong>, um den Bau neuer Gebäude abzuschließen.
+            {% endtrans %}</p>
+            <p>{% trans from "help" %}
+                Sobald ausreichend Aktionspunkte in den Bau eines Gebäudes investiert wurden, werden die entsprechenden Gegenstände <strong>aus der Bank entfernt</strong> und das neue Gebäude nimmt seine Arbeit auf.
+            {% endtrans %}</p>
+            <button x-advance-tutorial="6.text6">{{ 'Weiter...'|trans({},'help') }}</button>
+        </div>
+    </div>
+    <div x-tutorial-content="6.text6" class="toplevel text no-arrow">
+        <div class="help">
+            <p>{% trans from "help" %}
+                Nicht alle Gebäude können direkt beim Start des Spiels errichtet werden.
+            {% endtrans %}</p>
+            <p>{% trans from "help" %}
+                Manche Gebäude erfordern zunächst den Bau <strong>anderer Gebäude</strong>.
+            {% endtrans %}</p>
+            <p>{% trans from "help" %}
+                Andere Gebäude könnnen nicht errichtet werden, weil sie der Stadt <strong>gar nicht bekannt sind</strong>. Bei den Ausflügen in die Außenwelt werden die Bürger gelegentlich <strong>Baupläne</strong> entdecken, welche - <strong>wenn sie gelesen werden</strong> - der Stadt neue Bauprojekte ermöglichen.
+            {% endtrans %}</p>
+            <button x-advance-tutorial="complete">{{ 'Weiter...'|trans({},'help') }}</button>
+        </div>
+    </div>
+{% endblock %}
+
 {% block content %}
     {% set hour = "now"|date("G") %}
     <div class="row">

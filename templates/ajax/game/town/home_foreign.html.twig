@@ -6,6 +6,63 @@
         {{ 'Das Grab von {citizen}'|trans({'{citizen}': owner}, 'game') }}
     {% endif %}
 {% endblock %}
+
+{% block tutorial %}
+    {% if owner.alive %}
+    <div x-tutorial-content="5.text3" class="toplevel text no-arrow">
+        <div class="help">
+            <p>{{ 'Du stehst aktuell vor <strong>{citizen}\'s Haus</strong>.'|trans({'{citizen}': owner}, 'game')|raw }}</p>
+            <button x-advance-tutorial="5.text4">{{ 'Weiter...'|trans({},'help') }}</button>
+        </div>
+    </div>
+    <div x-tutorial-content="5.text4" class="toplevel text arrow-down">
+        <div class="help">
+            <p>{% trans from "help" %}
+                Hier siehst du eine <strong>Zusammenfassung über alle wichtigen Aspekte dieses Bürgers.</strong>
+            {% endtrans %}</p>
+            <button x-advance-tutorial="5.text5">{{ 'Weiter...'|trans({},'help') }}</button>
+        </div>
+    </div>
+    <div x-tutorial-content="5.text5" class="toplevel text arrow-down">
+        <div class="help">
+            <p>{% trans from "help" %}
+                An dieser Stelle kannst du etwas mehr über die Vergangenheit dieses Bürgers erfahren, indem du <strong>einen Blick in seine Seele</strong> wirfst.
+            {% endtrans %}</p>
+            <p>{% trans from "help" %}
+                Zudem kannst du auf verschiedene Weise mit ihm interagieren, zum Beispiel indem du <strong>ihm eine Nachricht hinterlässt</strong>.
+            {% endtrans %}</p>
+            <p>{% trans from "help" %}
+                Von hier aus kannst du auch <strong>Gerüchte über diesen Bürger</strong> aufschnappen. Wer weiß, was er vorhat...
+            {% endtrans %}</p>
+            <button x-advance-tutorial="5.text6">{{ 'Weiter...'|trans({},'help') }}</button>
+        </div>
+    </div>
+    <div x-tutorial-content="5.text6" class="toplevel text arrow-down">
+        <div class="help">
+            <p>{% trans from "help" %}
+                Je nachdem, wie gut dieser Bürger sein Haus geschützt hat, kannst du hier einen Blick in <strong>seine Truhe</strong> werfen.
+            {% endtrans %}</p>
+            <p>{% trans from "help" %}
+                Wenn er gerade <strong>nicht in der Stadt</strong> ist, kannst du dich hier vielleicht sogar <strong>bedienen</strong>...
+            {% endtrans %}</p>
+            <button x-advance-tutorial="complete">{{ 'Weiter...'|trans({},'help') }}</button>
+        </div>
+    </div>
+    {% else %}
+    <div x-tutorial-content="5.text3" class="toplevel text no-arrow">
+        <div class="help">
+            <p>{% trans from "help" %}
+                Dieser Bürger hat die Stadt bereits... <strong>verlassen.</strong>
+            {% endtrans %}</p>
+            <p>{% trans from "help" %}
+                Bitte wähle einen Bürger aus, der noch am Leben ist.
+            {% endtrans %}</p>
+            <button x-advance-tutorial="5.text1">{{ 'Ich versuchs...'|trans({},'help') }}</button>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
+
 {% block content %}
     {% set hour = "now"|date("G") %}
     <div class="row">

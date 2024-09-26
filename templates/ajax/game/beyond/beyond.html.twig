@@ -235,6 +235,7 @@
             $.ajax.push_renderblock().background().easySend( '{{ path('beyond_desert_move_controller') }}', m,
                 () => {
                     movement_busy = false;
+                    $.html.conditionalSetTutorialStage(10,'text3',10,'text4');
                     $.ajax.background().load(null, '{{ path('beyond_dashboard') }}', true);
                 }, null, data => {
                     movement_busy = false;

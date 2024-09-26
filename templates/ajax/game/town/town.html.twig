@@ -2,13 +2,15 @@
 {% block ajax %}
     {{ parent() }}
     {% if not app.user.expert %}
-        <div x-tutorial-content="* !3.text2 !3.text4 !3.text5 !4.text2 !4.text3" class="toplevel cover"></div>
+        <div x-tutorial-content="* !3.text2 !3.text4 !3.text5 !3.text10 !4.text2 !4.text3 !5.text1 !5.text2 !6.text2" class="toplevel cover"></div>
         <div x-tutorial-content="*" class="toplevel control">
             <b>{{ 'Spielhilfe aktiv:'|trans({},'help') }}</b>
             <div>
                 <strong x-tutorial-content="1.*">{{ 'Das Grundprizip des Spiels'|trans({},'help') }}</strong>
                 <strong x-tutorial-content="2.*">{{ 'Die Benutzeroberfläche'|trans({},'help') }}</strong>
                 <strong x-tutorial-content="3.*">{{ 'Wie rüste ich mich aus?'|trans({},'help') }}</strong>
+                <strong x-tutorial-content="5.*">{{ 'Wer ist noch in meiner Stadt?'|trans({},'help') }}</strong>
+                <strong x-tutorial-content="6.*">{{ 'Wie kann ich die Stadt verbessern?'|trans({},'help') }}</strong>
                 <strong x-tutorial-content="4.*">{{ 'Wie kann ich die Stadt verlassen?'|trans({},'help') }}</strong>
                 <button x-advance-tutorial="finish">{{ 'Die Spielhilfe stoppen'|trans({},'help') }}</button>
             </div>
@@ -74,6 +76,7 @@
                 <button x-advance-tutorial="complete">{{ 'Weiter...'|trans({},'help') }}</button>
             </div>
         </div>
+
         <div x-tutorial-content="2.text1" class="toplevel text arrow-down">
             <div class="help">
                 <p>{% trans from "help" %}
@@ -93,10 +96,10 @@
                 <button x-advance-tutorial="2.text3">{{ 'Weiter...'|trans({},'help') }}</button>
             </div>
         </div>
-        <div x-tutorial-content="2.text3" class="toplevel text arrow-up">
+        <div x-tutorial-content="2.text3" class="toplevel text arrow-up-left">
             <div class="help">
                 <p>{% trans from "help" %}
-                    Alle <strong>Ereignisse des Vortags</strong> werden in einer <strong>Zeitung veröffentlicht, die nach jedem Angriff der Zombiehorden erscheint</strong>. Sie enthält wichtige Informationen!
+                    Neben dem <strong>Stadtforum</strong> findest du hier zudem das <strong>Weltforum</strong>, in dem du dich mit den Bürgern anderer Städte austauschen kannst.
                 {% endtrans %}</p>
                 <button x-advance-tutorial="2.text4">{{ 'Weiter...'|trans({},'help') }}</button>
             </div>
@@ -104,7 +107,7 @@
         <div x-tutorial-content="2.text4" class="toplevel text arrow-up">
             <div class="help">
                 <p>{% trans from "help" %}
-                    Deine <strong>Seele</strong> ist hier sichtbar. In ihr findest du den Verlauf all deiner vorangegangenen Leben... In "MyHordes" ist Sterben nämlich etwas Alltägliches...
+                    Alle <strong>Ereignisse des Vortags</strong> werden in einer <strong>Zeitung veröffentlicht, die nach jedem Angriff der Zombiehorden erscheint</strong>. Sie enthält wichtige Informationen!
                 {% endtrans %}</p>
                 <button x-advance-tutorial="2.text5">{{ 'Weiter...'|trans({},'help') }}</button>
             </div>
@@ -112,12 +115,20 @@
         <div x-tutorial-content="2.text5" class="toplevel text arrow-up">
             <div class="help">
                 <p>{% trans from "help" %}
-                    In der <strong>ausführlichen Spielhilfe</strong> findest du alles über die Regeln des Spiels.
+                    Deine <strong>Seele</strong> ist hier sichtbar. In ihr findest du den Verlauf all deiner vorangegangenen Leben... In "MyHordes" ist Sterben nämlich etwas Alltägliches...
                 {% endtrans %}</p>
                 <button x-advance-tutorial="2.text6">{{ 'Weiter...'|trans({},'help') }}</button>
             </div>
         </div>
         <div x-tutorial-content="2.text6" class="toplevel text arrow-up">
+            <div class="help">
+                <p>{% trans from "help" %}
+                    In der <strong>ausführlichen Spielhilfe</strong> findest du alles über die Regeln des Spiels.
+                {% endtrans %}</p>
+                <button x-advance-tutorial="2.text7">{{ 'Weiter...'|trans({},'help') }}</button>
+            </div>
+        </div>
+        <div x-tutorial-content="2.text7" class="toplevel text arrow-up">
             <div class="help">
                 <p>{% trans from "help" %}
                     Deine <strong><span class="ap">Aktionspunkte</span></strong> (diese werden insbesonders für deine Ausflüge in die Außenwelt benötigt) werden hier auf der linken Seite angezeigt.
@@ -131,6 +142,7 @@
                 <button x-advance-tutorial="complete">{{ 'Weiter...'|trans({},'help') }}</button>
             </div>
         </div>
+
         <div x-tutorial-content="3.text1" class="toplevel text">
             <div class="help">
                 <p>{% trans from "help" %}
@@ -167,9 +179,48 @@
                 <p>{% trans from "help" %}
                     Der erste Gegenstand auf der Liste entspricht dem <strong>Beruf</strong>, den du dir ausgesucht hast. Er nimmt <strong>keinen Platz</strong> weg und du kannst ihn auch nicht verlieren.
                 {% endtrans %}</p>
-                <button x-advance-tutorial="complete">{{ 'Weiter...'|trans({},'help') }}</button>
+                <button x-advance-tutorial="3.text10">{{ 'Weiter...'|trans({},'help') }}</button>
             </div>
         </div>
+        <div x-tutorial-content="3.text10" class="toplevel text arrow-down">
+            <div class="help">
+                <p>{% trans from "help" %}
+                    Zusätzlich zu deinem <strong>persönlichen Inventar</strong> verfügt deine Stadt über ein allgemeines Lager, die <strong>Bank</strong>, in dem Gegenstände abgelegt werden können.
+                {% endtrans %}</p>
+                <p>{% trans from "help" %}
+                    Klicke auf dieses Icon, um zur Bank zu gelangen.
+                {% endtrans %}</p>
+            </div>
+        </div>
+
+        <div x-tutorial-content="5.text1" class="toplevel text arrow-down">
+            <div class="help">
+                <p>{% trans from "help" %}
+                    Um eine Liste aller <strong>Bürger dieser Stadt</strong> aufzurufen, klicke auf dieses Icon.
+                {% endtrans %}</p>
+            </div>
+        </div>
+
+        <div x-tutorial-content="6.text1" class="toplevel text no-arrow">
+            <div class="help">
+                <p>{% trans from "help" %}
+                    Zum Beginn des Spiels besteht die Stadt nur aus ein paar Zelten, einer provisorischen Mauer und einem Stadttor...
+                {% endtrans %}</p>
+                <p>{% trans from "help" %}
+                    Das wird auf die Dauer <strong>nicht reichen</strong>, um <strong>die Zombiehorden abzuwehren.</strong>
+                {% endtrans %}</p>
+                <button x-advance-tutorial="6.text2">{{ 'Weiter...'|trans({},'help') }}</button>
+            </div>
+        </div>
+
+        <div x-tutorial-content="6.text2" class="toplevel text arrow-down">
+            <div class="help">
+                <p>{% trans from "help" %}
+                    Über dieses Icon gelangst du auf die <strong>Baustelle</strong>, um Ausbauten an der Stadt vorzunehmen.
+                {% endtrans %}</p>
+            </div>
+        </div>
+
         <div x-tutorial-content="4.text1" class="toplevel text">
             <div class="help">
                 <p>{% trans from "help" %}
@@ -200,6 +251,8 @@
                                 <li x-tutorial-section="1" class="tick"><a class="small" href="#" x-advance-tutorial="1.text1">{{ 'Das Grundprizip des Spiels'|trans({},'help') }}</a></li>
                                 <li x-tutorial-section="2" class="tick"><a class="small" href="#" x-advance-tutorial="2.text1">{{ 'Die Benutzeroberfläche'|trans({},'help') }}</a></li>
                                 <li x-tutorial-section="3" class="tick"><a class="small" href="#" x-advance-tutorial="3.text1">{{ 'Wie rüste ich mich aus?'|trans({},'help') }}</a></li>
+                                <li x-tutorial-section="5" class="tick"><a class="small" href="#" x-advance-tutorial="5.text1">{{ 'Wer ist noch in meiner Stadt?'|trans({},'help') }}</a></li>
+                                <li x-tutorial-section="6" class="tick"><a class="small" href="#" x-advance-tutorial="6.text1">{{ 'Wie kann ich die Stadt verbessern?'|trans({},'help') }}</a></li>
                                 <li x-tutorial-section="4" class="tick"><a class="small" href="#" x-advance-tutorial="4.text1">{{ 'Wie kann ich die Stadt verlassen?'|trans({},'help') }}</a></li>
                                 <li><span class="small">{{ 'Entdecke deinen Beruf:'|trans({},'help') }} <img alt="" src="{{ asset('build/images/professions/' ~ app.user.activeCitizen.profession.icon ~ '.gif') }}" /> <a href="#" x-ajax-href="{{ path('help', {'name': app.user.activeCitizen.profession.name}) }}">{{ app.user.activeCitizen.profession.label|trans({},'game') }}</a></span></li>
                             </ul>
@@ -276,19 +329,19 @@
                                 {% trans from 'game' %}Brunnen{% endtrans %}
                             </div>
                         </div>
-                        <div x-ajax-href="{{ path('town_bank') }}" class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'bank' %}selected{% endif %} town-menu-bank">
+                        <div x-ajax-href="{{ path('town_bank') }}" {% if not app.user.expert%}x-advance-tutorial="3.text10>3.text11"{% endif%} class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'bank' %}selected{% endif %} town-menu-bank">
                             <div></div>
                             <div>
                                 {% trans from 'game' %}Bank{% endtrans %}
                             </div>
                         </div>
-                        <div x-ajax-href="{{ path('town_citizens') }}" class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'citizens' %}selected{% endif %} town-menu-citizens">
+                        <div x-ajax-href="{{ path('town_citizens') }}" {% if not app.user.expert%}x-advance-tutorial="5.text1>5.text2"{% endif%} class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'citizens' %}selected{% endif %} town-menu-citizens">
                             <div></div>
                             <div>
                                 {% trans from 'game' %}Bürger{% endtrans %}
                             </div>
                         </div>
-                        <div x-ajax-href="{{ path('town_constructions') }}" class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'constructions' %}selected{% endif %} town-menu-construct">
+                        <div x-ajax-href="{{ path('town_constructions') }}" {% if not app.user.expert%}x-advance-tutorial="6.text2>6.text3"{% endif%} class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'constructions' %}selected{% endif %} town-menu-construct">
                             <div></div>
                             <div>
                                 {% trans from 'game' %}Konstruktionen{% endtrans %}

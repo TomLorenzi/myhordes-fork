@@ -1,5 +1,17 @@
 {% extends "ajax/game/town/town.html.twig" %}
 {% block title %}{{'Die Bank'|trans({}, 'game')}}{% endblock %}
+
+{% block tutorial %}
+    <div x-tutorial-content="3.text11" class="toplevel text arrow-down">
+        <div class="help">
+            <p>{% trans from "help" %}
+                Hier kannst du Gegenstände in der Bank ablegen oder aufnehmen. <strong>Alle Spieler</strong> haben Zugang zur Bank, möglicherweise solltest du dich also mit den anderen Spielern <strong>absprechen</strong>, bevor du dich hier bedienst...
+            {% endtrans %}</p>
+            <button x-advance-tutorial="complete">{{ 'Weiter...'|trans({},'help') }}</button>
+        </div>
+    </div>
+{% endblock %}
+
 {% block content %}
     {% set hour = "now"|date("G") %}
     <div class="row">
