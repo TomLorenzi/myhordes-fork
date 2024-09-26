@@ -155,6 +155,9 @@ class TownHomeController extends TownController
                     case PrivateMessage::TEMPLATE_CROW_REDUCED_AP_REGEN:
                         $thread->setTitle( $this->translator->trans('Du bist erschöpft!', [], 'game') );
                         break;
+                    case PrivateMessage::TEMPLATE_CROW_GAME_WELCOME:
+                        $thread->setTitle( $this->translator->trans('Willkommen in deiner ersten Stadt', [], 'game') );
+                        break;
 
                     default: break;
                 }

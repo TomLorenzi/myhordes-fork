@@ -39,6 +39,7 @@ use App\Structures\TownSetup;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Collections\Expr\Comparison;
+use Doctrine\Common\Collections\Order;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\HttpFoundation\Request;
@@ -116,6 +117,7 @@ class GhostController extends CustomAbstractController
 
     /**
      * @return Response
+     * @throws Exception
      */
     #[Route(path: 'jx/ghost/postgame', name: 'postgame')]
     public function postgame_screen(Request $request): Response
@@ -127,7 +129,7 @@ class GhostController extends CustomAbstractController
                 ->andWhere( Criteria::expr()->eq('disabled', false) )
                 ->andWhere( Criteria::expr()->eq('confirmed', true) )
                 ->andWhere( Criteria::expr()->eq('user', $this->getUser()) )
-                ->orderBy(['end' => Criteria::DESC])
+                ->orderBy(['end' => Order::Descending])
                 ->setMaxResults(1)
         );
         $last_game_sp = $last_game_sp->isEmpty() ? 0 : $last_game_sp->first()->getPoints();
@@ -138,6 +140,8 @@ class GhostController extends CustomAbstractController
 
         return $this->render( 'ajax/ghost/donate.html.twig', [
             'exp' => $town_limit > 0 && ($all_sp >= $town_limit && ($all_sp - $last_game_sp) < $town_limit),
+            'h1' => $all_sp >= 100 && ($all_sp - $last_game_sp) < 100,
+            'h2' => $all_sp >= 200 && ($all_sp - $last_game_sp) < 200,
             'hxp' => $has_skills ? $request->query->get('t', 0) : 0,
         ] );
     }

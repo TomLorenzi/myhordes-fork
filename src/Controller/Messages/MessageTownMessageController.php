@@ -419,6 +419,10 @@ class MessageTownMessageController extends MessageController
                     $thread->setTitle( $this->translator->trans('Du bist erschöpft!', [], 'game') );
                     $post->setText( $this->html->prepareEmotes($post->getText(), $this->getUser(), $citizen->getTown()) . $this->translator->trans( 'Du hast dich gestern so sehr verausgabt, dass du in der Nacht nicht genug Kraft schöpfen konntest, um deine Aktionspunkte vollständig zu regenerieren.', [], 'game' ) );
                     break;
+                case PrivateMessage::TEMPLATE_CROW_GAME_WELCOME:
+                    $thread->setTitle( $this->translator->trans('Willkommen in deiner ersten Stadt', [], 'game') );
+                    $post->setText( $this->html->prepareEmotes($post->getText(), $this->getUser(), $citizen->getTown()) . $this->translator->trans( 'Willkommen! Dies ist ein Spiel, das sowohl auf Zusammenarbeit als auch Verrat zwischen den Spielern basiert. Der Feind kann ein Zombie oder dein Nachbar sein. Wir laden dich ein, das Forum deiner Stadt zu nutzen, um dich mit anderen Spielern zu koordinieren, zu diskutieren und euch vor Gefahren außerhalb und innerhalb der Stadt zu warnen.', [], 'game' ) );
+                    break;
                 default:
                     $post->setText($this->html->prepareEmotes($post->getText(), $this->getUser(), $citizen->getTown()));
             }
