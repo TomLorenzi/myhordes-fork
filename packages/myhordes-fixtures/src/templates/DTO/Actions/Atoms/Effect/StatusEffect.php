@@ -50,7 +50,7 @@ class StatusEffect extends EffectAtom {
         return $this;
     }
 
-    public function point(PointType $type, int|CitizenProperties $value, bool|RelativeMaxPoint $relativeToMax = RelativeMaxPoint::RelativeToMax, ?int $exceedMax = 0, ?int $capAt = null): self
+    public function point(PointType $type, int|CitizenProperties $value, bool|RelativeMaxPoint $relativeToMax = RelativeMaxPoint::RelativeToMax, int|CitizenProperties|null $exceedMax = 0, ?int $capAt = null): self
     {
         $this->pointType = $type;
         $this->pointValue = $value;

@@ -374,8 +374,8 @@ class ActionEffectProvider
         $effects_container->add()->identifier('plus_4ap')->add( (new StatusEffect())->point( PointType::AP, 4, relativeToMax: false ) )->commit();
         $effects_container->add()->identifier('plus_ap8_30')->add( (new StatusEffect())->point( PointType::AP, 8, relativeToMax: false, exceedMax: 24 ) )->commit();
         $effects_container->add()->identifier('just_ap_sw')
-            ->add( (new StatusEffect())->point( PointType::AP, CitizenProperties::HeroSecondWindBonusAP ) )
-            ->add( (new StatusEffect())->point( PointType::SP, CitizenProperties::HeroSecondWindBaseSP, relativeToMax: false) )
+            ->add( (new StatusEffect())->point( PointType::AP, CitizenProperties::HeroSecondWindBonusAP, relativeToMax: false, exceedMax: CitizenProperties::HeroSecondWindBonusAP ) )
+            ->add( (new StatusEffect())->point( PointType::SP, CitizenProperties::HeroSecondWindBaseSP, relativeToMax: false, exceedMax: CitizenProperties::HeroSecondWindBaseSP) )
             ->commit();
         $effects_container->add()->identifier('just_ap6')->add( (new StatusEffect())->point( PointType::AP, 0 ) )->commit();
         $effects_container->add()->identifier('just_ap7')->add( (new StatusEffect())->point( PointType::AP, 1 ) )->commit();
