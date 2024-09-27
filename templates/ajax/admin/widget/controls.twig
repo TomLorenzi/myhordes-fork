@@ -516,10 +516,12 @@
         <div class="row-flex">
             <div class="padded cell grow-1 shrink-1">
                 <select id="{{ _self.gen_id(prefix,'prowidget','select')}}">
+                    <option value="-1">{{ "Zurücksetzen"|trans({}, 'admin') }}</option>
                     {% for pro in citizenProfessions %}
                         <option value="{{pro.id}}">{{ pro.label|trans({}, 'game') }}</option>
                     {% endfor %}
                 </select>
+
             </div>
             <div class="padded cell grow-0 shrink-0"><button class="small inline icon-only" id="{{ _self.gen_id(prefix,'prowidget','set')}}"><img alt="✓" src="{{ asset('build/images/icons/done.png') }}" /><div class="tooltip">{{'Setzen'|trans({}, 'admin')}}</div></button></div>
         </div>
