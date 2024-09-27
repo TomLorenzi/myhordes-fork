@@ -1963,7 +1963,10 @@ class JSONv1Controller extends CoreController {
                     case "v1":
                         $data[$field] = 0;
                         break;
-                    case "score":
+					case "score":
+						$data[$field] = $citizen->getTown()?->getScore();
+						break;
+                    case "sp":
                         $data[$field] = $citizen->getPoints();
                         break;
                     case "msg":
