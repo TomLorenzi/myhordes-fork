@@ -698,7 +698,7 @@ Sekunde(n): second(s)
 'Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!': 'wasn''t even capable of choosing a profession! We''re not through this yet, I promise you!'
 'Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?': "could be someone very important. Maybe one of the creators?"
 'Gereinigte Seelen': 'Purified Souls'
-'"Einen Schritt weiter..." stand auf {victim}s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.': '"One step further ..." it said on {victim} s doormat. Their explosion left a lasting impression on you. If you can still walk, you''d better see a doctor.'
+'"Einen Schritt weiter..." stand auf {victim}s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.': '"One step further..." was written on {victim}''s doormat. You could say the sudden explosion left you with a lasting impression, if you can still walk, you''d better see a doctor.'
 'Du kannst diesen Gegenstand nicht stehlen.': 'You cannot steal this item.'
 '{username} wurde standrechtlich erschossen.': '{username} was shot dead.'
 'Dieser Bürger gehört keiner Stadt an.': 'This citizen does not belong to any Town.'
@@ -2991,3 +2991,9 @@ Meister: Master
 'Klick hier, wenn du mit deiner Heldenfähigkeit <strong>diesen Registereintrag löschen</strong> möchtest...': 'Click here if you want to <strong>delete this registry entry</strong> with your heroic ability...'
 Sofort: Immediately
 'Angegebener Zeitpunkt': 'Specified time'
+'Gut hydriert': 'Hydrated'
+Nüchtern: Sober
+'Es ist wichtig, regelmäßig zu trinken!': 'It is important to drink regularly!'
+'Du bist nüchtern, gut gemacht!': 'You are sober, well done!'
+'Willkommen in deiner ersten Stadt': 'Welcome to your first city'
+'Willkommen! Dies ist ein Spiel, das sowohl auf Zusammenarbeit als auch Verrat zwischen den Spielern basiert. Der Feind kann ein Zombie oder dein Nachbar sein. Wir laden dich ein, das Forum deiner Stadt zu nutzen, um dich mit anderen Spielern zu koordinieren, zu diskutieren und euch vor Gefahren außerhalb und innerhalb der Stadt zu warnen.': 'Welcome! This is a game based on both cooperation and betrayal between players. The enemy can be a zombie or your neighbor. We invite you to use your city''s forum to coordinate with other players, discuss and warn each other about dangers outside and inside the city.'

@@ -6,7 +6,7 @@ Grund: Reason
 'TOD NICHT BESTÄTIGT': 'DEATH NOT CONFIRMED'
 Kopfschuss: Headshot
 'Tod bestätigen': 'Confirm death'
-'Das Leben dieses Bürgers sofort beenden?': "End this citizen's life immediately?"
+'Das Leben dieses Bürgers sofort beenden?': 'End this citizen''s life immediately?'
 'Tod dieses Bürgers zwangsweise bestätigen?': 'Force confirmation of death of this citizen?'
 Forum: Forum
 Autor: Author
@@ -19,13 +19,13 @@ Account: Account
 Benutzername: Username
 E-Mail: E-mail
 Validiert: Validated
-Ja: 'Yes'
-Nein: 'No'
-Berechtigungsstufe: 'Authorization level'
+Ja: "Yes"
+Nein: "No"
+Berechtigungsstufe: Authorization level
 Spieler: Player
 Krähe: Crow
 Admin: Admin
-Validierungstokens: 'Validation token'
+Validierungstokens: Validation token
 Keine: None
 'User administrieren': 'User administration'
 Validierung: Validation
@@ -44,10 +44,10 @@ Users: Users
 Städte: Towns
 Zukunft: Upd-Announces
 Auszeichnungen: Distinctions
-Admin-Wachturm: 'Admin Watchtower'
-Ruinenscanner: 'Ruin scanner'
+Admin-Wachturm: Admin Watchtower
+Ruinenscanner: Ruin scanner
 ID: ID
-Stadtname: "Town's name"
+Stadtname: Town's name
 Sprache: Language
 Typ: Type
 Population: Population
@@ -57,10 +57,10 @@ Offen: Joinable
 Chaos: Chaos
 Zerstört: Devastated
 'Tor offen': 'Gates open'
-Brunnen: 'Well rations'
+Brunnen: Well rations
 Angriff: Attack
-'Bereich Min': Minimum
-'Bereich Max': Maximum
+'Bereich Min': 'Minimum'
+'Bereich Max': 'Maximum'
 Position: Position
 Distanz: Distance
 Zombies: Zombies
@@ -72,8 +72,8 @@ Flucht: Escape
 Raum: Room
 Zeit: Time
 'Alle Sitzungen': 'All sessions'
-Stadtübersicht: 'Town Overview'
-'Liste aller Städte': "Towns' list"
+Stadtübersicht: Town Overview
+'Liste aller Städte': 'Towns'' list'
 Pop.: Pop.
 Aktionen: Actions
 Tot: Deaths
@@ -97,16 +97,16 @@ Version: Update
 'Du gehörst keiner Stadt an.': 'You do not belong to a town.'
 'Selbstmord begehen': 'Commit Suicide'
 'PM vom Raben': 'PM from The Crow'
-Stadtregister: 'Town registry'
+Stadtregister: Town registry
 'Rundmail als Rabe': 'Global message as Crow'
 'Stadt administrieren': 'Town administration'
 'Nächtlicher Angriff': 'Night attack'
 'Quarantäne aufheben': 'Remove quarantine'
 'Unter Quarantäne stellen': 'Put under quarantine'
 'Manueller Tageswechsel': 'Manually change the day'
-Twinoid-Konto: 'Twinoid account'
+Twinoid-Konto: Twinoid account
 Orakel: Oracle
-Twinoid-Integration: 'Twinoid integration'
+Twinoid-Integration: Twinoid integration
 'Integrationen löschen': 'Delete integrations'
 'Hauptseele zurücksetzen': 'Reset main soul'
 'Du hast keine Berechtigung, diesen Benutzer zu administrieren!': 'Wow, wow, wow! What are you trying? lol'
@@ -123,10 +123,10 @@ Verdacht: Suspicion
 'Andere Accounts': 'Other accounts'
 Bann: Ban
 Verwaltung: Administration
-Annulieren: 'Abort town'
+Annulieren: Abort town
 Verschüttet: Buried
 'Multi-Account Whitelist': 'Multi-account whitelist'
-Spieler-ID: 'Player ID'
+Spieler-ID: Player ID
 'Multi-Account Whitelist-Eintrag hinzufügen': 'Add multi-account whitelist entry'
 'Verwende folgende Syntax, um deine Suche zu spezifizieren:': 'Use the following syntax to specify your search:'
 'Klick, um Profil in neuem Tab zu öffnen': 'Click to open profile in new tab'
@@ -136,25 +136,25 @@ Whitelist: Whitelist
 'E-Mail ändern': 'Change e-mail'
 'Neues Passwort eingeben.': 'Enter new password.'
 'Neues Passwort setzen': 'Set new password'
-EternalTwin-Integration: 'Eternaltwin integration'
+EternalTwin-Integration: Eternaltwin integration
 'In lokalen Account umwandeln': 'Turn into local account'
-Kartei: 'Map hint'
-Anzeigename: 'Display name'
+Kartei: Map hint
+Anzeigename: Display name
 'Lokal: {account}': 'Local: {account}'
 'Von EternalTwin verwaltet': 'Administered by Eternaltwin'
 'Nur für Administratoren sichtbar': 'Only visible to administrators'
 'Verknüpfte Konten': 'Connect accounts'
-EternalTwin-Konto: 'Eternaltwin account'
+EternalTwin-Konto: Eternaltwin account
 Sonstiges: Miscellaneous
 AntiSpam: AntiSpam
 'Account zur Löschung vorgemerkt!': 'Account marked for deletion!'
 'Anzahl der gelisteten Domains: {number}': 'Amount of listed domains: {number}'
-Domain-Suche: 'Search domain'
+Domain-Suche: Search domain
 'Gewählte entfernen': 'Remove selected'
 'Domains hinzufügen': 'Add domain'
 Hinzufügen: Add
 'Nachricht?': 'Message?'
-Foren-Meldungen: 'Forum posts'
+Foren-Meldungen: Forum posts
 PN-Meldungen: PMs
 Öffnen: Open
 Dashboard: Dashboard
@@ -177,15 +177,15 @@ Niemand: Nobody
 URL: URL
 Anzeige: Display
 'Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.': 'Applications in test mode are only visible to their owner.'
-Testbetrieb: 'Test mode'
+Testbetrieb: Test mode
 Icon: Icon
-Datenzugriff: 'Data access'
+Datenzugriff: Data access
 'Anwendungen ohne API-Zugang werden nur als Links eingebunden.': 'Applications without API access will be added as links, only.'
 'Zugang zur API': 'API access'
 'Wird automatisch generiert': 'Generated automatically'
 'Schlüssel regenerieren': 'Generate key'
-Foren-Mod.: 'Forum mod.'
-Kurztexte: 'Short texts'
+Foren-Mod.: Forum mod.
+Kurztexte: Short texts
 Inhalt: Content
 'Neuen Kurztext anlegen': 'Create new short text'
 'ID eingeben': 'Enter ID'
@@ -228,13 +228,13 @@ Abziehen: Remove
 Changelogs: Changelogs
 Ankündigungen: Announcements
 'Neue Ankündigung': 'New Announcement'
-Konstruktionen: 'Construction sites'
+Konstruktionen: Construction sites
 'Gib den Namen oder die ID der Stadt ein.': 'Type here the name of the ID of the town'
 Stimmen: Votes
 'Für {target}': 'For {target}'
 Ersteller: Creator
 'Existierende Beschränkungen': 'Existing sanctions'
-'Dieser Spieler hat eine weiße Weste.': "This player doesn't have any existing sanctions."
+'Dieser Spieler hat eine weiße Weste.': 'This player doesn''t have any existing sanctions.'
 'Bestätigt von': 'Confirmed by'
 Datum: Date
 Endet: Ends
@@ -265,7 +265,7 @@ Abgelaufen: Expired
 Deaktiviert: Deactivated
 Art: Art
 Sozial: Social
-Stadt-Kom.: 'Town com.'
+Stadt-Kom.: Town com.
 'Globale Kom.': 'Global com.'
 Kommentare: Comment
 Org.: Org.
@@ -292,7 +292,7 @@ MP: PM
 'Einen Beruf auswählen:': 'Choose Profession:'
 'Stadt anlegen': 'Create Town'
 Avatar: Avatar
-Profilbeschreibung: 'Profile description'
+Profilbeschreibung: Profile description
 'Änderungen am Profil verbieten': 'Profile modifications'
 'Ändern des Avatars verbieten': 'Avatar change'
 'Ändern der Profilbeschreibung verbieten': 'Profile description modifications'
@@ -320,7 +320,7 @@ Freundschaftswerbung: Sponsorship
 'Ref-Namen sperren': 'Block reference name'
 'Ref-Namen entsprerren': 'Unblock reference name'
 'Sponsor setzen': 'Set the sponsor'
-Ref-Name: 'Reference name'
+Ref-Name: Reference name
 'Gesponsort von': 'Sponsored by'
 'Gesponsorte Spieler': 'Sponsored players'
 'Zombie-Spread ausführen': 'Execute zombie spread'
@@ -339,7 +339,7 @@ Beschreibung: Description
 'Anonyme Gruppe': 'Anonymous group'
 'Neue Gruppe anlegen': 'Create a new group'
 'Anzahl der Tage': 'Number of days to skip'
-Vorspulen: 'Fast Forward'
+Vorspulen: Fast Forward
 'Herauswerfen (ohne Verletzung)': 'Eject (without injury)'
 'Herauswerfen (mit Verletzung)': 'Eject (with injury)'
 'Timer erhöhen (1min)': 'Add remaining time (1min)'
@@ -352,13 +352,13 @@ Hunger: Hunger
 'Camp Chance': 'Camp Chance'
 'Camp Zähler': 'Camp Counter'
 'Verwendung des Schwarzen Bretts verbieten': 'Prevent writing to the Black Board'
-Passwort-geschützt: 'Password protected'
+Passwort-geschützt: Password protected
 'Passwort ändern': 'Change Password'
 'Passwort entfernen': 'Remove Password'
 'Passwort setzen': 'Set Password'
-'Format: {zombies} (heutiger Angriff) oder {tag}:{zombies} (Angriff an einem bestimmten Tag). Es können keine Tage in der Vergangenheit gewählt werden.': "Format: {zombies} (today's attack) or {day}:{zombies} (attack for a specific day). It's not possible to select past days."
+'Format: {zombies} (heutiger Angriff) oder {tag}:{zombies} (Angriff an einem bestimmten Tag). Es können keine Tage in der Vergangenheit gewählt werden.': 'Format: {zombies} (today''s attack) or {day}:{zombies} (attack for a specific day). It''s not possible to select past days.'
 'Stärke des Angriffs setzen': 'Set attack strength'
-Chaos-Modus: 'Chaos Mode'
+Chaos-Modus: Chaos Mode
 'Stadt zerstören': 'Devastate town'
 'Ändern des Spielernamens verbieten': 'Change username'
 Spielername: Username
@@ -367,14 +367,14 @@ Spielername: Username
 'Versteckte Statuseffekte': 'Hidden statuses'
 'Ranking-Ausschluss zurücknehmen': 'Undo ranking exclusion'
 'Diese Stadt aus dem Ranking ausschließen': 'Exclude town from ranking'
-Ranking-Eintrag: 'Ranking Entry'
+Ranking-Eintrag: Ranking Entry
 'Event-Markierung entfernen': 'Remove event town marking'
 'Als Event-Stadt markieren': 'Mark as an event town'
 'Funktionen für Spezialrollen': 'Options for special roles'
 'Stadt-ID eingeben.': 'Enter town ID'
 'Zugang zu Stadtforum gewähren': 'Grant access to a town forum'
 'Zugang zu Stadtforum entziehen': 'Retract access to a town forum'
-Spezialrollen: 'Special roles'
+Spezialrollen: Special roles
 Animateur: Animactor
 'Community Dashboard': 'Community Dashboard'
 Team: Team
@@ -398,15 +398,15 @@ Täglich: Daily
 Wöchentlich: Weekly
 Monatlich: Monthly
 Manuell: Manual
-'Nicht komprimiert': Uncompressed
-Systemlogs: 'System logs'
-Datenbank-Backups: 'Database backups'
+'Nicht komprimiert': 'Uncompressed'
+Systemlogs: System logs
+Datenbank-Backups: Database backups
 Tags: Tags
 Datei: File
 'Dateigröße: {s}': 'File size: {s}'
-Dateisystem: 'File system'
+Dateisystem: File system
 'Alle User': 'All Users'
-Account-Zustand: 'Account status'
+Account-Zustand: Account status
 Aktiv: Active
 Dummy: Dummy
 Spezial: Special
@@ -414,34 +414,34 @@ Spezial: Special
 Gelöscht: Deleted
 Inkarnation: Incarnation
 'Zuletzt aktiv': 'Last active'
-Hauptseele: 'Main soul'
+Hauptseele: Main soul
 'Keine Hauptseele': 'No main soul'
 'Verknüpfte Seele': 'Linked soul'
 'Beliebige verknüpfte Seele': 'Any linked soul'
 'Keine verknüpfte Seele': 'No linked soul'
-Accountbeschränkung: 'Account restriction'
-'Nicht bestätigt': Unconfirmed
-'Nicht aktiv': Inactive
+Accountbeschränkung: Account restriction
+'Nicht bestätigt': 'Unconfirmed'
+'Nicht aktiv': 'Inactive'
 Rolle: Role
 'Aktion bei Klick:': 'Action on click:'
 'Verbleibe Zonengrabungen:': 'Zone digs left:'
 'Verbleibende Ruinengrabungen:': 'Ruin digs left:'
 'Zurzeit in der Stadt': 'Currently in town'
 'Eternal-Twin-Konto verlinkt': 'Linked Eternaltwin account'
-Gruppentyp: 'Group Type'
+Gruppentyp: Group Type
 "Änderungen an '{appname}' speichern": "Save changes to '{appname}'"
-'Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.': "This distinction won't be earned if the citizen dies tonight."
+'Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.': 'This distinction won''t be earned if the citizen dies tonight.'
 'Diese Auszeichnung wurde verdient.': 'This distinction has been earned.'
-Freundesliste: 'Friend list'
+Freundesliste: Friend list
 'Spieler, sie sich als Freund hinzugefügt haben': 'Players who added them to their friend list'
-'Spieler werben': Sponsorship
+'Spieler werben': 'Sponsorship'
 Blockierliste: Blocklist
 'Blockiert von': 'Blocked by'
 'Bürger-Alias ​​ändern:': 'Changer citizen alias:'
 'Kein Alias ​​angegeben': 'No alias'
 'Bitte nicht für mehrere Bürger denselben Alias eingeben!': 'Please do not give multiple citizen the same alias!'
 'Bank leeren': 'Empty the bank'
-Stadt-Event: 'Town Event'
+Stadt-Event: Town Event
 Koalitionen: Coalitions
 Profiler: Profiler
 'Nicht installiert': 'Not installed'
@@ -464,7 +464,7 @@ Infektiös: Infectious
 'MyHordes-Seele wiederherstellen': 'Restore MyHordes soul'
 'Seele zurückgesetzt': 'Soul reset'
 '{num} Städte betroffen': '{num} towns affected'
-'Du siehst aktuell gelöschte Meldungen.': "You're currently viewing deleted reports."
+'Du siehst aktuell gelöschte Meldungen.': 'You''re currently viewing deleted reports.'
 'Zurück zur Meldungsübersicht': 'Back to the overview'
 'Möchtest du bereits gelöschte Meldungen durchsuchen?': 'Need to look at already deleted reports?'
 'Zum Papierkorb': 'Open recycle bin'
@@ -474,11 +474,11 @@ Infektiös: Infectious
 'Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)': 'Download town and zone registers (grouped by zones)'
 'Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)': 'Download town and zone registers (grouped by citizens)'
 'Stadt- und Zonenregister herunterladen (chronologisch)': 'Download town and zone registers (chronologically)'
-Instanzeigenschaften: 'Instance properties'
+Instanzeigenschaften: Instance properties
 Vergiftet: Poisoned
 Infiziert: Infected
 'Noch nicht aufgehoben': 'Not yet picked up'
-'Spielernamen nicht von EternalTwin übernehmen': "Don't take display name from EternalTwin"
+'Spielernamen nicht von EternalTwin übernehmen': 'Don''t take display name from EternalTwin'
 'Automatische Verwaltung des Spielernamens wiederherstellen': 'Restore automatic display name management'
 'Nicht von ET verwaltet.': 'Not managed by ET.'
 'Leber fressen': 'Eat the liver'
@@ -491,25 +491,25 @@ Infiziert: Infected
 'Seelenpunkte aller Einwohner dieser Stadt löschen': 'Delete the soulpoints of this town'
 'Alle Sanktionen entfernen': 'Remove all sanctions'
 'Stadt nicht in der Seele listen': 'Exclude the town from the soul'
-'Seelenpunkte dieses Bürgers entfernen': "Remove this citizen's soul points"
+'Seelenpunkte dieses Bürgers entfernen': 'Remove this citizen''s soul points'
 'Ranking für diesen Bürger wiederherstellen': 'Rerank this citizen'
 'Bürger aus dem Ranking entfernen': 'Remove this citizen from the ranking'
-'Auszeichnungen dieses Bürgers entfernen': "Remove this citizen's pictos"
+'Auszeichnungen dieses Bürgers entfernen': 'Remove this citizen''s pictos'
 'Seelenpunkte für diesen Bürger wiederherstellen': 'Restore the soul points of this citizen'
 'Auszeichnungen für diesen Bürger wiederherstellen': 'Restore the pictos of this citizen'
 'Eine neue Umfrage anlegen': 'Create new survey'
-Editoreinstellungen: 'Editor settings'
+Editoreinstellungen: Editor settings
 'Aktuelle Bearbeitungssprache': 'Current editing language'
 'Diese Einstellung steuert, welche Eingabefelder sichtbar sind. Unabhängig davon werden Umfragen immer in allen Sprachen erstellt, es müssen also alle Felder in allen Sprachen ausgefüllt werden.': 'This setting controls which input fields are visible. Regardless, surveys are always created in all languages, so all fields must be filled in all languages.'
-Umfragedaten: 'Survey data'
+Umfragedaten: Survey data
 'Titel der Umfrage': 'Survey title'
 'Start der Umfrage': 'Survey start'
 'Ende der Umfrage': 'Survey end'
 'Vorläufige Ergebnisse anzeigen': 'Display preliminary results'
-Kurzbeschreibung: 'Short description'
+Kurzbeschreibung: Short description
 'Beschreibung der Umfrage': 'Survey description'
 Antworten: Answers
-Antwortstext: 'Answer text'
+Antwortstext: Answer text
 'Antwort hinzufügen': 'Add answer'
 'Bearbeitung abschließen': 'Finish editing'
 'Umfrage erstellen': 'Create survey'
@@ -532,15 +532,15 @@ Antwortstext: 'Answer text'
 'Neue Basis-Stadtverteidigung:': 'New town base defense:'
 'Basis-Stadtverteidigung setzen': 'Set the town base defense'
 'Neue temporäre Stadtverteidigung:': 'New temporary town defense:'
-'Temporäre Stadtverteidigung setzen': "Set the town's temporary defense"
+'Temporäre Stadtverteidigung setzen': 'Set the town''s temporary defense'
 'Alle Tode bestätigen': 'Validate all deaths'
 'Lege einen Zeitpunkt fest, an dem die Stadt eröffnet werden soll. Leer lassen oder einen Zeitpunkt in der Vergangenheit angeben, um die Stadt sofort zu öffnen.': 'Specify a time when the town must be opened. Leave blank or specify a time in the past to open the town immediately.'
 'Geplant für': 'Scheduled for'
 'Seelenpunkte:': 'Soul points:'
 'Heldentage:': 'Hero days:'
-Vergleichswert: 'Reference value'
+Vergleichswert: Reference value
 Keiner: None
-Basiskonfiguration: 'Basic configuration'
+Basiskonfiguration: Basic configuration
 'Sonstige Accountmarkierungen': 'Other account markers'
 'Strenges Report Rate Limiting': 'Strict report rate limiting'
 'Du bist im Begriff, eine bestehende Accountbeschränkung zu bearbeiten. Der Spieler wird über die Bearbeitung nicht informiert. Existierende Bestätigungen für diese Beschränkung werden entfernt. Fortsetzen?': 'You are about to edit an existing account restriction. The player will not be informed about the edit. Existing confirmations for this restriction will be removed. Continue?'
@@ -550,19 +550,19 @@ Treppe: Staircase
 'Benutzer impersonifizieren': 'Impersonate user'
 Fortfahren: Proceed
 'Tokens erfolgreich erzeugt!': 'Tokens successfully generated!'
-Registrierungstoken: 'Registration token'
+Registrierungstoken: Registration token
 'Registration Token': 'Registration token'
 'Wie viele Token möchtest du erzeugen?': 'How many tokens would you want to generate?'
 Nachricht: Message
 'Stadtnamen ändern': 'Enter town name'
 'Registrierungstoken verteilen': 'Distribute registration tokens'
-Nachrichtentext: 'Message text'
+Nachrichtentext: Message text
 CSV: CSV
 Senden: Send
 'Es wurden {success} Nachrichten verschickt.': '{success} messages were sent.'
 'Es wurden {success} Nachrichten erfolgreich verschickt, bei {error} Nachrichten tragen Fehler auf.': '{success} were sent successfully, {error} messages had errors.'
-Entwickler-URL: 'Developer URL'
-Heldentage: 'Hero days'
+Entwickler-URL: Developer URL
+Heldentage: Hero days
 'Sekundäraccount verknüpfen': 'Connect secondary account'
 'Sekundäre Accounts': 'Secondary accounts'
 'Team setzen': 'Set community'
@@ -575,14 +575,14 @@ Kampagne: Campaign
 Slug: Slug
 'Zusätzliche Verwalter': 'Additional managers'
 'Neue Kampagne anlegen': 'Create new campaign'
-Einstiegspunkt: 'Entry point'
+Einstiegspunkt: Entry point
 'Geworbene Spieler': 'New players'
 'Meldungen für das Schwarze Brett': 'Messages for the news board'
 Stadt: Town
 'Gemeldete globale Nachrichten': 'Reported global news'
 'Private Nachrichten (Stadt)': 'Private Messages (Town)'
 'Private Nachrichten (Global)': 'Private Messages (Global)'
-Bürgertexte: 'Citizen texts'
+Bürgertexte: Citizen texts
 Accounts: Accounts
 'Meldungen für Bürgertexte': 'Messages for citizen texts'
 'Gemeldete Stadtnachrichten': 'Reported town news'
@@ -591,12 +591,12 @@ Accounts: Accounts
 'Wikis werden separat von anderen Anwendungen angezeigt.': 'Wikis are displayed separately from other apps.'
 Wiki: Wiki
 Entwickler: Developer
-Angriffsplan: 'Attack Plan'
+Angriffsplan: Attack Plan
 Uhrzeit: Time
 Geplant: Planned
 'Wartet auf Abarbeitung': 'Awaiting processing'
 'Wartet seit {s} Sekunden': 'Waited for {s} seconds'
-'Wird verarbeitet': Processing
+'Wird verarbeitet': 'Processing'
 'Arbeitet seit {s} Sekunden': 'Working for {s} seconds'
 Abgeschlossen: Completed
 Projiziert: Projected
@@ -625,7 +625,7 @@ Wert: Value
 'Erfolgreich hinzugefügt.': 'Successfully added.'
 'Erfolgreich entfernt.': 'Successfully removed.'
 'E-Mail Domains': 'E-mail domains'
-Account-IDs: 'Account IDs'
+Account-IDs: Account IDs
 'Anzahl der gelisteten E-Mail-Adressen: {number}': 'Amount of listed E-mail addresses: {number}'
 'Anzahl der gelisteten Eternaltwin IDs: {number}': 'Amount of listed Eternaltwin IDs: {number}'
 Suche: Search
@@ -635,15 +635,15 @@ Beginn: Start
 'Max. Aktive Zombies': 'Max. active zombies'
 'Sperre deaktivieren': 'Disable lockdown'
 'Sperre aktivieren': 'Activate lockdown'
-'Stadttor reparieren': "Repair the town's gates"
-'Zerstöre das Stadttor': "Destroy the town's gates"
+'Stadttor reparieren': 'Repair the town''s gates'
+'Zerstöre das Stadttor': 'Destroy the town''s gates'
 'Verläufige Ergebnisse anzeigen ab': 'Show current results'
 'Mehrere Antworten möglich (Multiple Choice)': 'Multiple answers possible (multiple choice)'
 'Raben-Account anlegen': 'Create a Crow account'
 'Zugehöriger User (optional)': 'Associated user (optional)'
 'Zugehörige Rabennester': 'Associated Crow Nest'
 Raben: Crows
-Fehlerberichte: 'Bug reports'
+Fehlerberichte: Bug reports
 'Verfassen von Fehlerberichten für Gitlab verbieten': 'Prohibit writing bug reports for Gitlab'
 'Zusätzliche Beschreibung:': 'Additional description:'
 'Nachricht an den Verfasser?': 'Message the author?'
@@ -663,7 +663,7 @@ Erstellt: Created
 'Dritter Wert:': 'Third value:'
 'Übereinstimmung der von dem Spieler genutzen Endgeräte mit denen des Rests der Gruppe.': 'Consistency of the devices used by the player with those of the rest of the group.'
 'Diese Zeile enthält entlastende Informationen über den Spieler.': 'This line contains exculpatory information about the player. If the value shown here is high, it means it is less likely to be a multi-account.'
-'Dauer und Verhältnis der aktiven Phasen dieses Spielers in anderen Gruppen, die keinerlei überschneidung mit den anderen Spielern dieser Gruppe haben.': "Duration and ratio of this player's active phases in other groups that have no connection with other players in this group."
+'Dauer und Verhältnis der aktiven Phasen dieses Spielers in anderen Gruppen, die keinerlei überschneidung mit den anderen Spielern dieser Gruppe haben.': 'Duration and ratio of this player''s active phases in other groups that have no connection with other players in this group.'
 'Keine Daten': 'No data'
 'Multi-Account Report V2': 'Multi-account report V2'
 'Letzte {n} Tage': 'Last {n} days'
@@ -677,7 +677,7 @@ SP: EP
 'Weitere Aktionen': 'Additional actions'
 'Bekannte IP-Adressen': 'Known IP addresses'
 '{n} (davon {n2} bereits blockiert)': '{n} (including {n2} already blocked)'
-Foren-Posts: 'Forum messages'
+Foren-Posts: Forum messages
 '{n} (davon {n2} gelöscht)': '{n} (including {n2} already deleted)'
 Heldenerfahrung: Heroic Experience
-Zurücksetzen: Unset
+Zurücksetzen: Reset

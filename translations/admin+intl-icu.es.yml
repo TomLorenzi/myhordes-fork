@@ -16,16 +16,16 @@ Verbannung: Destierro
 Bürger: Habitantes
 'Suche:': 'Buscar:'
 Account: Cuenta
-Benutzername: 'Nombre de usuario'
-E-Mail: 'Correo electrónico'
+Benutzername: Nombre de usuario
+E-Mail: Correo electrónico
 Validiert: Validado
 Ja: Sí
-Nein: 'No'
-Berechtigungsstufe: 'Nivel de autorización'
+Nein: "No"
+Berechtigungsstufe: Nivel de autorización
 Spieler: Jugador
 Krähe: Cuervo
 Admin: Admin
-Validierungstokens: 'Token de validación'
+Validierungstokens: Token de validación
 Keine: Ninguno
 'User administrieren': 'Administración de usuario'
 Validierung: Validación
@@ -37,17 +37,17 @@ Sicherheit: Seguridad
 'Passwort-Reset auslösen': 'Iniciar el restablecimiento de contraseña'
 'Passwort-Reset erzwingen': 'Forzar el restablecimiento de contraseña'
 Ausführen: Ejecutar
-Übersicht: 'Vista general'
+Übersicht: Vista general
 'Posts mit nur einer Meldung werden ausgeblendet.': 'Las publicaciones con un solo mensaje están ocultas.'
 'Alle anzeigen': 'Ver todo'
 Users: Usuarios
 Städte: Pueblo
 Zukunft: Actus-Anuncios
 Auszeichnungen: Distinciones
-Admin-Wachturm: 'Torre de vigilancia del admin'
-Ruinenscanner: 'Escáner de ruinas'
+Admin-Wachturm: Torre de vigilancia del admin
+Ruinenscanner: Escáner de ruinas
 ID: ID
-Stadtname: 'Nombre del pueblo'
+Stadtname: Nombre del pueblo
 Sprache: Idioma
 Typ: Tipo
 Population: Población
@@ -57,10 +57,10 @@ Offen: Disponible
 Chaos: Caos
 Zerstört: Devastado
 'Tor offen': 'Portal Abierto'
-Brunnen: 'Raciones del pozo'
+Brunnen: Raciones del pozo
 Angriff: Ataque
-'Bereich Min': Mínimo
-'Bereich Max': Máximo
+'Bereich Min': 'Mínimo'
+'Bereich Max': 'Máximo'
 Position: Posición
 Distanz: Distancia
 Zombies: Zombies
@@ -72,12 +72,12 @@ Flucht: Huir
 Raum: Habitación
 Zeit: Tiempo
 'Alle Sitzungen': 'Todas las sesiones'
-Stadtübersicht: 'Vista general de los pueblos'
+Stadtübersicht: Vista general de los pueblos
 'Liste aller Städte': 'Lista de pueblos'
 Pop.: Pob.
 Aktionen: Acciones
 Tot: Muertes
-Getrennt: 'Disparado en la cabeza'
+Getrennt: Disparado en la cabeza
 Details: Detalles
 Titel: Título
 Version: Versión
@@ -97,16 +97,16 @@ Version: Versión
 'Du gehörst keiner Stadt an.': 'No perteneces a un pueblo.'
 'Selbstmord begehen': 'Cometer suicidio'
 'PM vom Raben': 'MP como Cuervo'
-Stadtregister: 'Registro del pueblo'
+Stadtregister: Registro del pueblo
 'Rundmail als Rabe': 'Mensaje Global como Cuervo'
 'Stadt administrieren': 'Administración del pueblo'
 'Nächtlicher Angriff': 'Ataque Nocturno'
 'Quarantäne aufheben': 'Levantar Cuarentena'
 'Unter Quarantäne stellen': 'Poner bajo Cuarentena'
 'Manueller Tageswechsel': 'Cambiar el día manualmente'
-Twinoid-Konto: 'Cuenta de Twinoid'
+Twinoid-Konto: Cuenta de Twinoid
 Orakel: Oráculo
-Twinoid-Integration: 'Integración de Twinoid'
+Twinoid-Integration: Integración de Twinoid
 'Integrationen löschen': 'Borrar integración'
 'Hauptseele zurücksetzen': 'Reiniciar alma principal'
 'Du hast keine Berechtigung, diesen Benutzer zu administrieren!': '¡Wow, wow, wow! ¿Qué estás tratando de hacer? Lol'
@@ -123,39 +123,39 @@ Verdacht: Sospecha
 'Andere Accounts': 'Otras cuentas'
 Bann: Ban
 Verwaltung: Administración
-Annulieren: 'Abortar pueblo'
+Annulieren: Abortar pueblo
 Verschüttet: Enterrado
 'Multi-Account Whitelist': 'Lista blanca de Multi-Cuentas'
-Spieler-ID: 'ID de Jugador'
+Spieler-ID: ID de Jugador
 'Multi-Account Whitelist-Eintrag hinzufügen': 'Agregar una entrada a la lista blanca de Multi-Cuentas'
 'Verwende folgende Syntax, um deine Suche zu spezifizieren:': 'Usa la siguiente sintaxis para especificar tu búsqueda:'
 'Klick, um Profil in neuem Tab zu öffnen': 'Hacer clic para abrir el perfil en una nueva pestaña'
 'STRG+Klick, um zur Whitelist hinzuzufügen': 'CTRL + CLIC para agregar a la lista blanca'
-Whitelist: 'Lista blanca'
+Whitelist: Lista blanca
 'E-Mail eingeben.': 'Ingresar e-mail.'
 'E-Mail ändern': 'Cambiar el e-mail'
 'Neues Passwort eingeben.': 'Ingresar una nueva contraseña.'
 'Neues Passwort setzen': 'Cambiar la contraseña'
-EternalTwin-Integration: 'Integración a Eternaltwin'
+EternalTwin-Integration: Integración a Eternaltwin
 'In lokalen Account umwandeln': 'Cambiar en Cuenta Local'
 Kartei: Índice
-Anzeigename: 'Nombre de Muestra'
+Anzeigename: Nombre de Muestra
 'Lokal: {account}': 'Local: {account}'
 'Von EternalTwin verwaltet': 'Gestionado por Eternaltwin'
 'Nur für Administratoren sichtbar': 'Sólo visible para Administradores'
 'Verknüpfte Konten': 'Cuentas Vinculadas'
-EternalTwin-Konto: 'Cuenta de Eternaltwin'
+EternalTwin-Konto: Cuenta de Eternaltwin
 Sonstiges: Otros
 AntiSpam: Anti-spam
 'Account zur Löschung vorgemerkt!': 'Cuenta marcada para eliminiación!'
 'Anzahl der gelisteten Domains: {number}': 'Cantidad de dominios listados: {number}'
-Domain-Suche: 'Búsqueda por dominio'
+Domain-Suche: Búsqueda por dominio
 'Gewählte entfernen': 'Eliminar selección'
 'Domains hinzufügen': 'Agregar dominios'
 Hinzufügen: Agregar
 'Nachricht?': '¿Noticia?'
-Foren-Meldungen: 'Mensajes de foros'
-PN-Meldungen: 'Mensajes Privados'
+Foren-Meldungen: Mensajes de foros
+PN-Meldungen: Mensajes Privados
 Öffnen: Abrir
 Dashboard: Tablero
 'Stadt {townname}': 'Pueblo {townname}'
@@ -165,7 +165,7 @@ Apps: Apps
 'Vergiftet:': 'Envenenado:'
 'Zerstört:': 'Roto:'
 'Essentiell:': 'Escencial:'
-Erzeugen!: ¡Crear!
+Erzeugen!: '¡Crear!'
 Rucksack: Mochila
 Truhe: Cofre
 'Leere Truhe': 'Cofre vacío'
@@ -177,20 +177,20 @@ Niemand: Nadie
 URL: URL
 Anzeige: Anuncio
 'Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.': 'Las aplicaciones en fase de testing, sólo pueden ser utilizadas por su propietario.'
-Testbetrieb: 'Fase de Prueba'
+Testbetrieb: Fase de Prueba
 Icon: Ícono
-Datenzugriff: 'Acceso a datos'
+Datenzugriff: Acceso a datos
 'Anwendungen ohne API-Zugang werden nur als Links eingebunden.': 'Las aplicaciones que no utilizan la API, sólo se acceden mediante un link.'
 'Zugang zur API': 'Acceso a la API'
 'Wird automatisch generiert': 'Generado automáticamente'
 'Schlüssel regenerieren': 'Volver a generar clave'
-Foren-Mod.: 'Mod de Foros.'
-Kurztexte: 'Texto Corto'
+Foren-Mod.: Mod de Foros.
+Kurztexte: Texto Corto
 Inhalt: Contenido
 'Neuen Kurztext anlegen': 'Crear nuevo Texto Corto'
 'ID eingeben': 'Ingresar ID'
 'Anzahl der Auszeichnungen:': 'Número de las Distinciones:'
-Vergeben!: ¡Entregar!
+Vergeben!: '¡Entregar!'
 'Aktuelle Städte': 'Pueblos actuales'
 'Fertige Städte': 'Pueblos terminados'
 Importiert: Importar
@@ -225,7 +225,7 @@ Name: Nombre
 AP: PA
 Setzen: Establecer
 Abziehen: Remover
-Changelogs: 'Registros de cambios'
+Changelogs: Registros de cambios
 Ankündigungen: Anuncios
 'Neue Ankündigung': 'Nuevo anuncio'
 Konstruktionen: Construcciónes
@@ -265,13 +265,13 @@ Abgelaufen: Expirado
 Deaktiviert: Desactivado
 Art: Tipo
 Sozial: Social
-Stadt-Kom.: 'Com. pueblo'
+Stadt-Kom.: Com. pueblo
 'Globale Kom.': 'Com. global'
 Kommentare: Comentario
 Org.: Org.
 Spiel: Juego
 Bestätigen: Confirmar
-'Schwarzes Brett': Pizarra
+'Schwarzes Brett': 'Pizarra'
 'Stadt füllen': 'Llenar el pueblo'
 'Bank füllen': 'Llenar el almacén'
 'Banksperre aufheben': 'Quitar el anti abuso del almacén'
@@ -292,7 +292,7 @@ MP: PM
 'Einen Beruf auswählen:': 'Elegir un oficio:'
 'Stadt anlegen': 'Crear un pueblo'
 Avatar: Avatar
-Profilbeschreibung: 'Descripción del perfil'
+Profilbeschreibung: Descripción del perfil
 'Änderungen am Profil verbieten': 'Impedir las modificaciones del perfil'
 'Ändern des Avatars verbieten': 'Cambiar el avatar'
 'Ändern der Profilbeschreibung verbieten': 'Modificación de la descripción del perfil'
@@ -320,7 +320,7 @@ Freundschaftswerbung: Patrocinio
 'Ref-Namen sperren': 'Bloquear el nombre de referencia'
 'Ref-Namen entsprerren': 'Desbloquear el nombre de referencia'
 'Sponsor setzen': 'Establecer el patrocinador'
-Ref-Name: 'Nombre de referencia'
+Ref-Name: Nombre de referencia
 'Gesponsort von': 'Patrocinado por'
 'Gesponsorte Spieler': 'Jugadores patrocinados'
 'Zombie-Spread ausführen': 'Activar repoblación de zombies'
@@ -339,7 +339,7 @@ Beschreibung: Descripción
 'Anonyme Gruppe': 'Grupo anónimo'
 'Neue Gruppe anlegen': 'Crear un nuevo grupo'
 'Anzahl der Tage': 'Número de días'
-Vorspulen: 'Avance rápido'
+Vorspulen: Avance rápido
 'Herauswerfen (ohne Verletzung)': 'Expulsar (sin herida)'
 'Herauswerfen (mit Verletzung)': 'Expulsar (con herida)'
 'Timer erhöhen (1min)': 'Aumentar el tiempo restante (1min)'
@@ -352,33 +352,33 @@ Hunger: Hambre
 'Camp Chance': 'Posibilidades de superviviencia campamento'
 'Camp Zähler': 'Contador de campamento'
 'Verwendung des Schwarzen Bretts verbieten': 'Prohibir el uso de la pizarra de héroes'
-Passwort-geschützt: 'Contraseña protegida'
+Passwort-geschützt: Contraseña protegida
 'Passwort ändern': 'Cambiar la contraseña'
 'Passwort entfernen': 'Eliminar la contraseña'
 'Passwort setzen': 'Establecer la contraseña'
 'Format: {zombies} (heutiger Angriff) oder {tag}:{zombies} (Angriff an einem bestimmten Tag). Es können keine Tage in der Vergangenheit gewählt werden.': 'Formato: {zombies} (ataque del día) o {día}:{zombies} (ataque para un día específico). No es posible elegir días pasados.'
 'Stärke des Angriffs setzen': 'Establecer la fuerza del ataque'
-Chaos-Modus: 'Modo caos'
+Chaos-Modus: Modo caos
 'Stadt zerstören': 'Devastar el pueblo'
 'Ändern des Spielernamens verbieten': 'Prohibir cambiar el nombre del jugador'
-Spielername: 'Nombre del Jugador'
+Spielername: Nombre del Jugador
 'Chaos-Modus deaktivieren': 'Desactivar el modo caos'
 'Stadt reparieren': 'Reparar el pueblo'
 'Versteckte Statuseffekte': 'Efectos de estado ocultos'
 'Ranking-Ausschluss zurücknehmen': 'Revocar la exclusión de clasificación'
 'Diese Stadt aus dem Ranking ausschließen': 'Excluir este pueblo del ranking'
-Ranking-Eintrag: 'Entrada de clasificación'
+Ranking-Eintrag: Entrada de clasificación
 'Event-Markierung entfernen': 'Eliminar marca de evento'
 'Als Event-Stadt markieren': 'Marcar como pueblo de evento'
 'Funktionen für Spezialrollen': 'Funciones para roles especiales'
 'Stadt-ID eingeben.': 'Ingrese el ID del pueblo.'
 'Zugang zu Stadtforum gewähren': 'Otorgar acceso al foro del pueblo'
 'Zugang zu Stadtforum entziehen': 'Revocar acceso al foro del pueblo'
-Spezialrollen: 'Roles especiales'
+Spezialrollen: Roles especiales
 Animateur: Animador
 'Community Dashboard': 'Tablero comunitario'
 Team: Equipo
-Regelsatz: 'Conjunto de reglas'
+Regelsatz: Conjunto de reglas
 Regel: Regla
 'Aktiver Wert': 'Valor activo'
 'Eskortierte Bürger teleportieren': 'Teletransportar habitantes escoltados'
@@ -399,14 +399,14 @@ Wöchentlich: Semanalmente
 Monatlich: Mensualmente
 Manuell: Manualmente
 'Nicht komprimiert': 'No comprimido'
-Systemlogs: 'Registros de sistema'
-Datenbank-Backups: 'Respaldos de la base de datos'
+Systemlogs: Registros de sistema
+Datenbank-Backups: Respaldos de la base de datos
 Tags: Etiquetas
 Datei: Archivo
 'Dateigröße: {s}': 'Tamaño del archivo: {s}'
-Dateisystem: 'Sistema de archivos'
+Dateisystem: Sistema de archivos
 'Alle User': 'Todos los usuarios'
-Account-Zustand: 'Estado de la cuenta'
+Account-Zustand: Estado de la cuenta
 Aktiv: Activa
 Dummy: Genérica
 Spezial: Especial
@@ -414,34 +414,34 @@ Spezial: Especial
 Gelöscht: Eliminada
 Inkarnation: Encarnación
 'Zuletzt aktiv': 'Última conexión'
-Hauptseele: 'Alma principal'
+Hauptseele: Alma principal
 'Keine Hauptseele': 'Sin alma principal'
 'Verknüpfte Seele': 'Alma vinculada'
 'Beliebige verknüpfte Seele': 'Cualquier alma vinculada'
 'Keine verknüpfte Seele': 'Sin alma vinculada'
-Accountbeschränkung: 'Restricción de cuenta'
+Accountbeschränkung: Restricción de cuenta
 'Nicht bestätigt': 'No confirmada'
-'Nicht aktiv': Inactiva
+'Nicht aktiv': 'Inactiva'
 Rolle: Rol
 'Aktion bei Klick:': 'Acción en el clic:'
 'Verbleibe Zonengrabungen:': 'Excavaciones restantes:'
 'Verbleibende Ruinengrabungen:': 'Búsquedas(en ruina) restantes:'
 'Zurzeit in der Stadt': 'Actualmente en pueblo'
 'Eternal-Twin-Konto verlinkt': 'Cuenta de Eternaltwin vinculada'
-Gruppentyp: 'Tipo de grupo'
+Gruppentyp: Tipo de grupo
 "Änderungen an '{appname}' speichern": "Guardar cambios en '{appname}'"
 'Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.': 'Esta Distinción no se otorgará si el habitante muere esta noche.'
 'Diese Auszeichnung wurde verdient.': 'Se ha otorgado la Distinción.'
-Freundesliste: 'Lista de amigos'
+Freundesliste: Lista de amigos
 'Spieler, sie sich als Freund hinzugefügt haben': 'Jugadores que lo añadieron a su lista de amigos'
-'Spieler werben': Patrocinio
-Blockierliste: 'Lista de bloqueados'
+'Spieler werben': 'Patrocinio'
+Blockierliste: Lista de bloqueados
 'Blockiert von': 'Bloqueado por'
 'Bürger-Alias ​​ändern:': 'Cambiar apodo del habitante:'
 'Kein Alias ​​angegeben': 'Sin apodo definido'
 'Bitte nicht für mehrere Bürger denselben Alias eingeben!': '¡Por favor, no utilices el mismo apodo para diferentes habitantes!'
 'Bank leeren': 'Vaciar el almacén'
-Stadt-Event: 'Evento del pueblo'
+Stadt-Event: Evento del pueblo
 Koalitionen: Alianzas
 Profiler: Perfilador
 'Nicht installiert': 'No instalado'
@@ -474,7 +474,7 @@ Infektiös: Infeccioso
 'Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)': 'Descargar los registros del pueblo y las zonas del Ultramundo (Agrupados por zonas)'
 'Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)': 'Descargar los registros del pueblo y las zonas del Ultramundo (Agrupados por habitantes)'
 'Stadt- und Zonenregister herunterladen (chronologisch)': 'Descargar los registros del pueblo y las zonas del Ultramundo (Cronológicamente)'
-Instanzeigenschaften: 'Propiedades del objeto'
+Instanzeigenschaften: Propiedades del objeto
 Vergiftet: Envenenado
 Infiziert: Infectado
 'Noch nicht aufgehoben': 'Sin recoger'
@@ -498,18 +498,18 @@ Infiziert: Infectado
 'Seelenpunkte für diesen Bürger wiederherstellen': 'Restaurar los puntos de alma otorgados a este habitante'
 'Auszeichnungen für diesen Bürger wiederherstellen': 'Restaurar las distinciones otorgadas a este habitante'
 'Eine neue Umfrage anlegen': 'Crear una nueva encuesta'
-Editoreinstellungen: 'Ajustes de edición'
+Editoreinstellungen: Ajustes de edición
 'Aktuelle Bearbeitungssprache': 'Idioma editado actualmente'
 'Diese Einstellung steuert, welche Eingabefelder sichtbar sind. Unabhängig davon werden Umfragen immer in allen Sprachen erstellt, es müssen also alle Felder in allen Sprachen ausgefüllt werden.': 'Esta configuración controla qué opciones estarán disponibles. Independientemente de esto, las encuestas se crean en todos los idiomas, por lo que se deben llenar todos los campos en todos los idiomas.'
-Umfragedaten: 'Datos de la encuesta'
+Umfragedaten: Datos de la encuesta
 'Titel der Umfrage': 'Título de la encuesta'
 'Start der Umfrage': 'Fecha de inicio'
 'Ende der Umfrage': 'Fecha de finalización'
 'Vorläufige Ergebnisse anzeigen': 'Mostrar resultados preliminares'
-Kurzbeschreibung: 'Descripción breve'
+Kurzbeschreibung: Descripción breve
 'Beschreibung der Umfrage': 'Descripción completa'
 Antworten: Respuestas
-Antwortstext: 'Texto de respuesta'
+Antwortstext: Texto de respuesta
 'Antwort hinzufügen': 'Añadir respuesta'
 'Bearbeitung abschließen': 'Finalizar edición'
 'Umfrage erstellen': 'Crear encuesta'
@@ -538,9 +538,9 @@ Antwortstext: 'Texto de respuesta'
 'Geplant für': 'Programado para'
 'Seelenpunkte:': 'Puntos de alma:'
 'Heldentage:': 'Días de héroe:'
-Vergleichswert: 'Valor de referencia'
+Vergleichswert: Valor de referencia
 Keiner: Ninguno
-Basiskonfiguration: 'Configuración básica'
+Basiskonfiguration: Configuración básica
 'Sonstige Accountmarkierungen': 'Otros marcadores de cuenta'
 'Strenges Report Rate Limiting': 'Limitación estricta de la tasa de informes'
 'Du bist im Begriff, eine bestehende Accountbeschränkung zu bearbeiten. Der Spieler wird über die Bearbeitung nicht informiert. Existierende Bestätigungen für diese Beschränkung werden entfernt. Fortsetzen?': 'Está a punto de editar una restricción de cuenta existente. El jugador no será informado de la edición. Las confirmaciones existentes para esta restricción serán eliminadas. ¿Continuar?'
@@ -550,19 +550,19 @@ Treppe: Escalera
 'Benutzer impersonifizieren': 'Conectarse como este usuario'
 Fortfahren: Proceder
 'Tokens erfolgreich erzeugt!': '¡Fichas generadas con éxito!'
-Registrierungstoken: 'Fichas de inscripción'
+Registrierungstoken: Fichas de inscripción
 'Registration Token': 'Fichas de inscripción'
 'Wie viele Token möchtest du erzeugen?': '¿Cuántas fichas quieres generar?'
 Nachricht: Mensaje
 'Stadtnamen ändern': 'Introduzca el nombre del pueblo'
 'Registrierungstoken verteilen': 'Distribuir fichas de registración'
-Nachrichtentext: 'Cuerpo del mensaje'
+Nachrichtentext: Cuerpo del mensaje
 CSV: CSV
 Senden: Enviar
 'Es wurden {success} Nachrichten verschickt.': '{success} mensajes fueron enviados.'
 'Es wurden {success} Nachrichten erfolgreich verschickt, bei {error} Nachrichten tragen Fehler auf.': '{success} mensajes fueron enviados, {error} mensajes contienen errores.'
-Entwickler-URL: 'URL de desarollo'
-Heldentage: 'Días de héroe'
+Entwickler-URL: URL de desarollo
+Heldentage: Días de héroe
 'Sekundäraccount verknüpfen': 'Vincular cuenta secundaria'
 'Sekundäre Accounts': 'Cuentas secundarias'
 'Team setzen': 'Establecer comunidad'
@@ -575,14 +575,14 @@ Kampagne: Campaña
 Slug: Babosa
 'Zusätzliche Verwalter': 'Administradores adicionales'
 'Neue Kampagne anlegen': 'Crear nueva campaña'
-Einstiegspunkt: 'Punto de entrada'
+Einstiegspunkt: Punto de entrada
 'Geworbene Spieler': 'Nuevos jugadores'
 'Meldungen für das Schwarze Brett': 'Mensajes para el tablón de noticias'
 Stadt: Pueblo
 'Gemeldete globale Nachrichten': 'Noticias mundiales'
 'Private Nachrichten (Stadt)': 'Mensajes Privados (Pueblo)'
 'Private Nachrichten (Global)': 'Mensajes Privados (Global)'
-Bürgertexte: 'Aviso a los habitantes'
+Bürgertexte: Aviso a los habitantes
 Accounts: Cuentas
 'Meldungen für Bürgertexte': 'Mensajes de aviso a los habitantes'
 'Gemeldete Stadtnachrichten': 'Noticias del pueblo'
@@ -591,7 +591,7 @@ Accounts: Cuentas
 'Wikis werden separat von anderen Anwendungen angezeigt.': 'Los wikis se muestran separadamente de las otras aplicaciones.'
 Wiki: Wiki
 Entwickler: Desarrollador
-Angriffsplan: 'Plan de ataque'
+Angriffsplan: Plan de ataque
 Uhrzeit: Hora
 Geplant: Planificado
 'Wartet auf Abarbeitung': 'En espera de tratamiento'
@@ -625,7 +625,7 @@ Wert: Valor
 'Erfolgreich hinzugefügt.': 'Correctamente añadido.'
 'Erfolgreich entfernt.': 'Correctamente eliminado.'
 'E-Mail Domains': 'Dominios de mensajería'
-Account-IDs: 'IDs de cuentas'
+Account-IDs: IDs de cuentas
 'Anzahl der gelisteten E-Mail-Adressen: {number}': 'Número de direcciones de correo electrónico incluidas: {number}'
 'Anzahl der gelisteten Eternaltwin IDs: {number}': 'Número de identificadores Eternaltwin incluidos: {number}'
 Suche: Búsqueda
@@ -643,7 +643,7 @@ Beginn: Inicio
 'Zugehöriger User (optional)': 'Usuario asociado (opcional)'
 'Zugehörige Rabennester': 'Nido de cuervos asociado'
 Raben: Cuervo
-Fehlerberichte: 'Informes de errores'
+Fehlerberichte: Informes de errores
 'Verfassen von Fehlerberichten für Gitlab verbieten': 'No permitir la escritura de informes de errores para Gitlab'
 'Zusätzliche Beschreibung:': 'Descripción adicional:'
 'Nachricht an den Verfasser?': '¿Mensaje al autor?'
@@ -677,7 +677,7 @@ SP: PE
 'Weitere Aktionen': 'Acciones adicionales'
 'Bekannte IP-Adressen': 'Direcciones IP conocidas'
 '{n} (davon {n2} bereits blockiert)': '{n} (incluido {n2} ya bloqueado)'
-Foren-Posts: 'Mensajes del foro'
+Foren-Posts: Mensajes del foro
 '{n} (davon {n2} gelöscht)': '{n} (incluido {n2} ya eliminado)'
 Heldenerfahrung: Experiencia heroica
-Zurücksetzen: Zurücksetzen
+Zurücksetzen: Reiniciar

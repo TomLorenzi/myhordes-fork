@@ -74,7 +74,7 @@ Zombies: Zombies
 'Qualität der Abschätzung': 'Qualité de l’estimation :'
 'Abschätzung verbessern': 'Scruter les environs'
 'Morgige Abschätzung': 'Attaque du lendemain'
-"Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.": "Woaw ! Vous pouvez voir pratiquement tout d’ici ! C’est juste dommage que ce « tout » se limite à un désert de sable vide. Cependant, si vous y regardez de plus près, vous pouvez compter les zombies qui rampent vers la ville."
+"Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.": "Woaw ! Vous pouvez pratiquement tout voir d’ici ! C’est juste dommage que ce « tout » se limite à un désert de sable vide. Cependant, si vous y regardez de plus près, vous pouvez compter les zombies qui rampent vers la ville."
 'Tag {day}': 'Jour {day}'
 Rucksack: Sac à dos
 Truhe: Coffre
@@ -101,7 +101,7 @@ Bauen: Construire
 'Du musst ein Held sein, um die folgenden Ausbauten vornehmen zu können.': 'Vous devez être un Héros pour effectuer les améliorations suivantes.'
 Erfordert: Nécessite
 Einbauen: Installer
-'Upgrade auf St. {level}': 'Améliorer au niv. {level}'
+'Upgrade auf St. {level}': 'Améliorer au niv. {level}'
 'Kein weiterer Ausbau möglich': 'Aucune amélioration possible'
 'Leiche nicht beseitigt!': 'Corps non retiré !'
 Tot!: Mort !
@@ -112,13 +112,13 @@ Tot!: Mort !
 'Name der Route': 'Nom de l’expédition'
 "Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer\n                    in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.": "Ici, vous pouvez planifier des itinéraires pour un voyage vers le monde extérieur.\n                    Des itinéraires simples commencent et finissent toujours dans la ville.\n                    Les itinéraires complexes peuvent commencer et se terminer à tout moment."
 'Nur Helden können komplexe Routen planen.': 'Seuls les héros peuvent créer des expéditions complexes.'
-'Bitte gib einen gültigen Namen ein (zwischen 3 und 32 Zeichen).': 'Veuillez saisir un nom valide (entre 3 et 32 caractères).'
+'Bitte gib einen gültigen Namen ein (zwischen 3 und 32 Zeichen).': 'Veuillez saisir un nom valide (entre 3 et 32 caractères).'
 '{citizen}s Truhe': 'Coffre de {citizen}'
 Tot: Mort
 Haus: Habitation
 Todesursache: Cause du décès
 Gemeinschaft: Espionnage et ragots de voisinage
-'{citizen} hat bereits {num} Anzeige(n).': '{citizen} a reçu {num} plainte(s).'
+'{citizen} hat bereits {num} Anzeige(n).': '{citizen} a reçu {num} plainte(s).'
 Verbannung: un bannissement
 Todesstrafe: la peine de mort
 'Eine davon stammt von dir. Du hast {punishment} gefordert.': 'L’une d’entre elles est la vôtre. Vous avez demandé {punishment}.'
@@ -135,10 +135,10 @@ Todesstrafe: la peine de mort
 'Aktuelles Level:': 'Actuellement :'
 'Nächstes Level:': 'Prochain niveau :'
 'Max. Level': 'Niveau max.'
-'Level {lv}': 'Niveau {lv}'
+'Level {lv}': 'Niveau {lv}'
 Abstimmen: Voter
 'Stimmen:': 'Vote(s) :'
-'Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.': 'Vous avez été banni et ne pouvez plus travailler à l’Atelier.'
+'Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.': "\n            {ref__icu, select,\n                on {\n                    {ref__gender, select,\n                        female {Vous avez été bannie et ne pouvez plus travailler à l’Atelier.}\n                        other {Vous avez été banni et ne pouvez plus travailler à l’Atelier.}\n                    }\n                }\n            other {Vous avez été banni(e) et ne pouvez plus travailler à l’Atelier.}\n            }\n        "
 'Jede Verarbeitung kostet {ap} (manche Gegenstände und Konstruktionen können diese Verarbeitungskosten senken).': 'Chaque transformation coûte {ap} (certains objets peuvent réduire ce coût).'
 'Du trägst eine Säge bei dir.': 'Vous avez une scie.'
 'Die Stadt verfügt über eine Manufaktur.': 'La ville possède une manufacture.'
@@ -149,10 +149,10 @@ Anzahl: Stock
 Werkstatt-Register: Atelier
 'Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.': 'Voici l’intégralité des objets qui sont actuellement stockés à la Banque. Ces objets sont le fruit des <strong>dons</strong> des citoyens. Ils serviront notamment à <strong>construire des bâtiments communautaires </strong>ou<strong> défendre la ville</strong> lors des attaques quotidiennes de la Horde.'
 Bankregister: Banque
-"Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle\n                    arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten <div class=\"ap\"></div>.": 'La ville a légalisé l’esclavage. Désormais vous pouvez travailler sur un chantier malgré votre relégation et même obtenir un bonus de 50% pour chaque investissement de <div class="ap"></div>.'
-'Du wurdest verbannt und kannst daher nicht länger auf einer Baustelle arbeiten.': 'Vous avez été banni et ne pouvez plus travailler aux chantiers.'
+"Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle\n                    arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten <div class=\"ap\"></div>.": 'La ville a légalisé l’esclavage. Désormais, vous pouvez travailler sur un chantier malgré votre bannissement, et même obtenir un bonus de 50 % pour chaque investissement de <div class="ap"></div>.'
+'Du wurdest verbannt und kannst daher nicht länger auf einer Baustelle arbeiten.': "\n            {ref__icu, select,\n                on {\n                    {ref__gender, select,\n                        female {Vous avez été bannie et ne pouvez plus travailler aux chantiers.}\n                        other {Vous avez été banni et ne pouvez plus travailler aux chantiers.}\n                    }\n                }\n            other {Vous avez été banni(e) et ne pouvez plus travailler aux chantiers.}\n            }\n        "
 Baustellenregister: Constructions
-'{rations} Rationen Wasser übrig': '{rations} rations d’eau restantes'
+'{rations} Rationen Wasser übrig': '{rations} rations d’eau restantes'
 'Aufgrund deiner Verbannung kannst du maximal eine Ration Wasser pro Tag entnehmen.': 'En raison de votre bannissement, vous pouvez prendre au maximum une ration d’eau par jour.'
 'Die Stadt verfügt über eine {pumpname}.': 'La ville dispose d’une Pompe pour le Puits.'
 'Deine Ration Wasser erhalten': 'Obtenir votre ration d’eau !'
@@ -196,12 +196,12 @@ Zonenregister: Discussions
 'Du hast {sp} Seelenpunkte gewonnen!': 'Vous avez gagné {sp} points d’âme !'
 'Du hast folgende Auszeichnungen verliehen bekommen:': 'Vous avez gagné les distinctions suivantes :'
 'Begrüße den Tod wie es sich gehört...': 'Accueillez la mort comme il se doit…'
-'Der Tod in "MyHordes" ist nicht weiter schlimm!': 'La mort dans "MyHordes" n''est pas grave !'
-'Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!': 'Vous pouvez vous incarner dans une nouvelle ville aussi souvent que vous le désirez. Jouez selon votre style, expérimentez, soyez imaginatif !'
-'Wiedergeboren werden': 'Valider pour vous réincarner immédiatement...'
+'Der Tod in "MyHordes" ist nicht weiter schlimm!': 'La mort dans MyHordes n’est pas grave !'
+'Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!': 'Vous pouvez vous incarner dans une nouvelle ville aussi souvent que vous le désirez. Jouez selon votre style, expérimentez, soyez imaginatif !'
+'Wiedergeboren werden': 'Valider pour vous réincarner immédiatement…'
 Zeitung: Gazette
-Aktionspunkte: Points d'action
-Baupunkte: Points de Chantiers
+Aktionspunkte: Points d’action
+Baupunkte: Points de Chantier
 Verbannt: Banni
 'Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur Verfügung.': 'Votre ville a décidé de vous bannir. Certaines actions ne sont plus disponibles pour vous.'
 'Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in dieser Stadt zur Verfügung.': 'Selon la profession que vous choisissez, différentes actions et styles de jeu sont disponibles dans cette ville.'
@@ -233,23 +233,23 @@ Kater: Gueule de bois
 'Verwundung - Fuß': 'Blessure - Pied'
 Ghul: Goule
 Bandagiert: Convalescent(e)
-'Abgelegenes Haus': 'Maison d''un citoyen'
-'Albi Supermarkt': 'Epicerie Fargo'
+'Abgelegenes Haus': 'Maison d’un citoyen'
+'Albi Supermarkt': 'Épicerie Fargo'
 'Alte Höhle': 'Caverne anciennement habitée'
-'Alte Hydraulikpumpe': 'Vieille Pompe Hydraulique'
-'Alter Fahrradverleih': 'Ancien Velib'
+'Alte Hydraulikpumpe': 'Vieille pompe hydraulique'
+'Alter Fahrradverleih': 'Ancien Vélib’'
 'Alter Rangierbahnhof': 'Gare de triage désertée'
 'Altes Feldkrankenhaus': 'Vieil hôpital de campagne'
 'Altes Flugfeld': 'Ancien aérodrome'
 'Altes Polizeipräsidium': 'Ancien commissariat'
 Atombunker: Abri anti-atomique
-'Atomic Cafe': 'Atomic'' Café'
+'Atomic Cafe': 'Atomic’ Café'
 Autobahnraststätte: Relais autoroutier
 Autowracks: Carcasses de voitures
 'Bar der verlorenen Hoffnungen': 'Le bar des illusions perdues'
 Baumarkt: Bricotout
 Baustellencontainer: Abri de chantier
-'Dönerbude Utsel-Brutzel': 'Kebab « Chez Coluche »'
+'Dönerbude Utsel-Brutzel': 'Kebab « Chez Coluche »'
 'Dukes Villa': 'Villa de Duke'
 'Dunkler Hain': 'Petit bois obscur'
 'Eingestürzte Mine': 'Mine effondrée'
@@ -257,8 +257,8 @@ Baustellencontainer: Abri de chantier
 'Ein seltsames kreisförmiges Gerät': 'Un étrange appareil circulaire'
 E-KEA: Meubles Kiela
 Familiengrab: Caveau familial
-'Fast Food Restaurant': 'Fast-Food'
-Flugzeugwrack: Carlingue d'avion
+'Fast Food Restaurant': 'Fast-food'
+Flugzeugwrack: Carlingue d’avion
 Gartenhaus: Cabane de jardin
 'Geplünderte Mall': 'Supermarché pillé'
 Höhle: Caverne
@@ -270,40 +270,40 @@ Kosmetiklabor: Laboratoire cosmétique
 Krankenwagen: Ambulance
 Lagerhalle: Hangars de stockage
 'Leeres Parkhaus': 'Parking désaffecté'
-'Liegengebliebener Kampfpanzer': 'Char d''assaut en panne'
-"Motel 'Dusk'": "Motel « Dusk »"
+'Liegengebliebener Kampfpanzer': 'Char d’assaut en panne'
+"Motel 'Dusk'": "Motel « Dusk »"
 'Militärischer Wachposten': 'Avant-poste militaire'
 Postfiliale: Bureau de poste
 Räuberhöhle: Cache de contrebandiers
 Schützengraben: Tranchée aménagée
 Stadtbücherei: Bibliothèque de quartier
 'Tante Emma Laden': 'Mini-market'
-"Truck 'Rathaus auf Rädern'": "Camion « Mairie-mobile »"
+"Truck 'Rathaus auf Rädern'": "Camion « Mairie-mobile »"
 'Umgekippter Laster': 'Camion en panne'
-'Verbrannte Grundschule': 'Ecole maternelle brûlée'
+'Verbrannte Grundschule': 'École maternelle brûlée'
 'Verfallenes Bürogebäude': 'Immeuble délabré'
 'Verfallene Villa': 'Villa délabrée'
-'Verlassene Baustelle': 'Chantier à l''abandon'
+'Verlassene Baustelle': 'Chantier à l’abandon'
 'Verlassener Brunnen': 'Puits abandonné'
-'Verlassene Silos': 'Silos à l''abandon'
+'Verlassene Silos': 'Silos à l’abandon'
 'Versperrte Straße': 'Route barrée'
-'Verwilderter Park': 'Parc à l''abandon'
-"Waffengeschäft Guns'n'Zombies": "Armurerie Guns'n'Zombies"
+'Verwilderter Park': 'Parc à l’abandon'
+"Waffengeschäft Guns'n'Zombies": "Armurerie Guns’n’Zombies"
 Warenlager: Entrepôt désaffecté
-'Zelt eines Bürgers': 'Tente d''un citoyen'
+'Zelt eines Bürgers': 'Tente d’un citoyen'
 'Zerstörte Apotheke': 'Pharmacie détruite'
 'ZomBIER Bar': 'Bar miteux'
 'Leiche aus der Stadt ziehen': 'Sortir le cadavre'
 'Leiche mit Wasser übergießen': 'Arroser le cadavre'
 'Leiche grillen': 'Faire griller au Crémato-Cue'
 '{citizen} hat der Stadt folgendes gespendet: {item}': '{citizen} a donné {item} à la ville.'
-'{citizen} hat folgenden Gegenstand aus der Bank genommen: {item}': '{citizen} a pris {item} dans les coffres de la Banque !'
-'{citizen} hat folgenden Gegenstand hier abgelegt: {item}': '{citizen} a déposé : {item}.'
-'{citizen} hat diesen Gegenstand mitgenommen: {item}': '{citizen} a ramassé {item} qui traînait là...'
-'{citizen} hat mehr Wasser genommen, als erlaubt ist...': '{citizen} s''est permis de prendre plus d''eau que prévu au puits...'
-'{citizen} hat eine Ration Wasser genommen.': '{citizen} a pris une ration d''eau.'
-'Es wurde ein neues Gebäude gebaut: {plan}. Der Bau hat folgende Ressourcen verbraucht: {list}': 'La construction de {plan} a utilisé : {list}'
-'Es wurde ein neues Gebäude gebaut: {plan}.': 'Un nouveau bâtiment a été construit : {plan}.'
+'{citizen} hat folgenden Gegenstand aus der Bank genommen: {item}': '{citizen} a pris {item} dans les coffres de la Banque !'
+'{citizen} hat folgenden Gegenstand hier abgelegt: {item}': '{citizen} a déposé {item}.'
+'{citizen} hat diesen Gegenstand mitgenommen: {item}': '{citizen} a ramassé {item} qui traînait là…'
+'{citizen} hat mehr Wasser genommen, als erlaubt ist...': '{citizen} s’est permis de prendre plus d’eau que prévu au puits…'
+'{citizen} hat eine Ration Wasser genommen.': '{citizen} a pris une ration d’eau.'
+'Es wurde ein neues Gebäude gebaut: {plan}. Der Bau hat folgende Ressourcen verbraucht: {list}': 'La construction de {plan} a utilisé : {list}'
+'Es wurde ein neues Gebäude gebaut: {plan}.': 'Un nouveau bâtiment a été construit : {plan}.'
 'Hat jemand in letzter Zeit von {citizen} gehört? Er scheint verschwunden zu sein ...': "Quelqu'un a-t-il entendu parler de {citizen} récemment ? Il semble avoir disparu..."
 '{citizen} hat dem Druck nicht länger standgehalten und sein Leben beendet: {cod}.': '{citizen} n''a plus résisté à la pression et a mis fin à ses jours : {cod}.'
 'Verrat! {citizen} ist gestorben: {cod}.': '{citizen} nous a quittés : {cod}.'
@@ -2991,3 +2991,9 @@ Meister: Élite
 'Klick hier, wenn du mit deiner Heldenfähigkeit <strong>diesen Registereintrag löschen</strong> möchtest...': 'Cliquez ici si vous souhaitez <strong>supprimer cette entrée de registre</strong> avec votre capacité héroïque...'
 Sofort: Immédiatement
 'Angegebener Zeitpunkt': 'Heure spécifiée'
+'Gut hydriert': 'Hydraté'
+Nüchtern: Sobre
+'Es ist wichtig, regelmäßig zu trinken!': 'Il est important de boire régulièrement !'
+'Du bist nüchtern, gut gemacht!': 'Vous êtes sobre, bravo !'
+'Willkommen in deiner ersten Stadt': 'Bienvenue dans votre première ville'
+'Willkommen! Dies ist ein Spiel, das sowohl auf Zusammenarbeit als auch Verrat zwischen den Spielern basiert. Der Feind kann ein Zombie oder dein Nachbar sein. Wir laden dich ein, das Forum deiner Stadt zu nutzen, um dich mit anderen Spielern zu koordinieren, zu diskutieren und euch vor Gefahren außerhalb und innerhalb der Stadt zu warnen.': 'Bienvenue ! Il s''agit d''un jeu basé à la fois sur la coopération et la trahison entre les joueurs. L''ennemi peut être un zombie ou votre voisin. Nous vous invitons à utiliser le forum de votre ville pour vous coordonner avec les autres joueurs, discuter et vous avertir des dangers extérieurs et intérieurs de la ville.'
