@@ -1976,6 +1976,22 @@ class JSONv1Controller extends CoreController {
                         $data['cleanup']['user'] = $citizen->getCleanupUsername();
                         $data['cleanup']['type'] = $citizen->getCleanupType();
                         break;
+					case "rewards":
+						$rewards = $this->entity_manager->getRepository(Picto::class)->findPictoByUserAndTown($citizen->getUser(), $citizen->getTown());
+						$rewardsData = [];
+						foreach ($rewards as $reward) {
+							$rewardsData[$reward->getPrototype()->getId()] = [
+								'id' => $reward->getPrototype()->getId(),
+								'rare' => $reward->getPrototype()->getRare(),
+								'number' => $reward->getCount(),
+								'img' => $this->getIconPath($this->asset->getUrl("build/images/pictos/{$reward->getPrototype()->getIcon()}.gif")),
+								'name' => $this->getTranslate($reward->getPrototype()->getLabel(), 'game'),
+								'desc' => $this->getTranslate($reward->getPrototype()->getDescription(), 'game')
+							];
+						}
+						$data["rewards"] = $rewardsData;
+
+						break;
                 }
             }
         }
