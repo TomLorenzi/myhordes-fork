@@ -449,10 +449,12 @@ class RankingCommand extends Command
 
             $this->entityManager->clear();
             $io->writeln('Sending crow messages and calculating title unlocks...');
+            $sid = $season?->getId();
             foreach ($io->createProgressBar()->iterate($message_cache) as $citizen_ranking_entry) {
 
                 $user = $this->entityManager->getRepository(User::class)->find( $citizen_ranking_entry[0] );
 
+                $season = $sid ? $this->entityManager->getRepository(Season::class)->find($sid) : null;
                 $part_picto        = $this->entityManager->getRepository(PictoPrototype::class)->findOneByName('r_winthi_#00');
                 $ranking_picto     = $this->entityManager->getRepository(PictoPrototype::class)->findOneByName('r_winbas_#00');
                 $top_ranking_picto = $this->entityManager->getRepository(PictoPrototype::class)->findOneByName('r_wintop_#00');
