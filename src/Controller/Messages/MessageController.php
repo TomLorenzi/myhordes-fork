@@ -93,9 +93,9 @@ class MessageController extends CustomAbstractController
         $post->setText($tx);
         if ($distorted && is_a( $post, Post::class )) $post->setEditingMode( Post::EditorLocked );
 
-        if ($post instanceof Post && !$is_update) {
-            $post->setSearchText( strip_tags( $tx ) );
+        $post->setSearchText( strip_tags( $tx ) );
 
+        if ($post instanceof Post && !$is_update) {
             if ($post->getType() !== 'CROW' && $post->getType() !== 'ANIM' && $forum !== null && $forum->getTown()){
                 $citizen = $user->getActiveCitizen();
                 if ($citizen && $citizen->getTown() === $forum->getTown()) {
