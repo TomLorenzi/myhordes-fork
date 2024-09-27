@@ -972,7 +972,7 @@ class NightlyHandler
             if ($citizen->getAlive() && !$citizen->getZone())
                 $all_targets[$citizen->getId()] = $citizen;
 
-        $max_active = $this->events->queryTownParameter( $town, BuildingValueQuery::MaxActiveZombies, count($all_targets) );
+        $max_active = $this->events->queryTownParameter( $town, BuildingValueQuery::MaxActiveZombies );
 		$in_town = min(
             10 + 2 * floor(max(0, $town->getDay() - 10)/2),
             ceil(count($all_targets) * 1.0)

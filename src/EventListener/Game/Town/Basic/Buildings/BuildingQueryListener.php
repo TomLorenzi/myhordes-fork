@@ -83,14 +83,25 @@ final class BuildingQueryListener implements ServiceSubscriberInterface
 
     private function calculateMaxActiveZombies(Town|int $town, int $day): int {
         $targets = 0;
+        $b_level = -1;
+        $g_malus = false;
         if (is_int($town))
             $targets = $town;
         else
             foreach ($town->getCitizens() as $citizen)
-                if ($citizen->getAlive() && !$citizen->getZone())
+                if ($citizen->getAlive() && !$citizen->getZone()) {
+                    $g_malus = $g_malus || $citizen->hasStatus('tg_guitar');
+                    $b_level = max($b_level, $citizen->getHome()->getPrototype()->getLevel() ?? 0);
                     $targets++;
+                }
 
-        return round( $day * max(2.0, $day / 10) ) * max(15, $targets);
+        if ($b_level < 0) {
+            $b_level = 2;
+            $factor = 1.5;
+        } else $factor = 1.0 + (mt_rand(0,50)/100.0);
+
+        //return round( $day * max(2.0, $day / 10) ) * max(15, $targets);
+        return round(($targets / 3.0) * $day * ($b_level + $factor) * ($g_malus ? 1.1 : 1.0));
     }
 
     public function onQueryTownParameter( BuildingQueryTownParameterEvent $event ): void {
