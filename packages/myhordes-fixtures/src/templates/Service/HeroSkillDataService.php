@@ -45,7 +45,7 @@ class HeroSkillDataService implements FixtureProcessorInterface {
             ->addCitizenProperty( CitizenProperties::InventorySpaceBonus, 1 )
             ->unlockAt(135)->legacy(true)->commit();
         $container->add()->name('secondwind')->title('Zweite Lunge')->description('Du verfügst ab sofort über eine mächtige Heldenfähigkeit, mit der du 6 AP wiederherstellen kannst und die deine Müdigkeit aufhebt.')->icon('small_pa')
-            ->unlockAt(151)->legacy(true)->unlocksAction('hero_generic_ap')->commit();
+            ->unlockAt(151)->legacy(true)->unlocksAction('hero_generic_ap')->addCitizenProperty( CitizenProperties::HeroSecondWindBonusAP, 6 )->commit();
         $container->add()->name('breakfast1')->title('Weitsichtig')->description('Du beginnst jede neue Stadt mit einer zusätzlichen Nahrungsmittelration.')->icon('item_food_bag')
             ->unlockAt(165)->legacy(true)->grantsItems(['food_bag_#00'])->commit();
         $container->add()->name('apag')->title('Profi-Fotograph')->description('Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.')->icon('f_cam')

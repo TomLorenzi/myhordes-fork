@@ -52,6 +52,8 @@ enum CitizenProperties: string implements Configuration
     case RevengeItems = 'config.revenge_items';
     //</editor-fold>
 
+    case ActiveSkillIDs = 'skills.list';
+
     public function abstract(): bool
     {
         return match ($this) {
@@ -166,6 +168,8 @@ enum CitizenProperties: string implements Configuration
             self::RevengeItems                   => [],
             self::HeroImmuneStatusList           => [],
 
+            self::ActiveSkillIDs => [],
+
             default => null,
         };
     }
@@ -226,6 +230,8 @@ enum CitizenProperties: string implements Configuration
 
             self::RevengeItems                   => [...$old,...$new],
             self::HeroImmuneStatusList           => [...$old,...$new],
+
+            self::ActiveSkillIDs => $new,
 
             default => null,
         };
