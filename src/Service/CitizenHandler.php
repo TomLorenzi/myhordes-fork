@@ -299,7 +299,7 @@ class CitizenHandler
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, null ) );
             foreach ($rem as $r) $this->entity_manager->remove( $r );
 
-        } else if ($citizen->getTown()->getDay() >= 3)
+        } else if ($action && $citizen->getTown()->getDay() >= 3)
             foreach ($citizen->property( CitizenProperties::RevengeItems ) as $item)
                 $this->inventory_handler->forceMoveItem( $citizen->getInventory(), $this->item_factory->createItem( $item ));
 
