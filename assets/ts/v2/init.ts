@@ -49,7 +49,7 @@ export function sharedWorkerMessageHandler(connection: string = null, message: s
 }
 
 export function broadcast(message: string, args: object = {}): void {
-    window.mhWorker.port.postMessage( {payload: {...args, message}, request: 'broadcast', except: window.mhWorkerIdList} )
+    window.mhWorker?.port.postMessage( {payload: {...args, message}, request: 'broadcast', except: window.mhWorkerIdList} )
 }
 
 export function html(): HTMLElement {
@@ -116,6 +116,10 @@ async function initSharedWorker(): Promise<boolean> {
         return false;
     }
 
+    if (typeof SharedWorker !== 'function') {
+        Console.warn('Shared worker not supported.')
+        return false;
+    }
     const mhWorker = new SharedWorker(sharedLoaderFile);
     mhWorker.port.start();
     mhWorker.port.addEventListener('message', e => {
