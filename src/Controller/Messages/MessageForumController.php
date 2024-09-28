@@ -576,7 +576,7 @@ class MessageForumController extends MessageController
 
         $town_citizen = $forum->getTown() ? $user->getCitizenFor( $forum->getTown() ) : null;
         $anon_post_limit = $town_citizen?->property( CitizenProperties::AnonymousPostLimit ) ?? 0;
-        $can_post_anon = ($anon_post_limit < 0) || ($anon_post_limit > ($town_citizen->getSpecificActionCounterValue( ActionCounter::ActionTypeAnonPost ) ?? 0));
+        $can_post_anon = ($anon_post_limit < 0) || ($anon_post_limit > ($town_citizen?->getSpecificActionCounterValue( ActionCounter::ActionTypeAnonPost ) ?? 0));
 
         $type = $parser->get('type') ?? 'USER';
         $valid = ['USER'];

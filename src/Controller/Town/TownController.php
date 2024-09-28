@@ -146,7 +146,7 @@ class TownController extends InventoryAwareController
     #[Route(path: 'jx/town/dashboard', name: 'town_dashboard')]
     public function dashboard(TownHandler $th, GameEventService $gameEvents): Response
     {
-        if (!$this->getActiveCitizen()->getHasSeenGazette())
+        if (!$this->getActiveCitizen()?->getHasSeenGazette())
             return $this->redirectToRoute('game_newspaper');
 
         $town = $this->getActiveCitizen()->getTown();
@@ -1268,7 +1268,7 @@ class TownController extends InventoryAwareController
     #[Route(path: 'jx/town/constructions', name: 'town_constructions')]
     public function constructions(TownHandler $th): Response
     {
-        if (!$this->getActiveCitizen()->getHasSeenGazette())
+        if (!$this->getActiveCitizen()?->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
         $town = $this->getActiveCitizen()->getTown();
         $buildings = $town->getBuildings();

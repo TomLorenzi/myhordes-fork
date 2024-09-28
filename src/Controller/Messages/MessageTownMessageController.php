@@ -64,7 +64,7 @@ class MessageTownMessageController extends MessageController
         $sender = $this->getUser()->getActiveCitizen();
 
         $anon_post_limit = $sender?->property( CitizenProperties::AnonymousMessageLimit ) ?? 0;
-        $can_post_anon = ($anon_post_limit < 0) || ($anon_post_limit > $anon_post_limit->getSpecificActionCounterValue( ActionCounter::ActionTypeAnonMessage ));
+        $can_post_anon = ($anon_post_limit < 0) || ($anon_post_limit > $sender->getSpecificActionCounterValue( ActionCounter::ActionTypeAnonMessage ));
 
         $allowed_roles = ['USER'];
         if ($can_post_anon && $type !== 'global') $allowed_roles[] = 'ANON';

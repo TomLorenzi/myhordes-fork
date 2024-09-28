@@ -26,7 +26,7 @@ class GateKeeperInitializationSubscriber implements EventSubscriberInterface
 
         $controller = $event->getController();
         if (is_array($controller)) $controller = $controller[0];
-        if (!str_starts_with( get_class($controller) ?? '', 'App\\' )) {
+        if (!str_starts_with( get_class($controller) ?? '', 'App\\' ) && !str_starts_with( get_class($controller) ?? '', 'MyHordes\\' )) {
             $event->getRequest()->attributes->remove('_GateKeeperProfile');
             return;
         }
