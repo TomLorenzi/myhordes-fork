@@ -144,7 +144,9 @@ class ComplaintController extends CustomAbstractCoreController
                 Response::HTTP_FORBIDDEN
             );
 
-        $message = $this->translator->trans('Du hast die Nachricht von {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...', ['{username}' => '<span>' . $post->getOwner()->getName() . '</span>'], 'game');
+        $message = $this->translator->trans('Du hast die Nachricht von {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...', [
+            '{username}' => '<span>' . ($post->isAnonymous() ? '???' : $post->getOwner()->getName()) . '</span>'
+        ], 'game');
 
 
         $reports = $post->getAdminReports();
@@ -429,7 +431,8 @@ class ComplaintController extends CustomAbstractCoreController
         if (!in_array( $reason, $this->getValidReasonsFor( $type ) ))
             return new JsonResponse([], Response::HTTP_BAD_REQUEST);
 
-        $message = $this->translator->trans('Du hast die Nachricht von {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...', ['{username}' => '<span>' . $post->getOwner()->getName() . '</span>'], 'game');
+        $message = $this->translator->trans('Du hast die Nachricht von {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...',
+                                            ['{username}' => '<span>' . ($post->isAnonymous() ? '???' : $post->getOwner()->getName()) . '</span>'], 'game');
 
         if ($post->getOwner() === $citizen)
             return new JsonResponse([
