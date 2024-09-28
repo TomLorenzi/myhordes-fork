@@ -191,7 +191,7 @@
             $.msg.registerFetchEndpoint( '{{ path('api_pm_spring') }}' );
             $.msg.toggleFetch(false);
 
-            $.html.addEventListenerAll('#postbox','click', function() {
+            $.html.addEventListenerAll('#postbox:not([data-handled])','click', function(e) {
                 let post = document.getElementById('post-office');
                 if (post) {
                     post.classList.add('visible');
@@ -215,6 +215,7 @@
                     $.ajax.background().load( document.getElementById('post-office-content'),'{{ url('pm_view')|e('js') }}', false, data);
                 }
             });
+            $.html.forEach('#postbox', e => e.dataset.handled = "1");
         })
     })();
 </script>
