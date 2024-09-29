@@ -71,11 +71,14 @@ const HordesHxpLogWrapper = (props: mountProps) => {
         <div className="log-container">
             <div className="log">
                 <div className="log-content" ref={parent}>
-                    { strings && logs.map( log => <div className={`log-entry log-entry-hxp log-entry-${log.value < 0 ? 'minus' : 'plus'} ${log.reset ? 'log-entry-hxp-reset' : ''}`} key={log.id}>
+                    { strings && logs.map( log => <div data-disabled={log.past && 'disabled'} className={`log-entry log-entry-hxp log-entry-${log.value < 0 ? 'minus' : 'plus'} ${log.reset ? 'log-entry-hxp-reset' : ''}`} key={log.id}>
                         <span className="log-part-value">{ log.value > 0 ? `+${log.value}` : (log.value < 0 ? `${log.value}` : '')  }</span>
                         <span className="log-part-content">
                             <div className="log-part-header">
-                                <div>{(new Date(log.timestamp * 1000)).toLocaleDateString()}</div>
+                                <div>
+                                    {(new Date(log.timestamp * 1000)).toLocaleDateString()}
+                                    { log.past && ` | ${log.past}` }
+                                </div>
                                 {!log.reset && log['type'] === 200 && <div>{strings.common.unique}</div>}
                                 {log.reset && <div>{strings.common.reset}</div>}
                             </div>
