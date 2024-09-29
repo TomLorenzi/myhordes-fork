@@ -45,7 +45,7 @@ final class BuildingUpgradeListener implements ServiceSubscriberInterface
         };
 
         $event->defenseMultiplier = match ($event->building->getPrototype()->getName()) {
-            'item_tube_#00' => [0, 0.8, 1.6, 2.4, 3.2, 4][ $event->building->getLevel() ] ?? 1.0,
+            'item_tube_#00' => [0, 0.8, 1.6, 2.4, 3.2, 4][ $event->building->getLevel() ] ?? 0.0,
             default => $event->defenseMultiplier
         };
 
@@ -91,7 +91,7 @@ final class BuildingUpgradeListener implements ServiceSubscriberInterface
     }
 
     public function onApplyUpgrade( BuildingUpgradeEvent $event ): void {
-        if ($event->defenseIncrement !== 0 || $event->defenseMultiplier !== 1.0) {
+        if ($event->defenseIncrement !== 0 || $event->defenseMultiplier !== 0.0) {
             $event->building->setDefenseBonus(($event->defenseMultiplier * $event->building->getPrototype()->getDefense()) + $event->defenseIncrement );
             $event->markModified();
         }

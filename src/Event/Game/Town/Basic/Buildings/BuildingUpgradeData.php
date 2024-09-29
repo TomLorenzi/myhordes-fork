@@ -17,7 +17,7 @@ class BuildingUpgradeData
 
     public Building $building;
     public int $defenseIncrement = 0;
-    public float $defenseMultiplier = 1.0;
+    public float $defenseMultiplier = 0.0;
     public int $waterIncrement = 0;
     public array $spawnedBlueprints = [];
 }
