@@ -72,9 +72,11 @@ class TownOnboardingController extends AbstractController
                 'continue' => $trans->trans('Nächste Seite', [], 'soul'),
                 'return' => $trans->trans('Vorherige Seite', [], 'soul'),
 
-                'on' => $asset->getUrl('build/images/icons/player_online.gif'),
-                'off' => $asset->getUrl('build/images/icons/player_offline.gif'),
+                'on' => $asset->getUrl('build/images/icons/tickOn.gif'),
+                'off' => $asset->getUrl('build/images/icons/tickOff.gif'),
                 'lock' => $asset->getUrl('build/images/icons/lock.gif'),
+                'next' => $asset->getUrl('build/images/icons/small_next.gif'),
+                'prev' => $asset->getUrl('build/images/icons/small_prev.gif'),
             ],
             'identity' => [
                 'headline' => $trans->trans('Deine Identität', [], 'game'),
@@ -109,6 +111,16 @@ class TownOnboardingController extends AbstractController
                     $trans->trans('Experte', [], 'game'),
                     $trans->trans('Meister', [], 'game'),
                 ]
+            ],
+            'confirm' => [
+                'title' => $trans->trans('Bestätigen?', [], 'global'),
+                'help' => $trans->trans('Ist das die Identität, die du in dieser Stadt annehmen möchtest? Prüfe deine Wahl sorgfältig, denn du kannst sie für die Dauer der Stadt nicht mehr ändern!', [], 'game'),
+                'job' => $trans->trans('Dein Beruf', [], 'game'),
+                'skills' => $trans->trans('Deine Fähigkeiten', [], 'game'),
+                'empty_pt' => $trans->trans('Ungenutzter Fähigkeitenpunkt', [], 'game'),
+                'empty_pt_warn' => $trans->trans('Du hast nicht alle deine Fähigkeitenpunkte vergeben. Diese Punkte werden <strong>nicht verbraucht</strong> und stehen dir demzufolge auch in jeder folgenden Stadt zur Verfügung - es ist also nicht notwendig, sie aufzusparen. <strong>Möchtest du wirklich fortfahren, ohne alle Fähigkeitenpunkte zu vergeben?</strong>', [], 'game'),
+                'back' => $trans->trans('Zurück', [], 'global'),
+                'ok' => $trans->trans('Auswahl bestätigen', [], 'global'),
             ]
         ]);
     }

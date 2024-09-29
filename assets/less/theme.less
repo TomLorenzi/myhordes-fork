@@ -207,7 +207,14 @@ x-message {
 
 dialog {
   .modal();
-  position: fixed; padding: 0; overflow: visible;
+  position: fixed; padding: 0;
+  &:not(.contained) {
+    overflow: visible;
+  }
+  .contained {
+    max-height: 100vh;
+    overflow: auto;
+  }
   &>div.flex:first-child {
     display: flex; flex-direction: column; max-height: 100vh;
     &>.modal-title { flex-grow: 0; flex-shrink: 0 }
