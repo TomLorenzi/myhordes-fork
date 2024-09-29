@@ -61,6 +61,7 @@ class EmoteDataService implements FixtureProcessorInterface {
             ['tag'=>':ap:', 'path'=>'build/images/emotes/ap.{lang}.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 49, 'i18n' => true],
             ['tag'=>':pc:', 'path'=>'build/images/emotes/pc.{lang}.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 50, 'i18n' => true],
             ['tag'=>':pm:', 'path'=>'build/images/emotes/pm.{lang}.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 51, 'i18n' => true],
+            ['tag'=>':ep:', 'path'=>'build/images/emotes/sp.{lang}.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 50, 'i18n' => true],
             ['tag'=>':iloveu:', 'path'=>'build/images/emotes/iloveu.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 52],
             ['tag'=>':sock:', 'path'=>'build/images/emotes/socks.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 53],
             ['tag'=>':build:', 'path'=>'build/images/emotes/build.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 54],

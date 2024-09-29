@@ -209,7 +209,7 @@ class ActionEffectProvider
         $effects_container->add()->identifier('morph_alarm_2')->add((new ItemEffect())->morphSource('alarm_2_#00'))->commit();
         $effects_container->add()->identifier('morph_alarm_3')->add((new ItemEffect())->morphSource('alarm_3_#00'))->commit();
 
-        $effects_container->add()->identifier('spawn_doggy')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_doggy')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                       ->addSpawn('food_bar2_#00', 222)
                                                                       ->addSpawn('food_chick_#00', 194)
                                                                       ->addSpawn('food_biscuit_#00', 188)
@@ -220,63 +220,63 @@ class ActionEffectProvider
                                                                       ->addSpawn('food_sandw_#00', 162)
         )->commit();
 
-        $effects_container->add()->identifier('spawn_lunch')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_lunch')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                       ->addSpawnList(['food_candies_#00', 'food_noodles_hot_#00', 'vegetable_tasty_#00', 'meat_#00'])
         )->commit();
 
-        $effects_container->add()->identifier('spawn_c_chest')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_c_chest')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                         ->addSpawnList(['pile_#00', 'radio_off_#00', 'pharma_#00', 'lights_#00'])
         )->commit();
 
-        $effects_container->add()->identifier('spawn_h_chest')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_h_chest')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                         ->addSpawnList(['watergun_empty_#00', 'pilegun_empty_#00', 'flash_#00', 'repair_one_#00', 'smoke_bomb_#00'])
         )->commit();
 
-        $effects_container->add()->identifier('spawn_postbox')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_postbox')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                         ->addSpawnList(['money_#00', 'rp_book_#00', 'rp_book_#01', 'rp_sheets_#00'])
         )->commit();
 
-        $effects_container->add()->identifier('spawn_postbox_xl')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_postbox_xl')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                            ->addSpawnList(['machine_gun_#00', 'rsc_pack_2_#00', 'rhum_#00', 'vibr_empty_#00'])
         )->commit();
 
-        $effects_container->add()->identifier('spawn_letterbox')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_letterbox')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                           ->addSpawnList(['rp_book2_#00', 'rp_manual_#00', 'rp_scroll_#00', 'rp_scroll_#01', 'rp_sheets_#00', 'rp_letter_#00'])
         )->commit();
 
-        $effects_container->add()->identifier('spawn_justbox')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_justbox')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                         ->addSpawnList(['money_#00', 'rp_book_#00', 'rp_book_#01', 'rp_sheets_#00'])
         )->commit();
 
-        $effects_container->add()->identifier('spawn_gamebox')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_gamebox')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                         ->addSpawnList(['dice_#00', 'cards_#00'])
         )->commit();
 
-        $effects_container->add()->identifier('spawn_abox')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_abox')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                      ->addSpawn('bplan_r_#00')
         )->commit();
 
-        $effects_container->add()->identifier('spawn_cbox')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_cbox')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                      ->addSpawn('bplan_c_#00', 50)
                                                                      ->addSpawn('bplan_u_#00', 35)
                                                                      ->addSpawn('bplan_r_#00', 10)
                                                                      ->addSpawn('bplan_e_#00', 5)
         )->commit();
 
-        $effects_container->add()->identifier('spawn_xmas_dv')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_xmas_dv')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                         ->addSpawnList(['omg_this_will_kill_you_#00', 'pocket_belt_#00', 'christmas_candy_#00'], 8)
                                                                         ->addSpawnList(['rp_manual_#00', 'rp_sheets_#00', 'rp_letter_#00', 'rp_scroll_#00', 'rp_book_#00', 'rp_book_#01', 'rp_book2_#00'])
         )->commit();
-        $effects_container->add()->identifier('spawn_xmas_3')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_xmas_3')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                        ->addSpawnList(['omg_this_will_kill_you_#00'])
         )->commit();
-        $effects_container->add()->identifier('spawn_xmas_2')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_xmas_2')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                        ->addSpawnList(['christmas_candy_#00'])
         )->commit();
-        $effects_container->add()->identifier('spawn_xmas_1')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_xmas_1')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                        ->addSpawnList(['xmas_gift_#00'])
         )->commit();
-        $effects_container->add()->identifier('spawn_matbox')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_matbox')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                        ->addSpawnList(['wood2_#00', 'metal_#00'])
         )->commit();
 
@@ -293,10 +293,10 @@ class ActionEffectProvider
                                                                           ->addSpawnList(['pilegun_upkit_#00', 'cutcut_#00'], 10)
                                                                           ->addSpawn('big_pgun_part_#00', 7)
         )->commit();
-        $effects_container->add()->identifier('spawn_catbox')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_catbox')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                        ->addSpawnList(['poison_part_#00', 'pet_cat_#00', 'angryc_#00'])
         )->commit();
-        $effects_container->add()->identifier('spawn_toolbox')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_toolbox')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                         ->addSpawn('pharma_#00', 25)
                                                                         ->addSpawn('explo_#00', 19)
                                                                         ->addSpawn('meca_parts_#00', 17)
@@ -304,7 +304,7 @@ class ActionEffectProvider
                                                                         ->addSpawn('tube_#00', 13)
                                                                         ->addSpawn('pile_#00', 12)
         )->commit();
-        $effects_container->add()->identifier('spawn_foodbox')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_foodbox')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                         ->addSpawn('hmeat_#00', 13)
                                                                         ->addSpawn('can_#00', 11)
                                                                         ->addSpawnList(['food_bag_#00', 'vegetable_#00'], 8)
@@ -316,7 +316,7 @@ class ActionEffectProvider
         $effects_container->add()->identifier('spawn_phone_nw')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetRucksack)
                                                                          ->addSpawnList(['deto_#00', 'metal_bad_#00', 'pile_broken_#00', 'electro_#00'])
         )->commit();
-        $effects_container->add()->identifier('spawn_proj')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_proj')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                      ->addSpawn('lens_#00')
         )->commit();
         $effects_container->add()->identifier('spawn_empty_battery')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetFloor)
@@ -330,7 +330,7 @@ class ActionEffectProvider
                                                                      ->addSpawnList(['watergun_opt_part_#00', 'lawn_part_#00', 'chainsaw_part_#00', 'mixergun_part_#00', 'cutcut_#00', 'pilegun_upkit_#00', 'meca_parts_#00'], 10)
                                                                      ->addSpawnList(['big_pgun_part_#00', 'book_gen_letter_#00'], 5)
         )->commit();
-        $effects_container->add()->identifier('spawn_asafe')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_asafe')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                       ->addSpawn('bplan_e_#00')
         )->commit();
 
@@ -354,13 +354,13 @@ class ActionEffectProvider
                                                                        ->addSpawn('potion_#00')
         )->commit();
 
-        $effects_container->add()->identifier('spawn_2_watercup')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_2_watercup')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetFloorOnly)
                                                                            ->addSpawn('water_cup_#00', count: 2)
         )->commit();
-        $effects_container->add()->identifier('spawn_2_water')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_2_water')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetFloorOnly)
                                                                         ->addSpawn('water_#00', count: 2)
         )->commit();
-        $effects_container->add()->identifier('spawn_3_water')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_3_water')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetFloorOnly)
                                                                         ->addSpawn('water_#00', count: 3)
         )->commit();
         //</editor-fold>

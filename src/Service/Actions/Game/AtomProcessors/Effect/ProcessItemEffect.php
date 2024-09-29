@@ -101,6 +101,10 @@ class ProcessItemEffect extends AtomEffectProcessor
                         $targetInv = [ $cache->citizen->getInventory(), $floor_inventory ];
                         $force = true;
                         break;
+                    case ItemDropTarget::DropTargetOrigin:
+                        $targetInv = [ $cache->originalInventory ?? $cache->citizen->getInventory() ];
+                        $force = true;
+                        break;
                     case ItemDropTarget::DropTargetDefault:
                     default:
                         $targetInv = [$cache->originalInventory ?? null, $cache->citizen->getInventory(), $floor_inventory, $cache->citizen->getZone() ? null : $cache->citizen->getTown()->getBank() ];
