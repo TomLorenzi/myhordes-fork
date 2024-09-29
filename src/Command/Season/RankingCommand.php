@@ -273,11 +273,11 @@ class RankingCommand extends Command
             } else $global_citizen_list[$glory->getUser()->getId()] = [$glory->getUser(), 0, 1, $existing_glory];
         }
 
-        foreach ($global_citizen_list as [$user, $has, $needs, $existing]) {
+        foreach ($global_citizen_list as [$user, $needs, $has, $existing]) {
             if ($has > $needs && $existing) $this->entityManager->remove($existing);
             elseif ($has < $needs && !$existing) $this->entityManager->persist((new FeatureUnlock())
                 ->setUser( $user )
-                ->setSeason( $season )
+                ->setSeason( $upcoming_season )
                 ->setPrototype( $award_glory )
                 ->setExpirationMode( FeatureUnlock::FeatureExpirationNone )
             );
@@ -459,12 +459,14 @@ class RankingCommand extends Command
                 $ranking_picto     = $this->entityManager->getRepository(PictoPrototype::class)->findOneByName('r_winbas_#00');
                 $top_ranking_picto = $this->entityManager->getRepository(PictoPrototype::class)->findOneByName('r_wintop_#00');
 
+                $award_glory  = $this->entityManager->getRepository(FeatureUnlockPrototype::class)->findOneByName('f_glory');
                 $award_seasonal_glory  = $this->entityManager->getRepository(FeatureUnlockPrototype::class)->findOneByName('f_glory_temp');
                 //$award_alarm           = $this->entityManager->getRepository(FeatureUnlockPrototype::class)->findOneByName('f_alarm');
 
                 $features = [];
                 //if ($citizen_ranking_entry[1][3] > 0) $features[] = $award_alarm;
                 if ($citizen_ranking_entry[1][4] > 0) $features[] = $award_seasonal_glory;
+                if ($citizen_ranking_entry[1][5] > 0) $features[] = $award_glory;
 
                 if (array_reduce( $citizen_ranking_entry[1], fn(int $carry, int $value) => max( $carry, $value ), 0 ) > 0)
                     $this->entityManager->persist( $this->crowService->createPM_seasonalRewards(
