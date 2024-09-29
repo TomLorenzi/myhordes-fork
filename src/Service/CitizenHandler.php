@@ -622,8 +622,6 @@ class CitizenHandler
             if (!isset($item_type_cache[$pi->getId()])) $item_type_cache[$pi->getId()] = [1,$pi];
             else $item_type_cache[$pi->getId()] = [0,$pi];
 
-			dump($item_type_cache);
-
         $inventory = $citizen->getInventory(); $null = null;
         foreach ($item_type_cache as &$entry) {
             list($action,$proto) = $entry;
