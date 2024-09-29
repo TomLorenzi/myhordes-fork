@@ -1502,7 +1502,18 @@ span.defense-broken,div.defense-broken { .icon_div("../img/icons/small_def_broke
 
   .skillset-parent {
     display: flex; align-items: center; justify-content: center;
-    padding: 50px 15px 15px !important;
+    padding: 50px 24px 24px !important; position: relative; overflow: visible;
+
+    .skillset-nav {
+      transform: scale(2); image-rendering: pixelated; cursor: pointer;
+      position: absolute; top: calc(50% - 16px);
+      &.skillset-nav-prev { left: 8px; }
+      &.skillset-nav-next { right: 8px; }
+    }
+
+    &:first-child .skillset-nav-prev, &:last-child .skillset-nav-next {
+      display: none;
+    }
   }
 }
 

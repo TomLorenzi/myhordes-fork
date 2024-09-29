@@ -556,6 +556,18 @@ const SkillSelection = (props: OnboardingSkillPayloadProps) => {
     useLayoutEffect(() => {
         if (!skillContainer.current) return;
 
+        skillContainer.current.querySelectorAll('div.skillset-nav').forEach(div => div.animate([
+            {offset: 0,   opacity: '1'},
+            {offset: 0.05, opacity: '0'},
+            {offset: 0.95, opacity: '0'},
+            {offset: 1,   opacity: '1'},
+        ], {
+            duration: 1000,
+            delay: 0,
+            fill: "forwards",
+            easing: "ease-in-out",
+        }));
+
         skillContainer.current.querySelectorAll('div.skill-slider > div').forEach(div => div.animate([
             {offset: 0,   transform: 'scale(1)'},
             {offset: 0.1, transform: 'scale(0.8)'},
@@ -623,6 +635,7 @@ const SkillSelection = (props: OnboardingSkillPayloadProps) => {
                             <div className="skill-slider">
                                 {skills?.skills?.groups.map(g =>
                                     <div key={g} className="note note-lightest skillset-parent">
+                                        <div className="skillset-nav skillset-nav-prev" onClick={() => setCurrent(current - 1)}><img alt="" src={globals.strings.common.prev}/></div>
                                         <div className="skillset-group">
                                             <strong className="group-title">
                                                 <span className="first-letter">{g.slice(0, 1)}</span>
@@ -656,6 +669,7 @@ const SkillSelection = (props: OnboardingSkillPayloadProps) => {
                                                     </div>)}
                                             </div>
                                         </div>
+                                        <div className="skillset-nav skillset-nav-next" onClick={() => setCurrent(current + 1)}><img alt="" src={globals.strings.common.next}/></div>
                                     </div>
                                 )}
                             </div>
