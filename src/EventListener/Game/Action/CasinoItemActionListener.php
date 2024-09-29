@@ -124,7 +124,7 @@ final class CasinoItemActionListener implements ServiceSubscriberInterface
                     } else {
                         $count += $this->getService(CitizenHandler::class)->setAP($target_citizen,
                                                                 true,
-                                                              $event->citizen->hasAnyStatus('drunk', 'drugged', 'addict') ? 2 : 1,
+                                                              $target_citizen->hasAnyStatus('drunk', 'drugged', 'addict') ? 2 : 1,
 
                                                                 0);
                     }
