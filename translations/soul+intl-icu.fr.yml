@@ -629,3 +629,5 @@ Zurückgesetzt!: Réinitialiser!
 'Du kannst aktuell keine öffentlichen Städte erstellen (Missbrauchsschutz). Bitte warte ein paar Tage und versuche es dann erneut.': 'Vous ne pouvez actuellement pas créer de villes publiques (protection contre les abus). Veuillez patienter quelques jours, puis réessayer.'
 'Es sind bereits zu viele öffentliche Städte geplant. Du kannst aktuell keine weiteren Städte anfordern.': 'Trop de villes publiques sont déjà planifiées. Vous ne pouvez actuellement pas demander de villes supplémentaires.'
 'Du benötigst mindestens {sp} Seelenpunkte, um eine Stadt zu eröffnen.': 'Vous avez besoin d''au moins {sp} points d''âme pour ouvrir une ville.'
+'In vergangenen Zeiten hast du Heldenvorteile ledigtlich durch die Zahl deiner gespielten Heldentage freigeschaltet. Wenn du gerne in Erinnerungen an dieses alte System schwelgen möchtest, kannst du es dir {link}.': 'Dans le passé, vous ne débloquiez les avantages du héros qu''en fonction du nombre de jours de héros que vous avez joués. Si vous souhaitez vous remémorer cet ancien système, vous pouvez {link}.'
+'hier ansehen': 'cliquer ici'

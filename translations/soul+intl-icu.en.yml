@@ -629,3 +629,5 @@ Zurückgesetzt!: Reset!
 'Du kannst aktuell keine öffentlichen Städte erstellen (Missbrauchsschutz). Bitte warte ein paar Tage und versuche es dann erneut.': 'You cannot currently create public cities (abuse protection). Please wait a few days and then try again.'
 'Es sind bereits zu viele öffentliche Städte geplant. Du kannst aktuell keine weiteren Städte anfordern.': 'There are already too many public cities planned. You cannot request more cities at this time.'
 'Du benötigst mindestens {sp} Seelenpunkte, um eine Stadt zu eröffnen.': 'You need at least {sp} soul points to open a city.'
+'In vergangenen Zeiten hast du Heldenvorteile ledigtlich durch die Zahl deiner gespielten Heldentage freigeschaltet. Wenn du gerne in Erinnerungen an dieses alte System schwelgen möchtest, kannst du es dir {link}.': 'In times past, you unlocked hero perks based solely on the number of hero days you played. If you''d like to reminisce about this old system, you can check it out {link}.'
+'hier ansehen': 'here'
