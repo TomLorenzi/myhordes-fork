@@ -144,7 +144,10 @@ class SkillController extends CustomAbstractCoreController
                 'timestamp'  => $entry->getCreated()->getTimestamp(),
                 'value'      => $entry->getValue(),
                 'type'       => $entry->getType()->value,
-                'reset'      => $entry->getReset() > 0
+                'reset'      => $entry->getReset() > 0,
+                'past'       => $entry->getSeason()->getCurrent() ? null : (
+                    "S{$entry->getSeason()->getNumber()} - " . $this->translator->trans("Saison {$entry->getSeason()->getNumber()}.{$entry->getSeason()->getSubNumber()}", [], 'season')
+                ),
             ];
 
             if ($entry->isDisabled()) $json['text'] = null;

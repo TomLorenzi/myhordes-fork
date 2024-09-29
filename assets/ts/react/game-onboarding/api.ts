@@ -61,6 +61,11 @@ export type OnboardingPayload = {
     skills: OnboardingSkillPayload|null
 }
 
+export type OnboardingCache = {
+    profession: ResponseJobs|null
+    skills: ResponseSkills|null
+}
+
 export type ResponseJobs = JobDescription[]
 
 export type ResponseSkills = {

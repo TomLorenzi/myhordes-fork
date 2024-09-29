@@ -11,7 +11,7 @@
     {% if owner.alive %}
     <div x-tutorial-content="5.text3" class="toplevel text no-arrow">
         <div class="help">
-            <p>{{ 'Du stehst aktuell vor <strong>{citizen}\'s Haus</strong>.'|trans({'{citizen}': owner}, 'game')|raw }}</p>
+            <p>{{ 'Du stehst aktuell vor <strong>{citizen}\'s Haus</strong>.'|trans({'{citizen}': owner}, 'help')|raw }}</p>
             <button x-advance-tutorial="5.text4">{{ 'Weiter...'|trans({},'help') }}</button>
         </div>
     </div>
