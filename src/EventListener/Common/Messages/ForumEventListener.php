@@ -95,11 +95,11 @@ final class ForumEventListener implements ServiceSubscriberInterface
                     new WebPushMessage($subscription,
                         title: $this->getService(TranslatorInterface::class)->trans('Neue Antwort in abonnierter Diskussion', [], 'global', $lang ),
                         body: $this->getService(TranslatorInterface::class)->trans('{player} hat auf die Diskussion "{threadname}" im Forum "{forumname}" geantwortet.', [
-                            'player' => $event->post->getOwner(),
+                            'player' => $event->post->isAnonymous() ? '???' : $event->post->getOwner(),
                             'threadname' => $event->post->getThread()->getTranslatable() ? $this->getService(TranslatorInterface::class)->trans($event->post->getThread()->getTitle(), [], 'game', $lang) : $event->post->getThread()->getTitle(),
                             'forumname' => $event->post->getThread()->getForum()->getLocalizedTitle( $lang )
                         ], 'global', $lang ),
-                        avatar: $event->post->getOwner()->getAvatar()?->getId()
+                        avatar: $event->post->isAnonymous() ? null : $event->post->getOwner()->getAvatar()?->getId()
                     )
                 );
         }
@@ -134,7 +134,8 @@ final class ForumEventListener implements ServiceSubscriberInterface
         if (count($event->insight->taggedUsers) <= ($forum->getTown() ? 10 : 5) )
             foreach ( $event->insight->taggedUsers as $tagged_user )
                 if ( $this->should_notify( $user, $tagged_user, $forum->getTown() ) && $this->getService(PermissionHandler::class)->checkEffectivePermissions( $tagged_user, $forum, ForumUsagePermissions::PermissionReadThreads ) ) {
-                    $this->getService(EntityManagerInterface::class)->persist( $this->getService(CrowService::class)->createPM_mentionNotification( $tagged_user, $event->post ) );
+                    if (!$event->post->isAnonymous())
+                        $this->getService(EntityManagerInterface::class)->persist( $this->getService(CrowService::class)->createPM_mentionNotification( $tagged_user, $event->post ) );
 
                     // Dispatch WebPush notifications
                     $lang = $tagged_user->getLanguage() ?? 'en';
@@ -143,11 +144,11 @@ final class ForumEventListener implements ServiceSubscriberInterface
                             new WebPushMessage($subscription,
                                 title: $this->getService(TranslatorInterface::class)->trans('Du wurdest erwähnt', [], 'global', $lang ),
                                 body: $this->getService(TranslatorInterface::class)->trans('{player} hat dich auf MyHordes in einem Post unter "{threadname}" im Forum "{forumname}" erwähnt.', [
-                                    'player' => $user,
+                                    'player' => $event->post->isAnonymous() ? '???' : $user,
                                     'threadname' => $event->post->getThread()->getTranslatable() ? $this->getService(TranslatorInterface::class)->trans($event->post->getThread()->getTitle(), [], 'game', $lang) : $event->post->getThread()->getTitle(),
                                     'forumname' => $forum->getLocalizedTitle( $lang )
                                 ], 'global', $lang ),
-                                avatar: $user->getAvatar()?->getId()
+                                avatar: $event->post->isAnonymous() ? null : $user->getAvatar()?->getId()
                             )
                         );
 

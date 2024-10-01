@@ -101,6 +101,7 @@ final class BuildingQueryListener implements ServiceSubscriberInterface
         } else $factor = 1.0 + (mt_rand(0,50)/100.0);
 
         //return round( $day * max(2.0, $day / 10) ) * max(15, $targets);
+        $targets = max($targets, 10);
         return round(($targets / 3.0) * $day * ($b_level + $factor) * ($g_malus ? 1.1 : 1.0));
     }
 
