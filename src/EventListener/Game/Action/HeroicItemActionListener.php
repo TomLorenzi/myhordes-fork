@@ -173,8 +173,10 @@ final class HeroicItemActionListener implements ServiceSubscriberInterface
                 if ($event->type === 8 && $event->citizen->getZone())
                     $jumper = $event->citizen;
 
-                if ($event->type === 9 && is_a( $event->target, Citizen::class ))
+                if ($event->type === 9 && is_a( $event->target, Citizen::class )) {
                     $jumper = $event->target;
+                    $event->cache->setTargetCitizen($event->target);
+                }
 
                 if (!$jumper) break;
                 $zone = $jumper->getZone();
@@ -264,6 +266,7 @@ final class HeroicItemActionListener implements ServiceSubscriberInterface
                 if ($valid) {
                     $this->getService(PictoHandler::class)->award_picto_to( $event->citizen, 'r_share_#00' );
                     $this->getService(CitizenHandler::class)->inflictStatus( $event->target->citizen(), 'tg_rec_heroic' );
+                    $event->cache->setTargetCitizen($event->target->citizen());
 
                     foreach ( $downgrade_actions as $a ) {
                         $event->target->citizen()->getHeroicActions()->removeElement( $a );
