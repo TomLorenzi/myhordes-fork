@@ -57,7 +57,10 @@ class HeroSkillDataService implements FixtureProcessorInterface {
             ->addCitizenProperty( CitizenProperties::LogManipulationLimit, 4 )
             ->unlockAt(211)->legacy(true)->commit();
         $container->add()->name('cheatdeath')->title('Den Tod besiegen')->description('Sobald diese neue Heldenfähigkeit aktiviert wurde, spürst du beim nächsten Zombieangriff keinen Durst, keine Drogenabhängigkeit und keine Infektion (nur eine Nacht lang gültig). Verhindert auch Ghulverhungern (Hungerbalken steigt trotzdem).')->icon('small_wrestle')
-            ->unlockAt(226)->legacy(true)->unlocksAction('hero_generic_immune')->commit();
+            ->unlockAt(226)->legacy(true)
+            ->unlocksAction('hero_generic_immune')
+            ->addCitizenProperty(CitizenProperties::HeroImmuneStatusList, ['thirst','infection','addiction','hunger'])
+            ->commit();
         $container->add()->name('revenge')->title('Süße Rache')->description('Solltest du am dritten Tag oder an einem späteren Zeitpunkt verbannt werden, bekommst du automatisch etwas Gift geschenkt, das du nach Belieben einsetzen kannst... Tja, man hätte dich besser nicht ärgern sollen!')->icon('item_april_drug')
             ->addCitizenProperty( CitizenProperties::RevengeItems, ['poison_#00','poison_#00'] )
             ->unlockAt(241)->legacy(true)->commit();
