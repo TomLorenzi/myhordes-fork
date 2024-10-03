@@ -132,13 +132,17 @@ class ExplorationController extends InventoryAwareController implements HookedIn
         $in_grace = $ex->isGrace() && $ex->getStarted() !== null && (new DateTime())->modify('-30sec') < $ex->getStarted();
         $guide = $citizen->hasRole('guide');
 
-        $imprint_source = ($ruinZone->getPrototype()?->getKeyImprintAlternative() && $citizen->getProfession()->getName() !== 'tech')
-            ? $this->entity_manager->getRepository(ItemPrototype::class)->findBy( ['name' => ['food_noodles_#00', 'pharma_#00']] )
-            : [];
+        $imprint_source = [];
+        $imprint_goal = [];
+        if ($citizen->getProfession()->getName() === 'tech') {
+            $imprint_source['tech'] = [];
+            $imprint_goal['tech'] = $ruinZone->getPrototype()?->getKeyImprint();
+        }
 
-        $imprint_goal = $citizen->getProfession()->getName() !== 'tech'
-            ? $ruinZone->getPrototype()?->getKeyImprintAlternative()
-            : $ruinZone->getPrototype()?->getKeyImprint();
+       if ($ruinZone->getPrototype()?->getKeyImprintAlternative()) {
+           $imprint_source['noodles'] = $this->entity_manager->getRepository(ItemPrototype::class)->findBy(['name' => ['food_noodles_#00', 'pharma_#00']]);
+           $imprint_goal['noodles'] = $ruinZone->getPrototype()?->getKeyImprintAlternative();
+       }
 
         return $this->render( 'ajax/game/beyond/ruin.html.twig', $this->addDefaultTwigArgs(null, [
             'prototype' => $citizen->getZone()->getPrototype(),
@@ -154,7 +158,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
             'zone_zombies_dead' => $ruinZone->getKilledZombies(),
             'shifted' => $ex->getInRoom(),
             'scavenge' => !$ex->getScavengedRooms()->contains($ruinZone),
-            'can_imprint' => !!$imprint_goal,
+            'can_imprint' => !empty($imprint_goal),
             'imprint_source' => $imprint_source,
             'imprint_goal' => $imprint_goal,
 
@@ -462,18 +466,22 @@ class ExplorationController extends InventoryAwareController implements HookedIn
 
     /**
      * @param InventoryHandler $handler
+     * @param EventProxyService $proxy
+     * @param JSONRequestParser $parser
      * @return Response
      */
     #[Route(path: 'api/beyond/explore/imprint', name: 'beyond_ruin_imprint_controller')]
-    public function imprint_explore_api(InventoryHandler $handler, EventProxyService $proxy): Response {
+    public function imprint_explore_api(InventoryHandler $handler, EventProxyService $proxy, JSONRequestParser $parser): Response {
         $citizen = $this->getActiveCitizen();
         $ex = $citizen->activeExplorerStats();
         $ruinZone = $this->getCurrentRuinZone();
 
+        $type = $parser->get('type', 'tech', ['tech','noodles']);
+
         if (!$ruinZone->getPrototype() || !$ruinZone->getLocked() || !$ruinZone->getPrototype()->getKeyImprint())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-        $alt = $citizen->getProfession()->getName() !== 'tech';
+        $alt = $type !== 'tech';
         if ($alt && !$ruinZone->getPrototype()->getKeyImprintAlternative())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
