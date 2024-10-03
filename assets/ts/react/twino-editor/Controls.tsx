@@ -667,7 +667,7 @@ const EmoteTabSection = ({emotes}: { emotes: null | Array<Emote> }) => {
     return <div className="lightbox">
         {emotes === null && <div className="loading"/>}
         {emotes !== null && <div className="forum-button-grid">
-            {emotes.sort((a, b) => a.orderIndex - b.orderIndex).map(emote => <React.Fragment key={emote.tag}>
+            {emotes.filter(a => a.orderIndex >= 0).sort((a, b) => a.orderIndex - b.orderIndex).map(emote => <React.Fragment key={emote.tag}>
                 <ControlButtonNodeInsert node={emote.tag} img={emote.url} curley={null}/>
             </React.Fragment>)}
         </div>}
