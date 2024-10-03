@@ -1,3 +1,4 @@
+---
 'Allgemeiner Fehler.': 'Error común.'
 'Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.': 'El foro seleccionado no existe o no tienes permiso para verlo.'
 'Dein Text muss mindestens 2 Zeichen lang sein.': 'Tu texto debe tener al menos 2 caracteres de largo.'
@@ -554,7 +555,7 @@ PN: MP
 'Städte werden mit hoher Priorität angelegt': 'El pueblo se creará con prioridad'
 'Die Städte werden innerhalb der nächsten 30 Minuten erzeugt, statt erst beim nächsten Angriff. Bitte verwendet diese Funktion nur in Notfällen.': 'El pueblo se creará en los 30 minutos siguientes al próximo ataque. Por favor, utiliza esta función sólo en caso de emergencia.'
 'Bitte verwendet diese Funktion nur in Notfällen. Fortfahren?': 'Esta función sólo debe utilizarse en caso de emergencia. ¿Continuar?'
-'Kein Tag': 'Todos los dias'
+'Kein Tag': 'Ninguna etiqueta'
 ENTER: ENTER
 'Keine Formatierung': 'Sin formato'
 'Spieler auswählen': 'Elige un jugador'
