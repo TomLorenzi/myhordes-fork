@@ -40,6 +40,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     const USER_ROLE_TEAM   = 1 << 2;
     const USER_ROLE_DEV    = 1 << 3;
     const USER_ROLE_ADMIN_SUB = 1 << 4;
+    const USER_ROLE_ART = 1 << 5;
 
     const USER_ROLE_LIMIT_MODERATION = 1 << 10;
 
@@ -293,6 +294,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         if ($this->hasRoleFlag( self::USER_ROLE_ANIMAC )) $roles[] = 'ROLE_ANIMAC';
         if ($this->hasRoleFlag( self::USER_ROLE_TEAM ))   $roles[] = 'ROLE_TEAM';
         if ($this->hasRoleFlag( self::USER_ROLE_DEV ))   $roles[] = 'ROLE_DEV';
+        if ($this->hasRoleFlag( self::USER_ROLE_ART ))   $roles[] = 'ROLE_ART';
 
         if (strstr($this->email, "@localhost") === "@localhost") $roles[] = 'ROLE_DUMMY';
         else $roles[] = 'ROLE_NATURAL';

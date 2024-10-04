@@ -1647,7 +1647,8 @@ class SoulController extends CustomAbstractController
             'oracle' => $this->user_handler->hasRole($user,'ROLE_ORACLE'),
             'anim'   => $this->user_handler->hasRole($user,'ROLE_ANIMAC'),
             'team'   => $this->user_handler->hasRole($user,'ROLE_TEAM'),
-            'dev'    => $this->user_handler->hasRole($user, 'ROLE_DEV')
+            'dev'    => $this->user_handler->hasRole($user, 'ROLE_DEV'),
+            'art'    => $this->user_handler->hasRole($user, 'ROLE_ART')
         ]);
     }
 

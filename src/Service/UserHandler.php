@@ -209,7 +209,7 @@ class UserHandler
      * @return string[]
      */
     public function admin_validFlags(): array {
-        return ['FLAG_ORACLE', 'FLAG_ANIMAC', 'FLAG_TEAM', 'FLAG_RUFFIAN', 'FLAG_DEV'];
+        return ['FLAG_ORACLE', 'FLAG_ANIMAC', 'FLAG_TEAM', 'FLAG_RUFFIAN', 'FLAG_DEV','FLAG_ART'];
     }
 
     /**

@@ -231,6 +231,7 @@ class MigrateCommand extends Command
             ->addOption('set-town-base-def', null, InputOption::VALUE_NONE, 'Set the base town defense into each towns')
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
+            ->addOption('skip-group-association', null, InputOption::VALUE_NONE, 'When repairing permissions, do not check if all users are in their appropriate groups')
             ->addOption('migrate-oracles', null, InputOption::VALUE_NONE, 'Moves the Oracle role from account elevation to the special permissions flag')
             ->addOption('repair-restrictions', null, InputOption::VALUE_NONE, '')
             ->addOption('count-admin-reports', null, InputOption::VALUE_NONE, '')
@@ -995,59 +996,66 @@ class MigrateCommand extends Command
                 }
             };
 
-            $g_users  = null;
-            $g_elev   = null;
-            $g_oracle = null;
-            $g_mods   = null;
-            $g_admin  = null;
-            $g_anim   = null;
-            $g_dev    = null;
+            $g_users  = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultUserGroup]);
+            $g_elev   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultElevatedGroup]);
+            $g_oracle = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultOracleGroup]);
+            $g_mods   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultModeratorGroup]);
+            $g_admin  = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAdminGroup]);
+            $g_anim   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAnimactorGroup]);
+            $g_dev    = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultDevGroup]);
+            $g_art    = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultArtisticGroup]);
 
             // Fix group associations
-            $this->helper->leChunk($output, User::class, 100, [], true, false, function(User $current_user) use (
-                $fun_assoc,$fun_dis_assoc, &$g_users, &$g_elev, &$g_oracle, &$g_mods, &$g_admin, &$g_anim, &$g_dev
-            ) {
-                if ($current_user->getValidated()) $fun_assoc($current_user, $g_users); else $fun_dis_assoc($current_user, $g_users);
-                if (
-                    $current_user->getRightsElevation() > User::USER_LEVEL_BASIC ||
-                    $this->user_handler->hasRole($current_user, "ROLE_ORACLE")
-                ) $fun_assoc($current_user, $g_elev); else $fun_dis_assoc($current_user, $g_elev);
-                if ($this->user_handler->hasRole($current_user, "ROLE_ORACLE")) $fun_assoc($current_user, $g_oracle); else $fun_dis_assoc($current_user, $g_oracle);
-                if ($this->user_handler->hasRole($current_user, "ROLE_CROW"))   $fun_assoc($current_user, $g_mods); else $fun_dis_assoc($current_user, $g_mods);
-                if ($this->user_handler->hasRole($current_user, "ROLE_SUB_ADMIN"))  $fun_assoc($current_user, $g_admin); else $fun_dis_assoc($current_user, $g_admin);
-                if ($this->user_handler->hasRole($current_user, "ROLE_ANIMAC")) $fun_assoc($current_user, $g_anim); else $fun_dis_assoc($current_user, $g_anim);
-                if ($this->user_handler->hasRole($current_user, "ROLE_DEV"))    $fun_assoc($current_user, $g_dev); else $fun_dis_assoc($current_user, $g_dev);
+            if (!$input->getOption('skip-group-association')) {
+                $this->helper->leChunk($output, User::class, 100, [], true, false, function(User $current_user) use (
+                    $fun_assoc,$fun_dis_assoc, &$g_users, &$g_elev, &$g_oracle, &$g_mods, &$g_admin, &$g_anim, &$g_dev, &$g_art,
+                ) {
+                    if ($current_user->getValidated()) $fun_assoc($current_user, $g_users); else $fun_dis_assoc($current_user, $g_users);
+                    if (
+                        $current_user->getRightsElevation() > User::USER_LEVEL_BASIC ||
+                        $this->user_handler->hasRole($current_user, "ROLE_ORACLE")
+                    ) $fun_assoc($current_user, $g_elev); else $fun_dis_assoc($current_user, $g_elev);
+                    if ($this->user_handler->hasRole($current_user, "ROLE_ORACLE")) $fun_assoc($current_user, $g_oracle); else $fun_dis_assoc($current_user, $g_oracle);
+                    if ($this->user_handler->hasRole($current_user, "ROLE_CROW"))   $fun_assoc($current_user, $g_mods); else $fun_dis_assoc($current_user, $g_mods);
+                    if ($this->user_handler->hasRole($current_user, "ROLE_SUB_ADMIN"))  $fun_assoc($current_user, $g_admin); else $fun_dis_assoc($current_user, $g_admin);
+                    if ($this->user_handler->hasRole($current_user, "ROLE_ANIMAC")) $fun_assoc($current_user, $g_anim); else $fun_dis_assoc($current_user, $g_anim);
+                    if ($this->user_handler->hasRole($current_user, "ROLE_DEV"))    $fun_assoc($current_user, $g_dev); else $fun_dis_assoc($current_user, $g_dev);
+                    if ($this->user_handler->hasRole($current_user, "ROLE_DEV"))    $fun_assoc($current_user, $g_dev); else $fun_dis_assoc($current_user, $g_dev);
+                    if ($this->user_handler->hasRole($current_user, "ROLE_ART"))    $fun_assoc($current_user, $g_art); else $fun_dis_assoc($current_user, $g_art);
 
-            }, true, function () use (&$g_users, &$g_elev, &$g_oracle, &$g_mods, &$g_admin, &$g_anim) {
-                $g_users  = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultUserGroup]);
-                $g_elev   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultElevatedGroup]);
-                $g_oracle = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultOracleGroup]);
-                $g_mods   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultModeratorGroup]);
-                $g_admin  = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAdminGroup]);
-                $g_anim   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAnimactorGroup]);
-                $g_dev    = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultDevGroup]);
-            });
+                }, true, function () use (&$g_users, &$g_elev, &$g_oracle, &$g_mods, &$g_admin, &$g_anim, &$g_dev, &$g_art) {
+                    $g_users  = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultUserGroup]);
+                    $g_elev   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultElevatedGroup]);
+                    $g_oracle = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultOracleGroup]);
+                    $g_mods   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultModeratorGroup]);
+                    $g_admin  = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAdminGroup]);
+                    $g_anim   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAnimactorGroup]);
+                    $g_dev    = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultDevGroup]);
+                    $g_art    = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultArtisticGroup]);
+                });
 
-            // Fix town groups
-            $this->helper->leChunk($output, Town::class, 10, [], true, false, function(Town $current_town) use (
-                $fun_assoc,$fun_dis_assoc,$output
-            ) {
-                $town_group = $this->entity_manager->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $current_town->getId()] );
-                if (!$town_group) {
-                    $output->writeln("Creating town group for <info>{$current_town->getName()}</info>");
-                    $this->entity_manager->persist( $town_group = (new UserGroup())->setName("[town:{$current_town->getId()}]")->setType(UserGroup::GroupTownInhabitants)->setRef1($current_town->getId()) );
-                }
+                // Fix town groups
+                $this->helper->leChunk($output, Town::class, 10, [], true, false, function(Town $current_town) use (
+                    $fun_assoc,$fun_dis_assoc,$output
+                ) {
+                    $town_group = $this->entity_manager->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $current_town->getId()] );
+                    if (!$town_group) {
+                        $output->writeln("Creating town group for <info>{$current_town->getName()}</info>");
+                        $this->entity_manager->persist( $town_group = (new UserGroup())->setName("[town:{$current_town->getId()}]")->setType(UserGroup::GroupTownInhabitants)->setRef1($current_town->getId()) );
+                    }
 
-                foreach ($this->entity_manager->getRepository(UserGroupAssociation::class)->findBy(['association' => $town_group]) as $assoc) {
-                    $current_user = $assoc->getUser();
-                    if (!$current_user->getCitizenFor( $current_town )?->getAlive() && !$this->user_handler->hasRole( $current_user, 'ROLE_ANIMAC' ))
-                        $fun_dis_assoc($current_user, $town_group);
-                }
+                    foreach ($this->entity_manager->getRepository(UserGroupAssociation::class)->findBy(['association' => $town_group]) as $assoc) {
+                        $current_user = $assoc->getUser();
+                        if (!$current_user->getCitizenFor( $current_town )?->getAlive() && !$this->user_handler->hasRole( $current_user, 'ROLE_ANIMAC' ))
+                            $fun_dis_assoc($current_user, $town_group);
+                    }
 
-                foreach ($current_town->getCitizens() as $current_citizen)
-                    if ($current_citizen->getAlive())
-                        $fun_assoc($current_citizen->getUser(), $town_group);
-            });
+                    foreach ($current_town->getCitizens() as $current_citizen)
+                        if ($current_citizen->getAlive())
+                            $fun_assoc($current_citizen->getUser(), $town_group);
+                });
+            }
+
 
             foreach ($this->entity_manager->getRepository(UserGroup::class)->findBy(['type' => UserGroup::GroupTownInhabitants]) as $town_group)
                 if (!$this->entity_manager->getRepository(Town::class)->find( $town_group->getRef1() )) {
@@ -1078,6 +1086,7 @@ class MigrateCommand extends Command
                 elseif ($forum->getType() === Forum::ForumTypeAnimac) {
                     $this->ensureForumPermissions($output, $forum, $g_anim);
                     $this->ensureForumPermissions($output, $forum, $g_oracle);
+                    $this->ensureForumPermissions($output, $forum, $g_art);
                 } elseif ($forum->getType() === Forum::ForumTypeDev) {
                     $this->ensureForumPermissions($output, $forum, $g_admin);
                     $this->ensureForumPermissions($output, $forum, $g_oracle);

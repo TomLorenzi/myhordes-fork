@@ -887,7 +887,7 @@ class AdminUserController extends AdminActionController
 
                     case 'ROLE_CROW':
                         $user->setRightsElevation( max($user->getRightsElevation(), User::USER_LEVEL_CROW) );
-                        $user->removeRoleFlag( User::USER_ROLE_ORACLE | User::USER_ROLE_ANIMAC );
+                        $user->removeRoleFlag( User::USER_ROLE_ORACLE | User::USER_ROLE_ANIMAC | User::USER_ROLE_ART );
 
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
@@ -950,6 +950,19 @@ class AdminUserController extends AdminActionController
                     case '!FLAG_ANIMAC':
                         $user->removeRoleFlag( User::USER_ROLE_ANIMAC );
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAnimactorGroup));
+                        break;
+
+                    case 'FLAG_ART':
+                        if ( $user->getRightsElevation() === User::USER_LEVEL_CROW )
+                            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                        else $user->addRoleFlag( User::USER_ROLE_ART );
+
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultArtisticGroup));
+                        break;
+
+                    case '!FLAG_ART':
+                        $user->removeRoleFlag( User::USER_ROLE_ART );
+                        $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultArtisticGroup));
                         break;
 
                     case 'FLAG_DEV':
