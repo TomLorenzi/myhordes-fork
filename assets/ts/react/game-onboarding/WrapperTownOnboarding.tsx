@@ -305,7 +305,7 @@ const ConfirmationDialog = (props: ConfirmationDialogProps) => {
                                     </div>
                                     <Tooltip additionalClasses="help">
                                         <ul>
-                                            {skill.bullets.map(val => <li>{val}</li>)}
+                                            {skill.bullets.map((val,i) => <li key={i}>{val}</li>)}
                                         </ul>
                                     </Tooltip>
                                 </div>

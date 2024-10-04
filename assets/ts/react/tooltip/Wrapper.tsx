@@ -217,6 +217,14 @@ const TooltipImplementation = (
 
     const classNames = ['tooltip', ...(typeof additionalClasses === "object" ? (additionalClasses as string[]) : [additionalClasses as string])].join(' ');
 
+    const parentDialog = forParent?.closest('dialog');
+    if (parentDialog && !parentDialog.querySelector('div[data-dialog-tooltip-target]')) {
+        const d = document.createElement('div');
+        d.dataset.dialogTooltipTarget = '1';
+        parentDialog.appendChild(d);
+    }
+
+
     return createPortal(
         html
             ? <div ref={tooltip} className={classNames} dangerouslySetInnerHTML={{__html: html}}/>
@@ -224,5 +232,5 @@ const TooltipImplementation = (
                 { textContent }
                 { children }
             </div>
-    , document.getElementById('tooltip_container'), `react-tooltip-${key.current}` )
+    , parentDialog?.querySelector('div[data-dialog-tooltip-target]') ?? document.getElementById('tooltip_container'), `react-tooltip-${key.current}` )
 };
