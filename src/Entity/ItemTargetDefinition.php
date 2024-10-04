@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: 'App\Repository\ItemTargetDefinitionRepository')]
@@ -35,6 +36,9 @@ class ItemTargetDefinition
     private $prototype;
     #[ORM\Column(type: 'integer')]
     private $spawner = 0;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $note = null;
     public function getId(): ?int
     {
         return $this->id;
@@ -96,6 +100,18 @@ class ItemTargetDefinition
     public function setSpawner(int $spawner): self
     {
         $this->spawner = $spawner;
+
+        return $this;
+    }
+
+    public function getNote(): ?string
+    {
+        return $this->note;
+    }
+
+    public function setNote(?string $note): static
+    {
+        $this->note = $note;
 
         return $this;
     }

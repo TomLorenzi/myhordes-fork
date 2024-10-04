@@ -94,7 +94,12 @@ final class FixtureVisitor extends AbstractVisitor implements NodeVisitor
     protected function extractColumnData( array $data, array|string $columns, string $domain ): bool {
         return array_reduce(
             array_map(
-                fn($column) => $this->extractArrayData( array_column( $data, $column ), $domain ),
+                function($column) use ($data, $domain) {
+                    if (str_contains( $column, '.' )) {
+                        [$head, $tail] = explode('.', $column, 2);
+                        return $this->extractArrayData( array_map(fn( mixed $a ) => is_array( $a ) ? Arr::get( $a, $tail ) : null, array_column( $data, $head ) ), $domain );
+                    } else return $this->extractArrayData( array_column( $data, $column ), $domain );
+                },
                 is_array($columns) ? $columns : [$columns]
             ),
             fn($c,$r) => $r && $c,
@@ -127,7 +132,7 @@ final class FixtureVisitor extends AbstractVisitor implements NodeVisitor
                 $this->extractActionAtomData( $data ) &&
                 $this->extractArrayData( $data['message_keys'] ?? [], 'items') &&
                 $this->extractColumnData( $data['meta_requirements'] ?? [], 'text', 'items') &&
-                $this->extractColumnData( $data['actions'] ?? [], ['label','tooltip','confirmMsg','message','escort_message'], 'items') &&
+                $this->extractColumnData( $data['actions'] ?? [], ['label','tooltip','confirmMsg','message','escort_message','target.note'], 'items') &&
                 $this->extractColumnData( $data['escort'] ?? [], ['label','tooltip'], 'items') &&
                 $this->extractColumnData( $data['heroics'] ?? [], ['used'], 'items'),
             AwardTitle::class => $this->extractColumnDataAndHandleFemaleTitles($data, 'title', 'game'),

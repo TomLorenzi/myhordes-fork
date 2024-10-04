@@ -222,7 +222,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                     ->setSpawner( $data['target']['type'] ?? ItemTargetDefinition::ItemSelectionType )
                     ->setHeavy( $data['target']['heavy'] ?? null )
                     ->setPoison( $data['target']['poison'] ?? null )
-                    ->setBroken( $data['target']['broken'] ?? null );
+                    ->setBroken( $data['target']['broken'] ?? null )
+                    ->setNote( $data['target']['note'] ?? null );
                 if (isset( $data['target']['property'] )) {
                     $prop = $manager->getRepository(ItemProperty::class)->findOneBy(['name' => $data['target']['property']]);
                     if (!$prop) throw new Exception("Item property not found: '{$data['target']['property']}'");
