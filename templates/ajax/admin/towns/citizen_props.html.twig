@@ -1,0 +1,27 @@
+<h5>{{ 'Fähigkeiten'|trans({},'ghost') }}</h5>
+{% for skill in skills %}
+    <div class="row">
+        <div class="cell rw-6">
+            <div class="note note-lightest">{{ skill.title ?? skill.name }}</div>
+        </div>
+        <div class="padded-small cell rw-6">
+            <code class="small">{{ skill.level }}</code>
+        </div>
+    </div>
+{% endfor %}
+{% set last_ftr = '' %}
+{% for key,value in props %}
+    {% set current_fts = key|split('.')[0] %}
+    {% if current_fts != last_ftr %}
+        {% set last_ftr = current_fts %}
+        <h5>{{ current_fts }}</h5>
+    {% endif %}
+    <div class="row">
+        <div class="cell rw-6">
+            <div class="note note-lightest">{{ key|split('.')|slice(1)|join('.') }}</div>
+        </div>
+        <div class="padded-small cell rw-6">
+            <code class="small">{{ value }}</code>
+        </div>
+    </div>
+{% endfor %}

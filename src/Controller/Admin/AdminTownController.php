@@ -30,6 +30,7 @@ use App\Entity\EventActivationMarker;
 use App\Entity\ExpeditionRoute;
 use App\Entity\HeroExperienceEntry;
 use App\Entity\HeroicActionPrototype;
+use App\Entity\HeroSkillPrototype;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemCategory;
@@ -44,6 +45,7 @@ use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Enum\Configuration\CitizenProperties;
 use App\Enum\Configuration\TownSetting;
 use App\Enum\EventStages\BuildingEffectStage;
 use App\Enum\EventStages\BuildingValueQuery;
@@ -1480,11 +1482,20 @@ class AdminTownController extends AdminActionController
             'pictos' => $this->entity_manager->getRepository(Picto::class)->findPictoByUserAndTown($citizen->getUser(), $citizen->getTown()),
         ]);
 
+        $props = $this->renderView("ajax/admin/towns/citizen_props.html.twig", [
+            'skills' => $this->entity_manager->getRepository(HeroSkillPrototype::class)->findBy(['id' =>  $citizen->property( CitizenProperties::ActiveSkillIDs )]),
+            'props' => array_combine(
+                array_map( fn(CitizenProperties $p) => $p->value, CitizenProperties::validCases() ),
+                array_map( fn(CitizenProperties $p) => json_encode( $citizen->property($p) ), CitizenProperties::validCases() ),
+            ),
+        ]);
+
         return AjaxResponse::success(true, [
             'desc' => $citizen->getHome()->getDescription(),
             'rucksack' => $rucksack,
             'chest' => $chest,
             'pictos' => $pictos,
+            'props' => $props,
         ]);
     }
 
