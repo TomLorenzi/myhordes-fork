@@ -50,7 +50,7 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
-#[GateKeeperProfile(only_alive: true, only_in_ruin: true)]
+#[GateKeeperProfile(only_alive: true, only_with_profession: true, only_in_ruin: true)]
 #[Semaphore('town', scope: 'town')]
 class ExplorationController extends InventoryAwareController implements HookedInterfaceController
 {

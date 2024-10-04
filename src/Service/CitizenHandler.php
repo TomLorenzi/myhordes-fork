@@ -619,7 +619,8 @@ class CitizenHandler
         }
 
         foreach ($profession->getProfessionItems() as $pi)
-            if (!isset($item_type_cache[$pi->getId()])) $item_type_cache[$pi->getId()] = [1,$pi];
+            if (!isset($item_type_cache[$pi->getId()]) || $citizen->getInventory()->getItems()->filter(fn(Item $i) => $i->getPrototype()->getId() === $pi->getId())->isEmpty())
+                $item_type_cache[$pi->getId()] = [1,$pi];
             else $item_type_cache[$pi->getId()] = [0,$pi];
 
         $inventory = $citizen->getInventory(); $null = null;

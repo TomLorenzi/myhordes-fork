@@ -75,7 +75,7 @@ use Symfony\Contracts\Cache\TagAwareCacheInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
-#[GateKeeperProfile(only_alive: true, only_beyond: true)]
+#[GateKeeperProfile(only_alive: true, only_with_profession: true, only_beyond: true)]
 #[Semaphore('town', scope: 'town')]
 class BeyondController extends InventoryAwareController
 {

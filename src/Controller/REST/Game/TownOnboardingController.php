@@ -59,7 +59,7 @@ class TownOnboardingController extends AbstractController
 
     public function __construct(
 
-    )
+        private readonly EntityManagerInterface $entityManager)
     {}
 
     #[Route(path: '', name: 'base', methods: ['GET'])]
@@ -152,8 +152,8 @@ class TownOnboardingController extends AbstractController
         return new JsonResponse([
             'features' => [
                 'job'       => true,
-                'alias'     => $townConf->get( TownConf::CONF_FEATURE_CITIZEN_ALIAS, false ),
-                'skills'    => $townConf->get( TownSetting::SkillMode ),
+                'alias'     => !$activeCitizen->getProperties() && $townConf->get( TownConf::CONF_FEATURE_CITIZEN_ALIAS, false ),
+                'skills'    => !$activeCitizen->getProperties() && $townConf->get( TownSetting::SkillMode ),
             ]
         ]);
     }
@@ -172,7 +172,7 @@ class TownOnboardingController extends AbstractController
 
     #[Route(path: '/{town}', name: 'onboard', methods: ['PATCH'])]
     #[GateKeeperProfile(only_incarnated: true)]
-    public function onboard_to_town(Town $town, EntityManagerInterface $em, ConfMaster $conf, JSONRequestParser $parser, UserUnlockableService $unlockService, OnboardCitizenIntoTownAction $action): JsonResponse
+    public function onboard_to_town(Town $town, EntityManagerInterface $em, ConfMaster $conf, JSONRequestParser $parser, UserUnlockableService $unlockService, OnboardCitizenIntoTownAction $action, CitizenHandler $citizenHandler): JsonResponse
     {
         $activeCitizen = $this->fetchActiveCitizen($town);
         if (!$activeCitizen) return new JsonResponse([], Response::HTTP_FORBIDDEN);
@@ -183,6 +183,17 @@ class TownOnboardingController extends AbstractController
         $profession = $em->getRepository(CitizenProfession::class)->find( $parser->get_int( 'profession.id', -1 ) );
         if (!$profession || $profession->getName() === CitizenProfession::DEFAULT || in_array( $profession->getName(), $disabledJobs, true ))
             return new JsonResponse([], Response::HTTP_BAD_REQUEST);
+
+        // If the citizen already has properties, he has already been onboarded; this means we're in a reduced UI to
+        // reselect the profession. Thus, we do that here and cut the whole process short.
+        if ($activeCitizen->getProperties()) {
+            $citizenHandler->applyProfession( $activeCitizen, $profession );
+            $em->persist($activeCitizen);
+            $em->flush();
+            return new JsonResponse([
+                'url' => $this->generateUrl('game_landing')
+            ]);
+        }
 
         $alias = $parser->trimmed('identity.name');
         if ($alias !== null) {
