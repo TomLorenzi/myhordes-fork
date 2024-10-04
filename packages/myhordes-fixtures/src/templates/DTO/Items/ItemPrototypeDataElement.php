@@ -35,6 +35,8 @@ use MyHordes\Fixtures\DTO\LabeledIconElementInterface;
  * @method self unstackable(bool $v)
  * @property int $watchimpact
  * @method self watchimpact(int $v)
+ * @property bool $isPersistentWhenEssential
+ * @method self isPersistentWhenEssential(bool $v)
  *
  * @method ItemPrototypeDataContainer commit()
  * @method ItemPrototypeDataContainer discard()
@@ -65,7 +67,8 @@ class ItemPrototypeDataElement extends Element implements LabeledIconElementInte
                 ->setIndividual( $this->unstackable ?? false )
                 ->setWatchpoint($this->watchpoint ?? 0)
                 ->setFragile( $this->fragile ?? false )
-				->setWatchimpact($this->watchimpact ?? 0);
+				->setWatchimpact($this->watchimpact ?? 0)
+                ->setPersistentEssential( $this->isPersistentWhenEssential ?? false );
         } catch (\Throwable $t) {
             throw new \Exception(
                 "Exception when persisting item prototype to database: {$t->getMessage()} \n\nOccurred when processing the following item:\n" . print_r($this->toArray(), true),
