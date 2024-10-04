@@ -1,3 +1,4 @@
+---
 'Brauchst du Hilfe?': 'Besoin d''aide ?'
 'Besuche unsere Technische Supportseite': 'Consultez le site du support technique'
 'Die Außenwelt': 'L''Outre-Monde'
@@ -944,6 +945,6 @@ Teams: Communautés
 '<strong>Aus der Sicht dieses Tutorials</strong> jedoch solltest du besser <strong>jemand anderen als dich selbst</strong> auswählen.': '<strong>Du point de vue de ce didacticiel</strong>, cependant, il est préférable de choisir <strong>quelqu''un d''autre que vous-même</strong>.'
 Erkundungspunkte: Point d'Exploration
 'Zusätzlich zu deinen Aktionspunkten stehen dir in bestimmten Situationen <span class="sp"></span> <strong>Erkundungspunkte</strong> zur Verfügung. Diese werden unter deinen Aktionspunkten angezeigt.': 'En plus de vos points d''action, des <span class="sp"></span> <strong>Points d''exploration</strong> sont à votre disposition dans certaines situations. Ceux-ci sont affichés sous vos points d’action.'
-'<strong>Aufklärer</strong> verfügen standartmäßig über <span class="sp"></span>, allerdings gibt es auch Gegenstände, mit denen du <span class="sp"></span> erhalten kannst...': 'Les <strong>Éclaireurs</strong> possède des <span class="sp"></span> par défaut, mais il existe également des éléments qui peuvent être utilisés pour obtenir <span class="sp"></span>...'
+'<strong>Aufklärer</strong> verfügen standartmäßig über <span class="sp"></span>, allerdings gibt es auch Gegenstände, mit denen du <span class="sp"></span> erhalten kannst...': 'Les <strong>Éclaireurs</strong> possèdent des <span class="sp"></span> par défaut, mais il existe également d''autres éléments qui peuvent être utilisés pour obtenir <span class="sp"></span>...'
 '<span class="sp"></span> werden automatisch anstelle von <span class="ap"></span> bei Bewegungen in der Außenwelt konsumiert, wenn du dich <strong>3 oder mehr Kilometer</strong> von der Stadt entfernt befindest.': 'Les <span class="sp"></span> sont automatiquement consommés à la place des <span class="ap"></span> lorsque vous vous déplacez dans l''Outre-Monde et que vous êtes à <strong>3 kilomètres ou plus</strong> de la ville.'
 "Du stehst aktuell vor <strong>{citizen}'s Haus</strong>.": "Vous vous trouvez actuellement devant la <strong>maison de {citizen}</strong>."

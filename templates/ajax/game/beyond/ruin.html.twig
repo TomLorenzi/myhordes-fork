@@ -102,13 +102,15 @@
 
                     {% if zone.locked and not shifted and zone.prototype.keyImprint and zone.prototype.keyItem %}
                         {% if can_imprint %}
-                            <button {% if not scavenge %}disabled{% endif %} id="imprint_button">
-                                {% for item in imprint_source %}
-                                    <img class="icon left" alt="" title="{{ item.label|trans({},'item') }}" src="{{ asset('build/images/item/item_' ~ item.icon ~ '.gif') }}" />
-                                {% endfor %}
-                                {{ 'Abdruck nehmen'|trans({},'game') }}
-                                <img class="icon right" alt="" title="{{ imprint_goal.label|trans({},'item') }}" src="{{ asset('build/images/item/item_' ~ imprint_goal.icon ~ '.gif') }}" />
-                            </button>
+                            {% for type in imprint_goal|keys %}
+                                <button {% if not scavenge %}disabled{% endif %} data-imprint-set="{{ type }}">
+                                    {% for item in imprint_source[type] %}
+                                        <img class="icon left" alt="" title="{{ item.label|trans({},'item') }}" src="{{ asset('build/images/item/item_' ~ item.icon ~ '.gif') }}" />
+                                    {% endfor %}
+                                    {{ 'Abdruck nehmen'|trans({},'game') }}
+                                    <img class="icon right" alt="" title="{{ imprint_goal[type].label|trans({},'item') }}" src="{{ asset('build/images/item/item_' ~ imprint_goal[type].icon ~ '.gif') }}" />
+                                </button>
+                            {% endfor %}
                         {% endif %}
                         <button id="unlock_button">
                             {{ 'Tür aufschließen'|trans({},'game') }}
@@ -216,9 +218,9 @@
 
         {% if zone.locked and not shifted and zone.prototype.keyImprint and zone.prototype.keyItem %}
             {% if scavenge and can_imprint %}
-                $.html.addEventListenerAll( '#imprint_button', 'click', function() {
+                $.html.addEventListenerAll( '[data-imprint-set]', 'click', function(e,elem) {
                     if (confirm("{{ 'Einen Abdruck nehmen?'|trans({},'game')|e('js') }}"))
-                        $.ajax.easySend( '{{ path('beyond_ruin_imprint_controller') }}', {},
+                        $.ajax.easySend( '{{ path('beyond_ruin_imprint_controller') }}', {type: elem.dataset.imprintSet},
                             function () {
                                 $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
                             } );

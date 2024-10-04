@@ -1,3 +1,4 @@
+---
 'Dein Name muss mindestens { limit } Zeichen umfassen.': 'Your name must be at least { limit } characters long.'
 'Dein Name kann höchstens { limit } Zeichen umfassen.': 'Your name may only have { limit } characters at most.'
 'Die eingegebene E-Mail Adresse ist nicht gültig.': 'The entered e-mail address is invalid.'

@@ -20,6 +20,7 @@ enum CitizenProperties: string implements Configuration
     //<editor-fold desc="Property Values">
     case Section_Properties = '--section--/Properties';
     case TownDefense = 'props.town_defense';
+    case WatchDefense = 'props.watch_defense';
     case AnonymousMessageLimit = 'props.limit.anonymous.messages';
     case AnonymousPostLimit = 'props.limit.anonymous.posts';
     case ComplaintLimit = 'props.limit.anonymous.complaint';
@@ -78,6 +79,7 @@ enum CitizenProperties: string implements Configuration
                 => self::Section_Features,
 
             self::TownDefense,
+            self::WatchDefense,
             self::AnonymousMessageLimit,
             self::AnonymousPostLimit,
             self::ComplaintLimit,
@@ -140,7 +142,8 @@ enum CitizenProperties: string implements Configuration
             self::EnableOmniscience              => false,
             self::HeroImmuneHeals                => false,
 
-            self::TownDefense                    => 5,
+            self::TownDefense                    => 0,
+            self::WatchDefense                   => 0,
             self::AnonymousMessageLimit          => 0,
             self::AnonymousPostLimit             => 0,
             self::ComplaintLimit                 => 4,
@@ -204,6 +207,7 @@ enum CitizenProperties: string implements Configuration
             self::HeroImmuneHeals                => $this->default() ? ($old && $new) : ($old || $new),
 
             self::TownDefense                    => ($old + $new) - $this->default(),
+            self::WatchDefense                   => ($old + $new) - $this->default(),
             self::AnonymousMessageLimit          => ($old + $new) - $this->default(),
             self::AnonymousPostLimit             => ($old + $new) - $this->default(),
             self::ComplaintLimit                 => ($old + $new) - $this->default(),

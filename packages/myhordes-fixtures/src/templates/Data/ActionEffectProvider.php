@@ -8,6 +8,7 @@ use App\Enum\ActionHandler\ItemDropTarget;
 use App\Enum\ActionHandler\PointType;
 use App\Enum\Configuration\CitizenProperties;
 use App\Enum\ItemPoisonType;
+use App\Structures\SortDefinition;
 use ArrayHelpers\Arr;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\CustomEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\HomeEffect;
@@ -460,7 +461,7 @@ class ActionEffectProvider
         $effects_container->add()->identifier('hero_return')->add((new CustomEffect())->effectIndex(8))->commit();
         $effects_container->add()->identifier('hero_rescue')->add((new CustomEffect())->effectIndex(9))->commit();
 
-        $effects_container->add()->identifier('camp_activate')->add((new CustomEffect())->effectIndex(10))->commit();
+        $effects_container->add()->identifier('camp_activate')->add((new CustomEffect(SortDefinition::atEnd()))->effectIndex(10))->commit();
         $effects_container->add()->identifier('camp_deactivate')->add((new CustomEffect())->effectIndex(11))->commit();
 
         $effects_container->add()->identifier('discover_random_ruin')->add((new CustomEffect())->effectIndex(12))->commit();

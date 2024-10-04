@@ -1,3 +1,4 @@
+---
 'Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.': 'You roll the dice, you get a {dc1}, a {dc2} and a {dc3}.'
 'Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!': 'Nicely done, you got three of a kind! This is a great game!<hr />You''re enjoying it so much that you have gained <strong>1AP</strong>!'
 'Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!': 'You have rolled a straight ! That always raises the spirits.<hr />You''re enjoying it so much that you have gained <strong>1AP</strong>!'
