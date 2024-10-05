@@ -16,6 +16,7 @@ use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\User;
 use App\Enum\UserSetting;
+use App\Service\Actions\Game\DecodeConditionalMessageAction;
 use App\Service\ConfMaster;
 use App\Service\EventProxyService;
 use App\Service\GameFactory;
@@ -38,24 +39,16 @@ use Twig\TwigFunction;
 
 class Extensions extends AbstractExtension implements GlobalsInterface
 {
-    private TranslatorInterface $translator;
-    private UrlGeneratorInterface $router;
-    private UserHandler $userHandler;
-    private EntityManagerInterface $entityManager;
-    private GameFactory $gameFactory;
-    private ConfMaster $conf;
-    private EventProxyService $events;
-
-    public function __construct(TranslatorInterface $ti, UrlGeneratorInterface $r, UserHandler $uh, EntityManagerInterface $em, GameFactory $gf, ConfMaster $c, EventProxyService $events) {
-        $this->translator = $ti;
-        $this->router = $r;
-        $this->userHandler = $uh;
-        $this->entityManager = $em;
-        $this->gameFactory = $gf;
-        $this->conf = $c;
-        $this->events = $events;
-
-    }
+    public function __construct(
+        private readonly TranslatorInterface            $translator,
+        private readonly UrlGeneratorInterface          $router,
+        private readonly UserHandler                    $userHandler,
+        private readonly EntityManagerInterface         $entityManager,
+        private readonly GameFactory                    $gameFactory,
+        private readonly ConfMaster                     $conf,
+        private readonly EventProxyService              $events,
+        private readonly DecodeConditionalMessageAction $messageDecoder,
+    ) { }
 
     public function getFilters(): array
     {
@@ -83,6 +76,7 @@ class Extensions extends AbstractExtension implements GlobalsInterface
             new TwigFilter('translated_title',  [$this, 'translatedTitle']),
             new TwigFilter('atomize',  [$this, 'atomize']),
             new TwigFilter('cfg',  [$this, 'cfg']),
+            new TwigFilter('decodeMessage',  [$this, 'decode']),
         ];
     }
 
@@ -442,5 +436,9 @@ class Extensions extends AbstractExtension implements GlobalsInterface
         $cache = array_unique( array_filter( $cache ) );
         if (empty($cache)) $cache[] = $this->translator->trans('Abweichende allgemeine Einstellungen', [], 'ghost');
         return $cache;
+    }
+
+    public function decode(string $message, Citizen|User $c): string {
+        return ($this->messageDecoder)( $message, properties: is_a( $c, Citizen::class ) ? $c->getProperties() : $c->getActiveCitizen()?->getProperties() );
     }
 }

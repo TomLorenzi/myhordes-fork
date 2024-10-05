@@ -278,7 +278,7 @@ class InventoryAwareController extends CustomAbstractController
         $this->action_handler->getAvailableISpecialActions( $this->getActiveCitizen(),  $available, $crossed );
         if (empty($available) && empty($crossed)) return [];
 
-        foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'icon' => $a->getIcon(), 'action' => $a->getAction(), 'renderer' => null, 'targets' => $a->getAction()->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getAction()->getTarget(), $this->getActiveCitizen() ) : null, 'target_mode' => $a->getAction()?->getTarget()->getSpawner() ?? 0, 'target_note' => $a->getAction()->getTarget()?->getNote(), 'crossed' => false ];
+        foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'icon' => $a->getIcon(), 'action' => $a->getAction(), 'renderer' => null, 'targets' => $a->getAction()->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getAction()->getTarget(), $this->getActiveCitizen() ) : null, 'target_mode' => $a->getAction()?->getTarget()?->getSpawner() ?? 0, 'target_note' => $a->getAction()->getTarget()?->getNote(), 'crossed' => false ];
         foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'icon' => $c->getIcon(), 'action' => $c->getAction(), 'renderer' => null, 'targets' => null, 'target_mode' => 0, 'crossed' => true ];
         return $ret;
 
@@ -304,7 +304,7 @@ class InventoryAwareController extends CustomAbstractController
         $av_inv = [$this->getActiveCitizen()->getInventory(), $this->getActiveCitizen()->getHome()->getChest()];
         $this->action_handler->getAvailableHomeActions( $this->getActiveCitizen(), $available, $crossed );
 
-        foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'icon' => $a->getIcon(), 'item' => null, 'action' => $a->getAction(), 'renderer' => null, 'targets' => $a->getAction()->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getAction()->getTarget(), $this->getActiveCitizen() ) : null, 'target_mode' => $a->getAction()?->getTarget()->getSpawner() ?? 0, 'target_note' => $a->getAction()->getTarget()?->getNote(), 'crossed' => false ];
+        foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'icon' => $a->getIcon(), 'item' => null, 'action' => $a->getAction(), 'renderer' => null, 'targets' => $a->getAction()->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getAction()->getTarget(), $this->getActiveCitizen() ) : null, 'target_mode' => $a->getAction()?->getTarget()?->getSpawner() ?? 0, 'target_note' => $a->getAction()->getTarget()?->getNote(), 'crossed' => false ];
         foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'icon' => $c->getIcon(), 'item' => null, 'action' => $c->getAction(), 'renderer' => null, 'targets' => null, 'target_mode' => 0, 'crossed' => true ];
 
         return $ret;
