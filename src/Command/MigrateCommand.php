@@ -7,6 +7,7 @@ namespace App\Command;
 use App\Entity\AccountRestriction;
 use App\Entity\Building;
 use App\Entity\Citizen;
+use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\FeatureUnlock;
 use App\Entity\FeatureUnlockPrototype;
@@ -36,6 +37,7 @@ use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Enum\Configuration\TownSetting;
+use App\Enum\Game\CitizenPersistentCache;
 use App\Enum\UserSetting;
 use App\Service\CommandHelper;
 use App\Service\ConfMaster;
@@ -259,6 +261,7 @@ class MigrateCommand extends Command
 
             ->addOption('set-snippet-role', null, InputOption::VALUE_NONE, 'Sets empty snippet roles to CROW')
 			->addOption('fix-top3', null, InputOption::VALUE_NONE, 'Check TOP3 settings and fix any issues with them.')
+			->addOption('set-profession-prop', null, InputOption::VALUE_NONE, 'Writes profession info to the ranking proxy')
         ;
     }
 
@@ -1509,6 +1512,13 @@ class MigrateCommand extends Command
                     return true;
                 } else return false;
 
+            }, true);
+        }
+
+        if ($input->getOption('set-profession-prop')) {
+            $this->helper->leChunk($output, Citizen::class, 10, [], true, true, function(Citizen $c) {
+                if ($c->getProfession()->getName() !== CitizenProfession::DEFAULT)
+                    $c->registerPropInPersistentCache( CitizenPersistentCache::Profession, $c->getProfession()->getId() );
             }, true);
         }
 
