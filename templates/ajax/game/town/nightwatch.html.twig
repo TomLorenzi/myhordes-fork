@@ -70,7 +70,7 @@
             <div class="cell padded rw-6">
                 {% if watcher.citizen == me %}
                     <span>
-                        10 <img alt="" src="{{ asset('build/images/icons/small_zombie.gif') }}" /><div class="tooltip">{{'Basisverteidigung'|trans({}, 'game')}}</div>
+                        {{ baseDef }} <img alt="" src="{{ asset('build/images/icons/small_zombie.gif') }}" /><div class="tooltip">{{'Basisverteidigung'|trans({}, 'game')}}</div>
                     </span>
                     <div class="inline-block">
                         <img src="{{ asset('build/images/professions/' ~ watcher.citizen.profession.icon ~ '.gif') }}" alt="{{ watcher.citizen.profession.label|trans({},'items') }}">

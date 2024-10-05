@@ -114,7 +114,7 @@ final class CitizenChanceQueryListener implements ServiceSubscriberInterface
 
 		$def = $event->data->nightwatchInfo['def'] ?? 0;
 
-		$def += 10 + $citizen->getProfession()->getNightwatchDefenseBonus();
+		$def += 10 + $citizen->property(CitizenProperties::WatchDefense) + $citizen->getProfession()->getNightwatchDefenseBonus();
 
 		foreach ($citizen->getStatus() as $status) {
 			if ($status->getNightWatchDefenseBonus() === 0 && $status->getNightWatchDeathChancePenalty() === 0.0) continue;
