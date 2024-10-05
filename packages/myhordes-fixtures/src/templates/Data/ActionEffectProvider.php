@@ -401,8 +401,8 @@ class ActionEffectProvider
         $effects_container->add()->identifier('immune')->add( (new StatusEffect())->addsStatus('immune'))->commit();
         $effects_container->add()->identifier('give_shaman_immune')->add( (new StatusEffect())->addsStatus('tg_shaman_immune'))->commit();
 
-        $effects_container->add()->identifier('heal_wound')->add( (new StatusEffect())->removesStatus('tg_meta_wound'))->commit();
-        $effects_container->add()->identifier('inflict_wound')->add( (new StatusEffect())->addsStatus('tg_meta_wound'))->commit();
+        $effects_container->add()->identifier('heal_wound')->add( (new StatusEffect(SortDefinition::atStart()))->removesStatus('tg_meta_wound'))->commit();
+        $effects_container->add()->identifier('inflict_wound')->add( (new StatusEffect(SortDefinition::atStart()))->addsStatus('tg_meta_wound'))->commit();
         $effects_container->add()->identifier('add_bandage')->add( (new StatusEffect())->addsStatus('healed'))->commit();
 
         $effects_container->add()->identifier('eat_ap6_silent')->add( (new StatusEffect())->point( PointType::AP, 0, relativeToMax: true )->addsStatus('haseaten'))->commit();
