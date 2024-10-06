@@ -102,7 +102,7 @@ export const TwinoEditorControls = ({emotes}: {emotes: null|Array<Emote>}) => {
                 { globals.allowControl('extended') && <>
                     <ControlButtonNodeInsert node="*" label={globals.strings.controls["*"]} fa="star-of-life" block={true} control="." multiline={true} />
                     <ControlButtonNodeInsert node="0" label={globals.strings.controls["0"]} fa="list-ol" block={true} control="1" multiline={true} />
-                    <ControlButtonNodeInsert node="hr" label={globals.strings.controls.hr} fa="grip-lines" block={true} closes={true} curley={true} control="-" />
+                    <ControlButtonNodeInsert node="hr" label={globals.strings.controls.hr} fa="grip-lines" block={false} curley={true} control="-" />
                 </> }
                 { globals.allowControl('poll') && <>
                     <ControlButtonInsertPoll />
