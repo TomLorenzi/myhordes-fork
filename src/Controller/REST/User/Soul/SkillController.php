@@ -145,8 +145,10 @@ class SkillController extends CustomAbstractCoreController
                 'value'      => $entry->getValue(),
                 'type'       => $entry->getType()->value,
                 'reset'      => $entry->getReset() > 0,
-                'past'       => $entry->getSeason()->getCurrent() ? null : (
-                    "S{$entry->getSeason()->getNumber()} - " . $this->translator->trans("Saison {$entry->getSeason()->getNumber()}.{$entry->getSeason()->getSubNumber()}", [], 'season')
+                'past'       => $entry->getSeason()?->getCurrent() ? null : (
+                    $entry->getSeason() === null
+                        ? "BETA"
+                        : "S{$entry->getSeason()->getNumber()} - " . $this->translator->trans("Saison {$entry->getSeason()->getNumber()}.{$entry->getSeason()->getSubNumber()}", [], 'season')
                 ),
             ];
 
