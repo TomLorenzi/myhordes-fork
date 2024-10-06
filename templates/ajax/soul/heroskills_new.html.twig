@@ -169,10 +169,22 @@
                 </div>
             </div>
 
-            <div class="row" x-tab-group="skill-page" x-tab-id="history" x-tab-target>
-                <div class="padded cell rw-12">
-                    <h5>{{ 'Deine bisherigen Verdienste'|trans({},'soul') }}</h5>
-                    <hordes-hxp-log></hordes-hxp-log>
+            <div x-tab-group="skill-page" x-tab-id="history" x-tab-target>
+                <div class="row">
+                    <div class="padded cell rw-12">
+                        <h1 class="page-head">{{'Deine bisherigen Verdienste'|trans({}, 'soul')}}</h1>
+                        <hordes-hxp-log></hordes-hxp-log>
+                    </div>
+                </div>
+                <br/><br/>
+                <div class="row">
+                    <div class="padded cell rw-12">
+                        <h1 class="page-head">{{'Wie kann ich Erfahrung sammeln?'|trans({}, 'soul')}}</h1>
+                        <div class="help">
+                            {{ 'Die meisten Erfahrungsboni kannst du **nur einmal Pro Saison und Reset** erhalten. Im Folgenden findest du eine Auflistung aller Möglichkeiten, Heldenerfahrung zu sammeln. Aktionen, die du mehrmals pro Saison und Reset ausführen kannst um Punkte zu erhalten sind jeweils hervorgehoben.'|trans({},'help')|raw }}
+                        </div>
+                        {{ hook('EarnXHP') }}
+                    </div>
                 </div>
             </div>
 

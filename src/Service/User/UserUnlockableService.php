@@ -29,6 +29,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Collections\Expr\Comparison;
 use Doctrine\Common\Collections\Order;
+use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\QueryBuilder;
@@ -268,6 +269,37 @@ class UserUnlockableService implements ServiceSubscriberInterface
         else $this->recordHeroicExperience( $user, HeroXPType::Legacy, $value, subject: $subject );
 
         ($this->getService(InvalidateTagsInAllPoolsAction::class))("user-{$user->getId()}-hxp");
+    }
+
+    public function hasRecordedHeroicExperienceFor(
+        User $user,
+        LogEntryTemplate|string|null $template = null,
+        ?string $subject = null,
+        Season|true $season = true,
+        ?int &$total = null,
+    ): bool {
+        if ($season === true) $season = $this->getService(EntityManagerInterface::class)->getRepository(Season::class)->findOneBy(['current' => true]);
+        if (is_string( $template )) {
+            $template = $this->getService(EntityManagerInterface::class)
+                ->getRepository(LogEntryTemplate::class)
+                ->findOneBy(['name' => $template]);
+            if (!$template) throw new \Exception("HXP template '{$template}' not found.");
+        }
+
+        $qb = $this->generateDefaultQuery($user)
+            ->select('COUNT(x.id)', 'SUM(x.value)')
+            ->andWhere('x.season = :season')->setParameter('season', $season)
+            ->andWhere('x.reset = 0');
+
+        if ($template !== null)
+            $qb->andWhere('x.logEntryTemplate = :template')->setParameter('template', $template);
+        if ($subject !== null)
+            $qb->andWhere('x.subject = :subject')->setParameter('subject', $subject);
+
+        $data = $qb->getQuery()->getOneOrNullResult(AbstractQuery::HYDRATE_ARRAY);
+
+        $total = (int)($data[2] ?? 0);
+        return $data[1] > 0;
     }
 
     /**
