@@ -32,6 +32,34 @@
             </ul>
 
             <div class="row" x-tab-group="skill-page" x-tab-id="skills" x-tab-target>
+                <div class="padded cell rw-12">
+                    <div class="skills-history">
+                        <div class="row header">
+                            <div class="cell padded rw-12 center">
+                                {{'Allgemein verfügbar'|trans({}, 'game')}}
+                                {{ help_btn('Diese Fähigkeiten stehen jedem Spieler grundsätzlich immer zur Verfügung.'|trans({},'help')) }}
+                            </div>
+                        </div>
+                        <div class="skills-container">
+                            <div class="row-flex v-top gap unlocked">
+                                <div class="padded cell rw-3 level-indicator">
+                                    <div class="flex center middle">
+                                        <img src="{{ asset('build/images/icons/done.png') }}" alt=""/>
+                                        <b class="level">{{'Einwohner'|trans({}, 'game')}}</b>
+                                    </div>
+                                </div>
+                                <div class="padded cell rw-9 ability-indicator">
+                                    <ul>
+                                        <li>{{ '{num} Plätze im Rucksack'|trans({num: 4},'soul') }}</li>
+                                        <li>{{ '{num} Plätze in der Truhe'|trans({num: 4},'soul') }}</li>
+                                        <li>{{ '{num} Verteidigung bei der Nachtwache'|trans({num: 10},'soul') }}</li>
+                                        <li>{{ 'Im Stadtforum schreiben'|trans({},'soul') }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 {% for group in groups %}
                     <div class="padded cell rw-12">
                         <div class="skills-history">
