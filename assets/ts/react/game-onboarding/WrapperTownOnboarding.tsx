@@ -303,6 +303,11 @@ const ConfirmationDialog = (props: ConfirmationDialogProps) => {
                                             <span><b>{globals.strings.skills.levels[skill.level]}</b></span>
                                         </div>
                                     </div>
+                                    <Tooltip additionalClasses="help">
+                                        <ul>
+                                            {skill.bullets.map((val,i) => <li key={i}>{val}</li>)}
+                                        </ul>
+                                    </Tooltip>
                                 </div>
                             </>}
 

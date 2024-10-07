@@ -8,7 +8,8 @@ use App\Event\Game\Citizen\CitizenQueryNightwatchDefenseEvent;
 use App\Event\Game\Citizen\CitizenQueryNightwatchInfoEvent;
 use App\EventListener\ContainerTypeTrait;
 use App\EventListener\Game\Citizen\CitizenChanceQueryListener;
-use App\Service\{TownHandler, UserHandler};
+use Doctrine\Common\Collections\Criteria;
+use App\Service\{EventProxyService, TownHandler, UserHandler};
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
@@ -40,40 +41,30 @@ final class PrimeCitizenWatchListener implements ServiceSubscriberInterface {
 
 		$is_pro = ($citizen->getProfession()->getHeroic() && $user_handler->hasSkill($citizen->getUser(), 'prowatch'));
 
-		$chances = 0.92;
+		$chances = 0.08;
 		if ($citizen->getProfession()->getName() === "guardian")
-			$chances = 0.97;
+			$chances = 0.03;
 		else if ($citizen->getProfession()->getName() === "tamer" && $town_handler->getBuilding($citizen->getTown(), "item_tamed_pet_#00"))
-			$chances = 0.95;
-		$maxChances = $chances;
+			$chances = 0.05;
+		$minChances = $chances;
 
-		$previousWatches = count($em->getRepository(CitizenWatch::class)->findBy(['citizen' => $citizen]));
+		$criteria = new Criteria();
+		$criteria->andWhere($criteria->expr()->eq('citizen', $citizen));
+		$criteria->andWhere($criteria->expr()->lt('day', $citizen->getTown()->getDay()));
+
+		$previousWatches = count($em->getRepository(CitizenWatch::class)->matching($criteria));
 		if ($is_pro)
-			$watchMap = [0, -0.01, -0.04, -0.09, -0.15, -0.20, -0.30, -0.40, -0.50, -0.60, -0.75, -0.90];
+			$watchMap = [0, 0.01, 0.04, 0.09, 0.15, 0.20, 0.30, 0.40, 0.50, 0.60, 0.75, 0.90];
 		else
-			$watchMap = [0, -0.01, -0.04, -0.09, -0.20, -0.30, -0.42, -0.56, -0.72, -0.90];
+			$watchMap = [0, 0.01, 0.04, 0.09, 0.20, 0.30, 0.42, 0.56, 0.72, 0.90];
 
 		$chances += $watchMap[min($previousWatches, count($watchMap))];
 
-		$nbBath = $citizen->getSpecificActionCounterValue(ActionCounter::ActionTypePool);
-		$chances = min($maxChances, $chances + ($nbBath * 0.01)); // Each bath gives 1% chance, but it's capped to the base value of the job
-
-		// Guardroom
-		if ($town_handler->getBuilding($citizen->getTown(), "small_watchmen_#02"))
-			$chances += 0.05;
-
-		// Battlements lvl3
-		$roundPath = $town_handler->getBuilding($citizen->getTown(), "small_round_path_#00");
-		if ($roundPath && $roundPath->getLevel() === 3)
-			$chances += 0.01;
-
-		// Automatic sprinklers
-		if ($town_handler->getBuilding($citizen->getTown(), "small_sprinkler_#00"))
-			$chances -= 0.04;
-
-		// The statuses
-		foreach ($citizen->getStatus() as $status)
-			$chances += $status->getNightWatchDeathChancePenalty();
+		$event->deathChance = round(max(0.0, min($chances, 1.0)),2);
+		$woundRatio = ($citizen->getTown()->getType()->getName() == "panda" ? 0.4 : 0.2);
+		$terrorRatio = ($citizen->getTown()->getType()->getName() == "panda" ? 0.3 : 0.1);
+		$event->woundChance = round(max(0.0, min(1 - ((1-$chances)-(1-$chances)*$woundRatio), 1.0)),2);
+		$event->terrorChance = round(max(0.0, min(1 - ((1-$chances)-(1-$chances)*$terrorRatio), 1.0)),2);
 
 		// The items
 		$items_impact = [];
@@ -86,17 +77,33 @@ final class PrimeCitizenWatchListener implements ServiceSubscriberInterface {
 			];
 		}
 
-		$chances += (array_sum(array_column($items_impact, 'impact')));
+		$event->deathChance -= (array_sum(array_column($items_impact, 'impact')));
 
-		$event->deathChance = round(max(0.0, min(1 - $chances, 1.0)),2);
-		$woundRatio = ($citizen->getTown()->getType()->getName() == "panda" ? 0.4 : 0.2);
-		$terrorRatio = ($citizen->getTown()->getType()->getName() == "panda" ? 0.3 : 0.1);
-		$event->woundChance = round(max(0.0, min(1.0 - ($chances - ($chances * $woundRatio)), 1.0)),2);
-		$event->terrorChance = round(max(0.0, min(1.0 - ($chances - ($chances * $terrorRatio)), 1.0)),2);
+		// Previous Bath
+		$nbBath = $citizen->getSpecificActionCounterValue(ActionCounter::ActionTypePool);
+		if ($event->deathChance > $minChances)
+			$event->deathChance = max($minChances, $event->deathChance - ($nbBath * 0.01)); // Each bath gives 1% chance, but it's capped to the base value of the job
+
+		// The statuses
+		foreach ($citizen->getStatus() as $status)
+			$event->deathChance += $status->getNightWatchDeathChancePenalty();
 
 		// Gas gun
 		if ($town_handler->getBuilding($citizen->getTown(), "small_gazspray_#00"))
 			$event->terrorChance += 0.1;
+
+		// Guardroom
+		if ($town_handler->getBuilding($citizen->getTown(), "small_watchmen_#02"))
+			$event->deathChance -= 0.05;
+
+		// Battlements lvl3
+		$roundPath = $town_handler->getBuilding($citizen->getTown(), "small_round_path_#00");
+		if ($roundPath && $roundPath->getLevel() === 3)
+			$event->deathChance -= 0.01;
+
+		// Automatic sprinklers
+		if ($town_handler->getBuilding($citizen->getTown(), "small_sprinkler_#00"))
+			$event->deathChance += 0.04;
 
         // Home shower effect
         if ($event->citizen->hasStatus('tg_home_shower')) {
@@ -155,7 +162,10 @@ final class PrimeCitizenWatchListener implements ServiceSubscriberInterface {
 		$citizen = $event->data->citizen;
 		/** @var TownHandler $townHandler */
 		$townHandler = $this->container->get(TownHandler::class);
+		/** @var TranslatorInterface $trans */
 		$trans = $this->container->get(TranslatorInterface::class);
+		/** @var EventProxyService $events */
+		$events = $this->container->get(EventProxyService::class);
 		$def = $event->data->nightwatchInfo['def'] ?? 0;
 		$event->data->nightwatchInfo['bonusDef'] = $citizen->getProfession()->getNightwatchDefenseBonus();
 		$event->data->nightwatchInfo['bonusSurvival'] = $citizen->getProfession()->getNightwatchSurvivalBonus();
@@ -171,15 +181,16 @@ final class PrimeCitizenWatchListener implements ServiceSubscriberInterface {
 		}
 
 		foreach ($citizen->getInventory()->getItems() as $item) {
-			if ($item->getPrototype()->getWatchimpact() === 0 && $item->getPrototype()->getWatchpoint() === 0) continue;
+			$itemDef = $events->buildingQueryNightwatchDefenseBonus($citizen->getTown(), $item);;
+			if ($item->getPrototype()->getWatchimpact() === 0 && $itemDef === 0) continue;
 			if (isset($event->data->nightwatchInfo['items'][$item->getId()])) {
 				if ($item->getPrototype()->hasProperty('nw_impact_cumul') || $event->data->nightwatchInfo['items'][$item->getId()]['deathImpact'] == 0)
-				$event->data->nightwatchInfo['items'][$item->getId()]['deathImpact'] = $item->getPrototype()->getWatchimpact();
+					$event->data->nightwatchInfo['items'][$item->getId()]['deathImpact'] = $item->getPrototype()->getWatchimpact();
 			} else {
 				$event->data->nightwatchInfo['items'][$item->getId()] = array(
 					'prototype' => $item->getPrototype(),
-					'deathImpact' => $item->getPrototype()->getWatchimpact(),
-					'defImpact' => $item->getPrototype()->getWatchpoint(),
+					'deathImpact' => -$item->getPrototype()->getWatchimpact(),
+					'defImpact' => $itemDef,
 				);
 			}
 		}
@@ -193,6 +204,7 @@ final class PrimeCitizenWatchListener implements ServiceSubscriberInterface {
 			EntityManagerInterface::class,
 			TownHandler::class,
 			TranslatorInterface::class,
+			EventProxyService::class
 		];
 	}
 }

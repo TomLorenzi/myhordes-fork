@@ -140,6 +140,7 @@
                                 {% if user|is_granted('ROLE_TEAM') %}  <div>{{ 'Team'|trans({}, 'admin') }}     </div>{% endif %}
                                 {% if user|is_granted('ROLE_ORACLE') %}<div>{{ 'Orakel'|trans({}, 'admin') }}   </div>{% endif %}
                                 {% if user|is_granted('ROLE_ANIMAC') %}<div>{{ 'Animateur'|trans({}, 'admin') }}</div>{% endif %}
+                                {% if user|is_granted('ROLE_ART') %}<div>{{ 'Künstler'|trans({}, 'admin') }}</div>{% endif %}
                             </div>
                         </div>
                         <div class="cell-small padded rw-1 rw-sm-2 center">

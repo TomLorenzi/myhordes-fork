@@ -418,6 +418,7 @@ class CitizenRankingProxy
         if ($accumulate)
             Arr::set( $data, is_string($cache) ? $cache : $cache->value, $this->getProperty( $cache ) + $value );
         else Arr::set( $data, is_string($cache) ? $cache : $cache->value, $value );
+        $this->setData( $data );
         return $this;
     }
 }

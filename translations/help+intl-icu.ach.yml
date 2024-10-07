@@ -948,3 +948,5 @@ Erkundungspunkte: crwdns205990:0crwdne205990:0
 '<strong>Aufklärer</strong> verfügen standartmäßig über <span class="sp"></span>, allerdings gibt es auch Gegenstände, mit denen du <span class="sp"></span> erhalten kannst...': 'crwdns205994:0crwdne205994:0'
 '<span class="sp"></span> werden automatisch anstelle von <span class="ap"></span> bei Bewegungen in der Außenwelt konsumiert, wenn du dich <strong>3 oder mehr Kilometer</strong> von der Stadt entfernt befindest.': 'crwdns205996:0crwdne205996:0'
 "Du stehst aktuell vor <strong>{citizen}'s Haus</strong>.": "crwdns205998:0{citizen}crwdne205998:0"
+'Die meisten Erfahrungsboni kannst du **nur einmal Pro Saison und Reset** erhalten. Im Folgenden findest du eine Auflistung aller Möglichkeiten, Heldenerfahrung zu sammeln. Aktionen, die du mehrmals pro Saison und Reset ausführen kannst um Punkte zu erhalten sind jeweils hervorgehoben.': 'crwdns206764:0crwdne206764:0'
+'Diese Fähigkeiten stehen jedem Spieler grundsätzlich immer zur Verfügung.': 'crwdns206770:0crwdne206770:0'

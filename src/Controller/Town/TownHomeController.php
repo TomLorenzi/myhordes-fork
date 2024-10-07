@@ -19,6 +19,7 @@ use App\Entity\PrivateMessage;
 use App\Entity\PrivateMessageThread;
 use App\Enum\ActionHandler\PointType;
 use App\Enum\Configuration\CitizenProperties;
+use App\Enum\Game\CitizenPersistentCache;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\AdminHandler;

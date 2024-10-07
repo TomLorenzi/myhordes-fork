@@ -1,7 +1,7 @@
-commit 64764e4525fa0eb9b7761450b8a5989cb698320a
-Author:     Ludofloria <ludofloria@aifesdespets.fr>
-AuthorDate: Wed Sep 27 09:14:31 2023 +0200
-Commit:     Ludofloria <ludofloria@aifesdespets.fr>
-CommitDate: Wed Sep 27 09:14:31 2023 +0200
+commit 72b1effad21c353ffb705e84347baf21c4334e1f
+Author:     Benjamin Behrendt <wvsgnovize@gmail.com>
+AuthorDate: Mon Oct 30 18:32:12 2023 +0100
+Commit:     Benjamin Behrendt <wvsgnovize@gmail.com>
+CommitDate: Mon Oct 30 18:32:12 2023 +0100
 
-    Removed unused import
+    Add theme images

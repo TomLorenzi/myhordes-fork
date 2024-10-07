@@ -66,3 +66,24 @@ Antivax_f: Antivax_f
 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...': "Unfortunately, despite all your efforts, you didn't find anything here..."
 'Dein <strong>Trunkenheitszustand</strong> hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.': "Your <strong>drunk state</strong> is really not helping you. It's not easy when everything is spinning and you can't see clearly."
 'Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.': "Your eye injury doesn't make your search any easier."
+'Du kannst nicht so viele Gegenstände auf die Müllhalde werfen.': 'You cannot throw so much items in the Dump.'
+'Du hast die Techniker-Werkbank <strong>heute bereits verwendet</strong>. Komm morgen wieder.': 'Du hast die Techniker-Werkbank <strong>heute bereits verwendet</strong>. Komm morgen wieder.'
+'<strong>Achtung:</strong> Du kannst die Techniker-Werkbank nur <strong>ein mal pro Tag</strong> nutzen, denke also nach bevor du handelst.': '<strong>Achtung:</strong> Du kannst die Techniker-Werkbank nur <strong>ein mal pro Tag</strong> nutzen, denke also nach bevor du handelst.'
+'Zur "Freude" deiner Mitbürger ist es dir gelungen, den Brunnen um {well} Rationen Wasser aufzufüllen!': 'Zur "Freude" deiner Mitbürger ist es dir gelungen, den Brunnen um {well} Rationen Wasser aufzufüllen!'
+'Leider ist es dir nicht gelungen, dem Brunnen eine substantielle Menge an Wasser hinzuzufügen ...': 'Leider ist es dir nicht gelungen, dem Brunnen eine substantielle Menge an Wasser hinzuzufügen ...'
+'Leider ist es dir trotz größter Anstrengungen nicht gelungen, etwas neues in der Umgebung zu entdecken.': 'Leider ist es dir trotz größter Anstrengungen nicht gelungen, etwas neues in der Umgebung zu entdecken.'
+'Nichts entgeht deinem geschulten Blick! Du hast neue Informationen über {casino} Zonen gesammelt!': 'Nichts entgeht deinem geschulten Blick! Du hast neue Informationen über {casino} Zonen gesammelt!'
+'Frenetisch schreibst du alles auf was du in der Umgebung entdeckst und sammelst neue Informationen über {casino} Zonen. Jetzt brauchst du nur noch einen Experten, der ermitteln kann, wo genau diese Zonen liegen ...': 'Frenetisch schreibst du alles auf was du in der Umgebung entdeckst und sammelst neue Informationen über {casino} Zonen. Jetzt brauchst du nur noch einen Experten, der ermitteln kann, wo genau diese Zonen liegen ...'
+Installieren: Throw
+Wiederherstellen: Recover
+'Wie viele Gegenstände möchtest du auf den Müll werfen?': 'How many items do you want to throw in the dump?'
+'Du kannst jedes Mal höchstens 20 identische Gegenstände zerstören oder wiederherstellen': 'You can throw up to 20 objects at a time into the dump.'
+'Jede Aktion kostet dich {ap}.': 'Each action costs {ap}.'
+'Wie viele Gegenstände möchtest du auf den Müll wiederherstellen?': 'How many items do you want to recover in the dump?'
+'Ohne echte Waffenlager sind deine Gegenstände in Watch nutzlos. Deine Stadt sollte {building} bauen, um diese Mängel auszugleichen...': 'Without real weapon storage, your items are useless in Watch. Your city should build the {building} to compensate for these shortcomings...'
+'Die Leiche verbrennen!': 'Burn the corpse!'
+'Die Zeremonie besteht daraus, die Leiche mit 1x <strong>Fackel</strong> zu verbrennen und dann die Asche in das Gemüsebeet zu streuen. Dadurch wird der Leichnam sofort zerstört.': 'The ceremony consists of burning the body with 1x <strong>Torch</strong> and then scatter the ashes into the vegetable plot. This will destroy the corpse instantly.'
+'In großer Trauer verstreute {disposing_citizen} die Asche von {citizen} in das Gemüsebeet. Wenigstens war er am Ende noch nützlich.': "It's with sadness that {disposing_citizen} scattered the ashes of {citizen} into the vegetable plot. At least, he was useful"
+'Diese Aktion verbraucht 1x Fackel und 2 Aktionspunkte. Bestätigen?': 'This action costs 1x Torch and 2 action points. Confirm?'
+'Du verbrennst die Leiche von {disposed} mit der Fackel und verstreust dann die Asche in das Gemüsebeet. Das sollte unsere Ernte verbessern...': "You burn {disposed}'s body with the torch and then scatter the ashes in the vegetable garden. That should give us more food..."
+'Du kannst nicht so viele Gegenstände auf die Müllhalde wiederherstellen.': "You can't recover this much items from the dump."

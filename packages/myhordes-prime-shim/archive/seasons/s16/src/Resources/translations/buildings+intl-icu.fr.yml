@@ -106,9 +106,9 @@ Pool: Bassin
 'Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche und 1 seltene Baupläne sowie.': "La ville obtiendra 1 plan inhabituel et 1 plan rare après l'attaque."
 'Die Stadt erhält nach dem nächsten Angriff einmalig 1 seltene Baupläne - möglicherweise - eine nette Überraschung.': "La ville obtiendra 1 plan rare après l'attaque (et une surprise?)."
 'Bietet nur nachts einen leichten Suchbonus, pro Tag werden 3 Batterien verbraucht.': 'Fournit un léger bonus de recherche uniquement la nuit, 3 piles sont consommées par jour.'
-'Ermöglicht die fachgerechte Entsorgung von Waffen und Nahrung auf der Müllhalde.': "Permet la destruction d'armes et de nourriture dans la décharge."
-'Ermöglicht das fachgerechte Massakrieren unschuldiger Tiere und Steigert die Ausbeute jedes auf den Müll geworfenen Verteidigungs-Gegenstandes.': "Permet le massacre d'animaux innocents et augmente le rendement des objets de défense jetés à la décharge."
-'Ermöglicht die fachgerechte Entsorgung von Holz und Metall auf der Müllhalde.': 'Permet la destruction de bois et de métal dans la décharge.'
+'Ermöglicht die fachgerechte Entsorgung von Waffen und Nahrung auf der Müllhalde.': 'Augmente la défense fournie pour tous les armes et nourritures jetés dans la décharge.'
+'Ermöglicht das fachgerechte Massakrieren unschuldiger Tiere und Steigert die Ausbeute jedes auf den Müll geworfenen Verteidigungs-Gegenstandes.': 'Augmente la défense fournie pour tous les objets défensifs et animaux jetés dans la décharge.'
+'Ermöglicht die fachgerechte Entsorgung von Holz und Metall auf der Müllhalde.': 'Augmente la défense fournie pour le bois et le métal jetés dans la décharge.'
 'Der Granatwerfer verbraucht beim nächtlichen Angriff 1 Explosive Pampelmuse und steigert seinen Verteidigungswert dafür um 30.': 'La défense apportée par le Lance-grenades est de 70 points de défense, mais coûte 1 pamplemousse explosif par nuit.'
 'Der Granatwerfer verbraucht beim nächtlichen Angriff 2 Explosive Pampelmusen und steigert seinen Verteidigungswert dafür um 75.': 'La défense apportée par le Lance-grenades est de 115 points de défense, mais coûte 2 pamplemousse explosif par nuit.'
 'Der Granatwerfer verbraucht beim nächtlichen Angriff 3 Explosive Pampelmusen und steigert seinen Verteidigungswert dafür um 150.': 'La défense apportée par le Lance-grenades est de 190 points de défense, mais coûte 3 pamplemousse explosif par nuit.'
@@ -138,3 +138,9 @@ Pool: Bassin
 'Das Portal bringt 20 Verteidigungspunkte.': 'Le Portail apporte 20 points de défense.'
 'Das Portal bringt 50 Verteidigungspunkte.': 'Le Portail apporte 50 points de défense.'
 'Das Portal bringt 80 Verteidigungspunkte und die Öffnung der Tür ist bis zum Mittag kostenlos.': "Le Portail apporte 80 points de défense et l'ouverture de la porte est gratuite avant midi."
+'Dayan Riesenrad': 'Grande roue de Grostas'
+'Es ist wirklich eine enorme und beeindruckente Konstruktion, entworfen von einem Verrückten aus einem fernen Land. Ihr habt eure kostbarsten Materialien an dieses verdammte Ding verschwendet, und denoch seid ihr irgendwie stolz darauf. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': "C’est une belle et grande réalisation conçue par un fou d'une contrée lointaine, ça a pompé une bonne partie de nos ressources mais vous en êtes très fiers. Cette Merveille brille par son inutilité la plus totale : sa construction rapporte une distinction rarissime à tous les citoyens en ville."
+'Organisierte Müll': 'Décharge organisée'
+'Rückzugsort für Aufklärer': 'Repaire des Éclaireurs'
+'Die Aufklärer haben dich schon immer fasziniert und nie verraten, was sie unter ihrer Haube verbergen... Aber vielleicht ist es das Beste, sie in Ruhe zu lassen. Mit diesem speziellen Rückzugsort können sie sich endlich an die Arbeit machen, ohne die Stadt verlassen zu müssen.': "Les Éclaireurs vous ont toujours fasciné et n'ont jamais révélé ce qu'ils cachent sous leur capuche... Mais peut-être vaut-il mieux les laisser tranquilles. Grâce à ce repaire spécial, ils peuvent enfin planifier leur trajet sans avoir à quitter la ville."
+'Kleine Waffenschmiede': Armurerie

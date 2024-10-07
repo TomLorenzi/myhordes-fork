@@ -153,9 +153,17 @@ final class HeroicItemActionListener implements ServiceSubscriberInterface
 
                     if($give_ap){
                         $old_ap = $event->citizen->getAp();
+                        $old_sp = $event->citizen->getSp();
+
                         if ($old_ap < 6)
                             $this->getService(CitizenHandler::class)->setAP($event->citizen, false, 6, 0);
+
+                        $sp_potential_bonus = $this->getService(CitizenHandler::class)->getMaxPoints($event->citizen, PointType::SP, false );
+                        if ($sp_potential_bonus > 0)
+                            $this->getService(CitizenHandler::class)->setPoints($event->citizen, PointType::SP, false, $sp_potential_bonus, 0);
+
                         $event->cache->addPoints( PointType::AP, $event->citizen->getAp() - $old_ap );
+                        $event->cache->addPoints( PointType::SP, $event->citizen->getSp() - $old_sp );
                     }
 
                     $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->outsideDigSurvivalist( $event->citizen ) );

@@ -170,7 +170,7 @@ class EditorController extends CustomAbstractCoreController
         });
 
         $snippets = [];
-        if ($this->isGranted('ROLE_ELEVATED') || $this->isGranted('ROLE_ANIMAC')) {
+        if ($this->isGranted('ROLE_ELEVATED') || $this->isGranted('ROLE_ANIMAC') || $this->isGranted('ROLE_ART')) {
             $entities = $em->getRepository(ForumModerationSnippet::class)->findBy( ['role' => [...$roles->getReachableRoleNames( $user->getRoles() ), '*']] );
             foreach ($entities as $snippet) {
                 $key = $snippet->getLang() === $user->getLanguage() ? "%%{$snippet->getShort()}" : "%{$snippet->getLang()}%{$snippet->getShort()}";

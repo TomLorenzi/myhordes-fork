@@ -245,4 +245,11 @@ enum CitizenProperties: string implements Configuration
     {
         return "cfg_ctp_" . str_replace(".", "_", $this->value);
     }
+
+    public static function fromName(string $name): ?CitizenProperties {
+        foreach (self::cases() as $enum)
+            if ( $name === $enum->name )
+                return $enum;
+        return null;
+    }
 }

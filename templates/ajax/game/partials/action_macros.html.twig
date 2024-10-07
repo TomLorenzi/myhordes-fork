@@ -26,7 +26,7 @@
             </span>
 
             {% if entry.targets is not null and not entry.crossed and not ( entry.broken is defined and entry.broken ) %}
-                {{ _self.select_target_popup( entry.id, entry.target_mode, pre ~ entry.id ~ '--' ~ entry.item.id, entry.item.id, entry.targets, entry.action.confirm, entry.action.confirmMsg, entry.item) }}
+                {{ _self.select_target_popup( entry.id, entry.target_mode, pre ~ entry.id ~ '--' ~ entry.item.id, entry.item.id, entry.targets, entry.action.confirm, entry.action.confirmMsg, entry.item, entry.target_note) }}
             {% endif %}
         {% if entry.crossed and entry.message %}
             <div class="tooltip normal">{{ entry.message|raw }}</div>
@@ -34,7 +34,7 @@
     {% endfor %}
 {% endmacro %}
 
-{% macro target_popup( action_id, provoking_id, targets, target_for, text_having, text_missing, close_button = false, big = false, confirm = false, confirmMsg = null, action_button = null, item_tooltip = false ) %}
+{% macro target_popup( action_id, provoking_id, targets, target_for, text_having, text_missing, close_button = false, big = false, confirm = false, confirmMsg = null, action_button = null, item_tooltip = false, note = null ) %}
     <div class="targets" x-target-selection-for="{{ target_for }}">
         {% if text_having is iterable %}
             {% set error = '' %}
@@ -89,6 +89,10 @@
             {% endif %}
         {% endif %}
 
+        {% if note is not null %}
+            <span class="small">{{ note|trans({},'items') }}</span>
+        {% endif %}
+
         {% if close_button %}
             <div class="right"><span x-close-for="{{ target_for }}">{{ 'Schließen'|trans({},'global') }}</span></div>
         {% endif %}
@@ -138,23 +142,23 @@
     </div>
 {% endmacro %}
 
-{% macro select_target_popup( id, target_mode, key, provoking_id, targets, confirm = false, confirmMsg = null, provoking_item = null) %}
+{% macro select_target_popup( id, target_mode, key, provoking_id, targets, confirm = false, confirmMsg = null, provoking_item = null, note = null) %}
     {% if target_mode == 0 %}
-        {{ _self.target_popup( id, provoking_id, targets, key, 'Bitte wähle einen Gegenstand:'|trans({},'game'), 'Du verfügst über keine geeigneten Gegenstände'|trans({},'game'), true, false, confirm, confirmMsg ) }}
+        {{ _self.target_popup( id, provoking_id, targets, key, 'Bitte wähle einen Gegenstand:'|trans({},'game'), 'Du verfügst über keine geeigneten Gegenstände'|trans({},'game'), true, false, confirm, confirmMsg, null, false, note ) }}
     {% elseif target_mode == 1 %}
-        {{ _self.target_popup( id, provoking_id, targets, key, 'Bitte wähle einen Gegenstand:'|trans({},'game'), 'Du verfügst über keine geeigneten Gegenstände'|trans({},'game'), true, false, confirm, confirmMsg, null, true ) }}
+        {{ _self.target_popup( id, provoking_id, targets, key, 'Bitte wähle einen Gegenstand:'|trans({},'game'), 'Du verfügst über keine geeigneten Gegenstände'|trans({},'game'), true, false, confirm, confirmMsg, null, true, note ) }}
     {% elseif target_mode == 2 %}
-        {{ _self.target_popup( id, provoking_id, targets|sort((a,b) => a[1]|lower <=> b[1]|lower), key, 'Einen Bürger heimbringen:'|trans({},'game'), 'Niemand ist in der Nähe der Stadt (maximal 2 Felder).'|trans({},'game'), true, 'big', confirm, confirmMsg ) }}
+        {{ _self.target_popup( id, provoking_id, targets|sort((a,b) => a[1]|lower <=> b[1]|lower), key, 'Einen Bürger heimbringen:'|trans({},'game'), 'Niemand ist in der Nähe der Stadt (maximal 2 Felder).'|trans({},'game'), true, 'big', confirm, confirmMsg, null, false, note ) }}
     {% elseif target_mode in [3,4,5] %}
-        {{ _self.target_popup( id, provoking_id, targets|sort((a,b) => a[1]|lower <=> b[1]|lower), key, 'Bitte wähle einen Bürger:'|trans({},'game'), 'Es ist kein Bürger in der Nähe...'|trans({},'game'), true, true, confirm, confirmMsg ) }}
+        {{ _self.target_popup( id, provoking_id, targets|sort((a,b) => a[1]|lower <=> b[1]|lower), key, 'Bitte wähle einen Bürger:'|trans({},'game'), 'Es ist kein Bürger in der Nähe...'|trans({},'game'), true, true, confirm, confirmMsg, null, false, note ) }}
     {% elseif target_mode == 6 %}
         {% set target_poison = 'can_poison'|items|map(i => '<span class="highlight"><img src="' ~ asset('build/images/item/item_' ~ i.icon ~ '.gif')  ~ '" alt="">' ~ i.label|trans({},'items') ~ '</span>') %}
-        {{ _self.target_popup( id, provoking_id, targets, key, 'Bitte wähle einen Gegenstand:'|trans({},'game'), 'Du hast nichts, womit du {poison} kombinieren kannst. Du benötigst einen der folgenden Gegenstände:<br />{list_head} oder {list_tail}.'|trans({'poison': '<span class="highlight"><img src="' ~ asset('build/images/item/item_' ~ provoking_item.prototype.icon ~ '.gif')  ~ '" alt="">' ~ provoking_item.prototype.label|trans({},'items') ~ '</span>', 'list_head': target_poison|slice(0,-1)|join(', '), 'list_tail': target_poison|slice(-1,1)|join(', ')},'game')|raw, true, false, confirm, confirmMsg ) }}
+        {{ _self.target_popup( id, provoking_id, targets, key, 'Bitte wähle einen Gegenstand:'|trans({},'game'), 'Du hast nichts, womit du {poison} kombinieren kannst. Du benötigst einen der folgenden Gegenstände:<br />{list_head} oder {list_tail}.'|trans({'poison': '<span class="highlight"><img src="' ~ asset('build/images/item/item_' ~ provoking_item.prototype.icon ~ '.gif')  ~ '" alt="">' ~ provoking_item.prototype.label|trans({},'items') ~ '</span>', 'list_head': target_poison|slice(0,-1)|join(', '), 'list_tail': target_poison|slice(-1,1)|join(', ')},'game')|raw, true, false, confirm, confirmMsg, null, false, note ) }}
     {% elseif target_mode == 7 %}
-        {{ _self.target_popup( id, provoking_id, targets|sort((a,b) => a[1]|lower <=> b[1]|lower), key, 'Bitte wähle einen Bürger:'|trans({},'game'), 'Es ist kein Bürger in der Nähe...'|trans({},'game'), true, true, confirm, confirmMsg, 'Abstimmen'|trans({},'game') ) }}
+        {{ _self.target_popup( id, provoking_id, targets|sort((a,b) => a[1]|lower <=> b[1]|lower), key, 'Bitte wähle einen Bürger:'|trans({},'game'), 'Es ist kein Bürger in der Nähe...'|trans({},'game'), true, true, confirm, confirmMsg, 'Abstimmen'|trans({},'game'), false, note ) }}
     {% elseif target_mode == 8 %}
-        {{ _self.target_popup( id, provoking_id, targets|sort((a,b) => a[1]|lower <=> b[1]|lower), key, {'Action': 'Bitte wähle eine Heldentat:'|trans({},'game'), 'Player': 'Bitte wähle einen Bürger:'|trans({},'game')}, {'Action': 'Du hast keine Heldentaten mehr, die du spenden könntest...'|trans({},'game'), 'Player': 'Es ist kein Bürger in der Nähe...'|trans({},'game')}, true, true, confirm, confirmMsg ) }}
+        {{ _self.target_popup( id, provoking_id, targets|sort((a,b) => a[1]|lower <=> b[1]|lower), key, {'Action': 'Bitte wähle eine Heldentat:'|trans({},'game'), 'Player': 'Bitte wähle einen Bürger:'|trans({},'game')}, {'Action': 'Du hast keine Heldentaten mehr, die du spenden könntest...'|trans({},'game'), 'Player': 'Es ist kein Bürger in der Nähe...'|trans({},'game')}, true, true, confirm, confirmMsg, null, false, note ) }}
     {% elseif target_mode == 9 %}
-        {{ _self.target_popup( id, provoking_id, targets, key, 'Bitte wähle einen Gegenstand aus deiner Truhe:'|trans({},'game'), 'Du verfügst über keine geeigneten Gegenstände'|trans({},'game'), true, false, confirm, confirmMsg ) }}
+        {{ _self.target_popup( id, provoking_id, targets, key, 'Bitte wähle einen Gegenstand aus deiner Truhe:'|trans({},'game'), 'Du verfügst über keine geeigneten Gegenstände'|trans({},'game'), true, false, confirm, confirmMsg, null, false, note ) }}
     {% endif %}
 {% endmacro %}

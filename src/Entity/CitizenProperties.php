@@ -48,4 +48,9 @@ class CitizenProperties
         if (!$this->conf) $this->conf = (new CitizenConf( $this->getProps() ))->complete();
         return $this->conf->get( $v );
     }
+
+    public function has(CitizenPropertiesEnum $v): mixed {
+        if (!$this->conf) $this->conf = (new CitizenConf( $this->getProps() ))->complete();
+        return $this->conf->get( $v );
+    }
 }

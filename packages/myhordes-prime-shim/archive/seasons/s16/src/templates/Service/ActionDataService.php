@@ -45,8 +45,10 @@ class ActionDataService implements FixtureProcessorInterface {
         unset($data['actions']['bp_hospital_2']);
         unset($data['actions']['bp_hospital_3']);
         unset($data['actions']['bp_hospital_4']);
+        unset($data['actions']['home_crows']);
 
-        $requirement_container = new RequirementsDataContainer();
+        $requirement_container = new RequirementsDataContainer($data['meta_requirements']);
+        $requirement_container->add()->identifier('min_4_ap')->type( Requirement::MessageOnFail )->add( (new PointRequirement())->require(PointType::AP)->min(4) )->text_key('pt_required')->commit();
         $requirement_container->add()->identifier('min_2_cp')->type( Requirement::CrossOnFail )->add( (new PointRequirement())->require(PointType::CP)->min(2) )->text_key('pt_required')->commit();
         $requirement_container->add()->identifier('min_3_cp')->type( Requirement::CrossOnFail )->add( (new PointRequirement())->require(PointType::CP)->min(3) )->text_key('pt_required')->commit();
 		$requirement_container->add()->identifier('must_have_pool')->type(Requirement::HideOnFail)->add( (new BuildingRequirement())->building('small_pool_#00', true))->commit();
@@ -61,11 +63,21 @@ class ActionDataService implements FixtureProcessorInterface {
 
         $requirement_container->add()->identifier('not_profession_guardian')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('guardian', false) )->commit();
 
+        $requirement_container->add()->identifier('not_profession_survivalist')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('survivalist', false) )->commit();
+        $requirement_container->add()->identifier('must_have_surv_building')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('item_surv_book_#00', true) )->commit();
+        $requirement_container->add()->identifier('surv_building_counter_below_1')->type( Requirement::CrossOnFail )->add( (new CounterRequirement())->counter(ActionCounter::ActionTypeSpecialActionSurv)->max( 0 ) )->commit();
+
+        $requirement_container->add()->identifier('hunter_building_counter_below_1')->type( Requirement::CrossOnFail )->add( (new CounterRequirement())->counter(ActionCounter::ActionTypeSpecialActionHunter)->max( 0 ) )->commit();
+        $requirement_container->add()->identifier('not_profession_hunter')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('hunter', false) )->commit();
+
+        $requirement_container->modify('must_have_hammam')->clear(BuildingRequirement::class)->add( (new BuildingRequirement())->building('item_soul_blue_static_#00', true) )->commit();
+
         $data = array_replace_recursive($data, [
             'meta_requirements' => [],
 
             'meta_results' => [
                 'minus_2ap'    => [ 'ap' => 'minus_2' ],
+                'minus_4ap'    => [ 'ap' => 'minus_4' ],
 
                 'minus_2cp'    => [ 'cp' => 'minus_2' ],
                 'minus_3cp'    => [ 'cp' => 'minus_3' ],
@@ -74,6 +86,7 @@ class ActionDataService implements FixtureProcessorInterface {
             'results' => [
                 'ap' => [
                     'minus_2'       => [ 'max' => false, 'num' => -2 ],
+                    'minus_4'       => [ 'max' => false, 'num' => -4 ],
                 ],
                 'cp' => [
                     'minus_2'       => [ 'max' => false, 'num' => -2 ],
@@ -111,9 +124,17 @@ class ActionDataService implements FixtureProcessorInterface {
                 'home_scavenge_any' => [ 'label' => 'In den Buddelgruben graben', 'meta' => [ 'must_be_inside', 'room_for_item_scavenging', 'min_2_ap', 'not_profession_collec', 'must_have_scavenger_building', 'scav_building_counter_below_1' ], 'result' => [ 'minus_2ap', [ 'status' => [ 'counter' => ActionCounter::ActionTypeSpecialDigScavenger ], 'custom' => [10101] ] ] ],
                 'home_scavenge_pro' => [ 'label' => 'In den Buddelgruben graben', 'meta' => [ 'must_be_inside', 'room_for_item_scavenging', 'min_1_ap', 'profession_collec',     'must_have_scavenger_building', 'scav_building_counter_below_3' ], 'result' => [ 'minus_1ap', [ 'status' => [ 'counter' => ActionCounter::ActionTypeSpecialDigScavenger ], 'custom' => [10101] ] ] ],
 
-                'home_defbuff_any'   => [ 'label' => 'Verteidigung organisieren', 'meta' => [ 'not_profession_guardian', 'min_2_ap', 'must_be_inside', 'must_have_guardtower', 'not_yet_home_defbuff', 'guard_tower_not_max' ], 'result' => ['minus_2ap', [ 'custom' => [10201], 'status' => [ 'from' => null, 'to' => 'tg_home_defbuff' ] ] ], 'message' => 'Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.' ],
+                'home_survivalist_any' => [ 'label' => 'Den Brunnen füllen', 'meta' => [ 'must_be_inside', 'min_6_ap', 'not_profession_survivalist', 'must_have_surv_building', 'surv_building_counter_below_1' ], 'result' => [ 'minus_6ap', [ 'status' => [ 'counter' => ActionCounter::ActionTypeSpecialActionSurv ], 'custom' => [10302] ] ] ],
+                'home_survivalist_pro' => [ 'label' => 'Den Brunnen füllen', 'meta' => [ 'must_be_inside', 'min_4_ap', 'profession_survivalist',     'must_have_surv_building', 'surv_building_counter_below_1' ], 'result' => [ 'minus_4ap', [ 'status' => [ 'counter' => ActionCounter::ActionTypeSpecialActionSurv ], 'custom' => [10301] ] ] ],
+
+                'home_crows_any' => [ 'label' => 'Die Wüste kartographieren', 'meta' => [ 'must_be_inside', 'min_2_ap', 'not_profession_hunter', 'must_have_crowsnest', 'hunter_building_counter_below_1' ], 'result' => [ 'minus_2ap', [ 'status' => [ 'counter' => ActionCounter::ActionTypeSpecialActionHunter ], 'custom' => [10401] ] ] ],
+                'home_crows' => [ 'label' => 'Die Wüste kartographieren', 'meta' => [ 'must_be_inside', 'profession_hunter', 'must_have_crowsnest', 'hunter_building_counter_below_1' ], 'result' => [ [ 'status' => [ 'counter' => ActionCounter::ActionTypeSpecialActionHunter ], 'custom' => [10401] ] ] ],
+
+                'home_defbuff_any'   => [ 'label' => 'Verteidigung organisieren', 'meta' => [ 'not_profession_guardian', 'min_2_ap', 'must_be_inside', 'must_have_guardtower', 'not_yet_home_defbuff', 'guard_tower_not_max' ], 'result' => ['minus_2ap', [ 'custom' => [10201], 'status' => [ 'from' => null, 'to' => 'tg_home_defbuff' ] ] ], 'message' => 'Du suchst die Stadtmauer nach kleinen Lücken ab, die die Wächter hinterlassen haben könnten. Die Stadt hat vorübergehend +5 Verteidigungspunkte gewonnen.' ],
 
                 'open_drugkit'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => 'drugkit' ] ], 'message_key' => 'container_open' ],
+
+                'purify_soul' => [ 'result' => [ 'add_custom' => [ 'custom' => [11001] ] ]],
             ],
 
             'heroics' => [
@@ -131,6 +152,9 @@ class ActionDataService implements FixtureProcessorInterface {
                 'p1'  => ['home_pool', 'pool'],
                 'p2a' => ['home_scavenge_any', 'small_gather'],
                 'p2b' => ['home_scavenge_pro', 'small_gather'],
+                'p3a' => ['home_survivalist_any', 'item_surv_book'],
+                'p3b' => ['home_survivalist_pro', 'item_surv_book'],
+                'p4'  => ['home_crows_any', 'watchmen'],
                 'p3'  => ['home_defbuff_any', 'watchmen']
             ],
 
@@ -183,10 +207,7 @@ class ActionDataService implements FixtureProcessorInterface {
             ],
         ]);
 
-        $data['meta_requirements'] = array_merge_recursive(
-            $data['meta_requirements'],
-            $requirement_container->toArray()
-        );
+        $data['meta_requirements'] = $requirement_container->toArray();
 
         array_walk_recursive( $data, fn(&$value) => is_a( $value, ArrayDecoratorReadInterface::class ) ? $value = $value->toArray() : $value );
     }

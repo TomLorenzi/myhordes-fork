@@ -81,8 +81,8 @@ class DeathHandler
 
         foreach ($rucksack->getItems() as $item)
             // We get his rucksack and drop items into the floor or into his chest (except job item)
-            if(!$item->getEssential())
-                $this->inventory_handler->forceMoveItem($floor, $item);
+            if(!$item->getEssential() || $item->getPrototype()->isPersistentEssential())
+                $this->inventory_handler->forceMoveItem($floor, $item->setEssential(false));
 
 
         foreach ($citizen->getDigTimers() as $dt)

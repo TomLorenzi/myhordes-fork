@@ -409,7 +409,7 @@ Tag: Jour
 'Ein Fehler ist aufgetreten. Es stehen keine weiteren Informationen zur Verfügung.': 'Une erreur s’est produite. Aucune autre information n’est disponible.'
 'Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.': 'Le saviez-vous? Pour de nombreuses actions, une info-bulle s’affiche d’abord sur les appareils mobiles. Si vous souhaitez effectuer l’action, vous devez appuyer à nouveau sur celle-ci. Si vous êtes pressé et préférez ne pas voir les textes d’aide, vous pouvez désactiver cette fonctionnalité dans les paramètres de votre âme via le paramètre «\_Afficher les info-bulles sur les appareils mobiles en appuyant dessus\_».'
 Offiziell: Officiel
-'Wir MÜSSEN Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.': 'Nous DEVONS construire d''avantage de défenses dans les chantiers ! Si des ressources manquent, fouillez l''Outre-monde (le désert autour de la ville) pour en dénicher.'
+'Wir MÜSSEN Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.': 'Nous DEVONS construire davantage de défenses aux chantiers ! Si des ressources manquent, fouillez l’Outre-monde (le désert entourant la ville) pour en dénicher.'
 '{n} neue Beiträge in': '{n} nouvelles réponses dans'
 '{n} oder mehr neue Beiträge in': '{n} nouvelles réponses ou plus dans'
 'und andere.': 'et autres.'
@@ -637,3 +637,4 @@ Verbunden: Connecté
 'Diesen Bonus gibt es nur dann, wenn sich die Bürger während eines Angriffs in der Stadt befinden.': 'Ce bonus ne s''applique que si des citoyens sont dans la ville lors d''une attaque.'
 'Anonymer Post': 'Message anonyme'
 'Bist du sicher, dass du deine Fähigkeiten zurücksetzen möchtest? Du wirst all deine Heldenerfahrung und Fähigkeiten verlieren. Diese Aktion kann nicht rückgängig gemacht werden!': 'Êtes-vous sûr de vouloir réinitialiser vos compétences ? Vous perdrez toute votre expérience et vos compétences de héros. Cette action est irréversible !'
+'Dieser Spieler ist ein Mitglied der Künstlergilde auf MyHordes.': 'Ce joueur est membre de l''Équipe Artistique de MyHordes.'
