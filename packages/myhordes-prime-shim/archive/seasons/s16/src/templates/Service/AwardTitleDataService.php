@@ -41,6 +41,16 @@ class AwardTitleDataService implements FixtureProcessorInterface {
         $container->add()->title('Nobelpreis für Gesundheit')->unlockquantity(10000)->associatedtag(':clean:')->associatedpicto('r_nodrug_#00')->commit();
         $container->add()->title('Wenn Zombies es nicht tun... Warum sollte ich es tun?')->unlockquantity(15000)->associatedtag(':clean:')->associatedpicto('r_nodrug_#00')->commit();
 
+		// Blue Thermal Bath titles
+		$container->add()->title('Diese Römer hatten\'s drauf!')->unlockquantity(5)->associatedpicto('r_thermal_#00')->commit();
+		$container->add()->title('Das geht mit Wasser?')->unlockquantity(10)->associatedpicto('r_thermal_#00')->commit();
+		$container->add()->title('Wie ein Pony im Wasser')->unlockquantity(15)->associatedpicto('r_thermal_#00')->commit();
+		$container->add()->title('Wer kommt mit in den Hammam!')->unlockquantity(20)->associatedpicto('r_thermal_#00')->commit();
+		$container->add()->title('Thermaler Bademeister')->unlockquantity(25)->associatedpicto('r_thermal_#00')->commit();
+		$container->add()->title('~ Tee für Zwei, Zwei im Tee ~')->unlockquantity(30)->associatedpicto('r_thermal_#00')->commit();
+		$container->add()->title('Im Marienbad')->unlockquantity(40)->associatedpicto('r_thermal_#00')->commit();
+		$container->add()->title('Wir hätten auch Duschen bauen können...')->unlockquantity(50)->associatedpicto('r_thermal_#00')->commit();
+
         $data = $container->toArray();
     }
 }

@@ -4,7 +4,10 @@
 namespace MyHordes\Prime\EventListener\Game\Action;
 
 use App\Entity\ItemGroup;
+use App\Entity\Zone;
+use App\Entity\ZoneActivityMarker;
 use App\Enum\ScavengingActionType;
+use App\Enum\ZoneActivityMarkerType;
 use App\Event\Game\Actions\CustomActionProcessorEvent;
 use App\Event\Game\Citizen\CitizenPostDeathEvent;
 use App\EventListener\ContainerTypeTrait;
@@ -14,9 +17,12 @@ use App\Service\EventProxyService;
 use App\Service\GameProfilerService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
+use App\Service\LogTemplateHandler;
 use App\Service\RandomGenerator;
 use App\Service\TownHandler;
 use App\Structures\TownConf;
+use App\Translation\T;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
@@ -43,7 +49,8 @@ final class PrimeItemActionListener implements ServiceSubscriberInterface
             ItemFactory::class,
             GameProfilerService::class,
             InventoryHandler::class,
-            TownHandler::class
+            TownHandler::class,
+            LogTemplateHandler::class,
         ];
     }
 
@@ -55,8 +62,6 @@ final class PrimeItemActionListener implements ServiceSubscriberInterface
 
             // Scavenger building action
             case 10101:
-
-                $trans = $this->getService(TranslatorInterface::class);
                 $random = $this->getService(RandomGenerator::class);
 
                 $dig_chance = $this->getService(EventProxyService::class)->citizenQueryDigChance( $event->citizen, null, ScavengingActionType::Dig, $event->townConfig->isNightMode() );
@@ -72,18 +77,18 @@ final class PrimeItemActionListener implements ServiceSubscriberInterface
                 if ($item) {
 
                     $execute_info_cache['items_spawn'][] = $item;
-                    $execute_info_cache['message'][] = $trans->trans( 'Deine Anstrengungen in den Buddelgruben haben sich gelohnt! Du hast folgendes gefunden: {items_spawn}!', [], 'game' );
+                    $execute_info_cache['message'][] = [T::__( 'Deine Anstrengungen in den Buddelgruben haben sich gelohnt! Du hast folgendes gefunden: {items_spawn}!', 'game' ), 'game'];
 
                     $item_instance = $this->getService(ItemFactory::class)->createItem($item);
                     $this->getService(GameProfilerService::class)->recordItemFound( $item, $event->citizen, method: 'scavenge_town' );
                     $this->getService(InventoryHandler::class)->placeItem( $event->citizen, $item_instance, [ $event->citizen->getInventory() ] );
 
                 } else {
-                    $execute_info_cache['message'][] = $trans->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' );
+                    $execute_info_cache['message'][] = [T::__( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', 'game' ), 'game'];
                     if ($event->citizen->hasStatus('drunk'))
-                        $execute_info_cache['message'][] = $trans->trans( 'Dein <strong>Trunkenheitszustand</strong> hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.', [], 'game' );
+                        $execute_info_cache['message'][] = [T::__( 'Dein <strong>Trunkenheitszustand</strong> hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.', 'game' ), 'game'];
                     if ($event->citizen->hasStatus('wound5'))
-                        $execute_info_cache['message'][] = $trans->trans( 'Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.', [], 'game' );
+                        $execute_info_cache['message'][] = [T::__( 'Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.',  'game' ), 'game'];
                 }
 
                 break;
@@ -100,6 +105,78 @@ final class PrimeItemActionListener implements ServiceSubscriberInterface
                     $cn->setTempDefenseBonus(min($max, $cn->getTempDefenseBonus() + $use));
                     $this->getService(EntityManagerInterface::class)->persist($cn);
                 }
+                break;
+
+            // Survivalist building action
+            case 10301: case 10302:
+                $random = $this->getService(RandomGenerator::class);
+
+                $execute_info_cache['well'] = $water_count = $random->pickEntryFromRawRandomArray( $event->type === 10301
+                    ? [ [1], [2], [3] ]
+                    : [ [0,15], [1,85] ]
+                );
+
+                if ($water_count > 0) {
+                    $event->town->setWell($event->town->getWell() + $water_count);
+                    $this->getService(EntityManagerInterface::class)->persist(
+                        $this->getService(LogTemplateHandler::class)->wellAdd( $event->citizen, count: $water_count )
+                    );
+                    $execute_info_cache['message'][] = [T::__( 'Zur "Freude" deiner Mitbürger ist es dir gelungen, den Brunnen um {well} Rationen Wasser aufzufüllen!',  'game' ), 'game'];
+                } else $execute_info_cache['message'][] = [T::__( 'Leider ist es dir nicht gelungen, dem Brunnen eine substantielle Menge an Wasser hinzuzufügen ...',  'game' ), 'game'];
+
+                break;
+
+            // Scout building action
+            case 10401:
+
+                $random = $this->getService(RandomGenerator::class);
+                $em = $this->getService(EntityManagerInterface::class);
+
+                $execute_info_cache['casino'] = $zones_count = mt_rand(3, 6);
+                $close_zones_count = mt_rand( floor($zones_count / 2.0), $zones_count );
+                $distant_zones_count = $zones_count - $close_zones_count;
+
+                $potential_zones = array_filter( $event->town->getZones()->getValues(), fn(Zone $zone) => $zone->getScoutLevel() < 3 );
+                $close_zones = array_filter( $potential_zones, fn(Zone $zone) => $zone->getDistance() <= 11 );
+                $distant_zones = array_filter( $potential_zones, fn(Zone $zone) => $zone->getDistance() > 11 );
+
+                $zones = array_merge(
+                    $random->pick( $close_zones, $close_zones_count, true ),
+                    $random->pick( $distant_zones, $distant_zones_count, true ),
+                );
+
+                foreach ($zones as $zone) {
+                    /** @var Zone $zone */
+                    $zone->addActivityMarker((new ZoneActivityMarker())
+                                                 ->setCitizen($event->citizen)
+                                                 ->setTimestamp(new DateTime())
+                                                 ->setType(ZoneActivityMarkerType::ScoutMarker)
+                    );
+                    $em->persist($zone);
+                }
+
+                $markings_visible = $event->citizen->getProfession()->getName() === 'hunter' || $event->citizen->hasRole('guide');
+                if (count($zones) === 0) $execute_info_cache['message'][] = [T::__( 'Leider ist es dir trotz größter Anstrengungen nicht gelungen, etwas neues in der Umgebung zu entdecken.',  'game' ), 'game'];
+                elseif ($markings_visible)
+                    $execute_info_cache['message'][] = [T::__( 'Nichts entgeht deinem geschulten Blick! Du hast neue Informationen über {casino} Zonen gesammelt!',  'game' ), 'game'];
+                else $execute_info_cache['message'][] = [T::__( 'Frenetisch schreibst du alles auf was du in der Umgebung entdeckst und sammelst neue Informationen über {casino} Zonen. Jetzt brauchst du nur noch einen Experten, der ermitteln kann, wo genau diese Zonen liegen ...',  'game' ), 'game'];
+
+            break;
+
+            // Additional soul purification effects
+            case 11001:
+                $hammam_level = $this->getService(TownHandler::class)->getBuilding( $event->town, 'item_soul_blue_static_#00' )?->getLevel() ?? 0;
+
+                // 5 additional defense per cleansed soul (the original action already gives 5, so in total we give 10)
+                if ($hammam_level > 0) $event->town->setSoulDefense( $event->town->getSoulDefense() + 5 );
+
+                // Bonus score (2) and +10 additional defense
+                if ($hammam_level >= 3) {
+                    $event->town->setSoulDefense( $event->town->getSoulDefense() + 10 );
+                    $event->town->setBonusScore($event->town->getBonusScore() + 2);
+                }
+
+
                 break;
         }
 

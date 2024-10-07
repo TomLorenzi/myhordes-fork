@@ -66,3 +66,24 @@ Antivax_f: Antivax_f
 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...': "Malheureusement, malgré tous vos efforts, vous n'avez rien trouvé ici..."
 'Dein <strong>Trunkenheitszustand</strong> hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.': "Votre <strong>état d’ivresse</strong> ne vous aide vraiment pas. Ce n'est pas vraiment facile quand tout tourne et qu'on n'y voit plus clair."
 'Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.': "Votre blessure à l'œil ne facilite pas vos recherches."
+'Du kannst nicht so viele Gegenstände auf die Müllhalde werfen.': "Vous ne pouvez pas jeter autant d'objets dans la décharge."
+'Du hast die Techniker-Werkbank <strong>heute bereits verwendet</strong>. Komm morgen wieder.': "Vous avez <strong>déjà utilisé</strong> l'Établi des Techniciens aujourd'hui. Revenez demain."
+'<strong>Achtung:</strong> Du kannst die Techniker-Werkbank nur <strong>ein mal pro Tag</strong> nutzen, denke also nach bevor du handelst.': "<strong>Attention :</strong> Vous ne pouvez utiliser l'Établi des Techniciens qu'<strong>une fois par jour</strong>, alors réfléchissez avant d'agir."
+'Zur "Freude" deiner Mitbürger ist es dir gelungen, den Brunnen um {well} Rationen Wasser aufzufüllen!': "Pour la « joie » de vos concitoyens, vous avez réussi à remplir le puits avec des rations d'eau !"
+'Leider ist es dir nicht gelungen, dem Brunnen eine substantielle Menge an Wasser hinzuzufügen ...': "Malheureusement, vous n'avez pas réussi à ajouter une quantité d'eau substantielle au puits..."
+'Leider ist es dir trotz größter Anstrengungen nicht gelungen, etwas neues in der Umgebung zu entdecken.': "Malheureusement, malgré tous vos efforts, vous n'avez rien réussi à découvrir de nouveau dans la région."
+'Nichts entgeht deinem geschulten Blick! Du hast neue Informationen über {casino} Zonen gesammelt!': "Rien n'échappe à votre œil exercé ! Vous avez rassemblé de nouvelles informations sur {casino} zones !"
+'Frenetisch schreibst du alles auf was du in der Umgebung entdeckst und sammelst neue Informationen über {casino} Zonen. Jetzt brauchst du nur noch einen Experten, der ermitteln kann, wo genau diese Zonen liegen ...': "Vous notez frénétiquement tout ce que vous découvrez dans la région et collectez de nouvelles informations sur {casino} zones. Il ne vous reste plus qu'à faire appel à un expert capable de déterminer où se trouvent exactement ces zones..."
+Installieren: Jeter
+Wiederherstellen: Récupérer
+'Du kannst jedes Mal höchstens 20 identische Gegenstände zerstören oder wiederherstellen': "Vous pouvez jeter jusqu'à 20 objets à la fois dans la décharge."
+'Jede Aktion kostet dich {ap}.': 'Chaque action coûte {ap}.'
+'Wie viele Gegenstände möchtest du auf den Müll wiederherstellen?': "Combien d'objets voulez-vous récupérer de la décharge ?"
+'Wie viele Gegenstände möchtest du auf den Müll werfen?': 'Combien d’objets voulez-vous jeter à la décharge ?'
+'Ohne echte Waffenlager sind deine Gegenstände in Watch nutzlos. Deine Stadt sollte {building} bauen, um diese Mängel auszugleichen...': "Sans véritable stockage d'arme, vos objets sont inutiles en veille. Votre ville devrait construire une {building} afin de palier vos lacunes..."
+'Die Leiche verbrennen!': 'Brûler le corps !'
+'Die Zeremonie besteht daraus, die Leiche mit 1x <strong>Fackel</strong> zu verbrennen und dann die Asche in das Gemüsebeet zu streuen. Dadurch wird der Leichnam sofort zerstört.': "Cette cérémonie consiste à brûler le corps avec 1x <strong>Torche</strong> puis à disperser les cendres dans le Potager. Cela aura l'effet de le détruire immédiatement."
+'In großer Trauer verstreute {disposing_citizen} die Asche von {citizen} in das Gemüsebeet. Wenigstens war er am Ende noch nützlich.': "C'est avec une mine triste que {disposing_citizen} a répandu les cendres du corps de {citizen} dans le Potager."
+'Diese Aktion verbraucht 1x Fackel und 2 Aktionspunkte. Bestätigen?': "Cette action requiert 1x Torche et 2 points d'action. Confirmer ?"
+'Du verbrennst die Leiche von {disposed} mit der Fackel und verstreust dann die Asche in das Gemüsebeet. Das sollte unsere Ernte verbessern...': 'Vous brûlez le corps de {disposed} avec la torche puis dispersez les cendres dans le potager. Cela devrait nous donner plus de nourriture...'
+'Du kannst nicht so viele Gegenstände auf die Müllhalde wiederherstellen.': "Vous ne pouvez pas récuperer autant d'objets dans la décharge."

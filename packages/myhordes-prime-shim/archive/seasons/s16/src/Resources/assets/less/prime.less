@@ -1,5 +1,20 @@
 // Header
-html              #wrapper:not(.attract) > #header { background-image: url('../img/background/bg_content_header.jpg'); }
-html.lang-base-en #wrapper:not(.attract) > #header { background-image: url('../img/background/bg_content_header_en.jpg'); }
-html.lang-base-fr #wrapper:not(.attract) > #header { background-image: url('../img/background/bg_content_header_fr.jpg'); }
-html.lang-base-es #wrapper:not(.attract) > #header { background-image: url('../img/background/bg_content_header_es.jpg'); }
+html              body[data-theme-name="none"] #wrapper:not(.attract) > #header { background-image: url('../img/background/bg_content_header.jpg'); }
+html.lang-base-en body[data-theme-name="none"] #wrapper:not(.attract) > #header { background-image: url('../img/background/bg_content_header_en.jpg'); }
+html.lang-base-fr body[data-theme-name="none"] #wrapper:not(.attract) > #header { background-image: url('../img/background/bg_content_header_fr.jpg'); }
+html.lang-base-es body[data-theme-name="none"] #wrapper:not(.attract) > #header { background-image: url('../img/background/bg_content_header_es.jpg'); }
+
+html              body[data-theme-name="none"][data-theme-primary-modifier="panda"] #wrapper:not(.attract) > #header { background-image: url('../img/background/bg_content_header_hc.png'); }
+html.lang-base-en body[data-theme-name="none"][data-theme-primary-modifier="panda"] #wrapper:not(.attract) > #header { background-image: url('../img/background/bg_content_header_hc_en.png'); }
+html.lang-base-fr body[data-theme-name="none"][data-theme-primary-modifier="panda"] #wrapper:not(.attract) > #header { background-image: url('../img/background/bg_content_header_hc_fr.png'); }
+html.lang-base-es body[data-theme-name="none"][data-theme-primary-modifier="panda"] #wrapper:not(.attract) > #header { background-image: url('../img/background/bg_content_header_hc_es.png'); }
+
+html              body[data-theme-name="none"][data-theme-secondary-modifier="chaos"] #wrapper:not(.attract) > #header { background-image: url('../img/background/bg_content_header_chaos.png'); }
+html.lang-base-en body[data-theme-name="none"][data-theme-secondary-modifier="chaos"] #wrapper:not(.attract) > #header { background-image: url('../img/background/bg_content_header_chaos_en.png'); }
+html.lang-base-fr body[data-theme-name="none"][data-theme-secondary-modifier="chaos"] #wrapper:not(.attract) > #header { background-image: url('../img/background/bg_content_header_chaos_fr.png'); }
+html.lang-base-es body[data-theme-name="none"][data-theme-secondary-modifier="chaos"] #wrapper:not(.attract) > #header { background-image: url('../img/background/bg_content_header_chaos_es.png'); }
+
+html              body[data-theme-name="none"][data-theme-daytime="night"] #wrapper:not(.attract) > #header { background-image: url('../img/background/bg_content_header_night.png'); }
+html.lang-base-en body[data-theme-name="none"][data-theme-daytime="night"] #wrapper:not(.attract) > #header { background-image: url('../img/background/bg_content_header_night_en.png'); }
+html.lang-base-fr body[data-theme-name="none"][data-theme-daytime="night"] #wrapper:not(.attract) > #header { background-image: url('../img/background/bg_content_header_night_fr.png'); }
+html.lang-base-es body[data-theme-name="none"][data-theme-daytime="night"] #wrapper:not(.attract) > #header { background-image: url('../img/background/bg_content_header_night_es.png'); }

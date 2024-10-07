@@ -9,6 +9,8 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class MyHordesPrimeBundle extends Bundle {
 
+    const PKG = 'myhordes/prime-csc';
+
     public function build(ContainerBuilder $container): void
     {
         parent::build($container);

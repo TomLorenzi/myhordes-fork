@@ -32,10 +32,7 @@ final class PrimeBuildingConstructionListener implements ServiceSubscriberInterf
         return [
             EntityManagerInterface::class,
             LogTemplateHandler::class,
-            //PictoHandler::class,
-            //DoctrineCacheService::class,
             TownHandler::class,
-            //GameProfilerService::class
             InventoryHandler::class,
             ItemFactory::class,
             CitizenHandler::class,
@@ -58,6 +55,15 @@ final class PrimeBuildingConstructionListener implements ServiceSubscriberInterf
 
     public function onConfigurePictoEffect( BuildingConstructionEvent $event ): void {
         // Implement me!
+		// Buildings which give pictos
+		$pictos = match ($event->building->getPrototype()->getName()) {
+			'small_thermal_#00' =>  ['r_thermal_#00','r_ebuild_#00', 'r_wondrs_#00'],
+            'small_crow_#00'   =>  ['r_wondrs_#00'],
+			default => []
+		};
+
+		if (!empty($pictos))
+			$event->pictos = array_merge($event->pictos, $pictos);
     }
 
     public function onExecuteSpecialEffect( BuildingConstructionEvent $event ): void {
@@ -88,7 +94,7 @@ final class PrimeBuildingConstructionListener implements ServiceSubscriberInterf
             case 'small_spa4souls_#00':
                 // Move souls closer to town
                 // Get all soul items on the WB
-                $soul_items = $this->getService(InventoryHandler::class)->getAllItems($event->town, ['soul_blue_#00'], false, false, false, true, false);
+                $soul_items = $this->getService(InventoryHandler::class)->getAllItems($event->town, ['soul_blue_#00'], false, false, false, true, false, false);
 
                 foreach ($soul_items as $soul)
                     // Only move souls which have not been picked up yet
@@ -104,5 +110,4 @@ final class PrimeBuildingConstructionListener implements ServiceSubscriberInterf
             default: break;
         }
     }
-
 }
