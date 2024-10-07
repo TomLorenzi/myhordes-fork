@@ -135,7 +135,7 @@ final class ContentReportEventListener implements ServiceSubscriberInterface
                 AdminReportSpecification::CitizenLastWords => $event->subject->getLastWords(),
                 AdminReportSpecification::CitizenTownComment => $event->subject->getComment(),
             },
-            User::class => strip_tags( preg_replace('/<br ?\/?>/', "\n", $html->prepareEmotes( $this->getService(EntityManagerInterface::class)->getRepository(UserDescription::class)->findOneBy(['user' => $user])?->getText() ?? '' ) ) ),
+            User::class => strip_tags( preg_replace('/<br ?\/?>/', "\n", $html->prepareEmotes( $this->getService(EntityManagerInterface::class)->getRepository(UserDescription::class)->findOneBy(['user' => $event->subject])?->getText() ?? '' ) ) ),
             default => ''
         };
     }
