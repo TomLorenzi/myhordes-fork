@@ -379,14 +379,22 @@ const ControlButtonInsertQuote = () => {
             after = ` ${after}`;
 
         let insert = '';
+        console.log(selected.current);
         if (selected.current)
             insert = selected.current.id < 0
                 ? `[quote=${selected.current.name.replaceAll(/[\[\]=]/gi, '')}]${inner}[/quote]`
                 : `[quote=@${selected.current.name.replaceAll(/[^\w_]/gi, '')}:${selected.current.id}]${inner}[/quote]`;
         else insert = `[quote]${inner}[/quote]`;
 
+        let offset = 7;
+        if (selected.current)
+            offset = selected.current.id < 0
+                ? 8 + selected.current.name.replaceAll(/[\[\]=]/gi, '').length
+                : 14 + selected.current.name.replaceAll(/[^\w_]/gi, '').length;
+
         globals.setField('body', `${before}${insert}${after}`);
-        globals.selection.update(before.length, before.length + insert.length);
+        // should be set to after the open tag and before the end tag
+        globals.selection.update(before.length + offset, before.length + offset + inner.length);
         selected.current = null;
     }}>
         <div ref={parent}>
