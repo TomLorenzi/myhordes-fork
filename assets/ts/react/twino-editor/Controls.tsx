@@ -1,8 +1,8 @@
 import * as React from "react";
-import {ReactElement, useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
+import {useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
 import {Globals} from "./Wrapper";
 import {UserSearchBar} from "../user-search/Wrapper";
-import {Tab, TabbedSection, TabGroup, TabProps} from "../tab-list/TabList";
+import {Tab, TabbedSection, TabGroup} from "../tab-list/TabList";
 import {Emote, Snippet} from "./api";
 import {Tooltip} from "../tooltip/Wrapper";
 import {v4 as uuidv4} from "uuid";
@@ -146,8 +146,6 @@ export const TwinoEditorControlsTabList = ({emotes, snippets}: {
 }
 
 const TwinoEditorControlsTabListOverlay = ({emotes,show,current,mounted}: {emotes: null|Array<Emote>, show: boolean, current: OverlayTypes|null, mounted: OverlayTypes[]}) => {
-    const globals = useContext(Globals);
-
     return <div className={`overlay-controls layered ${show ? 'active' : 'inactive'}`}>
         { mounted.includes('emotes') && <div className={current === 'emotes' ? '' : 'hidden'}><EmoteTabSection emotes={emotes}/></div> }
         { mounted.includes('games') && <div className={current === 'games' ? '' : 'hidden'}><GameTabSection/></div> }
@@ -305,7 +303,7 @@ const ControlButtonNodeInsert = ({fa = null, img = null, label = null, node, con
         const opt_nl_after = (block && !closes) ? "\n" : '';
         const before = block ? body.slice(0,selection[0]).trimEnd() : body.slice(0,selection[0]);
 
-        let text = '';
+        let text: string;
         if (multiline) {
             text = body.slice(selection[0],selection[1]).trim().split('\n').map((s:string,index) => `${index > 0 ? insert : ''}${s.trim()}`).join("\n");
         } else {
@@ -378,19 +376,17 @@ const ControlButtonInsertQuote = () => {
         if (after !== '' && !after.slice(0,1).match(/\s/))
             after = ` ${after}`;
 
-        let insert = '';
-        console.log(selected.current);
-        if (selected.current)
+        let insert: string;
+        let offset = 7;
+
+        if (selected.current) {
             insert = selected.current.id < 0
                 ? `[quote=${selected.current.name.replaceAll(/[\[\]=]/gi, '')}]${inner}[/quote]`
                 : `[quote=@${selected.current.name.replaceAll(/[^\w_]/gi, '')}:${selected.current.id}]${inner}[/quote]`;
-        else insert = `[quote]${inner}[/quote]`;
-
-        let offset = 7;
-        if (selected.current)
             offset = selected.current.id < 0
                 ? 8 + selected.current.name.replaceAll(/[\[\]=]/gi, '').length
                 : 14 + selected.current.name.replaceAll(/[^\w_]/gi, '').length;
+        } else insert = `[quote]${inner}[/quote]`;
 
         globals.setField('body', `${before}${insert}${after}`);
         // should be set to after the open tag and before the end tag
