@@ -8,6 +8,7 @@ enum TownSetting: string implements Configuration
 
     //<editor-fold desc="Core Settings">
     case AllowLocalConfiguration = 'allow_local_conf';
+    case CreateQAPost = 'qa_post';
     //</editor-fold>
 
     //<editor-fold desc="Town Start Meta Settings">
@@ -227,6 +228,7 @@ enum TownSetting: string implements Configuration
         /** @noinspection PhpDuplicateMatchArmBodyInspection */
         return match ($this) {
             self::AllowLocalConfiguration               => false,
+            self::CreateQAPost                          => true,
             self::CancelTownAfterDaysWithoutFilling     => -1,
             self::DoNotCancelAfterCitizensReached       => 40,
             self::SpawnStrangerAfterUnfilledDays        => -1,

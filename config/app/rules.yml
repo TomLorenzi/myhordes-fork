@@ -13,6 +13,8 @@ parameters:
 
       skill_mode: true,
 
+      qa_post: true
+
       well:       { min: 90, max: 180 }
       map:        { min: 25, max:  27, margin: 0.25 }
       population: { min: 40, max:  40 }
@@ -276,6 +278,8 @@ parameters:
         soul_generation_coef: 1.25
 
     panda:
+      qa_post: false
+
       well: { min: 60, max: 90 }
 
       modifiers:
