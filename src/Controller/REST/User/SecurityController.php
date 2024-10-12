@@ -10,6 +10,7 @@ use App\Entity\UserPendingValidation;
 use App\Response\AjaxResponse;
 use App\Service\Actions\EMail\GetEMailDomainAction;
 use App\Service\Actions\Security\GenerateKeyAction;
+use App\Service\Actions\Security\GenerateMercureToken;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\Locksmith;
@@ -155,5 +156,16 @@ class SecurityController extends CustomAbstractCoreController
             'success' => true,
             'message' => $trans->trans('Dein neues Passwort wurde dir per E-Mail zugeschickt.', [], 'soul')
         ]);
+    }
+
+
+    #[Route(path: '/renew-token', name: 'renew_core_token', methods: ['GET'])]
+    public function renew_token(GenerateMercureToken $token): JsonResponse
+    {
+        return new JsonResponse(
+            ['token' => ($token)(
+                renew_url: $this->generateUrl('rest_user_security_renew_core_token', [], UrlGeneratorInterface::ABSOLUTE_URL)
+            )]
+        );
     }
 }
