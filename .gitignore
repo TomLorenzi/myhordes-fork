@@ -23,6 +23,7 @@ symfony.lock
 /public/build/
 /public/service/
 /public/shared/
+/public/shared-shim/
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###

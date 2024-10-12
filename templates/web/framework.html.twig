@@ -3,6 +3,7 @@
       data-language="{{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}"
       data-ticket="{{ ticket }}"
       data-shared-worker="{{ absolute_url(asset('shared/shared.js', 'shared-package')) }}"
+      data-shared-shim="{{ absolute_url(asset('shared-shim/shared-shim.js', 'shared-shim-package')) }}"
       data-service-worker="{{ absolute_url(asset('service/service.js', 'service-package')) }}"
       data-vapid-key="{{ vapid_public }}"
       data-mercure-auth="{{ mercure_token|json_encode }}"

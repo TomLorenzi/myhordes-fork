@@ -6,7 +6,9 @@ declare global {
 
         mhWorkerQueue: Array<any>,
         mhWorkerSetup: boolean|null,
+        mhWorkerSetupShim: boolean|null,
         mhWorker: SharedWorker,
+        mhWorkerShim: boolean|null,
         mhWorkerIdList: Array<string>
     }
 }
@@ -26,11 +28,13 @@ export function serviceWorkerCall(request: string, args: object = {}): Promise<a
 
 export function sharedWorkerCall(request: string, args: object = {}): Promise<any> {
     return new Promise<any>((resolve,reject) => {
-        if (window.mhWorkerSetup && !window.mhWorker) reject(null);
+        if (window.mhWorkerSetup && !window.mhWorker && window.mhWorkerSetupShim && !window.mhWorkerShim) reject(null);
         window.transferTable.push(resolve);
         const payload = {...args, request, for: window.mhWorkerIdList, to: `${window.transferTable.length - 1}`};
-        if (window.mhWorkerSetup)
+        if (window.mhWorkerSetup && window.mhWorker)
             window.mhWorker.port.postMessage( payload )
+        else if (window.mhWorkerSetupShim && window.mhWorkerShim)
+            document.getElementById('_shared_shim_incoming')?.dispatchEvent(new CustomEvent('__message', {detail: payload}));
         else {
             if (!window.mhWorkerQueue) window.mhWorkerQueue = [];
             window.mhWorkerQueue.push(payload);
@@ -59,7 +63,12 @@ export function html(): HTMLElement {
 async function initLive() {
     require('string.prototype.matchall').shim();
     await initServiceWorker();
-    await initSharedWorker();
+    const shared = await initSharedWorker();
+
+    if (!shared) {
+        console.warn('Could not enable shared worker. Attempting fallback to shim');
+        window.mhWorkerShim = await initSharedWorkerShim();
+    }
 }
 
 async function initOnceLoaded() {
@@ -172,6 +181,82 @@ async function initSharedWorker(): Promise<boolean> {
     const mercure = html()?.dataset?.mercureAuth as string;
     if (mercure)
         sharedWorkerCall('mercure.authorize', {connection: 'live', token: JSON.parse(mercure)});
+
+    return true;
+}
+
+async function initSharedWorkerShim(): Promise<boolean> {
+    window.mhWorkerSetupShim = true;
+    window.mhWorkerShim = true;
+
+    const sharedLoaderFile = html()?.dataset?.sharedShim as string;
+    if (!sharedLoaderFile) {
+        Console.warn('Shared worker shim file not defined.')
+        return false;
+    }
+
+    const response = await fetch( sharedLoaderFile );
+    if (!response.ok) {
+        Console.warn('Shared worker shim failed to load.')
+        return false;
+    }
+
+    eval(await response.text());
+    const port_send = document.getElementById('_shared_shim_incoming');
+    const port = document.getElementById('_shared_shim_outgoing');
+    if (!port_send || !port) {
+        Console.warn('Shared worker shim failed to initialize.')
+        return false;
+    }
+
+    port.addEventListener('__message', (e: CustomEvent) => {
+
+        Console.debug('From shared worker shim', e.detail);
+        switch (e.detail.request) {
+            case 'worker.id':
+                window.mhWorkerIdList.push( e.detail.id );
+                window.mhWorkerQueue?.forEach( p => port_send.dispatchEvent(new CustomEvent('__message', {detail: {...p, for: window.mhWorkerIdList}} ) ) );
+                window.mhWorkerQueue = [];
+                break;
+
+            case 'response':
+                const id = parseInt( e.detail.to as string );
+                const callback = window.transferTable[id] ?? null;
+                if (callback) {
+                    callback(e.detail.payload);
+                    window.transferTable[id] = null;
+                } else Console.warn(`Did not find callback "${id}" in callback table:`, window.transferTable)
+                break;
+
+            case 'broadcast.incoming':
+                html().dispatchEvent(new CustomEvent('broadcastMessage', {bubbles: true, cancelable: false, detail: e.detail.payload}));
+                break;
+
+            case 'mercure.incoming':
+                html().dispatchEvent(new CustomEvent('mercureMessage', {bubbles: true, cancelable: false, detail: e.detail.payload}));
+                break;
+
+            case 'mercure.connection_state':
+                const state = e.detail.payload.state;
+
+                html().dispatchEvent(new CustomEvent('mercureState', {bubbles: true, cancelable: false, detail: e.detail.payload}));
+                if (state.connection === 'live') {
+                    const mercure = JSON.parse(html()?.dataset?.mercureAuth as string ?? 'null');
+                    if (!state.auth && mercure?.t) sharedWorkerCall('mercure.authorize', {connection: 'live', token: mercure});
+                }
+
+                break;
+        }
+
+    })
+    port_send.dispatchEvent(new CustomEvent('__connect'));
+
+    port_send.dispatchEvent(new CustomEvent('__message', {detail: {request: 'ping'}} ) );
+    const mercure = html()?.dataset?.mercureAuth as string;
+    if (mercure)
+        sharedWorkerCall('mercure.authorize', {connection: 'live', token: JSON.parse(mercure)});
+
+    return true;
 }
 
 export function init () {

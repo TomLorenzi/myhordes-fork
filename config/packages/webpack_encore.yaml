@@ -38,6 +38,8 @@ framework:
         json_manifest_path: '%kernel.project_dir%/public/service/manifest.json'
       shared-package:
         json_manifest_path: '%kernel.project_dir%/public/shared/manifest.json'
+      shared-shim-package:
+        json_manifest_path: '%kernel.project_dir%/public/shared-shim/manifest.json'
 #when@prod:
 #    webpack_encore:
 #        # Cache the entrypoints.json (rebuild Symfony's cache when entrypoints.json changes)
