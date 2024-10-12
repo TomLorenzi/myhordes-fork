@@ -491,7 +491,11 @@ class BeyondController extends InventoryAwareController
             'active_scout_mode' => $this->inventory_handler->countSpecificItems(
                     $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
                 ) > 0,
-            'conf' => $this->getTownConf()
+            'conf' => $this->getTownConf(),
+            'controller_action' => 'beyond_desert_action_controller',
+            'controller_recipe' => 'beyond_desert_recipe_controller',
+            'controller_dash' => 'beyond_dashboard',
+            'render_frame' => 'beyond_desert_content',
         ];
     }
 

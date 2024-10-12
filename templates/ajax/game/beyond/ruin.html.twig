@@ -118,8 +118,12 @@
                         </button>
                     {% endif %}
                 {% endif %}
+                <div id="wb-item-action-section" style="display: contents">
+                    {% embed "ajax/game/actions.html.twig" with {'t': citizen.fullPropertySet, 'scout': false, 'hidden': false, 'iec': true, 'item_action_proxy': path('beyond_ruin_dashboard_partial_item_actions')} %}
+                    {% endembed %}
+                </div>
 
-                {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes,'t': citizen.fullPropertySet, 'scout': false, 'hidden': false} %}
+                {% embed "ajax/game/actions.html.twig" with { 'heroic_action_list': heroics,'t': citizen.fullPropertySet, 'scout': false } %}
                 {% endembed %}
             </div>
 
@@ -169,18 +173,7 @@
         );
         $.html.addEventListenerAll( 'ul.heroic_actions .already[data-used-message]', 'click', (e,elem) => $.html.error( elem.dataset.usedMessage ) );
 
-        handleActions(
-            document.querySelectorAll('ul.actions li[x-action-id][x-provoking-id]:not([disabled])'),
-            '{{ path('beyond_ruin_action_controller') }}', '{{ path('exploration_dashboard') }}'
-        );
-
-        handleActionPopups( document.querySelectorAll('ul.actions [x-target-definition]') );
         handleActionPopups( document.querySelectorAll('ul.heroic_actions [x-target-definition]') );
-
-        handleRecipes(
-            document.querySelectorAll('ul.actions>li[x-recipe-id]:not([disabled])'),
-            '{{ path('beyond_ruin_recipe_controller') }}', '{{ path('exploration_dashboard') }}'
-        );
 
         {% if zone.x == 0 and zone.y == 0 %}
             $.html.addEventListenerAll( '#exit_ruin_button', 'click', function() {

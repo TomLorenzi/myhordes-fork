@@ -8,12 +8,12 @@
 
     handleActions(
         document.querySelectorAll('ul.actions [x-action-id][x-provoking-id]:not([disabled])'),
-        '{{ path('beyond_desert_action_controller') }}', '{{ path('beyond_dashboard') }}'
+        '{{ path(controller_action) }}', '{{ path(controller_dash) }}'
     );
 
     handleRecipes(
         document.querySelectorAll('ul.actions>li[x-recipe-id]:not([disabled])'),
-        '{{ path('beyond_desert_recipe_controller') }}', '{{ path('beyond_dashboard') }}', document.getElementById('beyond_desert_content')
+        '{{ path(controller_recipe) }}', '{{ path(controller_dash) }}', document.getElementById('{{ render_frame }}')
     );
 
     handleActionPopups( document.querySelectorAll('ul.actions [x-target-definition]') );

@@ -150,8 +150,6 @@ class ExplorationController extends InventoryAwareController implements HookedIn
             'zone' => $ruinZone,
             'floorItems' => $floorItems,
             'heroics' => $this->getHeroicActions(),
-            'actions' => $this->getItemActions(),
-            'recipes' => $this->getItemCombinations(false),
             'move' => $ruinZone->getZombies() <= 0 || $ex->getEscaping(),
             'escaping' => $ex->getEscaping(),
             'zone_zombies' => $ruinZone->getZombies(),
@@ -594,5 +592,29 @@ class ExplorationController extends InventoryAwareController implements HookedIn
             'deserted_bunker' => [T::__("Verlassener Bunker", 'names'), T::__("Thermonuklear-Bunker", 'names'), T::__("Garrison-Haus", 'names'), T::__("Bastion der Angst", 'names'), T::__("Bunker der Wut", 'names'), T::__("Fallout Shelter", 'names'), T::__("Keine Hoffnung ohne Öffnung!", 'names'), T::__("Schattenfort", 'names'), T::__("Verlassene Trooper-Station", 'names'), T::__("Verwesungsversteck", 'names'), T::__("Knochenkeller", 'names'), T::__("Geheimes Testlabor", 'names'), T::__("Area 52.1 Bunker", 'names'), T::__("Area 33 Bunker", 'names'), T::__("Quarantäne-Zone", 'names')],
         ];
         return $ruinNames[$zone->getPrototype()->getIcon()][$zone->getId() % count($ruinNames[$zone->getPrototype()->getIcon()])];
+    }
+
+    protected function ruin_partial_item_action_args(): array {
+        return [
+            'citizen' => $this->getActiveCitizen(),
+            'actions' => $this->getItemActions(),
+            'recipes' => $this->getItemCombinations(false),
+            'citizen_hidden' => false,
+            'active_scout_mode' => false,
+            'conf' => $this->getTownConf(),
+            'controller_action' => 'beyond_ruin_action_controller',
+            'controller_recipe' => 'beyond_ruin_recipe_controller',
+            'controller_dash' => 'exploration_dashboard',
+            'render_frame' => 'beyond_desert_content',
+        ];
+    }
+
+    /**
+     * @return Response
+     */
+    #[Route(path: 'jx/beyond/partial/explore/actions', name: 'beyond_ruin_dashboard_partial_item_actions')]
+    public function ruin_partial_item_actions(): Response
+    {
+        return $this->render( 'ajax/game/beyond/partials/item-actions.standalone.html.twig', $this->ruin_partial_item_action_args() );
     }
 }
