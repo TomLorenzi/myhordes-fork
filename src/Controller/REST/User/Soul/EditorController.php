@@ -323,6 +323,10 @@ class EditorController extends CustomAbstractCoreController
             'rps' => 'rps',
             'coin' => 'coin',
             'card' => 'card',
+            ...($user->getActiveCitizen()?->getAlive() ? [
+                'town' => 'town',
+                'coords' => 'coords'
+            ] : [])
         ];
 
         return new JsonResponse([

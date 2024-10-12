@@ -385,6 +385,10 @@ class TwinoConverterToBlocks {
                 blocks.push( new TwinoInterimBlock( '???', 'div', 'coin') ); break;
             case 'carte': case 'card': case 'skat': case 'blatt': case 'carta': case 'karte':
                 blocks.push( new TwinoInterimBlock( '???', 'div', 'card') ); break;
+            case 'coords': case 'xy': case 'pos': case 'map':
+                blocks.push( new TwinoInterimBlock( '???', 'div', 'coords') ); break;
+            case 'town': case 'stadt': case 'ville':
+                blocks.push( new TwinoInterimBlock( '???', 'div', 'town') ); break;
             case 'citizen': case 'rnduser': case 'user': case 'spieler': case 'habitant': case 'habitante': case'einwohner':
                 attribs = match.nodeInfo() ? match.nodeInfo().split(',') : [];
                 if (typeof attribs[0] !== 'undefined' && typeof attribs[1] === 'undefined' && !isNaN(attribs[0]))
