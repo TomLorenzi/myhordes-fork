@@ -148,6 +148,7 @@ class MigrateCommand extends Command
 		'd506ca974ffcd2b748e13bf9ebff01a7b22c6cd6' => [ ['app:user:migrate:herodays', [] ] ],
         '6f0e7a9e7d66227d057860f4972fb72cf0a8a995' => [ ['app:migrate', ['--repair-permissions' => true, '--skip-group-association' => true] ] ],
         '233cc0cc3c2bbd6df26bc0cdf348609ea2946d63' => [ ['app:migrate', ['--set-profession-prop' => true] ] ],
+        'd52a872be9d56acc19291eab9d1ba378a99b3abe' => [ ['app:forum:default_posts', [] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
