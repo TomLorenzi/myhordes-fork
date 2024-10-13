@@ -56,6 +56,7 @@ use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\RandomGenerator;
 use App\Service\RateLimitingFactoryProvider;
+use App\Service\User\UserCapabilityService;
 use App\Service\User\UserUnlockableService;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
@@ -269,7 +270,7 @@ class SoulController extends CustomAbstractController
      */
     #[Route(path: 'jx/soul/refer', name: 'soul_refer')]
     #[Route(path: 'jx/soul/contacts/{opt}', name: 'soul_contacts', requirements: ['opt' => '\d'])]
-    public function soul_refer(Request $request, ConfMaster $conf, int $opt = 0): Response {
+    public function soul_refer(Request $request, ConfMaster $conf, UserCapabilityService $capabilityService, int $opt = 0): Response {
         $refer = $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['user' => $this->getUser()]);
         if ($refer === null && !$this->user_handler->hasRole($this->getUser(), 'ROLE_DUMMY')) {
 
@@ -292,7 +293,7 @@ class SoulController extends CustomAbstractController
 
         $sponsored = array_filter(
             $this->entity_manager->getRepository(UserSponsorship::class)->findBy(['sponsor' => $this->getUser()]),
-            fn(UserSponsorship $s) => !$this->user_handler->hasRole($s->getUser(), 'ROLE_DUMMY') && $s->getUser()->getValidated()
+            fn(UserSponsorship $s) => !$capabilityService->hasRole($s->getUser(), 'ROLE_DUMMY') && $s->getUser()->getValidated()
         );
 
         /** @var UserGroupAssociation|null $user_coalition */

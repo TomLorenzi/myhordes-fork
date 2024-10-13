@@ -16,6 +16,7 @@ use App\Entity\PictoRollup;
 use App\Entity\Season;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
+use App\Entity\UserSponsorship;
 use App\Enum\HeroXPType;
 use App\Enum\UserSetting;
 use App\Interfaces\Entity\PictoRollupInterface;
@@ -54,7 +55,8 @@ class SkillController extends CustomAbstractCoreController
     public function list(
         HeroSkillPrototype $skill,
         UserUnlockableService $unlockableService,
-        Locksmith $locksmith
+        Locksmith $locksmith,
+        EntityManagerInterface $entityManager,
     ): JsonResponse {
         $user = $this->getUser();
 
@@ -78,6 +80,21 @@ class SkillController extends CustomAbstractCoreController
             return new JsonResponse([], Response::HTTP_INTERNAL_SERVER_ERROR);
 
         $lock->release();
+
+        $sponsorship = $entityManager->getRepository(UserSponsorship::class)->findOneBy(['user' => $user]);
+        if ($sponsorship && !$sponsorship->isPayout()) {
+            $success = $unlockableService->recordHeroicExperience($sponsorship->getSponsor(), HeroXPType::Global, 10, 'hxp_ref_first', variables: [
+                'user' => $user->getId()
+            ], season: true);
+            $entityManager->persist($sponsorship->setPayout( $success )->setSeasonalPayout( $success ));
+            $entityManager->flush();
+        } elseif ($sponsorship && !$sponsorship->isSeasonalPayout()) {
+            $success = $unlockableService->recordHeroicExperience($sponsorship->getSponsor(), HeroXPType::Global, 2, 'hxp_ref_repeat', variables: [
+                'user' => $user->getId()
+            ], season: true);
+            $entityManager->persist($sponsorship->setSeasonalPayout( $success ));
+            $entityManager->flush();
+        }
 
         $this->addFlash('notice', $this->translator->trans( 'Du hast eine neue Fähigkeit erworben. Herzlichen Glückwunsch!', [], 'game'));
         return new JsonResponse(['success' => true]);
