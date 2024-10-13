@@ -197,7 +197,7 @@ class GhostController extends CustomAbstractController
                 ->andWhere( new Comparison( 'expires', Comparison::GT, new \DateTime() ) )
                 ->orderBy( ['expires' => Order::Descending] )
                 ->setMaxResults( 1 )
-            )->first(),
+            )->first() ?: null,
             'tooMany' => $em->getRepository(Town::class)->count(['mayor' => true]) > 14,
         ]));
     }
