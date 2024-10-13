@@ -372,7 +372,6 @@
 
             const fun_conv_events = function() {
                 $.html.addEventListenerAll('ul.pm-conversation-list>li[x-title][x-endpoint]', 'click', function(e,elem) {
-                    console.trace('here');
                     let target = document.getElementById('gpm-forum-content');
                     target.innerText = '';
                     document.getElementById('gpm-forum-content-header').innerHTML = '<i class="fa fa-spin fa-circle-notch"></i> {{ 'Lade Unterhaltung...'|trans({},'global')|e('js') }}';
