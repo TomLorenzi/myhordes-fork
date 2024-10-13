@@ -207,7 +207,11 @@ const ControlButton = ({fa = null, img = null, label = null, control = null, han
                     e.preventDefault();
                     e.stopPropagation();
                 }
-            }} onSubmit={() => confirmDialog()}>
+            }} onSubmit={e => {
+                e.preventDefault();
+                e.stopPropagation();
+                confirmDialog();
+            }}>
                 <div className="modal-content">{children}</div>
                 <div className="modal-actions">
                     {manualConfirm && <>
