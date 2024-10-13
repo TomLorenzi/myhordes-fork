@@ -108,6 +108,15 @@
                     </div>
                     </div>
                 {% endif %}
+                {% if mayorBlock %}
+                   <div class="row">
+                        <div class="cell rw-12 padded">
+                            <div class="note note-critical">
+                                {{ 'Du kannst aktuell keinen von Spielern erstellten Städten beitreten.'|trans({},'ghost') }} {{ 'Diese Sperre endet am {date} um {time}.'|trans({ date: mayorBlock.expires|format_datetime('medium', 'none'), time: mayorBlock.expires|format_datetime('none', 'short') },'ghost')|raw }}
+                            </div>
+                        </div>
+                   </div>
+                {% endif %}
             </div>
 
             <div class="row">
@@ -190,8 +199,18 @@
                                                                 </div>
                                                             </span>
                                                         {% endif %}
+                                                        {% if town.mayor %}
+                                                            <span>
+                                                                <img src="{{ asset('build/images/icons/small_user.gif') }}" alt="" />
+                                                                <div class="tooltip help">
+                                                                    <b>{{ 'Diese Stadt wurde von einem Spieler gegründet.'|trans({},'ghost') }}</b><br/>
+                                                                    {{ 'Sie folgt den normalen Spielregeln und wird an ihrem Ende ins Ranking aufgenommen.'|trans({},'ghost') }}<br/>
+                                                                    {{ 'Wenn du dieser Stadt beitrittst, kannst du {block} Tage danach keiner anderen von einem Spieler gegründeten Stadt beitreten.'|trans({block: 15},'ghost') }}
+                                                                </div>
+                                                            </span>
+                                                        {% endif %}
                                                         {% if cdm_level != 2 %}
-                                                            <a data-event="{{ town.rankingEntry.event ? '1' : '0' }}" {% if town|openFor(app.user) and (not town|whitelisted or town|whitelisted(app.user)) %}x-coa-restricted="{{ (coa is not empty and (town|whitelisted or town.password)) ? 1 : 0 }}" x-coa-discard="{{ coa|filter( member => not town|openFor(member) )|map( member => member.name )|join(';') }}" x-town-lang="{{ town.getLanguage }}" x-town-id="{{ town.id }}" x-town-name="{{ town.name }}" x-town-ticket="{{ (cap_left < 0 or town.rankingEntry.event or town|conf(constant('App\\Structures\\TownConf::CONF_FEATURE_NO_TEAMS'),true)) ? '0' : '1' }}" x-town-locked="{% if town.password is not null %}1{% else %}0{% endif %}" {% else %}disabled="disabled"{% endif %}>
+                                                            <a data-event="{{ town.rankingEntry.event ? '1' : '0' }}" {% if town|openFor(app.user) and (not town|whitelisted or town|whitelisted(app.user)) %}x-coa-restricted="{{ (coa is not empty and (town|whitelisted or town.password)) ? 1 : 0 }}" x-coa-discard="{{ coa|filter( member => not town|openFor(member) )|map( member => member.name )|join(';') }}" x-town-lang="{{ town.getLanguage }}" x-town-id="{{ town.id }}" x-town-name="{{ town.name }}" x-town-ticket="{{ (cap_left < 0 or town.rankingEntry.event or town|conf(constant('App\\Structures\\TownConf::CONF_FEATURE_NO_TEAMS'),true)) ? '0' : '1' }}" x-town-locked="{% if town.password is not null %}1{% else %}0{% endif %}" x-mayor="{{ town.mayor ? '1' : '0' }}" {% else %}disabled="disabled"{% endif %}>
                                                                 <span class="link">{{ town.name }}</span>
                                                                 {% if town.language != 'multi' and town.language != app.user.language and joinable %}
                                                                         <img alt="!" src="{{ asset('build/images/icons/warning_anim.gif') }}" />
@@ -286,8 +305,14 @@
 
             const event_town = elem.dataset.event === '1';
 
+            let message = '';
+            if (elem.getAttribute('x-mayor') === '1') {
+                message += '{{ 'Diese Stadt wurde von einem Spieler gegründet.'|trans({},'ghost')|e('js') }}' + ' ' +
+                    '{{ 'Wenn du dieser Stadt beitrittst, kannst du {block} Tage danach keiner anderen von einem Spieler gegründeten Stadt beitreten.'|trans({block: 15},'ghost')|e('js') }}' + "\n\n";
+            }
+
             if (event_town) {
-                let message =
+                message +=
                     ('{{ 'Dies ist eine Event-Stadt, in der möglicherweise andere Regeln gelten und/oder eine bestimmte Spielweise erforderlich ist.'|trans({},'ghost')|e('js') }}' + "\n\n" +
                         '{{ 'Damit alle Spieler an diesem Event Spaß haben können, tritt dieser Stadt bitte nur bei, wenn du dir über deren Regeln im Klaren bist.'|trans({tickets_left: cap_left},'ghost')|e('js') }}' + "\n\n" +
                         '{{ 'Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt {town_name} betreten'|trans({tickets_left: cap_left},'ghost')|e('js') }}'
@@ -298,7 +323,7 @@
             } else if (town_ticketed && user_team !== town_lang && user_team) {
                 const user_team_rep = window.c.langs[user_team] ? window.c.langs[user_team] : user_team;
                 const town_lang_rep = window.c.langs[town_lang.split('_')[0]] ? window.c.langs[town_lang.split('_')[0]] : town_lang;
-                let message =
+                message +=
                     ('{{ 'Diese Stadt ist {lang_town}, aber dein aktuelles Team ist {team_user}.'|trans({},'ghost')|e('js') }}' + "\n\n" +
                     '{{ 'Damit das Ranking für alle Gemeinschaften fair bleibt, ist die Zahl der Städte fremder Teams, die du betreten kannst, beschränkt. Aktuell kannst du noch {tickets_left} weitere Städte eines fremden Teams betreten.'|trans({tickets_left: cap_left},'ghost')|e('js') }}' + "\n\n" +
                     '{{ 'Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt {town_name} betreten'|trans({tickets_left: cap_left},'ghost')|e('js') }}'
@@ -309,14 +334,17 @@
             } else if (user_lang && town_lang && user_lang.split('_')[0] !== town_lang.split('_')[0] && town_lang !== 'multi') {
                 const user_lang_rep = window.c.langs[user_lang.split('_')[0]] ? window.c.langs[user_lang.split('_')[0]] : user_lang;
                 const town_lang_rep = window.c.langs[town_lang.split('_')[0]] ? window.c.langs[town_lang.split('_')[0]] : town_lang;
-                let message =
+                message +=
                     ('{{ 'Die Sprache der gewählten Stadt ist {lang_town}. Deine aktuelle Spracheinstellung ist {lang_user}.'|trans({},'ghost')|e('js') }}' + "\n\n" +
                     '{{ 'Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?'|trans({},'ghost')|e('js') }}')
                     .replace(/{lang_user}/g, user_lang_rep).replace(/{lang_town}/g, town_lang_rep);
 
                 if (!confirm(message)) return;
-            } else if (!confirm('{{ 'Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt {town_name} betreten'|trans({},'ghost')|e('js') }}'.replace('{town_name}', town_name)))
-                return;
+            } else {
+                message += '{{ 'Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt {town_name} betreten'|trans({},'ghost')|e('js') }}'.replace('{town_name}', town_name);
+                if (!confirm(message))
+                    return;
+            }
 
             {% if cdm_level == 1 %}
                 if (!confirm('{{ 'Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.'|trans({},'ghost')|e('js') }}')) return;

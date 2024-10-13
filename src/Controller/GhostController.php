@@ -89,6 +89,20 @@ class GhostController extends CustomAbstractController
         $tickets = $user->getTeamTicketsFor( $season, '!' )->count();
         $cap_left = ($cap >= 0) ? max(0, $cap - $tickets) : -1;
 
+        /*
+         * !$em->getRepository(MayorMark::class)->matching( (new Criteria())
+                ->where( new Comparison( 'user', Comparison::EQ, $user )  )
+                ->andWhere( new Comparison( 'expires', Comparison::GT, new \DateTime() ) )
+            )->isEmpty()
+         */
+
+        $mayor_block = $em->getRepository(MayorMark::class)->matching( (new Criteria())
+            ->where( new Comparison( 'user', Comparison::EQ, $user )  )
+            ->andWhere( new Comparison( 'expires', Comparison::GT, new \DateTime() ) )
+            ->orderBy( ['expires' => Order::Descending] )
+            ->setMaxResults(1)
+        )->first();
+
         return $this->render( 'ajax/ghost/intro.html.twig', $this->addDefaultTwigArgs(null, [
             'cap_left'           => $cap_left,
             'team_members'       => $user->getTeam() ? $this->entity_manager->getRepository(User::class)->count(['team' => $user->getTeam()]) : 0,
@@ -103,6 +117,7 @@ class GhostController extends CustomAbstractController
             'userCantJoinReason' => $this->getUserTownClassAccessLimitReason($this->conf->getGlobalConf()),
             'sp_limits' => $this->getTownClassAccessLimits($this->conf->getGlobalConf()),
             'canCreateTown' => true,
+            'mayorBlock' => $mayor_block,
         ] ));
     }
 
@@ -177,10 +192,12 @@ class GhostController extends CustomAbstractController
             'langs' => $this->generatedLangs,
             'mayorTowns' => $open_town,
             'canMayorTowns' => $user->getAllSoulPoints() >= 250,
-            'mayorBlocked' => !$em->getRepository(MayorMark::class)->matching( (new Criteria())
+            'mayorBlocked' => $em->getRepository(MayorMark::class)->matching( (new Criteria())
                 ->where( new Comparison( 'user', Comparison::EQ, $user )  )
                 ->andWhere( new Comparison( 'expires', Comparison::GT, new \DateTime() ) )
-            )->isEmpty(),
+                ->orderBy( ['expires' => Order::Descending] )
+                ->setMaxResults( 1 )
+            )->first(),
             'tooMany' => $em->getRepository(Town::class)->count(['mayor' => true]) > 14,
         ]));
     }

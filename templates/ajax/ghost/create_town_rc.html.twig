@@ -93,7 +93,7 @@
                     </div>
                 </div>
 
-                {% if mayorTowns is empty and canMayorTowns and not tooMany and not mayorBlocked %}
+                {% if mayorTowns is empty and canMayorTowns and not tooMany and mayorBlocked is null %}
                     <div class="cell padded rw-12">
                     <h5>{{ 'Grundlegende Einstellungen'|trans({},'ghost') }}</h5>
 
@@ -189,10 +189,11 @@
                         </div>
 
                     </div>
-                {% elseif (mayorBlocked) %}
+                {% elseif (mayorBlocked is not null) %}
                     <div class="cell padded rw-12">
                         <div class="note note-warning">
                             {{ 'Du kannst aktuell keine öffentlichen Städte erstellen (Missbrauchsschutz). Bitte warte ein paar Tage und versuche es dann erneut.'|trans({},'soul') }}
+                            {{ 'Diese Sperre endet am {date} um {time}.'|trans({ date: mayorBlocked.expires|format_datetime('medium', 'none'), time: mayorBlocked.expires|format_datetime('none', 'short') },'ghost')|raw }}
                         </div>
                     </div>
                 {% elseif (tooMany) %}
