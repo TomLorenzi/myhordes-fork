@@ -188,7 +188,7 @@ export default class HTML {
 
     message(label: string, msg: string ): void {
 
-        const is_popup = label.substr(0, 6) === 'popup-';
+        const is_popup = label.substring(0, 6) === 'popup-';
 
         if ($.client.config.notificationAsPopup.get() || is_popup) {
 
