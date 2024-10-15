@@ -63,7 +63,7 @@ export const TownCreatorSectionDifficulty = () => {
     useEffect(() => {
         const fieldCheck = () => {
             try {
-                const marginPreset = (getInputByName(MAP_MARGIN_PRESET) as HTMLInputElement).value;
+                const marginPreset = (getInputByName(MAP_MARGIN_PRESET) as HTMLInputElement)?.value;
                 
                 if(marginPreset === '_custom') {
                     if(!checkCustomMargins()) return false;
