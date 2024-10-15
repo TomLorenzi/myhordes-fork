@@ -275,7 +275,7 @@ Lagerhalle: Warehouse
 "Motel 'Dusk'": "Motel 666 Dusk"
 'Militärischer Wachposten': 'Army Outpost'
 Postfiliale: Post Office
-Räuberhöhle: Once-inhabited Cave
+Räuberhöhle: Smugglers' Cache
 Schützengraben: Equipped Trench
 Stadtbücherei: Town Library
 'Tante Emma Laden': 'Mini-market'
@@ -3003,3 +3003,6 @@ Nüchtern: Sober
 'Deine Fähigkeiten': 'Your skills'
 'Ungenutzter Fähigkeitenpunkt': 'Unused skill point'
 'Du hast nicht alle deine Fähigkeitenpunkte vergeben. Diese Punkte werden <strong>nicht verbraucht</strong> und stehen dir demzufolge auch in jeder folgenden Stadt zur Verfügung - es ist also nicht notwendig, sie aufzusparen. <strong>Möchtest du wirklich fortfahren, ohne alle Fähigkeitenpunkte zu vergeben?</strong>': 'You have not spent all your skill points. These points are <strong>not used up</strong> and are therefore available to you in every subsequent town - so there is no need to save them up. <strong>Do you really want to continue without spending all your skill points?</strong>'
+'Allgemein verfügbar': 'Always available'
+'In diesem Thread können Fragen zum Leben in der Stadt gestellt werden.': 'Questions about city life can be asked in this topic.'
+'Fragen & Antworten': 'Questions & Answers'

@@ -380,3 +380,8 @@ Stadtstart: crwdns206238:0crwdne206238:0
 'Zum Weltforum': 'crwdns206254:0crwdne206254:0'
 'Du scheinst motiviert zu sein und du lebst sogar noch... Gratuliere, dein Repertoire an heldenhaften Fähigkeiten hat sich erneut erweitert!': 'crwdns206256:0crwdne206256:0'
 'Du hast jetzt Zugang zu Pandämonium-Städten. Hier sind die Regeln ein wenig anders, in einem mehr... tödlichen Stil. Vergiss niemals nicht die erste Regel: Dein schlimmster Feind ist vielleicht der Bürger von nebenan.': 'crwdns206258:0crwdne206258:0'
+'Du kannst aktuell keinen von Spielern erstellten Städten beitreten.': 'crwdns206786:0crwdne206786:0'
+'Diese Sperre endet am {date} um {time}.': 'crwdns206788:0{date}crwdnd206788:0{time}crwdne206788:0'
+'Diese Stadt wurde von einem Spieler gegründet.': 'crwdns206790:0crwdne206790:0'
+'Sie folgt den normalen Spielregeln und wird an ihrem Ende ins Ranking aufgenommen.': 'crwdns206792:0crwdne206792:0'
+'Wenn du dieser Stadt beitrittst, kannst du {block} Tage danach keiner anderen von einem Spieler gegründeten Stadt beitreten.': 'crwdns206794:0{block}crwdne206794:0'

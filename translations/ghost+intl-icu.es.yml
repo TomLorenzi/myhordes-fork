@@ -380,3 +380,8 @@ Stadtstart: Salida en la ciudad
 'Zum Weltforum': 'Al Foro Mundial'
 'Du scheinst motiviert zu sein und du lebst sogar noch... Gratuliere, dein Repertoire an heldenhaften Fähigkeiten hat sich erneut erweitert!': 'Pareces motivado e incluso sigues vivo... ¡Felicitaciones, tu repertorio de habilidades heroicas se ha ampliado nuevamente!'
 'Du hast jetzt Zugang zu Pandämonium-Städten. Hier sind die Regeln ein wenig anders, in einem mehr... tödlichen Stil. Vergiss niemals nicht die erste Regel: Dein schlimmster Feind ist vielleicht der Bürger von nebenan.': 'Ahora tienes acceso a las ciudades del Pandemonio. Las reglas son un poco diferentes, en un estilo más... asesino. Nunca olvides la primera regla: tu peor enemigo puede ser tu vecino de al lado.'
+'Du kannst aktuell keinen von Spielern erstellten Städten beitreten.': 'Actualmente no puedes unirte a ciudades creadas por jugadores.'
+'Diese Sperre endet am {date} um {time}.': 'Esta prohibición finaliza el {date} a las {time}.'
+'Diese Stadt wurde von einem Spieler gegründet.': 'Esta ciudad fue creada por un jugador.'
+'Sie folgt den normalen Spielregeln und wird an ihrem Ende ins Ranking aufgenommen.': 'Sigue las reglas normales del juego y está incluido en la clasificación de la ciudad.'
+'Wenn du dieser Stadt beitrittst, kannst du {block} Tage danach keiner anderen von einem Spieler gegründeten Stadt beitreten.': 'Si te unes a esta ciudad, no podrás unirte a ninguna otra ciudad creada por jugadores durante {block} días después.'

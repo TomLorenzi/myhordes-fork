@@ -380,3 +380,8 @@ Stadtstart: Départ de la ville
 'Zum Weltforum': 'Vers le Forum monde'
 'Du scheinst motiviert zu sein und du lebst sogar noch... Gratuliere, dein Repertoire an heldenhaften Fähigkeiten hat sich erneut erweitert!': 'Vous semblez motivé et vous êtes même toujours en vie... Félicitations, votre répertoire de compétences héroïques s''est encore élargi !'
 'Du hast jetzt Zugang zu Pandämonium-Städten. Hier sind die Regeln ein wenig anders, in einem mehr... tödlichen Stil. Vergiss niemals nicht die erste Regel: Dein schlimmster Feind ist vielleicht der Bürger von nebenan.': 'Vous avez désormais accès aux villes du Pandémonium. Les règles y sont un peu différentes, dans un style plus... meurtrier. N’oubliez jamais la première règle : votre pire ennemi est peut-être votre voisin d’à côté.'
+'Du kannst aktuell keinen von Spielern erstellten Städten beitreten.': 'Vous ne pouvez actuellement pas rejoindre les villes créées par les joueurs.'
+'Diese Sperre endet am {date} um {time}.': 'Cette interdiction prend fin le {date} à {time}.'
+'Diese Stadt wurde von einem Spieler gegründet.': 'Cette ville a été créée par un joueur.'
+'Sie folgt den normalen Spielregeln und wird an ihrem Ende ins Ranking aufgenommen.': 'Elle suit les règles normales du jeu et est incluse dans le classement des villes.'
+'Wenn du dieser Stadt beitrittst, kannst du {block} Tage danach keiner anderen von einem Spieler gegründeten Stadt beitreten.': 'Si vous rejoignez cette ville, vous ne pourrez rejoindre aucune autre ville créée par un joueur pendant {block} jours après.'

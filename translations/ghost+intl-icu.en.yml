@@ -380,3 +380,8 @@ Stadtstart: City start
 'Zum Weltforum': 'To the World Forum'
 'Du scheinst motiviert zu sein und du lebst sogar noch... Gratuliere, dein Repertoire an heldenhaften Fähigkeiten hat sich erneut erweitert!': 'You seem motivated and you''re even still alive... Congratulations, your repertoire of heroic skills has expanded again!'
 'Du hast jetzt Zugang zu Pandämonium-Städten. Hier sind die Regeln ein wenig anders, in einem mehr... tödlichen Stil. Vergiss niemals nicht die erste Regel: Dein schlimmster Feind ist vielleicht der Bürger von nebenan.': 'You now have access to the Hardcore cities. The rules are a little different, in a more... deadly style. Never forget the first rule: your worst enemy may be your next door neighbor.'
+'Du kannst aktuell keinen von Spielern erstellten Städten beitreten.': 'You cannot currently join player-created cities.'
+'Diese Sperre endet am {date} um {time}.': 'This ban ends on {date} at {time}.'
+'Diese Stadt wurde von einem Spieler gegründet.': 'This city was created by a player.'
+'Sie folgt den normalen Spielregeln und wird an ihrem Ende ins Ranking aufgenommen.': 'It follows the normal rules of the game and is included in the city ranking.'
+'Wenn du dieser Stadt beitrittst, kannst du {block} Tage danach keiner anderen von einem Spieler gegründeten Stadt beitreten.': 'If you join this city, you will not be able to join any other player-created city for {block} days afterward.'
