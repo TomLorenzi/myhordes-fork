@@ -640,3 +640,8 @@ Künstler: crwdns206750:0crwdne206750:0
 '{num} Plätze in der Truhe': 'crwdns206774:0{num}crwdne206774:0'
 '{num} Verteidigung bei der Nachtwache': 'crwdns206776:0{num}crwdne206776:0'
 'Im Stadtforum schreiben': 'crwdns206778:0crwdne206778:0'
+Erfahrungsbonus: crwdns206796:0crwdne206796:0
+'Du hast einen Erfahrungsbonus von diesem Spieler erhalten, da er oder sie in dieser Saison eine Fähigkeit erworben hat.': 'crwdns206798:0crwdne206798:0'
+'Du hast in der Vergangenheit einen Erfahrungsbonus von diesem Spieler erhalten, da er oder sie in einer früheren Saison eine Fähigkeit erworben hat.': 'crwdns206800:0crwdne206800:0'
+'Du kannst dir einen Erfahrungsbonus verdienen, wenn du diesen Spieler dazu überredest, eine neue Heldenfähigkeit zu erwerben...': 'crwdns206802:0crwdne206802:0'
+'Du erhälst einen Bonus auf deine eigene Heldenerfahrung, sobald ein geworbener Spieler zum ersten Mal pro Saison eine Fähigkeit erwirbt.': 'crwdns206804:0crwdne206804:0'

@@ -640,3 +640,8 @@ Künstler: Artist
 '{num} Plätze in der Truhe': '{num} places in the chest'
 '{num} Verteidigung bei der Nachtwache': '{num} defense points during Watch'
 'Im Stadtforum schreiben': 'Write on the city forum'
+Erfahrungsbonus: Experience bonus
+'Du hast einen Erfahrungsbonus von diesem Spieler erhalten, da er oder sie in dieser Saison eine Fähigkeit erworben hat.': 'You received an experience bonus from this player because he or she acquired a skill this season.'
+'Du hast in der Vergangenheit einen Erfahrungsbonus von diesem Spieler erhalten, da er oder sie in einer früheren Saison eine Fähigkeit erworben hat.': 'You have received an experience bonus from this player in the past because he or she acquired a skill in a previous season.'
+'Du kannst dir einen Erfahrungsbonus verdienen, wenn du diesen Spieler dazu überredest, eine neue Heldenfähigkeit zu erwerben...': 'You can earn an experience bonus by convincing this player to acquire a new hero power...'
+'Du erhälst einen Bonus auf deine eigene Heldenerfahrung, sobald ein geworbener Spieler zum ersten Mal pro Saison eine Fähigkeit erwirbt.': 'You will receive a bonus to your own heroic experience when a referred player acquires a skill for the first time per season.'
