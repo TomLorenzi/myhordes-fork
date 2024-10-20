@@ -19,6 +19,7 @@ use App\Service\ErrorHelper;
 use App\Service\GameFactory;
 use App\Service\GameProfilerService;
 use App\Service\JSONRequestParser;
+use App\Service\Locksmith;
 use App\Service\TownHandler;
 use App\Service\UserHandler;
 use App\Structures\EventConf;
@@ -482,8 +483,10 @@ class TownCreatorController extends CustomAbstractCoreController
                                 SanitizeTownConfigAction $sanitizeTownConfigAction,
                                 CreateTownFromConfigAction $createTownFromConfigAction,
                                 EntityManagerInterface   $em,
-                                UserHandler              $userHandler
+                                Locksmith $locksmith
     ): JsonResponse {
+
+        $locksmith->waitForLock('private-town', 15);
 
         $user = $this->getUser();
 
@@ -610,11 +613,14 @@ class TownCreatorController extends CustomAbstractCoreController
      * @param TownHandler $townHandler
      * @param GameProfilerService $gps
      * @param EntityManagerInterface $em
+     * @param Locksmith $locksmith
      * @return Response
      * @throws Exception
      */
     #[Route(path: '/create-town', name: 'create-town-mayor', methods: ['PUT'])]
-    public function add_town_mayor( JSONRequestParser $parser, GameFactory $gameFactory, TownHandler $townHandler, GameProfilerService $gps, EntityManagerInterface $em): Response {
+    public function add_town_mayor( JSONRequestParser $parser, GameFactory $gameFactory, TownHandler $townHandler, GameProfilerService $gps, EntityManagerInterface $em, Locksmith $locksmith): Response {
+
+        $locksmith->waitForLock('mayor_create_town', 15);
 
         if ($em->getRepository(Town::class)->count(['creator' => $this->getUser(), 'mayor' => true]) > 0)
             return new JsonResponse([], Response::HTTP_CONFLICT);
@@ -643,8 +649,6 @@ class TownCreatorController extends CustomAbstractCoreController
 
         if ($town_time && $town_time > (new DateTime('today+15days')))
             return new JsonResponse([], Response::HTTP_UNPROCESSABLE_ENTITY);
-
-        $check_time = $town_time ? (clone $town_time) : new DateTime();
 
         $current_events = $this->conf->getCurrentEvents();
         $name_changers = array_values(

@@ -136,8 +136,12 @@ class SanitizeTownConfigAction
 
         // Initial chest items need CROW permissions
         if (!empty( $rules['initial_chest'] )) {
-            $elevation = max($elevation, User::USER_LEVEL_CROW);
-            if ($trimTo < User::USER_LEVEL_CROW) unset($rules['initial_chest']);
+
+            if (count($rules['initial_chest']) > 1 || ($rules['initial_chest'][0] ?? null) !== 'beta_drug_#00') {
+                $elevation = max($elevation, User::USER_LEVEL_CROW);
+                if ($trimTo < User::USER_LEVEL_CROW) unset($rules['initial_chest']);
+            }
+
         }
 
         // An open town limit other than 2 requires CROW permissions
