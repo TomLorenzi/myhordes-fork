@@ -78,7 +78,7 @@ parameters:
         remote: 0
         panda: 200
         return_small: 0
-        custom: 1000
+        custom: 0
     langs:
       - code: fr
         label: Französisch
