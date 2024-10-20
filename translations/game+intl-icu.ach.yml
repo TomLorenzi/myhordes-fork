@@ -3006,3 +3006,5 @@ Nüchtern: crwdns206090:0crwdne206090:0
 'Allgemein verfügbar': 'crwdns206780:0crwdne206780:0'
 'In diesem Thread können Fragen zum Leben in der Stadt gestellt werden.': 'crwdns206782:0crwdne206782:0'
 'Fragen & Antworten': 'crwdns206784:0crwdne206784:0'
+'Dein geworbener Spieler {user} hat zum ersten Mal Heldenerfahrung für eine Fähigkeit ausgegeben.': 'crwdns206806:0{user}crwdne206806:0'
+'Dein geworbener Spieler {user} hat zum ersten Mal in dieser Saison Heldenerfahrung für eine Fähigkeit ausgegeben.': 'crwdns206808:0{user}crwdne206808:0'

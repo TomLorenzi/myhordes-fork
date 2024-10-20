@@ -640,3 +640,8 @@ Künstler: Artiste
 '{num} Plätze in der Truhe': '{num} places dans le coffre'
 '{num} Verteidigung bei der Nachtwache': '{num} points de défense durant la Veille'
 'Im Stadtforum schreiben': 'Écrire sur le forum de la ville'
+Erfahrungsbonus: Bonus d’expérience
+'Du hast einen Erfahrungsbonus von diesem Spieler erhalten, da er oder sie in dieser Saison eine Fähigkeit erworben hat.': 'Vous avez reçu un bonus d''expérience de la part de ce joueur car il a acquis une capacité cette saison.'
+'Du hast in der Vergangenheit einen Erfahrungsbonus von diesem Spieler erhalten, da er oder sie in einer früheren Saison eine Fähigkeit erworben hat.': 'Vous avez reçu un bonus d''expérience de la part de ce joueur dans le passé car il a acquis une capacité lors d''une saison précédente.'
+'Du kannst dir einen Erfahrungsbonus verdienen, wenn du diesen Spieler dazu überredest, eine neue Heldenfähigkeit zu erwerben...': 'Vous pouvez gagner un bonus d''expérience si vous persuadez ce joueur d''acquérir une nouvelle capacité de héros...'
+'Du erhälst einen Bonus auf deine eigene Heldenerfahrung, sobald ein geworbener Spieler zum ersten Mal pro Saison eine Fähigkeit erwirbt.': 'Vous recevrez un bonus pour votre propre expérience héroïque dès qu''un joueur parrainé dépense de l''expérience pour une capacité la première fois de la saison.'
