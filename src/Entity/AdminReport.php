@@ -23,7 +23,7 @@ class AdminReport
     #[ORM\Column(type: 'boolean')]
     private $seen = false;
     #[ORM\ManyToOne(targetEntity: PrivateMessage::class, inversedBy: 'adminReports')]
-    #[ORM\JoinColumn(nullable: true)]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'CASCADE')]
     private $pm;
     #[ORM\ManyToOne(targetEntity: GlobalPrivateMessage::class, inversedBy: 'adminReports')]
     #[ORM\JoinColumn(nullable: true)]
