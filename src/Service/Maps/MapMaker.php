@@ -233,6 +233,7 @@ class MapMaker
     public function initialZombieSpawn( Town $town ): void
     {
         $conf = $this->conf->getTownConfiguration( $town );
+        $gov = HordeSpawnGovernor::MyHordes;
 
         /** @var Zone[] $zones */
         $zones = $town->getZones()->getValues();
@@ -291,7 +292,7 @@ class MapMaker
                 ->setPlayerDeaths(0);
 
         $i = 0;
-        $this->dailyZombieSpawn($town, cycles: 3, mode: self::RespawnModeNone);
+        $this->dailyZombieSpawn($town, cycles: $gov->hordes() ? 3 : 2, mode: self::RespawnModeNone);
         while ($i < 3 && !$this->aboveMinNumberOfZombies( $zones, $conf, 1 )) {
             $this->dailyZombieSpawn($town, mode: self::RespawnModeNone);
             $i++;
