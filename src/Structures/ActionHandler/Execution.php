@@ -125,7 +125,7 @@ class Execution extends Base
         if (count($this->consumed_items) >= 1)
             $tags[] = 'consumed';
 
-        if (($this->morphed_items[0] ?? false) && ($this->morphed_items[1] ?? false))
+        if (!empty($this->morphed_items))
             $tags[] = 'morphed';
 
         $tags[] = $this->citizen->getZone() ? 'outside' : 'inside';
@@ -173,8 +173,8 @@ class Execution extends Base
             '{item_tool}'     => $wrapper($this->used_tool_items),
             '{items_spawn}'   => $wrapper($this->spawned_items, accumulate: true),
             '{items_consume}' => $wrapper($this->consumed_items, accumulate: true),
-            '{target_from}'   => $wrapper($this->target_morphed_items[0] ?? null),
-            '{target_to}'     => $wrapper($this->target_morphed_items[1] ?? null),
+            '{target_from}'   => $wrapper($this->target_morphed_items[0][0] ?? null),
+            '{target_to}'     => $wrapper($this->target_morphed_items[0][1] ?? null),
             '{zone}'          => $wrapper( $zone ? "{$zone->getX()} / {$zone->getY()}" : null ),
             '{zone_ruin}'     => $wrapper($zone),
             '{bp_spawn}'      => $wrapper($this->discovered_plans),

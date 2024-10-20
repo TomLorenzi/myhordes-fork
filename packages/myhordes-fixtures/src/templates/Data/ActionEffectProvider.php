@@ -132,7 +132,7 @@ class ActionEffectProvider
         $effects_container->add()->identifier('consume_jerrycan')->add((new ItemEffect())->consume('jerrycan_#00'))->commit();
         $effects_container->add()->identifier('consume_2_pharma')->add((new ItemEffect())->consume('pharma_#00', 2))->commit();
 
-        $effects_container->add()->identifier('empty_jerrygun')->add((new ItemEffect())->morphSource('jerrygun_off_#00'))->commit();
+        $effects_container->add()->identifier('empty_jerrygun')->add((new ItemEffect(SortDefinition::atEnd()))->morphSource('jerrygun_off_#00'))->commit();
         $effects_container->add()->identifier('produce_watercan3')->add((new ItemEffect())->morphSource('water_can_3_#00'))->commit();
         $effects_container->add()->identifier('produce_watercan2')->add((new ItemEffect())->morphSource('water_can_2_#00'))->commit();
         $effects_container->add()->identifier('produce_watercan1')->add((new ItemEffect())->morphSource('water_can_1_#00'))->commit();
