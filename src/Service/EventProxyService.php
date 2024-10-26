@@ -180,8 +180,8 @@ class EventProxyService
 		return $event->nightwatchDefense;
 	}
 
-	public function citizenQueryNightwatchDeathChance(Citizen $citizen, LoggerInterface $log = null): array {
-		$this->ed->dispatch($event = $this->ef->gameEvent(CitizenQueryNightwatchDeathChancesEvent::class, $citizen->getTown())->setup($citizen, log: $log));
+	public function citizenQueryNightwatchDeathChance(Citizen $citizen, LoggerInterface $log = null, bool $duringAttack = false): array {
+		$this->ed->dispatch($event = $this->ef->gameEvent(CitizenQueryNightwatchDeathChancesEvent::class, $citizen->getTown())->setup($citizen, duringAttack: $duringAttack, log: $log));
 		return [
 			'death' => $event->deathChance,
 			'terror' => $event->terrorChance,

@@ -746,7 +746,7 @@ class NightlyHandler
 			$watcherDefense = $this->events->citizenQueryNightwatchDefense($watcher->getCitizen(), $this->log);
             $defBonus = $overflow > 0 ? floor($watcherDefense * $def_scale) : 0;
 
-			$chances = $this->events->citizenQueryNightwatchDeathChance($watcher->getCitizen(), $this->log);
+			$chances = $this->events->citizenQueryNightwatchDeathChance($watcher->getCitizen(), $this->log, true);
 			$deathChances = $chances['death'];
 
             $woundOrTerrorChances = $chances['wound'] + $chances['terror'];
