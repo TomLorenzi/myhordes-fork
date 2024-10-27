@@ -775,7 +775,7 @@ class NightlyHandler
                 foreach ($ctz->getInventory()->getItems() as $item)
                     if ($item->getPrototype()->getWatchpoint() > 0 || $item->getPrototype()->getName() === 'chkspk_#00') $this->inventory_handler->forceRemoveItem( $item );
 
-                $this->kill_wrap($ctz, $cod, false, $defBonus, $skip);
+                $this->kill_wrap($ctz, $cod, false, max(1,$defBonus), $skip);
 
             } else if($overflow > 0 && $this->random->chance($woundOrTerrorChances)) {
 
