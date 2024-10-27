@@ -669,8 +669,12 @@ export default class TwinoAlikeParser {
             if (elem.hasAttribute( 'x-raw' )) return;
             let children = elem.childNodes;
             for (let i = 0; i < children.length; i++)
-                TwinoAlikeParser.parseInsets(children[i] as HTMLElement, [...parents,elem]);
-
+                if (children[i].nodeType !== Node.TEXT_NODE)
+                    TwinoAlikeParser.parseInsets(children[i] as HTMLElement, [...parents,elem]);
+            children = elem.childNodes;
+            for (let i = 0; i < children.length; i++)
+                if (children[i].nodeType === Node.TEXT_NODE)
+                    TwinoAlikeParser.parseInsets(children[i] as HTMLElement, [...parents,elem]);
         }
     }
 
