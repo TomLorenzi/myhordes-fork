@@ -64,7 +64,7 @@
                 {# @var stat \App\Entity\CitizenStatus #}
                 {% if not stat.hidden %}
                     <li class="status">
-                    	<img src="{{ asset('build/images/status/status_' ~ stat.name ~ '.gif') }}" alt="{{ stat.label|trans({},'game') }}">
+                    	<img src="{{ asset('build/images/status/status_' ~ app.user.activeCitizen.mapStatusName(stat.name) ~ '.gif') }}" alt="{{ stat.label|trans({},'game') }}">
                     	{% if stat.description %}
                     	<div class="tooltip item">
                             <h1>{{ stat.label|trans({}, 'game') }}</h1>

@@ -51,6 +51,7 @@ enum CitizenProperties: string implements Configuration
     //<editor-fold desc="Config Values">
     case Section_Config = '--section--/Config';
     case RevengeItems = 'config.revenge_items';
+    case StatusOverrideMap = 'config.status_override_map';
     //</editor-fold>
 
     case ActiveSkillIDs = 'skills.list';
@@ -108,6 +109,7 @@ enum CitizenProperties: string implements Configuration
                 => self::Section_Properties,
 
             self::RevengeItems,
+            self::StatusOverrideMap,
                 => self::Section_Config,
 
             default => null
@@ -169,6 +171,7 @@ enum CitizenProperties: string implements Configuration
             self::ChestHiddenStashLimit          => 0,
 
             self::RevengeItems                   => [],
+            self::StatusOverrideMap              => [],
             self::HeroImmuneStatusList           => [],
 
             self::ActiveSkillIDs => [],
@@ -233,6 +236,7 @@ enum CitizenProperties: string implements Configuration
             self::CampingChanceCap               => ($old + $new) - $this->default(),
 
             self::RevengeItems                   => [...$old,...$new],
+            self::StatusOverrideMap              => [...$old,...$new],
             self::HeroImmuneStatusList           => [...$old,...$new],
 
             self::ActiveSkillIDs => $new,
