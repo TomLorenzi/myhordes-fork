@@ -43,6 +43,7 @@ class SecurityController extends CustomAbstractCoreController
      * @param Request $request
      * @param GenerateKeyAction $keygen
      * @param Locksmith $locksmith
+     * @param TagAwareCacheInterface $gameCachePool
      * @return JsonResponse
      * @throws InvalidArgumentException
      */
@@ -54,7 +55,7 @@ class SecurityController extends CustomAbstractCoreController
             $item->expiresAfter(0);
             return false;
         } );
-        $gameCachePool->delete("ticketing_{$request->getSession()->getId()}_{$ticket}");
+        $gameCachePool->delete("ticketing_{$ticket}");
         $lock->release();
 
         return new JsonResponse(['token' => $valid ? $request->getSession()->get('token', ($keygen)(16)) : ($keygen)(16)]);

@@ -8,10 +8,14 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
+use Symfony\Contracts\Cache\ItemInterface;
+use Symfony\Contracts\Cache\TagAwareCacheInterface;
 
 
-class ToastSubscriber implements EventSubscriberInterface
+readonly class ToastSubscriber implements EventSubscriberInterface
 {
+    public function __construct(private TagAwareCacheInterface $gameCachePool) { }
+
     public function checkToast(ControllerEvent $event): void
     {
 
@@ -20,9 +24,7 @@ class ToastSubscriber implements EventSubscriberInterface
         if ($toast === null) return;
 
         $sent_key = $event->getRequest()->headers->get('X-Toaster', '' );
-        $needed_key = $event->getRequest()->getSession()->get('token');
-
-        if ($needed_key === null) return;
+        $needed_key = $event->getRequest()->getSession()->get('token') ?? '';
 
         if (!$toast->fullSecurity()) {
             $sent_key = substr( $sent_key, 0, 8 );
@@ -30,8 +32,16 @@ class ToastSubscriber implements EventSubscriberInterface
         }
 
         if ($sent_key !== $needed_key) {
-            $event->stopPropagation();
-            $event->setController( fn() => new Response("TOAST FAILURE.", 400) );
+
+            $expected_ua =  $this->gameCachePool->get( $toast->fullSecurity() ? "toaster_{$sent_key}" : "toaster_sub_{$sent_key}", function (ItemInterface $item) {
+                $item->expiresAfter(1);
+                return null;
+            } );
+
+            if ($expected_ua === null || $expected_ua !== ($event->getRequest()->headers->get('User-Agent') ?? '-no-agent-')) {
+                $event->stopPropagation();
+                $event->setController( fn() => new Response("TOAST FAILURE.", 400) );
+            }
         }
     }
 
