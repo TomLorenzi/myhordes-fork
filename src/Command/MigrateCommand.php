@@ -150,6 +150,7 @@ class MigrateCommand extends Command
         '233cc0cc3c2bbd6df26bc0cdf348609ea2946d63' => [ ['app:migrate', ['--set-profession-prop' => true] ] ],
         'd52a872be9d56acc19291eab9d1ba378a99b3abe' => [ ['app:forum:default_posts', [] ] ],
         'bfc4429fcd0054369170e30978b171021bf940ca' => [ ['app:user:sponsorship-repair', [] ] ],
+        'b40c92bbca7a4f7323bc6ff28f9103de06166fc4' => [ ['app:utils:reapply-skills', [] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
