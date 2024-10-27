@@ -541,13 +541,37 @@ class ActionDataService implements FixtureProcessorInterface {
             ],
 
             'home' => [
-                ['home_clean', 'sort'], ['home_shower', 'shower'], ['home_heal_1', 'heal_wound'], ['home_heal_2', 'heal_infection'], ['home_heal_3', 'heal_infection'], ['home_defbuff', 'watchmen'], ['home_crows', 'watchmen'], ['home_fillwater', 'water'], ['home_cinema', 'cinema'],
+                'h01' => ['home_clean', 'sort'],
+                'h02' => ['home_shower', 'shower'],
+                'h03' => ['home_heal_1', 'heal_wound'],
+                'h04' => ['home_heal_2', 'heal_infection'],
+                'h05' => ['home_heal_3', 'heal_infection'],
+                'h06' => ['home_defbuff', 'watchmen'],
+                'h07' => ['home_crows', 'watchmen'],
+                'h08' => ['home_fillwater', 'water'],
+                'h09' => ['home_cinema', 'cinema'],
+                'h10' => ['home_rest_1', 'rest'],
+                'h11' => ['home_rest_2', 'rest'],
+                'h12' => ['home_rest_3', 'rest'],
+                'h13' => ['brew_shamanic_potion', 'shaman'],
 
-                ['home_lab_1a', 'home_lab'], ['home_lab_2a', 'home_lab'], ['home_lab_3a', 'home_lab'], ['home_lab_4a', 'home_lab'],
-                ['home_lab_1b', 'lab'], ['home_lab_2b', 'lab'], ['home_lab_3b', 'lab'], ['home_lab_4b', 'lab'],
-                ['home_kitchen_1a', 'kitchen'], ['home_kitchen_2a', 'kitchen'], ['home_kitchen_3a', 'kitchen'], ['home_kitchen_4a', 'kitchen'],
-                ['home_kitchen_1b', 'canteen'], ['home_kitchen_2b', 'canteen'], ['home_kitchen_3b', 'canteen'], ['home_kitchen_4b', 'canteen'],
-                ['brew_shamanic_potion', 'shaman'], ['home_rest_1', 'rest'], ['home_rest_2', 'rest'], ['home_rest_3', 'rest']
+                'hl01' => ['home_lab_1a', 'home_lab'],
+                'hl02' => ['home_lab_2a', 'home_lab'],
+                'hl03' => ['home_lab_3a', 'home_lab'],
+                'hl04' => ['home_lab_4a', 'home_lab'],
+                'hl05' => ['home_lab_1b', 'lab'],
+                'hl06' => ['home_lab_2b', 'lab'],
+                'hl07' => ['home_lab_3b', 'lab'],
+                'hl08' => ['home_lab_4b', 'lab'],
+
+                'hk01' => ['home_kitchen_1a', 'kitchen'],
+                'hk02' => ['home_kitchen_2a', 'kitchen'],
+                'hk03' => ['home_kitchen_3a', 'kitchen'],
+                'hk04' => ['home_kitchen_4a', 'kitchen'],
+                'hk05' => ['home_kitchen_1b', 'canteen'],
+                'hk06' => ['home_kitchen_2b', 'canteen'],
+                'hk07' => ['home_kitchen_3b', 'canteen'],
+                'hk08' => ['home_kitchen_4b', 'canteen'],
             ],
 
             'escort' => [
