@@ -107,7 +107,9 @@ final class ContentReportEventListener implements ServiceSubscriberInterface
 
     private function getReportedTitle( string $class, ContentReportEvent $event, ?string $lang = null ): string {
         return match ( $class ) {
-            Post::class => $event->subject->getThread()->getTitle(),
+            Post::class => $event->subject->getThread()->getTranslatable()
+                ? $this->getService(TranslatorInterface::class)->trans($event->subject->getThread()->getTitle(), [], 'game', $lang)
+                : $event->subject->getThread()->getTitle(),
             PrivateMessage::class => $event->subject->getPrivateMessageThread()->getTitle(),
             GlobalPrivateMessage::class => $event->subject->getReceiverGroup()->getName(),
             BlackboardEdit::class => $this->getService(TranslatorInterface::class)->trans('Schwarzes Brett', [], 'admin', $lang),
@@ -231,7 +233,7 @@ final class ContentReportEventListener implements ServiceSubscriberInterface
             if (!$target_user->getSetting( UserSetting::PushNotifyOnModReport )) continue;
 
             $title = $this->getTitle( $class, $event, $target_user->getLanguage() ?? 'en' );
-            $body = "<i>{$this->getComplaintCategory($event, $target_user->getLanguage() ?? 'en')}</i><br/><b>{$this->getReportedTitle( $class, $event, $target_user->getLanguage() ?? 'en' )}</b><br/>{$this->getReportedContent( $class, $event, $target_user->getLanguage() ?? 'en' )}";
+            $body = "<i>{$this->getComplaintCategory($event, $target_user->getLanguage() ?? 'en')}</i> | <br/><b>{$this->getReportedTitle( $class, $event, $target_user->getLanguage() ?? 'en' )}</b> | <br/>{$this->getReportedContent( $class, $event, $target_user->getLanguage() ?? 'en' )}";
             $owner = $this->getReportedContentUser( $class, $event );
 
             foreach ($target_user->getNotificationSubscriptionsFor(NotificationSubscriptionType::WebPush) as $subscription )
