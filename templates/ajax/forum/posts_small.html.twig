@@ -2,7 +2,7 @@
 {% block ajax_base %}
     {% macro icon_master(post) %}
         {% set user = post.owner %}
-        {% if post.type != "USER" or post.thread.forum.town is null %}
+        {% if (post.type != "USER" and post.type != "GLORY") or post.thread.forum.town is null %}
             {% if user|is_granted('ROLE_SUPER') %}
                 <div class="inline-block mh-icon">
                     <img alt="ADM" src="{{ asset('build/images/icons/icon_mh_admin.gif') }}" />
