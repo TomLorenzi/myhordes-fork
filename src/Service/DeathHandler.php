@@ -15,6 +15,7 @@ use App\Entity\PictoPrototype;
 use App\Entity\RuinZone;
 use App\Entity\TownRankingProxy;
 use App\Entity\UserGroup;
+use App\Enum\Game\CitizenPersistentCache;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -63,6 +64,9 @@ class DeathHandler
         $remove = [];
         if (!$citizen->getAlive()) return;
         if (is_int($cod)) $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy( ['ref' => $cod] );
+
+        if (!$this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_GIVE_ALL_PICTOS, true))
+            $citizen->registerPropInPersistentCache( CitizenPersistentCache::ForceBaseHXP );
 
         $rucksack = $citizen->getInventory();
 
