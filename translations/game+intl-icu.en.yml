@@ -2074,7 +2074,7 @@ Global: Global
 'Du kannst das Gebäude heute nicht erneut betreten, dein Körper würde das nicht aushalten!': 'You can''t go back there today, your body couldn''t handle it!'
 'Du kannst das Gebäude nicht betreten, während du eskortiert wirst oder eine Eskorte leitest.': 'You cannot enter this building, you are under escort or awaiting escort, you cannot enter.'
 'Du hast das Wasser aus {item} in den Brunnen geschüttet (<strong>+1 Einheit</strong>)': 'You have transferred the water from the {item} to the well (<strong>+1 unit</strong>).'
-'Unsere aktuelle Schätzung ist zu ungenau, um brauchbar zu sein: Wir brauchen mehr Bürger, die auf den Turm gehen!': 'Our current estimation is too inaccurate to be of any use: more citizens need to come to the tower!'
+'Unsere aktuelle Schätzung ist zu ungenau, um brauchbar zu sein: Wir brauchen mehr Bürger, die auf den Turm gehen!': 'Our current estimation is too inaccurate to be of any use, more citizens need to visit the tower!'
 'Du kannst das Haus, in dem {citizen} lebte, recyceln. Alle darin gelagerten Gegenstände (in seinem Inventar) werden in der Bank abgelegt. Außerdem hast du die Möglichkeit, einen Teil der beim Bau verwendeten Ressourcen zurückzugewinnen.': 'You can recycle the house where {citizen} lived. Everything found inside (i.e. in the inventory) will be placed in the bank. There is also a chance you could recover some of the materials used to build it.'
 'Nichts mehr da! Die Bürger haben beschlossen, das Haus zu zerstören... Welch eine dankbare Gemeinschaft.': 'There''s nothing left! The citizens decided to destroy it... That''s gratitude for you.'
 'Wiederverwertung:': 'Recycling:'
@@ -2618,7 +2618,7 @@ Fleisch-Schuldner_f: There ain't nothing I can't take this chainsaw to...
 'Bruce Campbell_f': 'Bruce Campbell'
 Hobby-Heimwerker_f: Home Depot Regular
 Techniker_f: Technician
-'Meisterbastler _f': Meisterbastlerin
+'Meisterbastler _f': Fitter
 'Sowas wirft man doch nicht weg!_f': 'Craftswoman'
 'Mac Gyver der Außenwelt_f': 'MacGyver of the World beyond'
 'Super Soaker_f': 'Super Soaker'
@@ -2627,7 +2627,7 @@ Hydraulik-Engineering_f: Hydraulics Engineer
 'Abstieg der Atlanteaner_f': 'Descendant of the Atlanteans'
 Archäologielehrling_f: Archaeologist
 Archäologe_f: Female Archeologist
-Grabungsleiter_f: Grabungsleiterin
+Grabungsleiter_f: Ruin Restorer
 'Großer Löcherbuddler_f': 'Indiana Jones'
 Riesenmaulwurf_f: Desert Rat
 'Furchtloser Camper_f': 'Unshakeable Camper'
@@ -2638,13 +2638,13 @@ Riesenmaulwurf_f: Desert Rat
 'Neil Armstrong der Außenwelt_f': 'Christina Koch of the World Beyond'
 'Lebensmüder Kundschafter_f': 'Extreme Explorer'
 'Draufgängerischer Expeditionsreisender_f': 'Expedition Expert'
-Nervenkitzelsucher_f: Nervenkitzelsucherin
+Nervenkitzelsucher_f: Horizon traveler
 'Christopher Kolumbus_f': 'Desert Shackleton'
 'Bis zur Unendlichkeit... und noch viel weiter!_f': 'To infinity and beyond!'
 'Indiana Jones und die Ruinen der Aussenwelt_f': 'Lara Croft and the ruins of the World Beyond'
 'Wenn ich das nur vorher gewusst hätte..._f': 'Sneaky Voyager'
 'Verwegener Wanderer_f': 'Tunnel Visionary'
-Tunnelblicker_f: Tunnelblickerin
+Tunnelblicker_f: Regularly A-mazed!
 'Im Irrgarten_f': 'Compass Included'
 'Inklusive Kompass_f': 'Buried Voluntarily'
 'Begrabener Freiwilliger_f': 'Tombstone Toppler'
