@@ -7,6 +7,7 @@
 import {HordesMap} from "../react/map/Wrapper";
 import {PersistentShim, Shim} from "../react";
 import {HordesLog} from "../react/log/Wrapper";
+import {HordesInventory} from "../react/inventory/Wrapper";
 
 customElements.define('hordes-map', class HordesMapElement extends PersistentShim<HordesMap> {
     protected generateInstance(): HordesMap {
@@ -47,6 +48,29 @@ customElements.define('hordes-log', class HordesLogElement extends PersistentShi
         return [
             'data-day','data-etag','data-citizen','data-category','data-domain','data-entries','data-indicators',
             'data-zone','data-inline-days', 'data-chat'
+        ];
+    }
+
+}, {  });
+
+customElements.define('hordes-inventory', class HordesInventoryElement extends PersistentShim<HordesInventory> {
+    protected generateInstance(): HordesInventory {
+        return new HordesInventory();
+    }
+
+    protected generateProps(): object | null {
+        return {
+            inventoryAId: parseInt(this.dataset.inventoryAId),
+            inventoryAType: this.dataset.inventoryAType,
+            inventoryBId: parseInt(this.dataset.inventoryBId ?? '0'),
+            inventoryBType: this.dataset.inventoryBType ?? 'none',
+        }
+    }
+
+    protected static observedAttributeNames() {
+        return [
+            'data-inventory-a-id', 'data-inventory-a-type',
+            'data-inventory-b-id', 'data-inventory-b-type',
         ];
     }
 

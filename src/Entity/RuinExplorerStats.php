@@ -204,4 +204,9 @@ class RuinExplorerStats
 
         return $this;
     }
+
+    public function isAt(RuinZone $ruinZone): bool {
+        return $this->active && $ruinZone->getZone() === $this->zone && $ruinZone->getX() === $this->x && $ruinZone->getY() === $this->y && $ruinZone->getZ() === $this->z;
+    }
+
 }
