@@ -1,18 +1,23 @@
 import {Fetch} from "../../v2/fetch";
 import {TranslationStrings} from "./strings";
-import {number} from "prop-types";
 
 export type Item = {
     i: number,
     p: number,
     c: number,
+    w: string|null,
     b: boolean,
     h: boolean,
     e: boolean,
 }
 
+export type InventoryMods = {
+    has_drunk?: boolean,
+}
+
 export type InventoryResponse = {
     size: number|null,
+    mods: InventoryMods
     items: Item[],
 }
 

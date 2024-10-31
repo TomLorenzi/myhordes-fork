@@ -6439,6 +6439,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"idb-keyval@npm:^6.2.1":
+  version: 6.2.1
+  resolution: "idb-keyval@npm:6.2.1"
+  checksum: 10c0/9f0c83703a365e00bd0b4ed6380ce509a06dedfc6ec39b2ba5740085069fd2f2ff5c14ba19356488e3612a2f9c49985971982d836460a982a5d0b4019eeba48a
+  languageName: node
+  linkType: hard
+
 "ieee754@npm:^1.1.13, ieee754@npm:^1.2.1":
   version: 1.2.1
   resolution: "ieee754@npm:1.2.1"
@@ -9436,6 +9443,7 @@ __metadata:
     favicons: "npm:^7.0.2"
     favicons-webpack-plugin: "npm:^6.0.0"
     file-loader: "npm:6.2.0"
+    idb-keyval: "npm:^6.2.1"
     js-md5: "npm:^0.8.3"
     latest-createjs: "npm:1.0.24"
     less: "npm:4.2.0"

@@ -3,6 +3,7 @@ import PingServiceModule from "./shared-worker-modules/ping";
 import MercureServiceModule from "./shared-worker-modules/mercure";
 import ServiceModule from "./shared-worker-modules/common";
 import BroadcastServiceModule from "./shared-worker-modules/broadcast";
+import VaultServiceModule from "./shared-worker-modules/vault";
 
 const make_port = (name: string): HTMLDivElement => {
     let port = document.getElementById(name);
@@ -25,6 +26,7 @@ type ModuleRepository = {
     ping?: PingServiceModule|null
     mercure?: MercureServiceModule|null
     broadcast?: BroadcastServiceModule|null
+    vault?: VaultServiceModule|null
 } | {
     [modname: string]: ServiceModule
 }
@@ -76,6 +78,7 @@ port_incoming.addEventListener('__connect', () => {
     modules.ping = new PingServiceModule(f);
     modules.mercure = new MercureServiceModule(f);
     modules.broadcast = new BroadcastServiceModule(f);
+    modules.vault = new VaultServiceModule(f, window, false);
     event('install');
 })();
 

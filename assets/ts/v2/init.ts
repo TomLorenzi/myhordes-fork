@@ -158,6 +158,10 @@ async function initSharedWorker(): Promise<boolean> {
                 html().dispatchEvent(new CustomEvent('mercureMessage', {bubbles: true, cancelable: false, detail: e.data.payload}));
                 break;
 
+            case 'vault.updated':
+                html().dispatchEvent(new CustomEvent('vaultUpdate', {bubbles: true, cancelable: false, detail: e.data.payload}));
+                break;
+
             case 'mercure.connection_state':
                 const state = e.data.payload.state;
 
@@ -181,6 +185,11 @@ async function initSharedWorker(): Promise<boolean> {
     const mercure = html()?.dataset?.mercureAuth as string;
     if (mercure)
         sharedWorkerCall('mercure.authorize', {connection: 'live', token: JSON.parse(mercure)});
+
+    const version = html()?.dataset?.version as string;
+    const language = html().getAttribute('lang') ?? 'de';
+    if (version)
+        sharedWorkerCall('vault.version', {payload: {version, language}});
 
     return true;
 }

@@ -934,6 +934,7 @@ ul.inventory {
     margin: 0;
   }
   font-size: 1.1rem; font-variant: small-caps;
+
   &>li {
     &:not(.category) { display: inline-block; border: 1px solid @myhordes-input-border;}
     &.category { font-size: 1rem; font-weight: bold; }
@@ -965,6 +966,23 @@ ul.inventory {
       border-radius: 4px;
     }
   }
+
+  &.inventory-react {
+    display: flex; flex-wrap: wrap; gap: 2px; align-items: center; justify-content: flex-start;
+    &>li {
+      margin: 0;
+      &.placeholder {
+        border: none; flex-grow: 1;
+      }
+      &.item.pending {
+        height: 18px; width: 18px; position: relative;
+        &::before {
+          position: absolute; inset: 4px; content: " "; background: #EFDBA8;
+        }
+      }
+    }
+  }
+
   &.soul {
     background: url("../img/background/inventory/inv_soul.gif") no-repeat top left;
     li {

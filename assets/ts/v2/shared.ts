@@ -3,6 +3,7 @@ import PingServiceModule from "./shared-worker-modules/ping";
 import MercureServiceModule from "./shared-worker-modules/mercure";
 import ServiceModule from "./shared-worker-modules/common";
 import BroadcastServiceModule from "./shared-worker-modules/broadcast";
+import VaultServiceModule from "./shared-worker-modules/vault";
 
 const scope = (self as unknown as SharedWorkerGlobalScope);
 
@@ -13,6 +14,7 @@ type ModuleRepository = {
     ping?: PingServiceModule|null
     mercure?: MercureServiceModule|null
     broadcast?: BroadcastServiceModule|null
+    vault?: VaultServiceModule|null
 } | {
     [modname: string]: ServiceModule
 }
@@ -49,7 +51,7 @@ scope.addEventListener('connect', client => {
             } else {
                 const handler = modules[ request[0] ] ?? null;
 
-                if (!handler) Console.warn(`No handler for ${request[0]} (from ${e.data?.request})`, e);
+                if (!handler) Console.warn(`No handler for ${request[0]} (from ${e.data?.request})`, modules, e);
                 else if (request.length === 1) handler.handle( e );
                 else handler.handleMessage( e, request.slice(1).join('.') );
             }
@@ -69,6 +71,7 @@ scope.addEventListener('connect', client => {
     modules.ping = new PingServiceModule(f);
     modules.mercure = new MercureServiceModule(f);
     modules.broadcast = new BroadcastServiceModule(f);
+    modules.vault = new VaultServiceModule(f, scope, scope.location.href.split('/shared/')[0]);
     event('install');
 })();
 

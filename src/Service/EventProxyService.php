@@ -136,13 +136,14 @@ class EventProxyService
     }
 
     /**
-     * @param Town $town
+     * @param ?Town $town
      * @param Item $item
      * @return int
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    public function buildingQueryNightwatchDefenseBonus( Town $town, Item $item ): int {
+    public function buildingQueryNightwatchDefenseBonus( ?Town $town, Item $item ): int {
+        if (!$town) return $item->getPrototype()->getWatchpoint();
         $this->ed->dispatch( $event = $this->ef->gameEvent( BuildingQueryNightwatchDefenseBonusEvent::class, $town )->setup( $item ) );
         return $event->defense;
     }

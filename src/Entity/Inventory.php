@@ -190,6 +190,7 @@ class Inventory
             $this->getHome()?->getCitizen()?->getTown() ??
             $this->getRuinZone()?->getZone()?->getTown() ??
             $this->getRuinZoneRoom()->getZone()?->getTown() ??
+            $this->getBuilding()?->getTown() ??
             null;
     }
 }

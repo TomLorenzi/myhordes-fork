@@ -26,6 +26,7 @@ use App\Service\Actions\Cache\InvalidateLogCacheAction;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\DoctrineCacheService;
+use App\Service\EventProxyService;
 use App\Service\HTMLService;
 use App\Service\InventoryHandler;
 use App\Service\JSONRequestParser;
@@ -50,6 +51,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[Route(path: '/rest/v1/game/inventory', name: 'rest_game_inventory_', condition: "request.headers.get('Accept') === 'application/json'")]
 #[IsGranted('ROLE_USER')]
+#[GateKeeperProfile(allow_during_attack: false, record_user_activity: false, only_alive: true, only_with_profession: true)]
 class InventoryController extends CustomAbstractCoreController
 {
 
@@ -76,6 +78,17 @@ class InventoryController extends CustomAbstractCoreController
                 'chest' => $this->translator->trans('Truhe', [], 'game'),
                 'bank' => $this->translator->trans('Bank', [], 'game'),
             ],
+            'props' => [
+                'broken' => $this->translator->trans('Kaputt', [], 'items'),
+                'drink-done' => $this->translator->trans('Beachte: Du hast heute bereits getrunken und deine Aktionspunkte für diesen Tag bereits erhalten.', [], 'items'),
+                'essential' => $this->translator->trans('Berufsgegenstand', [], 'items'),
+                'single_use' => $this->translator->trans('Mal pro Tag verwendbar', [], 'items'),
+                'heavy' => $this->translator->trans('Schwerer Gegenstand', [], 'items'),
+                'deco' => $this->translator->trans('Einrichtungsgegenstand', [], 'items'),
+                'defence' => $this->translator->trans('Verteidigungsgegenstand', [], 'items'),
+                'weapon' => $this->translator->trans('Waffe', [], 'items'),
+                'nw-weapon' => $this->translator->trans('Nachtwache-Waffen', [], 'items')
+            ]
         ]);
     }
 
@@ -98,7 +111,7 @@ class InventoryController extends CustomAbstractCoreController
     }
 
     #[Route(path: '/{id}', name: 'inventory_get', methods: ['GET'])]
-    public function inventory(Inventory $inventory, EntityManagerInterface $em, InventoryHandler $handler): JsonResponse {
+    public function inventory(Inventory $inventory, EntityManagerInterface $em, InventoryHandler $handler, EventProxyService $proxy): JsonResponse {
         $citizen = $this->getUser()->getActiveCitizen();
 
         if (!self::canEnumerate($citizen, $inventory))
@@ -119,6 +132,9 @@ class InventoryController extends CustomAbstractCoreController
         $show_banished_hidden = $citizen->getBanished() || $citizen->getTown()->getChaos();
         return new JsonResponse([
             'size' => $handler->getSize( $inventory ),
+            'mods' => [
+                'has_drunk' => $citizen->hasStatus('hasdrunk')
+            ],
             'items' => $inventory->getItems()
                 ->filter( fn(Item $i) => $show_banished_hidden || !$i->getHidden() )
                 ->filter( fn(Item $i) => !$foreign_chest || !$i->getPrototype()->getHideInForeignChest() )
@@ -129,6 +145,7 @@ class InventoryController extends CustomAbstractCoreController
                     'b' => $i->getBroken(),
                     'h' => $i->getHidden(),
                     'e' => $i->getEssential(),
+                    'w' => $i->getPrototype()->getWatchpoint() <> 0 ? $this->translator->trans('{watchpoint} pkt attacke', ['watchpoint' => $proxy->buildingQueryNightwatchDefenseBonus( $citizen->getTown(), $i )], 'items') : null,
                 ] )->getValues()
         ]);
     }

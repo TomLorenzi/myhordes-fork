@@ -60,6 +60,7 @@ customElements.define('hordes-inventory', class HordesInventoryElement extends P
 
     protected generateProps(): object | null {
         return {
+            etag: this.dataset.etag,
             inventoryAId: parseInt(this.dataset.inventoryAId),
             inventoryAType: this.dataset.inventoryAType,
             inventoryBId: parseInt(this.dataset.inventoryBId ?? '0'),
@@ -69,6 +70,7 @@ customElements.define('hordes-inventory', class HordesInventoryElement extends P
 
     protected static observedAttributeNames() {
         return [
+            'data-etag',
             'data-inventory-a-id', 'data-inventory-a-type',
             'data-inventory-b-id', 'data-inventory-b-type',
         ];

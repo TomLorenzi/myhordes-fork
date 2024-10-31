@@ -38,7 +38,12 @@
         </div>
 
         <div class="padded cell rw-6 rw-md-12">
-            <hordes-inventory data-inventory-a-type="rucksack" data-inventory-a-id="{{ home.citizen.inventory.id }}" data-inventory-b-type="chest" data-inventory-b-id="{{ home.chest.id }}"></hordes-inventory>
+            <hordes-inventory
+                    id="home-inventory" data-react-mount="home-inventory"
+                    data-etag="{{ date().timestamp }}"
+                    data-inventory-a-type="rucksack" data-inventory-a-id="{{ home.citizen.inventory.id }}"
+                    data-inventory-b-type="chest" data-inventory-b-id="{{ home.chest.id }}"
+            ></hordes-inventory>
             <div id="inventory_partial_html">
                 {{ block('inventory_partial_html') }}
             </div>

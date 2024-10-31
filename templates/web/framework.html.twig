@@ -7,6 +7,7 @@
       data-service-worker="{{ absolute_url(asset('service/service.js', 'service-package')) }}"
       data-vapid-key="{{ vapid_public }}"
       data-mercure-auth="{{ mercure_token|json_encode }}"
+      data-version="{{ version }}"
 >
 <head>
     {% block html_head %}
