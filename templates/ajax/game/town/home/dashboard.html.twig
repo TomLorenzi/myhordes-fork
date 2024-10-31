@@ -2,12 +2,6 @@
 
 {% use "ajax/game/town/partials/item-stats.html.twig" with html_dashboard as dashboard %}
 
-{% use "ajax/game/town/partials/inventory.html.twig" with
-    includes as inventory_partial_includes,
-    js as inventory_partial_js,
-    html as inventory_partial_html
-%}
-
 {% block home_content %}
     <div class="dashboard" id="dashboard-overview">
         {{ block('dashboard') }}
@@ -40,13 +34,10 @@
         <div class="padded cell rw-6 rw-md-12">
             <hordes-inventory
                     id="home-inventory" data-react-mount="home-inventory"
-                    data-etag="{{ date().timestamp }}"
+                    data-etag="{{ date().timestamp }}" data-locked="0"
                     data-inventory-a-type="rucksack" data-inventory-a-id="{{ home.citizen.inventory.id }}"
                     data-inventory-b-type="chest" data-inventory-b-id="{{ home.chest.id }}"
             ></hordes-inventory>
-            <div id="inventory_partial_html">
-                {{ block('inventory_partial_html') }}
-            </div>
         </div>
     </div>
 
@@ -62,9 +53,6 @@
     {{ parent() }}
     <script>
         {% embed "scripts/actions.js.twig" %}{% endembed %};
-
-        {{ block('inventory_partial_includes') }}
-        {{ block('inventory_partial_js') }}
 
         handleHeroicActions(
             document.querySelectorAll('ul.heroic_actions [x-action-id]:not([disabled])'),

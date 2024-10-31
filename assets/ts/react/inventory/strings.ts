@@ -15,5 +15,9 @@ export type TranslationStrings = {
         weapon: string,
         "nw-weapon": string,
         "nw-weapon-v": string,
+    },
+    actions: {
+        "down-all-home": string,
+        "down-all-icon": string,
     }
 }
