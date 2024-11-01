@@ -7,7 +7,8 @@
 import {HordesMap} from "../react/map/Wrapper";
 import {PersistentShim, Shim} from "../react";
 import {HordesLog} from "../react/log/Wrapper";
-import {HordesInventory} from "../react/inventory/Wrapper";
+import {HordesInventory, HordesPassiveInventory} from "../react/inventory/Wrapper";
+import {InventoryBagData, Item} from "../react/inventory/api";
 
 customElements.define('hordes-map', class HordesMapElement extends PersistentShim<HordesMap> {
     protected generateInstance(): HordesMap {
@@ -92,4 +93,27 @@ customElements.define('hordes-inventory', class HordesInventoryElement extends P
         ];
     }
 
+    bag(id: number): InventoryBagData|null {
+        return this.nestedObject().cachedBagData(id);
+    }
+
+}, {  });
+
+customElements.define('hordes-passive-inventory', class HordesPassiveInventoryElement extends PersistentShim<HordesPassiveInventory> {
+    protected generateInstance(): HordesPassiveInventory {
+        return new HordesPassiveInventory();
+    }
+
+    protected generateProps(): object | null {
+        return {
+            max: parseInt(this.dataset.max ?? '0'),
+            id: parseInt(this.dataset.id ?? '0'),
+        }
+    }
+
+    protected static observedAttributeNames() {
+        return [
+            'data-max', 'data-id'
+        ];
+    }
 }, {  });

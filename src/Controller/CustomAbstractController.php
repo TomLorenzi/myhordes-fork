@@ -106,8 +106,7 @@ class CustomAbstractController extends CustomAbstractCoreController {
             $data['max_bp'] = $this->citizen_handler->getMaxBP($activeCitizen);
             $data['status'] = $activeCitizen->getStatus();
             $data['roles'] = $activeCitizen->getVisibleRoles();
-            $data['rucksack'] = $activeCitizen->getInventory();
-            $data['rucksack_size'] = $this->inventory_handler->getSize( $activeCitizen->getInventory() );
+            $data['rucksack_id'] = $activeCitizen->getInventory()->getId();
             $data['pm'] = $activeCitizen->getPm();
             $data['max_pm'] = $this->citizen_handler->getMaxPM($activeCitizen);
             $data['username'] = $this->getUser()->getName();

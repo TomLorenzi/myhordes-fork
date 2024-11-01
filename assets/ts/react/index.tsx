@@ -254,7 +254,6 @@ export abstract class Shim<ReactType extends ShimLoader> extends HTMLElement {
     public constructor() {
         super();
         this.addEventListener('x-react-degenerate', () => {
-            console.log('degenerate', this);
             this.selfUnmount()
         });
         if (this.mountsLazily()) {

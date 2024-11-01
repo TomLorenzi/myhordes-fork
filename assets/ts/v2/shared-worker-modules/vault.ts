@@ -131,12 +131,12 @@ export default class VaultServiceModule extends ServiceModule {
     clearStorage(zealous: boolean): Promise<void> {
         if (zealous) return clear(this.store);
         else return keys(this.store).then( keys => {
-            const deprecated = keys.map(key => key.toString().split('::')).filter(([v = null, storage = null, version = null, language = null, id = null]) => {
+            return keys.map(key => key.toString().split('::')).filter(([v = null, storage = null, version = null, language = null, id = null]) => {
                 if (v === null || storage === null || version === null || language === null || id === null) return true;
-                if (version !== this.qv) return true;
+                if (version !== this.qv)
+                    return true;
                 return false
             });
-            return keys;
         } ).then( d => {
             if (d.length === 0) return;
             Console.log('Clearing deprecated vault keys', d);

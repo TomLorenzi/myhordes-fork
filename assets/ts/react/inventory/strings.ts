@@ -20,6 +20,7 @@ export type TranslationStrings = {
         "nw-weapon-v": string,
     },
     actions: {
+        more: string,
         search: string,
         "steal-btn": string,
         "steal-icon": string,

@@ -112,6 +112,7 @@ class InventoryController extends CustomAbstractCoreController
                 'nw-weapon' => $this->translator->trans('Nachtwache-Waffen', [], 'items')
             ],
             'actions' => [
+                'more' => $asset->getUrl('build/images/icons/small_more2.gif'),
                 'search' => $this->translator->trans('Gegenstände suchen', [], 'items'),
                 'steal-btn' => $this->translator->trans('Versuchen etwas zu stehlen', [], 'game'),
                 'steal-icon' => $asset->getUrl('build/images/icons/theft.gif'),

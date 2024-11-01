@@ -1,7 +1,5 @@
 {% extends "ajax/ajax.html.twig" %}
 
-{% use 'ajax/game/partials/header_inventory.html.twig' with html as header_inventory_partial_html %}
-
 {% block menu_bar %}
     {% if clock is defined and clock.attack != 0 %}
         <ul class="clock">
@@ -13,14 +11,12 @@
         </ul>
     {% endif %}
     
-    {% if rucksack is defined and clock.attack != 0 %}
-        <ul id="header-rucksack-items" x-ajax-href="{{ path('help', {'name': 'inventory'}) }}" class="rucksack pointer {% if rucksack_size > 10 %}expanded{% endif %} {% if status is defined %}rucksack_status_union{% endif %}">
-            {{ block('header_inventory_partial_html') }}
-        </ul>
+    {% if rucksack_id is defined and clock.attack != 0 %}
+        <hordes-passive-inventory id="header-rucksack-items" data-react-mount="header-rucksack-items" data-id="{{ rucksack_id }}" data-max="10" data-link="{{ path('help', {'name': 'inventory'}) }}" class="ul rucksack pointer {% if status is defined %}rucksack_status_union{% endif %}"></hordes-passive-inventory>
     {% endif %}
 
     {% if status is defined and clock.attack != 0 %}
-        <ul class="status link {% if rucksack is defined %}rucksack_status_union{% endif %}" x-ajax-href="{{ path('help', {'name': 'health'}) }}">
+        <ul class="status link {% if rucksack_id is defined %}rucksack_status_union{% endif %}" x-ajax-href="{{ path('help', {'name': 'health'}) }}">
             <li class="text">{{'Status'|trans({}, 'game')}}</li>
             {% for role in roles %}
                 {# @var role \App\Entity\CitizenRole #}

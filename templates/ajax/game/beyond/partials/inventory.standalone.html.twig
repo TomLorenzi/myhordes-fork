@@ -1,4 +1,3 @@
-{% use "ajax/game/partials/header_inventory.html.twig" with html as html_header %}
 {% use "ajax/game/beyond/partials/inventory.html.twig" %}
 
 <div data-trigger-event-name="mh-current-log-update"></div>
@@ -6,10 +5,6 @@
 <div x-render-target="#wb-item-action-section">
     {% embed "ajax/game/actions.html.twig" with {'t': citizen.fullPropertySet, 'scout': active_scout_mode, 'hidden': citizen_hidden, 'iec': true, item_action_proxy: path('beyond_dashboard_partial_item_actions')} %}
     {% endembed %}
-</div>
-
-<div x-render-target="#header-rucksack-items" data-render-target-classes-toggle="expanded,{{ rucksack_size > 10 ? 1 : 0 }}">
-    {{ block('html_header') }}
 </div>
 
 <div x-render-target="#inventory_partial_html">
