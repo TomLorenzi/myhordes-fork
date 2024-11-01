@@ -32,7 +32,7 @@ customElements.define('hordes-log', class HordesLogElement extends PersistentShi
     protected generateProps(): object | null {
         return {
             domain: this.dataset.domain ?? 'any',
-            etag: parseInt(this.dataset.etag ?? '0') ?? 0,
+            etag: this.dataset.etag,
             day: parseInt(this.dataset.day ?? '0') ?? 0,
             entries: parseInt(this.dataset.entries ?? '5') ?? 5,
             citizen: parseInt(this.dataset.citizen ?? '-1') ?? -1,
@@ -59,18 +59,34 @@ customElements.define('hordes-inventory', class HordesInventoryElement extends P
     }
 
     protected generateProps(): object | null {
+        const t = this.dataset.tutorial?.split('/').map(v => v.split('::')) ?? null;
+
         return {
-            etag: this.dataset.etag, locked: parseInt(this.dataset.locked) > 0,
+            etag: this.dataset.etag,
+            locked: parseInt(this.dataset.locked) > 0,
             inventoryAId: parseInt(this.dataset.inventoryAId),
             inventoryAType: this.dataset.inventoryAType,
             inventoryBId: parseInt(this.dataset.inventoryBId ?? '0'),
             inventoryBType: this.dataset.inventoryBType ?? 'none',
+            steal: this.dataset.steal === '1',
+            log: this.dataset.log === '1',
+            tutorial: t === null ? null : {
+                from: {
+                    tutorial: parseInt(t[0][0]),
+                    stage: t[0][1],
+                },
+                to: t[1][0] === '-1' ? null : {
+                    tutorial: parseInt(t[1][0]),
+                    stage: t[1][1],
+                },
+                restrict: (t[2]??[])[0] ?? null
+            }
         }
     }
 
     protected static observedAttributeNames() {
         return [
-            'data-etag', 'data-locked',
+            'data-etag', 'data-locked', 'data-tutorial', 'data-steal', 'data-log',
             'data-inventory-a-id', 'data-inventory-a-type',
             'data-inventory-b-id', 'data-inventory-b-type',
         ];

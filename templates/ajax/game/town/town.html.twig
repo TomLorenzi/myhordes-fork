@@ -317,7 +317,7 @@
                     </div>
 
                     <div {{ {'row': true, 'town-menu': true, 'night': conf.isNightTime, 'hide-sm ': app.user.setting( constant("\\App\\Enum\\UserSetting::ReorderTownLocationButtons") ) and app.user.expert}|classes }}>
-                        <div x-ajax-href="{{ path('town_house_dash') }}" {% if not app.user.expert%}x-advance-tutorial="3.text4>3.text6"{% endif%} class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'house' %}selected{% endif %} town-menu-house">
+                        <div x-ajax-href="{{ path('town_house_dash') }}" {% if not app.user.expert%}x-advance-tutorial="3.text4>3.text5"{% endif%} class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'house' %}selected{% endif %} town-menu-house">
                             <div></div>
                             <div>
                                 <img alt="{{ home.prototype.level }}" src="{{ asset('build/images/home/' ~ home.prototype.icon ~ '.gif') }}" />{% trans from 'game' %}Mein Haus{% endtrans %} {% if new_message %}<img alt="!" src="{{ asset('build/images/icons/anim_icon_mail.gif') }}" style="vertical-align: baseline;" /> {% endif %}

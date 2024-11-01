@@ -168,6 +168,11 @@ final class TransferItemListener implements ServiceSubscriberInterface
         $event->type_from = $type_from;
         $event->type_to = $type_to;
 
+        // Validate modality
+        if ($event->modality === TransferItemModality::BankTheft && ($type_from !== TransferItemType::Bank || $type_to !== TransferItemType::Rucksack)) {
+            $event->pushError(InventoryHandler::ErrorInvalidTransfer);
+            return;
+        }
 
         // Check inventory size
         if (!$opt_enforce_placement && ($event->to && ($max_size = $this->getService(InventoryHandler::class)->getSize($event->to)) > 0 && count($event->to->getItems()) >= $max_size ) ) {

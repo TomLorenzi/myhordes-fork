@@ -151,7 +151,8 @@ class AdminTownController extends AdminActionController
         ]));
     }
 
-    protected function renderInventoryAsBank( Inventory $inventory ) {
+    protected function renderInventoryAsBank( Inventory $inventory ): array
+    {
         $qb = $this->entity_manager->createQueryBuilder();
         $qb
             ->select('i.id', 'c.label as l1', 'cr.label as l2', 'SUM(i.count) as n')->from(Item::class,'i')

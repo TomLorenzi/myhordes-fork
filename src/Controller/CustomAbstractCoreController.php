@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Service\ConfMaster;
 use App\Structures\MyHordesConf;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Session\FlashBagAwareSessionInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -44,5 +45,20 @@ class CustomAbstractCoreController extends AbstractController {
         $l = $this->container->get('request_stack')->getCurrentRequest()->getPreferredLanguage( array_diff( $this->allLangsCodes, ['ach'] ) );
         if ($l) $l = explode('_', $l)[0];
         return in_array($l, $this->allLangsCodes) ? $l : 'de';
+    }
+
+    public function renderAllFlashMessages(bool $byType): array {
+        try {
+            $session = $this->container->get('request_stack')->getSession();
+            if (!$session instanceof FlashBagAwareSessionInterface) {
+                return [];
+            }
+
+            $messages = $session->getFlashBag()->all();
+
+            return $byType ? $messages : array_reduce($messages, fn(array $c, array $m) => [...$c,...$m], []);
+        } catch (\Throwable $e) {
+            return [];
+        }
     }
 }

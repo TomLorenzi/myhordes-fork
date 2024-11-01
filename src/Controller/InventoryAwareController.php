@@ -384,45 +384,6 @@ class InventoryAwareController extends CustomAbstractController
         return [ 'recipes' => $out, 'source_items' => $source_db ];
     }
 
-    protected function renderInventoryAsBank( Inventory $inventory ): array {
-        $qb = $this->entity_manager->createQueryBuilder();
-        $qb
-            ->select('i.id', 'c.label as l1', 'cr.label as l2', 'SUM(i.count) as n')->from(Item::class,'i')
-            ->where('i.inventory = :inv')->setParameter('inv', $inventory);
-        if ($this->getTownConf()->get(TownConf::CONF_MODIFIER_POISON_STACK, false))
-            $qb->groupBy('i.prototype', 'i.broken');
-        else $qb->groupBy('i.prototype', 'i.broken', 'i.poison');
-        $qb
-            ->leftJoin(ItemPrototype::class, 'p', Join::WITH, 'i.prototype = p.id')
-            ->leftJoin(ItemCategory::class, 'c', Join::WITH, 'p.category = c.id')
-            ->leftJoin(ItemCategory::class, 'cr', Join::WITH, 'c.parent = cr.id')
-            ->addOrderBy('c.ordering','ASC');
-
-        if ($this->getUser()->getClassicBankSort()) $qb->addOrderBy('n', 'DESC');
-
-        $qb
-            ->addOrderBy('p.icon', 'DESC')
-            ->addOrderBy('i.id', 'ASC');
-
-        $data = $qb->getQuery()->getResult(AbstractQuery::HYDRATE_ARRAY);
-
-        $final = [];
-        $cache = [];
-
-        foreach ($data as $entry) {
-            $label = $entry['l2'] ?? $entry['l1'] ?? 'Sonstiges';
-            if (!isset($final[$label])) $final[$label] = [];
-            $final[$label][] = [ $entry['id'], $entry['n'] ];
-            $cache[] = $entry['id'];
-        }
-
-        $item_list = $this->entity_manager->getRepository(Item::class)->findAllByIds($cache);
-        foreach ( $final as $label => &$entries )
-            $entries = array_map(function( array $entry ) use (&$item_list): BankItem { return new BankItem( $item_list[$entry[0]], $entry[1] ); }, $entries);
-
-        return $final;
-    }
-
     public function generic_devour_api(Citizen $aggressor, Citizen $victim): AjaxResponse {
         if ($aggressor->getId() === $victim->getId())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );

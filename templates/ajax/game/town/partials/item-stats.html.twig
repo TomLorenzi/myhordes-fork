@@ -2,11 +2,11 @@
     <div class="row">
         <div class="padded cell rw-2 rw-lg-6 center">
             <em>{{ 'Dekoration'|trans({}, 'game') }}</em><br />
-            <span class="counter">{{ deco }} <img src="{{ asset('build/images/icons/small_deco.gif') }}" alt="" /></span>
+            <span class="counter"><span data-incidental-target="deco">{{ deco }}</span> <img src="{{ asset('build/images/icons/small_deco.gif') }}" alt="" /></span>
         </div>
         <div class="padded cell rw-4 rw-lg-6 center def-estimation">
             <em>{{ 'Verteidigung'|trans({}, 'game') }}</em><br />
-            <span class="counter">{{ def.sum }} <img src="{{ asset('build/images/icons/small_def.gif') }}" alt="" /></span>
+            <span class="counter"><span data-incidental-target="homedef">{{ def.sum }}</span> <img src="{{ asset('build/images/icons/small_def.gif') }}" alt="" /></span>
             {{ help_btn(
                 'Behausung'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.house_defense},'game') ~ '</strong><br />' ~
                 'Bauarbeiten'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.upgrades_defense},'game') ~ '</strong><br />' ~

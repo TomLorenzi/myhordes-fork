@@ -12,7 +12,7 @@ declare var $: Global;
 interface mountProps {
     domain: string,
     day: number,
-    etag: number,
+    etag: string,
     citizen: number,
     category: number[],
     entries: number,

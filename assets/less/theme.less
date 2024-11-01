@@ -908,7 +908,7 @@ button, *.button, *.modal-button {
   }
 }
 
-input[type='text'],input[type='number'],input[type='password'],input[type='email'],input[type='url'],input[type='date'],input[type='datetime-local'],textarea {
+input[type='text'],input[type='search'],input[type='number'],input[type='password'],input[type='email'],input[type='url'],input[type='date'],input[type='datetime-local'],textarea {
   transition: outline-color 0.5s; outline: 1px solid rgba(0,0,0,0); color: black;
   &:not(textarea) { background: @myhordes-input-background; }
   &:not(input)    { background: @myhordes-input-text-background; resize: vertical; max-width: 100%; min-height: 250px; }
@@ -971,6 +971,10 @@ ul.inventory {
     display: flex; flex-wrap: wrap; gap: 2px; align-items: center; justify-content: flex-start;
     &>li {
       margin: 0;
+      &.category {
+        flex-basis: 100%;
+        &:not(:first-child) {padding-top: 12px;}
+      }
       &.placeholder {
         border: none; flex-grow: 1;
       }

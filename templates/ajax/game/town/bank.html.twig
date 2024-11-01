@@ -26,42 +26,19 @@
 
     <div class="row-flex wrap town-summary">
         <div class="padded cell rw-4 ellipsis row-header"><img src="{{ asset('build/images/item/item_plate.gif') }}" /> {{'Stadtverteidigung'|trans({}, 'game')}}</div>
-        <div class="padded cell rw-8 ellipsis row-detail">{{def}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> (<span class="link" x-ajax-href="{{ path('town_dashboard') }}">{{'Details ansehen'|trans({}, 'game')}}</span>)</div>
+        <div class="padded cell rw-8 ellipsis row-detail"><span data-incidental-target="towndef">{{def}}</span> <img src="{{ asset('build/images/icons/small_def.gif') }}" /> (<span class="link" x-ajax-href="{{ path('town_dashboard') }}">{{'Details ansehen'|trans({}, 'game')}}</span>)</div>
         <div class="padded cell rw-4 ellipsis row-header">{{'Verteidigungsgegenstände'|trans({}, 'game')}}</div>
-        <div class="padded cell rw-8 ellipsis row-detail">{{item_defense}} {{'Punkte'|trans({}, 'global')}} ({{item_def_count}} {{'Gegenstände'|trans({}, 'game')}} x {{item_def_factor}} <img alt="" src="{{ asset('build/images/icons/small_def.gif') }}" /> ) <a class="help-button"><div class="tooltip help">{{ 'Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>{def} Verteidigungspunkt(e)</strong>.'|trans({def: item_def_factor},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a> </div>
+        <div class="padded cell rw-8 ellipsis row-detail"><span data-incidental-target="towndef_items">{{item_defense}}</span> {{'Punkte'|trans({}, 'global')}} (<span data-incidental-target="towndef_item_count">{{item_def_count}}</span> {{'Gegenstände'|trans({}, 'game')}} x {{item_def_factor}} <img alt="" src="{{ asset('build/images/icons/small_def.gif') }}" /> ) <a class="help-button"><div class="tooltip help">{{ 'Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>{def} Verteidigungspunkt(e)</strong>.'|trans({def: item_def_factor},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a> </div>
     </div>
 
     <div class="row-flex wrap">
         <div class="padded cell rw-6 rw-lg-12">
-            {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items, 'sort': true} %}
-                {% block class %}rucksack{% endblock %}
-                {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
-            {% endembed %}
-
-            <div class="actions-box">
-                <button id="drop-all-button" {% if rucksack.items|length == 0 %}disabled{% endif %}>
-                    <img alt="" src="{{ asset('build/images/item/item_bag.gif') }}"> {{ 'Rucksack in der Bank ausleeren'|trans({},'game') }}
-                    <div class="tooltip help">{{ 'Beachte: Behälter wie Rucksack, Einkaufswagen etc. werden nicht in der Bank abgelegt.'|trans({},'game') }}</div>
-                </button>
-            </div>
-
-            {% if conf.isNightMode %}
-                <button style="margin-top: 5px;" id="night-steal-button" {% if bank|length == 0 %}disabled{% endif %}>
-                    <img alt="" src="{{ asset('build/images/icons/theft.gif') }}"> {{ 'Versuchen etwas zu stehlen'|trans({},'game') }}
-                    <div class="tooltip">{{ 'Diebstahlsversuche können nur <strong>während der Nacht</strong> unternommen werden: Sie haben eine reduzierte Erfolgschance und jeder Fehlschlag wird im Register vermerkt!'|trans({},'game')|raw }}</div>
-                </button>
-                <div id="night-mode-box" class="hidden">
-                    <div class="help">{{ 'Wähle einen Gegenstand aus der Bank aus...'|trans({},'game') }}</div>
-                    <button id="night-steal-abort-button">{{ 'Abbrechen'|trans({},'global') }}</button>
-                </div>
-            {% endif %}
-
-            {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': bank, 'bankmode': true} %}
-                {% block class %}bank{% endblock %}
-                {% block title %}{% endblock %}
-            {% endembed %}
-
-            <label class="small"><input type="checkbox" id="toggle_bank_cats" /> {{ 'Kategorien anzeigen'|trans({},'game') }}</label>
+            <hordes-inventory
+                    id="bank-inventory" data-react-mount="bank-inventory" data-log="1"
+                    data-etag="{{ date().timestamp }}" data-steal="{{ conf.isNightMode ? '1' : '0' }}"
+                    data-inventory-a-type="rucksack" data-inventory-a-id="{{ home.citizen.inventory.id }}"
+                    data-inventory-b-type="bank" data-inventory-b-id="{{ town.bank.id }}"
+            ></hordes-inventory>
         </div>
 
         <div class="padded cell rw-6 rw-lg-12">
@@ -85,60 +62,9 @@
 {% block js %}
     {{ parent() }}
     <script>
-        {% embed "scripts/inventory.js.twig" %}{% endembed %};
-
-        handleItems(
-            document.querySelectorAll('.rucksack>.item:not(.locked)[x-item-id]'),
-            '{{ path('town_bank_item_controller') }}',
-            'down', '{{ path('town_bank') }}'
-        );
-
-        handleItems(
-            document.querySelectorAll('#drop-all-button'),
-            '{{ path('town_bank_item_controller') }}',
-            'down-all', '{{ path('town_bank') }}'
-        );
-
-        handleItems(
-            document.querySelectorAll('.bank>.item:not(.locked)[x-item-id]'),
-            '{{ path('town_bank_item_controller') }}',
-            'up', '{{ path('town_bank') }}'
-        );
-
         $.ajax.background().no_history().load( document.getElementById('forum-content'), '{{ path('forum_previewer_controller', {fid: town.forum.id, sem: constant('App\\Entity\\Thread::SEMANTIC_BANK') })|e('js') }}', false, {}, function() {
             let container = document.querySelector('.forum-posts');
             container.scrollTop = container.scrollHeight;
         } );
-
-        {% if conf.isNightMode %}
-            $.html.addEventListenerAll('#night-steal-button', 'click', (e,elem) => {
-                if (!confirm('{{ 'Achtung! Deinen Mitbürgern wird das gar nicht gefallen.'|trans({},'game')|e('js') }}')) return;
-                elem.classList.add('hidden');
-                $.html.forEach('#night-mode-box', element => element.classList.remove('hidden'));
-                $.html.forEach('.inventory.bank', element => element.classList.add('theft'));
-                $.html.forEach('.inventory.bank .item[x-item-id]', element => element.setAttribute('x-theft','1'));
-
-            });
-            $.html.addEventListenerAll('#night-steal-abort-button', 'click', () => {
-                $.html.forEach('#night-steal-button', element => element.classList.remove('hidden'));
-                $.html.forEach('#night-mode-box', element => element.classList.add('hidden'));
-                $.html.forEach('.inventory.bank', element => element.classList.remove('theft'));
-                $.html.forEach('.inventory.bank .item[x-item-id]', element => element.setAttribute('x-theft',null));
-            });
-        {% endif %}
-
-        const update_view_mode = () => {
-            const show = $.client.config.showBankCategories.get();
-            $.html.forEach('ul#bank-inventory li.category', elem => elem.classList.toggle( 'hidden', !show ));
-        }
-
-        document.getElementById('toggle_bank_cats').checked = $.client.config.showBankCategories.get();
-        update_view_mode();
-
-        $.html.addEventListenerAll('#toggle_bank_cats', 'change', e => {
-            e.preventDefault();
-            $.client.config.showBankCategories.set(e.target.checked);
-            update_view_mode();
-        });
     </script>
 {% endblock %}

@@ -16,6 +16,7 @@ use App\Entity\CitizenStatus;
 use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
 use App\Entity\HeroSkillPrototype;
+use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
@@ -927,9 +928,11 @@ class CitizenHandler
         return $level;
     }
 
-    public function getDecoPoints(Citizen $citizen, &$decoItems = []): int {
+    public function getDecoPoints(Citizen|Inventory $from, &$decoItems = []): int {
+        $inventory = is_a($from, Citizen::class) ? $from->getHome()->getChest() : $from;
+
         $deco = 0;
-        foreach ($citizen->getHome()->getChest()->getItems() as $item) {
+        foreach ($inventory->getItems() as $item) {
             /** @var Item $item */
             if ($item->getBroken()) continue;
             $deco += $item->getPrototype()->getDeco();

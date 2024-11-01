@@ -839,7 +839,6 @@ class TownController extends InventoryAwareController
             'item_defense' => $defSummary->item_defense,
             'item_def_factor' => $item_def_factor,
             'item_def_count' => $this->inventory_handler->countSpecificItems($town->getBank(),$th->getPrototypesForDefenceItems(), false, false),
-            'bank' => $this->renderInventoryAsBank( $town->getBank() ),
             'day' => $town->getDay(),
         ]) );
     }

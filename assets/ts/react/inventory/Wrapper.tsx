@@ -1,17 +1,27 @@
 import * as React from "react";
 import { createRoot } from "react-dom/client";
-import {useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
-import {InventoryAPI, InventoryMods, InventoryResponse, Item} from "./api";
+import {useContext, useEffect, useRef, useState} from "react";
+import {InventoryAPI, InventoryBagData, InventoryBankData, InventoryMods, InventoryResponse, Item} from "./api";
 import {Tooltip} from "../tooltip/Wrapper";
 import {Const, Global} from "../../defaults";
-import {LogAPI} from "../log/api";
 import {TranslationStrings} from "./strings";
-import {Simulate} from "react-dom/test-utils";
 import {Vault} from "../../v2/client-modules/Vault";
 import {VaultItemEntry, VaultStorage} from "../../v2/typedef/vault_td";
+import {string} from "prop-types";
 
 declare var $: Global;
 declare var c: Const;
+
+interface TutorialStateConfig {
+    tutorial: number,
+    stage: string,
+}
+
+interface TutorialConfig {
+    from: TutorialStateConfig,
+    to: TutorialStateConfig|null,
+    restrict: "a"|"b"|null,
+}
 
 interface mountProps {
     etag: string,
@@ -22,6 +32,11 @@ interface mountProps {
 
     inventoryBId: number,
     inventoryBType: string,
+
+    steal: boolean,
+    log: boolean,
+
+    tutorial: TutorialConfig|null,
 }
 
 
@@ -59,6 +74,9 @@ const HordesInventoryWrapper = (props: mountProps) => {
 
     const [strings, setStrings] = useState<TranslationStrings>( null );
     const [loading, setLoading] = useState<boolean>( false );
+
+    const [theftMode, setTheftMode] = useState<boolean>( false );
+
     const api = useRef( new InventoryAPI() )
 
     useEffect(() => {
@@ -82,34 +100,56 @@ const HordesInventoryWrapper = (props: mountProps) => {
         });
     }, [props.inventoryBId, props.etag]);
 
-    const manageTransfer = (item: number|null, from: number, to: number, direction: string, mod: string = null) =>{
+    const manageTransfer = (item: number|null, from: number, to: number, direction: string) =>{
         setLoading(true);
+
+        let mod = null;
+        if (theftMode) mod = 'theft';
+
         api.current.transfer( item, from, to, direction, mod ).then(s => {
-            if (s.messages)
+            // Display messages
+            if (s.messages?.length > 0)
                 $.html.message(s.success ? 'notice' : 'error', s.messages);
-            else if (s.errors)
+            else if (s.errors?.length > 0)
                 $.html.error( s.errors.map( e => c.errors[e] ?? null ).join('<hr/>') )
 
+            // Update individual inventories
             if (direction === 'down' || direction === 'down-all') {
                 setInventoryA( s.source );
                 setInventoryB( s.target );
-            }
-
-            if (direction === 'up') {
+            } else if (direction === 'up') {
                 setInventoryA( s.target );
                 setInventoryB( s.source );
             }
 
+            // If a tutorial dataset was attached to this element, apply it
+            if (props.tutorial && (!props.tutorial.restrict || ( props.tutorial.restrict === 'a' && direction !== 'up' ) || ( props.tutorial.restrict === 'b' && direction === 'up' ))) {
+                if (props.tutorial.to === null) $.html.conditionalFinishTutorialStage( props.tutorial.from.tutorial, props.tutorial.from.stage, true );
+                else $.html.conditionalSetTutorialStage( props.tutorial.from.tutorial, props.tutorial.from.stage, props.tutorial.to.tutorial, props.tutorial.to.stage );
+            }
+
+            // Apply incidentals to the surrounding DOM
+            Object.entries( s.incidentals ).forEach(([prop,value]) =>
+                document.querySelectorAll(`[data-incidental-target="${prop}"]`).forEach( e => e.innerHTML = value ));
+
+            // If the log mode is enabled, update all surrounding logs
+            if (props.log)
+                document.querySelectorAll('hordes-log[data-etag]').forEach((log) => {
+                    const [et_static, et_custom = '0'] = (log as HTMLElement).dataset.etag.split('-');
+                    (log as HTMLElement).dataset.etag = `${et_static}-${parseInt(et_custom)+1}`;
+                });
+
             setLoading(false);
+            setTheftMode(false);
         }).catch(() => setLoading(false))
     }
 
-    const handleTransfer = (from: number, to: number, direction: string, mod: string = null) => {
-        return (i:Item) => manageTransfer(i.i, from, to, direction, mod);
+    const handleTransfer = (from: number, to: number, direction: string) => {
+        return (i:Item) => manageTransfer(i.i, from, to, direction);
     }
 
     return <Globals.Provider value={{api: api.current, strings}}>
-        <SingleInventory id={props.inventoryAId} type={props.inventoryAType} inventory={inventoryA} locked={props.locked || loading} onItemClick={handleTransfer( props.inventoryAId, props.inventoryBId, 'down' )} />
+        <SwitchInventory id={props.inventoryAId} type={props.inventoryAType} inventory={inventoryA} locked={props.locked || loading || theftMode} onItemClick={handleTransfer( props.inventoryAId, props.inventoryBId, 'down' )} />
         { props.inventoryAType === 'rucksack' && props.inventoryBType === 'chest' && <>
             <button onClick={() => manageTransfer( null, props.inventoryAId, props.inventoryBId, 'down-all' )}>
                 <img src={strings?.actions["down-all-icon"] ?? ''} alt={strings?.actions["down-all-home"] ?? ''}/>
@@ -117,28 +157,73 @@ const HordesInventoryWrapper = (props: mountProps) => {
                 { strings?.actions["down-all-home"] ?? '' }
             </button>
         </> }
+        { props.inventoryAType === 'rucksack' && props.inventoryBType === 'bank' && <>
+            <button onClick={() => manageTransfer( null, props.inventoryAId, props.inventoryBId, 'down-all' )}>
+                <img src={strings?.actions["down-all-icon"] ?? ''} alt={strings?.actions["down-all-bank"] ?? ''}/>
+                &nbsp;
+                { strings?.actions["down-all-bank"] ?? '' }
+            </button>
+            { props.steal && !theftMode && <button onClick={() => {
+                if (confirm(strings?.actions["steal-confirm"] ?? '?')) setTheftMode(true);
+            }}>
+                <img src={strings?.actions["steal-icon"] ?? ''} alt={strings?.actions["steal-btn"] ?? ''}/>
+                &nbsp;
+                { strings?.actions["steal-btn"] ?? '' }
+                <Tooltip additionalClasses="help" html={strings?.actions["steal-tooltip"] ?? ''}/>
+            </button> }
+            { props.steal && theftMode && <>
+                <div className="help">{strings.actions["steal-box"]}</div>
+                <button onClick={() => setTheftMode(false)}>{strings.global.abort ?? ''}</button>
+            </> }
+        </> }
         { props.inventoryBType !== 'none' && <>
-            <SingleInventory id={props.inventoryBId} type={props.inventoryBType} inventory={inventoryB} locked={props.locked || loading} onItemClick={handleTransfer( props.inventoryBId, props.inventoryAId, 'up' )} />
+            <SwitchInventory
+                id={props.inventoryBId} type={props.inventoryBType} inventory={inventoryB}
+                locked={props.locked || loading} theft={theftMode}
+                onItemClick={handleTransfer( props.inventoryBId, props.inventoryAId, 'up' )} />
         </>}
     </Globals.Provider>
 };
 
-interface inventoryProps {
+interface InventoryProps {
     id: number,
     "type": string,
     locked: boolean,
     inventory: InventoryResponse,
     onItemClick: (i:Item) => void,
+    theft?: boolean,
 }
 
-const SingleInventory = (props: inventoryProps) => {
+interface InventoryPropsBag extends InventoryProps {
+    inventory: InventoryBagData,
+}
+
+interface InventoryPropsBank extends InventoryProps {
+    inventory: InventoryBankData,
+}
+
+const SwitchInventory = (props: InventoryProps) => {
+    const globals = useContext(Globals);
+    const loaded = props.inventory && globals.strings;
+
+    return <>
+        { !loaded && <ul className={`inventory inventory-react ${props.type}`}>
+            <li className="placeholder">
+                <div className="loading"/>
+            </li>
+        </ul> }
+        { loaded && props.inventory.bank && <BankInventory {...(props as InventoryPropsBank)} /> }
+        { loaded && !props.inventory.bank && <BagInventory {...(props as InventoryPropsBag)} /> }
+    </>
+}
+
+const BagInventory = (props: InventoryPropsBag) => {
 
     const globals = useContext(Globals);
 
     const [vaultData, setVaultData] = useState<VaultStorage<VaultItemEntry>>(null);
 
     useEffect(() => {
-        if (props.inventory === null) return;
         const vault = new Vault<VaultItemEntry>(props.inventory.items.map(v => v.p), 'items');
         vault.handle( data => {
             setVaultData(d => {return {
@@ -149,29 +234,82 @@ const SingleInventory = (props: inventoryProps) => {
         return () => vault.discard();
     }, [props.inventory]);
 
-    const loaded = props.inventory && globals.strings;
-
     return <ul className={`inventory inventory-react ${props.type}`}>
-        { !loaded && <li className="placeholder"><div className="loading" /></li> }
-        { loaded && <>
-            <li className="title">{globals.strings ? (globals.strings.type[props.type] ?? props.type) : '...'}</li>
-            {props.inventory.items.sort(sort).map(i => <React.Fragment key={i.i}><SingleItem
-                item={i} mods={props.inventory.mods} data={(vaultData ?? {})[i.p] ?? null}
-                locked={props.locked || i.e} onClick={props.onItemClick}
-            /></React.Fragment>)}
-            {props.inventory.size && props.inventory.size > props.inventory.items.length && Array.from(Array(props.inventory.size - props.inventory.items.length).keys()).map(i =>
-                <li key={i} className="free"/>)
-            }
-        </>}
+        <li className="title">{globals.strings.type[props.type] ?? props.type}</li>
+        {props.inventory.items.sort(sort).map(i => <React.Fragment key={i.i}><SingleItem
+            blur={null}
+            item={i} mods={props.inventory.mods} data={(vaultData ?? {})[i.p] ?? null}
+            locked={props.locked || i.e} onClick={props.onItemClick}
+        /></React.Fragment>)}
+        {props.inventory.size && props.inventory.size > props.inventory.items.length && Array.from(Array(props.inventory.size - props.inventory.items.length).keys()).map(i =>
+            <li key={i} className="free"/>)
+        }
     </ul>
 }
 
-const SingleItem = (props: { item: Item, data: VaultItemEntry | null, mods: InventoryMods, locked: boolean, onClick: (i:Item) => void, })=> {
+const BankInventory = (props: InventoryPropsBank) => {
+
+    const globals = useContext(Globals);
+    const datalistUuid = useRef(window.crypto.randomUUID());
+
+    const [searchString, setSearchString] = useState<string>('');
+    const [vaultData, setVaultData] = useState<VaultStorage<VaultItemEntry>>(null);
+
+    const [showCategories, setShowCategories] = useState<boolean>($.client.config.showBankCategories.get());
+
+    const category_map = {};
+    globals.strings.categories.forEach( ([id,name,sort]) => category_map[id] = [name,sort] );
+
+    useEffect(() => {
+        if (props.inventory === null) return;
+        const vault = new Vault<VaultItemEntry>(props.inventory.categories
+            .map(c => c.items.map(i => i.p)).reduce((c,a) => [...c,...a], [])
+            , 'items');
+        vault.handle( data => {
+            setVaultData(d => {return {
+                ...(d ?? {}),
+                ...Object.fromEntries( data.map( v => [ v.id, v ] ) )
+            }})
+        } );
+        return () => vault.discard();
+    }, [props.inventory]);
+
+    return <>
+        <p>
+            <input type="search" placeholder={globals.strings.actions.search} list={`bk-list-${datalistUuid.current}`} value={searchString} onChange={e => setSearchString(e.target.value)} />
+            <datalist id={`bk-list-${datalistUuid.current}`}>
+                { Object.values( vaultData ?? {} ).map(v => <option value={v.name}/>) }
+            </datalist>
+        </p>
+        <ul className={`inventory inventory-react ${props.type} ${props.theft ? 'theft' : ''}`}>
+            {props.inventory.categories.sort((c1, c2) => category_map[c1.id][1] - category_map[c2.id][1] || c1.id - c2.id).map(c => <React.Fragment key={c.id}>
+                { showCategories && <li className="category">{category_map[c.id][0]}</li> }
+                { c.items.map(i => <React.Fragment key={i.i}>
+                    <SingleItem
+                        blur={ searchString === '' ? null : !(vaultData ?? {})[i.p]?.name?.toLowerCase()?.includes( searchString.toLowerCase() ) }
+                        item={i} mods={props.inventory.mods} data={(vaultData ?? {})[i.p] ?? null}
+                        locked={props.locked || i.e} onClick={props.onItemClick}
+                    />
+                </React.Fragment>) }
+            </React.Fragment>)}
+        </ul>
+        <label className="small">
+            <input type="checkbox" checked={showCategories} onChange={e => {
+                setShowCategories(!showCategories);
+                $.client.config.showBankCategories.set(!showCategories);
+            }} />
+            &nbsp;
+            { globals.strings.actions["show-categories"] ?? '' }
+        </label>
+    </>
+}
+
+const SingleItem = (props: { item: Item, data: VaultItemEntry | null, mods: InventoryMods, locked: boolean, onClick: (i:Item) => void, blur: null|boolean })=> {
     const globals = useContext(Globals);
 
     return props.data !== null
         ? <li
-            className={`item ${(props.locked && 'locked') || ''} ${(props.item.b && 'broken') || ''} ${(props.item.h && 'banished_hidden') || ''} ${(props.item.c > 1 && 'counted') || ''}`}
+            className={`item ${(props.blur === true && 'blur') || ''} ${(props.blur === false && 'focus') || ''} ${(props.locked && 'locked') || ''} ${(props.item.b && 'broken') || ''} ${(props.item.h && 'banished_hidden') || ''} ${(props.item.c > 1 && 'counted') || ''}`}
             onClick={ props.locked ? null : i => props.onClick(props.item) }
         >
             <span className="item-icon"><img src={ props.data?.icon ?? '' } alt={ props.data?.name ?? '...' }/></span>

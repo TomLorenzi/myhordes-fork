@@ -2,7 +2,7 @@ import ServiceModule from "./common";
 import Console from "../debug";
 import {Fetch} from "../fetch";
 import {VaultEntry, VaultRequest} from "../typedef/vault_td";
-import {getMany, setMany} from "idb-keyval";
+import {clear, createStore, delMany, getMany, keys, setMany} from "idb-keyval";
 
 type DataRequest = {
     storage: string,
@@ -21,6 +21,7 @@ export default class VaultServiceModule extends ServiceModule {
     protected fetch: Fetch = null;
 
     protected ready = false;
+    protected cleared = false;
     protected migrations = 0;
 
     protected schedule: number = null;
@@ -28,7 +29,7 @@ export default class VaultServiceModule extends ServiceModule {
 
     protected requests: DataRequest[] = [];
 
-    private ver: number = 1;
+    private readonly store = null;
     protected qv:string = null;
     protected ql:string = null;
 
@@ -38,6 +39,7 @@ export default class VaultServiceModule extends ServiceModule {
 
         this.fetch = baseUrl === false ? new Fetch() : new Fetch(`${baseUrl}/rest/v1/game/data`, false);
 
+        this.store = createStore('myhordes', 'vault')
         this.ready = true
         this.queueProcess();
     }
@@ -106,7 +108,7 @@ export default class VaultServiceModule extends ServiceModule {
 
     fetchFromStorage(request: DataRequest): Promise<DataRequest|null> {
         return new Promise((resolve) => {
-            getMany(request.ids.map(i => `v_${request.storage}_${this.qv}_${this.ql}_${i}`)).then(entries => {
+            getMany(request.ids.map(i => `v_${request.storage}_${this.qv}_${this.ql}_${i}`), this.store).then(entries => {
                 const found = entries.filter(v => typeof v === "object" && v?.id);
                 if (found.length === 0) resolve(request);
                 else {
@@ -126,11 +128,27 @@ export default class VaultServiceModule extends ServiceModule {
         })
     }
 
+    clearStorage(zealous: boolean): Promise<void> {
+        if (zealous) return clear(this.store);
+        else return keys(this.store).then( keys => {
+            const deprecated = keys.map(key => key.toString().split('::')).filter(([v = null, storage = null, version = null, language = null, id = null]) => {
+                if (v === null || storage === null || version === null || language === null || id === null) return true;
+                if (version !== this.qv) return true;
+                return false
+            });
+            return keys;
+        } ).then( d => {
+            if (d.length === 0) return;
+            Console.log('Clearing deprecated vault keys', d);
+            return delMany(d, this.store)
+        } );
+    }
+
     writeToStorage(storage: string, response: DataResponse): Promise<void> {
         return setMany(response.data.map(s => [
-            `v_${storage}_${response.v}_${response.l}_${s.id}`,
+            `v::${storage}::${response.v}::${response.l}::${s.id}`,
             s
-        ]))
+        ]), this.store)
     }
 
     handle(event: MessageEvent): void {
@@ -142,6 +160,10 @@ export default class VaultServiceModule extends ServiceModule {
         if (message === 'version') {
             this.qv = event.data.payload.version;
             this.ql = event.data.payload.language;
+            if (!this.cleared) {
+                this.cleared = true;
+                this.clearStorage(false).then(() => {});
+            }
             return;
         }
 

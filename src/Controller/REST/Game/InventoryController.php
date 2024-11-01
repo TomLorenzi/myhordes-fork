@@ -13,6 +13,8 @@ use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\HomeIntrusion;
 use App\Entity\Inventory;
 use App\Entity\Item;
+use App\Entity\ItemCategory;
+use App\Entity\ItemPrototype;
 use App\Entity\LogEntryTemplate;
 use App\Entity\RuinExplorerStats;
 use App\Entity\Town;
@@ -36,14 +38,18 @@ use App\Service\HTMLService;
 use App\Service\InventoryHandler;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
+use App\Service\TownHandler;
 use App\Service\UserHandler;
+use App\Structures\BankItem;
 use App\Structures\TownConf;
 use App\Traits\Controller\EventChainProcessor;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Collections\Order;
+use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Query\Expr\Join;
 use Exception;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -76,18 +82,24 @@ class InventoryController extends CustomAbstractCoreController
 
     /**
      * @param Packages $asset
+     * @param EntityManagerInterface $em
      * @return JsonResponse
      */
     #[Route(path: '', name: 'base', methods: ['GET'])]
     #[Route(path: '/index', name: 'base_index', methods: ['GET'])]
     #[GateKeeperProfile('skip')]
-    public function index(Packages $asset): JsonResponse {
+    public function index(Packages $asset, EntityManagerInterface $em): JsonResponse {
         return new JsonResponse([
+            'global' => [
+                'abort' => $this->translator->trans('Abbrechen', [], 'global'),
+            ],
             'type' => [
                 'rucksack' => $this->translator->trans('Rucksack', [], 'game'),
                 'chest' => $this->translator->trans('Truhe', [], 'game'),
                 'bank' => $this->translator->trans('Bank', [], 'game'),
             ],
+            'categories' => array_map(fn(ItemCategory $c) => [$c->getId(), $this->translator->trans($c->getLabel(), [], 'items'), $c->getOrdering()],
+                $em->getRepository(ItemCategory::class)->findAll()),
             'props' => [
                 'broken' => $this->translator->trans('Kaputt', [], 'items'),
                 'drink-done' => $this->translator->trans('Beachte: Du hast heute bereits getrunken und deine Aktionspunkte für diesen Tag bereits erhalten.', [], 'items'),
@@ -100,8 +112,16 @@ class InventoryController extends CustomAbstractCoreController
                 'nw-weapon' => $this->translator->trans('Nachtwache-Waffen', [], 'items')
             ],
             'actions' => [
+                'search' => $this->translator->trans('Gegenstände suchen', [], 'items'),
+                'steal-btn' => $this->translator->trans('Versuchen etwas zu stehlen', [], 'game'),
+                'steal-icon' => $asset->getUrl('build/images/icons/theft.gif'),
+                'steal-tooltip' => $this->translator->trans('Diebstahlsversuche können nur <strong>während der Nacht</strong> unternommen werden: Sie haben eine reduzierte Erfolgschance und jeder Fehlschlag wird im Register vermerkt!', [], 'game'),
+                'steal-box' => $this->translator->trans('Wähle einen Gegenstand aus der Bank aus...', [], 'game'),
+                'steal-confirm' => $this->translator->trans('Achtung! Deinen Mitbürgern wird das gar nicht gefallen.', [], 'game'),
                 'down-all-home' => $this->translator->trans('Rucksack ausleeren', [], 'game'),
+                'down-all-bank' => $this->translator->trans('Rucksack in der Bank ausleeren', [], 'game'),
                 'down-all-icon' => $asset->getUrl('build/images/item/item_bag.gif'),
+                'show-categories' => $this->translator->trans('Kategorien anzeigen', [], 'game'),
             ]
         ]);
     }
@@ -124,7 +144,7 @@ class InventoryController extends CustomAbstractCoreController
             ($inventory->getRuinZoneRoom() && $citizen->getExplorerStats()->findFirst(fn(RuinExplorerStats $a) => $a->getActive())->isAt($inventory->getRuinZoneRoom()));
     }
 
-    protected static function renderInventory(Citizen $citizen, Inventory $inventory, InventoryHandler $handler, EventProxyService $proxy, TranslatorInterface $trans): array {
+    protected function renderBagInventory(Citizen $citizen, Inventory $inventory, InventoryHandler $handler, EventProxyService $proxy, TranslatorInterface $trans): array {
         $foreign_chest = false;
 
         // Special case - foreign chest
@@ -133,6 +153,7 @@ class InventoryController extends CustomAbstractCoreController
 
         $show_banished_hidden = $citizen->getBanished() || $citizen->getTown()->getChaos();
         return [
+            'bank' => false,
             'size' => $handler->getSize( $inventory ),
             'mods' => [
                 'has_drunk' => $citizen->hasStatus('hasdrunk')
@@ -140,22 +161,86 @@ class InventoryController extends CustomAbstractCoreController
             'items' => $inventory->getItems()
                 ->filter( fn(Item $i) => $show_banished_hidden || !$i->getHidden() )
                 ->filter( fn(Item $i) => !$foreign_chest || !$i->getPrototype()->getHideInForeignChest() )
-                ->map( fn(Item $i) => [
-                    'i' => $i->getId(),
-                    'p' => $i->getPrototype()->getId(),
-                    'c' => $i->getCount(),
-                    'b' => $i->getBroken(),
-                    'h' => $i->getHidden(),
-                    'e' => $i->getEssential(),
-                    'w' => $i->getPrototype()->getWatchpoint() <> 0 ? $trans->trans('{watchpoint} pkt attacke', ['watchpoint' => $proxy->buildingQueryNightwatchDefenseBonus( $citizen->getTown(), $i )], 'items') : null,
-                    's' => [
-                        $i->getEssential() ? 1 : 0,
-                        $i->getPrototype()->getSort(),
-                        $i->getPrototype()->getId(),
-                        mt_rand(),
-                    ]
-                ] )->getValues()
+                ->map( fn(Item $i) => $this->renderItem( $citizen, $i, $proxy ) )->getValues()
         ];
+    }
+
+    protected function renderItem(Citizen $citizen, Item $i, EventProxyService $proxy, ?int $override_count = null): array {
+        return [
+            'i' => $i->getId(),
+            'p' => $i->getPrototype()->getId(),
+            'c' => $override_count ?? $i->getCount(),
+            'b' => $i->getBroken(),
+            'h' => $i->getHidden(),
+            'e' => $i->getEssential(),
+            'w' => $i->getPrototype()->getWatchpoint() <> 0 ? $this->translator->trans('{watchpoint} pkt attacke', ['watchpoint' => $proxy->buildingQueryNightwatchDefenseBonus( $citizen->getTown(), $i )], 'items') : null,
+            's' => [
+                $i->getEssential() ? 1 : 0,
+                $i->getPrototype()->getSort(),
+                $i->getPrototype()->getId(),
+                mt_rand(),
+            ]
+        ];
+    }
+
+    protected function renderBankInventory(Citizen $citizen, Inventory $inventory, InventoryHandler $handler, EventProxyService $proxy, TranslatorInterface $trans, EntityManagerInterface $em): array {
+        $qb = $em->createQueryBuilder();
+        $qb
+            ->select('i.id', 'c.id as l1', 'cr.id as l2','c.ordering as lo1', 'cr.ordering as lo2', 'SUM(i.count) as n')->from(Item::class,'i')
+            ->where('i.inventory = :inv')->setParameter('inv', $inventory);
+
+        if ($this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_MODIFIER_POISON_STACK, false))
+            $qb->groupBy('i.prototype', 'i.broken');
+        else $qb->groupBy('i.prototype', 'i.broken', 'i.poison');
+
+        $qb
+            ->leftJoin(ItemPrototype::class, 'p', Join::WITH, 'i.prototype = p.id')
+            ->leftJoin(ItemCategory::class, 'c', Join::WITH, 'p.category = c.id')
+            ->leftJoin(ItemCategory::class, 'cr', Join::WITH, 'c.parent = cr.id')
+            ->addOrderBy('c.ordering','ASC');
+
+        if ($this->getUser()->getClassicBankSort()) $qb->addOrderBy('n', 'DESC');
+
+        $qb
+            ->addOrderBy('p.icon', 'DESC')
+            ->addOrderBy('i.id', 'ASC');
+
+        $data = $qb->getQuery()->getResult(AbstractQuery::HYDRATE_ARRAY);
+
+        $final = [];
+        $cache = [];
+
+        foreach ($data as $entry) {
+            $cid = $entry['l2'] ?? $entry['l1'] ?? -1;
+
+            $final[$cid] = [
+                ...($final[$cid] ?? []),
+                [ $entry['id'], $entry['n'],  ]
+            ];
+
+            $cache[$entry['id']] = true;
+        }
+
+        $item_list = $em->getRepository(Item::class)->findAllByIds(array_keys($cache));
+
+        return [
+            'bank' => true,
+            'mods' => [
+                'has_drunk' => $citizen->hasStatus('hasdrunk')
+            ],
+            'categories' => array_map( fn($entry, $id) => [
+                'id' => $id,
+                'items' => (new ArrayCollection($entry))
+                    ->map(fn(array $data) => $this->renderItem( $citizen, $item_list[$data[0]], $proxy, $data[1] ) )
+                    ->getValues()
+            ], $final, array_keys($final) ),
+        ];
+    }
+
+    protected function renderInventory(Citizen $citizen, Inventory $inventory, InventoryHandler $handler, EventProxyService $proxy, TranslatorInterface $trans, EntityManagerInterface $em): array {
+        return $inventory->getTown()
+            ? $this->renderBankInventory( $citizen, $inventory, $handler, $proxy, $trans, $em )
+            : $this->renderBagInventory( $citizen, $inventory, $handler, $proxy, $trans );
     }
 
     #[Route(path: '/{id}', name: 'inventory_get', methods: ['GET'])]
@@ -174,9 +259,24 @@ class InventoryController extends CustomAbstractCoreController
             if ($hidden && !$intrusion) return new JsonResponse([], Response::HTTP_NOT_FOUND);
         }
 
-        $data = self::renderInventory( $citizen, $inventory, $handler, $proxy, $this->translator );
+        $data = $this->renderInventory( $citizen, $inventory, $handler, $proxy, $this->translator, $em );
 
         return new JsonResponse($data);
+    }
+
+    public function renderIncidentals(Inventory $inventory, CitizenHandler $ch, TownHandler $th, InventoryHandler $ih): array {
+        return match (true) {
+            $inventory->getHome() !== null => [
+                'deco' => $ch->getDecoPoints( $inventory ),
+                'homedef' => $th->calculate_home_def( $inventory->getHome() )
+            ],
+            $inventory->getTown() !== null => [
+                'towndef' => $th->calculate_town_def($inventory->getTown(), $defSummary),
+                'towndef_items' => $defSummary->item_defense,
+                'towndef_item_count' => $ih->countSpecificItems($inventory, $th->getPrototypesForDefenceItems(), false, false),
+            ],
+            default => [],
+        };
     }
 
     #[Route(path: '/{inventory}/{item}', name: 'inventory_move', methods: ['PATCH'])]
@@ -186,6 +286,7 @@ class InventoryController extends CustomAbstractCoreController
         #[MapEntity(id: 'item')] ?Item $item,
         InventoryHandler $handler, EventProxyService $proxy,
         JSONRequestParser $parser,
+        CitizenHandler $ch, TownHandler $th, InventoryHandler $ih,
         EntityManagerInterface $em,
         EventFactory $ef, EventDispatcherInterface $ed,
     ): JsonResponse
@@ -200,7 +301,7 @@ class InventoryController extends CustomAbstractCoreController
 
         if ($direction !== 'down-all' && !$item) return new JsonResponse([], Response::HTTP_BAD_REQUEST);
 
-        $mod = $parser->get('mod', null, ['theft', 'hide']) >= 1;
+        $mod = $parser->get('mod', null, ['theft', 'hide']);
 
         $to = $parser->get_int('to', -1);
         $target_inventory = $em->getRepository(Inventory::class)->find($to);
@@ -250,21 +351,17 @@ class InventoryController extends CustomAbstractCoreController
             return new JsonResponse([], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
 
-        $processed = max(0, count($items) - count($errors));
-        if (empty($errors) || count($errors) < count($items) || empty($items)) {
-            return new JsonResponse([
-                'success' => true,
-                'source' => self::renderInventory( $citizen, $inventory, $handler, $proxy, $this->translator ),
-                'target' => self::renderInventory( $citizen, $target_inventory, $handler, $proxy, $this->translator ),
-            ]);
-        } else {
-            return new JsonResponse([
-                'success' => false,
-                'errors' => $errors,
-                'messages' => implode('<hr/>', $error_messages ?? []),
-                'source' => self::renderInventory( $citizen, $inventory, $handler, $proxy, $this->translator ),
-                'target' => self::renderInventory( $citizen, $target_inventory, $handler, $proxy, $this->translator ),
-            ]);
-        }
+        $success = empty($errors) || count($errors) < count($items) || empty($items);
+        return new JsonResponse([
+            'success' => $success,
+            'errors' => $success ? [] : $errors,
+            'incidentals' => [
+                ...($this->renderIncidentals($inventory, $ch, $th, $ih)),
+                ...($this->renderIncidentals($target_inventory, $ch, $th, $ih)),
+            ],
+            'messages' => implode('<hr/>', [...($error_messages ?? []), ...$this->renderAllFlashMessages(false)]),
+            'source' => $this->renderInventory( $citizen, $inventory, $handler, $proxy, $this->translator, $em ),
+            'target' => $this->renderInventory( $citizen, $target_inventory, $handler, $proxy, $this->translator, $em ),
+        ]);
     }
 }

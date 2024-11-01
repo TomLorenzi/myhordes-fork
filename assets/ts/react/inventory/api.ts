@@ -16,16 +16,34 @@ export type InventoryMods = {
     has_drunk?: boolean,
 }
 
-export type InventoryResponse = {
-    size: number|null,
-    mods: InventoryMods
+export type InventoryCategory = {
+    id: number,
     items: Item[],
+}
+
+export type InventoryResponse = InventoryBagData | InventoryBankData;
+
+export type InventoryBaseData = {
+    bank: boolean
+    mods: InventoryMods
+}
+
+export type InventoryBagData = InventoryBaseData & {
+    bank: false
+    size: number|null,
+    items: Item[],
+}
+
+export type InventoryBankData = InventoryBaseData & {
+    bank: true,
+    categories: InventoryCategory[]
 }
 
 export type TransportResponse = {
     success: boolean,
     messages: string,
     errors: number[],
+    incidentals: {[key:string]: string}
     source: InventoryResponse,
     target: InventoryResponse,
 }
