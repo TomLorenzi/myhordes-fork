@@ -14,6 +14,7 @@ use App\Entity\HomeIntrusion;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\PrivateMessage;
+use App\Enum\ActionHandler\PointType;
 use App\Enum\Configuration\CitizenProperties;
 use App\Enum\Game\TransferItemModality;
 use App\Enum\Game\TransferItemOption;
@@ -170,6 +171,10 @@ final class TransferItemListener implements ServiceSubscriberInterface
 
         // Validate modality
         if ($event->modality === TransferItemModality::BankTheft && ($type_from !== TransferItemType::Bank || $type_to !== TransferItemType::Rucksack)) {
+            $event->pushError(InventoryHandler::ErrorInvalidTransfer);
+            return;
+        }
+        if ($event->modality === TransferItemModality::HideItem && ($type_from !== TransferItemType::Rucksack || $type_to !== TransferItemType::Local)) {
             $event->pushError(InventoryHandler::ErrorInvalidTransfer);
             return;
         }
@@ -338,6 +343,7 @@ final class TransferItemListener implements ServiceSubscriberInterface
                 $this->getService(InventoryHandler::class)->forceRemoveItem($event->item);
 
                 // Prematurely end the event chain
+                $event->hasSideEffects = true;
                 $event->markModified()->shouldPersist();
                 $event->stopPropagation();
 
@@ -456,9 +462,11 @@ final class TransferItemListener implements ServiceSubscriberInterface
                             default => CauseOfDeath::Unknown
                         });
                         $this->getService(EntityManagerInterface::class)->persist($this->getService(LogTemplateHandler::class)->citizenDeath( $event->actor ) );
+                        $event->hasSideEffects = true;
                     }
                     else {
                         $this->getService(CitizenHandler::class)->inflictWound( $event->actor );
+                        $event->hasSideEffects = true;
                     }
 
                     if ($hasExplodingDoormat) {

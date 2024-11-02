@@ -15,6 +15,7 @@ use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
+use App\Entity\EscapeTimer;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\Inventory;
 use App\Entity\Item;
@@ -941,5 +942,25 @@ class CitizenHandler
         }
 
         return $deco;
+    }
+
+    public function uncoverHunter(Citizen $c, float $probability = 1): bool {
+        if (!$this->random_generator->chance($probability)) return false;
+
+        $vest = $this->inventory_handler->fetchSpecificItems( $c->getInventory(), [new ItemRequest('vest_on_#00')] );
+        if ($vest) {
+            $vest[0]->setPrototype( $this->entity_manager->getRepository( ItemPrototype::class )->findOneBy(['name' => 'vest_off_#00']) );
+            return true;
+        } else return false;
+    }
+
+    public function getEscapeTimeout(Citizen $c, bool $allow_desperate = false): int {
+        $active_timer = $this->getEscapeTimestamp( $c, $allow_desperate );
+        return $active_timer ? ($active_timer->getTimestamp() - (new DateTime())->getTimestamp()) : -1;
+    }
+
+    public function getEscapeTimestamp(Citizen $c, bool $allow_desperate = false): ?DateTime {
+        $active_timer = $this->entity_manager->getRepository(EscapeTimer::class)->findActiveByCitizen( $c, false, $allow_desperate );
+        return ($active_timer && (!$active_timer->getDesperate() || $allow_desperate)) ? $active_timer->getTime() : null;
     }
 }

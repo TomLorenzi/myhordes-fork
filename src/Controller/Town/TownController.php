@@ -9,10 +9,8 @@ use App\Controller\InventoryAwareController;
 use App\Entity\AccountRestriction;
 use App\Entity\ActionCounter;
 use App\Entity\ActionEventLog;
-use App\Entity\AdminReport;
 use App\Entity\BlackboardEdit;
 use App\Entity\Building;
-use App\Entity\BuildingPrototype;
 use App\Entity\BuildingVote;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomePrototype;
@@ -24,12 +22,8 @@ use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
 use App\Entity\ComplaintReason;
 use App\Entity\ExpeditionRoute;
-use App\Entity\ForumThreadSubscription;
 use App\Entity\HomeIntrusion;
-use App\Entity\Item;
-use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
-use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\PrivateMessage;
 use App\Entity\ShoutboxEntry;
@@ -42,15 +36,10 @@ use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
 use App\Enum\ActionHandler\PointType;
-use App\Enum\AdminReportSpecification;
 use App\Enum\Configuration\CitizenProperties;
 use App\Enum\EventStages\BuildingValueQuery;
-use App\Enum\ItemPoisonType;
 use App\Enum\ZoneActivityMarkerType;
-use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Event\Game\Town\Basic\Well\WellExtractionCheckEvent;
-use App\Service\BankAntiAbuseService;
-use App\Service\ConfMaster;
 use App\Service\EventFactory;
 use App\Service\EventProxyService;
 use App\Service\GameEventService;
@@ -841,28 +830,6 @@ class TownController extends InventoryAwareController
             'item_def_count' => $this->inventory_handler->countSpecificItems($town->getBank(),$th->getPrototypesForDefenceItems(), false, false),
             'day' => $town->getDay(),
         ]) );
-    }
-
-    /**
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    #[Route(path: 'api/town/bank/item', name: 'town_bank_item_controller')]
-    public function item_bank_api(JSONRequestParser $parser, EventFactory $ef, EventDispatcherInterface $ed): Response {
-        $item_id = $parser->get_int('item', -1);
-        $direction = $parser->get('direction', '');
-
-        if ($item_id > 0 && $direction === 'up') {
-            /** @var Item $i */
-            $i = $this->entity_manager->getRepository(Item::class)->find( $item_id );
-            if ($i && !$this->getActiveCitizen()->getTown()->getBank()->getItems()->contains( $i ))
-                return AjaxResponse::errorMessage( $this->translator->trans( 'Ein anderer Bürger hat sich in der Zwischenzeit diesen Gegenstand geschnappt.', [], 'game' ) );
-        }
-
-        $up_inv   = $this->getActiveCitizen()->getInventory();
-        $down_inv = $this->getActiveCitizen()->getTown()->getBank();
-
-        return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $ef, $ed);
     }
 
     /**

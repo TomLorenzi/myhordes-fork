@@ -1,19 +1,45 @@
 const item_action_collapse = function( boxClass,toggleClass ) {
     let box = document.querySelectorAll('.' + boxClass);
-    let box_hide = document.querySelectorAll('[' + toggleClass + '="0"]');
-    let box_show = document.querySelectorAll('[' + toggleClass + '="1"]');
+    let box_hide = document.querySelectorAll('[' + toggleClass + '="0"]:not([data-processed="1"])');
+    let box_show = document.querySelectorAll('[' + toggleClass + '="1"]:not([data-processed="1"])');
 
     if (box_show.length > 0) for (let i = 0; i < box.length; i++) if (box[i].dataset.openDefault !== '1') box[i].style.display = 'none';
-    for (let i = 0; i < box_hide.length; i++) box_hide[i].addEventListener('click', function() {
-        for (let j = 0; j < box.length; j++) box[j].style.display = 'none';
-        for (let j = 0; j < box_hide.length; j++) box_hide[j].style.display = 'none';
-        for (let j = 0; j < box_show.length; j++) box_show[j].style.display = null;
-    })
-    for (let i = 0; i < box_show.length; i++) box_show[i].addEventListener('click', function() {
-        for (let j = 0; j < box.length; j++) box[j].style.display = null;
-        for (let j = 0; j < box_hide.length; j++) box_hide[j].style.display = null;
-        for (let j = 0; j < box_show.length; j++) box_show[j].style.display = 'none';
-        const load = box_show[i].getAttribute('x-load-from');
-        if (load) $.ajax.background().load( document.getElementById('partial-proxy'), load );
-    })
+    for (let i = 0; i < box_hide.length; i++) {
+        box_hide[i].dataset.processed = "1";
+        box_hide[i].addEventListener('click', function () {
+            for (let j = 0; j < box.length; j++) box[j].style.display = 'none';
+            for (let j = 0; j < box_hide.length; j++) box_hide[j].style.display = 'none';
+            for (let j = 0; j < box_show.length; j++) box_show[j].style.display = null;
+        })
+    }
+    for (let i = 0; i < box_show.length; i++) {
+        box_show[i].dataset.processed = "1";
+        box_show[i].addEventListener('click', function () {
+            for (let j = 0; j < box.length; j++) box[j].style.display = null;
+            for (let j = 0; j < box_hide.length; j++) box_hide[j].style.display = null;
+            for (let j = 0; j < box_show.length; j++) box_show[j].style.display = 'none';
+            const load = box_show[i].getAttribute('x-load-from');
+            if (load) {
+                let template = box_show[i].closest('[id][data-proxy-template]');
+                if (template && document.getElementById(template.dataset.proxyTemplate + '--template'))
+                    template = null;
+
+                if (template) {
+                    template.setAttribute('id', template.dataset.proxyTemplate + '--template');
+                    const clone = document.createElement('div');
+                    clone.setAttribute('id', template.dataset.proxyTemplate + '');
+                    template.parentElement.insertBefore(clone, template);
+                }
+
+                $.ajax.background().load(document.getElementById('partial-proxy'), load, false, {}, () => {
+                    if (template) {
+                        template.style.display = 'none';
+                        template.dataset.deferred = '1';
+                        template.querySelectorAll('[' + toggleClass + '="0"]').forEach(e => e.style.display = 'none');
+                        template.querySelectorAll('[' + toggleClass + '="1"]').forEach(e => e.style.display = null);
+                    }
+                });
+            }
+        })
+    }
 }

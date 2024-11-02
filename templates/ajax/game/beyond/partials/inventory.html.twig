@@ -1,32 +1,3 @@
-{% block html %}
-    {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items, 'hidden': citizen_hidden, 'sort': true} only %}
-        {% block class %}rucksack{% endblock %}
-        {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
-    {% endembed %}
-
-    {% if allow_floor_access %}
-        {% if (zone_blocked and active_scout_mode and zone_escape <= 0) %}
-            <div class="note">
-                <b>{{ 'Achtung'|trans({},'global') }}</b>: {{ 'Wenn du einen Gegenstand aufnimmst oder ablegst, verlierst du deine Tarnung!'|trans({},'game') }}
-            </div>
-        {% endif %}
-
-        {% if not citizen_hidden %}
-            <button id="drop-all-button" {% if rucksack.items|length == 0 %}disabled{% endif %}>{% trans from 'game' %}Rucksack auf dem Boden ausleeren{% endtrans %}</button>
-        {% endif %}
-        {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': floorItems, 'hidden': citizen_hidden, show_banished_hidden: (banished or town_chaos)} only %}
-            {% block class %}desert{% endblock %}
-            {% block title %}{% trans from 'game' %}Am Boden{% endtrans %}{% endblock %}
-        {% endembed %}
-        {% if hidden_items %}
-            <div class="help">
-                {{ 'Ein oder mehrere Gegenstände wurden in dieser Zone von einem verbannten Bürger versteckt.'|trans({},'game') }}
-                {{ help_btn('Nur verbannte Bürger können Gegenstände sehen und aufheben, wenn diese von anderen verbannten Bürgern versteckt wurden.'|trans({},'game')) }}
-            </div>
-        {% endif %}
-    {% endif %}
-{% endblock %}
-
 {% block html_escort %}
     {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_sizes[other_citizen.id], 'items': other_citizen.inventory.items, 'escort': other_citizen.id, 'plus': allow_floor_access and floorItems is not empty, 'owner': other_citizen, 'sort': true} %}
         {% block class %}rucksack-escort{% endblock %}
@@ -114,19 +85,13 @@
             {% endif %}
 
             handleItems(
-                document.querySelectorAll('.rucksack>.item[x-item-id]:not(.locked),.rucksack-escort>.item[x-item-id]:not(.locked)'),
+                document.querySelectorAll('.rucksack-escort>.item[x-item-id]:not(.locked)'),
                 '{{ path('beyond_desert_item_controller', {inline: true}) }}',
                 'down', '{{ path('beyond_dashboard_partial_inventory') }}', null, document.getElementById('partial-proxy')
             );
 
             handleItems(
-                document.querySelectorAll('#drop-all-button'),
-                '{{ path('beyond_desert_item_controller') }}',
-                'down-all', '{{ path('beyond_dashboard_partial_inventory') }}', null, document.getElementById('partial-proxy')
-            );
-
-            handleItems(
-                document.querySelectorAll('.desert>.item[x-item-id]:not(.locked),.desert-escort>.item[x-item-id]:not(.locked)'),
+                document.querySelectorAll('.desert-escort>.item[x-item-id]:not(.locked)'),
                 '{{ path('beyond_desert_item_controller') }}',
                 'up', '{{ path('beyond_dashboard_partial_inventory') }}', null, document.getElementById('partial-proxy')
             );

@@ -34,8 +34,13 @@ interface mountProps {
     inventoryBId: number,
     inventoryBType: string,
 
+    reload: string|null,
+    reset: boolean,
+
     steal: boolean,
     log: boolean,
+    uncloak: boolean,
+    hide: number|null,
 
     tutorial: TutorialConfig|null,
 }
@@ -44,6 +49,7 @@ interface passiveMountProps {
     parent: HTMLElement,
     id: number,
     max: number,
+    link?: string,
 }
 
 
@@ -143,10 +149,9 @@ const HordesInventoryWrapper = (props: mountProps & {setCache: (i:number,items:I
             html().dispatchEvent(new CustomEvent('inventory-bag-loaded', { detail: {id,inventory} }));
     }
 
-    const manageTransfer = (item: number|null, from: number, to: number, direction: string) =>{
+    const manageTransfer = (item: number|null, from: number, to: number, direction: string, mod: string = null) =>{
         setLoading(true);
 
-        let mod = null;
         if (theftMode) mod = 'theft';
 
         api.current.transfer( item, from, to, direction, mod ).then(s => {
@@ -159,27 +164,45 @@ const HordesInventoryWrapper = (props: mountProps & {setCache: (i:number,items:I
             // Update individual inventories
             const toA = (direction === 'down' || direction === 'down-all') ? s.source : s.target;
             const toB = (direction === 'down' || direction === 'down-all') ? s.target : s.source;
-            setInventoryA(toA);
-            setCache(props.inventoryAId, toA)
-            setInventoryB(toB);
-            setCache(props.inventoryBId, toB)
+            if (toA) {
+                setInventoryA(toA);
+                setCache(props.inventoryAId, toA)
+            }
+            if (toB) {
+                setInventoryB(toB);
+                setCache(props.inventoryBId, toB)
+            }
 
             // If a tutorial dataset was attached to this element, apply it
-            if (props.tutorial && (!props.tutorial.restrict || ( props.tutorial.restrict === 'a' && direction !== 'up' ) || ( props.tutorial.restrict === 'b' && direction === 'up' ))) {
+            if (s.success && props.tutorial && (!props.tutorial.restrict || ( props.tutorial.restrict === 'a' && direction !== 'up' ) || ( props.tutorial.restrict === 'b' && direction === 'up' ))) {
                 if (props.tutorial.to === null) $.html.conditionalFinishTutorialStage( props.tutorial.from.tutorial, props.tutorial.from.stage, true );
                 else $.html.conditionalSetTutorialStage( props.tutorial.from.tutorial, props.tutorial.from.stage, props.tutorial.to.tutorial, props.tutorial.to.stage );
             }
 
             // Apply incidentals to the surrounding DOM
-            Object.entries( s.incidentals ).forEach(([prop,value]) =>
+            Object.entries( s.incidentals ?? {} ).forEach(([prop,value]) =>
                 document.querySelectorAll(`[data-incidental-target="${prop}"]`).forEach( e => e.innerHTML = value ));
 
             // If the log mode is enabled, update all surrounding logs
-            if (props.log)
+            if (!s.reload && props.log)
                 document.querySelectorAll('hordes-log[data-etag]').forEach((log) => {
                     const [et_static, et_custom = '0'] = (log as HTMLElement).dataset.etag.split('-');
                     (log as HTMLElement).dataset.etag = `${et_static}-${parseInt(et_custom)+1}`;
                 });
+
+            if (s.reload && props.reload) $.ajax.load(null, props.reload);
+            else if (s.reload) window.location.reload();
+            else if (props.reset) {
+                document.querySelectorAll('[data-proxy-template][data-deferred="1"]').forEach(e => {
+                    const proxy = document.getElementById((e as HTMLElement).dataset.proxyTemplate);
+                    if (!proxy) return;
+
+                    proxy.remove();
+                    (e as HTMLElement).style.display = null;
+                    (e as HTMLElement).dataset.deferred = '0';
+                    (e as HTMLElement).setAttribute('id', (e as HTMLElement).dataset.proxyTemplate);
+                });
+            }
 
             setLoading(false);
             setTheftMode(false);
@@ -192,19 +215,18 @@ const HordesInventoryWrapper = (props: mountProps & {setCache: (i:number,items:I
 
     return <Globals.Provider value={{api: api.current, strings}}>
         <SwitchInventory id={props.inventoryAId} type={props.inventoryAType} inventory={inventoryA} locked={props.locked || loading || theftMode} onItemClick={handleTransfer( props.inventoryAId, props.inventoryBId, 'down' )} />
-        { props.inventoryAType === 'rucksack' && props.inventoryBType === 'chest' && <>
-            <button onClick={() => manageTransfer( null, props.inventoryAId, props.inventoryBId, 'down-all' )}>
-                <img src={strings?.actions["down-all-icon"] ?? ''} alt={strings?.actions["down-all-home"] ?? ''}/>
+
+        { props.uncloak && strings && !props.locked && <div className="note"><b>{strings.global.warning}</b>:&nbsp;{strings.actions["uncloak-warn"]}</div>}
+
+        { props.inventoryAType === 'rucksack' && !props.locked && <>
+            <button onClick={() => manageTransfer(null, props.inventoryAId, props.inventoryBId, 'down-all')}>
+                <img src={strings?.actions["down-all-icon"] ?? ''} alt={strings?.actions[`down-all-${props.inventoryBType}`] ?? strings?.actions['down-all-any'] ?? ''}/>
                 &nbsp;
-                { strings?.actions["down-all-home"] ?? '' }
+                {strings?.actions[`down-all-${props.inventoryBType}`] ?? strings?.actions['down-all-any'] ?? ''}
             </button>
-        </> }
-        { props.inventoryAType === 'rucksack' && props.inventoryBType === 'bank' && <>
-            <button onClick={() => manageTransfer( null, props.inventoryAId, props.inventoryBId, 'down-all' )}>
-                <img src={strings?.actions["down-all-icon"] ?? ''} alt={strings?.actions["down-all-bank"] ?? ''}/>
-                &nbsp;
-                { strings?.actions["down-all-bank"] ?? '' }
-            </button>
+        </>}
+
+        { props.inventoryAType === 'rucksack' && props.inventoryBType === 'bank' && !props.locked && <>
             { props.steal && !theftMode && <button onClick={() => {
                 if (confirm(strings?.actions["steal-confirm"] ?? '?')) setTheftMode(true);
             }}>
@@ -218,12 +240,43 @@ const HordesInventoryWrapper = (props: mountProps & {setCache: (i:number,items:I
                 <button onClick={() => setTheftMode(false)}>{strings.global.abort ?? ''}</button>
             </> }
         </> }
+
+        { props.inventoryAType === 'rucksack' && props.inventoryBType === 'desert' && props.hide !== null && !props.locked && <>
+            <button onClick={() => {
+                if (confirm(strings?.actions["hide-confirm"] ?? '?')) manageTransfer(null, props.inventoryAId, props.inventoryBId, 'down-all', 'hide')
+            }}>
+                <img src={strings?.actions["hide-icon"] ?? ''} alt={strings?.actions["hide-btn"] ?? ''}/>
+                &nbsp;
+                { strings?.actions["hide-btn"] ?? '' }
+                { props.hide > 0 && <>
+                    &nbsp;
+                    (<div className="ap">{ props.hide }</div>)
+                </> }
+                { props.uncloak && <>
+                    <img className="icon right" alt="" src={ strings?.actions["uncloak-icon"] }/>
+                </>}
+
+                <Tooltip additionalClasses="help" html={strings?.actions["hide-tooltip"] ?? ''}/>
+                { props.uncloak }
+            </button>
+        </> }
+
         { props.inventoryBType !== 'none' && <>
             <SwitchInventory
                 id={props.inventoryBId} type={props.inventoryBType} inventory={inventoryB}
                 locked={props.locked || loading} theft={theftMode}
                 onItemClick={handleTransfer( props.inventoryBId, props.inventoryAId, 'up' )} />
         </>}
+
+        { props.inventoryBType === 'desert' && strings && inventoryB && !inventoryB.bank && (inventoryB as InventoryBagData).items.filter(i => i.h).length > 0 &&
+            <div className="help">
+                {strings.actions["hidden-help1"]}
+                &nbsp;
+                <a className="help-button">
+                    {strings.global.help}
+                    <Tooltip additionalClasses="help" html={strings.actions["hidden-help2"]}/>
+                </a>
+            </div>}
     </Globals.Provider>
 };
 
@@ -232,7 +285,7 @@ interface InventoryProps {
     "type": string,
     locked: boolean,
     inventory: InventoryResponse,
-    onItemClick: (i:Item) => void,
+    onItemClick: (i: Item) => void,
     theft?: boolean,
 }
 
@@ -283,7 +336,10 @@ const BagInventory = (props: InventoryPropsBag) => {
             item={i} mods={props.inventory.mods} data={(vaultData ?? {})[i.p] ?? null}
             locked={props.locked || i.e} onClick={props.onItemClick}
         /></React.Fragment>)}
-        {props.inventory.size && props.inventory.size > props.inventory.items.length && Array.from(Array(props.inventory.size - props.inventory.items.length).keys()).map(i =>
+        {props.type === 'desert' && !props.inventory.size && props.inventory.items.length === 0 && <li className="category label">
+            <em className="small">{ globals.strings.props.nothing }</em>
+        </li>}
+        {props.inventory.size > 0 && props.inventory.size > props.inventory.items.length && Array.from(Array(props.inventory.size - props.inventory.items.length).keys()).map(i =>
             <li key={i} className="free"/>)
         }
     </ul>
@@ -418,7 +474,7 @@ const HordesPassiveInventoryWrapper = (props: passiveMountProps) => {
     useEffect(() => {
         if (props.max <= 0 || !bag) return;
 
-        props.parent.classList.toggle('expanded', bag.items.length > props.max);
+        props.parent.classList.toggle('expanded', Math.max(bag.items.length, bag.size) > props.max);
     }, [bag]);
 
     useEffect(() => {
@@ -433,12 +489,21 @@ const HordesPassiveInventoryWrapper = (props: passiveMountProps) => {
         return () => vault.discard();
     }, [bag]);
 
+    useEffect(() => {
+        const handler = () => $.ajax.load(null, props.link, true);
+        props.parent.addEventListener('click', handler);
+        return () => props.parent.removeEventListener('click', handler);
+    }, [props.link])
+
     return <Globals.Provider value={{api: api.current, strings}}>
         {strings && bag && <>
             {bag?.items?.sort(sort).map((item,index) => <React.Fragment key={item.i}><SingleItem
                 item={item} data={(vaultData ?? {})[item.p] ?? null} mods={bag.mods} locked={true}
                 blur={null} className={(props.max > 0 && index >= props.max) ? 'over' : ''}/>
             </React.Fragment>)}
+            {bag.size > 0 && bag.items.length < bag.size && Array.from(Array(bag.size - bag.items.length).keys()).map(i =>
+                <li key={i} className={`free ${(i+1+bag.items.length > props.max) ? 'over' : ''}`}/>)
+            }
             <li className="more">
                 <img src={strings.actions.more} alt="+"/>
             </li>

@@ -971,7 +971,7 @@ ul.inventory {
     display: flex; flex-wrap: wrap; gap: 2px; align-items: center; justify-content: flex-start;
     &>li {
       margin: 0;
-      &.category {
+      &.category:not(.label) {
         flex-basis: 100%;
         &:not(:first-child) {padding-top: 12px;}
       }

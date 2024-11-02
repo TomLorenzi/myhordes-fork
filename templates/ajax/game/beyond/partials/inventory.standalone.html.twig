@@ -7,10 +7,6 @@
     {% endembed %}
 </div>
 
-<div x-render-target="#inventory_partial_html">
-    {{ block('html') }}
-</div>
-
 <div x-clear-target="[data-escort-inventory='1']"></div>
 {% for other_citizen in other_citizens|filter(o => o.escortSettings and o.escortSettings.allowInventoryAccess and o.escortSettings.leader == citizen) %}
     <div x-render-target="#escort-inv-{{ other_citizen.id }}">

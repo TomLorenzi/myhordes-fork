@@ -118,7 +118,7 @@
                         </button>
                     {% endif %}
                 {% endif %}
-                <div id="wb-item-action-section" style="display: contents">
+                <div id="wb-item-action-section" data-proxy-template="wb-item-action-section" style="display: contents">
                     {% embed "ajax/game/actions.html.twig" with {'t': citizen.fullPropertySet, 'scout': false, 'hidden': false, 'iec': true, 'item_action_proxy': path('beyond_ruin_dashboard_partial_item_actions')} %}
                     {% endembed %}
                 </div>

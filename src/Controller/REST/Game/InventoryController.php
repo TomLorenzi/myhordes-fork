@@ -20,6 +20,7 @@ use App\Entity\RuinExplorerStats;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
+use App\Enum\ActionHandler\PointType;
 use App\Enum\Configuration\CitizenProperties;
 use App\Enum\Game\LogHiddenType;
 use App\Enum\Game\TransferItemModality;
@@ -28,6 +29,7 @@ use App\Event\Game\Items\TransferItemEvent;
 use App\Response\AjaxResponse;
 use App\Service\Actions\Cache\CalculateBlockTimeAction;
 use App\Service\Actions\Cache\InvalidateLogCacheAction;
+use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\DoctrineCacheService;
@@ -40,6 +42,7 @@ use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
 use App\Service\TownHandler;
 use App\Service\UserHandler;
+use App\Service\ZoneHandler;
 use App\Structures\BankItem;
 use App\Structures\TownConf;
 use App\Traits\Controller\EventChainProcessor;
@@ -92,15 +95,19 @@ class InventoryController extends CustomAbstractCoreController
         return new JsonResponse([
             'global' => [
                 'abort' => $this->translator->trans('Abbrechen', [], 'global'),
+                'warning' => $this->translator->trans('Achtung', [], 'global'),
+                'help' => $this->translator->trans('Hilfe', [], 'global'),
             ],
             'type' => [
                 'rucksack' => $this->translator->trans('Rucksack', [], 'game'),
                 'chest' => $this->translator->trans('Truhe', [], 'game'),
                 'bank' => $this->translator->trans('Bank', [], 'game'),
+                'desert' => $this->translator->trans('Am Boden', [], 'game'),
             ],
             'categories' => array_map(fn(ItemCategory $c) => [$c->getId(), $this->translator->trans($c->getLabel(), [], 'items'), $c->getOrdering()],
                 $em->getRepository(ItemCategory::class)->findAll()),
             'props' => [
+                'nothing' => $this->translator->trans('Nichts Interessantes...', [], 'game'),
                 'broken' => $this->translator->trans('Kaputt', [], 'items'),
                 'drink-done' => $this->translator->trans('Beachte: Du hast heute bereits getrunken und deine Aktionspunkte für diesen Tag bereits erhalten.', [], 'items'),
                 'essential' => $this->translator->trans('Berufsgegenstand', [], 'items'),
@@ -114,14 +121,28 @@ class InventoryController extends CustomAbstractCoreController
             'actions' => [
                 'more' => $asset->getUrl('build/images/icons/small_more2.gif'),
                 'search' => $this->translator->trans('Gegenstände suchen', [], 'items'),
+
+                'uncloak-warn' => $this->translator->trans('Wenn du einen Gegenstand aufnimmst oder ablegst, verlierst du deine Tarnung!', [], 'items'),
+                'uncloak-icon' => $asset->getUrl('build/images/icons/uncloak.gif'),
+
                 'steal-btn' => $this->translator->trans('Versuchen etwas zu stehlen', [], 'game'),
                 'steal-icon' => $asset->getUrl('build/images/icons/theft.gif'),
                 'steal-tooltip' => $this->translator->trans('Diebstahlsversuche können nur <strong>während der Nacht</strong> unternommen werden: Sie haben eine reduzierte Erfolgschance und jeder Fehlschlag wird im Register vermerkt!', [], 'game'),
                 'steal-box' => $this->translator->trans('Wähle einen Gegenstand aus der Bank aus...', [], 'game'),
                 'steal-confirm' => $this->translator->trans('Achtung! Deinen Mitbürgern wird das gar nicht gefallen.', [], 'game'),
-                'down-all-home' => $this->translator->trans('Rucksack ausleeren', [], 'game'),
+
+                'hide-btn' => $this->translator->trans('Rucksack verstecken', [], 'game'),
+                'hide-icon' => $asset->getUrl('build/images/icons/small_ban.gif'),
+                'hide-tooltip' => $this->translator->trans('Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. <strong>Sie werden nur für andere verbannte Bürger sichtbar sein.</strong> Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.', [], 'game'),
+                'hide-confirm' => $this->translator->trans('Bestätigen?', [], 'global'),
+                'hidden-help1' => $this->translator->trans('Ein oder mehrere Gegenstände wurden in dieser Zone von einem verbannten Bürger versteckt.', [], 'game'),
+                'hidden-help2' => $this->translator->trans('Nur verbannte Bürger können Gegenstände sehen und aufheben, wenn diese von anderen verbannten Bürgern versteckt wurden.', [], 'game'),
+
+                'down-all-any' => $this->translator->trans('Rucksack ausleeren', [], 'game'),
+                'down-all-desert' => $this->translator->trans('Rucksack auf dem Boden ausleeren', [], 'game'),
                 'down-all-bank' => $this->translator->trans('Rucksack in der Bank ausleeren', [], 'game'),
                 'down-all-icon' => $asset->getUrl('build/images/item/item_bag.gif'),
+
                 'show-categories' => $this->translator->trans('Kategorien anzeigen', [], 'game'),
             ]
         ]);
@@ -286,10 +307,11 @@ class InventoryController extends CustomAbstractCoreController
         #[MapEntity(id: 'inventory')] Inventory $inventory,
         #[MapEntity(id: 'item')] ?Item $item,
         InventoryHandler $handler, EventProxyService $proxy,
-        JSONRequestParser $parser,
+        JSONRequestParser $parser, ZoneHandler $zh,
         CitizenHandler $ch, TownHandler $th, InventoryHandler $ih,
         EntityManagerInterface $em,
         EventFactory $ef, EventDispatcherInterface $ed,
+        InvalidateTagsInAllPoolsAction $clearAction,
     ): JsonResponse
     {
         $citizen = $this->getUser()->getActiveCitizen();
@@ -303,12 +325,15 @@ class InventoryController extends CustomAbstractCoreController
         if ($direction !== 'down-all' && !$item) return new JsonResponse([], Response::HTTP_BAD_REQUEST);
 
         $mod = $parser->get('mod', null, ['theft', 'hide']);
+        if ($mod === 'hide' && ($item || $direction !== 'down-all'))
+            return new JsonResponse([], Response::HTTP_BAD_REQUEST);
 
         $to = $parser->get_int('to', -1);
         $target_inventory = $em->getRepository(Inventory::class)->find($to);
         if (!$target_inventory || !self::canEnumerate($citizen, $target_inventory))
             return new JsonResponse([], Response::HTTP_NOT_FOUND);
 
+        $reload = false;
         $carrier_items = ['bag_#00','bagxl_#00','cart_#00','pocket_belt_#00'];
 
         $drop_all = $direction === 'down-all' || (
@@ -322,13 +347,28 @@ class InventoryController extends CustomAbstractCoreController
                 $inventory->getItems()->filter(fn(Item $i) => $i->getId() !== $item->getId() && in_array($i->getPrototype()->getName(), $carrier_items))->isEmpty()
             );
 
-
         $items = match(true) {
+            $mod === 'hide' => $inventory->getItems()->filter(fn(Item $i) => !$i->getEssential())->getValues(),
             $drop_all && $direction === 'down-all' => $inventory->getItems()->filter(fn(Item $i) => !$i->getEssential() && !in_array($i->getPrototype()->getName(), $carrier_items))->getValues(),
             $drop_all => $inventory->getItems()->filter(fn(Item $i) => !$i->getEssential())->getValues(),
             $item !== null => [$item],
             default => [],
         };
+
+        $should_hide = $mod === 'hide';
+        if (empty($items))  return new JsonResponse([
+            'success' => false,
+            'messages' => $this->translator->trans('Du hast keine Gegenstände, die du verstecken könntest.', [], 'game'),
+        ]);
+        $hide_should_succeed = $should_hide && (
+            $citizen->getTown()->getChaos() ||
+            $citizen->getZone()->getCitizens()->filter(fn(Citizen $c) => !$c->getBanished())->isEmpty()
+        );
+
+        if ($should_hide && $citizen->getPoints(PointType::AP) < 2) return new JsonResponse([
+            'success' => false,
+            'errors' => [ErrorHelper::ErrorNoAP],
+        ]);
 
         $target_citizen = $target_inventory->getCitizen() ?? $inventory->getCitizen() ?? $citizen;
 
@@ -338,12 +378,34 @@ class InventoryController extends CustomAbstractCoreController
             if (($error = $this->processEventChainUsing( $ef, $ed, $em,
                                                          $ef->gameInteractionEvent( TransferItemEvent::class )->setup($current_item, $citizen, $inventory, $target_inventory, match (true) {
                                                              $mod === 'theft' => TransferItemModality::BankTheft,
-                                                             $mod === 'hide' => TransferItemModality::HideItem,
+                                                             ($mod === 'hide' && $hide_should_succeed) => TransferItemModality::HideItem,
                                                              default => TransferItemModality::None
                                                          }, $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_MODIFIER_CARRY_EXTRA_BAG, false) ? [ TransferItemOption::AllowExtraBag ] : [] )
-                    , autoFlush: false, error_messages: $error_messages )) !== null)
+                    , autoFlush: false, error_messages: $error_messages, lastEvent: $event )) !== null)
 
                 $errors[] = $error;
+            /** @var TransferItemEvent $event */
+            $reload = $reload || $event->hasSideEffects;
+        }
+
+        $success = empty($errors) || count($errors) < count($items) || empty($items);
+
+        if ($success && $should_hide) {
+            $ch->setAP($citizen, true, -2);
+            $reload = true;
+
+            if (!$hide_should_succeed)
+                $this->addFlash('notice', $this->translator->trans('Ein oder mehrere nicht-verbannte Bürger in der Umgebung haben dich dabei beobachtet.<hr/>Du hast 2 Aktionspunkte verbraucht.', [], 'game'));
+            else {
+                $citizen->getZone()?->setItemsHiddenAt( new \DateTimeImmutable() );
+                $em->persist($citizen);
+                $this->addFlash('notice', $this->translator->trans('Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.', [], 'game'));
+            }
+        }
+
+        if ($success && !$zh->isZoneUnderControl( $citizen->getZone() ) && $ch->getEscapeTimeout( $citizen ) < 0 && $ch->uncoverHunter($citizen)) {
+            $this->addFlash('notice', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!', [], 'game'));
+            $reload = true;
         }
 
         try {
@@ -352,17 +414,20 @@ class InventoryController extends CustomAbstractCoreController
             return new JsonResponse([], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
 
-        $success = empty($errors) || count($errors) < count($items) || empty($items);
+        if ($inventory->getZone()) ($clearAction)("town_{$citizen->getTown()->getId()}_zones_{$inventory->getZone()->getX()}_{$inventory->getZone()->getY()}");
+        if ($target_inventory->getZone()) ($clearAction)("town_{$citizen->getTown()->getId()}_zones_{$target_inventory->getZone()->getX()}_{$target_inventory->getZone()->getY()}");
+
         return new JsonResponse([
             'success' => $success,
-            'errors' => $success ? [] : $errors,
-            'incidentals' => [
+            'errors' => $success ? [] : array_unique($errors),
+            'reload' => $reload,
+            'incidentals' => $reload ? null : [
                 ...($this->renderIncidentals($inventory, $ch, $th, $ih)),
                 ...($this->renderIncidentals($target_inventory, $ch, $th, $ih)),
             ],
             'messages' => implode('<hr/>', [...($error_messages ?? []), ...$this->renderAllFlashMessages(false)]),
-            'source' => $this->renderInventory( $citizen, $inventory, $handler, $proxy, $this->translator, $em ),
-            'target' => $this->renderInventory( $citizen, $target_inventory, $handler, $proxy, $this->translator, $em ),
+            'source' => $reload ? null : $this->renderInventory( $citizen, $inventory, $handler, $proxy, $this->translator, $em ),
+            'target' => $reload ? null : $this->renderInventory( $citizen, $target_inventory, $handler, $proxy, $this->translator, $em ),
         ]);
     }
 }

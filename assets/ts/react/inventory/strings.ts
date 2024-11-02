@@ -1,13 +1,17 @@
 export type TranslationStrings = {
     global: {
         abort: string,
+        warning: string,
+        help: string,
     }
     "type": {
         rucksack: string
         bank: string
         chest: string
+        desert: string
     }
     props: {
+        nothing: string,
         broken: string,
         "drink-done": string,
         essential: string,
@@ -27,9 +31,18 @@ export type TranslationStrings = {
         "steal-tooltip": string,
         "steal-box": string,
         "steal-confirm": string,
-        "down-all-home": string,
+        "hide-btn": string,
+        "hide-icon": string,
+        "hide-tooltip": string,
+        "hide-confirm": string,
+        "hidden-help1": string,
+        "hidden-help2": string,
+        "down-all-any": string,
         "down-all-bank": string,
+        "down-all-desert": string,
         "down-all-icon": string,
+        "uncloak-icon": string,
+        "uncloak-warn": string,
         "show-categories": string,
     },
     categories: [number,string,number][],

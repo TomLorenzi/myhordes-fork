@@ -53,4 +53,6 @@ class TransferItemData
     public bool $invokeBankLock = false;
     public TransferItemType $type_from = TransferItemType::Unknown;
     public TransferItemType $type_to = TransferItemType::Unknown;
+
+    public bool $hasSideEffects = false;
 }

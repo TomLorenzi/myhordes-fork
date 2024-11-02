@@ -62,6 +62,8 @@ customElements.define('hordes-inventory', class HordesInventoryElement extends P
     protected generateProps(): object | null {
         const t = this.dataset.tutorial?.split('/').map(v => v.split('::')) ?? null;
 
+        const h = parseInt(this.dataset.hideCosts ?? '-1');
+
         return {
             etag: this.dataset.etag,
             locked: parseInt(this.dataset.locked) > 0,
@@ -69,8 +71,12 @@ customElements.define('hordes-inventory', class HordesInventoryElement extends P
             inventoryAType: this.dataset.inventoryAType,
             inventoryBId: parseInt(this.dataset.inventoryBId ?? '0'),
             inventoryBType: this.dataset.inventoryBType ?? 'none',
+            reload: this.dataset.softReload,
+            reset: this.dataset.resetProxyTemplates === '1',
+            hide: h >= 0 ? h : null,
             steal: this.dataset.steal === '1',
             log: this.dataset.log === '1',
+            uncloak: this.dataset.uncloak === '1',
             tutorial: t === null ? null : {
                 from: {
                     tutorial: parseInt(t[0][0]),
@@ -88,6 +94,7 @@ customElements.define('hordes-inventory', class HordesInventoryElement extends P
     protected static observedAttributeNames() {
         return [
             'data-etag', 'data-locked', 'data-tutorial', 'data-steal', 'data-log',
+            'data-hide-costs', 'data-uncloak',
             'data-inventory-a-id', 'data-inventory-a-type',
             'data-inventory-b-id', 'data-inventory-b-type',
         ];
@@ -108,12 +115,13 @@ customElements.define('hordes-passive-inventory', class HordesPassiveInventoryEl
         return {
             max: parseInt(this.dataset.max ?? '0'),
             id: parseInt(this.dataset.id ?? '0'),
+            link: this.dataset.link
         }
     }
 
     protected static observedAttributeNames() {
         return [
-            'data-max', 'data-id'
+            'data-max', 'data-id', 'data-link'
         ];
     }
 }, {  });

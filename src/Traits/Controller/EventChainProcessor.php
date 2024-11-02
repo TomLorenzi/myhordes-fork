@@ -30,7 +30,7 @@ trait EventChainProcessor
     protected function processEventChainUsing(
         EventFactory $ef, EventDispatcherInterface $ed, EntityManagerInterface $em,
         string|GameInteractionEvent $firstEvent, array|string|GameInteractionEvent $subsequentEvents = [],
-        bool $autoFlush = true, ?array &$error_messages = [],
+        bool $autoFlush = true, ?array &$error_messages = [], ?GameInteractionEvent &$lastEvent = null
     ): ?int {
 
         $processedEvents = [];
@@ -40,7 +40,6 @@ trait EventChainProcessor
 
         $currentEvent = $firstEvent;
         while ($currentEvent) {
-
             // Instantiate the event if it is a class name
             if (is_string($currentEvent)) {
                 $currentEvent = $ef->gameInteractionEvent( $currentEvent );
@@ -59,6 +58,8 @@ trait EventChainProcessor
             // Fetch the next event
             $currentEvent = $currentEvent->hasError() ? null : array_pop($subsequentEvents);
         }
+
+        $lastEvent = end($processedEvents);
 
         // Extract error codes and flash messages from the processed event chain
         list($hasError, $error, $messages) = array_reduce( $processedEvents,
