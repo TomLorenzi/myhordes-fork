@@ -161,9 +161,9 @@ class InventoryController extends CustomAbstractCoreController
             // Zone floor
             ($inventory->getZone() && $inventory->getZone() === $citizen->getZone()) ||
             // Ruin floor
-            ($inventory->getRuinZone() && $citizen->getExplorerStats()->findFirst(fn(RuinExplorerStats $a) => $a->getActive())->isAt($inventory->getRuinZone())) ||
+            ($inventory->getRuinZone() && $citizen->getExplorerStats()->findFirst(fn(int $k, RuinExplorerStats $a) => $a->getActive())?->isAt($inventory->getRuinZone())) ||
             // Ruin room floor
-            ($inventory->getRuinZoneRoom() && $citizen->getExplorerStats()->findFirst(fn(RuinExplorerStats $a) => $a->getActive())->isAt($inventory->getRuinZoneRoom()));
+            ($inventory->getRuinZoneRoom() && $citizen->getExplorerStats()->findFirst(fn(int $k, RuinExplorerStats $a) => $a->getActive())?->isAt($inventory->getRuinZoneRoom()));
     }
 
     protected function renderBagInventory(Citizen $citizen, Inventory $inventory, InventoryHandler $handler, EventProxyService $proxy, TranslatorInterface $trans): array {
@@ -403,7 +403,9 @@ class InventoryController extends CustomAbstractCoreController
             }
         }
 
-        if ($success && !$zh->isZoneUnderControl( $citizen->getZone() ) && $ch->getEscapeTimeout( $citizen ) < 0 && $ch->uncoverHunter($citizen)) {
+
+
+        if ($success && !$citizen->getExplorerStats()->findFirst(fn(int $k, RuinExplorerStats $a) => $a->getActive()) && !$zh->isZoneUnderControl( $citizen->getZone() ) && $ch->getEscapeTimeout( $citizen ) < 0 && $ch->uncoverHunter($citizen)) {
             $this->addFlash('notice', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!', [], 'game'));
             $reload = true;
         }

@@ -117,11 +117,6 @@ class ExplorationController extends InventoryAwareController implements HookedIn
         $ex = $citizen->activeExplorerStats();
         $ruinZone = $this->getCurrentRuinZone();
 
-        $floorItems = $ruinZone->getFloor()->getItems()->toArray();
-        usort($floorItems, function ($a, $b) {
-            return strcmp($this->translator->trans($a->getPrototype()->getLabel(), [], 'items'), $this->translator->trans($b->getPrototype()->getLabel(), [], 'items'));
-        });
-
         $exitZone =
             $citizen->getProfession()->getName() === 'tamer'
                 ? $ex->getZ() === 0
@@ -148,7 +143,6 @@ class ExplorationController extends InventoryAwareController implements HookedIn
             'prototype' => $citizen->getZone()->getPrototype(),
             'exploration' => $ex,
             'zone' => $ruinZone,
-            'floorItems' => $floorItems,
             'heroics' => $this->getHeroicActions(),
             'move' => $ruinZone->getZombies() <= 0 || $ex->getEscaping(),
             'escaping' => $ex->getEscaping(),

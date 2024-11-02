@@ -427,10 +427,6 @@ class BeyondController extends InventoryAwareController
             return strcmp($this->translator->trans($a->getPrototype()->getLabel(), [], 'items'), $this->translator->trans($b->getPrototype()->getLabel(), [], 'items'));
         });
 
-        $has_hidden_items =
-            ($citizen->getBanished() || $citizen->getTown()->getChaos()) &&
-            !$citizen->getZone()->getFloor()->getItems()->filter(function(Item $i) { return $i->getHidden(); })->isEmpty();
-
         $escort_actions = [];
         foreach ($this->getActiveCitizen()->getValidLeadingEscorts() as $escort)
             $escort_actions[ $escort->getCitizen()->getId() ] = $this->action_handler->getAvailableItemEscortActions( $escort->getCitizen() );
@@ -447,13 +443,8 @@ class BeyondController extends InventoryAwareController
             'conf' => $this->getTownConf(),
             'nightlight' => $novlights,
             'other_citizens' => $citizen->getZone()->getCitizens(),
-            'town_chaos' => $citizen->getTown()->getChaos(),
-            'banished' => $citizen->getBanished(),
-            'rucksack' => $citizen->getInventory(),
             'floorItems' => $floorItems,
-            'hidden_items' => $has_hidden_items,
             'allow_floor_access' => !$citizen->getZone()->isTownZone(),
-            'rucksack_size' => $this->inventory_handler->getSize( $citizen->getInventory() ),
             'rucksack_sizes' => $rucksack_sizes,
             'citizen_hidden' => !$this->activeCitizenIsNotCamping(),
             'zone_blocked' => !$this->zone_handler->isZoneUnderControl($citizen->getZone(), $cp),

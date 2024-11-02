@@ -431,7 +431,7 @@
                             </button>
                         {% endif %}
                         <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
-                        {% if banished or town_chaos %}
+                        {% if citizen.banished or citizen.town.chaos %}
                             <div style="margin-bottom: 5px;" id="mgd-trash_button-container">
                                 <button {% if lock_trash %}disabled{% endif%} id="trash_button">
                                     <img alt="" src="{{ asset('build/images/icons/small_ban.gif') }}" />
@@ -505,7 +505,7 @@
                             data-etag="{{ date().timestamp }}" data-locked="{{ citizen_hidden ? '1' : '0' }}"
                             data-inventory-a-type="rucksack" data-inventory-a-id="{{ citizen.inventory.id }}"
                             data-inventory-b-type="desert" data-inventory-b-id="{{ zone.floor.id }}"
-                            data-hide-costs="{{ (banished or town_chaos) ? '2' : '-1' }}"
+                            data-hide-costs="{{ (citizen.banished or citizen.town.chaos) ? '2' : '-1' }}"
                             data-uncloak="{{ (zone_blocked and active_scout_mode and zone_escape <= 0) ? '1' : '0' }}"
                             data-soft-reload="{{ path('beyond_dashboard') }}"
                     ></hordes-inventory>

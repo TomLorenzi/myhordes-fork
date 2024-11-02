@@ -129,15 +129,13 @@
 
             <div class="padded cell rw-6 rw-md-12">
                 <h5><span class="float-right link" x-ajax-href='{{ path('exploration_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{% trans from 'game' %}Meine objekte{% endtrans %}</h5>
-                {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items, 'hidden': false, 'sort': true} %}
-                    {% block class %}rucksack{% endblock %}
-                    {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
-                {% endembed %}
-                    <button id="drop-all-button" {% if rucksack.items|length == 0 %}disabled{% endif %}>{% trans from 'game' %}Rucksack auf dem Boden ausleeren{% endtrans %}</button>
-                    {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': floorItems, 'hidden': false} %}
-                        {% block class %}desert{% endblock %}
-                        {% block title %}{% trans from 'game' %}Am Boden{% endtrans %}{% endblock %}
-                    {% endembed %}
+                <hordes-inventory
+                        id="ruin-inventory" data-react-mount="ruin-inventory" data-reset-proxy-templates="1"
+                        data-etag="{{ date().timestamp }}"
+                        data-inventory-a-type="rucksack" data-inventory-a-id="{{ citizen.inventory.id }}"
+                        data-inventory-b-type="desert" data-inventory-b-id="{{ zone.floor.id }}"
+                        data-soft-reload="{{ path('exploration_dashboard') }}"
+                ></hordes-inventory>
             </div>
         </div>
     </div>
