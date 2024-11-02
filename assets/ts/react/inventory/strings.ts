@@ -25,7 +25,9 @@ export type TranslationStrings = {
     },
     actions: {
         more: string,
+        "more-btn": string,
         search: string,
+        pickup: string,
         "steal-btn": string,
         "steal-icon": string,
         "steal-tooltip": string,

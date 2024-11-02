@@ -7,7 +7,7 @@
 import {HordesMap} from "../react/map/Wrapper";
 import {PersistentShim, Shim} from "../react";
 import {HordesLog} from "../react/log/Wrapper";
-import {HordesInventory, HordesPassiveInventory} from "../react/inventory/Wrapper";
+import {HordesEscortInventory, HordesInventory, HordesPassiveInventory} from "../react/inventory/Wrapper";
 import {InventoryBagData, Item} from "../react/inventory/api";
 
 customElements.define('hordes-map', class HordesMapElement extends PersistentShim<HordesMap> {
@@ -94,7 +94,7 @@ customElements.define('hordes-inventory', class HordesInventoryElement extends P
     protected static observedAttributeNames() {
         return [
             'data-etag', 'data-locked', 'data-tutorial', 'data-steal', 'data-log',
-            'data-hide-costs', 'data-uncloak',
+            'data-hide-costs', 'data-uncloak', 'data-soft-reload',
             'data-inventory-a-id', 'data-inventory-a-type',
             'data-inventory-b-id', 'data-inventory-b-type',
         ];
@@ -122,6 +122,28 @@ customElements.define('hordes-passive-inventory', class HordesPassiveInventoryEl
     protected static observedAttributeNames() {
         return [
             'data-max', 'data-id', 'data-link'
+        ];
+    }
+}, {  });
+
+customElements.define('hordes-escort-inventory', class HordesPassiveInventoryElement extends PersistentShim<HordesEscortInventory> {
+    protected generateInstance(): HordesEscortInventory {
+        return new HordesEscortInventory();
+    }
+
+    protected generateProps(): object | null {
+        return {
+            etag: this.dataset.etag,
+            reload: this.dataset.softReload,
+            rucksackId: parseInt(this.dataset.rucksackId ?? '0'),
+            floorId: parseInt(this.dataset.floorId ?? '0'),
+            name: this.dataset.name,
+        }
+    }
+
+    protected static observedAttributeNames() {
+        return [
+            'data-etag', 'data-rucksack-id', 'data-floor-id', 'data-soft-reload', 'data-name'
         ];
     }
 }, {  });

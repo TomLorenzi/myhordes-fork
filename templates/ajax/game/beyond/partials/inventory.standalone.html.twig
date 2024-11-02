@@ -9,9 +9,6 @@
 
 <div x-clear-target="[data-escort-inventory='1']"></div>
 {% for other_citizen in other_citizens|filter(o => o.escortSettings and o.escortSettings.allowInventoryAccess and o.escortSettings.leader == citizen) %}
-    <div x-render-target="#escort-inv-{{ other_citizen.id }}">
-        {{ block('html_escort') }}
-    </div>
     <div x-render-target="#escort-act-{{ other_citizen.id }}">
         {{ block('html_escort_actions') }}
     </div>

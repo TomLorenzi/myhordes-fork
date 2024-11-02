@@ -668,9 +668,13 @@
                                 <div class="row">
                                     {% if other_citizen.escortSettings.allowInventoryAccess %}
                                         <div class="padded cell ro-4 rw-8 ro-lg-0 rw-lg-12">
-                                            <div data-escort-inventory="1" id="escort-inv-{{ other_citizen.id }}">
-                                                {{ block('html_escort', "ajax/game/beyond/partials/inventory.html.twig") }}
-                                            </div>
+                                            <hordes-escort-inventory id="beyond-escort-inv-{{ other_citizen.id }}"
+                                                data-react-mount="beyond-escort-inv-{{ other_citizen.id }}"
+                                                data-etag="{{ date().timestamp }}" data-name="{{ other_citizen.name }}"
+                                                data-rucksack-id="{{ other_citizen.inventory.id }}"
+                                                data-floor-id="{{ allow_floor_access ? zone.floor.id : '0' }}"
+                                                data-soft-reload="{{ path('beyond_dashboard') }}"
+                                            ></hordes-escort-inventory>
                                         </div>
                                     {% else %}
                                         <div class="padded cell rw-12 escort-infos">

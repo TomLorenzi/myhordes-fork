@@ -120,7 +120,10 @@ class InventoryController extends CustomAbstractCoreController
             ],
             'actions' => [
                 'more' => $asset->getUrl('build/images/icons/small_more2.gif'),
+                'more-btn' => $asset->getUrl('build/images/icons/small_more.gif'),
                 'search' => $this->translator->trans('Gegenstände suchen', [], 'items'),
+
+                'pickup' => $this->translator->trans('{citizen} bitten etwas aufzuheben.', [], 'game'),
 
                 'uncloak-warn' => $this->translator->trans('Wenn du einen Gegenstand aufnimmst oder ablegst, verlierst du deine Tarnung!', [], 'items'),
                 'uncloak-icon' => $asset->getUrl('build/images/icons/uncloak.gif'),
@@ -152,6 +155,8 @@ class InventoryController extends CustomAbstractCoreController
         return
             // Rucksack
             ($inventory->getCitizen() === $citizen) ||
+            // Rucksack (escort)
+            ($inventory->getCitizen()?->getEscortSettings()?->getAllowInventoryAccess() && $inventory->getCitizen()?->getEscortSettings()?->getLeader() === $citizen) ||
             // Chest
             ($inventory->getHome()?->getCitizen() === $citizen && $citizen->getZone() === null) ||
             // Bank

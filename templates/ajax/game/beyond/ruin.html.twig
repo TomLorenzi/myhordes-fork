@@ -145,25 +145,6 @@
     {{ parent() }}
     <script>
         {% embed "scripts/actions.js.twig" %}{% endembed %};
-        {% embed "scripts/inventory.js.twig" %}{% endembed %};
-
-        handleItems(
-            document.querySelectorAll('.rucksack>.item[x-item-id]:not(.locked)'),
-            '{{ path('beyond_ruin_item_controller') }}',
-            'down', '{{ path('exploration_dashboard') }}'
-        );
-
-        handleItems(
-            document.querySelectorAll('#drop-all-button'),
-            '{{ path('beyond_ruin_item_controller') }}',
-            'down-all', '{{ path('exploration_dashboard') }}'
-        );
-
-        handleItems(
-            document.querySelectorAll('.desert>.item[x-item-id]:not(.locked)'),
-            '{{ path('beyond_ruin_item_controller') }}',
-            'up', '{{ path('exploration_dashboard') }}'
-        );
 
         handleHeroicActions(
             document.querySelectorAll('ul.heroic_actions li[x-action-id]:not([disabled])'),

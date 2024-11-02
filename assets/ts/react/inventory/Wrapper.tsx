@@ -52,6 +52,14 @@ interface passiveMountProps {
     link?: string,
 }
 
+interface escortMountProps {
+    etag: string,
+    rucksackId: number,
+    floorId: number,
+    reload: string|null,
+    name: string,
+}
+
 
 export class HordesInventory {
 
@@ -82,6 +90,23 @@ export class HordesPassiveInventory {
     public mount(parent: HTMLElement, props: passiveMountProps): any {
         if (!this.#_root) this.#_root = createRoot(parent);
         this.#_root.render( <HordesPassiveInventoryWrapper {...props} parent={parent} /> );
+    }
+
+    public unmount() {
+        if (this.#_root) {
+            this.#_root.unmount();
+            this.#_root = null;
+        }
+    }
+}
+
+export class HordesEscortInventory {
+
+    #_root = null;
+
+    public mount(parent: HTMLElement, props: escortMountProps): any {
+        if (!this.#_root) this.#_root = createRoot(parent);
+        this.#_root.render( <HordesEscortInventoryWrapper {...props} /> );
     }
 
     public unmount() {
@@ -508,6 +533,99 @@ const HordesPassiveInventoryWrapper = (props: passiveMountProps) => {
                 <img src={strings.actions.more} alt="+"/>
             </li>
         </>}
+    </Globals.Provider>
+
+}
+
+const HordesEscortInventoryWrapper = (props: escortMountProps) => {
+
+    const api = useRef( new InventoryAPI() )
+
+    const [open, setOpen] = useState<boolean>(false);
+
+    const [strings, setStrings] = useState<TranslationStrings>( null );
+    const [bagVaultData, setBagVaultData] = useState<VaultStorage<VaultItemEntry>>(null);
+    const [floorVaultData, setFloorVaultData] = useState<VaultStorage<VaultItemEntry>>(null);
+
+    const [bag, setBag] = useState<InventoryBagData>(null);
+    const [floor, setFloor] = useState<InventoryBagData>(null);
+
+    useEffect(() => {
+        api.current.index().then(s => setStrings(s));
+    }, []);
+
+    useEffect(() => {
+        if (!props.rucksackId) return;
+
+        api.current.inventory(props.rucksackId).then(r => {
+            if (!r.bank) setBag(r as InventoryBagData);
+        });
+
+    }, [props.rucksackId, props.etag]);
+
+    useEffect(() => {
+        if (!props.floorId || !open) return;
+
+        // Attempt to find an active bag
+        const i = document.querySelector(`hordes-inventory[data-inventory-a-id="${props.floorId}"],hordes-inventory[data-inventory-b-id="${props.floorId}"]`);
+        if (i) setFloor( (i as any).bag(props.floorId) ?? null )
+
+        const handler = (e: CustomEvent)=> {
+            if (e.detail.id === props.floorId) setFloor(e.detail.inventory);
+        }
+
+        html().addEventListener( 'inventory-bag-loaded', handler );
+        return () => html().removeEventListener( 'inventory-bag-loaded', handler );
+    }, [props.floorId, open]);
+
+    useEffect(() => {
+        if (!bag) return;
+        const vault = new Vault<VaultItemEntry>( extractAllItems( bag ).map(i => i.p) , 'items');
+        vault.handle( data => {
+            setBagVaultData(d => {return {
+                ...(d ?? {}),
+                ...Object.fromEntries( data.map( v => [ v.id, v ] ) )
+            }})
+        } );
+        return () => vault.discard();
+    }, [bag]);
+
+    useEffect(() => {
+        if (!floor) return;
+        const vault = new Vault<VaultItemEntry>( extractAllItems( floor ).map(i => i.p) , 'items');
+        vault.handle( data => {
+            setFloorVaultData(d => {return {
+                ...(d ?? {}),
+                ...Object.fromEntries( data.map( v => [ v.id, v ] ) )
+            }})
+        } );
+        return () => vault.discard();
+    }, [floor]);
+
+    const loaded = bag && strings;
+
+    return <Globals.Provider value={{api: api.current, strings}}>
+        { !loaded && <div className="loading"/> }
+        { loaded && <ul className="inventory rucksack-escort">
+            {bag?.items?.sort(sort).map((item,index) => <React.Fragment key={item.i}><SingleItem
+                item={item} data={(bagVaultData ?? {})[item.p] ?? null} mods={bag.mods} locked={item.e}
+                blur={null}/>
+            </React.Fragment>)}
+            {bag.size > 0 && bag.items.length < bag.size && Array.from(Array(bag.size - bag.items.length).keys()).map(i =>
+                <li key={i} className="free"/>)
+            }
+            { loaded && props.floorId > 0 && <li className="item plus" onClick={() => setOpen(!open)}>
+                <img alt="+" src={strings.actions["more-btn"]}/>
+                <Tooltip html={ strings.actions.pickup.replace('{citizen}', props.name) } />
+            </li> }
+        </ul> }
+        { loaded && floor && open && <div className="tooltip-dummy"><ul className="inventory desert-escort">
+            {floor?.items?.sort(sort).map((item,index) => <React.Fragment key={item.i}><SingleItem
+                item={item} data={(floorVaultData ?? {})[item.p] ?? null} mods={floor.mods} locked={item.e}
+                blur={null}/>
+            </React.Fragment>)}
+        </ul></div> }
+
     </Globals.Provider>
 
 }
