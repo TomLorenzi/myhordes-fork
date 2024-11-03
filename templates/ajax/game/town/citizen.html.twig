@@ -254,7 +254,7 @@
         $.html.addEventListenerAll('.userCell', 'click', (e, elem) => {
             let path = elem.getAttribute('x-visit-path');
             let user_id = elem.getAttribute('x-citizen-id');
-            $.ajax.load(target, path, false, {"id": user_id});
+            $.ajax.load(null, path, true, {"id": user_id});
         });
     </script>
 {% endblock %}
