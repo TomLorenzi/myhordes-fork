@@ -120,12 +120,12 @@ export class GameOnboardingAPI {
 
     public skills(town: number): Promise<ResponseSkills> {
         return this.fetch.from(`/${town}/skills`)
-            .request().withCache().get() as Promise<ResponseSkills>;
+            .request().get() as Promise<ResponseSkills>;
     }
 
     public citizens(town: number): Promise<ResponseCitizenCount> {
         return this.fetch.from(`/${town}/citizens`)
-            .request().withCache().get() as Promise<ResponseCitizenCount>;
+            .request().get() as Promise<ResponseCitizenCount>;
     }
 
 }
