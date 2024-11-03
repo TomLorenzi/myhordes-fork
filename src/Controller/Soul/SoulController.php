@@ -456,7 +456,7 @@ class SoulController extends CustomAbstractController
             'pack_reset' => $pack_reset,
             'pack_tmp' => $pack_temp,
             'pack_tmp_end' => $end?->getTimestamp(),
-            'pack_can_reset' => $xp_total - $xp >= 100 && $pack_reset < 2,
+            'pack_can_reset' => ($xp_total - $xp >= 100 && $pack_reset < 2) && !$this->getUser()->getActiveCitizen(),
 
             'groups' => $groups,
             'skills' => $allSkills,
