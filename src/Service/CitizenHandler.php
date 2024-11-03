@@ -963,4 +963,18 @@ class CitizenHandler
         $active_timer = $this->entity_manager->getRepository(EscapeTimer::class)->findActiveByCitizen( $c, false, $allow_desperate );
         return ($active_timer && (!$active_timer->getDesperate() || $allow_desperate)) ? $active_timer->getTime() : null;
     }
+
+    public function citizenCanAct(Citizen $c): bool {
+        return !$this->citizenIsEscorted( $c ) && !$this->citizenIsCamping($c);
+    }
+
+    public function citizenIsEscorted(Citizen $c): bool
+    {
+        return !!$c->getEscortSettings()?->getLeader();
+    }
+
+    public function citizenIsCamping(Citizen $c): bool
+    {
+        return $c->hasAnyStatus('tg_hide','tg_tomb');
+    }
 }

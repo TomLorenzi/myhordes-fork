@@ -23,6 +23,7 @@ use App\Entity\Complaint;
 use App\Entity\ComplaintReason;
 use App\Entity\ExpeditionRoute;
 use App\Entity\HomeIntrusion;
+use App\Entity\Item;
 use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
 use App\Entity\PrivateMessage;
@@ -375,8 +376,8 @@ class TownController extends InventoryAwareController
             'complaint' => $active_complaint,
             'complaints' => $this->entity_manager->getRepository(Complaint::class)->matching( $criteria ),
             'complaintreasons' => $this->entity_manager->getRepository(ComplaintReason::class)->findAll(),
-            'chest' => $home->getChest(),
-            'chest_size' => $this->inventory_handler->getSize($home->getChest()),
+            'has_items' => !$home->getChest()->getItems()->filter(fn(Item $i) => !$i->getHidden() && !$i->getPrototype()->getHideInForeignChest())->isEmpty(),
+            'own_chest_id' => $this->getActiveCitizen()->getHome()->getChest()->getId(),
             'has_cremato' => $this->town_handler->getBuilding($town, 'item_hmeat_#00', true) !== null,
             'lastActionText' => $lastActionText,
             'def' => $summary,
@@ -726,37 +727,6 @@ class TownController extends InventoryAwareController
         }
 
         return AjaxResponse::success();
-    }
-
-    /**
-     * @param int $id
-     * @param JSONRequestParser $parser
-     * @param EntityManagerInterface $em
-     * @return Response
-     */
-    #[Route(path: 'api/town/visit/{id}/item', name: 'town_visit_item_controller')]
-    public function item_visit_api(int $id, JSONRequestParser $parser, EntityManagerInterface $em, EventFactory $ef, EventDispatcherInterface $ed): Response {
-        if ($id === $this->getActiveCitizen()->getId())
-            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
-
-        $ac = $this->getActiveCitizen();
-
-        /** @var Citizen $c */
-        $c = $em->getRepository(Citizen::class)->find( $id );
-        if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId())
-            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
-
-        $intrusion = null;
-        if ($c->getAlive() && !$intrusion = $em->getRepository(HomeIntrusion::class)->findOneBy(['intruder' => $ac, 'victim' => $c]))
-            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
-
-        $direction = $parser->get('direction', '');
-        if ($c->getAlive() && $intrusion && (($intrusion->getSteal() && $direction === 'down') || (!$intrusion->getSteal() && $direction === 'up')))
-            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
-
-        $up_inv   = ($direction === 'down' || $c->getAlive()) ? $ac->getInventory() : $ac->getHome()->getChest();
-        $down_inv = $c->getHome()->getChest();
-        return $this->generic_item_api( $up_inv, $down_inv, false, $parser, $ef, $ed);
     }
 
     /**

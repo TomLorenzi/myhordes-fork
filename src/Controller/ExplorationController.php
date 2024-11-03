@@ -354,22 +354,6 @@ class ExplorationController extends InventoryAwareController implements HookedIn
     }
 
     /**
-     * @param JSONRequestParser $parser
-     * @param EventFactory $ef
-     * @param EventDispatcherInterface $ed
-     * @return Response
-     */
-    #[Route(path: 'api/beyond/explore/item', name: 'beyond_ruin_item_controller')]
-    public function item_explore_api(JSONRequestParser $parser, EventFactory $ef, EventDispatcherInterface $ed): Response {
-        $ex = $this->getActiveCitizen()->activeExplorerStats();
-        //$down_inv = $ex->getInRoom() ? $this->getCurrentRuinZone()->getRoomFloor() : $this->getCurrentRuinZone()->getFloor();
-        $down_inv = $this->getCurrentRuinZone()->getFloor();
-        $up_inv   = $this->getActiveCitizen()->getInventory();
-
-        return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $ef, $ed);
-    }
-
-    /**
      * @param GameProfilerService $gps
      * @param EventProxyService $proxyService
      * @return Response

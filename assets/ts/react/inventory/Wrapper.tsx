@@ -1,7 +1,15 @@
 import * as React from "react";
 import { createRoot } from "react-dom/client";
 import {useContext, useEffect, useRef, useState} from "react";
-import {InventoryAPI, InventoryBagData, InventoryBankData, InventoryMods, InventoryResponse, Item} from "./api";
+import {
+    InventoryAPI,
+    InventoryBagData,
+    InventoryBankData,
+    InventoryMods,
+    InventoryResponse,
+    Item,
+    TransportResponse
+} from "./api";
 import {Tooltip} from "../tooltip/Wrapper";
 import {Const, Global} from "../../defaults";
 import {TranslationStrings} from "./strings";
@@ -26,13 +34,15 @@ interface TutorialConfig {
 
 interface mountProps {
     etag: string,
-    locked: boolean,
+    locked: boolean|string,
 
     inventoryAId: number,
     inventoryAType: string,
+    inventoryALabel: string|null,
 
     inventoryBId: number,
     inventoryBType: string,
+    inventoryBLabel: string|null,
 
     reload: string|null,
     reset: boolean,
@@ -53,6 +63,7 @@ interface passiveMountProps {
 }
 
 interface escortMountProps {
+    parent: HTMLElement,
     etag: string,
     rucksackId: number,
     floorId: number,
@@ -68,7 +79,12 @@ export class HordesInventory {
 
     public mount(parent: HTMLElement, props: mountProps): any {
         if (!this.#_root) this.#_root = createRoot(parent);
-        this.#_root.render( <HordesInventoryWrapper {...props} setCache={(id: number, items: InventoryBagData|null): void => { this.#_item_cache[id] = items; } } /> );
+        this.#_root.render( <HordesInventoryWrapper
+            {...props}
+            setCache={(id: number, items: InventoryBagData|null): void => { this.#_item_cache[id] = items; } }
+            parent={parent}
+            />
+        );
     }
 
     public unmount() {
@@ -106,7 +122,7 @@ export class HordesEscortInventory {
 
     public mount(parent: HTMLElement, props: escortMountProps): any {
         if (!this.#_root) this.#_root = createRoot(parent);
-        this.#_root.render( <HordesEscortInventoryWrapper {...props} /> );
+        this.#_root.render( <HordesEscortInventoryWrapper {...props} parent={parent} /> );
     }
 
     public unmount() {
@@ -136,7 +152,49 @@ const extractAllItems = (data: InventoryBankData | InventoryBagData) => {
         : (data as InventoryBagData).items
 }
 
-const HordesInventoryWrapper = (props: mountProps & {setCache: (i:number,items:InventoryBagData|null) => void}) => {
+const commonInventoryResponseHandler = (s: TransportResponse, d: string, t: TutorialConfig|null = null, log: boolean = false, url: string = null, reset: boolean = false )=> {
+    // Display messages
+    if (s.messages?.length > 0)
+        $.html.message(s.success ? 'notice' : 'error', s.messages);
+    else if (s.errors?.length > 0)
+        $.html.error( s.errors.map( e => c.errors[e] ?? null ).join('<hr/>') )
+
+    // If a tutorial dataset was attached to this element, apply it
+    if (s.success && t && (!t.restrict || ( t.restrict === 'a' && d !== 'up' ) || ( t.restrict === 'b' && d === 'up' ))) {
+        if (t.to === null) $.html.conditionalFinishTutorialStage( t.from.tutorial, t.from.stage, true );
+        else $.html.conditionalSetTutorialStage( t.from.tutorial, t.from.stage, t.to.tutorial, t.to.stage );
+    }
+
+    // Apply incidentals to the surrounding DOM
+    Object.entries( s.incidentals ?? {} ).forEach(([prop,value]) =>
+        document.querySelectorAll(`[data-incidental-target="${prop}"]`).forEach( e => e.innerHTML = value ));
+
+    // If the log mode is enabled, update all surrounding logs
+    if (!s.reload && log)
+        document.querySelectorAll('hordes-log[data-etag]').forEach((logElem) => {
+            const [et_static, et_custom = '0'] = (logElem as HTMLElement).dataset.etag.split('-');
+            (logElem as HTMLElement).dataset.etag = `${et_static}-${parseInt(et_custom)+1}`;
+        });
+
+    if (s.reload && url) $.ajax.load(null, url);
+    else if (s.reload) window.location.reload();
+    else if (reset) {
+        document.querySelectorAll('[data-proxy-template][data-deferred="1"]').forEach(e => {
+            const proxy = document.getElementById((e as HTMLElement).dataset.proxyTemplate);
+            if (!proxy) return;
+
+            proxy.remove();
+            (e as HTMLElement).style.display = null;
+            (e as HTMLElement).dataset.deferred = '0';
+            (e as HTMLElement).setAttribute('id', (e as HTMLElement).dataset.proxyTemplate);
+        });
+    }
+}
+
+const HordesInventoryWrapper = (props: mountProps &
+    {setCache: (i:number,items:InventoryBagData|null) => void} &
+    {parent: HTMLElement}
+) => {
 
     const [strings, setStrings] = useState<TranslationStrings>( null );
     const [loading, setLoading] = useState<boolean>( false );
@@ -153,25 +211,40 @@ const HordesInventoryWrapper = (props: mountProps & {setCache: (i:number,items:I
     const [inventoryB, setInventoryB] = useState<InventoryResponse>(null);
 
     useEffect(() => {
-        if (!props.inventoryAId) return;
+        if (!props.inventoryAId || props.inventoryAType === 'none') return;
         api.current.inventory( props.inventoryAId ).then(r => {
             setInventoryA(r);
             setCache(props.inventoryAId, r)
         });
-    }, [props.inventoryAId, props.etag]);
+    }, [props.inventoryAId, props.inventoryAType, props.etag]);
 
     useEffect(() => {
-        if (!props.inventoryBId) return;
+        if (!props.inventoryBId || props.inventoryBType === 'none') return;
         api.current.inventory( props.inventoryBId ).then(r => {
             setInventoryB(r);
             setCache(props.inventoryBId, r)
         });
-    }, [props.inventoryBId, props.etag]);
+    }, [props.inventoryBId, props.inventoryBType, props.etag]);
+
+    useEffect(() => {
+        const handler = e => {
+            const {id,inventory,element} = e.detail;
+            if (element === props.parent || (id !== props.inventoryAId && id !== props.inventoryBId))
+                return;
+
+            setCache(id, inventory);
+
+            if (props.inventoryAId === id) setInventoryA(inventory);
+            else if (props.inventoryBId === id) setInventoryB(inventory);
+        }
+        html().addEventListener('inventory-bag-loaded', handler);
+        return () => html().removeEventListener('inventory-bag-loaded', handler);
+    }, [props.inventoryAId, props.inventoryBId]);
 
     const setCache = (id: number, inventory: InventoryResponse) => {
         props.setCache(id,inventory.bank ? null : (inventory as InventoryBagData));
         if (!inventory.bank)
-            html().dispatchEvent(new CustomEvent('inventory-bag-loaded', { detail: {id,inventory} }));
+            html().dispatchEvent(new CustomEvent('inventory-bag-loaded', { detail: {id,inventory,element: props.parent} }));
     }
 
     const manageTransfer = (item: number|null, from: number, to: number, direction: string, mod: string = null) =>{
@@ -180,12 +253,6 @@ const HordesInventoryWrapper = (props: mountProps & {setCache: (i:number,items:I
         if (theftMode) mod = 'theft';
 
         api.current.transfer( item, from, to, direction, mod ).then(s => {
-            // Display messages
-            if (s.messages?.length > 0)
-                $.html.message(s.success ? 'notice' : 'error', s.messages);
-            else if (s.errors?.length > 0)
-                $.html.error( s.errors.map( e => c.errors[e] ?? null ).join('<hr/>') )
-
             // Update individual inventories
             const toA = (direction === 'down' || direction === 'down-all') ? s.source : s.target;
             const toB = (direction === 'down' || direction === 'down-all') ? s.target : s.source;
@@ -198,36 +265,7 @@ const HordesInventoryWrapper = (props: mountProps & {setCache: (i:number,items:I
                 setCache(props.inventoryBId, toB)
             }
 
-            // If a tutorial dataset was attached to this element, apply it
-            if (s.success && props.tutorial && (!props.tutorial.restrict || ( props.tutorial.restrict === 'a' && direction !== 'up' ) || ( props.tutorial.restrict === 'b' && direction === 'up' ))) {
-                if (props.tutorial.to === null) $.html.conditionalFinishTutorialStage( props.tutorial.from.tutorial, props.tutorial.from.stage, true );
-                else $.html.conditionalSetTutorialStage( props.tutorial.from.tutorial, props.tutorial.from.stage, props.tutorial.to.tutorial, props.tutorial.to.stage );
-            }
-
-            // Apply incidentals to the surrounding DOM
-            Object.entries( s.incidentals ?? {} ).forEach(([prop,value]) =>
-                document.querySelectorAll(`[data-incidental-target="${prop}"]`).forEach( e => e.innerHTML = value ));
-
-            // If the log mode is enabled, update all surrounding logs
-            if (!s.reload && props.log)
-                document.querySelectorAll('hordes-log[data-etag]').forEach((log) => {
-                    const [et_static, et_custom = '0'] = (log as HTMLElement).dataset.etag.split('-');
-                    (log as HTMLElement).dataset.etag = `${et_static}-${parseInt(et_custom)+1}`;
-                });
-
-            if (s.reload && props.reload) $.ajax.load(null, props.reload);
-            else if (s.reload) window.location.reload();
-            else if (props.reset) {
-                document.querySelectorAll('[data-proxy-template][data-deferred="1"]').forEach(e => {
-                    const proxy = document.getElementById((e as HTMLElement).dataset.proxyTemplate);
-                    if (!proxy) return;
-
-                    proxy.remove();
-                    (e as HTMLElement).style.display = null;
-                    (e as HTMLElement).dataset.deferred = '0';
-                    (e as HTMLElement).setAttribute('id', (e as HTMLElement).dataset.proxyTemplate);
-                });
-            }
+            commonInventoryResponseHandler(s, direction, props.tutorial, props.log, props.reload, props.reset);
 
             setLoading(false);
             setTheftMode(false);
@@ -238,12 +276,17 @@ const HordesInventoryWrapper = (props: mountProps & {setCache: (i:number,items:I
         return (i:Item) => manageTransfer(i.i, from, to, direction);
     }
 
+    const lock_a = props.locked === true || props.locked === 'a';
+    const lock_b = props.locked === true || props.locked === 'b';
+
     return <Globals.Provider value={{api: api.current, strings}}>
-        <SwitchInventory id={props.inventoryAId} type={props.inventoryAType} inventory={inventoryA} locked={props.locked || loading || theftMode} onItemClick={handleTransfer( props.inventoryAId, props.inventoryBId, 'down' )} />
+        { props.inventoryAType !== 'none' && <>
+            <SwitchInventory id={props.inventoryAId} type={props.inventoryAType} label={props.inventoryALabel} inventory={inventoryA} locked={lock_a || loading || theftMode} onItemClick={handleTransfer( props.inventoryAId, props.inventoryBId, 'down' )} />
+        </> }
 
-        { props.uncloak && strings && !props.locked && <div className="note"><b>{strings.global.warning}</b>:&nbsp;{strings.actions["uncloak-warn"]}</div>}
+        { props.inventoryAType !== 'none' && props.uncloak && strings && !props.locked && <div className="note"><b>{strings.global.warning}</b>:&nbsp;{strings.actions["uncloak-warn"]}</div>}
 
-        { props.inventoryAType === 'rucksack' && !props.locked && <>
+        { props.inventoryAType === 'rucksack' && !lock_a && <>
             <button onClick={() => manageTransfer(null, props.inventoryAId, props.inventoryBId, 'down-all')}>
                 <img src={strings?.actions["down-all-icon"] ?? ''} alt={strings?.actions[`down-all-${props.inventoryBType}`] ?? strings?.actions['down-all-any'] ?? ''}/>
                 &nbsp;
@@ -251,7 +294,7 @@ const HordesInventoryWrapper = (props: mountProps & {setCache: (i:number,items:I
             </button>
         </>}
 
-        { props.inventoryAType === 'rucksack' && props.inventoryBType === 'bank' && !props.locked && <>
+        { props.inventoryAType === 'rucksack' && props.inventoryBType === 'bank' && !lock_b && <>
             { props.steal && !theftMode && <button onClick={() => {
                 if (confirm(strings?.actions["steal-confirm"] ?? '?')) setTheftMode(true);
             }}>
@@ -266,7 +309,7 @@ const HordesInventoryWrapper = (props: mountProps & {setCache: (i:number,items:I
             </> }
         </> }
 
-        { props.inventoryAType === 'rucksack' && props.inventoryBType === 'desert' && props.hide !== null && !props.locked && <>
+        { props.inventoryAType === 'rucksack' && props.inventoryBType === 'desert' && props.hide !== null && !lock_a && <>
             <button onClick={() => {
                 if (confirm(strings?.actions["hide-confirm"] ?? '?')) manageTransfer(null, props.inventoryAId, props.inventoryBId, 'down-all', 'hide')
             }}>
@@ -289,7 +332,8 @@ const HordesInventoryWrapper = (props: mountProps & {setCache: (i:number,items:I
         { props.inventoryBType !== 'none' && <>
             <SwitchInventory
                 id={props.inventoryBId} type={props.inventoryBType} inventory={inventoryB}
-                locked={props.locked || loading} theft={theftMode}
+                label={props.inventoryBLabel}
+                locked={lock_b || loading} theft={theftMode}
                 onItemClick={handleTransfer( props.inventoryBId, props.inventoryAId, 'up' )} />
         </>}
 
@@ -308,6 +352,7 @@ const HordesInventoryWrapper = (props: mountProps & {setCache: (i:number,items:I
 interface InventoryProps {
     id: number,
     "type": string,
+    label?: string|null,
     locked: boolean,
     inventory: InventoryResponse,
     onItemClick: (i: Item) => void,
@@ -354,8 +399,10 @@ const BagInventory = (props: InventoryPropsBag) => {
         return () => vault.discard();
     }, [props.inventory]);
 
+    const label = props.label ?? globals.strings.type[props.type] ?? '';
+
     return <ul className={`inventory inventory-react ${props.type}`}>
-        <li className="title">{globals.strings.type[props.type] ?? props.type}</li>
+        {label !== null && label !== '' && <li className="title">{label}</li> }
         {props.inventory.items.sort(sort).map(i => <React.Fragment key={i.i}><SingleItem
             blur={null}
             item={i} mods={props.inventory.mods} data={(vaultData ?? {})[i.p] ?? null}
@@ -407,7 +454,7 @@ const BankInventory = (props: InventoryPropsBank) => {
         <ul className={`inventory inventory-react ${props.type} ${props.theft ? 'theft' : ''}`}>
             {props.inventory.categories.sort((c1, c2) => category_map[c1.id][1] - category_map[c2.id][1] || c1.id - c2.id).map(c => <React.Fragment key={c.id}>
                 { showCategories && <li className="category">{category_map[c.id][0]}</li> }
-                { c.items.map(i => <React.Fragment key={i.i}>
+                { c.items.sort(sort).map(i => <React.Fragment key={i.i}>
                     <SingleItem
                         blur={ searchString === '' ? null : !(vaultData ?? {})[i.p]?.name?.toLowerCase()?.includes( searchString.toLowerCase() ) }
                         item={i} mods={props.inventory.mods} data={(vaultData ?? {})[i.p] ?? null}
@@ -542,6 +589,7 @@ const HordesEscortInventoryWrapper = (props: escortMountProps) => {
     const api = useRef( new InventoryAPI() )
 
     const [open, setOpen] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(false);
 
     const [strings, setStrings] = useState<TranslationStrings>( null );
     const [bagVaultData, setBagVaultData] = useState<VaultStorage<VaultItemEntry>>(null);
@@ -602,19 +650,44 @@ const HordesEscortInventoryWrapper = (props: escortMountProps) => {
         return () => vault.discard();
     }, [floor]);
 
+    const manageTransfer = (item: number|null, from: number, to: number, direction: string) =>{
+        setLoading(true);
+
+        api.current.transfer( item, from, to, direction ).then(s => {
+            // Update individual inventories
+            const toA = direction === 'down' ? s.source : s.target;
+            const toB = direction === 'down' ? s.target : s.source;
+
+            if (toA) setBag(toA as InventoryBagData);
+            if (toB) {
+                setFloor(toB as InventoryBagData);
+                html().dispatchEvent(new CustomEvent('inventory-bag-loaded', { detail: {id: props.floorId, inventory: toB, element: props.parent} }));
+            }
+
+            commonInventoryResponseHandler(s, direction, null, true, props.reload, false);
+
+            setLoading(false);
+        }).catch(() => setLoading(false))
+    }
+
+    const handleTransfer = (from: number, to: number, direction: string) => {
+        return (i:Item) => manageTransfer(i.i, from, to, direction);
+    }
+
     const loaded = bag && strings;
 
     return <Globals.Provider value={{api: api.current, strings}}>
         { !loaded && <div className="loading"/> }
         { loaded && <ul className="inventory rucksack-escort">
             {bag?.items?.sort(sort).map((item,index) => <React.Fragment key={item.i}><SingleItem
-                item={item} data={(bagVaultData ?? {})[item.p] ?? null} mods={bag.mods} locked={item.e}
+                item={item} data={(bagVaultData ?? {})[item.p] ?? null} mods={bag.mods} locked={item.e || loading}
+                onClick={handleTransfer(props.rucksackId, props.floorId, 'down')}
                 blur={null}/>
             </React.Fragment>)}
             {bag.size > 0 && bag.items.length < bag.size && Array.from(Array(bag.size - bag.items.length).keys()).map(i =>
                 <li key={i} className="free"/>)
             }
-            { loaded && props.floorId > 0 && <li className="item plus" onClick={() => setOpen(!open)}>
+            { loaded && props.floorId > 0  && <li className="item plus" onClick={() => setOpen(!open)}>
                 <img alt="+" src={strings.actions["more-btn"]}/>
                 <Tooltip html={ strings.actions.pickup.replace('{citizen}', props.name) } />
             </li> }
@@ -622,9 +695,13 @@ const HordesEscortInventoryWrapper = (props: escortMountProps) => {
         { loaded && floor && open && <div className="tooltip-dummy"><ul className="inventory desert-escort">
             {floor?.items?.sort(sort).map((item,index) => <React.Fragment key={item.i}><SingleItem
                 item={item} data={(floorVaultData ?? {})[item.p] ?? null} mods={floor.mods} locked={item.e}
+                onClick={handleTransfer(props.floorId, props.rucksackId, 'up')}
                 blur={null}/>
             </React.Fragment>)}
-        </ul></div> }
+            { floor.items.length === 0 && <li className="category label">
+                <em className="small">{strings.props.nothing}</em>
+            </li>}
+        </ul></div>}
 
     </Globals.Provider>
 

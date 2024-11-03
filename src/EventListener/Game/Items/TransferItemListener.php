@@ -418,6 +418,7 @@ final class TransferItemListener implements ServiceSubscriberInterface
             if (!$victim_home) return;
 
             $this->getService(CitizenHandler::class)->inflictStatus($event->actor, 'tg_steal');
+            $event->hasSideEffects = true;
 
             // Give picto steal
             $pictoName = $victim_home->getCitizen()->getAlive() ? "r_theft_#00" : "r_plundr_#00";
@@ -531,7 +532,10 @@ final class TransferItemListener implements ServiceSubscriberInterface
             }
 
             $intrusion = $this->getService(EntityManagerInterface::class)->getRepository(HomeIntrusion::class)->findOneBy(['intruder' => $event->actor, 'victim' => $victim_home->getCitizen()]);
-            if ($intrusion) $this->getService(EntityManagerInterface::class)->remove($intrusion);
+            if ($intrusion) {
+                $this->getService(EntityManagerInterface::class)->remove($intrusion);
+                $event->hasSideEffects = true;
+            }
 
             $event->markModified()->shouldPersist();
         }

@@ -394,15 +394,21 @@
                 {% if hidden and not intruding %}
                     <p class="curtain-text">{{ 'Als du zum Fenster blickst, stellst du fest, dass ein großer Vorhang dir die Sicht versperrt. Du kannst deshalb nicht sehen, was {citizen} bei sich aufbewahrt...'|trans({'{citizen}': owner.name},'game') }}</p>
                 {% endif %}
+
                 {# {% if owner.zone %}<p {% if hidden %}class="hidden with-curtains"{% endif %}>{{ '{citizen} ist ausgegangen...'|trans({'{citizen}': owner.name}, 'game') }} {% endif %}</p>#}
-                {% if chest.items|filter(i => not i.prototype.hideInForeignChest and not i.hidden)|length > 0 and (not hidden or intruding) %}
+                {% if has_items and (not hidden or intruding) %}
                     {% if not intruding %}
                         <p>{{ 'Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:'|trans({},'game') }}</p>
                     {% endif %}
-                    {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items|filter(i => not i.prototype.hideInForeignChest and not i.hidden), 'foreignChestMode': true, 'showFreeSlots': false} %}
-                        {% block class %}chest {% if owner.alive and intruding <= 0 %}locked{% endif %}{% endblock %}
-                        {% block title %}{% endblock %}
-                    {% endembed %}
+                    <hordes-inventory
+                            id="foreign-home-inventory-{{ owner.id }}" data-react-mount="foreign-home-inventory-{{ owner.id }}"
+                            data-etag="{{ date().timestamp }}" data-locked="{{ intruding == 0 ? '1' : (intruding > 0 ? 'b' : 'a') }}"
+                            data-inventory-a-type="chest" data-inventory-a-id="{{ owner.home.chest.id }}" data-inventory-a-label=""
+                            data-inventory-b-type="{{ intruding == 0 ? 'none' : (intruding > 0 ? 'chest' : 'rucksack') }}"
+                            data-inventory-b-id="{{ intruding == 0 ? 0 : (intruding > 0 ? own_chest_id : rucksack_id) }}"
+                            data-inventory-b-label="{{ intruding == 0 ? '' : (intruding > 0 ? 'Meine Truhe'|trans({},'game') : 'Mein Rucksack'|trans({},'game')) }}"
+                            data-soft-reload="{{ path('town_visit', {id: owner.id}) }}"
+                    ></hordes-inventory>
                     {% if intruding > 0 %}
                         <div class="help stealhelp">
                             {{'Wähle den <strong>zu stehlenden Gegenstand</strong> hier oben aus. <strong>Achtung!</strong> Es besteht die Gefahr, dass du dabei gesehen wirst. In diesem Fall musst du dich auf unangenehme Konsequenzen gefasst machen.'|trans({}, 'game')|raw}}
@@ -414,18 +420,12 @@
                 {% if already_stolen and not intruding %}
                     <div class="notice">{{'Du hast heute schon <strong>einen Diebstahl</strong> begangen.'|trans({},'game')|raw}}</div>
                 {% else %}
-                    {% if intruding < 0 %}
-                        {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items, 'sort': true} %}
-                            {% block class %}rucksack{% endblock %}
-                            {% block title %}{% trans from 'game' %}Mein Rucksack{% endtrans %}{% endblock %}
-                        {% endembed %}
-                    {% endif %}
                     {% if (owner.zone or master_thief) and not protect %}
 
                         {% if intruding != 0 %}
                             <button x-action-id="leave">{{'Abbrechen'|trans({}, 'global')}}</button>
                         {% else %}
-                            {% if chest.items|length > 0 or hidden %}
+                            {% if has_items or hidden %}
                                 <button x-action-id="enablesteal"><img src="{{asset('build/images/icons/home.gif')}}" alt="" /> {{'Einen Gegenstand stehlen'|trans({}, 'game')}}</button>
                             {% endif %}
                             <button x-action-id="enablesneak">{{'Einen Gegenstand hinterlassen'|trans({}, 'game')}}</button>
@@ -442,15 +442,19 @@
                 {% endif %}
             {% else %}
                 <h5>{{ 'Inventar: {citizen}'|trans({'{citizen}': owner.name}, 'game') }}</h5>
-                {% if chest.items|length > 0 %}
+                {% if has_items %}
                     {% if not already_stolen %}
                     <div class="help">{{'Jetzt, da {citizen} tot ist, kannst du ihm einen <strong>Gegenstand klauen</strong>, wenn du möchtest...'|trans({citizen: owner}, 'game')|raw}}</div>
                     {% endif %}
                     <p>{{'Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:'|trans({ref: owner}, 'game')}}</p>
-                    {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items, 'foreignChestMode': true, 'showFreeSlots': false, 'show_banished_hidden': true} %}
-                        {% block class %}chest {% if already_stolen %}locked{% endif %}{% endblock %}
-                        {% block title %}{% endblock %}
-                    {% endembed %}
+                    <hordes-inventory
+                            id="foreign-home-inventory-{{ owner.id }}" data-react-mount="foreign-home-inventory-{{ owner.id }}"
+                            data-etag="{{ date().timestamp }}" data-locked="{{ already_stolen ? '1' : '0' }}"
+                            data-inventory-a-type="chest" data-inventory-a-id="{{ owner.home.chest.id }}" data-inventory-a-label=""
+                            data-inventory-b-type="none"
+                            data-inventory-b-id="{{ own_chest_id }}"
+                            data-soft-reload="{{ path('town_visit', {id: owner.id}) }}"
+                    ></hordes-inventory>
                 {% elseif owner.home.recycling >= recycle_ap %}
                     <div class="disposal">{{ 'Die Truhe von {citizen} ist komplett leer, das ganze Haus wurde bereits abgerissen.'|trans({citizen: owner}, 'game') }}</div>
                 {% else %}
@@ -492,8 +496,6 @@
 {% block js %}
     {{ parent() }}
     <script>
-        {% embed "scripts/inventory.js.twig" %}{% endembed %};
-
         {% if owner.alive %}
             const show_complain = document.querySelectorAll('[x-show-reason]');
             for (let i = 0 ; i < show_complain.length ; i++){
@@ -553,20 +555,6 @@
                 });
             {% endif %}
 
-            {% if intruding > 0 %}
-                handleItems(
-                    document.querySelectorAll('.chest:not(.locked)>.item:not(.locked)[x-item-id]'),
-                    '{{ path('town_visit_item_controller', {id: owner.id}) }}',
-                    'up', '{{ path('town_visit', {id: owner.id}) }}'
-                );
-            {% elseif (intruding < 0) %}
-                handleItems(
-                    document.querySelectorAll('.rucksack>.item:not(.locked)[x-item-id]'),
-                    '{{ path('town_visit_item_controller', {id: owner.id}) }}',
-                    'down', '{{ path('town_visit', {id: owner.id}) }}'
-                );
-            {% endif %}
-
             $.html.addEventListenerAll('button[x-action-id]', 'click', function(ev){
                 let msg = "";
                 if (ev.target.getAttribute('x-action-id') == "enablesteal") {
@@ -591,13 +579,6 @@
                 }
             });
         {% else %}
-            {% if not already_stolen %}
-                handleItems(
-                    document.querySelectorAll('.chest:not(.locked)>.item:not(.locked)[x-item-id]'),
-                    '{{ path('town_visit_item_controller', {id: owner.id}) }}',
-                    'up', '{{ path('town_visit', {id: owner.id}) }}'
-                );
-            {% endif %}
             const recycleBtn = document.querySelectorAll('[x-recycle-home]');
             for (let i = 0; i < recycleBtn.length; i++) {
                 recycleBtn[i].addEventListener('click', function() {

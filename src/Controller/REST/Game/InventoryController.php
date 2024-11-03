@@ -151,18 +151,19 @@ class InventoryController extends CustomAbstractCoreController
         ]);
     }
 
-    protected static function canEnumerate(Citizen $citizen, Inventory $inventory): bool {
+    protected static function canEnumerate(Citizen $citizen, Inventory $inventory, &$restrictive = false): bool {
+        $restrictive = false;
         return
             // Rucksack
             ($inventory->getCitizen() === $citizen) ||
             // Rucksack (escort)
-            ($inventory->getCitizen()?->getEscortSettings()?->getAllowInventoryAccess() && $inventory->getCitizen()?->getEscortSettings()?->getLeader() === $citizen) ||
+            ($restrictive = ($inventory->getCitizen()?->getEscortSettings()?->getAllowInventoryAccess() && $inventory->getCitizen()?->getEscortSettings()?->getLeader() === $citizen)) ||
             // Chest
             ($inventory->getHome()?->getCitizen() === $citizen && $citizen->getZone() === null) ||
             // Bank
             ($inventory->getTown() === $citizen->getTown() && $citizen->getZone() === null) ||
             // Foreign chest
-            ($inventory->getHome()?->getCitizen()?->getTown() === $citizen->getTown() && $citizen->getZone() === null) ||
+            ($restrictive = ($inventory->getHome()?->getCitizen()?->getTown() === $citizen->getTown() && $citizen->getZone() === null)) ||
             // Zone floor
             ($inventory->getZone() && $inventory->getZone() === $citizen->getZone()) ||
             // Ruin floor
@@ -181,7 +182,7 @@ class InventoryController extends CustomAbstractCoreController
         $show_banished_hidden = $citizen->getBanished() || $citizen->getTown()->getChaos();
         return [
             'bank' => false,
-            'size' => $handler->getSize( $inventory ),
+            'size' => $foreign_chest ? 0 : $handler->getSize( $inventory ),
             'mods' => [
                 'has_drunk' => $citizen->hasStatus('hasdrunk')
             ],
@@ -192,7 +193,7 @@ class InventoryController extends CustomAbstractCoreController
         ];
     }
 
-    protected function renderItem(Citizen $citizen, Item $i, EventProxyService $proxy, ?int $override_count = null): array {
+    protected function renderItem(Citizen $citizen, Item $i, EventProxyService $proxy, ?int $override_count = null, ?int $custom_sort = null): array {
         return [
             'i' => $i->getId(),
             'p' => $i->getPrototype()->getId(),
@@ -202,53 +203,57 @@ class InventoryController extends CustomAbstractCoreController
             'e' => $i->getEssential(),
             'w' => $i->getPrototype()->getWatchpoint() <> 0 ? $this->translator->trans('{watchpoint} pkt attacke', ['watchpoint' => $proxy->buildingQueryNightwatchDefenseBonus( $citizen->getTown(), $i )], 'items') : null,
             's' => [
+                ...($custom_sort ? [$custom_sort] : []),
                 $i->getEssential() ? 1 : 0,
                 $i->getPrototype()->getSort(),
-                $i->getPrototype()->getId(),
-                mt_rand(),
+                -$i->getPrototype()->getId(),
+                mt_rand(0,9),
             ]
         ];
     }
 
     protected function renderBankInventory(Citizen $citizen, Inventory $inventory, InventoryHandler $handler, EventProxyService $proxy, TranslatorInterface $trans, EntityManagerInterface $em): array {
         $qb = $em->createQueryBuilder();
+
+        // Select fields - item ID, item count, category IDs and orderings
         $qb
             ->select('i.id', 'c.id as l1', 'cr.id as l2','c.ordering as lo1', 'cr.ordering as lo2', 'SUM(i.count) as n')->from(Item::class,'i')
             ->where('i.inventory = :inv')->setParameter('inv', $inventory);
 
+        // Add group by to separate broken/unbroken items, additionally group by poison state if poison stacking is disabled
         if ($this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_MODIFIER_POISON_STACK, false))
             $qb->groupBy('i.prototype', 'i.broken');
         else $qb->groupBy('i.prototype', 'i.broken', 'i.poison');
 
+        // Join with category and prototype table
         $qb
             ->leftJoin(ItemPrototype::class, 'p', Join::WITH, 'i.prototype = p.id')
             ->leftJoin(ItemCategory::class, 'c', Join::WITH, 'p.category = c.id')
-            ->leftJoin(ItemCategory::class, 'cr', Join::WITH, 'c.parent = cr.id')
-            ->addOrderBy('c.ordering','ASC');
+            ->leftJoin(ItemCategory::class, 'cr', Join::WITH, 'c.parent = cr.id');
 
-        if ($this->getUser()->getClassicBankSort()) $qb->addOrderBy('n', 'DESC');
-
-        $qb
-            ->addOrderBy('p.icon', 'DESC')
-            ->addOrderBy('i.id', 'ASC');
-
+        // Request results as array
         $data = $qb->getQuery()->getResult(AbstractQuery::HYDRATE_ARRAY);
 
         $final = [];
         $cache = [];
 
         foreach ($data as $entry) {
+            // Get category ID ()
             $cid = $entry['l2'] ?? $entry['l1'] ?? -1;
 
+            // Group items by category
             $final[$cid] = [
                 ...($final[$cid] ?? []),
                 [ $entry['id'], $entry['n'],  ]
             ];
 
+            // Add item ID to cache
             $cache[$entry['id']] = true;
         }
 
+        // Get all items by their ID
         $item_list = $em->getRepository(Item::class)->findAllByIds(array_keys($cache));
+        $classic_bank_sort = $this->getUser()?->getClassicBankSort();
 
         return [
             'bank' => true,
@@ -258,7 +263,13 @@ class InventoryController extends CustomAbstractCoreController
             'categories' => array_map( fn($entry, $id) => [
                 'id' => $id,
                 'items' => (new ArrayCollection($entry))
-                    ->map(fn(array $data) => $this->renderItem( $citizen, $item_list[$data[0]], $proxy, $data[1] ) )
+                    ->map(fn(array $data) => $this->renderItem(
+                        $citizen,
+                        $item_list[$data[0]],
+                        $proxy,
+                        $data[1],
+                        $classic_bank_sort ? $data[1] : null,
+                    ) )
                     ->getValues()
             ], $final, array_keys($final) ),
         ];
@@ -280,7 +291,7 @@ class InventoryController extends CustomAbstractCoreController
         // Special case - foreign chest
         if ($inventory->getHome() && $inventory->getHome()->getCitizen() !== $citizen && $inventory->getHome()->getCitizen()->getAlive()) {
 
-            $hidden = $inventory->getHome()->getCitizenHomeUpgrades()->findFirst( fn(CitizenHomeUpgrade $c) => $c->getPrototype()->getName() === 'curtain' ) !== null;
+            $hidden = $inventory->getHome()->getCitizenHomeUpgrades()->findFirst( fn(int $k, CitizenHomeUpgrade $c) => $c->getPrototype()->getName() === 'curtain' ) !== null;
             $intrusion = $hidden && $em->getRepository(HomeIntrusion::class)->findOneBy(['intruder' => $citizen, 'victim' => $inventory->getHome()->getCitizen()]);
 
             if ($hidden && !$intrusion) return new JsonResponse([], Response::HTTP_NOT_FOUND);
@@ -321,7 +332,7 @@ class InventoryController extends CustomAbstractCoreController
     {
         $citizen = $this->getUser()->getActiveCitizen();
 
-        if (!self::canEnumerate($citizen, $inventory))
+        if (!self::canEnumerate($citizen, $inventory, $restrictive_from))
             return new JsonResponse([], Response::HTTP_NOT_FOUND);
 
         $direction = $parser->get('d', null, ['up','down','down-all']);
@@ -330,18 +341,23 @@ class InventoryController extends CustomAbstractCoreController
         if ($direction !== 'down-all' && !$item) return new JsonResponse([], Response::HTTP_BAD_REQUEST);
 
         $mod = $parser->get('mod', null, ['theft', 'hide']);
+
         if ($mod === 'hide' && ($item || $direction !== 'down-all'))
             return new JsonResponse([], Response::HTTP_BAD_REQUEST);
 
         $to = $parser->get_int('to', -1);
         $target_inventory = $em->getRepository(Inventory::class)->find($to);
-        if (!$target_inventory || !self::canEnumerate($citizen, $target_inventory))
+        if (!$target_inventory || !self::canEnumerate($citizen, $target_inventory, $restrictive_to))
             return new JsonResponse([], Response::HTTP_NOT_FOUND);
+
+        $restrictive = $restrictive_from || $restrictive_to;
+        if ($restrictive && ($mod !== null || $direction === 'down-all'))
+            return new JsonResponse([], Response::HTTP_BAD_REQUEST);
 
         $reload = false;
         $carrier_items = ['bag_#00','bagxl_#00','cart_#00','pocket_belt_#00'];
 
-        $drop_all = $direction === 'down-all' || (
+        $drop_all = !$restrictive && ($direction === 'down-all' || (
                 // dropping item ...
                 $direction === 'down' &&
                 // item is carrier...
@@ -350,7 +366,7 @@ class InventoryController extends CustomAbstractCoreController
                 $item->getCount() === 1 &&
                 // no other carriers...
                 $inventory->getItems()->filter(fn(Item $i) => $i->getId() !== $item->getId() && in_array($i->getPrototype()->getName(), $carrier_items))->isEmpty()
-            );
+            ));
 
         $items = match(true) {
             $mod === 'hide' => $inventory->getItems()->filter(fn(Item $i) => !$i->getEssential())->getValues(),
@@ -408,9 +424,7 @@ class InventoryController extends CustomAbstractCoreController
             }
         }
 
-
-
-        if ($success && !$citizen->getExplorerStats()->findFirst(fn(int $k, RuinExplorerStats $a) => $a->getActive()) && !$zh->isZoneUnderControl( $citizen->getZone() ) && $ch->getEscapeTimeout( $citizen ) < 0 && $ch->uncoverHunter($citizen)) {
+        if ($success && $citizen->getZone() && !$citizen->getExplorerStats()->findFirst(fn(int $k, RuinExplorerStats $a) => $a->getActive()) && !$zh->isZoneUnderControl( $citizen->getZone() ) && $ch->getEscapeTimeout( $citizen ) < 0 && $ch->uncoverHunter($citizen)) {
             $this->addFlash('notice', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!', [], 'game'));
             $reload = true;
         }

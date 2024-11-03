@@ -61,16 +61,18 @@ customElements.define('hordes-inventory', class HordesInventoryElement extends P
 
     protected generateProps(): object | null {
         const t = this.dataset.tutorial?.split('/').map(v => v.split('::')) ?? null;
-
+        const l = this.dataset.locked ?? '0';
         const h = parseInt(this.dataset.hideCosts ?? '-1');
 
         return {
             etag: this.dataset.etag,
-            locked: parseInt(this.dataset.locked) > 0,
+            locked: (l === 'a' || l === 'b') ? l : (parseInt(l) > 0),
             inventoryAId: parseInt(this.dataset.inventoryAId),
-            inventoryAType: this.dataset.inventoryAType,
+            inventoryAType: this.dataset.inventoryAType ?? 'none',
+            inventoryALabel: this.dataset.inventoryALabel ?? null,
             inventoryBId: parseInt(this.dataset.inventoryBId ?? '0'),
             inventoryBType: this.dataset.inventoryBType ?? 'none',
+            inventoryBLabel: this.dataset.inventoryBLabel ?? null,
             reload: this.dataset.softReload,
             reset: this.dataset.resetProxyTemplates === '1',
             hide: h >= 0 ? h : null,
@@ -95,8 +97,8 @@ customElements.define('hordes-inventory', class HordesInventoryElement extends P
         return [
             'data-etag', 'data-locked', 'data-tutorial', 'data-steal', 'data-log',
             'data-hide-costs', 'data-uncloak', 'data-soft-reload',
-            'data-inventory-a-id', 'data-inventory-a-type',
-            'data-inventory-b-id', 'data-inventory-b-type',
+            'data-inventory-a-id', 'data-inventory-a-type', 'data-inventory-a-label',
+            'data-inventory-b-id', 'data-inventory-b-type', 'data-inventory-b-label',
         ];
     }
 
