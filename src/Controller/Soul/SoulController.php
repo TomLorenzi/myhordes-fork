@@ -451,13 +451,11 @@ class SoulController extends CustomAbstractController
             'xp' => $xp,
             'xp_total' => $xp_total,
             'steps' => array_map( fn(HeroSkillPrototype $skill) => $skill->getDaysNeeded(), $unlockService->getUnlockableHeroicSkillsByUser( $this->getUser(), limitToCurrent: false ) ),
-
             'pack_base' => $unlockService->getBasePackPoints( $this->getUser() ),
             'pack_reset' => $pack_reset,
             'pack_tmp' => $pack_temp,
             'pack_tmp_end' => $end?->getTimestamp(),
             'pack_can_reset' => ($xp_total - $xp >= 100 && $pack_reset < 2) && !$this->getUser()->getActiveCitizen(),
-
             'groups' => $groups,
             'skills' => $allSkills,
             'unlocked' => array_map( fn(HeroSkillPrototype $skill) => $skill->getId(), $unlocked ),
