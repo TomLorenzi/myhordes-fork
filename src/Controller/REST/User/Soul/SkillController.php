@@ -118,7 +118,9 @@ class SkillController extends CustomAbstractCoreController
         $xp = $unlockableService->getHeroicExperience( $user );
         $all_xp = $unlockableService->getHeroicExperience( $user, include_deductions: false );
 
-        if ($all_xp - $xp < 100)
+        $pack_reset = $unlockableService->getResetPackPoints( $this->getUser(), true );
+
+        if (($all_xp - $xp < 100) || ($pack_reset >= 2) || $user->getActiveCitizen())
             return new JsonResponse([], Response::HTTP_NOT_ACCEPTABLE);
 
         if (!$unlockableService->performSkillResetForUser($user, true))
