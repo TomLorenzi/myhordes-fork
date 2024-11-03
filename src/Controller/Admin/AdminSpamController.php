@@ -55,6 +55,19 @@ class AdminSpamController extends AdminActionController
         ]));
     }
 
+    #[Route(path: 'jx/admin/spam/names', name: 'admin_spam_names_view')]
+    public function name_view(): Response
+    {
+        try {
+            $n = $this->entity_manager->getRepository(AntiSpamDomains::class)->createQueryBuilder('a')
+                ->select('count(a.id)')->where('a.type = :type',)->setParameter('type', DomainBlacklistType::BannedName)->getQuery()->getSingleScalarResult();
+        } catch (\Throwable $e) {
+            $n = 0;
+        }
+
+        return $this->render( 'ajax/admin/spam/names.html.twig', $this->addDefaultTwigArgs(null, ['n' => $n, 'tab' => 'names']));
+    }
+
     /**
      * @param JSONRequestParser $parser
      * @return Response
@@ -70,6 +83,23 @@ class AdminSpamController extends AdminActionController
             ->getQuery()->getResult();
 
         return $this->render( 'ajax/admin/spam/domain_list.html.twig', ['domains' => $results]);
+    }
+
+    /**
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    #[Route(path: 'jx/admin/spam/names/search', name: 'admin_spam_name_search')]
+    public function spam_name_search(JSONRequestParser $parser): Response
+    {
+        $query = $parser->get('query','');
+        if (mb_strlen($query) < 3) $query = '';
+        $results = empty($query) ? [] : $this->entity_manager->getRepository(AntiSpamDomains::class)->createQueryBuilder('a')
+            ->andWhere('a.domain LIKE :val')->setParameter('val', "%{$query}%")
+            ->andWhere('a.type = :type', )->setParameter('type', DomainBlacklistType::BannedName)
+            ->getQuery()->getResult();
+
+        return $this->render( 'ajax/admin/spam/name_list.html.twig', ['names' => $results]);
     }
 
     /**
@@ -112,7 +142,41 @@ class AdminSpamController extends AdminActionController
      * @param JSONRequestParser $parser
      * @return Response
      */
+    #[Route(path: 'api/admin/spam/names/add', name: 'admin_add_spam_name')]
+    #[AdminLogProfile(enabled: true)]
+    public function spam_name_add(JSONRequestParser $parser): Response
+    {
+        $body = $parser->get('list', '');
+        $lines = array_unique( explode( "\n", $body ) );
+
+        $repo = $this->entity_manager->getRepository(AntiSpamDomains::class);
+
+        foreach ($lines as $line) {
+            $line = trim($line ?? '');
+            if (empty($line)) continue;
+            if ($line[0] === '@' || $line[0] === '.') $line = substr($line, 1);
+
+            $this_entry = DomainBlacklistType::BannedName->convert( $line );
+            if (!($existing = $repo->findOneBy(['domain' => $this_entry, 'type' => DomainBlacklistType::BannedName])))
+                $this->entity_manager->persist(
+                    (new AntiSpamDomains())
+                        ->setDomain($this_entry)
+                        ->setType(DomainBlacklistType::BannedName)
+                );
+            else $this->entity_manager->persist($existing->setUntil(null));
+        }
+
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
     #[Route(path: 'api/admin/spam/domains/remove', name: 'admin_remove_spam_domain')]
+    #[Route(path: 'api/admin/spam/names/remove', name: 'admin_remove_spam_name')]
     #[AdminLogProfile(enabled: true)]
     public function spam_domain_remove(JSONRequestParser $parser): Response
     {
@@ -132,4 +196,5 @@ class AdminSpamController extends AdminActionController
 
         return AjaxResponse::success();
     }
+
 }

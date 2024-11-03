@@ -449,15 +449,25 @@ class UserHandler
             'Moderator', 'Admin', 'Administrator', 'Administrateur', 'Administrador', 'Moderador'
         ];
 
+        $additional_names = array_map(
+            fn(AntiSpamDomains $a) => $a->getType()->convert( $a->getDomain() ),
+            $this->entity_manager->getRepository(AntiSpamDomains::class)->findAllActive( DomainBlacklistType::BannedName )
+        );
+
         $invalidNameStarters = [
             'Corvus', 'Corbilla', '_'
         ];
 
         $closestDistance = [PHP_INT_MAX, ''];
-        foreach ($invalidNames as $invalidName) {
-            $levenshtein = levenshtein($name, $invalidName);
-            if ($levenshtein < $closestDistance[0])
-                $closestDistance = [ $levenshtein, $invalidName ];
+        foreach ([...$invalidNames,...$additional_names] as $invalidName) {
+            $base = str_replace(["'", '*', '?', '[', ']', '!'], '', $invalidName);
+            if (fnmatch(strtolower($invalidName), strtolower($name)))
+                $closestDistance = [ 0, $base ];
+            else {
+                $levenshtein = levenshtein($name, $base);
+                if ($levenshtein < $closestDistance[0])
+                    $closestDistance = [ $levenshtein, $base ];
+            }
         }
 
         foreach ($invalidNameStarters as $starter)

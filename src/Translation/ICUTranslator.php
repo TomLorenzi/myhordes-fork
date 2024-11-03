@@ -39,8 +39,15 @@ class ICUTranslator implements TranslatorInterface, TranslatorBagInterface, Loca
         ];
 
         $got_citizen = false;
+        $no_md = false;
 
         foreach ($parameters as $key => $value) {
+
+            if ($key === '__no_md') {
+                $no_md = $value;
+                continue;
+            }
+
             $key = str_replace(['{','}'],'', $key);
             if (is_a( $value, User::class )) {
                 /** @var User $value */
@@ -75,27 +82,28 @@ class ICUTranslator implements TranslatorInterface, TranslatorBagInterface, Loca
 
         $string = $this->_decorated->trans($id,$pass_trough,$domain,$locale);
 
-        $config = [
-            'html_input' => "allow"
-        ];
-        $environment = new Environment($config);
-        $environment->addExtension(new CommonMarkCoreExtension());
-        $environment->addExtension(new DisallowedRawHtmlExtension());
-        $environment->addExtension(new StrikethroughExtension());
-        $environment->addExtension(new TableExtension());
-        $environment->addExtension(new TaskListExtension());
+        if (!$no_md) {
+            $config = [
+                'html_input' => "allow"
+            ];
+            $environment = new Environment($config);
+            $environment->addExtension(new CommonMarkCoreExtension());
+            $environment->addExtension(new DisallowedRawHtmlExtension());
+            $environment->addExtension(new StrikethroughExtension());
+            $environment->addExtension(new TableExtension());
+            $environment->addExtension(new TaskListExtension());
 
-        # We put the string in 1 line and replace multiple spaces with only one
-        $string = preg_replace("#\n#mi", "", $string);
-        $string = preg_replace("# {2,}#mi", " ", $string);
+            # We put the string in 1 line and replace multiple spaces with only one
+            $string = preg_replace("#\n#mi", "", $string);
+            $string = preg_replace("# {2,}#mi", " ", $string);
 
-        $converter = new MarkdownConverter($environment);
-        $string = $converter->convert($string);
-        $string = preg_replace('#<p>(.*)</p>#i', '$1', $string);
-        $string = html_entity_decode($string);
+            $converter = new MarkdownConverter($environment);
+            $string = $converter->convert($string);
+            $string = preg_replace('#<p>(.*)</p>#i', '$1', $string);
+            $string = html_entity_decode($string);
+        }
 
         return trim($string);
-
     }
 
     public function getCatalogue(string $locale = null): MessageCatalogueInterface

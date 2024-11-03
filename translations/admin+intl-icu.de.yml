@@ -682,3 +682,8 @@ Foren-Posts: Foren-Posts
 Heldenerfahrung: Heldenerfahrung
 Zurücksetzen: Zurücksetzen
 Künstler: Künstler
+'Anzahl der gelisteten Namen: {number}': 'Anzahl der gelisteten Namen: {number}'
+Namen-Suche: Namen-Suche
+'Namen hinzufügen': 'Namen hinzufügen'
+'Namen können als glob-Muster eingegeben werden. Beispielsweise würde *test* alle Namen verhindern, in denen "test" vorkommt. Für eine Übersicht über glob-Syntax, siehe folgenden Link:': 'Namen können als glob-Muster eingegeben werden. Beispielsweise würde *test* alle Namen verhindern, in denen "test" vorkommt. Für eine Übersicht über glob-Syntax, siehe folgenden Link:'
+'Gesperrte Namen': 'Gesperrte Namen'

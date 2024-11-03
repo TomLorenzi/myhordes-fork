@@ -34,6 +34,23 @@ class AntiSpamDomainsRepository extends ServiceEntityRepository
         return $qb->getQuery()->getOneOrNullResult();
     }
 
+    /**
+     * @param DomainBlacklistType $type
+     * @return AntiSpamDomains[]
+     */
+    public function findAllActive(DomainBlacklistType $type): array
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->andWhere('a.type = :type')->setParameter('type', $type);
+
+        $qb->andWhere( $qb->expr()->orX(
+            'a.until IS NULL',
+            'a.until > :now',
+        ) )->setParameter('now', new \DateTime());
+
+        return $qb->getQuery()->getResult();
+    }
+
     // /**
     //  * @return AntiSpamDomains[] Returns an array of AntiSpamDomains objects
     //  */
