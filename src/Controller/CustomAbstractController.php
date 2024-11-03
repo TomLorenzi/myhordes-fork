@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Controller\Admin\AdminActionController;
+use App\Entity\CitizenProfession;
 use App\Entity\ExternalApp;
 use App\Entity\GlobalPoll;
 use App\Entity\Quote;
@@ -106,7 +107,7 @@ class CustomAbstractController extends CustomAbstractCoreController {
             $data['max_bp'] = $this->citizen_handler->getMaxBP($activeCitizen);
             $data['status'] = $activeCitizen->getStatus();
             $data['roles'] = $activeCitizen->getVisibleRoles();
-            $data['rucksack_id'] = $activeCitizen->getInventory()->getId();
+            $data['rucksack_id'] = $activeCitizen->getProfession()->getName() !== CitizenProfession::DEFAULT ? $activeCitizen->getInventory()->getId() : null;
             $data['pm'] = $activeCitizen->getPm();
             $data['max_pm'] = $this->citizen_handler->getMaxPM($activeCitizen);
             $data['username'] = $this->getUser()->getName();

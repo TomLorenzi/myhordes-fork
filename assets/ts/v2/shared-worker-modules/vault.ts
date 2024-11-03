@@ -108,7 +108,7 @@ export default class VaultServiceModule extends ServiceModule {
 
     fetchFromStorage(request: DataRequest): Promise<DataRequest|null> {
         return new Promise((resolve) => {
-            getMany(request.ids.map(i => `v_${request.storage}_${this.qv}_${this.ql}_${i}`), this.store).then(entries => {
+            getMany(request.ids.map(i => `v::${request.storage}::${this.qv}::${this.ql}::${i}`), this.store).then(entries => {
                 const found = entries.filter(v => typeof v === "object" && v?.id);
                 if (found.length === 0) resolve(request);
                 else {
