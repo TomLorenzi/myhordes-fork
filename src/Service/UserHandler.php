@@ -485,39 +485,39 @@ class UserHandler
 				$closestDistance = [0, $base];
 				$fromSubstr = false;
 			} else {
-				if (strlen($name) > strlen($base) + $levenshtein_max) {
-					for ($i = 0 ; $i + strlen($base) <= strlen($name) ; $i++) {
-						$substr = substr($name, $i, strlen($base));
+				//if (strlen($name) > strlen($base) + $levenshtein_max) {
+				//	for ($i = 0 ; $i + strlen($base) <= strlen($name) ; $i++) {
+				//		$substr = substr($name, $i, strlen($base));
 
-						// Calculate the levenshtein distance
-						$levenshtein = levenshtein(strtolower($substr), strtolower($base));
+				//		// Calculate the levenshtein distance
+				//		$levenshtein = levenshtein(strtolower($substr), strtolower($base));
 
-						if ($levenshtein < $closestDistance[0]) {
-							$closestDistance = [$levenshtein, $base];
-							$fromSubstr = true;
-						}
-					}
-				} else {
+				//		if ($levenshtein < $closestDistance[0]) {
+				//			$closestDistance = [$levenshtein, $base];
+				//			$fromSubstr = true;
+				//		}
+				//	}
+				//} else {
 					// Calculate the levenshtein distance
 					$levenshtein = levenshtein(strtolower($name), strtolower($base));
 					if ($levenshtein < $closestDistance[0]) {
 						$closestDistance = [$levenshtein, $base];
 						$fromSubstr = false;
 					}
-				}
+				//}
             }
         }
 
 		$levenshtein_max = mb_strlen( $closestDistance[1] ) <= 5 ? 1 : 2;
 
 		// We have a match
-		if ($closestDistance[0] <= $levenshtein_max && $fromSubstr) {
-			$asd = new AntiSpamDomains();
-			$asd->setType(DomainBlacklistType::BannedName);
-			$asd->setDomain($name);
-			$this->entity_manager->persist($asd);
-			$this->entity_manager->flush();
-		}
+		//if ($closestDistance[0] <= $levenshtein_max && $fromSubstr) {
+		//	$asd = new AntiSpamDomains();
+		//	$asd->setType(DomainBlacklistType::BannedName);
+		//	$asd->setDomain($name);
+		//	$this->entity_manager->persist($asd);
+		//	$this->entity_manager->flush();
+		//}
 
         $too_long = mb_strlen($name) > $custom_length;
         return ($disable_preg || !preg_match('/[^\p{L}\w]/u', $name)) && mb_strlen($name) >= 3 && !$too_long && $closestDistance[0] > $levenshtein_max;
