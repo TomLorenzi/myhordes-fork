@@ -468,13 +468,12 @@ class UserHandler
             $this->entity_manager->getRepository(AntiSpamDomains::class)->findAllActive( DomainBlacklistType::BannedName )
         );
 
-		dump("Testing '$name' against those names:", [...$invalidNames,...$additional_names]);
-
 		// Calculate the Levenshtein distance between the wanted name and
 		// one from the list
 		// We save [distance, match]
         $closestDistance = [PHP_INT_MAX, ''];
 
+		$fromSubstr = false;
         foreach ([...$invalidNames,...$additional_names] as $invalidName) {
 			// Remove wildcard chars from the banned name
             $base = str_replace(["'", '*', '?', '[', ']', '!'], '', $invalidName);
@@ -482,9 +481,10 @@ class UserHandler
 			$levenshtein_max = mb_strlen( $base ) <= 5 ? 1 : 2;
 
 			// Match wildcardly
-            if (fnmatch(strtolower($invalidName), strtolower($name)))
-                $closestDistance = [ 0, $base ];
-            else {
+            if (fnmatch(strtolower($invalidName), strtolower($name))) {
+				$closestDistance = [0, $base];
+				$fromSubstr = false;
+			} else {
 				if (strlen($name) > strlen($base) + $levenshtein_max) {
 					for ($i = 0 ; $i + strlen($base) <= strlen($name) ; $i++) {
 						$substr = substr($name, $i, strlen($base));
@@ -492,17 +492,32 @@ class UserHandler
 						// Calculate the levenshtein distance
 						$levenshtein = levenshtein(strtolower($substr), strtolower($base));
 
-						if ($levenshtein < $closestDistance[0])
-							$closestDistance = [ $levenshtein, $base ];
+						if ($levenshtein < $closestDistance[0]) {
+							$closestDistance = [$levenshtein, $base];
+							$fromSubstr = true;
+						}
 					}
 				} else {
 					// Calculate the levenshtein distance
 					$levenshtein = levenshtein(strtolower($name), strtolower($base));
-					if ($levenshtein < $closestDistance[0])
-						$closestDistance = [ $levenshtein, $base ];
+					if ($levenshtein < $closestDistance[0]) {
+						$closestDistance = [$levenshtein, $base];
+						$fromSubstr = false;
+					}
 				}
             }
         }
+
+		$levenshtein_max = mb_strlen( $closestDistance[1] ) <= 5 ? 1 : 2;
+
+		// We have a match
+		if ($closestDistance[0] <= $levenshtein_max && $fromSubstr) {
+			$asd = new AntiSpamDomains();
+			$asd->setType(DomainBlacklistType::BannedName);
+			$asd->setDomain($name);
+			$this->entity_manager->persist($asd);
+			$this->entity_manager->flush();
+		}
 
         $too_long = mb_strlen($name) > $custom_length;
         return ($disable_preg || !preg_match('/[^\p{L}\w]/u', $name)) && mb_strlen($name) >= 3 && !$too_long && $closestDistance[0] > $levenshtein_max;
