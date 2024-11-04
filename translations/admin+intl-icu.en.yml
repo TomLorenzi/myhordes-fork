@@ -683,3 +683,8 @@ Foren-Posts: Forum messages
 Heldenerfahrung: Heroic Experience
 Zurücksetzen: Reset
 Künstler: Artist
+'Anzahl der gelisteten Namen: {number}': 'Number of names listed: {number}'
+Namen-Suche: Name search
+'Namen hinzufügen': 'Add name'
+'Namen können als glob-Muster eingegeben werden. Beispielsweise würde *test* alle Namen verhindern, in denen "test" vorkommt. Für eine Übersicht über glob-Syntax, siehe folgenden Link:': 'Names can be entered as a glob pattern. For example, *test* would block all names containing "test". For an overview of the glob syntax, see the following link:'
+'Gesperrte Namen': 'Blocked names'

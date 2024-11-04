@@ -683,3 +683,8 @@ Foren-Posts: Messages du forum
 Heldenerfahrung: Expérience héroïque
 Zurücksetzen: Réinitialiser
 Künstler: Artiste
+'Anzahl der gelisteten Namen: {number}': 'Nombre de noms répertoriés : {number}'
+Namen-Suche: Recherche de nom
+'Namen hinzufügen': 'Ajouter un nom'
+'Namen können als glob-Muster eingegeben werden. Beispielsweise würde *test* alle Namen verhindern, in denen "test" vorkommt. Für eine Übersicht über glob-Syntax, siehe folgenden Link:': 'Les noms peuvent être saisis sous forme de modèle global. Par exemple, *test* empêcherait tous les noms contenant « test ». Pour un aperçu de la syntaxe glob, consultez le lien suivant :'
+'Gesperrte Namen': 'Noms bloqués'
