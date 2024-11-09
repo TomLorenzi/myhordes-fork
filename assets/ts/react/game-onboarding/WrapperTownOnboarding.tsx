@@ -14,7 +14,7 @@ import {TranslationStrings} from "./strings";
 import {Tooltip} from "../tooltip/Wrapper";
 import {html, sharedWorkerCall, sharedWorkerMessageHandler} from "../../v2/init";
 import {ServiceWorkerIndicator} from "../service-worker-state/Wrapper";
-import HTML from "../../html";
+import {dialogShim} from "../../shims";
 
 declare var c: Const;
 declare var $: Global;
@@ -226,6 +226,10 @@ const ConfirmationDialog = (props: ConfirmationDialogProps) => {
 
     const dialog = useRef<HTMLDialogElement>();
     const [loading, setLoading] = useState<boolean>(false);
+
+    useLayoutEffect(() => {
+        dialogShim(dialog.current);
+    }, []);
 
     useLayoutEffect(() => {
        if (props.open) {

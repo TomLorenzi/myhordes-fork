@@ -3,6 +3,7 @@ import { useEffect, useLayoutEffect, useRef, useState} from "react";
 import {Const, Global} from "../../defaults";
 import {ContentReportAPI, ResponseIndex} from "./api";
 import {ReactDialogMounter} from "../index";
+import {dialogShim} from "../../shims";
 
 declare var c: Const;
 declare var $: Global;
@@ -80,6 +81,10 @@ const ReportCreatorDialog = (props: {
 
     useEffect(() => {
         if (open && index === null) api.current.index( props.type ).then( s => setIndex(s) );
+    }, [open]);
+
+    useLayoutEffect(() => {
+        dialogShim(dialog.current);
     }, [open]);
 
     useLayoutEffect(() => {

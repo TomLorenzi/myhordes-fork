@@ -7,6 +7,7 @@ import {Emote, Snippet} from "./api";
 import {Tooltip} from "../tooltip/Wrapper";
 import {v4 as uuidv4} from "uuid";
 import {Global} from "../../defaults";
+import {dialogShim} from "../../shims";
 
 declare var $: Global;
 
@@ -167,6 +168,10 @@ const ControlButton = ({fa = null, img = null, label = null, control = null, han
                 dialog.current.showModal();
         }
     }
+
+    useLayoutEffect(() => {
+        dialogShim(dialog.current);
+    }, [children]);
 
     useLayoutEffect(() => {
         const callHandler = (e:CustomEvent) => wrapped_handler();
