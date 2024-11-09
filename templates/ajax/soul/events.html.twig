@@ -10,8 +10,9 @@
     <h1 class="page-head">{{ 'Community-Events'|trans({}, 'soul') }}</h1>
 
     <hordes-event-creator
-            data-creator="{{ is_granted('ROLE_ANIMAC') or is_granted('ROLE_ORACLE') or is_granted('ROLE_CROW') ? '1' : '0' }}"
-            data-reviewer="{{ is_granted('ROLE_SUB_ADMIN') or is_granted('ROLE_CROW') ? '1' : '0' }}"
+            data-creator="{{ is_granted('ROLE_ELEVATED')  ? '1' : '0' }}"
+            data-reviewer="{{ is_granted('ROLE_ELEVATED') ? '1' : '0' }}"
+            data-admin="{{ is_granted('ROLE_CROW') ? '1' : '0' }}"
     ></hordes-event-creator>
 
     {% if is_granted('ROLE_ANIMAC') or is_granted('ROLE_ORACLE') %}
