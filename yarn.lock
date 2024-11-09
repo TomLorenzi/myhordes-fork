@@ -4924,6 +4924,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dialog-polyfill@npm:^0.5.6":
+  version: 0.5.6
+  resolution: "dialog-polyfill@npm:0.5.6"
+  checksum: 10c0/11330f8dcdc00bf256564560e8acfbab21bc4ca8121c66feeebb9662bd98b3bc68d476821d3e849b30695cf18534c31360c684f75eecfcfba21928f8346fef32
+  languageName: node
+  linkType: hard
+
 "dns-equal@npm:^1.0.0":
   version: 1.0.0
   resolution: "dns-equal@npm:1.0.0"
@@ -9425,6 +9432,7 @@ __metadata:
     "@types/uuid": "npm:^9"
     buffer: "npm:6.0.3"
     core-js: "npm:3.36.1"
+    dialog-polyfill: "npm:^0.5.6"
     favicons: "npm:^7.0.2"
     favicons-webpack-plugin: "npm:^6.0.0"
     file-loader: "npm:6.2.0"

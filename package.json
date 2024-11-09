@@ -34,6 +34,7 @@
         "@ruffle-rs/ruffle": "0.1.0-nightly.2024.5.10",
         "@types/react-dom": "18.2.24",
         "buffer": "6.0.3",
+        "dialog-polyfill": "^0.5.6",
         "js-md5": "^0.8.3",
         "latest-createjs": "1.0.24",
         "process": "0.11.10",
