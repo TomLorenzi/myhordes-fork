@@ -3,6 +3,7 @@
 namespace App\Controller\Messages;
 
 use App\Controller\CustomAbstractController;
+use App\Entity\Announcement;
 use App\Entity\Award;
 use App\Entity\Citizen;
 use App\Entity\Emotes;
@@ -77,8 +78,10 @@ class MessageController extends CustomAbstractController
             (($this->isGranted("ROLE_ORACLE") || $this->isGranted("ROLE_ANIMAC")) * ForumUsagePermissions::PermissionFormattingOracle)
         );
 
+        $is_announcement = is_a($post, Announcement::class);
+
         $tx = $post->getText();
-        $this->html->htmlPrepare($user, $p, true, $tx, $town, $insight);
+        $this->html->htmlPrepare($user, $p, true, $tx, $town, $insight, allow_all_emotes: $is_announcement);
 
         $distorted = false;
         if ($town && $user->getActiveCitizen() && $town->getCitizens()->contains($user->getActiveCitizen()) && (!is_a( $post, Post::class) || $post->getType() === 'USER')) {
