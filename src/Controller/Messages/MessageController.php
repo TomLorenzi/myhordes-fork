@@ -115,7 +115,9 @@ class MessageController extends CustomAbstractController
                         $note = '{at_00}';
                     }
 
-                    $post->setNote("<img alt='' src='{$this->asset->getUrl("build/images/professions/{$citizen->getProfession()->getIcon()}.gif")}' /> <img alt='' src='{$this->asset->getUrl('build/images/icons/item_map.gif')}' /> <span>$note</span>");
+                    $post
+                        ->setNoteIcons(["build/images/professions/{$citizen->getProfession()->getIcon()}.gif", 'build/images/icons/item_map.gif'])
+                        ->setNote("<span>$note</span>");
                 }
             }
         }
