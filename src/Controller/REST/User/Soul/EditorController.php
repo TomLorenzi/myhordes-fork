@@ -364,10 +364,18 @@ class EditorController extends CustomAbstractCoreController
 
         $professions = $em->getRepository(CitizenProfession::class)->findAll();
 
+        $profession_map = [
+            'collec' => 'scav',
+            'guardian' => 'guard',
+            'hunter' => 'scout',
+            'survivalist' => 'surv',
+            'shaman' => 'sham',
+        ];
+
         $result = [];
         foreach ($professions as $profession)
             $result[] = [
-                'tag' => '{citizen,' . $profession->getName() . '}',
+                'tag' => '{citizen,' . ($profession_map[$profession->getName()] ?? $profession->getName()) . '}',
                 'path' => "/build/images/professions/{$profession->getIcon()}.gif",
                 'url' => $assets->getUrl( "build/images/professions/{$profession->getIcon()}.gif" ),
                 'orderIndex' => $profession->getName() === 'none' ? 9999 : (100 + $profession->getId())
