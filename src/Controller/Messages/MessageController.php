@@ -84,7 +84,7 @@ class MessageController extends CustomAbstractController
         $this->html->htmlPrepare($user, $p, true, $tx, $town, $insight, allow_all_emotes: $is_announcement);
 
         $distorted = false;
-        if ($town && $user->getActiveCitizen() && $town->getCitizens()->contains($user->getActiveCitizen()) && (!is_a( $post, Post::class) || $post->getType() === 'USER')) {
+        if ($town && $user->getActiveCitizen() && $town->getCitizens()->contains($user->getActiveCitizen()) && (!is_a( $post, Post::class) || $post->getType() === 'USER' || $post->getType() === 'GLORY')) {
             $citizen = $user->getActiveCitizen();
             $tx = $this->html->htmlDistort( $tx,
                     ($this->citizen_handler->hasStatusEffect($citizen, 'drunk') ? HTMLService::ModulationDrunk : HTMLService::ModulationNone) |
@@ -121,14 +121,16 @@ class MessageController extends CustomAbstractController
                         ->setNoteIcons(["build/images/professions/{$citizen->getProfession()->getIcon()}.gif", 'build/images/icons/item_map.gif'])
                         ->setNote("<span>$note</span>");
                     }
-                } else { // World forum message
-                    if($citizen && $citizen->getTown() !== null) {
+                } elseif ($post->getType() === 'USER' || $post->getType() === 'GLORY') { // World forum message
+                    if($citizen && $citizen->getTown()?->getRankingEntry() !== null) {
                         $town_name = $citizen->getTown()->getName();
-                        $town_link = "/jx/soul/{$user->getId()}/town/{$citizen->getTown()->getId()}";
-                        $post->setNote("<span class='pointer' x-ajax-href='$town_link'><img alt='' src='{$this->asset->getUrl("build/images/soul/small_falsecity.gif")}' /> <span class='hide-sm hide-md'>$town_name</span></span>");
+                        $town_link = $this->generateUrl('soul_view_town', ['sid' => $user->getId(), 'idtown' => $citizen->getTown()?->getRankingEntry()->getId()]);
+                        $post->setNoteIcons(['build/images/soul/small_falsecity.gif']);
+                        $post->setNote("<span class=\"pointer hide-sm hide-md\" x-ajax-href=\"{$town_link}\">$town_name</span>");
                     } else {
-                        $note = $this->translator->trans('Ancienne cité oubliée', [], 'game');
-                        $post->setNote("<img alt='' src='{$this->asset->getUrl("build/images/emotes/buried.gif")}' /> <span class='hide-sm hide-md'>$note</span>");
+                        $post->setNoteIcons(['build/images/emotes/buried.gif']);
+                        $note = '{ancient}';
+                        $post->setNote("<span class='hide-sm hide-md'>$note</span>");
                     }
                 }
             }
