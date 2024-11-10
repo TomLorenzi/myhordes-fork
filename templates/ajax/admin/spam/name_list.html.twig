@@ -1,0 +1,9 @@
+{% block ajax %}
+    <div class="row">
+        {% for name in names %}
+            <div class="padded cell rw-12">
+                <label><input type="checkbox" id="name_cbox_{{ name.id }}" value="{{ name.id }}" /> {{ name }}</label>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

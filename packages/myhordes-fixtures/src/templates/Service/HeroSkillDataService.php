@@ -45,7 +45,7 @@ class HeroSkillDataService implements FixtureProcessorInterface {
             ->addCitizenProperty( CitizenProperties::InventorySpaceBonus, 1 )
             ->unlockAt(135)->legacy(true)->commit();
         $container->add()->name('secondwind')->title('Zweite Lunge')->description('Du verfügst ab sofort über eine mächtige Heldenfähigkeit, mit der du 6 AP wiederherstellen kannst und die deine Müdigkeit aufhebt.')->icon('small_pa')
-            ->unlockAt(151)->legacy(true)->unlocksAction('hero_generic_ap')->commit();
+            ->unlockAt(151)->legacy(true)->unlocksAction('hero_generic_ap')->addCitizenProperty( CitizenProperties::HeroSecondWindBonusAP, 6 )->commit();
         $container->add()->name('breakfast1')->title('Weitsichtig')->description('Du beginnst jede neue Stadt mit einer zusätzlichen Nahrungsmittelration.')->icon('item_food_bag')
             ->unlockAt(165)->legacy(true)->grantsItems(['food_bag_#00'])->commit();
         $container->add()->name('apag')->title('Profi-Fotograph')->description('Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.')->icon('f_cam')
@@ -57,7 +57,10 @@ class HeroSkillDataService implements FixtureProcessorInterface {
             ->addCitizenProperty( CitizenProperties::LogManipulationLimit, 4 )
             ->unlockAt(211)->legacy(true)->commit();
         $container->add()->name('cheatdeath')->title('Den Tod besiegen')->description('Sobald diese neue Heldenfähigkeit aktiviert wurde, spürst du beim nächsten Zombieangriff keinen Durst, keine Drogenabhängigkeit und keine Infektion (nur eine Nacht lang gültig). Verhindert auch Ghulverhungern (Hungerbalken steigt trotzdem).')->icon('small_wrestle')
-            ->unlockAt(226)->legacy(true)->unlocksAction('hero_generic_immune')->commit();
+            ->unlockAt(226)->legacy(true)
+            ->unlocksAction('hero_generic_immune')
+            ->addCitizenProperty(CitizenProperties::HeroImmuneStatusList, ['thirst','infection','addiction','hunger'])
+            ->commit();
         $container->add()->name('revenge')->title('Süße Rache')->description('Solltest du am dritten Tag oder an einem späteren Zeitpunkt verbannt werden, bekommst du automatisch etwas Gift geschenkt, das du nach Belieben einsetzen kannst... Tja, man hätte dich besser nicht ärgern sollen!')->icon('item_april_drug')
             ->addCitizenProperty( CitizenProperties::RevengeItems, ['poison_#00','poison_#00'] )
             ->unlockAt(241)->legacy(true)->commit();

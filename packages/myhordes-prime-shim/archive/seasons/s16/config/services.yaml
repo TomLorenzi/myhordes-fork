@@ -13,10 +13,10 @@ services:
 
     MyHordes\Prime\EventListener\:
       resource: '../src/templates/EventListener'
-
-    App\Translation\FixtureVisitor:
-      tags:
-        - { name: translation.extractor.visitor }
+    MyHordes\Prime\Controller\:
+      resource: '../src/Controller'
+    MyHordes\Prime\Helpers\:
+      resource: '../src/templates/Helpers'
 
     MyHordes\Prime\Service\ActionDataService:
       tags: [ { name: 'myhordes.fixtures.actions', priority: 1 } ]
@@ -30,6 +30,9 @@ services:
     MyHordes\Prime\Service\CitizenStatusDataService:
       tags: [ { name: 'myhordes.fixtures.citizen.status', priority: 1 } ]
 
+    MyHordes\Prime\Service\HeroSkillDataService:
+      tags: [ { name: 'myhordes.fixtures.heroskills', priority: 1 } ]
+
     MyHordes\Prime\Service\ItemDataService:
       tags: [ { name: 'myhordes.fixtures.items.list', priority: 1 } ]
     MyHordes\Prime\Service\ItemPropertyDataService:
@@ -37,3 +40,18 @@ services:
 
     MyHordes\Prime\Service\BuildingDataService:
       tags: [ { name: 'myhordes.fixtures.buildings', priority: 1 } ]
+      
+    MyHordes\Prime\Service\RuinDataService:
+      tags: [ { name: 'myhordes.fixtures.ruins.data', priority: 1 } ]
+
+    MyHordes\Prime\Service\RecipeDataService:
+      tags: [ { name: 'myhordes.fixtures.recipes', priority: 1 } ]
+
+    MyHordes\Prime\Service\HookDataService:
+      tags: [ { name: 'myhordes.fixtures.hooks', priority: 1 } ]
+
+    MyHordes\Prime\Service\LogsDataService:
+      tags: [ { name: 'myhordes.fixtures.logs', priority: 1 } ]
+
+    MyHordes\Prime\Service\PictoDataService:
+      tags: [ { name: 'myhordes.fixtures.pictos', priority: 1 } ]

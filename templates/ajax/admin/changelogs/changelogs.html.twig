@@ -82,7 +82,7 @@
                                 <span {{ {'style': new.validated ? '' : 'opacity: 0.5'}|attributes }}>{{ new.title }}</span>
                             </div>
                             <div class="cell padded rw-2 right">
-                                {% if is_granted('ROLE_SUB_ADMIN') and not new.validated %}
+                                {% if is_granted('ROLE_ELEVATED') and (is_granted('ROLE_SUB_ADMIN') or new.sender != app.user) and not new.validated %}
                                     <span data-return="{{ path('admin_changelogs', {tab: 'announcement'}) }}" data-url="{{ path('admin_changelog_val_announcement', {id: new.id}) }}" class="pointer"><img alt="" src="{{ asset('build/images/icons/done.png') }}"></span>
                                 {% endif %}
                                 {% if is_granted('ROLE_SUB_ADMIN') or new.sender == app.user %}

@@ -2,7 +2,7 @@
 {% block ajax_base %}
     <div class="row">
         <div class="cell ro-2 rw-8 ro-lg-1 rw-lg-10 ro-md-0 rw-md-12">
-            {% if not exp %}
+            {% if not exp and not h1 and not h2 %}
                 <div class="row-flex v-center wrap-sm">
                     <div class="cell padded rw-5 center rw-sm-12">
                         <img alt="" src="{{ asset('build/images/professions/select/metier.gif') }}">
@@ -33,7 +33,7 @@
                     </button>
             </div>
                 </div>
-            {% else %}
+            {% elseif exp %}
                 <div class="row-flex v-center wrap">
                     <div class="cell padded rw-12">
                         <img class="boxed fit" alt="" src="{{ asset('build/images/background/town/agora.jpg') }}">
@@ -60,6 +60,69 @@
                             <li>{{'Du kannst nun angreifen wen immer du willst, selbst wenn du kein Ghul bist.'|trans({}, 'game')}}</li>
                             <li>{{'Um Baupläne zu finden musst du nun in Gebäuden in der Außenwelt campen.'|trans({}, 'game')}}</li>
                         </ul>
+                    </div>
+                    <div class="cell padded rw-6 rw-md-8 rw-sm-12">
+                        <button x-ajax-href="{{ path('help_me') }}">
+                            <img alt="" src='{{ asset('build/images/icons/small_help.gif') }}'/>
+                            {% trans from 'ghost' %}
+                                Spielhilfe ansehen
+                            {% endtrans %}
+                        </button>
+                        <button x-ajax-href="{{ path('ghost_welcome') }}">
+                            <img alt="" src='{{ asset('build/images/icons/death.gif') }}'/>
+                            {% trans from 'ghost' %}
+                                Spielen, Lernen und STERBEN!
+                            {% endtrans %}
+                        </button>
+                    </div>
+
+                </div>
+            {% elseif h1 %}
+                <div class="row-flex v-center wrap">
+                    <div class="cell padded rw-12">
+                        <img class="boxed fit" alt="" src="{{ asset('build/images/background/town/agora.jpg') }}">
+                        <h5>{{ 'Kein schlechter Anfang!'|trans({},'ghost') }}</h5>
+                        <p class="justify small">
+                            <strong>{{ 'Schön, dass du es bis hierher geschafft hast! Du hast jetzt Zugang zu mehr heldenhaften Fähigkeiten, also nutze sie auf intelligente Weise.'|trans({}, 'ghost') }}</strong>
+                        </p>
+                        <p class="justify small">
+                            {{ 'Du verstehst mittlerweile besser, was hier vor sich geht, aber lass mich dir eine ganz neue Welt vorstellen: das Weltforum. Dort kannst du über die Zukunft des Spiels diskutieren, an Events in Städten mit besonderen Regeln teilnehmen, global um Hilfe bitten, wenn du einige Mechaniken nicht verstehst, oder mit allen Spielern diskutieren.'|trans({}, 'ghost') }}
+                        </p>
+                        <p class="justify small">
+                            {{ 'Achtet jedoch auf die Regeln, die in jedem Forum angeheftet sind - die Raben sind immer wachsam! Zunächst aber wünschen wir dir weiterhin Viel Spaß!'|trans({}, 'ghost') }}
+                        </p>
+                    </div>
+                    <div class="cell padded rw-6 rw-md-8 rw-sm-12">
+                        <button x-ajax-href="{{ path('forum_list') }}">
+                            <img alt="" src='{{ asset('build/images/icons/small_rp.gif') }}'/>
+                            {{ 'Zum Weltforum'|trans({},'ghost') }}
+                        </button>
+                        <button x-ajax-href="{{ path('help_me') }}">
+                            <img alt="" src='{{ asset('build/images/icons/small_help.gif') }}'/>
+                            {% trans from 'ghost' %}
+                                Spielhilfe ansehen
+                            {% endtrans %}
+                        </button>
+                        <button x-ajax-href="{{ path('ghost_welcome') }}">
+                            <img alt="" src='{{ asset('build/images/icons/death.gif') }}'/>
+                            {% trans from 'ghost' %}
+                                Spielen, Lernen und STERBEN!
+                            {% endtrans %}
+                        </button>
+                    </div>
+
+                </div>
+            {% elseif h2 %}
+                <div class="row-flex v-center wrap">
+                    <div class="cell padded rw-12">
+                        <img class="boxed fit" alt="" src="{{ asset('build/images/background/town/agora.jpg') }}">
+                        <h5>{{ 'Du beweist Ausdauer!'|trans({},'ghost') }}</h5>
+                        <p class="justify small">
+                            <strong>{{ 'Du scheinst motiviert zu sein und du lebst sogar noch... Gratuliere, dein Repertoire an heldenhaften Fähigkeiten hat sich erneut erweitert!'|trans({}, 'ghost') }}</strong>
+                        </p>
+                        <p class="justify small">
+                            {{ 'Du hast jetzt Zugang zu Pandämonium-Städten. Hier sind die Regeln ein wenig anders, in einem mehr... tödlichen Stil. Vergiss niemals nicht die erste Regel: Dein schlimmster Feind ist vielleicht der Bürger von nebenan.'|trans({}, 'ghost') }}
+                        </p>
                     </div>
                     <div class="cell padded rw-6 rw-md-8 rw-sm-12">
                         <button x-ajax-href="{{ path('help_me') }}">

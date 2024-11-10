@@ -15,6 +15,7 @@ class Thread
     const SEMANTIC_DAILYVOTE = 2;
     const SEMANTIC_WORKSHOP = 3;
     const SEMANTIC_CONSTRUCTIONS = 4;
+    const SEMANTIC_QA = 5;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]

@@ -34,17 +34,10 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 )]
 class PrepareEndCommand extends Command
 {
-    private EntityManagerInterface $entityManager;
-    private CommandHelper $commandHelper;
-    private UserHandler $userHandler;
-    private GameFactory $gameFactory;
-
-    public function __construct(EntityManagerInterface $em, CommandHelper $com, UserHandler $uh, GameFactory $gf)
-    {
-        $this->entityManager = $em;
-        $this->commandHelper = $com;
-        $this->userHandler = $uh;
-        $this->gameFactory = $gf;
+    public function __construct(
+        private readonly EntityManagerInterface $entityManager,
+        private readonly CommandHelper $commandHelper
+    ) {
         parent::__construct();
     }
 

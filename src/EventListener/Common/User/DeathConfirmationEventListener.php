@@ -60,13 +60,13 @@ final class DeathConfirmationEventListener implements ServiceSubscriberInterface
             $generosity = $cache->getEntityByIdentifier(FeatureUnlockPrototype::class, 'f_share');
             /** @var FeatureUnlock $instance */
             $instance = $this->getService(EntityManagerInterface::class)->getRepository(FeatureUnlock::class)->findBy([
-                'user' => $event->user, 'expirationMode' => FeatureUnlock::FeatureExpirationTownCount,
-                'prototype' => $cache->getEntityByIdentifier(FeatureUnlockPrototype::class, 'f_share')
+                'user' => $event->user, 'expirationMode' => FeatureUnlock::FeatureExpirationTimestamp,
+                'prototype' => $generosity
             ])[0] ?? null;
 
             if (!$instance) $instance = (new FeatureUnlock())->setPrototype( $generosity )->setUser( $event->user )
-                ->setExpirationMode( FeatureUnlock::FeatureExpirationTownCount )->setTownCount($event->death->getGenerosityBonus());
-            else $instance->setTownCount( $instance->getTownCount() + $event->death->getGenerosityBonus() );
+                ->setExpirationMode( FeatureUnlock::FeatureExpirationTimestamp )->setTimestamp( (new \DateTime('tomorrow'))->modify( "+{$event->death->getGenerosityBonus()}days" ) );
+            else $instance->setTimestamp( (clone $instance->getTimestamp())->modify( "+{$event->death->getGenerosityBonus()}days" ) );
 
             $this->getService(EntityManagerInterface::class)->persist( $instance );
         }

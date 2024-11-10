@@ -43,6 +43,12 @@ readonly class AntiCheatService {
     public function recordConnection(?User $user, Request $request) {
         if (!$user || in_array('IS_IMPERSONATOR', $user->getRoles() ?? [])) return;
 
+        // Check if we're moving from GMT+2 to GMT+1 today
+        if ( (((new DateTime('tomorrow'))->getTimestamp() - (new DateTime('today'))->getTimestamp()) / 3600) > 24 ) {
+            $h = (int)date('H');
+            if ($h >= 2 && $h <= 3) return;
+        }
+
         $proxies = $request->getClientIps();
         $client_ip = array_pop($proxies);
 

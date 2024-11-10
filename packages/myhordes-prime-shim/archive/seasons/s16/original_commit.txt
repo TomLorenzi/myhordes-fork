@@ -1,7 +1,7 @@
-commit 6ab3b75de5da461de489776f0e5859505b6ee2f9
-Author:     Dylan57 <dylandep57@gmail.com>
-AuthorDate: Mon Aug 7 18:45:00 2023 +0200
-Commit:     Dylan57 <dylandep57@gmail.com>
-CommitDate: Mon Aug 7 18:45:00 2023 +0200
+commit 72b1effad21c353ffb705e84347baf21c4334e1f
+Author:     Benjamin Behrendt <wvsgnovize@gmail.com>
+AuthorDate: Mon Oct 30 18:32:12 2023 +0100
+Commit:     Benjamin Behrendt <wvsgnovize@gmail.com>
+CommitDate: Mon Oct 30 18:32:12 2023 +0100
 
-    Corrected Watch bonus
+    Add theme images

@@ -60,14 +60,16 @@
     (function() {
         {{ include('partials/window_c.js.twig') }}
 
-        $.html.setInitParams({
-            userPopupEndpoint: '{{ path('soul_tooltip') }}',
-            userPopupLoadingAnimation: '{{ asset('build/images/anims/loading_wheel.gif') }}'
-        })
+        document.addEventListener('DOMContentLoaded', () => {
+            $.html.setInitParams({
+                userPopupEndpoint: '{{ path('soul_tooltip') }}',
+                userPopupLoadingAnimation: '{{ asset('build/images/anims/loading_wheel.gif') }}'
+            })
 
-        $.msg.registerFetchEndpoint( '{{ path('api_pm_spring') }}' );
-        $.msg.toggleFetch(true);
-        $.ajax.background().load( document.getElementById('post-office-content'),'{{ url('pm_view')|e('js') }}', false, {{ (command is defined ? {command: command} : {})|json_encode|raw }});
+            $.msg.registerFetchEndpoint( '{{ path('api_pm_spring') }}' );
+            $.msg.toggleFetch(true);
+            $.ajax.background().load( document.getElementById('post-office-content'),'{{ url('pm_view')|e('js') }}', false, {{ (command is defined ? {command: command} : {})|json_encode|raw }});
+        })
     })();
 </script>
 </html>

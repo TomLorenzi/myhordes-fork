@@ -6,6 +6,63 @@
         {{ 'Das Grab von {citizen}'|trans({'{citizen}': owner}, 'game') }}
     {% endif %}
 {% endblock %}
+
+{% block tutorial %}
+    {% if owner.alive %}
+    <div x-tutorial-content="5.text3" class="toplevel text no-arrow">
+        <div class="help">
+            <p>{{ 'Du stehst aktuell vor <strong>{citizen}\'s Haus</strong>.'|trans({'{citizen}': owner}, 'help')|raw }}</p>
+            <button x-advance-tutorial="5.text4">{{ 'Weiter...'|trans({},'help') }}</button>
+        </div>
+    </div>
+    <div x-tutorial-content="5.text4" class="toplevel text arrow-down">
+        <div class="help">
+            <p>{% trans from "help" %}
+                Hier siehst du eine <strong>Zusammenfassung über alle wichtigen Aspekte dieses Bürgers.</strong>
+            {% endtrans %}</p>
+            <button x-advance-tutorial="5.text5">{{ 'Weiter...'|trans({},'help') }}</button>
+        </div>
+    </div>
+    <div x-tutorial-content="5.text5" class="toplevel text arrow-down">
+        <div class="help">
+            <p>{% trans from "help" %}
+                An dieser Stelle kannst du etwas mehr über die Vergangenheit dieses Bürgers erfahren, indem du <strong>einen Blick in seine Seele</strong> wirfst.
+            {% endtrans %}</p>
+            <p>{% trans from "help" %}
+                Zudem kannst du auf verschiedene Weise mit ihm interagieren, zum Beispiel indem du <strong>ihm eine Nachricht hinterlässt</strong>.
+            {% endtrans %}</p>
+            <p>{% trans from "help" %}
+                Von hier aus kannst du auch <strong>Gerüchte über diesen Bürger</strong> aufschnappen. Wer weiß, was er vorhat...
+            {% endtrans %}</p>
+            <button x-advance-tutorial="5.text6">{{ 'Weiter...'|trans({},'help') }}</button>
+        </div>
+    </div>
+    <div x-tutorial-content="5.text6" class="toplevel text arrow-down">
+        <div class="help">
+            <p>{% trans from "help" %}
+                Je nachdem, wie gut dieser Bürger sein Haus geschützt hat, kannst du hier einen Blick in <strong>seine Truhe</strong> werfen.
+            {% endtrans %}</p>
+            <p>{% trans from "help" %}
+                Wenn er gerade <strong>nicht in der Stadt</strong> ist, kannst du dich hier vielleicht sogar <strong>bedienen</strong>...
+            {% endtrans %}</p>
+            <button x-advance-tutorial="complete">{{ 'Weiter...'|trans({},'help') }}</button>
+        </div>
+    </div>
+    {% else %}
+    <div x-tutorial-content="5.text3" class="toplevel text no-arrow">
+        <div class="help">
+            <p>{% trans from "help" %}
+                Dieser Bürger hat die Stadt bereits... <strong>verlassen.</strong>
+            {% endtrans %}</p>
+            <p>{% trans from "help" %}
+                Bitte wähle einen Bürger aus, der noch am Leben ist.
+            {% endtrans %}</p>
+            <button x-advance-tutorial="5.text1">{{ 'Ich versuchs...'|trans({},'help') }}</button>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
+
 {% block content %}
     {% set hour = "now"|date("G") %}
     <div class="row">
@@ -191,7 +248,7 @@
                             {{ 'Wenn du der Ansicht bist, dass sich {citizen} <strong>falsch verhalten</strong>, erstatte eine Anzeige<br />Wenn mehrere Mitspieler dies auch so sehen, kann er (sie) von der Gemeinschaft <strong>schwer bestraft</strong> werden!'|trans({"{citizen}": owner}, 'game')|raw }}
                         </div>
                     </button>
-                    <div class="lightbox" id="complain_reason" style="display: none";>
+                    <div class="lightbox" id="complain_reason" style="display: none">
                         <label for="reason">{{'Grund:'|trans({}, 'game')}}</label>
                         <select id="reason">
                             <option value="0" selected>-- {{'Wählen'|trans({}, 'game')}} --</option>
@@ -338,11 +395,11 @@
                     <p class="curtain-text">{{ 'Als du zum Fenster blickst, stellst du fest, dass ein großer Vorhang dir die Sicht versperrt. Du kannst deshalb nicht sehen, was {citizen} bei sich aufbewahrt...'|trans({'{citizen}': owner.name},'game') }}</p>
                 {% endif %}
                 {# {% if owner.zone %}<p {% if hidden %}class="hidden with-curtains"{% endif %}>{{ '{citizen} ist ausgegangen...'|trans({'{citizen}': owner.name}, 'game') }} {% endif %}</p>#}
-                {% if chest.items|filter(i => i.prototype.hideInForeignChest == false)|length > 0 and (not hidden or intruding) %}
+                {% if chest.items|filter(i => not i.prototype.hideInForeignChest and not i.hidden)|length > 0 and (not hidden or intruding) %}
                     {% if not intruding %}
                         <p>{{ 'Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:'|trans({},'game') }}</p>
                     {% endif %}
-                    {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items|filter(i => i.prototype.hideInForeignChest == false), 'foreignChestMode': true, 'showFreeSlots': false} %}
+                    {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items|filter(i => not i.prototype.hideInForeignChest and not i.hidden), 'foreignChestMode': true, 'showFreeSlots': false} %}
                         {% block class %}chest {% if owner.alive and intruding <= 0 %}locked{% endif %}{% endblock %}
                         {% block title %}{% endblock %}
                     {% endembed %}
@@ -363,7 +420,7 @@
                             {% block title %}{% trans from 'game' %}Mein Rucksack{% endtrans %}{% endblock %}
                         {% endembed %}
                     {% endif %}
-                    {% if owner.zone and not protect %}
+                    {% if (owner.zone or master_thief) and not protect %}
 
                         {% if intruding != 0 %}
                             <button x-action-id="leave">{{'Abbrechen'|trans({}, 'global')}}</button>
@@ -376,8 +433,8 @@
 
                     {% endif %}
 
-                    {% if not owner.zone and not hidden %}
-                    <div class="notice">{{'Du kannst nichts von {citizen} stehlen, solange <strong>er (sie) in der Stadt ist</strong>...'|trans({citizen: owner}, 'game')|raw}}</div>
+                    {% if not owner.zone and not master_thief and not hidden %}
+                        <div class="notice">{{'Du kannst nichts von {citizen} stehlen, solange <strong>er (sie) in der Stadt ist</strong>...'|trans({citizen: owner}, 'game')|raw}}</div>
                     {% endif %}
                     {% if protect %}
                         <div class="notice">{{'Du siehst keine Möglichkeit, hier einzubrechen ...'|trans({citizen: owner}, 'game')|raw}}</div>
@@ -390,7 +447,7 @@
                     <div class="help">{{'Jetzt, da {citizen} tot ist, kannst du ihm einen <strong>Gegenstand klauen</strong>, wenn du möchtest...'|trans({citizen: owner}, 'game')|raw}}</div>
                     {% endif %}
                     <p>{{'Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:'|trans({ref: owner}, 'game')}}</p>
-                    {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items, 'foreignChestMode': true, 'showFreeSlots': false} %}
+                    {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items, 'foreignChestMode': true, 'showFreeSlots': false, 'show_banished_hidden': true} %}
                         {% block class %}chest {% if already_stolen %}locked{% endif %}{% endblock %}
                         {% block title %}{% endblock %}
                     {% endembed %}

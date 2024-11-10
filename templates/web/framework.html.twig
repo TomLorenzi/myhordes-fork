@@ -3,6 +3,7 @@
       data-language="{{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}"
       data-ticket="{{ ticket }}"
       data-shared-worker="{{ absolute_url(asset('shared/shared.js', 'shared-package')) }}"
+      data-shared-shim="{{ absolute_url(asset('shared-shim/shared-shim.js', 'shared-shim-package')) }}"
       data-service-worker="{{ absolute_url(asset('service/service.js', 'service-package')) }}"
       data-vapid-key="{{ vapid_public }}"
       data-mercure-auth="{{ mercure_token|json_encode }}"
@@ -191,7 +192,7 @@
             $.msg.registerFetchEndpoint( '{{ path('api_pm_spring') }}' );
             $.msg.toggleFetch(false);
 
-            $.html.addEventListenerAll('#postbox','click', function() {
+            $.html.addEventListenerAll('#postbox:not([data-handled])','click', function(e) {
                 let post = document.getElementById('post-office');
                 if (post) {
                     post.classList.add('visible');
@@ -215,6 +216,7 @@
                     $.ajax.background().load( document.getElementById('post-office-content'),'{{ url('pm_view')|e('js') }}', false, data);
                 }
             });
+            $.html.forEach('#postbox', e => e.dataset.handled = "1");
         })
     })();
 </script>

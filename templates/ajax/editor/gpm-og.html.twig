@@ -19,7 +19,8 @@
 {% block js %}
     <script>
         (() => {
-            document.getElementById('{{ uuid }}').addEventListener('submit', e => {
+            document.getElementById('{{ uuid }}')?.addEventListener('submit', e => {
+                if (document.getElementById('{{ uuid }}') !== e.target) return;
                 let selected = document.querySelector('.pm-conversation-list>li.selected');
                 if (selected) selected.click();
                 else $.ajax.load( document.getElementById('post-office-content'), e.detail.response.url );

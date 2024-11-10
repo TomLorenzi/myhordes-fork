@@ -1,3 +1,4 @@
+---
 Wassergraben: Great Moat
 'Großer Graben': 'Great Pit'
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.': 'The Great Pit gives an additional 23 defence points.'
@@ -16,11 +17,11 @@ Zackenmauer: Spiked Wall
 'Zweite Schicht': 'Inner Wall'
 Betonschicht: Concrete Reinforcement
 'Entwicklungsfähige Stadtmauer': 'Evolutive Wall'
-'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.': 'The Evolutive Wall gives an additional 85 defence points.'
-'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.': 'The Evolutive Wall gives an additional 120 defence points.'
-'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 50.': 'The Evolutive Wall gives an additional 170 defence points.'
-'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.': 'The Evolutive Wall gives an additional 235 defence points.'
-'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.': 'The Evolutive Wall gives an additional 315 defence points.'
+'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.': 'The Evolutive Wall gives 85 defence points.'
+'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.': 'The Evolutive Wall gives 120 defence points.'
+'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 50.': 'The Evolutive Wall gives 170 defence points.'
+'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.': 'The Evolutive Wall gives 235 defence points.'
+'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.': 'The Evolutive Wall gives 315 defence points.'
 'Verstärkende Balken': 'Metal Patches'
 Zombiereibe: Zombie-shredder
 Fallgruben: Old-school traps
@@ -34,7 +35,7 @@ Einseifer: Slip 'n' Slide
 Spraykanone: Gas Gun
 Säurespray: Acid Spray
 Zerstäuber: Vaporiser
-'Verstärkte Stadtmauer': 'Wall Upgrade v1'
+'Verstärkte Stadtmauer': 'Defensive Wall'
 Minen: Mines
 Wasserfilter: Water Filter
 Wasserreiniger: Water Purifier

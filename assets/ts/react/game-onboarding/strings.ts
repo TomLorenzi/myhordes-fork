@@ -7,7 +7,9 @@ export type TranslationStrings = {
 
         "on": string,
         "off": string,
-        "lock": string
+        "lock": string,
+        "next": string,
+        "prev": string,
     },
     "identity": {
         "headline": string,
@@ -27,10 +29,22 @@ export type TranslationStrings = {
     "skills": {
         "headline": string,
         "help": string,
+        "help_no_hero": string,
         "level": string,
         "pts": string,
         "unlock": string,
         "unlock_button": string,
         "unlock_img": string,
+        "levels": string[],
+    },
+    "confirm": {
+        "title": string,
+        "help": string,
+        "job": string,
+        "skills": string,
+        "empty_pt": string,
+        "empty_pt_warn": string,
+        "back": string,
+        "ok": string,
     }
 }

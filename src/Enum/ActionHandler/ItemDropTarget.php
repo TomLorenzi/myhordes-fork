@@ -8,4 +8,5 @@ enum ItemDropTarget: int {
     case DropTargetFloor = 2;
     case DropTargetPreferRucksack = 3;
     case DropTargetFloorOnly = 4;
+    case DropTargetOrigin = 5;
 }

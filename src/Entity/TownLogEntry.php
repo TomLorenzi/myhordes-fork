@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\Game\LogHiddenType;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: 'App\Repository\TownLogEntryRepository')]
@@ -23,8 +24,8 @@ class TownLogEntry
     private ?Town $town;
     #[ORM\ManyToOne(targetEntity: Citizen::class)]
     private ?Citizen $citizen;
-    #[ORM\Column(type: 'boolean')]
-    private bool $hidden = false;
+    #[ORM\Column(type: 'integer', enumType: LogHiddenType::class)]
+    private LogHiddenType $hidden = LogHiddenType::Visible;
     #[ORM\ManyToOne(targetEntity: Zone::class)]
     private ?Zone $zone;
     #[ORM\ManyToOne(targetEntity: Citizen::class)]
@@ -82,11 +83,11 @@ class TownLogEntry
 
         return $this;
     }
-    public function getHidden(): ?bool
+    public function getHidden(): LogHiddenType
     {
         return $this->hidden;
     }
-    public function setHidden(bool $hidden): self
+    public function setHidden(LogHiddenType $hidden): self
     {
         $this->hidden = $hidden;
 

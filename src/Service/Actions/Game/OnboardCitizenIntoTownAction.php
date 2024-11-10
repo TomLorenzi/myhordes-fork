@@ -67,6 +67,7 @@ readonly class OnboardCitizenIntoTownAction
         $this->citizenHandler->applyProfession( $citizen, $profession );
         $inventory = $citizen->getInventory();
 
+        $ids = [];
         if($profession->getHeroic()) {
             if ($this->userHandler->checkFeatureUnlock( $citizen->getUser(), 'f_cam', true ) ) {
                 $item = ($this->itemFactory->createItem( "photo_3_#00" ))->setEssential(true);
@@ -80,6 +81,7 @@ readonly class OnboardCitizenIntoTownAction
                         continue;
                 }
 
+                $ids[] = $skill->getId();
                 foreach ($skill->getCitizenProperties() ?? [] as $propPath => $value)
                     Arr::set(
                         $citizenPropConfig,
@@ -146,6 +148,7 @@ readonly class OnboardCitizenIntoTownAction
         if ($this->userHandler->checkFeatureUnlock( $citizen->getUser(), 'f_wtns', true ) )
             $this->citizenHandler->inflictStatus($citizen, 'tg_infect_wtns');
 
+        Arr::set( $citizenPropConfig, \App\Enum\Configuration\CitizenProperties::ActiveSkillIDs->value, $ids );
         $citizen->setProperties( (new CitizenProperties())->setProps( $citizenPropConfig ) );
 
         try {

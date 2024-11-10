@@ -15,6 +15,7 @@ use App\Entity\Forum;
 use App\Entity\Gazette;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
+use App\Entity\MayorMark;
 use App\Entity\Season;
 use App\Entity\Shoutbox;
 use App\Entity\ShoutboxEntry;
@@ -41,6 +42,8 @@ use App\Structures\TownSetup;
 use App\Traits\System\PrimeInfo;
 use App\Translation\T;
 use DateInterval;
+use Doctrine\Common\Collections\Criteria;
+use Doctrine\Common\Collections\Expr\Comparison;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -567,25 +570,36 @@ class GameFactory
         foreach ($this->entity_manager->getRepository(ThreadTag::class)->findBy(['name' => ['help','rp','event','dsc_disc','dsc_guide','dsc_orga']]) as $tag)
             $town->getForum()->addAllowedTag($tag);
 
+        $create_qa_post = $conf->get(TownSetting::CreateQAPost);
+
         $this->crow->postToForum( $town->getForum(),
             [
                 T::__('In diesem Thread dreht sich alles um die Bank.', 'game'),
                 T::__('In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.', 'game'),
                 T::__('In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.', 'game'),
                 T::__('In diesem Thread dreht sich alles um zukünftige Bauprojekte.', 'game'),
+                ...($create_qa_post ? [
+                    T::__('In diesem Thread können Fragen zum Leben in der Stadt gestellt werden.', 'game'),
+                ] : []),
             ],
             true, true,
             [
                 T::__('Bank', 'game'),
                 T::__('Verbesserung des Tages', 'game'),
                 T::__('Werkstatt', 'game'),
-                T::__('Konstruktionen', 'game')
-            ],
+                T::__('Konstruktionen', 'game'),
+                ...($create_qa_post ? [
+                        T::__('Fragen & Antworten', 'game'),
+                    ] : []),
+                ],
             [
                 Thread::SEMANTIC_BANK,
                 Thread::SEMANTIC_DAILYVOTE,
                 Thread::SEMANTIC_WORKSHOP,
-                Thread::SEMANTIC_CONSTRUCTIONS
+                Thread::SEMANTIC_CONSTRUCTIONS,
+                ...($create_qa_post ? [
+                    Thread::SEMANTIC_QA,
+                ] : []),
             ]
         );
 
@@ -607,6 +621,18 @@ class GameFactory
         if (!$internal && $this->user_handler->getConsecutiveDeathLock($user)) {
             $error = ErrorHelper::ErrorPermissionError;
             return false;
+        }
+
+        if (!$internal && $town->isMayor() && $town->getCreator()?->getId() !== $user->getId()) {
+            $mark = !$this->entity_manager->getRepository(MayorMark::class)->matching( (new Criteria())
+                ->where( new Comparison( 'user', Comparison::EQ, $user )  )
+                ->andWhere( new Comparison( 'expires', Comparison::GT, new \DateTime() ) )
+            )->isEmpty();
+
+            if ($mark) {
+                $error = ErrorHelper::ErrorPermissionError;
+                return false;
+            }
         }
 
         if (!$internal && $this->user_handler->isRestricted($user, AccountRestriction::RestrictionGameplay )) {

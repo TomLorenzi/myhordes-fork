@@ -155,12 +155,14 @@ class ItemEffect extends EffectAtom {
     protected static function beforeSerialization(array $data): array {
         $data['spawnAt'] = ($data['spawnAt'] ?? ItemDropTarget::DropTargetDefault)->value;
         $data['poisonSource'] = ($data['poisonSource'] ?? null) !== null ? $data['poisonSource']->value : null;
+        $data['poisonTarget'] = ($data['poisonTarget'] ?? null) !== null ? $data['poisonTarget']->value : null;
         return parent::beforeSerialization( $data );
     }
 
     protected static function afterSerialization(array $data): array {
         $data['spawnAt'] = ItemDropTarget::from( ($data['spawnAt'] ?? ItemDropTarget::DropTargetDefault->value) );
         $data['poisonSource'] = ($data['poisonSource'] ?? null) !== null ? ItemPoisonType::from( $data['poisonSource'] ) : null;
+        $data['poisonTarget'] = ($data['poisonTarget'] ?? null) !== null ? ItemPoisonType::from( $data['poisonTarget'] ) : null;
         return parent::afterSerialization( $data );
     }
 

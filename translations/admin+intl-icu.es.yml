@@ -1,3 +1,4 @@
+---
 'Diesen Bürger töten?': '¿Matar a este habitante?'
 Status: Estados
 Dauer: Duración
@@ -680,3 +681,10 @@ SP: PE
 Foren-Posts: Mensajes del foro
 '{n} (davon {n2} gelöscht)': '{n} (incluido {n2} ya eliminado)'
 Heldenerfahrung: Experiencia heroica
+Zurücksetzen: Reiniciar
+Künstler: Artista
+'Anzahl der gelisteten Namen: {number}': 'Número de nombres enumerados: {number}'
+Namen-Suche: Búsqueda de nombre
+'Namen hinzufügen': 'Agregar un nombre'
+'Namen können als glob-Muster eingegeben werden. Beispielsweise würde *test* alle Namen verhindern, in denen "test" vorkommt. Für eine Übersicht über glob-Syntax, siehe folgenden Link:': 'Los nombres se pueden ingresar como un patrón global. Por ejemplo, *prueba* evitaría todos los nombres que contengan "prueba". Para obtener una descripción general de la sintaxis global, consulte el siguiente enlace:'
+'Gesperrte Namen': 'Nombres bloqueados'

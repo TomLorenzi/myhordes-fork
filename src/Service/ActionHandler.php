@@ -8,53 +8,33 @@ use App\Entity\ActionCounter;
 use App\Entity\BuildingPrototype;
 use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
-use App\Entity\ChatSilenceTimer;
 use App\Entity\Citizen;
-use App\Entity\CitizenRole;
-use App\Entity\CitizenVote;
-use App\Entity\EscapeTimer;
 use App\Entity\EscortActionGroup;
-use App\Entity\EventActivationMarker;
-use App\Entity\FoundRolePlayText;
-use App\Entity\HeroicActionPrototype;
 use App\Entity\HomeActionPrototype;
-use App\Entity\HomeIntrusion;
 use App\Entity\Item;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
-use App\Entity\LogEntryTemplate;
-use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\Requirement;
 use App\Entity\Result;
-use App\Entity\RolePlayText;
 use App\Entity\RuinZone;
-use App\Entity\TownLogEntry;
-use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Enum\ActionHandler\ActionValidity;
-use App\Enum\ActionHandler\CountType;
 use App\Enum\ActionHandler\PointType;
 use App\Enum\Configuration\CitizenProperties;
-use App\Enum\Game\TransferItemModality;
 use App\Enum\ItemPoisonType;
-use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\Actions\Game\AtomProcessors\Effect\AtomEffectProcessor;
 use App\Service\Actions\Game\AtomProcessors\Require\AtomRequirementProcessor;
+use App\Service\Actions\Game\DecodeConditionalMessageAction;
 use App\Service\Actions\Game\WrapObjectsForOutputAction;
-use App\Service\Maps\MazeMaker;
 use App\Structures\ActionHandler\Evaluation;
 use App\Structures\ActionHandler\Execution;
 use App\Structures\EscortItemActionSet;
 use App\Structures\FriendshipActionTarget;
-use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use App\Translation\T;
-use DateTime;
-use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
-use MyHordes\Fixtures\DTO\Actions\Atoms\Requirement\ItemRequirement;
 use MyHordes\Fixtures\DTO\Actions\EffectsDataContainer;
 use MyHordes\Fixtures\DTO\Actions\RequirementsDataContainer;
 use Symfony\Component\Asset\Packages;
@@ -80,6 +60,7 @@ class ActionHandler
         private readonly ContainerInterface $container,
         private readonly EventProxyService $proxyService,
         private readonly WrapObjectsForOutputAction $wrapObjectsForOutputAction,
+        private readonly DecodeConditionalMessageAction $messageDecoder,
     ) {}
 
     protected function evaluate( Citizen $citizen, ?Item $item, $target, ItemAction $action, ?string &$message, ?Evaluation &$cache = null ): ActionValidity {
@@ -112,7 +93,7 @@ class ActionHandler
                 $cache->addMessage($thisMessage, translationDomain: 'items');
         }
 
-        $messages = $cache->getMessages( $this->translator, $this->wrapObjectsForOutputAction, $citizen->fullPropertySet());
+        $messages = $cache->getMessages( $this->translator, $this->wrapObjectsForOutputAction, $this->messageDecoder, $citizen->fullPropertySet());
         $message = !empty($messages) ? implode('<hr />', $messages) : null;
 
         return $current_state;
@@ -362,6 +343,7 @@ class ActionHandler
      * @param string|null $message
      * @param array|null $remove
      * @param bool $force Do not check if the action is valid
+     * @param bool $escort_mode
      * @return int
      */
     public function execute( Citizen &$citizen, ?Item &$item, &$target, ItemAction $action, ?string &$message, ?array &$remove, bool $force = false, bool $escort_mode = false ): int {
@@ -471,7 +453,7 @@ class ActionHandler
         }
 
         if($cache->hasMessages())
-            $message = implode('<hr />', $cache->getMessages( $this->translator, $this->wrapObjectsForOutputAction, $citizen->fullPropertySet()));
+            $message = implode('<hr />', $cache->getMessages( $this->translator, $this->wrapObjectsForOutputAction, $this->messageDecoder, $citizen->fullPropertySet()));
 
         return self::ErrorNone;
     }

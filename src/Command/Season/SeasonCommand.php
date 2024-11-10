@@ -13,6 +13,7 @@ use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
+use App\Entity\UserSponsorship;
 use App\Service\CommandHelper;
 use App\Service\CrowService;
 use App\Service\GameFactory;
@@ -33,11 +34,10 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 )]
 class SeasonCommand extends Command
 {
-    private EntityManagerInterface $entityManager;
-
-    public function __construct(EntityManagerInterface $em)
-    {
-        $this->entityManager = $em;
+    public function __construct(
+        private readonly EntityManagerInterface $entityManager,
+        private readonly CommandHelper $commandHelper,
+    ) {
         parent::__construct();
     }
 
@@ -86,6 +86,10 @@ class SeasonCommand extends Command
             $existing_season->setCurrent(true);
             $this->entityManager->persist( $existing_season );
             $this->entityManager->flush();
+
+            $this->commandHelper->leChunk( $output, UserSponsorship::class, 200, ['seasonalPayout' => true], false, true, function (UserSponsorship $userSponsorship) {
+                $userSponsorship->setSeasonalPayout(false);
+            } );
 
             if ($current_season) $output->writeln("<fg=red>Disabled</> <fg=blue>Season {$current_season->getNumber()}.{$current_season->getSubNumber()}</>");
             $output->writeln("<fg=green>Enabled</> <fg=blue>Season {$existing_season->getNumber()}.{$existing_season->getSubNumber()}</>");

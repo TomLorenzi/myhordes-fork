@@ -7,7 +7,8 @@ const envPlugin = new webpack.DefinePlugin({
 const configs = [
     require('./webpack.fe.config'),
     require('./webpack.service.config'),
-    require('./webpack.shared.config')
+    require('./webpack.shared.config'),
+    require('./webpack.shared-shim.config')
 ];
 configs.forEach( c => c.plugins.push(envPlugin) );
 module.exports = configs;

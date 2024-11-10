@@ -13,6 +13,7 @@ export type JobDescription = {
     "id": number,
     "name": string,
     "desc": string,
+    "hero": boolean,
     "icon": string,
     "poster": string,
     "help": string,
@@ -58,6 +59,11 @@ export type OnboardingPayload = {
     identity: OnboardingIdentityPayload|false|null,
     profession: OnboardingProfessionPayload|null
     skills: OnboardingSkillPayload|null
+}
+
+export type OnboardingCache = {
+    profession: ResponseJobs|null
+    skills: ResponseSkills|null
 }
 
 export type ResponseJobs = JobDescription[]
@@ -114,12 +120,12 @@ export class GameOnboardingAPI {
 
     public skills(town: number): Promise<ResponseSkills> {
         return this.fetch.from(`/${town}/skills`)
-            .request().withCache().get() as Promise<ResponseSkills>;
+            .request().get() as Promise<ResponseSkills>;
     }
 
     public citizens(town: number): Promise<ResponseCitizenCount> {
         return this.fetch.from(`/${town}/citizens`)
-            .request().withCache().get() as Promise<ResponseCitizenCount>;
+            .request().get() as Promise<ResponseCitizenCount>;
     }
 
 }

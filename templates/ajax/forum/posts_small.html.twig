@@ -2,7 +2,7 @@
 {% block ajax_base %}
     {% macro icon_master(post) %}
         {% set user = post.owner %}
-        {% if post.type != "USER" or post.thread.forum.town is null %}
+        {% if (post.type != "USER" and post.type != "GLORY") or post.thread.forum.town is null %}
             {% if user|is_granted('ROLE_SUPER') %}
                 <div class="inline-block mh-icon">
                     <img alt="ADM" src="{{ asset('build/images/icons/icon_mh_admin.gif') }}" />
@@ -22,6 +22,11 @@
                 <div class="inline-block mh-icon">
                     <img alt="ANIM" src="{{ asset('build/images/icons/icon_mh_anim.gif') }}" />
                     <div class="tooltip">{{ 'Dieser Spieler ist ein Animateur auf MyHordes.'|trans({},'global') }}</div>
+                </div>
+            {% elseif user|is_granted('ROLE_ART') %}
+                <div class="inline-block mh-icon">
+                    <img alt="ART" src="{{ asset('build/images/icons/icon_mh_art.gif') }}" />
+                    <div class="tooltip">{{ 'Dieser Spieler ist ein Mitglied der Künstlergilde auf MyHordes.'|trans({},'global') }}</div>
                 </div>
             {% elseif user|is_granted('ROLE_ORACLE') %}
                 <div class="inline-block mh-icon">

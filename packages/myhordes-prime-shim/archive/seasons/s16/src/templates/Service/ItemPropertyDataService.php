@@ -65,6 +65,14 @@ class ItemPropertyDataService implements FixtureProcessorInterface {
             'machine_gun_#00'            => ['nw_armory'],
             'cinema_#00'                 => ['nw_ikea'],
             'deco_box_#00'               => ['nw_ikea'],
+            'potion_#00'                 => ['esc_fixed'],
+            'rlaunc_#00'                 => ['esc_fixed'],
+            'kalach_#00'                 => ['esc_fixed'],
+            'kalach_#01'                 => ['esc_fixed'],
+            'claymo_#00'                 => ['esc_fixed'],
+			'taser_#00'					 => ['nw_impact_cumul'],
+			'lamp_on_#00'				 => ['nw_impact_cumul'],
+			'coffee_#00'				 => ['nw_impact_cumul'],
         ];
 
         foreach ($remove as $element => $properties)

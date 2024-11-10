@@ -60,10 +60,12 @@ class RandomGenerator
      * @param array $a
      * @param int $num
      * @param bool $force_array
+     * @param ?callable $filter
      * @return mixed|array|null
      */
-    function draw( array &$a, int $num = 1, bool $force_array = false ): mixed {
-        $pick = $this->pick( $a, $num, $force_array );
+    function draw( array &$a, int $num = 1, bool $force_array = false, ?callable $filter = null ): mixed {
+        $filter ??= fn() => true;
+        $pick = $this->pick( array_filter($a, $filter), $num, $force_array );
         foreach ((is_array($pick) ? $pick : [$pick]) as $picked) {
             $index = array_search( $picked, $a, true );
             if ($index !== false) unset($a[$index]);

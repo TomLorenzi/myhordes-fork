@@ -16,12 +16,14 @@ export type TranslationStrings = {
         silence_hour: string
         silence: string
         hide: string
+        purge: string
         hidden: string
         hiddenBy: string
         warning: string
         'protected': string
         manipulated: string
         falsify: string
+        purgify: string
         more: string
         noMore: string
         flavour: string[]

@@ -10,6 +10,7 @@ use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
+use App\Entity\PrivateMessage;
 use App\Entity\TeamTicket;
 use App\Entity\TownSlotReservation;
 use App\Entity\UserGroup;
@@ -35,6 +36,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 #[AsEventListener(event: JoinTownEvent::class, method: 'createCitizen', priority: 0)]
 #[AsEventListener(event: JoinTownEvent::class, method: 'handleTeamTicket', priority: 1)]
 #[AsEventListener(event: AfterJoinTownEvent::class, method: 'handleGPS', priority: -1)]
+#[AsEventListener(event: AfterJoinTownEvent::class, method: 'handleWelcomePM', priority: -1)]
 final class CitizenInitializerListener implements ServiceSubscriberInterface
 {
     use ContainerTypeTrait;
@@ -53,6 +55,7 @@ final class CitizenInitializerListener implements ServiceSubscriberInterface
             PermissionHandler::class,
             GameProfilerService::class,
             InventoryHandler::class,
+            CrowService::class,
         ];
     }
 
@@ -126,6 +129,12 @@ final class CitizenInitializerListener implements ServiceSubscriberInterface
     public function handleGPS(AfterJoinTownEvent $event): void
     {
         $this->getService(GameProfilerService::class)->recordCitizenJoined( $event->before->subject->getActiveCitizen(), $event->before->auto ? 'follow' : 'create' );
+    }
+
+    public function handleWelcomePM(AfterJoinTownEvent $event): void {
+        $user = $event->before->subject;
+        if ($user->getAllSoulPoints() === 0)
+            $this->getService(CrowService::class)->postAsPM($user->getActiveCitizen(), '', '', PrivateMessage::TEMPLATE_CROW_GAME_WELCOME);
     }
 
 }

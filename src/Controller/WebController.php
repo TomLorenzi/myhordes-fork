@@ -124,7 +124,7 @@ class WebController extends CustomAbstractController
         $supporters = self::$supporters;
         shuffle($supporters);
 
-        $mercure_token = ($mercure)();
+        $mercure_token = ($mercure)(renew_url: $this->generateUrl('rest_user_security_renew_core_token', [], UrlGeneratorInterface::ABSOLUTE_URL));
 
         return $this->render( ($this->getUser() || !$allow_attract_page) ? 'web/framework.html.twig' : 'web/attract.html.twig', [
             'ticket' => ($this->tokenizer)($request),

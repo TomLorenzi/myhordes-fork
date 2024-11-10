@@ -3,6 +3,7 @@
 namespace App\Controller\Messages;
 
 use App\Controller\CustomAbstractController;
+use App\Entity\Announcement;
 use App\Entity\Award;
 use App\Entity\Citizen;
 use App\Entity\Emotes;
@@ -77,8 +78,10 @@ class MessageController extends CustomAbstractController
             (($this->isGranted("ROLE_ORACLE") || $this->isGranted("ROLE_ANIMAC")) * ForumUsagePermissions::PermissionFormattingOracle)
         );
 
+        $is_announcement = is_a($post, Announcement::class);
+
         $tx = $post->getText();
-        $this->html->htmlPrepare($user, $p, true, $tx, $town, $insight);
+        $this->html->htmlPrepare($user, $p, true, $tx, $town, $insight, allow_all_emotes: $is_announcement);
 
         $distorted = false;
         if ($town && $user->getActiveCitizen() && $town->getCitizens()->contains($user->getActiveCitizen()) && (!is_a( $post, Post::class) || $post->getType() === 'USER')) {
@@ -93,18 +96,19 @@ class MessageController extends CustomAbstractController
         $post->setText($tx);
         if ($distorted && is_a( $post, Post::class )) $post->setEditingMode( Post::EditorLocked );
 
-        if ($post instanceof Post && !$is_update) {
+        if ($post instanceof Post)
             $post->setSearchText( strip_tags( $tx ) );
-            
+
+        if ($post instanceof Post && !$is_update) {
             if ($post->getType() !== 'CROW' && $post->getType() !== 'ANIM'){
                 $citizen = $user->getActiveCitizen();
                 // Town forum message
                 if($forum !== null && $forum->getTown()) {
                     if ($citizen && $citizen->getTown() === $forum->getTown()) {
-    
+
                         if ($citizen->getZone() && ($citizen->getZone()->getX() !== 0 || $citizen->getZone()->getY() !== 0))  {
                             if($citizen->getTown()->getChaos()){
-                                $note = $this->translator->trans('Draußen', [], 'game');
+                                $note = '{outside}';
                             } else {
                                 $note = "[{$citizen->getZone()->getX()}, {$citizen->getZone()->getY()}]";
                             }
@@ -112,15 +116,17 @@ class MessageController extends CustomAbstractController
                         else {
                             $note = '{at_00}';
                         }
-    
-                        $post->setNote("<img alt='' src='{$this->asset->getUrl("build/images/professions/{$citizen->getProfession()->getIcon()}.gif")}' /> <img alt='' src='{$this->asset->getUrl('build/images/icons/item_map.gif')}' /> <span>$note</span>");
+
+                        $post
+                        ->setNoteIcons(["build/images/professions/{$citizen->getProfession()->getIcon()}.gif", 'build/images/icons/item_map.gif'])
+                        ->setNote("<span>$note</span>");
                     }
                 } else { // World forum message
                     if($citizen && $citizen->getTown() !== null) {
                         $town_name = $citizen->getTown()->getName();
                         $town_link = "/jx/soul/{$user->getId()}/town/{$citizen->getTown()->getId()}";
                         $post->setNote("<span class='pointer' x-ajax-href='$town_link'><img alt='' src='{$this->asset->getUrl("build/images/soul/small_falsecity.gif")}' /> <span class='hide-sm hide-md'>$town_name</span></span>");
-                    } else {                      
+                    } else {
                         $note = $this->translator->trans('Ancienne cité oubliée', [], 'game');
                         $post->setNote("<img alt='' src='{$this->asset->getUrl("build/images/emotes/buried.gif")}' /> <span class='hide-sm hide-md'>$note</span>");
                     }

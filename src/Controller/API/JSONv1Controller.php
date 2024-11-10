@@ -1179,7 +1179,7 @@ class JSONv1Controller extends CoreController {
             $filters = $this->filters;
         }
 
-        if (!isset($this->town)) {
+        if (isset($filters[0])) {
             $return = $this->getTownInformation($filters[0]);
             if (!empty($return)) {
                 return $return;
@@ -1565,49 +1565,49 @@ class JSONv1Controller extends CoreController {
                         return $return;
                     }
                 }
-					switch ($field) {
-						case "homeMessage":
-							$user_data[$field] = $current_citizen->getHome()->getDescription();
-							break;
-						case "hero":
-							$user_data[$field] = $current_citizen->getProfession()->getHeroic();
-							break;
-						case "dead":
-							$user_data[$field] = !$current_citizen->getAlive();
-							break;
-						case "out":
-							$user_data[$field] = (bool)$current_citizen->getZone();
-							break;
-						case "ban":
-							$user_data[$field] = $current_citizen->getBanished();
-							break;
-						case "baseDef":
-							$user_data[$field] = $current_citizen->getHome()->getPrototype()->getDefense();
-							break;
-						case "x":
-						case "y":
-							$zone = $current_citizen->getTown()->getChaos() ? null : $current_citizen->getZone();
-							$method = 'get' . ucfirst($field);
-							if ($field == "x") {
-								$offset = $this->xTown;
-								$sens = 1;
-							} else {
-								$offset = $this->yTown;
-								$sens = -1;
-							}
-							$user_data[$field] = $zone ? $offset + $zone->$method() * $sens : $offset;
-							break;
-						case "mapId":
-							$user_data[$field] = $current_citizen->getTown()->getId();
-							break;
-						case "map":
-							$user_data[$field] = $this->getMapData(['date', 'days', 'season', 'id', 'hei', 'wid', 'bonusPts', 'conspiracy', 'custom'],
-																   [$current_citizen->getTown()->getId()]);
-							break;
-						case "job":
-							$user_data[$field] = $this->getJobData($current_citizen);
-							break;
-					}
+                switch ($field) {
+                    case "homeMessage":
+                        $user_data[$field] = $current_citizen->getHome()->getDescription();
+                        break;
+                    case "hero":
+                        $user_data[$field] = $current_citizen->getProfession()->getHeroic();
+                        break;
+                    case "dead":
+                        $user_data[$field] = !$current_citizen->getAlive();
+                        break;
+                    case "out":
+                        $user_data[$field] = (bool)$current_citizen->getZone();
+                        break;
+                    case "ban":
+                        $user_data[$field] = $current_citizen->getBanished();
+                        break;
+                    case "baseDef":
+                        $user_data[$field] = $current_citizen->getHome()->getPrototype()->getDefense();
+                        break;
+                    case "x":
+                    case "y":
+                        $zone = $current_citizen->getTown()->getChaos() ? null : $current_citizen->getZone();
+                        $method = 'get' . ucfirst($field);
+                        if ($field == "x") {
+                            $offset = $this->xTown;
+                            $sens = 1;
+                        } else {
+                            $offset = $this->yTown;
+                            $sens = -1;
+                        }
+                        $user_data[$field] = $zone ? $offset + $zone->$method() * $sens : $offset;
+                        break;
+                    case "mapId":
+                        $user_data[$field] = $current_citizen->getTown()->getId();
+                        break;
+                    case "map":
+                        $user_data[$field] = $this->getMapData(['date', 'days', 'season', 'id', 'hei', 'wid', 'bonusPts', 'conspiracy', 'custom'],
+                                                               [$current_citizen->getTown()->getId()]);
+                        break;
+                    case "job":
+                        $user_data[$field] = $this->getJobData($current_citizen);
+                        break;
+                }
             }
 
             if (is_array($field)) {
@@ -1963,7 +1963,10 @@ class JSONv1Controller extends CoreController {
                     case "v1":
                         $data[$field] = 0;
                         break;
-                    case "score":
+					case "score":
+						$data[$field] = $citizen->getTown()?->getScore();
+						break;
+                    case "sp":
                         $data[$field] = $citizen->getPoints();
                         break;
                     case "msg":
@@ -1976,6 +1979,22 @@ class JSONv1Controller extends CoreController {
                         $data['cleanup']['user'] = $citizen->getCleanupUsername();
                         $data['cleanup']['type'] = $citizen->getCleanupType();
                         break;
+					case "rewards":
+						$rewards = $this->entity_manager->getRepository(Picto::class)->findPictoByUserAndTown($citizen->getUser(), $citizen->getTown());
+						$rewardsData = [];
+						foreach ($rewards as $reward) {
+							$rewardsData[$reward->getPrototype()->getId()] = [
+								'id' => $reward->getPrototype()->getId(),
+								'rare' => $reward->getPrototype()->getRare(),
+								'number' => $reward->getCount(),
+								'img' => $this->getIconPath($this->asset->getUrl("build/images/pictos/{$reward->getPrototype()->getIcon()}.gif")),
+								'name' => $this->getTranslate($reward->getPrototype()->getLabel(), 'game'),
+								'desc' => $this->getTranslate($reward->getPrototype()->getDescription(), 'game')
+							];
+						}
+						$data["rewards"] = $rewardsData;
+
+						break;
                 }
             }
         }

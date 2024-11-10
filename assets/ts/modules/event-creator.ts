@@ -17,12 +17,13 @@ customElements.define('hordes-event-creator', class HordesEventCreatorElement ex
     protected generateProps(): object | null {
         return {
             creator: parseInt(this.dataset.creator) > 0,
-            reviewer: parseInt(this.dataset.reviewer) > 0
+            reviewer: parseInt(this.dataset.reviewer) > 0,
+            admin: parseInt(this.dataset.admin) > 0
         }
     }
 
     protected static observedAttributeNames() {
-        return ['data-creator'];
+        return ['data-creator', 'data-reviewer', 'data-admin'];
     }
 
 }, {  });

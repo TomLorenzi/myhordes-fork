@@ -153,9 +153,17 @@ final class HeroicItemActionListener implements ServiceSubscriberInterface
 
                     if($give_ap){
                         $old_ap = $event->citizen->getAp();
+                        $old_sp = $event->citizen->getSp();
+
                         if ($old_ap < 6)
                             $this->getService(CitizenHandler::class)->setAP($event->citizen, false, 6, 0);
+
+                        $sp_potential_bonus = $this->getService(CitizenHandler::class)->getMaxPoints($event->citizen, PointType::SP, false );
+                        if ($sp_potential_bonus > 0)
+                            $this->getService(CitizenHandler::class)->setPoints($event->citizen, PointType::SP, false, $sp_potential_bonus, 0);
+
                         $event->cache->addPoints( PointType::AP, $event->citizen->getAp() - $old_ap );
+                        $event->cache->addPoints( PointType::SP, $event->citizen->getSp() - $old_sp );
                     }
 
                     $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->outsideDigSurvivalist( $event->citizen ) );
@@ -173,8 +181,10 @@ final class HeroicItemActionListener implements ServiceSubscriberInterface
                 if ($event->type === 8 && $event->citizen->getZone())
                     $jumper = $event->citizen;
 
-                if ($event->type === 9 && is_a( $event->target, Citizen::class ))
+                if ($event->type === 9 && is_a( $event->target, Citizen::class )) {
                     $jumper = $event->target;
+                    $event->cache->setTargetCitizen($event->target);
+                }
 
                 if (!$jumper) break;
                 $zone = $jumper->getZone();
@@ -264,6 +274,7 @@ final class HeroicItemActionListener implements ServiceSubscriberInterface
                 if ($valid) {
                     $this->getService(PictoHandler::class)->award_picto_to( $event->citizen, 'r_share_#00' );
                     $this->getService(CitizenHandler::class)->inflictStatus( $event->target->citizen(), 'tg_rec_heroic' );
+                    $event->cache->setTargetCitizen($event->target->citizen());
 
                     foreach ( $downgrade_actions as $a ) {
                         $event->target->citizen()->getHeroicActions()->removeElement( $a );

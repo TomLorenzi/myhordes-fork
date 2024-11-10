@@ -31,6 +31,7 @@ class ActionRequirementProvider
         $requirement_container->add()->identifier('can_use_friendship')->type(Requirement::HideOnFail)->add( (new FeatureRequirement())->feature('f_share') )->commit();
         $requirement_container->add()->identifier('hunter_no_followers')->type( Requirement::MessageOnFail )->text('Du kannst die <strong>Tarnkleidung</strong> nicht benutzen, wenn du {escortCount} Personen im Schlepptau hast...')->add( (new EscortRequirement())->maxFollowers(0) )->commit();
         $requirement_container->add()->identifier('room_for_item')->type( Requirement::MessageOnFail )->add( (new InventorySpaceRequirement()) )->commit();
+        $requirement_container->add()->identifier('room_for_item_no_container')->type( Requirement::MessageOnFail )->add( (new InventorySpaceRequirement())->container(false) )->commit();
         $requirement_container->add()->identifier('room_for_item_in_chest')->type( Requirement::MessageOnFail )->add( (new InventorySpaceRequirement())->ignoreInventory(true)->container(false) )->commit();
         $requirement_container->add()->identifier('guard_tower_not_max')->type( Requirement::MessageOnFail )->add( (new CustomClassRequirement())->requirement(GuardTowerUseIsNotMaxed::class) )->commit();
 
@@ -226,6 +227,7 @@ class ActionRequirementProvider
         $requirement_container->add()->identifier('must_be_inside_bp')->type( Requirement::MessageOnFail )->add( (new LocationRequirement())->town(true) )->text('Wenn du den Plan studieren willst, musst du in die relative Ruhe der Stadt zurückkehren.')->commit();
         $requirement_container->add()->identifier('must_be_at_buried_ruin')->type( Requirement::CrossOnFail )->add( (new LocationRequirement())->beyond(true)->atBuriedRuin(true) )->text('Wenn du den Plan studieren willst, musst du in die relative Ruhe der Stadt zurückkehren.')->commit();
         $requirement_container->add()->identifier('must_be_outside_not_at_doors')->type( Requirement::HideOnFail )->add( (new LocationRequirement())->beyond(true)->exploring(null)->minAp(1) )->commit();
+        $requirement_container->add()->identifier('must_be_outside_no_door_no_ex')->type( Requirement::HideOnFail )->add( (new LocationRequirement())->beyond(true)->exploring(false)->minAp(1) )->commit();
         $requirement_container->add()->identifier('must_be_outside_3km')->type( Requirement::CrossOnFail )->add( (new LocationRequirement())->beyond(true)->exploring(null)->minKm(3) )->text('Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.')->commit();
         $requirement_container->add()->identifier('must_be_outside_within_hr')->type( Requirement::MessageOnFail )->add( (new LocationRequirement())->beyond(true)->exploring(null)->maxKm(11) )->text('Du bist <strong>zu weit von der Stadt entfernt</strong>, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.')->commit();
 

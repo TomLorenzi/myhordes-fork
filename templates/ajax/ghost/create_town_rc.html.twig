@@ -30,7 +30,7 @@
                     </div>
                     <div class="tab tab-floater">
                         <div class="tab selected">
-                            <div class="tab-link"><img src="{{ asset('build/images/item/item_chair.gif') }}" alt=""/><span class="hide-md hide-sm"> {% trans from 'ghost' %}Privatstadt gründen{% endtrans %}</span></div>
+                            <div class="tab-link"><img src="{{ asset('build/images/emotes/hero.gif') }}" alt=""/><span class="hide-md hide-sm"> {% trans from 'ghost' %}Eine Stadt gründen{% endtrans %}</span></div>
                         </div>
                         <div class="tab">
                             <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('ghost_welcome') }}"><img src="{{ asset('build/images/icons/small_world.gif') }}" alt="" /><span class="hide-md hide-sm"> {% trans from 'ghost' %}Einer Stadt beitreten{% endtrans %}</span></div>
@@ -40,14 +40,175 @@
             </div>
 
             <div class="row">
+                <div class="padded cell rw-12">
+                    <div class="tab-floater">
+                        <ul class="tabs plain" x-tab-group="private-type" x-tab-default="{{ tab }}" x-tab-control>
+
+                            <li class="tab" x-tab-id="private">
+                                <div class="tab-link">
+                                    <img alt="" src="{{ asset('build/images/item/item_chair.gif') }}" />
+                                    {{ 'Private Stadt'|trans({},'soul') }}
+                                </div>
+                            </li>
+                            <li class="tab" x-tab-id="public">
+                                <div class="tab-link">
+                                    <img src="{{ asset('build/images/icons/small_world.gif') }}" alt="" />
+                                    {{ 'Öffentliche Stadt'|trans({},'soul') }}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" x-tab-id="private" x-tab-group="private-type" x-tab-target>
                 <div class="cell padded rw-12">
                     {% if limit_reached and not is_granted('ROLE_CROW') %}
                         <div class="note warning">{{ 'Es können maximal {number} Private Städte gleichzeitig eröffnet werden.'|trans({number: town_limit}, 'ghost') }}</div>
                     {% else %}
-                        <div class="help">{{'In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.'|trans({}, 'ghost')}}</div>
+                        <div class="help">
+                            {{'In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.'|trans({}, 'ghost')}}
+                            {% if not is_granted('ROLE_CROW') %}
+                                {{'Privatstädte ermöglichen es, zahlreiche Spielregeln anzupassen und den Zugang zur Stadt einzuschränken.'|trans({}, 'ghost')}}
+                                <b>{{'Sie sind jedoch grundsätzlich vom Ranking ausgeschlossen!'|trans({}, 'ghost')}}</b>
+                            {% endif %}
+                        </div>
                         <hordes-town-creator data-elevation="{{ app.user.rightsElevation }}"></hordes-town-creator>
                     {% endif %}
                 </div>
+            </div>
+
+            <div class="row" x-tab-id="public" x-tab-group="private-type" x-tab-target>
+                <div class="cell padded rw-12">
+                    <div class="help">
+                        {{'Öffentliche Städte folgen den normalen Regeln von MyHordes. Falls du mit einer größeren Gruppe von Spielern unterwegs bist, kannst du hier für eine öffentliche Stadt für einen bestimmten Zeitpunkt vormerken.'|trans({}, 'ghost')}}
+                        {{'Ist eine solche Stadt erstellt, kann jeder Spieler ihr beitreten.'|trans({}, 'ghost')}}
+                        <b>{{'Öffentliche Städte sind im Gegensatz zu Privaten Städten NICHT vom Ranking ausgeschlossen.'|trans({}, 'ghost')}}</b>
+                        <br/><br/>
+                        <b>{{ 'Wichtig:'|trans({}, 'ghost') }}</b>
+                        <ul>
+                            <li>{{ 'Wenn du eine öffentliche Stadt anlegst, kannst du für bis zu {days} Tage nach dem Stadtstart keiner öffentlichen Stadt beitreten, die von einem anderen Spieler angelegt wurde.'|trans({days: 30}, 'ghost') }}</li>
+                            <li>{{ 'Wenn du einer von einem anderen Spieler angelegten öffentlichen Stadt beitrittst, kannst du bis zu {days} Tage keine eigene Stadt eröffnen oder einer Stadt eines anderen Spielers beitreten.'|trans({days: 15}, 'ghost') }}</li>
+                        </ul>
+                    </div>
+                </div>
+
+                {% if mayorTowns is empty and canMayorTowns and not tooMany and mayorBlocked is null %}
+                    <div class="cell padded rw-12">
+                    <h5>{{ 'Grundlegende Einstellungen'|trans({},'ghost') }}</h5>
+
+                    <form>
+                        <div class="row">
+                            <div class="cell padded rw-3 rw-md-6 rw-sm-12 note note-lightest">
+                                <label for="pTownLang" style="display: inline-flex; column-gap: 6px; align-items: center;">{{ 'Sprache'|trans({},'admin') }}</label>
+                            </div>
+                            <div class="cell padded rw-6 rw-sm-12">
+                                <select name="pTownLang" data-value-type="text" id="pTownLang">
+                                    {% for lang in langs %}
+                                        <option {% if lang['code'] == app.user.language %}selected{% endif%} value="{{ lang['code'] }}">{{ lang['label']|trans({}, 'global') }}</option>
+                                    {% endfor %}
+                                    <option value="multi" title="">{{ 'Mehrsprachig'|trans({},'global') }}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="cell padded rw-3 rw-md-6 rw-sm-12 note note-lightest">
+                                <label for="pTownType" style="display: inline-flex; column-gap: 6px; align-items: center;">{{ 'Stadttyp'|trans({},'ghost') }}</label>
+                            </div>
+                            <div class="cell padded rw-6 rw-sm-12">
+                                <select name="pTownType" id="pTownType">
+                                    <option value="small">{{ 'Kleine Stadt'|trans({},'game') }}</option>
+                                    <option selected value="remote">{{ 'Entfernte Regionen'|trans({},'game') }}</option>
+                                    <option value="panda">{{ 'Pandämonium'|trans({},'game') }}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="cell padded rw-3 rw-md-6 rw-sm-12 note note-lightest">
+                                <label for="pTownStart" style="display: inline-flex; column-gap: 6px; align-items: center;">{{ 'Stadtstart'|trans({},'ghost') }}</label>
+                            </div>
+                            <div class="cell padded rw-6 rw-sm-12">
+                                <div class="flex column gap">
+                                    <select name="pTownStart" id="pTownStart">
+                                        <option selected value="now">{{ 'Sofort'|trans({},'game') }}</option>
+                                        <option value="defer">{{ 'Angegebener Zeitpunkt'|trans({},'game') }}</option>
+
+                                    </select>
+                                    <label class="hidden"><input type="datetime-local" id="pTownStartDate" value="{{ 'today+20min'|to_date|date('Y-m-d\\TH:i:s') }}" max="{{ 'today+20min+14days'|to_date|date('Y-m-d\\TH:i:s') }}" /></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="cell padded rw-6 ro-3 ro-md-6 rw-sm-12 ro-sm-0">
+                                <button data-fetch="{{ path('rest_town_creator_create-town-mayor') }}"
+                                        data-fetch-method="put"
+                                        data-fetch-load="{{ path('ghost_create_public_town') }}"
+                                        data-fetch-confirm="{{ 'Bestätigen?'|trans({},'global') }}">
+                                    {{ 'Stadt anlegen'|trans({},'admin') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                {% elseif (mayorTowns is not empty) %}
+                    <div class="cell padded rw-12">
+
+                        <h5>{{ 'Deine Stadt'|trans({},'ghost') }}</h5>
+
+                        <div class="help">
+                            {{ 'Du kannst maximal eine öffentliche Stadt gleichzeitig gründen.'|trans({},'ghost') }}
+                        </div>
+
+                        <div class="row-table">
+                            {% for town in mayorTowns %}
+                                <div class="row-flex wrap">
+                                        <div class="cell padded rw-8 rw-sm-12">
+                                            {% if town.language is not empty %}
+                                                <span class="language"><img src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" style="max-height:16px;" /></span>
+                                            {% endif %}
+                                            <img title="{{ town.type.label|trans({},'game') }}" src="{{ asset("build/images/towntypes/" ~ town.type.name ~ ".gif") }}" alt="" /> {{ town.name }}<br />
+                                        </div>
+                                        {% if town.scheduledFor > 'now'|to_date %}
+                                            <div class="cell padded rw-4 rw-sm-12 shrink-0">
+                                                <div class="row-flex v-center">
+                                                    <div class="padded cell">
+                                                        <img src="{{ asset("build/images/item/item_alarm_on.gif") }}" alt="" />
+                                                    </div>
+                                                    <div class="padded cell small">
+                                                        {{ town.scheduledFor|format_date('full') }},
+                                                        {{ town.scheduledFor|format_time('short') }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                {% elseif (mayorBlocked is not null) %}
+                    <div class="cell padded rw-12">
+                        <div class="note note-warning">
+                            {{ 'Du kannst aktuell keine öffentlichen Städte erstellen (Missbrauchsschutz). Bitte warte ein paar Tage und versuche es dann erneut.'|trans({},'soul') }}
+                            {{ 'Diese Sperre endet am {date} um {time}.'|trans({ date: mayorBlocked.expires|format_datetime('medium', 'none'), time: mayorBlocked.expires|format_datetime('none', 'short') },'ghost')|raw }}
+                        </div>
+                    </div>
+                {% elseif (tooMany) %}
+                    <div class="cell padded rw-12">
+                        <div class="note note-warning">
+                            {{ 'Es sind bereits zu viele öffentliche Städte geplant. Du kannst aktuell keine weiteren Städte anfordern.'|trans({},'soul') }}
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="cell padded rw-12">
+                        <div class="note note-warning">
+                            {{ 'Du benötigst mindestens {sp} Seelenpunkte, um eine Stadt zu eröffnen.'|trans({sp: 250},'soul') }}
+                        </div>
+                    </div>
+                {% endif %}
             </div>
 
             <div class="row">
@@ -58,4 +219,12 @@
 
         </div>
     </div>
+{% endblock %}
+{% block js %}
+	{{ parent() }}
+    <script>
+        document.querySelector('#pTownStart')?.addEventListener('change', e => {
+            document.querySelector('#pTownStartDate')?.closest('label')?.classList.toggle('hidden', e.target.value !== 'defer');
+        })
+    </script>
 {% endblock %}

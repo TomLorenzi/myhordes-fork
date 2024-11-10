@@ -331,7 +331,10 @@ class MessageAnnouncementController extends MessageController
      */
     #[Route(path: 'api/admin/com/changelogs/validate/{id<\d+>}', name: 'admin_changelog_val_announcement')]
     public function validate_announcement_api(Announcement $announcement, EntityManagerInterface $em, EventProxyService $proxy): Response {
-        if (!$this->isGranted('ROLE_SUB_ADMIN'))
+        if (!$this->isGranted('ROLE_ELEVATED'))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        if (!$this->isGranted('ROLE_SUB_ADMIN') && $this->getUser() === $announcement->getSender())
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         if (!$announcement->isValidated()) {

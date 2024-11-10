@@ -2663,6 +2663,9 @@
                 "example": 1
               }
             }
+          },
+          "rewards": {
+            "$ref": "#/components/schemas/JSONPictoObject"
           }
         }
       },
@@ -2772,6 +2775,11 @@
           "score": {
             "type": "integer",
             "description": "Town score",
+            "example": 1
+          },
+          "sp": {
+            "type": "integer",
+            "description": "Soul points given by the town",
             "example": 1
           },
           "citizens": {

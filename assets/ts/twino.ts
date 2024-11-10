@@ -385,7 +385,22 @@ class TwinoConverterToBlocks {
                 blocks.push( new TwinoInterimBlock( '???', 'div', 'coin') ); break;
             case 'carte': case 'card': case 'skat': case 'blatt': case 'carta': case 'karte':
                 blocks.push( new TwinoInterimBlock( '???', 'div', 'card') ); break;
+            case 'coords': case 'xy': case 'pos': case 'map':
+                blocks.push( new TwinoInterimBlock( '???', 'div', 'coords') ); break;
+            case 'town': case 'stadt': case 'ville':
+                blocks.push( new TwinoInterimBlock( '???', 'div', 'town') ); break;
             case 'citizen': case 'rnduser': case 'user': case 'spieler': case 'habitant': case 'habitante': case'einwohner':
+
+                const map = {
+                    scav: 'collec',
+                    scavenger: 'collec',
+                    guard: 'guardian',
+                    scout: 'hunter',
+                    surv: 'survivalist',
+                    sham: 'shaman',
+                    technician: 'tech',
+                }
+
                 attribs = match.nodeInfo() ? match.nodeInfo().split(',') : [];
                 if (typeof attribs[0] !== 'undefined' && typeof attribs[1] === 'undefined' && !isNaN(attribs[0]))
                     attribs = ['any', attribs[0]];
@@ -394,7 +409,7 @@ class TwinoConverterToBlocks {
                     if (!attribs[1]) attribs[1] = '0';
                 }
 
-                blocks.push( new TwinoInterimBlock( attribs[1] === '0' ? '???' : '??? [' + attribs[1] + ']', 'div', 'citizen', [['x-a', attribs[0]], ['x-b', attribs[1]]]) );
+                blocks.push( new TwinoInterimBlock( attribs[1] === '0' ? '???' : '??? [' + attribs[1] + ']', 'div', 'citizen', [['x-a', map[attribs[0]] ?? attribs[0]], ['x-b', attribs[1]]]) );
                 break;
             case 'coalition':
                 attribs = match.nodeInfo() ? match.nodeInfo().split(',') : [];
@@ -665,8 +680,12 @@ export default class TwinoAlikeParser {
             if (elem.hasAttribute( 'x-raw' )) return;
             let children = elem.childNodes;
             for (let i = 0; i < children.length; i++)
-                TwinoAlikeParser.parseInsets(children[i] as HTMLElement, [...parents,elem]);
-
+                if (children[i].nodeType !== Node.TEXT_NODE)
+                    TwinoAlikeParser.parseInsets(children[i] as HTMLElement, [...parents,elem]);
+            children = elem.childNodes;
+            for (let i = 0; i < children.length; i++)
+                if (children[i].nodeType === Node.TEXT_NODE)
+                    TwinoAlikeParser.parseInsets(children[i] as HTMLElement, [...parents,elem]);
         }
     }
 

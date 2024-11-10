@@ -19,6 +19,7 @@ use App\Entity\PrivateMessage;
 use App\Entity\PrivateMessageThread;
 use App\Enum\ActionHandler\PointType;
 use App\Enum\Configuration\CitizenProperties;
+use App\Enum\Game\CitizenPersistentCache;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\AdminHandler;
@@ -154,6 +155,9 @@ class TownHomeController extends TownController
                         break;
                     case PrivateMessage::TEMPLATE_CROW_REDUCED_AP_REGEN:
                         $thread->setTitle( $this->translator->trans('Du bist erschöpft!', [], 'game') );
+                        break;
+                    case PrivateMessage::TEMPLATE_CROW_GAME_WELCOME:
+                        $thread->setTitle( $this->translator->trans('Willkommen in deiner ersten Stadt', [], 'game') );
                         break;
 
                     default: break;

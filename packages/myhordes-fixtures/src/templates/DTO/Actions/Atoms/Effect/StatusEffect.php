@@ -50,7 +50,7 @@ class StatusEffect extends EffectAtom {
         return $this;
     }
 
-    public function point(PointType $type, int|CitizenProperties $value, bool|RelativeMaxPoint $relativeToMax = RelativeMaxPoint::RelativeToMax, ?int $exceedMax = 0, ?int $capAt = null): self
+    public function point(PointType $type, int|CitizenProperties $value, bool|RelativeMaxPoint $relativeToMax = RelativeMaxPoint::RelativeToMax, int|CitizenProperties|null $exceedMax = 0, ?int $capAt = null): self
     {
         $this->pointType = $type;
         $this->pointValue = $value;
@@ -125,19 +125,19 @@ class StatusEffect extends EffectAtom {
     }
 
     public function getApCost(): int {
-        return ($this->pointType === PointType::AP && !$this->pointRelativeToMax) ? $this->pointValue : 0;
+        return ($this->pointType === PointType::AP && !$this->pointRelativeToMax->isRelative()) ? $this->pointValue : 0;
     }
 
     public function getMpCost(): int {
-        return ($this->pointType === PointType::MP && !$this->pointRelativeToMax) ? $this->pointValue : 0;
+        return ($this->pointType === PointType::MP && !$this->pointRelativeToMax->isRelative()) ? $this->pointValue : 0;
     }
 
     public function getCpCost(): int {
-        return ($this->pointType === PointType::CP && !$this->pointRelativeToMax) ? $this->pointValue : 0;
+        return ($this->pointType === PointType::CP && !$this->pointRelativeToMax->isRelative()) ? $this->pointValue : 0;
     }
 
     public function getSpCost(): int {
-        return ($this->pointType === PointType::SP && !$this->pointRelativeToMax) ? $this->pointValue : 0;
+        return ($this->pointType === PointType::SP && !$this->pointRelativeToMax->isRelative()) ? $this->pointValue : 0;
     }
 
     protected static function beforeSerialization(array $data): array {

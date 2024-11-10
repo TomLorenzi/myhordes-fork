@@ -6,6 +6,7 @@ use App\Entity\Citizen;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
+use App\Service\Actions\Game\DecodeConditionalMessageAction;
 use App\Service\Actions\Game\WrapObjectsForOutputAction;
 use App\Structures\FriendshipActionTarget;
 use App\Structures\MyHordesConf;
@@ -111,7 +112,7 @@ class Base
         ];
     }
 
-    public function getMessages(TranslatorInterface $trans, WrapObjectsForOutputAction $wrapObjectsForOutputAction, array $keys = []): array {
+    public function getMessages(TranslatorInterface $trans, WrapObjectsForOutputAction $wrapObjectsForOutputAction, DecodeConditionalMessageAction $decoder, array $keys = []): array {
         $composite_keys = [
             ...$this->getOwnKeys($trans, $wrapObjectsForOutputAction),
             ...$keys
@@ -127,17 +128,7 @@ class Base
                      fn(array $m) => $trans->trans( $m[0], [...$m[1], ...$composite_keys], $m[2] ?? 'game' ),
                      $ordered
                  ) as $contentMessage) {
-            do {
-                $contentMessage = preg_replace_callback( '/<t-(.*?)>(.*?)<\/t-\1>/' , function(array $m) use ($tags): string {
-                    [, $tag, $text] = $m;
-                    return in_array( $tag, $tags ) ? $text : '';
-                }, $contentMessage, -1, $c);
-                $contentMessage = preg_replace_callback( '/<nt-(.*?)>(.*?)<\/nt-\1>/' , function(array $m) use ($tags): string {
-                    [, $tag, $text] = $m;
-                    return !in_array( $tag, $tags ) ? $text : '';
-                }, $contentMessage, -1, $d);
-            } while ($c > 0 || $d > 0);
-            $messages[] = $contentMessage;
+            $messages[] = ($decoder)($contentMessage, $tags, $this->citizen->getProperties());
         }
 
         return array_filter($messages);

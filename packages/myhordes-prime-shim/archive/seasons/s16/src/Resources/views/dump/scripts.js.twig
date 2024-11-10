@@ -1,0 +1,37 @@
+$.html.addEventListenerAll( '[x-action="dump"][x-item-id]', 'click', function (e,elem) {
+    let ap = null, valid = false;
+    do {
+        ap = window.prompt('{{ 'Wie viele Gegenstände möchtest du auf den Müll werfen?'|trans({}, 'game')|e('js') }}', '1');
+        if (ap === null) valid = true;
+        else {
+            ap = parseInt(ap);
+            valid = !isNaN(ap) && ap >= 0;
+        }
+    } while (!valid);
+
+    if (!ap) return;
+
+    $.ajax.easySend( '{{path('rest_town_facilities_dump_insert')}}', {id: parseInt(elem.getAttribute('x-item-id')), ap: ap},
+        function () {
+            $.ajax.load(null, '{{ path('town_dump') }}', true);
+        } );
+} )
+
+$.html.addEventListenerAll( '[x-action="retrieve"][x-item-id]', 'click', function (e,elem) {
+    let ap = null, valid = false;
+    do {
+        ap = window.prompt('{{ 'Wie viele Gegenstände möchtest du auf den Müll wiederherstellen?'|trans({}, 'game')|e('js') }}', '1');
+        if (ap === null) valid = true;
+        else {
+            ap = parseInt(ap);
+            valid = !isNaN(ap) && ap >= 0;
+        }
+    } while (!valid);
+
+    if (!ap) return;
+
+    $.ajax.easySend( '{{path('rest_town_facilities_dump_retrieve')}}', {id: parseInt(elem.getAttribute('x-item-id')), ap: ap},
+            function () {
+                $.ajax.load(null, '{{ path('town_dump') }}', true);
+            } );
+} )

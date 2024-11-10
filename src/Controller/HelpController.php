@@ -18,11 +18,10 @@ use Twig\Error\LoaderError;
 #[GateKeeperProfile(allow_during_attack: true)]
 class HelpController extends CustomAbstractController
 {
-    private function renderHelpPage(string $page, ?string $section = null, bool $partial = false): Response {
-        if ($page === 'shell') $this->redirectToRoute('help');
+    private function tryToRenderHelpPage(string $base, string $page, ?string $section = null, bool $partial = false): ?Response {
         try {
             if ($partial)
-                return $this->renderBlocks( $section ? "ajax/help/$section/$page.html.twig" : "ajax/help/$page.html.twig", ["helpContent"], [], [], false, null, true);
+                return $this->renderBlocks( $section ? "$base/$section/$page.html.twig" : "$base/$page.html.twig", ["helpContent"], [], [], false, null, true);
             else {
 
                 $support_group = $this->getUser()
@@ -37,7 +36,7 @@ class HelpController extends CustomAbstractController
                     ? $this->entity_manager->getRepository(OfficialGroup::class)->findOneBy(['lang' => $this->getUserLanguage(), 'semantic' => OfficialGroup::SEMANTIC_ANIMACTION])
                     : null;
 
-                return $this->render( $section ? "ajax/help/$section/$page.html.twig" : "ajax/help/$page.html.twig", $this->addDefaultTwigArgs(null, [
+                return $this->render( $section ? "$base/$section/$page.html.twig" : "$base/$page.html.twig", $this->addDefaultTwigArgs(null, [
                     'directory' => $section,
                     'section' => $page,
                     'timezone' => date_default_timezone_get(),
@@ -47,8 +46,16 @@ class HelpController extends CustomAbstractController
                 ]));
             }
         } catch (LoaderError $e){
-            return $this->redirectToRoute('help');
+            return null;
         }
+    }
+
+    private function renderHelpPage(string $page, ?string $section = null, bool $partial = false): Response {
+        if ($page === 'shell') return $this->redirectToRoute('help');
+        else return
+            $this->tryToRenderHelpPage('@MyHordesPrime/help', $page, $section, $partial) ??
+            $this->tryToRenderHelpPage('ajax/help', $page, $section, $partial) ??
+            $this->redirectToRoute('help');
     }
 
     private function validateSection(?string $section): bool {

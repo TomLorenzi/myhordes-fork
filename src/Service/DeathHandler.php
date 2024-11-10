@@ -15,6 +15,7 @@ use App\Entity\PictoPrototype;
 use App\Entity\RuinZone;
 use App\Entity\TownRankingProxy;
 use App\Entity\UserGroup;
+use App\Enum\Game\CitizenPersistentCache;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -64,6 +65,9 @@ class DeathHandler
         if (!$citizen->getAlive()) return;
         if (is_int($cod)) $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy( ['ref' => $cod] );
 
+        if (!$this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_GIVE_ALL_PICTOS, true))
+            $citizen->registerPropInPersistentCache( CitizenPersistentCache::ForceBaseHXP );
+
         $rucksack = $citizen->getInventory();
 
         $floor = ($citizen->getZone() ?
@@ -81,8 +85,8 @@ class DeathHandler
 
         foreach ($rucksack->getItems() as $item)
             // We get his rucksack and drop items into the floor or into his chest (except job item)
-            if(!$item->getEssential())
-                $this->inventory_handler->forceMoveItem($floor, $item);
+            if(!$item->getEssential() || $item->getPrototype()->isPersistentEssential())
+                $this->inventory_handler->forceMoveItem($floor, $item->setEssential(false));
 
 
         foreach ($citizen->getDigTimers() as $dt)

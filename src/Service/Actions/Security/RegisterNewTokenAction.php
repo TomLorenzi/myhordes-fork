@@ -22,11 +22,23 @@ class RegisterNewTokenAction
 
         $lock = $this->locksmith->waitForLock("ticketing_{$request->getSession()->getId()}");
         if (!$request->getSession()->has('token')) $request->getSession()->set('token', ($this->keygen)(16));
+
         $ticket = ($this->keygen)(16);
+        $token = $request->getSession()->get('token');
 
         $this->gameCachePool->get( "ticketing_{$ticket}", function (ItemInterface $item) {
             $item->expiresAfter(60);
             return true;
+        } );
+
+        $this->gameCachePool->get( "toaster_{$token}", function (ItemInterface $item) use ($request) {
+            $item->expiresAfter(86400);
+            return $request->headers->get('User-Agent') ?? '-no-agent-';
+        } );
+
+        $this->gameCachePool->get( "toaster_sub_" . substr( $token, 0, 8 ), function (ItemInterface $item) use ($request) {
+            $item->expiresAfter(86400);
+            return $request->headers->get('User-Agent') ?? '-no-agent-';
         } );
 
         $lock->release();

@@ -101,6 +101,10 @@ class ProcessItemEffect extends AtomEffectProcessor
                         $targetInv = [ $cache->citizen->getInventory(), $floor_inventory ];
                         $force = true;
                         break;
+                    case ItemDropTarget::DropTargetOrigin:
+                        $targetInv = [ $cache->originalInventory ?? $cache->citizen->getInventory() ];
+                        $force = true;
+                        break;
                     case ItemDropTarget::DropTargetDefault:
                     default:
                         $targetInv = [$cache->originalInventory ?? null, $cache->citizen->getInventory(), $floor_inventory, $cache->citizen->getZone() ? null : $cache->citizen->getTown()->getBank() ];
@@ -126,6 +130,7 @@ class ProcessItemEffect extends AtomEffectProcessor
         if ($data->consumeSource && $cache->item) {
             $ih->forceRemoveItem( $cache->item );
             $cache->addConsumedItem($cache->item);
+            $cache->addTag('consumed');
         } elseif ($data->morphSource && $cache->item) {
             if ($data->morphSourceType) {
                 $prototype = $cache->em->getRepository(ItemPrototype::class)->findOneBy(['name' => $data->morphSourceType]);

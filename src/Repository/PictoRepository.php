@@ -47,9 +47,10 @@ class PictoRepository extends ServiceEntityRepository
      * @param User $user
      * @param Town|TownRankingProxy|null $town
      * @param PictoPrototype $prototype
+     * @param bool|null $imported
      * @return Picto|null
      */
-    public function findByUserAndTownAndPrototype(User $user, $town, PictoPrototype $prototype)
+    public function findByUserAndTownAndPrototype(User $user, Town|TownRankingProxy|null $town, PictoPrototype $prototype, ?bool $imported = null): ?Picto
     {
         try {
             $qb = $this->createQueryBuilder('i')
@@ -64,6 +65,9 @@ class PictoRepository extends ServiceEntityRepository
             } else {
                 $qb->andWhere("i.town IS NULL")->andWhere("i.townEntry IS NULL");
             }
+
+            if ($imported !== null) $qb->andWhere("i.imported = :imported")->setParameter('imported', $imported);
+
             return $qb->getQuery()
                         ->getOneOrNullResult();
         } catch (NonUniqueResultException $e) {

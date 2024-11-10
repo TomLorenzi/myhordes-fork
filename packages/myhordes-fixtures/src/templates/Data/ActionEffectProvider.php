@@ -8,6 +8,7 @@ use App\Enum\ActionHandler\ItemDropTarget;
 use App\Enum\ActionHandler\PointType;
 use App\Enum\Configuration\CitizenProperties;
 use App\Enum\ItemPoisonType;
+use App\Structures\SortDefinition;
 use ArrayHelpers\Arr;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\CustomEffect;
 use MyHordes\Fixtures\DTO\Actions\Atoms\Effect\HomeEffect;
@@ -131,7 +132,7 @@ class ActionEffectProvider
         $effects_container->add()->identifier('consume_jerrycan')->add((new ItemEffect())->consume('jerrycan_#00'))->commit();
         $effects_container->add()->identifier('consume_2_pharma')->add((new ItemEffect())->consume('pharma_#00', 2))->commit();
 
-        $effects_container->add()->identifier('empty_jerrygun')->add((new ItemEffect())->morphSource('jerrygun_off_#00'))->commit();
+        $effects_container->add()->identifier('empty_jerrygun')->add((new ItemEffect(SortDefinition::atEnd()))->morphSource('jerrygun_off_#00'))->commit();
         $effects_container->add()->identifier('produce_watercan3')->add((new ItemEffect())->morphSource('water_can_3_#00'))->commit();
         $effects_container->add()->identifier('produce_watercan2')->add((new ItemEffect())->morphSource('water_can_2_#00'))->commit();
         $effects_container->add()->identifier('produce_watercan1')->add((new ItemEffect())->morphSource('water_can_1_#00'))->commit();
@@ -209,7 +210,7 @@ class ActionEffectProvider
         $effects_container->add()->identifier('morph_alarm_2')->add((new ItemEffect())->morphSource('alarm_2_#00'))->commit();
         $effects_container->add()->identifier('morph_alarm_3')->add((new ItemEffect())->morphSource('alarm_3_#00'))->commit();
 
-        $effects_container->add()->identifier('spawn_doggy')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_doggy')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                       ->addSpawn('food_bar2_#00', 222)
                                                                       ->addSpawn('food_chick_#00', 194)
                                                                       ->addSpawn('food_biscuit_#00', 188)
@@ -220,63 +221,63 @@ class ActionEffectProvider
                                                                       ->addSpawn('food_sandw_#00', 162)
         )->commit();
 
-        $effects_container->add()->identifier('spawn_lunch')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_lunch')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                       ->addSpawnList(['food_candies_#00', 'food_noodles_hot_#00', 'vegetable_tasty_#00', 'meat_#00'])
         )->commit();
 
-        $effects_container->add()->identifier('spawn_c_chest')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_c_chest')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                         ->addSpawnList(['pile_#00', 'radio_off_#00', 'pharma_#00', 'lights_#00'])
         )->commit();
 
-        $effects_container->add()->identifier('spawn_h_chest')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_h_chest')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                         ->addSpawnList(['watergun_empty_#00', 'pilegun_empty_#00', 'flash_#00', 'repair_one_#00', 'smoke_bomb_#00'])
         )->commit();
 
-        $effects_container->add()->identifier('spawn_postbox')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_postbox')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                         ->addSpawnList(['money_#00', 'rp_book_#00', 'rp_book_#01', 'rp_sheets_#00'])
         )->commit();
 
-        $effects_container->add()->identifier('spawn_postbox_xl')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_postbox_xl')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                            ->addSpawnList(['machine_gun_#00', 'rsc_pack_2_#00', 'rhum_#00', 'vibr_empty_#00'])
         )->commit();
 
-        $effects_container->add()->identifier('spawn_letterbox')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_letterbox')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                           ->addSpawnList(['rp_book2_#00', 'rp_manual_#00', 'rp_scroll_#00', 'rp_scroll_#01', 'rp_sheets_#00', 'rp_letter_#00'])
         )->commit();
 
-        $effects_container->add()->identifier('spawn_justbox')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_justbox')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                         ->addSpawnList(['money_#00', 'rp_book_#00', 'rp_book_#01', 'rp_sheets_#00'])
         )->commit();
 
-        $effects_container->add()->identifier('spawn_gamebox')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_gamebox')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                         ->addSpawnList(['dice_#00', 'cards_#00'])
         )->commit();
 
-        $effects_container->add()->identifier('spawn_abox')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_abox')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                      ->addSpawn('bplan_r_#00')
         )->commit();
 
-        $effects_container->add()->identifier('spawn_cbox')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_cbox')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                      ->addSpawn('bplan_c_#00', 50)
                                                                      ->addSpawn('bplan_u_#00', 35)
                                                                      ->addSpawn('bplan_r_#00', 10)
                                                                      ->addSpawn('bplan_e_#00', 5)
         )->commit();
 
-        $effects_container->add()->identifier('spawn_xmas_dv')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_xmas_dv')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                         ->addSpawnList(['omg_this_will_kill_you_#00', 'pocket_belt_#00', 'christmas_candy_#00'], 8)
                                                                         ->addSpawnList(['rp_manual_#00', 'rp_sheets_#00', 'rp_letter_#00', 'rp_scroll_#00', 'rp_book_#00', 'rp_book_#01', 'rp_book2_#00'])
         )->commit();
-        $effects_container->add()->identifier('spawn_xmas_3')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_xmas_3')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                        ->addSpawnList(['omg_this_will_kill_you_#00'])
         )->commit();
-        $effects_container->add()->identifier('spawn_xmas_2')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_xmas_2')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                        ->addSpawnList(['christmas_candy_#00'])
         )->commit();
-        $effects_container->add()->identifier('spawn_xmas_1')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_xmas_1')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                        ->addSpawnList(['xmas_gift_#00'])
         )->commit();
-        $effects_container->add()->identifier('spawn_matbox')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_matbox')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                        ->addSpawnList(['wood2_#00', 'metal_#00'])
         )->commit();
 
@@ -293,10 +294,10 @@ class ActionEffectProvider
                                                                           ->addSpawnList(['pilegun_upkit_#00', 'cutcut_#00'], 10)
                                                                           ->addSpawn('big_pgun_part_#00', 7)
         )->commit();
-        $effects_container->add()->identifier('spawn_catbox')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_catbox')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                        ->addSpawnList(['poison_part_#00', 'pet_cat_#00', 'angryc_#00'])
         )->commit();
-        $effects_container->add()->identifier('spawn_toolbox')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_toolbox')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                         ->addSpawn('pharma_#00', 25)
                                                                         ->addSpawn('explo_#00', 19)
                                                                         ->addSpawn('meca_parts_#00', 17)
@@ -304,7 +305,7 @@ class ActionEffectProvider
                                                                         ->addSpawn('tube_#00', 13)
                                                                         ->addSpawn('pile_#00', 12)
         )->commit();
-        $effects_container->add()->identifier('spawn_foodbox')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_foodbox')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                         ->addSpawn('hmeat_#00', 13)
                                                                         ->addSpawn('can_#00', 11)
                                                                         ->addSpawnList(['food_bag_#00', 'vegetable_#00'], 8)
@@ -316,7 +317,7 @@ class ActionEffectProvider
         $effects_container->add()->identifier('spawn_phone_nw')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetRucksack)
                                                                          ->addSpawnList(['deto_#00', 'metal_bad_#00', 'pile_broken_#00', 'electro_#00'])
         )->commit();
-        $effects_container->add()->identifier('spawn_proj')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_proj')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                      ->addSpawn('lens_#00')
         )->commit();
         $effects_container->add()->identifier('spawn_empty_battery')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetFloor)
@@ -330,7 +331,7 @@ class ActionEffectProvider
                                                                      ->addSpawnList(['watergun_opt_part_#00', 'lawn_part_#00', 'chainsaw_part_#00', 'mixergun_part_#00', 'cutcut_#00', 'pilegun_upkit_#00', 'meca_parts_#00'], 10)
                                                                      ->addSpawnList(['big_pgun_part_#00', 'book_gen_letter_#00'], 5)
         )->commit();
-        $effects_container->add()->identifier('spawn_asafe')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_asafe')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                       ->addSpawn('bplan_e_#00')
         )->commit();
 
@@ -354,13 +355,13 @@ class ActionEffectProvider
                                                                        ->addSpawn('potion_#00')
         )->commit();
 
-        $effects_container->add()->identifier('spawn_2_watercup')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_2_watercup')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetFloorOnly)
                                                                            ->addSpawn('water_cup_#00', count: 2)
         )->commit();
-        $effects_container->add()->identifier('spawn_2_water')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_2_water')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetFloorOnly)
                                                                         ->addSpawn('water_#00', count: 2)
         )->commit();
-        $effects_container->add()->identifier('spawn_3_water')->add((new ItemEffect())
+        $effects_container->add()->identifier('spawn_3_water')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetFloorOnly)
                                                                         ->addSpawn('water_#00', count: 3)
         )->commit();
         //</editor-fold>
@@ -374,8 +375,8 @@ class ActionEffectProvider
         $effects_container->add()->identifier('plus_4ap')->add( (new StatusEffect())->point( PointType::AP, 4, relativeToMax: false ) )->commit();
         $effects_container->add()->identifier('plus_ap8_30')->add( (new StatusEffect())->point( PointType::AP, 8, relativeToMax: false, exceedMax: 24 ) )->commit();
         $effects_container->add()->identifier('just_ap_sw')
-            ->add( (new StatusEffect())->point( PointType::AP, CitizenProperties::HeroSecondWindBonusAP ) )
-            ->add( (new StatusEffect())->point( PointType::SP, CitizenProperties::HeroSecondWindBaseSP, relativeToMax: false) )
+            ->add( (new StatusEffect())->point( PointType::AP, CitizenProperties::HeroSecondWindBonusAP, relativeToMax: false, exceedMax: CitizenProperties::HeroSecondWindBonusAP ) )
+            ->add( (new StatusEffect())->point( PointType::SP, CitizenProperties::HeroSecondWindBaseSP, relativeToMax: false, exceedMax: CitizenProperties::HeroSecondWindBaseSP) )
             ->commit();
         $effects_container->add()->identifier('just_ap6')->add( (new StatusEffect())->point( PointType::AP, 0 ) )->commit();
         $effects_container->add()->identifier('just_ap7')->add( (new StatusEffect())->point( PointType::AP, 1 ) )->commit();
@@ -400,11 +401,12 @@ class ActionEffectProvider
         $effects_container->add()->identifier('immune')->add( (new StatusEffect())->addsStatus('immune'))->commit();
         $effects_container->add()->identifier('give_shaman_immune')->add( (new StatusEffect())->addsStatus('tg_shaman_immune'))->commit();
 
-        $effects_container->add()->identifier('heal_wound')->add( (new StatusEffect())->removesStatus('tg_meta_wound'))->commit();
-        $effects_container->add()->identifier('inflict_wound')->add( (new StatusEffect())->addsStatus('tg_meta_wound'))->commit();
+        $effects_container->add()->identifier('heal_wound')->add( (new StatusEffect(SortDefinition::atStart()))->removesStatus('tg_meta_wound'))->commit();
+        $effects_container->add()->identifier('inflict_wound')->add( (new StatusEffect(SortDefinition::atStart()))->addsStatus('tg_meta_wound'))->commit();
         $effects_container->add()->identifier('add_bandage')->add( (new StatusEffect())->addsStatus('healed'))->commit();
 
         $effects_container->add()->identifier('eat_ap6_silent')->add( (new StatusEffect())->point( PointType::AP, 0, relativeToMax: true )->addsStatus('haseaten'))->commit();
+        $effects_container->add()->identifier('eat_ap4')->add( (new StatusEffect())->point( PointType::AP, 4, relativeToMax: false )->addsStatus('haseaten'))->add((new MessageEffect())->escort(false)->text( 'Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...'))->commit();
 
         $effects_container->add()->identifier('increase_lab_counter')->add( (new StatusEffect())->count(ActionCounter::ActionTypeHomeLab))->commit();
         $effects_container->add()->identifier('increase_kitchen_counter')->add( (new StatusEffect())->count(ActionCounter::ActionTypeHomeKitchen))->commit();
@@ -459,7 +461,7 @@ class ActionEffectProvider
         $effects_container->add()->identifier('hero_return')->add((new CustomEffect())->effectIndex(8))->commit();
         $effects_container->add()->identifier('hero_rescue')->add((new CustomEffect())->effectIndex(9))->commit();
 
-        $effects_container->add()->identifier('camp_activate')->add((new CustomEffect())->effectIndex(10))->commit();
+        $effects_container->add()->identifier('camp_activate')->add((new CustomEffect(SortDefinition::atEnd()))->effectIndex(10))->commit();
         $effects_container->add()->identifier('camp_deactivate')->add((new CustomEffect())->effectIndex(11))->commit();
 
         $effects_container->add()->identifier('discover_random_ruin')->add((new CustomEffect())->effectIndex(12))->commit();

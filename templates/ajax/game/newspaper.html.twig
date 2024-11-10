@@ -62,6 +62,7 @@
                                     <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeDump') }}">{{ 'Müllhalde'|trans({}, 'game') }}</option>
                                     <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeConstruction') }}">{{'Baustelle'|trans({}, 'game')}}</option>
                                     <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeWorkshop') }}">{{ 'Werkstatt'|trans({}, 'game') }}</option>
+                                    {{ hook('gazetteFilterBuildingOptions') }}
                                     <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeDoor') }}">{{ 'Stadttor'|trans({}, 'game') }}</option>
                                     <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeWell') }}">{{ 'Brunnen'|trans({}, 'game') }}</option>
                                     <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeCitizens') }}">{{ 'Neue und Tote'|trans({}, 'game') }}</option>

@@ -299,7 +299,7 @@ class CitizenHandler
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, null ) );
             foreach ($rem as $r) $this->entity_manager->remove( $r );
 
-        } else if ($citizen->getTown()->getDay() >= 3)
+        } else if ($action && $citizen->getTown()->getDay() >= 3)
             foreach ($citizen->property( CitizenProperties::RevengeItems ) as $item)
                 $this->inventory_handler->forceMoveItem( $citizen->getInventory(), $this->item_factory->createItem( $item ));
 
@@ -552,11 +552,21 @@ class CitizenHandler
             if ($citizen->hasStatus('clean'))
                 $base += $citizen->property( CitizenProperties::ZoneControlCleanBonus );
 
-            if (!$citizen->hasAnyStatus('thirst1', 'thirst2'))
-                $base += $citizen->property( CitizenProperties::ZoneControlHydratedBonus );
+            $bonus = $citizen->property( CitizenProperties::ZoneControlHydratedBonus );
+            if (!$citizen->hasAnyStatus('thirst1', 'thirst2') && $bonus > 0) {
+                $base += $bonus;
+                $this->inflictStatus($citizen, "hydrated");
+            } elseif ($bonus > 0) {
+                $this->removeStatus($citizen, 'hydrated');
+            }
 
-            if (!$citizen->hasAnyStatus('drunk', 'hungover'))
-                $base += $citizen->property( CitizenProperties::ZoneControlSoberBonus );
+            $bonus = $citizen->property( CitizenProperties::ZoneControlSoberBonus );
+            if (!$citizen->hasAnyStatus('drunk', 'hungover') && $bonus > 0) {
+                $base += $bonus;
+                $this->inflictStatus($citizen, "sober");
+            } elseif ($bonus > 0) {
+                $this->removeStatus($citizen, 'sober');
+            }
 
             if (!empty($this->inventory_handler->fetchSpecificItems(
                 $citizen->getInventory(), [new ItemRequest( 'car_door_#00' )]
@@ -609,7 +619,8 @@ class CitizenHandler
         }
 
         foreach ($profession->getProfessionItems() as $pi)
-            if (!isset($item_type_cache[$pi->getId()])) $item_type_cache[$pi->getId()] = [1,$pi];
+            if (!isset($item_type_cache[$pi->getId()]) || $citizen->getInventory()->getItems()->filter(fn(Item $i) => $i->getPrototype()->getId() === $pi->getId())->isEmpty())
+                $item_type_cache[$pi->getId()] = [1,$pi];
             else $item_type_cache[$pi->getId()] = [0,$pi];
 
         $inventory = $citizen->getInventory(); $null = null;
@@ -621,7 +632,7 @@ class CitizenHandler
             if ($action > 0) {
                 $item = $this->item_factory->createItem( $proto );
                 $item->setEssential(true);
-                $this->events->transferItem($citizen, $item, to: $inventory);
+                $this->events->placeItem($citizen, $item, inventories: [$inventory], force: true, silent: true);
             }
         }
 
@@ -649,7 +660,6 @@ class CitizenHandler
             foreach ($citizen->getSpecialActions() as $specialAction)
                 if ($specialAction->getProxyFor())
                     $citizen->removeSpecialAction( $specialAction );
-
     }
 
     public function getSoulpoints(Citizen $citizen): int {
@@ -880,9 +890,9 @@ class CitizenHandler
         return $all;
     }
 
-    public function houseIsProtected(Citizen $c, bool $only_explicit_lock = false) {
+    public function houseIsProtected(Citizen $c, bool $only_explicit_lock = false, Citizen $thief = null) {
         if (!$c->getAlive()) return false;
-        if (!$c->getZone() && !$only_explicit_lock) return true;
+        if (!$c->getZone() && !$thief?->property( CitizenProperties::EnableAdvancedTheft ) && !$only_explicit_lock) return true;
         if ($c->getHome()->getPrototype()->getTheftProtection()) return true;
         if ($c->getHome()->hasTag('lock')) return true;
         if ($this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(

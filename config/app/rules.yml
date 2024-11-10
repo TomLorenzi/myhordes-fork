@@ -1,3 +1,4 @@
+#file: noinspection YAMLSchemaValidation
 parameters:
   rules_local: []
   rules:
@@ -11,6 +12,8 @@ parameters:
       lock_door_until_full: false
 
       skill_mode: true,
+
+      qa_post: true
 
       well:       { min: 90, max: 180 }
       map:        { min: 25, max:  27, margin: 0.25 }
@@ -38,8 +41,8 @@ parameters:
 
       map_params:
         free_spawn_zones:
-          count: 2
-          probability: 0.1
+          count: 3
+          min_dist: 0
         buried_ruins:
           probability: 0.5
           digs: { min: 1, max: 19 }
@@ -151,7 +154,8 @@ parameters:
         wind_distance: 2
         strict_picto_distribution: false
         sandball_nastyness: 0.1
-        massive_respawn_factor: 1
+        massive_respawn_threshold: 50
+        massive_respawn_factor: 0.5
         ghoul_infection_begin: 5
         ghoul_infection_next: 5
         daytime:
@@ -214,6 +218,10 @@ parameters:
       ruins: 7
       explorable_ruins: 0
 
+      map_params:
+        free_spawn_zones:
+          min_dist: 3
+
       initial_buildings:  ['small_refine_#00','small_door_closed_#00','item_tagger_#00','small_wallimprove_#00']
       unlocked_buildings: ['small_gather_#02']
       disabled_buildings:
@@ -256,7 +264,7 @@ parameters:
         wind_distance: -1
         strict_picto_distribution: true
         sandball_nastyness: 0.0
-        massive_respawn_factor: 0.5
+        massive_respawn_threshold: 30
         ghoul_infection_begin: 15
 
       features:
@@ -270,6 +278,8 @@ parameters:
         soul_generation_coef: 1.25
 
     panda:
+      qa_post: false
+
       well: { min: 60, max: 90 }
 
       modifiers:

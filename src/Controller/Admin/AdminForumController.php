@@ -465,7 +465,7 @@ class AdminForumController extends AdminActionController
 
         if ($role === '*' && !$this->isGranted('ROLE_SUB_ADMIN')) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
         $available_roles = array_intersect(
-            ["ROLE_CROW", "ROLE_SUB_ADMIN", "ROLE_ORACLE", "ROLE_ANIMAC"],
+            ["ROLE_CROW", "ROLE_SUB_ADMIN", "ROLE_ORACLE", "ROLE_ANIMAC", "ROLE_ART"],
             $roles->getReachableRoleNames( $this->getUser()->getRoles() )
         );
 
@@ -820,7 +820,7 @@ class AdminForumController extends AdminActionController
     public function forum_snippets(RoleHierarchyInterface $roles): Response
     {
         $user_roles = $roles->getReachableRoleNames( $this->getUser()->getRoles() );
-        $valid_roles = ["ROLE_CROW", "ROLE_SUB_ADMIN", "ROLE_ORACLE", "ROLE_ANIMAC"];
+        $valid_roles = ["ROLE_CROW", "ROLE_SUB_ADMIN", "ROLE_ORACLE", "ROLE_ANIMAC", "ROLE_ART"];
         $available_roles = array_intersect(
             $valid_roles,
             $user_roles

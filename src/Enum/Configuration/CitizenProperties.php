@@ -20,10 +20,12 @@ enum CitizenProperties: string implements Configuration
     //<editor-fold desc="Property Values">
     case Section_Properties = '--section--/Properties';
     case TownDefense = 'props.town_defense';
+    case WatchDefense = 'props.watch_defense';
     case AnonymousMessageLimit = 'props.limit.anonymous.messages';
     case AnonymousPostLimit = 'props.limit.anonymous.posts';
     case ComplaintLimit = 'props.limit.anonymous.complaint';
     case LogManipulationLimit = 'props.limit.log_manipulation';
+    case LogPurgeLimit = 'props.limit.log_purge';
     case WatchSurvivalBonus = 'props.bonus.watch.survival';
     case ZoneControlBonus = 'props.bonus.zone_control.base';
     case ZoneControlCleanBonus = 'props.bonus.zone_control.clean';
@@ -43,12 +45,16 @@ enum CitizenProperties: string implements Configuration
     case ProCamperUsageLimit = 'props.limit.camping.pro';
     case CampingChanceCap = 'props.limit.camping.cap';
     case TrashSearchLimit = 'props.limit.trash.count';
+    case ChestHiddenStashLimit = 'props.limit.chest.hidden.count';
     //</editor-fold>
 
     //<editor-fold desc="Config Values">
     case Section_Config = '--section--/Config';
     case RevengeItems = 'config.revenge_items';
+    case StatusOverrideMap = 'config.status_override_map';
     //</editor-fold>
+
+    case ActiveSkillIDs = 'skills.list';
 
     public function abstract(): bool
     {
@@ -74,11 +80,13 @@ enum CitizenProperties: string implements Configuration
                 => self::Section_Features,
 
             self::TownDefense,
+            self::WatchDefense,
             self::AnonymousMessageLimit,
             self::AnonymousPostLimit,
             self::ComplaintLimit,
             self::WatchSurvivalBonus,
             self::LogManipulationLimit,
+            self::LogPurgeLimit,
             self::ZoneControlBonus,
             self::ZoneControlCleanBonus,
             self::ZoneControlHydratedBonus,
@@ -97,9 +105,11 @@ enum CitizenProperties: string implements Configuration
             self::ProCamperUsageLimit,
             self::CampingChanceCap,
             self::TrashSearchLimit,
+            self::ChestHiddenStashLimit,
                 => self::Section_Properties,
 
             self::RevengeItems,
+            self::StatusOverrideMap,
                 => self::Section_Config,
 
             default => null
@@ -134,11 +144,13 @@ enum CitizenProperties: string implements Configuration
             self::EnableOmniscience              => false,
             self::HeroImmuneHeals                => false,
 
-            self::TownDefense                    => 5,
+            self::TownDefense                    => 0,
+            self::WatchDefense                   => 0,
             self::AnonymousMessageLimit          => 0,
             self::AnonymousPostLimit             => 0,
             self::ComplaintLimit                 => 4,
             self::LogManipulationLimit           => 0,
+            self::LogPurgeLimit                  => 0,
             self::ZoneControlBonus               => 0,
             self::ZoneControlCleanBonus          => 0,
             self::ZoneControlHydratedBonus       => 0,
@@ -156,9 +168,13 @@ enum CitizenProperties: string implements Configuration
             self::ProCamperUsageLimit            => 0,
             self::CampingChanceCap               => 0.9,
             self::TrashSearchLimit               => 3,
+            self::ChestHiddenStashLimit          => 0,
 
             self::RevengeItems                   => [],
+            self::StatusOverrideMap              => [],
             self::HeroImmuneStatusList           => [],
+
+            self::ActiveSkillIDs => [],
 
             default => null,
         };
@@ -194,10 +210,12 @@ enum CitizenProperties: string implements Configuration
             self::HeroImmuneHeals                => $this->default() ? ($old && $new) : ($old || $new),
 
             self::TownDefense                    => ($old + $new) - $this->default(),
+            self::WatchDefense                   => ($old + $new) - $this->default(),
             self::AnonymousMessageLimit          => ($old + $new) - $this->default(),
             self::AnonymousPostLimit             => ($old + $new) - $this->default(),
             self::ComplaintLimit                 => ($old + $new) - $this->default(),
             self::LogManipulationLimit           => ($old + $new) - $this->default(),
+            self::LogPurgeLimit                  => ($old + $new) - $this->default(),
             self::ZoneControlBonus               => ($old + $new) - $this->default(),
             self::ZoneControlCleanBonus          => ($old + $new) - $this->default(),
             self::ZoneControlHydratedBonus       => ($old + $new) - $this->default(),
@@ -214,10 +232,14 @@ enum CitizenProperties: string implements Configuration
             self::HeroReturnRange                => ($old + $new) - $this->default(),
             self::ProCamperUsageLimit            => ($old + $new) - $this->default(),
             self::TrashSearchLimit               => ($old + $new) - $this->default(),
+            self::ChestHiddenStashLimit          => ($old + $new) - $this->default(),
             self::CampingChanceCap               => ($old + $new) - $this->default(),
 
             self::RevengeItems                   => [...$old,...$new],
+            self::StatusOverrideMap              => [...$old,...$new],
             self::HeroImmuneStatusList           => [...$old,...$new],
+
+            self::ActiveSkillIDs => $new,
 
             default => null,
         };
@@ -226,5 +248,12 @@ enum CitizenProperties: string implements Configuration
     public function translationKey(): string
     {
         return "cfg_ctp_" . str_replace(".", "_", $this->value);
+    }
+
+    public static function fromName(string $name): ?CitizenProperties {
+        foreach (self::cases() as $enum)
+            if ( $name === $enum->name )
+                return $enum;
+        return null;
     }
 }

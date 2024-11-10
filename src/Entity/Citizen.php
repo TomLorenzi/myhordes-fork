@@ -1160,4 +1160,9 @@ class Citizen
             array_map( fn(\App\Enum\Configuration\CitizenProperties $s) => $this->property($s), \App\Enum\Configuration\CitizenProperties::validCases() ),
         ));
     }
+
+    public function mapStatusName(string $n): string {
+        $map = $this->property(\App\Enum\Configuration\CitizenProperties::StatusOverrideMap) ?? [];
+        return $map[$n] ?? $n;
+    }
 }

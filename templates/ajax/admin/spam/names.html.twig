@@ -1,0 +1,88 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block menu_text %}
+    {{parent()}}
+    <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+{% endblock %}
+{% block title %}{{ 'AntiSpam'|trans({}, 'admin') }}{% endblock %}
+{% block ajax %}
+
+    <div class="row">
+        <div class="cell rw-12">
+            {{ include('ajax/admin/spam/tabs.html.twig') }}
+
+            <b>{{ 'Anzahl der gelisteten Namen: {number}'|trans({'{number}': n},'admin') }}</b>
+            <hr />
+            <div style="height: 250px; overflow-y: scroll;" id="name_list"></div>
+            <div class="row-flex">
+                <div class="padded cell grow-1">
+                    <label><input type="text" id="name_search" placeholder="{{ 'Namen-Suche'|trans({},'admin') }}" /></label>
+                </div>
+                {% if is_granted("ROLE_SUB_ADMIN") %}
+                    <div class="padded cell">
+                        <button id="name_delete">{{ 'Gewählte entfernen'|trans({},'admin') }}</button>
+                    </div>
+                {% endif %}
+            </div>
+            <hr />
+            <label for="name_new">{{ 'Namen hinzufügen'|trans({},'admin') }}</label>
+            <div class="small">
+                {{ 'Namen können als glob-Muster eingegeben werden. Beispielsweise würde *test* alle Namen verhindern, in denen "test" vorkommt. Für eine Übersicht über glob-Syntax, siehe folgenden Link:'|trans({__no_md: true},'admin') }}
+                <a href="https://en.wikipedia.org/wiki/Glob_(programming)" target="_blank">Wikipedia</a>
+            </div>
+            <textarea id="name_new" style="height: 250px;"></textarea>
+            <div class="float-right">
+                <button id="name_add">{{ 'Hinzufügen'|trans({},'admin') }}</button>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+
+        $.html.addEventListenerAll('#name_add', 'click', function() {
+            $.ajax.easySend( '{{ path('admin_add_spam_name') }}', {'list': document.getElementById("name_new").value},
+                function () {
+                    $.ajax.load(null, '{{ path('admin_spam_names_view') }}', true);
+                } );
+        });
+
+        {% if is_granted("ROLE_SUB_ADMIN") %}
+            $.html.addEventListenerAll('#name_delete', 'click', function() {
+                let values = [];
+                $.html.forEach('#name_list input[type=checkbox]:checked', function(elem) {
+                    values.push( elem.value );
+                });
+
+                $.ajax.easySend( '{{ path('admin_remove_spam_name') }}', {'list': values},
+                    function () {
+                        $.ajax.load(null, '{{ path('admin_spam_names_view') }}', true);
+                    } );
+            });
+        {% endif %}
+
+        let typingTimer, doneTypingInterval = 300;
+        let searchBox = document.getElementById('name_search');
+        const nameSearchHandler = function() {
+            $.ajax.background().load(
+                document.getElementById('name_list'),
+                '{{ path('admin_spam_name_search') }}',
+                false,
+                {'query': searchBox.value}
+            );
+        };
+
+        const nameSearchHandlerUp = function () {
+            clearTimeout(typingTimer);
+            typingTimer = setTimeout(nameSearchHandler, doneTypingInterval);
+        };
+
+        const nameSearchHandlerDown = function () {
+            clearTimeout(typingTimer);
+        };
+
+        searchBox.addEventListener('keyup', nameSearchHandlerUp);
+        searchBox.addEventListener('keydown', nameSearchHandlerDown);
+    </script>
+{% endblock %}

@@ -108,7 +108,11 @@
                     </div>
                     <div class="author">
                         {% if thread.lastPost and thread.lastPost.owner %}
-                            {% include 'ajax/soul/playername.html.twig' with {user: thread.lastPost.owner, plain: true, globalSpace: thread.forum.town is null} only %}
+                            {% if thread.lastPost.type|lower != 'anon' %}
+                                {% include 'ajax/soul/playername.html.twig' with {user: thread.lastPost.owner, plain: true, globalSpace: thread.forum.town is null} only %}
+                            {% else %}
+                                ???
+                            {% endif %}
                         {% elseif thread.owner %}
                             {% include 'ajax/soul/playername.html.twig' with {user: thread.owner, plain: true, globalSpace: thread.forum.town is null} only %}
                         {% else %}

@@ -39,13 +39,12 @@ use Symfony\Component\HttpKernel\KernelInterface;
 )]
 class ForumCreatorCommand extends Command
 {
-    private EntityManagerInterface $entityManager;
-    private KernelInterface $kernel;
+    use ForumIconCollectorTrait;
 
-    public function __construct(EntityManagerInterface $em, KernelInterface $kernel)
-    {
-        $this->entityManager = $em;
-        $this->kernel = $kernel;
+    public function __construct(
+        private readonly EntityManagerInterface $entityManager,
+        private readonly KernelInterface $kernel
+    ) {
         parent::__construct();
     }
 
@@ -57,6 +56,7 @@ class ForumCreatorCommand extends Command
             ->addArgument('Type', InputArgument::REQUIRED, 'The Forum Type')
 
             ->addOption('description', 'd', InputOption::VALUE_REQUIRED, 'The Forum Description')
+            ->addOption('no-description', null, InputOption::VALUE_NONE, 'Do not ask for a description')
             ->addOption('icon', 'i', InputOption::VALUE_REQUIRED, 'The Forum Icon')
             ->addOption('lang', 'l', InputOption::VALUE_REQUIRED, 'The Forum Language')
             ->addOption('no-permissions', null, InputOption::VALUE_NONE, 'If set, no permissions will be set for the forum. If CUSTOM forum type is selected, this option has no effect.')
@@ -88,16 +88,13 @@ class ForumCreatorCommand extends Command
                 $input->setArgument('Type', "{$tt}");
         }
 
-        if (empty($input->getOption('description'))) {
+        if (!$input->getOption('no-description') && empty($input->getOption('description'))) {
             $str = $helper->ask($input, $output, new Question("If you want the forum to have a description, enter it now. Entering a description is optional.\n", ""));
             if (!empty($str)) $input->setOption('description', $str);
         }
 
         if (empty($input->getOption('icon'))) {
-            $icons = ['- None -'];
-            foreach (scandir("{$this->kernel->getProjectDir()}/assets/img/forum/banner") as $f)
-                if ($f !== '.' && $f !== '..' && $f !== 'bannerForumVoid.gif') $icons[] = $f;
-
+            $icons = $this->listAllIcons('- None -');
             $str = $helper->ask($input, $output, new ChoiceQuestion('If you want the forum to have a icon, select it now.', $icons));
             if (!empty($str) && $str !== '- None -') $input->setOption('icon', $str);
         }
@@ -153,6 +150,7 @@ class ForumCreatorCommand extends Command
                 Forum::ForumTypeMods => [$this->entityManager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultModeratorGroup])],
                 Forum::ForumTypeAdmins => [$this->entityManager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAdminGroup])],
                 Forum::ForumTypeAnimac => [
+                    $this->entityManager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultArtisticGroup]),
                     $this->entityManager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAnimactorGroup]),
                     $this->entityManager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultOracleGroup]),
                 ],

@@ -44,7 +44,7 @@ class JSONRequestParser
     }
 
     public function has( string $key, bool $not_empty = false ): bool {
-        return $this->data && $this->data->has( $key ) && !empty( $this->data->get($key ) );
+        return $this->data && $this->data->has( $key ) && (!$not_empty || !empty( $this->data->get($key )) );
     }
 
     public function has_all( array $keys, bool $not_empty = false ): bool {

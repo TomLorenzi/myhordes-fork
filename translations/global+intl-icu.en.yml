@@ -1,3 +1,4 @@
+---
 'Allgemeiner Fehler.': 'Common error.'
 'Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.': 'The selected forum doesn''t exist or you are lacking the permission to view it.'
 'Dein Text muss mindestens 2 Zeichen lang sein.': 'Your text has to be at least 2 characters long.'
@@ -560,7 +561,7 @@ ENTER: ENTRY
 'Spieler auswählen': 'Select player'
 'Gib den Namen des Spielers ein': 'Enter the player''s name'
 'Wenn du möchtest, kannst du auch dann Benachrichtigungen auf deinen Computer oder Smartphone bekommen, wenn du gerade nicht auf MyHordes unterwegs bist. So bist du immer auf dem neusten Stand und kannst keine wichtigen Meldungen mehr verpassen!': 'It is possible to receive notifications on computer or smartphone even when you are not on MyHordes. This way you will always be up to date with the latest news and will no longer be able to miss important messages!'
-'Um diese Funktion zu verwenden, musst du MyHordes die Erlaubnis geben, dir Benachrichtigungen auf dein Gerät zu schicken. Klicke auf "Benachrichtigungen auf diesem Gerät erhalten" und bestätige die Sicherheitsabfrage deines Browsers, um diese Funktion zu aktivieren.': 'It is possible to receive notifications on computer or smartphone even when you are not on MyHordes. This way you will always be up-to-date with the latest news and will no longer be able to miss important messages!'
+'Um diese Funktion zu verwenden, musst du MyHordes die Erlaubnis geben, dir Benachrichtigungen auf dein Gerät zu schicken. Klicke auf "Benachrichtigungen auf diesem Gerät erhalten" und bestätige die Sicherheitsabfrage deines Browsers, um diese Funktion zu aktivieren.': 'To use this function, you must give MyHordes permission to send you notifications on your device. Click on "Receive notifications on this device" and confirm your browser''s security prompt to activate this function.'
 'Wenn du keine weiteren Benachrichtigungen erhalten möchtest, kannst du diese Funktion jederzeit vollständig oder für einzelne Geräte deaktivieren.': 'It is possible to deactivate notifications at any time, completely or for certain devices.'
 'Dieses Gerät unterstützt keine Push-Benachrichtigungen.': 'This device does not support push notifications.'
 'Benachrichtigungen auf diesem Gerät erhalten': 'Receive notifications on this device'
@@ -633,6 +634,7 @@ Community-Event: Community Event
 Verbunden: Connected
 'Die Taube': 'The Dove'
 'Normaler Post': 'Normal post'
-'Diesen Bonus gibt es nur dann, wenn sich die Bürger während eines Angriffs in der Stadt befinden.': 'This bonus is only available if the citizens are in the city during an attack.'
+'Diesen Bonus gibt es nur dann, wenn sich die Bürger während eines Angriffs in der Stadt befinden.': 'This bonus is only available if citizens are in town during an attack.'
 'Anonymer Post': 'Anonymous Post'
 'Bist du sicher, dass du deine Fähigkeiten zurücksetzen möchtest? Du wirst all deine Heldenerfahrung und Fähigkeiten verlieren. Diese Aktion kann nicht rückgängig gemacht werden!': 'Are you sure you want to reset your skills? You will lose all your heroic experience and skills. This action cannot be undone!'
+'Dieser Spieler ist ein Mitglied der Künstlergilde auf MyHordes.': 'This player is part of the Artist''s Guild on MyHordes.'

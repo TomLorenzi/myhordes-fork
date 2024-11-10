@@ -28,7 +28,7 @@ export const HordesEventCreatorWizard = ( {cancel, uuid, proposed, published, st
 } ) => {
     const globals = useContext(Globals)
 
-    const writable = !published && ( !proposed || globals.is_reviewer );
+    const writable = !published && ( !proposed || globals.is_event_admin );
 
     return (
         <EditorGlobals.Provider value={{ writable }}>
@@ -65,7 +65,7 @@ export const HordesEventCreatorWizard = ( {cancel, uuid, proposed, published, st
                     </> }
 
                     { proposed && <>
-                        { globals.is_reviewer && <>
+                        { (globals.is_event_admin || (globals.is_reviewer && !owning)) && <>
                             <div className="padded cell rw-4 rw-md-6 rw-sm-12 ro-4 ro-md-0">
                                 <button onClick={()=>{
                                     globals.api.publish( uuid ).then(() => {

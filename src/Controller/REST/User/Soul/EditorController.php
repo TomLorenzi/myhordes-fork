@@ -128,6 +128,7 @@ class EditorController extends CustomAbstractCoreController
     #[Route(path: '/{id}/unlocks/{context}/emotes', name: 'list_emotes', methods: ['GET'])]
     public function list_emotes(
         ?int $id,
+        string $context,
         ?User $user,
         EntityManagerInterface $em,
         Packages $assets,
@@ -137,14 +138,19 @@ class EditorController extends CustomAbstractCoreController
         if ($id === null) $user = $this->getUser();
         elseif ($user !== $this->getUser()) return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
-        $emotes = $gameCachePool->get("mh_app_unlocks_emotes_{$user->getId()}_{$user->getLanguage()}", function (ItemInterface $item) use ($user, $em) {
+        $unlock_all = in_array($context, [
+            'announcement'
+        ]) && $this->isGranted('ROLE_ELEVATED');
+        $unlock_s = $unlock_all ? 'all' : 'default';
+
+        $emotes = $gameCachePool->get("mh_app_unlocks_emotes_{$user->getId()}_{$user->getLanguage()}_{$unlock_s}", function (ItemInterface $item) use ($user, $em, $unlock_all) {
 
             $item->expiresAfter(360)->tag(["user-{$user->getId()}-emote-unlocks",'emote-unlocks']);
 
             $repo = $em->getRepository(Emotes::class);
-            $emotes = $repo->getDefaultEmotes();
+            $emotes = $unlock_all ? $repo->findAll() : $repo->getDefaultEmotes();
 
-            $awards = $em->getRepository(Award::class)->getAwardsByUser($user);
+            $awards = $unlock_all ? [] : $em->getRepository(Award::class)->getAwardsByUser($user);
 
             foreach($awards as $entry) {
                 /** @var $entry Award */
@@ -170,7 +176,7 @@ class EditorController extends CustomAbstractCoreController
         });
 
         $snippets = [];
-        if ($this->isGranted('ROLE_ELEVATED') || $this->isGranted('ROLE_ANIMAC')) {
+        if ($this->isGranted('ROLE_ELEVATED') || $this->isGranted('ROLE_ANIMAC') || $this->isGranted('ROLE_ART')) {
             $entities = $em->getRepository(ForumModerationSnippet::class)->findBy( ['role' => [...$roles->getReachableRoleNames( $user->getRoles() ), '*']] );
             foreach ($entities as $snippet) {
                 $key = $snippet->getLang() === $user->getLanguage() ? "%%{$snippet->getShort()}" : "%{$snippet->getLang()}%{$snippet->getShort()}";
@@ -323,6 +329,10 @@ class EditorController extends CustomAbstractCoreController
             'rps' => 'rps',
             'coin' => 'coin',
             'card' => 'card',
+            ...($user->getActiveCitizen()?->getAlive() ? [
+                'town' => 'town',
+                'coords' => 'coords'
+            ] : [])
         ];
 
         return new JsonResponse([
@@ -360,10 +370,18 @@ class EditorController extends CustomAbstractCoreController
 
         $professions = $em->getRepository(CitizenProfession::class)->findAll();
 
+        $profession_map = [
+            'collec' => 'scav',
+            'guardian' => 'guard',
+            'hunter' => 'scout',
+            'survivalist' => 'surv',
+            'shaman' => 'sham',
+        ];
+
         $result = [];
         foreach ($professions as $profession)
             $result[] = [
-                'tag' => '{citizen,' . $profession->getName() . '}',
+                'tag' => '{citizen,' . ($profession_map[$profession->getName()] ?? $profession->getName()) . '}',
                 'path' => "/build/images/professions/{$profession->getIcon()}.gif",
                 'url' => $assets->getUrl( "build/images/professions/{$profession->getIcon()}.gif" ),
                 'orderIndex' => $profession->getName() === 'none' ? 9999 : (100 + $profession->getId())

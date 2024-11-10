@@ -14,7 +14,7 @@ export class HordesEventCreator {
 
     #_root = null;
 
-    public mount(parent: HTMLElement, props: {creator: boolean, reviewer: boolean}): any {
+    public mount(parent: HTMLElement, props: {creator: boolean, reviewer: boolean, admin: boolean}): any {
         if (!this.#_root) this.#_root = createRoot(parent);
         this.#_root.render( <EventCreatorWrapper {...props} /> );
     }
@@ -31,11 +31,12 @@ type EventCreatorGlobals = {
     api: EventCreationAPI,
     strings: TranslationStrings,
     is_reviewer: boolean
+    is_event_admin: boolean
 }
 
 export const Globals = React.createContext<EventCreatorGlobals>(null);
 
-const EventCreatorWrapper = ( {creator, reviewer}: {creator: boolean, reviewer: boolean} ) => {
+const EventCreatorWrapper = ( {creator, reviewer, admin}: {creator: boolean, reviewer: boolean, admin: boolean} ) => {
 
     const apiRef = useRef<EventCreationAPI>();
     const [globalLoadingStack, setGlobalLoadingStack] = useState<number>(0);
@@ -61,7 +62,7 @@ const EventCreatorWrapper = ( {creator, reviewer}: {creator: boolean, reviewer: 
     const load_complete = globalLoadingStack <= 0 && strings !== null;
 
     return (
-        <Globals.Provider value={{ api: apiRef.current, strings, is_reviewer: reviewer }}>
+        <Globals.Provider value={{ api: apiRef.current, strings, is_reviewer: reviewer, is_event_admin: admin }}>
             <div className="row">
                 <div className="padded cell rw-12">
                     { !load_complete && <>

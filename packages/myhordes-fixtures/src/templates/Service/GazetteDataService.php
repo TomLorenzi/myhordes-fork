@@ -508,10 +508,10 @@ class GazetteDataService implements FixtureProcessorInterface {
                     ['type'=>"num",'name'=>'deaths'],
                 ],
             ],
-            ['text'=>'Letzte Nacht war die Stadt von Zombies umzingelt! Einige schafften es, die Mauern zu durchbrechen, ein Zustrom, der uns {deaths} gute Leute kostete.',
+            ['text'=>'Letzte Nacht war die Stadt von Zombies {attack} umzingelt! Einige schafften es, die Mauern zu durchbrechen, ein Zustrom, der uns {deaths} gute Leute kostete.',
                 'name'=>'gazetteTownMultiDeaths_016',
                 'type'=>GazetteEntryTemplate::TypeGazetteMultiDeaths,
-                'requirement'=>GazetteEntryTemplate::RequiresDeaths,
+                'requirement'=>GazetteEntryTemplate::RequiresAttackDeaths,
                 'fot' => GazetteEntryTemplate::FollowUpTypeBad,
                 'variableTypes'=>[
                     ['type'=>"num",'name'=>'deaths'],

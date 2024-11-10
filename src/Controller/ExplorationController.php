@@ -50,7 +50,7 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
-#[GateKeeperProfile(only_alive: true, only_in_ruin: true)]
+#[GateKeeperProfile(only_alive: true, only_with_profession: true, only_in_ruin: true)]
 #[Semaphore('town', scope: 'town')]
 class ExplorationController extends InventoryAwareController implements HookedInterfaceController
 {
@@ -132,13 +132,17 @@ class ExplorationController extends InventoryAwareController implements HookedIn
         $in_grace = $ex->isGrace() && $ex->getStarted() !== null && (new DateTime())->modify('-30sec') < $ex->getStarted();
         $guide = $citizen->hasRole('guide');
 
-        $imprint_source = ($ruinZone->getPrototype()?->getKeyImprintAlternative() && $citizen->getProfession()->getName() !== 'tech')
-            ? $this->entity_manager->getRepository(ItemPrototype::class)->findBy( ['name' => ['food_noodles_#00', 'pharma_#00']] )
-            : [];
+        $imprint_source = [];
+        $imprint_goal = [];
+        if ($citizen->getProfession()->getName() === 'tech') {
+            $imprint_source['tech'] = [];
+            $imprint_goal['tech'] = $ruinZone->getPrototype()?->getKeyImprint();
+        }
 
-        $imprint_goal = $citizen->getProfession()->getName() !== 'tech'
-            ? $ruinZone->getPrototype()?->getKeyImprintAlternative()
-            : $ruinZone->getPrototype()?->getKeyImprint();
+       if ($ruinZone->getPrototype()?->getKeyImprintAlternative()) {
+           $imprint_source['noodles'] = $this->entity_manager->getRepository(ItemPrototype::class)->findBy(['name' => ['food_noodles_#00', 'pharma_#00']]);
+           $imprint_goal['noodles'] = $ruinZone->getPrototype()?->getKeyImprintAlternative();
+       }
 
         return $this->render( 'ajax/game/beyond/ruin.html.twig', $this->addDefaultTwigArgs(null, [
             'prototype' => $citizen->getZone()->getPrototype(),
@@ -146,15 +150,13 @@ class ExplorationController extends InventoryAwareController implements HookedIn
             'zone' => $ruinZone,
             'floorItems' => $floorItems,
             'heroics' => $this->getHeroicActions(),
-            'actions' => $this->getItemActions(),
-            'recipes' => $this->getItemCombinations(false),
             'move' => $ruinZone->getZombies() <= 0 || $ex->getEscaping(),
             'escaping' => $ex->getEscaping(),
             'zone_zombies' => $ruinZone->getZombies(),
             'zone_zombies_dead' => $ruinZone->getKilledZombies(),
             'shifted' => $ex->getInRoom(),
             'scavenge' => !$ex->getScavengedRooms()->contains($ruinZone),
-            'can_imprint' => !!$imprint_goal,
+            'can_imprint' => !empty($imprint_goal),
             'imprint_source' => $imprint_source,
             'imprint_goal' => $imprint_goal,
 
@@ -462,18 +464,22 @@ class ExplorationController extends InventoryAwareController implements HookedIn
 
     /**
      * @param InventoryHandler $handler
+     * @param EventProxyService $proxy
+     * @param JSONRequestParser $parser
      * @return Response
      */
     #[Route(path: 'api/beyond/explore/imprint', name: 'beyond_ruin_imprint_controller')]
-    public function imprint_explore_api(InventoryHandler $handler, EventProxyService $proxy): Response {
+    public function imprint_explore_api(InventoryHandler $handler, EventProxyService $proxy, JSONRequestParser $parser): Response {
         $citizen = $this->getActiveCitizen();
         $ex = $citizen->activeExplorerStats();
         $ruinZone = $this->getCurrentRuinZone();
 
+        $type = $parser->get('type', 'tech', ['tech','noodles']);
+
         if (!$ruinZone->getPrototype() || !$ruinZone->getLocked() || !$ruinZone->getPrototype()->getKeyImprint())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-        $alt = $citizen->getProfession()->getName() !== 'tech';
+        $alt = $type !== 'tech';
         if ($alt && !$ruinZone->getPrototype()->getKeyImprintAlternative())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
@@ -586,5 +592,29 @@ class ExplorationController extends InventoryAwareController implements HookedIn
             'deserted_bunker' => [T::__("Verlassener Bunker", 'names'), T::__("Thermonuklear-Bunker", 'names'), T::__("Garrison-Haus", 'names'), T::__("Bastion der Angst", 'names'), T::__("Bunker der Wut", 'names'), T::__("Fallout Shelter", 'names'), T::__("Keine Hoffnung ohne Öffnung!", 'names'), T::__("Schattenfort", 'names'), T::__("Verlassene Trooper-Station", 'names'), T::__("Verwesungsversteck", 'names'), T::__("Knochenkeller", 'names'), T::__("Geheimes Testlabor", 'names'), T::__("Area 52.1 Bunker", 'names'), T::__("Area 33 Bunker", 'names'), T::__("Quarantäne-Zone", 'names')],
         ];
         return $ruinNames[$zone->getPrototype()->getIcon()][$zone->getId() % count($ruinNames[$zone->getPrototype()->getIcon()])];
+    }
+
+    protected function ruin_partial_item_action_args(): array {
+        return [
+            'citizen' => $this->getActiveCitizen(),
+            'actions' => $this->getItemActions(),
+            'recipes' => $this->getItemCombinations(false),
+            'citizen_hidden' => false,
+            'active_scout_mode' => false,
+            'conf' => $this->getTownConf(),
+            'controller_action' => 'beyond_ruin_action_controller',
+            'controller_recipe' => 'beyond_ruin_recipe_controller',
+            'controller_dash' => 'exploration_dashboard',
+            'render_frame' => 'beyond_desert_content',
+        ];
+    }
+
+    /**
+     * @return Response
+     */
+    #[Route(path: 'jx/beyond/partial/explore/actions', name: 'beyond_ruin_dashboard_partial_item_actions')]
+    public function ruin_partial_item_actions(): Response
+    {
+        return $this->render( 'ajax/game/beyond/partials/item-actions.standalone.html.twig', $this->ruin_partial_item_action_args() );
     }
 }

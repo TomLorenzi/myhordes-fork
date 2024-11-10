@@ -2,7 +2,15 @@
 
 namespace MyHordes\Prime\Service;
 
+use App\Entity\ActionCounter;
+use App\Entity\AffectItemSpawn;
+use App\Entity\CauseOfDeath;
+use App\Entity\ItemAction;
+use App\Entity\ItemTargetDefinition;
+use App\Entity\RequireLocation;
 use App\Entity\Requirement;
+use App\Enum\ItemPoisonType;
+use App\Structures\TownConf;
 use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class ActionDataService implements FixtureProcessorInterface {

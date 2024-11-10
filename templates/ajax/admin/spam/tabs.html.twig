@@ -5,4 +5,7 @@
     <li {{ { 'tab': true, selected: tab == "identifiers" }|classes }}>
         <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('admin_spam_identifiers_view') }}"><span>{{ 'Account-IDs'|trans({},'admin') }}</span></div>
     </li>
+    <li {{ { 'tab': true, selected: tab == "names" }|classes }}>
+        <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('admin_spam_names_view') }}"><span>{{ 'Gesperrte Namen'|trans({},'admin') }}</span></div>
+    </li>
 </ul>

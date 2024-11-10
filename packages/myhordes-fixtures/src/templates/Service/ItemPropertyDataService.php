@@ -238,6 +238,9 @@ class ItemPropertyDataService implements FixtureProcessorInterface {
             'mbplan_u_#00'               => [ 'impoundable' ],
             'mbplan_r_#00'               => [ 'impoundable' ],
             'mbplan_e_#00'               => [ 'impoundable' ],
+            'noodle_prints_#00'          => [ 'food', 'can_cook', 'single_use' ],
+            'noodle_prints_#01'          => [ 'food', 'can_cook', 'single_use' ],
+            'noodle_prints_#02'          => [ 'food', 'can_cook', 'single_use' ],
         ]);
     }
 }

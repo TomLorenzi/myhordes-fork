@@ -4,6 +4,8 @@
 namespace MyHordes\Prime\EventListener\Game\Town\Basic\Buildings;
 
 use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
+use App\EventListener\ContainerTypeTrait;
+use App\Service\RandomGenerator;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Contracts\Service\ServiceSubscriberInterface;
@@ -19,6 +21,8 @@ use Doctrine\ORM\EntityManagerInterface;
 #[AsEventListener(event: BuildingConstructionEvent::class, method: 'onExecuteSpecialEffect', priority: -104)]
 final class PrimeBuildingConstructionListener implements ServiceSubscriberInterface
 {
+    use ContainerTypeTrait;
+
     public function __construct(
         private readonly ContainerInterface $container,
     ) {}
@@ -28,13 +32,11 @@ final class PrimeBuildingConstructionListener implements ServiceSubscriberInterf
         return [
             EntityManagerInterface::class,
             LogTemplateHandler::class,
-            //PictoHandler::class,
-            //DoctrineCacheService::class,
             TownHandler::class,
-            //GameProfilerService::class
             InventoryHandler::class,
             ItemFactory::class,
-            CitizenHandler::class
+            CitizenHandler::class,
+            RandomGenerator::class
         ];
     }
 
@@ -53,6 +55,15 @@ final class PrimeBuildingConstructionListener implements ServiceSubscriberInterf
 
     public function onConfigurePictoEffect( BuildingConstructionEvent $event ): void {
         // Implement me!
+		// Buildings which give pictos
+		$pictos = match ($event->building->getPrototype()->getName()) {
+			'small_thermal_#00' =>  ['r_thermal_#00','r_ebuild_#00', 'r_wondrs_#00'],
+            'small_crow_#00'   =>  ['r_wondrs_#00'],
+			default => []
+		};
+
+		if (!empty($pictos))
+			$event->pictos = array_merge($event->pictos, $pictos);
     }
 
     public function onExecuteSpecialEffect( BuildingConstructionEvent $event ): void {
@@ -79,8 +90,24 @@ final class PrimeBuildingConstructionListener implements ServiceSubscriberInterf
                 $townHandler->getBuilding($event->town, "small_lastchance_#00")->setTempDefenseBonus($destroyedItems);
                 $em->persist( $this->container->get(LogTemplateHandler::class)->constructionsBuildingCompleteAllOrNothing($event->town, $destroyedItems ) );
                 break;
+
+            case 'small_spa4souls_#00':
+                // Move souls closer to town
+                // Get all soul items on the WB
+                $soul_items = $this->getService(InventoryHandler::class)->getAllItems($event->town, ['soul_blue_#00'], false, false, false, true, false, false);
+
+                foreach ($soul_items as $soul)
+                    // Only move souls which have not been picked up yet
+                    if ($soul->getFirstPick()) {
+                        $distance = $soul->getInventory()?->getZone()?->getDistance() ?? 0;
+                        if ($distance > 11) {
+                            $newZone = $this->getService(RandomGenerator::class)->pickLocationBetweenFromList($event->town->getZones()->toArray(), 5, 11);
+                            $this->getService(InventoryHandler::class)->forceMoveItem($newZone->getFloor(), $soul);
+                        }
+                    }
+                break;
+
             default: break;
         }
     }
-
 }

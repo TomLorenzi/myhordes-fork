@@ -130,7 +130,7 @@ class GameController extends CustomAbstractController
             if ( $this->town_handler->is_vote_needed($town, $role) )
                 $votesNeeded[$role->getName()] = $role;
 
-        $show_register = $in_town || !$activeCitizen->getAlive();
+        $show_register = ($in_town || !$activeCitizen->getAlive()) && $activeCitizen->getProfession()->getName() !== CitizenProfession::DEFAULT;
 
         $activeCitizen->setHasSeenGazette(true);
         $this->entity_manager->persist($activeCitizen);
@@ -179,7 +179,7 @@ class GameController extends CustomAbstractController
     public function job_select(ConfMaster $cf): Response
     {
         $activeCitizen = $this->getActiveCitizen();
-        if ($activeCitizen->getProfession()->getName() !== CitizenProfession::DEFAULT)
+        if (!$activeCitizen->getAlive() || $activeCitizen->getProfession()->getName() !== CitizenProfession::DEFAULT)
             return $this->redirect($this->generateUrl('game_landing'));
 
         $args = $this->addDefaultTwigArgs(null, [

@@ -1,5 +1,19 @@
 {% extends "ajax/game/town/town.html.twig" %}
 {% block title %}{{'Die Bürger'|trans({}, 'game')}}{% endblock %}
+
+{% block tutorial %}
+    <div x-tutorial-content="5.text2" class="toplevel text arrow-down">
+        <div class="help">
+            <p>{% trans from "help" %}
+                Hier werden alle <strong>lebenden und ... ehemaligen Bürger</strong> deiner Stadt aufgelistet. Sogar du selbst hast hier einen Eintrag!
+            {% endtrans %}</p>
+            <p>{% trans from "help" %}
+                Wenn du mehr über einen bestimmten Bürger erfahren willst, kannst du ihn hier anklicken. <strong>Probier es ruhig einmal aus!</strong>
+            {% endtrans %}</p>
+        </div>
+    </div>
+{% endblock %}
+
 {% block content %}
     {# @var citizen \App\Entity\Citizen #}
     {% set hour = "now"|date("G") %}
@@ -83,7 +97,7 @@
             {% else %}
                 {% set citizen = citizenInfo.citizen %}
                 {# @var \App\Entity\Citizen citizen  #}
-                <div class="row-flex stretch pointer{% if citizen == me%} me{% endif %} {{ hook('additionalCitizenRowClass', citizen) }}" style="max-height: 100px;">
+                <div class="row-flex stretch pointer{% if citizen == me%} me{% endif %} {{ hook('additionalCitizenRowClass', citizen) }}" {% if not app.user.expert%}x-advance-tutorial="5.text2>5.text3"{% endif%} style="max-height: 100px;">
                 {% include "ajax/soul/playeravatar.html.twig" with {user: citizen.user, small: true, background: true, classes: ['cell','factor-0','hide-md','hide-sm'], attributes: {style: 'flex-basis: 92px', 'x-ajax-href': path('town_visit', {id: citizen.id}) }} only %}
                 <div class="cell factor-0 citizen-{{ citizen.alive ? (citizen.online ? 'online' : 'offline') : 'dead' }}" style="flex-basis: 8px;" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">&nbsp;</div>
                 
@@ -240,7 +254,7 @@
         $.html.addEventListenerAll('.userCell', 'click', (e, elem) => {
             let path = elem.getAttribute('x-visit-path');
             let user_id = elem.getAttribute('x-citizen-id');
-            $.ajax.load(target, path, false, {"id": user_id});
+            $.ajax.load(null, path, true, {"id": user_id});
         });
     </script>
 {% endblock %}

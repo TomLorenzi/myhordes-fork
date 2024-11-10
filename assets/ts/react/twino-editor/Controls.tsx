@@ -1,12 +1,13 @@
 import * as React from "react";
-import {ReactElement, useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
+import {useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
 import {Globals} from "./Wrapper";
 import {UserSearchBar} from "../user-search/Wrapper";
-import {Tab, TabbedSection, TabGroup, TabProps} from "../tab-list/TabList";
+import {Tab, TabbedSection, TabGroup} from "../tab-list/TabList";
 import {Emote, Snippet} from "./api";
 import {Tooltip} from "../tooltip/Wrapper";
 import {v4 as uuidv4} from "uuid";
 import {Global} from "../../defaults";
+import {dialogShim} from "../../shims";
 
 declare var $: Global;
 
@@ -102,7 +103,7 @@ export const TwinoEditorControls = ({emotes}: {emotes: null|Array<Emote>}) => {
                 { globals.allowControl('extended') && <>
                     <ControlButtonNodeInsert node="*" label={globals.strings.controls["*"]} fa="star-of-life" block={true} control="." multiline={true} />
                     <ControlButtonNodeInsert node="0" label={globals.strings.controls["0"]} fa="list-ol" block={true} control="1" multiline={true} />
-                    <ControlButtonNodeInsert node="hr" label={globals.strings.controls.hr} fa="grip-lines" block={true} closes={true} curley={true} control="-" />
+                    <ControlButtonNodeInsert node="hr" label={globals.strings.controls.hr} fa="grip-lines" block={false} curley={true} control="-" />
                 </> }
                 { globals.allowControl('poll') && <>
                     <ControlButtonInsertPoll />
@@ -146,8 +147,6 @@ export const TwinoEditorControlsTabList = ({emotes, snippets}: {
 }
 
 const TwinoEditorControlsTabListOverlay = ({emotes,show,current,mounted}: {emotes: null|Array<Emote>, show: boolean, current: OverlayTypes|null, mounted: OverlayTypes[]}) => {
-    const globals = useContext(Globals);
-
     return <div className={`overlay-controls layered ${show ? 'active' : 'inactive'}`}>
         { mounted.includes('emotes') && <div className={current === 'emotes' ? '' : 'hidden'}><EmoteTabSection emotes={emotes}/></div> }
         { mounted.includes('games') && <div className={current === 'games' ? '' : 'hidden'}><GameTabSection/></div> }
@@ -169,6 +168,10 @@ const ControlButton = ({fa = null, img = null, label = null, control = null, han
                 dialog.current.showModal();
         }
     }
+
+    useLayoutEffect(() => {
+        dialogShim(dialog.current);
+    }, [children]);
 
     useLayoutEffect(() => {
         const callHandler = (e:CustomEvent) => wrapped_handler();
@@ -209,7 +212,11 @@ const ControlButton = ({fa = null, img = null, label = null, control = null, han
                     e.preventDefault();
                     e.stopPropagation();
                 }
-            }} onSubmit={() => confirmDialog()}>
+            }} onSubmit={e => {
+                e.preventDefault();
+                e.stopPropagation();
+                confirmDialog();
+            }}>
                 <div className="modal-content">{children}</div>
                 <div className="modal-actions">
                     {manualConfirm && <>
@@ -305,7 +312,7 @@ const ControlButtonNodeInsert = ({fa = null, img = null, label = null, node, con
         const opt_nl_after = (block && !closes) ? "\n" : '';
         const before = block ? body.slice(0,selection[0]).trimEnd() : body.slice(0,selection[0]);
 
-        let text = '';
+        let text: string;
         if (multiline) {
             text = body.slice(selection[0],selection[1]).trim().split('\n').map((s:string,index) => `${index > 0 ? insert : ''}${s.trim()}`).join("\n");
         } else {
@@ -378,15 +385,21 @@ const ControlButtonInsertQuote = () => {
         if (after !== '' && !after.slice(0,1).match(/\s/))
             after = ` ${after}`;
 
-        let insert = '';
-        if (selected.current)
+        let insert: string;
+        let offset = 7;
+
+        if (selected.current) {
             insert = selected.current.id < 0
                 ? `[quote=${selected.current.name.replaceAll(/[\[\]=]/gi, '')}]${inner}[/quote]`
                 : `[quote=@${selected.current.name.replaceAll(/[^\w_]/gi, '')}:${selected.current.id}]${inner}[/quote]`;
-        else insert = `[quote]${inner}[/quote]`;
+            offset = selected.current.id < 0
+                ? 8 + selected.current.name.replaceAll(/[\[\]=]/gi, '').length
+                : 14 + selected.current.name.replaceAll(/[^\w_]/gi, '').length;
+        } else insert = `[quote]${inner}[/quote]`;
 
         globals.setField('body', `${before}${insert}${after}`);
-        globals.selection.update(before.length, before.length + insert.length);
+        // should be set to after the open tag and before the end tag
+        globals.selection.update(before.length + offset, before.length + offset + inner.length);
         selected.current = null;
     }}>
         <div ref={parent}>
@@ -667,7 +680,7 @@ const EmoteTabSection = ({emotes}: { emotes: null | Array<Emote> }) => {
     return <div className="lightbox">
         {emotes === null && <div className="loading"/>}
         {emotes !== null && <div className="forum-button-grid">
-            {emotes.sort((a, b) => a.orderIndex - b.orderIndex).map(emote => <React.Fragment key={emote.tag}>
+            {emotes.filter(a => a.orderIndex >= 0).sort((a, b) => a.orderIndex - b.orderIndex).map(emote => <React.Fragment key={emote.tag}>
                 <ControlButtonNodeInsert node={emote.tag} img={emote.url} curley={null}/>
             </React.Fragment>)}
         </div>}

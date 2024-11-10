@@ -13,6 +13,7 @@ use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
 use App\Enum\Configuration\CitizenProperties;
+use App\Enum\Game\LogHiddenType;
 use App\Response\AjaxResponse;
 use App\Service\Actions\Cache\CalculateBlockTimeAction;
 use App\Service\Actions\Cache\InvalidateLogCacheAction;
@@ -82,10 +83,12 @@ class LogController extends CustomAbstractCoreController
                 'silence' => $this->translator->trans('({num} Minuten Stille)', [], 'game'),
 
                 'hide' => $this->translator->trans('Klick hier, wenn du mit deiner Heldenfähigkeit <strong>diesen Registereintrag fälschen</strong> möchtest...', [], 'game'),
+                'purge' => $this->translator->trans('Klick hier, wenn du mit deiner Heldenfähigkeit <strong>diesen Registereintrag löschen</strong> möchtest...', [], 'game'),
                 'hidden' => $this->translator->trans('Dieser Registereintrag wurde durchgestrichen und ist nicht mehr lesbar! Wer wollte damit etwas verbergen?', [], 'game'),
 
                 'warning' => $asset->getUrl( 'build/images/icons/small_warning.gif' ),
                 'falsify' => $asset->getUrl( 'build/images/heroskill/small_falsify.gif' ),
+                'purgify' => $asset->getUrl( 'build/images/heroskill/small_purgify.gif' ),
 
                 'protected' => $this->translator->trans('Dieser Registereintrag kann <strong>nicht</strong> gefälscht werden.', [], 'game'),
                 'manipulated' => $this->translator->trans('Du hast heimlich einen Eintrag im Register unkenntlich gemacht... Du kannst das noch {times} mal tun.', [], 'game'),
@@ -143,6 +146,7 @@ class LogController extends CustomAbstractCoreController
 
         if (!$admin) {
             $criteria->andWhere(Criteria::expr()->eq('adminOnly', false));
+            $criteria->andWhere(Criteria::expr()->neq('hidden', LogHiddenType::Deleted));
             $identifier .= 'p';
         } else $identifier = 'a';
 
@@ -157,6 +161,10 @@ class LogController extends CustomAbstractCoreController
      */
     protected function renderLogEntries(Collection $entries, bool $canHide = false, bool $admin = false): array {
         return array_values($entries->map( function( TownLogEntry $entry ) use ($canHide, $admin): ?array {
+
+            if (!$admin && $entry->getHidden() === LogHiddenType::Deleted)
+                return null;
+
             /** @var LogEntryTemplate $template */
             $template = $entry->getLogEntryTemplate();
 
@@ -168,13 +176,13 @@ class LogController extends CustomAbstractCoreController
                 'type'      => $template?->getType() ?? LogEntryTemplate::TypeVarious,
                 'protected' => $template?->getType() === LogEntryTemplate::TypeNightly,
                 'id'        => $entry->getId(),
-                'hidden'    => $entry->getHidden(),
-                'hideable'  => !$admin && !$entry->getHidden() && $canHide,
+                'hidden'    => $entry->getHidden()->hidden(),
+                'hideable'  => !$admin && $entry->getHidden()->visible() && $canHide,
                 'day'       => $entry->getDay(),
                 'retro'     => $template?->getName() === 'smokeBombUsage'
             ];
 
-            if ($entry->getHidden() && !$admin) $json['text'] = null;
+            if ($entry->getHidden()->hidden() && !$admin) $json['text'] = null;
             elseif (!$template) $json['text'] = "-- error: [{$entry->getId()}] unable to load template --";
             else {
                 $variableTypes = $template->getVariableTypes();
@@ -187,7 +195,7 @@ class LogController extends CustomAbstractCoreController
                 }
             }
 
-            if ($admin && $entry->getHidden()) $json['hiddenBy'] = [
+            if ($admin && $entry->getHidden()->hidden()) $json['hiddenBy'] = [
                 'name' => $entry->getHiddenBy()?->getName(),
                 'id' => $entry->getHiddenBy()?->getUser()->getId()
             ];
@@ -272,12 +280,18 @@ class LogController extends CustomAbstractCoreController
         ]);
     }
 
-    protected function getManipulationsLeft(Citizen $citizen): int {
-        if (!$citizen->getAlive()) return 0;
+    protected function getManipulationsLeft(Citizen $citizen, LogHiddenType $type = LogHiddenType::Hidden): int {
+        if (!$citizen->getAlive() || $type === LogHiddenType::Visible) return 0;
+
+        [$prop, $counter] = match($type) {
+            LogHiddenType::Hidden => [CitizenProperties::LogManipulationLimit, ActionCounter::ActionTypeRemoveLog],
+            LogHiddenType::Deleted => [CitizenProperties::LogPurgeLimit, ActionCounter::ActionTypePurgeLog],
+            default => [null,null]
+        };
 
         return max(
             0,
-                   $citizen->property( CitizenProperties::LogManipulationLimit ) - $citizen->getSpecificActionCounterValue(ActionCounter::ActionTypeRemoveLog)
+                   $citizen->property( $prop ) - $citizen->getSpecificActionCounterValue($counter)
         );
     }
 
@@ -321,43 +335,49 @@ class LogController extends CustomAbstractCoreController
         return new JsonResponse([
             'entries' => $this->renderCachedLogEntries( $em, $criteria, $cache_ident, canHide: true ),
             'total' => $em->getRepository(TownLogEntry::class)->matching( $countCriteria )->count(),
-            'manipulations' => $this->getManipulationsLeft( $active_citizen )
+            'manipulations' => $this->getManipulationsLeft( $active_citizen, LogHiddenType::Hidden ),
+            'purges' => $this->getManipulationsLeft( $active_citizen, LogHiddenType::Deleted )
         ]);
 
     }
 
     /**
+     * @param bool $purge
      * @param TownLogEntry $entry
      * @param UserHandler $userHandler
      * @param EntityManagerInterface $em
      * @param InvalidateLogCacheAction $invalidate
      * @return JsonResponse
      */
-    #[Route(path: '/{id}', name: 'delete_log', methods: ['DELETE'])]
+    #[Route(path: '/{id}', name: 'delete_log_hide', defaults: ['purge' => false], methods: ['DELETE'])]
+    #[Route(path: '/{id}/full', name: 'delete_log_purge', defaults: ['purge' => true], methods: ['DELETE'])]
     #[GateKeeperProfile(only_alive: true, only_with_profession: true, only_in_town: true)]
     #[Toaster]
-    public function delete_log(TownLogEntry $entry, UserHandler $userHandler, EntityManagerInterface $em, InvalidateLogCacheAction $invalidate): JsonResponse {
+    public function delete_log(bool $purge, TownLogEntry $entry, UserHandler $userHandler, EntityManagerInterface $em, InvalidateLogCacheAction $invalidate): JsonResponse {
         $active_citizen = $this->getUser()->getActiveCitizen();
 
-        $manipulations = $this->getManipulationsLeft($active_citizen, $userHandler);
+        $type = $purge ? LogHiddenType::Deleted : LogHiddenType::Hidden;
+        $manipulations = $this->getManipulationsLeft($active_citizen, LogHiddenType::Hidden);
+        $purges = $this->getManipulationsLeft($active_citizen, LogHiddenType::Deleted);
 
-        if ($manipulations <= 0)
+        if (($purge ? $purges : $manipulations) <= 0)
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
-        if ($entry->getZone() || $entry->getHidden() || $entry->getTown() !== $active_citizen->getTown() || $entry->getLogEntryTemplate()->getType() === LogEntryTemplate::TypeNightly)
+        if ($entry->getZone() || $entry->getHidden()->hidden() || $entry->getTown() !== $active_citizen->getTown() || $entry->getLogEntryTemplate()->getType() === LogEntryTemplate::TypeNightly)
             return new JsonResponse([], Response::HTTP_NOT_ACCEPTABLE);
 
         $invalidate($entry);
-        $entry->setHidden( true )->setHiddenBy( $active_citizen );
+        $entry->setHidden( $type )->setHiddenBy( $active_citizen );
         $em->persist( $entry );
-        $em->persist( $active_citizen->getSpecificActionCounter(ActionCounter::ActionTypeRemoveLog)->increment() );
+        $em->persist( $active_citizen->getSpecificActionCounter($purge ? ActionCounter::ActionTypePurgeLog : ActionCounter::ActionTypeRemoveLog)->increment() );
 
         $em->flush();
 
         return new JsonResponse([
             'entries' => $this->renderLogEntries( new ArrayCollection([$entry]) ),
             'total' => 1,
-            'manipulations' => $manipulations - 1
+            'manipulations' => $manipulations - ($purge ? 0 : 1),
+            'purges' => $purges - ($purge ? 1 : 0),
         ]);
     }
 
@@ -380,7 +400,8 @@ class LogController extends CustomAbstractCoreController
                                     'total' => $em->getRepository(TownLogEntry::class)->matching(
                                         $this->applyFilters( $request, $zone, limits: false, allow_inline_days: true, admin: true )
                                     )->count(),
-                                    'manipulations' => 0
+                                    'manipulations' => 0,
+                                    'purges' => 0,
                                 ]);
     }
 
@@ -409,7 +430,8 @@ class LogController extends CustomAbstractCoreController
         return new JsonResponse([
                                     'entries' => $this->renderCachedLogEntries( $em, $criteria, $cache_ident, canHide: false, admin: true ),
                                     'total' => $em->getRepository(TownLogEntry::class)->matching( $countCriteria )->count(),
-                                    'manipulations' => 0
+                                    'manipulations' => 0,
+                                    'purges' => 0,
                                 ]);
     }
 

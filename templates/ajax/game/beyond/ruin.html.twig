@@ -102,13 +102,15 @@
 
                     {% if zone.locked and not shifted and zone.prototype.keyImprint and zone.prototype.keyItem %}
                         {% if can_imprint %}
-                            <button {% if not scavenge %}disabled{% endif %} id="imprint_button">
-                                {% for item in imprint_source %}
-                                    <img class="icon left" alt="" title="{{ item.label|trans({},'item') }}" src="{{ asset('build/images/item/item_' ~ item.icon ~ '.gif') }}" />
-                                {% endfor %}
-                                {{ 'Abdruck nehmen'|trans({},'game') }}
-                                <img class="icon right" alt="" title="{{ imprint_goal.label|trans({},'item') }}" src="{{ asset('build/images/item/item_' ~ imprint_goal.icon ~ '.gif') }}" />
-                            </button>
+                            {% for type in imprint_goal|keys %}
+                                <button {% if not scavenge %}disabled{% endif %} data-imprint-set="{{ type }}">
+                                    {% for item in imprint_source[type] %}
+                                        <img class="icon left" alt="" title="{{ item.label|trans({},'item') }}" src="{{ asset('build/images/item/item_' ~ item.icon ~ '.gif') }}" />
+                                    {% endfor %}
+                                    {{ 'Abdruck nehmen'|trans({},'game') }}
+                                    <img class="icon right" alt="" title="{{ imprint_goal[type].label|trans({},'item') }}" src="{{ asset('build/images/item/item_' ~ imprint_goal[type].icon ~ '.gif') }}" />
+                                </button>
+                            {% endfor %}
                         {% endif %}
                         <button id="unlock_button">
                             {{ 'Tür aufschließen'|trans({},'game') }}
@@ -116,8 +118,12 @@
                         </button>
                     {% endif %}
                 {% endif %}
+                <div id="wb-item-action-section" style="display: contents">
+                    {% embed "ajax/game/actions.html.twig" with {'t': citizen.fullPropertySet, 'scout': false, 'hidden': false, 'iec': true, 'item_action_proxy': path('beyond_ruin_dashboard_partial_item_actions')} %}
+                    {% endembed %}
+                </div>
 
-                {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes,'t': citizen.fullPropertySet, 'scout': false, 'hidden': false} %}
+                {% embed "ajax/game/actions.html.twig" with { 'heroic_action_list': heroics,'t': citizen.fullPropertySet, 'scout': false } %}
                 {% endembed %}
             </div>
 
@@ -167,18 +173,7 @@
         );
         $.html.addEventListenerAll( 'ul.heroic_actions .already[data-used-message]', 'click', (e,elem) => $.html.error( elem.dataset.usedMessage ) );
 
-        handleActions(
-            document.querySelectorAll('ul.actions li[x-action-id][x-provoking-id]:not([disabled])'),
-            '{{ path('beyond_ruin_action_controller') }}', '{{ path('exploration_dashboard') }}'
-        );
-
-        handleActionPopups( document.querySelectorAll('ul.actions [x-target-definition]') );
         handleActionPopups( document.querySelectorAll('ul.heroic_actions [x-target-definition]') );
-
-        handleRecipes(
-            document.querySelectorAll('ul.actions>li[x-recipe-id]:not([disabled])'),
-            '{{ path('beyond_ruin_recipe_controller') }}', '{{ path('exploration_dashboard') }}'
-        );
 
         {% if zone.x == 0 and zone.y == 0 %}
             $.html.addEventListenerAll( '#exit_ruin_button', 'click', function() {
@@ -216,9 +211,9 @@
 
         {% if zone.locked and not shifted and zone.prototype.keyImprint and zone.prototype.keyItem %}
             {% if scavenge and can_imprint %}
-                $.html.addEventListenerAll( '#imprint_button', 'click', function() {
+                $.html.addEventListenerAll( '[data-imprint-set]', 'click', function(e,elem) {
                     if (confirm("{{ 'Einen Abdruck nehmen?'|trans({},'game')|e('js') }}"))
-                        $.ajax.easySend( '{{ path('beyond_ruin_imprint_controller') }}', {},
+                        $.ajax.easySend( '{{ path('beyond_ruin_imprint_controller') }}', {type: elem.dataset.imprintSet},
                             function () {
                                 $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
                             } );

@@ -62,6 +62,9 @@ class Post
 
     #[ORM\Column]
     private bool $anonymous = false;
+
+    #[ORM\Column(nullable: true)]
+    private ?array $noteIcons = null;
     public function __construct()
     {
         $this->adminReports = new ArrayCollection();
@@ -306,6 +309,18 @@ class Post
     public function setAnonymous(bool $anonymous): static
     {
         $this->anonymous = $anonymous;
+
+        return $this;
+    }
+
+    public function getNoteIcons(): ?array
+    {
+        return $this->noteIcons;
+    }
+
+    public function setNoteIcons(?array $noteIcons): static
+    {
+        $this->noteIcons = $noteIcons;
 
         return $this;
     }

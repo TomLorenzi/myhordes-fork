@@ -1,3 +1,4 @@
+---
 E-Mail-Adresse: Dirección de correo electrónico
 'Externe ID für Apps': 'ID externo para aplicaciones'
 'Neue ID generieren': 'Generar nuevo ID'
@@ -611,7 +612,7 @@ Push-Benachrichtigungen: Notificaciones push
 'Verlustlos (bevorzugt WebP, empfehlenswert für Pixel Art)': 'Sin pérdida (WebP, recomendado para pixel art)'
 'Keine Heldenerfahrung gesammelt': 'No se obtuvo experiencia heroica'
 'Einmaliger Verdienst': 'Ganancias únicas'
-'Heldenerfahrung, die du in dieser Stadt gesammelt hast': 'Experiencia heroica que obtuviste en esta ciudad'
+'Heldenerfahrung, die du in dieser Stadt gesammelt hast': 'Experiencia heroica que obtuviste en este pueblo'
 'Deine bisherigen Verdienste': 'Tus méritos anteriores'
 Beschreibung: Descripción
 '{num} oder mehr Seelenpunkte gesammelt': '{num} o más puntos de alma colectados'
@@ -619,7 +620,28 @@ Fähigkeiten-Resets: Restablecimiento de habilidades
 'Sobald du mindestens {num} Erfahrungspunkte ausgegeben hast, kannst du deine Fertigkeiten zurücksetzen.': 'Una vez que hayas gastado al menos {num} puntos de experiencia heroica, podrás restablecer tus habilidades.'
 'Du verlierst dann alle Erfahrungspunkte und Fertigkeiten, die du in dieser Saison erspielt hast, erhälst aber für den Rest der Saison einen zusätzlichen Fähigkeitenpunkt.': 'Luego perderás todos los puntos de experiencia heroica y las habilidades que obtuviste esta temporada, pero ganarás un punto de habilidad adicional durante el resto de la temporada.'
 'Pro Saison kannst du deine Fähigkeiten maximal {num} Mal zurücksetzen.': 'Puedes restablecer tus habilidades un máximo de {num} veces por temporada.'
-'Wenn du eine Stadt als Letzter Toter beendest, erhälst du einen temporären Bonus auf deine Fertigkeitenpunkte.': 'Si terminas una ciudad como último muerto, recibirás una bonificación temporal a tus puntos de habilidad.'
+'Wenn du eine Stadt als Letzter Toter beendest, erhälst du einen temporären Bonus auf deine Fertigkeitenpunkte.': 'Si acabas un pueblo como último superviviente, recibirás una bonificación temporal a tus puntos de habilidades.'
 'Achtung: Dieser Bonus verfällt nach {num} Tagen!': 'Tenga en cuenta: ¡este bono vence después de {num} días!'
 'Verbleibende Zeit': 'Tiempo restante'
 Zurückgesetzt!: '¡Reiniciar!'
+'Fähigkeiten jetzt zurücksetzen': 'Restablecer habilidades ahora'
+'Deine Stadt wurde erfolgreich angelegt.': 'Tu ciudad ha sido creada exitosamente.'
+'Öffentliche Stadt': 'Ciudad publica'
+'Du kannst aktuell keine öffentlichen Städte erstellen (Missbrauchsschutz). Bitte warte ein paar Tage und versuche es dann erneut.': 'Actualmente no puedes crear ciudades públicas (protección contra abusos). Espere unos días y vuelva a intentarlo.'
+'Es sind bereits zu viele öffentliche Städte geplant. Du kannst aktuell keine weiteren Städte anfordern.': 'Ya están planificadas demasiadas ciudades públicas. Actualmente no puedes solicitar ciudades adicionales.'
+'Du benötigst mindestens {sp} Seelenpunkte, um eine Stadt zu eröffnen.': 'Necesitas al menos {sp} puntos de alma para abrir una ciudad.'
+'In vergangenen Zeiten hast du Heldenvorteile ledigtlich durch die Zahl deiner gespielten Heldentage freigeschaltet. Wenn du gerne in Erinnerungen an dieses alte System schwelgen möchtest, kannst du es dir {link}.': 'En el pasado, solo desbloqueabas ventajas de héroe según la cantidad de días de héroe que jugabas. Si quieres recordar este antiguo sistema, puedes {link}.'
+'hier ansehen': 'ver aquí'
+Künstler: Artista
+'Diese Karteikarte gehört einem Künstler. Künstler entwickeln Artworks und Konzepte für die Benutzeroberfläche von MyHordes.': 'Este perfil pertenece a un Artista. Los artistas están a cargo de desarrollar obras y conceptos para la interfaz de usuario de MyHordes.'
+'Einmal pro Saison & Reset': 'Una vez por temporada y reiniciar'
+'Wie kann ich Erfahrung sammeln?': '¿Cómo puedo ganar experiencia?'
+'{num} Plätze im Rucksack': '{num} lugares en la mochila'
+'{num} Plätze in der Truhe': '{num} lugares en el Cofre'
+'{num} Verteidigung bei der Nachtwache': '{num} puntos de defensa durante Vigilia'
+'Im Stadtforum schreiben': 'Redactar en el foro del pueblo'
+Erfahrungsbonus: Bonificación de experiencia
+'Du hast einen Erfahrungsbonus von diesem Spieler erhalten, da er oder sie in dieser Saison eine Fähigkeit erworben hat.': 'Has recibido una bonificación de experiencia de este jugador, ya que él o ella ha adquirido una habilidad en esta temporada.'
+'Du hast in der Vergangenheit einen Erfahrungsbonus von diesem Spieler erhalten, da er oder sie in einer früheren Saison eine Fähigkeit erworben hat.': 'Has recibido en el pasado una bonificación de experiencia de este jugador, ya que él o ella adquirió una habilidad en una temporada anterior.'
+'Du kannst dir einen Erfahrungsbonus verdienen, wenn du diesen Spieler dazu überredest, eine neue Heldenfähigkeit zu erwerben...': 'Puedes obtener una bonificación de experiencia si convences a este jugador de adquirir una nueva habilidad de héroe…'
+'Du erhälst einen Bonus auf deine eigene Heldenerfahrung, sobald ein geworbener Spieler zum ersten Mal pro Saison eine Fähigkeit erwirbt.': 'Recibes una bonificación en tu propia experiencia de héroe tan pronto como un jugador apadrinado adquiera una habilidad por primera vez en cada temporada.'

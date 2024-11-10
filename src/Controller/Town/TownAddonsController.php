@@ -16,6 +16,7 @@ use App\Entity\Recipe;
 use App\Entity\LogEntryTemplate;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Enum\Configuration\CitizenProperties;
 use App\Enum\EventStages\BuildingValueQuery;
 use App\Event\Game\Citizen\CitizenQueryNightwatchDeathChancesEvent;
 use App\Event\Game\Citizen\CitizenQueryNightwatchDefenseEvent;
@@ -406,6 +407,7 @@ class TownAddonsController extends TownController
         return $this->render( 'ajax/game/town/nightwatch.html.twig', $this->addDefaultTwigArgs('battlement', [
             'watchers' => $watchers,
             'is_watcher' => $is_watcher,
+            'baseDef'     => 10 + $this->getActiveCitizen()->property(CitizenProperties::WatchDefense),
             'deathChance' => $chances['death'],
             'woundChance' => $chances['wound'],
 			'terrorChance' => $chances['terror'],

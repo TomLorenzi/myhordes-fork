@@ -165,8 +165,8 @@
                                 <div class="row header">
                                     <div class="padded cell rw-3">{{ 'Geworbener Spieler'|trans({},'soul') }}</div>
                                     <div class="padded cell rw-3">{{ 'Seelenpunkte'|trans({},'soul') }}</div>
-                                    <div class="padded cell rw-3">{{ 'Heldenerfahrung'|trans({},'soul') }}</div>
-                                    <div class="padded cell rw-3">{{ 'Koalition'|trans({},'soul') }}</div>
+                                    <div class="padded cell rw-3 center">{{ 'Erfahrungsbonus'|trans({},'soul') }}</div>
+                                    <div class="padded cell rw-3 right">{{ 'Koalition'|trans({},'soul') }}</div>
                                 </div>
                                 {% for entry in sponsored|sort((a, b) => a.user.name|lower <=> b.user.name|lower) %}
                                     <div class="row">
@@ -178,8 +178,25 @@
                                             {% endif %}
                                         </div>
                                         <div class="padded cell rw-3">{{ entry.user.allSoulPoints }}</div>
-                                        <div class="padded cell rw-3">{{ entry.user.heroDaysSpent }}</div>
-                                        <div class="padded cell rw-3">
+                                        <div class="padded cell rw-3 center">
+                                            {% if entry.seasonalPayout %}
+                                                <div>
+                                                    <img alt="" src="{{ asset('build/images/anims/heroLogo_' ~ app.user.language ~ '.gif') }}"/>
+                                                    <div class="tooltip help">{{ 'Du hast einen Erfahrungsbonus von diesem Spieler erhalten, da er oder sie in dieser Saison eine Fähigkeit erworben hat.'|trans({},'soul') }}</div>
+                                                </div>
+                                            {% elseif entry.payout %}
+                                                <div>
+                                                    <img alt="" style="filter: saturate(0%)" src="{{ asset('build/images/anims/heroLogo_' ~ app.user.language ~ '.gif') }}"/>
+                                                    <div class="tooltip help">{{ 'Du hast in der Vergangenheit einen Erfahrungsbonus von diesem Spieler erhalten, da er oder sie in einer früheren Saison eine Fähigkeit erworben hat.'|trans({},'soul') }}</div>
+                                                </div>
+                                            {% else %}
+                                                <div>
+                                                    <img alt="" style="filter: saturate(0%)" src="{{ asset('build/images/icons/small_hero.gif') }}"/>
+                                                    <div class="tooltip help">{{ 'Du kannst dir einen Erfahrungsbonus verdienen, wenn du diesen Spieler dazu überredest, eine neue Heldenfähigkeit zu erwerben...'|trans({},'soul') }}</div>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                        <div class="padded cell rw-3 right">
                                             {% if coa is null %}
                                                 <span class="small"><i>{{ 'Du hast keine Koalition.'|trans({},'soul') }}</i></span>
                                             {% elseif coa_full %}
@@ -212,6 +229,7 @@
                         <div class="lightbox">
                             <ul class="hordes-bullets">
                                 <li><b>???</b> <span class="small"><i>{{ 'Lass dich überraschen!'|trans({},'soul') }}</i></span></li>
+                                <li>{{ 'Du erhälst einen Bonus auf deine eigene Heldenerfahrung, sobald ein geworbener Spieler zum ersten Mal pro Saison eine Fähigkeit erwirbt.'|trans({},'soul') }}</li>
                                 <li>{{ 'Du kannst nach Anmeldung des geworbenen Spielers sofort mit ihm in einer Koalition spielen.'|trans({},'soul') }}</li>
                                 <li>{{ random([
                                         'Du bekommst einen frischen jugendlichen Teint und einen Babypopo.'|trans({},'soul'),

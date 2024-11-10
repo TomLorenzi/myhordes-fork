@@ -33,6 +33,7 @@ use App\Enum\Configuration\CitizenProperties;
 use App\Enum\Configuration\TownSetting;
 use App\Enum\EventStages\BuildingEffectStage;
 use App\Enum\EventStages\BuildingValueQuery;
+use App\Enum\EventStages\CitizenValueQuery;
 use App\Enum\ItemPoisonType;
 use App\Event\Game\Citizen\CitizenQueryNightwatchDeathChancesEvent;
 use App\Event\Game\Citizen\CitizenQueryNightwatchDefenseEvent;
@@ -745,7 +746,7 @@ class NightlyHandler
 			$watcherDefense = $this->events->citizenQueryNightwatchDefense($watcher->getCitizen(), $this->log);
             $defBonus = $overflow > 0 ? floor($watcherDefense * $def_scale) : 0;
 
-			$chances = $this->events->citizenQueryNightwatchDeathChance($watcher->getCitizen(), $this->log);
+			$chances = $this->events->citizenQueryNightwatchDeathChance($watcher->getCitizen(), $this->log, true);
 			$deathChances = $chances['death'];
 
             $woundOrTerrorChances = $chances['wound'] + $chances['terror'];
@@ -774,7 +775,7 @@ class NightlyHandler
                 foreach ($ctz->getInventory()->getItems() as $item)
                     if ($item->getPrototype()->getWatchpoint() > 0 || $item->getPrototype()->getName() === 'chkspk_#00') $this->inventory_handler->forceRemoveItem( $item );
 
-                $this->kill_wrap($ctz, $cod, false, $defBonus, $skip);
+                $this->kill_wrap($ctz, $cod, false, max(1,$defBonus), $skip);
 
             } else if($overflow > 0 && $this->random->chance($woundOrTerrorChances)) {
 
@@ -965,25 +966,40 @@ class NightlyHandler
             return;
         }
 
-        $survival_count = 0;
-        /** @var Citizen[] $targets */
-        $targets = [];
-        foreach ($town->getCitizens() as $citizen) {
-            if ($citizen->getAlive()) {
-                $survival_count++;
-                if (!$citizen->getZone())
-                    $targets[] = $citizen;
-            }
-        }
-					
-		
-        shuffle($targets);
+        /** @var Citizen[] $all_targets */
+        $all_targets = [];
+        foreach ($town->getCitizens() as $citizen)
+            if ($citizen->getAlive() && !$citizen->getZone())
+                $all_targets[$citizen->getId()] = $citizen;
 
-        $max_active = $this->events->queryTownParameter( $town, BuildingValueQuery::MaxActiveZombies, count($targets) );
-		$in_town = min(10, ceil(count($targets) * 1.0));
+        $max_active = $this->events->queryTownParameter( $town, BuildingValueQuery::MaxActiveZombies );
+		$in_town = min(
+            10 + 2 * floor(max(0, $town->getDay() - 10)/2),
+            ceil(count($all_targets) * 1.0)
+        );
 		
 		$attacking = min($max_active, $overflow);
-		$targets = $this->random->pick($targets, $in_town, true);
+
+        $attract_targets = array_filter( array_map(
+            function(Citizen $c) use ($attacking) {
+                $v = $this->events->queryCitizenParameter($c, CitizenValueQuery::NightlyAttraction);
+                if ($v > 0) {
+                    $z = (int)round($attacking * $v);
+                    $this->log->debug("Citizen <info>{$c->getUser()->getUsername()}</info> has an attraction force of <info>$v</info> and will attract <info>{$z}</info> zombies!");
+                    return $z;
+                } else return 0;
+            }, $all_targets
+        ), fn(int $v) => $v > 0 );
+
+        $detracted = array_sum( $attract_targets );
+        $this->log->debug("From <info>{$attacking}</info> Zombies, <info>{$detracted}</info> are detracted towards <info>" . count($attract_targets) . "</info> citizens!");
+
+        $attacking -= $detracted;
+
+		/** @var Citizen[] $targets */
+        $targets = $this->random->pick($all_targets, $in_town, true);
+
+        shuffle($targets);
 
         $this->log->debug("<info>{$attacking}</info> Zombies are attacking <info>" . count($targets) . "</info> citizens!");
         if (!empty($targets)) $this->entity_manager->persist( $this->logTemplates->nightlyAttackLazy($town, $attacking) );
@@ -1021,50 +1037,58 @@ class NightlyHandler
 
 		rsort($repartition);
 
-        for ($i = 0; $i < count($repartition); $i++) {
-            $home = $targets[$i]->getHome();
-			
-			$force = $repartition[$i];
-			
+        $process = function(Citizen $c, int $force) use ($cod, &$deaths, $gazette, $has_kino, $status_terror) {
+            $home = $c->getHome();
+
             $def = $this->town_handler->calculate_home_def($home);
-            $this->log->debug("Citizen <info>{$targets[$i]->getUser()->getUsername()}</info> is attacked by <info>{$force}</info> zombies and protected by <info>{$def}</info> home defense!");
-		
+            $this->log->debug("Citizen <info>{$c->getUser()->getUsername()}</info> is attacked by <info>{$force}</info> zombies and protected by <info>{$def}</info> home defense!");
+
             if ($force > $def){
-                $this->kill_wrap($targets[$i], $cod, false, $force);
+                $this->kill_wrap($c, $cod, false, $force);
                 $deaths++;
-				
+
                 // citizen dies from the attack, citizen validate the new day
                 $gazette->setDeaths($gazette->getDeaths() + 1);
             }
             else {
-                $this->entity_manager->persist($this->logTemplates->citizenZombieAttackRepelled( $targets[$i], $def, $force));
+                $this->entity_manager->persist($this->logTemplates->citizenZombieAttackRepelled( $c, $def, $force));
                 // Calculate decoration
-                $deco = $this->citizen_handler->getDecoPoints($targets[$i]);
+                $deco = $this->citizen_handler->getDecoPoints($c);
 
-                if (!$has_kino && !$this->citizen_handler->hasStatusEffect($targets[$i], $status_terror)) {
+                if (!$has_kino && !$this->citizen_handler->hasStatusEffect($c, $status_terror)) {
 
-                    $quies = $this->inventory_handler->fetchSpecificItems( [$targets[$i]->getInventory(),$targets[$i]->getHome()->getChest()], [new ItemRequest('bquies_#00')] );
+                    $quies = $this->inventory_handler->fetchSpecificItems( [$c->getInventory(),$c->getHome()->getChest()], [new ItemRequest('bquies_#00')] );
 
                     $terror_chance = 100;
                     $terror_chance -= min($deco, 10);
-                    $terror_chance -= $this->citizen_handler->hasStatusEffect( $targets[$i], 'tg_clothes' )     ?  3 : 0;
-                    $terror_chance -= $this->citizen_handler->hasStatusEffect( $targets[$i], 'tg_home_clean' )  ?  5 : 0;
-                    $terror_chance -= $this->citizen_handler->hasStatusEffect( $targets[$i], 'tg_home_shower' ) ? 10 : 0;
+                    $terror_chance -= $this->citizen_handler->hasStatusEffect( $c, 'tg_clothes' )     ?  3 : 0;
+                    $terror_chance -= $this->citizen_handler->hasStatusEffect( $c, 'tg_home_clean' )  ?  5 : 0;
+                    $terror_chance -= $this->citizen_handler->hasStatusEffect( $c, 'tg_home_shower' ) ? 10 : 0;
                     $terror_chance -= $quies                                                                          ? 10 : 0;
 
                     if ($this->random->chance($terror_chance / 100)) {
-                        $this->citizen_handler->inflictStatus( $targets[$i], $status_terror );
-                        $this->log->debug("Citizen <info>{$targets[$i]->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
+                        $this->citizen_handler->inflictStatus( $c, $status_terror );
+                        $this->log->debug("Citizen <info>{$c->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
 
-                        $this->crow->postAsPM($targets[$i], '', '', PrivateMessage::TEMPLATE_CROW_TERROR, $force);
+                        $this->crow->postAsPM($c, '', '', PrivateMessage::TEMPLATE_CROW_TERROR, $force);
 
                         $gazette->setTerror($gazette->getTerror() + 1);
                     } else {
-                        $this->crow->postAsPM($targets[$i], '', '', PrivateMessage::TEMPLATE_CROW_AVOID_TERROR, $force);
+                        $this->crow->postAsPM($c, '', '', PrivateMessage::TEMPLATE_CROW_AVOID_TERROR, $force);
                     }
                 }
             }
+        };
+
+        $processed = [];
+        for ($i = 0; $i < count($repartition); $i++) {
+            $process( $targets[$i], $repartition[$i] + ($attract_targets[$targets[$i]->getId()] ?? 0) );
+            $processed[] = $targets[$i]->getId();
         }
+
+        foreach ($attract_targets as $cid => $force)
+            if (!in_array( $cid, $processed ))
+                $process( $all_targets[$cid], $force );
 
         if ($deaths > 0)
             $this->entity_manager->persist($this->logTemplates->citizenDeathsDuringAttack($town, $deaths));

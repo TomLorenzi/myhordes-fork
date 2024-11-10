@@ -119,40 +119,11 @@ class TownController extends InventoryAwareController
     protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
         $data = $data ?? [];
 
-        $addons = [];
         $town = $this->getActiveCitizen()->getTown();
 
-        $data["builtbuildings"] = array();
+        $data["builtbuildings"] = $this->getActiveCitizen()->getTown()->getBuildings()->filter(fn(Building $b) => $b->getComplete())->toArray();
 
-        if ($this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH_INSTANT, false) && $this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true))
-            $addons['battlement'] = [T::__('Wächt', 'game'), 'town_nightwatch', 3];
-
-        foreach ($town->getBuildings() as $b) if ($b->getComplete()) {
-
-            if ($b->getPrototype()->getMaxLevel() > 0)
-                $addons['upgrade']  = [T::__('Verbesserung des Tages (building)', 'game'), 'town_upgrades', 0];
-
-            if ($b->getPrototype()->getName() === 'item_tagger_#00')
-                $addons['watchtower'] = [T::__('Wachturm', 'game'), 'town_watchtower', 1];
-
-            if ($b->getPrototype()->getName() === 'small_refine_#00')
-                $addons['workshop'] = [T::__('Werkstatt (building)', 'game'), 'town_workshop', 2];
-
-            if (($b->getPrototype()->getName() === 'small_round_path_#00' && !$this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH_INSTANT, false)) && $this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true))
-                $addons['battlement'] = [T::__('Wächt', 'game'), 'town_nightwatch', 3];
-
-            if ($b->getPrototype()->getName() === 'small_trash_#00')
-                $addons['dump'] = [T::__('Müllhalde', 'game'), 'town_dump', 4];
-
-            if ($b->getPrototype()->getName() === 'item_courroie_#00')
-                $addons['catapult'] = [T::__('Katapult', 'game'), 'town_catapult', 5];
-            
-
-            $data["builtbuildings"][] = $b;
-
-        }
-
-        $data['addons'] = $addons;
+        $data['addons'] = $this->events->queryTownAddons( $this->getActiveCitizen()->getTown() );
         $data['home'] = $this->getActiveCitizen()->getHome();
         $data['chaos'] = $town->getChaos();
         $data['town'] = $town;
@@ -175,7 +146,7 @@ class TownController extends InventoryAwareController
     #[Route(path: 'jx/town/dashboard', name: 'town_dashboard')]
     public function dashboard(TownHandler $th, GameEventService $gameEvents): Response
     {
-        if (!$this->getActiveCitizen()->getHasSeenGazette())
+        if (!$this->getActiveCitizen()?->getHasSeenGazette())
             return $this->redirectToRoute('game_newspaper');
 
         $town = $this->getActiveCitizen()->getTown();
@@ -405,6 +376,7 @@ class TownController extends InventoryAwareController
 
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
             'owner' => $c,
+            'master_thief' => $this->getActiveCitizen()->property( CitizenProperties::EnableAdvancedTheft ),
             'can_attack' => !$this->getActiveCitizen()->getBanished() && !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= $this->getTownConf()->get( TownConf::CONF_MODIFIER_ATTACK_AP, 5 ),
             'can_devour' => $this->getActiveCitizen()->hasRole('ghoul'),
             'allow_devour' => !$this->getActiveCitizen()->getBanished() && !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_eat'),
@@ -730,8 +702,9 @@ class TownController extends InventoryAwareController
 
         $action = $parser->get_int('action');
 
+        $master_thief = $this->getActiveCitizen()->property( CitizenProperties::EnableAdvancedTheft );
         $victim = $this->entity_manager->getRepository(Citizen::class)->find( $id );
-        if (!$victim || $victim->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId() || ($this->citizen_handler->houseIsProtected($victim, true) && $victim->getAlive()) || (!$victim->getZone() && $victim->getAlive()))
+        if (!$victim || $victim->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId() || ($this->citizen_handler->houseIsProtected($victim, true) && $victim->getAlive()) || ((!$victim->getZone() && !$master_thief) && $victim->getAlive()))
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
         if ($action !== 0) {
@@ -1295,7 +1268,7 @@ class TownController extends InventoryAwareController
     #[Route(path: 'jx/town/constructions', name: 'town_constructions')]
     public function constructions(TownHandler $th): Response
     {
-        if (!$this->getActiveCitizen()->getHasSeenGazette())
+        if (!$this->getActiveCitizen()?->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
         $town = $this->getActiveCitizen()->getTown();
         $buildings = $town->getBuildings();

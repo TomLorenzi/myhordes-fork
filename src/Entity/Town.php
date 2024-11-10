@@ -128,6 +128,9 @@ class Town
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $lastAttackProcessedAt = null;
 
+    #[ORM\Column]
+    private ?bool $mayor = false;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -921,6 +924,18 @@ class Town
     public function setLastAttackProcessedAt(\DateTimeImmutable $lastAttackProcessedAt): static
     {
         $this->lastAttackProcessedAt = $lastAttackProcessedAt;
+
+        return $this;
+    }
+
+    public function isMayor(): bool
+    {
+        return $this->mayor;
+    }
+
+    public function setMayor(bool $mayor): static
+    {
+        $this->mayor = $mayor;
 
         return $this;
     }

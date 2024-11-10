@@ -61,6 +61,11 @@ class EmoteDataService implements FixtureProcessorInterface {
             ['tag'=>':ap:', 'path'=>'build/images/emotes/ap.{lang}.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 49, 'i18n' => true],
             ['tag'=>':pc:', 'path'=>'build/images/emotes/pc.{lang}.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 50, 'i18n' => true],
             ['tag'=>':pm:', 'path'=>'build/images/emotes/pm.{lang}.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 51, 'i18n' => true],
+            ['tag'=>':ep:', 'path'=>'build/images/emotes/sp.{lang}.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 50, 'i18n' => true],
+            ['tag'=>':pa:', 'path'=>'build/images/emotes/ap.{lang}.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> -1, 'i18n' => true],
+            ['tag'=>':cp:', 'path'=>'build/images/emotes/pc.{lang}.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> -1, 'i18n' => true],
+            ['tag'=>':mp:', 'path'=>'build/images/emotes/pm.{lang}.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> -1, 'i18n' => true],
+            ['tag'=>':pe:', 'path'=>'build/images/emotes/sp.{lang}.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> -1, 'i18n' => true],
             ['tag'=>':iloveu:', 'path'=>'build/images/emotes/iloveu.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 52],
             ['tag'=>':sock:', 'path'=>'build/images/emotes/socks.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 53],
             ['tag'=>':build:', 'path'=>'build/images/emotes/build.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 54],
@@ -153,6 +158,8 @@ class EmoteDataService implements FixtureProcessorInterface {
             ['tag'=>':eventwin:', 'path'=>'build/images/emotes/eventwin.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 117],
             ['tag'=>':eventpart:', 'path'=>'build/images/emotes/eventpart.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 118],
             ['tag'=>':thermal:', 'path'=>'build/images/emotes/thermal.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 80],
+            ['tag'=>':decofeist:', 'path'=>'build/images/emotes/decofeist.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 81],
+            ['tag'=>':cburn:', 'path'=>'build/images/emotes/cburn.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 82],
         ]);
     }
 }

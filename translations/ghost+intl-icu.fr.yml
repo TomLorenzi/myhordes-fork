@@ -1,3 +1,4 @@
+---
 'Die gewählte Stadt ist bereits voll.': 'Cette ville est déjà pleine.'
 'Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.': 'Vous ne pouvez pas rejoindre plus d''une ville à la fois.'
 'Du bist dieser Stadt bereits beigetreten.': 'Vous avez déjà rejoint cette ville.'
@@ -359,3 +360,28 @@ Roulette: Roulette
 'Dies geschieht sowohl passiv durch deinen Überlebenskampf als auch aktiv durch bestimmte Taten, die du vollbringst. Hier findest du eine Auflistung der Erfahrung, die du in diesem Leben gesammelt hast.': 'Cela se produit à la fois passivement à travers votre lutte pour la survie et activement à travers certaines actions que vous effectuez. Vous trouverez ici une liste des expériences que vous avez acquises dans cette vie.'
 Fähigkeiten: Compétences
 Fähigkeitenpunkte: Points de compétence
+'Eine Stadt gründen': 'Créer une ville'
+'Privatstädte ermöglichen es, zahlreiche Spielregeln anzupassen und den Zugang zur Stadt einzuschränken.': 'Les villes privées permettent d''adapter de nombreuses règles du jeu et de restreindre l''accès à la ville.'
+'Sie sind jedoch grundsätzlich vom Ranking ausgeschlossen!': 'Pourtant, elles sont généralement exclus du classement !'
+'Öffentliche Städte folgen den normalen Regeln von MyHordes. Falls du mit einer größeren Gruppe von Spielern unterwegs bist, kannst du hier für eine öffentliche Stadt für einen bestimmten Zeitpunkt vormerken.': 'Les villes publiques suivent les règles normales de MyHordes. Si vous voyagez avec un plus grand groupe de joueurs, vous pouvez réserver ici une ville publique pour une heure précise.'
+'Ist eine solche Stadt erstellt, kann jeder Spieler ihr beitreten.': 'Une fois qu’une telle ville a été créée, n’importe quel joueur peut la rejoindre.'
+'Öffentliche Städte sind im Gegensatz zu Privaten Städten NICHT vom Ranking ausgeschlossen.': 'Contrairement aux villes privées, les villes publiques ne sont PAS exclues du classement.'
+'Wichtig:': 'Important :'
+'Wenn du eine öffentliche Stadt anlegst, kannst du für bis zu {days} Tage nach dem Stadtstart keiner öffentlichen Stadt beitreten, die von einem anderen Spieler angelegt wurde.': 'Lorsque vous créez une ville publique, vous ne pouvez pas rejoindre une ville publique créée par un autre joueur jusqu''à {days} jours après le début de la ville.'
+'Wenn du einer von einem anderen Spieler angelegten öffentlichen Stadt beitrittst, kannst du bis zu {days} Tage keine eigene Stadt eröffnen oder einer Stadt eines anderen Spielers beitreten.': 'Si vous rejoignez une ville publique créée par un autre joueur, vous ne pouvez pas ouvrir votre propre ville ni rejoindre la ville d''un autre joueur pendant {days} jours maximum.'
+Stadtstart: Départ de la ville
+'Deine Stadt': 'Votre ville'
+'Du kannst maximal eine öffentliche Stadt gleichzeitig gründen.': 'Vous pouvez créer au maximum une ville publique à la fois.'
+'Kein schlechter Anfang!': 'Pas un mauvais début !'
+'Du beweist Ausdauer!': 'Vous faites preuve de persévérance !'
+'Schön, dass du es bis hierher geschafft hast! Du hast jetzt Zugang zu mehr heldenhaften Fähigkeiten, also nutze sie auf intelligente Weise.': 'Heureux que vous soyez arrivé jusqu''ici ! Vous avez désormais accès à davantage de capacités héroïques, alors utilisez-les intelligemment.'
+'Du verstehst mittlerweile besser, was hier vor sich geht, aber lass mich dir eine ganz neue Welt vorstellen: das Weltforum. Dort kannst du über die Zukunft des Spiels diskutieren, an Events in Städten mit besonderen Regeln teilnehmen, global um Hilfe bitten, wenn du einige Mechaniken nicht verstehst, oder mit allen Spielern diskutieren.': 'Vous comprenez désormais mieux ce qui se passe ici, mais laissez-moi vous présenter un tout nouveau monde : le Forum monde. Là, vous pouvez discuter de l''avenir du jeu, participer à des événements dans des villes avec des règles spéciales, demander de l''aide à l''échelle mondiale si vous ne comprenez pas certaines mécaniques, ou discuter avec tous les joueurs.'
+'Achtet jedoch auf die Regeln, die in jedem Forum angeheftet sind - die Raben sind immer wachsam! Zunächst aber wünschen wir dir weiterhin Viel Spaß!': 'Attention cependant aux règles affichées sur chaque forum : les corbeaux sont toujours vigilants ! Mais d’abord, nous vous souhaitons beaucoup de plaisir !'
+'Zum Weltforum': 'Vers le Forum monde'
+'Du scheinst motiviert zu sein und du lebst sogar noch... Gratuliere, dein Repertoire an heldenhaften Fähigkeiten hat sich erneut erweitert!': 'Vous semblez motivé et vous êtes même toujours en vie... Félicitations, votre répertoire de compétences héroïques s''est encore élargi !'
+'Du hast jetzt Zugang zu Pandämonium-Städten. Hier sind die Regeln ein wenig anders, in einem mehr... tödlichen Stil. Vergiss niemals nicht die erste Regel: Dein schlimmster Feind ist vielleicht der Bürger von nebenan.': 'Vous avez désormais accès aux villes du Pandémonium. Les règles y sont un peu différentes, dans un style plus... meurtrier. N’oubliez jamais la première règle : votre pire ennemi est peut-être votre voisin d’à côté.'
+'Du kannst aktuell keinen von Spielern erstellten Städten beitreten.': 'Vous ne pouvez actuellement pas rejoindre les villes créées par les joueurs.'
+'Diese Sperre endet am {date} um {time}.': 'Cette interdiction prend fin le {date} à {time}.'
+'Diese Stadt wurde von einem Spieler gegründet.': 'Cette ville a été créée par un joueur.'
+'Sie folgt den normalen Spielregeln und wird an ihrem Ende ins Ranking aufgenommen.': 'Elle suit les règles normales du jeu et est incluse dans le classement des villes.'
+'Wenn du dieser Stadt beitrittst, kannst du {block} Tage danach keiner anderen von einem Spieler gegründeten Stadt beitreten.': 'Si vous rejoignez cette ville, vous ne pourrez rejoindre aucune autre ville créée par un joueur pendant {block} jours après.'

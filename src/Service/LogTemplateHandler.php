@@ -167,8 +167,9 @@ class LogTemplateHandler
 		return "{$dog_names_prefix[abs($preID % count($dog_names_prefix))]}{$dog_names_suffix[abs($sufID % count($dog_names_suffix))]}";
 	}
     
-    public function parseTransParams(array $variableTypes, array $variables): ?array {
+    public function parseTransParams(array $variableTypes, ?array $variables): ?array {
         $transParams = [];
+        if (!$variables) return [];
 
         $reference_citizen = null;
         foreach ($variableTypes as $typeEntry)
@@ -241,7 +242,7 @@ class LogTemplateHandler
                 elseif ($typeEntry['type'] === 'num' || ($typeEntry['type'] === 'string' && empty( $variables["{$typeEntry['name']}__translate"] ))) {
                     $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun($variables[$typeEntry['name']] ?? 0);
                     if($typeEntry['type'] === 'num')
-                        $transParams['{raw_'.$typeEntry['name'].'}'] = $variables[$typeEntry['name']];
+                        $transParams['{raw_'.$typeEntry['name'].'}'] = $variables[$typeEntry['name']] ?? '';
                 }
                 elseif ($typeEntry['type'] === 'transString' || ($typeEntry['type'] === 'string' && !empty( $variables["{$typeEntry['name']}__translate"] ))) {
                     $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( $this->trans->trans($variables[$typeEntry['name']], [], $variables["{$typeEntry['name']}__translate"] ?? $typeEntry['from'] ?? 'game') );
@@ -269,12 +270,12 @@ class LogTemplateHandler
                 }
                 elseif ($typeEntry['type'] === 'title-list') {
                     $transParams['{'.$typeEntry['name'].'}'] = "<div class='list'>";
-                    $transParams['{'.$typeEntry['name'].'}'] .= implode('', array_map( fn($e) => $this->wrap($this->trans->trans($e, [], 'game')), $variables[$typeEntry['name']] ));
+                    $transParams['{'.$typeEntry['name'].'}'] .= implode('', array_map( fn($e) => $this->wrap($this->trans->trans($e, [], 'game')), $variables[$typeEntry['name']] ?? [] ));
                     $transParams['{'.$typeEntry['name'].'}'] .= "</div>";
                 }
                 elseif ($typeEntry['type'] === 'title-icon-list') {
                     $transParams['{'.$typeEntry['name'].'}'] = "<div class='list'>";
-                    $transParams['{'.$typeEntry['name'].'}'] .= implode('', array_map( fn($e) => "<img alt='$e' src='{$this->asset->getUrl( "build/images/icons/title/$e.gif" )}' />", $variables[$typeEntry['name']] ));
+                    $transParams['{'.$typeEntry['name'].'}'] .= implode('', array_map( fn($e) => "<img alt='$e' src='{$this->asset->getUrl( "build/images/icons/title/$e.gif" )}' />", $variables[$typeEntry['name']] ?? [] ));
                     $transParams['{'.$typeEntry['name'].'}'] .= "</div>";
                 }
                 elseif ($typeEntry['type'] === 'accountRestrictionMask') {
@@ -389,7 +390,7 @@ class LogTemplateHandler
                     }
                 }
                 else {
-                    $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), $typeEntry['type'] === 'profession', $variables['broken'] ?? false ), $typeEntry['type'] === 'professionFull' ? 'jobName': '' );
+                    $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ?? 0 ), $typeEntry['type'] === 'profession', $variables['broken'] ?? false ), $typeEntry['type'] === 'professionFull' ? 'jobName': '' );
                 }
             }
             catch (Exception|\Error $e) {

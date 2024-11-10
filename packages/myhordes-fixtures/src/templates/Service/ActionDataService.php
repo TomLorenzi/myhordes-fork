@@ -124,6 +124,7 @@ class ActionDataService implements FixtureProcessorInterface {
 
                 'eat_6ap'   => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item' ], 'escort_message_key' => 'escort_food_eat' ],
                 'eat_7ap'   => [ 'label' => 'Essen', 'priority' => 1, 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap7', 'consume_item' ], 'escort_message_key' => 'escort_food_eat' ],
+                'eat_4ap'   => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap_msg_food' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap4', 'consume_item' ], 'escort_message_key' => 'escort_food_eat' ],
 
                 'drug_xana1' => [ 'label' => 'Einsetzen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1', 'must_be_terrorized_hd' ],  'result' => [ 'contaminated_zone_infect', 'drug_any', 'unterrorize', 'consume_item' ], 'message_key' => 'drug_xanax' ],
                 'drug_xana2' => [ 'label' => 'Einsetzen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2', 'must_be_terrorized_hd' ],  'result' => [ 'contaminated_zone_infect', 'drug_addict', 'unterrorize', 'consume_item' ], 'message_key' => 'drug_xanax' ],
@@ -429,13 +430,15 @@ class ActionDataService implements FixtureProcessorInterface {
                 'hero_hunter_1' => [ 'label' => 'Tarnen', 'at00' => true, 'meta' => [ 'must_be_outside', 'hunter_no_followers', 'must_have_control_hunter' ], 'result' => [ 'hero_hunter' ], 'message' => 'Du bist ab sofort getarnt.' ],
                 'hero_hunter_2' => [ 'label' => 'Tarnen', 'at00' => true, 'meta' => [ 'must_be_inside' ], 'result' => [ 'hero_hunter' ], 'message' => 'Du bist nun getarnt.' ],
 
-                'hero_generic_return'       => [ 'label' => 'Die Rückkehr des Helden', 'tooltip' => 'Wenn du 11 km oder weniger von der Stadt entfernt bist, kehrst du sofort in die Stadt zurück!', 'cover' => true, 'at00' => true, 'meta' => [ 'must_be_outside_or_exploring', 'must_be_outside_within_hr', 'not_yet_hero'], 'result' => [ 'hero_act', 'hero_return'], 'message' => 'Mit deiner letzten Kraft hast du dich *in die Stadt geschleppt*... *Ein Wunder*!' ],
+                'hero_generic_return'       => [ 'label' => 'Die Rückkehr des Helden', 'tooltip' => 'Wenn du {' . CitizenProperties::HeroReturnRange->translationKey() . '} km oder weniger von der Stadt entfernt bist, kehrst du sofort in die Stadt zurück!', 'cover' => true, 'at00' => true, 'meta' => [ 'must_be_outside_or_exploring', 'must_be_outside_within_hr', 'not_yet_hero'], 'result' => [ 'hero_act', 'hero_return'], 'message' => 'Mit deiner letzten Kraft hast du dich *in die Stadt geschleppt*... *Ein Wunder*!' ],
                 'hero_generic_find'         => [ 'label' => 'Fund', 'tooltip' => 'Wie durch ein Wunder treibst du einen nützlichen Gegenstand auf.', 'cover' => true, 'at00' => true, 'target' => ['type' => ItemTargetDefinition::ItemTypeSelectionType, 'property' => 'hero_find'], 'meta' => [ 'not_yet_hero' ], 'result' => [ 'hero_act', 'spawn_target'], 'message' => 'So was nennt man wohl <strong>Glück</strong>! <t-inside>Du hast soeben {items_spawn} in einem Abfallberg neben deinem Haus gefunden!</t-inside><t-outside>Du hast soeben {items_spawn} im Wüstensand gefunden!</t-outside> Genau das, was du gebraucht hast!'],
                 'hero_generic_find_lucky'   => [ 'label' => 'Schönes Fundstück', 'tooltip' => 'Wie durch ein Wunder treibst du einen nützlichen Gegenstand auf.', 'cover' => true, 'at00' => true, 'target' => ['type' => ItemTargetDefinition::ItemTypeSelectionType, 'property' => 'hero_find_lucky'], 'meta' => [ 'not_yet_hero' ], 'result' => [ 'hero_act', 'spawn_target'], 'message' => 'So was nennt man wohl <strong>Glück</strong>! <t-inside>Du hast soeben {items_spawn} in einem Abfallberg neben deinem Haus gefunden!</t-inside><t-outside>Du hast soeben {items_spawn} im Wüstensand gefunden!</t-outside> Genau das, was du gebraucht hast!'],
                 'hero_generic_punch'        => [ 'label' => 'Wildstyle Uppercut', 'tooltip' => 'Damit kannst du mit einem Schlag {' . CitizenProperties::HeroPunchKills->translationKey() . '} Zombies umbringen!', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_yet_hero'], 'result' => [ 'hero_act', 'zone_kill_punch'], 'message' => 'Mit Hilfe deiner übermenschlichen Heldenkräfte hast du <strong>{kills} Zombie(s)</strong> platt gemacht!' ],
-                'hero_generic_ap'           => [ 'label' => 'Zweite Lunge', 'tooltip' => 'Stellt deine AP wieder her und beseitigt deine Müdigkeit.', 'cover' => true, 'at00' => true, 'meta' => [ 'no_full_ap_msg', 'not_yet_hero'], 'result' => [ 'hero_act', 'just_ap_sw'], 'message' => 'Du atmest tief durch und drückst den Rücken durch. Auf geht\'s! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und <strong>{ap} neue AP erhalten</strong>.'],
-                'hero_generic_immune'       => [ 'label' => 'Den Tod besiegen', 'tooltip' => 'Beim nächsten Angriff wird der Durst-, Infektions- und Abhängigkeitszustand außer Kraft gesetzt.', 'cover' => true, 'at00' => true, 'meta' => [ 'not_yet_hero'], 'result' => [ 'hero_act', 'hero_immune'], 'message' => 'Du versucht nochmal alle deine Kräfte für heute Abend zu mobilisieren. Die Anspannung steht dir ins Gesicht geschrieben. Du schwitzt und deine Hände zittern.{hr}Beim heutigen Angriff wirst du weder weder Durst, noch Krankheitssymptome (Infektion), noch Entzugserscheinungen verspüren.'],
-                'hero_generic_rescue'       => [ 'label' => 'Rettung', 'tooltip' => 'Du bringst einen anderen Spieler nach Hause (dieser darf max. 2 Felder von der Stadt entfernt sein).', 'confirm' => true, 'confirmMsg' => 'Möchtest du {target} heimbringen?' ,'target' => ['type' => ItemTargetDefinition::ItemHeroicRescueType], 'meta' => [ 'must_be_inside', 'not_yet_hero'], 'result' => [ 'hero_act', 'hero_rescue' ], 'message' => 'Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!' ],
+                'hero_generic_ap'           => [ 'label' => 'Zweite Lunge', 'tooltip' => '<nc-HeroSecondWindBonusAP op="gt" val="0">Verschafft dir frische Erkundungspunkte.</nc-HeroSecondWindBonusAP><c-HeroSecondWindBonusAP op="gt" val="0">Stellt deine AP wieder her und beseitigt deine Müdigkeit.</c-HeroSecondWindBonusAP>', 'cover' => true, 'at00' => true, 'meta' => [ 'not_yet_hero'], 'result' => [ 'hero_act', 'just_ap_sw'], 'message' => 'Du atmest tief durch und drückst den Rücken durch. Auf geht\'s! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und <strong>{ap} neue AP erhalten</strong>.'],
+                'hero_generic_immune'       => [ 'label' => 'Den Tod besiegen',
+                    'tooltip' => 'Beim nächsten Angriff wird der <c-HeroImmuneStatusList op="in" val="hunger">Durst-, Hunger-, Infektions- und Abhängigkeitszustand</c-HeroImmuneStatusList><nc-HeroImmuneStatusList op="in" val="hunger"><c-HeroImmuneStatusList op="in" val="addiction">Durst-, Infektions- und Abhängigkeitszustand</c-HeroImmuneStatusList><nc-HeroImmuneStatusList op="in" val="addiction">Durst- und Infektionszustand</nc-HeroImmuneStatusList></nc-HeroImmuneStatusList> außer Kraft gesetzt.', 'cover' => true, 'at00' => true, 'meta' => [ 'not_yet_hero'], 'result' => [ 'hero_act', 'hero_immune'],
+                    'message' => 'Du versucht nochmal alle deine Kräfte für heute Abend zu mobilisieren. Die Anspannung steht dir ins Gesicht geschrieben. Du schwitzt und deine Hände zittern.{hr}Beim heutigen Angriff wirst du weder weder <c-HeroImmuneStatusList op="in" val="thirst">Durst</c-HeroImmuneStatusList><c-HeroImmuneStatusList op="in" val="hunger">, noch Hunger</c-HeroImmuneStatusList><c-HeroImmuneStatusList op="in" val="infection">, noch Krankheitssymptome (Infektion)</c-HeroImmuneStatusList><c-HeroImmuneStatusList op="in" val="addiction">, noch Entzugserscheinungen</c-HeroImmuneStatusList> verspüren.'],
+                'hero_generic_rescue'       => [ 'label' => 'Rettung', 'tooltip' => 'Du bringst einen anderen Spieler nach Hause (dieser darf max. {' . CitizenProperties::HeroRescueRange->translationKey() . '} Felder von der Stadt entfernt sein).', 'confirm' => true, 'confirmMsg' => 'Möchtest du {target} heimbringen?' ,'target' => ['type' => ItemTargetDefinition::ItemHeroicRescueType], 'meta' => [ 'must_be_inside', 'not_yet_hero'], 'result' => [ 'hero_act', 'hero_rescue' ], 'message' => 'Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!' ],
                 'hero_generic_friendship'   => [ 'label' => 'Freundschaft', 'tooltip' => 'Du spendest eine deiner noch nicht verwendeten Heldentaten an einen anderen Spieler.', 'confirm' => true, 'confirmMsg' => 'Möchtest du deine Heldentat {targetAction} an {targetPlayer} spenden? Du kannst sie danach nicht mehr selbst verwenden. ACHTUNG: Wenn {targetPlayer} bereits eine Heldentat von jemand anderem erhalten oder {targetAction} noch nicht selbst verwendet hat, verfällt dein Geschenk.' ,'target' => ['type' => ItemTargetDefinition::ItemFriendshipType], 'meta' => [ 'not_yet_hero', 'can_use_friendship'], 'result' => [ 'hero_act', 'hero_bia' ], 'message' => 'Du hast deine Heldentat an {citizen} weitergegeben.' ],
 
                 'throw_sandball' => [ 'label' => 'Werfen', /* 'target' => ['type' => ItemTargetDefinition::ItemCitizenOnZoneSBType], */ 'meta' => [ 'must_be_outside', 'during_christmas'], 'result' => [ 'sandball' ], 'message' => '<nt-fail>Du hast einen Sandball in {citizen}s Gesicht geworfen.</nt-fail><t-fail>Hier ist niemand, auf den du den Sandball werfen könntest...</t-fail>' ],
@@ -538,13 +541,37 @@ class ActionDataService implements FixtureProcessorInterface {
             ],
 
             'home' => [
-                ['home_clean', 'sort'], ['home_shower', 'shower'], ['home_heal_1', 'heal_wound'], ['home_heal_2', 'heal_infection'], ['home_heal_3', 'heal_infection'], ['home_defbuff', 'watchmen'], ['home_crows', 'watchmen'], ['home_fillwater', 'water'], ['home_cinema', 'cinema'],
+                'h01' => ['home_clean', 'sort'],
+                'h02' => ['home_shower', 'shower'],
+                'h03' => ['home_heal_1', 'heal_wound'],
+                'h04' => ['home_heal_2', 'heal_infection'],
+                'h05' => ['home_heal_3', 'heal_infection'],
+                'h06' => ['home_defbuff', 'watchmen'],
+                'h07' => ['home_crows', 'watchmen'],
+                'h08' => ['home_fillwater', 'water'],
+                'h09' => ['home_cinema', 'cinema'],
+                'h10' => ['home_rest_1', 'rest'],
+                'h11' => ['home_rest_2', 'rest'],
+                'h12' => ['home_rest_3', 'rest'],
+                'h13' => ['brew_shamanic_potion', 'shaman'],
 
-                ['home_lab_1a', 'home_lab'], ['home_lab_2a', 'home_lab'], ['home_lab_3a', 'home_lab'], ['home_lab_4a', 'home_lab'],
-                ['home_lab_1b', 'lab'], ['home_lab_2b', 'lab'], ['home_lab_3b', 'lab'], ['home_lab_4b', 'lab'],
-                ['home_kitchen_1a', 'kitchen'], ['home_kitchen_2a', 'kitchen'], ['home_kitchen_3a', 'kitchen'], ['home_kitchen_4a', 'kitchen'],
-                ['home_kitchen_1b', 'canteen'], ['home_kitchen_2b', 'canteen'], ['home_kitchen_3b', 'canteen'], ['home_kitchen_4b', 'canteen'],
-                ['brew_shamanic_potion', 'shaman'], ['home_rest_1', 'rest'], ['home_rest_2', 'rest'], ['home_rest_3', 'rest']
+                'hl01' => ['home_lab_1a', 'home_lab'],
+                'hl02' => ['home_lab_2a', 'home_lab'],
+                'hl03' => ['home_lab_3a', 'home_lab'],
+                'hl04' => ['home_lab_4a', 'home_lab'],
+                'hl05' => ['home_lab_1b', 'lab'],
+                'hl06' => ['home_lab_2b', 'lab'],
+                'hl07' => ['home_lab_3b', 'lab'],
+                'hl08' => ['home_lab_4b', 'lab'],
+
+                'hk01' => ['home_kitchen_1a', 'kitchen'],
+                'hk02' => ['home_kitchen_2a', 'kitchen'],
+                'hk03' => ['home_kitchen_3a', 'kitchen'],
+                'hk04' => ['home_kitchen_4a', 'kitchen'],
+                'hk05' => ['home_kitchen_1b', 'canteen'],
+                'hk06' => ['home_kitchen_2b', 'canteen'],
+                'hk07' => ['home_kitchen_3b', 'canteen'],
+                'hk08' => ['home_kitchen_4b', 'canteen'],
             ],
 
             'escort' => [
@@ -588,6 +615,9 @@ class ActionDataService implements FixtureProcessorInterface {
                 'food_sandw_#00'      => [ 'eat_6ap'],
                 'food_noodles_#00'    => [ 'eat_6ap'],
                 'wood_xmas_#00'       => [ 'eat_6ap'],
+                'noodle_prints_#00'   => [ 'eat_4ap'],
+                'noodle_prints_#01'   => [ 'eat_4ap'],
+                'noodle_prints_#02'   => [ 'eat_4ap'],
                 'fruit_#00'           => [ 'eat_fleshroom_1', 'eat_fleshroom_2'],
                 'hmeat_#00'           => [ 'eat_meat_1', 'eat_meat_2' ],
                 'bone_meat_#00'       => [ 'eat_bone_1', 'eat_bone_2' ],
@@ -972,7 +1002,7 @@ class ActionDataService implements FixtureProcessorInterface {
                 'use_bed'                   => 'Du versuchst dich ein paar Minuten auszuruhen.<t-ap-up>Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !</t-ap-up><nt-ap-up>Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...</nt-ap-up>',
 
                 'escape_item'               => '<t-escape>Mithilfe der {item} hast du dir etwas Zeit erkauft ... du solltest diesen Ort schnell verlassen!</t-escape><t-reverse-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.</t-reverse-escape>',
-                'escape_item_camera'        => '<nt-any-escape>Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...</nt-any-escape><t-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.</t-escape><t-reverse-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.</t-reverse-escape>',
+                'escape_item_camera'        => '<nt-any-escape>Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item_initial} ...</nt-any-escape><t-escape>Du setzt {item_initial} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.</t-escape><t-reverse-escape>Du setzt {item_initial} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.</t-reverse-escape>',
 
                 'heroic_arma_tooltip'       => 'Du hast die Chance, 1 Zombie in der Zone zu töten; wenn du erfolgreich bist, erhältst du die Kontrolle über die Zone für 10 Minuten.<br /><em>Angesichts des <strong>Armageddon</strong> kannst du diese Spezialaktion <strong>einmal pro Spiel</strong> durchführen.</em>',
                 'heroic_arma_fail'          => 'Du versuchst dich einem Zombie zu nähern, aber <strong>der Zombie reißt dir fast das Gesicht mit seinen Zähnen ab</strong>! Unmöglich zu bestehen...',

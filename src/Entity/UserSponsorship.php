@@ -30,6 +30,12 @@ class UserSponsorship
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $timestamp = null;
+
+    #[ORM\Column]
+    private bool $payout = false;
+
+    #[ORM\Column]
+    private bool $seasonalPayout = false;
     public function getId(): ?int
     {
         return $this->id;
@@ -83,6 +89,30 @@ class UserSponsorship
     public function setTimestamp(?\DateTimeInterface $timestamp): self
     {
         $this->timestamp = $timestamp;
+
+        return $this;
+    }
+
+    public function isPayout(): bool
+    {
+        return $this->payout;
+    }
+
+    public function setPayout(bool $payout): static
+    {
+        $this->payout = $payout;
+
+        return $this;
+    }
+
+    public function isSeasonalPayout(): bool
+    {
+        return $this->seasonalPayout;
+    }
+
+    public function setSeasonalPayout(bool $seasonalPayout): static
+    {
+        $this->seasonalPayout = $seasonalPayout;
 
         return $this;
     }

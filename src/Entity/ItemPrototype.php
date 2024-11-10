@@ -56,6 +56,10 @@ class ItemPrototype implements NamedEntity
 
     #[ORM\Column(type: 'integer')]
     private ?int $watchimpact = 0;
+
+    #[ORM\Column]
+    private bool $persistentEssential = false;
+
     public function __construct()
     {
         $this->properties = new ArrayCollection();
@@ -269,6 +273,18 @@ class ItemPrototype implements NamedEntity
     public function setWatchimpact(?int $watchimpact): static
     {
         $this->watchimpact = $watchimpact;
+
+        return $this;
+    }
+
+    public function isPersistentEssential(): bool
+    {
+        return $this->persistentEssential;
+    }
+
+    public function setPersistentEssential(bool $persistentEssential): static
+    {
+        $this->persistentEssential = $persistentEssential;
 
         return $this;
     }

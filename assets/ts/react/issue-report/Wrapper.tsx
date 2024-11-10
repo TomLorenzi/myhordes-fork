@@ -4,6 +4,7 @@ import {Const, Global} from "../../defaults";
 import {FileUpload, IssueReportAPI, ResponseIndex} from "./api";
 import {ReactDialogMounter} from "../index";
 import {byteToText} from "../../v2/utils";
+import {dialogShim} from "../../shims";
 
 declare var c: Const;
 declare var $: Global;
@@ -155,6 +156,10 @@ const ReportIssueDialog = (props: {
                 cancelDialog();
             } else setIndex(s)
         } );
+    }, [open]);
+
+    useLayoutEffect(() => {
+        dialogShim(dialog.current);
     }, [open]);
 
     useLayoutEffect(() => {

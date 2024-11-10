@@ -16,6 +16,7 @@ use App\Entity\PictoRollup;
 use App\Entity\Season;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
+use App\Entity\UserSponsorship;
 use App\Enum\HeroXPType;
 use App\Enum\UserSetting;
 use App\Interfaces\Entity\PictoRollupInterface;
@@ -54,7 +55,8 @@ class SkillController extends CustomAbstractCoreController
     public function list(
         HeroSkillPrototype $skill,
         UserUnlockableService $unlockableService,
-        Locksmith $locksmith
+        Locksmith $locksmith,
+        EntityManagerInterface $entityManager,
     ): JsonResponse {
         $user = $this->getUser();
 
@@ -79,6 +81,21 @@ class SkillController extends CustomAbstractCoreController
 
         $lock->release();
 
+        $sponsorship = $entityManager->getRepository(UserSponsorship::class)->findOneBy(['user' => $user]);
+        if ($sponsorship && !$sponsorship->isPayout()) {
+            $success = $unlockableService->recordHeroicExperience($sponsorship->getSponsor(), HeroXPType::Global, 10, 'hxp_ref_first', variables: [
+                'user' => $user->getId()
+            ], season: true);
+            $entityManager->persist($sponsorship->setPayout( $success )->setSeasonalPayout( $success ));
+            $entityManager->flush();
+        } elseif ($sponsorship && !$sponsorship->isSeasonalPayout()) {
+            $success = $unlockableService->recordHeroicExperience($sponsorship->getSponsor(), HeroXPType::Global, 2, 'hxp_ref_repeat', variables: [
+                'user' => $user->getId()
+            ], season: true);
+            $entityManager->persist($sponsorship->setSeasonalPayout( $success ));
+            $entityManager->flush();
+        }
+
         $this->addFlash('notice', $this->translator->trans( 'Du hast eine neue Fähigkeit erworben. Herzlichen Glückwunsch!', [], 'game'));
         return new JsonResponse(['success' => true]);
     }
@@ -101,7 +118,9 @@ class SkillController extends CustomAbstractCoreController
         $xp = $unlockableService->getHeroicExperience( $user );
         $all_xp = $unlockableService->getHeroicExperience( $user, include_deductions: false );
 
-        if ($all_xp - $xp < 150)
+        $pack_reset = $unlockableService->getResetPackPoints( $this->getUser(), true );
+
+        if (($all_xp - $xp < 100) || ($pack_reset >= 2) || $user->getActiveCitizen())
             return new JsonResponse([], Response::HTTP_NOT_ACCEPTABLE);
 
         if (!$unlockableService->performSkillResetForUser($user, true))
@@ -122,7 +141,7 @@ class SkillController extends CustomAbstractCoreController
         return new JsonResponse([
             'common' => [
                 'empty'  => $this->translator->trans( 'Keine Heldenerfahrung gesammelt', [], 'soul'),
-                'unique' => $this->translator->trans( 'Einmaliger Verdienst', [], 'soul'),
+                'unique' => $this->translator->trans( 'Einmal pro Saison & Reset', [], 'soul'),
                 'reset'  => $this->translator->trans( 'Zurückgesetzt!', [], 'soul')
             ],
         ]);
@@ -144,7 +163,12 @@ class SkillController extends CustomAbstractCoreController
                 'timestamp'  => $entry->getCreated()->getTimestamp(),
                 'value'      => $entry->getValue(),
                 'type'       => $entry->getType()->value,
-                'reset'      => $entry->getReset() > 0
+                'reset'      => $entry->getReset() > 0,
+                'past'       => $entry->getSeason()?->getCurrent() ? null : (
+                    $entry->getSeason() === null
+                        ? "BETA"
+                        : "S{$entry->getSeason()->getNumber()} - " . $this->translator->trans("Saison {$entry->getSeason()->getNumber()}.{$entry->getSeason()->getSubNumber()}", [], 'season')
+                ),
             ];
 
             if ($entry->isDisabled()) $json['text'] = null;

@@ -9,6 +9,7 @@ use App\Entity\TownClass;
 use App\Entity\User;
 use App\Enum\Configuration\TownSetting;
 use App\Service\ConfMaster;
+use ArrayHelpers\Arr;
 use Doctrine\ORM\EntityManagerInterface;
 
 
@@ -56,8 +57,6 @@ class SanitizeTownConfigAction
         if ($trimTo < User::USER_LEVEL_CROW) unset($rules['modifiers']['strict_picto_distribution']);
         if (!($rules['lock_door_until_full'] ?? true)) $elevation = max($elevation, User::USER_LEVEL_CROW);
         if ($trimTo < User::USER_LEVEL_CROW) unset($rules['lock_door_until_full']);
-        if ($rules['skill_mode'] ?? false) $elevation = max($elevation, User::USER_LEVEL_CROW);
-        if ($trimTo < User::USER_LEVEL_CROW) unset($rules['skill_mode']);
         if (isset($rules['open_town_limit'])) $elevation = max($elevation, User::USER_LEVEL_CROW);
         if ($trimTo < User::USER_LEVEL_CROW) unset($rules['open_town_limit']);
 
@@ -137,8 +136,12 @@ class SanitizeTownConfigAction
 
         // Initial chest items need CROW permissions
         if (!empty( $rules['initial_chest'] )) {
-            $elevation = max($elevation, User::USER_LEVEL_CROW);
-            if ($trimTo < User::USER_LEVEL_CROW) unset($rules['initial_chest']);
+
+            if (count($rules['initial_chest']) > 1 || ($rules['initial_chest'][0] ?? null) !== 'beta_drug_#00') {
+                $elevation = max($elevation, User::USER_LEVEL_CROW);
+                if ($trimTo < User::USER_LEVEL_CROW) unset($rules['initial_chest']);
+            }
+
         }
 
         // An open town limit other than 2 requires CROW permissions
@@ -214,6 +217,22 @@ class SanitizeTownConfigAction
             default => '_custom'
         };
         if ($map_preset !== null) $rules['mapPreset'] = $map_preset;
+
+        $map_margin_preset = match (true) {
+            Arr::get( $rules, 'margin_custom.enabled' ) => '_custom',
+            Arr::get( $rules, 'map.margin' ) === 0.25 => 'normal',
+            Arr::get( $rules, 'map.margin' ) === 0.33 => 'close',
+            Arr::get( $rules, 'map.margin' ) === 0.50 => 'central',
+            default => '_custom'
+        };
+
+        if ($map_margin_preset !== null) $rules['mapMarginPreset'] = $map_margin_preset;
+        if ($map_margin_preset === '_custom') {
+            Arr::set( $rules, 'margin_custom.north', Arr::get( $rules, 'margin_custom.north', 0.25 ) * 100 );
+            Arr::set( $rules, 'margin_custom.south', Arr::get( $rules, 'margin_custom.south', 0.25 ) * 100 );
+            Arr::set( $rules, 'margin_custom.east', Arr::get( $rules, 'margin_custom.east', 0.25 ) * 100 );
+            Arr::set( $rules, 'margin_custom.west', Arr::get( $rules, 'margin_custom.west', 0.25 ) * 100 );
+        }
 
         return $rules;
     }
@@ -373,12 +392,15 @@ class SanitizeTownConfigAction
                 case 'normal':
                     $tc = $this->conf->getTownConfigurationByType( $base )->getData();
                     $conf['map']['margin'] = $tc['map']['margin'] ?? 0.25;
+                    $margin_custom = null;
                     break;
                 case 'close':
                     $conf['map']['margin'] = 0.33;
+                    $margin_custom = null;
                     break;
                 case 'central':
                     $conf['map']['margin'] = 0.50;
+                    $margin_custom = null;
                     break;
                 case '_custom':
                     if($margin_custom) {

@@ -680,3 +680,10 @@ SP: SP
 Foren-Posts: Foren-Posts
 '{n} (davon {n2} gelöscht)': '{n} (davon {n2} gelöscht)'
 Heldenerfahrung: Heldenerfahrung
+Zurücksetzen: Zurücksetzen
+Künstler: Künstler
+'Anzahl der gelisteten Namen: {number}': 'Anzahl der gelisteten Namen: {number}'
+Namen-Suche: Namen-Suche
+'Namen hinzufügen': 'Namen hinzufügen'
+'Namen können als glob-Muster eingegeben werden. Beispielsweise würde *test* alle Namen verhindern, in denen "test" vorkommt. Für eine Übersicht über glob-Syntax, siehe folgenden Link:': 'Namen können als glob-Muster eingegeben werden. Beispielsweise würde *test* alle Namen verhindern, in denen "test" vorkommt. Für eine Übersicht über glob-Syntax, siehe folgenden Link:'
+'Gesperrte Namen': 'Gesperrte Namen'

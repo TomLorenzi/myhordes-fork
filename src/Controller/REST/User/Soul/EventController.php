@@ -145,7 +145,14 @@ class EventController extends CustomAbstractCoreController
 
     protected function eventIsEditable(CommunityEvent $event, bool $forVerificationCancellation = false): bool {
         if (!$this->eventIsExplorable($event) || $event->getStarts() !== null) return false;
-        if (!$forVerificationCancellation && !$this->isGranted('ROLE_CROW') && $event->isProposed()) return false;
+        if (
+            !$forVerificationCancellation &&
+            (
+                (!$this->isGranted('ROLE_CROW') && $event->getOwner() === $this->getUser()) ||
+                !$this->isGranted('ROLE_ELEVATED')
+            ) &&
+            $event->isProposed())
+            return false;
         return true;
     }
 
@@ -155,7 +162,7 @@ class EventController extends CustomAbstractCoreController
     }
 
     protected function eventIsExplorable(CommunityEvent $event): bool {
-        return $event->getOwner() === $this->getUser() || ($event->isProposed() && $this->isGranted('ROLE_CROW'));
+        return $event->getOwner() === $this->getUser() || ($event->isProposed() && $this->isGranted('ROLE_ELEVATED'));
     }
 
     /**
@@ -170,7 +177,7 @@ class EventController extends CustomAbstractCoreController
         UserCapabilityService $capability
     ): JsonResponse {
 
-        $can_view_proposals = $capability->hasAnyRole( $this->getUser(), ['ROLE_SUB_ADMIN','ROLE_CROW'] );
+        $can_view_proposals = $capability->hasAnyRole( $this->getUser(), ['ROLE_ELEVATED'] );
 
         $is_owner = Criteria::expr()->eq('owner', $this->getUser() );
         $is_proposed = Criteria::expr()->eq('proposed', true );
@@ -231,7 +238,7 @@ class EventController extends CustomAbstractCoreController
 
             if ($owning) $return['expedited'] = $e->isUrgent();
 
-            if ($this->isGranted('ROLE_CROW')) $return['owner'] = [
+            if ($this->isGranted('ROLE_ELEVATED')) $return['owner'] = [
                 'id' => $e->getOwner()->getId(),
                 'name' => $e->getOwner()->getName(),
             ];
@@ -250,7 +257,7 @@ class EventController extends CustomAbstractCoreController
         UserCapabilityService $capability,
         EntityManagerInterface $em
     ): JsonResponse {
-        if (!$capability->hasAnyRole( $this->getUser(), ['ROLE_SUB_ADMIN','ROLE_ADMIN','ROLE_CROW','ROLE_ANIMAC','ROLE_ORACLE'] ))
+        if (!$capability->hasAnyRole( $this->getUser(), ['ROLE_ELEVATED'] ))
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
         $em->persist( $event = (new CommunityEvent())
@@ -378,7 +385,7 @@ class EventController extends CustomAbstractCoreController
         CrowService $crow,
         EventProxyService $proxy,
     ): JsonResponse {
-        if (!$this->eventIsEditable( $event ) || !$this->isGranted('ROLE_CROW'))
+        if (!$this->eventIsEditable( $event ) || !$this->isGranted('ROLE_ELEVATED'))
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
         $date = $event->getConfiguredStartDate();

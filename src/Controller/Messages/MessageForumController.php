@@ -573,10 +573,12 @@ class MessageForumController extends MessageController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $text = $parser->get('text');
+        if (mb_strlen($text) < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+        if (mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextTooLong );
 
         $town_citizen = $forum->getTown() ? $user->getCitizenFor( $forum->getTown() ) : null;
         $anon_post_limit = $town_citizen?->property( CitizenProperties::AnonymousPostLimit ) ?? 0;
-        $can_post_anon = ($anon_post_limit < 0) || ($anon_post_limit > ($town_citizen->getSpecificActionCounterValue( ActionCounter::ActionTypeAnonPost ) ?? 0));
+        $can_post_anon = ($anon_post_limit < 0) || ($anon_post_limit > ($town_citizen?->getSpecificActionCounterValue( ActionCounter::ActionTypeAnonPost ) ?? 0));
 
         $type = $parser->get('type') ?? 'USER';
         $valid = ['USER'];
@@ -728,6 +730,8 @@ class MessageForumController extends MessageController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $text = $parser->get('text');
+        if (mb_strlen($text) < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+        if (mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextTooLong );
 
         $old_text = $post->getText();
         $post

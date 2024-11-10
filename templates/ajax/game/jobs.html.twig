@@ -8,22 +8,6 @@
         </div>
         <div class="cell padded rw-8 rw-md-12">
             <hordes-town-onboarding data-town="{{ town.id }}"></hordes-town-onboarding>
-            {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_CITIZEN_ALIAS'),false) %}
-                <h5>{{'Deine Identität'|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Diese Stadt erlaubt es, einen Spitznamen zu tragen.'|trans({},'game') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
-                <div class="row-flex v-center">
-                    <div class="cell padded note note-lightest rw-3">
-                        <label for="citizenalias">{{'Dein Name'|trans({}, 'ghost')}}</label>
-                    </div>
-                    <div class="padded cell rw-9">
-                        <input type="text" name="citizenalias" id="citizenalias" maxlength="22" minlength="4" />
-                        <div class="tooltip help">
-                            {{ 'Ein Spielername kann maximal {number} Zeichen lang sein. Es gelten die gleichen Beschränkungen wie bei Nutzernamen (keine Leer- und Sonderzeichen, keine Namen die wie die von Raben aussehen).'|trans({number: 22},'game') }}
-                            <br/>
-                            <b>{{ 'Freilassen, um normalen Spielernamen zu verwenden.'|trans({},'game') }}</b>
-                        </div>
-                    </div>
-                </div>
-            {% endif %}
         </div>
     </div>
 {% endblock %}

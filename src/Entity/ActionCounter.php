@@ -32,8 +32,10 @@ class ActionCounter
     const ActionTypeSpecialActionAPLoan	= 19;
     const ActionTypeAnonMessage     	= 20;
     const ActionTypeAnonPost         	= 21;
+    const ActionTypePurgeLog   		    = 22;
     const PerGameActionTypes = [
         self::ActionTypeRemoveLog,
+        self::ActionTypePurgeLog,
 		self::ActionTypePool,
 		self::ActionTypeAnonMessage,
 		self::ActionTypeAnonPost,

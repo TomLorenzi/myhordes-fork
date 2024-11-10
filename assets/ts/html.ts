@@ -188,7 +188,7 @@ export default class HTML {
 
     message(label: string, msg: string ): void {
 
-        const is_popup = label.substr(0, 6) === 'popup-';
+        const is_popup = label.substring(0, 6) === 'popup-';
 
         if ($.client.config.notificationAsPopup.get() || is_popup) {
 
@@ -645,7 +645,11 @@ export default class HTML {
             if (display) display = !(list.includes( '!*' ) || list.includes( '!' + tutorial + '.*' ) || list.includes( '!' + tutorial + '.' + stage ));
             elem.style.display = display ? 'block' : null;
 
-            if (display && elem.classList.contains('text')) elem.scrollIntoView( elem.classList.contains('arrow-down') );
+            if (display && elem.classList.contains('text')) elem.scrollIntoView( elem.classList.contains('arrow-down') ? {
+                block: "start", inline: "nearest", behavior: "smooth"
+            } : {
+                block: "end", inline: "nearest", behavior: "smooth"
+            } );
         });
         this.tutorialStage = [tutorial,stage];
     }

@@ -32,6 +32,34 @@
             </ul>
 
             <div class="row" x-tab-group="skill-page" x-tab-id="skills" x-tab-target>
+                <div class="padded cell rw-12">
+                    <div class="skills-history">
+                        <div class="row header">
+                            <div class="cell padded rw-12 center">
+                                {{'Allgemein verfügbar'|trans({}, 'game')}}
+                                {{ help_btn('Diese Fähigkeiten stehen jedem Spieler grundsätzlich immer zur Verfügung.'|trans({},'help')) }}
+                            </div>
+                        </div>
+                        <div class="skills-container">
+                            <div class="row-flex v-top gap unlocked">
+                                <div class="padded cell rw-3 level-indicator">
+                                    <div class="flex center middle">
+                                        <img src="{{ asset('build/images/icons/done.png') }}" alt=""/>
+                                        <b class="level">{{'Einwohner'|trans({}, 'game')}}</b>
+                                    </div>
+                                </div>
+                                <div class="padded cell rw-9 ability-indicator">
+                                    <ul>
+                                        <li>{{ '{num} Plätze im Rucksack'|trans({num: 4},'soul') }}</li>
+                                        <li>{{ '{num} Plätze in der Truhe'|trans({num: 4},'soul') }}</li>
+                                        <li>{{ '{num} Verteidigung bei der Nachtwache'|trans({num: 10},'soul') }}</li>
+                                        <li>{{ 'Im Stadtforum schreiben'|trans({},'soul') }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 {% for group in groups %}
                     <div class="padded cell rw-12">
                         <div class="skills-history">
@@ -52,7 +80,12 @@
                                                 {% else %}
                                                     <img src="{{ asset('build/images/icons/lock.gif' ) }}" alt="">
                                                 {% endif %}
-                                                <b class="level">{{ 'Level {skill_level}'|trans({'skill_level': skill.level}, 'game') }}</b>
+                                                <b class="level">{{ [
+                                                        'Anfänger'|trans({}, 'game'),
+                                                        'Lehrling'|trans({}, 'game'),
+                                                        'Experte'|trans({}, 'game'),
+                                                        'Meister'|trans({}, 'game'),
+                                                    ][skill.level] }}</b>
                                             </div>
                                             {% if skill.id in unlockable %}
                                                 <div class="inline-block center unlock">
@@ -134,7 +167,7 @@
                                         data-fetch-method="delete"
                                         data-fetch-confirm="{{ 'Bist du sicher, dass du deine Fähigkeiten zurücksetzen möchtest? Du wirst all deine Heldenerfahrung und Fähigkeiten verlieren. Diese Aktion kann nicht rückgängig gemacht werden!'|trans({},'global') }}"
                                 >
-                                    {{ 'Fähigkeiten jetzt zurücksetzen' }}
+                                    {{ 'Fähigkeiten jetzt zurücksetzen'|trans({},'soul') }}
                                 </button>
                             </div>
                         </div>
@@ -164,10 +197,28 @@
                 </div>
             </div>
 
-            <div class="row" x-tab-group="skill-page" x-tab-id="history" x-tab-target>
+            <div x-tab-group="skill-page" x-tab-id="history" x-tab-target>
+                <div class="row">
+                    <div class="padded cell rw-12">
+                        <h1 class="page-head">{{'Deine bisherigen Verdienste'|trans({}, 'soul')}}</h1>
+                        <hordes-hxp-log></hordes-hxp-log>
+                    </div>
+                </div>
+                <br/><br/>
+                <div class="row">
+                    <div class="padded cell rw-12">
+                        <h1 class="page-head">{{'Wie kann ich Erfahrung sammeln?'|trans({}, 'soul')}}</h1>
+                        <div class="help">
+                            {{ 'Die meisten Erfahrungsboni kannst du **nur einmal Pro Saison und Reset** erhalten. Im Folgenden findest du eine Auflistung aller Möglichkeiten, Heldenerfahrung zu sammeln. Aktionen, die du mehrmals pro Saison und Reset ausführen kannst um Punkte zu erhalten sind jeweils hervorgehoben.'|trans({},'help')|raw }}
+                        </div>
+                        {{ hook('EarnXHP') }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
                 <div class="padded cell rw-12">
-                    <h5>{{ 'Deine bisherigen Verdienste'|trans({},'soul') }}</h5>
-                    <hordes-hxp-log></hordes-hxp-log>
+                    <div class="note">{{ 'In vergangenen Zeiten hast du Heldenvorteile ledigtlich durch die Zahl deiner gespielten Heldentage freigeschaltet. Wenn du gerne in Erinnerungen an dieses alte System schwelgen möchtest, kannst du es dir {link}.'|trans({link: '<a href="#" x-ajax-href="' ~ url('soul_heroskill_legacy') ~ '">' ~ 'hier ansehen'|trans({},'soul') ~ '</a>'},'soul')|raw }}</div>
                 </div>
             </div>
         </div>

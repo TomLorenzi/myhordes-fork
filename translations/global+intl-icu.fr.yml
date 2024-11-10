@@ -1,3 +1,4 @@
+---
 'Allgemeiner Fehler.': 'Erreur générale.'
 'Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.': 'Le forum sélectionné n''existe pas ou vous n''avez pas l''autorisation d''y accéder.'
 'Dein Text muss mindestens 2 Zeichen lang sein.': 'Votre texte doit contenir au moins 2 caractères.'
@@ -279,7 +280,7 @@ Auswählen: Choisir
 Avatar: Avatar
 'Gruppe aus {num} Spielern': 'Groupe de {num} joueurs'
 'Wenn Bürger deine Stadt betreten möchten, wird ein Zugangsdode abgefragt. Nur mit korrektem Zugangscode erhalten sie Zutritt. Verteile den Zugangscode darum an die Spieler, die du einladen möchtest. <strong>Und benutze nicht dein privates Passwort als Zugangscode!!!</strong>': 'Ce mot de passe sera demandé à tout citoyen désireux de rejoindre cette ville. Distribuez-le aux personnes que vous souhaitez inviter. <strong>N''utilisez pas votre mot de passe personnel !!!</strong>'
-Groß: Gros
+Groß: Grand
 'Mit offiziellen Gruppen in Kontakt treten': 'Contacter les groupes officiels'
 'Eine offizielle Gruppe kontaktieren': 'Contacter un groupe officiel'
 'via {group_inbox}': 'via {group_inbox}'
@@ -408,7 +409,7 @@ Tag: Jour
 'Ein Fehler ist aufgetreten. Es stehen keine weiteren Informationen zur Verfügung.': 'Une erreur s’est produite. Aucune autre information n’est disponible.'
 'Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.': 'Le saviez-vous? Pour de nombreuses actions, une info-bulle s’affiche d’abord sur les appareils mobiles. Si vous souhaitez effectuer l’action, vous devez appuyer à nouveau sur celle-ci. Si vous êtes pressé et préférez ne pas voir les textes d’aide, vous pouvez désactiver cette fonctionnalité dans les paramètres de votre âme via le paramètre «\_Afficher les info-bulles sur les appareils mobiles en appuyant dessus\_».'
 Offiziell: Officiel
-'Wir MÜSSEN Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.': 'Nous DEVONS construire d''avantage de défenses dans les chantiers ! Si des ressources manquent, fouillez l''Outre-monde (le désert autour de la ville) pour en dénicher.'
+'Wir MÜSSEN Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.': 'Nous DEVONS construire davantage de défenses aux chantiers ! Si des ressources manquent, fouillez l’Outre-monde (le désert entourant la ville) pour en dénicher.'
 '{n} neue Beiträge in': '{n} nouvelles réponses dans'
 '{n} oder mehr neue Beiträge in': '{n} nouvelles réponses ou plus dans'
 'und andere.': 'et autres.'
@@ -554,7 +555,7 @@ PN: MP
 'Städte werden mit hoher Priorität angelegt': 'La ville sera créée en priorité'
 'Die Städte werden innerhalb der nächsten 30 Minuten erzeugt, statt erst beim nächsten Angriff. Bitte verwendet diese Funktion nur in Notfällen.': 'La ville sera créée dans les 30 minutes qui suivent, au lieu de la prochaine attaque. Merci de n''utiliser cette fonctionnalité qu''en cas d''urgence.'
 'Bitte verwendet diese Funktion nur in Notfällen. Fortfahren?': 'Cette fonctionnalité n''est à utiliser qu''en cas d''urgence. Continuer ?'
-'Kein Tag': 'Aucun jour'
+'Kein Tag': 'Aucun tag'
 ENTER: ENTRÉE
 'Keine Formatierung': 'Pas de mise en forme'
 'Spieler auswählen': 'Choisir un joueur'
@@ -636,3 +637,4 @@ Verbunden: Connecté
 'Diesen Bonus gibt es nur dann, wenn sich die Bürger während eines Angriffs in der Stadt befinden.': 'Ce bonus ne s''applique que si des citoyens sont dans la ville lors d''une attaque.'
 'Anonymer Post': 'Message anonyme'
 'Bist du sicher, dass du deine Fähigkeiten zurücksetzen möchtest? Du wirst all deine Heldenerfahrung und Fähigkeiten verlieren. Diese Aktion kann nicht rückgängig gemacht werden!': 'Êtes-vous sûr de vouloir réinitialiser vos compétences ? Vous perdrez toute votre expérience et vos compétences de héros. Cette action est irréversible !'
+'Dieser Spieler ist ein Mitglied der Künstlergilde auf MyHordes.': 'Ce joueur est membre de l''Équipe Artistique de MyHordes.'

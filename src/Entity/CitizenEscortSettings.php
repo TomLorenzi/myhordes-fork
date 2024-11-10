@@ -14,6 +14,7 @@ class CitizenEscortSettings
     #[ORM\OneToOne(targetEntity: 'App\Entity\Citizen', mappedBy: 'escortSettings', cascade: ['persist'])]
     private $citizen;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\Citizen', inversedBy: 'leadingEscorts', cascade: ['persist'])]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private $leader;
     #[ORM\Column(type: 'boolean', nullable: false)]
     private $allowInventoryAccess = false;

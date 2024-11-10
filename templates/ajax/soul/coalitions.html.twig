@@ -228,6 +228,8 @@
         {% if membership is not null %}
             const fun_refresh = function(bg, fun = null) {
                 let content_box = document.querySelector('.shout-container .shout-content');
+                if (!content_box) return;
+
                 const callback = function() {
                     if (fun) fun();
                     let coa_icon = document.querySelector('img#shell_coa_icon[x-src-default]');

@@ -56,6 +56,7 @@ use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\RandomGenerator;
 use App\Service\RateLimitingFactoryProvider;
+use App\Service\User\UserCapabilityService;
 use App\Service\User\UserUnlockableService;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
@@ -269,7 +270,7 @@ class SoulController extends CustomAbstractController
      */
     #[Route(path: 'jx/soul/refer', name: 'soul_refer')]
     #[Route(path: 'jx/soul/contacts/{opt}', name: 'soul_contacts', requirements: ['opt' => '\d'])]
-    public function soul_refer(Request $request, ConfMaster $conf, int $opt = 0): Response {
+    public function soul_refer(Request $request, ConfMaster $conf, UserCapabilityService $capabilityService, int $opt = 0): Response {
         $refer = $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['user' => $this->getUser()]);
         if ($refer === null && !$this->user_handler->hasRole($this->getUser(), 'ROLE_DUMMY')) {
 
@@ -292,7 +293,7 @@ class SoulController extends CustomAbstractController
 
         $sponsored = array_filter(
             $this->entity_manager->getRepository(UserSponsorship::class)->findBy(['sponsor' => $this->getUser()]),
-            fn(UserSponsorship $s) => !$this->user_handler->hasRole($s->getUser(), 'ROLE_DUMMY') && $s->getUser()->getValidated()
+            fn(UserSponsorship $s) => !$capabilityService->hasRole($s->getUser(), 'ROLE_DUMMY') && $s->getUser()->getValidated()
         );
 
         /** @var UserGroupAssociation|null $user_coalition */
@@ -450,13 +451,11 @@ class SoulController extends CustomAbstractController
             'xp' => $xp,
             'xp_total' => $xp_total,
             'steps' => array_map( fn(HeroSkillPrototype $skill) => $skill->getDaysNeeded(), $unlockService->getUnlockableHeroicSkillsByUser( $this->getUser(), limitToCurrent: false ) ),
-
             'pack_base' => $unlockService->getBasePackPoints( $this->getUser() ),
             'pack_reset' => $pack_reset,
             'pack_tmp' => $pack_temp,
             'pack_tmp_end' => $end?->getTimestamp(),
-            'pack_can_reset' => $xp_total - $xp >= 150 && $pack_reset < 2,
-
+            'pack_can_reset' => ($xp_total - $xp >= 100 && $pack_reset < 2) && !$this->getUser()->getActiveCitizen(),
             'groups' => $groups,
             'skills' => $allSkills,
             'unlocked' => array_map( fn(HeroSkillPrototype $skill) => $skill->getId(), $unlocked ),
@@ -1647,7 +1646,8 @@ class SoulController extends CustomAbstractController
             'oracle' => $this->user_handler->hasRole($user,'ROLE_ORACLE'),
             'anim'   => $this->user_handler->hasRole($user,'ROLE_ANIMAC'),
             'team'   => $this->user_handler->hasRole($user,'ROLE_TEAM'),
-            'dev'    => $this->user_handler->hasRole($user, 'ROLE_DEV')
+            'dev'    => $this->user_handler->hasRole($user, 'ROLE_DEV'),
+            'art'    => $this->user_handler->hasRole($user, 'ROLE_ART')
         ]);
     }
 

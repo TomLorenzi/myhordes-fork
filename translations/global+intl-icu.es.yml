@@ -1,3 +1,4 @@
+---
 'Allgemeiner Fehler.': 'Error común.'
 'Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.': 'El foro seleccionado no existe o no tienes permiso para verlo.'
 'Dein Text muss mindestens 2 Zeichen lang sein.': 'Tu texto debe tener al menos 2 caracteres de largo.'
@@ -554,7 +555,7 @@ PN: MP
 'Städte werden mit hoher Priorität angelegt': 'El pueblo se creará con prioridad'
 'Die Städte werden innerhalb der nächsten 30 Minuten erzeugt, statt erst beim nächsten Angriff. Bitte verwendet diese Funktion nur in Notfällen.': 'El pueblo se creará en los 30 minutos siguientes al próximo ataque. Por favor, utiliza esta función sólo en caso de emergencia.'
 'Bitte verwendet diese Funktion nur in Notfällen. Fortfahren?': 'Esta función sólo debe utilizarse en caso de emergencia. ¿Continuar?'
-'Kein Tag': 'Todos los dias'
+'Kein Tag': 'Ninguna etiqueta'
 ENTER: ENTER
 'Keine Formatierung': 'Sin formato'
 'Spieler auswählen': 'Elige un jugador'
@@ -633,6 +634,7 @@ Community-Event: Evento Comunitario
 Verbunden: Conectado
 'Die Taube': 'La Paloma'
 'Normaler Post': 'Publicar normal'
-'Diesen Bonus gibt es nur dann, wenn sich die Bürger während eines Angriffs in der Stadt befinden.': 'Esta bonificación sólo se aplica si hay ciudadanos en la ciudad durante un ataque.'
+'Diesen Bonus gibt es nur dann, wenn sich die Bürger während eines Angriffs in der Stadt befinden.': 'Esta bonificación sólo se aplica si hay habitantes en el pueblo durante un ataque.'
 'Anonymer Post': 'Mensaje anónimo'
 'Bist du sicher, dass du deine Fähigkeiten zurücksetzen möchtest? Du wirst all deine Heldenerfahrung und Fähigkeiten verlieren. Diese Aktion kann nicht rückgängig gemacht werden!': '¿Estás seguro de que quieres restablecer tus habilidades? Perderás toda tu experiencia y habilidades de héroe. ¡Esta acción es irreversible!'
+'Dieser Spieler ist ein Mitglied der Künstlergilde auf MyHordes.': 'Este jugador es miembro del Equipo Artístico de MyHordes.'

@@ -546,10 +546,11 @@ const TwinoEditorEditor = ({body, fixed, prefs}: {body: string, fixed: boolean, 
         const onKeyUp = (e) => onSelectionChange();
 
         document.addEventListener('selectionchange', onSelectionChange);
-        textArea.current.addEventListener('keyup', onKeyUp);
+        const ta = textArea.current;
+        ta.addEventListener('keyup', onKeyUp);
         return () => {
             document.removeEventListener('selectionchange', onSelectionChange);
-            textArea.current.removeEventListener('keyup', onKeyUp);
+            ta.removeEventListener('keyup', onKeyUp);
         }
     });
 
