@@ -283,11 +283,13 @@ export abstract class PersistentShim<ReactType extends ShimLoader> extends Shim<
 
     public constructor() {
         super();
-        if (!this.dataset.reactMount || !this.id) {
-            const uuid = window.crypto.randomUUID();
-            if (!this.dataset.reactMount) this.dataset.reactMount = `auto-${uuid}`;
-            if (!this.id) this.setAttribute('id', `auto-${uuid}`);
+        if (!this.dataset.reactMount && !this.id) {
+            const id = `auto-${window.crypto.randomUUID()}`;
+            this.dataset.reactMount = id;
+            this.setAttribute('id',id);
         }
+        else if (!this.id) this.setAttribute('id',this.dataset.reactMount);
+        else if (!this.dataset.reactMount) this.dataset.reactMount = this.id;
     }
 }
 

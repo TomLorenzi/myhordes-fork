@@ -336,8 +336,6 @@ export class Fetch {
             (e ? `/${e}` : '') +
             (query ? `?${query}` : '');
 
-        console.log(full_uri);
-
         return new FetchOptionBuilder(full_uri,
             (r,opt) => this.preprocess_response(r,opt),
             (e,opt) => this.process_network_failure(e,opt) );

@@ -278,7 +278,7 @@ class CitizenHandler
                 // TODO: Add the log entry template
 
                 // The chocolate cross gets destroyed
-                $gallows->setComplete(false)->setAp(0)->setDefense(0)->setHp(0);
+                $gallows->setComplete(false)->setConstructionDate(null)->setAp(0)->setDefense(0)->setHp(0);
                 $this->gps->recordBuildingCollapsed( $gallows->getPrototype(), $citizen->getTown() );
                 $active = $gallows;
             } elseif ($gallows) {
@@ -286,7 +286,7 @@ class CitizenHandler
                 $this->entity_manager->persist($this->log->publicJustice($citizen));
 
                 // The gallows gets destroyed
-                $gallows->setComplete(false)->setAp(0)->setDefense(0)->setHp(0);
+                $gallows->setComplete(false)->setConstructionDate(null)->setAp(0)->setDefense(0)->setHp(0);
                 $this->gps->recordBuildingCollapsed( $gallows->getPrototype(), $citizen->getTown() );
                 $active = $gallows;
             } elseif ($cage) {

@@ -356,14 +356,7 @@ class TownHandler
     public function calculate_building_def( Town &$town, Building $building ): int {
         $d = 0;
 
-        if ($building->getPrototype()->getName() === 'item_tube_#00' && $building->getLevel() > 0) {
-            $n = [0,2,4,6,9,12];
-
-            if ($town->getWell() >= $n[ $building->getLevel() ])
-                $d += $building->getDefenseBonus();
-            $d += $building->getDefense();
-
-        } elseif ($building->getPrototype()->getName() === 'small_cemetery_#00') {
+        if ($building->getPrototype()->getName() === 'small_cemetery_#00') {
 
             $c = 0;
             foreach ($town->getCitizens() as $citizen) if (!$citizen->getAlive()) $c++;
@@ -644,7 +637,7 @@ class TownHandler
     public function destroy_building(Town &$town, Building $building, ?callable $trigger_after = null){
         if(!$building->getComplete()) return;
 
-        $building->setComplete(false)->setAp(0)->setDefense(0)->setHp(0)->setLevel(0);
+        $building->setComplete(false)->setConstructionDate(null)->setAp(0)->setDefense(0)->setHp(0)->setLevel(0);
 
         $this->entity_manager->persist($building);
 

@@ -57,7 +57,7 @@ class SemaphoreSubscriber implements EventSubscriberInterface
                     SemaphoreScope::None    => null,
                 };
 
-                if ($this->kernel->getEnvironment() === 'dev' || $this->kernel->getEnvironment() !== 'local') $this->lock_data[$semaphore->getValue()] = $name;
+                if ($this->kernel->getEnvironment() === 'dev' || $this->kernel->getEnvironment() === 'local') $this->lock_data[$semaphore->getValue()] = $name;
                 if ($name) $this->locks[] = $this->locksmith->waitForLock($name);
             }
     }

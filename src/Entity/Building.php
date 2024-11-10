@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
@@ -45,6 +46,9 @@ class Building
     private $buildingVotes;
     #[ORM\OneToOne(inversedBy: 'building', targetEntity: Inventory::class, cascade: ['persist', 'remove'])]
     private ?Inventory $inventory = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $constructionDate = null;
 
     public function __construct()
     {
@@ -220,6 +224,18 @@ class Building
     public function setInventory(?Inventory $inventory): static
     {
         $this->inventory = $inventory;
+
+        return $this;
+    }
+
+    public function getConstructionDate(): ?\DateTimeInterface
+    {
+        return $this->constructionDate;
+    }
+
+    public function setConstructionDate(?\DateTimeInterface $constructionDate): static
+    {
+        $this->constructionDate = $constructionDate;
 
         return $this;
     }

@@ -3,6 +3,7 @@
 namespace App\Controller\REST\Game;
 
 use App\Controller\CustomAbstractCoreController;
+use App\Entity\BuildingPrototype;
 use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Service\ConfMaster;
@@ -53,7 +54,7 @@ class DataController extends CustomAbstractCoreController
     }
 
     #[Route(path: '/items', name: 'items', methods: ['GET'])]
-    public function inventory(EntityManagerInterface $em, Request $request): JsonResponse {
+    public function items(EntityManagerInterface $em, Request $request): JsonResponse {
         $fe_props = [
             'is_water',
             'single_use',
@@ -74,6 +75,25 @@ class DataController extends CustomAbstractCoreController
                 'heavy' => $p->getHeavy(),
                 'deco' => $p->getDeco(),
                 'watch' => $p->getWatchpoint(),
+            ])->toArray()
+        ]);
+    }
+
+    #[Route(path: '/buildings', name: 'buildings', methods: ['GET'])]
+    public function buildings(EntityManagerInterface $em, Request $request): JsonResponse {
+        return new JsonResponse([
+            'v' => $this->versionManager->getVersion(),
+            'l' => $this->translator->getLocale(),
+            'data' => self::resolve($em, BuildingPrototype::class, $request->query->get('ids', ''))->map(fn(BuildingPrototype $p) => [
+                'id' => $p->getId(),
+                'name' => $this->translator->trans( $p->getLabel(), [], 'buildings' ),
+                'desc' => $this->translator->trans( $p->getDescription(), [], 'buildings' ),
+                'icon' => $this->assets->getUrl( "build/images/building/{$p->getIcon()}.gif" ),
+                'temp' => $p->getTemp(),
+                'defense' => $p->getDefense(),
+                'levels' => $p->getMaxLevel() ?? 0,
+                'parent' => $p->getParent()?->getId() ?? null,
+                'order' => $p->getOrderBy() ?? 0,
             ])->toArray()
         ]);
     }

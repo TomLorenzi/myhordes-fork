@@ -3,6 +3,7 @@
 namespace App\Controller\REST\Game;
 
 use App\Annotations\GateKeeperProfile;
+use App\Annotations\Semaphore;
 use App\Annotations\Toaster;
 use App\Controller\BeyondController;
 use App\Controller\CustomAbstractCoreController;
@@ -172,6 +173,7 @@ class TownOnboardingController extends AbstractController
 
     #[Route(path: '/{town}', name: 'onboard', methods: ['PATCH'])]
     #[GateKeeperProfile(only_incarnated: true)]
+    #[Semaphore('town', scope: 'town')]
     public function onboard_to_town(Town $town, EntityManagerInterface $em, ConfMaster $conf, JSONRequestParser $parser, UserUnlockableService $unlockService, OnboardCitizenIntoTownAction $action, CitizenHandler $citizenHandler): JsonResponse
     {
         $activeCitizen = $this->fetchActiveCitizen($town);

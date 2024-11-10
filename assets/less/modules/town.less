@@ -243,13 +243,21 @@ div.town-banner {
     background-position: 4px 2px;
     &>li {
       padding-bottom: 5px;
-      &>em {
+      em {
         color: #e7c48f;
-        padding-left: 20px;
         font-style: normal;
       }
 
-      & .life-bar {
+      .data {
+        flex-grow: 1;
+      }
+
+      .symbol {
+        flex-grow: 0;
+        flex-shrink: 0;
+      }
+
+      .life-bar {
         margin-top: .25em;
         margin-right: 1em;
         height: .5em;

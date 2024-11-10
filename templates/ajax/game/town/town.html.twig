@@ -414,37 +414,9 @@
                             </div>
                         {% endif %}
                     </div>
-                    {% if builtbuildings is not empty %}
-                        <div id="town_list_sm_trigger" class="row hide-desktop hide-lg hide-md">
-                            <div class="cell rw-12">
-                                <button>{{ 'Gebäudeliste einblenden'|trans({},'game') }}</button>
-                            </div>
-                        </div>
-                        <div id="town_list_sm_content" class="row town-buildings hide-sm">
-                            <ul>
-                                {% for building in builtbuildings|sort((a, b) => a.prototype.orderBy <=> b.prototype.orderBy ) %}
-                                    <li class="cell padded-small rw-12">
-                                        <img alt="" src="{{ asset('build/images/building/' ~ building.prototype.icon ~ '.gif' ) }}" />
-                                        {{ building.prototype.label|trans({},'buildings') }}
-                                        {% if building.hp != building.prototype.hp %}
-                                            <span class="float-right">
-                                            <div class="life-bar">
-                                                <div class="life-progress {% if building.hp / building.prototype.hp < 0.15 %}life-critical{% elseif building.hp / building.prototype.hp < 0.50 %}life-warning{% endif %}" style="width: {{building.hp / building.prototype.hp * 100}}%;"></div>
-                                            </div>
-                                        </span>
-                                        {% endif %}
-                                        <br />
-                                        {% if building.defense > 0 %}<em>+ {{building.defense + building.defenseBonus}} {% trans from "buildings" %}Verteidigung{% endtrans %} </em>{% endif %}
-                                        {% if building.prototype.maxLevel > 0 and building.level > 0 %}<em>{% trans with {'{lv}': building.level} from 'game' %}Level {lv}{% endtrans %}</em>{% endif %}
-                                        <div class='tooltip normal'>
-                                            {{ building.prototype.description|trans({}, 'buildings') }}
-                                        </div>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                            <div class="right small hide-desktop hide-lg hide-md"><span class="pointer" id="town_list_sm_restore">{{ 'Schließen'|trans({},'global') }}</span></div>
-                        </div>
-                    {% endif %}
+
+                    <hordes-building-list id="town-building-list" data-react-mount="town-building-list" data-etag="{{ building_etag }}"></hordes-building-list>
+
                 </div>
             </div>
 
@@ -487,16 +459,6 @@
                 $.ajax.load( null, '{{ path('town_dashboard')|e('js') }}' );
             })
         })
-
-        $.html.addEventListenerAll('#town_list_sm_trigger button', 'click', () => {
-            document.getElementById('town_list_sm_content').classList.remove('hide-sm');
-            document.getElementById('town_list_sm_trigger').classList.add('hide-sm');
-        });
-
-        $.html.addEventListenerAll('#town_list_sm_restore', 'click', () => {
-            document.getElementById('town_list_sm_content').classList.add('hide-sm');
-            document.getElementById('town_list_sm_trigger').classList.remove('hide-sm');
-        });
 
         {% if not app.user.expert %}
             const completed_tuts = $.client.config.completedTutorials.get();

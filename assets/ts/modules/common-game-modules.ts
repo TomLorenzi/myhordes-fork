@@ -9,6 +9,7 @@ import {PersistentShim, Shim} from "../react";
 import {HordesLog} from "../react/log/Wrapper";
 import {HordesEscortInventory, HordesInventory, HordesPassiveInventory} from "../react/inventory/Wrapper";
 import {InventoryBagData, Item} from "../react/inventory/api";
+import {HordesBuildingList} from "../react/buildings/Wrapper";
 
 customElements.define('hordes-map', class HordesMapElement extends PersistentShim<HordesMap> {
     protected generateInstance(): HordesMap {
@@ -146,6 +147,24 @@ customElements.define('hordes-escort-inventory', class HordesPassiveInventoryEle
     protected static observedAttributeNames() {
         return [
             'data-etag', 'data-rucksack-id', 'data-floor-id', 'data-soft-reload', 'data-name'
+        ];
+    }
+}, {  });
+
+customElements.define('hordes-building-list', class HordesBuildingListElement extends PersistentShim<HordesBuildingList> {
+    protected generateInstance(): HordesBuildingList {
+        return new HordesBuildingList();
+    }
+
+    protected generateProps(): object | null {
+        return {
+            etag: this.dataset.etag,
+        }
+    }
+
+    protected static observedAttributeNames() {
+        return [
+            'data-etag'
         ];
     }
 }, {  });

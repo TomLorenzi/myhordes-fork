@@ -16,4 +16,15 @@ export type VaultItemEntry = VaultEntry & {
     watch: number|null,
 }
 
+export type VaultBuildingEntry = VaultEntry & {
+    name: string,
+    desc: string,
+    icon: string,
+    parent: number|null,
+    order: number,
+    defense: number,
+    temp: boolean,
+    levels: number,
+}
+
 export type VaultStorage<V extends VaultEntry> = { [key: number]: V; }

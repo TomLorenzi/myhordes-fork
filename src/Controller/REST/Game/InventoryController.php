@@ -3,67 +3,43 @@
 namespace App\Controller\REST\Game;
 
 use App\Annotations\GateKeeperProfile;
-use App\Annotations\Toaster;
-use App\Controller\BeyondController;
+use App\Annotations\Semaphore;
 use App\Controller\CustomAbstractCoreController;
-use App\Entity\ActionCounter;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgrade;
-use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\HomeIntrusion;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemCategory;
 use App\Entity\ItemPrototype;
-use App\Entity\LogEntryTemplate;
 use App\Entity\RuinExplorerStats;
-use App\Entity\Town;
-use App\Entity\TownLogEntry;
-use App\Entity\Zone;
 use App\Enum\ActionHandler\PointType;
-use App\Enum\Configuration\CitizenProperties;
-use App\Enum\Game\LogHiddenType;
 use App\Enum\Game\TransferItemModality;
 use App\Enum\Game\TransferItemOption;
 use App\Event\Game\Items\TransferItemEvent;
-use App\Response\AjaxResponse;
-use App\Service\Actions\Cache\CalculateBlockTimeAction;
-use App\Service\Actions\Cache\InvalidateLogCacheAction;
 use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
-use App\Service\DoctrineCacheService;
 use App\Service\ErrorHelper;
 use App\Service\EventFactory;
 use App\Service\EventProxyService;
-use App\Service\HTMLService;
 use App\Service\InventoryHandler;
 use App\Service\JSONRequestParser;
-use App\Service\LogTemplateHandler;
 use App\Service\TownHandler;
-use App\Service\UserHandler;
 use App\Service\ZoneHandler;
-use App\Structures\BankItem;
 use App\Structures\TownConf;
 use App\Traits\Controller\EventChainProcessor;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\Common\Collections\Criteria;
-use Doctrine\Common\Collections\Order;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Expr\Join;
-use Exception;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Contracts\Cache\ItemInterface;
-use Symfony\Contracts\Cache\TagAwareCacheInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 
@@ -319,6 +295,7 @@ class InventoryController extends CustomAbstractCoreController
 
     #[Route(path: '/{inventory}/{item}', name: 'inventory_move', methods: ['PATCH'])]
     #[Route(path: '/{inventory}', name: 'inventory_all', methods: ['PATCH'])]
+    #[Semaphore('town', scope: 'town')]
     public function moveItem(
         #[MapEntity(id: 'inventory')] Inventory $inventory,
         #[MapEntity(id: 'item')] ?Item $item,

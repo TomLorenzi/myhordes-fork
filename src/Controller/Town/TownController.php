@@ -60,6 +60,7 @@ use App\Service\ErrorHelper;
 use App\Service\TownHandler;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
+use Doctrine\Common\Collections\Order;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Psr\Container\ContainerExceptionInterface;
@@ -111,7 +112,10 @@ class TownController extends InventoryAwareController
 
         $town = $this->getActiveCitizen()->getTown();
 
-        $data["builtbuildings"] = $this->getActiveCitizen()->getTown()->getBuildings()->filter(fn(Building $b) => $b->getComplete())->toArray();
+        $data["building_etag"] =
+            $this->getActiveCitizen()->getTown()->getBuildings()
+                ->matching((new Criteria())->setMaxResults(1)->orderBy(['constructionDate' => Order::Descending]))
+                ->first()?->getConstructionDate()?->getTimestamp() ?? '--';
 
         $data['addons'] = $this->events->queryTownAddons( $this->getActiveCitizen()->getTown() );
         $data['home'] = $this->getActiveCitizen()->getHome();

@@ -167,7 +167,7 @@ export default class VaultServiceModule extends ServiceModule {
             return;
         }
 
-        if (!['items'].includes(message)) {
+        if (!['items','buildings'].includes(message)) {
             Console.warn('VaultServiceModule: Invalid scoped call.', message, event);
             this.respond(event, {status: 'no'});
         }

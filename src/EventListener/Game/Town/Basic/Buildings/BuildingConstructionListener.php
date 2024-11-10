@@ -56,6 +56,7 @@ final class BuildingConstructionListener implements ServiceSubscriberInterface
 
     public function onSetUpBuildingInstance( BuildingConstructionEvent $event ): void {
         $event->building->setComplete(true);
+        $event->building->setConstructionDate(new \DateTime());
         $event->building->setAp($event->building->getPrototype()->getAp());
         $event->building->setHp($event->building->getPrototype()->getHp());
         $event->building->setDefense($event->building->getPrototype()->getDefense());

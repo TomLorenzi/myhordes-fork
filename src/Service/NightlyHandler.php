@@ -487,7 +487,7 @@ class NightlyHandler
             if ($b->getPrototype()->getTemp()){
                 $this->log->debug("Destroying building <info>{$b->getPrototype()->getLabel()}</info> as it is a temp building.");
                 $this->entity_manager->persist( $this->logTemplates->nightlyAttackDestroyBuilding($town, $b));
-                $b->setComplete(false)->setAp(0);
+                $b->setComplete(false)->setConstructionDate(null)->setAp(0);
                 $this->gps->recordBuildingCollapsed( $b->getPrototype(), $town );
             }
             $b->setTempDefenseBonus(0);
