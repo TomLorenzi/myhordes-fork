@@ -270,7 +270,10 @@
                                     {% if post.owner.activeTitle %}<i>{{ post.owner.activeTitle.customTitle ?? post.owner|translated_title(app.user)|raw }}</i>{% endif %}
                                 </span>
                             {% endif %}
-                            {% if post.note is not null %}<div class="float-right post-note">{{ post.note|replace({'{at_00}': '<span class="hide-sm hide-md">' ~ 'in der Stadt oder am Stadttor'|trans({},'game') ~ '</span><span class="hide-lg hide-desktop">' ~ 'Stadt/Stadttor'|trans({}, 'game') ~ '</span>' })|raw }}</div>{% endif %}
+                            {% if post.note is not null %}<div class="float-right post-note">{{ post.note|replace({
+                                '{at_00}': '<span class="hide-sm hide-md">' ~ 'in der Stadt oder am Stadttor'|trans({},'game') ~ '</span><span class="hide-lg hide-desktop">' ~ 'Stadt/Stadttor'|trans({}, 'game') ~ '</span>',
+                                '{outside}': 'Draußen'|trans({}, 'game'),
+                            })|raw }}</div>{% endif %}
                         {% endif %}
                     </div>
                     {% if permission.moderate() %}

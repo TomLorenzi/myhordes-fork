@@ -103,7 +103,7 @@ class MessageController extends CustomAbstractController
 
                     if ($citizen->getZone() && ($citizen->getZone()->getX() !== 0 || $citizen->getZone()->getY() !== 0))  {
                         if($citizen->getTown()->getChaos()){
-                            $note = $this->translator->trans('Draußen', [], 'game');
+                            $note = '{outside}';
                         } else {
                             $note = "[{$citizen->getZone()->getX()}, {$citizen->getZone()->getY()}]";
                         }
