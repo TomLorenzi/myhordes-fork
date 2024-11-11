@@ -2883,14 +2883,14 @@ Eventteilnehmer: Participante de evento
 'Himmel! Was werden die Nachbarn sagen?_f': '¡Cielos! ¿Qué dirán las vecinas?'
 'Mister Sandman ♫♪': 'Mister Sandman ♫♪'
 'Mister Sandman ♫♪_f': 'Miss Sandman ♫♪'
-'Nutzt das Vergängliche': 'Nutzt das Vergängliche'
-'Nutzt das Vergängliche_f': 'Nutzt das Vergängliche'
+'Nutzt das Vergängliche': 'Proeza de lo efímero'
+'Nutzt das Vergängliche_f': 'Proeza de lo efímero'
 'John Snow': 'John Snow'
 'John Snow_f': 'Margaret Ann Bulkley'
 'Der Rabinator': 'El cuervinador'
 'Der Rabinator_f': 'La cuervinador'
-'Wir drehen frei!': 'Wir drehen frei!'
-'Wir drehen frei!_f': 'Wir drehen frei!'
+'Wir drehen frei!': 'Sin rumbo y desenfadado'
+'Wir drehen frei!_f': 'Sin rumbo y desenfadado'
 'Du nennst das ein Messer? DAS ist ein Messer!': '¿Llamas a eso un cuchillo? ¡ESTO es un cuchillo!'
 'Du nennst das ein Messer? DAS ist ein Messer!_f': '¿Llamas a eso un cuchillo? ¡ESTO es un cuchillo!'
 'Apostel des Pandämoniums': 'Apóstol del Pandemonio'
@@ -2899,18 +2899,18 @@ Eventteilnehmer: Participante de evento
 'Liebling des Raben_f': 'Favorita del Cuervo'
 Seelentrader: Comerciante audaz
 Seelentrader_f: Comerciante audaz
-Scientologe: Scientologe
-Scientologe_f: Scientologin
+Scientologe: Persuadotron
+Scientologe_f: Persuadotron
 'Komm auf die dunkle Seite der Macht!': '¡Ven al lado oscuro!'
 'Komm auf die dunkle Seite der Macht!_f': '¡Ven al lado oscuro!'
 'Warren Buffet der Außenwelt': 'Warren Buffet der Außenwelt'
 'Warren Buffet der Außenwelt_f': 'Warren Buffet der Außenwelt'
-'Mein Körper ist bereit!': 'Mein Körper ist bereit!'
-'Mein Körper ist bereit!_f': 'Mein Körper ist bereit!'
+'Mein Körper ist bereit!': '¡Mi cuerpo está listo!'
+'Mein Körper ist bereit!_f': '¡Mi cuerpo está listo!'
 'Ultimatives Opfer': 'El último sacrificio'
 'Ultimatives Opfer_f': 'El último sacrificio'
-'Kabum! Der Reaktor mach KABUM!!!': 'Kabum! Der Reaktor mach KABUM!!!'
-'Kabum! Der Reaktor mach KABUM!!!_f': 'Kabum! Der Reaktor mach KABUM!!!'
+'Kabum! Der Reaktor mach KABUM!!!': '¡Kaboom! Cuando nuestro reactor hace ¡Kaboom!'
+'Kabum! Der Reaktor mach KABUM!!!_f': '¡Kaboom! Cuando nuestro reactor hace ¡Kaboom'
 Atompilzsammler: Recolector de hongos atómicos
 Atompilzsammler_f: Recolectora de hongos atómicos
 'Bis auf die Seele verstrahlt': 'Irradiado hasta el alma'
@@ -3008,3 +3008,4 @@ Nüchtern: Sobrio
 'Fragen & Antworten': 'Preguntas y Respuestas'
 'Dein geworbener Spieler {user} hat zum ersten Mal Heldenerfahrung für eine Fähigkeit ausgegeben.': 'Tu jugador apadrinado {user} usó experiencia heroica sobre una habilidad por la primera vez.'
 'Dein geworbener Spieler {user} hat zum ersten Mal in dieser Saison Heldenerfahrung für eine Fähigkeit ausgegeben.': 'Tu jugador apadrinado {user} usó experiencia heroica sobre una habilidad por la primera vez en esta temporada.'
+'Vergessene Stadt': 'Ciudad olvidada'
