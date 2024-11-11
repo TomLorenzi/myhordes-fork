@@ -139,7 +139,7 @@ class EditorController extends CustomAbstractCoreController
         elseif ($user !== $this->getUser()) return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
         $unlock_all = in_array($context, [
-            'announcement'
+            'announcement', 'changelog'
         ]) && $this->isGranted('ROLE_ELEVATED');
         $unlock_s = $unlock_all ? 'all' : 'default';
 
