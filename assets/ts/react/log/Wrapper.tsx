@@ -1,11 +1,11 @@
 import * as React from "react";
-import { createRoot } from "react-dom/client";
 import {useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
 import {LogAPI, LogEntry} from "./api";
 import {TranslationStrings} from "./strings";
 import {Tooltip} from "../tooltip/Wrapper";
 import {Global} from "../../defaults";
 import {TwinoEditorWrapper} from "../twino-editor/Wrapper";
+import {BaseMounter} from "../index";
 
 declare var $: Global;
 
@@ -27,20 +27,9 @@ interface DailyCache {
     completed: boolean
 }
 
-export class HordesLog {
-
-    #_root = null;
-
-    public mount(parent: HTMLElement, props: mountProps): any {
-        if (!this.#_root) this.#_root = createRoot(parent);
-        this.#_root.render( <HordesLogWrapper {...props} /> );
-    }
-
-    public unmount() {
-        if (this.#_root) {
-            this.#_root.unmount();
-            this.#_root = null;
-        }
+export class HordesLog extends BaseMounter<mountProps>{
+    protected render(props: mountProps): React.ReactNode {
+        return <HordesLogWrapper {...props} />;
     }
 }
 

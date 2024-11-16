@@ -1,6 +1,11 @@
 import {Global} from "../defaults";
-import {createRoot} from "react-dom/client";
+import {createRoot, Root} from "react-dom/client";
 import * as React from "react";
+import {HordesBuildingPageWrapper} from "./buildings/BuildingPage";
+import HTML from "../html";
+import {ErrorBoundary} from "react-error-boundary";
+import {Simulate} from "react-dom/test-utils";
+import error = Simulate.error;
 
 declare var $: Global;
 
@@ -293,8 +298,70 @@ export abstract class PersistentShim<ReactType extends ShimLoader> extends Shim<
     }
 }
 
-export abstract class ReactDialogMounter<PropDef extends object> {
-    private root = null;
+export abstract class BaseMounter<PropDef extends object> {
+
+    protected parent: HTMLElement = null;
+    protected root: Root = null;
+    protected props: PropDef = null;
+
+    protected renderError(error: string) {
+        return <div style={{background: '#650000', padding: '3px', fontSize: '10px'}}>
+            <b>⚠ Critical Failure:</b> A component on this page has crashed.
+            Details have been sent to the browser console.
+            <code style={{fontSize: '8px', display: "block", background: "rgba(0,0,0,0.1)", padding: '2px', margin: "2px 0"}}>{error}</code>
+            <code style={{fontSize: '8px', display: "block", background: "rgba(0,0,0,0.1)", padding: '2px', margin: "2px 0"}}>{JSON.stringify(this.props)}</code>
+            <code style={{fontSize: '8px', display: "block", background: "rgba(0,0,0,0.1)", padding: '2px', margin: "2px 0"}}>{window?.navigator?.userAgent ?? '[UA unavailable]'}</code>
+            <em>Please report this error!</em>
+        </div>
+    }
+
+    private errorRenderer(error: any ) {
+        console.error('⚠ Critical Failure', this.props, error);
+
+        if (typeof error === 'string') return this.renderError(error);
+        else if (error === null || typeof error === 'undefined') return this.renderError(`[No further details.]`);
+        else if (typeof error === 'object') return this.renderError(
+            error?.message ?? error?.error ?? error?.text ?? `[error object: ${JSON.stringify(error)}]`,
+        );
+        else return this.renderError(`[error type: ${typeof error}]`);
+    }
+
+    protected renderWrapper(props: PropDef): React.ReactNode {
+        return <ErrorBoundary fallbackRender={({error}) => this.errorRenderer(error)}>
+            { this.render(this.props = props) }
+        </ErrorBoundary>
+    }
+
+    protected abstract render(props: PropDef): React.ReactNode;
+
+    protected createReactRoot(parent: HTMLElement) {
+        return createRoot(this.parent = parent);
+    }
+
+    protected trashReactRoot() {
+        if (this.root) {
+            this.root.unmount();
+            this.root = null;
+            this.parent = null;
+        }
+    }
+
+    public mount(parent: HTMLElement, props: PropDef): any {
+        if (!this.root) this.root = this.createReactRoot(parent);
+        this.root.render(this.renderWrapper(props));
+    }
+
+    public unmount() {
+        this.trashReactRoot();
+    }
+}
+
+export interface DialogExtraMountProps {
+    callback: (a:any)=>void
+}
+
+export abstract class ReactDialogMounter<PropDef extends object> extends BaseMounter<PropDef & DialogExtraMountProps> {
+
     private auto_div = null;
     private activator = null;
 
@@ -305,10 +372,6 @@ export abstract class ReactDialogMounter<PropDef extends object> {
             e.preventDefault();
         }
     }
-
-    private
-
-    protected abstract renderReact(callback: (a:any)=>void, props: PropDef);
 
     protected abstract findActivator(parent: HTMLElement, props: PropDef): HTMLElement|null;
 
@@ -337,27 +400,21 @@ export abstract class ReactDialogMounter<PropDef extends object> {
                     this.auto_div.style.textAlign = 'left';
                     (this.activator = activator).addEventListener('click', this.click_handler);
 
-                    if (!this.root)
-                        this.root = createRoot(this.auto_div);
+                    if (!this.root) this.root = this.createReactRoot(this.auto_div);
 
-                    this.root.render( this.renderReact( c => this.callback = c, props ) );
+                    this.root.render( this.renderWrapper( {...props, callback: c => this.callback = c} ) );
                 })
                 .catch(() => console.warn( 'Unable to fetch the activator for a dialog mount.', parent, props ));
         } else {
-            if (!this.root)
-                this.root = createRoot(this.auto_div);
+            if (!this.root) this.root = this.createReactRoot(this.auto_div);
 
-            this.root.render(this.renderReact(c => this.callback = c, props));
+            this.root.render(this.renderWrapper({...props, callback: c => this.callback = c}));
         }
-
 
     }
 
     public unmount() {
-        if (this.root) {
-            this.root.unmount();
-            this.root = null;
-        }
+        super.unmount();
 
         if (this.auto_div) {
             this.activator.removeEventListener('click', this.click_handler);

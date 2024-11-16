@@ -1,9 +1,10 @@
 import * as React from "react";
-import { createRoot } from "react-dom/client";
+import {Root} from "react-dom/client";
 import {useLayoutEffect, useRef, useState} from "react";
 import {Fetch} from "../../v2/fetch";
 import {Global} from "../../defaults";
 import {Tooltip} from "../tooltip/Wrapper";
+import {BaseMounter} from "../index";
 
 declare var $: Global;
 
@@ -35,36 +36,27 @@ export type TextResponse = {
 
 export type TextResponses = TextResponse[]
 
-export class HordesUserSearchBar {
-
-    #_root = null;
-
-    public mount(parent: HTMLElement, props: {  }): any {
-        if (!this.#_root) this.#_root = createRoot(parent);
-
+export class HordesUserSearchBar extends BaseMounter<{}>{
+    protected createReactRoot(parent: HTMLElement): Root {
         if (!('value' in parent))
             Object.defineProperty(parent, 'value', {
                 value: null,
                 writable: true
             });
 
-        this.#_root.render(
-            <UserSearchBar
-                {...props}
-                callback={u => {
-                    (parent as HTMLInputElement).value = u;
-                    parent.dispatchEvent(new CustomEvent("hordes-user-search-callback", {
-                        bubbles: false, cancelable: true, detail: u
-                    }))
-                }}
-            />);
+        return super.createReactRoot(parent);
     }
 
-    public unmount() {
-        if (this.#_root) {
-            this.#_root.unmount();
-            this.#_root = null;
-        }
+    protected render(props: {}): React.ReactNode {
+        return <UserSearchBar
+            {...props}
+            callback={u => {
+                (this.parent as HTMLInputElement).value = u;
+                parent.dispatchEvent(new CustomEvent("hordes-user-search-callback", {
+                    bubbles: false, cancelable: true, detail: u
+                }))
+            }}
+        />;
     }
 }
 

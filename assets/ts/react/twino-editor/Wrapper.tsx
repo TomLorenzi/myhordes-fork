@@ -1,5 +1,5 @@
 import * as React from "react";
-import { createRoot } from "react-dom/client";
+import {Root} from "react-dom/client";
 
 import {useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
 import {TranslationStrings} from "./strings";
@@ -8,6 +8,7 @@ import {v4 as uuidv4} from 'uuid';
 import {TwinoEditorControls, TwinoEditorControlsTabList} from "./Controls";
 import {EmoteResponse, TwinoEditorAPI} from "./api";
 import {Fetch} from "../../v2/fetch";
+import {BaseMounter} from "../index";
 
 declare var $: Global;
 declare var c: Const;
@@ -84,64 +85,63 @@ type TwinoContentImport = {
 export const Globals = React.createContext<TwinoEditorGlobals>(null);
 
 
-export class HordesTwinoEditor {
+export class HordesTwinoEditor extends BaseMounter<HTMLConfig>{
 
-    #_root = null;
-    #_parent = null;
-    #_detail_cache = null;
-    #_values: {[index:string]: string|number} = {};
-    #_content_import: (TwinoContentImport) => void = v=>this.#_detail_cache = v;
+    private detail_cache = null;
+    private values: {[index:string]: string|number} = {};
+    private content_import: (t: TwinoContentImport) => void = v=>this.detail_cache = v;
 
     public getValue(field: string): string|number|null {
-        if (field === 'html') return deproxify( (this.#_values['html'] as string) ?? '' );
-        else if (field === 'preview') return this.#_values['html'] ?? null;
-        else return this.#_values[field] ?? null;
+        if (field === 'html') return deproxify( (this.values['html'] as string) ?? '' );
+        else if (field === 'preview') return this.values['html'] ?? null;
+        else return this.values[field] ?? null;
     }
 
     private onFieldChanged( field: string, value: string|number|null, old_value: string|number|null, is_default: boolean ): void {
-        this.#_values[field] = value;
-        this.#_parent.dispatchEvent( new CustomEvent('change', {
+        this.values[field] = value;
+        this.parent.dispatchEvent( new CustomEvent('change', {
             bubbles: false,
             detail: { field, value, old_value, is_default }
         }) );
     }
 
     private onSubmit( fields: {[index:string]: string|number}, response: any = null ): void {
-        this.#_parent.dispatchEvent( new CustomEvent('submit', {
+        this.parent.dispatchEvent( new CustomEvent('submit', {
             bubbles: false,
             detail: { fields, response: response ?? null }
         }) )
     }
 
-    public mount(parent: HTMLElement, props: HTMLConfig): void {
-        if (!this.#_root) {
-            this.#_root = createRoot(this.#_parent = parent);
-            this.#_parent.addEventListener('import', e => {
-                this.#_content_import(e.detail);
-            })
+    protected createReactRoot(parent: HTMLElement): Root {
+        const root = super.createReactRoot(parent);
+        parent.addEventListener('import', e => {
+            this.content_import(e.detail);
+        })
+        return root;
+    }
+
+    protected trashReactRoot() {
+        if (this.root) {
+            this.detail_cache = null;
+            this.content_import = v=>this.detail_cache = v;
         }
-        this.#_values = props.defaultFields ?? {};
-        this.#_root.render( <TwinoEditorWrapper
+        super.trashReactRoot();
+    }
+
+    protected render(props: HTMLConfig): React.ReactNode {
+        this.values = props.defaultFields ?? {};
+        return <TwinoEditorWrapper
             {...props}
             onFieldChanged={(f:string,v:string|number|null,v0:string|number|null,d:boolean) => this.onFieldChanged(f,v,v0,d)}
             onSubmit={(fields, response) => this.onSubmit(fields, response)}
             connectImport={ callback => {
-                this.#_content_import = callback;
-                if (this.#_detail_cache) {
-                    callback(this.#_detail_cache);
-                    this.#_detail_cache = null;
+                this.content_import = callback;
+                if (this.detail_cache) {
+                    callback(this.detail_cache);
+                    this.detail_cache = null;
                 }
             } }
-        /> );
-    }
-
-    public unmount(parent: HTMLElement): void {
-        if (this.#_root) {
-            this.#_root.unmount();
-            this.#_root = null;
-            this.#_detail_cache = null;
-            this.#_content_import = v=>this.#_detail_cache = v;
-        }
+        />;
     }
 }
 

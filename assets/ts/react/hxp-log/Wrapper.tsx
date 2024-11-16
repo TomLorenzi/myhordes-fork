@@ -1,10 +1,9 @@
 import * as React from "react";
-import { createRoot } from "react-dom/client";
-import {useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
+import {useEffect, useLayoutEffect, useRef, useState} from "react";
 import {HxpLogAPI, LogEntry} from "./api";
 import {TranslationStrings} from "./strings";
-import {Tooltip} from "../tooltip/Wrapper";
 import {Global} from "../../defaults";
+import {BaseMounter} from "../index";
 
 declare var $: Global;
 
@@ -13,20 +12,9 @@ interface mountProps {
 }
 
 
-export class HordesHxpLog {
-
-    #_root = null;
-
-    public mount(parent: HTMLElement, props: mountProps): any {
-        if (!this.#_root) this.#_root = createRoot(parent);
-        this.#_root.render( <HordesHxpLogWrapper {...props} /> );
-    }
-
-    public unmount() {
-        if (this.#_root) {
-            this.#_root.unmount();
-            this.#_root = null;
-        }
+export class HordesHxpLog extends BaseMounter<mountProps>{
+    protected render(props: mountProps): React.ReactNode {
+        return <HordesHxpLogWrapper {...props} />;
     }
 }
 

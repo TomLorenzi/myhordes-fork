@@ -1,33 +1,27 @@
 import * as React from "react";
-import {useEffect, useLayoutEffect, useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {Const, Global} from "../../defaults";
-import {createRoot} from "react-dom/client";
 import {html, sharedWorkerCall} from "../../v2/init";
 import {Tooltip} from "../tooltip/Wrapper";
+import {BaseMounter} from "../index";
 
 declare var c: Const;
 declare var $: Global;
 
-type Props = {
-    selector: string,
-    title: string,
-    pass: object
+type mountProps = {
+    textTitle?: string
+    textHelp?: string
+    textNoSw?: string,
+    textOffline?: string,
+    textConnecting?: string,
+    textUpgrading?: string,
+    textOnline?: string,
+    connection: string,
 }
 
-export class HordesServiceWorkerIndicator {
-
-    #_root = null;
-
-    public mount(parent: HTMLElement, props: any): void {
-        if (!this.#_root) this.#_root = createRoot(parent);
-        this.#_root.render( <ServiceWorkerIndicator {...props} /> );
-    }
-
-    public unmount(parent: HTMLElement): void {
-        if (this.#_root) {
-            this.#_root.unmount();
-            this.#_root = null;
-        }
+export class HordesServiceWorkerIndicator extends BaseMounter<mountProps>{
+    protected render(props: mountProps): React.ReactNode {
+        return <ServiceWorkerIndicator {...props} />;
     }
 }
 

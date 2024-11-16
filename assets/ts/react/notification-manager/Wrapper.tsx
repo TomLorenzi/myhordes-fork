@@ -1,36 +1,23 @@
 import * as React from "react";
-import { createRoot } from "react-dom/client";
 
 import {ResponseIndex, NotificationManagerAPI, NotificationSubscription} from "./api";
-import {ChangeEvent, MouseEventHandler, useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {TranslationStrings} from "./strings";
 import {Const, Global} from "../../defaults";
 import {UAParser} from "ua-parser-js";
 import {getPushServiceRegistration, pushAPIIsSupported, registerForPushNotifications} from "../../v2/push";
 import {md5} from "js-md5";
-import Console from "../../v2/debug";
-import {bool} from "prop-types";
 import {UserSettingBase, UserSettingsAPI} from "../user-settings/api";
 import {v4 as uuidv4} from "uuid";
 import {Tooltip} from "../tooltip/Wrapper";
+import {BaseMounter} from "../index";
 
 declare var $: Global;
 declare var c: Const;
 
-export class HordesNotificationManager {
-
-    #_root = null;
-
-    public mount(parent: HTMLElement, props: { }): void {
-        if (!this.#_root) this.#_root = createRoot(parent);
-        this.#_root.render( <NotificationManagerWrapper {...props} /> );
-    }
-
-    public unmount(parent: HTMLElement): void {
-        if (this.#_root) {
-            this.#_root.unmount();
-            this.#_root = null;
-        }
+export class HordesNotificationManager extends BaseMounter<{}> {
+    protected render(props: {}): React.ReactNode {
+        return <NotificationManagerWrapper {...props} />;
     }
 }
 

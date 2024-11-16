@@ -1,5 +1,4 @@
 import * as React from "react";
-import { createRoot } from "react-dom/client";
 
 import {AvatarCreatorAPI, ResponseIndex, ResponseMedia} from "./api";
 import {useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
@@ -7,23 +6,13 @@ import {TranslationStrings} from "./strings";
 import {Global} from "../../defaults";
 import {Tooltip} from "../tooltip/Wrapper";
 import {byteToText} from "../../v2/utils";
+import {BaseMounter} from "../index";
 
 declare var $: Global;
 
-export class HordesAvatarCreator {
-
-    #_root = null;
-
-    public mount(parent: HTMLElement, props: { maxSize: number }): void {
-        if (!this.#_root) this.#_root = createRoot(parent);
-        this.#_root.render( <AvatarCreatorWrapper {...props} /> );
-    }
-
-    public unmount(parent: HTMLElement): void {
-        if (this.#_root) {
-            this.#_root.unmount();
-            this.#_root = null;
-        }
+export class HordesAvatarCreator extends BaseMounter<{ maxSize: number }> {
+    protected render(props: { maxSize: number }): React.ReactNode {
+        return <AvatarCreatorWrapper {...props} />;
     }
 }
 
@@ -151,7 +140,7 @@ interface ImageDimensions {
     y: number
 }
 
-const getMediaDimensions = ( url: string, callback: (ImageDimensions)=>void ) => {
+const getMediaDimensions = ( url: string, callback: (d: ImageDimensions)=>void ) => {
     const i = new Image();
     i.onload = () => callback({x: i.width, y: i.height});
     i.src = url;

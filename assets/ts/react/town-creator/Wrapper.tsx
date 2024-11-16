@@ -1,7 +1,6 @@
 import * as React from "react";
-import { createRoot } from "react-dom/client";
 
-import Components, {ReactData} from "../index";
+import Components, {BaseMounter} from "../index";
 import {Global} from "../../defaults";
 import {ResponseIndex, ResponseTownList, SysConfig, TownCreatorAPI, TownOptions, TownRules} from "./api";
 import {ChangeEvent, useEffect, useLayoutEffect, useRef, useState} from "react";
@@ -16,20 +15,16 @@ import {TownCreatorSectionTemplate} from "./SectionTemplate";
 
 declare var $: Global;
 
-export class HordesTownCreator {
+interface mountProps {
+    elevation: number,
+    eventMode: boolean,
+    presetHead: any|null,
+    presetRules: any|null
+}
 
-    #_root = null;
-
-    public mount(parent: HTMLElement, props: { elevation: number, eventMode: boolean, presetHead: any|null, presetRules: any|null }): void {
-        if (!this.#_root) this.#_root = createRoot(parent);
-        this.#_root.render( <TownCreatorWrapper {...props} /> );
-    }
-
-    public unmount(parent: HTMLElement): void {
-        if (this.#_root) {
-            this.#_root.unmount();
-            this.#_root = null;
-        }
+export class HordesTownCreator extends BaseMounter<mountProps> {
+    protected render(props: mountProps): React.ReactNode {
+        return <TownCreatorWrapper {...props} />;
     }
 }
 

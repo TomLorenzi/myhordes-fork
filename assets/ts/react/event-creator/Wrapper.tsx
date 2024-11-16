@@ -1,5 +1,4 @@
 import * as React from "react";
-import { createRoot } from "react-dom/client";
 
 import {Global} from "../../defaults";
 import {useEffect, useRef, useState} from "react";
@@ -7,23 +6,19 @@ import {EventCore, EventCreationAPI} from "./api";
 import {TranslationStrings} from "./strings";
 import {HordesEventCreatorViewer} from "./Viewer";
 import {HordesEventCreatorWizard} from "./Creator";
+import {BaseMounter} from "../index";
 
 declare var $: Global;
 
-export class HordesEventCreator {
+interface mountProps  {
+    creator: boolean,
+    reviewer: boolean,
+    admin: boolean
+}
 
-    #_root = null;
-
-    public mount(parent: HTMLElement, props: {creator: boolean, reviewer: boolean, admin: boolean}): any {
-        if (!this.#_root) this.#_root = createRoot(parent);
-        this.#_root.render( <EventCreatorWrapper {...props} /> );
-    }
-
-    public unmount() {
-        if (this.#_root) {
-            this.#_root.unmount();
-            this.#_root = null;
-        }
+export class HordesEventCreator extends BaseMounter<mountProps> {
+    protected render(props: mountProps): React.ReactNode {
+        return <EventCreatorWrapper {...props} />;
     }
 }
 
@@ -36,7 +31,7 @@ type EventCreatorGlobals = {
 
 export const Globals = React.createContext<EventCreatorGlobals>(null);
 
-const EventCreatorWrapper = ( {creator, reviewer, admin}: {creator: boolean, reviewer: boolean, admin: boolean} ) => {
+const EventCreatorWrapper = ( {creator, reviewer, admin}: mountProps ) => {
 
     const apiRef = useRef<EventCreationAPI>();
     const [globalLoadingStack, setGlobalLoadingStack] = useState<number>(0);

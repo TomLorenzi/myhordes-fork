@@ -1,10 +1,10 @@
 import * as React from "react";
 
-import {ReactData} from "../index";
+import {BaseMounter, ReactData} from "../index";
 
 import {
     MapCoordinate,
-    MapCoreProps, MapData, MapRoute,
+    MapData, MapRoute,
     RuntimeMapState,
     RuntimeMapStateAction
 } from "./typedef";
@@ -15,7 +15,6 @@ import {useEffect, useLayoutEffect, useRef, useState} from "react";
 import {Global} from "../../defaults";
 import LocalZoneView from "./ZoneView";
 import Client from "../../client";
-import {createRoot} from "react-dom/client";
 import {BeyondMapAPI, RuntimeMapStrings} from "./api";
 
 declare var $: Global;
@@ -58,20 +57,9 @@ const processRoute = (route: MapCoordinate[], complex: boolean) => {
     return routeCopy.map(c => [c.x,c.y]);
 }
 
-export class HordesMap {
-
-    #_root = null;
-
-    public mount(parent: HTMLElement, props: object): any {
-        if (!this.#_root) this.#_root = createRoot(parent);
-        this.#_root.render( <MapWrapper {...$.components.kickstart(parent,props) as ReactData}/> );
-    }
-
-    public unmount() {
-        if (this.#_root) {
-            this.#_root.unmount();
-            this.#_root = null;
-        }
+export class HordesMap extends BaseMounter<object> {
+    protected render(props: object): React.ReactNode {
+        return <MapWrapper {...$.components.kickstart(this.parent,props) as ReactData}/>;
     }
 }
 

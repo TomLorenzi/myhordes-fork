@@ -1,5 +1,4 @@
 import * as React from "react";
-import { createRoot } from "react-dom/client";
 import {useContext, useEffect, useRef, useState} from "react";
 import {
     InventoryAPI,
@@ -17,6 +16,7 @@ import {Vault} from "../../v2/client-modules/Vault";
 import {VaultItemEntry, VaultStorage} from "../../v2/typedef/vault_td";
 import {string} from "prop-types";
 import {html} from "../../v2/init";
+import {BaseMounter} from "../index";
 
 declare var $: Global;
 declare var c: Const;
@@ -72,64 +72,32 @@ interface escortMountProps {
 }
 
 
-export class HordesInventory {
+export class HordesInventory extends BaseMounter<mountProps>{
 
-    #_root = null;
-    #_item_cache: {[key:number]: InventoryBagData} = {}
+    protected item_cache: {[key:number]: InventoryBagData} = {}
 
-    public mount(parent: HTMLElement, props: mountProps): any {
-        if (!this.#_root) this.#_root = createRoot(parent);
-        this.#_root.render( <HordesInventoryWrapper
+    protected render(props: mountProps): React.ReactNode {
+        return <HordesInventoryWrapper
             {...props}
-            setCache={(id: number, items: InventoryBagData|null): void => { this.#_item_cache[id] = items; } }
-            parent={parent}
-            />
-        );
-    }
-
-    public unmount() {
-        if (this.#_root) {
-            this.#_root.unmount();
-            this.#_root = null;
-        }
+            setCache={(id: number, items: InventoryBagData|null): void => { this.item_cache[id] = items; } }
+            parent={this.parent}
+        />;
     }
 
     public cachedBagData(id: number) {
-        return this.#_item_cache[id] ?? null;
+        return this.item_cache[id] ?? null;
     }
 }
 
-export class HordesPassiveInventory {
-
-    #_root = null;
-
-    public mount(parent: HTMLElement, props: passiveMountProps): any {
-        if (!this.#_root) this.#_root = createRoot(parent);
-        this.#_root.render( <HordesPassiveInventoryWrapper {...props} parent={parent} /> );
-    }
-
-    public unmount() {
-        if (this.#_root) {
-            this.#_root.unmount();
-            this.#_root = null;
-        }
+export class HordesPassiveInventory extends BaseMounter<passiveMountProps>{
+    protected render(props: passiveMountProps): React.ReactNode {
+        return <HordesPassiveInventoryWrapper {...props} parent={this.parent} />;
     }
 }
 
-export class HordesEscortInventory {
-
-    #_root = null;
-
-    public mount(parent: HTMLElement, props: escortMountProps): any {
-        if (!this.#_root) this.#_root = createRoot(parent);
-        this.#_root.render( <HordesEscortInventoryWrapper {...props} parent={parent} /> );
-    }
-
-    public unmount() {
-        if (this.#_root) {
-            this.#_root.unmount();
-            this.#_root = null;
-        }
+export class HordesEscortInventory extends BaseMounter<escortMountProps>{
+    protected render(props: escortMountProps): React.ReactNode {
+        return <HordesEscortInventoryWrapper {...props} parent={this.parent} />;
     }
 }
 

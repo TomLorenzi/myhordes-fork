@@ -9,7 +9,7 @@ import {PersistentShim, Shim} from "../react";
 import {HordesLog} from "../react/log/Wrapper";
 import {HordesEscortInventory, HordesInventory, HordesPassiveInventory} from "../react/inventory/Wrapper";
 import {InventoryBagData, Item} from "../react/inventory/api";
-import {HordesBuildingList} from "../react/buildings/Wrapper";
+import {HordesBuildingList, HordesBuildingPage} from "../react/buildings/Wrapper";
 
 customElements.define('hordes-map', class HordesMapElement extends PersistentShim<HordesMap> {
     protected generateInstance(): HordesMap {
@@ -154,6 +154,24 @@ customElements.define('hordes-escort-inventory', class HordesPassiveInventoryEle
 customElements.define('hordes-building-list', class HordesBuildingListElement extends PersistentShim<HordesBuildingList> {
     protected generateInstance(): HordesBuildingList {
         return new HordesBuildingList();
+    }
+
+    protected generateProps(): object | null {
+        return {
+            etag: this.dataset.etag,
+        }
+    }
+
+    protected static observedAttributeNames() {
+        return [
+            'data-etag'
+        ];
+    }
+}, {  });
+
+customElements.define('hordes-building-page', class HordesBuildingPageElement extends PersistentShim<HordesBuildingPage> {
+    protected generateInstance(): HordesBuildingPage {
+        return new HordesBuildingPage();
     }
 
     protected generateProps(): object | null {

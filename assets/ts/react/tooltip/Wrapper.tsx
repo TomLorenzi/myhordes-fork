@@ -1,38 +1,29 @@
 import * as React from "react";
 import { createPortal } from "react-dom";
-import { createRoot } from "react-dom/client";
 import {ReactNode, useLayoutEffect, useRef, useState} from "react";
 import {Const, Global} from "../../defaults";
+import {BaseMounter} from "../index";
 
 declare var c: Const;
 declare var $: Global;
 
-export class HordesTooltip {
+interface mountProps {
+    'for': HTMLElement,
+    textContent: string|null,
+    additionalClasses: string|string[]
+    children: ChildNode[]
+}
 
-    #_root = null;
-
-    public mount(parent: HTMLElement, props: {
-        'for': HTMLElement,
-        textContent: string|null,
-        additionalClasses: string|string[]
-        children: ChildNode[]
-    }): any {
-        if (!this.#_root) this.#_root = createRoot(parent);
-        this.#_root.render( <TooltipImplementation
+export class HordesTooltip extends BaseMounter<mountProps> {
+    protected render(props: mountProps): React.ReactNode {
+        return <TooltipImplementation
             forParent={props['for']}
             additionalClasses={props.additionalClasses}
             textContent={props.textContent}
             childNodes={props.children}
             onShowTooltip={ div => props['for'].dispatchEvent( new CustomEvent('tooltipAppear', { detail: { content: div } }),  ) }
             onHideTooltip={ div => props['for'].dispatchEvent( new CustomEvent('tooltipDisappear', { detail: { content: div } }),  ) }
-        /> );
-    }
-
-    public unmount() {
-        if (this.#_root) {
-            this.#_root.unmount();
-            this.#_root = null;
-        }
+        />;
     }
 }
 
@@ -46,8 +37,8 @@ export const Tooltip = (
         textContent?: string|null,
         additionalClasses?: string|string[],
         html?: string,
-        onShowTooltip?: (HTMLDivElement)=>void,
-        onHideTooltip?: (HTMLDivElement)=>void,
+        onShowTooltip?: (elem: HTMLDivElement)=>void,
+        onHideTooltip?: (elem: HTMLDivElement)=>void,
     }) => {
 
     const locationProxy = useRef<HTMLDivElement>(null);

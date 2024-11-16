@@ -2,7 +2,7 @@ import * as React from "react";
 import {useEffect, useLayoutEffect, useRef, useState} from "react";
 import {Const, Global} from "../../defaults";
 import {FileUpload, IssueReportAPI, ResponseIndex} from "./api";
-import {ReactDialogMounter} from "../index";
+import {DialogExtraMountProps, ReactDialogMounter} from "../index";
 import {byteToText} from "../../v2/utils";
 import {dialogShim} from "../../shims";
 
@@ -21,9 +21,9 @@ export class HordesIssueReport extends ReactDialogMounter<Props> {
         return parent.querySelector(props.selector);
     }
 
-    protected renderReact(callback: (a:any)=>void, props: Props) {
+    protected render(props: Props & DialogExtraMountProps) {
         return <ReportIssueDialog
-            setCallback={callback}
+            setCallback={props.callback}
             title={props.title}
             pass={props.pass}
         />
@@ -35,7 +35,7 @@ type FileUploadWithSize = FileUpload & {size: number, display: boolean, mime: st
 const ReportIssueDialog = (props: {
     title: string,
     pass: object,
-    setCallback: (any)=>void
+    setCallback: (v0: any)=>void
 }) => {
     const [open, setOpen] = useState<boolean>(false);
     const [sending, setSending] = useState<boolean>(false);

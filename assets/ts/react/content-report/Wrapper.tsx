@@ -2,7 +2,7 @@ import * as React from "react";
 import { useEffect, useLayoutEffect, useRef, useState} from "react";
 import {Const, Global} from "../../defaults";
 import {ContentReportAPI, ResponseIndex} from "./api";
-import {ReactDialogMounter} from "../index";
+import {DialogExtraMountProps, ReactDialogMounter} from "../index";
 import {dialogShim} from "../../shims";
 
 declare var c: Const;
@@ -21,9 +21,9 @@ export class HordesContentReport extends ReactDialogMounter<Props> {
         return parent.querySelector(props.selector);
     }
 
-    protected renderReact(callback: (a:any)=>void, props: Props) {
+    protected render(props: Props & DialogExtraMountProps) {
         return <ReportCreatorDialog
-            setCallback={callback}
+            setCallback={props.callback}
             title={props.title}
             type={props.type}
             principal={props.principal}
@@ -35,7 +35,7 @@ const ReportCreatorDialog = (props: {
     type: string,
     principal: number,
     title: string,
-    setCallback: (any)=>void
+    setCallback: (a0: any)=>void
 }) => {
     const [open, setOpen] = useState<boolean>(false);
     const [sending, setSending] = useState<boolean>(false);

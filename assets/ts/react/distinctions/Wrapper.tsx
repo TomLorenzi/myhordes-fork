@@ -1,26 +1,14 @@
 import * as React from "react";
-import { createRoot } from "react-dom/client";
 import {PointerEventHandler, useEffect, useLayoutEffect, useRef, useState} from "react";
-import Components from "../index";
+import Components, {BaseMounter} from "../index";
 import {TranslationStrings} from "./strings";
 import {DistinctionAward, DistinctionPicto, ResponseDistinctions, SoulDistinctionAPI} from "./api";
 import {Tooltip} from "../tooltip/Wrapper";
 
 
-export class HordesDistinctions {
-
-    #_root = null;
-
-    public mount(parent: HTMLElement, props: {  }): any {
-        if (!this.#_root) this.#_root = createRoot(parent);
-        this.#_root.render( <Distinctions {...props} /> );
-    }
-
-    public unmount() {
-        if (this.#_root) {
-            this.#_root.unmount();
-            this.#_root = null;
-        }
+export class HordesDistinctions extends BaseMounter<{  }>{
+    protected render(props: {}): React.ReactNode {
+        return <Distinctions {...props} />;
     }
 }
 

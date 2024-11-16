@@ -9,12 +9,12 @@ import {
     ResponseConfig,
     ResponseJobs, ResponseSkills, Skill
 } from "./api";
-import {createRoot} from "react-dom/client";
 import {TranslationStrings} from "./strings";
 import {Tooltip} from "../tooltip/Wrapper";
 import {html, sharedWorkerCall, sharedWorkerMessageHandler} from "../../v2/init";
 import {ServiceWorkerIndicator} from "../service-worker-state/Wrapper";
 import {dialogShim} from "../../shims";
+import {BaseMounter} from "../index";
 
 declare var c: Const;
 declare var $: Global;
@@ -23,20 +23,9 @@ type Props = {
     town: number
 }
 
-export class HordesTownOnboarding {
-
-    #_root = null;
-
-    public mount(parent: HTMLElement, props: {town: number}): any {
-        if (!this.#_root) this.#_root = createRoot(parent);
-        this.#_root.render( <HordesTownOnboardingWrapper {...props} /> );
-    }
-
-    public unmount() {
-        if (this.#_root) {
-            this.#_root.unmount();
-            this.#_root = null;
-        }
+export class HordesTownOnboarding extends BaseMounter<Props>{
+    protected render(props: Props): React.ReactNode {
+        return <HordesTownOnboardingWrapper {...props} />;
     }
 }
 

@@ -1,34 +1,23 @@
 import * as React from "react";
-import { createRoot } from "react-dom/client";
 import {useLayoutEffect, useRef, useState} from "react";
-import {number} from "prop-types";
+import {BaseMounter} from "../index";
 
+interface mountProps {
+    animateFrom: number,
+    animateTo: number,
+    limit: number,
+    step: number[],
+    xp: boolean
+}
 
-export class HordesProgressBar {
-
-    #_root = null;
-
-    public mount(parent: HTMLElement, props: any): any {
-        if (!this.#_root) this.#_root = createRoot(parent);
-        this.#_root.render(<ProgressBar {...props} />);
-    }
-
-    public unmount() {
-        if (this.#_root) {
-            this.#_root.unmount();
-            this.#_root = null;
-        }
+export class HordesProgressBar extends BaseMounter<mountProps> {
+    protected render(props: mountProps): React.ReactNode {
+        return <ProgressBar {...props} />;
     }
 }
 
 export const ProgressBar = (
-    {animateFrom, animateTo, limit, step, xp}: {
-        animateFrom: number,
-        animateTo: number,
-        limit: number,
-        step: number[],
-        xp: boolean
-    }) => {
+    {animateFrom, animateTo, limit, step, xp}: mountProps) => {
 
     const [baseLimit, setBaseLimit] = useState(xp ? step[0] : limit);
     const [value, setValue] = useState(animateTo);
