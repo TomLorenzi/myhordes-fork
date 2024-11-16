@@ -16,6 +16,7 @@ use App\Entity\RuinExplorerStats;
 use App\Enum\ActionHandler\PointType;
 use App\Enum\Game\TransferItemModality;
 use App\Enum\Game\TransferItemOption;
+use App\Enum\ItemPoisonType;
 use App\Event\Game\Items\TransferItemEvent;
 use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\CitizenHandler;
@@ -35,6 +36,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Expr\Join;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -148,7 +150,7 @@ class InventoryController extends CustomAbstractCoreController
             ($inventory->getRuinZoneRoom() && $citizen->getExplorerStats()->findFirst(fn(int $k, RuinExplorerStats $a) => $a->getActive())?->isAt($inventory->getRuinZoneRoom()));
     }
 
-    protected function renderBagInventory(Citizen $citizen, Inventory $inventory, InventoryHandler $handler, EventProxyService $proxy, TranslatorInterface $trans): array {
+    protected function renderBagInventory(Citizen $citizen, Inventory $inventory, InventoryHandler $handler, EventProxyService $proxy): array {
         $foreign_chest = false;
 
         // Special case - foreign chest
@@ -158,6 +160,7 @@ class InventoryController extends CustomAbstractCoreController
         $show_banished_hidden = $citizen->getBanished() || $citizen->getTown()->getChaos();
         return [
             'bank' => false,
+            'rsc' => false,
             'size' => $foreign_chest ? 0 : $handler->getSize( $inventory ),
             'mods' => [
                 'has_drunk' => $citizen->hasStatus('hasdrunk')
@@ -187,6 +190,36 @@ class InventoryController extends CustomAbstractCoreController
             ]
         ];
     }
+
+    protected function renderResourceInventory(Citizen $citizen, Inventory $inventory, InventoryHandler $handler, EventProxyService $proxy, TranslatorInterface $trans, EntityManagerInterface $em, array $rsc = []): array {
+        $qb = $em->createQueryBuilder();
+
+        // Select fields - item ID, item count,
+        $qb
+            ->select('IDENTITY(i.prototype) as p', 'SUM(i.count) as c')->from(Item::class,'i', 'i.prototype')
+            ->where('i.inventory = :inv')->setParameter('inv', $inventory)
+            ->andWhere('i.prototype IN (:list)')->setParameter('list', $rsc)
+            ->andWhere('i.broken = false')
+            ->groupBy('i.prototype');
+
+        // Add group by poison state if poison stacking is disabled
+        if (!$this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_MODIFIER_POISON_STACK, false))
+            $qb->andWhere('i.poison = :poison')->setParameter('poison', ItemPoisonType::None->value);
+
+        $data = $qb->getQuery()->getResult(AbstractQuery::HYDRATE_ARRAY);
+        $found = array_map( fn(array $element) => $element['p'], $data );
+        foreach ($rsc as $pid)
+            if (!in_array($pid, $found))
+                $data[] = ['p' => $pid, 'c' => 0];
+
+        return [
+            'bank' => false,
+            'rsc' => true,
+            'mods' => [],
+            'items' => $data
+        ];
+    }
+
 
     protected function renderBankInventory(Citizen $citizen, Inventory $inventory, InventoryHandler $handler, EventProxyService $proxy, TranslatorInterface $trans, EntityManagerInterface $em): array {
         $qb = $em->createQueryBuilder();
@@ -233,6 +266,7 @@ class InventoryController extends CustomAbstractCoreController
 
         return [
             'bank' => true,
+            'rsc' => false,
             'mods' => [
                 'has_drunk' => $citizen->hasStatus('hasdrunk')
             ],
@@ -251,14 +285,18 @@ class InventoryController extends CustomAbstractCoreController
         ];
     }
 
-    protected function renderInventory(Citizen $citizen, Inventory $inventory, InventoryHandler $handler, EventProxyService $proxy, TranslatorInterface $trans, EntityManagerInterface $em): array {
+    protected function renderInventory(Citizen $citizen, Inventory $inventory, InventoryHandler $handler, EventProxyService $proxy, TranslatorInterface $trans, EntityManagerInterface $em, ?array $rsc): array {
         return $inventory->getTown()
-            ? $this->renderBankInventory( $citizen, $inventory, $handler, $proxy, $trans, $em )
+            ? (
+                empty($rsc)
+                    ? $this->renderBankInventory( $citizen, $inventory, $handler, $proxy, $trans, $em )
+                    : $this->renderResourceInventory( $citizen, $inventory, $handler, $proxy, $trans, $em, $rsc )
+            )
             : $this->renderBagInventory( $citizen, $inventory, $handler, $proxy, $trans );
     }
 
     #[Route(path: '/{id}', name: 'inventory_get', methods: ['GET'])]
-    public function inventory(Inventory $inventory, EntityManagerInterface $em, InventoryHandler $handler, EventProxyService $proxy): JsonResponse {
+    public function inventory(Request $request, Inventory $inventory, EntityManagerInterface $em, InventoryHandler $handler, EventProxyService $proxy): JsonResponse {
         $citizen = $this->getUser()->getActiveCitizen();
 
         if (!self::canEnumerate($citizen, $inventory))
@@ -273,7 +311,12 @@ class InventoryController extends CustomAbstractCoreController
             if ($hidden && !$intrusion) return new JsonResponse([], Response::HTTP_NOT_FOUND);
         }
 
-        $data = $this->renderInventory( $citizen, $inventory, $handler, $proxy, $this->translator, $em );
+        $rsc = array_map(fn(string $s) => (int)$s, array_filter(
+            explode(',', $request->query->get('rsc', '')),
+            fn(string $e) => !empty($e) && is_numeric($e)
+        ));
+
+        $data = $this->renderInventory( $citizen, $inventory, $handler, $proxy, $this->translator, $em, $rsc );
 
         return new JsonResponse($data);
     }

@@ -27,8 +27,15 @@ export class HordesBuildingList extends BaseMounter<mountProps> {
     }
 }
 
-export class HordesBuildingPage extends BaseMounter<mountProps> {
-    protected render(props: mountProps): React.ReactNode {
+export interface mountPageProps {
+    etag: string,
+    apRatio: number,
+    hpRatio: number,
+    bank: number
+}
+
+export class HordesBuildingPage extends BaseMounter<mountPageProps> {
+    protected render(props: mountPageProps): React.ReactNode {
         return <HordesBuildingPageWrapper {...props}/>
     }
 

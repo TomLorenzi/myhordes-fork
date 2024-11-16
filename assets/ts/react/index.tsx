@@ -6,6 +6,7 @@ import HTML from "../html";
 import {ErrorBoundary} from "react-error-boundary";
 import {Simulate} from "react-dom/test-utils";
 import error = Simulate.error;
+import {HTMLAttributes, ReactHTML} from "react";
 
 declare var $: Global;
 
@@ -354,6 +355,30 @@ export abstract class BaseMounter<PropDef extends object> {
     public unmount() {
         this.trashReactRoot();
     }
+}
+
+export const classNames = (classes: string|{[p: string]: boolean}): string => {
+    return typeof classes === "object"
+        ? Object.entries(classes)
+            .filter(([,v]) => !!v)
+            .map(([k]) => k)
+            .join(' ')
+        : classes;
+}
+
+export const Tag = (props: HTMLAttributes<HTMLElement> & {tagName?: string, classNames?: string|{[p: string]: boolean}}) => {
+    const TagName = (props.tagName ?? 'div') as keyof JSX.IntrinsicElements;
+
+    const htmlProps = {...props};
+    delete htmlProps.classNames;
+    delete htmlProps.tagName;
+
+    return <TagName {...htmlProps} {...(props.classNames ? {
+        className: [classNames(props.classNames), props.className]
+            .filter((s: string|null) => s?.length > 0)
+            .join(' ')
+        ,
+    } : {})}>{props.children}</TagName>
 }
 
 export interface DialogExtraMountProps {

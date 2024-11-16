@@ -177,12 +177,18 @@ customElements.define('hordes-building-page', class HordesBuildingPageElement ex
     protected generateProps(): object | null {
         return {
             etag: this.dataset.etag,
+            hpRatio: parseFloat(this.dataset.hpRatio ?? '2'),
+            apRatio: parseFloat(this.dataset.apRatio ?? '1'),
+            bank: parseInt(this.dataset.bank ?? '0'),
         }
     }
 
     protected static observedAttributeNames() {
         return [
-            'data-etag'
+            'data-etag',
+            'data-ap-ratio',
+            'data-hp-ratio',
+            'data-bank',
         ];
     }
 }, {  });

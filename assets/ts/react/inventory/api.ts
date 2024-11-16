@@ -21,23 +21,33 @@ export type InventoryCategory = {
     items: Item[],
 }
 
-export type InventoryResponse = InventoryBagData | InventoryBankData;
+export type InventoryResponse = InventoryBagData | InventoryBankData | InventoryResourceData;
 
 export type InventoryBaseData = {
-    bank: boolean
+    bank: boolean,
+    rsc: boolean
     mods: InventoryMods
 }
 
 export type InventoryBagData = InventoryBaseData & {
     bank: false
+    rsc: false
     size: number|null,
     items: Item[],
 }
 
 export type InventoryBankData = InventoryBaseData & {
     bank: true,
+    rsc: false
     categories: InventoryCategory[]
 }
+
+export type InventoryResourceData = InventoryBaseData & {
+    bank: false,
+    rsc: true
+    items: {p: number, c: number}[]
+}
+
 
 export type TransportResponse = {
     success: boolean,
@@ -62,8 +72,8 @@ export class InventoryAPI {
             .request().withCache().get() as Promise<TranslationStrings>;
     }
 
-    public inventory(id: number): Promise<InventoryResponse> {
-        return this.fetch.from(`/${id}`)
+    public inventory(id: number, rsc: number[] = []): Promise<InventoryResponse> {
+        return this.fetch.from(`/${id}`, rsc.length > 0 ? {rsc: rsc.join(',')} : {})
             .request().get() as Promise<InventoryResponse>;
     }
 

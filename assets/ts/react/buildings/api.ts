@@ -11,6 +11,7 @@ export type Building = {
     dt: number,
     e: boolean,
     a: [number,number],
+    v?: boolean
 }
 
 export type BuildingListResponse = {

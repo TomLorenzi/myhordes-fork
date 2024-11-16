@@ -107,7 +107,10 @@
         </div>
     {% endif %}
 
-    <hordes-building-page id="town-building-page" data-react-mount="town-building-page" data-etag="--"></hordes-building-page>
+    <hordes-building-page id="town-building-page" data-react-mount="town-building-page" data-etag="--"
+                          data-ap-ratio="{{ 1.0 / workshopBonus }}" data-hp-ratio="{{ hpToAp }}"
+                          data-bank="{{ town.bank.id }}"
+    ></hordes-building-page>
 
     {% macro building_entry(building, buildable, n, dict, items, disable_all, workshopBonus, hpToAp, canvote, votedBuilding) %}
         {# @var building \App\Entity\Building #}

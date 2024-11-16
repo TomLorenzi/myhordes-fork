@@ -4,6 +4,8 @@ namespace App\Controller\REST\Game;
 
 use App\Controller\CustomAbstractCoreController;
 use App\Entity\BuildingPrototype;
+use App\Entity\ItemGroup;
+use App\Entity\ItemGroupEntry;
 use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Service\ConfMaster;
@@ -18,6 +20,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use function React\Promise\map;
 
 
 #[Route(path: '/rest/v1/game/data', name: 'rest_game_data_', condition: "request.headers.get('Accept') === 'application/json'")]
@@ -79,6 +82,18 @@ class DataController extends CustomAbstractCoreController
         ]);
     }
 
+    private static function renderItemGroup(?ItemGroup $g): array {
+        $data = [];
+        foreach (($g?->getEntries() ?? []) as $entry) {
+            $p = $entry->getPrototype()->getId();
+            $data[$p] = [
+                'p' => $p,
+                'c' => ($data[$p] ?? null) ? ($data[$p]['c'] + $entry->getChance()) : $entry->getChance()
+            ];
+        }
+        return array_values($data);
+    }
+
     #[Route(path: '/buildings', name: 'buildings', methods: ['GET'])]
     public function buildings(EntityManagerInterface $em, Request $request): JsonResponse {
         return new JsonResponse([
@@ -88,12 +103,14 @@ class DataController extends CustomAbstractCoreController
                 'id' => $p->getId(),
                 'name' => $this->translator->trans( $p->getLabel(), [], 'buildings' ),
                 'desc' => $this->translator->trans( $p->getDescription(), [], 'buildings' ),
+                'identifier' => $p->getIcon(),
                 'icon' => $this->assets->getUrl( "build/images/building/{$p->getIcon()}.gif" ),
                 'temp' => $p->getTemp(),
                 'defense' => $p->getDefense(),
                 'levels' => $p->getMaxLevel() ?? 0,
                 'parent' => $p->getParent()?->getId() ?? null,
                 'order' => $p->getOrderBy() ?? 0,
+                'rsc' => self::renderItemGroup( $p->getResources() )
             ])->toArray()
         ]);
     }
