@@ -250,6 +250,9 @@ export default class Ajax {
             let buttons = content_source[i].querySelectorAll('*[x-ajax-href]');
             for (let b = 0; b < buttons.length; b++) {
                 buttons[b].addEventListener('click', function(e) {
+
+                    if (e.target.dataset.fetch) return;
+
                     e.preventDefault();
                     let target_desc = buttons[b].getAttribute('x-ajax-target');
                     let load_target = null;

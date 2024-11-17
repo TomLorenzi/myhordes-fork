@@ -27,6 +27,14 @@
                 <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('forum_view', {id: pinned_forum.id}) }}">
                     <img src="{{ asset('build/images/icons/small_rp.gif') }}" alt=""/>
                     <span class="hide-sm hide-md hide-lg">{{ (app.user.pinnedForums.count >= 4 and slugify is defined and slugify) ? pinned_forum.localizedSlug(app.locale) : pinned_forum.localizedTitle(app.locale) }}</span>
+                    <span
+                            class="hide-sm hide-md hide-lg"
+                            title="{{ 'Löschen'|trans({},'game') }}"
+                            data-fetch-confirm="{{ 'Bestätigen?'|trans({},'global') }}"
+                            data-fetch-load="{{ id is defined ? path('forum_view', {id: id}) : path('forum_list') }}"
+                            data-fetch="{{ path('rest_user_settings_options_forum_flag_off', {id: pinned_forum.id, flag: 'pin'}) }}"
+                            data-fetch-method="delete"
+                    >🗙</span>
                     <span class="hide-desktop">{{ pinned_forum.localizedSlug(app.locale) }}</span>
                 </div>
             </li>
