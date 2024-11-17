@@ -31,7 +31,8 @@ export interface mountPageProps {
     etag: string,
     apRatio: number,
     hpRatio: number,
-    bank: number
+    bank: number,
+    canVote: boolean,
 }
 
 export class HordesBuildingPage extends BaseMounter<mountPageProps> {

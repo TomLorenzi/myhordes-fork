@@ -60,7 +60,12 @@
 }
 
 div.buildings {
-  margin-top: 7px;
+  margin-top: 0;
+
+  &+div.buildings{
+    margin-top: 7px;
+  }
+
   font-size: 1.2rem;
   border-bottom: 2px solid @myhordes-cell-header-text-color;
   outline: 2px solid #5c2b20;
@@ -465,7 +470,7 @@ div.voted-building {
 ul.tabs {
   &.buildings-tabs {
     &::after { content: ""; display: table; clear: both; }
-    margin-bottom: -30px;
+    margin-bottom: 0;
     > li {
       margin: 0 3px 0 0;
     }

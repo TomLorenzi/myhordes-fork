@@ -180,6 +180,7 @@ customElements.define('hordes-building-page', class HordesBuildingPageElement ex
             hpRatio: parseFloat(this.dataset.hpRatio ?? '2'),
             apRatio: parseFloat(this.dataset.apRatio ?? '1'),
             bank: parseInt(this.dataset.bank ?? '0'),
+            canVote: parseInt(this.dataset.canVote ?? '0') > 0,
         }
     }
 
@@ -189,6 +190,7 @@ customElements.define('hordes-building-page', class HordesBuildingPageElement ex
             'data-ap-ratio',
             'data-hp-ratio',
             'data-bank',
+            'data-can-vote'
         ];
     }
 }, {  });

@@ -11,9 +11,8 @@ import {Vault} from "../../v2/client-modules/Vault";
 import {VaultBuildingEntry, VaultItemEntry, VaultStorage} from "../../v2/typedef/vault_td";
 import {BuildingListGlobal, mountPageProps} from "./Wrapper";
 import {Tag} from "../index";
-import {Simulate} from "react-dom/test-utils";
-import load = Simulate.load;
 import {InventoryAPI, InventoryResourceData} from "../inventory/api";
+import {Tab, TabbedSection} from "../tab-list/TabList";
 
 declare var $: Global;
 declare var c: Const;
@@ -113,11 +112,41 @@ export const HordesBuildingPageWrapper = (props: mountPageProps) => {
         } )
         ?? [];
 
+    const voted_building = buildings?.buildings.find( b => b.v ) ?? null;
+
     return <Globals.Provider value={{...props, api: api.current, strings, buildings, vault: vaultData, itemVault: itemVaultData, itemCount}}>
+        { props.canVote && strings && <div className="hero-help">{strings.page.vote.help}</div> }
+
         { (!loaded || root_buildings.length === 0) && <div className="loading" /> }
-        { loaded && root_buildings.length > 0 && root_buildings.map(b => <React.Fragment key={b.i}>
-            <BuildingRootGroup building={b}/>
-        </React.Fragment>)}
+
+        { loaded && root_buildings.length > 0 && <>
+
+            { voted_building && <div className="voted-building">
+                { strings.page.vote.current }<br/>
+                <strong className="name">{ (vaultData ?? {})[voted_building.p]?.name }</strong>
+                <Tooltip additionalClasses="help" html={ strings.page.vote.tooltip }/>
+            </div> }
+
+            <TabbedSection mountOnlyActive={true} keepInactiveMounted={false} className="buildings-tabs">
+                { [
+                    <Tab key={0} title={strings.page.all} id={`b_all`}>
+                        { root_buildings.map(b =>
+                            <React.Fragment key={b.p}>
+                                <BuildingRootGroup building={b}/>
+                            </React.Fragment>
+                        )}
+                    </Tab>,
+                    ...root_buildings.map(b =>
+                        <Tab key={b.p} title={(vaultData ?? {})[b.p]?.name} id={`b_root_${b.p}`}>
+                            <BuildingRootGroup building={b}/>
+                        </Tab>
+                    )
+                ]}
+            </TabbedSection>
+
+        </> }
+
+
     </Globals.Provider>
 }
 
