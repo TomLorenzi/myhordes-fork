@@ -16,7 +16,10 @@ export type TranslationStrings = {
         g2: string,
         ap_bar: string,
         hp_bar: string,
+        hp_ratio_info: string,
         hp_ratio_help: string,
         ap_ratio_help: string,
+        action_repair: string,
+        action_build: string,
     }
 }

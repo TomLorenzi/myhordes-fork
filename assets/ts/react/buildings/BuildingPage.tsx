@@ -156,6 +156,10 @@ const BuildingGroup = (props: BuildingGroupProps) => {
     const not_full = props.building.a[0] < props.building.a[1];
     const needs_repair = props.building.c && not_full;
 
+    const missing_ap = props.building.c
+        ? (Math.ceil((props.building.a[1] - props.building.a[0]) / globals.hpRatio))
+        : (Math.round(props.building.a[1] / globals.apRatio) - props.building.a[0]);
+
     return prototype && <>
         <Tag className="building" classNames={{
         root: (props.level ?? 0) === 0,
@@ -167,31 +171,9 @@ const BuildingGroup = (props: BuildingGroupProps) => {
     }}>
             <div className="type_indicator"/>
             <div className="building_row">
-                <div className="building_info cell">
-                    <Tooltip additionalClasses="help">
-                        <b className="building_name">{prototype.name}</b>
-                        <hr/>
-                        {props.building.c && prototype.defense > 0 && props.building.d0 < prototype.defense && <>
-                            <em>{globals.strings.common.defense_broken.replace('{defense}', `${props.building.d0}`).replace('{max}', `${prototype.defense}`)}</em>
-                            <hr/>
-                        </>}
-                        {prototype.desc}
-                    </Tooltip>
-                    { props.level > 1 && Array.from(Array(props.level - 1).keys()).map(i => <img key={i} alt="" src={ globals.strings.page.g2 }/>) }
-                    { props.level > 0 && <img alt="" src={ globals.strings.page.g1 }/> }
-                    <img alt={prototype.name} src={prototype.icon} className="building_icon"/>
-                    <span className="building_name">{prototype.name}</span>
-                    { prototype.defense > 0 &&
-                        <Tag classNames={{
-                            defense: !props.building.c || props.building.d0 >= prototype.defense,
-                            'defense-broken': props.building.c && props.building.d0 < prototype.defense }}
-                        >{ props.building.c ? props.building.d0 : prototype.defense }</Tag>
-                    }
-                </div>
-                <BuildingResources building={props.building} prototype={prototype} locked={props.locked}/>
-                <div className="building_action cell">
-
-                </div>
+                <BuildingInfos building={props.building} prototype={prototype} locked={props.locked} level={props.level} missing_ap={missing_ap} />
+                <BuildingResources building={props.building} prototype={prototype} locked={props.locked} missing_ap={missing_ap}/>
+                <BuildingActions building={props.building} prototype={prototype} locked={props.locked}  missing_ap={missing_ap}/>
             </div>
         </Tag>
         { globals.buildings.buildings
@@ -206,37 +188,65 @@ const BuildingGroup = (props: BuildingGroupProps) => {
     </>
 }
 
-interface BuildingResourcesProps {
+interface BuildingCompleteProps {
     building: Building
     prototype: VaultBuildingEntry
-    locked: boolean
+    locked: boolean,
+    missing_ap?: number
 }
 
-const BuildingResources = (props: BuildingResourcesProps) => {
+const BuildingInfos= (props: BuildingCompleteProps & {level: number}) => {
+    const globals = useContext(Globals);
+
+    return <div className="building_info cell">
+        <Tooltip additionalClasses="help">
+            <b className="building_name">{props.prototype.name}</b>
+            <hr/>
+            {props.building.c && props.prototype.defense > 0 && props.building.d0 < props.prototype.defense && <>
+                <em>{globals.strings.common.defense_broken.replace('{defense}', `${props.building.d0}`).replace('{max}', `${props.prototype.defense}`)}</em>
+                <hr/>
+            </>}
+            {props.prototype.desc}
+        </Tooltip>
+        {props.level > 1 && Array.from(Array(props.level - 1).keys()).map(i => <img key={i} alt=""
+                                                                                    src={globals.strings.page.g2}/>)}
+        {props.level > 0 && <img alt="" src={globals.strings.page.g1}/>}
+        <img alt={props.prototype.name} src={props.prototype.icon} className="building_icon"/>
+        <span className="building_name">{props.prototype.name}</span>
+        {props.prototype.defense > 0 &&
+            <Tag classNames={{
+                defense: !props.building.c || props.building.d0 >= props.prototype.defense,
+                'defense-broken': props.building.c && props.building.d0 < props.prototype.defense
+            }}
+            >{props.building.c ? props.building.d0 : props.prototype.defense}</Tag>
+        }
+    </div>
+}
+
+const BuildingResources = (props: BuildingCompleteProps) => {
     const globals = useContext(Globals);
 
     const ratio = props.building.c ? 1 : globals.apRatio;
-    const missing_ap = props.building.c
-        ? (Math.ceil( (props.building.a[1] - props.building.a[0]) / globals.hpRatio ))
-        : (Math.round(props.building.a[1] / globals.apRatio) - props.building.a[0]);
 
     const needs_repair = (props.building.c && props.building.a[0] < props.building.a[1]);
 
     return <Tag className="building_resources padded cell" classNames={{to_repair: needs_repair}}>
-        { ((!props.building.c && props.building.a[0] > 0) || needs_repair) && <>
+        {((!props.building.c && props.building.a[0] > 0) || needs_repair) && <>
             <div className="ap-bar">
                 <div className="bar"
                      style={{width: `${100 * props.building.a[0] / (Math.round(props.building.a[1] / ratio))}%`}}></div>
             </div>
-            <img alt="" className="ap-bar-start" src={props.building.c ? globals.strings.page.hp_bar : globals.strings.page.ap_bar} />
-            { props.building.c && <Tooltip additionalClasses="help">
+            <img alt="" className="ap-bar-start"
+                 src={props.building.c ? globals.strings.page.hp_bar : globals.strings.page.ap_bar}/>
+            {props.building.c && <Tooltip additionalClasses="help">
                 <div>
                     <em>{globals.strings.common.state}</em>
                     &nbsp;
-                    { props.building.a[0] }/{ props.building.a[1] }
+                    {props.building.a[0]}/{props.building.a[1]}
                 </div>
-                <span dangerouslySetInnerHTML={{__html:
-                        globals.strings.page.hp_ratio_help
+                <span dangerouslySetInnerHTML={{
+                    __html:
+                        globals.strings.page.hp_ratio_info
                             .replace('{divap}', '<div class="ap"></div>')
                             .replace('{hprepair}', `${globals.hpRatio}`)
                 }}></span>
@@ -245,11 +255,11 @@ const BuildingResources = (props: BuildingResourcesProps) => {
 
         { (!props.building.c || props.building.a[0] < props.building.a[1]) && <>
             <div className="build-req">
-                {props.building.c && <div className="ap">{missing_ap}</div>}
+                {props.building.c && <div className="ap">{props.missing_ap}</div>}
                 {!props.building.c && <div className="ap-cost">
-                    <div className="ap">{missing_ap}</div>
+                    <div className="ap">{props.missing_ap}</div>
                     {!props.building.c && <Tooltip additionalClasses="help"
-                                                   html={globals.strings.page.ap_ratio_help.replace('{ap}', `${missing_ap}`)}/>}
+                                                   html={globals.strings.page.ap_ratio_help.replace('{ap}', `${props.missing_ap}`)}/>}
                 </div>}
 
             </div>
@@ -263,8 +273,22 @@ const BuildingResources = (props: BuildingResourcesProps) => {
     </Tag>
 }
 
+const BuildingActions= (props: BuildingCompleteProps) => {
+    const globals = useContext(Globals);
+    const res_ok = props.prototype.rsc.reduce((carry,{p,c}) => carry && (globals.itemCount[p] ?? 0) >= c, true)
+
+    return <div className="building_action cell">
+        { !props.locked && ( !props.building.c || props.building.a[0] < props.building.a[1] ) && <>
+            <button className="inline build-btn" disabled={!res_ok}>
+                <img alt="" src={ props.building.c ? globals.strings.page.action_repair : globals.strings.page.action_build } />
+                { props.building.c && <Tooltip additionalClasses="help" html={globals.strings.page.hp_ratio_help.replace('{remaining}', `${props.missing_ap}`)} /> }
+            </button>
+        </>}
+    </div>
+}
+
 interface BuildingResourceItemProps {
-    item: VaultItemEntry|null,
+    item: VaultItemEntry | null,
     needed: number,
     having: number|null
 }

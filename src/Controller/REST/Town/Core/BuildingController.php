@@ -60,7 +60,10 @@ class BuildingController extends CustomAbstractCoreController
                 'g2' => $asset->getUrl('build/images/building/small_parent2.gif'),
                 'ap_bar' => $asset->getUrl('build/images/building/building_barStart.gif'),
                 'hp_bar' => $asset->getUrl('build/images/building/building_barStartBroken.png'),
-                'hp_ratio_help' => $this->translator->trans('Jeder {divap}, der in die Reparatur investiert wird, beseitigt {hprepair} Schadenspunkte an einem Bauwerk.', [], 'game'),
+                'action_build'  => $asset->getUrl('build/images/icons/small_more2.gif'),
+                'action_repair' => $asset->getUrl('build/images/icons/small_refine.gif'),
+                'hp_ratio_info' => $this->translator->trans('Jeder {divap}, der in die Reparatur investiert wird, beseitigt {hprepair} Schadenspunkte an einem Bauwerk.', [], 'game'),
+                'hp_ratio_help' => $this->translator->trans('Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.', [], 'game'),
                 'ap_ratio_help' => $this->translator->trans('Zum Bau dieses Bauprojekts fehlen noch {ap} AP', [], 'game'),
             ]
         ]);
