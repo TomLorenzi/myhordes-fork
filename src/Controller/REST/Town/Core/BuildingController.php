@@ -56,6 +56,7 @@ class BuildingController extends CustomAbstractCoreController
                 'close' => $this->translator->trans('Schließen', [], 'global'),
             ],
             'page' => [
+                'all' => $this->translator->trans('Alle', [], 'game'),
                 'g1' => $asset->getUrl('build/images/building/small_parent.gif'),
                 'g2' => $asset->getUrl('build/images/building/small_parent2.gif'),
                 'ap_bar' => $asset->getUrl('build/images/building/building_barStart.gif'),
@@ -65,6 +66,12 @@ class BuildingController extends CustomAbstractCoreController
                 'hp_ratio_info' => $this->translator->trans('Jeder {divap}, der in die Reparatur investiert wird, beseitigt {hprepair} Schadenspunkte an einem Bauwerk.', [], 'game'),
                 'hp_ratio_help' => $this->translator->trans('Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.', [], 'game'),
                 'ap_ratio_help' => $this->translator->trans('Zum Bau dieses Bauprojekts fehlen noch {ap} AP', [], 'game'),
+
+                'vote' => [
+                    'help' => $this->translator->trans('Du kannst den Bürgern der Stadt die Errichtung eines bestimmten Gebäudes empfehlen. Klicke dafür auf den Namen des Bauprojektes, das du empfehlen willst.', [], 'game'),
+                    'current' => $this->translator->trans('Das folgende Bauprojekt wurde empfohlen:', [], 'game'),
+                    'tooltip' => $this->translator->trans('Diese Empfehlung stammt von einem oder mehreren Helden deiner Stadt.', [], 'game'),
+                ]
             ]
         ]);
     }
