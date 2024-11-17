@@ -4,32 +4,18 @@
 namespace App\Command;
 
 
-use App\Entity\Announcement;
 use App\Entity\AttackSchedule;
-use App\Entity\Citizen;
-use App\Entity\CitizenRankingProxy;
 use App\Entity\EventAnnouncementMarker;
-use App\Entity\HeaderStat;
-use App\Entity\Picto;
-use App\Entity\PictoPrototype;
 use App\Entity\Statistic;
 use App\Entity\Town;
 use App\Entity\User;
-use App\Enum\Configuration\TownSetting;
 use App\Enum\StatisticType;
-use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\AdminHandler;
 use App\Service\AntiCheatService;
 use App\Service\CommandHelper;
 use App\Service\ConfMaster;
-use App\Service\CrowService;
-use App\Service\GameEventService;
-use App\Service\GameFactory;
-use App\Service\GazetteService;
 use App\Service\Locksmith;
-use App\Service\NightlyHandler;
 use App\Service\Statistics\UserStatCollectionService;
-use App\Service\TownHandler;
 use App\Service\UserHandler;
 use App\Structures\MyHordesConf;
 use DateTime;
@@ -38,17 +24,12 @@ use DirectoryIterator;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use SplFileInfo;
-use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
-use Symfony\Component\HttpKernel\KernelInterface;
-use Symfony\Contracts\Cache\TagAwareCacheInterface;
-use Twig\Environment;
 use Zenstruck\ScheduleBundle\Schedule\SelfSchedulingCommand;
 use Zenstruck\ScheduleBundle\Schedule\Task\CommandTask;
 
@@ -63,60 +44,31 @@ class CronCommand extends Command implements SelfSchedulingCommand
     private MyHordesConf $conf;
     private AntiCheatService $anti_cheat;
     private UserHandler $userHandler;
-    private CrowService $crowService;
     private CommandHelper $helper;
     private ParameterBagInterface $params;
     private AdminHandler $adminHandler;
     private UserStatCollectionService $userStats;
 
     private array $db;
-    private InvalidateTagsInAllPoolsAction $clearCache;
 
     public function __construct(array $db,
                                 EntityManagerInterface $em, Locksmith $ls,
                                 ConfMaster $conf, AntiCheatService $acs, UserHandler $uh,
-                                CrowService $cs, CommandHelper $helper, ParameterBagInterface $params,
-                                AdminHandler $adminHandler, UserStatCollectionService $us,
-                                InvalidateTagsInAllPoolsAction $clearCache)
+                                CommandHelper $helper, ParameterBagInterface $params,
+                                AdminHandler $adminHandler, UserStatCollectionService $us)
     {
         $this->entityManager = $em;
         $this->locksmith = $ls;
         $this->conf = $conf->getGlobalConf();
         $this->anti_cheat = $acs;
         $this->userHandler = $uh;
-        $this->crowService = $cs;
         $this->helper = $helper;
         $this->params = $params;
         $this->adminHandler = $adminHandler;
         $this->userStats = $us;
-        $this->clearCache = $clearCache;
 
         $this->db = $db;
         parent::__construct();
-    }
-
-    /**
-     * @return void
-     */
-    public function updateHeaderStats(): void
-    {
-        $criteria = new Criteria();
-        $criteria->andWhere($criteria->expr()->neq('end', null));
-        $criteria->orWhere($criteria->expr()->neq('importID', 0));
-        $deadCitizenCount = $this->entityManager->getRepository(CitizenRankingProxy::class)->matching($criteria)->count() + $this->entityManager->getRepository(Citizen::class)->count(['alive' => 0]);
-
-        $pictoKillZombies = $this->entityManager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_killz_#00']);
-        $zombiesKilled = $this->entityManager->getRepository(Picto::class)->countPicto($pictoKillZombies);
-
-        $pictoCanibal = $this->entityManager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_cannib_#00']);
-        $cannibalismCount = $this->entityManager->getRepository(Picto::class)->countPicto($pictoCanibal);
-
-        $this->entityManager->persist( (new HeaderStat())
-            ->setTimestamp( new DateTime() )
-            ->setKilledCitizens( $deadCitizenCount )
-            ->setKilledZombies( $zombiesKilled )
-            ->setCannibalismActs($cannibalismCount)
-        );
     }
 
     protected function configure(): void
@@ -244,17 +196,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
                     // If we exceed the number of allowed processing tries, quarantine the town
                     if (count($failures) >= $try_limit) {
                         $quarantined_towns++;
-
-                        /** @var Town $town */
-                        $town = $this->entityManager->getRepository(Town::class)->find($town_id);
-                        $town->setAttackFails( count($failures) );
-                        foreach ($town->getCitizens() as $citizen) if ($citizen->getAlive())
-                            $this->entityManager->persist(
-                                $this->crowService->createPM_townQuarantine( $citizen->getUser(), $town->getName(), true )
-                            );
-                        $this->entityManager->persist($town);
-                        $this->entityManager->flush();
-                        $this->entityManager->clear();
+                        $this->helper->capsule("app:town:quarantine $town_id", $output, "Moving town <info>{$town_id}</info> <fg=red>into quarantine</>... ", true);
                     }
 
                 }
@@ -266,29 +208,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
                 return 0;
             }
 
-            $s = $this->entityManager->getRepository(AttackSchedule::class)->find($schedule_id);
-            $this->entityManager->persist(
-                $s->setCompleted(true)->setCompletedAt( new DateTimeImmutable('now') )->setFailures($quarantined_towns)
-            );
-
-            $this->updateHeaderStats();
-            try {
-                ($this->clearCache)('daily');
-            } catch (\Throwable $e) {}
-
-
-            $datemod = $this->conf->get(MyHordesConf::CONF_NIGHTLY_DATEMOD, 'tomorrow');
-            if ($datemod !== 'never') {
-
-                $new_date = (new DateTime())->setTimestamp( $s->getTimestamp()->getTimestamp() )->modify($datemod);
-                if ($new_date !== false && $new_date > $s->getTimestamp())
-                    $this->entityManager->persist( (new AttackSchedule())->setTimestamp( DateTimeImmutable::createFromMutable($new_date) ) );
-
-            }
-
-            $this->entityManager->flush();
-            $this->entityManager->clear();
-
+            $this->helper->capsule("app:utils:conclude-attack $schedule_id", $output, "Concluding attack script... ", true);
             return true;
         }
 
