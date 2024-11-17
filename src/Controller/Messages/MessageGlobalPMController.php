@@ -244,6 +244,7 @@ class MessageGlobalPMController extends MessageController
                 'response' => $has_response,
                 'archive' => $association->getBref(),
                 'official' => $official_meta ? $official_meta->getOfficialGroup() : null,
+                'official_type' => $official_meta ? $official_meta->getOfficialGroup()->getSemantic() : null,
                 'title'  => $association->getAssociation()->getName(),
                 'closed' => $association->getAssociationType() === UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive,
                 'count'  => $read_only ? $association->getRef3() : $association->getAssociation()->getRef1(),
@@ -273,6 +274,7 @@ class MessageGlobalPMController extends MessageController
                 'system' => false,
                 'archive' => false,
                 'official' => null,
+                'official_type' => null,
                 'title'  => $announcement->getTitle(),
                 'closed' => false,
                 'count'  => 1,
@@ -323,6 +325,7 @@ class MessageGlobalPMController extends MessageController
                 'system' => false,
                 'archive' => false,
                 'official' => null,
+                'official_type' => null,
                 'title'  => $subscription->getThread()->getTranslatable()
                         ? $this->translator->trans($subscription->getThread()->getTitle(), [], 'game') : $subscription->getThread()->getTitle()
                 ,
@@ -353,6 +356,7 @@ class MessageGlobalPMController extends MessageController
                 'pinned' => $unread > 0 ? 200 : 0,
                 'system' => true,
                 'official' => null,
+                'official_type' => null,
                 'title'  => $this->translator->trans('Nachrichten des Raben', [], 'global'),
                 'closed' => false,
                 'count'  => $this->entity_manager->getRepository(GlobalPrivateMessage::class)->count(['receiverUser' => $this->getUser(), 'receiverGroup' => null]),

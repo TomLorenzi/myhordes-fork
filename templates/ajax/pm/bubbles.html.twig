@@ -74,7 +74,7 @@
     {% endif %}
 
     <li x-title="{{ message_title }}" x-domain="{{ message_type }}" x-identifier="{{ message_id }}"
-        class="{% if entry.closed %}closed{% endif %} {% if entry.system %}system{% endif %} {% if entry.official %}og {% if entry.response is defined and entry.response %}responded{% endif %}{% endif %} {% if entry.unread > 0 %}new{% endif %}"
+        class="{% if entry.closed %}closed{% endif %} {% if entry.system %}system{% endif %} {% if entry.official %}og og-{{ entry.official_type ? entry.official_type : 'default' }} {% if entry.response is defined and entry.response %}responded{% endif %}{% endif %} {% if entry.unread > 0 %}new{% endif %}"
         {% if endpoint_hardlink is not null %}x-hardlink="{{ endpoint_hardlink }}"{% endif %}
             {% if endpoint_fetch  is not null %}x-endpoint="{{ endpoint_fetch }}"{% endif %}
             {% if endpoint_spring is not null %}x-spring="{{ endpoint_spring }}"{% endif %}
