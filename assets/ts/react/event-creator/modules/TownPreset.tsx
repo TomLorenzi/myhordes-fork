@@ -86,17 +86,17 @@ export const HordesEventCreatorModuleTownPreset = ( {uuid,published,expedited,ow
             { activeTownEditor && activeTownEditor !== true && <>
                 <h5>{ globals.strings.towns.town_edit }</h5>
                 <div className="row">
-                    <div className="cell rw-12">
+                    <div className="cell rw-12" data-disabled={ editorGlobals.writable ? '' : 'blocked' }>
                         <HordesEventTownPresetEditor update={e => setTownEditorPayload(e)} uuid={uuid} town={activeTownEditor as string}/>
                     </div>
                     <div className="cell rw-6">
-                        <button onClick={()=> {
+                        <button disabled={!editorGlobals.writable} onClick={()=> {
                             setActiveTownEditor(false);
                             setTownEditorPayload(null)
                         }}>{ globals.strings.common.cancel }</button>
                     </div>
                     <div className="cell rw-6">
-                        <button onClick={()=>send_payload()} disabled={!townEditorPayload}>{ globals.strings.common.save }</button>
+                        <button onClick={()=>send_payload()} disabled={!townEditorPayload || !editorGlobals.writable}>{ globals.strings.common.save }</button>
                     </div>
                 </div>
             </> }
@@ -150,6 +150,11 @@ export const HordesEventCreatorModuleTownPreset = ( {uuid,published,expedited,ow
                                                 }
                                             }} />
                                         </span>
+                                </> }
+                                { !editorGlobals.writable && <>
+                                    <span className="cell padded-small shrink-0" title={globals.strings.common.edit}>
+                                        <img className="pointer" alt={globals.strings.common.edit} src={globals.strings.common.edit_icon} onClick={()=>setActiveTownEditor(town.uuid)} />
+                                    </span>
                                 </> }
                             </div>
                         </div>
