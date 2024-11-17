@@ -22,6 +22,7 @@ use App\Service\PermissionHandler;
 use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
 use App\Service\ConfMaster;
+use App\Service\User\UserCapabilityService;
 use App\Service\UserHandler;
 use App\Structures\ForumPermissionAccessor;
 use App\Structures\HTMLParserInsight;
@@ -58,8 +59,9 @@ class MessageController extends CustomAbstractController
     protected Packages $asset;
     protected PermissionHandler $perm;
     protected UserHandler $userHandler;
+    protected UserCapabilityService $userCapabilityService;
 
-    public function __construct(HTMLService $html, RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em, InventoryHandler $ih, TimeKeeperService $tk, PermissionHandler $p, ConfMaster $conf, CitizenHandler $ch, UserHandler $uh, HookExecutor $hookExecutor)
+    public function __construct(HTMLService $html, RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em, InventoryHandler $ih, TimeKeeperService $tk, PermissionHandler $p, ConfMaster $conf, CitizenHandler $ch, UserHandler $uh, HookExecutor $hookExecutor, UserCapabilityService $userCapabilityService)
     {
         parent::__construct($conf, $em, $tk, $ch, $ih, $t, $hookExecutor);
         $this->asset = $a;
@@ -67,6 +69,7 @@ class MessageController extends CustomAbstractController
         $this->perm = $p;
         $this->userHandler = $uh;
         $this->html = $html;
+        $this->userCapabilityService = $userCapabilityService;
     }
 
     protected function preparePost(User $user, ?Forum $forum, $post, ?Town $town = null, ?HTMLParserInsight &$insight = null, bool $is_update = false): bool {
@@ -128,7 +131,7 @@ class MessageController extends CustomAbstractController
                         $town_link = $this->generateUrl('soul_view_town', ['sid' => $user->getId(), 'idtown' => $citizen->getTown()?->getRankingEntry()->getId()]);
                         $post->setNoteIcons(['build/images/soul/small_falsecity.gif']);
                         $post->setNote("<span class=\"pointer hide-sm hide-md\" x-ajax-href=\"{$town_link}\">$town_name</span>");
-                    } else {
+                    } elseif (!$this->userCapabilityService->hasRole($user, 'ROLE_DUMMY')) {
                         $post->setNoteIcons(['build/images/emotes/buried.gif']);
                         $note = '{ancient}';
                         $post->setNote("<span class='hide-sm hide-md'>$note</span>");
