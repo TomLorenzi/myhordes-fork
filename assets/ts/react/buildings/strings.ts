@@ -12,6 +12,9 @@ export type TranslationStrings = {
         close: string,
     }
     page: {
+        display_all: string,
+        display_needed: string,
+
         all: string,
         g1: string,
         g2: string,
@@ -22,11 +25,14 @@ export type TranslationStrings = {
         ap_ratio_help: string,
         action_repair: string,
         action_build: string,
+        participate: string,
+        abort: string,
 
         vote: {
             help: string,
             current: string,
-            tooltip: string
+            tooltip: string,
+            can: string,
         }
     }
 }

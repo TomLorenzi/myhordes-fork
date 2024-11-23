@@ -53,7 +53,6 @@ export type TransportResponse = {
     success: boolean,
     messages?: string,
     errors?: number[],
-    incidentals?: {[key:string]: string},
     source?: InventoryResponse,
     target?: InventoryResponse,
     reload?: boolean,

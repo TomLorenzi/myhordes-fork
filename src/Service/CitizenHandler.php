@@ -432,10 +432,8 @@ class CitizenHandler
         } else return true;
     }
 
-    public function isTired(Citizen $citizen) {
-        foreach ($citizen->getStatus() as $status)
-            if ($status->getName() === 'tired') return true;
-        return false;
+    public function isTired(Citizen $citizen): bool {
+        return $citizen->hasStatus('tired');
     }
 
     public function getMaxAP(Citizen $citizen, bool $includeBase = true): int

@@ -7,7 +7,7 @@ import {
 import {Tooltip} from "../tooltip/Wrapper";
 import {Const, Global} from "../../defaults";
 import {TranslationStrings} from "./strings";
-import {Vault} from "../../v2/client-modules/Vault";
+import {useVault, Vault} from "../../v2/client-modules/Vault";
 import {VaultBuildingEntry, VaultItemEntry, VaultStorage} from "../../v2/typedef/vault_td";
 import {BuildingListGlobal, mountPageProps} from "./Wrapper";
 import {Tag} from "../index";
@@ -23,6 +23,13 @@ export interface BuildingPageGlobal {
     vault: VaultStorage<VaultBuildingEntry>|null
     itemVault: VaultStorage<VaultItemEntry>|null,
     itemCount: {[p: number]: number}
+
+    viewMode: "normal"|"needed",
+    updateBuilding: (building: Building) => void,
+    selectedBuilding: {
+        value: Building|null,
+        setValue: (value: Building|null) => void,
+    }
 }
 
 const Globals = React.createContext<BuildingListGlobal & BuildingPageGlobal & mountPageProps>(null);
@@ -38,8 +45,8 @@ export const HordesBuildingPageWrapper = (props: mountPageProps) => {
     const api = useRef( new BuildingAPI() )
     const inventoryApi = useRef( new InventoryAPI() )
 
-    const [vaultData, setVaultData] = useState<VaultStorage<VaultBuildingEntry>>(null);
-    const [itemVaultData, setItemVaultData] = useState<VaultStorage<VaultItemEntry>>(null);
+    const [currentBuilding, setCurrentBuilding] = useState<Building>( null );
+    const [currentViewMode, setCurrentViewMode] = useState<"normal"|"needed">( $.client.config.showShortConstrList.get() ? 'needed' : 'normal' );
 
     const getItemPrototypeIDs = (b: Building[]): number[] => [
         ...new Set(b
@@ -50,45 +57,33 @@ export const HordesBuildingPageWrapper = (props: mountPageProps) => {
         )
     ]
 
-    useEffect(() => {
-        if (!buildings) return;
-        const vault = new Vault<VaultBuildingEntry>(buildings.buildings.map(v => v.p), 'buildings');
-        vault.handle( data => {
-            setVaultData(d => {return {
-                ...(d ?? {}),
-                ...Object.fromEntries( data.map( v => [ v.id, v ] ) )
-            }})
-        } );
-        return () => vault.discard();
-    }, [buildings]);
+    const vaultData = useVault<VaultBuildingEntry>(
+        'buildings',
+        buildings?.buildings?.map(v => v.p)
+    );
+
+    const itemVaultData = useVault<VaultItemEntry>(
+        'items',
+        observedItems
+    );
+
+    const updateItems = () => inventoryApi.current.inventory( props.bank, observedItems ?? [] )
+        .then(r => {
+            setItemCount(
+                Object.fromEntries(
+                    ((r as InventoryResourceData).items).map(o => [o.p,o.c]) as any
+                ));
+        });
 
     useEffect(() => {
-        if (!buildings || !vaultData || !observedItems || observedItems?.length == 0) return;
-
-        const vault = new Vault<VaultItemEntry>(observedItems, 'items');
-
-        vault.handle( data => {
-            setItemVaultData(d => {return {
-                ...(d ?? {}),
-                ...Object.fromEntries( data.map( v => [ v.id, v ] ) )
-            }})
-        } );
-
-        inventoryApi.current.inventory( props.bank, observedItems )
-            .then(r => {
-                setItemCount(
-                    Object.fromEntries(
-                        ((r as InventoryResourceData).items).map(o => [o.p,o.c]) as any
-                    ));
-            });
-
-        return () => vault.discard();
+        if (!observedItems || observedItems?.length == 0) return;
+        updateItems().then(()=>null)
     }, [observedItems]);
 
     useEffect(() => {
         if (!buildings || !vaultData) return;
         setObservedItems( getItemPrototypeIDs(buildings.buildings) )
-    }, [buildings, vaultData]);
+    }, [vaultData]);
 
     useEffect(() => {
         api.current.index().then(s => setStrings(s));
@@ -114,7 +109,30 @@ export const HordesBuildingPageWrapper = (props: mountPageProps) => {
 
     const voted_building = buildings?.buildings.find( b => b.v ) ?? null;
 
-    return <Globals.Provider value={{...props, api: api.current, strings, buildings, vault: vaultData, itemVault: itemVaultData, itemCount}}>
+    return <Globals.Provider value={
+        {
+            ...props, api: api.current, strings, buildings, vault: vaultData, itemVault: itemVaultData, itemCount,
+            viewMode: currentViewMode,
+            updateBuilding: (building: Building) => {
+                const list = [...(buildings?.buildings ?? [])];
+                const existing = list.findIndex(b => b.i === building.i);
+                const voted = building.v ? list.findIndex(b => b.v) : -1;
+                if (existing < 0) list.push(building);
+                else {
+                    list[existing] = building;
+                    updateItems().then(()=>null);
+                }
+                if (voted >= 0 && voted !== existing)
+                    list[voted].v = false;
+
+                setBuildings({
+                    ...buildings,
+                    buildings: list
+                });
+            },
+            selectedBuilding: { value: currentBuilding, setValue: setCurrentBuilding },
+        }
+    }>
         { props.canVote && strings && <div className="hero-help">{strings.page.vote.help}</div> }
 
         { (!loaded || root_buildings.length === 0) && <div className="loading" /> }
@@ -126,6 +144,18 @@ export const HordesBuildingPageWrapper = (props: mountPageProps) => {
                 <strong className="name">{ (vaultData ?? {})[voted_building.p]?.name }</strong>
                 <Tooltip additionalClasses="help" html={ strings.page.vote.tooltip }/>
             </div> }
+
+            <div className="row">
+                <div className="cell ro-7 rw-5 ro-md-6 rw-md-6 ro-sm-0 rw-sm-12">
+                    <select value={currentViewMode} onChange={e => {
+                        setCurrentViewMode(e.target.value as "normal"|"needed");
+                        $.client.config.showShortConstrList.set( e.target.value === "needed" );
+                    }}>
+                        <option value="normal">{strings?.page?.display_all}</option>
+                        <option value="needed">{strings?.page?.display_needed}</option>
+                    </select>
+                </div>
+            </div>
 
             <TabbedSection mountOnlyActive={true} keepInactiveMounted={false} className="buildings-tabs">
                 { [
@@ -143,10 +173,7 @@ export const HordesBuildingPageWrapper = (props: mountPageProps) => {
                     )
                 ]}
             </TabbedSection>
-
         </> }
-
-
     </Globals.Provider>
 }
 
@@ -241,7 +268,21 @@ const BuildingInfos= (props: BuildingCompleteProps & {level: number}) => {
                                                                                     src={globals.strings.page.g2}/>)}
         {props.level > 0 && <img alt="" src={globals.strings.page.g1}/>}
         <img alt={props.prototype.name} src={props.prototype.icon} className="building_icon"/>
-        <span className="building_name">{props.prototype.name}</span>
+        <Tag
+            tagName="span" classNames={{'action-vote': globals.canVote && !props.building.c}} className="building_name"
+            onClick={() => {
+                if (globals.canVote && !props.building.c)
+                    globals.api
+                        .vote(props.building.i)
+                        .then(m => {
+                            if (m.message) $.html.message( m.success ? 'notice' : 'error', m.message );
+                            if (m.building) globals.updateBuilding(m.building);
+                        })
+            }}
+        >
+            {props.prototype.name}
+            { globals.canVote && !props.building.c && <Tooltip html={globals.strings.page.vote.can}/>}
+        </Tag>
         {props.prototype.defense > 0 &&
             <Tag classNames={{
                 defense: !props.building.c || props.building.d0 >= props.prototype.defense,
@@ -304,30 +345,60 @@ const BuildingResources = (props: BuildingCompleteProps) => {
 
 const BuildingActions= (props: BuildingCompleteProps) => {
     const globals = useContext(Globals);
-    const res_ok = props.prototype.rsc.reduce((carry,{p,c}) => carry && (globals.itemCount[p] ?? 0) >= c, true)
+    const res_ok = props.building.c || props.prototype.rsc.reduce((carry,{p,c}) => carry && (globals.itemCount[p] ?? 0) >= c, true)
+
+    const input = useRef<HTMLInputElement>();
+    const [loading, setLoading] = useState<boolean>(false);
 
     return <div className="building_action cell">
-        { !props.locked && ( !props.building.c || props.building.a[0] < props.building.a[1] ) && <>
-            <button className="inline build-btn" disabled={!res_ok}>
+        { !props.locked && ( !props.building.c || props.building.a[0] < props.building.a[1] ) && <div className="relative">
+            <button
+                className="inline build-btn" disabled={!res_ok}
+                onClick={() => globals.selectedBuilding.setValue( props.building ) }
+            >
                 <img alt="" src={ props.building.c ? globals.strings.page.action_repair : globals.strings.page.action_build } />
                 { props.building.c && <Tooltip additionalClasses="help" html={globals.strings.page.hp_ratio_help.replace('{remaining}', `${props.missing_ap}`)} /> }
             </button>
-        </>}
+            { res_ok && globals.selectedBuilding.value?.i === props.building.i && <div className="ap-prompt" data-disabled={loading ? "disabled" : ""}>
+                <input ref={input} type="number" defaultValue={Math.min(1, props.missing_ap)} style={{marginBottom: "3px"}} min={Math.min(1, props.missing_ap)} max={Math.min(9, props.missing_ap)}/>
+                <button
+                    className="button center"
+                    onClick={() => {
+                        setLoading(true);
+                        globals.api.build(props.building.i, parseInt(input.current.value))
+                            .then(m => {
+                                if (m.message) $.html.message( m.success ? 'notice' : 'error', m.message );
+                                if (m.success) globals.selectedBuilding.setValue(null);
+                                if (m.building) globals.updateBuilding(m.building);
+                            })
+                            .finally( () => setLoading(false) )
+                    } }
+                >{ globals.strings.page.participate }</button>
+                <div onClick={()=> globals.selectedBuilding.setValue(null)} className="small link right">{ globals.strings.page.abort }</div>
+            </div>}
+        </div>}
     </div>
 }
 
 interface BuildingResourceItemProps {
     item: VaultItemEntry | null,
     needed: number,
-    having: number|null
+    having: number | null
 }
 
 const BuildingResourceItem = (props: BuildingResourceItemProps) => {
-    return props.item && <div className="build-req">
+    const globals = useContext(Globals);
+
+    const show = props.item && (globals.viewMode === "normal" || props.having < props.needed);
+
+    return show && <div className="build-req">
         <img alt={props.item.name} src={props.item.icon} />
-        <Tag tagName="span" className="resource current" classNames={{low: props.having !== null && props.having < props.needed}}>
-            {props.having ?? '?'}
-        </Tag>/<span className="resource needed">{ props.needed }</span>
+        { globals.viewMode === "normal" && <>
+            <Tag tagName="span" className="resource current" classNames={{low: props.having !== null && props.having < props.needed}}>
+                {props.having ?? '?'}
+            </Tag>/<span className="resource needed">{ props.needed }</span>
+        </> }
+        { globals.viewMode === "needed" && <span className="resource needed">{ props.needed - props.having}</span> }
         <Tooltip html={props.item.desc}></Tooltip>
     </div>
 }

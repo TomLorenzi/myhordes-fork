@@ -1020,188 +1020,6 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    #[Route(path: 'api/town/constructions/build', name: 'town_constructions_build_controller')]
-    public function construction_build_api(JSONRequestParser $parser, GameProfilerService $gps, EventProxyService $events): Response {
-        // Get citizen & town
-        $citizen = $this->getActiveCitizen();
-        $town = $citizen->getTown();
-
-        if ($this->citizen_handler->hasStatusEffect($citizen, 'wound3')) {
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableWounded );
-        }
-
-        // Check if the request is complete
-        if (!$parser->has_all(['id','ap'], true))
-            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        $id = (int)$parser->get('id');
-        $ap = (int)$parser->get('ap');
-
-        // Check if slave labor is allowed (ministry of slavery must be built)
-        $slavery_allowed = $this->town_handler->getBuilding($town, 'small_slave_#00', true) !== null;
-
-        /** @var Building|null $building */
-        // Get the building the citizen wants to work on; fail if we can't find it
-        $building = $this->entity_manager->getRepository(Building::class)->find($id);
-        if (!$building || $building->getTown()->getId() !== $town->getId() || $ap < 0)
-            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
-        // If no slavery is allowed, block banished citizens from working on the construction site (except for repairs)
-        // If slavery is allowed and the citizen is banished, permit slavery bonus
-        if (!$slavery_allowed && $citizen->getBanished() && !$building->getComplete())
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableBanished );
-        $slave_bonus = $citizen->getBanished() && !$building->getComplete();
-
-        // Check if all parent buildings are completed
-        $current = $building->getPrototype();
-        while ($parent = $current->getParent()) {
-            if (!$this->town_handler->getBuilding($town, $parent, true))
-                return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
-            $current = $parent;
-        }
-
-        $workshopBonus = $this->events->queryTownParameter( $town, BuildingValueQuery::ConstructionAPRatio );
-        $hpToAp = $this->events->queryTownParameter( $town, BuildingValueQuery::RepairAPRatio );
-
-        // Remember if the building has already been completed (i.e. this is a repair action)
-        $was_completed = $building->getComplete();
-
-        // Check out how much AP is missing to complete the building; restrict invested AP to not exceed this
-        if(!$was_completed) {
-            $missing_ap = ceil( (round($building->getPrototype()->getAp()*$workshopBonus) - $building->getAp()) * ( $slave_bonus ? (2.0/3.0) : 1 )) ;
-            $ap = max(0,min( $ap, $missing_ap ) );
-        } else {
-            $missing_ap = ceil(($building->getPrototype()->getHp() - $building->getHp()) / $hpToAp);
-            $ap = max(0, min( $ap, $missing_ap ) );
-        }
-
-        if (intval($ap) <= 0 && $was_completed)
-            return AjaxResponse::error(TownController::ErrorAlreadyFinished);
-
-        // If the citizen has not enough AP, fail
-        if ($ap > 0 && ($citizen->getAp() + $citizen->getBp()) < $ap || $this->citizen_handler->isTired( $citizen ))
-            return AjaxResponse::error( ErrorHelper::ErrorNoAP );
-
-        // Get all resources needed for this building
-        $res = $items = [];
-        if (!$building->getComplete() && $building->getPrototype()->getResources())
-            foreach ($building->getPrototype()->getResources()->getEntries() as $entry)
-                if (!isset($res[ $entry->getPrototype()->getName() ]))
-                    $res[ $entry->getPrototype()->getName() ] = new ItemRequest( $entry->getPrototype()->getName(), $entry->getChance(), false, false, false );
-                else $res[ $entry->getPrototype()->getName() ]->addCount( $entry->getChance() );
-
-        // If the building needs resources, check if they are present in the bank; otherwise fail
-        if (!empty($res)) {
-            $items = $this->inventory_handler->fetchSpecificItems($town->getBank(), $res);
-            if (empty($items)) return AjaxResponse::error( self::ErrorNotEnoughRes );
-        }
-
-        // Create a log entry
-        if ($this->town_handler->getBuilding($town, 'item_rp_book2_#00', true)) {
-            // TODO: Create an option to include AP in Log entries as a town parameter?
-            if (!$was_completed)
-                $this->entity_manager->persist( $this->log->constructionsInvest( $citizen, $building->getPrototype(), $ap, $slave_bonus ) );
-            else
-                $this->entity_manager->persist( $this->log->constructionsInvestRepair( $citizen, $building->getPrototype(), $ap, $slave_bonus ) );
-        }
-
-        // Calculate the amount of AP that will be invested in the construction
-        $ap_effect = floor( $ap * ( $slave_bonus ? 1.5 : 1 ) );
-
-        // Deduct AP and increase completion of the building
-        $usedap = $usedbp = 0;
-        $this->citizen_handler->deductPointsWithFallback( $citizen, PointType::AP, PointType::CP, $ap, $usedap, $usedbp);
-
-        if ($was_completed)
-            $gps->recordBuildingRepairInvested( $building->getPrototype(), $town, $citizen, $usedap, $usedbp );
-        else $gps->recordBuildingConstructionInvested( $building->getPrototype(), $town, $citizen, $usedap, $usedbp );
-
-        if($missing_ap <= 0 || $missing_ap - $ap <= 0){
-            // Missing ap == 0, the building has been completed by the workshop upgrade.
-            $building->setAp($building->getPrototype()->getAp());
-        } else {
-            $building->setAp($building->getAp() + $ap_effect);
-        }
-
-        $messages[] = "";
-
-        // Notice
-        if(!$was_completed) {
-            if($building->getAp() < $building->getPrototype()->getAp()){
-                $messages[] = $this->translator->trans("Du hast am Bauprojekt {plan} mitgeholfen.", ["{plan}" => "<strong>" . $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings') . "</strong>"], 'game');
-            } else {
-                $messages[] = $this->translator->trans("Hurra! Folgendes Gebäude wurde fertiggestellt: {plan}!", ['{plan}' => "<strong>" . $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings') . "</strong>"], 'game');
-            }
-        }
-
-        // If the building was not previously completed but reached 100%, complete the building and trigger the completion handler
-        $building->setComplete( $building->getComplete() || $building->getAp() >= $building->getPrototype()->getAp() );
-
-        if (!$was_completed && $building->getComplete()) {
-            // Remove resources, create a log entry, trigger
-            foreach ($items as $item) if ($res[$item->getPrototype()->getName()]->getCount() > 0) {
-                $cc = $item->getCount();
-                $this->inventory_handler->forceRemoveItem($item, $res[$item->getPrototype()->getName()]->getCount());
-                $res[$item->getPrototype()->getName()]->addCount(-$cc);
-            }
-
-            $this->entity_manager->persist( $this->log->constructionsBuildingComplete( $citizen, $building->getPrototype() ) );
-            $events->buildingConstruction( $building, $citizen );
-            $votes = $building->getBuildingVotes();
-            foreach ($votes as $vote) {
-                $vote->getCitizen()->setBuildingVote(null);
-                $vote->getBuilding()->removeBuildingVote($vote);
-                $this->entity_manager->remove($vote);
-            }
-        } else if ($was_completed) {
-            $newHp = min($building->getPrototype()->getHp(), $building->getHp() + $ap * $hpToAp);
-            $building->setHp($newHp);
-            if($building->getPrototype()->getDefense() > 0) {
-                $newDef = min($building->getPrototype()->getDefense(), $building->getPrototype()->getDefense() * $building->getHp() / $building->getPrototype()->getHp());
-                $building->setDefense((int)floor($newDef));
-            }
-        }
-        if($usedbp > 0)
-            $messages[] = $this->translator->trans("Du hast dafür {count} Baupunkt(e) verbraucht.", ['{count}' => "<strong>$usedbp</strong>", 'raw_count' => $usedbp], "game");
-        if($usedap > 0)
-            $messages[] = $this->translator->trans("Du hast dafür {count} Aktionspunkt(e) verbraucht.", ['{count}' => "<strong>$usedap</strong>", 'raw_count' => $usedap], "game");
-
-
-        if ($slave_bonus && !$was_completed)
-            $messages[] = $this->translator->trans("Die in das Gebäude investierten APs zählten <strong>50% mehr</strong> (Sklaverei).", [], "game");
-
-        // Set the activity status
-        $this->citizen_handler->inflictStatus($citizen, 'tg_chk_build');
-
-        // Give picto to the citizen
-        if(!$was_completed){
-            $pictoPrototype = $this->doctrineCache->getEntityByIdentifier(PictoPrototype::class,"r_buildr_#00");
-        } else {
-            $pictoPrototype = $this->doctrineCache->getEntityByIdentifier(PictoPrototype::class,"r_brep_#00");
-        }
-        $this->picto_handler->give_picto($citizen, $pictoPrototype, $ap);
-
-        // Persist
-        try {
-            $this->entity_manager->persist($citizen);
-            $this->entity_manager->persist($building);
-            $this->entity_manager->persist($town);
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
-        }
-
-        $messages = array_filter($messages);
-
-        if(!empty($messages))
-            $this->addFlash("notice", implode('<hr />', $messages));
-
-        return AjaxResponse::success();
-    }
-
-    /**
      * @param TownHandler $th
      * @return Response
      */
@@ -1210,89 +1028,22 @@ class TownController extends InventoryAwareController
     {
         if (!$this->getActiveCitizen()?->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
+
         $town = $this->getActiveCitizen()->getTown();
         $buildings = $town->getBuildings();
 
         $workshopBonus = $this->events->queryTownParameter( $town, BuildingValueQuery::ConstructionAPRatio );
         $hpToAp = $this->events->queryTownParameter( $town, BuildingValueQuery::RepairAPRatio );
 
-        $root = [];
-        $dict = [];
-        $items = [];
-
-        foreach ($buildings as $building) {
-            $dict[ $building->getPrototype()->getId() ] = [];
-            if (!$building->getPrototype()->getParent()) $root[] = $building;
-            if (!$building->getComplete() && !empty($building->getPrototype()->getResources()))
-                foreach ($building->getPrototype()->getResources()->getEntries() as $resource)
-                    if (!isset($items[$resource->getPrototype()->getId()]))
-                        $items[$resource->getPrototype()->getId()] = $this->inventory_handler->countSpecificItems( $this->getActiveCitizen()->getTown()->getBank(), $resource->getPrototype(), false, false, false );
-        }
-
-        $votedBuilding = null; $max_votes = -1;
-        foreach ($buildings as $building) {
-            if ($building->getPrototype()->getParent()) {
-                $dict[$building->getPrototype()->getParent()->getId()][] = $building;
-            }
-
-            $v = $building->getBuildingVotes()->count();
-            if ($v > 0 && $v > $max_votes) {
-                $votedBuilding = $building;
-                $max_votes = $v;
-            }
-        }
-
         return $this->render( 'ajax/game/town/construction.html.twig', $this->addDefaultTwigArgs('constructions', [
-            'root_cats'  => $root,
-            'dictionary' => $dict,
-            'bank' => $items,
             'slavery' => $th->getBuilding($town, 'small_slave_#00', true) !== null,
             'workshopBonus' => $workshopBonus,
             'hpToAp' => $hpToAp,
             'day' => $this->getActiveCitizen()->getTown()->getDay(),
             'canvote' => $this->getActiveCitizen()->property(CitizenProperties::EnableBuildingRecommendation) && !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_build_vote'),
-            'voted_building' => $votedBuilding,
         ]) );
     }
 
-    /**
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    #[Route(path: 'api/town/constructions/vote', name: 'town_constructions_vote_controller')]
-    public function constructions_votes_api(JSONRequestParser $parser): Response {
-        $citizen = $this->getActiveCitizen();
-        $town = $citizen->getTown();
-
-        if (!$this->getActiveCitizen()->property(CitizenProperties::EnableBuildingRecommendation))
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
-        if ($citizen->getBuildingVote() || $citizen->getBanished())
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
-        if ($citizen->getBanished())
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableBanished );
-
-        if (!$parser->has_all(['id'], true))
-            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        $id = (int)$parser->get('id');
-
-        /** @var Building $building */
-        $building = $this->entity_manager->getRepository(Building::class)->find($id);
-        if (!$building || $building->getComplete() || $building->getTown()->getId() !== $town->getId())
-            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
-        try {
-            $citizen->setBuildingVote( (new BuildingVote())->setBuilding( $building ) );
-            $this->citizen_handler->inflictStatus($citizen, 'tg_build_vote');
-            $this->entity_manager->persist($citizen);
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
-        }
-
-        return AjaxResponse::success();
-    }
 
     /**
      * @param TownHandler $th

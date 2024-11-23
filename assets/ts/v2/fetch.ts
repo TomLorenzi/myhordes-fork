@@ -288,8 +288,6 @@ export class Fetch {
         const success_data = data?.success ?? null;
         const error_message = (success_data !== false && !error_code) ? null : (error_code === 'message' || error_code === null) ? (data?.message) ?? null : null;
 
-
-
         if (!response.ok || typeof data === "undefined" || (options.body_success && (!success_data || error_message))) {
 
             if (!response.ok) {
@@ -323,6 +321,17 @@ export class Fetch {
         }
 
         this.handle_response_headers( response );
+
+        // Apply incidentals to the surrounding DOM
+        Object.entries( data?.incidentals ?? {} ).forEach(([prop,value]) =>
+            document.querySelectorAll(`[data-incidental-target="${prop}"]`).forEach( (e: HTMLElement) => {
+                if (!e.dataset.incidentalSkipHtml)
+                    e.innerHTML = value as string;
+                const attr = e.dataset?.incidentalAttribute ?? null;
+                if (attr) e.dataset[attr] = value as string;
+            } )
+        );
+
         return data;
     }
 

@@ -110,7 +110,7 @@
             <div>
                 <div x-ajax-href="{{ path('help', {'name': 'getting_around'}) }}" class="link">
                     <ul class="ap">
-                        <li><b class="{{ ap == 0 ? 'red' : '' }}">{{ ap }}</b><em {% if has_wound is defined and has_wound %}class="warning"{% endif %}>/{{ max_ap }}</em></li>
+                        <li><b data-incidental-target="ap" data-incidental-attribute="value" data-value="{{ ap }}">{{ ap }}</b><em {% if has_wound is defined and has_wound %}class="warning"{% endif %}>/{{ max_ap }}</em></li>
                     </ul>
                     <div class="tooltip help">
                         <h1>{{ 'Aktionspunkte'|trans({},'game') }}</h1>
@@ -135,7 +135,7 @@
         {% if bp is defined and max_bp is defined and max_bp > 0 %}
             <div>
                 <ul class="bp">
-                    <li><b class="{{ bp == 0 ? 'red' : '' }}">{{ bp }}</b><em>/{{ max_bp }}</em></li>
+                    <li><b data-incidental-target="bp" data-incidental-attribute="value" data-value="{{ bp }}">{{ bp }}</b><em>/{{ max_bp }}</em></li>
                 </ul>
                 <div class="tooltip help">
                     <h1>{{ 'Baupunkte'|trans({},'game') }}</h1>
@@ -150,7 +150,7 @@
         {% if pm is defined and max_pm is defined and max_pm > 0 %}
             <div>
                 <ul class="pm">
-                    <li><b class="{{ pm == 0 ? 'red' : '' }}">{{ pm }}</b><em>/{{ max_pm }}</em></li>
+                    <li><b data-incidental-target="pm" data-incidental-attribute="value" data-value="{{ pm }}">{{ pm }}</b><em>/{{ max_pm }}</em></li>
                 </ul>
                 <div class="tooltip help">
                     <h1>{{ 'Mystic-Punkte'|trans({},'game') }}</h1>
@@ -163,7 +163,7 @@
         {% if sp is defined and max_sp is defined and (max_sp > 0 or sp > 0) %}
             <div>
                 <ul class="sp">
-                    <li><b class="{{ sp == 0 ? 'red' : '' }}">{{ sp }}</b><em>/{{ max_sp }}</em></li>
+                    <li><b data-incidental-target="sp" data-incidental-attribute="value" data-value="{{ sp }}">{{ sp }}</b><em>/{{ max_sp }}</em></li>
                 </ul>
                 <div class="tooltip help">
                     <h1>{{ 'Schritt-Punkte'|trans({},'game') }}</h1>

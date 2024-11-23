@@ -7,7 +7,7 @@ import {
 import {Tooltip} from "../tooltip/Wrapper";
 import {Const, Global} from "../../defaults";
 import {TranslationStrings} from "./strings";
-import {Vault} from "../../v2/client-modules/Vault";
+import {useVault} from "../../v2/client-modules/Vault";
 import {VaultBuildingEntry, VaultStorage} from "../../v2/typedef/vault_td";
 import {Globals} from "./Wrapper";
 
@@ -29,19 +29,10 @@ export const HordesBuildingListWrapper = (props: mountProps) => {
 
     const api = useRef( new BuildingAPI() )
 
-    const [vaultData, setVaultData] = useState<VaultStorage<VaultBuildingEntry>>(null);
-
-    useEffect(() => {
-        if (!buildings) return;
-        const vault = new Vault<VaultBuildingEntry>(buildings.buildings.map(v => v.p), 'buildings');
-        vault.handle( data => {
-            setVaultData(d => {return {
-                ...(d ?? {}),
-                ...Object.fromEntries( data.map( v => [ v.id, v ] ) )
-            }})
-        } );
-        return () => vault.discard();
-    }, [buildings]);
+    const vaultData = useVault<VaultBuildingEntry>(
+        'buildings',
+        buildings?.buildings?.map(v => v.p)
+    )
 
     useEffect(() => {
         api.current.index().then(s => setStrings(s));

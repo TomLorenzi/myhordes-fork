@@ -18,6 +18,12 @@ export type BuildingListResponse = {
     buildings: Building[],
 }
 
+export type BuildingBuildResponse = {
+    success?: boolean,
+    message?: string,
+    building?: Building,
+}
+
 export class BuildingAPI {
 
     private fetch: Fetch;
@@ -34,6 +40,16 @@ export class BuildingAPI {
     public list(completed: boolean): Promise<BuildingListResponse> {
         return this.fetch.from(`/list`, {completed: completed ? '1' : '0'})
             .request().get() as Promise<BuildingListResponse>;
+    }
+
+    public build(building: number, ap: number): Promise<BuildingBuildResponse> {
+        return this.fetch.from(`/${building}`)
+            .request().patch({ap}) as Promise<BuildingBuildResponse>;
+    }
+
+    public vote(building: number): Promise<BuildingBuildResponse> {
+        return this.fetch.from(`/${building}`)
+            .request().post() as Promise<BuildingBuildResponse>;
     }
 
 }

@@ -1,5 +1,6 @@
 import {html, sharedWorkerCall} from "../init";
-import {VaultEntry} from "../typedef/vault_td";
+import {VaultBuildingEntry, VaultEntry, VaultStorage} from "../typedef/vault_td";
+import {useEffect, DependencyList, useRef, useState, EffectCallback} from "react";
 
 export class Vault<V extends VaultEntry> {
 
@@ -27,4 +28,40 @@ export class Vault<V extends VaultEntry> {
         this.eventHandler = null;
     }
 
+}
+
+export function useVault<V extends VaultEntry>(
+    type: string,
+    ids: null|Array<number>,
+    effect: EffectCallback = null,
+): VaultStorage<V> {
+    const idSet = useRef<Set<number>>(new Set)
+    const [state, setState] = useState<VaultStorage<V>>({})
+
+    const missing = [...new Set(
+        (ids ?? [])
+            .filter(id => !idSet.current.has(id))
+            .sort((a, b) => a - b)
+    )];
+
+    useEffect(() => {
+        if (missing?.length > 0) {
+            const vault = new Vault<V>(missing, type);
+            vault.handle( data => {
+                missing.forEach(id => idSet.current.add(id));
+                setState(d => {return {
+                    ...(d ?? {}),
+                    ...Object.fromEntries( data.map( v => [ v.id, v ] ) )
+                }})
+            } );
+
+            const undo = effect ? effect() : null;
+            return () => {
+                vault.discard();
+                if (undo) undo();
+            }
+        }
+    }, [JSON.stringify(missing)]);
+
+    return state;
 }

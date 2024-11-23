@@ -285,7 +285,7 @@ class InventoryController extends CustomAbstractCoreController
         ];
     }
 
-    protected function renderInventory(Citizen $citizen, Inventory $inventory, InventoryHandler $handler, EventProxyService $proxy, TranslatorInterface $trans, EntityManagerInterface $em, ?array $rsc): array {
+    protected function renderInventory(Citizen $citizen, Inventory $inventory, InventoryHandler $handler, EventProxyService $proxy, TranslatorInterface $trans, EntityManagerInterface $em, ?array $rsc = []): array {
         return $inventory->getTown()
             ? (
                 empty($rsc)

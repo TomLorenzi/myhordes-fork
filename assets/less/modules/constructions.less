@@ -338,6 +338,7 @@ div.buildings {
   }
 
   .building {
+    overflow: visible;
     &.root {
       min-height: @myhordes-building-height-root;
     }
@@ -477,8 +478,7 @@ ul.tabs {
   }
 }
 
-#ap_prompt {
-  display: none;
+.ap-prompt {
   position: absolute;
   width: 112px;
   padding: 4px;
@@ -486,6 +486,8 @@ ul.tabs {
   outline: 1px solid black;
   border: 2px solid #ddab76;
   z-index: 9999;
+  top: 0;
+  right: 0;
 }
 
 @media (max-width: (@screen-large-threshold - 1)) {

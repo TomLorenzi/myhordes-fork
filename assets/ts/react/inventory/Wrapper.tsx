@@ -12,7 +12,7 @@ import {
 import {Tooltip} from "../tooltip/Wrapper";
 import {Const, Global} from "../../defaults";
 import {TranslationStrings} from "./strings";
-import {Vault} from "../../v2/client-modules/Vault";
+import {useVault, Vault} from "../../v2/client-modules/Vault";
 import {VaultItemEntry, VaultStorage} from "../../v2/typedef/vault_td";
 import {string} from "prop-types";
 import {html} from "../../v2/init";
@@ -132,10 +132,6 @@ const commonInventoryResponseHandler = (s: TransportResponse, d: string, t: Tuto
         if (t.to === null) $.html.conditionalFinishTutorialStage( t.from.tutorial, t.from.stage, true );
         else $.html.conditionalSetTutorialStage( t.from.tutorial, t.from.stage, t.to.tutorial, t.to.stage );
     }
-
-    // Apply incidentals to the surrounding DOM
-    Object.entries( s.incidentals ?? {} ).forEach(([prop,value]) =>
-        document.querySelectorAll(`[data-incidental-target="${prop}"]`).forEach( e => e.innerHTML = value ));
 
     // If the log mode is enabled, update all surrounding logs
     if (!s.reload && log)
@@ -354,18 +350,9 @@ const BagInventory = (props: InventoryPropsBag) => {
 
     const globals = useContext(Globals);
 
-    const [vaultData, setVaultData] = useState<VaultStorage<VaultItemEntry>>(null);
-
-    useEffect(() => {
-        const vault = new Vault<VaultItemEntry>(props.inventory.items.map(v => v.p), 'items');
-        vault.handle( data => {
-            setVaultData(d => {return {
-                ...(d ?? {}),
-                ...Object.fromEntries( data.map( v => [ v.id, v ] ) )
-            }})
-        } );
-        return () => vault.discard();
-    }, [props.inventory]);
+    const vaultData = useVault<VaultItemEntry>(
+        'items', props.inventory?.items?.map(v => v.p)
+    )
 
     const label = props.label ?? globals.strings.type[props.type] ?? '';
 
@@ -391,26 +378,15 @@ const BankInventory = (props: InventoryPropsBank) => {
     const datalistUuid = useRef(window.crypto.randomUUID());
 
     const [searchString, setSearchString] = useState<string>('');
-    const [vaultData, setVaultData] = useState<VaultStorage<VaultItemEntry>>(null);
+
+    const vaultData = useVault<VaultItemEntry>(
+        'items', props.inventory?.categories?.map(c => c.items.map(i => i.p))?.reduce((c,a) => [...c,...a], [])
+    )
 
     const [showCategories, setShowCategories] = useState<boolean>($.client.config.showBankCategories.get());
 
     const category_map = {};
     globals.strings.categories.forEach( ([id,name,sort]) => category_map[id] = [name,sort] );
-
-    useEffect(() => {
-        if (props.inventory === null) return;
-        const vault = new Vault<VaultItemEntry>(props.inventory.categories
-            .map(c => c.items.map(i => i.p)).reduce((c,a) => [...c,...a], [])
-            , 'items');
-        vault.handle( data => {
-            setVaultData(d => {return {
-                ...(d ?? {}),
-                ...Object.fromEntries( data.map( v => [ v.id, v ] ) )
-            }})
-        } );
-        return () => vault.discard();
-    }, [props.inventory]);
 
     return <>
         <p>
@@ -482,8 +458,11 @@ const HordesPassiveInventoryWrapper = (props: passiveMountProps) => {
     const api = useRef( new InventoryAPI() )
 
     const [strings, setStrings] = useState<TranslationStrings>( null );
-    const [vaultData, setVaultData] = useState<VaultStorage<VaultItemEntry>>(null);
     const [bag, setBag] = useState<InventoryBagData>(null);
+
+    const vaultData = useVault<VaultItemEntry>(
+        'items', bag ? extractAllItems( bag ).map(i => i.p) : null
+    )
 
     useEffect(() => {
         api.current.index().then(s => setStrings(s));
@@ -518,18 +497,6 @@ const HordesPassiveInventoryWrapper = (props: passiveMountProps) => {
     }, [bag]);
 
     useEffect(() => {
-        if (!bag) return;
-        const vault = new Vault<VaultItemEntry>( extractAllItems( bag ).map(i => i.p) , 'items');
-        vault.handle( data => {
-            setVaultData(d => {return {
-                ...(d ?? {}),
-                ...Object.fromEntries( data.map( v => [ v.id, v ] ) )
-            }})
-        } );
-        return () => vault.discard();
-    }, [bag]);
-
-    useEffect(() => {
         const handler = () => $.ajax.load(null, props.link, true);
         props.parent.addEventListener('click', handler);
         return () => props.parent.removeEventListener('click', handler);
@@ -560,11 +527,17 @@ const HordesEscortInventoryWrapper = (props: escortMountProps) => {
     const [loading, setLoading] = useState<boolean>(false);
 
     const [strings, setStrings] = useState<TranslationStrings>( null );
-    const [bagVaultData, setBagVaultData] = useState<VaultStorage<VaultItemEntry>>(null);
-    const [floorVaultData, setFloorVaultData] = useState<VaultStorage<VaultItemEntry>>(null);
 
     const [bag, setBag] = useState<InventoryBagData>(null);
     const [floor, setFloor] = useState<InventoryBagData>(null);
+
+    const bagVaultData = useVault<VaultItemEntry>(
+        'items', bag ? extractAllItems( bag ).map(i => i.p) : null
+    )
+
+    const floorVaultData = useVault<VaultItemEntry>(
+        'items', floor ? extractAllItems( floor ).map(i => i.p) : null
+    )
 
     useEffect(() => {
         api.current.index().then(s => setStrings(s));
@@ -593,30 +566,6 @@ const HordesEscortInventoryWrapper = (props: escortMountProps) => {
         html().addEventListener( 'inventory-bag-loaded', handler );
         return () => html().removeEventListener( 'inventory-bag-loaded', handler );
     }, [props.floorId, open]);
-
-    useEffect(() => {
-        if (!bag) return;
-        const vault = new Vault<VaultItemEntry>( extractAllItems( bag ).map(i => i.p) , 'items');
-        vault.handle( data => {
-            setBagVaultData(d => {return {
-                ...(d ?? {}),
-                ...Object.fromEntries( data.map( v => [ v.id, v ] ) )
-            }})
-        } );
-        return () => vault.discard();
-    }, [bag]);
-
-    useEffect(() => {
-        if (!floor) return;
-        const vault = new Vault<VaultItemEntry>( extractAllItems( floor ).map(i => i.p) , 'items');
-        vault.handle( data => {
-            setFloorVaultData(d => {return {
-                ...(d ?? {}),
-                ...Object.fromEntries( data.map( v => [ v.id, v ] ) )
-            }})
-        } );
-        return () => vault.discard();
-    }, [floor]);
 
     const manageTransfer = (item: number|null, from: number, to: number, direction: string) =>{
         setLoading(true);
