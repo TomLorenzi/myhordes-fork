@@ -70,7 +70,7 @@ port_incoming.addEventListener('__connect', () => {
 
 (() => {
     const f = (except: Array<String> = [], only: Array<String> = null) => {
-        const match =  only === null ? !except.includes("1") : only.includes("1");
+        const match =  only === null ? !except.map(i => `${i}`).includes("1") : only.map(i => `${i}`).includes("1");
         return match ? [fakePort] : []
     };
 

@@ -132,48 +132,7 @@ async function initSharedWorker(): Promise<boolean> {
     const mhWorker = new SharedWorker(sharedLoaderFile);
     mhWorker.port.start();
     mhWorker.port.addEventListener('message', e => {
-
-        Console.debug('From shared worker', e.data);
-        switch (e.data.request) {
-            case 'worker.id':
-                window.mhWorkerIdList.push( e.data.id );
-                window.mhWorkerQueue?.forEach( p => window.mhWorker.port.postMessage({...p, for: window.mhWorkerIdList} ) );
-                window.mhWorkerQueue = [];
-                break;
-
-            case 'response':
-                const id = parseInt( e.data.to as string );
-                const callback = window.transferTable[id] ?? null;
-                if (callback) {
-                    callback(e.data.payload);
-                    window.transferTable[id] = null;
-                } else Console.warn(`Did not find callback "${id}" in callback table:`, window.transferTable)
-                break;
-
-            case 'broadcast.incoming':
-                html().dispatchEvent(new CustomEvent('broadcastMessage', {bubbles: true, cancelable: false, detail: e.data.payload}));
-                break;
-
-            case 'mercure.incoming':
-                html().dispatchEvent(new CustomEvent('mercureMessage', {bubbles: true, cancelable: false, detail: e.data.payload}));
-                break;
-
-            case 'vault.updated':
-                html().dispatchEvent(new CustomEvent('vaultUpdate', {bubbles: true, cancelable: false, detail: e.data.payload}));
-                break;
-
-            case 'mercure.connection_state':
-                const state = e.data.payload.state;
-
-                html().dispatchEvent(new CustomEvent('mercureState', {bubbles: true, cancelable: false, detail: e.data.payload}));
-                if (state.connection === 'live') {
-                    const mercure = JSON.parse(html()?.dataset?.mercureAuth as string ?? 'null');
-                    if (!state.auth && mercure?.t) sharedWorkerCall('mercure.authorize', {connection: 'live', token: mercure});
-                }
-
-                break;
-        }
-
+        handleSharedWorkerResponse(e.data);
     })
     window.mhWorker = mhWorker;
     window.addEventListener('beforeunload', () => {
@@ -182,14 +141,7 @@ async function initSharedWorker(): Promise<boolean> {
     });
     mhWorker.port.postMessage({request: 'ping'});
 
-    const mercure = html()?.dataset?.mercureAuth as string;
-    if (mercure)
-        sharedWorkerCall('mercure.authorize', {connection: 'live', token: JSON.parse(mercure)});
-
-    const version = html()?.dataset?.version as string;
-    const language = html().getAttribute('lang') ?? 'de';
-    if (version)
-        sharedWorkerCall('vault.version', {payload: {version, language}});
+    setupSharedWorker();
 
     return true;
 }
@@ -219,53 +171,72 @@ async function initSharedWorkerShim(): Promise<boolean> {
     }
 
     port.addEventListener('__message', (e: CustomEvent) => {
+        handleSharedWorkerResponse( e.detail, true, port_send );
+    })
+    port_send.dispatchEvent(new CustomEvent('__connect'));
 
-        Console.debug('From shared worker shim', e.detail);
-        switch (e.detail.request) {
+    port_send.dispatchEvent(new CustomEvent('__message', {detail: {request: 'ping'}} ) );
+
+    setupSharedWorker();
+
+    return true;
+}
+
+function setupSharedWorker(): void {
+    const mercure = html()?.dataset?.mercureAuth as string;
+    if (mercure)
+        sharedWorkerCall('mercure.authorize', {connection: 'live', token: JSON.parse(mercure)});
+
+    const version = html()?.dataset?.version as string;
+    const language = html().getAttribute('lang') ?? 'de';
+    if (version)
+        sharedWorkerCall('vault.version', {payload: {version, language}});
+}
+
+function handleSharedWorkerResponse(data: any, shim: boolean = false, port_send: HTMLElement = null): void {
+    Console.debug(shim ? 'From shared worker shim' : 'From shared worker', data);
+    switch (data.request) {
             case 'worker.id':
-                window.mhWorkerIdList.push( e.detail.id );
-                window.mhWorkerQueue?.forEach( p => port_send.dispatchEvent(new CustomEvent('__message', {detail: {...p, for: window.mhWorkerIdList}} ) ) );
+                window.mhWorkerIdList.push( data.id );
+                window.mhWorkerQueue?.forEach( p => shim
+                    ? port_send.dispatchEvent(new CustomEvent('__message', {detail: {...p, for: window.mhWorkerIdList}} ) )
+                    : window.mhWorker.port.postMessage({...p, for: window.mhWorkerIdList} ) );
                 window.mhWorkerQueue = [];
                 break;
 
             case 'response':
-                const id = parseInt( e.detail.to as string );
+                const id = parseInt( data.to as string );
                 const callback = window.transferTable[id] ?? null;
                 if (callback) {
-                    callback(e.detail.payload);
+                    callback(data.payload);
                     window.transferTable[id] = null;
                 } else Console.warn(`Did not find callback "${id}" in callback table:`, window.transferTable)
                 break;
 
             case 'broadcast.incoming':
-                html().dispatchEvent(new CustomEvent('broadcastMessage', {bubbles: true, cancelable: false, detail: e.detail.payload}));
+                html().dispatchEvent(new CustomEvent('broadcastMessage', {bubbles: true, cancelable: false, detail: data.payload}));
                 break;
 
             case 'mercure.incoming':
-                html().dispatchEvent(new CustomEvent('mercureMessage', {bubbles: true, cancelable: false, detail: e.detail.payload}));
+                html().dispatchEvent(new CustomEvent('mercureMessage', {bubbles: true, cancelable: false, detail: data.payload}));
+                break;
+
+            case 'vault.updated':
+                html().dispatchEvent(new CustomEvent('vaultUpdate', {bubbles: true, cancelable: false, detail: data.payload}));
                 break;
 
             case 'mercure.connection_state':
-                const state = e.detail.payload.state;
+                const state = data.payload.state;
 
-                html().dispatchEvent(new CustomEvent('mercureState', {bubbles: true, cancelable: false, detail: e.detail.payload}));
+                html().dispatchEvent(new CustomEvent('mercureState', {bubbles: true, cancelable: false, detail: data.payload}));
                 if (state.connection === 'live') {
                     const mercure = JSON.parse(html()?.dataset?.mercureAuth as string ?? 'null');
-                    if (!state.auth && mercure?.t) sharedWorkerCall('mercure.authorize', {connection: 'live', token: mercure});
+                    if (!state.auth && mercure?.t) sharedWorkerCall('mercure.authorize', {connection: 'live', token: mercure}).then(()=>null);
                 }
 
                 break;
-        }
 
-    })
-    port_send.dispatchEvent(new CustomEvent('__connect'));
-
-    port_send.dispatchEvent(new CustomEvent('__message', {detail: {request: 'ping'}} ) );
-    const mercure = html()?.dataset?.mercureAuth as string;
-    if (mercure)
-        sharedWorkerCall('mercure.authorize', {connection: 'live', token: JSON.parse(mercure)});
-
-    return true;
+    }
 }
 
 export function init () {
