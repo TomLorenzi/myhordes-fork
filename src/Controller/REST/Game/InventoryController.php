@@ -152,12 +152,22 @@ class InventoryController extends CustomAbstractCoreController
 
     protected function renderBagInventory(Citizen $citizen, Inventory $inventory, InventoryHandler $handler, EventProxyService $proxy): array {
         $foreign_chest = false;
+        $own_chest = false;
 
         // Special case - foreign chest
         if ($inventory->getHome() && $inventory->getHome()->getCitizen() !== $citizen && $inventory->getHome()->getCitizen()->getAlive())
             $foreign_chest = true;
 
-        $show_banished_hidden = $citizen->getBanished() || $citizen->getTown()->getChaos();
+        // Special case - own chest
+        if (!$foreign_chest && $inventory->getHome() && $inventory->getHome()->getCitizen() === $citizen)
+            $own_chest = true;
+
+        $show_hidden =
+            // Zone inventory, citizen is banished or town is in chaos
+            ($inventory->getZone() && ($citizen->getBanished() || $citizen->getTown()->getChaos())) ||
+            // Own chest
+            $own_chest;
+
         return [
             'bank' => false,
             'rsc' => false,
@@ -166,7 +176,7 @@ class InventoryController extends CustomAbstractCoreController
                 'has_drunk' => $citizen->hasStatus('hasdrunk')
             ],
             'items' => $inventory->getItems()
-                ->filter( fn(Item $i) => $show_banished_hidden || !$i->getHidden() )
+                ->filter( fn(Item $i) => $show_hidden || !$i->getHidden() )
                 ->filter( fn(Item $i) => !$foreign_chest || !$i->getPrototype()->getHideInForeignChest() )
                 ->map( fn(Item $i) => $this->renderItem( $citizen, $i, $proxy ) )->getValues()
         ];
