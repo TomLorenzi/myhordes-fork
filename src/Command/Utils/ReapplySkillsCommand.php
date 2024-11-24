@@ -57,12 +57,44 @@ class ReapplySkillsCommand extends Command
             ->addOption('town', 't',InputOption::VALUE_REQUIRED, 'Sets the town ID', -1)
             ->addOption('user', 'u',InputOption::VALUE_REQUIRED, 'Sets the user ID', -1)
             ->addOption('citizen', 'c',InputOption::VALUE_REQUIRED, 'Sets the citizen ID', -1)
+            ->addOption('add', 'a',InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Adds skills by their ID', [])
+            ->addOption('remove', 'r',InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Removes skills by their ID', [])
 
             ->addOption('dry-run', null, InputOption::VALUE_NONE, 'Simulate process')
         ;
         parent::configure();
     }
 
+    protected function fixSkillIDs(array $ids, array $add = [], array $remove = []): array {
+        if (empty($add) && empty($remove)) return $ids;
+
+        $ids = array_filter($ids, fn(int $id) => !in_array($id, $remove));
+        $remove = [];
+
+        foreach ($add as $id) {
+            $skill = is_numeric($id)
+                ? $this->entityManager->getRepository(HeroSkillPrototype::class)->find($id)
+                : $this->entityManager->getRepository(HeroSkillPrototype::class)->findOneBy(['icon' => ["super_$id", $id]]);
+
+            if (!$skill) continue;
+
+            if (!$skill->isLegacy()) {
+                $all_group_skills = $this->entityManager->getRepository(HeroSkillPrototype::class)->findBy(['groupIdentifier' => $skill->getGroupIdentifier()]);
+                foreach ($all_group_skills as $s)
+                    if ($s->getLevel() < $skill->getLevel()) $remove[] = $s->getId();
+                    elseif ($s->getLevel() > $skill->getLevel() && in_array( $s->getId(), $ids ) ) continue(2);
+
+                $ids = array_filter($ids, fn(int $id) => !in_array($id, $remove));
+                $ids[] = $skill->getId();
+                $remove = [];
+            }
+        }
+
+
+        $ids = array_values(array_unique($ids));
+        sort($ids);
+        return $ids;
+    }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
@@ -106,6 +138,7 @@ class ReapplySkillsCommand extends Command
                 continue;
             }
 
+            $selected_skill_ids = $this->fixSkillIDs($selected_skill_ids, $input->getOption('add'), $input->getOption('remove'));
             $skills = $this->entityManager->getRepository(HeroSkillPrototype::class)->findBy(['id' => $selected_skill_ids]);
             if (count($skills) !== count($selected_skill_ids)) {
                 $output->writeln("<fg=red>Unable to fetch all skills: " . implode(',', $selected_skill_ids) . "</>");
@@ -114,7 +147,7 @@ class ReapplySkillsCommand extends Command
 
             $existing_props = new Dot( $citizen->getProperties()->getProps() );
             $updated_props  = new Dot( );
-            $updated_props->set( CitizenProperties::ActiveSkillIDs->value, $existing_props->get( CitizenProperties::ActiveSkillIDs->value ) );
+            $updated_props->set( CitizenProperties::ActiveSkillIDs->value, $selected_skill_ids );
 
             foreach ($skills as $skill)
                 foreach ($skill->getCitizenProperties() ?? [] as $propPath => $value)
