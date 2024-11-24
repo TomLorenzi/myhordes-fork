@@ -684,7 +684,7 @@
 
                                     {% if other_citizen.escortSettings.forceDirectReturn %}
                                         <div class="padded cell rw-12 escort-infos force-town">
-                                            <span class="small">{{'Dieser Bürger möchte in die Stadt gebracht werden.'|trans({}, 'game')}}</span>
+                                            <span class="small">{{'Dieser Bürger möchte in die Stadt gebracht werden.'|trans({c: other_citizen}, 'game')}}</span>
                                         </div>
                                     {% endif %}
                                 </div>

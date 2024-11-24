@@ -306,15 +306,15 @@ class EventController extends CustomAbstractCoreController
 
             if ($option) {
                 if (!$event->getMeta( '', true))
-                    return new JsonResponse(['message' => $this->translator->trans('Du musst mindestens eine Event-Beschreibung hinzufügen.', [], 'global')], Response::HTTP_NOT_ACCEPTABLE);
+                    return new JsonResponse(['error' => 'message','message' => $this->translator->trans('Du musst mindestens eine Event-Beschreibung hinzufügen.', [], 'global')], Response::HTTP_NOT_ACCEPTABLE);
                 if (!$event->getConfiguredStartDate())
-                    return new JsonResponse(['message' => $this->translator->trans('Du musst ein Startdatum für dein Event festlegen.', [], 'global')], Response::HTTP_NOT_ACCEPTABLE);
+                    return new JsonResponse(['error' => 'message','message' => $this->translator->trans('Du musst ein Startdatum für dein Event festlegen.', [], 'global')], Response::HTTP_NOT_ACCEPTABLE);
 
                 $minDate = new \DateTime();
                 $maxDate = (new \DateTime())->add( \DateInterval::createFromDateString('194days') );
 
                 if ($event->getConfiguredStartDate() < $minDate || $event->getConfiguredStartDate() > $maxDate)
-                    return new JsonResponse(['message' => $this->translator->trans('Das Startdatum deines Events muss mindestens {minDays} Tage und maximal {maxDays} Tage in der Zukunft liegen', ['minDays' => 14, 'maxDays' => 194], 'global')], Response::HTTP_NOT_ACCEPTABLE);
+                    return new JsonResponse(['error' => 'message', 'message' => $this->translator->trans('Das Startdatum deines Events muss mindestens {minDays} Tage und maximal {maxDays} Tage in der Zukunft liegen', ['minDays' => 14, 'maxDays' => 194], 'global')], Response::HTTP_NOT_ACCEPTABLE);
             }
 
             $event->setProposed( $option );

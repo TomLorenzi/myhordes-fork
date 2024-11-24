@@ -1845,7 +1845,7 @@ Reiseleiter-Ratgeber: Reiseleiter-Ratgeber
 'Wenn du flüchtest, werden dich die Zombies verletzen, aber du wirst trotzdem entkommen...': 'Wenn du flüchtest, werden dich die Zombies verletzen, aber du wirst trotzdem entkommen...'
 'Du kannst versuchen einen Zombie im Nahkampf und ohne Waffen anzugreifen.': 'Du kannst versuchen einen Zombie im Nahkampf und ohne Waffen anzugreifen.'
 'Diese Aktion kostet dich 1 AP und die Erfolgsaussichten sind ziemlich gering.': 'Diese Aktion kostet dich 1 AP und die Erfolgsaussichten sind ziemlich gering.'
-'Dieser Bürger möchte in die Stadt gebracht werden.': 'Dieser Bürger möchte in die Stadt gebracht werden.'
+'Dieser Bürger möchte in die Stadt gebracht werden.': "\n            {ref__icu, select,\n                on {\n                    {ref__gender, select,\n                        female {Diese Bürgerin möchte in die Stadt gebracht werden.}\n                        other {Dieser Bürger möchte in die Stadt gebracht werden.}\n                    }\n                }\n            other {Dieser Bürger möchte in die Stadt gebracht werden.}\n            }\n        "
 'Der Leichnam von {citizen} wurde nicht zerstört.': 'Der Leichnam von {citizen} wurde nicht zerstört.'
 'Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.': 'Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.'
 '<em>Du kannst dein Haus ausbauen und so für eine bessere Verteidigung sorgen. <strong>Wichtige Anmerkung:</strong> Vielleicht wäre es sinnvoller, die dafür benötigten Ressourcen (falls erforderlich) der Stadt zu spenden?</em>': '<em>Du kannst dein Haus ausbauen und so für eine bessere Verteidigung sorgen. <strong>Wichtige Anmerkung:</strong> Vielleicht wäre es sinnvoller, die dafür benötigten Ressourcen (falls erforderlich) der Stadt zu spenden?</em>'
@@ -3007,3 +3007,4 @@ Nüchtern: Nüchtern
 'Fragen & Antworten': 'Fragen & Antworten'
 'Dein geworbener Spieler {user} hat zum ersten Mal Heldenerfahrung für eine Fähigkeit ausgegeben.': 'Dein geworbener Spieler {user} hat zum ersten Mal Heldenerfahrung für eine Fähigkeit ausgegeben.'
 'Dein geworbener Spieler {user} hat zum ersten Mal in dieser Saison Heldenerfahrung für eine Fähigkeit ausgegeben.': 'Dein geworbener Spieler {user} hat zum ersten Mal in dieser Saison Heldenerfahrung für eine Fähigkeit ausgegeben.'
+'Vergessene Stadt': 'Vergessene Stadt'

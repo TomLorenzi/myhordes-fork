@@ -1054,11 +1054,23 @@ hordes-twino-editor {
         background-repeat: no-repeat; background-size: contain; background-position: top right;
       }
 
-      &.og { background-color: rgba(11, 142, 255, 0.25); }
+      &.og {
+        background-color: rgba(255, 255, 255, 0.25);
+        &.og-1 { background-color: rgba(11, 255, 44, 0.25); }
+        &.og-2 { background-color: rgba(255, 11, 11, 0.25); }
+        &.og-3 { background-color: rgba(210, 11, 255, 0.25); }
+        &.og-4 { background-color: rgba(11, 142, 255, 0.25); }
+      }
 
       &.selected {
         background-color: rgba(0,0,0,0.2); box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
-        &.og { background-color: rgba(5, 74, 131, 0.25); }
+        &.og {
+          background-color: rgba(200, 200, 200, 0.25);
+          &.og-1 { background-color: rgba(7, 205, 34, 0.25); }
+          &.og-2 { background-color: rgba(207, 10, 10, 0.25); }
+          &.og-3 { background-color: rgba(164, 9, 200, 0.25); }
+          &.og-4 { background-color: rgba(9, 108, 193, 0.25); }
+        }
         &::before {
           display: block; content: " "; width: 16px; height: 16px; top: calc(50% - 8px); left: -5px;
           background-image: url(../../img/forum/selected.png); position: absolute;
@@ -1084,7 +1096,12 @@ hordes-twino-editor {
       &+li { border-top: 1px solid fade(@myhordes-smalltext, 50%); }
       &:not(.selected):hover {
         background-color: rgba(255,255,255,0.2); box-shadow: 0 0 5px rgba(0,0,0,0.5);
-        &.og { background-color: rgba(118, 191, 255, 0.25); }
+        &.og {
+          &.og-1 { background-color: rgba(113, 255, 133, 0.25); }
+          &.og-2 { background-color: rgba(255, 122, 122, 0.25); }
+          &.og-3 { background-color: rgba(229, 116, 255, 0.25); }
+          &.og-4 { background-color: rgba(129, 198, 255, 0.25); }
+        }
       }
 
       b.title {

@@ -207,7 +207,7 @@ Verbannt: Shunned
 'Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur Verfügung.': 'Citizens decided to shun you from the community. Some actions aren''t available for you anymore.'
 'Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in dieser Stadt zur Verfügung.': 'According to your chosen profession, you will have different actions and gameplays available during this town.'
 Held: Hero
-Einwohner: Citizen
+Einwohner: Resident
 'Wähle einen Beruf': 'Choose your profession'
 'Alle Einträge anzeigen': 'View all registry entries'
 Tag: Day
@@ -2795,7 +2795,7 @@ Lebenssammler_f: Don't cross the streams
 'Für immer und seelich_f': 'Tin-soul town'
 'Noble Seele_f': 'Noble Soul'
 Beseelt_f: Soul-dier
-Reinkarnator_f: Reinkarnatorin
+Reinkarnator_f: Reincarnator
 'Göttliche Seele_f': 'Divine Soul'
 Open-chakra_f: Open-chakra
 Tausend-und-ein-Leben_f: Thousand I-lived
@@ -2803,14 +2803,14 @@ Buddha_f: Buddha
 'Ich bin ein Gott! Ich werde ewig leben!_f': 'I am a god! I will live forever!'
 'Eine Stadt sie zu knechten!_f': 'One town to rule them all!'
 'Verrückter Skeptiker_f': 'Keen Sceptic'
-Seelenknipser_f: Seelenknipserin
+Seelenknipser_f: Soul Calipers
 'Wächter der Seelen_f': 'Watches with Scouts'
 'Die Wahrheit ist irgendwo da draußen_f': 'The truth is elsewhere'
 'Ich glaube!_f': 'I''m a believer'
 Sektenmitglied_f: Sect Member
 'Kosmischer Anführer_f': 'Cosmic Sponsor'
 'Rauch? Welcher Rauch?_f': 'Smoke? What smoke?'
-Leckstopper_f: Leckstopperin
+Leckstopper_f: Leak Plugger
 'Licht in der Nacht_f': 'Light in the night'
 RadioactiveMan_f: RadioactiveWoman
 'Strahlender Bürger_f': 'Radiant citizen'
@@ -2829,9 +2829,9 @@ RadioactiveMan_f: RadioactiveWoman
 'Keine Fehler hi&e%12;r_f': 'No bugs h&e%12;re'
 'Patient Null_f': 'Patient Zero'
 'Es ist der Tod der mich fürchten sollte!_f': 'It is death that should be afraid of me!'
-Sandmann_f: Sandfrau
+Sandmann_f: Sandwoman
 'Sandy Maverick_f': 'Sandy Maverick'
-Wegweiser_f: Wegweiserin
+Wegweiser_f: Daylight Lantern
 'Praktischer Begleiter_f': 'Pocket Companion'
 'Erleuchteter Anführer_f': 'Illuminated Guide'
 'Erleuchteter Prediger_f': 'Enlightened Preacher'
@@ -2855,7 +2855,7 @@ Wegweiser_f: Wegweiserin
 'Alles unter 55% ist Wasser_f': 'If it''s under 55 proof it''s water!'
 Dialyse_f: Dialysis
 'Chef der Mauer_f': 'Rampart Chief'
-Schaufelführer_f: Schaufelführerin
+Schaufelführer_f: Head Shoveler
 'Ich bin ein Biest!_f': 'Chiefess Tamer'
 'DdA Beste Buddler_f': 'DoE Winning Scavenger'
 Tarnexperte_f: Camo Chief
@@ -3008,3 +3008,4 @@ Nüchtern: Sober
 'Fragen & Antworten': 'Questions & Answers'
 'Dein geworbener Spieler {user} hat zum ersten Mal Heldenerfahrung für eine Fähigkeit ausgegeben.': 'Your referred player {user} has spent heroic experience on an ability for the first time.'
 'Dein geworbener Spieler {user} hat zum ersten Mal in dieser Saison Heldenerfahrung für eine Fähigkeit ausgegeben.': 'Your referred player {user} spent heroic experience on an ability for the first time this season.'
+'Vergessene Stadt': 'Forgotten City'

@@ -89,7 +89,9 @@ class SettingsController extends AbstractController
     #[Route(path: '/forum/{id}/flags/{flag}', name: 'forum_flag_on', defaults: ['value' => true], methods: ['PUT'])]
     #[Route(path: '/forum/{id}/flags/{flag}', name: 'forum_flag_off', defaults: ['value' => false], methods: ['DELETE'])]
     public function toggleForumFlag(Forum $forum, string $flag, bool $value, PermissionHandler $perm, EntityManagerInterface $em): JsonResponse {
-        if (!$perm->checkEffectivePermissions( $this->getUser(), $forum, ForumUsagePermissions::PermissionRead ))
+        $is_unpin = $flag === 'pin' && $value === false;
+
+        if (!$is_unpin && !$perm->checkEffectivePermissions( $this->getUser(), $forum, ForumUsagePermissions::PermissionRead ))
             return new JsonResponse(status: Response::HTTP_NOT_FOUND);
 
         if ($forum->getTown())

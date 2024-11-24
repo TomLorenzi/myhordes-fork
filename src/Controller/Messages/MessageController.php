@@ -3,7 +3,9 @@
 namespace App\Controller\Messages;
 
 use App\Controller\CustomAbstractController;
+use App\Entity\Announcement;
 use App\Entity\Award;
+use App\Entity\Changelog;
 use App\Entity\Citizen;
 use App\Entity\Emotes;
 use App\Entity\Forum;
@@ -20,6 +22,7 @@ use App\Service\PermissionHandler;
 use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
 use App\Service\ConfMaster;
+use App\Service\User\UserCapabilityService;
 use App\Service\UserHandler;
 use App\Structures\ForumPermissionAccessor;
 use App\Structures\HTMLParserInsight;
@@ -56,8 +59,9 @@ class MessageController extends CustomAbstractController
     protected Packages $asset;
     protected PermissionHandler $perm;
     protected UserHandler $userHandler;
+    protected UserCapabilityService $userCapabilityService;
 
-    public function __construct(HTMLService $html, RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em, InventoryHandler $ih, TimeKeeperService $tk, PermissionHandler $p, ConfMaster $conf, CitizenHandler $ch, UserHandler $uh, HookExecutor $hookExecutor)
+    public function __construct(HTMLService $html, RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em, InventoryHandler $ih, TimeKeeperService $tk, PermissionHandler $p, ConfMaster $conf, CitizenHandler $ch, UserHandler $uh, HookExecutor $hookExecutor, UserCapabilityService $userCapabilityService)
     {
         parent::__construct($conf, $em, $tk, $ch, $ih, $t, $hookExecutor);
         $this->asset = $a;
@@ -65,6 +69,7 @@ class MessageController extends CustomAbstractController
         $this->perm = $p;
         $this->userHandler = $uh;
         $this->html = $html;
+        $this->userCapabilityService = $userCapabilityService;
     }
 
     protected function preparePost(User $user, ?Forum $forum, $post, ?Town $town = null, ?HTMLParserInsight &$insight = null, bool $is_update = false): bool {
@@ -77,11 +82,13 @@ class MessageController extends CustomAbstractController
             (($this->isGranted("ROLE_ORACLE") || $this->isGranted("ROLE_ANIMAC")) * ForumUsagePermissions::PermissionFormattingOracle)
         );
 
+        $is_announcement = is_a($post, Announcement::class) || is_a($post, Changelog::class);
+
         $tx = $post->getText();
-        $this->html->htmlPrepare($user, $p, true, $tx, $town, $insight);
+        $this->html->htmlPrepare($user, $p, true, $tx, $town, $insight, allow_all_emotes: $is_announcement);
 
         $distorted = false;
-        if ($town && $user->getActiveCitizen() && $town->getCitizens()->contains($user->getActiveCitizen()) && (!is_a( $post, Post::class) || $post->getType() === 'USER')) {
+        if ($town && $user->getActiveCitizen() && $town->getCitizens()->contains($user->getActiveCitizen()) && (!is_a( $post, Post::class) || $post->getType() === 'USER' || $post->getType() === 'GLORY')) {
             $citizen = $user->getActiveCitizen();
             $tx = $this->html->htmlDistort( $tx,
                     ($this->citizen_handler->hasStatusEffect($citizen, 'drunk') ? HTMLService::ModulationDrunk : HTMLService::ModulationNone) |
@@ -97,22 +104,38 @@ class MessageController extends CustomAbstractController
             $post->setSearchText( strip_tags( $tx ) );
 
         if ($post instanceof Post && !$is_update) {
-            if ($post->getType() !== 'CROW' && $post->getType() !== 'ANIM' && $forum !== null && $forum->getTown()){
+            if ($post->getType() !== 'CROW' && $post->getType() !== 'ANIM'){
                 $citizen = $user->getActiveCitizen();
-                if ($citizen && $citizen->getTown() === $forum->getTown()) {
+                // Town forum message
+                if($forum !== null && $forum->getTown()) {
+                    if ($citizen && $citizen->getTown() === $forum->getTown()) {
 
-                    if ($citizen->getZone() && ($citizen->getZone()->getX() !== 0 || $citizen->getZone()->getY() !== 0))  {
-                        if($citizen->getTown()->getChaos()){
-                            $note = $this->translator->trans('Draußen', [], 'game');
-                        } else {
-                            $note = "[{$citizen->getZone()->getX()}, {$citizen->getZone()->getY()}]";
+                        if ($citizen->getZone() && ($citizen->getZone()->getX() !== 0 || $citizen->getZone()->getY() !== 0))  {
+                            if($citizen->getTown()->getChaos()){
+                                $note = '{outside}';
+                            } else {
+                                $note = "[{$citizen->getZone()->getX()}, {$citizen->getZone()->getY()}]";
+                            }
                         }
-                    }
-                    else {
-                        $note = '{at_00}';
-                    }
+                        else {
+                            $note = '{at_00}';
+                        }
 
-                    $post->setNote("<img alt='' src='{$this->asset->getUrl("build/images/professions/{$citizen->getProfession()->getIcon()}.gif")}' /> <img alt='' src='{$this->asset->getUrl('build/images/icons/item_map.gif')}' /> <span>$note</span>");
+                        $post
+                        ->setNoteIcons(["build/images/professions/{$citizen->getProfession()->getIcon()}.gif", 'build/images/icons/item_map.gif'])
+                        ->setNote("<span>$note</span>");
+                    }
+                } elseif ($post->getType() === 'USER' || $post->getType() === 'GLORY') { // World forum message
+                    if($citizen && $citizen->getTown()?->getRankingEntry() !== null) {
+                        $town_name = $citizen->getTown()->getName();
+                        $town_link = $this->generateUrl('soul_view_town', ['sid' => $user->getId(), 'idtown' => $citizen->getTown()?->getRankingEntry()->getId()]);
+                        $post->setNoteIcons(['build/images/soul/small_falsecity.gif']);
+                        $post->setNote("<span class=\"pointer hide-sm hide-md\" x-ajax-href=\"{$town_link}\">$town_name</span>");
+                    } elseif (!$this->userCapabilityService->hasRole($user, 'ROLE_DUMMY')) {
+                        $post->setNoteIcons(['build/images/emotes/buried.gif']);
+                        $note = '{ancient}';
+                        $post->setNote("<span class='hide-sm hide-md'>$note</span>");
+                    }
                 }
             }
         }

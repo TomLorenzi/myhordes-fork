@@ -288,7 +288,7 @@ class HTMLService {
      * @param HTMLParserInsight|null $insight
      * @return bool
      */
-    public function htmlPrepare(User $user, int $permissions, bool|array $extended, string &$text, ?Town $town = null, ?HTMLParserInsight &$insight = null): bool {
+    public function htmlPrepare(User $user, int $permissions, bool|array $extended, string &$text, ?Town $town = null, ?HTMLParserInsight &$insight = null, bool $allow_all_emotes = false): bool {
 
         $insight = new HTMLParserInsight();
         $insight->editable = true;
@@ -556,7 +556,8 @@ class HTMLService {
         foreach ($body->item(0)->childNodes as $child)
             $tmp_str .= $dom->saveHTML($child);
 
-        $tmp_str = $this->filterLockedEmotes($user, $tmp_str);
+        if (!$allow_all_emotes)
+            $tmp_str = $this->filterLockedEmotes($user, $tmp_str);
         $text = $tmp_str;
 
         return true;

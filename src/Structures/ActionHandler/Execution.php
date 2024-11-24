@@ -122,9 +122,6 @@ class Execution extends Base
         if (count($this->spawned_items) >= 1)
             $tags[] = 'spawned';
 
-        if (count($this->consumed_items) >= 1)
-            $tags[] = 'consumed';
-
         if (!empty($this->morphed_items))
             $tags[] = 'morphed';
 
