@@ -1089,7 +1089,7 @@ class InventoryAwareController extends CustomAbstractController
             $secondary_inv = $citizen->getHome()->getChest();
         }
 
-        if (!$citizen->getInventory()->getItems()->contains( $item ) && ($secondary_inv && !$secondary_inv->getItems()->contains( $item ))) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+        if (!$citizen->getInventory()->getItems()->contains( $item ) && (!$secondary_inv || !$secondary_inv->getItems()->contains( $item ))) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         if (!$this->extract_target_object( $target_id, $action->getTarget(), $citizen, [ $citizen->getInventory(), $secondary_inv ], $target ))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         $url = null;
