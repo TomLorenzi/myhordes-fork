@@ -48,7 +48,7 @@ export function useVault<V extends VaultEntry>(
         if (missing?.length > 0) {
             const vault = new Vault<V>(missing, type);
             vault.handle( data => {
-                missing.forEach(id => idSet.current.add(id));
+                data.forEach(({id}) => idSet.current.add(id));
                 setState(d => {return {
                     ...(d ?? {}),
                     ...Object.fromEntries( data.map( v => [ v.id, v ] ) )
