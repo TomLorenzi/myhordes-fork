@@ -1747,6 +1747,9 @@ class TownController extends InventoryAwareController
         if ($id === $this->getActiveCitizen()->getId())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
+        if ($this->getActiveCitizen()->getBanished())
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailableBanished );
+
         $citizen = $this->getActiveCitizen();
         /** @var Citizen $c */
         $c = $this->entity_manager->getRepository(Citizen::class)->find( $id );
