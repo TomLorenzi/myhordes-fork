@@ -34,8 +34,8 @@ class BuildingDataService implements FixtureProcessorInterface {
         $container->modify('small_gather_#01')->parentBuilding('small_gather_#00')->parentBuilding('small_gather_#00')->description('Mit tieferen Löchern und darüber ausgelegten Planen, einfach abwarten und zusehen, wie etwas (oder jemand?) hineinfällt!')->ap(25)->health(25)->resources(["metal_beam_#00" => 1, "plate_#00" => 2,])->orderBy(2)->commit();
         //Buddelgruben
         $container->add()->parentBuilding('small_gather_#00')
-            ->icon('item_shovel')->label('Buddelgruben')->description('Seitengänge, die Buddler direkt vom Großen Grube aus in die Wüste treiben, um noch nie zuvor ausgebeutete Bereiche zu erkunden. Hoffentlich finden sie dort einige interessante Dinge!')
-            ->isTemporary(0)->defense(0)->ap(25)->health(25)->blueprintLevel(3)->resources(["explo_#00" => 1,])->orderBy(3)->commit();
+            ->icon('small_gallery')->label('Buddelgruben')->description('Seitengänge, die Buddler direkt vom Großen Grube aus in die Wüste treiben, um noch nie zuvor ausgebeutete Bereiche zu erkunden. Hoffentlich finden sie dort einige interessante Dinge!')
+            ->isTemporary(0)->defense(0)->ap(30)->health(30)->blueprintLevel(3)->resources(["explo_#00" => 1, "wood_beam_#00" => 3, "deto_#00" => 1,])->orderBy(3)->commit();
 
         //Weiterentwickelte Stadtmauer
         $container->modify('small_wallimprove_#01')->defense(20)->blueprintLevel(0)->resources(["meca_parts_#00" => 2,"wood_beam_#00" => 5,"metal_beam_#00" => 5,])->orderBy(3)->commit();
@@ -136,7 +136,7 @@ class BuildingDataService implements FixtureProcessorInterface {
         // Brunnenbohrer, now gives 50 water
         $container->modify('small_water_#01')->ap(55)->orderBy(1)->commit();
         //Tunnelratte, now gives 100 water
-        $container->modify('small_derrick_#01')->parentBuilding('small_water_#01')->ap(150)->resources(["tube_#00" => 2, "oilcan_#00" => 2,"wood_beam_#00" => 15,"metal_beam_#00" => 15,])->orderBy(0)->commit();
+        $container->modify('small_derrick_#01')->parentBuilding('small_water_#01')->description('Da selbst der Bohrer des Bohrturms nicht durch jede Schicht durchkommt, muss man hin und wieder kleine und mit Dynamit bestückte Tiere in die Tiefe schicken. Dieses Projekt fügt den städtischen Wasserreserven +100 Rationen hinzu.')->ap(150)->resources(["tube_#00" => 2, "oilcan_#00" => 2,"wood_beam_#00" => 15,"metal_beam_#00" => 15,])->orderBy(0)->commit();
         //Wünschelrakete, gives 60 water
         $container->modify('small_rocketperf_#00')->parentBuilding('small_water_#01')->ap(80)->blueprintLevel(2)->resources(["explo_#00" => 1,"tube_#00" => 1,"deto_#00" => 1,"meca_parts_#00" => 1,"wood_beam_#00" => 5,"metal_beam_#00" => 5,])->orderBy(1)->commit();
         //Projekt Eden, now gives 50 water
@@ -160,7 +160,7 @@ class BuildingDataService implements FixtureProcessorInterface {
         //Säurespray
         $container->modify('small_acidspray_#00')->description('Das Hinzufügen einiger Chemikalien zum verwendeten Wasser wird das hübsche Gesicht der Zombies vor der Stadt definitiv nicht verschönern.')->ap(25)->resources(["water_#00" => 3,"pharma_#00" => 2,])->orderBy(1)->commit();
         //Spraykanone
-        $container->modify('small_gazspray_#00')->description('Oft wird vergessen, dass Zombies ein Gehirn haben. Manchmal sogar zwei, wenn sie Glück haben. Trifft sich gut: Das mit dieser Kanone geschossene Konzentrat hat die erstaunliche Fähigkeit, Gehirne in Matsch zu verwandeln. Es könnte allerdings sein, dass sie auf eure Wächter herunterfällt... aber wo gehobelt wird, da fallen Späne.')->defense(140)->ap(60)->health(60)->blueprintLevel(1)->resources(["metal_beam_#00" => 5,"water_#00" => 5,"meca_parts_#00" => 1,"tube_#00" => 1,"pharma_#00" => 2,"poison_part_#00" => 1,])->orderBy(2)->commit();
+        $container->modify('small_gazspray_#00')->description('Oft wird vergessen, dass Zombies ein Gehirn haben. Manchmal sogar zwei, wenn sie Glück haben. Trifft sich gut: Das mit dieser Kanone geschossene Konzentrat hat die erstaunliche Fähigkeit, Gehirne in Matsch zu verwandeln. Es könnte allerdings sein, dass sie auf eure Wächter herunterfällt... aber wo gehobelt wird, da fallen Späne.')->isTemporary(false)->defense(140)->ap(60)->health(60)->blueprintLevel(1)->resources(["metal_beam_#00" => 5,"water_#00" => 5,"meca_parts_#00" => 1,"tube_#00" => 1,"pharma_#00" => 2,"poison_part_#00" => 1,])->orderBy(2)->commit();
         //Sprinkleranlage
         $container->modify('small_sprinkler_#00')->description('Wie jeder weiß, wird eine Sprinkleranlage für gewöhnlich im Garten eingesetzt. Die wenigsten wissen jedoch, dass sie sich auch hervorragend gegen Zombiehorden eignet. Einziger Wermutstropfen: Die Anlage verbraucht relativ viel Wasser und die Mauer wird etwas rutschiger. Immer vorsichtig laufen!')->parentBuilding('small_waterspray_#00')->defense(185)->resource('diode_#00', 1)->orderBy(3)->commit();
         //Wasserkanone
@@ -196,7 +196,7 @@ class BuildingDataService implements FixtureProcessorInterface {
         $container->modify('small_shower_#00')->blueprintLevel(1)->resource('oilcan_#00', 1)->commit();
         //Naturbereich der Überlebenskünstler
         $container->add()->parentBuilding('item_firework_tube_#00')
-            ->icon('item_surv_book')->label('Naturbereich der Überlebenskünstler')->description('Anstatt die Überlebenskünstler überall in der Stadt urinieren zu lassen, habt ihr ihnen ein kleines Stück Paradies gebaut, nur für sie! Der Vorteil ist, dass es direkt über einem Gemüsegarten liegt und wir so täglich die Wasserreserven aufstocken können. Nun, zumindest wenn ihr bereit sind, das zu trinken...')
+            ->icon('small_survarea')->label('Naturbereich der Überlebenskünstler')->description('Anstatt die Überlebenskünstler überall in der Stadt urinieren zu lassen, habt ihr ihnen ein kleines Stück Paradies gebaut, nur für sie! Der Vorteil ist, dass es direkt über einem Gemüsegarten liegt und wir so täglich die Wasserreserven aufstocken können. Nun, zumindest wenn ihr bereit sind, das zu trinken...')
             ->isTemporary(0)->defense(0)->ap(30)->blueprintLevel(3)->resources(["ryebag_#00" => 2,"wood2_#00" => 5,"radio_on_#00" => 1,"oilcan_#00" => 2,])->orderBy(4)->commit();
 
         // Gemüsebeet
@@ -270,8 +270,8 @@ class BuildingDataService implements FixtureProcessorInterface {
         $container->modify('small_court_#00')->parentBuilding('item_rp_book2_#00')->blueprintLevel(3)->resources(["wood2_#00" => 10,"metal_#00" => 10,"table_#00" => 1,"wire_#00" => 1,"radio_on_#00" => 2,])->orderBy(1)->commit();
         //Techniker-Werkstatt
         $container->add()->parentBuilding('item_rp_book2_#00')
-            ->icon('item_keymol')->label('Techniker-Werkstatt')->description('Mit einem eigenen Arbeitsplatz sind Techniker in der Lage, McGyver zu spielen und aus allem, was herumliegt, nützliches Zeug zu bauen.')
-            ->isTemporary(0)->defense(0)->ap(60)->health(60)->blueprintLevel(3)->resources(["wood_beam_#00" => 5,"metal_beam_#00" => 10,"plate_#00" => 1,"wire_#00" => 2,"ryebag_#00" => 1,"lens_#00" => 1,"coffee_machine_#00" => 1,"table_#00" => 1,])->orderBy(2)->commit($item_keymol);
+            ->icon('small_techtable')->label('Techniker-Werkstatt')->description('Mit einem eigenen Arbeitsplatz sind Techniker in der Lage, McGyver zu spielen und aus allem, was herumliegt, nützliches Zeug zu bauen.')
+            ->isTemporary(0)->defense(0)->ap(60)->health(60)->blueprintLevel(3)->resources(["wood_beam_#00" => 5,"metal_beam_#00" => 10,"plate_#00" => 1,"wire_#00" => 2,"ryebag_#00" => 1,"lens_#00" => 1,"coffee_machine_#00" => 1,"table_#00" => 1,])->orderBy(2)->commit($small_techtable);
         //Ministerium für Sklaverei
         $container->modify('small_slave_#00')->parentBuilding('item_rp_book2_#00')->ap(15)->health(15)->resource('table_#00', 1)->orderBy(3)->commit();
         //Altar
@@ -325,7 +325,7 @@ class BuildingDataService implements FixtureProcessorInterface {
         // Verbesserte Karte
         $container->modify('item_electro_#00')->parentBuilding($item_scope)->ap(25)->health(25)->resources(["pile_#00" => 2,"metal_#00" => 5,"plate_#00" => 1,"diode_#00" => 1,"radio_on_#00" => 2,])->orderBy(1)->commit();
         //Rückzugsort für Aufklärer
-        $container->modify('small_watchmen_#01')->parentBuilding($item_scope)->icon('item_vest_on')->label('Rückzugsort für Aufklärer')->description('Die Aufklärer haben dich schon immer fasziniert und nie verraten, was sie unter ihrer Haube verbergen... Aber vielleicht ist es das Beste, sie in Ruhe zu lassen. Mit diesem speziellen Rückzugsort können sie sich endlich an die Arbeit machen, ohne die Stadt verlassen zu müssen.')
+        $container->modify('small_watchmen_#01')->parentBuilding($item_scope)->icon('small_lair')->label('Rückzugsort für Aufklärer')->description('Die Aufklärer haben dich schon immer fasziniert und nie verraten, was sie unter ihrer Haube verbergen... Aber vielleicht ist es das Beste, sie in Ruhe zu lassen. Mit diesem speziellen Rückzugsort können sie sich endlich an die Arbeit machen, ohne die Stadt verlassen zu müssen.')
             ->defense(0)->ap(25)->blueprintLevel(3)->resources(["tube_#00" => 1,"scope_#00" => 1,"metal_beam_#00" => 3,"wood2_#00" => 2,"plate_#00" => 1,"tagger_#00" => 2,"pile_#00" => 1,])->orderBy(2)->commit();
         // Rechenmaschine
         $container->modify('item_tagger_#02')->parentBuilding('item_tagger_#00')->orderBy(1)->commit();
@@ -356,9 +356,9 @@ class BuildingDataService implements FixtureProcessorInterface {
             ->commit();
         // Schwedische Schreinerei, now provides nw_ikea bonus (30%)
         $container->modify('small_ikea_#00')->parentBuilding('small_armor_#00')->description('Dieser kleine Laden verbessert die Effektivität jedes Möbelstücks, das auf der Wache benutzt wird um 30%. Hach ja, die Schweden... Nie gab es bessere Billigmöbel!')->blueprintLevel(3)->resources(["meca_parts_#00" => 2,"wood2_#00" => 10,"metal_#00" => 10,"plate_#00" => 2,"concrete_wall_#00" => 3,"wood_beam_#00" => 5,"radio_on_#00" => 1,])->orderBy(0)->commit();
-        // Waffenschmiede, now provides nw_armory bonus
+        // Handschleifer, now provides nw_armory bonus
         $container->add()->parentBuilding('small_armor_#00')
-            ->icon('small_blacksmith')->label('Waffenschmiede')->description('Indem man jede Klinge vor Einbruch der Nacht gewissenhaft schärft, kann die Wacht nun noch effektiver werden. Jede scharfe Waffe hat einen 20%igen Wächterbonus.')
+            ->icon('small_grinder2')->label('Handschleifer')->description('Indem man jede Klinge vor Einbruch der Nacht gewissenhaft schärft, kann die Wacht nun noch effektiver werden. Jede scharfe Waffe hat einen 20%igen Wächterbonus.')
             ->isTemporary(0)->defense(0)->ap(50)->blueprintLevel(3)->resources(["meca_parts_#00" => 3,"wood2_#00" => 10,"metal_#00" => 10,"metal_beam_#00" => 5,"plate_#00" => 2,"concrete_wall_#00" => 2,])->orderBy(1)->commit();
         // Tierhandlung, replace Trebuchet functionning (provide nw_trebuchet bonus)
         $container->add()->parentBuilding('small_armor_#00')
@@ -370,7 +370,7 @@ class BuildingDataService implements FixtureProcessorInterface {
             ->isTemporary(0)->defense(0)->ap(35)->blueprintLevel(3)->resources(["wood2_#00" => 10,"tube_#00" => 1,"metal_beam_#00" => 3,"tube_#00" => 3,"concrete_wall_#00" => 1,"plate_#00" => 1,"oilcan_#00" => 1,])->orderBy(4)->commit();
         // Dompteur-Spa
         $container->add()->parentBuilding('small_round_path_#00')
-            ->icon('item_tamed_pet')->label('Dompteur-Spa')->description('Eure Hunde verdienen nur das Beste, und wenn sie euch auf die Wacht begleiten, heißt es, ihre Zähne zu schärfen und ihre Locken zu bürsten. Alles, damit eure Schuckel die schönsten auf der Stadtmauer sind! Außerdem soll es ihre Effektivität verbessern und Ihre Überlebenschancen in der Nacht erhöhen.')
+            ->icon('small_pet')->label('Dompteur-Spa')->description('Eure Hunde verdienen nur das Beste, und wenn sie euch auf die Wacht begleiten, heißt es, ihre Zähne zu schärfen und ihre Locken zu bürsten. Alles, damit eure Schuckel die schönsten auf der Stadtmauer sind! Außerdem soll es ihre Effektivität verbessern und Ihre Überlebenschancen in der Nacht erhöhen.')
             ->isTemporary(0)->defense(0)->ap(40)->blueprintLevel(3)->resources(["wood2_#00" => 4,"water_#00" => 10,"meca_parts_#00" => 1,"drug_#00" => 1,])->orderBy(3)->commit();
 
         // Katapult
@@ -492,9 +492,9 @@ class BuildingDataService implements FixtureProcessorInterface {
             ->isTemporary(0)->defense(20)->ap(30)->health(30)->blueprintLevel(0)->resources(["metal_#00" => 1,"rustine_#00" => 1,"ryebag_#00" => 2,"lens_#00" => 1,"oilcan_#00" => 1,])->orderBy(0)
             ->voteLevel(3)->baseVoteText('Du kannst jetzt die Seelen deiner verstorbenen Mitbürger reinigen, um ein wenig zusätzliche Verteidigung zu erhalten.')
             ->upgradeTexts([
-                               'Jede gereinigte Seele bringt der Stadt ein wenig mehr Verteidigung.',
-                               'Jede gereinigte Seele bringt Verteidigungspunkte und jede gequälte Seele hat weniger Auswinkungen auf den Angriff.',
-                               'Jede gereinigte Seele bringt Verteidigungspunkte und 2 Rangpunkte, jede gequälte Seele hat weniger Auswinkungen auf den Angriff.',
+                               'Jede gereinigte Seele bringt der Stadt etwas mehr Verteidigung.',
+                               'Zusätzlich zum vorherigen Effekt sinkt der Einfluss gequälter Seelen auf den Angriff leicht ab.',
+                               'Zusätzlich zum vorherigen Effekt wird der Verteidigungsbonus gereinigter Seelen weiter erhöht, und jede gereinigte Seele bringt zwei zusätzliche Ranking-Punkte für die Stadt ein.',
                            ])
             ->commit($item_soul_blue_static);
         // Hammam

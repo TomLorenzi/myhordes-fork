@@ -57,14 +57,14 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('room_for_item_scavenging')->type( Requirement::MessageOnFail )->add( (new InventorySpaceRequirement())->considerTrunk(false)->container(false) )->commit();
         $requirement_container->add()->identifier('min_2_ap')->type( Requirement::MessageOnFail )->add( (new PointRequirement())->require(PointType::AP)->min(2) )->text_key('pt_required')->commit();
         $requirement_container->add()->identifier('not_profession_collec')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('collec', false) )->commit();
-        $requirement_container->add()->identifier('must_have_scavenger_building')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('item_shovel_#00', true) )->commit();
+        $requirement_container->add()->identifier('must_have_scavenger_building')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('small_gallery_#00', true) )->commit();
         $requirement_container->add()->identifier('scav_building_counter_below_1')->type( Requirement::CrossOnFail )->add( (new CounterRequirement())->counter(ActionCounter::ActionTypeSpecialDigScavenger)->max( 0 ) )->commit();
         $requirement_container->add()->identifier('scav_building_counter_below_3')->type( Requirement::CrossOnFail )->add( (new CounterRequirement())->counter(ActionCounter::ActionTypeSpecialDigScavenger)->max( 2 ) )->commit();
 
         $requirement_container->add()->identifier('not_profession_guardian')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('guardian', false) )->commit();
 
         $requirement_container->add()->identifier('not_profession_survivalist')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('survivalist', false) )->commit();
-        $requirement_container->add()->identifier('must_have_surv_building')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('item_surv_book_#00', true) )->commit();
+        $requirement_container->add()->identifier('must_have_surv_building')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('small_survarea_#00', true) )->commit();
         $requirement_container->add()->identifier('surv_building_counter_below_1')->type( Requirement::CrossOnFail )->add( (new CounterRequirement())->counter(ActionCounter::ActionTypeSpecialActionSurv)->max( 0 ) )->commit();
 
         $requirement_container->add()->identifier('hunter_building_counter_below_1')->type( Requirement::CrossOnFail )->add( (new CounterRequirement())->counter(ActionCounter::ActionTypeSpecialActionHunter)->max( 0 ) )->commit();
@@ -94,6 +94,8 @@ class ActionDataService implements FixtureProcessorInterface {
                 ],
                 'spawn' => [
                     'drugkit'   => [ ['water_cleaner_#00', 200], ['drug_water_#00', 200], ['ryebag_#00', 150], ['xanax_#00', 130], ['pharma_#00', 100], ['disinfect_#00', 100], ['pharma_part_#00', 100], ['cyanure_#00', 10], ['drug_#00', 5], ['bandage_#00', 5] ],
+                    'xmas_2'  => [ 'rp_letter_#00' ],
+                    'xmas_1'  => [ 'watergun_opt_5_#00' ],
                 ],
             ],
 
@@ -108,15 +110,15 @@ class ActionDataService implements FixtureProcessorInterface {
                 'nw_empty_sport'     => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'sport_elec_empty_#00',   'consume' => false]] ] ],
                 'nw_empty_radio'     => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'radio_off_#00',          'consume' => false]] ] ],
                 'bp_hotel_2'    => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['item_pumpkin_raw_#00', 'small_urban_#00','small_strategy_#01', 'item_shield_#00', 'small_canon_#01', 'small_wallimprove_#02'] ] ],                     'message_key' => 'read_blueprint' ],
-                'bp_hotel_3'    => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_valve_#00', 'small_appletree_#00', 'small_scarecrow_#00', 'small_ikea_#00', 'small_moving_#00', 'small_labyrinth_#00', 'item_tamed_pet_#00', 'item_plate_#05', 'small_court_#00', 'small_coffin_#00'] ] ], 'message_key' => 'read_blueprint' ],
+                'bp_hotel_3'    => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_valve_#00', 'small_appletree_#00', 'small_scarecrow_#00', 'small_ikea_#00', 'small_moving_#00', 'small_labyrinth_#00', 'small_pet_#00', 'item_plate_#05', 'small_court_#00', 'small_coffin_#00'] ] ], 'message_key' => 'read_blueprint' ],
                 'bp_hotel_4'    => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_waterdetect_#00', 'small_thermal_#00', 'small_wheel_#00', 'small_cinema_#00', 'small_pool_#00'] ] ],                                              'message_key' => 'read_blueprint' ],
 
-                'bp_bunker_2'   => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_rocketperf_#00', 'small_watercanon_#00', 'item_bgrenade_#00', 'small_catapult3_#00', 'item_hmeat_#00', 'small_city_up_#00'] ] ],                                             'message_key' => 'read_blueprint' ],
-                'bp_bunker_3'   => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['item_tube_#01', 'item_boomfruit_#00', 'item_pet_pig_#00', 'small_watchmen_#00', 'small_blacksmith_#00', 'small_underground_#00', 'small_rocket_#00', 'item_keymol_#00', 'item_home_def_#00', 'small_coffin_#00'] ] ], 'message_key' => 'read_blueprint' ],
+                'bp_bunker_2'   => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_rocketperf_#00', 'small_watercanon_#00', 'item_bgrenade_#01', 'small_catapult3_#00', 'item_hmeat_#00', 'small_city_up_#00'] ] ],                                             'message_key' => 'read_blueprint' ],
+                'bp_bunker_3'   => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['item_tube_#00', 'item_boomfruit_#00', 'item_pet_pig_#00', 'small_watchmen_#00', 'small_grinder2_#00', 'small_underground_#00', 'small_rocket_#00', 'small_techtable_#00', 'item_home_def_#00', 'small_coffin_#00'] ] ], 'message_key' => 'read_blueprint' ],
                 'bp_bunker_4'   => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_pool_#00', 'small_castle_#00', 'small_arma_#00', 'small_slave_#00', 'small_pmvbig_#00'] ] ],                                                                                         'message_key' => 'read_blueprint' ],
 
                 'bp_hospital_2' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['item_plate_#04', 'small_eden_#00', 'small_chicken_#00', 'small_cemetery_#00', 'small_spa4souls_#00', 'small_saw_#00'] ] ],                                                                            'message_key' => 'read_blueprint' ],
-                'bp_hospital_3' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['item_digger_#00', 'item_boomfruit_#01', 'small_watchmen_#01', 'small_sewers_#00', 'small_falsecity_#00', 'small_trashclean_#00', 'small_infirmary_#00', 'item_surv_book_#00', 'small_sprinkler_#00', 'small_coffin_#00'] ] ], 'message_key' => 'read_blueprint' ],
+                'bp_hospital_3' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['item_digger_#00', 'item_boomfruit_#01', 'small_watchmen_#01', 'small_sewers_#00', 'small_falsecity_#00', 'small_trashclean_#00', 'small_infirmary_#00', 'small_survarea_#00', 'small_sprinkler_#00', 'small_coffin_#00'] ] ], 'message_key' => 'read_blueprint' ],
                 'bp_hospital_4' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_derrick_#01', 'small_crow_#00', 'small_pmvbig_#00', 'small_trash_#06', 'small_balloon_#00'] ] ],                                                                                                'message_key' => 'read_blueprint' ],
 
 				'home_pool'    => [ 'label' => 'Ein Bad nehmen', 'meta' => [ 'must_be_inside', 'must_have_pool', 'not_yet_home_pooled' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_home_pool', 'counter' => ActionCounter::ActionTypePool ] ] ], 'message' => 'Du springst ohne zu zögern in dieses große Bad. Das Chaos um dich herum existiert für dich nicht mehr und du spürst, dass du diese Nacht mit Gelassenheit verbringen wirst.' ],
@@ -135,6 +137,9 @@ class ActionDataService implements FixtureProcessorInterface {
                 'open_drugkit'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => 'drugkit' ] ], 'message_key' => 'container_open' ],
 
                 'purify_soul' => [ 'result' => [ 'add_custom' => [ 'custom' => [11001] ] ]],
+
+                'install_garland' => [ 'label' => 'Aufhängen', 'meta' => [ 'not_tired', 'is_not_wounded_hands', 'must_be_inside', 'during_christmas', 'room_for_item_in_chest' ], 'result' => [ 'consume_item', [ 'spawn' => [ 'what' => ['xmas_gift_#01'], 'where' => AffectItemSpawn::DropTargetFloorOnly ] , 'status' => [ 'counter' => ActionCounter::ActionTypeSpecialActionAPLoan ] ] ], 'message' => 'Es war ganz schön anstrengend, aber nach einigem lauten Fluchen hängt die Girlande. Irgendwie hast du aber das Gefühl, dass du dich gerde überanstrengt hast...' ],
+                'uninstall_garland' => [ 'label' => 'Abhängen', 'meta' => [ 'not_tired', 'is_not_wounded_hands', 'must_be_inside' ], 'result' => [ [ 'item' => ['morph' => 'xmas_gift_#00', 'consume' => false] ] ], 'message' => 'Mit einem beherzten Griff hast du die Girlande aus ihrer Verankerung gerissen.' ],
             ],
 
             'heroics' => [
@@ -150,12 +155,12 @@ class ActionDataService implements FixtureProcessorInterface {
 
             'home' => [
                 'p1'  => ['home_pool', 'pool'],
-                'p2a' => ['home_scavenge_any', 'small_gather'],
-                'p2b' => ['home_scavenge_pro', 'small_gather'],
-                'p3a' => ['home_survivalist_any', 'item_surv_book'],
-                'p3b' => ['home_survivalist_pro', 'item_surv_book'],
-                'p4'  => ['home_crows_any', 'watchmen'],
-                'p3'  => ['home_defbuff_any', 'watchmen']
+                'p2a' => ['home_scavenge_any', 'gallery'],
+                'p2b' => ['home_scavenge_pro', 'gallery'],
+                'p3a' => ['home_survivalist_any', 'survarea'],
+                'p3b' => ['home_survivalist_pro', 'survarea'],
+                'p4'  => ['home_crows_any', 'lair'],
+                'p3'  => ['home_defbuff_any', 'lair']
             ],
 
             'escort' => [
@@ -166,6 +171,8 @@ class ActionDataService implements FixtureProcessorInterface {
                 'keymol_#00' => [ 'repair_hero' ],
                 'pumpkin_tasty_#00'  => [ 'eat_7ap'],
                 'medic_#00'  => [ 'open_drugkit' ],
+                'xmas_gift_#00'  => [ 'install_garland' ],
+                'xmas_gift_#01'  => [ 'uninstall_garland' ],
             ],
 
             'items_nw' => [

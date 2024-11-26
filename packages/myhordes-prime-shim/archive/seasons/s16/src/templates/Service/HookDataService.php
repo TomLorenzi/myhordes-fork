@@ -24,6 +24,12 @@ class HookDataService implements FixtureProcessorInterface {
 			'dumpDisplayActionsCoreJs' => [
 				'active' => false,
 			],
+            'additionalCitizenRowClassPrime' => [
+                'hookname' => 'additionalCitizenRowClass',
+                'classname' => "MyHordes\\Prime\\Hooks\\ClassHooks",
+                'active' => true,
+                'position' => 1
+            ],
 			'dumpDisplayItemsPrime' => [
 				'hookname' => 'dumpDisplayItems',
 				'classname' => "MyHordes\\Prime\\Hooks\\DumpHooks",
@@ -57,6 +63,12 @@ class HookDataService implements FixtureProcessorInterface {
 			'homeForeignDisposalTextPrime' => [
 				'hookname' => 'homeForeignDisposalText',
 				'classname' => 'MyHordes\\Prime\\Hooks\\TownHooks',
+				'active' => true,
+				'position' => 1
+			],
+			'WorkshopTechTextPrime' => [
+				'hookname' => 'WorkShopTech',
+				'classname' => 'MyHordes\\Prime\\Hooks\\WorkshopHooks',
 				'active' => true,
 				'position' => 1
 			]

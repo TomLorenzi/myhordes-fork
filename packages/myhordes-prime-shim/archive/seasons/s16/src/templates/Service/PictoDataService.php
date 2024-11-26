@@ -9,7 +9,7 @@ class PictoDataService implements FixtureProcessorInterface {
 
     public function process(array &$data): void
     {
-		$data = array_replace_recursive($data, [
+		$data = array_merge_recursive($data, [
 			[
 				'label' => 'Blaugoldige Thermalbäder',
 				'description' => 'Hey, du hättest an deine Seife denken sollen!',
@@ -21,8 +21,14 @@ class PictoDataService implements FixtureProcessorInterface {
 				'label' => 'Leichenverbrenner',
 				'description' => 'Durchgeführte feurige Begräbnisrituale an den Leichen von Bürgern',
 				'icon' => 'r_cburn',
-				'rare' => true,
+				'rare' => false,
 				'priority' => 3,
+			],
+			[
+				'label' => 'Festliche Dekoration',
+				'description' => 'Anzahl der Feierlichkeiten, an denen Sie teilgenommen haben.',
+				'icon' => 'r_decofeist',
+				'rare' => false,
 			],
 		]);
     }

@@ -37,8 +37,7 @@ final class PrimeCitizenChanceQueryListener implements ServiceSubscriberInterfac
                     if ($novelty_lamps_level >= 3) $event->chance = min(max(0, $event->chance + 0.1), 1.0);
                 }
 
-                if ($this->getService(TownHandler::class)->getBuilding( $event->town, 'small_watchmen_#01', true ))
-                    $event->chance = $event->chance + $event->zone?->getScoutLevel() * 0.025;
+                $event->chance = $event->chance + ($event->zone?->getScoutLevel() ?? 0) * 0.025;
 
                 break;
         }

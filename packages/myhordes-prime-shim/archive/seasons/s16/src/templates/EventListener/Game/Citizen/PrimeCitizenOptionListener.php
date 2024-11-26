@@ -31,7 +31,7 @@ final class PrimeCitizenOptionListener implements ServiceSubscriberInterface
     }
 
     public function onPopulateWorkshopRecipes( CitizenWorkshopOptionsEvent $event ): void {
-        if ($this->getService(TownHandler::class)->getBuilding( $event->town, 'item_keymol_#00' )) {
+        if ($this->getService(TownHandler::class)->getBuilding( $event->town, 'small_techtable_#00' )) {
             $trans = $this->getService(TranslatorInterface::class);
             $counter = $event->citizen->getSpecificActionCounterValue( ActionCounter::ActionTypeSpecialActionTech );
             $event->pushOption(

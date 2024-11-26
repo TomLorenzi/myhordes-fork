@@ -2,6 +2,7 @@
 
 namespace MyHordes\Prime\Service;
 
+use App\Enum\DropMod;
 use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class RuinDataService implements FixtureProcessorInterface {
@@ -171,7 +172,11 @@ class RuinDataService implements FixtureProcessorInterface {
 			],
 			
 			"post" => [
-				"capacity" => 2
+				"capacity" => 2,
+                "drops" => [
+                    'postal_box_#01_xmas_alt_1' => ['item' => 'postal_box_#01', 'count' => 3, 'mod' => DropMod::EventChristmasAlt1],
+                    'postal_box_xl_#00_xmas_alt_2' => ['item' => 'postal_box_xl_#00', 'count' => 3, 'mod' => DropMod::EventChristmasAlt2],
+                ]
 			],
 			
 			"dll" => [

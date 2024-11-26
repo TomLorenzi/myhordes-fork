@@ -9,9 +9,7 @@ use App\Entity\ZoneActivityMarker;
 use App\Enum\ScavengingActionType;
 use App\Enum\ZoneActivityMarkerType;
 use App\Event\Game\Actions\CustomActionProcessorEvent;
-use App\Event\Game\Citizen\CitizenPostDeathEvent;
 use App\EventListener\ContainerTypeTrait;
-use App\EventListener\Game\Citizen\CitizenDeathListener;
 use App\Service\ConfMaster;
 use App\Service\EventProxyService;
 use App\Service\GameProfilerService;
@@ -81,7 +79,7 @@ final class PrimeItemActionListener implements ServiceSubscriberInterface
 
                     $item_instance = $this->getService(ItemFactory::class)->createItem($item);
                     $this->getService(GameProfilerService::class)->recordItemFound( $item, $event->citizen, method: 'scavenge_town' );
-                    $this->getService(InventoryHandler::class)->placeItem( $event->citizen, $item_instance, [ $event->citizen->getInventory() ] );
+                    $this->getService(EventProxyService::class)->placeItem( $event->citizen, $item_instance, [ $event->citizen->getInventory(), $event->citizen->getHome()->getChest(), $event->town->getBank() ] );
 
                 } else {
                     $execute_info_cache['message'][] = [T::__( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', 'game' ), 'game'];
