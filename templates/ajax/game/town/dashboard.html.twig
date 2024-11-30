@@ -240,7 +240,7 @@
                 {% if def_summary.overall_scale > 1 %}
                 <li>{{'Bonus'|trans({}, 'game')}} : + {{ ((def_summary.overall_scale - 1) * 100)|round(2)}} % </li>
                 {% endif %}
-                {% if (has_battlement or act_as_battlement) and def_summary.nightwatch_defense > 0 %}
+                {% if (has_battlement or act_as_battlement) and def_summary.nightwatch_defense != 0 %}
                 <li>{{'Nachtwächter'|trans({}, 'game')}} : + {{def_summary.nightwatch_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}"  alt=""/> <a class="help-button"><div class="tooltip help">{{ 'Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></li>
                 {% endif %}
                 {% if def_summary.soul_defense > 0 %}
