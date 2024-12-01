@@ -48,3 +48,33 @@ export type TranslationStrings = {
         "ok": string,
     }
 }
+
+type TownClass = {
+    id: number
+    name: string
+    order: number
+    help: string
+}
+
+export type GameTranslationStrings = {
+    common: {
+        help: string,
+        warn: string,
+    },
+    flags: {[key: string]: string},
+    types: TownClass[],
+    table: {
+        head: {
+            name: string,
+            citizens: string,
+            coas: string
+            coas_help: string
+        },
+        no_towns: string
+        mayor: string,
+        mayor_icon: string
+        mayor_lines: string[],
+        lang: string,
+        lang_warn: string,
+    }
+}

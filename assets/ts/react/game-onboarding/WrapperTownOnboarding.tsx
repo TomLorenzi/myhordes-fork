@@ -3,7 +3,7 @@ import {useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
 import {Const, Global} from "../../defaults";
 import {
     CitizenCount,
-    GameOnboardingAPI, OnboardingCache,
+    TownOnboardingAPI, OnboardingCache,
     OnboardingIdentityPayload, OnboardingPayload,
     OnboardingProfessionPayload, OnboardingSkillPayload,
     ResponseConfig,
@@ -50,7 +50,7 @@ type OnboardingSkillPayloadProps = {
 
 type TownOnboardingGlobals = {
     disabled: boolean,
-    api: GameOnboardingAPI,
+    api: TownOnboardingAPI,
     strings: TranslationStrings,
     payload: OnboardingPayload,
     town: number
@@ -70,7 +70,7 @@ const HordesTownOnboardingWrapper = (props: Props) => {
     const [page, setPage] = useState(0);
     const head = useRef<HTMLDivElement>();
 
-    const apiRef = useRef(new GameOnboardingAPI());
+    const apiRef = useRef(new TownOnboardingAPI());
     const [payload, setPayload] = useState<OnboardingPayload>({
         identity: null,
         profession: null,

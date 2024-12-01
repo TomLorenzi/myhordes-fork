@@ -6,6 +6,7 @@
 // Import the actual react code
 import {Shim} from "../react";
 import {HordesTownOnboarding} from "../react/game-onboarding/WrapperTownOnboarding";
+import {HordesGameOnboarding} from "../react/game-onboarding/WrapperGameOnboarding";
 
 // Define web component <hordes-town-onboarding />
 customElements.define('hordes-town-onboarding', class HordesTownOnboardingElement extends Shim<HordesTownOnboarding> {
@@ -22,6 +23,25 @@ customElements.define('hordes-town-onboarding', class HordesTownOnboardingElemen
 
     protected generateInstance(): HordesTownOnboarding {
         return new HordesTownOnboarding();
+    }
+
+}, {  });
+
+// Define web component <hordes-town-onboarding />
+customElements.define('hordes-game-onboarding', class HordesGameOnboardingElement extends Shim<HordesGameOnboarding> {
+
+    protected mountsLazily(): boolean { return true; }
+
+    protected generateProps(): object {
+        return {
+            lang: this.dataset.lang,
+        };
+    }
+
+    protected static observedAttributeNames(): string[] { return ['data-lang']; };
+
+    protected generateInstance(): HordesGameOnboarding {
+        return new HordesGameOnboarding();
     }
 
 }, {  });

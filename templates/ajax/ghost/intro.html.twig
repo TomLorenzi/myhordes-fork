@@ -145,6 +145,8 @@
                                 <div class="label row-flex v-center"><div class="padded cell">{{ 'Wähle dein nächstes Leben:'|trans({},'ghost') }}</div></div>
                             </div>
 
+                            <hordes-game-onboarding data-lang="{{ app.user.language }}"></hordes-game-onboarding>
+
                             {% for townClass in townClasses %}
 
                                 {% set joinable = userCanJoin[townClass.name] %}

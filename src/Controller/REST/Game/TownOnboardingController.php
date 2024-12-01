@@ -53,6 +53,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 
 #[Route(path: '/rest/v1/game/welcome', name: 'rest_game_welcome_', condition: "request.headers.get('Accept') === 'application/json'")]
+#[GateKeeperProfile(only_incarnated: true)]
 #[IsGranted('ROLE_USER')]
 class TownOnboardingController extends AbstractController
 {
@@ -142,7 +143,6 @@ class TownOnboardingController extends AbstractController
     }
 
     #[Route(path: '/{town}', name: 'config', methods: ['GET'])]
-    #[GateKeeperProfile(only_incarnated: true)]
     public function town_config(Town $town, ConfMaster $conf): JsonResponse
     {
         $activeCitizen = $this->fetchActiveCitizen($town);
@@ -160,7 +160,6 @@ class TownOnboardingController extends AbstractController
     }
 
     #[Route(path: '/{town}/live', name: 'renew_token', methods: ['GET'])]
-    #[GateKeeperProfile(only_incarnated: true)]
     public function renew_token(Town $town, GenerateMercureToken $token): JsonResponse
     {
         $activeCitizen = $this->fetchActiveCitizen($town);
@@ -172,7 +171,6 @@ class TownOnboardingController extends AbstractController
     }
 
     #[Route(path: '/{town}', name: 'onboard', methods: ['PATCH'])]
-    #[GateKeeperProfile(only_incarnated: true)]
     #[Semaphore('town', scope: 'town')]
     public function onboard_to_town(Town $town, EntityManagerInterface $em, ConfMaster $conf, JSONRequestParser $parser, UserUnlockableService $unlockService, OnboardCitizenIntoTownAction $action, CitizenHandler $citizenHandler): JsonResponse
     {
@@ -235,7 +233,6 @@ class TownOnboardingController extends AbstractController
     }
 
     #[Route(path: '/{town}/professions', name: 'profession', methods: ['GET'])]
-    #[GateKeeperProfile(only_incarnated: true)]
     public function professions(Town $town, EntityManagerInterface $em, ConfMaster $conf, Packages $asset, TranslatorInterface $trans): JsonResponse
     {
         $activeCitizen = $this->fetchActiveCitizen($town);
@@ -259,7 +256,6 @@ class TownOnboardingController extends AbstractController
     }
 
     #[Route(path: '/{town}/skills', name: 'skills', methods: ['GET'])]
-    #[GateKeeperProfile(only_incarnated: true)]
     public function skills(Town $town, EntityManagerInterface $em, Packages $asset, TranslatorInterface $trans, UserUnlockableService $unlockService): JsonResponse
     {
         $activeCitizen = $this->fetchActiveCitizen($town);
@@ -314,7 +310,6 @@ class TownOnboardingController extends AbstractController
     }
 
     #[Route(path: '/{town}/citizens', name: 'citizens', methods: ['GET'])]
-    #[GateKeeperProfile(only_incarnated: true)]
     public function citizens(Town $town, GenerateMercureToken $token, CountCitizenProfessionsAction $counter): JsonResponse
     {
         $activeCitizen = $this->fetchActiveCitizen($town);

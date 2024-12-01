@@ -1,5 +1,6 @@
-import {TranslationStrings} from "./strings";
+import {GameTranslationStrings, TranslationStrings} from "./strings";
 import {Fetch} from "../../v2/fetch";
+import {number} from "prop-types";
 
 export type ResponseConfig = {
     "features": {
@@ -90,7 +91,7 @@ export type ResponseConfirm = {
     url: string
 }
 
-export class GameOnboardingAPI {
+export class TownOnboardingAPI {
 
     private fetch: Fetch;
 
@@ -126,6 +127,41 @@ export class GameOnboardingAPI {
     public citizens(town: number): Promise<ResponseCitizenCount> {
         return this.fetch.from(`/${town}/citizens`)
             .request().get() as Promise<ResponseCitizenCount>;
+    }
+
+}
+
+export type Town = {
+    id: number,
+    name: string,
+    population: number
+    language: string
+    citizenCount: number
+    type: number,
+    mayor: boolean,
+    coalitions: number
+}
+
+export type TownListResponse = {
+    towns: Town[],
+}
+
+export class GameOnboardingAPI {
+
+    private fetch: Fetch;
+
+    constructor() {
+        this.fetch = new Fetch( 'game/lobby' );
+    }
+
+    public index(): Promise<GameTranslationStrings> {
+        return this.fetch.from('/')
+            .request().withCache().get() as Promise<GameTranslationStrings>;
+    }
+
+    public list(): Promise<TownListResponse> {
+        return this.fetch.from('/list')
+            .request().withCache().get() as Promise<TownListResponse>;
     }
 
 }

@@ -531,19 +531,9 @@ class Town
 
         return $this;
     }
-    public function hasAliveCitizen(): bool
-    {
-        foreach ($this->getCitizens() as $citizen) {
-            if($citizen->getAlive())
-                return true;
-        }
-        return false;
-    }
+
     public function getCoalizedCitizenCount(): int {
-        $c = 0;
-        foreach ($this->getCitizens() as $citizen)
-            if ($citizen->getCoalized()) $c++;
-        return $c;
+        return $this->citizens->filter( fn(Citizen $c) => $c->getCoalized() )->count();
     }
     /**
      * @return Collection|CitizenWatch[]
