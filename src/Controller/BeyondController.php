@@ -681,7 +681,7 @@ class BeyondController extends InventoryAwareController
                     return AjaxResponse::error( self::ErrorDoorClosed );
                 break;
             case 'hero':
-                if (!$citizen->getProfession()->getHeroic())
+                if (!$citizen->getProfession()->getHeroic() || !$th->getBuilding($town, 'small_ventilation_#00',  true))
                     return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
                 break;
             default: return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
