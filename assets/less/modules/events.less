@@ -1,5 +1,6 @@
 body[data-theme-name="arma"] {
-    background: url("../../img/anims/skull_laugh.gif") !important;
+    &:not(.no-fx):not(.no-arma-skulls) { background: url("../../img/anims/skull_laugh.gif") !important; }
+    &.no-fx, &.no-arma-skulls { background: linear-gradient(180deg, rgb(0,0,0) 0, rgb(0,0,0) 145px, rgb(0,112,56) 100vh) !important; }
     #wrapper>#header { background: url(../../img/background/header_arma_animated.gif); }
 
     .town-header b {
