@@ -889,27 +889,29 @@ class PublicController extends CustomAbstractController
     }
 
     /**
-     * @param int $id
+     * @param HTMLService $html
+     * @param ?Changelog $changelog
      * @return Response
      */
-    #[Route(path: 'jx/public/changelog/{id}', name: 'public_changelog', requirements: ['id' => '\d+'])]
-    public function changelog(HTMLService $html, int $id = -1): Response
+    #[Route(path: 'jx/public/changelog/{id}', name: 'public_changelog', requirements: ['id' => '\d+'], defaults: ['id' => -1])]
+    public function changelog(HTMLService $html, ?Changelog $changelog = null): Response
     {
         $lang = $this->getUserLanguage();
-
-        $changelog = $this->entity_manager->getRepository(Changelog::class)->find( $id );
-        if (!$changelog || $changelog->getLang() !== $lang) {
-            $changelog = $this->entity_manager->getRepository(Changelog::class)->findLatestByLang($lang);
-            return $changelog
-                ? $this->redirectToRoute('public_changelog', ['id' => $changelog->getId()])
-                : $this->redirectToRoute( 'public_welcome' );
+        if (!$changelog) {
+            $latest = $this->entity_manager->getRepository(Changelog::class)->findLatestByLang($lang);
+            if ($latest) return $this->redirectToRoute('public_changelog', ['id' => $latest->getId()]);
         }
 
-        $latest = $this->entity_manager->getRepository(Changelog::class)->findLatestByLang($lang);
-        if ($latest) $latest->setText( $html->prepareEmotes( $latest->getText() ) );
+        if (!$changelog) $this->redirectToRoute( 'public_welcome' );
+
+        if ($changelog->getLang() !== $lang) {
+            $lang_changelog = $this->entity_manager->getRepository(Changelog::class)->findOneBy(['lang' => $lang, 'version' => $changelog->getVersion()]);
+            if ($lang_changelog) return $this->redirectToRoute('public_changelog', ['id' => $lang_changelog->getId()]);
+        }
+
+        $changelog->setText( $html->prepareEmotes( $changelog->getText() ) );
 
         return $this->render('ajax/public/changelogs.html.twig', $this->addDefaultTwigArgs(null, [
-            'latest' => $latest,
             'current' => $changelog,
             'all' => $this->entity_manager->getRepository(Changelog::class)->findByLang( $lang )
         ]));
