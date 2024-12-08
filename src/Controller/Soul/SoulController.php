@@ -486,11 +486,12 @@ class SoulController extends CustomAbstractController
     /**
      * @param Request $request
      * @param UserHandler $userHandler
-     * @param int $id
+     * @param HTMLService $html
+     * @param Changelog|null $changelog
      * @return Response
      */
-    #[Route(path: 'jx/soul/future/{id}', name: 'soul_future')]
-    public function soul_future(Request $request, UserHandler $userHandler, HTMLService $html, int $id = 0): Response
+    #[Route(path: 'jx/soul/future/{id}', name: 'soul_future', defaults: ['id' => -1])]
+    public function soul_future(Request $request, UserHandler $userHandler, HTMLService $html, ?Changelog $changelog = null): Response
     {
         $user = $this->getUser();
 
@@ -498,23 +499,29 @@ class SoulController extends CustomAbstractController
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
         $lang = $user->getLanguage() ?? $request->getLocale() ?? 'de';
-        $news = $this->entity_manager->getRepository(Changelog::class)->findByLang($lang);
 
-        $selected = $id > 0 ? $this->entity_manager->getRepository(Changelog::class)->find($id) : null;
-        if ($selected === null)
-            $selected = $news[0] ?? null;
+        if (!$changelog) {
+            $latest = $this->entity_manager->getRepository(Changelog::class)->findLatestByLang($lang);
+            if ($latest) return $this->redirectToRoute('soul_future', ['id' => $latest->getId()]);
+        }
 
+        if (!$changelog) $this->redirectToRoute( 'soul_me' );
 
+        if ($changelog->getLang() !== $lang) {
+            $lang_changelog = $this->entity_manager->getRepository(Changelog::class)->findOneBy(['lang' => $lang, 'version' => $changelog->getVersion()]);
+            if ($lang_changelog) return $this->redirectToRoute('soul_future', ['id' => $lang_changelog->getId()]);
+        }
 
         try {
             $userHandler->setSeenLatestChangelog( $user, $lang );
             $this->entity_manager->flush();
         } catch (Exception $e) {}
 
-        $selected?->setText( $html->prepareEmotes( $selected?->getText() ) );
+        $changelog?->setText( $html->prepareEmotes( $changelog?->getText() ) );
 
         return $this->render( 'ajax/soul/future.html.twig', $this->addDefaultTwigArgs("soul_future", [
-            'news' => $news, 'selected' => $selected,
+            'news' => $this->entity_manager->getRepository(Changelog::class)->findByLang($lang),
+            'selected' => $changelog,
             'has_polls' => !empty($this->entity_manager->getRepository(GlobalPoll::class)->findByState(true, true, false))
         ]) );
     }
