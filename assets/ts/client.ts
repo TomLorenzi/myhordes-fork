@@ -23,6 +23,7 @@ class Config {
     public navigationCache:       conf<string>;
     public hiddenConditionalHelp: conf<Array<string>>;
     public completedTutorials:    conf<Array<number>>;
+    public armaHideSkulls:        conf<number>;
 
     constructor(c:Client) {
         this.client = c;
@@ -44,6 +45,7 @@ class Config {
         this.navigationCache       = this.makeConf<string>('navigationCache', null, true);
         this.hiddenConditionalHelp = this.makeConf<Array<string>>('hiddenConditionalHelp', [], false);
         this.completedTutorials    = this.makeConf<Array<number>>('completedTutorials', [], false);
+        this.armaHideSkulls        = this.makeConf<number>('armaHideSkulls', 0, true);
     }
 
     public get<T>(s:string): conf<T> {

@@ -150,10 +150,6 @@
                 dropdown.style.height = Math.ceil(target_height) + 'px';
             }
         });
-        {% if custom_css is defined and custom_css != '' %}
-            if (!document.body.classList.contains('page-attract'))
-                document.body.classList.add('{{ custom_css }}');
-        {% endif %}
         {% if theme is defined %}
             document.querySelectorAll('[data-theme-container="1"]').forEach(element => {
                 for (const [key, value] of Object.entries(JSON.parse('{{ theme|json_encode|e('js') }}')))
