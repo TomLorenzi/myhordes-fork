@@ -216,12 +216,15 @@ class MessageAnnouncementController extends MessageController
 
         $author    = $this->getUser();
 
-        if(empty($title) || empty($content) || empty($version)) {
+        if(empty($title) || empty($content) || empty($version))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        }
 
-        $change = new Changelog();
-        $change->setTitle($title)->setText($content)->setVersion($version)->setLang($lang)->setAuthor($author)->setDate(new DateTime());
+        if ($em->getRepository(Changelog::class)->findOneBy(['lang' => $lang, 'version' => $version]))
+            return AjaxResponse::errorMessage( $this->translator->trans( 'Es existiert bereits ein Changelog für diese Version in der angegebenen Sprache.', [], 'admin' ) );
+
+        $change = (new Changelog())
+            ->setTitle($title)->setText($content)->setVersion($version)->setLang($lang)->setAuthor($author)
+            ->setDate(new DateTime());
 
         if (!$this->preparePost($author,null,$change))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );

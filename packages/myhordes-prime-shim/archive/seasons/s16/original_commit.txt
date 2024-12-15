@@ -1,7 +1,7 @@
-commit 72b1effad21c353ffb705e84347baf21c4334e1f
-Author:     Benjamin Behrendt <wvsgnovize@gmail.com>
-AuthorDate: Mon Oct 30 18:32:12 2023 +0100
-Commit:     Benjamin Behrendt <wvsgnovize@gmail.com>
-CommitDate: Mon Oct 30 18:32:12 2023 +0100
+commit fa83597fe65a1cf94a2793e38ed5406c70b7c9b3
+Author:     Dylan57 <dylandep57@gmail.com>
+AuthorDate: Wed Dec 20 19:10:53 2023 +0100
+Commit:     Dylan57 <dylandep57@gmail.com>
+CommitDate: Wed Dec 20 19:10:53 2023 +0100
 
-    Add theme images
+    Garland translations

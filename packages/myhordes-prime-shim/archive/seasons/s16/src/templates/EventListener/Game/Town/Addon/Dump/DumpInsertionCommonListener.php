@@ -6,6 +6,8 @@ namespace MyHordes\Prime\EventListener\Game\Town\Addon\Dump;
 
 use App\Entity\ActionCounter;
 use App\Entity\ItemPrototype;
+use App\Enum\ActionHandler\PointType;
+use App\Enum\ItemPoisonType;
 use App\Event\Game\Town\Addon\Dump\DumpInsertionCheckData;
 use App\Event\Game\Town\Addon\Dump\DumpInsertionCheckEvent;
 use App\Event\Game\Town\Addon\Dump\DumpInsertionExecuteEvent;
@@ -61,6 +63,7 @@ final class DumpInsertionCommonListener implements ServiceSubscriberInterface
 
 		$dump = $townHandler->getBuilding($event->citizen->getTown(), "small_trash_#00");
 		$cache = [];
+
 		foreach ($event->citizen->getTown()->getBank()->getItems() as $item) {
 			if ($item->getBroken()) continue;
 
@@ -78,6 +81,16 @@ final class DumpInsertionCommonListener implements ServiceSubscriberInterface
 				];
 			else $cache[$item->getPrototype()->getId()][1] += $item->getCount();
 		}
+
+        foreach ($dump->getInventory()->getItems() as $item)
+            if (!isset($cache[$item->getPrototype()->getId()])) {
+                $cache[$item->getPrototype()->getId()] = [
+                    $item->getPrototype(),
+                    0,
+                    TownHelper::get_dump_def_for( $item->getPrototype(), $event ),
+                    $item->getCount()
+                ];
+            }
 
 		usort( $cache, function(array $a, array $b) {
 			return ($a[2] === $b[2]) ? ( $a[0]->getId() < $b[0]->getId() ? -1 : 1 ) : ($a[2] < $b[2] ? 1 : -1);

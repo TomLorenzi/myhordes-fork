@@ -130,6 +130,9 @@ class ItemDataService implements FixtureProcessorInterface {
 		$container->add()->label('Erste Hilfe Tasche')->icon('medic')->category('Drug')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->modify('medic_#00')->description('Was willst du mit diesen ganzen Verbänden? Was abgerissen wurde ist weg. Die kleine Pillen hingegen sind immer von Nutzen.')->commit();
 
+        // Installed Crow Garland
+        $container->clone('xmas_gift_#00')->label('Aufgehängte Krähengirlande')->deco(5)->commit();
+
         $data = $container->toArray();
     }
 }

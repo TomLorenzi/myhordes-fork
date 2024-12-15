@@ -436,7 +436,7 @@ class TownHandler
 
         $summary->soul_defense = $town->getSoulDefense();
 
-        $summary->nightwatch_defense = max(0, $this->calculate_watch_def($town) );
+        $summary->nightwatch_defense = $this->calculate_watch_def($town);
         
         return $summary->sum();
     }

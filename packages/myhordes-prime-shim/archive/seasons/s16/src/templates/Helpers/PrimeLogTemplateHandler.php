@@ -27,9 +27,9 @@ class PrimeLogTemplateHandler extends LogTemplateHandler {
 			->setCitizen( $citizen );
 	}
 
-	public function citizenDisposalBurn(Citizen $actor, Citizen $disposed): TownLogEntry {
+	public function citizenDisposalBurn(Citizen $actor, Citizen $disposed, bool $hasGarden = false): TownLogEntry {
 		$variables = array('citizen' => $actor->getId(), 'disposed' => $disposed->getId());
-		$template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'citizenDisposalBurn']);
+		$template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $hasGarden ? 'citizenDisposalBurnGarden' : 'citizenDisposalBurn']);
 
 		return (new TownLogEntry())
 			->setLogEntryTemplate($template)

@@ -385,6 +385,9 @@ class InventoryAwareController extends CustomAbstractController
     }
 
     public function generic_devour_api(Citizen $aggressor, Citizen $victim): AjaxResponse {
+        if (!$aggressor->hasRole('ghoul'))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
         if ($aggressor->getId() === $victim->getId())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 

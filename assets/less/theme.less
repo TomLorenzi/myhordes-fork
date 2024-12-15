@@ -1348,7 +1348,7 @@ div.game-menu-area {
             height: 32px !important;
             text-transform: uppercase;
             font-weight: bold;
-            z-index: 1;
+            z-index: 2;
             &.warning {
               height: 50px !important;
             }
@@ -1428,21 +1428,21 @@ div.game-menu-area {
     position: absolute;
     left: 0;
     height: 6px;
-    top: 20px;
+    top: 0;
     background: #696486;
-    margin: 0 3px 0 5px;
+    margin: 0;
     &.warning { background: #bb6765; }
     border-top: 1px inset black;
   }
   .ghoul-hunger-indicator {
-    position: absolute; background: red; height: 6px; width: 2px; top: 20px; margin: 0 2px;
+    position: absolute; background: red; height: 6px; width: 2px; top: 0; margin: 0;
   }
 
   &.in-tooltip {
     display: block;
     height: 12px;
     position: relative;
-    .ghoul-hunger-background, .ghoul-hunger-bar, .ghoul-hunger-indicator { top: 3px; }
+    .ghoul-hunger-background { top: 3px; }
   }
 }
 .ghoul-message { text-transform: uppercase; font-size: 0.7rem; display: block; color: #ff5f5f; margin-top: 5px; }

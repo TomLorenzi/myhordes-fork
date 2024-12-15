@@ -44,7 +44,7 @@ final class PrimeCitizenWatchListener implements ServiceSubscriberInterface {
 		$chances = 0.08;
 		if ($citizen->getProfession()->getName() === "guardian")
 			$chances = 0.03;
-		else if ($citizen->getProfession()->getName() === "tamer" && $town_handler->getBuilding($citizen->getTown(), "item_tamed_pet_#00"))
+		else if ($citizen->getProfession()->getName() === "tamer" && $town_handler->getBuilding($citizen->getTown(), "small_pet_#00"))
 			$chances = 0.05;
 		$minChances = $chances;
 
@@ -112,7 +112,7 @@ final class PrimeCitizenWatchListener implements ServiceSubscriberInterface {
         }
 
 		$hint = [];
-		if (0 <= $event->deathChance && $event->deathChance <= 0.15) {
+		if ($event->deathChance <= 0.15) {
 			$hint[] = $trans->trans("Auf den Zinnen fühlst du dich unbesiegbar. Nichts wird dich heute Nacht zum Wanken bringen.", [], 'game');
 		} else if (0.15 < $event->deathChance && $event->deathChance <= 0.30) {
 			$hint[] = $trans->trans("Auf den Zinnen fühlst du dich gut. Du willst morgen noch am Leben sein.", [], 'game');
@@ -128,7 +128,7 @@ final class PrimeCitizenWatchListener implements ServiceSubscriberInterface {
 			$hint[] = $trans->trans("Auf den Zinnen wird dein Herz von Angst erdrückt. Du spürst, dass dein Leben am seidenen Faden hängt...", [], 'game');
 		}
 
-		if (0 < $event->woundChance && $event->woundChance <= 0.25) {
+		if ($event->woundChance <= 0.25) {
 			$hint[] = $trans->trans("Du fühlst dich großartig.", [], 'game');
 		} else if (0.25 < $event->woundChance && $event->woundChance < 0.50) {
 			$hint[] = $trans->trans("Du bist eingeschüchtert von der Zahl der Zombies, die du siehst. Du hoffst, dass du keinen Arm oder ein Bein verlierst.", [], 'game');
@@ -138,7 +138,7 @@ final class PrimeCitizenWatchListener implements ServiceSubscriberInterface {
 			$hint[] = $trans->trans("Du bist eingeschüchtert von der Zahl der Zombies, die du siehst. Du hoffst, dass es noch Verbandszeug in der Bank gibt...", [], 'game');
 		}
 
-		if (0 < $event->terrorChance && $event->terrorChance <= 0.25) {
+		if ($event->terrorChance <= 0.25) {
 			$hint[] = $trans->trans("Selbst wenn du dir vorstellst, was dich heute Abend erwartet, bleibst du zumindest ein wenig gelassen.", [], 'game');
 		} else if (0.25 < $event->terrorChance && $event->terrorChance < 0.50) {
 			$hint[] = $trans->trans("Du spürst die Aufregung. Es wird eine gruselige Nacht werden.", [], 'game');
@@ -153,7 +153,7 @@ final class PrimeCitizenWatchListener implements ServiceSubscriberInterface {
 		$citizen = $event->data->citizen;
 		/** @var TownHandler $townHandler */
 		$townHandler = $this->container->get(TownHandler::class);
-		if ($townHandler->getBuilding($citizen->getTown(), "item_tamed_pet_#00")) {
+		if ($townHandler->getBuilding($citizen->getTown(), "small_pet_#00")) {
 			$impact = ($citizen->getProfession()->getName() === "tamer" ? 15 : 5);
 			$event->nightwatchDefense += $impact;
 		}
@@ -169,11 +169,11 @@ final class PrimeCitizenWatchListener implements ServiceSubscriberInterface {
 		$def = $event->data->nightwatchInfo['def'] ?? 0;
 		$event->data->nightwatchInfo['bonusDef'] = $citizen->getProfession()->getNightwatchDefenseBonus();
 		$event->data->nightwatchInfo['bonusSurvival'] = $citizen->getProfession()->getNightwatchSurvivalBonus();
-		if ($building = $townHandler->getBuilding($citizen->getTown(), "item_tamed_pet_#00")) {
+		if ($building = $townHandler->getBuilding($citizen->getTown(), "small_pet_#00")) {
 			$impact = ($citizen->getProfession()->getName() === "tamer" ? 15 : 5);
 			$def += $impact;
 			$event->data->nightwatchInfo['other']['building_tamed_pet_#00'] = [
-				'icon' => "building/item_tamed_pet.gif",
+				'icon' => "building/small_pet.gif",
 				'label' => $trans->trans($building->getPrototype()->getLabel(), [], 'buildings'),
 				'defImpact' => $impact,
 				'deathImpact' => ($citizen->getProfession()->getName() === "tamer" ? -3 : 0)

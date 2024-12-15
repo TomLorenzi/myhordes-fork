@@ -55,3 +55,9 @@ services:
 
     MyHordes\Prime\Service\PictoDataService:
       tags: [ { name: 'myhordes.fixtures.pictos', priority: 1 } ]
+
+    MyHordes\Prime\Service\ItemGroupDataService:
+      tags: [ { name: 'myhordes.fixtures.items.groups', priority: 1 } ]
+
+    MyHordes\Prime\Configuration\Events\ChristmasEventOverride:
+      tags: [ { name: 'myhordes.configuration.events', priority: 1 } ]

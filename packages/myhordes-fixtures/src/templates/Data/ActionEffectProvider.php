@@ -415,6 +415,7 @@ class ActionEffectProvider
         $effects_container->add()->identifier('satisfy_ghoul_50')->add( (new StatusEffect())->ghoulHunger(-50))->commit();
         $effects_container->add()->identifier('satisfy_ghoul_30')->add( (new StatusEffect())->ghoulHunger(-30))->commit();
         $effects_container->add()->identifier('satisfy_ghoul_10')->add( (new StatusEffect())->ghoulHunger(-10))->commit();
+        $effects_container->add()->identifier('satisfy_ghoul_15')->add( (new StatusEffect())->ghoulHunger(-15))->commit();
 
         $effects_container->add()->identifier('april')->add( (new StatusEffect())->addsStatus('tg_april_ooze'))->commit();
         $effects_container->add()->identifier('hero_surv_0')->add( (new StatusEffect())->addsStatus('tg_sbook'))->commit();

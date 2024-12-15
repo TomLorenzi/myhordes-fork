@@ -60,9 +60,10 @@ class PrimeTownController extends InventoryAwareController {
 		if ($garden)
 			// We add a corpse to the Garden to mark it as fertilized with the ashes
 			$this->inventory_handler->forceMoveItem($garden->getInventory(), $itemFactory->createItem('cadaver_#00'));
-		$c->setDisposed(PrimeCitizenDisposal::Burned);
+
+        $c->setDisposed(PrimeCitizenDisposal::Burned);
 		$c->addDisposedBy($ac);
-		$this->entity_manager->persist( $primeLog->citizenDisposalBurn( $ac, $c ) );
+		$this->entity_manager->persist( $primeLog->citizenDisposalBurn( $ac, $c, !!$garden ) );
 		$c->getHome()->setHoldsBody( false );
 
 		// Give picto according to action

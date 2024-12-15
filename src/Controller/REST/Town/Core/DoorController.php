@@ -137,6 +137,7 @@ class DoorController extends CustomAbstractCoreController
     public function exit(
         EntityManagerInterface $em,
         LogTemplateHandler $log,
+        TownHandler $th,
         string $special = 'normal',
     ): JsonResponse {
         $citizen = $this->getActiveCitizen();
@@ -150,7 +151,7 @@ class DoorController extends CustomAbstractCoreController
                     return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
                 break;
             case 'hero':
-                if (!$citizen->getProfession()->getHeroic())
+                if (!$citizen->getProfession()->getHeroic() || !$th->getBuilding($citizen->getTown(), 'small_ventilation_#00',  true))
                     return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
                 break;
             default: return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );

@@ -3,8 +3,13 @@
 
 namespace MyHordes\Prime\EventListener\Game\Town\Basic\Buildings;
 
+use App\Entity\CauseOfDeath;
+use App\Entity\Citizen;
 use App\Entity\ItemPrototype;
+use App\Entity\ZombieEstimation;
 use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
+use App\Event\Game\Town\Basic\Buildings\BuildingDestroyedDuringAttackPostEvent;
+use App\Event\Game\Town\Basic\Buildings\BuildingDestructionEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPostAttackEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPreAttackEvent;
@@ -13,6 +18,7 @@ use App\Event\Game\Town\Basic\Buildings\BuildingUpgradePostAttackEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingUpgradePreAttackEvent;
 use App\EventListener\ContainerTypeTrait;
 use App\EventListener\Game\Town\Basic\Buildings\BuildingEffectListener;
+use App\Service\DeathHandler;
 use App\Structures\ItemRequest;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
@@ -30,6 +36,7 @@ use Doctrine\ORM\EntityManagerInterface;
 #[AsEventListener(event: BuildingEffectPostAttackEvent::class, method: 'onProcessPostAttackEffect', priority: -5)]
 #[AsEventListener(event: BuildingUpgradePreAttackEvent::class, method: 'onProcessPreAttackUpgradeEffect',  priority: -5)]
 #[AsEventListener(event: BuildingUpgradePostAttackEvent::class, method: 'onProcessPostAttackUpgradeEffect', priority: 1)]
+#[AsEventListener(event: BuildingDestroyedDuringAttackPostEvent::class, method: 'onProcessPostAttackDestructionEffect', priority: 1)]
 final class PrimeBuildingEffectListener implements ServiceSubscriberInterface
 {
     use ContainerTypeTrait;
@@ -183,12 +190,13 @@ final class PrimeBuildingEffectListener implements ServiceSubscriberInterface
         $event->defenseIncrement = match ($event->building->getPrototype()->getName()) {
             'item_boomfruit_#00'  => [0,30,75,150,240,340][ $event->building->getLevel() ] ?? 0,
             'small_door_closed_#00'  => [0,15,30,45][ $event->building->getLevel() ] ?? 0,
-            default => 0
+            'small_gather_#00'  => [0,20,25,30,35,40][ $event->building->getLevel() ] ?? 0,
+            default => $event->defenseIncrement
         };
 
         $event->defenseMultiplier = match ($event->building->getPrototype()->getName()) {
             'item_tube_#00' => [0, 0.8, 1.6, 2.4, 3.6, 4.8][ $event->building->getLevel() ] ?? 1.0,
-            default => 1.0
+            default => $event->defenseMultiplier
         };
     }
 
@@ -196,6 +204,17 @@ final class PrimeBuildingEffectListener implements ServiceSubscriberInterface
         switch ($event->building->getPrototype()->getName()) {
             default:
                 break;
+        }
+    }
+
+    public function onProcessPostAttackDestructionEffect( BuildingDestroyedDuringAttackPostEvent $event ): void {
+        switch ($event->building->getPrototype()->getName()) {
+
+            // Fireworks destruction adds +300 temp defense for the next day
+            case 'small_fireworks_#00':
+                $event->town->setTempDefenseBonus( $event->town->getTempDefenseBonus() + 300 );
+
+            default: break;
         }
     }
 }

@@ -282,7 +282,7 @@ class TownController extends InventoryAwareController
      * @param AdminHandler $admh
      * @return Response
      */
-    #[Route(path: 'jx/town/visit/{id}/headshot', name: 'town_visit_headshot', requirements: ['id' => '\d+'])]
+    #[Route(path: 'api/town/visit/{id}/headshot', name: 'town_visit_headshot', requirements: ['id' => '\d+'])]
     public function visitHeadshot(int $id, AdminHandler $admh): Response
     {
         $sourceUserId = $this->getUser()->getId();
@@ -1288,7 +1288,7 @@ class TownController extends InventoryAwareController
      * @param int $id
      * @return Response
      */
-    #[Route(path: 'jx/town/visit/{id}/heal', name: 'visit_heal_citizen', requirements: ['id' => '\d+'])]
+    #[Route(path: 'api/town/visit/{id}/heal', name: 'visit_heal_citizen', requirements: ['id' => '\d+'])]
     public function visit_heal_citizen(int $id): Response
     {
         if ($id === $this->getActiveCitizen()->getId())
@@ -1406,7 +1406,7 @@ class TownController extends InventoryAwareController
      * @param int $id
      * @return Response
      */
-    #[Route(path: 'jx/town/visit/{id}/attack', name: 'visit_attack_citizen', requirements: ['id' => '\d+'])]
+    #[Route(path: 'api/town/visit/{id}/attack', name: 'visit_attack_citizen', requirements: ['id' => '\d+'])]
     public function visit_attack_citizen(int $id): Response
     {
         if ($id === $this->getActiveCitizen()->getId())
@@ -1432,11 +1432,14 @@ class TownController extends InventoryAwareController
      * @param int $id
      * @return Response
      */
-    #[Route(path: 'jx/town/visit/{id}/devour', name: 'visit_devour_citizen', requirements: ['id' => '\d+'])]
+    #[Route(path: 'api/town/visit/{id}/devour', name: 'visit_devour_citizen', requirements: ['id' => '\d+'])]
     public function visit_devour_citizen(int $id): Response
     {
         if ($id === $this->getActiveCitizen()->getId())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
+
+        if ($this->getActiveCitizen()->getBanished())
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailableBanished );
 
         $citizen = $this->getActiveCitizen();
         /** @var Citizen $c */
@@ -1451,7 +1454,7 @@ class TownController extends InventoryAwareController
      * @param int $id
      * @return Response
      */
-    #[Route(path: 'jx/town/visit/{id}/recycle', name: 'visit_recycle_home', requirements: ['id' => '\d+'])]
+    #[Route(path: 'api/town/visit/{id}/recycle', name: 'visit_recycle_home', requirements: ['id' => '\d+'])]
     public function visit_recycle_home(int $id, ItemFactory $if, Packages $asset): Response
     {
         if ($id === $this->getActiveCitizen()->getId())

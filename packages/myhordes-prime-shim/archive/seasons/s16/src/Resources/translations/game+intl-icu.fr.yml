@@ -69,7 +69,7 @@ Antivax_f: Antivax_f
 'Du kannst nicht so viele Gegenstände auf die Müllhalde werfen.': "Vous ne pouvez pas jeter autant d'objets dans la décharge."
 'Du hast die Techniker-Werkbank <strong>heute bereits verwendet</strong>. Komm morgen wieder.': "Vous avez <strong>déjà utilisé</strong> l'Établi des Techniciens aujourd'hui. Revenez demain."
 '<strong>Achtung:</strong> Du kannst die Techniker-Werkbank nur <strong>ein mal pro Tag</strong> nutzen, denke also nach bevor du handelst.': "<strong>Attention :</strong> Vous ne pouvez utiliser l'Établi des Techniciens qu'<strong>une fois par jour</strong>, alors réfléchissez avant d'agir."
-'Zur "Freude" deiner Mitbürger ist es dir gelungen, den Brunnen um {well} Rationen Wasser aufzufüllen!': "Pour la « joie » de vos concitoyens, vous avez réussi à remplir le puits avec des rations d'eau !"
+'Zur "Freude" deiner Mitbürger ist es dir gelungen, den Brunnen um {well} Rationen Wasser aufzufüllen!': "Pour la « joie » de vos concitoyens, vous avez réussi à remplir le puits avec {well} ration(s) d'eau !"
 'Leider ist es dir nicht gelungen, dem Brunnen eine substantielle Menge an Wasser hinzuzufügen ...': "Malheureusement, vous n'avez pas réussi à ajouter une quantité d'eau substantielle au puits..."
 'Leider ist es dir trotz größter Anstrengungen nicht gelungen, etwas neues in der Umgebung zu entdecken.': "Malheureusement, malgré tous vos efforts, vous n'avez rien réussi à découvrir de nouveau dans la région."
 'Nichts entgeht deinem geschulten Blick! Du hast neue Informationen über {casino} Zonen gesammelt!': "Rien n'échappe à votre œil exercé ! Vous avez rassemblé de nouvelles informations sur {casino} zones !"
@@ -87,3 +87,31 @@ Wiederherstellen: Récupérer
 'Diese Aktion verbraucht 1x Fackel und 2 Aktionspunkte. Bestätigen?': "Cette action requiert 1x Torche et 2 points d'action. Confirmer ?"
 'Du verbrennst die Leiche von {disposed} mit der Fackel und verstreust dann die Asche in das Gemüsebeet. Das sollte unsere Ernte verbessern...': 'Vous brûlez le corps de {disposed} avec la torche puis dispersez les cendres dans le potager. Cela devrait nous donner plus de nourriture...'
 'Du kannst nicht so viele Gegenstände auf die Müllhalde wiederherstellen.': "Vous ne pouvez pas récuperer autant d'objets dans la décharge."
+'{citizen} hat {items} in der Müllhalde wiederhergestellt (-{def} Verteidigung)': '{citizen} a récuperé {items} dans la décharge (-{def} défense)'
+'{citizen} hat die Asche von {disposed} in das Gemüsebeet gestreut. Wenigstens war er am Ende noch nützlich.': '{citizen} a dispersé les cendres de {disposed} dans le potager. Au moins, il était utile.'
+'Blaugoldige Thermalbäder': "Thermes de l'Or bleu"
+Leichenverbrenner: 'Crémateur de corps'
+'Hey, du hättest an deine Seife denken sollen!': 'Hé, tu aurais dû penser à ton savon !'
+'Durchgeführte feurige Begräbnisrituale an den Leichen von Bürgern': 'Nombre de rituels funéraires effectués sur les cadavres des citoyens'
+'Du beginnst jede neue Stadt mit einer Erste Hilfe Tasche in deinem Rucksack.': 'Vous démarrez toutes vos villes avec une Boîte à pharmacie dans votre coffre.'
+"Diese Römer hatten's drauf!": 'Ils sont fous ces romains!'
+"Diese Römer hatten's drauf!_f": 'Ils sont fous ces romains!'
+'Das geht mit Wasser?': 'Aqua ça sert ?'
+'Das geht mit Wasser?_f': 'Aqua ça sert ?'
+'Wie ein Pony im Wasser': "Comme un poney dans l'eau"
+'Wie ein Pony im Wasser_f': "Comme un poney dans l'eau"
+'Wer kommt mit in den Hammam!': "Qui m'Hammam me suive!"
+'Wer kommt mit in den Hammam!_f': "Qui m'Hammam me suive!"
+'Thermaler Bademeister': 'Thermes haut maître'
+'Thermaler Bademeister_f': 'Thermes haute maîtresse'
+'~ Tee für Zwei, Zwei im Tee ~': '~ Tea for two, two for tea ~'
+'~ Tee für Zwei, Zwei im Tee ~_f': '~ Tea for two, two for tea ~'
+'Im Marienbad': 'Au bain Marie'
+'Im Marienbad_f': 'Au bain Marie'
+'Wir hätten auch Duschen bauen können...': 'On aurait pu construire les douches...'
+'Wir hätten auch Duschen bauen können..._f': 'On aurait pu construire les douches...'
+'Du hast {count} x {item} auf der öffentlichen Müllhalde abgerufen. <strong>Die Stadt hat {def} Verteidigungspunkt(e) verloren.</strong>': 'Vous avez récupéré {count} {item} de la décharge publique. <strong>La ville a perdu {def} point(s) de défense.</strong>'
+'{citizen} hat die Asche von {disposed} in alle Winde zerstreut.': '{citizen} a dispersé les cendres de {disposed} au vent.'
+'Festliche Dekoration': 'Décoration festive'
+'Anzahl der Feierlichkeiten, an denen Sie teilgenommen haben.': 'Nombre de festivités auxquelles vous avez assisté.'
+'Du musst die Girlande zuerst <strong>abnehmen</strong>, bevor du sie <strong>mitnehmen</strong> kannst.': 'Du musst die Girlande zuerst <strong>abnehmen</strong>, bevor du sie <strong>mitnehmen</strong> kannst.'

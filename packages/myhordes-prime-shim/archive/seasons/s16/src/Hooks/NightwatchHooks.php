@@ -7,7 +7,7 @@ use App\Hooks\HooksCore;
 use App\Service\TownHandler;
 
 class NightwatchHooks extends HooksCore {
-	public function hookNightwatchHeader(...$args) {
+	public function hookNightwatchHeader(array $args) {
 		/** @var User $user */
 		$user = $this->tokenStorage->getToken()->getUser();
 		$townHandler = $this->container->get(TownHandler::class);

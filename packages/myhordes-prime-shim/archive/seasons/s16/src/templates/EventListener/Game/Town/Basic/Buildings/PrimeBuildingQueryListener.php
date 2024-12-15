@@ -61,7 +61,7 @@ final class PrimeBuildingQueryListener implements ServiceSubscriberInterface
             'small_animfence_#00'       => [ 'nw_trebuchet', 0.3 ],
             'small_sewers_#00'          => [ 'nw_shooting', 0.3 ],
             'small_ikea_#00'            => [ 'nw_ikea', 0.3 ],
-            'small_blacksmith_#00'      => [ 'nw_armory', 0.2 ],
+            'small_grinder2_#00'        => [ 'nw_armory', 0.2 ],
         ]);
     }
 
@@ -110,7 +110,7 @@ final class PrimeBuildingQueryListener implements ServiceSubscriberInterface
             BuildingValueQuery::NightlyZoneDiscoveryRadius => match ($this->getService(TownHandler::class)->getBuilding($event->town, 'item_scope_#00', true )?->getLevel() ?? 0) {
                 1 => 3,
                 2 => 6,
-                3, 4 => 10,
+                3, 4, 5 => 10,
                 default => 0
             },
             BuildingValueQuery::BeyondTeleportRadius => match ($this->getService(TownHandler::class)->getBuilding($event->town, 'item_scope_#00', true )?->getLevel() ?? 0) {

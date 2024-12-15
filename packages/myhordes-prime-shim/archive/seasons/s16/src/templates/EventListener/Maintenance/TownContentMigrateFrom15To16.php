@@ -32,6 +32,31 @@ class TownContentMigrateFrom15To16 extends TownContentMigrateBuildingTreeListene
         return self::primePackageVersionIdentifierSatisfies( $event->town->getPrime(), '^1.0.0', match_shim: true );
     }
 
+    private function getRescaledBuildings(): array {
+        return [
+            'item_bgrenade_#01' => 4.0/3.0,
+            'item_electro_#00' => 25.0/15.0,
+            'item_shield_#00' => 60.0/55.0,
+            'item_tagger_#00' => 15.0/12.0,
+            'item_wood_beam_#00' => 25.0/15.0,
+            'small_cemetery_#00' => 42.0/36.0,
+            'small_dig_#00' => 6.0/5.0,
+            'small_door_closed_#01' => 45.0/24.0,
+            'small_fence_#00' => 6.0/5.0,
+            'small_gazspray_#00' => 6.0/4.0,
+            'small_lastchance_#00' => 20.0/15.0,
+            'small_round_path_#00' => 25.0/20.0,
+            'small_scarecrow_#00' => 40.0/35.0,
+            'small_strategy_#01' => 45.0/30.0,
+            'small_tourello_#00' => 30.0/25.0,
+            'small_trash_#00' => 8.0/7.0,
+            'small_trash_#06' => 15.0/12.0,
+            'small_ventilation_#00' => 45.0/24.0,
+            'small_watchmen_#00' => 35.0/24.0,
+            'small_waterhole_#00' => 6.0/5.0,
+        ];
+    }
+
     protected function execute( TownContentMigrationEvent $event ): void {
 
         $em = $this->getService(EntityManagerInterface::class);
@@ -88,9 +113,20 @@ class TownContentMigrateFrom15To16 extends TownContentMigrateBuildingTreeListene
             }
         }
 
+        // Mitigate building damages
+        foreach ($this->getRescaledBuildings() as $key => $modifier) {
+            $building = $th->getBuilding( $event->town, $key, true );
+            if (!$building) continue;
+            $target_hp = min(ceil($building->getHp() * $modifier), $building->getPrototype()->getHp() ?: $building->getPrototype()->getAp());
+            if ($target_hp > $building->getHp()) {
+                $event->debug("Rescaling <fg=yellow>{$building->getPrototype()->getLabel()}</> HP from <fg=green>{$building->getHp()}</> to <fg=green>{$target_hp}</>.");
+                $em->persist( $building->setHp( $target_hp ) );
+            }
+        }
+
+        if (!$event->town->getDevastated())
+            $event->town->setTempDefenseBonus( $event->town->getTempDefenseBonus() + 6666 );
+
         $event->town->setPrime( self::buildPrimePackageVersionIdentifier(version: '2.0.0.0') );
-
     }
-
-
 }

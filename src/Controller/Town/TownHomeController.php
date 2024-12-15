@@ -547,6 +547,9 @@ class TownHomeController extends TownController
         if (!$citizen->getProfession()->getHeroic())
             return AjaxResponse::error(ErrorHelper::ErrorMustBeHero);
 
+        // Can't do it if the home does not allow extensions
+        if (!$citizen->getHome()->getPrototype()?->getAllowSubUpgrades()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
         // Can't do it when the town is devastated
         if ($citizen->getTown()->getDevastated()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 

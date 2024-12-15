@@ -1846,7 +1846,7 @@ Reiseleiter-Ratgeber: crwdns65454:0crwdne65454:0
 'Wenn du flüchtest, werden dich die Zombies verletzen, aber du wirst trotzdem entkommen...': 'crwdns65484:0crwdne65484:0'
 'Du kannst versuchen einen Zombie im Nahkampf und ohne Waffen anzugreifen.': 'crwdns65486:0crwdne65486:0'
 'Diese Aktion kostet dich 1 AP und die Erfolgsaussichten sind ziemlich gering.': 'crwdns65488:0crwdne65488:0'
-'Dieser Bürger möchte in die Stadt gebracht werden.': 'crwdns65490:0crwdne65490:0'
+'Dieser Bürger möchte in die Stadt gebracht werden.': "crwdns210444:0ref__icu={ref__icu}crwdnd210444:0ref__gender={ref__gender}crwdne210444:0"
 'Der Leichnam von {citizen} wurde nicht zerstört.': 'crwdns65492:0{citizen}crwdne65492:0'
 'Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.': 'crwdns65494:0crwdne65494:0'
 '<em>Du kannst dein Haus ausbauen und so für eine bessere Verteidigung sorgen. <strong>Wichtige Anmerkung:</strong> Vielleicht wäre es sinnvoller, die dafür benötigten Ressourcen (falls erforderlich) der Stadt zu spenden?</em>': 'crwdns65496:0crwdne65496:0'

@@ -111,3 +111,7 @@ Leichenverbrenner: Leichenverbrenner
 '{citizen} hat {items} in der Müllhalde wiederhergestellt (-{def} Verteidigung)': '{citizen} hat {items} in der Müllhalde wiederhergestellt (-{def} Verteidigung)'
 '{citizen} hat die Asche von {disposed} in das Gemüsebeet gestreut. Wenigstens war er am Ende noch nützlich.': '{citizen} hat die Asche von {disposed} in das Gemüsebeet gestreut. Wenigstens war er am Ende noch nützlich.'
 'Du beginnst jede neue Stadt mit einer Erste Hilfe Tasche in deinem Rucksack.': 'Du beginnst jede neue Stadt mit einer Erste Hilfe Tasche in deinem Rucksack.'
+'{citizen} hat die Asche von {disposed} in alle Winde zerstreut.': '{citizen} hat die Asche von {disposed} in alle Winde zerstreut.'
+'Festliche Dekoration': 'Festliche Dekoration'
+'Anzahl der Feierlichkeiten, an denen Sie teilgenommen haben.': 'Anzahl der Feierlichkeiten, an denen Sie teilgenommen haben.'
+'Du musst die Girlande zuerst <strong>abnehmen</strong>, bevor du sie <strong>mitnehmen</strong> kannst.': 'Du musst die Girlande zuerst <strong>abnehmen</strong>, bevor du sie <strong>mitnehmen</strong> kannst.'

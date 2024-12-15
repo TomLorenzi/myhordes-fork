@@ -4,27 +4,31 @@ namespace App\Entity;
 
 use App\Repository\ChangelogRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Table;
+use Doctrine\ORM\Mapping\UniqueConstraint;
 
 #[ORM\Entity(repositoryClass: ChangelogRepository::class)]
+#[Table]
+#[UniqueConstraint(name: 'changelog_version_lang_unique', columns: ['lang', 'version'])]
 class Changelog
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    private ?int $id = null;
     #[ORM\Column(type: 'string', length: 64)]
-    private $title;
+    private ?string $title = null;
     #[ORM\Column(type: 'string', length: 64)]
-    private $version;
+    private ?string $version = null;
     #[ORM\Column(type: 'text')]
-    private $text;
+    private ?string $text = null;
     #[ORM\Column(type: 'string', length: 8)]
-    private $lang = "de";
+    private string $lang = "de";
     #[ORM\ManyToOne(targetEntity: User::class)]
     #[ORM\JoinColumn(nullable: false)]
-    private $author;
+    private User $author;
     #[ORM\Column(type: 'datetime')]
-    private $date;
+    private ?\DateTimeInterface $date = null;
     public function getId(): ?int
     {
         return $this->id;

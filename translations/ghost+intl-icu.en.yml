@@ -73,7 +73,7 @@ Platzreservierung: Reserve places
 Karten-Seed: Map Seed
 'Der Schamane wird gewählt und die Seelen werden gequält.': 'The shaman is a Role and the souls are tormented.'
 'Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.': 'The shaman is a Profession, souls are transformed in the workshop.'
-Job: Job
+Job: Profession
 'Der Schamane und die Seelen werden deaktiviert.': 'The shaman and the souls are deactivated.'
 Deaktiviert: Deactivated
 'Die Nachtwache ist verfügbar, wenn das Gebäude "Brustwehr" errichtet wurde.': 'The night watch is available when the "Battlements" building has been constructed.'
@@ -312,7 +312,7 @@ Kartenhöhe: Map height
 'Angepasste Fundraten': 'Edited general item spawn chances'
 'Angepasste Karteneinstellungen für begehbare Ruinen': 'Different map settings for explorable ruins'
 'Angepasste Baustellen': 'Constructions site different'
-'Angepasste Berufe und Rollen': 'Jobs and roles modified'
+'Angepasste Berufe und Rollen': 'Adjusted professions and roles'
 'Angepasste Konfiguration für Spirituelle Führer': 'Edited spiritual leader configuration'
 'Angepasste Banksperre': 'Bank lock setting modified'
 'Angepasste Dauer für automatische Aktionen': 'Modified durations for automated actions'

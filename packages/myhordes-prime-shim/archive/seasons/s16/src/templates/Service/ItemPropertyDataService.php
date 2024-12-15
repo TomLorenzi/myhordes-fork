@@ -73,6 +73,7 @@ class ItemPropertyDataService implements FixtureProcessorInterface {
 			'taser_#00'					 => ['nw_impact_cumul'],
 			'lamp_on_#00'				 => ['nw_impact_cumul'],
 			'coffee_#00'				 => ['nw_impact_cumul'],
+			'xmas_gift_#01'				 => ['no_post'],
         ];
 
         foreach ($remove as $element => $properties)
