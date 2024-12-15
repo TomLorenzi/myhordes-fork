@@ -15,7 +15,7 @@ export default class BroadcastServiceModule extends ServiceModule {
     }
 
     event(message: string, data: any = null): void {
-        Console.info('BroadcastServiceModule', message, data);
+        Console.debug('BroadcastServiceModule', message, data);
     }
 
 }

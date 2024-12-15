@@ -139,11 +139,37 @@ export type Town = {
     citizenCount: number
     type: number,
     mayor: boolean,
-    coalitions: number
+    event: boolean,
+    coalitions: number,
+    protection: {
+        password: boolean,
+        whitelist: boolean,
+    },
+    custom_rules: boolean
+}
+
+export type Citizen = {
+    id: number,
+    name: string,
+    profession: number|null,
+    alive: boolean,
 }
 
 export type TownListResponse = {
     towns: Town[],
+}
+
+export type CitizenListResponse = {
+    citizens: Citizen[],
+}
+
+export type TownDetailsResponse = {
+    town: Town,
+    citizens: Citizen[],
+    coa: Citizen[],
+    locks: string[],
+    warnings: string[],
+    rules: string[],
 }
 
 export class GameOnboardingAPI {
@@ -161,7 +187,22 @@ export class GameOnboardingAPI {
 
     public list(): Promise<TownListResponse> {
         return this.fetch.from('/list')
-            .request().withCache().get() as Promise<TownListResponse>;
+            .request().get() as Promise<TownListResponse>;
+    }
+
+    public citizens(town_id: number): Promise<CitizenListResponse> {
+        return this.fetch.from(`/${town_id}/citizens`)
+            .request().get() as Promise<CitizenListResponse>;
+    }
+
+    public details(town_id: number): Promise<TownDetailsResponse> {
+        return this.fetch.from(`/${town_id}`)
+            .request().get() as Promise<TownDetailsResponse>;
+    }
+
+    public join(town_id: number, pass: string|null): Promise<{url: string}> {
+        return this.fetch.from(`/${town_id}`)
+            .request().post({pass}) as Promise<{url: string}>;
     }
 
 }

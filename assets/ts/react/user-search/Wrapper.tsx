@@ -52,7 +52,7 @@ export class HordesUserSearchBar extends BaseMounter<{}>{
             {...props}
             callback={u => {
                 (this.parent as HTMLInputElement).value = u;
-                parent.dispatchEvent(new CustomEvent("hordes-user-search-callback", {
+                this.parent.dispatchEvent(new CustomEvent("hordes-user-search-callback", {
                     bubbles: false, cancelable: true, detail: u
                 }))
             }}

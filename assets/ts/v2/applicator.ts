@@ -14,12 +14,29 @@ function applyFetchFunctions( node: HTMLElement ) {
             if (payload === null && node.dataset.fetchPayloadForm) payload = $.html.serializeForm( document.querySelector(node.dataset.fetchPayloadForm) );
             else if (payload === null && node.closest('form')) payload = $.html.serializeForm( node.closest('form') );
 
+            let payloadQuery = node.dataset.fetchPayloadQuery;
+            let payloadQueryField = node.dataset.fetchPayloadQueryField;
+
+            if (payloadQuery && payloadQueryField) {
+                const q = prompt( payloadQuery );
+                if (q === null) return;
+
+                let data = {};
+                data[payloadQueryField] = q;
+
+                payload = {
+                    ...(payload ?? {}),
+                    ...data
+                }
+            }
+
             const spinner = node.dataset.fetchNoSpin !== "0";
+            const classic = node.dataset.fetchV2 !== "1";
 
             if (spinner) $.html.addLoadStack();
 
             (new Fetch('', false))
-                .from( node.dataset.fetch ).bodyDeterminesSuccess().withErrorMessages().withXHRHeader()
+                .from( node.dataset.fetch ).bodyDeterminesSuccess(classic).withErrorMessages().withXHRHeader(classic)
                 .request()
                 .method( node.dataset.fetchMethod ?? 'post', payload )
                 .then(data => {

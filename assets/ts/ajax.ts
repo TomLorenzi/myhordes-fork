@@ -110,7 +110,7 @@ export default class Ajax {
     private fetch_module(src: string) {
         const existing = document.querySelector('head>script[src="' + src + '"]');
         if (!existing && !this.known_dynamic_modules.includes( src )) {
-            console.info( 'Loading dynamic JS module: ' + src );
+            console.debug( 'Loading dynamic JS module: ' + src );
             this.known_dynamic_modules.push(src);
             fetch( src, {mode:"no-cors"} )
                 .then( response => response.ok ? response.text() : new Promise(r=>r(null)) )

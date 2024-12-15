@@ -91,7 +91,7 @@ async function initServiceWorker(): Promise<boolean> {
 
     (await navigator.serviceWorker.getRegistrations()).forEach(registration => {
         if (registration.active.scriptURL !== serviceLoaderFile)
-            Console.info(`Found outdated service worker '${registration.active.scriptURL}'.`);
+            Console.debug(`Found outdated service worker '${registration.active.scriptURL}'.`);
     });
 
     await navigator.serviceWorker.register( serviceLoaderFile, {

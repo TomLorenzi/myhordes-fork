@@ -16,9 +16,10 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 #[UniqueConstraint(name: 'town_class_name_unique', columns: ['name'])]
 class TownClass implements NamedEntity
 {
-    const EASY    = 'small';
-    const DEFAULT = 'remote';
-    const HARD    = 'panda';
+    const string EASY    = 'small';
+    const string DEFAULT = 'remote';
+    const string HARD    = 'panda';
+    const string CUSTOM    = 'custom';
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]

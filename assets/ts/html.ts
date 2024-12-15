@@ -4,12 +4,18 @@ import TwinoAlikeParser from "./twino"
 import HordesTwinoEditorElement from "./modules/twino-editor";
 import {GroupResponse, HordesUserSearchBar} from "./react/user-search/Wrapper";
 import {HordesUserSearchElement} from "./modules/common-modules";
+import {LocalZoneSurroundings, MapCoordinate, MapRoute} from "./react/map/typedef";
 
 declare var $: Global;
 declare var c: Const;
 
 interface elementHandler { (element: HTMLElement, index: number): void }
 interface eventListener { (e: Event, element: HTMLElement, index: number): void }
+
+type UserPopupPayload = {
+    element: HTMLElement,
+    clickHandler: (event: MouseEvent) => void,
+}
 
 class _SearchTableColumnProps {
 
@@ -448,30 +454,47 @@ export default class HTML {
         element.removeAttribute(text_attribute);
     }
 
-    handleUserPopup( element: HTMLElement ): (MouseEvent)=>void  {
+    handleUserPopup( element: HTMLElement, user_id?: number ): UserPopupPayload  {
 
         const handler = (event: MouseEvent) => {
             event.stopPropagation();
             event.preventDefault();
 
-            while (!element.getAttribute("x-user-id")) {
+            let id = user_id;
+
+            while (!id && !element.getAttribute("x-user-id")) {
                 element = element.parentElement;
             }
-            let target = document.getElementById("user-tooltip");
-            if(!target) {
-                target = document.createElement("div");
-                document.getElementsByTagName("body")[0].appendChild(target);
+
+            const dialog = element.closest('dialog');
+
+            let target = null;
+            if (dialog) {
+                target = dialog.querySelector('[data-user-tooltip="dialog"]');
+                if(!target) {
+                    target = document.createElement("div");
+                    dialog.appendChild(target);
+                    target.dataset.userTooltip = "dialog";
+                }
+            } else {
+                target = document.getElementById("user-tooltip");
+                if(!target) {
+                    target = document.createElement("div");
+                    document.getElementsByTagName("body")[0].appendChild(target);
+                    target.setAttribute("id", "user-tooltip");
+                }
             }
-            target.setAttribute("id", "user-tooltip");
+
             target.innerHTML = '<div class="center small"><img src="' + this.initParams.userPopupLoadingAnimation + '" alt=""/></div>';
 
             const reposition = () => {
                 target.style.width = null;
+                const scroll_offset = dialog ? 0 : document.documentElement.scrollTop;
                 if (element.getBoundingClientRect().left + element.offsetWidth + target.offsetWidth > window.innerWidth) {
 
                     const temp_left = Math.max(0,element.getBoundingClientRect().left + element.offsetWidth/2 - element.offsetWidth/2);
                     if (temp_left + target.offsetWidth > window.innerWidth) {
-                        target.style.top = (element.getBoundingClientRect().top + document.documentElement.scrollTop + element.offsetHeight) + "px";
+                        target.style.top = (element.getBoundingClientRect().top + scroll_offset + element.offsetHeight) + "px";
                         if ( window.innerWidth < target.offsetWidth ) {
                             target.style.left = "0px";
                             target.style.width = '100%';
@@ -479,12 +502,12 @@ export default class HTML {
                             target.style.left = Math.floor(window.innerWidth - target.offsetWidth) + 'px';
 
                     } else {
-                        target.style.top = (element.getBoundingClientRect().top + document.documentElement.scrollTop + element.offsetHeight) + "px";
+                        target.style.top = (element.getBoundingClientRect().top + scroll_offset + element.offsetHeight) + "px";
                         target.style.left = temp_left + "px";
                     }
 
                 } else {
-                    target.style.top = (element.getBoundingClientRect().top + document.documentElement.scrollTop) + "px";
+                    target.style.top = (element.getBoundingClientRect().top + scroll_offset) + "px";
                     target.style.left = element.getBoundingClientRect().left + element.offsetWidth + 5 + "px";
                 }
 
@@ -511,14 +534,21 @@ export default class HTML {
             window.addEventListener("scroll", scrollHandler, {capture: true});
             reposition();
 
-            $.ajax.background().load(target, this.initParams.userPopupEndpoint, false, {'id': element.getAttribute("x-user-id")}, () => {
+            $.ajax.background().load(target, this.initParams.userPopupEndpoint, false, {'id': id ?? element.getAttribute("x-user-id")}, () => {
                 $.html.addEventListenerAll('[x-ajax-href],a[href]', 'click', e => removeTooltip(e,true));
                 reposition();
             });
         }
 
         element.addEventListener( 'click', handler);
-        return handler;
+        return {
+            element,
+            clickHandler: handler
+        };
+    }
+
+    discardUserPopup(data: UserPopupPayload): void {
+        data.element.removeEventListener('click', data.clickHandler);
     }
 
     addLoadStack( num: number = 1): void {

@@ -57,8 +57,8 @@ const HordesHxpLogWrapper = (props: mountProps) => {
 
     useLayoutEffect(() => {
         let cache = [];
-        parent.current?.querySelectorAll('div.username,span.username').forEach((elem:HTMLElement) => cache.push( [elem, $.html.handleUserPopup(elem)] ));
-        return ()=>cache.forEach( ([elem,handler]) => elem.removeEventListener('click', handler) );
+        parent.current?.querySelectorAll('div.username,span.username').forEach((elem:HTMLElement) => cache.push( $.html.handleUserPopup(elem) ));
+        return ()=>cache.forEach( d => $.html.discardUserPopup(d) );
     });
 
     return (

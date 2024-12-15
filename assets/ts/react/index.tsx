@@ -6,7 +6,7 @@ import HTML from "../html";
 import {ErrorBoundary} from "react-error-boundary";
 import {Simulate} from "react-dom/test-utils";
 import error = Simulate.error;
-import {HTMLAttributes, ReactHTML} from "react";
+import {HTMLAttributes, MutableRefObject, ReactHTML} from "react";
 
 declare var $: Global;
 
@@ -366,14 +366,15 @@ export const classNames = (classes: string|{[p: string]: boolean}): string => {
         : classes;
 }
 
-export const Tag = (props: HTMLAttributes<HTMLElement> & {tagName?: string, classNames?: string|{[p: string]: boolean}}) => {
+export const Tag = (props: React.DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> & {tagName?: string, classNames?: string|{[p: string]: boolean}, elementRef?: MutableRefObject<HTMLElement>}) => {
     const TagName = (props.tagName ?? 'div') as keyof JSX.IntrinsicElements;
 
     const htmlProps = {...props};
     delete htmlProps.classNames;
     delete htmlProps.tagName;
+    delete htmlProps.elementRef;
 
-    return <TagName {...htmlProps} {...(props.classNames ? {
+    return <TagName ref={props.elementRef} {...htmlProps} {...(props.classNames ? {
         className: [classNames(props.classNames), props.className]
             .filter((s: string|null) => s?.length > 0)
             .join(' ')

@@ -26,9 +26,9 @@ const event = (e: string, d: any = null) => Object.values(modules).forEach( m =>
 const sys_handler = ( message: string, event: MessageEvent ):void => {
     switch (message) {
         case 'disconnect':
-            Console.log('Disconnecting client.', event.data.id);
+            Console.debug('Disconnecting client.', event.data.id);
             ports = ports.filter((current=> current.id !== event.data.id ));
-            Console.log('# of clients', ports.length);
+            Console.debug('# of clients', ports.length);
             break;
         default:
             Console.error('Unknown syscall', message);
@@ -36,7 +36,7 @@ const sys_handler = ( message: string, event: MessageEvent ):void => {
 }
 
 scope.addEventListener('connect', client => {
-    Console.log('Connecting client.');
+    Console.debug('Connecting client.');
     client.ports.forEach( p => {
         ports.push({id: `${++id}`, port: p} );
 
@@ -59,7 +59,7 @@ scope.addEventListener('connect', client => {
 
         })
     });
-    Console.log('# of clients', ports.length);
+    Console.debug('# of clients', ports.length);
 });
 
 (() => {

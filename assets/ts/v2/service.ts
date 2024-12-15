@@ -9,7 +9,7 @@ let pushSubscriptionOptions: PushSubscriptionOptionsInit = {
 let pushSubscription: PushSubscription = null;
 
 function respond( event: ExtendableMessageEvent, payload: any ) {
-    Console.log('Responding to', event, 'with', payload)
+    Console.debug('Responding to', event, 'with', payload)
     event.source.postMessage({
         request: 'response',
         to: event.data.to,
@@ -34,7 +34,7 @@ scope.addEventListener('push', (e) => {
 })
 
 scope.addEventListener('message', e => {
-    Console.log('From client', e.data);
+    Console.debug('From client', e.data);
     switch (e.data.request) {
         // Respond to "ping" with "pong"
         case 'ping':

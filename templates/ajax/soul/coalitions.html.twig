@@ -118,7 +118,18 @@
                                                     {% elseif app.user.activeCitizen or not assoc.user.activeCitizen.town.open %}
                                                         {{ assoc.user.activeCitizen.town.name }}
                                                     {% else %}
-                                                        <a href="#" x-town-locked="{{ assoc.user.activeCitizen.town.password is empty ? '0' : '1' }}" x-join-id="{{ assoc.user.activeCitizen.town.id }}">{{ assoc.user.activeCitizen.town.name }}</a>
+                                                        <a href="#"
+                                                           data-fetch="{{ path('rest_game_lobby_town_join', {id: assoc.user.activeCitizen.town.id}) }}"
+                                                           data-fetch-method="post"
+                                                           data-fetch-v2="1"
+                                                           data-fetch-confirm="{{ 'Möchtest du diesem Spieler folgen?'|trans({},'soul') }}"
+                                                           {% if assoc.user.activeCitizen.town.password is not empty %}
+                                                               data-fetch-payload-query="{{ 'Bitte gib das Stadtpasswort ein :'|trans({}, 'ghost') }}"
+                                                               data-fetch-payload-query-field="pass"
+                                                           {% endif %}
+                                                        >
+                                                            {{ assoc.user.activeCitizen.town.name }}
+                                                        </a>
                                                     {% endif %}
                                                 {% endif %}
                                             {% else %}
@@ -212,18 +223,6 @@
                         } );
             });
         {% endif %}
-
-        $.html.addEventListenerAll('[x-join-id]', 'click', function(e,elem) {
-            e.preventDefault();
-            if (confirm('{{ 'Möchtest du diesem Spieler folgen?'|trans({},'soul')|e('js') }}')) {
-                const pass = (elem.getAttribute('x-town-locked') === '1') ? prompt('{{ 'Bitte gib das Stadtpasswort ein :'|trans({}, 'ghost') }}') : '';
-                $.ajax.easySend( '{{ path('api_join')|e('js') }}', {'town':  elem.getAttribute('x-join-id'), pass: pass},
-                    function () {
-                        $.ajax.load(null, '{{ path('game_landing') }}', true);
-                    } );
-            }
-
-        });
 
         {% if membership is not null %}
             const fun_refresh = function(bg, fun = null) {

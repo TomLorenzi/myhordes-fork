@@ -15,6 +15,7 @@ import {html, sharedWorkerCall, sharedWorkerMessageHandler} from "../../v2/init"
 import {ServiceWorkerIndicator} from "../service-worker-state/Wrapper";
 import {dialogShim} from "../../shims";
 import {BaseMounter} from "../index";
+import Dialog from "../components/dialog";
 
 declare var c: Const;
 declare var $: Global;
@@ -213,19 +214,7 @@ const HordesTownOnboardingWrapper = (props: Props) => {
 const ConfirmationDialog = (props: ConfirmationDialogProps) => {
     const globals = useContext(Globals);
 
-    const dialog = useRef<HTMLDialogElement>();
     const [loading, setLoading] = useState<boolean>(false);
-
-    useLayoutEffect(() => {
-        dialogShim(dialog.current);
-    }, []);
-
-    useLayoutEffect(() => {
-       if (props.open) {
-           dialog.current.showModal();
-           return () => dialog.current.close();
-       }
-    }, [props.open]);
 
     const confirm = () => {
         setLoading(true);
@@ -249,7 +238,7 @@ const ConfirmationDialog = (props: ConfirmationDialogProps) => {
 
     const missing_skill_pts = Math.max(0, selected_skills?.reduce( (carry, skill) => carry - skill.level, props.cache.skills?.skills.pts ) ?? 0);
 
-    return <dialog className="contained" ref={dialog} onCancel={() => props.setClose()} onSubmit={() => confirm()}>
+    return <Dialog open={props.open} className="contained" onCancel={() => props.setClose()} onSubmit={() => confirm()}>
         <div className="modal-title">{globals.strings.confirm.title}</div>
         <div className="row"><div className="padded cell rw-12"><p className="small">
             {globals.strings.confirm.help}
@@ -344,7 +333,7 @@ const ConfirmationDialog = (props: ConfirmationDialogProps) => {
                 </div>
             </div>
         </form>
-    </dialog>
+    </Dialog>
 }
 
 const IdentitySelection = (props: OnboardingIdentityPayloadProps) => {

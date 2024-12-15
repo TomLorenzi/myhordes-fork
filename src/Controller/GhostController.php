@@ -56,18 +56,17 @@ class GhostController extends CustomAbstractController
 {
     private UserHandler $user_handler;
     const ErrorWrongTownPassword          = ErrorHelper::BaseGhostErrors + 1;
-    private GameProfilerService $gps;
 
-    public function __construct(EntityManagerInterface $em, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf, CitizenHandler $ch, InventoryHandler $ih, GameProfilerService $gps, HookExecutor $hookExecutor)
+    public function __construct(EntityManagerInterface $em, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf, CitizenHandler $ch, InventoryHandler $ih, HookExecutor $hookExecutor)
     {
         parent::__construct($conf, $em, $tk, $ch, $ih, $translator, $hookExecutor);
-        $this->gps = $gps;
         $this->user_handler = $uh;
     }
 
     /**
      * @param EntityManagerInterface $em
      * @return Response
+     * @throws Exception
      */
     #[Route(path: 'jx/ghost/welcome', name: 'ghost_welcome')]
     public function welcome(EntityManagerInterface $em): Response
@@ -89,13 +88,6 @@ class GhostController extends CustomAbstractController
         $tickets = $user->getTeamTicketsFor( $season, '!' )->count();
         $cap_left = ($cap >= 0) ? max(0, $cap - $tickets) : -1;
 
-        /*
-         * !$em->getRepository(MayorMark::class)->matching( (new Criteria())
-                ->where( new Comparison( 'user', Comparison::EQ, $user )  )
-                ->andWhere( new Comparison( 'expires', Comparison::GT, new \DateTime() ) )
-            )->isEmpty()
-         */
-
         $mayor_block = $em->getRepository(MayorMark::class)->matching( (new Criteria())
             ->where( new Comparison( 'user', Comparison::EQ, $user )  )
             ->andWhere( new Comparison( 'expires', Comparison::GT, new \DateTime() ) )
@@ -112,10 +104,6 @@ class GhostController extends CustomAbstractController
             'warnCoaEmpty'       => $count > 1 && empty($coa_members),
             'coa'                => $coa_members,
             'cdm_level'          => $cdm_lock ? 2 : ( $cdm_warn ? 1 : 0 ),
-            'townClasses' => $em->getRepository(TownClass::class)->findAll(),
-            'userCanJoin' => $this->getUserTownClassAccess($this->conf->getGlobalConf()),
-            'userCantJoinReason' => $this->getUserTownClassAccessLimitReason($this->conf->getGlobalConf()),
-            'sp_limits' => $this->getTownClassAccessLimits($this->conf->getGlobalConf()),
             'canCreateTown' => true,
             'mayorBlock' => $mayor_block,
         ] ));
@@ -200,136 +188,5 @@ class GhostController extends CustomAbstractController
             )->first() ?: null,
             'tooMany' => $em->getRepository(Town::class)->count(['mayor' => true]) > 14,
         ]));
-    }
-
-    /**
-     * Process the user joining a town
-     * @param JSONRequestParser $parser
-     * @param GameFactory $factory
-     * @param ConfMaster $conf
-     * @param LogTemplateHandler $log
-     * @param TownHandler $townHandler
-     * @return Response
-     */
-    #[Route(path: 'api/ghost/join', name: 'api_join')]
-    #[Semaphore(scope: 'global')]
-    public function join_api(JSONRequestParser $parser, GameFactory $factory,
-                             ConfMaster $conf, LogTemplateHandler $log, TownHandler $townHandler) {
-        /** @var User $user */
-        $user = $this->getUser();
-
-        if ($this->user_handler->isRestricted( $user, AccountRestriction::RestrictionGameplay ))
-            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
-
-        if ($this->user_handler->isRestricted( $user, AccountRestriction::RestrictionGameplayLang ))
-            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
-
-        /** @var CitizenRankingProxy $nextDeath */
-        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
-        if (!$parser->has('town')) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        $town_id = (int)$parser->get('town', -1);
-        if ($town_id <= 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        /** @var Town $town */
-        $town = $this->entity_manager->getRepository(Town::class)->find( $town_id );
-        $user = $this->getUser();
-
-        if (!$town || !$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        if(!empty($town->getPassword()) && $town->getPassword() !== $parser->get('pass', ''))
-            return AjaxResponse::error(self::ErrorWrongTownPassword);
-
-        if (!$factory->userCanEnterTown( $town, $user ))
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        $citizen = $factory->createCitizen($town, $user, $error, $all);
-        if (!$citizen) return AjaxResponse::error($error);
-
-        try {
-            $this->entity_manager->persist($town);
-            $this->entity_manager->persist($citizen);
-            if ($town->isMayor() && $town->getCreator()?->getId() !== $user->getId())
-                $this->entity_manager->persist( (new MayorMark())
-                    ->setUser( $this->getUser() )
-                    ->setCitizen( true )
-                    ->setExpires( (new DateTime())->modify('+15days') )
-                );
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
-        $current_town_events = $this->conf->getCurrentEvents($town);
-        if (!empty(array_filter($current_town_events,fn(EventConf $e) => $e->active()))) {
-            if (!$townHandler->updateCurrentEvents($town, $current_town_events))
-                $this->entity_manager->clear();
-            else {
-                $this->entity_manager->persist($town);
-                $this->entity_manager->flush();
-            }
-        }
-
-        if (!$town->isOpen()){
-            // Target town is closed, let's add special voting actions !
-            $roles = $this->entity_manager->getRepository(CitizenRole::class)->findVotable();
-            /** @var CitizenRole $role */
-            foreach ($roles as $role){
-                /** @var SpecialActionPrototype $special_action */
-                $special_action = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => 'special_vote_' . $role->getName()]);
-                /** @var Citizen $citizen */
-                foreach ($town->getCitizens() as $citizen){
-                    if(!$citizen->getProfession()->getHeroic()) continue;
-
-                    if(!$citizen->getSpecialActions()->contains($special_action)) {
-                        $citizen->addSpecialAction($special_action);
-                        $this->entity_manager->persist($citizen);
-                    }
-                }
-            }
-        }
-
-        return AjaxResponse::success();
-    }
-
-    public function getUserTownClassAccess(MyHordesConf $conf, ?User $user = null): array {
-        $user = $user ?? $this->getUser();
-
-        if ($this->user_handler->checkFeatureUnlock( $user, 'f_sptkt', false ) || $user->getRightsElevation() >= User::USER_LEVEL_CROW)
-            return [
-                'small' => true,
-                'remote' => true,
-                'panda' => true,
-                'custom' => true,
-            ];
-
-        $sp = $this->user_handler->fetchSoulPoints($user);
-
-        return [
-            'small' =>
-                ($sp < $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE, 100 )
-                || $sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_BACK_TO_SMALL, 500 )),
-            'remote' => ($sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE, 0 )),
-            'panda' => ($sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_PANDA, 200 )),
-            'custom' => 'maybe',
-        ];
-    }
-
-    public function getUserTownClassAccessLimitReason(MyHordesConf $conf): array {
-        return [
-            'small' => $this->translator->trans( 'Du benötigst mindestens {sp} Seelenpunkte, um dieser Stadt beitreten zu können. Sammele Seelenpunkte, indem du andere Städte spielst.', ['sp' => $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_BACK_TO_SMALL, 500 )], 'ghost' ),
-            'remote' => $this->translator->trans( 'Du benötigst mindestens {sp} Seelenpunkte, um dieser Stadt beitreten zu können. Sammele Seelenpunkte, indem du andere Städte spielst.', ['sp' => $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE, 0 )], 'ghost' ),
-            'panda' => $this->translator->trans( 'Du benötigst mindestens {sp} Seelenpunkte, um dieser Stadt beitreten zu können. Sammele Seelenpunkte, indem du andere Städte spielst.', ['sp' => $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_PANDA, 200 )], 'ghost' ),
-            'custom' => null,
-        ];
-    }
-
-    public function getTownClassAccessLimits(MyHordesConf $conf): array {
-        return [
-            'remote' => $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE, 0 ),
-            'panda'  => $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_PANDA, 200 ),
-            'custom' => $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_CUSTOM, 1000 ),
-        ];
     }
 }

@@ -38,7 +38,7 @@ const event = (e: string, d: any = null) => Object.values(modules).forEach( m =>
 const sys_handler = ( message: string ):void => {
     switch (message) {
         case 'disconnect':
-            Console.log('Disconnecting client.');
+            Console.debug('Disconnecting client.');
             break;
         default:
             Console.error('Unknown syscall', message);
@@ -46,14 +46,14 @@ const sys_handler = ( message: string ):void => {
 }
 
 port_incoming.addEventListener('__connect', () => {
-    Console.log('Connecting client.');
+    Console.debug('Connecting client.');
 
     port_outgoing.dispatchEvent( new CustomEvent('__message', {detail: {
         request: 'worker.id', id: 1
     }}) );
 
     port_incoming.addEventListener('__message', (e: CustomEvent) => {
-        Console.log('From client', e.detail);
+        Console.debug('From client', e.detail);
 
         const request = (e.detail?.request ?? '_none').split('.');
         if (request[0] === 'worker') {

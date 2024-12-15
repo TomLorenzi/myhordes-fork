@@ -7,7 +7,7 @@ export default class PingServiceModule extends ServiceModule {
     constructor(p) { super(p); }
 
     handle(event: MessageEvent): void {
-        Console.info('Got ping.', event);
+        Console.debug('Got ping.', event);
         event.ports.forEach(p => p.postMessage({request: 'pong'}));
     }
 
@@ -16,7 +16,7 @@ export default class PingServiceModule extends ServiceModule {
     }
 
     event(message: string, data: any = null): void {
-        Console.info('PingServiceModule', message, data);
+        Console.debug('PingServiceModule', message, data);
     }
 
 }

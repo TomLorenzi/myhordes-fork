@@ -249,7 +249,7 @@ export default class MercureServiceModule extends ServiceModule{
     }
 
     event(message: string, data: any = null): void {
-        Console.info('MercureServiceModule', message, data);
+        Console.debug('MercureServiceModule', message, data);
 
         switch (message) {
             case 'activate': case 'install':

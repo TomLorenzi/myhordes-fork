@@ -12,7 +12,7 @@ export default abstract class SharedModule {
     }
 
     protected respond( event: MessageEvent, payload: any ) {
-        Console.log('Responding to', event, 'with', payload)
+        Console.debug('Responding to', event, 'with', payload)
 
         const ports = (!event.data.for) ? event.ports : this.ports([], event.data.for);
         ports.forEach(p => {
@@ -25,7 +25,7 @@ export default abstract class SharedModule {
     }
 
     protected broadcast( request: string, payload: object, except: Array<String> = [] ) {
-        Console.log('Broadcasting', request, 'with', payload);
+        Console.debug('Broadcasting', request, 'with', payload);
         this.ports(except, null).forEach( port => {
             port.postMessage({
                 request, payload

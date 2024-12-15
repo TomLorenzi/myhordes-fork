@@ -53,16 +53,24 @@ type TownClass = {
     id: number
     name: string
     order: number
-    help: string
+    help: string,
+    access: boolean,
 }
 
 export type GameTranslationStrings = {
     common: {
         help: string,
         warn: string,
+        plus: string,
+        death: string,
+        close: string,
+        lock: string,
+        rules: string,
+        cancel: string,
     },
     flags: {[key: string]: string},
     types: TownClass[],
+    professions: {icon: string, name: string}[]
     table: {
         head: {
             name: string,
@@ -76,5 +84,21 @@ export type GameTranslationStrings = {
         mayor_lines: string[],
         lang: string,
         lang_warn: string,
+        show_players: string,
+        password: string,
+        whitelist: string,
+        rules: string,
+        more_info: string,
+        event: string,
+        event_help: string,
+    },
+    details: {
+        join: string,
+        headline: string,
+        in_town: string,
+        event1: string,
+        event2: string,
+        coa: string,
+        password: string,
     }
 }

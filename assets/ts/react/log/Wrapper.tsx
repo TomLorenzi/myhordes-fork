@@ -235,8 +235,8 @@ const HordesLogContentContainer = (props: logContainerProps) => {
 
     useLayoutEffect(() => {
         let cache = [];
-        parent.current?.querySelectorAll('div.username').forEach((elem:HTMLElement) => cache.push( [elem, $.html.handleUserPopup(elem)] ));
-        return ()=>cache.forEach( ([elem,handler]) => elem.removeEventListener('click', handler) );
+        parent.current?.querySelectorAll('div.username').forEach((elem:HTMLElement) => cache.push( $.html.handleUserPopup(elem) ));
+        return ()=>cache.forEach( d => $.html.discardUserPopup(d) );
     });
 
     const getFlavour = () => (globals.strings?.content.flavour ?? [null])[ Math.floor( Math.random() * (globals.strings?.content.flavour.length ?? 0) ) ];

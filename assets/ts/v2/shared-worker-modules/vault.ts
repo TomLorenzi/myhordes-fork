@@ -139,7 +139,7 @@ export default class VaultServiceModule extends ServiceModule {
             });
         } ).then( d => {
             if (d.length === 0) return;
-            Console.log('Clearing deprecated vault keys', d);
+            Console.debug('Clearing deprecated vault keys', d);
             return delMany(d, this.store)
         } );
     }
@@ -201,7 +201,7 @@ export default class VaultServiceModule extends ServiceModule {
     }
 
     event(message: string, data: any = null): void {
-        Console.info('VaultServiceModule', message, data);
+        Console.debug('VaultServiceModule', message, data);
     }
 
 }

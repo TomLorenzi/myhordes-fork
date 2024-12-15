@@ -1,9 +1,9 @@
 import * as React from "react";
-import { useEffect, useLayoutEffect, useRef, useState} from "react";
+import { useEffect, useRef, useState} from "react";
 import {Const, Global} from "../../defaults";
 import {ContentReportAPI, ResponseIndex} from "./api";
 import {DialogExtraMountProps, ReactDialogMounter} from "../index";
-import {dialogShim} from "../../shims";
+import Dialog from "../components/dialog";
 
 declare var c: Const;
 declare var $: Global;
@@ -41,7 +41,6 @@ const ReportCreatorDialog = (props: {
     const [sending, setSending] = useState<boolean>(false);
     const [index, setIndex] = useState<ResponseIndex>(null);
 
-    const dialog = useRef<HTMLDialogElement>(null);
     const form = useRef<HTMLFormElement>(null);
 
     const api = useRef(new ContentReportAPI())
@@ -56,7 +55,6 @@ const ReportCreatorDialog = (props: {
         api.current.report( props.type, props.principal, $.html.serializeForm( form.current ))
             .then( r => {
                 if (r?.message) $.html.notice(r.message);
-                dialog.current.close();
                 setSending(false);
                 setOpen(false);
             }).catch(error => {
@@ -74,27 +72,12 @@ const ReportCreatorDialog = (props: {
 
     }
 
-    const cancelDialog = () => {
-        dialog.current.close();
-        setOpen(false);
-    }
-
     useEffect(() => {
         if (open && index === null) api.current.index( props.type ).then( s => setIndex(s) );
     }, [open]);
 
-    useLayoutEffect(() => {
-        dialogShim(dialog.current);
-    }, [open]);
-
-    useLayoutEffect(() => {
-        if (open && dialog.current) {
-            dialog.current.showModal();
-        }
-    }, [open]);
-
     return open && <>
-        <dialog ref={dialog}>
+        <Dialog open={open}>
             <div className="modal-title">{props.title}</div>
             <form method="dialog" ref={form} onKeyDown={e => {
                 if (e.key === "enter") confirmDialog();
@@ -115,11 +98,11 @@ const ReportCreatorDialog = (props: {
                 </div>
                 {index && <div id="modal-actions">
                         <button type="button" disabled={sending} className="modal-button small inline" onClick={() => confirmDialog()}>{ index.strings.texts.ok }</button>
-                        <button type="button" disabled={sending} className="modal-button small inline" onClick={() => cancelDialog()}>{ index.strings.texts.abort }</button>
+                        <button type="button" disabled={sending} className="modal-button small inline" onClick={() => setOpen(false)}>{ index.strings.texts.abort }</button>
                     </div>
                 }
             </form>
 
-        </dialog>
+        </Dialog>
     </>
 }

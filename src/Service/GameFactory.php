@@ -69,14 +69,17 @@ class GameFactory
     private CrowService $crow;
     private TimeKeeperService $timeKeeper;
 
-    const ErrorNone = 0;
-    const ErrorTownClosed          = ErrorHelper::BaseTownSelectionErrors + 1;
-    const ErrorUserAlreadyInGame   = ErrorHelper::BaseTownSelectionErrors + 2;
-    const ErrorUserAlreadyInTown   = ErrorHelper::BaseTownSelectionErrors + 3;
-    const ErrorNoDefaultProfession = ErrorHelper::BaseTownSelectionErrors + 4;
+    const int ErrorNone = 0;
+    const int ErrorTownClosed          = ErrorHelper::BaseTownSelectionErrors + 1;
+    const int ErrorUserAlreadyInGame   = ErrorHelper::BaseTownSelectionErrors + 2;
+    const int ErrorUserAlreadyInTown   = ErrorHelper::BaseTownSelectionErrors + 3;
+    const int ErrorNoDefaultProfession = ErrorHelper::BaseTownSelectionErrors + 4;
 
-    const ErrorTownNoCoaRoom         = ErrorHelper::BaseTownSelectionErrors + 5;
-    const ErrorMemberBlocked         = ErrorHelper::BaseTownSelectionErrors + 6;
+    const int ErrorTownNoCoaRoom         = ErrorHelper::BaseTownSelectionErrors + 5;
+    const int ErrorMemberBlocked         = ErrorHelper::BaseTownSelectionErrors + 6;
+    const int ErrorNotOnWhitelist        = ErrorHelper::BaseTownSelectionErrors + 7;
+    const int ErrorSoulPointsRequired    = ErrorHelper::BaseTownSelectionErrors + 8;
+    const int ErrorLangAntiGrief         = ErrorHelper::BaseTownSelectionErrors + 9;
     private GameProfilerService $gps;
 
     private EventProxyService $events;
@@ -650,6 +653,7 @@ class GameFactory
         {
             // $cap = $conf->get(MyHordesConf::CONF_ANTI_GRIEF_FOREIGN_CAP, 3);
             // if ($cap >= 0 && $cap <= $user->getTeamTicketsFor( $town->getSeason(), '!' )->count())
+            $error = ErrorHelper::ErrorPermissionError;
             return false;
         }
 
@@ -675,14 +679,14 @@ class GameFactory
             }
 
             if (!$allowed && !$this->user_handler->checkFeatureUnlock( $user, 'f_sptkt', true )) {
-                $error = ErrorHelper::ErrorPermissionError;
+                $error = self::ErrorSoulPointsRequired;
                 return false;
             }
         }
 
         $whitelist = $whitelist_enabled ? $this->entity_manager->getRepository(TownSlotReservation::class)->findOneBy(['town' => $town, 'user' => $user]) : null;
         if ($whitelist_enabled && $whitelist === null && $user !== $town->getCreator()) {
-            $error = ErrorHelper::ErrorPermissionError;
+            $error = self::ErrorNotOnWhitelist;
             return false;
         }
 

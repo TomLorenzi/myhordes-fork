@@ -191,19 +191,19 @@ class FetchOptionBuilder {
         this.queryParams = null;
     }
 
-    public throwResponseOnError(): FetchOptionBuilder { this.options.throw_response_on_error = true; return this; }
-    public throwAliasCodeOnError(): FetchOptionBuilder { this.options.throw_response_on_error = false; return this; }
+    public throwResponseOnError(v: boolean = true): FetchOptionBuilder { this.options.throw_response_on_error = v; return this; }
+    public throwAliasCodeOnError(v: boolean = true): FetchOptionBuilder { this.options.throw_response_on_error = !v; return this; }
 
-    public withErrorMessages(): FetchOptionBuilder { this.options.error_messages = true; return this; }
-    public withoutErrorMessages(): FetchOptionBuilder { this.options.error_messages = false; return this; }
+    public withErrorMessages(v: boolean = true): FetchOptionBuilder { this.options.error_messages = v; return this; }
+    public withoutErrorMessages(v: boolean = true): FetchOptionBuilder { this.options.error_messages = !v; return this; }
 
-    public withLoader(): FetchOptionBuilder { this.options.loader = true; return this; }
-    public withoutLoader(): FetchOptionBuilder { this.options.loader = false; return this; }
+    public withLoader(v: boolean = true): FetchOptionBuilder { this.options.loader = v; return this; }
+    public withoutLoader(v: boolean = true): FetchOptionBuilder { this.options.loader = !v; return this; }
 
-    public withXHRHeader(): FetchOptionBuilder { this.options.add_xhr_header = true; return this; }
-    public withoutXHRHeader(): FetchOptionBuilder { this.options.add_xhr_header = false; return this; }
+    public withXHRHeader(v: boolean = true): FetchOptionBuilder { this.options.add_xhr_header = v; return this; }
+    public withoutXHRHeader(v: boolean = true): FetchOptionBuilder { this.options.add_xhr_header = !v; return this; }
 
-    public bodyDeterminesSuccess(b: boolean = true): FetchOptionBuilder { this.options.body_success = b; return this; }
+    public bodyDeterminesSuccess(v: boolean = true): FetchOptionBuilder { this.options.body_success = v; return this; }
 
     public param( name: string, value: any, condition: boolean = true ) {
         if (condition) {

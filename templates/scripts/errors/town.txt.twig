@@ -14,4 +14,6 @@
 {{ constant('App\\Controller\\Town\\TownController::ErrorAlreadyFinished') }}    : '{{'Dieses Bauprojekt wurde bereits abgeschlossen.'|trans({},'game')|e('js')}}',
 {{ constant('App\\Controller\\Town\\TownController::ErrorTownChaos') }}    : '{{'Diese Aktion ist während der <strong>Chaosperiode</strong> night erlaubt!'|trans({},'game')|e('js')}}',
 {{ constant('App\\Controller\\Town\\TownController::ErrorAlreadyWatered') }}    : '{{'Diese Leiche wurde bereits mit Wasser übergossen, siehst du denn nicht die Pfütze bei den Füßen?!!'|trans({},'game')|e('js')}}',
-{{ constant('App\\Controller\\Town\\TownController::ErrorAlreadyThrown') }}    : '{{'Diese Leiche wurde bereits außerhalb der Stadt entsorgt!'|trans({},'game')|e('js')}}',
+{{ constant('App\\Controller\\Town\\TownController::ErrorAlreadyThrown') }}         : '{{'Diese Leiche wurde bereits außerhalb der Stadt entsorgt!'|trans({},'game')|e('js')}}',
+{{ constant('App\\Service\\GameFactory::ErrorSoulPointsRequired') }}    : '{{'Du kannst dieser Stadt nicht beitreten, da du noch nicht die erforderliche Menge an Seelenpunkten gesammelt hast.'|trans({},'game')|e('js')}}',
+{{ constant('App\\Service\\GameFactory::ErrorNotOnWhitelist') }}        : '{{'Du kannst dieser Stadt nicht beitreten, da du nicht auf der Teilnehmerliste stehst.'|trans({},'game')|e('js')}}',

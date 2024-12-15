@@ -649,7 +649,14 @@ div.death-desc {
 }
 
 div#user-tooltip {
-    position: absolute;
+  position: absolute;
+}
+
+div[data-user-tooltip="dialog"] {
+  position: fixed;
+}
+
+div#user-tooltip, div[data-user-tooltip="dialog"] {
     z-index: 9999;
     background-color: #5c2b20;
     background-image: none;
