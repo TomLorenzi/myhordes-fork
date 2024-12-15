@@ -243,6 +243,7 @@ class MessageTownMessageController extends MessageController
             $items_prototype = [];
             foreach ($linked_items as $item) {
                 $items_prototype[] = $item->getPrototype()->getId();
+                $item->setHidden(false);
                 $this->inventory_handler->forceMoveItem($recipient->getHome()->getChest(), $item);
             }
 
