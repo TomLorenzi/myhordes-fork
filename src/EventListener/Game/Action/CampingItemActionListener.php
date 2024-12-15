@@ -8,7 +8,9 @@ use App\Event\Game\Actions\CustomActionProcessorEvent;
 use App\EventListener\ContainerTypeTrait;
 use App\Service\CitizenHandler;
 use App\Service\InventoryHandler;
+use App\Service\LogTemplateHandler;
 use DateTime;
+use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Contracts\Service\ServiceSubscriberInterface;
@@ -26,6 +28,8 @@ final class CampingItemActionListener implements ServiceSubscriberInterface
     public static function getSubscribedServices(): array
     {
         return [
+            EntityManagerInterface::class,
+            LogTemplateHandler::class,
             CitizenHandler::class
         ];
     }
@@ -44,6 +48,17 @@ final class CampingItemActionListener implements ServiceSubscriberInterface
                 foreach ($dig_timers as $timer)
                     $timer->setPassive(true);
 
+                // Remove citizen from escort
+                foreach ($event->citizen->getLeadingEscorts() as $escorted_citizen) {
+                    $escorted_citizen->getCitizen()->getEscortSettings()->setLeader( null );
+                    $this->getService(EntityManagerInterface::class)->persist($escorted_citizen);
+                }
+
+                if ($event->citizen->getEscortSettings()) $this->getService(EntityManagerInterface::class)->remove($event->citizen->getEscortSettings());
+                $event->citizen->setEscortSettings(null);
+
+                $this->getService(EntityManagerInterface::class)->persist($this->getService(LogTemplateHandler::class)->beyondCampingHide($event->citizen));
+
                 break;
             }
             // Reset campingTimer
@@ -51,6 +66,7 @@ final class CampingItemActionListener implements ServiceSubscriberInterface
             {
                 $event->citizen->setCampingTimestamp(0);
                 $event->citizen->setCampingChance(0);
+                $this->getService(EntityManagerInterface::class)->persist($this->getService(LogTemplateHandler::class)->beyondCampingUnhide($event->citizen));
                 break;
             }
 
