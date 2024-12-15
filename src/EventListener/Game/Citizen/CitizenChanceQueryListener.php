@@ -210,7 +210,7 @@ final class CitizenChanceQueryListener implements ServiceSubscriberInterface
                 // TODO: Re-implement how items are generated in an e-ruin
 
                 $digs = ($event->ruinZone?->getDigs() ?? 0) + 1;
-                $chance = 1.0 / ( 1.0 + ( $digs / max( 1, $event->townConfig->get(TownSetting::ERuinItemFillrate) - ($digs/3.0) ) ) ) + $event->citizen->getProfession()->getDigBonus();
+                $chance = (1.0 + $event->citizen->getProfession()->getDigBonus()) / ( 1.0 + ( $digs / max( 1, $event->townConfig->get(TownSetting::ERuinItemFillrate) - ($digs/3.0) ) ) );
                 //$chance = $event->townConfig->get(TownConf::CONF_EXPLORABLES_DIG_CHANCE, 0.55) + $event->citizen->getProfession()->getDigBonus();
 
                 if ($this->getService(CitizenHandler::class)->hasStatusEffect( $event->citizen, 'wound5' )) $chance -= 0.2;

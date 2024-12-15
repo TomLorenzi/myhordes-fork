@@ -2114,6 +2114,7 @@ class LogTemplateHandler
             ])
             ->setTown( $master->getTown() )
             ->setDay( $master->getTown()->getDay() )
+            ->setCitizen( $master )
             ->setTimestamp( new DateTime('now') );
     }
 
