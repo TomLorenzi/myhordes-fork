@@ -84,7 +84,7 @@ export const TownCreatorSectionMods = () => {
                               globals.setOption('rules.features.nightwatch.enabled', v !== "none");
                               globals.setOption('rules.features.nightwatch.instant', v === "instant");
                               mods.watch_buildings.forEach( b => {
-                                  globals.setOption(`rules.disabled_buildings.<>.${b}`, v !== "normal");
+                                  globals.setOption(`rules.disabled_buildings.<>.${b}`, v === "none");
                                   globals.setOption(`rules.unlocked_buildings.<>.${b}`, false );
                                   globals.setOption(`rules.initial_buildings.<>.${b}`, false );
                               } )
