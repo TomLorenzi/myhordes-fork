@@ -201,6 +201,11 @@ class BeyondController extends InventoryAwareController
         }
 
         $allow_movement = (!$blocked || $escape > 0 || $scout_movement) && !$citizen_tired && !$citizen_hidden && ($this->getActiveCitizen()->getEscortSettings() === null || $this->getActiveCitizen()->getEscortSettings()->getLeader() === null);
+
+        $trash_limit =
+            $this->getActiveCitizen()->property( CitizenProperties::TrashSearchLimit ) +
+            ($this->getActiveCitizen()->getProfession()->getName() === 'collec' ? 1 : 0);
+
         return parent::addDefaultTwigArgs( $section, array_merge( [
             'zone_players' => $zone_players,
             'zone_zombies' => max(0,$zone->getZombies()),
@@ -220,7 +225,7 @@ class BeyondController extends InventoryAwareController
             'camping' => $this->getCampingActions(),
             'km' => $this->zone_handler->getZoneKm($zone),
             'town_ap' => $this->zone_handler->getZoneAp($zone),
-            'lock_trash' => $trash_count >= ( $this->getActiveCitizen()->getProfession()->getName() === 'collec' ? 4 : 3 ),
+            'lock_trash' => $trash_count >= $trash_limit,
             'citizen_hidden' => $citizen_hidden,
             'can_explore' => $zone->getPrototype() && $zone->getPrototype()->getExplorable() &&
                 !$this->citizen_handler->hasStatusEffect( $this->getActiveCitizen(), ['terror'] ) &&
