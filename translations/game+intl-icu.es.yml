@@ -1846,7 +1846,7 @@ Reiseleiter-Ratgeber: Guía del Guía del Ultramundo
 'Wenn du flüchtest, werden dich die Zombies verletzen, aber du wirst trotzdem entkommen...': 'Siempre es una alternativa, pero los zombies te harían mucho daño...'
 'Du kannst versuchen einen Zombie im Nahkampf und ohne Waffen anzugreifen.': 'Intenta escapar atacando a un zombie cuerpo a cuerpo, sin armas.'
 'Diese Aktion kostet dich 1 AP und die Erfolgsaussichten sind ziemlich gering.': 'Requiere 1 PA y tiene pocas probabilidades de éxito.'
-'Dieser Bürger möchte in die Stadt gebracht werden.': 'Este habitante desea ser llevado al pueblo.'
+'Dieser Bürger möchte in die Stadt gebracht werden.': "\n            {ref__icu, select,\n                on {\n                    {ref__gender, select,\n                        female {Diese Bürgerin möchte in die Stadt gebracht werden.}\n                        other {Dieser Bürger möchte in die Stadt gebracht werden.}\n                    }\n                }\n            other {Dieser Bürger möchte in die Stadt gebracht werden.}\n            }\n        "
 'Der Leichnam von {citizen} wurde nicht zerstört.': 'El cuerpo de {citizen} no fue destruido.'
 'Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.': 'Hay muchas posibilidades de que resucite esta noche y trate de atacarnos.'
 '<em>Du kannst dein Haus ausbauen und so für eine bessere Verteidigung sorgen. <strong>Wichtige Anmerkung:</strong> Vielleicht wäre es sinnvoller, die dafür benötigten Ressourcen (falls erforderlich) der Stadt zu spenden?</em>': '<em>Puedes mejorar tu vivienda y así gozar de una mejor defensa. <strong>Ponte a pensar:</strong> ¿No sería mejor utilizar tus recursos para mejorar el pueblo?</em>'
