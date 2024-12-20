@@ -20,15 +20,20 @@ class LanguageSubscriber implements EventSubscriberInterface
     ){ }
     public function onKernelRequest(RequestEvent $event) {
         if (!$event->getRequest()->isXmlHttpRequest()) {
-            [,$first_path_segment] = explode( '/', $event->getRequest()->getPathInfo() );
-            $allLangsCodes = array_map(function($item) {return $item['code'];}, array_filter($this->conf->getGlobalConf()->get(MyHordesConf::CONF_LANGS), function($item) {
-                return $item['generate'];
-            }));
+            $pathInfos = explode( '/', $event->getRequest()->getPathInfo());
+            if (count($pathInfos) >= 2) {
+                [, $first_path_segment] = explode('/', $event->getRequest()->getPathInfo());
+                $allLangsCodes = array_map(function ($item) {
+                    return $item['code'];
+                }, array_filter($this->conf->getGlobalConf()->get(MyHordesConf::CONF_LANGS), function ($item) {
+                    return $item['generate'];
+                }));
 
-            if (in_array($first_path_segment, $allLangsCodes)) {
-                $event->getRequest()->setLocale( $first_path_segment );
-                $event->getRequest()->getSession()->set('_user_lang',$first_path_segment);
-                return;
+                if (in_array($first_path_segment, $allLangsCodes)) {
+                    $event->getRequest()->setLocale($first_path_segment);
+                    $event->getRequest()->getSession()->set('_user_lang', $first_path_segment);
+                    return;
+                }
             }
         }
 
