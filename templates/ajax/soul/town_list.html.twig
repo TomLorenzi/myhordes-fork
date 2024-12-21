@@ -57,7 +57,7 @@
             </div>
             <div class="cell padded rw-2 center town-days bold">
                 {{ incarnation.day }}
-                {% if incarnation.town.town is not null and incarnation.town.town.aliveCitizen %}
+                {% if incarnation.town.town is not null and incarnation.town.town.aliveCitizenCount %}
                     <span>
                     <img src="{{asset('build/images/icons/small_new.gif')}}" />
                     <div class="tooltip">
