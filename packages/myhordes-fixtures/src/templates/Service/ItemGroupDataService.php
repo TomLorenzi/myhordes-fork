@@ -7,7 +7,7 @@ use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class ItemGroupDataService implements FixtureProcessorInterface {
 
-    public function process(array &$data): void
+    public function process(array &$data, ?string $tag = null): void
     {
         $data = array_replace_recursive($data, [
             'empty_dig' => array(

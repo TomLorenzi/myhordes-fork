@@ -6,7 +6,7 @@ use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class TownDataService implements FixtureProcessorInterface {
 
-    public function process(array &$data): void
+    public function process(array &$data, ?string $tag = null): void
     {
         $data = array_replace_recursive($data, [
             'small' =>  ['name'=>'small'  ,'label'=>'Kleine Stadt'      ,'preset' => true,  'ranked' => false, 'orderBy' =>  2, 'help' => 'Der Schwierigkeitsgrad ist in dieser Stadt geringer. Deswegen gilt sie nicht für das Saison-Ranking. Die Außenwelt ist durchschnittlich 13x13 Felder groß.'],

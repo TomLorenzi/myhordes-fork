@@ -7,7 +7,7 @@ use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class AwardIconDataService implements FixtureProcessorInterface {
 
-    public function process(array &$data): void
+    public function process(array &$data, ?string $tag = null): void
     {
         $container = new AwardIconPrototypeDataContainer($data);
         $container->add()->icon('r_heroac')->unlockquantity(15)->associatedpicto('r_heroac_#00')->commit();

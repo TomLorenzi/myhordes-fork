@@ -7,7 +7,7 @@ use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class AwardTitleDataService implements FixtureProcessorInterface {
 
-    public function process(array &$data): void
+    public function process(array &$data, ?string $tag = null): void
     {
         $container = new AwardTitlePrototypeDataContainer($data);
 

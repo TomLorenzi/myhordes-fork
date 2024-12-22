@@ -7,7 +7,7 @@ use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class LogDataService implements FixtureProcessorInterface {
 
-    public function process(array &$data): void
+    public function process(array &$data, ?string $tag = null): void
     {
         $data = array_merge_recursive($data, [
             ['text'=>'{citizen} hat der Stadt folgendes gespendet: {item}', 'name'=>'bankGive', 'type'=>LogEntryTemplate::TypeBank, 'class'=>LogEntryTemplate::ClassNone, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'],['type'=>"item",'name'=>'item'])],
@@ -252,13 +252,28 @@ class LogDataService implements FixtureProcessorInterface {
 
             ['text'=>'{player} ist der Stadt "{town}" beigetreten. Dort ist noch Platz für dich, du könntest ihm also folgen...', 'name'=>'gpm_friend_enters_town', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"user",'name'=>'player'],['type'=>"string",'name'=>'town'])],
             ['text'=>'{player} sind der Stadt "{town}" beigetreten. Dort ist noch Platz für dich, du könntest ihnen also folgen...', 'name'=>'gpm_friends_enter_town', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"users",'name'=>'player'],['type'=>"string",'name'=>'town'])],
-        ]);
 
-        $data = array_merge_recursive($data, [
             ['text'=>'{days} Tage überlebt in "{town}"', 'name'=>'hxp_survived_days_base', 'type'=>LogEntryTemplate::TypeHXPLog, 'class' => LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"string",'name'=>'town'],['type'=>"num",'name'=>'days'])],
             ['text'=>'Fähigkeit erworben', 'name'=>'hxp_debit_base', 'type'=>LogEntryTemplate::TypeHXPLog, 'class' => LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array()],
             ['text'=>'Dein geworbener Spieler {user} hat zum ersten Mal Heldenerfahrung für eine Fähigkeit ausgegeben.', 'name'=>'hxp_ref_first', 'type'=>LogEntryTemplate::TypeHXPLog, 'class' => LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"user",'name'=>'user'])],
             ['text'=>'Dein geworbener Spieler {user} hat zum ersten Mal in dieser Saison Heldenerfahrung für eine Fähigkeit ausgegeben.', 'name'=>'hxp_ref_repeat', 'type'=>LogEntryTemplate::TypeHXPLog, 'class' => LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"user",'name'=>'user'])],
+
+            ['text'=>'{citizen} hat {items} in der Müllhalde wiederhergestellt (-{def} Verteidigung)', 'name'=>'dumpItemsRecover', 'type'=>LogEntryTemplate::TypeDump, 'class'=>LogEntryTemplate::ClassNone, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'],['type'=>"list",'name'=>'items','listType'=>'item'],['type'=>'num','name'=>'def'])],
+            ['text'=>'{citizen} hat die Asche von {disposed} in alle Winde zerstreut.', 'name'=>'citizenDisposalBurn', 'type'=>LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassNone, 'secondaryType'=>LogEntryTemplate::TypeCitizens, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'],['type'=>"citizen",'name'=>'disposed'])],
+            ['text'=>'{citizen} hat die Asche von {disposed} im Gemüsebeet verstreut.', 'name'=>'citizenDisposalBurnGarden', 'type'=>LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassNone, 'secondaryType'=>LogEntryTemplate::TypeCitizens, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'],['type'=>"citizen",'name'=>'disposed'])],
+
+            ['text'=>'{kills} Bürger als Ghoul verspeist.', 'name'=>'hxp_ghoul_aggression', 'type'=>LogEntryTemplate::TypeHXPLog, 'class' => LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"num",'name'=>'kills'])],
+            ['text'=>'Den ersten Tag in der Pandämonium-Stadt "{town}" überlebt.', 'name'=>'hxp_panda_day1', 'type'=>LogEntryTemplate::TypeHXPLog, 'class' => LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"string",'name'=>'town'])],
+            ['text'=>'Die ersten 5 Tage in der Pandämonium-Stadt "{town}" überlebt.', 'name'=>'hxp_panda_day5', 'type'=>LogEntryTemplate::TypeHXPLog, 'class' => LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"string",'name'=>'town'])],
+            ['text'=>'10 Tage als {profession} in "{town}" überlebt.', 'name'=>'hxp_profession_day10', 'type'=>LogEntryTemplate::TypeHXPLog, 'class' => LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"string",'name'=>'town'],['type'=>"profession",'name'=>'profession'])],
+            ['text'=>'15 Tage in "{town}" überlebt.', 'name'=>'hxp_common_day15', 'type'=>LogEntryTemplate::TypeHXPLog, 'class' => LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"string",'name'=>'town'])],
+            ['text'=>'Auszeichnung {picto} in "{town}" verdient.', 'name'=>'hxp_picto', 'type'=>LogEntryTemplate::TypeHXPLog, 'class' => LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"string",'name'=>'town'],['type'=>"picto",'name'=>'picto'])],
+            ['text'=>'Auszeichnung {picto} zum ersten Mal in "{town}" verdient.', 'name'=>'hxp_picto_first', 'type'=>LogEntryTemplate::TypeHXPLog, 'class' => LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"string",'name'=>'town'],['type'=>"picto",'name'=>'picto'])],
+
+            ['text'=>'{dogname}, der stinkende Köter von {citizen}, hat sich folgendes aus der Bank geschnappt und ist damit aus der Stadt gerannt: {item}', 'name'=>'bankTakeTamer', 'type'=>LogEntryTemplate::TypeBank, 'class'=>LogEntryTemplate::ClassWarning, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"dogname",'name'=>'dogname'],['type'=>"citizen",'name'=>'citizen'],['type'=>"item",'name'=>'item'])],
+
+            ['text'=>'{citizen} hat {list2} in die Stadt gelockt und dabei folgendes Futter eingesetzt: {list1}.', 'name'=>'clinicConvert', 'type'=> 101, 'class'=>LogEntryTemplate::ClassInfo, 'secondaryType'=>LogEntryTemplate::TypeBank, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'],['type'=>'list','name'=>'list1','listType'=>'item'],['type'=>'list','name'=>'list2','listType'=>'item'])],
+            ['text'=>'{citizen} hat vergeblich versucht Tiere in die Stadt zu locken und dabei folgendes Futter verschwendet: {list1}.', 'name'=>'clinicConvertFail', 'type'=> 101, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>LogEntryTemplate::TypeBank, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'],['type'=>'list','name'=>'list1','listType'=>'item'])],
         ]);
     }
 }

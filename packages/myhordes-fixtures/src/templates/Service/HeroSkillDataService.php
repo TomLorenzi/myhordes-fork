@@ -8,7 +8,7 @@ use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class HeroSkillDataService implements FixtureProcessorInterface {
 
-    public function process(array &$data): void
+    public function process(array &$data, ?string $tag = null): void
     {
         $container = new HeroicExperienceDataContainer();
         $container->add()->name('manipulator')->title('Tipp-Ex')->description('Du kannst 2 Mal pro Partie einen Registereintrag unkenntlich machen. Dazu musst du nur auf das kleine Icon "Fälschen" klicken. Dieses befindet sich links neben dem "störenden" Registereintrag. ;-)')->icon('small_falsify')

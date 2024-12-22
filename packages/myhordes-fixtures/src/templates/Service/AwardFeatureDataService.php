@@ -6,7 +6,7 @@ use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class AwardFeatureDataService implements FixtureProcessorInterface {
 
-    public function process(array &$data): void
+    public function process(array &$data, ?string $tag = null): void
     {
         $data = array_replace_recursive($data, [
             'f_wtns'        => [ 'icon' => 'r_ginfec',      'label' => 'Zeuge der großen Verseuchung', 'desc' =>  'Als Opfer der Großen Seuche hast du durch dein gestähltes Immunsystem eine Chance, Infektionen abzuwehren.'],

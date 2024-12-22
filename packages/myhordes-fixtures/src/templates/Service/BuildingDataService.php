@@ -7,7 +7,7 @@ use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class BuildingDataService implements FixtureProcessorInterface {
 
-    public function process(array &$data): void
+    public function process(array &$data, ?string $tag = null): void
     {
         // \["name"\s*=>\s*["'](.*?)["']\s*,\s*'desc'\s*=>\s*["'](.*?)["'],\s*"temporary"\s*=>\s*(\d+),"img"\s*=>\s*["'](.*?)["'],"vp"\s*=>\s*(\d+),"ap"\s*=>\s*(\d+),\s*"hp"\s*=>\s*(\d+),"bp"\s*=>\s*(\d+),"rsc"\s*=>\s*\[(.*?)\],\s*"orderby"\s*=>\s*(\d+)
         $container = new BuildingPrototypeDataContainer($data);

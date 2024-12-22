@@ -10,7 +10,7 @@ class ItemDataService implements FixtureProcessorInterface {
     /**
      * @throws \Exception
      */
-    public function process(array &$data): void
+    public function process(array &$data, ?string $tag = null): void
     {
         $container = new ItemPrototypeDataContainer($data);
         $container->add()->label('Drahtspule')->icon('wire')->category('Rsc')->deco(0)->heavy(false)->watchpoint(0)->commit();

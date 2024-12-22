@@ -7,7 +7,7 @@ use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class PictoDataService implements FixtureProcessorInterface {
 
-    public function process(array &$data): void
+    public function process(array &$data, ?string $tag = null): void
     {
         $data = array_merge_recursive($data, [
             [
@@ -710,6 +710,26 @@ class PictoDataService implements FixtureProcessorInterface {
                 'icon' => 'r_eventpart',
                 'rare' => false,
                 'special' => true,
+            ],
+            [
+                'label' => 'Blaugoldige Thermalbäder',
+                'description' => 'Hey, du hättest an deine Seife denken sollen!',
+                'icon' => 'r_thermal',
+                'rare' => true,
+                'priority' => 3,
+            ],
+            [
+                'label' => 'Leichenverbrenner',
+                'description' => 'Durchgeführte feurige Begräbnisrituale an den Leichen von Bürgern',
+                'icon' => 'r_cburn',
+                'rare' => false,
+                'priority' => 3,
+            ],
+            [
+                'label' => 'Festliche Dekoration',
+                'description' => 'Anzahl der Feierlichkeiten, an denen Sie teilgenommen haben.',
+                'icon' => 'r_decofeist',
+                'rare' => false,
             ],
         ]);
     }

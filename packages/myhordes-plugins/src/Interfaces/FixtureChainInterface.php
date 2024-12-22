@@ -9,8 +9,8 @@ abstract class FixtureChainInterface
 {
     private array $processors = [];
 
-    public function addProcessor( FixtureProcessorInterface $if, string $source ): void {
-        $this->processors[] = [$if,$source];
+    public function addProcessor( FixtureProcessorInterface $if, string $source, string $tag ): void {
+        $this->processors[] = [$if,$source,$tag];
     }
 
     /**
@@ -26,21 +26,21 @@ abstract class FixtureChainInterface
 
         // If no filters are enabled, we can simply walk the processor chain and return the final result
         if (empty($limit)) {
-            foreach ($this->processors as [$processor])
-                $processor->process($data);
+            foreach ($this->processors as [$processor,$_,$tag])
+                $processor->process($data, $tag);
             return $data;
         // Otherwise, we need to track changes more carefully
         } else {
             // Make a separate data container to track changes
             $tracked_changes = new Dot();
 
-            foreach ($this->processors as [$processor,$source]) {
+            foreach ($this->processors as [$processor,$source,$tag]) {
                 // Check if the current source is tracked
                 $track = self::filter_fits($limit, $source);
 
                 // If it is tracked, make a snapshot of the data before applying the processor
                 if ($track) $data_before = new Dot($data);
-                $processor->process($data);
+                $processor->process($data,$tag);
 
                 // If it is tracked...
                 if ($track) {

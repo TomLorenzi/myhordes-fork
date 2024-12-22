@@ -1,0 +1,9 @@
+# Additional role play texts
+rp_title:
+  title: 'RP title'
+  author: Brainbox
+  content: ["<p>Content</p>\r\n<br>\r\n\t\t\t\t\t<p>May include <strong>HTML</strong>. Use multiple entries in this array for additional pages.</p>"]
+  lang: de
+  design: typed
+  background: white
+  chance: '0'

@@ -99,7 +99,7 @@ class FixtureChain implements CompilerPassInterface
 
             foreach ($taggedServices as $id => $tags) {
                 // add the transport service to the TransportChain service
-                $definition->addMethodCall('addProcessor', [new Reference($id), $id]);
+                $definition->addMethodCall('addProcessor', [new Reference($id), $id, $tag]);
                 $compendium->addMethodCall( 'addEntry', [ $class, $id, $tag ] );
             }
         }

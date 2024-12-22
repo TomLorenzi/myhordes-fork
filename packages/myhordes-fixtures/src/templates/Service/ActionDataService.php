@@ -12,7 +12,7 @@ use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class ActionDataService implements FixtureProcessorInterface {
 
-    public function process(array &$data): void
+    public function process(array &$data, ?string $tag = null): void
     {
         $requirement_container = ActionRequirementProvider::create($data);
 

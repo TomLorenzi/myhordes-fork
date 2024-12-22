@@ -1,0 +1,2 @@
+content/myhordes/fixtures/**/*.yaml
+!content/myhordes/fixtures/**/*.example.yaml

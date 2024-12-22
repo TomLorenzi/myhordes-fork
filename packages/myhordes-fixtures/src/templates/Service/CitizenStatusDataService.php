@@ -6,35 +6,40 @@ use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class CitizenStatusDataService implements FixtureProcessorInterface {
 
-    public function process(array &$data): void
+    public function process(array &$data, ?string $tag = null): void
     {
         $data = array_replace_recursive($data, [
             'clean' 	=> ['name' => 'clean',                                            'label' => 'Clean', 'description' => 'Du hast noch keine Drogen genommen.', 'volatile' => false],
             'hasdrunk'  => ['name' => 'hasdrunk',                                         'label' => 'Getrunken', 'description' => 'Du hast heute bereits getrunken. Eine weitere Essensration erlaubt dir heute nicht weitere AP.', 'volatile' => true],
             'haseaten'  => ['name' => 'haseaten',                                         'label' => 'Satt', 'description' => 'Du hast heute bereits gegessen. Eine weitere Essensration erlaubt dir heute nicht weitere AP.', 'volatile' => true],
             'camper' 	=> ['name' => 'camper',                                           'label' => 'Umsichtiger Camper', 'description' => 'Du hast die letzte Nacht in der Kälte der Außenwelt verbracht. Dabei konntest du die Windrichtung und den Marsch der Zombiehorde beobachten. Damit bist du für den Rest des Tages in der Lage, erfolgreicher Gegenstände zu finden.', 'volatile' => false],
-            'immune' 	=> ['name' => 'immune',                                           'label' => 'Immunisiert', 'description' => 'Du hast Medizin eingenommen, die dich vor Infektionen schützt und dich davor bewahrt, zu einem Ghul zu werden.', 'volatile' => true],
+            'immune' 	=> ['name' => 'immune',                     'nw_death' => -0.01,  'label' => 'Immunisiert', 'description' => 'Du hast Medizin eingenommen, die dich vor Infektionen schützt und dich davor bewahrt, zu einem Ghul zu werden.', 'volatile' => true],
             'hsurvive' 	=> ['name' => 'hsurvive',                                         'label' => 'Den Tod besiegen', 'description' => 'Du hast deine Heldenfähigkeit "Den Tod besiegen" verwendet!', 'volatile' => true],
             'hsurvive2' => ['name' => 'hsurvive2',                                        'label' => 'Den Tod besiegen', 'description' => 'Du hast deine Heldenfähigkeit "Den Tod besiegen" verwendet!', 'volatile' => true],
             'hsurvive3' => ['name' => 'hsurvive3',                                        'label' => 'Rudimentärer Schutz', 'description' => 'Dank der Hilfe eines anderen Bürgers wirst du diese Nacht keine Durst- oder Krankheitssymptome verspüren.', 'volatile' => true],
             'tired' 	=> ['name' => 'tired',                                            'label' => 'Erschöpfung', 'description' => 'Du bist völlig erschöpft... Ruh dich aus oder iss etwas, um wieder zu Kräften zu kommen!', 'volatile' => false],
-            'terror' 	=> ['name' => 'terror',    'nw_def' => -30, 'nw_death' =>  0.45,  'label' => 'Angststarre', 'description' => 'Dir ist etwas furchtbares wiederfahren, und du bist vor Angst erstarrt! Du kannst dich nicht länger in einer von Zombies kontrollierten Zone aufhalten. Wenn du gefangen bist, kannst du nicht länger fliehen.', 'volatile' => false],
-            'thirst1' 	=> ['name' => 'thirst1',                                          'label' => 'Durst', 'description' => 'Du bist durstig... Das passiert immer dann wenn du am Vortag nichts getrunken hast oder wenn du in der Wüste lange Strecken gelaufen bist...', 'volatile' => false],
-            'thirst2' 	=> ['name' => 'thirst2',   'nw_def' => -10,                       'label' => 'Dehydriert', 'description' => 'Dein Durst hat ein kritisches Level erreicht! Trinke schnell etwas, oder du riskierst zu sterben!', 'volatile' => false],
+            'terror' 	=> ['name' => 'terror',    'nw_def' => -30, 'nw_death' =>  0.05,  'label' => 'Angststarre',	'description' => 'Dir ist etwas furchtbares wiederfahren, und du bist vor Angst erstarrt! Du kannst dich nicht länger in einer von Zombies kontrollierten Zone aufhalten. Wenn du gefangen bist, kannst du nicht länger fliehen.', 'volatile' => false],
+            'thirst1' 	=> ['name' => 'thirst1',   'nw_def' => -5,                        'label' => 'Durst', 'description' => 'Du bist durstig... Das passiert immer dann wenn du am Vortag nichts getrunken hast oder wenn du in der Wüste lange Strecken gelaufen bist...', 'volatile' => false],
+            'thirst2' 	=> ['name' => 'thirst2',   'nw_def' => -10, 'nw_death' =>  0.03,  'label' => 'Dehydriert', 'description' => 'Dein Durst hat ein kritisches Level erreicht! Trinke schnell etwas, oder du riskierst zu sterben!', 'volatile' => false],
             'drugged' 	=> ['name' => 'drugged',   'nw_def' =>  10,                       'label' => 'Rauschzustand', 'description' => 'Du hast heute bereits Drogen konsumiert. Wenn du noch weitere Drogen nimmst, riskierst du eine Abhängigkeit!', 'volatile' => true],
-            'addict' 	=> ['name' => 'addict',    'nw_def' =>  15, 'nw_death' =>  0.10,  'label' => 'Drogenabhängig', 'description' => 'Du musst jeden Tag Drogen einnehmen! Wenn du eines morgens aufwachst, ohne am Tag zuvor Drogen genommen zu haben, wirst du sterben!', 'volatile' => false],
-            'infection' => ['name' => 'infection', 'nw_def' => -15, 'nw_death' =>  0.20,  'label' => 'Infektion', 'description' => 'Eine furchtbare Krankheit brennt sich durch dein Innerstes... Vielleicht eine Art Infektion? Das beste, was du jetzt tun kannst, ist die richtige Medizin einzunehmen... Wenn du hingegen nichts tust, hast du eine 50/50 Chance, morgen tot aufzuwachen.', 'volatile' => false],
-            'drunk' 	=> ['name' => 'drunk',     'nw_def' =>  20, 'nw_death' => -0.04,  'label' => 'Trunkenheit', 'description' => 'Du stehst unter dem Einfluss von ziemlich starkem Alkohol... Du kannst vorerst keinen weiteren Alkohol zu dir nehmen.', 'volatile' => true],
-            'hungover' 	=> ['name' => 'hungover',  'nw_def' => -15, 'nw_death' =>  0.05,  'label' => 'Kater', 'description' => 'Du hast furchtbare Kopfschmerzen... Keinesfalls kannst du heute weiteren Alkohol zu dir nehmen.', 'volatile' => true],
-            'wound1' 	=> ['name' => 'wound1',    'nw_def' => -20, 'nw_death' =>  0.20,  'label' => 'Verwundung - Kopf', 'description' => 'Du bist am Kopf verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.', 'volatile' => false],
-            'wound2' 	=> ['name' => 'wound2',    'nw_def' => -20, 'nw_death' =>  0.20,  'label' => 'Verwundung - Hände', 'description' => 'Du bist an der Hand verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.', 'volatile' => false],
-            'wound3' 	=> ['name' => 'wound3',    'nw_def' => -20, 'nw_death' =>  0.20,  'label' => 'Verwundung - Arme', 'description' => 'Du bist an deinem Arm verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.', 'volatile' => false],
-            'wound4' 	=> ['name' => 'wound4',    'nw_def' => -20, 'nw_death' =>  0.20,  'label' => 'Verwundung - Bein', 'description' => 'Du bist an deinen Beinen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.', 'volatile' => false],
-            'wound5' 	=> ['name' => 'wound5',    'nw_def' => -20, 'nw_death' =>  0.20,  'label' => 'Verwundung - Auge', 'description' => 'Du bist an den Augen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.', 'volatile' => false],
-            'wound6' 	=> ['name' => 'wound6',    'nw_def' => -20, 'nw_death' =>  0.20,  'label' => 'Verwundung - Fuß', 'description' => 'Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.', 'volatile' => false],
-            'healed' 	=> ['name' => 'healed',    'nw_def' => -10, 'nw_death' =>  0.10,  'label' => 'Bandagiert', 'description' => 'Du hast dich bereits von einer Verletzung erholt. Du kannst heute nicht erneut geheilt werden.', 'volatile' => true],
+            'addict' 	=> ['name' => 'addict',    'nw_def' =>  10, 'nw_death' =>  0.06,  'label' => 'Drogenabhängig', 'description' => 'Du musst jeden Tag Drogen einnehmen! Wenn du eines morgens aufwachst, ohne am Tag zuvor Drogen genommen zu haben, wirst du sterben!', 'volatile' => false],
+            'infection' => ['name' => 'infection', 'nw_def' => -15, 'nw_death' =>  0.10,  'label' => 'Infektion', 'description' => 'Eine furchtbare Krankheit brennt sich durch dein Innerstes... Vielleicht eine Art Infektion? Das beste, was du jetzt tun kannst, ist die richtige Medizin einzunehmen... Wenn du hingegen nichts tust, hast du eine 50/50 Chance, morgen tot aufzuwachen.', 'volatile' => false],
+            'drunk' 	=> ['name' => 'drunk',     'nw_def' =>  15, 'nw_death' => -0.02,  'label' => 'Trunkenheit', 'description' => 'Du stehst unter dem Einfluss von ziemlich starkem Alkohol... Du kannst vorerst keinen weiteren Alkohol zu dir nehmen.', 'volatile' => true],
+            'hungover' 	=> ['name' => 'hungover',  'nw_def' => -15, 'nw_death' =>  0.06,  'label' => 'Kater', 'description' => 'Du hast furchtbare Kopfschmerzen... Keinesfalls kannst du heute weiteren Alkohol zu dir nehmen.', 'volatile' => true],
+            'wound1' 	=> ['name' => 'wound1',    'nw_def' => -15, 'nw_death' =>  0.10,  'label' => 'Verwundung - Kopf', 'description' => 'Du bist am Kopf verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.', 'volatile' => false],
+            'wound2' 	=> ['name' => 'wound2',    'nw_def' => -15, 'nw_death' =>  0.10,  'label' => 'Verwundung - Hände', 'description' => 'Du bist an der Hand verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.', 'volatile' => false],
+            'wound3' 	=> ['name' => 'wound3',    'nw_def' => -15, 'nw_death' =>  0.10,  'label' => 'Verwundung - Arme', 'description' => 'Du bist an deinem Arm verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.', 'volatile' => false],
+            'wound4' 	=> ['name' => 'wound4',    'nw_def' => -15, 'nw_death' =>  0.10,  'label' => 'Verwundung - Bein', 'description' => 'Du bist an deinen Beinen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.', 'volatile' => false],
+            'wound5' 	=> ['name' => 'wound5',    'nw_def' => -15, 'nw_death' =>  0.10,  'label' => 'Verwundung - Auge', 'description' => 'Du bist an den Augen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.', 'volatile' => false],
+            'wound6' 	=> ['name' => 'wound6',    'nw_def' => -15, 'nw_death' =>  0.10,  'label' => 'Verwundung - Fuß', 'description' => 'Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.', 'volatile' => false],
+            'healed' 	=> ['name' => 'healed',    'nw_def' => -15, 'nw_death' =>  0.05,  'label' => 'Bandagiert', 'description' => 'Du hast dich bereits von einer Verletzung erholt. Du kannst heute nicht erneut geheilt werden.', 'volatile' => true],
             'hydrated'  => ['name' => 'hydrated',                                         'label' => 'Gut hydriert', 'description' => 'Es ist wichtig, regelmäßig zu trinken!', 'volatile' => false],
             'sober'     => ['name' => 'sober',                                            'label' => 'Nüchtern', 'description' => 'Du bist nüchtern, gut gemacht!', 'volatile' => false],
+
+            'tamer_guard_1' => ['name' => 'tamer_guard_1','nw_def' => 10, 'nw_death' =>  -0.02, 'label' => 'Wachthund', 'description' => 'Dein Hund passt heute Nacht besonders gut auf dich auf, solltest du dich entscheiden, als Nachtwächter auf den Zinnen zu stehen.'],
+            'tamer_guard_2' => ['name' => 'tamer_guard_2','nw_def' => 15, 'nw_death' =>  -0.03, 'label' => 'Gedopter Wachthund', 'description' => 'Dein Hund passt heute Nacht besonders gut auf dich auf, solltest du dich entscheiden, als Nachtwächter auf den Zinnen zu stehen. Keine Sorge, der Schaum vor seinem Mund ist ganz normal...'],
+            'tamer_watch_1' => ['name' => 'tamer_watch_1', 'label' => 'Schmiere stehen', 'description' => 'Falls du heute planst, einem anderen Bürger einen unangemeldeten Besuch abzustatten, wird dir dein Hund dabei helfen, unentdeckt zu bleiben.'],
+            'tamer_watch_2' => ['name' => 'tamer_watch_2', 'label' => 'Schmiere stehen', 'description' => 'Falls du heute planst, einem anderen Bürger einen unangemeldeten Besuch abzustatten, wird dir dein Hund dabei helfen, unentdeckt zu bleiben.'],
 
             'tg_dice' => ['name' => 'tg_dice', 'volatile' => true ],
             'tg_cards' => ['name' => 'tg_cards', 'volatile' => true],
@@ -82,10 +87,26 @@ class CitizenStatusDataService implements FixtureProcessorInterface {
             'tg_spirit_guide' => ['name' => 'tg_spirit_guide', 'volatile' => false],
             'tg_revolutionist' => ['name' => 'tg_revolutionist', 'volatile' => false],
             'tg_stats_locked' => ['name' => 'tg_stats_locked', 'volatile' => false],
-            'tg_rec_heroic' => ['name' => 'tg_rec_heroic', 'volatile' => false],
+            'tg_rec_heroic' => ['name' => 'tg_rec_heroic', 'volatile' => true],
             'tg_unban_altar' => ['name' => 'tg_unban_altar', 'volatile' => false],
             'tg_camping_death' => ['name' => 'tg_camping_death', 'volatile' => false],
             'tg_start_sp' => ['name' => 'tg_start_sp', 'volatile' => true],
+
+            'tg_home_pool'  => ['name' => 'tg_home_pool',  'volatile' => true],
+
+            'tg_got_xmas1' => ['name' => 'tg_got_xmas1', 'volatile' => false],
+            'tg_got_xmas2' => ['name' => 'tg_got_xmas2', 'volatile' => false],
+            'tg_got_xmas3' => ['name' => 'tg_got_xmas3', 'volatile' => false],
+
+            'tg_has_shoe'   => ['name' => 'tg_has_shoe', 'volatile' => false],
+            'tg_had_shoe'   => ['name' => 'tg_had_shoe', 'volatile' => true],
+            'tg_shoe_first' => ['name' => 'tg_shoe_first', 'volatile' => false],
+            'tg_has_bike'   => ['name' => 'tg_has_bike', 'volatile' => false],
+            'tg_had_bike'   => ['name' => 'tg_had_bike', 'volatile' => true],
+            'tg_bike_first' => ['name' => 'tg_bike_first', 'volatile' => false],
+            'tg_soccer' => ['name' => 'tg_soccer', 'volatile' => true ],
+            'tg_flag' => ['name' => 'tg_flag', 'volatile' => true ],
+            'tg_tamer_lure' => ['name' => 'tg_tamer_lure', 'volatile' => true ],
         ]);
     }
 }

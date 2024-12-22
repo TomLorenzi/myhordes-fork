@@ -11,6 +11,13 @@ services:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
+    MyHordes\Fixtures\Service\YamlDataService:
+      arguments: ['%kernel.bundles_metadata%']
+      tags:
+        - { name: 'myhordes.fixtures.rp_texts', priority: 1 }
+        - { name: 'myhordes.fixtures.awards.titles', priority: 1 }
+        - { name: 'myhordes.fixtures.awards.icons', priority: 1 }
+
     MyHordes\Fixtures\Service\PermissionDataService:
       tags: [ { name: 'myhordes.fixtures.permissions', priority: 0 } ]
 
