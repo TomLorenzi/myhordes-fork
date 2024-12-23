@@ -191,7 +191,7 @@ class SanitizeTownConfigAction
                 $rules[$list] = ['replace' => $rules[$list]];
     }
 
-    public function restore( $rules ): array
+    public function restore( array $rules, bool $fromTemplate = false ): array
     {
 
         $lists = ['disabled_jobs', 'disabled_roles', 'initial_buildings', 'unlocked_buildings', 'disabled_buildings'];
@@ -227,11 +227,12 @@ class SanitizeTownConfigAction
         };
 
         if ($map_margin_preset !== null) $rules['mapMarginPreset'] = $map_margin_preset;
+        $factor = $fromTemplate ? 1 : 100;
         if ($map_margin_preset === '_custom') {
-            Arr::set( $rules, 'margin_custom.north', Arr::get( $rules, 'margin_custom.north', 0.25 ) * 100 );
-            Arr::set( $rules, 'margin_custom.south', Arr::get( $rules, 'margin_custom.south', 0.25 ) * 100 );
-            Arr::set( $rules, 'margin_custom.east', Arr::get( $rules, 'margin_custom.east', 0.25 ) * 100 );
-            Arr::set( $rules, 'margin_custom.west', Arr::get( $rules, 'margin_custom.west', 0.25 ) * 100 );
+            Arr::set( $rules, 'margin_custom.north', Arr::get( $rules, 'margin_custom.north', 0.25 ) * $factor );
+            Arr::set( $rules, 'margin_custom.south', Arr::get( $rules, 'margin_custom.south', 0.25 ) * $factor );
+            Arr::set( $rules, 'margin_custom.east', Arr::get( $rules, 'margin_custom.east', 0.25 ) * $factor );
+            Arr::set( $rules, 'margin_custom.west', Arr::get( $rules, 'margin_custom.west', 0.25 ) * $factor );
         }
 
         return $rules;
@@ -413,7 +414,7 @@ class SanitizeTownConfigAction
             $dirs = ['north', 'south', 'west', 'east'];
             // init the values to default if needed
             foreach($dirs as $dir_i => $dir) {
-                $margin_custom[$dir] = $margin_custom[$dir] ?? 25;
+                $margin_custom[$dir] = min(max(0, $margin_custom[$dir] ?? 25), 100);
             }
             // cap the margins to their opposed direction's margin and transform to %
             foreach($dirs as $dir_i => $dir) {
