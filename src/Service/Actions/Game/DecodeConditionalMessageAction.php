@@ -14,7 +14,7 @@ readonly class DecodeConditionalMessageAction
         return in_array($tagValue, $booleanTags);
     }
 
-    private static function matchCitizenProperty(string $tagValue, array $tagArgs, ?CitizenProperties $properties = null): bool {
+    private static function matchCitizenProperty(string $tagValue, array $tagArgs, ?CitizenProperties $properties = null, string &$content = ''): bool {
         if ($properties === null) return false;
 
         $prop = \App\Enum\Configuration\CitizenProperties::fromName( $tagValue );
@@ -29,15 +29,32 @@ readonly class DecodeConditionalMessageAction
         $val = json_validate($val) ? json_decode( $val, true ) : $val;
         $stored = $properties->get( $prop );
 
-        return match ($op) {
+        dump($op, $val);
+
+        $mapProps = $op === 'map'
+            ? array_filter( array_keys( $tagArgs ), fn(string $t) => !in_array( $t, ['op', 'val', 'glue', 'final_glue'] ) )
+            : [];
+
+        $matches = match ($op) {
             'is' => $stored === $val,
             'in' => is_array($stored) && in_array($val, $stored),
             'gt' => is_numeric($stored) && $stored > $val,
             'gte' => is_numeric($stored) && $stored >= $val,
             'lt' => is_numeric($stored) && $stored < $val,
             'lte' => is_numeric($stored) && $stored <= $val,
+            'map' => is_array($stored) && !empty( array_intersect( $stored, $mapProps ) ),
             default => false
         };
+
+        if ($matches && $op === 'map' && is_array($stored)) {
+            $map = array_values( array_filter( array_map( fn(string $k) => in_array($k, $mapProps) ? ($tagArgs[$k] ?? null) : null, $stored ), fn(?string $k) => $k !== null ) );
+            if (count( $map ) <= 1) $content = implode( $tagArgs['glue'] ?? ', ', $map );
+            else $content =
+                implode( $tagArgs['glue'] ?? ', ', array_slice($map, 0, -1) ) .
+                ($tagArgs['final_glue'] ?? $tagArgs['glue'] ?? ', ') . $map[count($map) - 1];
+        }
+
+        return $matches;
     }
 
     private static function processTag(
@@ -52,7 +69,7 @@ readonly class DecodeConditionalMessageAction
         $match = match ($tagType) {
             '1' => true,
             't' => self::matchBooleanTag($tagValue, $booleanTags),
-            'c' => self::matchCitizenProperty($tagValue, $tagArgs, $properties),
+            'c' => self::matchCitizenProperty($tagValue, $tagArgs, $properties, $content),
             default => false,
         };
 
@@ -71,8 +88,18 @@ readonly class DecodeConditionalMessageAction
         do {
             $baseMessage = preg_replace_callback( '/<(.*?)-(.*?)(?:\s(.*?=".*?"))?>(.*?)<\/\1-\2>/' , function(array $m) use ($booleanTags, $properties): string {
                 [, $tagType, $tagValue, $tagArgs, $text] = $m;
-                $tagArgs = array_map(fn(string $a) => explode('=', $a), array_filter( explode(' ', $tagArgs ?? ''), fn($a) => !empty($a)));
-                return self::processTag( $tagType, $tagValue, array_combine( array_map( fn(array $a) => $a[0], $tagArgs ), array_map( fn(array $a) => substr($a[1], 1, -1), $tagArgs ) ), $text, $booleanTags, $properties );
+
+                $args = [];
+                while (($next_tag = strstr($tagArgs, '="', true)) !== false) {
+                    $tagArgs = mb_substr($tagArgs, mb_strlen($next_tag) + 2);
+                    $next_value = strstr($tagArgs, '"', true);
+                    if ($next_value !== false) {
+                        $args[trim($next_tag)] = $next_value;
+                        $tagArgs = trim(mb_substr($tagArgs, mb_strlen($next_value) + 1));
+                    }
+                }
+                dump($m, $args);
+                return self::processTag( $tagType, $tagValue, $args, $text, $booleanTags, $properties );
             }, $baseMessage, -1, $c);
         } while ($c > 0);
 
