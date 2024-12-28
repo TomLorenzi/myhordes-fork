@@ -33,6 +33,7 @@ class InventoryHandler
         private readonly EntityManagerInterface $entity_manager,
         private readonly ItemFactory $item_factory,
         private readonly DoctrineCacheService $doctrineCache,
+        private readonly EventProxyService $events,
     ) {}
 
     public function getSize( Inventory $inventory ): int {
@@ -255,6 +256,9 @@ class InventoryHandler
                 $item->getInventory()->removeItem( $item );
             $this->entity_manager->persist($inv);
         }
+
+        $t = $to->findTown();
+        if ($t) $this->events->forceTransferItem( $t, $item, $inv, $to );
 
         // This is a bank or a building inventory
         if (($to->getTown() || $to->getBuilding()) && $possible_stack = $this->findStackPrototype( $to, $item )) {

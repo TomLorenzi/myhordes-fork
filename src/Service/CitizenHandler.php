@@ -325,6 +325,7 @@ class CitizenHandler
                 $items[] = $item;
 
         $bank = $citizen->getTown()->getBank();
+        dump($items);
         foreach ($items as $item) {
             $this->inventory_handler->forceMoveItem( $bank, $item );
         }
