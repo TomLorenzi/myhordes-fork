@@ -36,14 +36,14 @@
             <div class="padded cell rw-12">
                 <h5>{{ 'Laufende Events'|trans({}, 'soul') }}</h5>
                 {% for event in active_events %}
-                    <div class="note note-event-{{ event[0] }}">
-                        <b>{{ ('event_' ~ event[0] ~ '_title')|trans({year: event[1]|date("Y")}, 'events') }}</b><br />
+                    <div class="note note-event-{{ event.event }}">
+                        <b>{{ ('event_' ~ event.event ~ '_title')|trans({year: event.start|date("Y")}, 'events') }}</b><br />
                         <span class="small">
-                            {{ ('event_' ~ event[0] ~ '_description')|trans({}, 'events') }}
+                            {{ ('event_' ~ event.event ~ '_description')|trans({}, 'events') }}
                         </span><br />
                         <b class="small">
-                            {% if event[2] is not null %}
-                                {{ 'Endet in {days} Tagen, am {date}'|trans({days: ('today'|to_date).diff(event[2]).days, date: event[2]|date_modify("-1sec")|format_datetime('long', 'long')}, 'soul') }}
+                            {% if event.end is not null %}
+                                {{ 'Endet in {days} Tagen, am {date}'|trans({days: ('today'|to_date).diff(event.end).days, date: event.end|date_modify("-1sec")|format_datetime('long', 'long')}, 'soul') }}
                             {% else %}
                                 {{ 'Wird durch einen Administrator beendet.'|trans({}, 'soul') }}
                             {% endif %}

@@ -215,6 +215,9 @@ class MapMaker
             }
         }
 
+        $offset_x = max(min( $resolution - 1, $offset_x ), 0);
+        $offset_y = max(min( $resolution - 1, $offset_y ), 0);
+
         return $resolution;
     }
 

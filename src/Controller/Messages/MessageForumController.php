@@ -516,8 +516,6 @@ class MessageForumController extends MessageController
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
      * @param InvalidateTagsInAllPoolsAction $clearCache
-     * @param PictoHandler $ph
-     * @param CrowService $crow
      * @param EventProxyService $proxy
      * @return Response
      */

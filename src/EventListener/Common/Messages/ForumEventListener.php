@@ -33,6 +33,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 #[AsEventListener(event: ForumMessageNewPostEvent::class, method: 'queueMentions', priority: 0)]
 #[AsEventListener(event: ForumMessageNewPostEvent::class, method: 'queueSubscriptions', priority: 10)]
 #[AsEventListener(event: ForumMessageNewPostEvent::class, method: 'queueDistinctions', priority: 20)]
+#[AsEventListener(event: ForumMessageNewThreadEvent::class, method: 'queueDistinctions', priority: 20)]
 #[AsEventListener(event: ForumMessageNewThreadEvent::class, method: 'removeForumCheckmarkForTownForums', priority: -10)]
 #[AsEventListener(event: ForumMessageNewPostEvent::class, method: 'removeForumCheckmarkForTownForums', priority: -10)]
 final class ForumEventListener implements ServiceSubscriberInterface
@@ -111,7 +112,7 @@ final class ForumEventListener implements ServiceSubscriberInterface
         }
 	}
 
-    public function queueDistinctions(ForumMessageNewPostEvent $event): void {
+    public function queueDistinctions(ForumMessageNewPostEvent|ForumMessageNewThreadEvent $event): void {
         $forum = $event->post->getThread()->getForum();
         $user = $event->post->getOwner();
 
