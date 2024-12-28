@@ -10,6 +10,7 @@ use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\EscortActionGroup;
+use App\Entity\HeroicActionPrototype;
 use App\Entity\HomeActionPrototype;
 use App\Entity\Item;
 use App\Entity\ItemAction;
@@ -34,6 +35,7 @@ use App\Structures\EscortItemActionSet;
 use App\Structures\FriendshipActionTarget;
 use App\Structures\TownConf;
 use App\Translation\T;
+use ArrayHelpers\Arr;
 use Doctrine\ORM\EntityManagerInterface;
 use MyHordes\Fixtures\DTO\Actions\EffectsDataContainer;
 use MyHordes\Fixtures\DTO\Actions\RequirementsDataContainer;
@@ -63,7 +65,7 @@ class ActionHandler
         private readonly DecodeConditionalMessageAction $messageDecoder,
     ) {}
 
-    protected function evaluate( Citizen $citizen, ?Item $item, $target, ItemAction $action, ?string &$message, ?Evaluation &$cache = null ): ActionValidity {
+    protected function evaluate( Citizen $citizen, ?Item $item, $target, ItemAction $action, ?string &$message, ?Evaluation &$cache = null, ?Citizen $contextCitizen = null ): ActionValidity {
 
         if ($item && !$item->getPrototype()->getActions()->contains( $action )) return ActionValidity::None;
         if ($target && (!$action->getTarget() || !$this->targetDefinitionApplies($target, $action->getTarget(), reference: $citizen)))
@@ -85,7 +87,7 @@ class ActionHandler
             if ($meta_requirement->getAtoms()) {
                 $container = (new RequirementsDataContainer())->fromArray([['atomList' => $meta_requirement->getAtoms()]]);
                 foreach ( $container->all() as $requirementsDataElement )
-                    if (!AtomRequirementProcessor::process( $this->container, $cache, $requirementsDataElement->atomList ))
+                    if (!AtomRequirementProcessor::process( $this->container, $cache, $requirementsDataElement->atomList, $contextCitizen ))
                         $current_state = $current_state->merge($this_state);
             }
 
@@ -202,11 +204,25 @@ class ActionHandler
 
     }
 
+    public function getHeroicDonatedFromCitizen(HeroicActionPrototype $heroic, Citizen $citizen, bool $used = false ): ?Citizen {
+        $giftedActions = array_column( array_filter(
+            $citizen->getSpecificActionCounter( ActionCounter::ActionTypeReceiveHeroic )->getAdditionalData() ?? [],
+            fn($entry) => ($entry['valid'] && ($entry['used'] ?? false) === $used)
+        ), null, 'action');
+
+        $cid = Arr::get( $giftedActions, "{$heroic->getName()}.origin", Arr::get( $giftedActions, "{$heroic->getName()}.from", -1 ) );
+        if ($cid <= 0) return null;
+        $donated_by_citizen = $this->entity_manager->getRepository(Citizen::class)->find( $cid );
+        if ($donated_by_citizen?->getTown() !== $citizen->getTown()) return null;
+
+        return $donated_by_citizen;
+    }
+
     /**
      * @param Citizen $citizen
-     * @param ItemAction[] $available
-     * @param ItemAction[] $crossed
-     * @param ItemAction[] $used
+     * @param HeroicActionPrototype[] $available
+     * @param HeroicActionPrototype[] $crossed
+     * @param HeroicActionPrototype[] $used
      */
     public function getAvailableIHeroicActions(Citizen $citizen, ?array &$available, ?array &$crossed, ?array &$used ) {
         $available = $crossed = $used = [];
@@ -216,14 +232,14 @@ class ActionHandler
 
         foreach ($citizen->getHeroicActions() as $heroic) {
             if ($is_at_00 && !$heroic->getAction()->getAllowedAtGate()) continue;
-            $mode = $this->evaluate( $citizen, null, null, $heroic->getAction(), $tx );
+            $mode = $this->evaluate( $citizen, null, null, $heroic->getAction(), $tx, contextCitizen: $this->getHeroicDonatedFromCitizen( $heroic, $citizen ) );
             if ($mode->thatOrAbove( ActionValidity::Allow )) $available[] = $heroic;
             else if ($mode->thatOrAbove(ActionValidity::Crossed)) $crossed[] = $heroic;
         }
 
         foreach ($citizen->getUsedHeroicActions() as $used_heroic) {
             if ($citizen->getHeroicActions()->contains($used_heroic) || ($is_at_00 && !$used_heroic->getAction()->getAllowedAtGate())) continue;
-            $mode = $this->evaluate( $citizen, null, null, $used_heroic->getAction(), $tx );
+            $mode = $this->evaluate( $citizen, null, null, $used_heroic->getAction(), $tx, contextCitizen: $this->getHeroicDonatedFromCitizen( $used_heroic, $citizen ) );
             if ($mode->thatOrAbove(ActionValidity::Crossed)) $used[] = $used_heroic;
         }
 
@@ -346,7 +362,7 @@ class ActionHandler
      * @param bool $escort_mode
      * @return int
      */
-    public function execute( Citizen &$citizen, ?Item &$item, &$target, ItemAction $action, ?string &$message, ?array &$remove, bool $force = false, bool $escort_mode = false ): int {
+    public function execute( Citizen &$citizen, ?Item &$item, &$target, ItemAction $action, ?string &$message, ?array &$remove, bool $force = false, bool $escort_mode = false, ?Citizen $contextCitizen = null ): int {
 
         $remove = [];
 
@@ -359,7 +375,7 @@ class ActionHandler
         $evaluation = null;
 
         if (!$force) {
-            $mode = $this->evaluate( $citizen, $item, $target, $action, $tx, $evaluation );
+            $mode = $this->evaluate( $citizen, $item, $target, $action, $tx, $evaluation, $contextCitizen );
             if ($mode->thatOrBelow( ActionValidity::Hidden ) ) return self::ErrorActionUnregistered;
             if ($mode->thatOrBelow( ActionValidity::Crossed ) ) return self::ErrorActionImpossible;
             if ($mode->thatOrBelow( ActionValidity::Allow ) ) {
@@ -408,7 +424,7 @@ class ActionHandler
         if (!empty($all_atoms)) {
             $container = (new EffectsDataContainer())->fromArray([['atomList' => $all_atoms]]);
             foreach ( $container->all() as $effectsDataElement ) {
-                AtomEffectProcessor::process($this->container, $cache, $effectsDataElement->atomList);
+                AtomEffectProcessor::process($this->container, $cache, $effectsDataElement->atomList, $contextCitizen);
                 if ($cache->getRegisteredError()) return $cache->getRegisteredError();
             }
         }

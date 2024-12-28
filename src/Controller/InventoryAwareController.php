@@ -263,9 +263,25 @@ class InventoryAwareController extends CustomAbstractController
         $this->action_handler->getAvailableIHeroicActions( $this->getActiveCitizen(),  $available, $crossed, $used );
         if (empty($available) && empty($crossed) && empty($used) ) return [];
 
-        foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'action' => $a->getAction(), 'renderer' => null, 'targets' => $a->getAction()->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getAction()->getTarget(), $this->getActiveCitizen() ) : null, 'target_mode' => $a->getAction()->getTarget()?->getSpawner() ?? 0, 'target_note' => $a->getAction()->getTarget()?->getNote(), 'crossed' => false ];
-        foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'action' => $c->getAction(), 'renderer' => null, 'targets' => null, 'target_mode' => 0, 'crossed' => true ];
-        foreach ($used as $c)      $ret[] = [ 'id' => $c->getId(), 'action' => $c->getAction(), 'renderer' => null, 'targets' => null, 'target_mode' => 0, 'crossed' => true, 'used' => true, 'used_message' => $c->getUsedMessage() ?? T::__('Du hast schon genug den Helden gespielt! Diese Heldentat kannst du erst im nächsten Leben wieder verbringen.', 'items') ];
+        $giftedActions = array_filter( $this->getActiveCitizen()->getSpecificActionCounter( ActionCounter::ActionTypeReceiveHeroic )->getAdditionalData() ?? [],
+            fn($record) => is_array($record) && ( $record['valid'] ?? false )
+        );
+
+        $getOrigin = function(HeroicActionPrototype $h, bool $used) use ($giftedActions) {
+            $id = array_reduce($giftedActions, fn(int $carry, array $record) => (
+                ($record['action'] ?? '') === $h->getName() &&
+                ($record['used'] ?? false) === $used
+            ) ? ($record['origin'] ?? $record['from'] ?? $carry) : $carry,-1);
+
+            if ($id <= 0) return null;
+            $c = $this->entity_manager->getRepository(Citizen::class)->find($id);
+            if ($c?->getTown() !== $this->getActiveCitizen()->getTown()) $c = null;
+            return $c;
+        };
+
+        foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'action' => $a->getAction(), 'renderer' => null, 'context' => $getOrigin($a, false), 'targets' => $a->getAction()->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getAction()->getTarget(), $this->getActiveCitizen() ) : null, 'target_mode' => $a->getAction()->getTarget()?->getSpawner() ?? 0, 'target_note' => $a->getAction()->getTarget()?->getNote(), 'crossed' => false ];
+        foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'action' => $c->getAction(), 'renderer' => null, 'context' => $getOrigin($c, false), 'targets' => null, 'target_mode' => 0, 'crossed' => true ];
+        foreach ($used as $c)      $ret[] = [ 'id' => $c->getId(), 'action' => $c->getAction(), 'renderer' => null, 'context' => $getOrigin($c, true), 'targets' => null, 'target_mode' => 0, 'crossed' => true, 'used' => true, 'used_message' => $c->getUsedMessage() ?? T::__('Du hast schon genug den Helden gespielt! Diese Heldentat kannst du erst im nächsten Leben wieder verbringen.', 'items') ];
 
         return $ret;
     }
@@ -866,12 +882,21 @@ class InventoryAwareController extends CustomAbstractController
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $item = null;
-        if (($error = $this->action_handler->execute( $citizen, $item, $target, $heroic->getAction(), $msg, $remove )) === ActionHandler::ErrorNone) {
+        if (($error = $this->action_handler->execute( $citizen, $item, $target, $heroic->getAction(), $msg, $remove, contextCitizen: $this->action_handler->getHeroicDonatedFromCitizen( $heroic, $citizen ) )) === ActionHandler::ErrorNone) {
 
             $heroic_action = $heroic->getAction();
             if ($trigger_after) $trigger_after($heroic_action);
             $citizen->removeHeroicAction($heroic);
             $citizen->addUsedHeroicAction($heroic);
+
+            // If the action was gifted, set "used" to true
+            $records = array_filter( $citizen->getSpecificActionCounter( ActionCounter::ActionTypeReceiveHeroic )->getAdditionalData() ?? [],
+                fn($record) => is_array($record) && ($record['action'] ?? null) === $heroic->getName() && !( $record['used'] ?? false ) && ( $record['valid'] ?? false )
+            );
+            if (!empty($records))
+                $this->entity_manager->persist(
+                    $citizen->getSpecificActionCounter( ActionCounter::ActionTypeReceiveHeroic )->setRecord( array_key_first( $records ), true, 'used' )
+                );
 
             // Add the picto Heroic Action
             $picto = $this->doctrineCache->getEntityByIdentifier(PictoPrototype::class, "r_heroac_#00");
