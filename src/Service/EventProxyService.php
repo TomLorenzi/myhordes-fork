@@ -55,6 +55,7 @@ use App\Event\Game\Citizen\CitizenQueryParameterEvent;
 use App\Event\Game\Citizen\CitizenWorkshopOptionsData;
 use App\Event\Game\Citizen\CitizenWorkshopOptionsEvent;
 use App\Event\Game\GameInteractionEvent;
+use App\Event\Game\Items\ForceTransferItemEvent;
 use App\Event\Game\Items\TransferItemEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingAddonProviderEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingCatapultItemTransformEvent;
@@ -292,6 +293,18 @@ class EventProxyService
         $this->ed->dispatch( $event = $this->ef->gameInteractionEvent( TransferItemEvent::class, $actor )->setup( $item, $actor, $from, $to, $modality, $options ) );
         if (!$event->isPropagationStopped()) $this->ed->dispatch( $event, GameInteractionEvent::class );
         return $event->getErrorCode() ?? InventoryHandler::ErrorNone;
+    }
+
+    /**
+     * @param Town $town
+     * @param Item $item
+     * @param Inventory|null $from
+     * @param Inventory|null $to
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function forceTransferItem( Town $town, Item $item, ?Inventory $from = null, ?Inventory $to = null ): void {
+        $this->ed->dispatch( $event = $this->ef->gameEvent( ForceTransferItemEvent::class, $town )->setup( $item, $from, $to ) );
     }
 
     /**

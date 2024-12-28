@@ -221,7 +221,7 @@
                         <div class="tooltip normal">{{ 'Diese Aktion wurde in dieser Partie schon ausgeführt.'|trans({}, 'items') }}</div>
                     {% endif %}
                     {% if not entry.action.tooltip is null %}
-                        <em class="em" style="font-variant: none;">{{ entry.action.tooltip|trans(t, 'items')|decodeMessage(app.user)|raw }}</em>
+                        <em class="em" style="font-variant: none;">{{ entry.action.tooltip|trans(t, 'items')|decodeMessage((entry.context is defined and entry.context is not null) ? entry.context : app.user)|raw }}</em>
                     {% endif %}
                 </li>
             {% endfor %}

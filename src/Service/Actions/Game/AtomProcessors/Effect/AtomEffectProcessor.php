@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Service\Actions\Game\AtomProcessors\Effect;
+use App\Entity\Citizen;
 use App\Enum\SortDefinitionWord;
 use App\Structures\ActionHandler\Execution;
 use MyHordes\Fixtures\DTO\Actions\Atom;
@@ -77,7 +78,7 @@ abstract class AtomEffectProcessor
         return $current;
     }
 
-    public static function process( ContainerInterface $container, Execution $cache, EffectAtom|array $data ): void {
-        foreach (self::sortAtomList( is_array($data) ? $data : [$data] ) as $atom) (new ($atom->getClass())($container))( $cache, $atom->withContext( $cache->citizen, $cache->conf ) );
+    public static function process( ContainerInterface $container, Execution $cache, EffectAtom|array $data, ?Citizen $contextCitizen = null ): void {
+        foreach (self::sortAtomList( is_array($data) ? $data : [$data] ) as $atom) (new ($atom->getClass())($container))( $cache, $atom->withContext( $contextCitizen ?? $cache->citizen, $cache->conf ) );
     }
 }

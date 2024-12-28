@@ -13,6 +13,7 @@ use App\Enum\ActionHandler\PointType;
 use App\Enum\Game\TransferItemModality;
 use App\Event\Game\Actions\CustomActionProcessorEvent;
 use App\EventListener\ContainerTypeTrait;
+use App\Service\ActionHandler;
 use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\Actions\Game\SpanHeroicActionInheritanceTreeAction;
 use App\Service\CitizenHandler;
@@ -53,6 +54,7 @@ final class HeroicItemActionListener implements ServiceSubscriberInterface
             ZoneHandler::class,
             UserHandler::class,
             PictoHandler::class,
+            ActionHandler::class,
 
             InvalidateTagsInAllPoolsAction::class,
             SpanHeroicActionInheritanceTreeAction::class,
@@ -267,8 +269,11 @@ final class HeroicItemActionListener implements ServiceSubscriberInterface
                 )->increment()->addRecord( [
                                                'action' => $event->target->action()->getName(),
                                                'from' => $event->citizen->getId(),
+                                               'origin' =>
+                                                   ($this->getService(ActionHandler::class)->getHeroicDonatedFromCitizen( $event->target->action(), $event->citizen, false ) ?? $event->citizen)->getId(),
                                                'valid' => $valid,
-                                               'seen' => false
+                                               'seen' => false,
+                                               'used' => false,
                                            ] );
 
                 if ($valid) {

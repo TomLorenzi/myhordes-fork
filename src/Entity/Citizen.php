@@ -1110,8 +1110,8 @@ class Citizen
         return $this;
     }
 
-    public function getPropFromPersistentCache(CitizenPersistentCache|string $cache): int {
-        return $this->getRankingEntry()?->getProperty( $cache ) ?? 0;
+    public function getPropFromPersistentCache(CitizenPersistentCache|string $cache, int $default = 0): int {
+        return $this->getRankingEntry()?->getProperty( $cache ) ?? $default;
     }
 
     public function getPoints(PointType $t): int {

@@ -395,7 +395,23 @@ class NightlyHandler
             $protection_list = [];
             if ($citizen->getStatus()->contains( $status_survive2 )) {
                 $this->log->debug( "Citizen <info>{$citizen->getUser()->getUsername()}</info> is <info>partially protected</info> by <info>{$status_survive2->getLabel()}</info>." );
-                $protection_list = $citizen->property(CitizenProperties::HeroImmuneStatusList);
+
+                // hero_generic_immune
+                // If the action was gifted, set "used" to true
+                $records = array_filter( $citizen->getSpecificActionCounter( ActionCounter::ActionTypeReceiveHeroic )->getAdditionalData() ?? [],
+                    fn($record) => is_array($record) && ($record['action'] ?? null) === 'hero_generic_immune' && ( $record['used'] ?? false ) && ( $record['valid'] ?? false )
+                );
+
+                $from_citizen = null;
+                if (!empty($records)) {
+                    $key = array_key_first( $records );
+                    $record = $records[ $key ];
+
+                    $from_citizen = $this->entity_manager->getRepository(Citizen::class)->find( $record['origin'] ?? $record['from'] ?? -1 );
+                    if ($from_citizen?->getTown() !== $town) $from_citizen = null;
+                }
+
+                $protection_list = $from_citizen?->property(CitizenProperties::HeroImmuneStatusList) ?? $citizen->property(CitizenProperties::HeroImmuneStatusList);
             } elseif ($citizen->getStatus()->contains( $status_survive3 ))
                 $protection_list = ['thirst', 'infection'];
 
