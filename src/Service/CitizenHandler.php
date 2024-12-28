@@ -100,10 +100,10 @@ class CitizenHandler
         return $this->hasStatusEffect( $citizen, ['tg_meta_wound','wound1','wound2','wound3','wound4','wound5','wound6'], false );
     }
 
-    public function inflictWound( Citizen $citizen ): ?CitizenStatus {
+    public function inflictWound( Citizen $citizen, ?CitizenStatus $forcedStatus = null ): ?CitizenStatus {
         if ($this->isWounded($citizen)) return null;
         // $ap_above_6 = $citizen->getAp() - $this->getMaxAP( $citizen );
-        $citizen->addStatus( $status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName(
+        $citizen->addStatus( $status = $forcedStatus ?? $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName(
             $this->random_generator->pick( ['wound1','wound2','wound3','wound4','wound5','wound6'] )
         ) );
         $citizen->addStatus($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('tg_meta_wound'));
@@ -134,7 +134,7 @@ class CitizenHandler
         if ( $this->hasStatusEffect($citizen, 'tg_stats_locked') ) return false;
 
         if (in_array( $status->getName(), ['tg_meta_wound','wound1','wound2','wound3','wound4','wound5','wound6'] )) {
-            $this->inflictWound($citizen);
+            $this->inflictWound($citizen, $force && $status->getName() !== 'tg_meta_wound' ? $status : null);
             return true;
         }
 

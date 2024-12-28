@@ -1987,7 +1987,7 @@ class AdminTownController extends AdminActionController
             $citizen = $this->entity_manager->getRepository(Citizen::class)->find($target);
             if (!$citizen || $citizen->getTown() !== $town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-            if ($control) $this->citizen_handler->inflictStatus( $citizen, $citizenStatus );
+            if ($control) $this->citizen_handler->inflictStatus( $citizen, $citizenStatus, true );
             else $this->citizen_handler->removeStatus( $citizen, $citizenStatus );
 
             $this->entity_manager->persist($citizen);
