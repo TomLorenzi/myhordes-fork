@@ -479,7 +479,6 @@ class UserHandler
 
 			// Match wildcardly
             if (fnmatch(strtolower($invalidName), strtolower($name))) {
-                dump("We have a fnmatch match between $invalidName and $name!");
 				$closestDistance = [0, $base];
 			} else {
                 // Calculate the levenshtein distance
@@ -493,7 +492,7 @@ class UserHandler
 		$levenshtein_max = mb_strlen( $closestDistance[1] ) <= 5 ? 1 : 2;
 
         $too_long = mb_strlen($name) > $custom_length;
-        return ($disable_preg || !preg_match('/[^\p{L}\w]/u', $name)) && mb_strlen($name) >= 3 && !$too_long && $closestDistance[0] > $levenshtein_max;
+        return ($disable_preg || !preg_match('/[^\p{LC}]/u', $name)) && mb_strlen($name) >= 3 && !$too_long && $closestDistance[0] > $levenshtein_max;
     }
 
 	public function isEmailValid(string $mail): bool {

@@ -2,6 +2,7 @@
 
 namespace App\Service\Actions\Game\AtomProcessors\Require;
 
+use App\Entity\Item;
 use App\Service\InventoryHandler;
 use App\Structures\ActionHandler\Evaluation;
 use App\Translation\T;
@@ -15,10 +16,15 @@ class ProcessInventorySpaceRequirement extends AtomRequirementProcessor
         if ($data->space <= 0) return true;
 
         $inventoryHandler = $this->container->get(InventoryHandler::class);
+        $ignore = array_values(array_filter([
+            $data->ignoreSource ? $cache->item : null,
+            $data->ignoreTarget ? $cache->target : null,
+        ], fn($e) => $e !== null && is_a($e, Item::class)));
 
-        $inv_full = $data->ignoreInventory || ($inventoryHandler->getFreeSize( $cache->citizen->getInventory() ) < $data->space);
+
+        $inv_full = $data->ignoreInventory || ($inventoryHandler->getFreeSize( $cache->citizen->getInventory(), $ignore ) < $data->space);
         $trunk_full = ($data->considerTrunk && $cache->citizen->getZone() === null)
-            ? ($inventoryHandler->getFreeSize( $cache->citizen->getHome()->getChest() ) < $data->space)
+            ? ($inventoryHandler->getFreeSize( $cache->citizen->getHome()->getChest(), $ignore ) < $data->space)
             : null;
 
         if ($inv_full && $trunk_full === true) {
