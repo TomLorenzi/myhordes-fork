@@ -479,7 +479,6 @@ class UserHandler
 
 			// Match wildcardly
             if (fnmatch(strtolower($invalidName), strtolower($name))) {
-                dump("We have a fnmatch match between $invalidName and $name!");
 				$closestDistance = [0, $base];
 			} else {
                 // Calculate the levenshtein distance

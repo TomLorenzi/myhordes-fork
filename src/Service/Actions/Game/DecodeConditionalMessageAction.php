@@ -29,7 +29,6 @@ readonly class DecodeConditionalMessageAction
         $val = json_validate($val) ? json_decode( $val, true ) : $val;
         $stored = $properties->get( $prop );
 
-        dump($op, $val);
 
         $mapProps = $op === 'map'
             ? array_filter( array_keys( $tagArgs ), fn(string $t) => !in_array( $t, ['op', 'val', 'glue', 'final_glue'] ) )
@@ -98,7 +97,6 @@ readonly class DecodeConditionalMessageAction
                         $tagArgs = trim(mb_substr($tagArgs, mb_strlen($next_value) + 1));
                     }
                 }
-                dump($m, $args);
                 return self::processTag( $tagType, $tagValue, $args, $text, $booleanTags, $properties );
             }, $baseMessage, -1, $c);
         } while ($c > 0);
