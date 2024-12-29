@@ -75,8 +75,20 @@ class InventoryHandler
         return 0;
     }
 
-    public function getFreeSize( Inventory $inv ): int {
-        return ($max = $this->getSize($inv)) > 0 ? ($max - count($inv->getItems())) : PHP_INT_MAX;
+    /**
+     * Get the number of free slots in an inventory, optionally ignoring a set of items
+     * @param Inventory $inv Inventory to check
+     * @param Item[] $ignore List of items to ignore. If one of these items is in the given inventory, it's slot is
+     * considered empty.
+     * @return int List of free slots, or PHP_INT_MAX if the inventory has no slot limit
+     */
+    public function getFreeSize( Inventory $inv, array $ignore = [] ): int {
+        if (empty($ignore))
+            return ($max = $this->getSize($inv)) > 0 ? ($max - $inv->getItems()->count()) : PHP_INT_MAX;
+
+        return ($max = $this->getSize($inv)) > 0 ? ($max - count(
+            $inv->getItems()->filter(fn(Item $i) => !in_array($i, $ignore))
+        )) : PHP_INT_MAX;
     }
 
     public function findStackPrototype( Inventory $inv, Item $item ): ?Item {
