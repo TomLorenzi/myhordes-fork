@@ -38,35 +38,35 @@ class ItemDataService implements FixtureProcessorInterface {
         $container->add()->label('Metalltrümmer')->icon('metal_bad')->category('Rsc')->deco(0)->heavy(false)->watchpoint(0)->commit();
         $container->add()->label('Verrotteter Baumstumpf')->icon('wood_bad')->category('Rsc')->deco(0)->heavy(false)->watchpoint(0)->commit();
         $container->add()->label('Gut erhaltener Holzscheit')->icon('wood_log')->category('Furniture')->deco(2)->heavy(true)->watchpoint(0)->commit();
-        $container->add()->label('Minibar')->icon('machine_3')->category('Furniture')->deco(2)->heavy(true)->watchpoint(19)->commit();
+        $container->add()->label('Minibar')->icon('machine_3')->category('Furniture')->deco(2)->heavy(true)->watchpoint(15)->commit();
         $container->add()->label('MagLite Kinderlampe (aus)')->icon('maglite_off')->category('Furniture')->deco(5)->heavy(false)->watchpoint(0)->commit();
         $container->add()->label('MagLite Kinderlampe (1 Ladung)')->icon('maglite_1')->category('Furniture')->deco(5)->heavy(false)->watchpoint(0)->commit();
         $container->add()->label('MagLite Kinderlampe (2 Ladungen)')->icon('maglite_2')->category('Furniture')->deco(5)->heavy(false)->watchpoint(0)->commit();
         $container->add()->label('Krebserregender Ofen')->icon('machine_2')->category('Furniture')->deco(2)->heavy(true)->watchpoint(15)->commit();
-        $container->add()->label('Alte Waschmaschine')->icon('machine_1')->category('Furniture')->deco(2)->heavy(true)->watchpoint(19)->commit();
-        $container->add()->label('Wütende Mieze (halb verdaut)')->icon('angryc')->category('Furniture')->deco(1)->heavy(false)->watchpoint(0)->fragile(true)->deco_text('Sie ist beängstigend.')->commit();         // --
-        $container->add()->label('Kassettenradio')->icon('radio_on')->category('Furniture')->deco(2)->heavy(false)->watchpoint(-8)->commit();
+        $container->add()->label('Alte Waschmaschine')->icon('machine_1')->category('Furniture')->deco(2)->heavy(true)->watchpoint(15)->commit();
+        $container->add()->label('Wütende Mieze (halb verdaut)')->icon('angryc')->category('Furniture')->deco(1)->heavy(false)->watchpoint(18)->fragile(true)->deco_text('Sie ist beängstigend.')->commit();         // --
+        $container->add()->label('Kassettenradio')->icon('radio_on')->category('Furniture')->deco(2)->heavy(false)->watchpoint(-15)->commit();
         $container->add()->label('Schaukelstuhl')->icon('chair')->category('Furniture')->deco(5)->heavy(true)->watchpoint(15)->commit();
-		$container->add()->label('Ausgeschaltete Nachttischlampe')->icon('lamp')->category('Furniture')->deco(1)->heavy(false)->watchpoint(4)->commit();
+		$container->add()->label('Ausgeschaltete Nachttischlampe')->icon('lamp')->category('Furniture')->deco(1)->heavy(false)->watchpoint(5)->commit();
 		$container->add()->label('Perser')->icon('carpet')->category('Furniture')->deco(10)->heavy(true)->watchpoint(8)->commit();
 		$container->add()->label('Mini Hi-Fi Anlage (defekt)')->icon('music_part')->category('Furniture')->deco(1)->heavy(true)->watchpoint(0)->commit();
 		$container->add()->label('Kette + Vorhängeschloss')->icon('lock')->category('Furniture')->deco(0)->heavy(false)->watchpoint(0)->deco_text('Verhindert Diebstähle')->commit();
 		$container->add()->label('Fußabstreifer')->icon('door_carpet')->category('Furniture')->deco(5)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Videoprojektor')->icon('cinema')->category('Weapon')->deco(0)->heavy(true)->watchpoint(0)->commit();
-		$container->add()->label('Nachttischlampe (an)')->icon('lamp_on')->category('Furniture')->deco(3)->heavy(false)->watchpoint(10)->commit();
-        $container->add()->label('Mini Hi-Fi Anlage (an)')->icon('music')->category('Furniture')->deco(10)->heavy(true)->watchpoint(-10)->commit();
-        $container->add()->label('Ektorp-Gluten Stuhl')->icon('chair_basic')->category('Furniture')->deco(2)->heavy(true)->watchpoint(8)->commit();
-		$container->add()->label('Revolver (entladen)')->icon('gun')->category('Furniture')->deco(5)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Sturmgewehr (entladen)')->icon('machine_gun')->category('Furniture')->deco(15)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Teddybär')->icon('teddy')->category('Furniture')->deco(8)->heavy(false)->watchpoint(0)->commit();
+		$container->add()->label('Antiker Videoprojektor')->icon('cinema')->category('Weapon')->deco(0)->heavy(true)->watchpoint(10)->commit();
+		$container->add()->label('Nachttischlampe (an)')->icon('lamp_on')->category('Furniture')->deco(3)->heavy(false)->watchpoint(5)->watchimpact(-1)->commit();
+        $container->add()->label('Mini Hi-Fi Anlage (an)')->icon('music')->category('Furniture')->deco(10)->heavy(true)->watchpoint(-30)->watchimpact(-2)->commit();
+        $container->add()->label('Ektorp-Gluten Stuhl')->icon('chair_basic')->category('Furniture')->deco(2)->heavy(true)->watchpoint(10)->commit();
+		$container->add()->label('Revolver (entladen)')->icon('gun')->category('Furniture')->deco(5)->heavy(false)->watchpoint(-20)->commit();
+		$container->add()->label('Sturmgewehr (entladen)')->icon('machine_gun')->category('Furniture')->deco(15)->heavy(false)->watchpoint(-25)->commit();
+		$container->add()->label('Teddybär')->icon('teddy')->category('Furniture')->deco(8)->heavy(false)->watchpoint(-15)->commit();
 		$container->add()->label('Geldbündel')->icon('money')->category('Furniture')->deco(7)->heavy(false)->watchpoint(0)->deco_text('Sieht schön aus, wenn es zu einer Girlande gebunden wird.')->commit();
 		$container->add()->label('Schrankkoffer')->icon('home_box_xl')->category('Furniture')->deco(0)->heavy(true)->watchpoint(8)->commit();
 		$container->add()->label('Kartons')->icon('home_box')->category('Furniture')->deco(0)->heavy(false)->watchpoint(4)->commit();
 		$container->add()->label('Nagelbare Barrikade')->icon('home_def')->category('Furniture')->deco(0)->heavy(true)->watchpoint(0)->commit();
 		$container->add()->label('Maschendrahtzaunstück')->icon('fence')->category('Furniture')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Verfluchter Teddybär')->icon('teddy')->category('Furniture')->deco(1)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Schnellgebauter Tisch')->icon('bureau')->category('Furniture')->deco(2)->heavy(true)->watchpoint(23)->commit();
-		$container->add()->label('Leerer Automat')->icon('distri')->category('Furniture')->deco(4)->heavy( false)->watchpoint(30)->commit();
+		$container->add()->label('Schnellgebauter Tisch')->icon('bureau')->category('Furniture')->deco(2)->heavy(true)->watchpoint(20)->commit();
+		$container->add()->label('Leerer Automat')->icon('distri')->category('Furniture')->deco(4)->heavy( true)->watchpoint(25)->commit();
         $container->add()->label('Unpersönliche Explodierende Fußmatte')->icon('trapma')->category('Furniture')->deco(5)->heavy( false)->watchpoint(0)->hideInForeignChest(true)->commit();
         $container->add()->label('Chuck-Figur')->icon('chudol')->category('Furniture')->deco(15)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Verfluchte HiFi')->icon('hifiev')->category('Furniture')->deco(0)->heavy(true)->watchpoint(0)->commit();
@@ -75,21 +75,21 @@ class ItemDataService implements FixtureProcessorInterface {
 		$container->add()->label('Best of The King CD')->icon('cdelvi')->category('Furniture')->deco(7)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Rock n Roll HiFi')->icon('dfhifi')->category('Furniture')->deco(10)->heavy(true)->watchpoint(0)->commit();
 		$container->add()->label('Verteidigende HiFi')->icon('dfhifi')->category('Furniture')->deco(10)->heavy(true)->watchpoint(0)->commit();
-        $container->add()->label('Großer knuddeliger Kater')->icon('pet_cat')->category('Furniture')->deco(5)->heavy(false)->watchpoint(8)->fragile(true)->deco_text('Macht Miau')->commit();         // -- Out
+        $container->add()->label('Großer knuddeliger Kater')->icon('pet_cat')->category('Furniture')->deco(5)->heavy(false)->watchpoint(12)->fragile(true)->deco_text('Macht Miau')->commit();         // -- Out
         $container->add()->label('Kaffeekocher')->icon('coffee_machine')->category('Furniture')->deco(5)->heavy(true)->watchpoint(0)->commit();
-		$container->add()->label('PC-Gehäuse')->icon('pc')->category('Furniture')->deco(3)->heavy(true)->watchpoint(11)->commit();
-		$container->add()->label('Selbstgebaute Gitarre')->icon('guitar')->category('Furniture')->deco(6)->heavy(false)->watchpoint(19)->commit();
-		$container->add()->label('Matratze')->icon('bed')->category('Armor')->deco(3)->heavy(true)->watchpoint(25)->deco_text('Verbessert die Verteidigung')->commit();
-        $container->add()->label('Bissiger Hund')->icon('pet_dog')->category('Armor')->deco(0)->heavy(false)->watchpoint(0)->fragile(true)->deco_text('Verbessert die Verteidigung und verhindert Diebstähle')->commit();         // -- Out
+		$container->add()->label('PC-Gehäuse')->icon('pc')->category('Furniture')->deco(3)->heavy(true)->watchpoint(15)->commit();
+		$container->add()->label('Selbstgebaute Gitarre')->icon('guitar')->category('Furniture')->deco(6)->heavy(false)->watchpoint(10)->commit();
+		$container->add()->label('Matratze')->icon('bed')->category('Armor')->deco(3)->heavy(true)->watchpoint(20)->deco_text('Verbessert die Verteidigung')->commit();
+        $container->add()->label('Bissiger Hund')->icon('pet_dog')->category('Armor')->deco(0)->heavy(false)->watchpoint(25)->fragile(true)->deco_text('Verbessert die Verteidigung und verhindert Diebstähle')->commit();         // -- Out
         $container->add()->label('Blechplatte')->icon('plate')->category('Armor')->deco(0)->heavy(true)->watchpoint(0)->deco_text('Verbessert die Verteidigung')->commit();
-		$container->add()->label('Alte Tür')->icon('door')->category('Armor')->deco(0)->heavy(true)->watchpoint(10)->deco_text('Verbessert die Verteidigung')->commit();
-		$container->add()->label('Unförmige Zementblöcke')->icon('concrete_wall')->category('Armor')->deco(0)->heavy(true)->watchpoint(0)->deco_text('Verbessert die Verteidigung')->commit();
-		$container->add()->label('Holzbock')->icon('trestle')->category('Armor')->deco(1)->heavy(true)->watchpoint(4)->deco_text('Verbessert die Verteidigung')->commit();
-		$container->add()->label('Järpen-Tisch')->icon('table')->category('Armor')->deco(3)->heavy(true)->watchpoint(8)->deco_text('Verbessert die Verteidigung')->commit();
+		$container->add()->label('Alte Tür')->icon('door')->category('Armor')->deco(0)->heavy(true)->watchpoint(15)->deco_text('Verbessert die Verteidigung')->commit();
+		$container->add()->label('Unförmige Zementblöcke')->icon('concrete_wall')->category('Armor')->deco(0)->heavy(true)->watchpoint(17)->deco_text('Verbessert die Verteidigung')->commit();
+		$container->add()->label('Holzbock')->icon('trestle')->category('Armor')->deco(1)->heavy(true)->watchpoint(15)->deco_text('Verbessert die Verteidigung')->commit();
+		$container->add()->label('Järpen-Tisch')->icon('table')->category('Armor')->deco(3)->heavy(true)->watchpoint(15)->deco_text('Verbessert die Verteidigung')->commit();
 		$container->add()->label('Solide Holzplatte')->icon('wood_plate')->category('Armor')->deco(0)->heavy(true)->watchpoint(0)->deco_text('Verbessert die Verteidigung')->commit();
-		$container->add()->label('Autotür')->icon('car_door')->category('Armor')->deco(0)->heavy(true)->watchpoint(23)->deco_text('Verbessert die Verteidigung')->commit();
+		$container->add()->label('Autotür')->icon('car_door')->category('Armor')->deco(0)->heavy(true)->watchpoint(25)->watchimpact(3)->deco_text('Verbessert die Verteidigung')->commit();
 		$container->add()->label('Fackel')->icon('torch')->category('Armor')->deco(0)->heavy(false)->watchpoint(15)->deco_text('Verbessert die Verteidigung')->commit();
-		$container->add()->label('Dackel')->icon('tekel')->category('Armor')->deco(0)->heavy(false)->watchpoint(0)->deco_text('Verbessert die Verteidigung und verhindert Diebstähle')->commit();
+		$container->add()->label('Räudiger Dackel')->icon('tekel')->category('Armor')->deco(0)->heavy(false)->watchpoint(18)->deco_text('Verbessert die Verteidigung und verhindert Diebstähle')->commit();
 		$container->add()->label('Aqua-Splash (leer)')->icon('watergun_opt_empty')->category('Weapon')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Kanisterpumpe (leer)')->icon('jerrygun_off')->category('Weapon')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Plastiktüte')->icon('grenade_empty')->category('Weapon')->deco(0)->heavy(false)->watchpoint(0)->commit();
@@ -101,49 +101,49 @@ class ItemDataService implements FixtureProcessorInterface {
 		$container->add()->label('Taser (ohne Strom)')->icon('taser_empty')->category('Weapon')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Zerstörer (entladen)')->icon('big_pgun_empty')->category('Weapon')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Batteriewerfer Mark II (leer)')->icon('pilegun_up_empty')->category('Weapon')->deco(0)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Große rostige Kette')->icon('chain')->category('Weapon')->deco(0)->heavy(false)->watchpoint(8)->commit();
-		$container->add()->label('ANZAC Badge')->icon('badge')->category('Weapon')->deco(0)->heavy(false)->watchpoint(40)->commit();
-		$container->add()->label('Batteriewerfer 1-PDTG (geladen)')->icon('pilegun')->category('Weapon')->deco(0)->heavy(false)->watchpoint(10)->commit();
-		$container->add()->label('Starker Laserpointer (4 Schuss)')->icon('lpoint4')->category('Weapon')->deco(0)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Starker Laserpointer (3 Schuss)')->icon('lpoint3')->category('Weapon')->deco(0)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Starker Laserpointer (2 Schuss)')->icon('lpoint2')->category('Weapon')->deco(0)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Starker Laserpointer (1 Schuss)')->icon('lpoint1')->category('Weapon')->deco(0)->heavy(false)->watchpoint(0)->commit();
+		$container->add()->label('Große rostige Kette')->icon('chain')->category('Weapon')->deco(0)->heavy(false)->watchpoint(7)->commit();
+		$container->add()->label('Rostiges Abzeichen')->icon('badge')->category('Weapon')->deco(0)->heavy(false)->watchpoint(14)->commit();
+		$container->add()->label('Batteriewerfer 1-PDTG (geladen)')->icon('pilegun')->category('Weapon')->deco(0)->heavy(false)->watchpoint(8)->commit();
+		$container->add()->label('Starker Laserpointer (4 Schuss)')->icon('lpoint4')->category('Weapon')->deco(0)->heavy(false)->watchpoint(20)->commit();
+		$container->add()->label('Starker Laserpointer (3 Schuss)')->icon('lpoint3')->category('Weapon')->deco(0)->heavy(false)->watchpoint(15)->commit();
+		$container->add()->label('Starker Laserpointer (2 Schuss)')->icon('lpoint2')->category('Weapon')->deco(0)->heavy(false)->watchpoint(10)->commit();
+		$container->add()->label('Starker Laserpointer (1 Schuss)')->icon('lpoint1')->category('Weapon')->deco(0)->heavy(false)->watchpoint(5)->commit();
 		$container->add()->label('Starker Laserpointer (Leer)')->icon('lpoint')->category('Weapon')->deco(0)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Taser')->icon('taser')->category('Weapon')->deco(0)->heavy(false)->watchpoint(4)->commit();
-		$container->add()->label('Handmixer (geladen)')->icon('mixergun')->category('Weapon')->deco(0)->heavy(false)->watchpoint(9)->commit();
+		$container->add()->label('Taser')->icon('taser')->category('Weapon')->deco(0)->heavy(false)->watchpoint(5)->watchimpact(1)->commit();
+		$container->add()->label('Handmixer (geladen)')->icon('mixergun')->category('Weapon')->deco(0)->heavy(false)->watchpoint(18)->commit();
 		$container->add()->label('Kettensäge (geladen)')->icon('chainsaw')->category('Weapon')->deco(0)->heavy(true)->watchpoint(30)->commit();
-		$container->add()->label('Rasenmäher')->icon('lawn')->category('Weapon')->deco(0)->heavy(true)->watchpoint(15)->commit();
-		$container->add()->label('Verstellbarer Schraubenschlüssel')->icon('wrench')->category('Weapon')->deco(0)->heavy(false)->watchpoint(2)->commit();
+		$container->add()->label('Rasenmäher')->icon('lawn')->category('Weapon')->deco(0)->heavy(true)->watchpoint(20)->commit();
+		$container->add()->label('Verstellbarer Schraubenschlüssel')->icon('wrench')->category('Weapon')->deco(0)->heavy(false)->watchpoint(5)->commit();
 		$container->add()->label('Schraubenzieher')->icon('screw')->category('Weapon')->deco(0)->heavy(false)->watchpoint(5)->commit();
-		$container->add()->label('Großer trockener Stock')->icon('staff')->category('Weapon')->deco(0)->heavy(false)->watchpoint(4)->commit();
+		$container->add()->label('Großer trockener Stock')->icon('staff')->category('Weapon')->deco(0)->heavy(false)->watchpoint(5)->commit();
 		$container->add()->label('Jagdmesser')->icon('knife')->category('Weapon')->deco(0)->heavy(false)->watchpoint(10)->commit();
-		$container->add()->label('Machete')->icon('cutcut')->category('Weapon')->deco(0)->heavy(false)->watchpoint(5)->commit();
+		$container->add()->label('Machete')->icon('cutcut')->category('Weapon')->deco(0)->heavy(false)->watchpoint(15)->commit();
 		$container->add()->label('Lächerliches Taschenmesser')->icon('small_knife')->category('Weapon')->deco(0)->heavy(false)->watchpoint(5)->commit();
-		$container->add()->label('Schweizer Taschenmesser')->icon('swiss_knife')->category('Weapon')->deco(0)->heavy(false)->watchpoint(10)->commit();
-		$container->add()->label('Teppichmesser')->icon('cutter')->category('Weapon')->deco(0)->heavy(false)->watchpoint(10)->commit();
-		$container->add()->label('Dosenöffner')->icon('can_opener')->category('Weapon')->deco(0)->heavy(false)->watchpoint(4)->commit();
+		$container->add()->label('Schweizer Taschenmesser')->icon('swiss_knife')->category('Weapon')->deco(0)->heavy(false)->watchpoint(5)->commit();
+		$container->add()->label('Teppichmesser')->icon('cutter')->category('Weapon')->deco(0)->heavy(false)->watchpoint(7)->commit();
+		$container->add()->label('Dosenöffner')->icon('can_opener')->category('Weapon')->deco(0)->heavy(false)->watchpoint(5)->commit();
         $container->add()->label('Wasserbombe')->icon('grenade')->category('Weapon')->deco(0)->heavy(false)->watchpoint(8)->fragile(true)->commit();
         $container->add()->label('Explodierende Wasserbombe')->icon('bgrenade')->category('Weapon')->deco(0)->heavy(false)->watchpoint(20)->fragile(true)->commit();
-		$container->add()->label('Aqua-Splash (3 Ladungen)')->icon('watergun_opt_3')->category('Weapon')->deco(0)->heavy(false)->watchpoint(8)->commit();
-		$container->add()->label('Aqua-Splash (2 Ladungen)')->icon('watergun_opt_2')->category('Weapon')->deco(0)->heavy(false)->watchpoint(8)->commit();
-		$container->add()->label('Aqua-Splash (1 Ladung)')->icon('watergun_opt_1')->category('Weapon')->deco(0)->heavy(false)->watchpoint(8)->commit();
-		$container->add()->label('Zerstörer (geladen)')->icon('big_pgun')->category('Weapon')->deco(0)->heavy(false)->watchpoint(10)->commit();
-		$container->add()->label('Kanisterpumpe (einsatzbereit)')->icon('jerrygun')->category('Weapon')->deco(0)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Angeknackster menschlicher Knochen')->icon('bone')->category('Weapon')->deco(0)->heavy(false)->watchpoint(10)->commit();
-		$container->add()->label('Wasserpistole (3 Ladungen)')->icon('watergun_3')->category('Weapon')->deco(0)->heavy(false)->watchpoint(8)->commit();
-		$container->add()->label('Wasserpistole (2 Ladungen)')->icon('watergun_2')->category('Weapon')->deco(0)->heavy(false)->watchpoint(8)->commit();
-		$container->add()->label('Wasserpistole (1 Ladung)')->icon('watergun_1')->category('Weapon')->deco(0)->heavy(false)->watchpoint(8)->commit();
-		$container->add()->label('Aqua-Splash (5 Ladungen)')->icon('watergun_opt_5')->category('Weapon')->deco(0)->heavy(false)->watchpoint(8)->commit();
-		$container->add()->label('Aqua-Splash (4 Ladungen)')->icon('watergun_opt_4')->category('Weapon')->deco(0)->heavy(false)->watchpoint(8)->commit();
+		$container->add()->label('Aqua-Splash (3 Ladungen)')->icon('watergun_opt_3')->category('Weapon')->deco(0)->heavy(false)->watchpoint(6)->commit();
+		$container->add()->label('Aqua-Splash (2 Ladungen)')->icon('watergun_opt_2')->category('Weapon')->deco(0)->heavy(false)->watchpoint(4)->commit();
+		$container->add()->label('Aqua-Splash (1 Ladung)')->icon('watergun_opt_1')->category('Weapon')->deco(0)->heavy(false)->watchpoint(2)->commit();
+		$container->add()->label('Zerstörer (geladen)')->icon('big_pgun')->category('Weapon')->deco(0)->heavy(false)->watchpoint(11)->commit();
+		$container->add()->label('Kanisterpumpe (einsatzbereit)')->icon('jerrygun')->category('Weapon')->deco(0)->heavy(false)->watchpoint(20)->commit();
+		$container->add()->label('Angeknackster menschlicher Knochen')->icon('bone')->category('Weapon')->deco(0)->heavy(false)->watchpoint(5)->commit();
+		$container->add()->label('Wasserpistole (3 Ladungen)')->icon('watergun_3')->category('Weapon')->deco(0)->heavy(false)->watchpoint(6)->commit();
+		$container->add()->label('Wasserpistole (2 Ladungen)')->icon('watergun_2')->category('Weapon')->deco(0)->heavy(false)->watchpoint(4)->commit();
+		$container->add()->label('Wasserpistole (1 Ladung)')->icon('watergun_1')->category('Weapon')->deco(0)->heavy(false)->watchpoint(2)->commit();
+		$container->add()->label('Aqua-Splash (5 Ladungen)')->icon('watergun_opt_5')->category('Weapon')->deco(0)->heavy(false)->watchpoint(12)->commit();
+		$container->add()->label('Aqua-Splash (4 Ladungen)')->icon('watergun_opt_4')->category('Weapon')->deco(0)->heavy(false)->watchpoint(9)->commit();
 		$container->add()->label('Batteriewerfer Mark II (geladen)')->icon('pilegun_up')->category('Weapon')->deco(0)->heavy(false)->watchpoint(11)->commit();
-		$container->add()->label('Verbrauchte Fackel')->icon('torch_off')->category('Weapon')->deco(0)->heavy(false)->watchpoint(4)->commit();
-		$container->add()->label('Mobiltelefon')->icon('iphone')->category('Weapon')->deco(0)->heavy(false)->watchpoint(8)->fragile(true)->commit();
-		$container->add()->label('Explosive Pampelmuse')->icon('boomfruit')->category('Weapon')->deco(0)->heavy(false)->watchpoint(8)->fragile(true)->commit();
-		$container->add()->label('Pfahlwerfer')->icon('rlaunc')->category('Weapon')->deco(0)->heavy(false)->watchpoint(8)->commit();
-		$container->add()->label('Kalaschni-Splash')->icon('kalach')->category('Weapon')->deco(0)->heavy(true)->watchpoint(11)->commit();
+		$container->add()->label('Verbrauchte Fackel')->icon('torch_off')->category('Weapon')->deco(0)->heavy(false)->watchpoint(5)->commit();
+		$container->add()->label('Mobiltelefon')->icon('iphone')->category('Weapon')->deco(0)->heavy(false)->watchpoint(5)->fragile(true)->commit();
+		$container->add()->label('Explosive Pampelmuse')->icon('boomfruit')->category('Weapon')->deco(0)->heavy(false)->watchpoint(12)->fragile(true)->commit();
+		$container->add()->label('Pfahlwerfer')->icon('rlaunc')->category('Weapon')->deco(0)->heavy(true)->watchpoint(30)->commit();
+		$container->add()->label('Kalaschni-Splash')->icon('kalach')->category('Weapon')->deco(0)->heavy(true)->watchpoint(24)->commit();
 		$container->add()->label('Kalaschni-Splash (leer)')->icon('kalach')->category('Weapon')->deco(0)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Tretmine')->icon('claymo')->category('Weapon')->deco(0)->heavy(false)->watchpoint(50)->commit();
-		$container->add()->label('Einkaufswagen')->icon('cart')->category('Box')->deco(0)->heavy(true)->watchpoint(20)->sort(2)->commit();
+		$container->add()->label('Tretmine')->icon('claymo')->category('Weapon')->deco(0)->heavy(false)->watchpoint(40)->commit();
+		$container->add()->label('Einkaufswagen')->icon('cart')->category('Box')->deco(0)->heavy(true)->watchpoint(15)->sort(2)->commit();
 		$container->add()->label('Extra Tasche')->icon('bag')->category('Box')->deco(0)->heavy(false)->watchpoint(0)->sort(2)->commit();
 		$container->add()->label('Superpraktischer Rucksack')->icon('bagxl')->category('Box')->deco(0)->heavy(false)->watchpoint(0)->sort(2)->commit();
 		$container->add()->label('Gürtel mit Tasche')->icon('pocket_belt')->category('Box')->deco(0)->heavy(false)->watchpoint(0)->sort(1)->commit();
@@ -191,7 +191,7 @@ class ItemDataService implements FixtureProcessorInterface {
 		$container->add()->label('Ghul-Serum')->icon('vagoul')->category('Drug')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label("Zonenmarker 'Radius'")->icon('tagger')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();         // -- Out
 		$container->add()->label('Unkrautbekämpfungsmittel Ness-Quick')->icon('digger')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Schießpulverbombe')->icon('flash')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
+		$container->add()->label('Schießpulverbombe')->icon('flash')->category('Misc')->deco(0)->heavy(false)->watchpoint(5)->commit();
 		$container->add()->label('Radius Mark II (entladen)')->icon('radius_mk2_part')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Radius Mark II')->icon('radius_mk2')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Wasserspender (leer)')->icon('water_can_empty')->category('Misc')->deco(0)->heavy(true)->watchpoint(0)->commit();
@@ -208,7 +208,7 @@ class ItemDataService implements FixtureProcessorInterface {
         $container->add()->label('Ration Wasser')->icon('water')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Offene Konservendose')->icon('can_open')->category('Food')->deco(0)->heavy(false)->watchpoint(2)->commit();
 		$container->add()->label('Undefinierbares Fleisch')->icon('undef')->category('Food')->deco(0)->heavy(false)->watchpoint(2)->commit();
-        $container->add()->label('Heißer Kaffee')->icon('coffee')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->fragile(true)->commit();
+        $container->add()->label('Heißer Kaffee')->icon('coffee')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->watchimpact(1)->fragile(true)->commit();
 		$container->add()->label('Verdächtiges Gemüse')->icon('vegetable')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Doggybag')->icon('food_bag')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Tüte mit labbrigen Chips')->icon('food_bar1')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
@@ -221,12 +221,12 @@ class ItemDataService implements FixtureProcessorInterface {
 		$container->add()->label('Verschimmelte Stulle')->icon('food_sandw')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Chinesische Nudeln')->icon('food_noodles')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Verdächtige Speise')->icon('dish')->category('Food')->deco(0)->heavy(false)->watchpoint(4)->commit();
-		$container->add()->label('Wasserspender (1 Ration)')->icon('water_can_1')->category('Food')->deco(0)->heavy(true)->watchpoint(11)->commit();
-		$container->add()->label('Wasserspender (2 Rationen)')->icon('water_can_2')->category('Food')->deco(0)->heavy(true)->watchpoint(11)->commit();
-		$container->add()->label('Wasserspender (3 Rationen)')->icon('water_can_3')->category('Food')->deco(0)->heavy(true)->watchpoint(11)->commit();
+		$container->add()->label('Wasserspender (1 Ration)')->icon('water_can_1')->category('Food')->deco(0)->heavy(true)->watchpoint(8)->commit();
+		$container->add()->label('Wasserspender (2 Rationen)')->icon('water_can_2')->category('Food')->deco(0)->heavy(true)->watchpoint(16)->commit();
+		$container->add()->label('Wasserspender (3 Rationen)')->icon('water_can_3')->category('Food')->deco(0)->heavy(true)->watchpoint(24)->commit();
 		$container->add()->label('Aasbeerenbrei')->icon('fruit')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Gereinigtes modriges Wasser')->icon('water_cup')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Brezel')->icon('bretz')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
+		$container->add()->label('Sandige Bretzel')->icon('bretz')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Mutterkorn')->icon('fungus')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Korn-Bräu')->icon('hmbrew')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->fragile(true)->commit();
 		$container->add()->label('Verdächtiger Traubensaft')->icon('omg_this_will_kill_you')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
@@ -244,24 +244,24 @@ class ItemDataService implements FixtureProcessorInterface {
 		$container->add()->label('Grüne Bierflasche')->icon('vodka_de')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->fragile(true)->commit();
 		$container->add()->label('Vodka Marinostov')->icon('vodka')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->fragile(true)->commit();
 		$container->add()->label("'Wake The Dead'")->icon('rhum')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->fragile(true)->commit();
-		$container->add()->label('Bierkrug')->icon('fest')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->fragile(true)->commit();
-		$container->add()->label('Menschenfleisch')->icon('hmeat')->category('Food')->deco(0)->heavy(false)->watchpoint(20)->commit();
+		$container->add()->label('Abgestandenes Bier')->icon('fest')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->fragile(true)->commit();
+		$container->add()->label('Menschenfleisch')->icon('hmeat')->category('Food')->deco(0)->heavy(false)->watchpoint(15)->commit();
 		$container->add()->label('Knochen mit Fleisch')->icon('bone_meat')->category('Food')->deco(0)->heavy(false)->watchpoint(10)->commit();
 		$container->add()->label('Leiche eines Reisenden')->icon('cadaver')->category('Food')->deco(0)->heavy(true)->watchpoint(0)->commit();
 		$container->add()->label('Konservendose')->icon('can')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Getrocknete Marshmallows')->icon('chama')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Staubiges Buch')->icon('rp_book')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Ein paar Würfel')->icon('dice')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
+		$container->add()->label('Ein paar Würfel')->icon('dice')->category('Misc')->deco(0)->heavy(false)->watchpoint(-10)->commit();
 		$container->add()->label('Motor')->icon('engine')->category('Misc')->deco(0)->heavy(true)->watchpoint(30)->commit();
-		$container->add()->label('Vibrator (geladen)')->icon('vibr')->category('Misc')->deco(0)->heavy(false)->watchpoint(-5)->commit();
+		$container->add()->label('Vibrator (geladen)')->icon('vibr')->category('Misc')->deco(0)->heavy(false)->watchpoint(-10)->commit();
 		$container->add()->label('Wackliger Einkaufswagen')->icon('cart_part')->category('Misc')->deco(0)->heavy(true)->watchpoint(0)->commit();
 		$container->add()->label('Unvollständiger Kaffeekocher')->icon('coffee_machine_part')->category('Misc')->deco(0)->heavy(true)->watchpoint(0)->commit();
 		$container->add()->label('Reparaturset (kaputt)')->icon('repair_kit_part')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Reparaturset')->icon('repair_kit')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Elektrischer Bauchmuskeltrainer (ohne Strom)')->icon('sport_elec_empty')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Elektrischer Bauchmuskeltrainer (geladen)')->icon('sport_elec')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
+		$container->add()->label('Elektrischer Bauchmuskeltrainer (geladen)')->icon('sport_elec')->category('Misc')->deco(0)->heavy(false)->watchpoint(-10)->commit();
 		$container->add()->label('Zementsack')->icon('concrete')->category('Misc')->deco(0)->heavy(true)->watchpoint(0)->commit();
-		$container->add()->label('Unvollständiges Kartenspiel')->icon('cards')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
+		$container->add()->label('Unvollständiges Kartenspiel')->icon('cards')->category('Misc')->deco(0)->heavy(false)->watchpoint(-10)->commit();
 		$container->add()->label('Vibrator (entladen)')->icon('vibr_empty')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Metallsäge')->icon('saw_tool')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Beschädigte Metallsäge')->icon('saw_tool_part')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
@@ -292,7 +292,7 @@ class ItemDataService implements FixtureProcessorInterface {
 		$container->add()->label('Ein Etikett')->icon('rp_scroll')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Kassettenradio (ohne Strom)')->icon('radio_off')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Streichholzschachtel')->icon('lights')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Leuchtrakete')->icon('flare')->category('Misc')->deco(0)->heavy(false)->watchpoint(-8)->commit();
+		$container->add()->label('Leuchtrakete')->icon('flare')->category('Misc')->deco(0)->heavy(false)->watchpoint(15)->commit();
 		$container->add()->label('Starke Gewürze')->icon('spices')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Raketenpulver')->icon('powder')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Loses Werkzeug')->icon('repair_kit_part_raw')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
@@ -313,10 +313,10 @@ class ItemDataService implements FixtureProcessorInterface {
 		$container->add()->label('Angenagte Leiche')->icon('cadaver_remains')->category('Misc')->deco(0)->heavy(true)->watchpoint(0)->commit();
 		$container->add()->label("Rauchgranate 'Tannenduft'")->icon('smoke_bomb')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Sandball')->icon('sand_ball')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Santas Rentier')->icon('renne')->category('Misc')->deco(0)->heavy(true)->watchpoint(30)->commit();
-		$container->add()->label('Osterei')->icon('paques')->category('Misc')->deco(0)->heavy(false)->watchpoint(38)->commit();
+		$container->add()->label('Santas Rentier')->icon('renne')->category('Misc')->deco(0)->heavy(true)->watchpoint(25)->commit();
+		$container->add()->label('Osterei')->icon('paques')->category('Misc')->deco(0)->heavy(false)->watchpoint(18)->commit();
         $container->add()->label('Geistiger Beistand')->icon('chkspk')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
-        $container->add()->label('Fette Python')->icon('pet_snake2')->category('Misc')->deco(0)->heavy(true)->watchpoint(0)->fragile(true)->commit();
+        $container->add()->label('Fette Python')->icon('pet_snake2')->category('Misc')->deco(0)->heavy(true)->watchpoint(15)->fragile(true)->commit();
 		$container->add()->label('Bürgerbekleidung')->icon('basic_suit')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->sort(100)->commit();
 		$container->add()->label('Dreckige Bürgerbekleidung')->icon('basic_suit_dirt')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->sort(100)->commit();
 		$container->add()->label('Tarnanzug')->icon('vest_on')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->sort(80)->commit();
@@ -340,9 +340,9 @@ class ItemDataService implements FixtureProcessorInterface {
 		$container->add()->label('Kreischender Wecker (2 Schuss)')->icon('alarm_2')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->sort(60)->commit();
 		$container->add()->label('Kreischender Wecker (3 Schuss)')->icon('alarm_3')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->sort(60)->commit();
 		$container->add()->label('Huhn')->icon('pet_chick')->category('Misc')->deco(0)->heavy(false)->watchpoint(8)->fragile(true)->commit();
-		$container->add()->label('Übelriechendes Schwein')->icon('pet_pig')->category('Misc')->deco(0)->heavy(true)->watchpoint(20)->fragile(true)->commit();
-		$container->add()->label('Riesige Ratte')->icon('pet_rat')->category('Misc')->deco(0)->heavy(false)->watchpoint(4)->fragile(true)->commit();
-		$container->add()->label('Zwei-Meter Schlange')->icon('pet_snake')->category('Misc')->deco(0)->heavy(true)->watchpoint(15)->fragile(true)->commit();
+		$container->add()->label('Übelriechendes Schwein')->icon('pet_pig')->category('Misc')->deco(0)->heavy(true)->watchpoint(25)->fragile(true)->commit();
+		$container->add()->label('Riesige Ratte')->icon('pet_rat')->category('Misc')->deco(0)->heavy(false)->watchpoint(12)->fragile(true)->commit();
+		$container->add()->label('Zwei-Meter Schlange')->icon('pet_snake')->category('Misc')->deco(0)->heavy(true)->watchpoint(25)->fragile(true)->commit();
 		$container->add()->label('Holzkistendeckel')->icon('wood_plate_part')->category('Misc')->deco(0)->heavy(true)->watchpoint(0)->commit();
 		$container->add()->label('Unverarbeitete Blechplatten')->icon('plate_raw')->category('Misc')->deco(0)->heavy(true)->watchpoint(0)->commit();
 		$container->add()->label('Kanisterpumpe (zerlegt)')->icon('jerrygun_part')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
@@ -354,7 +354,7 @@ class ItemDataService implements FixtureProcessorInterface {
 		$container->add()->label('Beschädigte Autotür')->icon('car_door_part')->category('Misc')->deco(0)->heavy(true)->watchpoint(0)->commit();
 		$container->add()->label('Kanister')->icon('jerrycan')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Eisengefäß mit modrigem Wasser')->icon('water_cup_part')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Möbelpackung')->icon('deco_box')->category('Misc')->deco(0)->heavy(true)->watchpoint(8)->commit();
+		$container->add()->label('Möbelpackung')->icon('deco_box')->category('Misc')->deco(0)->heavy(true)->watchpoint(15)->commit();
 		$container->add()->label('Abgenutzte Kuriertasche')->icon('bplan_drop')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Unidentifizierbare Trümmerstücke')->icon('broken')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Munitionsgriff')->icon('bullets')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
@@ -369,8 +369,8 @@ class ItemDataService implements FixtureProcessorInterface {
 		$container->add()->label('Krähenelfe')->icon('food_xmas')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Logbuch Schokolade')->icon('wood_xmas')->category('Food')->deco(8)->heavy(true)->watchpoint(0)->commit();
 		$container->add()->label('Grüner Kobold-Anzug')->icon('leprechaun_suit')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Hurlingstock')->icon('hurling_stick')->category('Weapon')->deco(0)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Guiness')->icon('guiness')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
+		$container->add()->label('Primitiver Hurlingstock')->icon('hurling_stick')->category('Weapon')->deco(0)->heavy(false)->watchpoint(15)->commit();
+		$container->add()->label('Klebriges Pint')->icon('guiness')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Schwarzer Zervixschleim')->icon('april_drug')->category('Drug')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Toxin')->icon('infect_poison')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit();
         $container->add()->label('Nudelabdruck vom Magnet-Schlüssel')->icon('noodle_prints')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
@@ -378,6 +378,17 @@ class ItemDataService implements FixtureProcessorInterface {
         $container->add()->label('Nudelabdruck vom Schlagschlüssel')->icon('noodle_prints')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
         $container->add()->label('Nudelabdruck vom Flaschenöffner')->icon('noodle_prints')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
         $container->modify('noodle_prints_#02')->icon('noodle_bottle_print')->commit();
+        $container->add()->label('Toller Kürbis')->icon('pumpkin_tasty')->category('Food')->deco(0)->heavy(true)->watchpoint(15)->commit(); //Impressive Pumpkin
+        $container->add()->label('Erste Hilfe Tasche')->icon('medic')->category('Drug')->deco(0)->heavy(false)->watchpoint(0)->commit(); //First Aid Kit
+        $container->add()->label('Ausgetretene Sportschuhe')->icon('shoe')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->isPersistentWhenEssential(true)->commit(); //Sports shoes
+        $container->add()->label('Fahrrad ohne Lenker')->icon('bike_part')->category('Misc')->deco(0)->heavy(true)->watchpoint(0)->commit(); //Bike without handlebars
+        $container->add()->label('Mountainbike')->icon('bike')->category('Misc')->deco(0)->heavy(true)->watchpoint(0)->isPersistentWhenEssential(true)->commit(); //Bike
+        $container->add()->label('Flagge')->icon('flag')->category('Misc')->deco(5)->heavy(false)->watchpoint(0)->commit(); //Flag
+        $container->add()->label('Fußball')->icon('soccer')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit(); //Soccer ball
+        $container->add()->label('Geplatzter Fußball')->icon('soccer_part')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit(); //Burst soccer ball
+        $container->add()->label('Kamera aus Vorkriegs-Tagen')->icon('photo_4')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->sort(61)->commit();
+        $container->add()->label('Quantum Energy')->icon('quantum')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->fragile(true)->commit(); //Cola Quantum
+        $container->add()->label('Cellokasten')->icon('cello_box')->category('Box')->deco(0)->heavy(true)->watchpoint(0)->commit(); // Cello box
 
         $container->modify('water_#00')->description('Das Wasser gibt dir einmal pro Tag deine Aktionpunkte zurück oder löscht alternativ deinen Durst (unbegrenzt).')->commit();
         $container->modify('pile_#00')->description('Die Batterie ist für vieles nützlich. Allerdings ist sie auch ziemlich schnell leer ...')->commit();
@@ -740,6 +751,21 @@ class ItemDataService implements FixtureProcessorInterface {
         $container->modify('noodle_prints_#00')->description('Dieser Hightech-Schlüsselabdruck wurde aus einer Mischung von dehydrierten Nudeln und Schleim geformt. Damit kann man wirklich ALLES machen!')->commit();
         $container->modify('noodle_prints_#01')->description('Essen oder öffnen, du musst dich entscheiden! Mit diesem Schlüsselabdruck können kannst du einen Schlagschlüssel herstellen, wenn du ihn nicht vor der Rückkehr in die Stadt zerbrichst...')->commit();
         $container->modify('noodle_prints_#02')->description('Wir wissen nicht wirklich, wie das möglich ist, aber es sieht auf jeden Fall solide aus. Das Nudelagglomerat hat die perfekte Form eines Flaschenöffners!')->commit();
+        $container->modify('pumpkin_tasty_#00')->description('Dieses riesige orangefarbene Gemüse ist das einzig Bunte, das an diesem gruseligen Ort wächst... da möchte man am liebsten hineinbeißen!')->watchimpact(1)->commit();
+        $container->modify('medic_#00')->description('Was willst du mit diesen ganzen Verbänden? Was abgerissen wurde ist weg. Die kleine Pillen hingegen sind immer von Nutzen.')->commit();
+        $container->modify('shoe_#00')->description('Sie sind nicht mehr ganz neuwertig und riechen etwas streng... Trotzdem kannst du dich mit ihnen leichter durch das unwegsame Gelände in der Außenwelt bewegen.')->commit();
+        $container->modify('bike_part_#00')->description('Ein schönes Fahrrad, aber der wichtigste Teil davon fehlt: ein Lenker.')->commit();
+        $container->modify('bike_#00')->description('Das Fahrrad alle maßgeschneiderten Landes, mit denen Sie überall hin gehen können, wo immer Sie wollen.')->commit();
+        $container->modify('flag_#00')->description('Eine lächerlich sichtbare Flagge. Vielleicht, wenn Sie es winken, wird etwas passieren ...?')->commit();
+        $container->modify('soccer_#00')->description('Für den kleinen Kick zwischendurch.')->commit();
+        $container->modify('soccer_part_#00')->description('Ein Ball, mit dem wir einiges an Spaß haben könnten. Wenn er nur nicht schon geplatzt wäre...')->commit();
+        $container->modify('tamed_pet_drug_#00')->label('Gut gefüttertes Malteser Hündchen')->icon('tamed_pet_food')->description('Nun, da du dein Hündchen mit einem Leckerli ausreichend gestärkt hast, kann es selbst schwere und sperrige Gegenstände schleppen. Dir fällt auf, dass es ohne Ende sabbert. Es sieht aus, als würde es dich jeden Augenblick anspringen.')->commit();
+        $container->modify('photo_4_#00')->description('Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest! Eine kleine Zahl an der Seite zeigt an, dass  noch ein Foto übrig ist.')->commit();
+        $container->modify('quantum_#00')->description('"Mach den Sprung... genieße eine Quantum!" Der Slogan auf der Flasche ist verlockend, die leuchtend blaue Farbe jedoch nicht...')->commit();
+        $container->modify('cello_box_#00')->description('Du weißt nicht einmal mehr, wo du das her hast... Die Farbe fängt schon an, sich abzulösen. Ist das Teil wirklich nützlich?')->commit(); // Cello box
+
+        // Installed Crow Garland
+        $container->clone('xmas_gift_#00')->label('Aufgehängte Krähengirlande')->deco(5)->commit();
 
         $data = $container->toArray();
     }
