@@ -2,6 +2,7 @@
 
 namespace MyHordes\Fixtures\Service;
 
+use Adbar\Dot;
 use ArrayHelpers\Arr;
 use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 use Symfony\Component\Yaml\Yaml;
@@ -28,6 +29,9 @@ class YamlDataService implements FixtureProcessorInterface {
         $content = Yaml::parseFile($target_path);
         if (!$content || !is_array($content)) return;
 
-        $data = array_merge_recursive( $data, $content );
+        $data = (new Dot([
+            ...(new Dot($data))->flatten(),
+            ...(new Dot($content))->flatten(),
+        ], true))->all();
     }
 }

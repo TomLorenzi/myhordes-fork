@@ -6,6 +6,7 @@ use App\Entity\ActionCounter;
 use App\Entity\CauseOfDeath;
 use App\Enum\ActionHandler\ItemDropTarget;
 use App\Enum\ActionHandler\PointType;
+use App\Enum\ActionHandler\RelativeMaxPoint;
 use App\Enum\Configuration\CitizenProperties;
 use App\Enum\ItemPoisonType;
 use App\Structures\SortDefinition;
@@ -44,6 +45,16 @@ class ActionEffectProvider
         $effects_container->add()->identifier('msg_drug_candy_terror')->add((new MessageEffect())->text('Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-terror>{hr}Du bist vor Angst erstarrt!</t-stat-up-terror>'))->commit();
         $effects_container->add()->identifier('msg_drug_candy_infect')->add((new MessageEffect())->text('Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-infection>{hr}Du bist jetzt infiziert!</t-stat-up-infection>'))->commit();
         $effects_container->add()->identifier('msg_break_item')->add((new MessageEffect())->text('Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...')->order(100))->commit();
+
+        $effects_container->add()->identifier('msg_drug_drunk')->add((new MessageEffect())->text(Arr::get($data,'message_keys.drug_drunk')))->commit();
+        $effects_container->add()->identifier('msg_drug_relax')->add((new MessageEffect())->text(Arr::get($data,'message_keys.drug_relax')))->commit();
+        $effects_container->add()->identifier('msg_soccer_fail')->add((new MessageEffect())->text(Arr::get($data,'message_keys.msg_soccer_fail')))->commit();
+        $effects_container->add()->identifier('msg_soccer_success')->add((new MessageEffect())->text(Arr::get($data,'message_keys.msg_soccer_success')))->commit();
+        $effects_container->add()->identifier('msg_soccer_bigfail')->add((new MessageEffect())->text(Arr::get($data,'message_keys.msg_soccer_bigfail')))->commit();
+        $effects_container->add()->identifier('msg_quantum_basic')->add((new MessageEffect())->text(Arr::get($data,'message_keys.msg_quantum_basic')))->commit();
+        $effects_container->add()->identifier('msg_quantum_thristy')->add((new MessageEffect())->text(Arr::get($data,'message_keys.msg_quantum_thristy')))->commit();
+        $effects_container->add()->identifier('msg_quantum_dehydrated')->add((new MessageEffect())->text(Arr::get($data,'message_keys.msg_quantum_dehydrated')))->commit();
+
         //</editor-fold>
 
         //<editor-fold desc="PictoEffects">
@@ -71,17 +82,17 @@ class ActionEffectProvider
         $effects_container->add()->identifier('town_bp_lv3')->add((new TownEffect())->unlockBlueprint(3))->commit();
         $effects_container->add()->identifier('town_bp_lv4')->add((new TownEffect())->unlockBlueprint(4))->commit();
 
-        $effects_container->add()->identifier('town_bp_hotel_lv2')->add((new TownEffect())->unlockBlueprint(['small_bamba_#00', 'small_catapult3_#00','small_howlingbait_#00', 'small_trash_#01', 'small_trash_#02', 'small_trash_#04', 'small_court_#00', 'item_plate_#03']))->commit();
-        $effects_container->add()->identifier('town_bp_hotel_lv3')->add((new TownEffect())->unlockBlueprint(['small_sprinkler_#00', 'item_digger_#00', 'item_shield_#00', 'small_city_up_#00', 'small_falsecity_#00', 'small_lastchance_#00', 'small_lighthouse_#00', 'small_strategy_#00', 'small_valve_#00']))->commit();
-        $effects_container->add()->identifier('town_bp_hotel_lv4')->add((new TownEffect())->unlockBlueprint(['small_cinema_#00', 'small_derrick_#01', 'small_trash_#06', 'small_castle_#00', 'small_coffin_#00']))->commit();
+        $effects_container->add()->identifier('town_bp_hotel_lv2')->add((new TownEffect())->unlockBlueprint(['item_pumpkin_raw_#00', 'small_urban_#00', 'item_shield_#00', 'small_canon_#01', 'small_wallimprove_#02']))->commit();
+        $effects_container->add()->identifier('town_bp_hotel_lv3')->add((new TownEffect())->unlockBlueprint(['small_valve_#00', 'small_appletree_#00', 'small_scarecrow_#00', 'small_ikea_#00', 'small_moving_#00', 'small_labyrinth_#00', 'small_pet_#00', 'item_plate_#05', 'small_court_#00', 'small_coffin_#00']))->commit();
+        $effects_container->add()->identifier('town_bp_hotel_lv4')->add((new TownEffect())->unlockBlueprint(['small_waterdetect_#00', 'small_thermal_#00', 'small_wheel_#00', 'small_cinema_#00', 'small_pool_#00']))->commit();
 
-        $effects_container->add()->identifier('town_bp_bunker_lv2')->add((new TownEffect())->unlockBlueprint(['item_bgrenade_#00', 'item_bgrenade_#01', 'small_trash_#03', 'small_trash_#05', 'small_watercanon_#00', 'small_tourello_#00', 'small_armor_#00']))->commit();
-        $effects_container->add()->identifier('town_bp_bunker_lv3')->add((new TownEffect())->unlockBlueprint(['item_home_def_#00', 'item_tube_#00', 'small_labyrinth_#00', 'small_eden_#00', 'small_rocket_#00', 'small_rocketperf_#00', 'small_trashclean_#00', 'small_valve_#00', 'item_jerrycan_#01']))->commit();
-        $effects_container->add()->identifier('town_bp_bunker_lv4')->add((new TownEffect())->unlockBlueprint(['small_waterdetect_#00', 'small_arma_#00', 'small_slave_#00', 'small_trash_#06', 'small_wheel_#00']))->commit();
+        $effects_container->add()->identifier('town_bp_bunker_lv2')->add((new TownEffect())->unlockBlueprint(['small_rocketperf_#00', 'small_watercanon_#00', 'item_bgrenade_#01', 'small_catapult3_#00', 'item_hmeat_#00', 'small_city_up_#00']))->commit();
+        $effects_container->add()->identifier('town_bp_bunker_lv3')->add((new TownEffect())->unlockBlueprint(['item_tube_#00', 'item_boomfruit_#00', 'item_pet_pig_#00', 'small_watchmen_#00', 'small_grinder2_#00', 'small_underground_#00', 'small_rocket_#00', 'small_techtable_#00', 'item_home_def_#00', 'small_coffin_#00']))->commit();
+        $effects_container->add()->identifier('town_bp_bunker_lv4')->add((new TownEffect())->unlockBlueprint(['small_pool_#00', 'small_castle_#00', 'small_arma_#00', 'small_slave_#00', 'small_pmvbig_#00']))->commit();
 
-        $effects_container->add()->identifier('town_bp_hospital_lv2')->add((new TownEffect())->unlockBlueprint(['small_ikea_#00', 'item_hmeat_#00', 'small_tourello_#00', 'small_watchmen_#00']))->commit();
-        $effects_container->add()->identifier('town_bp_hospital_lv3')->add((new TownEffect())->unlockBlueprint(['item_digger_#00', 'item_jerrycan_#01', 'item_shield_#00', 'small_appletree_#00', 'small_chicken_#00', 'small_infirmary_#00', 'small_trashclean_#00', 'small_lighthouse_#00', 'small_rocketperf_#00']))->commit();
-        $effects_container->add()->identifier('town_bp_hospital_lv4')->add((new TownEffect())->unlockBlueprint(['small_strategy_#01', 'small_balloon_#00', 'small_crow_#00', 'small_derrick_#01', 'small_pmvbig_#00']))->commit();
+        $effects_container->add()->identifier('town_bp_hospital_lv2')->add((new TownEffect())->unlockBlueprint(['item_plate_#04', 'small_eden_#00', 'small_chicken_#00', 'small_cemetery_#00', 'small_spa4souls_#00', 'small_saw_#00']))->commit();
+        $effects_container->add()->identifier('town_bp_hospital_lv3')->add((new TownEffect())->unlockBlueprint(['item_digger_#00', 'item_boomfruit_#01', 'small_watchmen_#01', 'small_sewers_#00', 'small_falsecity_#00', 'small_trashclean_#00', 'small_infirmary_#00', 'small_survarea_#00', 'small_sprinkler_#00', 'small_coffin_#00']))->commit();
+        $effects_container->add()->identifier('town_bp_hospital_lv4')->add((new TownEffect())->unlockBlueprint(['small_derrick_#01', 'small_crow_#00', 'small_pmvbig_#00', 'small_trash_#06', 'small_balloon_#00']))->commit();
         //</editor-fold>
 
         //<editor-fold desc="ZoneEffects">
@@ -110,6 +121,12 @@ class ActionEffectProvider
         $effects_container->add()->identifier('home_def_1')->add((new HomeEffect())->defense(1))->commit();
         $effects_container->add()->identifier('home_store_1')->add((new HomeEffect())->storage(1))->commit();
         $effects_container->add()->identifier('home_store_2')->add((new HomeEffect())->storage(2))->commit();
+        $effects_container->add()->identifier('hero_tamer_8')
+            ->add( (new HomeEffect())->setsTag('lock', false)->setsTag('tamerLock', false))
+            ->commit();
+        $effects_container->add()->identifier('hero_tamer_8b')
+            ->add( (new HomeEffect())->temporaryDefense(2)->setsTag('lock', false)->setsTag('tamerLock', false))
+            ->commit();
         //</editor-fold>
 
         //<editor-fold desc="ItemEffects">
@@ -210,6 +227,18 @@ class ActionEffectProvider
         $effects_container->add()->identifier('morph_alarm_2')->add((new ItemEffect())->morphSource('alarm_2_#00'))->commit();
         $effects_container->add()->identifier('morph_alarm_3')->add((new ItemEffect())->morphSource('alarm_3_#00'))->commit();
 
+        $effects_container->add()->identifier('morph_lens')->add((new ItemEffect())->morphSource('lens_#00'))->commit();
+        $effects_container->add()->identifier('morph_lamp')->add((new ItemEffect())->morphSource('lamp_#00'))->commit();
+        $effects_container->add()->identifier('morph_music_part')->add((new ItemEffect())->morphSource('music_part_#00'))->commit();
+        $effects_container->add()->identifier('morph_radio_off')->add((new ItemEffect())->morphSource('radio_off_#00'))->commit();
+        $effects_container->add()->identifier('morph_xmas_gift')->add((new ItemEffect())->morphSource('xmas_gift_#00'))->commit();
+        $effects_container->add()->identifier('morph_soccer_part')->add((new ItemEffect())->morphSource('soccer_part_#00'))->commit();
+
+        $effects_container->add()->identifier('consume_steak')->add((new ItemEffect())->consume('meat_#00'))->commit();
+
+        $effects_container->add()->identifier('hero_tamer_use')->add( (new ItemEffect())->morphSource('tamed_pet_off_#00'))->commit();
+        $effects_container->add()->identifier('hero_tamer_gone')->add( (new ItemEffect())->morphSource('tamed_pet_gone_#00'))->commit();
+
         $effects_container->add()->identifier('spawn_doggy')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                       ->addSpawn('food_bar2_#00', 222)
                                                                       ->addSpawn('food_chick_#00', 194)
@@ -271,11 +300,11 @@ class ActionEffectProvider
         $effects_container->add()->identifier('spawn_xmas_3')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                        ->addSpawnList(['omg_this_will_kill_you_#00'])
         )->commit();
-        $effects_container->add()->identifier('spawn_xmas_2')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
-                                                                       ->addSpawnList(['christmas_candy_#00'])
+        $effects_container->add()->identifier('spawn_xmas_2')->add((new ItemEffect())
+                                                                       ->addSpawn('rp_letter_#00')
         )->commit();
-        $effects_container->add()->identifier('spawn_xmas_1')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
-                                                                       ->addSpawnList(['xmas_gift_#00'])
+        $effects_container->add()->identifier('spawn_xmas_1')->add((new ItemEffect())
+                                                                       ->addSpawn('watergun_opt_5_#00')
         )->commit();
         $effects_container->add()->identifier('spawn_matbox')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetOrigin)
                                                                        ->addSpawnList(['wood2_#00', 'metal_#00'])
@@ -364,6 +393,30 @@ class ActionEffectProvider
         $effects_container->add()->identifier('spawn_3_water')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetFloorOnly)
                                                                         ->addSpawn('water_#00', count: 3)
         )->commit();
+
+        $effects_container->add()->identifier('spawn_xmas_gift_1')->add((new ItemEffect())->spawnAt(ItemDropTarget::DropTargetFloorOnly)
+                                                                            ->addSpawn('xmas_gift_#01')
+        )->commit();
+        $effects_container->add()->identifier('morph_photo_3')->add((new ItemEffect())->morphSource('photo_3_#00'))->commit();
+
+        $effects_container->add()->identifier('spawn_cellobox')->add((new ItemEffect())
+                                                                         ->addSpawnList(['gun_#00', 'pet_cat_#00', 'money_#00', 'knife_#00'])
+        )->commit();
+        $effects_container->add()->identifier('spawn_drugkit')->add((new ItemEffect())
+                                                                        ->addSpawnList(['water_cleaner_#00', 'drug_water_#00'], 200)
+                                                                        ->addSpawn('ryebag_#00', 150)
+                                                                        ->addSpawn('xanax_#00', 130)
+                                                                        ->addSpawnList(['pharma_#00', 'disinfect_#00'], 100)
+                                                                        ->addSpawn('cyanure_#00', 10)
+                                                                        ->addSpawnList(['drug_#00', 'bandage_#00'], 5)
+        )->commit();
+        $effects_container->add()->identifier('building_survivalist_a')->add((new ItemEffect())
+                                                                                 ->addSpawn('water_cup_part_#00', 3)
+                                                                                 ->addSpawn('water_cup_#00', 1)
+        )->commit();
+        $effects_container->add()->identifier('building_survivalist_b')->add((new ItemEffect())
+                                                                                 ->addSpawnWithVariableCount('water_cup_#00', min: 1, max: 3)
+        )->commit();
         //</editor-fold>
 
         //<editor-fold desc="Status">
@@ -372,16 +425,34 @@ class ActionEffectProvider
         $effects_container->add()->identifier('minus_6ap')->add( (new StatusEffect())->point( PointType::AP, -6, relativeToMax: false ) )->commit();
         $effects_container->add()->identifier('plus_2ap')->add( (new StatusEffect())->point( PointType::AP, 2, relativeToMax: false ) )->commit();
         $effects_container->add()->identifier('plus_2ap_7')->add( (new StatusEffect())->point( PointType::AP, 2, relativeToMax: false, exceedMax: 1 ) )->commit();
-        $effects_container->add()->identifier('plus_4ap')->add( (new StatusEffect())->point( PointType::AP, 4, relativeToMax: false ) )->commit();
-        $effects_container->add()->identifier('plus_ap8_30')->add( (new StatusEffect())->point( PointType::AP, 8, relativeToMax: false, exceedMax: 24 ) )->commit();
+        $effects_container->add()->identifier('plus_4ap')
+            ->add( (new StatusEffect())->point( PointType::AP, 4, relativeToMax: false ) )
+            ->add( (new StatusEffect())->point( PointType::SP, 1, relativeToMax: false ) )
+            ->commit();
+        $effects_container->add()->identifier('plus_ap8_30')
+            ->add( (new StatusEffect())->point( PointType::AP, 8, relativeToMax: false, exceedMax: 24 ) )
+            ->add( (new StatusEffect())->point( PointType::SP, 3, relativeToMax: false, exceedMax: 6 ) )
+            ->commit();
         $effects_container->add()->identifier('just_ap_sw')
             ->add( (new StatusEffect())->point( PointType::AP, CitizenProperties::HeroSecondWindBonusAP, relativeToMax: false, exceedMax: CitizenProperties::HeroSecondWindBonusAP ) )
             ->add( (new StatusEffect())->point( PointType::SP, CitizenProperties::HeroSecondWindBaseSP, relativeToMax: false, exceedMax: CitizenProperties::HeroSecondWindBaseSP) )
             ->commit();
-        $effects_container->add()->identifier('just_ap6')->add( (new StatusEffect())->point( PointType::AP, 0 ) )->commit();
-        $effects_container->add()->identifier('just_ap7')->add( (new StatusEffect())->point( PointType::AP, 1 ) )->commit();
-        $effects_container->add()->identifier('just_ap8')->add( (new StatusEffect())->point( PointType::AP, 2 ) )->commit();
-        $effects_container->add()->identifier('just_ap26')->add( (new StatusEffect())->point( PointType::AP, 20 ) )->commit();
+        $effects_container->add()->identifier('just_ap6')
+            ->add( (new StatusEffect())->point( PointType::AP, 0 ) )
+            ->add( (new StatusEffect())->point( PointType::SP, 0, relativeToMax: RelativeMaxPoint::RelativeToExtensionMax ) )
+            ->commit();
+        $effects_container->add()->identifier('just_ap7')
+            ->add( (new StatusEffect())->point( PointType::AP, 1 ) )
+            ->add( (new StatusEffect())->point( PointType::SP, 0, relativeToMax: RelativeMaxPoint::RelativeToExtensionMax ) )
+            ->commit();
+        $effects_container->add()->identifier('just_ap8')
+            ->add( (new StatusEffect())->point( PointType::AP, 2 ) )
+            ->add( (new StatusEffect())->point( PointType::SP, 1, relativeToMax: RelativeMaxPoint::RelativeToExtensionMax ) )
+            ->commit();
+        $effects_container->add()->identifier('just_ap26')
+            ->add( (new StatusEffect())->point( PointType::AP, 20 ) )
+            ->add( (new StatusEffect())->point( PointType::SP, 4, relativeToMax: RelativeMaxPoint::RelativeToExtensionMax ) )
+            ->commit();
 
         $effects_container->add()->identifier('minus_1pm')->add( (new StatusEffect())->point( PointType::MP, -1, relativeToMax: false ) )->commit();
         $effects_container->add()->identifier('minus_2pm')->add( (new StatusEffect())->point( PointType::MP, -2, relativeToMax: false ) )->commit();
@@ -389,7 +460,10 @@ class ActionEffectProvider
 
         $effects_container->add()->identifier('minus_1cp')->add( (new StatusEffect())->point( PointType::CP, -1, relativeToMax: false ) )->commit();
 
-        $effects_container->add()->identifier('drink_ap_1')->add( (new StatusEffect())->point( PointType::AP, 0, relativeToMax: true )->addsStatus('hasdrunk'))->commit();
+        $effects_container->add()->identifier('drink_ap_1')
+            ->add( (new StatusEffect())->point( PointType::AP, 0, relativeToMax: true )->addsStatus('hasdrunk'))
+            ->add( (new StatusEffect())->point( PointType::SP, 0, relativeToMax: RelativeMaxPoint::RelativeToExtensionMax ) )
+            ->commit();
         $effects_container->add()->identifier('drink_ap_2')->add( (new StatusEffect())->removesStatus('thirst1'))->commit();
         $effects_container->add()->identifier('drink_no_ap')->add( (new StatusEffect())->morphsStatus('thirst2', 'thirst1'))->commit();
         $effects_container->add()->identifier('reset_thirst_counter')->add( (new StatusEffect())->resetsThirstCounter())->commit();
@@ -405,7 +479,10 @@ class ActionEffectProvider
         $effects_container->add()->identifier('inflict_wound')->add( (new StatusEffect(SortDefinition::atStart()))->addsStatus('tg_meta_wound'))->commit();
         $effects_container->add()->identifier('add_bandage')->add( (new StatusEffect())->addsStatus('healed'))->commit();
 
-        $effects_container->add()->identifier('eat_ap6_silent')->add( (new StatusEffect())->point( PointType::AP, 0, relativeToMax: true )->addsStatus('haseaten'))->commit();
+        $effects_container->add()->identifier('eat_ap6_silent')
+            ->add( (new StatusEffect())->point( PointType::AP, 0, relativeToMax: true )->addsStatus('haseaten'))
+            ->add( (new StatusEffect())->point( PointType::SP, 0, relativeToMax: RelativeMaxPoint::RelativeToExtensionMax ) )
+            ->commit();
         $effects_container->add()->identifier('eat_ap4')->add( (new StatusEffect())->point( PointType::AP, 4, relativeToMax: false )->addsStatus('haseaten'))->add((new MessageEffect())->escort(false)->text( 'Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...'))->commit();
 
         $effects_container->add()->identifier('increase_lab_counter')->add( (new StatusEffect())->count(ActionCounter::ActionTypeHomeLab))->commit();
@@ -420,7 +497,13 @@ class ActionEffectProvider
         $effects_container->add()->identifier('april')->add( (new StatusEffect())->addsStatus('tg_april_ooze'))->commit();
         $effects_container->add()->identifier('hero_surv_0')->add( (new StatusEffect())->addsStatus('tg_sbook'))->commit();
         $effects_container->add()->identifier('hero_act')->add( (new StatusEffect())->addsStatus('tg_hero'))->commit();
-        $effects_container->add()->identifier('hero_immune')->add( (new StatusEffect())->addsStatus('hsurvive'))->commit();
+        $effects_container->add()->identifier('hero_immune')
+            ->add( (new StatusEffect())->addsStatus('hsurvive2'))
+            ->add( (new StatusEffect())->enableIf(CitizenProperties::HeroImmuneHeals)->removesStatus('terror'))
+            ->add( (new StatusEffect())->enableIf(CitizenProperties::HeroImmuneHeals)->removesStatus('healed'))
+            ->add( (new StatusEffect())->enableIf(CitizenProperties::HeroImmuneHeals)->removesStatus('hungover'))
+            ->commit();
+        $effects_container->add()->identifier('hero_immune2')->add( (new StatusEffect())->addsStatus('hsurvive3')->applyEffectToTarget())->commit();
 
         $effects_container->add()->identifier('camp_hide')->add( (new StatusEffect())->addsStatus('tg_hide'))->commit();
         $effects_container->add()->identifier('camp_tomb')->add( (new StatusEffect())->addsStatus('tg_tomb'))->commit();
@@ -444,6 +527,56 @@ class ActionEffectProvider
 
         $effects_container->add()->identifier('cyanide')->add( (new StatusEffect())->kill( CauseOfDeath::Cyanide))->commit();
         $effects_container->add()->identifier('death_poison')->add( (new StatusEffect())->kill( CauseOfDeath::Poison))->commit();
+
+        $effects_container->add()->identifier('minus_2ap')->add( (new StatusEffect())->point( PointType::AP, -2, relativeToMax: false ) )->commit();
+        $effects_container->add()->identifier('minus_3ap')->add( (new StatusEffect())->point( PointType::AP, -3, relativeToMax: false ) )->commit();
+        $effects_container->add()->identifier('minus_4ap')->add( (new StatusEffect())->point( PointType::AP, -4, relativeToMax: false ) )->commit();
+        $effects_container->add()->identifier('minus_2cp')->add( (new StatusEffect())->point( PointType::CP, -2, relativeToMax: false ) )->commit();
+        $effects_container->add()->identifier('minus_3cp')->add( (new StatusEffect())->point( PointType::CP, -3, relativeToMax: false ) )->commit();
+
+        $effects_container->add()->identifier('plus_1sp_e')->add( (new StatusEffect())->point( PointType::SP, 1, relativeToMax: false, exceedMax: 1 ) )->commit();
+        $effects_container->add()->identifier('plus_2sp_e')->add( (new StatusEffect())->point( PointType::SP, 2, relativeToMax: false, exceedMax: 2 ) )->commit();
+        $effects_container->add()->identifier('plus_8sp_e')->add( (new StatusEffect())->point( PointType::SP, 8, relativeToMax: false, exceedMax: null, capAt: 8 ) )->commit();
+        $effects_container->add()->identifier('minus_1sp')->add( (new StatusEffect())->point( PointType::SP, -1, relativeToMax: false ) )->commit();
+        $effects_container->add()->identifier('minus_2sp')->add( (new StatusEffect())->point( PointType::SP, -2, relativeToMax: false ) )->commit();
+
+        $effects_container->add()->identifier('status_count_scavenger')->add( (new StatusEffect())->count(ActionCounter::ActionTypeSpecialDigScavenger))->commit();
+        $effects_container->add()->identifier('status_count_surv')->add( (new StatusEffect())->count(ActionCounter::ActionTypeSpecialActionSurv))->commit();
+        $effects_container->add()->identifier('status_count_hunter')->add( (new StatusEffect())->count(ActionCounter::ActionTypeSpecialActionHunter))->commit();
+        $effects_container->add()->identifier('status_count_ap_loan')->add( (new StatusEffect())->count(ActionCounter::ActionTypeSpecialActionAPLoan))->commit();
+        $effects_container->add()->identifier('status_start_sp')->add( (new StatusEffect())->addsStatus('tg_start_sp'))->commit();
+
+        $effects_container->add()->identifier('just_ap1')->add( (new StatusEffect())->point( PointType::AP, 1, relativeToMax: false, exceedMax: 1 ) )->commit();
+
+        $effects_container->add()->identifier('status_tag_shoe_now')->add( (new StatusEffect())->addsStatus('tg_has_shoe'))->commit();
+        $effects_container->add()->identifier('status_tag_no_shoe_now')->add( (new StatusEffect())->removesStatus('tg_has_shoe'))->commit();
+        $effects_container->add()->identifier('status_tag_shoe_first')->add( (new StatusEffect())->addsStatus('tg_shoe_first'))->commit();
+        $effects_container->add()->identifier('status_tag_no_shoe_first')->add( (new StatusEffect())->removesStatus('tg_shoe_first'))->commit();
+        $effects_container->add()->identifier('status_tag_shoe_today')->add( (new StatusEffect())->addsStatus('tg_had_shoe'))->commit();
+
+        $effects_container->add()->identifier('status_tag_bike_now')->add( (new StatusEffect())->addsStatus('tg_has_bike'))->commit();
+        $effects_container->add()->identifier('status_tag_no_bike_now')->add( (new StatusEffect())->removesStatus('tg_has_bike'))->commit();
+        $effects_container->add()->identifier('status_tag_bike_first')->add( (new StatusEffect())->addsStatus('tg_bike_first'))->commit();
+        $effects_container->add()->identifier('status_tag_no_bike_first')->add( (new StatusEffect())->removesStatus('tg_bike_first'))->commit();
+        $effects_container->add()->identifier('status_tag_bike_today')->add( (new StatusEffect())->addsStatus('tg_had_bike'))->commit();
+
+        $effects_container->add()->identifier('status_soccer_today')->add( (new StatusEffect())->addsStatus('tg_soccer'))->commit();
+        $effects_container->add()->identifier('get_thristy')->add( (new StatusEffect())->addsStatus('thirst1'))->commit();
+        $effects_container->add()->identifier('get_dehydrated')->add( (new StatusEffect())->morphsStatus('thirst1', 'thirst2'))->commit();
+        $effects_container->add()->identifier('status_flag_today')->add( (new StatusEffect())->addsStatus('tg_flag'))->commit();
+
+        $effects_container->add()->identifier('hero_tamer_4')
+            ->add( (new StatusEffect())->addsStatus('tamer_guard_1'))
+            ->commit();
+        $effects_container->clone('hero_tamer_4')->identifier('hero_tamer_4b')
+            ->first(StatusEffect::class, fn(StatusEffect $s) => $s->addsStatus('tamer_guard_2'))
+            ->commit();
+        $effects_container->add()->identifier('hero_tamer_7')
+            ->add( (new StatusEffect())->addsStatus('tamer_watch_1'))
+            ->commit();
+        $effects_container->clone('hero_tamer_7')->identifier('hero_tamer_7b')
+            ->first(StatusEffect::class, fn(StatusEffect $s) => $s->addsStatus('tamer_watch_2'))
+            ->commit();
         //</editor-fold>
 
         //<editor-fold desc="Various">
@@ -481,6 +614,15 @@ class ActionEffectProvider
         $effects_container->add()->identifier('contaminated_zone_infect')->add((new CustomEffect())->effectIndex(22))->commit();
 
         $effects_container->add()->identifier('hero_bia')->add((new CustomEffect())->effectIndex(70))->commit();
+
+        $effects_container->add()->identifier('hero_tamer_9')->add( (new CustomEffect())->effectIndex(10502) )->commit();
+
+        $effects_container->add()->identifier('building_shaman')->add((new CustomEffect())->effectIndex(11001))->commit();
+        $effects_container->add()->identifier('building_scavenger')->add((new CustomEffect())->effectIndex(10101))->commit();
+        $effects_container->add()->identifier('building_guard')->add((new CustomEffect())->effectIndex(10201))->commit();
+        $effects_container->add()->identifier('tamer_fetch')->add((new CustomEffect())->effectIndex(10501))->commit();
+
+        $effects_container->add()->identifier('give_ruin_bp')->add((new CustomEffect())->effectIndex(12001))->commit();
         //</editor-fold>
 
         // Composite
@@ -516,6 +658,7 @@ class ActionEffectProvider
         $effects_container->add()->identifier('eat_ap7')
             ->add((new StatusEffect())->point( PointType::AP, 1, relativeToMax: true )->addsStatus('haseaten') )
             ->add((new MessageEffect())->escort(false)->text( 'Einmal ist zwar keinmal, dennoch genießt du dein(e) <span class="tool">{item}</span>. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast <strong>1 zusätzlichen AP erhalten!</strong>'))
+            ->add( (new StatusEffect())->point( PointType::SP, 0, relativeToMax: RelativeMaxPoint::RelativeToExtensionMax ) )
             ->commit();
 
         $effects_container->clone('infect_no_msg')->identifier('infect')
@@ -575,6 +718,8 @@ class ActionEffectProvider
                       ->addSpawn('dish_#00')
             )
             ->commit();
+
+        $effects_container->add()->identifier('status_home_pool')->add( (new CustomEffect())->effectIndex(100) )->add( (new StatusEffect())->addsStatus('tg_home_pool'))->commit();
 
         return $effects_container;
     }

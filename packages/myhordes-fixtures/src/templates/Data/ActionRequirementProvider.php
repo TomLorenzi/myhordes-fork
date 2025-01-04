@@ -5,6 +5,7 @@ namespace MyHordes\Fixtures\Data;
 use App\Entity\ActionCounter;
 use App\Entity\Requirement;
 use App\Enum\ActionHandler\PointType;
+use App\Enum\Configuration\CitizenProperties;
 use App\Service\Actions\Game\AtomProcessors\Require\Custom\GuardTowerUseIsNotMaxed;
 use App\Service\Actions\Game\AtomProcessors\Require\Custom\RoleVote;
 use App\Structures\TownConf;
@@ -33,6 +34,7 @@ class ActionRequirementProvider
         $requirement_container->add()->identifier('room_for_item')->type( Requirement::MessageOnFail )->add( (new InventorySpaceRequirement()) )->commit();
         $requirement_container->add()->identifier('room_for_item_no_container')->type( Requirement::MessageOnFail )->add( (new InventorySpaceRequirement())->container(false) )->commit();
         $requirement_container->add()->identifier('room_for_item_in_chest')->type( Requirement::MessageOnFail )->add( (new InventorySpaceRequirement())->ignoreInventory(true)->container(false)->ignoreSource(true) )->commit();
+        $requirement_container->add()->identifier('room_for_item_scavenging')->type( Requirement::MessageOnFail )->add( (new InventorySpaceRequirement())->considerTrunk(false)->container(false) )->commit();
         $requirement_container->add()->identifier('guard_tower_not_max')->type( Requirement::MessageOnFail )->add( (new CustomClassRequirement())->requirement(GuardTowerUseIsNotMaxed::class) )->commit();
 
         $requirement_container->add()->identifier('vote_shaman_needed')->type( Requirement::HideOnFail )->add( (new CustomClassRequirement())->requirement(RoleVote::class)->args(['needed' => 'shaman']) )->commit();
@@ -57,6 +59,13 @@ class ActionRequirementProvider
         $requirement_container->add()->identifier('role_ghoul')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->role('ghoul', true) )->commit();
         $requirement_container->clone('role_ghoul')->identifier('role_ghoul_serum')->type( Requirement::MessageOnFail )->text('Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...')->commit();
         $requirement_container->add()->identifier('not_role_ghoul')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->role('ghoul', false) )->commit();
+
+        $requirement_container->add()->identifier('not_profession_collec')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('collec', false) )->commit();
+        $requirement_container->add()->identifier('not_profession_guardian')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('guardian', false) )->commit();
+        $requirement_container->add()->identifier('not_profession_survivalist')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('survivalist', false) )->commit();
+        $requirement_container->add()->identifier('not_profession_hunter')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('hunter', false) )->commit();
+        $requirement_container->add()->identifier('not_profession_tamer')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('tamer', false) )->commit();
+
         //</editor-fold>
 
         //<editor-fold desc="StatusRequirements">
@@ -122,6 +131,31 @@ class ActionRequirementProvider
         $requirement_container->add()->identifier('must_not_be_tombed')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_tomb', false) )->commit();
         $requirement_container->add()->identifier('must_be_hidden')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_hide', true) )->commit();
         $requirement_container->add()->identifier('must_be_tombed')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_tomb', true) )->commit();
+
+        $requirement_container->add()->identifier('shoe_now')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status( 'tg_has_shoe', true ) )->commit();
+        $requirement_container->add()->identifier('not_yet_shoe_now')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status( 'tg_has_shoe', false ) )->commit();
+        $requirement_container->add()->identifier('not_yet_shoe_now_c')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status( 'tg_has_shoe', false ) )->commit();
+        $requirement_container->add()->identifier('shoe_today')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status( 'tg_had_shoe', true ) )->commit();
+        $requirement_container->add()->identifier('not_yet_shoe_today')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status( 'tg_had_shoe', false ) )->commit();
+        $requirement_container->add()->identifier('shoe_first')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status( 'tg_shoe_first', true ) )->commit();
+        $requirement_container->add()->identifier('not_shoe_first')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status( 'tg_shoe_first', false ) )->commit();
+
+        $requirement_container->add()->identifier('bike_now')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status( 'tg_has_bike', true ) )->commit();
+        $requirement_container->add()->identifier('not_yet_bike_now')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status( 'tg_has_bike', false ) )->commit();
+        $requirement_container->add()->identifier('not_yet_bike_now_c')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status( 'tg_has_bike', false ) )->commit();
+        $requirement_container->add()->identifier('bike_today')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status( 'tg_had_bike', true ) )->commit();
+        $requirement_container->add()->identifier('not_yet_bike_today')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status( 'tg_had_bike', false ) )->commit();
+        $requirement_container->add()->identifier('bike_first')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status( 'tg_bike_first', true ) )->commit();
+        $requirement_container->add()->identifier('not_bike_first')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status( 'tg_bike_first', false ) )->commit();
+
+        $requirement_container->add()->identifier('not_yet_soccer')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_soccer', false) )->text_key('once_a_day')->commit();
+        $requirement_container->add()->identifier('not_drunk_hide')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('drunk', false) )->commit();
+        $requirement_container->add()->identifier('must_be_drunk')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('drunk', true) )->commit();
+        $requirement_container->add()->identifier('not_yet_flag')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_flag', false) )->text_key('once_a_day')->commit();
+
+        $requirement_container->add()->identifier('not_yet_home_pooled')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_home_pool', false) )->commit();
+        $requirement_container->add()->identifier('is_not_wounded_foot')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('wound6', false) )->commit();
+        $requirement_container->add()->identifier('is_not_wounded_leg')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('wound4', false) )->commit();
         //</editor-fold>
 
         //<editor-fold desc="PointRequirements">
@@ -133,6 +167,7 @@ class ActionRequirementProvider
 
         $requirement_container->add()->identifier('min_6_ap')->type( Requirement::MessageOnFail )->add( (new PointRequirement())->require(PointType::AP)->min(6) )->text_key('pt_required')->commit();
         $requirement_container->add()->identifier('min_5_ap')->type( Requirement::MessageOnFail )->add( (new PointRequirement())->require(PointType::AP)->min(5) )->text_key('pt_required')->commit();
+        $requirement_container->add()->identifier('min_2_ap')->type( Requirement::MessageOnFail )->add( (new PointRequirement())->require(PointType::AP)->min(2) )->text_key('pt_required')->commit();
         $requirement_container->add()->identifier('min_1_ap')->type( Requirement::MessageOnFail )->add( (new PointRequirement())->require(PointType::AP)->min(1) )->text_key('pt_required')->commit();
 
         $requirement_container->add()->identifier('no_cp')->type( Requirement::HideOnFail )->add( (new PointRequirement())->require(PointType::CP)->max(0) )->commit();
@@ -142,6 +177,11 @@ class ActionRequirementProvider
         $requirement_container->add()->identifier('min_1_pm')->type( Requirement::CrossOnFail )->add( (new PointRequirement())->require(PointType::MP)->min(1) )->text_key('pt_required')->commit();
         $requirement_container->add()->identifier('min_2_pm')->type( Requirement::CrossOnFail )->add( (new PointRequirement())->require(PointType::MP)->min(2) )->text_key('pt_required')->commit();
         $requirement_container->add()->identifier('min_3_pm')->type( Requirement::CrossOnFail )->add( (new PointRequirement())->require(PointType::MP)->min(3) )->text_key('pt_required')->commit();
+
+        $requirement_container->add()->identifier('min_3_ap')->type( Requirement::MessageOnFail )->add( (new PointRequirement())->require(PointType::AP)->min(3) )->text_key('pt_required')->commit();
+        $requirement_container->add()->identifier('min_4_ap')->type( Requirement::MessageOnFail )->add( (new PointRequirement())->require(PointType::AP)->min(4) )->text_key('pt_required')->commit();
+        $requirement_container->add()->identifier('min_2_cp')->type( Requirement::CrossOnFail )->add( (new PointRequirement())->require(PointType::CP)->min(2) )->text_key('pt_required')->commit();
+        $requirement_container->add()->identifier('min_3_cp')->type( Requirement::CrossOnFail )->add( (new PointRequirement())->require(PointType::CP)->min(3) )->text_key('pt_required')->commit();
         //</editor-fold>
 
         //<editor-fold desc="TimeRequirements">
@@ -161,6 +201,11 @@ class ActionRequirementProvider
         $requirement_container->add()->identifier('kitchen_counter_below_4')->type( Requirement::CrossOnFail )->add( (new CounterRequirement())->counter(ActionCounter::ActionTypeHomeKitchen)->max( 3 ) )->commit();
         $requirement_container->add()->identifier('kitchen_counter_below_5')->type( Requirement::CrossOnFail )->add( (new CounterRequirement())->counter(ActionCounter::ActionTypeHomeKitchen)->max( 4 ) )->commit();
         $requirement_container->add()->identifier('kitchen_counter_below_6')->type( Requirement::CrossOnFail )->add( (new CounterRequirement())->counter(ActionCounter::ActionTypeHomeKitchen)->max( 5 ) )->commit();
+
+        $requirement_container->add()->identifier('scav_building_counter_below_1')->type( Requirement::CrossOnFail )->add( (new CounterRequirement())->counter(ActionCounter::ActionTypeSpecialDigScavenger)->max( 0 ) )->commit();
+        $requirement_container->add()->identifier('scav_building_counter_below_3')->type( Requirement::CrossOnFail )->add( (new CounterRequirement())->counter(ActionCounter::ActionTypeSpecialDigScavenger)->max( 2 ) )->commit();
+        $requirement_container->add()->identifier('surv_building_counter_below_1')->type( Requirement::CrossOnFail )->add( (new CounterRequirement())->counter(ActionCounter::ActionTypeSpecialActionSurv)->max( 0 ) )->commit();
+        $requirement_container->add()->identifier('hunter_building_counter_below_1')->type( Requirement::CrossOnFail )->add( (new CounterRequirement())->counter(ActionCounter::ActionTypeSpecialActionHunter)->max( 0 ) )->commit();
         //</editor-fold>
 
         //<editor-fold desc="BuildingRequirements">
@@ -176,7 +221,7 @@ class ActionRequirementProvider
         $requirement_container->add()->identifier('must_have_crowsnest')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('small_watchmen_#01', true) )->commit();
         $requirement_container->add()->identifier('must_have_valve')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('small_valve_#00', true) )->commit();
         $requirement_container->add()->identifier('must_have_cinema')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('small_cinema_#00', true) )->commit();
-        $requirement_container->add()->identifier('must_have_hammam')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('small_spa4souls_#00', true) )->commit();
+        $requirement_container->add()->identifier('must_have_hammam')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('item_soul_blue_static_#00', true) )->commit();
 
         $requirement_container->add()->identifier('must_have_lab')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('item_acid_#00', true) )->commit();
         $requirement_container->add()->identifier('must_not_have_lab')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('item_acid_#00', false) )->text('Vielleicht solltest du stattdessen dein Labor benutzen...')->commit();
@@ -184,6 +229,12 @@ class ActionRequirementProvider
         $requirement_container->add()->identifier('must_not_have_canteen')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('small_cafet_#01', false) )->commit();
 
         $requirement_container->add()->identifier('must_not_have_valve')->type( Requirement::MessageOnFail )->add( (new BuildingRequirement())->building('small_valve_#00', false) )->text('Vielleicht solltest du das mithilfe des Wasserhahns füllen...')->commit();
+
+        $requirement_container->add()->identifier('must_have_pool')->type(Requirement::HideOnFail)->add( (new BuildingRequirement())->building('small_pool_#00', true))->commit();
+        $requirement_container->add()->identifier('must_have_scavenger_building')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('small_gallery_#00', true) )->commit();
+        $requirement_container->add()->identifier('must_have_surv_building')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('small_survarea_#00', true) )->commit();
+        $requirement_container->add()->identifier('must_have_tamer_building')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('small_pet_#00', true) )->commit();
+        $requirement_container->add()->identifier('must_not_have_tamer_building')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('small_pet_#00', false) )->commit();
         //</editor-fold>
 
         //<editor-fold desc="ConfigRequirements">
@@ -217,6 +268,8 @@ class ActionRequirementProvider
         $requirement_container->add()->identifier('must_have_micropur')->type( Requirement::MessageOnFail )->add( (new ItemRequirement())->item('water_cleaner_#00') )->text_key('item_needed_generic')->commit();
         $requirement_container->add()->identifier('must_have_micropur_in')->type( Requirement::MessageOnFail )->add( (new ItemRequirement())->item('water_cleaner_#00') )->text_key('water_purification_impossible')->commit();
         $requirement_container->add()->identifier('must_have_drug')->type( Requirement::MessageOnFail )->add( (new ItemRequirement())->item('drug_#00') )->text_key('item_needed_generic')->commit();
+        $requirement_container->add()->identifier('must_have_steak')->type( Requirement::MessageOnFail )->add( (new ItemRequirement())->item('meat_#00') )->text_key('item_needed_generic')->commit();
+
         //</editor-fold>
 
         //<editor-fold desc="LocationRequirements">
@@ -229,7 +282,7 @@ class ActionRequirementProvider
         $requirement_container->add()->identifier('must_be_outside_not_at_doors')->type( Requirement::HideOnFail )->add( (new LocationRequirement())->beyond(true)->exploring(null)->minAp(1) )->commit();
         $requirement_container->add()->identifier('must_be_outside_no_door_no_ex')->type( Requirement::HideOnFail )->add( (new LocationRequirement())->beyond(true)->exploring(false)->minAp(1) )->commit();
         $requirement_container->add()->identifier('must_be_outside_3km')->type( Requirement::CrossOnFail )->add( (new LocationRequirement())->beyond(true)->exploring(null)->minKm(3) )->text('Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.')->commit();
-        $requirement_container->add()->identifier('must_be_outside_within_hr')->type( Requirement::MessageOnFail )->add( (new LocationRequirement())->beyond(true)->exploring(null)->maxKm(11) )->text('Du bist <strong>zu weit von der Stadt entfernt</strong>, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.')->commit();
+        $requirement_container->add()->identifier('must_be_outside_within_hr')->type( Requirement::MessageOnFail )->add( (new LocationRequirement())->beyond(true)->exploring(null)->maxKm(CitizenProperties::HeroReturnRange) )->text('Du bist <strong>zu weit von der Stadt entfernt</strong>, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens {' . CitizenProperties::HeroReturnRange->translationKey() . '} km betragen.')->commit();
 
         $requirement_container->add()->identifier('must_have_zombies')->type( Requirement::MessageOnFail )->add( (new LocationRequirement())->beyond(true)->exploring(null)->minZombies(1) )->text('Zum Glück sind hier keine Zombies...')->commit();
         $requirement_container->add()->identifier('must_be_blocked')->type( Requirement::MessageOnFail )->add( (new LocationRequirement())->beyond(true)->exploring(null)->isControlled(false) )->text('Das solltest du nur in einer ausweglosen Situation tun...')->commit();
@@ -238,6 +291,16 @@ class ActionRequirementProvider
         $requirement_container->add()->identifier('must_have_control_hunter')->type( Requirement::MessageOnFail )->add( (new LocationRequirement())->beyond(true)->exploring(null)->isControlledOrTempControlled(true) )->text('Das kannst die <strong>Tarnkleidung</strong> nicht verwenden, solange die Zombies diese Zone kontrollieren!')->commit();
 
         $requirement_container->add()->identifier('zone_is_improvable')->type( Requirement::MessageOnFail )->add( (new LocationRequirement())->beyond(true)->maxLevel(50) )->text('Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.')->commit();
+        $requirement_container->add()->identifier('must_be_anywhere')->type( Requirement::HideOnFail )->add( (new LocationRequirement())->anywhere() )->commit();
+
+        $requirement_container->add()->identifier("must_not_have_zombies")->type(Requirement::HideOnFail)->add((new LocationRequirement())->beyond(true)->minZombies(0)->maxZombies(0))->commit();
+        $requirement_container->add()->identifier('must_be_blocked_hd')->type(Requirement::HideOnFail )->add( (new LocationRequirement())->beyond(true)->exploring(null)->isControlled(false) )->commit();
+        $requirement_container->add()->identifier('must_not_be_blocked_hd')->type(Requirement::HideOnFail )->add((new LocationRequirement())->beyond(true)->exploring(null)->isControlled(true))->commit();
+
+        $requirement_container->add()->identifier("must_have_ruin_with_bp")->type(Requirement::HideOnFail)->add((new LocationRequirement())->beyond(true)->atRuin(true)->hasBp(true))->commit();
+        $requirement_container->add()->identifier("must_have_ruin_no_bp")->type(Requirement::HideOnFail)->add((new LocationRequirement())->beyond(true)->atRuin(true)->hasBp(false))->commit();
+        $requirement_container->add()->identifier("must_not_have_ruin")->type(Requirement::HideOnFail)->add((new LocationRequirement())->beyond(true)->atRuin(false))->commit();
+
         //</editor-fold>
 
         //<editor-fold desc="HomeRequirements">

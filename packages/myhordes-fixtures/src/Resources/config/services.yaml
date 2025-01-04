@@ -17,6 +17,7 @@ services:
         - { name: 'myhordes.fixtures.rp_texts', priority: 1 }
         - { name: 'myhordes.fixtures.awards.titles', priority: 1 }
         - { name: 'myhordes.fixtures.awards.icons', priority: 1 }
+        - { name: 'myhordes.fixtures.actions', priority: 1 }
 
     MyHordes\Fixtures\Service\PermissionDataService:
       tags: [ { name: 'myhordes.fixtures.permissions', priority: 0 } ]

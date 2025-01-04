@@ -96,6 +96,7 @@ class FixtureChain implements CompilerPassInterface
 
             // find all service IDs with the tag
             $taggedServices = $container->findTaggedServiceIds($tag);
+            uasort( $taggedServices, fn( array $a, array $b ) => ($a[0]['priority'] ?? 0) <=> ($b[0]['priority'] ?? 0) );
 
             foreach ($taggedServices as $id => $tags) {
                 // add the transport service to the TransportChain service
