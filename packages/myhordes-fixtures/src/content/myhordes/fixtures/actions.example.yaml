@@ -1,0 +1,10 @@
+# Action override config
+actions:
+  drug_beta_bad_1:
+    result:
+      chances:
+        group:
+          - 1: 9
+          - 1: 8
+          - 1: 7
+          - 1: 6
