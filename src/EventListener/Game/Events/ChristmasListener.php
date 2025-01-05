@@ -3,16 +3,22 @@
 
 namespace App\EventListener\Game\Events;
 
-use App\Event\Game\EventHooks\Christmas\NightlyEvent;
+use App\Event\Game\EventHooks\Christmas\NightlyGift1Event;
+use App\Event\Game\EventHooks\Christmas\NightlyGift2Event;
+use App\Event\Game\EventHooks\Christmas\NightlyGift3Event;
+use App\Event\Game\GameEvent;
 use App\EventListener\ContainerTypeTrait;
 use App\Service\CitizenHandler;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
+use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Contracts\Service\ServiceSubscriberInterface;
 
-#[AsEventListener(event: NightlyEvent::class, method: 'santa', priority: 0)]
+#[AsEventListener(event: NightlyGift1Event::class, method: 'santa1', priority: 0)]
+#[AsEventListener(event: NightlyGift2Event::class, method: 'santa2', priority: 0)]
+#[AsEventListener(event: NightlyGift3Event::class, method: 'santa3', priority: 0)]
 final class ChristmasListener implements ServiceSubscriberInterface
 {
     use ContainerTypeTrait;
@@ -25,24 +31,41 @@ final class ChristmasListener implements ServiceSubscriberInterface
         return [
             CitizenHandler::class,
             InventoryHandler::class,
-            ItemFactory::class
+            ItemFactory::class,
+            EntityManagerInterface::class,
         ];
     }
 
-    public function santa(NightlyEvent $event): void
-    {
-        if ((int)date('m') !== 12 || (int)date('j') !== 25) return;
+    private function present(GameEvent $event, array $items, string $status): void {
         $citizen_handler   = $this->getService(CitizenHandler::class);
         $inventory_handler = $this->getService(InventoryHandler::class);
         $item_factory      = $this->getService(ItemFactory::class);
 
         foreach ($event->town->getCitizens() as $citizen) {
-            if (!$citizen->getAlive() || $citizen_handler->hasStatusEffect($citizen, 'tg_got_xmas_gift')) continue;
+            if (!$citizen->getAlive() || $citizen_handler->hasStatusEffect($citizen, $status)) continue;
 
-            $citizen_handler->inflictStatus( $citizen, 'tg_got_xmas_gift' );
-            $inventory_handler->forceMoveItem( $citizen->getHome()->getChest(), $item_factory->createItem( 'chest_christmas_3_#00' ) );
-            $inventory_handler->forceMoveItem( $citizen->getHome()->getChest(), $item_factory->createItem( 'rp_letter_#00' ) );
+            $citizen_handler->inflictStatus( $citizen, $status );
+            foreach ( $items as $item )
+                $inventory_handler->forceMoveItem( $citizen->getHome()->getChest(), $item_factory->createItem( $item ) );
+
+            $this->getService(EntityManagerInterface::class)->persist( $citizen );
+            $this->getService(EntityManagerInterface::class)->persist( $citizen->getHome()->getChest() );
         }
+    }
+
+    public function santa1(NightlyGift1Event $event): void
+    {
+        $this->present( $event, ['rp_letter_#00'], 'tg_got_xmas1');
+    }
+
+    public function santa2(NightlyGift2Event $event): void
+    {
+        $this->present( $event, ['rp_letter_#00','christmas_candy_#00','xmas_gift_#00'], 'tg_got_xmas2');
+    }
+
+    public function santa3(NightlyGift3Event $event): void
+    {
+        $this->present( $event, ['chest_christmas_3_#00'], 'tg_got_xmas3');
     }
 
 

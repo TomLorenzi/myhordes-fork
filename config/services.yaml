@@ -216,6 +216,9 @@ services:
       tags: [ { name: 'myhordes.configuration.events', priority: 0 } ]
       arguments: ['%events%']
 
+    App\Configuration\ChristmasEventOverride:
+      tags: [ { name: 'myhordes.configuration.events', priority: 1 } ]
+
     Symfony\Component\HttpFoundation\Session\Storage\Handler\RedisSessionHandler:
       arguments:
         - '@Redis'

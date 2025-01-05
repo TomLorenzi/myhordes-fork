@@ -9,6 +9,6 @@ use App\Event\Game\GameEvent;
  * @property-read EmptyEventData $data
  * @mixin EmptyEventData
  */
-class NightlyEvent extends GameEvent {
+class NightlyGift3Event extends GameEvent {
     protected static function configuration(): string { return EmptyEventData::class; }
 }
