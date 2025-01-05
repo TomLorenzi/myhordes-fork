@@ -5,10 +5,13 @@ namespace App\EventListener\Game\Town\Addon\Dump;
 
 
 use App\Controller\Town\TownController;
+use App\Entity\ActionCounter;
 use App\Entity\ItemPrototype;
 use App\Event\Game\Town\Addon\Dump\DumpInsertionCheckData;
 use App\Event\Game\Town\Addon\Dump\DumpInsertionCheckEvent;
 use App\Event\Game\Town\Addon\Dump\DumpInsertionExecuteEvent;
+use App\Event\Game\Town\Basic\Buildings\BuildingEffectEvent;
+use App\Event\Game\Town\Basic\Buildings\BuildingEffectPostAttackEvent;
 use App\Service\ErrorHelper;
 use App\Service\InventoryHandler;
 use App\Service\LogTemplateHandler;
@@ -29,10 +32,12 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 #[AsEventListener(event: DumpInsertionExecuteEvent::class, method: 'onItemHandling', priority: 10)]
 #[AsEventListener(event: DumpInsertionExecuteEvent::class, method: 'onLogMessages', priority: 0)]
 #[AsEventListener(event: DumpInsertionExecuteEvent::class, method: 'onFlashMessages', priority: 0)]
-final class DumpInsertionCommonListener implements ServiceSubscriberInterface
+
+#[AsEventListener(event: BuildingEffectPostAttackEvent::class, method: 'onProcessPostAttackEffect', priority: -5)]
+final readonly class DumpInsertionCommonListener implements ServiceSubscriberInterface
 {
     public function __construct(
-        private readonly ContainerInterface $container,
+        private ContainerInterface $container,
     ) {}
 
     public static function getSubscribedServices(): array
@@ -41,71 +46,100 @@ final class DumpInsertionCommonListener implements ServiceSubscriberInterface
             InventoryHandler::class,
             EntityManagerInterface::class,
             LogTemplateHandler::class,
-			TownHandler::class,
+            TownHandler::class,
+            TranslatorInterface::class
         ];
     }
 
     public function onCheckDumpAvailability(DumpInsertionCheckEvent $event ): void {
-		if ($event->citizen->getBanished() || !$event->dump_built) {
-			$event->pushErrorCode( ErrorHelper::ErrorActionNotAvailable )->stopPropagation();
-			return;
-		}
+        if ($event->citizen->getBanished() || !$event->dump_built) {
+            $event->pushErrorCode( ErrorHelper::ErrorActionNotAvailable )->stopPropagation();
+            return;
+        }
 
-		$cache = [];
-		foreach ($event->citizen->getTown()->getBank()->getItems() as $item) {
-			if ($item->getBroken()) continue;
+        /** @var InventoryHandler $inventoryHandler */
+        $inventoryHandler = $this->container->get(InventoryHandler::class);
+        /** @var TownHandler $townHandler */
+        $townHandler = $this->container->get(TownHandler::class);
 
-			$dumpDef = $this->get_dump_def_for( $item->getPrototype(), $event );
-			if ($dumpDef == 0) continue;
+        $dump = $townHandler->getBuilding($event->citizen->getTown(), "small_trash_#00");
+        $cache = [];
 
-			if (!isset($cache[$item->getPrototype()->getId()]))
-				$cache[$item->getPrototype()->getId()] = [
-					$item->getPrototype(),
-					$item->getCount(),
-					$dumpDef
-				];
-			else $cache[$item->getPrototype()->getId()][1] += $item->getCount();
-		}
+        foreach ($event->citizen->getTown()->getBank()->getItems() as $item) {
+            if ($item->getBroken()) continue;
 
-		usort( $cache, function(array $a, array $b) {
-			return ($a[2] === $b[2]) ? ( $a[0]->getId() < $b[0]->getId() ? -1 : 1 ) : ($a[2] < $b[2] ? 1 : -1);
-		} );
+            $dumpDef = DumpUpgradesCheckListener::getDumpItemDef( $item->getPrototype(), $event );
+            if ($dumpDef == 0) continue;
 
-		$event->dumpableItems = $cache;
+            $dumpedItems = $inventoryHandler->fetchSpecificItems($dump->getInventory(), [new ItemRequest($item->getPrototype()->getName())]);
+
+            if (!isset($cache[$item->getPrototype()->getId()]))
+                $cache[$item->getPrototype()->getId()] = [
+                    $item->getPrototype(),
+                    $item->getCount(),
+                    $dumpDef,
+                    empty($dumpedItems) ? 0 : $dumpedItems[0]->getCount()
+                ];
+            else $cache[$item->getPrototype()->getId()][1] += $item->getCount();
+        }
+
+        foreach ($dump->getInventory()->getItems() as $item)
+            if (!isset($cache[$item->getPrototype()->getId()])) {
+                $cache[$item->getPrototype()->getId()] = [
+                    $item->getPrototype(),
+                    0,
+                    DumpUpgradesCheckListener::getDumpItemDef( $item->getPrototype(), $event ),
+                    $item->getCount()
+                ];
+            }
+
+        usort( $cache, function(array $a, array $b) {
+            return ($a[2] === $b[2]) ? ( $a[0]->getId() < $b[0]->getId() ? -1 : 1 ) : ($a[2] < $b[2] ? 1 : -1);
+        } );
+
+        dump($cache);
+
+        $event->dumpableItems = $cache;
     }
 
-	/**
-	 * @param DumpInsertionCheckEvent $event
-	 * @return void
-	 * @throws ContainerExceptionInterface
-	 * @throws NotFoundExceptionInterface
-	 */
+    /**
+     * @param DumpInsertionCheckEvent $event
+     * @return void
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
     public function onCheckItems( DumpInsertionCheckEvent $event ): void {
+        if ($event->citizen->getBanished() || !$event->dump_built)
+            $event->pushErrorCode( ErrorHelper::ErrorActionNotAvailable )->stopPropagation();
 
-		if ($event->citizen->getBanished() || !$event->dump_built)
-			$event->pushErrorCode( ErrorHelper::ErrorActionNotAvailable )->stopPropagation();
+        $proto = $event->consumable;
 
-		$proto = $event->consumable;
+        if (!$proto) {
+            $event->pushErrorCode( ErrorHelper::ErrorInvalidRequest )->stopPropagation();
+            return;
+        }
 
-		if (!$proto) {
-			$event->pushErrorCode( ErrorHelper::ErrorInvalidRequest )->stopPropagation();
-			return;
-		}
+        $translator = $this->container->get(TranslatorInterface::class);
 
-		/** @var InventoryHandler $inventoryHandler */
-		$inventoryHandler = $this->container->get(InventoryHandler::class);
+        if ($event->quantity > 20) {
+            $event->pushError( ErrorHelper::ErrorActionNotAvailable, $translator->trans('Du kannst nicht so viele Gegenstände auf die Müllhalde werfen.', [], 'game') )->stopPropagation();
+            return;
+        }
 
-		// It's not free, and you don't have enough AP
-		if ($event->ap_cost > 0 && $event->citizen->getAp() < $event->quantity * $event->ap_cost) {
-			$event->pushErrorCode(ErrorHelper::ErrorNoAP)->stopPropagation();
-			return;
-		}
+        /** @var InventoryHandler $inventoryHandler */
+        $inventoryHandler = $this->container->get(InventoryHandler::class);
 
-		// Check if items are available
-		$items = $inventoryHandler->fetchSpecificItems( $event->citizen->getTown()->getBank(), [new ItemRequest($proto->getName(), $event->quantity)] );
-		if (!$items) {
-			$event->pushErrorCode(ErrorHelper::ErrorItemsMissing)->stopPropagation();
-		}
+        // You don't have enough AP (the first dump is free)
+        if ($event->citizen->getSpecificActionCounterValue(ActionCounter::ActionTypeDumpInsertion) > 0 && $event->citizen->getAp() < $event->ap_cost) {
+            $event->pushErrorCode(ErrorHelper::ErrorNoAP)->stopPropagation();
+            return;
+        }
+
+        // Check if items are available
+        $items = $inventoryHandler->fetchSpecificItems( $event->citizen->getTown()->getBank(), [new ItemRequest($proto->getName(), $event->quantity)] );
+        if (!$items) {
+            $event->pushErrorCode(ErrorHelper::ErrorItemsMissing)->stopPropagation();
+        }
     }
 
     /**
@@ -117,32 +151,38 @@ final class DumpInsertionCommonListener implements ServiceSubscriberInterface
     public function onItemHandling(DumpInsertionExecuteEvent $event ): void {
         if (!$event->check->consumable) return;
 
-		/** @var InventoryHandler $inventoryHandler */
-		$inventoryHandler = $this->container->get(InventoryHandler::class);
-		/** @var TownHandler $townHandler */
-		$townHandler = $this->container->get(TownHandler::class);
+        /** @var InventoryHandler $inventoryHandler */
+        $inventoryHandler = $this->container->get(InventoryHandler::class);
+        /** @var TownHandler $townHandler */
+        $townHandler = $this->container->get(TownHandler::class);
 
-		$dump_def = $this->get_dump_def_for($event->check->consumable, $event);
+        $dump_def = $event->check->defense;
 
-		$items = $inventoryHandler->fetchSpecificItems( $event->citizen->getTown()->getBank(), [new ItemRequest($event->check->consumable->getName(), $event->quantity)] );
-		// Remove items
-		$n = $event->quantity;
-		while (!empty($items) && $n > 0) {
-			$item = array_pop($items);
-			$c = $item->getCount();
-			$inventoryHandler->forceRemoveItem( $item, $n );
-			$n -= $c;
-		}
+        $dump = $townHandler->getBuilding($event->citizen->getTown(), "small_trash_#00");
 
-		// Reduce AP
-		if (!$event->check->free_dump_built)
-			$event->citizen->setAp( $event->citizen->getAp() - $event->quantity * $event->check->ap_cost );
+        $items = $inventoryHandler->fetchSpecificItems( $event->citizen->getTown()->getBank(), [new ItemRequest($event->check->consumable->getName(), $event->quantity)] );
+        // Remove items
+        $n = $event->quantity;
+        while (!empty($items) && $n > 0) {
+            $item = array_pop($items);
+            $c = $item->getCount();
+            $qtyMoved = min($c, $n);
+            $inventoryHandler->forceMoveItem($dump->getInventory(), $item, $qtyMoved);
+            $n -= $c;
+        }
 
-		$event->addedDefense = $dump_def * $event->quantity;
+        // Reduce AP
+        if ($event->citizen->getSpecificActionCounterValue(ActionCounter::ActionTypeDumpInsertion) > 0)
+            $event->citizen->setAp( $event->citizen->getAp() - $event->check->ap_cost );
 
-		// Increase def
-		$dump = $townHandler->getBuilding($event->citizen->getTown(), "small_trash_#00");
-		$dump->setTempDefenseBonus( $dump->getTempDefenseBonus() + $event->quantity * $dump_def );
+        // Increase def
+        $dump->setTempDefenseBonus( $dump->getTempDefenseBonus() + $event->quantity * $dump_def );
+
+        $event->addedDefense = $event->quantity * $dump_def;
+
+        // Set ActionCounter
+        $counter = $event->citizen->getSpecificActionCounter(ActionCounter::ActionTypeDumpInsertion);
+        $counter->setCount($counter->getCount() + 1);
 
         $event->markModified();
     }
@@ -158,7 +198,7 @@ final class DumpInsertionCommonListener implements ServiceSubscriberInterface
 				'count' => $event->quantity
 			]
 		];
-		$dump_def = $this->get_dump_def_for($event->check->consumable, $event);
+
         $this->container->get(EntityManagerInterface::class)->persist(
             $this->container->get(LogTemplateHandler::class)->dumpItems( $event->citizen, $itemsForLog, $event->addedDefense )
         );
@@ -172,41 +212,13 @@ final class DumpInsertionCommonListener implements ServiceSubscriberInterface
             'game', ['item' => $event->check->consumable, 'count' => $event->check->quantity, 'def' => $event->addedDefense]);
     }
 
-	protected function get_dump_def_for( ItemPrototype $proto, DumpInsertionExecuteEvent|DumpInsertionCheckEvent $event ): int {
+    public function onProcessPostAttackEffect(BuildingEffectEvent $event): void {
+        // we want to empty the dump's inventory
+        if ($event->building->getPrototype()->getName() !== "small_trash_#00") return;
 
-		$check = $event;
-		if (is_a($event, DumpInsertionExecuteEvent::class)) $check = $event->check;
-
-		$improved = $check->dump_upgrade_built;
-		/** @var DumpInsertionCheckData $check */
-
-		// Weapons
-		if ($proto->hasProperty('weapon') || in_array( $proto->getName(), [
-				'machine_gun_#00', 'gun_#00', 'chair_basic_#00', 'machine_1_#00', 'machine_2_#00', 'machine_3_#00', 'pc_#00'
-			] ) )
-			return $check->weapon_dump_built ? ($improved ? 1 : 0) + 5 : 0;
-
-		// Defense
-		if ($proto->hasProperty('defence') && $proto->getName() !== 'tekel_#00' && $proto->getName() !== 'pet_dog_#00'
-			&& $proto->getName() !== 'concrete_wall_#00' && $proto->getName() !== 'table_#00')
-			return ($improved ? 5 : 4) + ( $check->defense_dump_built ? 2 : 0 );
-
-		// Food
-		if ($proto->hasProperty('food'))
-			return $check->food_dump_built ? ($improved ? 1 : 0) + 3 : 0;
-
-		// Wood
-		if ($proto->getName() === 'wood_bad_#00' || $proto->getName() === 'wood2_#00')
-			return $check->wood_dump_built ? ($improved ? 1 : 0) + 1 : 0;
-
-		// Metal
-		if ($proto->getName() === 'metal_bad_#00' || $proto->getName() === 'metal_#00')
-			return $check->metal_dump_built ? ($improved ? 1 : 0) + 1 : 0;
-
-		// Animals
-		if ($proto->hasProperty('pet'))
-			return $check->animal_dump_built ? ($improved ? 1 : 0) + 6 :  0;
-
-		return 0;
-	}
+        $inventoryHandler = $this->container->get(InventoryHandler::class);
+        foreach ($event->building->getInventory()->getItems() as $item) {
+            $inventoryHandler->forceRemoveItem($item, $item->getCount());
+        }
+    }
 }

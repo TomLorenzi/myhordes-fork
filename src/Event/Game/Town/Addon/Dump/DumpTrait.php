@@ -14,4 +14,6 @@ trait DumpTrait
 	public bool $defense_dump_built = false;
 	public bool $dump_upgrade_built = false;
 	public int $ap_cost = 1;
+
+    public int $defense = 0;
 }
