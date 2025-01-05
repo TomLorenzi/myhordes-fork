@@ -11,7 +11,6 @@ use App\Entity\ActionCounter;
 use App\Entity\ActionEventLog;
 use App\Entity\BlackboardEdit;
 use App\Entity\Building;
-use App\Entity\BuildingVote;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenHomeUpgrade;
@@ -48,6 +47,7 @@ use App\Service\GameProfilerService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
+use App\Service\LogTemplateHandler;
 use App\Service\RateLimitingFactoryProvider;
 use App\Structures\CitizenInfo;
 use App\Structures\ItemRequest;
@@ -509,6 +509,76 @@ class TownController extends InventoryAwareController
 
         return AjaxResponse::success();
     }
+
+    #[Route(path: 'api/town/visit/{id}/burn', name: 'town_visit_burn_controller')]
+    public function burnCadaver(int $id, LogTemplateHandler $primeLog, ItemFactory $itemFactory): Response {
+        if ($id === $this->getActiveCitizen()->getId())
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
+
+        $ac = $this->getActiveCitizen();
+
+        /** @var Citizen $c */
+        $c = $this->entity_manager->getRepository(Citizen::class)->find( $id );
+        if ($c === null || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId() || $c->getAlive())
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
+
+        if (!$c->getHome()->getHoldsBody()) {
+            if ($c->getDisposed() === Citizen::Thrown) {
+                return AjaxResponse::error(TownController::ErrorAlreadyThrown);
+            } else if ($c->getDisposed() === Citizen::Watered) {
+                return AjaxResponse::error(TownController::ErrorAlreadyWatered);
+            } else if ($c->getDisposed() === Citizen::Cooked) {
+                return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+            } else if ($c->getDisposed() === Citizen::Ghoul) {
+                return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+            } else  {
+                return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+            }
+        }
+
+        if ($ac->getAp() < 2 || $this->citizen_handler->isTired( $ac ))
+            return AjaxResponse::error( ErrorHelper::ErrorNoAP );
+
+        $items = $this->inventory_handler->fetchSpecificItems($ac->getInventory(), [new ItemRequest("torch_#00", 1)]);
+        if (count($items) === 0)
+            return AjaxResponse::error(ErrorHelper::ErrorItemsMissing);
+
+        // Remove 2 APs and the torch from the inventory
+        $this->citizen_handler->setAP($ac, true, -2);
+        $items[0]->setPrototype($this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'torch_off_#00']));
+        $this->entity_manager->persist($items[0]);
+
+        $garden = $this->town_handler->getBuilding($c->getTown(), 'item_vegetable_tasty_#00');
+        if ($garden) {
+            // We add a corpse to the Garden to mark it as fertilized with the ashes
+            $this->inventory_handler->forceMoveItem($garden->getInventory(), $itemFactory->createItem('cadaver_#00'));
+            $c->setDisposed(Citizen::Burned);
+        } else $c->setDisposed(Citizen::BurnedUseless);
+
+
+        $c->addDisposedBy($ac);
+        $this->entity_manager->persist( $primeLog->citizenDisposalBurn( $ac, $c, !!$garden ) );
+        $c->getHome()->setHoldsBody( false );
+
+        // Give picto according to action
+        $pictoPrototype = $this->doctrineCache->getEntityByIdentifier(PictoPrototype::class, 'r_cburn_#00');
+        $this->picto_handler->give_picto($ac, $pictoPrototype);
+
+        if ($garden)
+            $this->addFlash('notice', $this->translator->trans('Du verbrennst {disposed}s Leiche mit deiner Fackel und verstreust die Asche auf dem Gemüsebeet. Das sollte uns mehr zu Essen einbringen...', ['{disposed}' => '<span>' . $c->getName() . '</span>'], 'game'));
+        else $this->addFlash('notice', $this->translator->trans('Du verbrennst {disposed}s Körper mit deiner Fackel, bevor du die Asche zu Staub im Wind verwehen lässt. Vielleicht hättest du etwas Sinnvolleres damit machen können...', ['{disposed}' => '<span>' . $c->getName() . '</span>'], 'game'));
+
+        try {
+            $this->entity_manager->persist($ac);
+            $this->entity_manager->persist($c);
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
 
     /**
      * @param int $id

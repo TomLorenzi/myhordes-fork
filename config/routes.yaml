@@ -7,6 +7,3 @@ controllers:
 auto_logout:
   path: /logout
   methods: GET
-
-prime:
-  resource: '@MyHordesPrimeBundle/Resources/config/routing.yaml'

@@ -11,6 +11,7 @@ use App\Entity\CitizenRole;
 use App\Entity\CitizenWatch;
 use App\Entity\DailyUpgradeVote;
 use App\Entity\Item;
+use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\Recipe;
 use App\Entity\LogEntryTemplate;
@@ -33,10 +34,12 @@ use App\Service\EventProxyService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
+use App\Service\LogTemplateHandler;
 use App\Service\RandomGenerator;
 use App\Service\TownHandler;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
+use ArrayHelpers\Arr;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Psr\Container\ContainerExceptionInterface;
@@ -45,7 +48,9 @@ use Psr\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Yaml\Yaml;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
@@ -632,5 +637,124 @@ class TownAddonsController extends TownController
         }
     }
 
+
+    #[Route(path: 'jx/town/clinic', name: 'town_tamer_clinic')]
+    public function townTamerClinic(): Response {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
+        $town = $this->getActiveCitizen()->getTown();
+
+        if (!$this->town_handler->getBuilding($town, 'small_pet_#00', true))
+            return $this->redirect($this->generateUrl('town_dashboard'));
+
+        $lure = $this->doctrineCache->getEntityByIdentifier(ItemProperty::class, 'lure');
+
+        $items = $this->getActiveCitizen()->getTown()->getBank()->getItems()
+            ->filter(fn(Item $item) => $item->getPrototype()->getProperties()->contains( $lure ))
+            ->map(fn(Item $item) => [$item->getPrototype(), $item->getCount()])
+            ->toArray();
+
+        $items_accum = [];
+        foreach ($items as [$p,$c])
+            if (!isset($items_accum[$p->getId()]))
+                $items_accum[$p->getId()] = [$p,$c];
+            else $items_accum[$p->getId()][1] += $c;
+
+        ksort($items_accum);
+
+        return $this->render( 'ajax/game/town/clinic.html.twig', $this->addDefaultTwigArgs('tamers', [
+            'day' => $town->getDay(),
+            'used' => $this->getActiveCitizen()->hasStatus('tg_tamer_lure'),
+            'banished' => $this->getActiveCitizen()->getBanished(),
+            'items' => $items_accum
+        ]) );
+    }
+
+    #[Route(path: 'api/town/clinic/lure', name: 'town_tamer_clinic_lure_controller')]
+    public function api_clinic_lure(KernelInterface $kernel, JSONRequestParser $parser, ItemFactory $if, LogTemplateHandler $log): Response
+    {
+        $town = $this->getActiveCitizen()->getTown();
+        if (!$this->town_handler->getBuilding($town, 'small_pet_#00', true))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        if ($this->getActiveCitizen()->getBanished())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableBanished );
+
+        if ($this->getActiveCitizen()->hasStatus('tg_tamer_lure'))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $prototypes = array_filter(
+            array_map(fn($i) => $this->entity_manager->getRepository(ItemPrototype::class)->find( $i ?? -1 ), array_unique(  $parser->get_array('items' ) ) ),
+            fn($v) => $v !== null
+        );
+
+        if (count($prototypes) !== 3)
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        $items = $this->inventory_handler->fetchSpecificItems(
+            $this->getActiveCitizen()->getTown()->getBank(),
+            array_map( fn(ItemPrototype $p) => new ItemRequest($p->getName()), $prototypes )
+        );
+
+        if (empty($items))
+            return AjaxResponse::error(ErrorHelper::ErrorItemsMissing);
+
+        $configPath = $kernel->getBundle('MyHordesFixturesBundle')->getPath() . '/content/myhordes/config/clinic.yaml';
+        if (!file_exists($configPath))
+            $configPath = $kernel->getBundle('MyHordesFixturesBundle')->getPath() . '/content/myhordes/config/clinic.default.yaml';
+
+        try {
+            $config = file_exists( $configPath ) ? Yaml::parseFile( $configPath ) : [];
+        } catch (\Throwable $t) {
+            $config = [];
+        }
+
+        $score = Arr::get( $config, "score.professions.{$this->getActiveCitizen()->getProfession()->getName()}", 0 );
+        $list1 = [];
+
+        $defaultScore = Arr::get( $config, 'score.default', 0 );
+        foreach ($items as $item) {
+            if ($item->getPoison()->poisoned()) $score += Arr::get( $config, 'score.poison', -1 );
+            else $score += array_reduce(
+                Arr::get( $config, 'score.groups' ),
+                fn(int $carry, array $group) => in_array( $item->getPrototype()->getName(), Arr::get( $group, 'items', [] ) ) ? Arr::get( $group, 'value', $defaultScore ) : $carry,
+                $defaultScore
+            );
+
+            $this->inventory_handler->forceRemoveItem( $item );
+            $list1[] = [$item->getPrototype()];
+        }
+
+        [$prototype, $count] = $this->random_generator->pickEntryFromRawRandomArray(
+            array_reduce(
+                Arr::get( $config, 'result', [] ),
+                fn(array $carry, array $item) => $score >= Arr::get( $item, 'min', 0 ) ? Arr::get( $item, 'items', [[[null, 0], 1]] ) : $carry,
+                [[[null, 0], 1]]
+            )
+        );
+
+        if ($count > 0 && $prototype !== null) {
+            $spawn = $if->createItem($prototype)->setCount($count);
+            $times = $count > 1 ? " × {$count}" : '';
+            $this->addFlash( 'notice', $this->translator->trans( 'Nicht schlecht. Mit deinem Köder hast du es geschafft, {item} anzulocken!<hr/>Du hast es zur sicheren Aufbewahrung in die Bank gebracht.', [
+                '{item}' => "<span class='tool'><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $spawn->getPrototype()->getIcon() . '.gif' )}'>{$this->translator->trans($spawn->getPrototype()->getLabel(), [], 'items')}{$times}</span>"
+            ], 'game' ));
+
+            $this->inventory_handler->forceMoveItem( $this->getActiveCitizen()->getTown()->getBank(), $spawn );
+            $this->entity_manager->persist($log->clinicConvert( $this->getActiveCitizen(), $list1, [['count' => $count, 'item' => $spawn->getPrototype()]] ));
+        } else {
+            $this->addFlash('notice', $this->translator->trans('Es ist dir nicht gelungen, ein Tier anzulocken. Was für eine Verschwendung...', [], 'game'));
+            $this->entity_manager->persist($log->clinicConvert( $this->getActiveCitizen(), $list1, [] ));
+        }
+
+        $this->citizen_handler->inflictStatus($this->getActiveCitizen(), 'tg_tamer_lure');
+
+        $this->entity_manager->persist($this->getActiveCitizen());
+        $this->entity_manager->persist($town);
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
 
 }

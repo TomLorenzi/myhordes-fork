@@ -23,6 +23,8 @@ class Citizen
     const Watered = 2;
     const Cooked = 3;
     const Ghoul = 4;
+    const Burned = 5;
+    const BurnedUseless = 6;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]

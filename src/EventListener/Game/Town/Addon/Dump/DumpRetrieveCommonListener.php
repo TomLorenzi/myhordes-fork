@@ -8,11 +8,11 @@ use App\Event\Game\Town\Addon\Dump\DumpRetrieveCheckEvent;
 use App\Event\Game\Town\Addon\Dump\DumpRetrieveExecuteEvent;
 use App\Service\ErrorHelper;
 use App\Service\InventoryHandler;
+use App\Service\LogTemplateHandler;
 use App\Service\TownHandler;
 use App\Structures\ItemRequest;
 use App\Translation\T;
 use Doctrine\ORM\EntityManagerInterface;
-use MyHordes\Prime\Helpers\PrimeLogTemplateHandler;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -39,7 +39,7 @@ final readonly class DumpRetrieveCommonListener implements ServiceSubscriberInte
             EntityManagerInterface::class,
             TownHandler::class,
             TranslatorInterface::class,
-            PrimeLogTemplateHandler::class
+            LogTemplateHandler::class
         ];
     }
 
@@ -154,7 +154,7 @@ final readonly class DumpRetrieveCommonListener implements ServiceSubscriberInte
         ];
 
         $this->container->get(EntityManagerInterface::class)->persist(
-            $this->container->get(PrimeLogTemplateHandler::class)->dumpItemsRecover( $event->citizen, $itemsForLog, $event->removedDefense )
+            $this->container->get(LogTemplateHandler::class)->dumpItemsRecover( $event->citizen, $itemsForLog, $event->removedDefense )
         );
 
         $event->markModified();

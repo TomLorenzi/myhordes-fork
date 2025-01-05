@@ -1,0 +1,95 @@
+score:
+  default: 0
+  poison: -1
+  professions:
+    tamer: 5
+  groups:
+    -
+      value: 1
+      items:
+        - 'food_bar1_#00'
+        - 'vegetable_tasty_#00'
+        - 'egg_#00'
+        - 'food_bar1_#00'
+        - 'dish_tasty_#00'
+        - 'food_tarte_#00'
+        - 'hmeat_#00'
+        - 'coffee_#00'
+        - 'woodsteak_#00'
+    -
+      value: 3
+      items:
+        - 'chama_#00'
+        - 'christmas_candy_#00'
+        - 'hmbrew_#00'
+        - 'food_pims_#00'
+        - 'food_noodles_hot_#00'
+        - 'food_noodles_#00'
+        - 'vegetable_#00'
+        - 'food_bar2_#00'
+        - 'omg_this_will_kill_you_#00'
+    -
+      value: 5
+      items:
+        - 'apple_#00'
+        - 'undef_#00'
+        - 'food_chick_#00'
+        - 'bretz_#00'
+        - 'fruit_#00'
+        - 'food_bar3_#00'
+    -
+      value: 7
+      items:
+        - 'wood_xmas_#00'
+        - 'can_open_#00'
+        - 'meat_#00'
+        - 'food_biscuit_#00'
+        - 'dish_#00'
+result:
+  -
+    min: 0
+    items:
+      - [ [ 'pet_rat_#00', 1 ], 1 ]
+      - [ [ 'pet_chick_#00', 1 ], 1 ]
+      - [ [ 'pet_pig_#00', 1 ], 1 ]
+      - [ [ 'pet_cat_#00', 1 ], 1 ]
+      - [ [ 'pet_snake_#00', 1 ], 1 ]
+      - [ [ 'angryc_#00', 1 ], 1 ]
+      - [ [ 'tekel_#00', 1 ], 1 ]
+      - [ [ 'pet_dog_#00', 1 ], 1 ]
+  -
+    min: 6
+    items:
+      - [ [ 'pet_rat_#00', 2 ], 1 ]
+      - [ [ 'pet_chick_#00', 2 ], 1 ]
+      - [ [ 'pet_pig_#00', 2 ], 1 ]
+      - [ [ 'pet_cat_#00', 2 ], 1 ]
+      - [ [ 'pet_snake_#00', 2 ], 1 ]
+      - [ [ 'angryc_#00', 2 ], 1 ]
+      - [ [ 'tekel_#00', 2 ], 1 ]
+      - [ [ 'pet_dog_#00', 2 ], 1 ]
+  -
+    min: 10
+    items:
+      - [ [ 'pet_rat_#00', 3 ], 1 ]
+      - [ [ 'pet_chick_#00', 3 ], 1 ]
+      - [ [ 'pet_pig_#00', 3 ], 1 ]
+      - [ [ 'pet_cat_#00', 3 ], 1 ]
+  -
+    min: 15
+    items:
+      - [ [ 'pet_snake_#00', 3 ], 1 ]
+      - [ [ 'angryc_#00', 3 ], 1 ]
+      - [ [ 'tekel_#00', 3 ], 1 ]
+      - [ [ 'pet_dog_#00', 3 ], 1 ]
+  -
+    min: 20
+    items:
+      - [ [ 'pet_rat_#00', 4 ], 1 ]
+      - [ [ 'pet_chick_#00', 4 ], 1 ]
+      - [ [ 'pet_pig_#00', 4 ], 1 ]
+      - [ [ 'pet_cat_#00', 4 ], 1 ]
+      - [ [ 'pet_snake_#00', 4 ], 1 ]
+      - [ [ 'angryc_#00', 4 ], 1 ]
+      - [ [ 'tekel_#00', 4 ], 1 ]
+      - [ [ 'pet_dog_#00', 4 ], 1 ]
