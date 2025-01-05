@@ -1102,7 +1102,7 @@ Schlachtenbummler: Clash Titan
 'Auszeichnung für den größten Helden, der während des Shock of Heroes Events am längsten überlebt hat. Du bist nun eine Legende der Außenwelt!': 'Distinction of the greatest hero having survived the longest during the Shock of heroes, you are now part of the legend of the World Beyond!'
 'Diese seltene Auszeichnung wurde den Einsiedlern verliehen, die mit ihrer Stadt die Schlacht der Berufe gewonnen haben. Respekt!': 'This rare award was given to the Survivalists who won the battle of the professions with their Town. Respect!'
 'Aufklärer - Gewinner des SoH': 'Scout - Winner of the SoH'
-'Sieg für die Aufklärer beim Shock of Heroes Event!': 'Victory as a Scavenger during the Shock of Heroes!'
+'Sieg für die Aufklärer beim Shock of Heroes Event!': 'Victory as a Scout during the Shock of Heroes!'
 'Sieg für die Wächter beim Shock of Heroes Event!': 'Victory as a Guardian during the Shock of heroes!'
 'Bewohner Koh-Lambdas': 'Citizen Koh-Lambdais'
 'Dieser Bürger war bei der Wiedervereinigung (letzte Runde) von Koh-Lambda dabei!': 'This citizen was present during the Reunification (last round) of Koh-Lambda!'
@@ -3009,3 +3009,7 @@ Nüchtern: Sober
 'Dein geworbener Spieler {user} hat zum ersten Mal Heldenerfahrung für eine Fähigkeit ausgegeben.': 'Your referred player {user} has spent heroic experience on an ability for the first time.'
 'Dein geworbener Spieler {user} hat zum ersten Mal in dieser Saison Heldenerfahrung für eine Fähigkeit ausgegeben.': 'Your referred player {user} spent heroic experience on an ability for the first time this season.'
 'Vergessene Stadt': 'Forgotten City'
+Meisteringenieur: Master Engineer
+Meisteringenieur_f: Master Engineer
+'Techniker - Gewinner des SoH': 'Technician - Winner of the SoH'
+'Sieg für die Techniker beim Shock of Heroes Event!': 'Victory as a Technician during the Shock of Heroes!'

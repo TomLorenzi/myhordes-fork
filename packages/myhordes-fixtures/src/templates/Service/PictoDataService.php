@@ -607,6 +607,14 @@ class PictoDataService implements FixtureProcessorInterface {
                 'special' => true,
             ],
             [
+                'label' => 'Techniker - Gewinner des SoH',
+                'description' => 'Sieg für die Techniker beim Shock of Heroes Event!',
+                'icon' => 'r_techwin',
+                'rare' => true,
+                'community' => false,
+                'special' => true,
+            ],
+            [
                 'label' => 'Bewohner Koh-Lambdas',
                 'description' => 'Dieser Bürger war bei der Wiedervereinigung (letzte Runde) von Koh-Lambda dabei!',
                 'icon' => 'r_kohlmb',
