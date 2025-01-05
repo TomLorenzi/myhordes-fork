@@ -28,6 +28,8 @@ class FixtureHelper extends Fixture
                 list($name,$count,$mod) = [$key,$entry[0],$entry[1]];
             else list($name,$count,$mod) = [$key,$entry,DropMod::None];
 
+            if (is_int($mod)) $mod = DropMod::from( $mod );
+
             $pt = $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $name]);
             if ($pt === null) throw new \Exception("Cannot locate item prototype '$name'!");
             $group->addEntry(

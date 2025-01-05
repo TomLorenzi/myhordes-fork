@@ -1,0 +1,10 @@
+# Item drop chance override
+base_dig:
+  angryc_#00: # Item Angry Cat
+    - 4 # Drop chance 4
+    - 5 # DropMod HordesS6
+  bag_#00: 10 # Item Bag, Drop chance 10
+  named_group:
+    item: 'water_#00' # Item water ration
+    count: 3  # Drop chance 3
+    mod: 0 # No DropMod
