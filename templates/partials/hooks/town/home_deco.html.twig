@@ -1,0 +1,12 @@
+{% if 'tamerLock' in tags %}
+    <li>
+        <img src="{{ asset('build/images/item/item_tamed_pet.gif') }}" alt="[]"> <b>{{ 'Dreibeiniger Malteser'|trans({}, 'items') }}</b> <br>
+        <span class="small">{{ 'Verbessert die Verteidigung und verhindert Diebstähle'|trans({}, 'items') }}</span>
+    </li>
+{% endif %}
+{% if 'tamerAttack' in tags %}
+    <li>
+        <img src="{{ asset('build/images/item/item_tamed_pet_drug.gif') }}" alt="[]"> <b>{{ 'Dreibeiniger Malteser'|trans({}, 'items') }}</b> <br>
+        <span class="small">{{ 'Attackiert jeden Bürger an, der versucht, sich an deinen Gegenständen zu vergreifen.'|trans({}, 'items') }}</span>
+    </li>
+{% endif %}

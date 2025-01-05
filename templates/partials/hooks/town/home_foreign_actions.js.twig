@@ -1,0 +1,8 @@
+$.html.addEventListenerAll('[x-burn-citizen]', 'click', function() {
+    if (!confirm('{{ 'Diese Aktion verbraucht 1x Fackel und 2 Aktionspunkte. Bestätigen?'|trans({},'game')|e('js') }}'))
+        return;
+    $.ajax.easySend( '{{ path('town_visit_burn_controller', {id: owner.id}) }}', {},
+            function () {
+                $.ajax.load(null, '{{ path('town_visit', {id: owner.id}) }}', true);
+            } );
+});

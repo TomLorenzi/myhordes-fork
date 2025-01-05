@@ -1,0 +1,5 @@
+{% if owner.disposed == constant('MyHordes\\Prime\\Helpers\\PrimeCitizenDisposal::Burned') %}
+	{{ '{disposing_citizen} hat die Asche von {citizen}s Leiche nicht ganz ohne Emotionen im Gemüsebeet verstreut.'|trans({'{disposing_citizen}': "<em>" ~ owner.disposedBy[0].name ~ "</em>", '{citizen}': "<em>" ~ owner.name ~ "</em>"}, 'game')|raw }}
+{% elseif owner.disposed == constant('MyHordes\\Prime\\Helpers\\PrimeCitizenDisposal::BurnedUseless') %}
+    {{ 'Es war nicht nicht ganz ohne Emotionen, dass {disposing_citizen} die Asche von {citizen}s Körper vom Wind wegtragen ließ.'|trans({'{disposing_citizen}': "<em>" ~ owner.disposedBy[0].name ~ "</em>", '{citizen}': "<em>" ~ owner.name ~ "</em>"}, 'game')|raw }}
+{% endif %}

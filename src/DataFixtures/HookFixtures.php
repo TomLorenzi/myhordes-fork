@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Hook;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
 use MyHordes\Plugins\Fixtures\HookData;
@@ -48,6 +49,13 @@ class HookFixtures extends Fixture
             $manager->persist($entity);
             $progress->advance();
         }
+
+        $removed_hooks = $this->entityManager->getRepository(Hook::class)->matching(
+            Criteria::create()->where( Criteria::expr()->notIn('name', array_keys( $hooks )) )
+        );
+
+        foreach ($removed_hooks as $hook)
+            $manager->remove($hook);
 
         $manager->flush();
         $progress->finish();

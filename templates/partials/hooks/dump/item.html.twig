@@ -5,16 +5,17 @@
 			<img src='{{asset('build/images/item/item_' ~ proto.icon ~ '.gif')}}'  alt='{{ proto.label|trans({}, 'items')}}' />
 			{{ proto.label|trans({}, 'items')}}
 			</span>
-	<img class='hide-lg hide-desktop' src='{{ asset('build/images/item/item_' ~ proto.icon ~ '.gif')}}' alt='{{ proto.label|trans({},'items') }}' />
+    <img class='hide-lg hide-desktop' src='{{ asset('build/images/item/item_' ~ proto.icon ~ '.gif')}}' alt='{{ proto.label|trans({},'items') }}' />
 </div>
 <div class="padded cell rw-2 center">
-	<span class='small'> {{ item[1] }} ({{ item[3] }})</span>
+    <span class='small'>{{'Bank'|trans({},  'game')}}: {{ item[1] }}<br/>{{'Müllhalde'|trans({},  'game')}}: {{ item[3] }}</span>
 </div>
 <div class="padded cell rw-2 rw-md-3 center">
-	<div class='defense'>+{{ item[2] }}</div>
+    <div class='defense'>+{{ item[2] }}</div>
 </div>
 <div class="padded cell rw-3 rw-md-5 rw-sm-6 right">
-	{% if not banished %}
-	<button x-item-id='{{ proto.id }}'>{{'Installieren'|trans({},  'game')}}</button>
-	{% endif %}
+    {% if not banished %}
+        <button x-item-id='{{ proto.id }}' x-action='dump'>{{'Installieren'|trans({},  'game')}}</button>
+        <button x-item-id='{{ proto.id }}' x-action='retrieve'>{{'Wiederherstellen'|trans({}, 'game')}}</button>
+    {% endif %}
 </div>

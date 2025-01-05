@@ -1,0 +1,49 @@
+{% from 'ajax/game/partials/action_macros.html.twig' import inline_action_renderer %}
+
+{% macro actionGroup(list, title, scout, target_for, help = null) %}
+    {% if list is not empty %}
+        <div class="relative">
+            {{ title }}
+            {% for entry in list %}
+                <div>{{ inline_action_renderer( scout, [entry], target_for ~ '/' ) }}</div>
+            {% endfor %}
+            {% if help is not null %}
+                <hordes-tooltip class="help">
+                    {{ help }}
+                </hordes-tooltip>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{{ _self.actionGroup( actions_bring, '{dogname}, "BRING"!'|trans({'dogname': app.user|dogname}, 'items'), scout, target_for,
+    'Befiehlt {dogname}, deinen Rucksackinhalt in die Stadt zu bringen.'|trans({'dogname': app.user|dogname}, 'items') ~ ' ' ~
+    'Achtung: Entferne alle Gegenstände aus deinem Rucksack, die du NICHT in die Stadt senden möchtest!'|trans({}, 'items')
+) }}
+
+{{ _self.actionGroup( actions_fetch, '{dogname}, "HOL"!'|trans({'dogname': app.user|dogname}, 'items'), scout, target_for,
+    'Befiehlt {dogname}, dir einen Gegenstand deiner Wahl aus der Stadt zu bringen.'|trans({'dogname': app.user|dogname}, 'items')
+) }}
+
+{{ _self.actionGroup( actions_protect, '{dogname}, "HIER"!'|trans({'dogname': app.user|dogname}, 'items'), scout, target_for,
+    'Befiehlt {dogname}, dich heute Nacht auf der Wache zu beschützen.'|trans({'dogname': app.user|dogname}, 'items')
+) }}
+
+{{ _self.actionGroup( actions_camp, '{dogname}, "GRAB"!'|trans({'dogname': app.user|dogname}, 'items'), scout, target_for,
+    'Befiehlt {dogname}, dir dabei zu helfen, dich in dieser Zone zu verstecken.'|trans({'dogname': app.user|dogname}, 'items')
+) }}
+
+{{ _self.actionGroup( actions_steal, '{dogname}, "WACH"!'|trans({'dogname': app.user|dogname}, 'items'), scout, target_for,
+    'Befiehlt {dogname}, dich zu warnen, falls du im Begriff bist, bei einem Diebstahl erwischt zu werden.'|trans({'dogname': app.user|dogname}, 'items')
+) }}
+
+{{ _self.actionGroup( actions_guard, '{dogname}, "BLEIB"!'|trans({'dogname': app.user|dogname}, 'items'), scout, target_for,
+    'Befiehlt {dogname}, dein Haus zu bewachen.'|trans({'dogname': app.user|dogname}, 'items')
+) }}
+
+{% if actions_dope is not empty %}
+    <div>
+        {{ 'Du kannst ihn auch mit einem Leckerli bestechen:'|trans({}, 'items') }}
+        <div><img alt="" src="{{ asset('build/images/item/item_meat.gif') }}"> {{ inline_action_renderer( scout, actions_dope, target_for ~ '/' ) }}</div>
+    </div>
+{% endif %}
