@@ -53,7 +53,6 @@ class HelpController extends CustomAbstractController
     private function renderHelpPage(string $page, ?string $section = null, bool $partial = false): Response {
         if ($page === 'shell') return $this->redirectToRoute('help');
         else return
-            $this->tryToRenderHelpPage('@MyHordesPrime/help', $page, $section, $partial) ??
             $this->tryToRenderHelpPage('ajax/help', $page, $section, $partial) ??
             $this->redirectToRoute('help');
     }

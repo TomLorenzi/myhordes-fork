@@ -3,28 +3,43 @@
 {% block helpContent %}
 <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Heldenmodus'|trans({},'help')|raw }}</h1>
-{# <div class="help">
-Der Heldenmodus ist die <strong>Bezahlvariante von 'Die Verdammten'</strong>.
-Auf <a href="#hero?sk=fe0ce" onclick="js.XmlHttp.get('hero?sk=fe0ce',this); return false;">dieser Seite</a> kannst du mehr darüber erfahren.
-</div>#}
-<h2>{{ 'Vorteile der altgedienten Helden'|trans({},'help')|raw }}</h2>
+<h2>{{ 'Vorteile der erfahrenen Helden'|trans({},'help')|raw }}</h2>
 <p>
-{{ 'Neben den zahlreichen Vorteilen, über die du im Heldenmodus verfügst, kannst du mit fortschreitender Heldenerfahrung weitere Vorteile freispielen!'|trans({},'help')|raw }}
+{{ 'Als Held verfügst du standartmäßig über zahlreiche Vorteile und kannst diese mit fortschreitender Spieldauer sogar noch ausbauen!'|trans({},'help')|raw }}
 </p>
 <p>
-<strong>{{ 'Jeder Tag, den du im Heldenmodus spielst, wird in deiner Seelenseite eingetragen. Sobald du eine gewisse Anzahl an Heldentagen gesammelt hast, bist du in der Lage neue Heldenvorteile freizuschalten!'|trans({},'help')|raw }}</strong>
+<strong>{{ 'Jeder gespielte Tag trägt zu deiner Heldenerfahrung bei. Zudem kannst du zusätzliche Erfahrung für bestimmte Heldenhafte und... nicht so heldenhafte Taten erhalten.'|trans({},'help')|raw }}</strong>
+{{ 'Einige Taten kannst du beliebig oft ausführen, um Erfahrung zu sammeln. Die meisten Taten bringen dir jedoch nur einmal pro Saison einen Erfahrungsbonus. Du findest eine Übersicht auf der Heldenerfahrungs-Seite in deiner Seele.'|trans({},'help')|raw }}
 </p>
+<h2>{{ 'Fähigkeiten freischalten und aktivieren'|trans({},'help')|raw }}</h2>
 <p>
-{{ 'Der erste Heldenveteranenbonus ist bereits nach 3 Tagen erhältlich. Alle weiteren Boni werden mit zunehmender Anzahl an gespielten Heldentagen freigeschaltet.'|trans({},'help')|raw }}
-</p>
-<p>
-{{ 'Wichtiger Hinweis:'|trans({},'help')|raw }}
-</p>
+{{ 'Du kannst deine gesammelte Heldenerfahrung einsetzen um neue Fähigkeiten freizuspielen, welche du dann beim Start einer neuen Stadt aktivieren kannst.'|trans({},'help')|raw }}
 <ul>
-<li>{{ 'Solange du im Heldenmodus spielst, verfügst du über alle freigespielten Vorteile und Boni.'|trans({},'help')|raw }}</li>
-<li>{{ 'Wenn du nicht mehr als Held spielst, verfallen diese Vorteile.'|trans({},'help')|raw }}</li>
-<li>{{ 'Wechselst du wieder in den Heldenmodus, erhältst du alle Heldenvorteile und es wird da weitergezählt, wo du aufgehört hast.'|trans({},'help')|raw }}</li>
+<li>{{ 'Fähigkeiten werden in 5 Kategorien gruppiert - <strong>S</strong>trategie, <strong>U</strong>msicht, <strong>P</strong>lanung, <strong>E</strong>ifer und <strong>R</strong>uhe.'|trans({},'help')|raw }}</li>
+<li>{{ 'Jede Kategorie hat wiederum 4 Stufen - <strong>Anfänger</strong>, <strong>Lehrling</strong>, <strong>Experte</strong> und <strong>Meister</strong>. Die letzten beiden Stufen müsst ihr durch Ausgabe von Heldenerfahrung freischalten.'|trans({},'help')|raw }}</li>
+<li>{{ 'Trittst du einer Stadt bei, kannst du deine freigeschalteten Fähigkeiten <strong>für die Dauer der Stadt</strong> aktivieren und so von ihren Vorteilen profitieren.'|trans({},'help')|raw }}</li>
+<li>{{ 'Deine Fähigkeiten stehen dir nur dann zur Verfügung, wenn du einen Heldenberuf spielst.'|trans({},'help')|raw }}</li>
 </ul>
+</p>
+<h2>{{ 'Fähigkeitenpunkte'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Die Zahl der Fähigkeiten, die du gleichzeitig aktivieren kannst, ist begrenzt. Für jede Aktivierung benötigst du Fähigkeitenpunkte - nur Fähigkeiten der Anfänger-Stufe sind kostenlos und daher auch immer aktiv.'|trans({},'help')|raw }}
+<ul>
+<li>{{ 'Fähigkeitenpunkte werden <strong>nicht verbraucht</strong>, wenn du beim Start einer Stadt Fähigkeiten aktivierst. Es gibt also keinen Grund, <strong>nicht</strong> sämtliche Punkte einzusätzen.'|trans({},'help')|raw }}</li>
+<li>{{ 'Die Kosten für eine Fähigkeit hängen von ihrer Stufe ab. Fähigkeiten auf Lehrling-Level kosten einen Punkt, Expertenfähigkeiten zwei und Meisterfähigkeiten drei Punkte.'|trans({},'help')|raw }}</li>
+<li>{{ 'Wie viele Fähigkeitenpunkte du zur Verfügung hast, hängt maßgeblich von deinen Seelenpunkten ab. <strong>Ab 100 Seelenpunkten</strong> hast du zwei Punkte, <strong>ab 200 Seelenpunkten</strong> sogar vier.'|trans({},'help')|raw }}</li>
+<li>{{ 'Zusätzlich kannst du <strong>temporäre Fähigkeitspunkte</strong> erhalten. Diese werden jedoch spätestens mit dem Start der nächsten Saison zurückgesetzt.'|trans({},'help')|raw }}</li>
+</ul>
+</p>
+<h2>{{ 'Der Fähigkeiten-Reset'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Sobald du über mindestens {num} Erfahrungspunkte verfügst, kannst du deine Fähigkeiten zurücksetzen.'|trans({num: 100},'help')|raw }}
+{{ 'Pro Saison kannst du deine Fähigkeiten maximal {num} Mal zurücksetzen.'|trans({num: 2}, 'soul') }}
+<ul>
+<li>{{ 'Durch einen Fähigkeiten-Reset verlierst du <strong>sämtliche Heldenerfahrung</strong> und <strong>alle freigeschalteten Fähigkeiten</strong>. Du erhälst allerdings für die Dauer der Saison <strong>einen zusätzlichen Fähigkeitenpunkt</strong>.'|trans({},'help')|raw }}</li>
+<li>{{ 'Gleichzeitig werden auch einmalige Erfahrungsboni zurückgesetzt - nach einem Reset kannst du also auch diejenigen Boni erneut erhalten, die eigentlich nur einmal pro Saison verdient werden können.'|trans({},'help')|raw }}</li>
+</ul>
+</p>
 <div class="clear"></div>
 <a class="button" x-ajax-href="{{ url('help', {'name': 'coalitions'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Kleine Koalitionen'|trans({},'help') }}</strong></a>
 {% endblock %}
