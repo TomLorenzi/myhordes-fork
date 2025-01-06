@@ -13,12 +13,14 @@ use App\Entity\EventActivationMarker;
 use App\Entity\HomeIntrusion;
 use App\Entity\Inventory;
 use App\Entity\Item;
+use App\Entity\ItemPrototype;
 use App\Entity\PrivateMessage;
 use App\Enum\ActionHandler\PointType;
 use App\Enum\Configuration\CitizenProperties;
 use App\Enum\Game\TransferItemModality;
 use App\Enum\Game\TransferItemOption;
 use App\Enum\Game\TransferItemType;
+use App\Event\Game\Items\ForceTransferItemEvent;
 use App\Event\Game\Items\TransferItemEvent;
 use App\EventListener\ContainerTypeTrait;
 use App\Service\BankAntiAbuseService;
@@ -41,9 +43,11 @@ use Symfony\Contracts\Service\ServiceSubscriberInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[AsEventListener(event: TransferItemEvent::class, method: 'onValidateItemTransfer', priority: 100)]
+#[AsEventListener(event: TransferItemEvent::class, method: 'onProtectGarland', priority: 95)]
 #[AsEventListener(event: TransferItemEvent::class, method: 'onTriggerBankLockUpdate', priority: 90)]
 #[AsEventListener(event: TransferItemEvent::class, method: 'onPreHandleSoulPickup', priority: 10)]
 #[AsEventListener(event: TransferItemEvent::class, method: 'onTransferItem', priority: 0)]
+#[AsEventListener(event: TransferItemEvent::class, method: 'onAdjustCitizenTheftDiscoveryChance', priority: -10)]
 #[AsEventListener(event: TransferItemEvent::class, method: 'onPostCreateBeyondLogEntries', priority: -10)]
 #[AsEventListener(event: TransferItemEvent::class, method: 'onPostHandleBankInteraction', priority: -11)]
 #[AsEventListener(event: TransferItemEvent::class, method: 'onPostHandleCitizenTheft', priority: -12)]
@@ -51,6 +55,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 #[AsEventListener(event: TransferItemEvent::class, method: 'onPostHandleSoulPickup', priority: -90)]
 #[AsEventListener(event: TransferItemEvent::class, method: 'onPostHandleHiddenPickup', priority: -91)]
 #[AsEventListener(event: TransferItemEvent::class, method: 'onPersistItem', priority: -100)]
+
+#[AsEventListener(event: ForceTransferItemEvent::class, method: 'onProtectGarlandForced', priority: 95)]
 final class TransferItemListener implements ServiceSubscriberInterface
 {
     use ContainerTypeTrait;
@@ -363,6 +369,25 @@ final class TransferItemListener implements ServiceSubscriberInterface
         } else $event->stopPropagation();
     }
 
+    public function onAdjustCitizenTheftDiscoveryChance( TransferItemEvent $event ): void {
+        if ($event->hasError()) return;
+
+        if ($event->type_from === TransferItemType::Steal || $event->type_to === TransferItemType::Steal) {
+
+            if ($event->citizen->hasAnyStatus('tamer_watch_1', 'tamer_watch_2')) {
+
+                $ch = $this->getService(CitizenHandler::class);
+
+                $factor = $event->citizen->hasStatus('tamer_watch_2') ? 0.75 : 0.5;
+                $ch->removeStatus($event->citizen, 'tamer_watch_1');
+                $ch->removeStatus($event->citizen, 'tamer_watch_2');
+
+                $event->discovery_change = $event->discovery_change * $factor;
+            }
+
+        }
+    }
+
     public function onPostCreateBeyondLogEntries( TransferItemEvent $event ): void {
         // Item log for picking up or dropping items in the world beyond
         if (
@@ -581,5 +606,38 @@ final class TransferItemListener implements ServiceSubscriberInterface
         if ($event->item->getInventory())
             $this->getService(EntityManagerInterface::class)->persist($event->item);
         else $this->getService(EntityManagerInterface::class)->remove($event->item);
+    }
+
+    public function onProtectGarland( TransferItemEvent $event ): void {
+        // If a previous event invocation has already set an error code, cancel execution
+        if ($event->hasError()) return;
+
+        // Get transfer options
+        $opt_enforce_placement = in_array( TransferItemOption::EnforcePlacement, $event->options );
+
+
+        if ( !$opt_enforce_placement && $event->item->getPrototype()->getName() === 'xmas_gift_#01' ) {
+
+            // Can't take an installed garland from your own home
+            if ( $event->type_from === TransferItemType::Home ) {
+                $event->stopPropagation();
+                $event->pushError( ErrorHelper::ErrorActionNotAvailable );
+                $event->pushMessage($this->getService(TranslatorInterface::class)->trans('Du musst die Girlande zuerst <strong>abnehmen</strong>, bevor du sie <strong>mitnehmen</strong> kannst.', [], 'game'), 'error');
+            }
+            // When stealing a garland, convert it back to an uninstalled garland
+            elseif ( $event->type_from === TransferItemType::Steal || $event->type_to->isRucksack() ) {
+                $base_garland = $this->getService(EntityManagerInterface::class)->getRepository(ItemPrototype::class)->findOneByName('xmas_gift_#00');
+                if ($base_garland) $event->item->setPrototype( $base_garland );
+            }
+
+        }
+    }
+
+    public function onProtectGarlandForced( ForceTransferItemEvent $event ): void {
+        // Force garland transformation when moving to anything that is not a home inventory
+        if ( $event->item->getPrototype()->getName() === 'xmas_gift_#01' && !$event->to?->getHome() ) {
+            $base_garland = $this->getService(EntityManagerInterface::class)->getRepository(ItemPrototype::class)->findOneByName('xmas_gift_#00');
+            if ($base_garland) $event->item->setPrototype( $base_garland );
+        }
     }
 }
