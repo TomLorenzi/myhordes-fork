@@ -19,6 +19,7 @@ use App\Service\GameProfilerService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\LogTemplateHandler;
+use App\Service\RandomGenerator;
 use App\Service\TownHandler;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
@@ -56,7 +57,8 @@ final class BuildingEffectListener implements ServiceSubscriberInterface
             InventoryHandler::class,
             ItemFactory::class,
             EventProxyService::class,
-            CitizenHandler::class
+            CitizenHandler::class,
+            RandomGenerator::class,
         ];
     }
 
@@ -85,6 +87,31 @@ final class BuildingEffectListener implements ServiceSubscriberInterface
                 else $event->building->setTempDefenseBonus(0 - $event->building->getDefense() - $event->building->getDefenseBonus());
 
                 break;
+
+            case 'item_boomfruit_#00':
+                if ($event->building->getLevel() <= 0) break;
+
+                // Attempt to deduct explosive grapefruits from the bank to increase defense
+                $grapefruits_needed = min(5, $event->building->getLevel());
+                $inventory_handler = $this->getService(InventoryHandler::class);
+
+                $items = $inventory_handler->fetchSpecificItems( $event->town->getBank(), [new ItemRequest('boomfruit_#00', $grapefruits_needed)] );
+
+                if ($items) {
+                    $n = $grapefruits_needed;
+                    while (!empty($items) && $n > 0) {
+                        $item = array_pop($items);
+                        $c = $item->getCount();
+                        $inventory_handler->forceRemoveItem( $item, $n );
+                        $n -= $c;
+                    }
+
+                    $event->addConsumedItem( 'boomfruit_#00', $grapefruits_needed );
+
+                } else $event->building->setTempDefenseBonus(0 - $event->building->getDefenseBonus());
+
+                break;
+
             default:
                 break;
         }
@@ -108,15 +135,73 @@ final class BuildingEffectListener implements ServiceSubscriberInterface
             $event->markModified();
         }
 
+        $maximizeProd = false;
+        $inventoryHandler = $this->getService(InventoryHandler::class);
+
+        switch ($event->building->getPrototype()->getName()) {
+
+            case 'small_strategy_#01':
+                /** @var RandomGenerator $random */
+                $random = $this->container->get(RandomGenerator::class);
+
+                $bps = [
+                    ['bplan_u_#00'],
+                    ['bplan_u_#00','bplan_c_#00'],
+                    ['bplan_u_#00','bplan_r_#00'],
+                    ['bplan_r_#00','bplan_r_#00'],
+                    array_filter(['bplan_r_#00', $random->chance(0.1) ? 'bplan_e_#00' : null]),
+                ];
+
+                $event->produceDailyBlueprint = array_merge( $event->produceDailyBlueprint, $bps[$event->building->getLevel()] );
+                break;
+
+            case 'item_vegetable_tasty_#00':
+                $cadavers = $inventoryHandler->fetchSpecificItems($event->building->getInventory(), [new ItemRequest('cadaver_#00')]);
+                $maximizeProd = count($cadavers) > 0;
+                foreach ($cadavers as $cadaver) {
+                    $inventoryHandler->forceRemoveItem($cadaver, $cadaver->getCount());
+                }
+                break;
+        }
+
         $items = match ($event->building->getPrototype()->getName()) {
-            'small_appletree_#00'      => [ 'apple_#00'     => mt_rand(3,5) ],
-            'small_chicken_#00'        => [ 'egg_#00' => 3 ],
+            'small_appletree_#00'   => in_array( 'item_digger_#00', $this->getService(TownHandler::class)->getCachedBuildingList($event->town, true) )
+                ? [ 'apple_#00'     => mt_rand(3,5) ]    // with fertilizer
+                : [ 'apple_#00'     => mt_rand(2,4) ],   // without fertilizer
+            'small_chicken_#00'     => [ 'egg_#00' => mt_rand(2,4) ],
             'item_vegetable_tasty_#00' => in_array( 'item_digger_#00', $this->getService(TownHandler::class)->getCachedBuildingList($event->town, true) )
-                ? [ 'vegetable_#00' => mt_rand(6,8), 'vegetable_tasty_#00' => mt_rand(3,5) ]    // with fertilizer
-                : [ 'vegetable_#00' => mt_rand(4,7), 'vegetable_tasty_#00' => mt_rand(0,2) ],   // without fertilizer
+                // with fertilizer
+                ? [
+                [ 'vegetable_#00' => ($maximizeProd ? 8 : mt_rand(6,8)), 'vegetable_tasty_#00' => ($maximizeProd ? 5 : mt_rand(3,5)) ], // Level 0
+                [ 'vegetable_#00' => ($maximizeProd ? 8 : mt_rand(6,8)), 'vegetable_tasty_#00' => ($maximizeProd ? 5 : mt_rand(3,5)), 'ryebag_#00' => ($maximizeProd ? 4 : mt_rand(2,4)), 'fungus_#00' => ($maximizeProd ? 3 : mt_rand(1,3)) ], // Level 1
+                [ 'vegetable_#00' => ($maximizeProd ? 8 : mt_rand(6,8)), 'vegetable_tasty_#00' => ($maximizeProd ? 5 : mt_rand(3,5)), 'ryebag_#00' => ($maximizeProd ? 4 : mt_rand(2,4)), 'fungus_#00' => ($maximizeProd ? 3 : mt_rand(1,3)), 'boomfruit_#00' => ($maximizeProd ? 3 : mt_rand(2,3)) ], // Level 2
+                [ 'vegetable_#00' => ($maximizeProd ? 8 : mt_rand(6,8)), 'vegetable_tasty_#00' => ($maximizeProd ? 5 : mt_rand(3,5)), 'ryebag_#00' => ($maximizeProd ? 4 : mt_rand(2,4)), 'fungus_#00' => ($maximizeProd ? 3 : mt_rand(1,3)), 'boomfruit_#00' => ($maximizeProd ? 3 : mt_rand(2,3)), 'apple_#00' => ($maximizeProd ? 3 : mt_rand(1,3)) ], // Level 3
+                [ 'vegetable_#00' => ($maximizeProd ? 8 : mt_rand(6,8)), 'vegetable_tasty_#00' => ($maximizeProd ? 5 : mt_rand(3,5)), 'ryebag_#00' => ($maximizeProd ? 4 : mt_rand(2,4)), 'fungus_#00' => ($maximizeProd ? 3 : mt_rand(1,3)), 'boomfruit_#00' => ($maximizeProd ? 3 : mt_rand(2,3)), 'apple_#00' => ($maximizeProd ? 3 : mt_rand(1,3)), 'pumpkin_tasty_#00' => ($maximizeProd ? 2 : mt_rand(1,2)) ], // Level 4
+            ][$event->building->getLevel()] ?? []
+                // without fertilizer
+                : [
+                [ 'vegetable_#00' => ($maximizeProd ? 7 : mt_rand(4,7)), 'vegetable_tasty_#00' => ($maximizeProd ? 2 : mt_rand(0,2)) ], // Level 0
+                [ 'vegetable_#00' => ($maximizeProd ? 7 : mt_rand(4,7)), 'vegetable_tasty_#00' => ($maximizeProd ? 2 : mt_rand(0,2)), 'ryebag_#00' => ($maximizeProd ? 3 : mt_rand(1,3)), 'fungus_#00' => ($maximizeProd ? 2 : mt_rand(1,2)) ], // Level 1
+                [ 'vegetable_#00' => ($maximizeProd ? 7 : mt_rand(4,7)), 'vegetable_tasty_#00' => ($maximizeProd ? 2 : mt_rand(0,2)), 'ryebag_#00' => ($maximizeProd ? 3 : mt_rand(1,3)), 'fungus_#00' => ($maximizeProd ? 2 : mt_rand(1,2)), 'boomfruit_#00' => ($maximizeProd ? 2 : mt_rand(1,2)) ], // Level 2
+                [ 'vegetable_#00' => ($maximizeProd ? 7 : mt_rand(4,7)), 'vegetable_tasty_#00' => ($maximizeProd ? 2 : mt_rand(0,2)), 'ryebag_#00' => ($maximizeProd ? 3 : mt_rand(1,3)), 'fungus_#00' => ($maximizeProd ? 2 : mt_rand(1,2)), 'boomfruit_#00' => ($maximizeProd ? 2 : mt_rand(1,2)), 'apple_#00' => ($maximizeProd ? 2 : mt_rand(1,2)) ], // Level 3
+                [ 'vegetable_#00' => ($maximizeProd ? 7 : mt_rand(4,7)), 'vegetable_tasty_#00' => ($maximizeProd ? 2 : mt_rand(0,2)), 'ryebag_#00' => ($maximizeProd ? 3 : mt_rand(1,3)), 'fungus_#00' => ($maximizeProd ? 2 : mt_rand(1,2)), 'boomfruit_#00' => ($maximizeProd ? 2 : mt_rand(1,2)), 'apple_#00' => ($maximizeProd ? 2 : mt_rand(1,2)), 'pumpkin_tasty_#00' => 1 ], // Level 4
+            ][$event->building->getLevel()] ?? [],
+            'item_pet_pig_#00'        => [ 'meat_#00' => mt_rand(2,4) ],
+            'item_pumpkin_raw_#00' => in_array( 'item_digger_#00', $this->getService(TownHandler::class)->getCachedBuildingList($event->town, true) )
+                // with fertilizer
+                ? ( in_array( 'small_scarecrow_#00', $this->getService(TownHandler::class)->getCachedBuildingList($event->town, true) )
+                    ? [ 'pumpkin_tasty_#00'     => mt_rand(2,4) ]   // With scarecrow
+                    : [ 'pumpkin_tasty_#00'     => mt_rand(1,3) ]   // Without scarecrow
+                )
+                // without fertilizer
+                : ( in_array( 'small_scarecrow_#00', $this->getService(TownHandler::class)->getCachedBuildingList($event->town, true) )
+                    ? [ 'pumpkin_tasty_#00'     => mt_rand(1,3) ]   // With scarecrow
+                    : [ 'pumpkin_tasty_#00'     => mt_rand(1,2) ]   // Without scarecrow
+                ),
             'item_bgrenade_#01' => in_array( 'item_digger_#00', $this->getService(TownHandler::class)->getCachedBuildingList($event->town, true) )
                 ? [ 'boomfruit_#00' => mt_rand(5,8) ]    // with fertilizer
                 : [ 'boomfruit_#00' => mt_rand(3,7) ],   // without fertilizer
+
             default => []
         };
 

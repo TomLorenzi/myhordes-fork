@@ -39,13 +39,15 @@ final class BuildingUpgradeListener implements ServiceSubscriberInterface
 
     public function onProcessPreAttackUpgrade( BuildingUpgradeEvent $event ): void {
         $event->defenseIncrement = match ($event->building->getPrototype()->getName()) {
-            'small_gather_#00'  => [0,13,21,32,33,51][ $event->building->getLevel() ] ?? 0,
+            'small_gather_#00'  => [0,20,45,75,110,150][ $event->building->getLevel() ] ?? 0,
             'item_home_def_#00' => [0,30,65,115,180,260][ $event->building->getLevel() ] ?? 0,
+            'item_boomfruit_#00'  => [0,30,75,150,240,340][ $event->building->getLevel() ] ?? 0,
+            'small_door_closed_#00'  => [0,15,45,75][ $event->building->getLevel() ] ?? 0,
             default => $event->defenseIncrement
         };
 
         $event->defenseMultiplier = match ($event->building->getPrototype()->getName()) {
-            'item_tube_#00' => [0, 0.8, 1.6, 2.4, 3.2, 4][ $event->building->getLevel() ] ?? 0.0,
+            'item_tube_#00' => [0, 0.8, 1.6, 2.4, 3.6, 4.8][ $event->building->getLevel() ] ?? 0.0,
             default => $event->defenseMultiplier
         };
 

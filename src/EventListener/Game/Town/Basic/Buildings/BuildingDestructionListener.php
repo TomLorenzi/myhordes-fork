@@ -6,6 +6,7 @@ namespace App\EventListener\Game\Town\Basic\Buildings;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\ZombieEstimation;
+use App\Event\Game\Town\Basic\Buildings\BuildingDestroyedDuringAttackPostEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingDestructionEvent;
 use App\EventListener\ContainerTypeTrait;
 use App\Service\CitizenHandler;
@@ -20,8 +21,8 @@ use Symfony\Contracts\Service\ServiceSubscriberInterface;
 
 #[AsEventListener(event: BuildingDestructionEvent::class, method: 'onSetUpBuildingInstance', priority: 0)]
 #[AsEventListener(event: BuildingDestructionEvent::class, method: 'onStoreInGPS', priority: -1)]
-
 #[AsEventListener(event: BuildingDestructionEvent::class, method: 'onExecuteSpecialEffect', priority: -105)]
+#[AsEventListener(event: BuildingDestroyedDuringAttackPostEvent::class, method: 'onProcessPostAttackDestructionEffect', priority: 1)]
 final class BuildingDestructionListener implements ServiceSubscriberInterface
 {
     use ContainerTypeTrait;
@@ -36,11 +37,8 @@ final class BuildingDestructionListener implements ServiceSubscriberInterface
             EntityManagerInterface::class,
             LogTemplateHandler::class,
             DeathHandler::class,
-            //DoctrineCacheService::class,
             TownHandler::class,
             GameProfilerService::class,
-            //InventoryHandler::class,
-            //ItemFactory::class,
             CitizenHandler::class
         ];
     }
@@ -111,6 +109,17 @@ final class BuildingDestructionListener implements ServiceSubscriberInterface
                 $est->setTargetMax($est->getTargetMax() - $zombie_diff);
                 $this->getService(EntityManagerInterface::class)->persist($est);
                 break;
+
+            default: break;
+        }
+    }
+
+    public function onProcessPostAttackDestructionEffect( BuildingDestroyedDuringAttackPostEvent $event ): void {
+        switch ($event->building->getPrototype()->getName()) {
+
+            // Fireworks destruction adds +300 temp defense for the next day
+            case 'small_fireworks_#00':
+                $event->town->setTempDefenseBonus( $event->town->getTempDefenseBonus() + 300 );
 
             default: break;
         }
