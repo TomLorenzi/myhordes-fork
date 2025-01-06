@@ -4,12 +4,16 @@
 namespace App\EventListener\Common\User;
 
 use App\Entity\CauseOfDeath;
+use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\FeatureUnlock;
 use App\Entity\FeatureUnlockPrototype;
 use App\Entity\LogEntryTemplate;
 use App\Entity\Picto;
+use App\Entity\PictoPrototype;
+use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
+use App\Enum\Game\CitizenPersistentCache;
 use App\Enum\HeroXPType;
 use App\Event\Common\User\DeathConfirmedEvent;
 use App\Event\Common\User\DeathConfirmedPostPersistEvent;
@@ -27,11 +31,13 @@ use Symfony\Contracts\Service\ServiceSubscriberInterface;
 #[AsEventListener(event: DeathConfirmedPrePersistEvent::class, method: 'awardGenerosity', priority: 0)]
 #[AsEventListener(event: DeathConfirmedPrePersistEvent::class, method: 'awardPictos', priority: -100)]
 #[AsEventListener(event: DeathConfirmedPrePersistEvent::class, method: 'awardHxp', priority: -150)]
+#[AsEventListener(event: DeathConfirmedPrePersistEvent::class, method: 'awardPrimeHxp', priority: -151)]
 #[AsEventListener(event: DeathConfirmedPrePersistEvent::class, method: 'awardLegacyHxp', priority: -155)]
 #[AsEventListener(event: DeathConfirmedPrePersistEvent::class, method: 'mutateLastWords', priority: -200)]
 #[AsEventListener(event: DeathConfirmedPrePersistEvent::class, method: 'persistDeath', priority: -300)]
 #[AsEventListener(event: DeathConfirmedPostPersistEvent::class, method: 'dispatchPictoUpdateEvent', priority: 0)]
 #[AsEventListener(event: DeathConfirmedPostPersistEvent::class, method: 'dispatchSoulPointUpdateEvent', priority: -100)]
+#[AsEventListener(event: DeathConfirmedPostPersistEvent::class, method: 'awardPrimeHxpForPictos', priority: -151)]
 #[AsEventListener(event: DeathConfirmedPostPersistEvent::class, method: 'cleanPersistentProperties', priority: -1000)]
 final class DeathConfirmationEventListener implements ServiceSubscriberInterface
 {
@@ -47,7 +53,7 @@ final class DeathConfirmationEventListener implements ServiceSubscriberInterface
             EntityManagerInterface::class,
             EventProxyService::class,
             UserHandler::class,
-            UserUnlockableService::class
+            UserUnlockableService::class,
         ];
     }
 
@@ -144,5 +150,97 @@ final class DeathConfirmationEventListener implements ServiceSubscriberInterface
 
     public function cleanPersistentProperties(DeathConfirmedEvent $event): void {
         $event->death->setData(null);
+    }
+
+    private function hxp( CitizenRankingProxy $death, string|LogEntryTemplate $template, bool $global, int $value, array $props = [], ?string $subject = null ): void {
+        $this->getService(UserUnlockableService::class)
+            ->recordHeroicExperience(
+                $death->getUser(),
+                $global ? HeroXPType::Global : HeroXPType::Seasonal,
+                $value,
+                $template,
+                $subject,
+                $props,
+                $death->getTown(),
+                $death,
+                $death->getTown()->getSeason()
+            );
+    }
+
+    public function awardPrimeHxp(DeathConfirmedEvent $event): void {
+        if ($event->death->getProperty( CitizenPersistentCache::ForceBaseHXP ) > 0) return;
+
+        // 2xp for each citizen eaten as a ghoul
+        if (($v = $event->death->getProperty( CitizenPersistentCache::Ghoul_Aggression )) > 0)
+            $this->hxp( $event->death, 'hxp_ghoul_aggression', true, $v * 2, ['kills' => $v] );
+
+        // 2xp for surviving hc town day 5
+        if ($event->death->getTown()->getType()->is(TownClass::HARD) && $event->death->getDay() >= 5)
+            $this->hxp( $event->death, 'hxp_panda_day5', true, 2, ['town' => $event->death->getTown()->getName()] );
+
+        // 2xp for reaching D10 with each profession
+        if ($event->death->getDay() >= 10) {
+            $profession = $this->getService(EntityManagerInterface::class)->getRepository(CitizenProfession::class)->find( $event->death->getProperty( CitizenPersistentCache::Profession ) );
+            if ($profession && $profession->getName() !== 'shaman')
+                $this->hxp($event->death, 'hxp_profession_day10', false, 2, ['town' => $event->death->getTown()->getName(), 'profession' => $profession->getId()], "profession_day10_{$profession->getName()}");
+        }
+
+        // 10xp for surviving day 15
+        if ($event->death->getDay() >= 15)
+            $this->hxp( $event->death, 'hxp_common_day15', false, 10, ['town' => $event->death->getTown()->getName()], 'common_day15' );
+    }
+
+    public function awardPrimeHxpForPictos(DeathConfirmedEvent $event): void {
+        if ($event->death->getProperty( CitizenPersistentCache::ForceBaseHXP ) > 0) return;
+
+        $picto_db = [
+            'r_surgrp_#00' => [ 2, 'hxp_picto', false ],
+            'r_surlst_#00' => [ [0 => 0, 5 => 7, 9 => 14, 14 => 21], 'hxp_picto', false ],
+            'r_suhard_#00' => [ [0 => 0, 5 => 7], 'hxp_picto', false ],
+
+            'r_thermal_#00' => [ 2, 'hxp_picto_first', true ],
+            'r_ebcstl_#00' =>  [ 2, 'hxp_picto_first', true ],
+            'r_ebpmv_#00' =>   [ 2, 'hxp_picto_first', true ],
+            'r_ebgros_#00' =>  [ 2, 'hxp_picto_first', true ],
+            'r_ebcrow_#00' =>  [ 2, 'hxp_picto_first', true ],
+            'r_wondrs_#00' =>  [ 2, 'hxp_picto_first', true ],
+            'r_maso_#00'   =>  [ 2, 'hxp_picto_first', true ],
+
+            'r_batgun_#00' =>  [ 5, 'hxp_picto_first', true ],
+            'r_door_#00'   =>  [ 5, 'hxp_picto_first', true ],
+            'r_explo2_#00' =>  [ 5, 'hxp_picto_first', true ],
+            'r_ebuild_#00' =>  [ 5, 'hxp_picto_first', true ],
+
+            'r_chstxl_#00' =>  [ 7, 'hxp_picto_first', true ],
+            'r_dnucl_#00'  =>  [ 7, 'hxp_picto_first', true ],
+            'r_watgun_#00' =>  [ 7, 'hxp_picto_first', true ],
+            'r_cmplst_#00' =>  [ 7, 'hxp_picto_first', true ],
+
+            'r_tronco_#00' =>  [ 10, 'hxp_picto_first', true ],
+        ];
+
+        foreach ( $picto_db as $picto => [ $value, $template, $subject ] ) {
+            $count = $this->getService(EntityManagerInterface::class)->getRepository(Picto::class)->findOneBy([
+                                                                                                                  'user' => $event->user,
+                                                                                                                  'townEntry' => $event->death->getTown(),
+                                                                                                                  'prototype' => $prototype = $this
+                                                                                                                      ->getService(DoctrineCacheService::class)
+                                                                                                                      ->getEntityByIdentifier( PictoPrototype::class, $picto ),
+                                                                                                                  'persisted' => 2,
+                                                                                                              ])?->getCount() ?? 0;
+
+            if (is_array($value)) {
+                $set_v = 0;
+                foreach ($value as $day => $v)
+                    if ($event->death->getDay() >= $day)
+                        $set_v = $v;
+                $value = $set_v;
+            }
+
+            if ($count > 0 && $value > 0)
+                $this->hxp( $event->death, $template, !$subject, $value, ['town' => $event->death->getTown()->getName(), 'picto' => $prototype->getId()], $subject ? "picto_{$picto}" : null );
+        }
+
+
     }
 }
