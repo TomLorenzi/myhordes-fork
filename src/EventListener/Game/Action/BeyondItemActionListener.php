@@ -6,15 +6,21 @@ namespace App\EventListener\Game\Action;
 use App\Entity\ActionCounter;
 use App\Entity\Citizen;
 use App\Entity\EventActivationMarker;
+use App\Entity\ItemPrototype;
 use App\Entity\Zone;
+use App\Enum\Game\TransferItemModality;
 use App\Event\Game\Actions\CustomActionProcessorEvent;
 use App\EventListener\ContainerTypeTrait;
 use App\Service\CitizenHandler;
+use App\Service\EventProxyService;
 use App\Service\InventoryHandler;
+use App\Service\ItemFactory;
 use App\Service\LogTemplateHandler;
 use App\Service\PictoHandler;
 use App\Service\RandomGenerator;
 use App\Service\TownHandler;
+use App\Service\ZoneHandler;
+use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
@@ -41,6 +47,9 @@ final class BeyondItemActionListener implements ServiceSubscriberInterface
             InventoryHandler::class,
             CitizenHandler::class,
             LogTemplateHandler::class,
+            EventProxyService::class,
+            ZoneHandler::class,
+            ItemFactory::class,
         ];
     }
 
@@ -123,6 +132,83 @@ final class BeyondItemActionListener implements ServiceSubscriberInterface
                     $event->cache->setTargetZone($zone);
                 } else {
                     $event->cache->addTag('flare_fail');
+                }
+                break;
+
+            // Tamer Dog Fetch Action
+            case 10501: case 10502:
+
+                // The tamer does not work if the door is closed
+                if (!$event->citizen->getTown()->getDoor()) {
+                    $event->cache->addTag('fail');
+                    $event->cache->addTag('door-closed');
+                    break;
+                }
+
+                $source = $event->type === 10501 ? $event->citizen->getHome()->getChest() : $event->town->getBank();
+                $target = $event->citizen->getInventory();
+
+                $item = $event->type === 10501
+                    ? $event->target
+                    : ($this->getService(InventoryHandler::class)->fetchSpecificItems($event->town->getBank(), [new ItemRequest($event->target->getName())]))[0] ?? null;
+
+                $em = $this->getService(EntityManagerInterface::class);
+                if (!$item) {
+
+                    if ($event->type === 10502) {
+                        if ($event->item->getPrototype()->getName() === 'tamed_pet_#00' || $event->item->getPrototype()->getName() === 'tamed_pet_drug_#00' )
+                            $event->item->setPrototype( $em->getRepository(ItemPrototype::class)->findOneBy(['name' => 'tamed_pet_off_#00']) );
+                    }
+
+                    $event->cache->addTag('fail');
+                    $event->cache->addTag('impossible');
+                    break;
+                }
+
+                if (($s = $this->getService(EventProxyService::class)->transferItem($event->citizen, $item, $source, $target, TransferItemModality::Tamer)) === InventoryHandler::ErrorNone) {
+                    if ($event->item->getPrototype()->getName() === 'tamed_pet_#00' || $event->item->getPrototype()->getName() === 'tamed_pet_drug_#00' )
+                        $event->item->setPrototype( $em->getRepository(ItemPrototype::class)->findOneBy(['name' => 'tamed_pet_off_#00']) );
+
+                    if ($event->type === 10502)
+                        $this->getService(EntityManagerInterface::class)->persist(
+                            $this->getService(LogTemplateHandler::class)->bankItemTamerTakeLog( $event->citizen, $item->getPrototype(), $item->getBroken() )
+                        );
+
+                } else {
+                    $event->cache->addTag('fail');
+                    $event->cache->addTag('impossible');
+                }
+
+                break;
+
+            // Photo_4 action on ruin
+            case 12001:
+                // Grant blueprint if available on a ruin.
+                $zone_handler = $this->getService(ZoneHandler::class);
+                $item_factory = $this->getService(ItemFactory::class);
+                $em = $this->getService(EntityManagerInterface::class);
+
+                $citizen = $event->citizen;
+
+                if ($citizen->getZone()->getBlueprint() === Zone::BlueprintAvailable && $citizen->getZone()->getBuryCount() <= 0) {
+                    // Spawn BP.
+                    $bp_name = ($zone_handler->getZoneKm($citizen->getZone()) < 10)
+                        ? 'bplan_u_#00'
+                        : 'bplan_r_#00';
+                    $bp_item_prototype = $em->getRepository(ItemPrototype::class)->findOneBy(['name' => $bp_name]);
+                    $bp_item = $item_factory->createItem( $bp_item_prototype );
+
+                    $this->getService(EventProxyService::class)->placeItem($event->citizen, $bp_item, inventories: [$citizen->getInventory(), $citizen->getZone()->getFloor()]);
+
+                    // Set zone blueprint.
+                    $citizen->getZone()->setBlueprint(Zone::BlueprintFound);
+
+                    $event->cache->addTag("bp-found");
+                    $event->cache->addSpawnedItem($bp_item);
+
+                    $this->getService(EntityManagerInterface::class)->persist(
+                        $this->getService(LogTemplateHandler::class)->beyondItemLog(citizen: $event->citizen, item: $bp_item_prototype, toFloor: true)
+                    );
                 }
                 break;
         }
