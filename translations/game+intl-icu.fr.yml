@@ -1,4 +1,3 @@
----
 'Deine Route wurde gespeichert.': 'Votre expédition a été sauvegardée.'
 'Du hast deine Beschreibung geändert.': 'Vous avez modifié votre annonce personnelle. Elle est visible dans l’annuaire des Citoyens.'
 '{citizen} hat {item} in den Brunnen geschüttet und damit {num} Rationen Wasser hinzugefügt.': '{citizen} a versé {item} dans le puits et a ajouté {num} ration(s) d’eau.'
@@ -2409,22 +2408,22 @@ Tarnexperte: Chef-Camouflage
 Pfadfinder_f: Furtive
 'Green Beret_f': 'Ranger du risque'
 Schattenmann_f: Fantôme des sables
-Wüstenphantom_f: Plus forte que Sam Fisher
+Wüstenphantom_f: Plus fort que Sam Fisher
 'Solid Snake war gestern..._f': 'Disciple de Garrett'
 'Der unsichtbare Mann_f': 'Lady in Red'
 Sandarbeiter_f: Trouveuse
-Wüstenspringmaus_f: Maîtresse Dénicheuse
-'Großer Ameisenbär_f': 'Exhumeuse de babioles'
+Wüstenspringmaus_f: Maître Dénicheur
+'Großer Ameisenbär_f': 'Exhumeur de babioles'
 Wüstenfuchs_f: Trouveuse en cheffe
 'Ich sehe Alles!_f': 'Rien ne m''échappe.'
 'Ein BMW? Kein Problem!_f': 'Une BMW ? Pas de p''oblème !'
 'Où est Larchi ?_f': 'Où est Larchi ?'
 Tierliebhaber_f: Amie des bêtes
 Malteserzüchter_f: Maîtresse-bichon
-'Ich bändige Bestien_f': 'Dresseuse de bêtes sauvages'
+'Ich bändige Bestien_f': 'Dresseur de bêtes sauvages'
 'Nie ohne meinen Hund!_f': 'Jamais sans mon chien !'
 'Hundewurst schmeckt gar nicht schlecht!_f': 'La patée, c''est pas si mauvais'
-'Meser (halb Mensch, halb Malteser)_f': 'Bichonne-Garou susceptible'
+'Meser (halb Mensch, halb Malteser)_f': 'Bichon-Garou susceptible'
 'Personalisierter Titel - Dompteur (T-ID: 1725642)_f': 'Buffy contre les zombies'
 Wurmfresser_f: Dégoteuse de vers
 'Meister im Würmerfinden_f': 'Maîtresse dégoteuse'
@@ -2433,24 +2432,24 @@ Wüstenwurmzüchter_f: Grande Mange-vermines
 'Ich brauche niemanden!_f': 'Hermitamor'
 'Heraklit der Außenwelt_f': 'I’m a poor lonesome hermit…'
 'Gepanzerter Fakir_f': 'Cocodile dundee'
-'Diplomierter Scharlatan_f': 'Aborigène curieuse'
-'Schlimmer Finger_f': 'Charlatane diplômée'
+'Diplomierter Scharlatan_f': 'Aborigène curieux'
+'Schlimmer Finger_f': 'Charlatan diplômé'
 Seelenverwerter_f: Aruspicine maudite
 'Mystischer Seher_f': 'Recycleuse d''âmes'
 'Voodoo Sorceror_f': 'Sorcier vaudou'
 'Yo, wir schaffen das!_f': 'Bricol'' girl travesti'
-'Kleiner Schraubendreher_f': 'Amatrice du PMV tournevis'
+'Kleiner Schraubendreher_f': 'Amateur du PMV tournevis'
 'Schweizer Taschenmesser_f': 'Nuchuk à molette'
 'Unermüdlicher Schrauber_f': 'Constructrice increvable'
 'Seele des Handwerks_f': 'TechnicoMecanoMegalo'
-'Seele eines Profis_f': 'Âme de professionnelle'
+'Seele eines Profis_f': 'Âme du professionnel'
 'Personalisierter Titel - Techniker (T-ID: 631944)_f': 'Se balade jamais sans ses clefs'
-'Die Mauer_f': 'Défenseuse'
+'Die Mauer_f': 'Défenseur'
 Höllenwächter_f: Maîtresse gardienne
-Kerberos_f: Paladine
+Kerberos_f: Paladin
 'Die letzte Verteidigungslinie_f': 'Dernier rempart'
 'Du kommst hier NICHT durch!_f': 'Vous.. ne.. passerez.. PAS !'
-Hekatoncheir_f: Citoyenne infranchissable
+Hekatoncheir_f: Citoyen infranchissable
 'Holy F***ing Iceberg_f': 'Holy F***ing Iceberg'
 Kantinenkoch_f: Cuistot de cantine
 'Kleiner Küchenchef_f': 'Petite cheffe cuistot'
@@ -2460,7 +2459,7 @@ Kantinenkoch_f: Cuistot de cantine
 'Cooking Mama_f': 'Cooking-mama'
 'Meisterhafter Kochlöffelschwinger_f': 'Experte de la cuillère'
 'Meisterkoch der Sterne_f': 'Top-Cheffe de l''outre-monde'
-Amateur-Laborratte_f: Laborantine amatrice
+Amateur-Laborratte_f: Laborantin amateur
 'Kleiner Präparator_f': 'Petite préparatrice'
 'Chemiker von um die Ecke_f': 'Chimiste du coin'
 Produkttester_f: Orfèvre gobeuse
@@ -2473,14 +2472,14 @@ Wüstenstadt-Dealer_f: Dealeuse du village
 Wunder_f: Prodige
 'Werdender Superheld_f': 'Super-Héroïne en devenir'
 Volksheld_f: Héroïne du peuple
-Neo_f: L’incroyable citoyenne
+Neo_f: L’incroyable citoyen
 'Erlöser der Menschheit_f': 'Sauveuse de l''humanité'
 Außenweltlegende_f: Légende de l'Outre-Monde
 'Messie der verlorenen Welt_f': 'Messie du monde perdu'
 'Mein Name ist Nobody_f': 'Mon nom est personne'
 'Ein Sternbild trägt meinen Namen_f': 'J''ai donné mon nom à une constellation'
 Abstauber_f: Fouineuse de décharge
-Müllkind_f: Enquiquineuse débrouillarde
+Müllkind_f: Enquiquineur débrouillard
 'Autonomer Müll_f': 'Indésirable autonome'
 'Freier Bürger_f': 'Citoyenne libre !'
 'Alles für meinen Mund_f': 'Tout pour ma gueule'
@@ -2491,28 +2490,28 @@ Maulheld_f: Petite frappe
 Lump_f: Fripouille
 Schaumschläger_f: Crapule
 Dieb_f: Monte-en-l'air
-Fantomas_f: Voleuse
-'Ali Baba_f': 'Maîtresse cambrioleuse'
+Fantomas_f: Voleur
+'Ali Baba_f': 'Maître cambrioleur'
 Meisterdieb_f: Passe-muraille
 Kleptomane_f: Arsène Lupin du désert
 'Dein Haus ist mein Haus_f': 'Ta maison est ma maison'
 Ästhet_f: Coquette
 Schaufenstergestalter_f: Citoyenne de bon goût
 Innenarchitekt_f: Architecte d'intérieur
-Möbelgourmet_f: Maîtresse-décoratrice de tentes
-'Ordnung muss sein!_f': 'Maîtresse Es-thète'
+Möbelgourmet_f: Maître-décorateur de tentes
+'Ordnung muss sein!_f': 'Maître Es-thète'
 'Ein schöneres Leben_f': 'Plus belle la vie !'
 'Großer E-KEA Katalog_f': 'Grand Catalogue Kiela'
 Plünderer_f: Pillarde
-Aasgeier_f: Harpie
-Hyäne_f: Charogne
+Aasgeier_f: Vautour
+Hyäne_f: Charognard
 'Wegelagerer post mortem_f': 'Écumeuse post-mortem'
-'Hungriger Schakal_f': 'Chacale affamée'
+'Hungriger Schakal_f': 'Chacal affamé'
 'Kojote der kargen Steppen_f': 'Coyote des steppes arides'
 Fingerschmied_f: Notairesse de l'outre-monde
-'Nein, das Ding fasse ich nicht an._f': 'Grande arroseuse'
+'Nein, das Ding fasse ich nicht an._f': 'Grand arroseur'
 Leichenhygieniker_f: Mouilleuse de cadavres
-'Ich liebe den Geruch von gewaschenen Leichen am Morgen._f': 'Pastoresse du village'
+'Ich liebe den Geruch von gewaschenen Leichen am Morgen._f': 'Pasteur du village'
 Müllmann_f: Eboueuse
 'Erfahrener Müllmann_f': 'Sorteuse en cheffe'
 Entsorgungsfachmann_f: Expulseuse de cadavres
@@ -2530,7 +2529,7 @@ Stadtmetzger_f: 30 millions d'ennemis
 'Immer alles im Blick_f': 'Longue Vue'
 Wachsam_f: Aware
 Paranoid_f: Parano
-'Fels in der Brandung_f': 'La Roche !'
+'Fels in der Brandung_f': 'Le Roc !'
 'Großer Baumeister_f': 'Grande bâtisseuse'
 'Großer Architekt_f': 'Grande architecte'
 Freimauer_f: Franc-maçonne
@@ -2550,7 +2549,7 @@ Terraformingspezialist_f: Spécialiste en terraformation
 'Meister der Nutzlosigkeit_f': 'Maîtresse de l''inutilité'
 'Vereister Ingenieur_f': 'Ingénieure complètement givrée'
 'Wundervoll nutzlos_f': 'Merveilleusement futile'
-'Der Bruce Lee des Spachtels_f': 'La Cynthia Rothrock de la truelle'
+'Der Bruce Lee des Spachtels_f': 'Le Bruce Lee de la truelle'
 'Es ist Zeit für Kathedralen_f': 'Il est venu le temps des cathédrales'
 'Hast du nichts besseres zu tun?_f': 'Z''avez pas mieux à faire ?'
 'Hohepriesterin des Sonnentempels_f': 'Grande prêtresse du temple du soleil'
@@ -2567,11 +2566,11 @@ Eimerhalter_f: Gardienne des seaux
 Sandverkäufer_f: Marchande de sable
 'Martinet am Strand_f': 'Martine à la plage'
 'Ein Spiel für echte Kinder_f': 'Un vrai jeu d''enfants !'
-"Dauermitglied in Micky's Club_f": "Membre permanente du club Mickey"
+"Dauermitglied in Micky's Club_f": "Membre permanent du club Mickey"
 'Niemals ohne meinen Eimer_f': 'Jamais sans mon seau'
 'Ein Korn fehlt noch_f': 'Je sais, j''ai un grain'
 'Huldigt den Raben!_f': 'Gloire au Corbeau !'
-'Taube aus der Unterwelt_f': 'Pigeonne de l''Outre-Monde'
+'Taube aus der Unterwelt_f': 'Pigeon de l''Outre-Monde'
 Corvid-Spezialist_f: Spécialiste ès corvidés
 'Phoenix des Unterholzes_f': 'Phoenix des hôtes de ces bois'
 'Edit Piaf_f': 'Edit Piaf'
@@ -2586,27 +2585,27 @@ Kraaaah!_f: Crôôôaa !
 'Hier oben_f': 'Là-haut'
 'Auge der Wüste_f': 'L''œil du désert'
 '4000 Zombies starren uns an_f': '4000 zombies nous contemplent'
-Durazell_f: Gardienne de la Pile
+Durazell_f: Gardien de la Pile
 'Hüter der Heiligen Batterie_f': 'Détentrice de la Pile Sacrée'
 'Der Batterienator_f': 'C''était pas ma guerre'
 'Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!_f': 'C''est un oiseau, c''est un avion? Non c''est super lance pile'
 'Aufgeladen und kampfbereit_f': 'Ampère et contre tous'
 'Hey! Willst du meine... Batterie sehen?_f': 'Coucou! Tu veux voir ma pile ?'
-Maurerlehrling_f: Ouvrière
+Maurerlehrling_f: Ouvrier
 Maurer_f: Bâtisseuse
 Polier_f: Cheffe de chantier
 Baustellenleiter_f: Architecte
 'Architekt (title)_f': Maîtresse-architecte
 Meisterarchitekt_f: Créatrice de villes
-'Oscar Niemeyer_f': 'Capitaine Parpaing'
+'Oscar Niemeyer_f': 'Captain Parpaing'
 'Zement & Garfunkel_f': 'Ciment & Garfunkel'
 'Menschliche Ameisenkolonie_f': 'Colonie de fourmis humaine'
 'Arbeiterhelm und Kupferstiefel_f': 'Chapeau moellon et bottes de cuivre'
 'Arbeit ist Gesundheit_f': 'Le travail, c''est la santé'
-'Bob der Baumeister_f': 'L''abbé Toneuse'
+'Bob der Baumeister_f': 'L’abbé Tonière'
 Spachtler_f: Plâtrière de la ville
 'Gewissenhafter Maurer_f': 'Briqueteuse consciencieuse'
-'Meisterwerke in Gefahr_f': 'Cheffe d''œuvre en péril'
+'Meisterwerke in Gefahr_f': 'Chef d''oeuvre en péril'
 'Ein Flicken und alles ist wie neu_f': 'Une rustine et ça repart.'
 Pisa-Geraderichter_f: Redresseuse de Pise
 'Großer Renovator_f': 'Grande rénovatrice'
@@ -2619,36 +2618,36 @@ Fleisch-Schuldner_f: Débiteuse de viande
 Hobby-Heimwerker_f: Bricoleuse du dimanche
 Techniker_f: Technicienne
 'Meisterbastler _f': Maîtresse ingénieure
-'Sowas wirft man doch nicht weg!_f': 'Ré-assembleuse de choses'
+'Sowas wirft man doch nicht weg!_f': 'Ré-assembleur de choses'
 'Mac Gyver der Außenwelt_f': 'Mac Gyver de l''Outre-Monde'
 'Super Soaker_f': 'Pistolereau'
 Wasserwaffen-Spezialist_f: Spécialiste en pistolets à eau
 Hydraulik-Engineering_f: Ingénierie hydraulique
-'Abstieg der Atlanteaner_f': 'Descendante des atlantes'
-Archäologielehrling_f: Forçate du désert
+'Abstieg der Atlanteaner_f': 'Descendant des atlantes'
+Archäologielehrling_f: Forçat du désert
 Archäologe_f: Ouvrière des sables
 Grabungsleiter_f: Découvreuse de bâtiments
 'Großer Löcherbuddler_f': 'Creuseuse de grands trous'
 Riesenmaulwurf_f: Taupe géante
 'Furchtloser Camper_f': 'Campeuse inébranlable'
-'Waisenkind der Wüste_f': 'Orpheline du désert'
+'Waisenkind der Wüste_f': 'Orphelin du désert'
 'Unglaubliche Entschlossenheit_f': 'Incroyable détermination'
 'Der letzte Überlebende_f': 'La dernière survivante'
-'Ich gehe alleine._f': 'Je marche seule.'
-'Neil Armstrong der Außenwelt_f': 'Christina Koch de l''Outre Monde'
+'Ich gehe alleine._f': 'Je marche seul.'
+'Neil Armstrong der Außenwelt_f': 'Neil Armstrong de l''Outre Monde'
 'Lebensmüder Kundschafter_f': 'Exploratrice vraiment impétueuse'
 'Draufgängerischer Expeditionsreisender_f': 'Expéditionnaire au long cours'
 Nervenkitzelsucher_f: Au-delà du réel
-'Christopher Kolumbus_f': 'Desroches du désert'
+'Christopher Kolumbus_f': 'Champollion du désert'
 'Bis zur Unendlichkeit... und noch viel weiter!_f': 'Vers l''infini et au-delà !'
-'Indiana Jones und die Ruinen der Aussenwelt_f': 'Sydney Fox et les ruines de l''outre-monde'
-'Wenn ich das nur vorher gewusst hätte..._f': 'Si j''aurais su, j''aurais po v''nue'
+'Indiana Jones und die Ruinen der Aussenwelt_f': 'Indiana jones et les ruines de l''outre-monde'
+'Wenn ich das nur vorher gewusst hätte..._f': 'Si j''aurais su, j''aurais po v''nu'
 'Verwegener Wanderer_f': 'Voyageuse téméraire'
 Tunnelblicker_f: Apnéiste confirmée
 'Im Irrgarten_f': 'J''ai la dé-dale !'
 'Inklusive Kompass_f': 'Boussole sur patte'
 'Begrabener Freiwilliger_f': 'Enterrée volontaire'
-'Tomb Raider_f': 'Pilleuse de tombeau'
+'Tomb Raider_f': 'Pilleur de tombeau'
 Labyrinth-Gollum_f: Gollum des labyrinthes
 'Labyrinth-Meister MB_f': 'Labyrinthe master MB'
 "Wo klemmt's?_f": "Un p'tit Bricard ?"
@@ -2661,19 +2660,19 @@ Zerberus_f: Cerbère de la porte
 'Meister der Schlüssel_f': 'Maîtresse des clés'
 Brutalo_f: Grosse brute
 Verstümmler_f: Mutilatrice
-Killer_f: Exterminatrice
+Killer_f: Exterminateur
 Kadaverentsorger_f: Broyeuse de cadavres
 Vernichter_f: Total annihilation
 Schlächter_f: La Tueuse
 Friedensstifter_f: La Pacificatrice
 'Alptraum der Traumlosen_f': 'J''aime les bandes décimées'
 'Hans im Glück_f': 'Spécialiste en aubaine'
-'Vierklettriges Kleeblatt_f': 'Maîtresse du coup de bol'
-Fortuna_f: Grande veinarde en chef
-'Gontran Happiness_f': 'Daphnée Bonheur'
+'Vierklettriges Kleeblatt_f': 'Maître du coup de bol'
+Fortuna_f: Grand veinard en chef
+'Gontran Happiness_f': 'Gontran Bonheur'
 'Lucky 7_f': 'Lucky 7'
 'Money for Nothing_f': 'Money for Nothing'
-'Ultimate Fighter_f': 'Promeneuse désespérée'
+'Ultimate Fighter_f': 'Promeneur désespéré'
 'Wilde Bestie_f': 'Bête sauvage'
 'Rambos Großvater_f': 'Ancêtre de Rambo'
 'Absolut keine Angst!_f': 'Même pas peur !'
@@ -2688,13 +2687,13 @@ Außenweltreiseführer_f: L'outre-monde est mon bac à sable
 'Ich hab sogar das Klo abgesucht!_f': 'J''ai même fouillé les WC !'
 'Sind wir schon da?_f': 'Quand est-ce qu’on arrive ?'
 Außenweltschläfer_f: Dormeuse suicidaire
-'Allein in dieser Welt_f': 'Seule au monde…'
+'Allein in dieser Welt_f': "{ref__icu, select,\n on {\n {ref__gender, select,\n female {Seule au monde...}\n other {Seul au monde...}\n }\n }\n other {Seul(e) au monde...}\n }"
 'Der mit den Zombies tanzt_f': 'Danse avec les zombies'
 'Ich sehe überall Tote!_f': 'Je vois des morts partout'
 'Ich komme heute Nacht nicht heim..._f': 'Je ne rentrerai pas ce soir...'
 'Ein Mann gegen die Außenwelt_f': 'Une fois, au stage d''été...'
 Stadtallergie_f: Allergique à la ville
-'Wo ich hinguck, seh ich Gegend._f': 'Bah alors on n''attend pas Patrice ?'
+'Wo ich hinguck, seh ich Gegend._f': 'Bah alors on n''attend pas Patrick ?'
 'Runaway Michael_f': 'Michèle Fugueuse'
 'Ohne Dach oder Leber_f': 'Sans toit ni foie'
 'Neugieriger Leser_f': 'Lectrice curieuse'
@@ -2711,7 +2710,7 @@ Erinnerungsträger_f: Porteuse du Souvenir
 'Champions nehmen keine Drogen!_f': 'Winners don''t use drugs !'
 Medikamentetester_f: Cobaye de laboratoire
 Laborratte_f: Expérience dangereuse
-'Pille palle, 3 Tage wach!_f': 'Testeuse de produits'
+'Pille palle, 3 Tage wach!_f': 'Testeur de produits'
 'Timothy Leary_f': 'Je n''aurais pas dû gober ça.'
 'Ich sehe ein Blauuuuuuues Tal_f': 'Je vois une Vallée Bleuûuue !'
 Menschenfleischliebhaber_f: Amatrice de viande humaine
@@ -2722,28 +2721,28 @@ Totmacher_f: Dévoreuse de citoyens
 "Schmeckt am besten wenn's noch schreit!_f": "C'est meilleur si ça hurle."
 'Die Macht der Proteine_f': 'Le plein de Protéines.'
 'Nackt und Zerfleischt_f': 'Cannibales Holocauste'
-Zombieliebling_f: Favorite des zombies
+Zombieliebling_f: Favori des zombies
 'Letzter Überlebender_f': 'Last woman standing'
 Unzerstörbar_f: Increvable
-'Allein gegen die Horde_f': 'Seule contre les Hordes'
-"Chuck Norris' Ebenbild_f": "Égale de Chuck Norris"
+'Allein gegen die Horde_f': 'Seul(e) contre les Hordes'
+"Chuck Norris' Ebenbild_f": "Égal de Chuck Norris"
 'Ich bin in der Hölle aufgewachsen._f': 'L''enfer, c''est mon quotidien.'
 'Es war wirklich zu einfach._f': 'C''était vraiment trop facile.'
 'Ich fresse Nägel und scheiße Kugeln!_f': 'Je mâche le silex !'
 'Pandämonium? Hah. Einfach._f': 'Le Pandémonium ? Pff. Easy.'
-'Teilweise verrottet_f': 'Partiellement putréfiée'
-Virenschleuder_f: Porteuse de la 'Maladie'
+'Teilweise verrottet_f': 'Partiellement putréfié'
+Virenschleuder_f: Porteur de la 'Maladie'
 Gedärmeauskotzer_f: Vomisseuse de tripes
-Seuchenherd_f: Annonciatrice du fléau
+Seuchenherd_f: Annonciateur du fléau
 'Ich habe Magenschmerzen..._f': 'J''ai mal au ventre...'
 'Verirrter Ausflügler_f': 'Randonneuse égarée'
 'Nächtlicher Spaziergänger_f': 'Flâneuse nocturne'
 'Mir ist kalt hier draußen..._f': 'J''ai froid, dehors...'
 'Vertrauenswürdiger Bürger_f': 'Concitoyenne de confiance'
 'Sehr erfahrener Bürger_f': 'Inspiration pour le peuple'
-'Vorbild für das Volk_f': 'Joueuse très expérimentée'
+'Vorbild für das Volk_f': 'Joueur très expérimenté'
 'Richtwert der Gemeinschaft_f': 'Référence communautaire'
-'Berühmter Veteran_f': 'Illustre vétérane'
+'Berühmter Veteran_f': 'Illustre vétéran'
 Anfängerleiche_f: Cadavre débutant
 Rabenfreund_f: Copine des corbeaux
 Dehydrationskollege_f: Concitoyenne déshydratée
@@ -2753,19 +2752,19 @@ Dehydrationskollege_f: Concitoyenne déshydratée
 'Netter Kerl_f': 'Good Gal'
 'Zeuge der großen Verseuchung_f': 'Témoin de la Grande Contamination'
 'Alter Hase_f': 'Grande ancienne'
-'Jedes Los gewinnt_f': 'Compagnonne de la communauté'
+'Jedes Los gewinnt_f': 'Compagnon de la communauté'
 Zinker_f: Animée de bonnes intentions
 Bingo_f: Animal social
-'Sudoku ist anders_f': 'Défunte animée'
+'Sudoku ist anders_f': 'Défunt animé'
 'Siebenseitiger Würfel_f': 'Hyper-activiste communautaire'
 'Einarmiger Bandit_f': 'Gagnante dans l''âme !'
 'Seelenführer der Gemeinschaft_f': 'Guide des âmes communautaires'
 'Charismatischer Prophet_f': 'Prophète charismatique'
 'Motivierter Messebesucher_f': 'Festivalière hordienne motivée'
-'Verdammt in Saarbrücken_f': 'Traqueuse de geeks'
+'Verdammt in Saarbrücken_f': 'Traqueur de geeks'
 "FJV'08 Kanonenfutter_f": "Chair à canon du FJV'08"
-'Kleiner Guru_f': 'Détourneuse de fonds'
-'Überzeugender Guru_f': 'Trafiquante de citoyens'
+'Kleiner Guru_f': 'Détourneur de fonds'
+'Überzeugender Guru_f': 'Trafiquant de citoyens'
 Frischfleischhändler_f: Négociante en chair fraîche
 Seelenhändler_f: Marchande d'âmes
 'Sehr überzeugender Pate_f': 'Marraine très convaincante'
@@ -2773,15 +2772,15 @@ Wüstenspekulant_f: Spéculatrice du désert
 'Held der Community!_f': 'Dedans jusqu''au cou !'
 'Bringt Sachen ins Rollen!_f': 'Fais bouger les choses!'
 'Nobler Spender_f': 'Âme noble'
-'Immer zur Stelle_f': 'Donatrice universelle'
-Samariter_f: Assistante sociale
+'Immer zur Stelle_f': 'Donateur universel'
+Samariter_f: Assistant social
 'Freigiebiger Bürger_f': 'Citoyenne qui tombe à pic'
 Messias_f: Messie
-'Der Weihnachtsmann ist ein Schlawiner_f': 'La Mère Noël est une coquine'
-'Santa Klaus ist ein Schummler_f': 'La Mère Noël est une filoute'
-'Santa Klaus ist Abfall_f': 'La Mère Noël est une ordure'
-'Santa Klaus ist Abschaum_f': 'La Mère Noël est une raclure'
-'Hängt Santa Klaus!_f': 'Pendez La Mère Noël !'
+'Der Weihnachtsmann ist ein Schlawiner_f': 'Le Père Noël est un coquin'
+'Santa Klaus ist ein Schummler_f': 'Le Père Noël est un filou'
+'Santa Klaus ist Abfall_f': 'Le Père Noël est une ordure'
+'Santa Klaus ist Abschaum_f': 'Le Père Noël est une raclure'
+'Hängt Santa Klaus!_f': 'Pendez le Père Noël !'
 'Treffen der 4. Art_f': 'Rencontre du 4ème type'
 'Hast Du mal Feuer?_f': 'Vous avez du feu ?'
 'Medium mit Preisnachlass_f': 'Médium au rabais'
@@ -2791,7 +2790,7 @@ Messias_f: Messie
 'Soul Man_f': 'Aspi-rituel'
 Lebenssammler_f: Collectionneuse de vie
 'Schnitter der Aussenwelt_f': 'Faucheuse de l''outre-monde'
-'Bei meiner Seel_f': 'Leerd''âmeuse nauséabonde'
+'Bei meiner Seel_f': 'Leerd''âmeur nauséabond'
 'Für immer und seelich_f': 'Fan-tomme rapé'
 'Noble Seele_f': 'Âme digne'
 Beseelt_f: Spider-Ame
@@ -2820,17 +2819,17 @@ RadioactiveMan_f: RadioactiveWoman
 'Luzifers Tanzpartner_f': 'Partenaire de danse de Lucifer'
 'Ultimativer Horden-Erkunder_f': 'Ultime exploratrice Hordienne'
 'Irische Taschen sind prall gefüllt!_f': 'Les poches irlandaises sont blindées!'
-'Wo ist mein Topf voll Gold, diebische Elster!_f': 'Où est mon pot d’or, maudite voleuse ?'
+'Wo ist mein Topf voll Gold, diebische Elster!_f': 'Où est mon pot d’or, maudit voleur ?'
 'Dieser Kobold ist unaufhaltbar._f': 'Cette lutine est imparable!'
 'Verbrennt ihn! Sieh nach ob seine Asche grün wird!_f': 'Brûlez-la, voyez si ses cendres deviennent vertes!'
 'Ein Wohnwagen ohne Räder???_f': 'Une caravane sans roues ???'
 'Mitglied des Roten Kreuzes_f': 'Membre de la Croix Rouge'
-'Ich bin geheilt_f': 'Je suis guérie'
+'Ich bin geheilt_f': 'Je suis guéri(e)'
 'Keine Fehler hi&e%12;r_f': 'Plus d&apos;erreurs ici'
 'Patient Null_f': 'Patiente Zéro'
 'Es ist der Tod der mich fürchten sollte!_f': 'La mort a peur de moi !'
 Sandmann_f: Ensableuse
-'Sandy Maverick_f': 'Franc-tireuse sablonneuse'
+'Sandy Maverick_f': 'Franc-tireur sablonneux'
 Wegweiser_f: Lanterne de jour
 'Praktischer Begleiter_f': 'Compagnonne de poche'
 'Erleuchteter Anführer_f': 'Guide éclairée'
@@ -2844,11 +2843,11 @@ Wegweiser_f: Lanterne de jour
 'Faaaaaaaast, ach verdammt_f': 'Eeeeeeeet ben non'
 'Bis zum Ende und einen Schritt weiter_f': 'Jusqu''au bout, et même un peu moins loin'
 'Schließt die Ränke und haltet durch_f': 'Serrez les rangs... et les fesses...'
-'Hallo... ist da draußen jemand?_f': 'Vous êtes là les copines ?'
+'Hallo... ist da draußen jemand?_f': 'Vous êtes là les copains?'
 'Haltet eure Position!_f': 'Tenez vos positions !'
 'Nur ein Finger_f': 'Juste un doigt !'
 'Plünderer der Schnapsläden_f': 'Pilier de comptoir'
-'Hennessy Highwayman_f': 'Routière du rhum'
+'Hennessy Highwayman_f': 'Routier du rhum'
 'Barney Gumble der Außenwelt_f': 'Barney Gumble de l''Outre-Monde'
 'Fass das Saufen lieber sein_f': 'Absinthe toi la prochaine fois'
 'Gib mir was zu saufen oder es knallt!_f': 'A boire ou j''tue le chien !'
@@ -2856,10 +2855,10 @@ Wegweiser_f: Lanterne de jour
 Dialyse_f: Sans Foie ni Loi
 'Chef der Mauer_f': 'Cheffe-Rempart'
 Schaufelführer_f: Cheffe-Pelleteuse
-'Ich bin ein Biest!_f': 'Cheffe-Bêbête'
-'DdA Beste Buddler_f': 'Fwinneuse du DDH'
+'Ich bin ein Biest!_f': 'Chef-Bêbête'
+'DdA Beste Buddler_f': 'Fwinneur du DDH'
 Tarnexperte_f: Cheffe-Camouflage
-Ninja_f: Maîtresse des ombres
+Ninja_f: Maître des ombres
 AP: PA
 CP: PC
 MP: PM
@@ -2966,8 +2965,8 @@ Schritt-Punkte: Point d'Exploration
 'Zur Übersicht meiner Fähigkeiten': 'Pour un aperçu de mes compétences'
 'Du hast eine neue Fähigkeit erworben. Herzlichen Glückwunsch!': 'Vous avez acquis une nouvelle compétence. Félicitations !'
 'Du verfügst aktuell über <strong>{xp} Punkte</strong> an Heldenerfahrung.': 'Vous disposez actuellement de <strong>{xp} points</strong> d''expérience héroïque.'
-'Du kannst eine neue {heroskill_link}!': 'Vous pouvez débloquer une {heroskill_link} !'
-'Heldenfähigkeit freischalten': 'capacité héroïque'
+'Du kannst eine neue {heroskill_link}!': 'Vous pouvez créer un nouveau {heroskill_link} !'
+'Heldenfähigkeit freischalten': 'Débloquer la capacité héroïque'
 'Meine freigeschalteten Fähigkeiten ansehen': 'Voir mes compétences débloquées'
 '{xp} Punkte': '{xp} points'
 'an Heldenerfahrung gesammelt.': 'd''expérience héroïque.'
@@ -3009,3 +3008,168 @@ Nüchtern: Sobre
 'Dein geworbener Spieler {user} hat zum ersten Mal Heldenerfahrung für eine Fähigkeit ausgegeben.': 'Votre joueur parrainé {user} a dépensé de l''expérience héroïque sur une capacité pour la première fois.'
 'Dein geworbener Spieler {user} hat zum ersten Mal in dieser Saison Heldenerfahrung für eine Fähigkeit ausgegeben.': 'Votre joueur parrainé {user} a dépensé de l''expérience héroïque sur une capacité pour la première fois cette saison.'
 'Vergessene Stadt': 'Cité oubliée'
+'Deine Anstrengungen in den Buddelgruben haben sich gelohnt! Du hast folgendes gefunden: {items_spawn}!': 'Vos efforts lors des fouilles ont porté leurs fruits ! Vous avez trouvé : {items_spawn}!'
+'Auf den Zinnen fühlst du dich unbesiegbar. Nichts wird dich heute Nacht zum Wanken bringen.': 'Du haut des remparts, vous vous sentez invincible. Rien ne vous fera chanceler cette nuit.'
+'Auf den Zinnen fühlst du dich gut. Du willst morgen noch am Leben sein.': 'Du haut des remparts, vous vous sentez serein. Vous comptez bien être encore en vie demain.'
+'Auf den Zinnen fühlst du dich sicher. Du wartest auf die Zombies, die du bereits herannahen siehst.': 'Du haut des remparts, vous vous sentez confiant. Vous attendez la hordes, que vous apercevez déjà.'
+'Auf den Zinnen blickst du in den Horizont. Du hoffst, morgen noch einmal die Sonne aufgehen zu sehen.': 'Du haut des remparts, vous observez l''horizon. Vous espérez voir le soleil se lever demain, encore une fois.'
+'Auf den Zinnen fühlst du dich unschlüssig und deine Laune ist schlecht. Vielleicht gibt es kein Morgen für dich...': 'Du haut des remparts, Vous vous sentez hésitant et le moral faible. Il n''y aura peut-être pas de lendemain pour vous...'
+'Auf den Zinnen bist du zittrig und deine Laune ist am Tiefpunkt. Du weißt nicht, ob du das Licht des Tages erblicken wirst...': 'Du haut des remparts, vous êtes chancelant et vous le moral au plus bas, vous ne savez pas si vous verrez la lumière du jour...'
+'Auf den Zinnen wird dein Herz von Angst erdrückt. Du spürst, dass dein Leben am seidenen Faden hängt...': 'Du haut des remparts, vous avez le cœur serré. Vous sentez que votre vie ne tient qu''à un fil...'
+'Du fühlst dich großartig.': 'Vous vous sentez en forme.'
+'Du bist eingeschüchtert von der Zahl der Zombies, die du siehst. Du hoffst, dass du keinen Arm oder ein Bein verlierst.': 'La quantité de zombies que vous apercevez vous intimide. Vous espérez ne pas y laisser un bras ou une jambe.'
+'Du bist eingeschüchtert von der Zahl der Zombies, die du siehst. Du bist vorbereitet, Gliedmaßen zu verlieren, aber hoffentlich nicht deinen Kopf...': 'La quantité de zombies que vous apercevez vous intimide. Vous êtes prêt à y laisser un membre, espérons que ça ne soit pas la tête...'
+'Du bist eingeschüchtert von der Zahl der Zombies, die du siehst. Du hoffst, dass es noch Verbandszeug in der Bank gibt...': 'La quantité de zombies que vous apercevez vous intimide. Pourvu qu''il y ait des bandages en banque...'
+'Selbst wenn du dir vorstellst, was dich heute Abend erwartet, bleibst du zumindest ein wenig gelassen.': 'Même en imaginant ce qui vous attend ce soir, vous restez un minimum serein.'
+'Du spürst die Aufregung. Es wird eine gruselige Nacht werden.': 'L''agitation environnante ne vous laisse pas indifférent. Cette nuit risque d''être effrayante.'
+'Du versuchst, deine Gedanken positiv zu halten, aber dir kommt nur der Tod in den Sinn... Glücklich! Es wird eine lange Nacht werden.': 'Vous essayez de garder des pensées positives, mais seule la mort vous vient à l''esprit... Joyeux ! La nuit sera longue.'
+'Der Anblick der Zombies, die sich den Festungsmauern nähern, versetzt dich in Panik.': 'Rien qu''en voyant la hordes s''approcher des remparts, vous êtes pris de panique.'
+'Du kannst nicht so viele Gegenstände auf die Müllhalde werfen.': 'Vous ne pouvez pas jeter autant d''objets dans la décharge.'
+'Du hast die Techniker-Werkbank <strong>heute bereits verwendet</strong>. Komm morgen wieder.': 'Vous avez <strong>déjà utilisé</strong> l''Établi des Techniciens aujourd''hui. Revenez demain.'
+'<strong>Achtung:</strong> Du kannst die Techniker-Werkbank nur <strong>ein mal pro Tag</strong> nutzen, denke also nach bevor du handelst.': '<strong>Attention :</strong> Vous ne pouvez utiliser l''Établi des Techniciens qu''<strong>une fois par jour</strong>, alors réfléchissez avant d''agir.'
+'Zur "Freude" deiner Mitbürger ist es dir gelungen, den Brunnen um {well} Rationen Wasser aufzufüllen!': 'Pour la « joie » de vos concitoyens, vous avez réussi à remplir le puits avec {well} ration(s) d''eau !'
+'Leider ist es dir nicht gelungen, dem Brunnen eine substantielle Menge an Wasser hinzuzufügen ...': 'Malheureusement, vous n''avez pas réussi à ajouter une quantité d''eau substantielle au puits...'
+'Leider ist es dir trotz größter Anstrengungen nicht gelungen, etwas neues in der Umgebung zu entdecken.': 'Malheureusement, malgré tous vos efforts, vous n''avez rien réussi à découvrir de nouveau dans la région.'
+'Nichts entgeht deinem geschulten Blick! Du hast neue Informationen über {casino} Zonen gesammelt!': 'Rien n''échappe à votre œil exercé ! Vous avez rassemblé de nouvelles informations sur {casino} zones !'
+'Frenetisch schreibst du alles auf was du in der Umgebung entdeckst und sammelst neue Informationen über {casino} Zonen. Jetzt brauchst du nur noch einen Experten, der ermitteln kann, wo genau diese Zonen liegen ...': 'Vous notez frénétiquement tout ce que vous découvrez dans la région et collectez de nouvelles informations sur {casino} zones. Il ne vous reste plus qu''à faire appel à un expert capable de déterminer où se trouvent exactement ces zones...'
+Wiederherstellen: Récupérer
+'Du kannst jedes Mal höchstens 20 identische Gegenstände zerstören oder wiederherstellen': 'Vous pouvez jeter jusqu''à 20 objets à la fois dans la décharge.'
+'Jede Aktion kostet dich {ap}.': 'Chaque action coûte {ap}.'
+'Wie viele Gegenstände möchtest du auf den Müll wiederherstellen?': 'Combien d''objets voulez-vous récupérer de la décharge ?'
+'Ohne echte Waffenlager sind deine Gegenstände in Watch nutzlos. Deine Stadt sollte {building} bauen, um diese Mängel auszugleichen...': 'Sans véritable stockage d''arme, vos objets sont inutiles en veille. Votre ville devrait construire une {building} afin de palier vos lacunes...'
+'Die Leiche verbrennen!': 'Brûler le corps !'
+'Die Zeremonie besteht daraus, die Leiche mit 1x <strong>Fackel</strong> zu verbrennen und dann die Asche in das Gemüsebeet zu streuen. Dadurch wird der Leichnam sofort zerstört.': 'Cette cérémonie consiste à brûler le corps avec 1x <strong>Torche</strong> puis à disperser les cendres dans le Potager. Cela aura l''effet de le détruire immédiatement.'
+'In großer Trauer verstreute {disposing_citizen} die Asche von {citizen} in das Gemüsebeet. Wenigstens war er am Ende noch nützlich.': 'C''est avec une mine triste que {disposing_citizen} a répandu les cendres du corps de {citizen} dans le Potager.'
+'Diese Aktion verbraucht 1x Fackel und 2 Aktionspunkte. Bestätigen?': 'Cette action requiert 1x Torche et 2 points d''action. Confirmer ?'
+'Du verbrennst die Leiche von {disposed} mit der Fackel und verstreust dann die Asche in das Gemüsebeet. Das sollte unsere Ernte verbessern...': 'Vous brûlez le corps de {disposed} avec la torche puis dispersez les cendres dans le potager. Cela devrait nous donner plus de nourriture...'
+'Du kannst nicht so viele Gegenstände auf die Müllhalde wiederherstellen.': 'Vous ne pouvez pas récuperer autant d''objets dans la décharge.'
+'Du hast {count} x {item} auf der öffentlichen Müllhalde abgerufen. <strong>Die Stadt hat {def} Verteidigungspunkt(e) verloren.</strong>': 'Vous avez récupéré {count} {item} de la décharge publique. <strong>La ville a perdu {def} point(s) de défense.</strong>'
+'Blaugoldige Thermalbäder': 'Thermes de l''Or bleu'
+Leichenverbrenner: Crémateur de corps
+'Hey, du hättest an deine Seife denken sollen!': 'Hé, tu aurais dû penser à ton savon !'
+'Durchgeführte feurige Begräbnisrituale an den Leichen von Bürgern': 'Nombre de rituels funéraires effectués sur les cadavres des citoyens'
+'{citizen} hat {items} in der Müllhalde wiederhergestellt (-{def} Verteidigung)': '{citizen} a récuperé {items} dans la décharge (-{def} défense)'
+'{citizen} hat die Asche von {disposed} in das Gemüsebeet gestreut. Wenigstens war er am Ende noch nützlich.': '{citizen} a dispersé les cendres de {disposed} dans le potager. Au moins, il était utile.'
+'Du beginnst jede neue Stadt mit einer Erste Hilfe Tasche in deinem Rucksack.': 'Vous démarrez toutes vos villes avec une Boîte à pharmacie dans votre coffre.'
+'{citizen} hat die Asche von {disposed} in alle Winde zerstreut.': '{citizen} a dispersé les cendres de {disposed} au vent.'
+'Festliche Dekoration': 'Décoration festive'
+'Anzahl der Feierlichkeiten, an denen Sie teilgenommen haben.': 'Nombre de festivités auxquelles vous avez assisté.'
+'Du musst die Girlande zuerst <strong>abnehmen</strong>, bevor du sie <strong>mitnehmen</strong> kannst.': 'Vous devez <strong>décrocher</strong> la guirlande avant de pouvoir l''emporter <strong>avec</strong> vous.'
+'In großer Trauer verstreute {disposing_citizen} die Asche von {citizen} in alle Winde.': 'C''est avec tristesse que {disposing_citizen} a éparpillé les cendres de {citizen} un peu partout.'
+'Du verbrennst die Leiche von {disposed} mit der Fackel und verstreust dann die Asche in alle Winde.': 'Vous brûlez le corps de {disposed} avec une torche et éparpillez les cendres un peu partout.'
+'{disposing_citizen} hat die Asche von {citizen}s Leiche nicht ganz ohne Emotionen im Gemüsebeet verstreut.': 'C''est non sans une certaine émotion que {disposing_citizen}, a répandu les cendres du corps de {citizen} dans le Potager.'
+'Es war nicht nicht ganz ohne Emotionen, dass {disposing_citizen} die Asche von {citizen}s Körper vom Wind wegtragen ließ.': 'C''est non sans une certaine émotion que {disposing_citizen}, a laissé le vent emporter les cendres du corps de {citizen}.'
+'Du verbrennst {disposed}s Leiche mit deiner Fackel und verstreust die Asche auf dem Gemüsebeet. Das sollte uns mehr zu Essen einbringen...': 'Vous brûlez le corps de {disposed} avec votre torche avant de disperser les cendres dans le potager. Cela devrait nous donner plus de nourriture...'
+'Du verbrennst {disposed}s Körper mit deiner Fackel, bevor du die Asche zu Staub im Wind verwehen lässt. Vielleicht hättest du etwas Sinnvolleres damit machen können...': 'Vous brûlez le corps de {disposed} avec votre torche avant de laisser les cendres s''envoler en poussière au vent. Peut-être auriez-vous pu en faire quelque chose de plus utile...'
+'{citizen} hat die Asche von {disposed} im Gemüsebeet verstreut.': '{citizen} a dispersé les cendres de {disposed} dans le Potager.'
+'Die Sportkrähe': 'Le Corbeau Sportif'
+'Das Grab der ehemaligen Sportler...': 'La tombe des anciens sportifs...'
+Wachthund: Chien de garde
+'Gedopter Wachthund': 'Chien de garde dopé'
+'Schmiere stehen': 'Monter la garde'
+'Dein Hund passt heute Nacht besonders gut auf dich auf, solltest du dich entscheiden, als Nachtwächter auf den Zinnen zu stehen.': 'Votre chien veillera particulièrement bien sur vous cette nuit, si vous décidez de monter sur les remparts en tant que veilleur cette nuit.'
+'Dein Hund passt heute Nacht besonders gut auf dich auf, solltest du dich entscheiden, als Nachtwächter auf den Zinnen zu stehen. Keine Sorge, der Schaum vor seinem Mund ist ganz normal...': 'Votre chien veillera particulièrement bien sur vous cette nuit, si vous décidez de monter sur les remparts en tant que veilleur cette nuit. Ne vous inquiétez pas, la mousse au niveau de sa gueule est tout à fait normale...'
+'Falls du heute planst, einem anderen Bürger einen unangemeldeten Besuch abzustatten, wird dir dein Hund dabei helfen, unentdeckt zu bleiben.': 'Si vous envisagez de rendre visite à un autre citoyen à l’improviste aujourd’hui, votre chien vous aidera à ne pas être détecté.'
+'Auf der Stadtmauer stehend bist du sehr zuversichtlich, was den Ausgang dieses Abends angeht. Du wirst heute nicht sterben!': 'Debout sur les remparts de la ville, vous êtes très confiant quant à l’issue de cette soirée. Vous ne mourrez pas aujourd''hui !'
+'{kills} Bürger als Ghoul verspeist.': '{kills} citoyen mangé en tant que goule.'
+'Den ersten Tag in der Pandämonium-Stadt "{town}" überlebt.': 'Survécu au premier jour dans la ville Pandémonium « {town} ».'
+'10 Tage als {profession} in "{town}" überlebt.': 'Survécu 10 jours en tant que {profession} dans « {town} ».'
+'15 Tage in "{town}" überlebt.': 'Survécu 15 jours dans « {town} ».'
+'Auszeichnung {picto} in "{town}" verdient.': 'Distinction {picto} obtenue dans « {town} ».'
+'Auszeichnung {picto} zum ersten Mal in "{town}" verdient.': 'Distinction {picto} obtenue pour la première fois dans « {town} ».'
+Strategie: Stratège
+Umsicht: Universitaire
+Planung: Préparé
+Eifer: Endurant
+Ruhe: Reclus
+'+5 Stadtverteidigung': '+5 défense pour la ville'
+'+10 Verteidigung bei der Nachtwache': '+10 points de défense durant la veille'
+'Zugang zum Schwarzen Brett': 'Accès au tableau noir'
+'Versenden von Nachrichten an alle Bürger': 'Envoyer des messages à tous les citoyens'
+'Konstruktionen empfehlen': 'Recommander un chantier'
+'Ration Wasser': 'Ration d''eau au début de la ville'
+'Kamera aus Vorkriegstagen (2 Ladungen)': 'Appareil photo d''avant-guerre (2 charges)'
+'1 anonymen Foren-Post verfassen': 'Écrire 1 message de forum anonyme'
+'Profi-Wächter: Deine Überlebenschancen bei der Nachtwache reduzieren sich langsamer': 'Veilleur professionnel : vos chances de survie durant la Veille diminuent plus lentement'
+'Kamera aus Vorkriegstagen (3 Ladungen)': 'Appareil photo d''avant-guerre (3 charges)'
+'Unbegrenzt anonyme Foren-Posts verfassen': 'Écrire des messages de forum anonymes illimités'
+'Eine zusätzliche Beschwerde pro Tag möglich': 'Une plainte supplémentaire par jour possible'
+'2% Bonus-Überlebenschance auf der Nachtwache': '2% de chances supplémentaires de survie pendant la Veille'
+'Unbegrenzt anonyme Nachrichten verfassen': 'Écrire des messages anonymes illimités'
+'Kamera aus Vorkriegstagen (4 Ladungen)': 'Appareil photo d''avant-guerre (4 charges)'
+'Diebstahl von Bürgern in der Stadt möglich': 'Vous pouvez voler chez vos voisins même s''ils sont en ville'
+'Rettung eines anderen Bürgers (Distanz: 1km)': 'Sauvetage d''un autre citoyen (distance : 1 km)'
+'Den Tod besiegen (Dehydration & Infektion)': 'Vaincre la mort (déshydratation et infection)'
+'Manipulieren von Registereinträgen (max. 1)': 'Falsification des entrées de registre (max. 1)'
+'Rettung eines anderen Bürgers (Distanz: 2km)': 'Sauvetage d''un autre citoyen (distance : 2 km)'
+'Den Tod besiegen (zusätzlicher Schutz vor Drogenentzug)': 'Vaincre la mort (protection supplémentaire contre la dépendance)'
+'Manipulieren von Registereinträgen (max. 2)': 'Falsification des entrées de registre (max. 2)'
+'Rettung eines anderen Bürgers (Distanz: 3km)': 'Sauvetage d''un autre citoyen (distance : 3 km)'
+'Den Tod besiegen (zusätzlicher Schutz vor Hungertod als Ghul)': 'Vaincre la mort (protection supplémentaire contre la famine en tant que goule)'
+'Manipulieren von Registereinträgen (max. 3)': 'Falsification des entrées de registre (max. 3)'
+'Ein zusätzlicher Platz in der Truhe': 'Une place supplémentaire dans votre coffre'
+'Den Tod besiegen (heilt Angststarre und Verwundungen)': 'Vaincre la mort (soigne la peur et les blessures'
+'Rudimentäre Pflege': 'Soins rudimentaires pour vos voisins'
+'1 zusätzlicher Zonenkontrollpunkt wenn "clean"': '1 point de contrôle de zone supplémentaire si vous êtes "clair"'
+'Hellseherei: Du erfährst, wie aktiv ein bestimmter Bürger in deiner Stadt spielt.': 'Clairvoyance : Vous découvrez à quel point un certain citoyen joue activement dans votre ville.'
+Doggybag: 'Doggy-bag au début de la ville'
+'1 zusätzlicher Zonenkontrollpunkt': '1 point de contrôle de zone supplémentaire dans l''Outre-Monde'
+'Allwissenheit: Wie Hellseherei, außer, dass du jetzt eine Übersicht zur Aktivität aller Stadteinwohner bekommst': 'Omniscience : Comme la Clairvoyance, sauf que maintenant vous avez un aperçu de l''activité de tous les citoyens'
+'Vorräte eines umsichtigen Bürgers': 'Réserves d’un citoyen avisé au début de la ville'
+'Erste Hilfe Tasche': 'Boîte à pharmacie au début de la ville'
+'1 zusätzlicher Zonenkontrollpunkt wenn nicht "durstig" oder "dehydriert"': '1 point de contrôle de zone supplémentaire si non "assoiffé" ou "déshydraté"'
+'Gewöhnlicher Bauplan': 'Plan de chantier commun au début de la ville'
+'Lunchbox (statt Doggybag)': 'Boîte-déjeuner (au lieu de Doggybag) au début de la ville'
+'1 zusätzlicher Zonenkontrollpunkt wenn nicht "betrunken" oder "verkatert"': '1 point de contrôle de zone supplémentaire si pas "ivre" ou "gueule de bois"'
+Cellokasten: 'Étui pour violoncelle au début de la ville'
+'Ein zusätzlicher Platz im Rucksack': 'Une place supplémentaire dans votre sac à dos'
+'Wildstyle Uppercut': 'Uppercut sauvage : permet de tuer 2 zombies'
+'Ein weiterer zusätzlicher Platz im Rucksack': 'Une autre place supplémentaire dans votre sac à dos'
+'Ein weiterer zusätzlicher Platz in der Truhe': 'Une autre place supplémentaire dans votre coffre'
+'Verbesserung Wildstyle Uppercut (3 Zombies)': 'Uppercut sauvage amélioré : permet de tuer 3 zombies'
+'Verbesserung Zweite Lunge (4 EP)': 'Amélioration du Second Souffle (4 PE)'
+'Verbesserung Wildstyle Uppercut (4 Zombies)': 'Uppercut sauvage amélioré : permet de tuer 4 zombies'
+'Verbesserung Zweite Lunge (8 AP)': 'Amélioration du Second Souffle (8 PA)'
+'15 Extra-O² in begehbaren Ruinen': '15 O² supplémentaires dans les ruines explorables'
+'30 Sekunden temporäre Zonencontrolle durch Wildstyle Uppercut': 'Contrôle de zone temporaire de 30 secondes pour l''Uppercut sauvage'
+'Verbesserung Zweite Lunge (10 AP, 6 EP)': 'Amélioration du Second Souffle (10 PA, 6 PE)'
+'30 Extra-O² in begehbaren Ruinen': '30 O² supplémentaires dans les ruines explorables'
+'Rückkehr des Helden (9km)': 'Retour du Héros (9 km)'
+'Proficamper (auf 6 Campings begrenzt)': 'Camping professionnel (limité à 6 campings)'
+Fund: Trouvaille
+'Rückkehr des Helden (11km)': 'Retour du Héros (11 km)'
+'Proficamper (auf 8 Campings begrenzt)': 'Camping professionnel (limité à 8 campings)'
+'Schönes Fundstück (ersetzt Fund)': 'Jolie trouvaille (remplace la trouvaille normale)'
+'Rückkehr des Helden (13km)': 'Retour du Héros (13 km)'
+'Beeindruckendes Fundstück (ersetzt Schönes Fundstück)': 'Impressionnante trouvaille (remplace Jolie trouvaille)'
+'Toxische Liebe': 'Amour toxique'
+'1 zusätzliche Mülldurchwühlung pro Tag': '1 recherche dans la poubelle de la ville supplémentaire par jour'
+'Rückkehr des Helden (15km)': 'Retour du Héros (15 km)'
+'Ermöglicht Überlebenschance beim Camping von bis zu 99%': 'Permet jusqu''à 99 % de chances de survie en camping'
+'Erstaunliches Fundstück (ersetzt Beeindruckendes Fundstück)': 'Incroyable trouvaille (remplace Impressionnante trouvaille)'
+'Löschen von Registereinträgen (max. 1)': 'Supprimer des entrées de registre (max. 1)'
+'Die Experimentelle Klinik der Dompteure verfügt über ein komplexes System zur Domestizierung von Wildtieren - bestehend im wesentlichen aus einem verschließbaren Käfig mit einer Futterschale darin.': 'La clinique expérimentale des Apprivoiseurs dispose d''un système complexe pour domestiquer les animaux sauvages, consistant essentiellement en une cage verrouillable contenant un bol de nourriture.'
+'Einmal pro Tag kann jeder Bürger damit wilde Tiere aus der Umgebung der Stadt anlocken.': 'Une fois par jour, chaque citoyen peut l''utiliser pour attirer les animaux sauvages des environs de la ville.'
+'Du wurdest verbannt und kannst daher keine Tiere anlocken.': 'Vous avez été banni et ne pouvez donc pas attirer les animaux.'
+'Inhalt der Futterschale': 'Contenu du bol alimentaire'
+'Du hast die Tierklinik heute bereits verwendet.': 'Vous avez déjà utilisé la clinique vétérinaire aujourd''hui.'
+'Tiere anlocken': 'Attirer les animaux'
+'Verfügbare Lockmittel': 'Attractifs disponibles'
+Hinzufügen: Ajouter
+'Nicht schlecht. Mit deinem Köder hast du es geschafft, {item} anzulocken!<hr/>Du hast es zur sicheren Aufbewahrung in die Bank gebracht.': 'Pas mal. Vous avez réussi à attirer {item} avec votre appât !<hr/>Vous l''avez apporté à la banque pour le garder en lieu sûr.'
+'Es ist dir nicht gelungen, ein Tier anzulocken. Was für eine Verschwendung...': 'Vous n''avez pas réussi à attirer un animal. Quel gâchis...'
+Dompteurklinik: Clinique des Apprivoiseurs
+'1 Gegenstand in der Truhe ist versteckt': '1 objet dans votre coffre est caché'
+'Solltest du am dritten Tag oder an einem späteren Zeitpunkt verbannt werden, bekommst du automatisch etwas Toxin geschenkt, das du nach Belieben einsetzen kannst... Tja, man hätte dich besser nicht ärgern sollen!': 'Si vous êtes banni(e) au jour 3 ou après, vous recevez automatiquement 2 fioles de poison ainsi qu''une Toxine pour vous donner l''opportunité de vous venger... Et oui, il ne fallait pas vous embêter !'
+'Abgenutzte Kuriertasche (statt Bauplan) beim Start der Stadt': 'Sacoche usée (au lieu d''un plan) au début de la ville'
+'Zweite Lunge (4 EP)': 'Second Souffle (4 PE)'
+'Verbesserung Zweite Lunge (6 EP)': 'Amélioration du Second Souffle (6 PE)'
+'Verbesserung Zweite Lunge (2 AP, 6 EP)': 'Amélioration du Second Souffle (2 PA, 6 PE)'
+'Verbesserung Zweite Lunge (4 AP, 6 EP)': 'Amélioration du Second Souffle (4 PA, 6 PE)'
+'Den Tod besiegen (heilt Kater, Bandagiert und Angst)': 'Vaincre la mort (soigne la terreur, gueule de bois et convalescence'
+'{dogname}, der stinkende Köter von {citizen}, hat sich folgendes aus der Bank geschnappt und ist damit aus der Stadt gerannt: {item}': '{dogname}, le cabot puant de {citizen}, a récupéré {item} à la banque et s’est enfui de la ville avec.'
+'Die ersten 5 Tage in der Pandämonium-Stadt "{town}" überlebt.': 'A survécu aux 5 premiers jours dans la ville du Pandémonium « {town} ».'
+Klinikregister: Centre d'essai
+'{citizen} hat {list2} in die Stadt gelockt und dabei folgendes Futter eingesetzt: {list1}.': '{citizen} a attiré {list2} dans la ville en utilisant la nourriture suivante : {list1}.'
+'{citizen} hat vergeblich versucht Tiere in die Stadt zu locken und dabei folgendes Futter verschwendet: {list1}.': '{citizen} a essayé en vain d''attirer des animaux dans la ville et a gaspillé la nourriture suivante : {list1}.'
+Tierklinik: Centre d'essai

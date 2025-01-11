@@ -1,7 +1,9 @@
 framework:
     default_locale: de
     translator:
-        default_path: '%kernel.project_dir%/translations'
+        paths:
+          - '%kernel.project_dir%/translations'
+          - '%kernel.project_dir%/packages/myhordes-fixtures/src/content/translations'
         fallbacks:
           - en
           - de

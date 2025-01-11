@@ -1,4 +1,3 @@
----
 E-Mail-Adresse: Dirección de correo electrónico
 'Externe ID für Apps': 'ID externo para aplicaciones'
 'Neue ID generieren': 'Generar nuevo ID'
@@ -645,3 +644,20 @@ Erfahrungsbonus: Bonificación de experiencia
 'Du hast in der Vergangenheit einen Erfahrungsbonus von diesem Spieler erhalten, da er oder sie in einer früheren Saison eine Fähigkeit erworben hat.': 'Has recibido en el pasado una bonificación de experiencia de este jugador, ya que él o ella adquirió una habilidad en una temporada anterior.'
 'Du kannst dir einen Erfahrungsbonus verdienen, wenn du diesen Spieler dazu überredest, eine neue Heldenfähigkeit zu erwerben...': 'Puedes obtener una bonificación de experiencia si convences a este jugador de adquirir una nueva habilidad de héroe…'
 'Du erhälst einen Bonus auf deine eigene Heldenerfahrung, sobald ein geworbener Spieler zum ersten Mal pro Saison eine Fähigkeit erwirbt.': 'Recibes una bonificación en tu propia experiencia de héroe tan pronto como un jugador apadrinado adquiera una habilidad por primera vez en cada temporada.'
+Erfahrung: Experiencia
+Erworben: Adquirida
+'Kann beliebig oft in einer Saison verdient werden!': '¡Se puede ganar tantas veces como quieras durante una temporada!'
+'pro überlebtem Tag': 'por día sobrevivido'
+'Überlebe in einer Stadt, solange du kannst!': '¡Sobrevive en un pueblo tanto tiempo como puedas!'
+'Überlebe mindestens {days} Tage in einer Pandämonium-Stadt': 'Sobrevive al menos {days} días en un pueblo Pandemonio'
+'Überlebe mindestens {days} Tage als {profession} in einer Stadt.': 'Sobrevive al menos {days} días como {profession} en un pueblo.'
+'Überlebe insgesamt mindestens {days} Tage in einer Stadt.': 'Sobrevive al menos {days} días en total en un pueblo.'
+'Wenn du zwischen {day1} und {day2} Tage in der Stadt überlebt hast!': '¡Si has sobrevivido en el pueblo entre {day1} y {day2} días!'
+'Wenn du zwischen mindestens {day} Tage in der Stadt überlebt hast!': '¡Si has sobrevivido en el pueblo al menos {day} días!'
+'pro gefressenem Bürger': 'por habitante devorado'
+'Dezimiere als Ghul die Bewohner deiner Stadt': 'Elimina a los habitantes de tu pueblo como un mutante'
+'Durch überleben!': '¡Sobreviviendo!'
+'Durch Auszeichnungen!': '¡Gracias a las recompensas!'
+'Durch sonstige Aktionen!': '¡Por otras acciones!'
+'pro geworbenem Spieler': 'por jugador patrocinado'
+'Lade neue Spieler zu MyHordes ein und kümmere dich rührend um sie, bis sie das erste Mal Erfahrung für eine Fähigkeit ausgeben.': 'Invita nuevos jugadores a MyHordes y cuídalos hasta que gasten experiencia en una habilidad por primera vez.'

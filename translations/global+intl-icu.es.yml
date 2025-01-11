@@ -1,4 +1,3 @@
----
 'Allgemeiner Fehler.': 'Error común.'
 'Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.': 'El foro seleccionado no existe o no tienes permiso para verlo.'
 'Dein Text muss mindestens 2 Zeichen lang sein.': 'Tu texto debe tener al menos 2 caracteres de largo.'
@@ -638,3 +637,4 @@ Verbunden: Conectado
 'Anonymer Post': 'Mensaje anónimo'
 'Bist du sicher, dass du deine Fähigkeiten zurücksetzen möchtest? Du wirst all deine Heldenerfahrung und Fähigkeiten verlieren. Diese Aktion kann nicht rückgängig gemacht werden!': '¿Estás seguro de que quieres restablecer tus habilidades? Perderás toda tu experiencia y habilidades de héroe. ¡Esta acción es irreversible!'
 'Dieser Spieler ist ein Mitglied der Künstlergilde auf MyHordes.': 'Este jugador es miembro del Equipo Artístico de MyHordes.'
+'Die Stadt verfügt über eine <strong>Techniker-Werkbank</strong>.': 'El pueblo cuenta con una <strong>Mesa de trabajo de los técnicos</strong>.'

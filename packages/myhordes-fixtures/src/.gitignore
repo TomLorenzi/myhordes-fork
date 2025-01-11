@@ -6,3 +6,7 @@ content/myhordes/**/*.yaml
 # Assets
 content/assets/**/*.*
 !content/assets/**/.gitkeep
+
+# Translations
+content/translations/**/*.*
+!content/translations/**/.gitkeep

@@ -1,4 +1,3 @@
----
 E-Mail-Adresse: Adresse email
 'Externe ID für Apps': 'ID externe pour les apps'
 'Neue ID generieren': 'Générer un nouvel ID'
@@ -645,3 +644,20 @@ Erfahrungsbonus: Bonus d’expérience
 'Du hast in der Vergangenheit einen Erfahrungsbonus von diesem Spieler erhalten, da er oder sie in einer früheren Saison eine Fähigkeit erworben hat.': 'Vous avez reçu un bonus d''expérience de la part de ce joueur dans le passé car il a acquis une capacité lors d''une saison précédente.'
 'Du kannst dir einen Erfahrungsbonus verdienen, wenn du diesen Spieler dazu überredest, eine neue Heldenfähigkeit zu erwerben...': 'Vous pouvez gagner un bonus d''expérience si vous persuadez ce joueur d''acquérir une nouvelle capacité de héros...'
 'Du erhälst einen Bonus auf deine eigene Heldenerfahrung, sobald ein geworbener Spieler zum ersten Mal pro Saison eine Fähigkeit erwirbt.': 'Vous recevrez un bonus pour votre propre expérience héroïque dès qu''un joueur parrainé dépense de l''expérience pour une capacité la première fois de la saison.'
+Erfahrung: Expérience
+Erworben: Acquis
+'Kann beliebig oft in einer Saison verdient werden!': 'Peut être gagné autant de fois que vous le souhaitez au cours d’une saison\_!'
+'pro überlebtem Tag': 'par jour survécu'
+'Überlebe in einer Stadt, solange du kannst!': 'Survivez dans une ville aussi longtemps que vous le pouvez !'
+'Überlebe mindestens {days} Tage in einer Pandämonium-Stadt': 'Survivre au moins {days} jours dans une ville du Pandémonium'
+'Überlebe mindestens {days} Tage als {profession} in einer Stadt.': 'Survivre au moins {days} jours en tant que {profession} dans une ville.'
+'Überlebe insgesamt mindestens {days} Tage in einer Stadt.': 'Survivre au moins {days} jours au total dans une ville.'
+'Wenn du zwischen {day1} und {day2} Tage in der Stadt überlebt hast!': 'Si vous avez survécu dans la ville entre {day1} et {day2}\_jours\_!'
+'Wenn du zwischen mindestens {day} Tage in der Stadt überlebt hast!': 'Si vous avez survécu dans la ville pendant au moins {day} jours\_!'
+'pro gefressenem Bürger': 'par citoyen mangé'
+'Dezimiere als Ghul die Bewohner deiner Stadt': 'Décimez les habitants de votre ville en tant que goule'
+'Durch überleben!': 'En survivant !'
+'Durch Auszeichnungen!': 'Grâce aux récompenses !'
+'Durch sonstige Aktionen!': 'Par d’autres actions !'
+'pro geworbenem Spieler': 'par joueur parrainé'
+'Lade neue Spieler zu MyHordes ein und kümmere dich rührend um sie, bis sie das erste Mal Erfahrung für eine Fähigkeit ausgeben.': 'Invitez de nouveaux joueurs sur MyHordes et prenez soin d’eux jusqu’à ce qu’ils dépensent de l’expérience sur une compétence pour la première fois.'

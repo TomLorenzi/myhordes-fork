@@ -1,4 +1,3 @@
----
 E-Mail-Adresse: Email address
 'Externe ID für Apps': 'External ID for apps'
 'Neue ID generieren': 'Generate a new ID'
@@ -645,3 +644,20 @@ Erfahrungsbonus: Experience bonus
 'Du hast in der Vergangenheit einen Erfahrungsbonus von diesem Spieler erhalten, da er oder sie in einer früheren Saison eine Fähigkeit erworben hat.': 'You have received an experience bonus from this player in the past because he or she acquired a skill in a previous season.'
 'Du kannst dir einen Erfahrungsbonus verdienen, wenn du diesen Spieler dazu überredest, eine neue Heldenfähigkeit zu erwerben...': 'You can earn an experience bonus by convincing this player to acquire a new hero skill...'
 'Du erhälst einen Bonus auf deine eigene Heldenerfahrung, sobald ein geworbener Spieler zum ersten Mal pro Saison eine Fähigkeit erwirbt.': 'You will receive a bonus to your own heroic experience when a referred player acquires a skill for the first time per season.'
+Erfahrung: Experience
+Erworben: Gained
+'Kann beliebig oft in einer Saison verdient werden!': 'Can be received multiple times per season.'
+'pro überlebtem Tag': 'for each day'
+'Überlebe in einer Stadt, solange du kannst!': 'Survive as long as you can.'
+'Überlebe mindestens {days} Tage in einer Pandämonium-Stadt': 'Survive at least {days} days in a hardcore town.'
+'Überlebe mindestens {days} Tage als {profession} in einer Stadt.': 'Survive at least {days} days as a {profession} in a town.'
+'Überlebe insgesamt mindestens {days} Tage in einer Stadt.': 'Survive at least {days} days in a town.'
+'Wenn du zwischen {day1} und {day2} Tage in der Stadt überlebt hast!': 'Only if you survive between {day1} and {day2} days!'
+'Wenn du zwischen mindestens {day} Tage in der Stadt überlebt hast!': 'Only if you survive at least {day} days!'
+'pro gefressenem Bürger': 'for each devoured citizen'
+'Dezimiere als Ghul die Bewohner deiner Stadt': 'Decimate the citizens of your town as a ghoul!'
+'Durch überleben!': 'From Survival!'
+'Durch Auszeichnungen!': 'From Distinctions!'
+'Durch sonstige Aktionen!': 'From other actions!'
+'pro geworbenem Spieler': 'for each sponsored player'
+'Lade neue Spieler zu MyHordes ein und kümmere dich rührend um sie, bis sie das erste Mal Erfahrung für eine Fähigkeit ausgeben.': 'Invite new players to MyHordes and take great care of them until they spend heroic experience on a new skill for the first time.'

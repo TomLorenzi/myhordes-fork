@@ -1,4 +1,3 @@
----
 'This value should be false.': 'Cette valeur doit être fausse.'
 'This value should be true.': 'Cette valeur doit être vraie.'
 'This value should be of type {{ type }}.': 'Cette valeur doit être de type {{ type }}.'
