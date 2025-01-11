@@ -70,7 +70,8 @@ type TwinoEditorGlobals = {
         start: number,
         end: number,
         update: (s:number,e:number) => void
-    }
+    },
+    setControlDialogOpen: (open: boolean) => void,
 }
 
 type TwinoContentImport = {
@@ -173,6 +174,7 @@ export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldC
     const fieldRef = useRef<{[index:string]: string|number}>(fields);
 
     const [expanded, setExpanded] = useState<boolean>(props.skin !== 'pm');
+    const [controlDialogOpen, setControlDialogOpen] = useState<boolean>(false);
 
     const selection = useRef({
         start: 0,
@@ -363,6 +365,7 @@ export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldC
                 selection: selection.current,
                 strings,
                 skin: props.skin,
+                setControlDialogOpen,
             }}>
                 <div className={`${props.skin}-editor`} onKeyDown={controlTrigger}>
                     {props.header && <TwinoEditorHeader {...props} />}
@@ -384,7 +387,7 @@ export const TwinoEditorWrapper = ( props: HTMLConfig & { onFieldChanged: FieldC
                                           onClick={() => setExpanded(true)}>{strings.common.expand}</span>
                                 </div>}
                             </div>}
-                            <div className={expanded ? '' : 'hidden'}><TwinoEditorControls emotes={emoteRef.current === null ? null : Object.values(emoteRef.current.result)}/></div>
+                            <div className={(expanded || controlDialogOpen) ? '' : 'hidden'}><TwinoEditorControls emotes={emoteRef.current === null ? null : Object.values(emoteRef.current.result)}/></div>
                         </div>
                         <div className={`${padded ? 'padded' : 'overlay-central'} cell rw-12`}>
                             <TwinoEditorEditor
