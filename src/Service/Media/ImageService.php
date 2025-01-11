@@ -135,7 +135,7 @@ class ImageService
                         $clone->setOption('heic:chroma', "444");
                         break;
                     case 'GIF':
-                        $clone = $clone->deconstructImages();
+                        //$clone = $clone->deconstructImages();
                         $clone->setOption('optimize', true);
                         break;
                     default:
