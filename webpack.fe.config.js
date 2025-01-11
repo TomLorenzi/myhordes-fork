@@ -28,13 +28,9 @@ const filename_pattern = (typeof(local.hash_filenames) !== 'undefined' && !local
     : '[path][name].[contenthash:8].[ext]'
 ;
 
-const prime_asset_path = fs.existsSync( 'packages/myhordes-prime/src/Resources/assets' )
-    ? 'packages/myhordes-prime/src/Resources/assets'
-    : 'packages/myhordes-prime-shim/src/Resources/assets'
-
 // List of folders that contain game assets
 const source_folders = [
-    'assets', prime_asset_path
+    'assets', 'packages/myhordes-fixtures/src/content/assets'
 ];
 
 // List of asset subfolders that should get copied.
@@ -88,7 +84,6 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/js/app.js')
-    .addEntry( 'prime', `./${prime_asset_path}/js/prime.js`)
     .addEntry('fa', './assets/js/fa.js')
 
     .addEntry('swagger', './assets/js/swagger.js')

@@ -1,3 +1,8 @@
+# Yaml files
 content/myhordes/**/*.yaml
 !content/myhordes/**/*.default.yaml
 !content/myhordes/**/*.example.yaml
+
+# Assets
+content/assets/**/*.*
+!content/assets/**/.gitkeep

@@ -25,7 +25,6 @@
 
         <!-- Load CSS -->
         {{ encore_entry_link_tags('app') }}
-        {{ encore_entry_link_tags('prime') }}
         {{ encore_entry_link_tags('fa') }}
 
         {% if app.user != null and app.user.language == "ach" %}
@@ -38,7 +37,6 @@
 
         <!-- Load JS -->
         {{ encore_entry_script_tags('app') }}
-        {{ encore_entry_script_tags('prime') }}
         {{ encore_entry_script_tags('fa', null, '_default', {'defer': true}) }}
 
         <!-- Set Favicon -->

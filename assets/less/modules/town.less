@@ -180,6 +180,9 @@ div.town-banner {
     &.town-addon-catapult > div {
       background-image: url("../../img/icons/evo/smenu_catapult2.gif");
     }
+    &.town-addon.town-addon-tamers > div {
+      background-image: url("../../img/background/smenu_clinic.gif");
+    }
   }
 
   &:not(.night)>.town-addon-house>div:first-child { background: url("../../img/background/town/menu_home.gif") center/cover no-repeat }
@@ -334,6 +337,27 @@ div.town-banner {
 
 .citizens-list  {
   line-height: 20px;
+
+  .crows-garland {
+    position: relative;
+
+    &:after {
+      position: absolute; pointer-events: none; content: " ";
+      left: 0; right: 0; top: -10px; bottom: 0;
+      background: url('../../img/background/crows_garland.webp') repeat-x center top;
+      background-size: 73px 16px;
+    }
+
+    &.crows-garland-alt-1:after { background-position-x: 10px; filter: hue-rotate(36deg) }
+    &.crows-garland-alt-2:after { background-position-x: 20px; filter: hue-rotate(72deg) }
+    &.crows-garland-alt-3:after { background-position-x: 30px; filter: hue-rotate(108deg) }
+    &.crows-garland-alt-4:after { background-position-x: 40px; filter: hue-rotate(144deg) }
+    &.crows-garland-alt-5:after { background-position-x: 50px; filter: hue-rotate(180deg) }
+    &.crows-garland-alt-6:after { background-position-x: 60px; filter: hue-rotate(216deg) }
+    &.crows-garland-alt-7:after { background-position-x: 70px; filter: hue-rotate(252deg) }
+    &.crows-garland-alt-8:after { background-position-x: 80px; filter: hue-rotate(288deg) }
+    &.crows-garland-alt-9:after { background-position-x: 90px; filter: hue-rotate(324deg) }
+  }
 }
 
 .citizens-list,
@@ -1072,4 +1096,17 @@ ul.list{
   color: #b1b2c7;
   b { color: #f0d79e; font-weight: bolder; text-decoration: underline; font-size: 1.1em }
   span { color: #f0d79e; }
+}
+
+.tamer-clinic {
+  display: flex; gap: 32px; justify-content: center;
+
+  .tamer-clinic-tile {
+    background: #693e29; border: 2px solid #3e2417; aspect-ratio: 1/1; flex-basis: 25%; position: relative;
+    img[data-action="purge"] { position: absolute; top: -6px; right: -6px }
+    &>div {
+      position: absolute; top: 16px; left: 16px; right: 16px; bottom: 16px;
+      img { position: absolute; top: 0; left: 0; height: 100%; width: 100%; image-rendering: pixelated }
+    }
+  }
 }
