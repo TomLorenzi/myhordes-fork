@@ -3,13 +3,14 @@
 
 namespace App\EventListener\Game\Citizen;
 
-use App\Entity\Town;
+use App\Entity\ItemPrototype;
 use App\Event\Game\Citizen\CitizenPostDeathEvent;
 use App\EventListener\ContainerTypeTrait;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
+use App\Service\PictoHandler;
 use App\Service\RandomGenerator;
-use App\Structures\Math;
+use App\Service\TownHandler;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
@@ -17,6 +18,7 @@ use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Contracts\Service\ServiceSubscriberInterface;
 
 #[AsEventListener(event: CitizenPostDeathEvent::class, method: 'onSpawnSouls',  priority: 0)]
+#[AsEventListener(event: CitizenPostDeathEvent::class, method: 'onUninstallGarlands',  priority: 5)]
 final class CitizenDeathListener implements ServiceSubscriberInterface
 {
     use ContainerTypeTrait;
@@ -31,15 +33,20 @@ final class CitizenDeathListener implements ServiceSubscriberInterface
             InventoryHandler::class,
             ItemFactory::class,
             RandomGenerator::class,
-            EntityManagerInterface::class
+            EntityManagerInterface::class,
+            TownHandler::class,
+            PictoHandler::class
         ];
     }
 
     public function onSpawnSouls( CitizenPostDeathEvent $event ): void {
         if ( $event->townConfig->get(TownConf::CONF_FEATURE_SHAMAN_MODE, 'normal') != 'none' ) {
-			$coef = $event->townConfig->get(TownConf::CONF_MODIFIER_SOUL_GENERATION_COEF, 1.00);
-            $maxDistance = Math::Clamp($coef * ($event->town->getDay() + 4), 5, 20);
-            $minDistance = Math::Clamp($coef * $event->town->getDay(), 4, 8);
+            $minDistance = min(10, 3 + intval($event->town->getDay() * 0.75));
+            $maxDistance = min(15, 6 + $event->town->getDay());
+            if ($this->getService(TownHandler::class)->getBuilding($event->town, 'small_spa4souls_#00', true)) {
+                $minDistance = min($minDistance, 5);
+                $maxDistance = min($maxDistance, 11);
+            }
 
             $spawnZone = $this->getService(RandomGenerator::class)->pickLocationBetweenFromList($event->town->getZones()->toArray(), $minDistance, $maxDistance);
             $soulItem = $this->getService(ItemFactory::class)->createItem( "soul_blue_#00");
@@ -47,6 +54,20 @@ final class CitizenDeathListener implements ServiceSubscriberInterface
             $this->getService(InventoryHandler::class)->forceMoveItem($spawnZone->getFloor(), $soulItem);
             $this->getService(EntityManagerInterface::class)->persist( $spawnZone->setSoulPositionOffset( mt_rand(0,3) ) );
         }
+    }
+
+    public function onUninstallGarlands( CitizenPostDeathEvent $event ): void {
+        $base_garland = $this->getService(EntityManagerInterface::class)->getRepository(ItemPrototype::class)->findOneByName('xmas_gift_#00');
+
+        $installed_garlands = 0;
+        if ($base_garland) foreach ( $event->citizen->getHome()->getChest()->getItems() as $item )
+            if ($item->getPrototype()->getName() === 'xmas_gift_#01') {
+                $this->getService(EntityManagerInterface::class)->persist($item->setPrototype($base_garland));
+                $installed_garlands++;
+            }
+
+        if ($installed_garlands > 0)
+            $this->getService(PictoHandler::class)->give_validated_picto($event->citizen, "r_decofeist_#00", $installed_garlands);
     }
 
 }

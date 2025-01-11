@@ -3,6 +3,7 @@
 
 namespace App\EventListener\Game\Citizen;
 
+use App\Entity\ActionCounter;
 use App\Entity\Citizen;
 use App\Entity\CitizenWatch;
 use App\Entity\RuinZonePrototype;
@@ -25,11 +26,13 @@ use App\Service\TownHandler;
 use App\Service\UserHandler;
 use App\Structures\TownConf;
 use App\Translation\T;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Contracts\EventDispatcher\Event;
 use Symfony\Contracts\Service\ServiceSubscriberInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[AsEventListener(event: CitizenQueryDigChancesEvent::class, method: 'getDigChances', priority: 0)]
 #[AsEventListener(event: CitizenQueryNightwatchDeathChancesEvent::class, method: 'getNightWatchDeathChances', priority: 0)]
@@ -52,45 +55,179 @@ final class CitizenChanceQueryListener implements ServiceSubscriberInterface
             TownHandler::class,
             UserHandler::class,
             EntityManagerInterface::class,
-            EventProxyService::class
+            EventProxyService::class,
+            TranslatorInterface::class
         ];
     }
 
 	public function getNightWatchDeathChances(CitizenQueryNightwatchDeathChancesEvent $event): void {
-		$citizen = $event->data->citizen;
-		/** @var CitizenHandler $citizen_handler */
-		$citizen_handler = $this->container->get(CitizenHandler::class);
-		/** @var UserHandler $user_handler */
-		$user_handler = $this->container->get(UserHandler::class);
-		/** @var EntityManagerInterface $em */
-		$em = $this->container->get(EntityManagerInterface::class);
+        $citizen = $event->data->citizen;
+        $town_handler = $this->getService(TownHandler::class);
+        $em = $this->getService(EntityManagerInterface::class);
+        $trans = $this->getService(TranslatorInterface::class);
 
-		$fatigue = $citizen_handler->getNightwatchBaseFatigue($citizen);
-		$is_pro = $citizen->property(CitizenProperties::EnableProWatchman);
+        $log_info = [];
 
-		for($i = 1 ; $i <= $citizen->getTown()->getDay() - ($event->during_attack ? 2 : 1); $i++){
-			/** @var CitizenWatch|null $previousWatches */
-			$previousWatches = $em->getRepository(CitizenWatch::class)->findWatchOfCitizenForADay($citizen, $i);
-			if ($previousWatches === null || $previousWatches->getSkipped())
-				$fatigue = max($citizen_handler->getNightwatchBaseFatigue($citizen), $fatigue - ($is_pro ? 0.025 : 0.05));
-			else
-				$fatigue += ($is_pro ? 0.05 : 0.1);
-		}
+        $log_info['is pro'] =
+            ($is_pro = $citizen->property( CitizenProperties::EnableProWatchman ));
 
-		$chances = max($citizen_handler->getNightwatchBaseFatigue($citizen), $fatigue);
-		foreach ($citizen->getStatus() as $status)
-			$chances += $status->getNightWatchDeathChancePenalty();
-		if($citizen->hasRole('ghoul')) $chances -= 0.05;
-		$event->deathChance = max(0.0, min($chances, 1.0));
-		$event->woundChance = $event->terrorChance = max(0.0, min($chances + $event->townConfig->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05), 1.0)) / 2;
+        $chances = 0;
+        if ($citizen->getProfession()->getName() === "guardian")
+            $log_info['death base [guardian]'] = ($chances = 0.03);
+        //else if ($citizen->getProfession()->getName() === "tamer" && $town_handler->getBuilding($citizen->getTown(), "small_pet_#00"))
+        //    $log_info['death base [tamer & small_pet_#00]'] = ($chances = 0.05);
+        else $log_info['death base'] = ($chances = 0.08);
 
-		$event->hintSentence = T::__('Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von {deathChance}% sterben und zu einer Wahrscheinlichkeit von {woundAndTerrorChance}% eine Verwundung oder Angststarre während der Wache erleiden wirst.', 'game');
+        $minChances = $chances;
+
+        $criteria = new Criteria();
+        $criteria->andWhere($criteria->expr()->eq('citizen', $citizen));
+        $criteria->andWhere($criteria->expr()->lt('day', $citizen->getTown()->getDay() - ($event->during_attack ? 1 : 0)));
+
+        $log_info['prev watches'] =
+            ($previousWatches = count($em->getRepository(CitizenWatch::class)->matching($criteria)));
+        if ($is_pro)
+            $watchMap = [0, 0.01, 0.04, 0.09, 0.15, 0.20, 0.30, 0.40, 0.50, 0.60, 0.75, 0.90];
+        else
+            $watchMap = [0, 0.01, 0.04, 0.09, 0.20, 0.30, 0.42, 0.56, 0.72, 0.90];
+        $log_info['death fatigue'] =
+            ($fatigue = $watchMap[min($previousWatches, count($watchMap))]);
+
+        $chances += $fatigue;
+
+        $event->deathChance = round(max(0.0, min($chances, 1.0)),2);
+        $log_info['ratio wound'] = ($woundRatio = ($citizen->getTown()->getType()->getName() == "panda" ? 0.3 : 0.2));
+        $log_info['ratio terror'] = ($terrorRatio = ($citizen->getTown()->getType()->getName() == "panda" ? 0.2 : 0.1));
+        $event->woundChance = round(max(0.0, min(1 - ((1-$chances)-(1-$chances)*$woundRatio), 1.0)),2);
+        $event->terrorChance = round(max(0.0, min(1 - ((1-$chances)-(1-$chances)*$terrorRatio), 1.0)),2);
+
+        $log_info['core chances'] = [
+            'death' => $event->deathChance,
+            'wound' => $event->woundChance,
+            'terror' => $event->terrorChance,
+        ];
+
+        // Previous Bath
+        $log_info["baths"] = ($nbBath = $citizen->getSpecificActionCounterValue(ActionCounter::ActionTypePool));
+        if ($event->deathChance > $minChances) {
+            $event->deathChance = max($minChances, $event->deathChance - ($nbBath * 0.01)); // Each bath gives 1% chance, but it's capped to the base value of the job
+            $log_info["death after baths"] = round($event->deathChance, 4);;
+        }
+
+        // The items
+        $items_impact = [];
+        foreach ($citizen->getInventory()->getItems() as $item) {
+            $itemImpact = $item->getPrototype()->getWatchimpact();
+            if ($itemImpact === 0) continue;
+            $cumul = $item->getPrototype()->hasProperty('nw_impact_cumul');
+
+            $items_impact[$item->getPrototype()->getName()] = [
+                'count' => $cumul ? ($items_impact[$item->getPrototype()->getName()]['count'] ?? 0) + 1 : 1,
+                'name' => $item->getPrototype()->getName(),
+                'impact' => $cumul ? ($items_impact[$item->getPrototype()->getName()]['impact'] ?? 0) + $itemImpact/100.0 : $itemImpact/100.0
+            ];
+        }
+
+        foreach ($items_impact as $item => ['impact' => $impact, 'count' => $count])
+            $log_info["death item $item x $count"] = -$impact;
+
+        $event->deathChance -= (array_sum(array_column($items_impact, 'impact')));
+        if ($citizen->hasRole('ghoul')) $event->deathChance += ($log_info["death ghoul"] = -0.05);
+
+        // The statuses
+        foreach ($citizen->getStatus() as $status)
+            if (($penalty = $status->getNightWatchDeathChancePenalty()) <> 0) {
+                $event->deathChance += $status->getNightWatchDeathChancePenalty();
+                $log_info["death status {$status->getName()}"] = $status->getNightWatchDeathChancePenalty();
+            }
+
+        // Gas gun
+        if ($town_handler->getBuilding($citizen->getTown(), "small_gazspray_#00"))
+            $event->terrorChance += ($log_info["terror small_gazspray_#00"] = 0.1);
+
+        // Guardroom
+        if ($town_handler->getBuilding($citizen->getTown(), "small_watchmen_#02"))
+            $event->deathChance += ($log_info["death small_watchmen_#02"] = -0.05);
+
+        // Battlements lvl3
+        $roundPath = $town_handler->getBuilding($citizen->getTown(), "small_round_path_#00");
+        if ($roundPath && $roundPath->getLevel() === 3)
+            $event->deathChance += ($log_info["death small_round_path_#00"] = -0.01);
+
+        // Automatic sprinklers
+        if ($town_handler->getBuilding($citizen->getTown(), "small_sprinkler_#00"))
+            $event->deathChance += ($log_info["death small_sprinkler_#00"] = 0.04);
+
+        // Home shower effect
+        if ($event->citizen->hasStatus('tg_home_shower')) {
+            $event->woundChance += ($log_info["wound tg_home_shower"] = -0.025);
+            $event->terrorChance += ($log_info["terror tg_home_shower"] = -0.025);
+        }
+
+        if ($citizen->getTown()->getType()->getName() == "panda") {
+            if ($event->deathChance >= 0)
+                $event->deathChance += $event->deathChance;
+            $log_info["death with Hardcore malus"] = round($event->deathChance, 4);
+        }
+
+        $bonus = $citizen->property( CitizenProperties::WatchSurvivalBonus );
+        if ($bonus !== 0.0) {
+            $log_info["watch survival bonus"] = $bonus;
+        }
+        $event->deathChance -= $bonus;
+        $log_info["death with watch survival bonus"] = round($event->deathChance, 4);
+
+        $event->log?->debug( "Calculated night watch chances for citizen <info>{$citizen->getName()}</info>", $log_info );
+
+        // Apply rounding to prevent float imprecision
+        $event->deathChance = round($event->deathChance, 4);
+
+        $hint = [];
+        if ($event->deathChance <= 0.0) {
+            $hint[] = $trans->trans("Auf der Stadtmauer stehend bist du sehr zuversichtlich, was den Ausgang dieses Abends angeht. Du wirst heute nicht sterben!", [], 'game');
+        }
+        else if ($event->deathChance <= 0.15) {
+            $hint[] = $trans->trans("Auf den Zinnen fühlst du dich unbesiegbar. Nichts wird dich heute Nacht zum Wanken bringen.", [], 'game');
+        } else if (0.15 < $event->deathChance && $event->deathChance <= 0.30) {
+            $hint[] = $trans->trans("Auf den Zinnen fühlst du dich gut. Du willst morgen noch am Leben sein.", [], 'game');
+        } else if (0.30 < $event->deathChance && $event->deathChance <= 0.45) {
+            $hint[] = $trans->trans("Auf den Zinnen fühlst du dich sicher. Du wartest auf die Zombies, die du bereits herannahen siehst.", [], 'game');
+        } else if (0.45 < $event->deathChance && $event->deathChance <= 0.60) {
+            $hint[] = $trans->trans("Auf den Zinnen blickst du in den Horizont. Du hoffst, morgen noch einmal die Sonne aufgehen zu sehen.", [], 'game');
+        } else if (0.60 < $event->deathChance && $event->deathChance <= 0.75) {
+            $hint[] = $trans->trans("Auf den Zinnen fühlst du dich unschlüssig und deine Laune ist schlecht. Vielleicht gibt es kein Morgen für dich...", [], 'game');
+        } else if (0.75 < $event->deathChance && $event->deathChance <= 0.90) {
+            $hint[] = $trans->trans("Auf den Zinnen bist du zittrig und deine Laune ist am Tiefpunkt. Du weißt nicht, ob du das Licht des Tages erblicken wirst...", [], 'game');
+        } else {
+            $hint[] = $trans->trans("Auf den Zinnen wird dein Herz von Angst erdrückt. Du spürst, dass dein Leben am seidenen Faden hängt...", [], 'game');
+        }
+
+        if ($event->woundChance <= 0.25) {
+            $hint[] = $trans->trans("Du fühlst dich großartig.", [], 'game');
+        } else if (0.25 < $event->woundChance && $event->woundChance < 0.50) {
+            $hint[] = $trans->trans("Du bist eingeschüchtert von der Zahl der Zombies, die du siehst. Du hoffst, dass du keinen Arm oder ein Bein verlierst.", [], 'game');
+        } else if (0.50 < $event->woundChance && $event->woundChance < 0.75) {
+            $hint[] = $trans->trans("Du bist eingeschüchtert von der Zahl der Zombies, die du siehst. Du bist vorbereitet, Gliedmaßen zu verlieren, aber hoffentlich nicht deinen Kopf...", [], 'game');
+        } else {
+            $hint[] = $trans->trans("Du bist eingeschüchtert von der Zahl der Zombies, die du siehst. Du hoffst, dass es noch Verbandszeug in der Bank gibt...", [], 'game');
+        }
+
+        if ($event->terrorChance <= 0.25) {
+            $hint[] = $trans->trans("Selbst wenn du dir vorstellst, was dich heute Abend erwartet, bleibst du zumindest ein wenig gelassen.", [], 'game');
+        } else if (0.25 < $event->terrorChance && $event->terrorChance < 0.50) {
+            $hint[] = $trans->trans("Du spürst die Aufregung. Es wird eine gruselige Nacht werden.", [], 'game');
+        } else if (0.50 < $event->terrorChance && $event->terrorChance < 0.75) {
+            $hint[] = $trans->trans("Du versuchst, deine Gedanken positiv zu halten, aber dir kommt nur der Tod in den Sinn... Glücklich! Es wird eine lange Nacht werden.", [], 'game');
+        } else {
+            $hint[] = $trans->trans("Der Anblick der Zombies, die sich den Festungsmauern nähern, versetzt dich in Panik.", [], 'game');
+        }
+        $event->hintSentence = implode("<br />", $hint);
 	}
 
 	public function getNightWatchDefenses(CitizenQueryNightwatchDefenseEvent $event): void {
 		$citizen = $event->data->citizen;
 		/** @var EventProxyService $events */
-		$events = $this->container->get(EventProxyService::class);
+		$events = $this->getService(EventProxyService::class);
 
 		$def = 10 + $citizen->property(CitizenProperties::WatchDefense) + $citizen->getProfession()->getNightwatchDefenseBonus();
 
@@ -109,12 +246,14 @@ final class CitizenChanceQueryListener implements ServiceSubscriberInterface
 	public function getNightWatchInfo(CitizenQueryNightwatchInfoEvent $event): void {
 		$citizen = $event->data->citizen;
 		$event->data->nightwatchInfo['citizen'] = $citizen;
-		/** @var EventProxyService $events */
-		$events = $this->container->get(EventProxyService::class);
+
+		$events = $this->getService(EventProxyService::class);
 
 		$def = $event->data->nightwatchInfo['def'] ?? 0;
-
 		$def += 10 + $citizen->property(CitizenProperties::WatchDefense) + $citizen->getProfession()->getNightwatchDefenseBonus();
+
+        $event->data->nightwatchInfo['bonusDef'] = $citizen->getProfession()->getNightwatchDefenseBonus();
+        $event->data->nightwatchInfo['bonusSurvival'] = $citizen->getProfession()->getNightwatchSurvivalBonus();
 
 		foreach ($citizen->getStatus() as $status) {
 			if ($status->getNightWatchDefenseBonus() === 0 && $status->getNightWatchDeathChancePenalty() === 0.0) continue;
@@ -136,17 +275,22 @@ final class CitizenChanceQueryListener implements ServiceSubscriberInterface
 			);
 
 		foreach ($citizen->getInventory()->getItems() as $item) {
-			$itemDef = $events->buildingQueryNightwatchDefenseBonus($citizen->getTown(), $item);;
-			if($itemDef === 0)
+			$itemDef = $events->buildingQueryNightwatchDefenseBonus($citizen->getTown(), $item);
+            if ($item->getPrototype()->getWatchimpact() === 0 && $itemDef === 0)
 				continue;
 
 			$def += $itemDef;
 
-			$event->data->nightwatchInfo['items'][$item->getId()] = array(
-				'prototype' => $item->getPrototype(),
-				'defImpact' => $itemDef,
-				'deathImpact' => -$item->getPrototype()->getWatchimpact()
-			);
+            if (isset($event->data->nightwatchInfo['items'][$item->getId()])) {
+                if ($item->getPrototype()->hasProperty('nw_impact_cumul') || $event->data->nightwatchInfo['items'][$item->getId()]['deathImpact'] == 0)
+                    $event->data->nightwatchInfo['items'][$item->getId()]['deathImpact'] = $item->getPrototype()->getWatchimpact();
+            } else {
+                $event->data->nightwatchInfo['items'][$item->getId()] = array(
+                    'prototype' => $item->getPrototype(),
+                    'defImpact' => $itemDef,
+                    'deathImpact' => -$item->getPrototype()->getWatchimpact(),
+                );
+            }
 		}
 
 		$event->data->nightwatchInfo['def'] = $def;
@@ -201,14 +345,12 @@ final class CitizenChanceQueryListener implements ServiceSubscriberInterface
                     if ($this->getService(CitizenHandler::class)->hasStatusEffect( $event->citizen, 'drunk'  )) $chance -= 0.2;
                 }
 
-                $event->chance = $chance;
+                $event->chance = $chance + ($event->zone?->getScoutLevel() ?? 0) * 0.025;
 
                 break;
 
             case ScavengingActionType::DigExploration:
                 // We're searching an e-ruin
-                // TODO: Re-implement how items are generated in an e-ruin
-
                 $digs = ($event->ruinZone?->getDigs() ?? 0) + 1;
                 $chance = (1.0 + $event->citizen->getProfession()->getDigBonus()) / ( 1.0 + ( $digs / max( 1, $event->townConfig->get(TownSetting::ERuinItemFillrate) - ($digs/3.0) ) ) );
                 //$chance = $event->townConfig->get(TownConf::CONF_EXPLORABLES_DIG_CHANCE, 0.55) + $event->citizen->getProfession()->getDigBonus();
@@ -236,5 +378,21 @@ final class CitizenChanceQueryListener implements ServiceSubscriberInterface
         $event->chance = min(max(0, $event->chance), 1.0);
     }
 
-    public function getParameterInfo(CitizenQueryParameterEvent $event): void {}
+    public function getParameterInfo(CitizenQueryParameterEvent $event): void {
+        switch ($event->query) {
+            case CitizenValueQuery::MaxSpExtension:
+                $value = $event->value;
+                if ($event->citizen->hasStatus('tg_has_bike')) $value += 2;
+                if ($event->citizen->hasStatus('tg_has_shoe')) $value += 1;
+                $event->value = $value;
+                break;
+            case CitizenValueQuery::NightlyAttraction:
+                $value = $event->value;
+                if ($event->citizen->hasStatus('tg_flag')) $value += 0.025;
+                $event->value = $value;
+                break;
+            default:
+                break;
+        }
+    }
 }

@@ -2,9 +2,7 @@
 
 namespace App\Traits\System;
 
-use ArrayHelpers\Arr;
 use Composer\Semver\Semver;
-use MyHordes\Prime\MyHordesPrimeBundle;
 
 trait PrimeInfo
 {
