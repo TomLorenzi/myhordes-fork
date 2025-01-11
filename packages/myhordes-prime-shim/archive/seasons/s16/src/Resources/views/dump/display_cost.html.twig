@@ -1,8 +1,0 @@
-<div class="help warning">
-	{{ 'Du kannst jedes Mal höchstens 20 identische Gegenstände zerstören oder wiederherstellen'|trans({}, 'game') }}<br />
-	<b>{{ 'Achtung'|trans({},'global')}} :</b>
-	{{ 'Jede Aktion kostet dich {ap}.'|trans({'{ap}': '<div class="ap">' ~ ap_cost ~ '</div>'}, 'game')|raw }}
-	{% if not improved_dump_built and ap_cost > 0 %}
-	{{ help_btn('Diese Kosten können durch den Aufbau der <strong>Müll für Alle</strong>.'|trans({},'global'))}}
-	{% endif %}
-</div>

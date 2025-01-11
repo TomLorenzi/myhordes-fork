@@ -21,14 +21,12 @@ use Symfony\Component\Translation\MessageCatalogue;
 #[AsDecorator(decorates: 'translation.extractor')]
 class ExpandedChainExtractor implements ExtractorInterface
 {
-    private ?string $bundle_base = null;
-
     public function __construct(
         #[AutowireDecorated]
         private ChainExtractor $inner,
         KernelInterface $kernel,
     ) {
-        $this->bundle_base = $kernel->getBundle('MyHordesPrimeBundle')?->getPath() ?? null;
+
     }
 
     public function addExtractor(string $format, ExtractorInterface $extractor): void
@@ -47,12 +45,5 @@ class ExpandedChainExtractor implements ExtractorInterface
     public function extract(string|iterable $directory, MessageCatalogue $catalogue)
     {
         $this->inner->extract($directory, $catalogue);
-        # There is no way to pass additional bundle directories to the base translation command
-        # Thus, we check for the one directory we can pass, and then manually execute the extraction for the others
-        if ($this->bundle_base && $directory === "{$this->bundle_base}/Resources/views") {
-            $this->inner->extract("{$this->bundle_base}/Controller", $catalogue);
-            $this->inner->extract("{$this->bundle_base}/Hooks", $catalogue);
-            $this->inner->extract("{$this->bundle_base}/templates", $catalogue);
-        }
     }
 }

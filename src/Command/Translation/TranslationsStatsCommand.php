@@ -189,12 +189,6 @@ class TranslationsStatsCommand extends Command
         $output->writeln('<fg=yellow>=== Core translations ===</>');
         $this->executeForDirectory( $input, $output, "{$this->param->get('kernel.project_dir')}/translations" );
 
-        try {
-            $foundBundle = $this->kernel->getBundle('MyHordesPrimeBundle');
-            $output->writeln("\n<fg=yellow>=== Prime translations ===</>");
-            $this->executeForDirectory( $input, $output, "{$foundBundle->getPath()}/Resources/translations" );
-        } catch (\InvalidArgumentException $e) {}
-
         return 0;
     }
 }

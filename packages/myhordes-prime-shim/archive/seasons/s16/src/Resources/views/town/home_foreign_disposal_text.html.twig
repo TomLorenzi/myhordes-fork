@@ -1,3 +1,0 @@
-{% if owner.disposed == constant('MyHordes\\Prime\\Helpers\\PrimeCitizenDisposal::Burned') %}
-	{{ 'In großer Trauer verstreute {disposing_citizen} die Asche von {citizen} in das Gemüsebeet. Wenigstens war er am Ende noch nützlich.'|trans({'{disposing_citizen}': "<em>" ~ owner.disposedBy[0].name ~ "</em>", '{citizen}': "<em>" ~ owner.name ~ "</em>"}, 'game')|raw }}
-{% endif %}

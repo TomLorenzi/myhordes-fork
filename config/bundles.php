@@ -17,7 +17,6 @@ return [
     DAMA\DoctrineTestBundle\DAMADoctrineTestBundle::class => ['test' => true],
     MyHordes\Plugins\MyHordesPluginsBundle::class => ['all' => true],
     MyHordes\Fixtures\MyHordesFixturesBundle::class => ['all' => true],
-    MyHordes\Prime\MyHordesPrimeBundle::class => ['all' => true],
     Zenstruck\ScheduleBundle\ZenstruckScheduleBundle::class => ['all' => true],
     Sentry\SentryBundle\SentryBundle::class => ['all' => true],
     WebPush\Bundle\WebPushBundle::class => ['all' => true],
