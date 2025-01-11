@@ -197,7 +197,7 @@ class TownController extends InventoryAwareController
                 $has_voted[$role->getName()] = ($this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($this->getActiveCitizen(), $role) !== null);
 
         $has_dictator = $this->getActiveCitizen()->property(CitizenProperties::EnableBlackboard);
-        $can_edit_blackboard = $has_dictator && !$this->getActiveCitizen()->getBanished();
+        $can_edit_blackboard = $has_dictator;
 
         $sb = $this->user_handler->getShoutbox($this->getUser());
         $messages = false;

@@ -180,7 +180,7 @@
                                 <em x-ajax-href="{{ path('soul_heroskill') }}" class="link">{{'Mehr darüber erfahren...'|trans({}, 'game')}}</em>
                             {% endif %}
                         </div>
-                        {% if can_edit_blackboard %}
+                        {% if can_edit_blackboard and not citizen.getBanished %}
                             <div class="content hidden" id="words-of-heroes-editor">
                                 <textarea>{{ town.wordsOfHeroes }}</textarea>
                             </div>
@@ -191,9 +191,13 @@
                                 {% endif %}
                             </div>
                             <div class="cancel hidden"><a href="#" id="saveedit-wordsofheroes">{{ 'Speichern'|trans({},'global') }}</a> - <a href="#" id="canceledit-wordsofheroes">{{'Abbrechen'|trans({}, 'global')}}</a></div>
-                        {% elseif citizen.getBanished or not can_edit_blackboard %}
+                        {% else %}
                             <div class="edit">
-                                <span class="disabled">{{'Bearbeiten'|trans({}, 'global')}}<div class="tooltip help">{{ 'Nur altgediente Helden können auf die Wandtafel schreiben'|trans({},'game') }}</div></span>
+                                {% if not can_edit_blackboard %}
+                                    <span class="disabled">{{'Bearbeiten'|trans({}, 'global')}}<div class="tooltip help">{{ 'Nur altgediente Helden können auf die Wandtafel schreiben'|trans({},'game') }}</div></span>
+                                {% else %}
+                                    <span class="disabled">{{'Bearbeiten'|trans({}, 'global')}}<div class="tooltip help">{{ 'Du kannst diese Aktion nicht ausführen, da du <strong>verbannt</strong> wurdest!'|trans({},'global')|raw }}</div></span>
+                                {% endif %}
                                 {% if bbe_id > 0 %}
                                     <hordes-content-report data-principal-id="{{ bbe_id }}" data-report="blackboard" data-selector="img" data-title="{{ 'Unangemessenen Inhalt melden'|trans({},'global') }}"><img class="pointer" title="{{ 'Unangemessenen Inhalt melden'|trans({},'global') }}" style="margin-left: 10px;" alt="!" src="{{ asset('build/images/forum/warning.png') }}"></hordes-content-report>
                                 {% endif %}
