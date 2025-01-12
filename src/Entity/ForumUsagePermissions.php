@@ -12,32 +12,36 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 #[UniqueConstraint(name: 'permission_assoc_unique', columns: ['principal_user_id', 'principal_group_id', 'forum_id'])]
 class ForumUsagePermissions
 {
-    const PermissionNone     = 0;
+    const int PermissionNone     = 0;
+
     // Read Permissions
-    const PermissionListThreads  =  1 << 1;
-    const PermissionReadThreads  =  1 << 2;
-    const PermissionRead         = ForumUsagePermissions::PermissionListThreads |
-                                   ForumUsagePermissions::PermissionReadThreads;
+    const int PermissionListThreads  =  1 << 1;
+    const int PermissionReadThreads  =  1 << 2;
+    const int PermissionRead         = ForumUsagePermissions::PermissionListThreads |
+                                       ForumUsagePermissions::PermissionReadThreads;
     // Write Permissions
-    const PermissionCreatePost   =  1 << 6;
-    const PermissionCreateThread =  1 << 7;
-    const PermissionEditPost     =  1 << 8;
-    const PermissionWrite        = ForumUsagePermissions::PermissionCreatePost   |
-                                   ForumUsagePermissions::PermissionCreateThread |
-                                   ForumUsagePermissions::PermissionEditPost;
+    const int PermissionCreatePost   =  1 << 6;
+    const int PermissionCreateThread =  1 << 7;
+    const int PermissionEditPost     =  1 << 8;
+    const int PermissionWrite        = ForumUsagePermissions::PermissionCreatePost   |
+                                       ForumUsagePermissions::PermissionCreateThread |
+                                       ForumUsagePermissions::PermissionEditPost;
+    const int PermissionCreatePostOnClosedThread =  1 << 9;
+
     // Common
-    const PermissionReadWrite = ForumUsagePermissions::PermissionRead | ForumUsagePermissions::PermissionWrite;
+    const int PermissionReadWrite = ForumUsagePermissions::PermissionRead | ForumUsagePermissions::PermissionWrite;
     // Moderation
-    const PermissionModerate     = 1 << 10;
-    const PermissionOwn          = 1 << 11;
-    const PermissionHelp         = 1 << 12;
+    const int PermissionModerate     = 1 << 10;
+    const int PermissionOwn          = 1 << 11;
+    const int PermissionHelp         = 1 << 12;
+
     // Functionality
-    const PermissionFormattingOracle    = 1 << 16;
-    const PermissionFormattingModerator = 1 << 17;
-    const PermissionFormattingAdmin     = 1 << 18;
-    const PermissionPostAsCrow          = 1 << 19;
-    const PermissionPostAsDev           = 1 << 20;
-    const PermissionPostAsAnim          = 1 << 21;
+    const int PermissionFormattingOracle    = 1 << 16;
+    const int PermissionFormattingModerator = 1 << 17;
+    const int PermissionFormattingAdmin     = 1 << 18;
+    const int PermissionPostAsCrow          = 1 << 19;
+    const int PermissionPostAsDev           = 1 << 20;
+    const int PermissionPostAsAnim          = 1 << 21;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]

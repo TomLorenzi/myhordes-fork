@@ -546,7 +546,10 @@ class MessageForumController extends MessageController
                 return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
         }
 
-        if (($thread->getLocked() || $thread->getHidden()) && !$this->perm->isPermitted($permissions, ForumUsagePermissions::PermissionModerate))
+        if ($thread->getHidden() && !$this->perm->isPermitted($permissions, ForumUsagePermissions::PermissionModerate))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        if ($thread->getLocked() && !$this->perm->isPermitted($permissions, ForumUsagePermissions::PermissionCreatePostOnClosedThread))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         // Check the last 4 posts; if they were all made by the same user, they must wait 4h before they can post again
