@@ -3008,6 +3008,10 @@ Nüchtern: Nüchtern
 'Dein geworbener Spieler {user} hat zum ersten Mal Heldenerfahrung für eine Fähigkeit ausgegeben.': 'Dein geworbener Spieler {user} hat zum ersten Mal Heldenerfahrung für eine Fähigkeit ausgegeben.'
 'Dein geworbener Spieler {user} hat zum ersten Mal in dieser Saison Heldenerfahrung für eine Fähigkeit ausgegeben.': 'Dein geworbener Spieler {user} hat zum ersten Mal in dieser Saison Heldenerfahrung für eine Fähigkeit ausgegeben.'
 'Vergessene Stadt': 'Vergessene Stadt'
+Meisteringenieur: Meisteringenieur
+Meisteringenieur_f: Meisteringenieurin
+'Techniker - Gewinner des SoH': 'Techniker - Gewinner des SoH'
+'Sieg für die Techniker beim Shock of Heroes Event!': 'Sieg für die Techniker beim Shock of Heroes Event!'
 'Deine Anstrengungen in den Buddelgruben haben sich gelohnt! Du hast folgendes gefunden: {items_spawn}!': 'Deine Anstrengungen in den Buddelgruben haben sich gelohnt! Du hast folgendes gefunden: {items_spawn}!'
 'Auf den Zinnen fühlst du dich unbesiegbar. Nichts wird dich heute Nacht zum Wanken bringen.': 'Auf den Zinnen fühlst du dich unbesiegbar. Nichts wird dich heute Nacht zum Wanken bringen.'
 'Auf den Zinnen fühlst du dich gut. Du willst morgen noch am Leben sein.': 'Auf den Zinnen fühlst du dich gut. Du willst morgen noch am Leben sein.'

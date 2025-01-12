@@ -28,6 +28,7 @@ class ForumPermissionAccessor
 
     public function create_thread():  bool { return $this->perm->isPermitted( $this->permissions, ForumUsagePermissions::PermissionCreateThread ); }
     public function create_post():    bool { return $this->perm->isPermitted( $this->permissions, ForumUsagePermissions::PermissionCreatePost ); }
+    public function create_post_on_closed_thread():    bool { return $this->perm->isPermitted( $this->permissions, ForumUsagePermissions::PermissionCreatePostOnClosedThread ); }
 
     public function moderate(): bool { return $this->perm->isPermitted( $this->permissions, ForumUsagePermissions::PermissionModerate ); }
     public function help():     bool { return $this->perm->isPermitted( $this->permissions, ForumUsagePermissions::PermissionHelp ); }

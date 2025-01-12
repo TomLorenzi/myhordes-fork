@@ -140,6 +140,12 @@ class CitizenHandler
             return true;
         }
 
+        if (in_array( $status->getName(), ['thirst1', 'thirst2'] ))
+            $this->removeStatus($citizen, 'hydrated');
+
+        if (in_array( $status->getName(), ['drunk', 'hungover'] ))
+            $this->removeStatus($citizen, 'sober');
+
         // Prevent thirst and infection for ghouls; ghoul infection is still possible
         if ((   $status->getName() === 'thirst1' ||
                 $status->getName() === 'thirst2' ||

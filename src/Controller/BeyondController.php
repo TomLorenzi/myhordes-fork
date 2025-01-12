@@ -815,6 +815,10 @@ class BeyondController extends InventoryAwareController
             }
         }
 
+        $cpNewZone = $this->zone_handler->getZoneControlPoints($new_zone);
+        foreach ($movers as $mover)
+            $cpNewZone += $this->citizen_handler->getCP($mover);
+
         foreach ($movers as $mover) {
             // Moving disables the dig timer
             if ($dig_timer = $mover->getCurrentDigTimer()) {
@@ -848,7 +852,7 @@ class BeyondController extends InventoryAwareController
                     ->setTimestamp(new DateTime())
                     ->setType(ZoneActivityMarkerType::ScoutVisit)
                 );
-                $cpNewZone = $this->zone_handler->getZoneControlPoints($new_zone);
+
                 if ($scouts[$mover->getId()] && $cpNewZone < $new_zone->getZombies()) {
 
                     $zedsAboveCps = $new_zone->getZombies() - $cpNewZone;

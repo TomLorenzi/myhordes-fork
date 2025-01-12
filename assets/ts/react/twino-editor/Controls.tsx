@@ -164,8 +164,10 @@ const ControlButton = ({fa = null, img = null, label = null, control = null, han
     const wrapped_handler = () => {
         if (!dialog.current) handler();
         else {
-            if (!dialogHandler || dialogHandler(false) !== false)
+            if (!dialogHandler || dialogHandler(false) !== false) {
+                globals.setControlDialogOpen(true);
                 dialog.current.showModal();
+            }
         }
     }
 
@@ -183,7 +185,10 @@ const ControlButton = ({fa = null, img = null, label = null, control = null, han
         if (preConfirmHandler) preConfirmHandler(form.current);
         if (!form.current.checkValidity()) return;
         const l = (dialogHandler === null || dialogHandler(true) !== false) && handler() !== false;
-        if (l) dialog.current.close();
+        if (l) {
+            dialog.current.close();
+            globals.setControlDialogOpen(false);
+        }
     }
 
     return <div tabIndex={0} className="forum-button-component">
@@ -224,7 +229,10 @@ const ControlButton = ({fa = null, img = null, label = null, control = null, han
                             {globals.strings.common.insert}
                         </button>
                     </>}
-                    <div className="modal-button small inline" onClick={() => dialog.current.close()}>
+                    <div className="modal-button small inline" onClick={() => {
+                        dialog.current.close();
+                        globals.setControlDialogOpen(false);
+                    }}>
                         {globals.strings.common.abort}
                     </div>
                 </div>
