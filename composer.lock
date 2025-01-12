@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a1e78093461066001878f93a17cabe64",
+    "content-hash": "496674603054bbb0aa50ad9c14488ef8",
     "packages": [
         {
             "name": "adbario/php-dot-notation",
@@ -3213,7 +3213,7 @@
         },
         {
             "name": "myhordes/fixtures",
-            "version": "dev-master-v3.0",
+            "version": "dev-master-s18",
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-fixtures",
@@ -3251,7 +3251,7 @@
         },
         {
             "name": "myhordes/plugins",
-            "version": "dev-master-v3.0",
+            "version": "dev-master-s18",
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-plugins",
@@ -3279,47 +3279,6 @@
                 }
             ],
             "description": "MyHordes Plugin Handler",
-            "transport-options": {
-                "relative": true
-            }
-        },
-        {
-            "name": "myhordes/prime-csc",
-            "version": "3.0.0",
-            "dist": {
-                "type": "path",
-                "url": "packages/myhordes-prime",
-                "reference": "33e3993f2550b9dcabc2a257d315f1aeafbc2d2c"
-            },
-            "require": {
-                "php": ">=8.2",
-                "symfony/framework-bundle": "*"
-            },
-            "provide": {
-                "myhordes/prime": "self.version"
-            },
-            "replace": {
-                "myhordes/prime": "self.version"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "MyHordes\\Prime\\": [
-                        "src/",
-                        "src/templates"
-                    ]
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "Benjamin Behrendt",
-                    "email": "wvsgnovize@gmail.com"
-                }
-            ],
-            "description": "Contains optional closed source content for the MyHordes project.",
             "transport-options": {
                 "relative": true
             }
