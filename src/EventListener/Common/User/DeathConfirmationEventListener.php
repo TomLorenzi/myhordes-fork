@@ -153,18 +153,19 @@ final class DeathConfirmationEventListener implements ServiceSubscriberInterface
     }
 
     private function hxp( CitizenRankingProxy $death, string|LogEntryTemplate $template, bool $global, int $value, array $props = [], ?string $subject = null ): void {
-        $this->getService(UserUnlockableService::class)
-            ->recordHeroicExperience(
-                $death->getUser(),
-                $global ? HeroXPType::Global : HeroXPType::Seasonal,
-                $value,
-                $template,
-                $subject,
-                $props,
-                $death->getTown(),
-                $death,
-                $death->getTown()->getSeason()
-            );
+        if ($death->getTown()->getSeason())
+            $this->getService(UserUnlockableService::class)
+                ->recordHeroicExperience(
+                    $death->getUser(),
+                    $global ? HeroXPType::Global : HeroXPType::Seasonal,
+                    $value,
+                    $template,
+                    $subject,
+                    $props,
+                    $death->getTown(),
+                    $death,
+                    $death->getTown()->getSeason()
+                );
     }
 
     public function awardPrimeHxp(DeathConfirmedEvent $event): void {
