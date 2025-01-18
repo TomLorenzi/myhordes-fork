@@ -83,10 +83,11 @@ class UserUnlockableService implements ServiceSubscriberInterface
      * @param string|null $subject Restrict to specific subject in addition to season
      * @param bool $include_legacy
      * @param bool $include_deductions
+     * @param bool $include_outdated
      * @return int
      * @throws \Exception
      */
-    public function getHeroicExperience(User $user, Season|bool|null $season = true, ?string $subject = null, bool $include_legacy = false, bool $include_deductions = true): int {
+    public function getHeroicExperience(User $user, Season|bool|null $season = null, ?string $subject = null, bool $include_legacy = false, bool $include_deductions = true, bool $include_outdated = false): int {
 
         $season = $season === true
             ? $this->getService(EntityManagerInterface::class)->getRepository(Season::class)->findOneBy(['current' => true])
@@ -101,9 +102,10 @@ class UserUnlockableService implements ServiceSubscriberInterface
         if ($subject !== null) $key .= "_$subject";
         if ($include_legacy) $key .= "_lgc";
         if (!$include_deductions) $key .= '_pos';
+        if ($include_outdated) $key .= '_od';
 
         try {
-            $value = $this->gameCachePool->get($key, function (ItemInterface $item) use ($user, $season, $subject, $include_legacy, $include_deductions) {
+            $value = $this->gameCachePool->get($key, function (ItemInterface $item) use ($user, $season, $subject, $include_legacy, $include_deductions, $include_outdated) {
                 $item->expiresAfter(86400)->tag(["user-{$user->getId()}-hxp",'hxp']);
 
                 $qb = $this->generateDefaultQuery($user)
@@ -114,6 +116,9 @@ class UserUnlockableService implements ServiceSubscriberInterface
 
                 if (!$include_deductions)
                     $qb->andWhere('x.value > 0');
+
+                if (!$include_outdated)
+                    $qb->andWhere('x.outdated = false');
 
                 if ($season === false)
                     $qb->andWhere('x.season IS NULL');
@@ -270,7 +275,7 @@ class UserUnlockableService implements ServiceSubscriberInterface
         User $user,
         LogEntryTemplate|string|null $template = null,
         ?string $subject = null,
-        Season|true $season = true,
+        Season|true $season = null,
         ?int &$total = null,
     ): bool {
         if ($season === true) $season = $this->getService(EntityManagerInterface::class)->getRepository(Season::class)->findOneBy(['current' => true]);
@@ -345,6 +350,7 @@ class UserUnlockableService implements ServiceSubscriberInterface
             if ($prev > 0) return false;
         }
 
+        $outdated = $season && ($season->getNumber() < $this->getService(ConfMaster::class)->getGlobalConf()->get(MyHordesSetting::HxpFirstSeason));
         $this->getService(EntityManagerInterface::class)
             ->persist( (new HeroExperienceEntry())
                 ->setUser($user)
@@ -356,6 +362,7 @@ class UserUnlockableService implements ServiceSubscriberInterface
                 ->setSubject($subject)
                 ->setLogEntryTemplate($template)
                 ->setVariables($variables)
+                ->setOutdated($outdated)
                 ->setCreated($date ?? new \DateTime())
             );
 
@@ -366,6 +373,7 @@ class UserUnlockableService implements ServiceSubscriberInterface
     /**
      * @param User $user
      * @return array<HeroSkillPrototype>
+     * @throws \Exception
      */
     public function getUnlockedLegacyHeroicPowersByUser(User $user): array {
         // Get skills unlocked by default
@@ -382,6 +390,7 @@ class UserUnlockableService implements ServiceSubscriberInterface
     /**
      * @param User $user
      * @return array<HeroSkillPrototype>
+     * @throws \Exception
      */
     public function getUnlockableLegacyHeroicPowersByUser(User $user): array {
         // Get skills unlocked by default
@@ -396,13 +405,12 @@ class UserUnlockableService implements ServiceSubscriberInterface
     }
 
     /**
-     * Returns all heroic skills unlocked by a particular user within the given season. This includes skills that are
+     * Returns all heroic skills unlocked by a particular user. This includes skills that are
      * unlocked by default.
      * @param User $user The user to check
-     * @param Season|true $season The season (true to use current season, default)
      * @return array<HeroSkillPrototype>
      */
-    public function getUnlockedHeroicSkillsByUser(User $user, Season|true $season = true): array {
+    public function getUnlockedHeroicSkillsByUser(User $user): array {
 
         // Get skills unlocked by default
         $defaultSkills = $this->getService(EntityManagerInterface::class)->getRepository(HeroSkillPrototype::class)->matching(
@@ -412,16 +420,10 @@ class UserUnlockableService implements ServiceSubscriberInterface
                 ->andWhere( new Comparison( 'daysNeeded', Comparison::EQ, 0 )  )
         );
 
-        // Resolve season
-        $season = $season === true
-            ? $this->getService(EntityManagerInterface::class)->getRepository(Season::class)->findOneBy(['current' => true])
-            : $season;
-
         // Unlocked skills
         $unlockedSkills = $this->getService(EntityManagerInterface::class)->getRepository(HeroSkillUnlock::class)->matching(
             (new Criteria())
                 ->andWhere( new Comparison( 'user', Comparison::EQ, $user )  )
-                ->andWhere( new Comparison( 'season', Comparison::EQ, $season )  )
         )->map( fn(HeroSkillUnlock $skill) => $skill->getSkill() );
 
         $mergedCollection = new ArrayCollection( $defaultSkills->toArray() );
@@ -437,15 +439,14 @@ class UserUnlockableService implements ServiceSubscriberInterface
     }
 
     /**
-     * Returns heroic skills that are not yet unlocked by the given user in the given season. If $limitToCurrent is set,
+     * Returns heroic skills that are not yet unlocked by the given user. If $limitToCurrent is set,
      * only those that can be unlocked right now based on their level are returned.
      * @param User $user The user to check
-     * @param Season|true $season The season (true to use current season, default)
      * @param bool $limitToCurrent Only return skills that can be unlocked right now
      * @return array<HeroSkillPrototype>
      */
-    public function getUnlockableHeroicSkillsByUser(User $user, Season|true $season = true, bool $limitToCurrent = true): array {
-        $unlockedSkills = $this->getUnlockedHeroicSkillsByUser($user, $season);
+    public function getUnlockableHeroicSkillsByUser(User $user, bool $limitToCurrent = true): array {
+        $unlockedSkills = $this->getUnlockedHeroicSkillsByUser($user);
 
         // Calculate the current unlock level by skill group
         $g = [];
@@ -490,20 +491,16 @@ class UserUnlockableService implements ServiceSubscriberInterface
         return true;
     }
 
-    public function performSkillResetForUser(User $user, Season|true $season): bool {
+    public function performSkillResetForUser(User $user): bool {
         $em = $this->getService(EntityManagerInterface::class);
 
-        if ($season === true)
-            $season = $em->getRepository(Season::class)->findOneBy(['current' => true]);
-
         $criteria = (new Criteria())
-            ->andWhere( new Comparison( 'user', Comparison::EQ, $user ) )
-            ->andWhere( new Comparison( 'season', Comparison::EQ, $season ) );
+            ->andWhere( new Comparison( 'user', Comparison::EQ, $user ) );
 
         /** @var Collection<HeroExperienceEntry> $allEntries */
         $allEntries = $em->getRepository(HeroExperienceEntry::class)->matching($criteria);
 
-        /** @var Collection<HeroSkillUnlock> $allEntries */
+        /** @var Collection<HeroSkillUnlock> $unlocks */
         $unlocks = $em->getRepository(HeroSkillUnlock::class)->matching($criteria);
 
         if ($allEntries->isEmpty() || $unlocks->isEmpty()) return false;

@@ -281,7 +281,7 @@ class AdminUserController extends AdminActionController
             'spon_inactive' => array_filter( $all_sponsored, fn(UserSponsorship $s) =>  $this->user_handler->hasRole($s->getUser(), 'ROLE_DUMMY') || !$s->getUser()->getValidated() ),
             'swap_pivots' => $this->entity_manager->getRepository(UserSwapPivot::class)->findBy(['principal' => $user]),
             'xp' => [
-                'season' => $unlockable->getHeroicExperience( $user ),
+                'season' => $unlockable->getHeroicExperience( $user, true ),
                 'total' => $unlockable->getHeroicExperience( $user, null ),
                 'legacy_mh' => $unlockable->getLegacyHeroDaysSpent( $user, false ),
                 'legacy_twin' => $unlockable->getLegacyHeroDaysSpent( $user, true ),

@@ -57,6 +57,9 @@ class HeroExperienceEntry
     #[ORM\Column]
     private int $reset = 0;
 
+    #[ORM\Column]
+    private bool $outdated = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -202,6 +205,18 @@ class HeroExperienceEntry
     public function setReset(int $reset): static
     {
         $this->reset = $reset;
+
+        return $this;
+    }
+
+    public function isOutdated(): ?bool
+    {
+        return $this->outdated;
+    }
+
+    public function setOutdated(bool $outdated): static
+    {
+        $this->outdated = $outdated;
 
         return $this;
     }

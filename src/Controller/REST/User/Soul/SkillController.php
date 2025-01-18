@@ -17,9 +17,11 @@ use App\Entity\Season;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\UserSponsorship;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Enum\HeroXPType;
 use App\Enum\UserSetting;
 use App\Interfaces\Entity\PictoRollupInterface;
+use App\Service\ConfMaster;
 use App\Service\JSONRequestParser;
 use App\Service\Locksmith;
 use App\Service\LogTemplateHandler;
@@ -48,6 +50,7 @@ class SkillController extends CustomAbstractCoreController
      * @param HeroSkillPrototype $skill
      * @param UserUnlockableService $unlockableService
      * @param Locksmith $locksmith
+     * @param EntityManagerInterface $entityManager
      * @return JsonResponse
      * @throws \Exception
      */
@@ -123,7 +126,7 @@ class SkillController extends CustomAbstractCoreController
         if (($all_xp - $xp < 100) || ($pack_reset >= 2) || $user->getActiveCitizen())
             return new JsonResponse([], Response::HTTP_NOT_ACCEPTABLE);
 
-        if (!$unlockableService->performSkillResetForUser($user, true))
+        if (!$unlockableService->performSkillResetForUser($user))
             return new JsonResponse([], Response::HTTP_INTERNAL_SERVER_ERROR);
 
         $lock->release();
@@ -150,10 +153,11 @@ class SkillController extends CustomAbstractCoreController
     /**
      * @param Collection<int, HeroExperienceEntry> $entries
      * @param LogTemplateHandler $handler
+     * @param int $minSeason
      * @return array
      */
-    protected function renderLogEntries(Collection $entries, LogTemplateHandler $handler): array {
-        return array_values($entries->map( function( HeroExperienceEntry $entry) use ($handler): ?array {
+    protected function renderLogEntries(Collection $entries, LogTemplateHandler $handler, int $minSeason = -1): array {
+        return array_values($entries->map( function( HeroExperienceEntry $entry) use ($handler, $minSeason): ?array {
             /** @var LogEntryTemplate $template */
             $template = $entry->getLogEntryTemplate();
 
@@ -164,7 +168,8 @@ class SkillController extends CustomAbstractCoreController
                 'value'      => $entry->getValue(),
                 'type'       => $entry->getType()->value,
                 'reset'      => $entry->getReset() > 0,
-                'past'       => $entry->getSeason()?->getCurrent() ? null : (
+                'outdated'   => $entry->getSeason()?->getNumber() ?? -1 < $minSeason,
+                'past'       => (
                     $entry->getSeason() === null
                         ? "BETA"
                         : "S{$entry->getSeason()->getNumber()} - " . $this->translator->trans("Saison {$entry->getSeason()->getNumber()}.{$entry->getSeason()->getSubNumber()}", [], 'season')
@@ -202,6 +207,8 @@ class SkillController extends CustomAbstractCoreController
         $data = $gameCachePool->get($key, function (ItemInterface $item) use ($after, $focus, $em, $handler, $elements) {
             $item->expiresAfter(86400)->tag(["user-{$this->getUser()->getId()}-hxp", 'hxp']);
 
+            $min_season = $this->conf->getGlobalConf()->get( MyHordesSetting::HxpFirstSeason );
+
             $qb = $em->createQueryBuilder()->select('x')
                 ->from(HeroExperienceEntry::class, 'x')
                 // Join ranking proxies so we can observe their DISABLED state
@@ -223,7 +230,7 @@ class SkillController extends CustomAbstractCoreController
             if ($focus > 0)
                 $qb->andWhere('x.town = :tid')->setParameter('tid', $focus);
 
-            return $this->renderLogEntries(new ArrayCollection($qb->getQuery()->getResult()), $handler);
+            return $this->renderLogEntries(new ArrayCollection($qb->getQuery()->getResult()), $handler, $min_season);
         });
 
         return new JsonResponse([
