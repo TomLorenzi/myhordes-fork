@@ -2,27 +2,17 @@
 
 namespace App\Controller\REST\User\Settings;
 
-use App\Annotations\GateKeeperProfile;
-use App\Controller\CustomAbstractCoreController;
 use App\Entity\AccountRestriction;
 use App\Entity\Avatar;
-use App\Entity\Award;
-use App\Entity\Citizen;
-use App\Entity\Picto;
-use App\Entity\PictoPrototype;
 use App\Entity\User;
-use App\Enum\UserSetting;
-use App\Response\AjaxResponse;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\ConfMaster;
-use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\Media\ImageService;
 use App\Service\UserHandler;
 use App\Structures\Image;
-use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManagerInterface;
-use Exception;
 use Psr\Cache\InvalidArgumentException;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -30,8 +20,6 @@ use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Contracts\Cache\TagAwareCacheInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 
@@ -193,7 +181,7 @@ class AvatarController extends AbstractController
 
         if (!$payload) return new JsonResponse(status: Response::HTTP_BAD_REQUEST);
 
-        if (strlen( $payload ) > $conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728))
+        if (strlen( $payload ) > $conf->getGlobalConf()->get(MyHordesSetting::AvatarMaxSizeUpload))
             return new JsonResponse(['error' => UserHandler::ErrorAvatarTooLarge]);
 
         $image = ImageService::createImageFromData( $payload );
@@ -237,7 +225,7 @@ class AvatarController extends AbstractController
 
         if (!$data) return new JsonResponse(['error' => UserHandler::ErrorAvatarFormatUnsupported]);
 
-        if (strlen($data) > $conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_STORAGE, 1048576))
+        if (strlen($data) > $conf->getGlobalConf()->get(MyHordesSetting::AvatarMaxSizeProcess))
             return new JsonResponse(['error' => UserHandler::ErrorAvatarInsufficientCompression]);
 
         if (!($avatar = $user->getAvatar())) {

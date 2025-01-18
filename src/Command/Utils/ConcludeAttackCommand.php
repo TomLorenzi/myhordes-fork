@@ -4,33 +4,15 @@
 namespace App\Command\Utils;
 
 
-use Adbar\Dot;
-use App\Command\LanguageCommand;
 use App\Entity\AttackSchedule;
 use App\Entity\Citizen;
-use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
-use App\Entity\CitizenRole;
-use App\Entity\CitizenStatus;
 use App\Entity\HeaderStat;
-use App\Entity\HeroSkillPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
-use App\Entity\RuinExplorerStats;
-use App\Entity\Town;
-use App\Entity\TownRankingProxy;
-use App\Entity\User;
-use App\Enum\Configuration\CitizenProperties;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
-use App\Service\CitizenHandler;
-use App\Service\CommandHelper;
 use App\Service\ConfMaster;
-use App\Service\InventoryHandler;
-use App\Service\ItemFactory;
-use App\Service\StatusFactory;
-use App\Service\UserHandler;
-use App\Structures\MyHordesConf;
-use ArrayHelpers\Arr;
 use DateTime;
 use DateTimeImmutable;
 use Doctrine\Common\Collections\Criteria;
@@ -41,8 +23,6 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Helper\Table;
-use Symfony\Component\Console\Style\SymfonyStyle;
 
 #[AsCommand(
     name: 'app:utils:conclude-attack',
@@ -118,7 +98,7 @@ class ConcludeAttackCommand extends Command
             );
         } catch (\Throwable $e) {}
 
-        $datemod = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_NIGHTLY_DATEMOD, 'tomorrow');
+        $datemod = $this->conf->getGlobalConf()->get(MyHordesSetting::NightlyAttackDateModifier);
         if ($datemod !== 'never') {
 
             $new_date = (new DateTime())->setTimestamp( $s->getTimestamp()->getTimestamp() )->modify($datemod);

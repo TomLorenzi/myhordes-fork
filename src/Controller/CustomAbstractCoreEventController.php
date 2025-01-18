@@ -5,10 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Event\Game\GameInteractionEvent;
 use App\Response\AjaxResponse;
-use App\Service\ConfMaster;
-use App\Service\ErrorHelper;
 use App\Service\EventFactory;
-use App\Structures\MyHordesConf;
 use App\Traits\Controller\EventChainProcessor;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerExceptionInterface;
@@ -16,8 +13,6 @@ use Psr\Container\NotFoundExceptionInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class CustomAbstractCoreController

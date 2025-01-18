@@ -5,34 +5,14 @@ namespace App\Command;
 
 
 use App\Entity\AttackSchedule;
-use App\Entity\Citizen;
-use App\Entity\Picto;
-use App\Entity\ThreadReadMarker;
-use App\Entity\Town;
-use App\Entity\TownLogEntry;
-use App\Entity\User;
-use App\Service\AntiCheatService;
-use App\Service\ConfMaster;
-use App\Service\CrowService;
-use App\Service\GameFactory;
-use App\Service\Locksmith;
-use App\Service\NightlyHandler;
-use App\Service\TownHandler;
-use App\Service\UserHandler;
-use App\Structures\EventConf;
-use App\Structures\MyHordesConf;
-use App\Structures\TownConf;
-use DateTime;
 use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Helper\ProgressBar;
 
 #[AsCommand(
     name: 'app:schedule',

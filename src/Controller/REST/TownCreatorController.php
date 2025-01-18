@@ -12,6 +12,7 @@ use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\TownRulesTemplate;
 use App\Entity\User;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Response\AjaxResponse;
 use App\Service\Actions\Ghost\CreateTownFromConfigAction;
 use App\Service\Actions\Ghost\SanitizeTownConfigAction;
@@ -23,7 +24,6 @@ use App\Service\Locksmith;
 use App\Service\TownHandler;
 use App\Service\UserHandler;
 use App\Structures\EventConf;
-use App\Structures\MyHordesConf;
 use App\Structures\TownSetup;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -494,7 +494,7 @@ class TownCreatorController extends CustomAbstractCoreController
         if ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return AjaxResponse::success( true, ['url' => $this->generateUrl('soul_death')] );
 
-        $limit = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_TOWNS_MAX_PRIVATE, 10);
+        $limit = $this->conf->getGlobalConf()->get(MyHordesSetting::TownLimitMaxPrivate);
         if (!$this->isGranted('ROLE_CROW') && count(array_filter($em->getRepository(Town::class)->findOpenTown(), fn(Town $t) => $t->getType()->getName() === 'custom')) >= $limit)
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 

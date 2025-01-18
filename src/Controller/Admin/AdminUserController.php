@@ -5,11 +5,9 @@ namespace App\Controller\Admin;
 use App\Annotations\AdminLogProfile;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AccountRestriction;
-use App\Entity\Activity;
 use App\Entity\ActivityCluster;
 use App\Entity\AntiSpamDomains;
 use App\Entity\Award;
-use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
@@ -38,19 +36,16 @@ use App\Entity\UserPendingValidation;
 use App\Entity\UserReferLink;
 use App\Entity\UserSponsorship;
 use App\Entity\UserSwapPivot;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Enum\DomainBlacklistType;
 use App\Enum\ServerSetting;
-use App\Exception\DynamicAjaxResetException;
-use App\Repository\AntiSpamDomainsRepository;
 use App\Response\AjaxResponse;
 use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\AdminHandler;
 use App\Service\AntiCheatService;
 use App\Service\CrowService;
-use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\EventProxyService;
-use App\Service\Forum\PostService;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\Media\ImageService;
@@ -60,21 +55,16 @@ use App\Service\User\UserUnlockableService;
 use App\Service\User\UserAccountService;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
-use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use Doctrine\Common\Collections\Criteria;
-use Doctrine\Common\Collections\Expr\Comparison;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Query\Expr;
 use Doctrine\ORM\Query\Expr\Join;
 use Exception;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
-use Symfony\Contracts\Cache\TagAwareCacheInterface;
 
 /**
  * @method User getUser
@@ -1523,7 +1513,7 @@ class AdminUserController extends AdminActionController
             'pictoPrototypes' => $this->isGranted("ROLE_SUB_ADMIN", $user) ? $protos : array_filter($protos, fn(PictoPrototype $p) => $p->getCommunity()),
             'features' => $features,
             'featurePrototypes' => $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findAll(),
-            'icon_max_size' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)
+            'icon_max_size' => $this->conf->getGlobalConf()->get(MyHordesSetting::AvatarMaxSizeUpload)
         ]));
     }
 
@@ -1659,7 +1649,7 @@ class AdminUserController extends AdminActionController
             if ($award->getCustomTitle() !== null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
             $payload = $parser->get_base64('icon');
 
-            if (strlen( $payload ) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD))
+            if (strlen( $payload ) > $this->conf->getGlobalConf()->get(MyHordesSetting::AvatarMaxSizeUpload))
                 return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
             $image = ImageService::createImageFromData( $payload );

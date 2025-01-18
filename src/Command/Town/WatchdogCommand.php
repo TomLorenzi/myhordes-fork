@@ -4,12 +4,12 @@
 namespace App\Command\Town;
 
 use App\Entity\Town;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Service\ConfMaster;
 use App\Service\GameFactory;
 use App\Service\GameProfilerService;
 use App\Service\TownHandler;
 use App\Structures\EventConf;
-use App\Structures\MyHordesConf;
 use App\Structures\TownSetup;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -50,7 +50,7 @@ class WatchdogCommand extends Command implements SelfSchedulingCommand
         $conf = $this->confMaster->getGlobalConf();
 
         $count = [];
-        $langs = $conf->get( MyHordesConf::CONF_TOWNS_AUTO_LANG, [] );
+        $langs = $conf->get( MyHordesSetting::TownGeneratorLanguages );
         foreach ($langs as $lang) $count[$lang] = [];
 
         foreach ($openTowns as $openTown) {
@@ -60,10 +60,10 @@ class WatchdogCommand extends Command implements SelfSchedulingCommand
         }
 
         $minOpenTown = [
-            'small'  => $conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_SMALL, 0 ),
-            'remote' => $conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_REMOTE, 1 ),
-            'panda'  => $conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_PANDA, 1 ),
-            'custom' => $conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_CUSTOM, 0 ),
+            'small'  => $conf->get( MyHordesSetting::TownGeneratorMinSmall ),
+            'remote' => $conf->get( MyHordesSetting::TownGeneratorMinRemote ),
+            'panda'  => $conf->get( MyHordesSetting::TownGeneratorMinPanda ),
+            'custom' => $conf->get( MyHordesSetting::TownGeneratorMinCustom ),
         ];
 
         foreach ($langs as $lang)

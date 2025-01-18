@@ -10,13 +10,13 @@ use App\Entity\ShoutboxReadMarker;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Response\AjaxResponse;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\PermissionHandler;
-use App\Structures\MyHordesConf;
 use DateTime;
 use Exception;
 use Symfony\Component\HttpFoundation\Response;
@@ -66,9 +66,9 @@ class SoulCoalitionController extends SoulController
             'membership' => $user_coalition,
             'all_users' => $all_users,
             'invitations' => $user_invitations,
-            'max_coa_size' => $conf->getGlobalConf()->get(MyHordesConf::CONF_COA_MAX_NUM, 5),
-            'coa_full' => count($all_users) >= $conf->getGlobalConf()->get(MyHordesConf::CONF_COA_MAX_NUM, 5),
-            'coa_inactive_timeout' => $conf->getGlobalConf()->get(MyHordesConf::CONF_COA_MAX_DAYS_INACTIVITY, 5) * 86400,
+            'max_coa_size' => $conf->getGlobalConf()->get(MyHordesSetting::CoalitionMaxSize),
+            'coa_full' => count($all_users) >= $conf->getGlobalConf()->get(MyHordesSetting::CoalitionMaxSize),
+            'coa_inactive_timeout' => $conf->getGlobalConf()->get(MyHordesSetting::CoalitionMaxInactivityDays) * 86400,
         ]) );
     }
 
@@ -457,7 +457,7 @@ class SoulCoalitionController extends SoulController
                 'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive, UserGroupAssociation::GroupAssociationTypeCoalitionInvitation] ]
         );
 
-        if (count($all_users) >= $conf->getGlobalConf()->get(MyHordesConf::CONF_COA_MAX_NUM, 5))
+        if (count($all_users) >= $conf->getGlobalConf()->get(MyHordesSetting::CoalitionMaxSize))
             return AjaxResponse::error( self::ErrorCoalitionFull );
 
         /** @var User $target */

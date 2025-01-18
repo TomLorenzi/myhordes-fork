@@ -8,21 +8,17 @@ use App\Entity\HeroExperienceEntry;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\HeroSkillUnlock;
 use App\Entity\LogEntryTemplate;
-use App\Entity\OfficialGroup;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Season;
 use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Enum\HeroXPType;
 use App\EventListener\ContainerTypeTrait;
 use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\ConfMaster;
-use App\Service\PermissionHandler;
-use App\Service\PictoHandler;
-use App\Service\UserHandler;
-use App\Structures\MyHordesConf;
 use ArrayHelpers\Arr;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -35,7 +31,6 @@ use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\QueryBuilder;
 use Psr\Cache\InvalidArgumentException;
 use Psr\Container\ContainerInterface;
-use Symfony\Component\Security\Core\Role\RoleHierarchyInterface;
 use Symfony\Contracts\Cache\ItemInterface;
 use Symfony\Contracts\Cache\TagAwareCacheInterface;
 use Symfony\Contracts\Service\ServiceSubscriberInterface;
@@ -132,8 +127,8 @@ class UserUnlockableService implements ServiceSubscriberInterface
             });
 
 
-            return max(0, $value + ($this->getService(ConfMaster::class)->getGlobalConf()->get(MyHordesConf::CONF_STAGING_ENABLED, false)
-                ? $this->getService(ConfMaster::class)->getGlobalConf()->get(MyHordesConf::CONF_STAGING_HXP, 0)
+            return max(0, $value + ($this->getService(ConfMaster::class)->getGlobalConf()->get(MyHordesSetting::StagingSettingsEnabled)
+                ? $this->getService(ConfMaster::class)->getGlobalConf()->get(MyHordesSetting::StagingProtoHxp)
                 : 0
             ));
         } catch (InvalidArgumentException $t) {

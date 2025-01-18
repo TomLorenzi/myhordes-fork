@@ -3,40 +3,25 @@
 namespace App\Controller;
 
 use App\Annotations\GateKeeperProfile;
-use App\Annotations\Semaphore;
 use App\Entity\AccountRestriction;
 use App\Entity\BuildingPrototype;
-use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
-use App\Entity\CitizenRole;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\MayorMark;
 use App\Entity\Season;
-use App\Entity\SpecialActionPrototype;
 use App\Entity\TeamTicket;
 use App\Entity\Town;
 use App\Entity\TownClass;
-use App\Entity\TownSlotReservation;
 use App\Entity\User;
-use App\Response\AjaxResponse;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
-use App\Service\GameFactory;
-use App\Service\GameProfilerService;
 use App\Service\HookExecutor;
 use App\Service\InventoryHandler;
-use App\Service\JSONRequestParser;
-use App\Service\LogTemplateHandler;
 use App\Service\TimeKeeperService;
-use App\Service\TownHandler;
 use App\Service\UserHandler;
-use App\Structures\EventConf;
-use App\Structures\MyHordesConf;
-use App\Structures\TownConf;
-use App\Structures\TownSetup;
-use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Collections\Expr\Comparison;
 use Doctrine\Common\Collections\Order;
@@ -84,7 +69,7 @@ class GhostController extends CustomAbstractController
         $cdm_lock = $this->user_handler->getConsecutiveDeathLock( $user, $cdm_warn );
 
         $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
-        $cap = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_FOREIGN_CAP, 3);
+        $cap = $this->conf->getGlobalConf()->get(MyHordesSetting::AntiGriefForeignCap);
         $tickets = $user->getTeamTicketsFor( $season, '!' )->count();
         $cap_left = ($cap >= 0) ? max(0, $cap - $tickets) : -1;
 
@@ -137,7 +122,7 @@ class GhostController extends CustomAbstractController
         );
         $last_game_sp = $last_game_sp->isEmpty() ? 0 : $last_game_sp->first()->getPoints();
         $all_sp = $this->user_handler->fetchSoulPoints($this->getUser(), true);
-        $town_limit = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE);
+        $town_limit = $this->conf->getGlobalConf()->get(MyHordesSetting::SoulPointRequirementRemote);
 
         $has_skills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->count(['enabled' => true, 'legacy' => false]) > 0;
 
@@ -165,7 +150,7 @@ class GhostController extends CustomAbstractController
         if ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        $limit = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_TOWNS_MAX_PRIVATE, 10);
+        $limit = $this->conf->getGlobalConf()->get(MyHordesSetting::TownLimitMaxPrivate);
 
         $open_town = $this->entity_manager->getRepository(Town::class)
             ->findBy(['creator' => $user, 'mayor' => true]);

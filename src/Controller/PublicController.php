@@ -17,6 +17,7 @@ use App\Entity\User;
 use App\Entity\UserPendingValidation;
 use App\Entity\UserReferLink;
 use App\Entity\UserSponsorship;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Enum\DomainBlacklistType;
 use App\Exception\DynamicAjaxResetException;
 use App\Service\ConfMaster;
@@ -27,7 +28,6 @@ use App\Service\JSONRequestParser;
 use App\Service\UserFactory;
 use App\Response\AjaxResponse;
 use App\Service\UserHandler;
-use App\Structures\MyHordesConf;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -87,7 +87,7 @@ class PublicController extends CustomAbstractController
             return $this->redirect($this->generateUrl('initial_landing'));
 
         $global = $conf->getGlobalConf();
-        $allow_dual_stack = $global->get(MyHordesConf::CONF_ETWIN_DUAL_STACK, true);
+        $allow_dual_stack = $global->get(MyHordesSetting::EternalTwinDualStackEnabled);
 
         return $this->render(  $etwin->isReady() ? 'ajax/public/login.html.twig' : 'ajax/public/login_legacy.html.twig', $this->addDefaultTwigArgs(null, [
             'etwin' => $etwin->isReady(),
@@ -111,7 +111,7 @@ class PublicController extends CustomAbstractController
 
         return $this->render( 'ajax/public/register.html.twig',  $this->addDefaultTwigArgs(null, [
             'refer' => $s->get('refer'),
-            'need_token' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_TOKEN_NEEDED_FOR_REGISTRATION)
+            'need_token' => $this->conf->getGlobalConf()->get(MyHordesSetting::StagingRegistrationTokenNeeded)
         ]));
     }
 
@@ -343,7 +343,7 @@ class PublicController extends CustomAbstractController
         if (!$userHandler->isNameValid($parser->trimmed('user', '')))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if ($this->conf->getGlobalConf()->get(MyHordesConf::CONF_TOKEN_NEEDED_FOR_REGISTRATION) && !$parser->has('token', true)) {
+        if ($this->conf->getGlobalConf()->get(MyHordesSetting::StagingRegistrationTokenNeeded) && !$parser->has('token', true)) {
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
@@ -378,7 +378,7 @@ class PublicController extends CustomAbstractController
 
             $regToken = null;
 
-            if ($this->conf->getGlobalConf()->get(MyHordesConf::CONF_TOKEN_NEEDED_FOR_REGISTRATION)) {
+            if ($this->conf->getGlobalConf()->get(MyHordesSetting::StagingRegistrationTokenNeeded)) {
                 $regToken_str = $parser->get('token');
                 $regToken = $this->entity_manager->getRepository(RegistrationToken::class)->findOneBy(['token' => $regToken_str]);
                 if($regToken === null) {
@@ -393,7 +393,7 @@ class PublicController extends CustomAbstractController
             $proxies = $request->getClientIps();
             $client_ip = array_pop($proxies);
 
-            if ($entityManager->getRepository(RegistrationLog::class)->countRecentRegistrations($client_ip) >= $conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_REG, 2))
+            if ($entityManager->getRepository(RegistrationLog::class)->countRecentRegistrations($client_ip) >= $conf->getGlobalConf()->get(MyHordesSetting::AntiGriefRegistrationLimit))
                 return AjaxResponse::error(UserFactory::ErrorTooManyRegistrations);
 
             if ($this->entity_manager->getRepository(AntiSpamDomains::class)->findActive( DomainBlacklistType::IPAddress, $client_ip ))
@@ -419,7 +419,7 @@ class PublicController extends CustomAbstractController
                 $parser->trimmed('user'),
                 $parser->trimmed('mail1'),
                 $parser->trimmed('pass1'),
-                $this->conf->getGlobalConf()->get(MyHordesConf::CONF_TOKEN_NEEDED_FOR_REGISTRATION) && $regToken,
+                $this->conf->getGlobalConf()->get(MyHordesSetting::StagingRegistrationTokenNeeded) && $regToken,
                 $error
             );
 
@@ -456,7 +456,7 @@ class PublicController extends CustomAbstractController
                                 ->setTimestamp(new DateTime())
                             );
 
-                        if ($this->conf->getGlobalConf()->get(MyHordesConf::CONF_TOKEN_NEEDED_FOR_REGISTRATION) && $regToken) {
+                        if ($this->conf->getGlobalConf()->get(MyHordesSetting::StagingRegistrationTokenNeeded) && $regToken) {
                             $user->setRegistrationToken($regToken);
                             $regToken->setUser($user);
                             $this->entity_manager->persist($regToken);
@@ -598,7 +598,7 @@ class PublicController extends CustomAbstractController
             $proxies = $request->getClientIps();
             $client_ip = array_pop($proxies);
 
-            if ($this->entity_manager->getRepository(RegistrationLog::class)->countRecentRegistrations($client_ip) >= $conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_REG, 2))
+            if ($this->entity_manager->getRepository(RegistrationLog::class)->countRecentRegistrations($client_ip) >= $conf->getGlobalConf()->get(MyHordesSetting::AntiGriefRegistrationLimit))
                 return AjaxResponse::error(UserFactory::ErrorTooManyRegistrations);
 
             if ($this->entity_manager->getRepository(AntiSpamDomains::class)->findActive( DomainBlacklistType::IPAddress, $client_ip ))

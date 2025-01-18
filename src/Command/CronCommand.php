@@ -9,6 +9,7 @@ use App\Entity\EventAnnouncementMarker;
 use App\Entity\Statistic;
 use App\Entity\Town;
 use App\Entity\User;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Enum\StatisticType;
 use App\Service\AdminHandler;
 use App\Service\AntiCheatService;
@@ -18,6 +19,7 @@ use App\Service\Locksmith;
 use App\Service\Statistics\UserStatCollectionService;
 use App\Service\UserHandler;
 use App\Structures\MyHordesConf;
+use ArrayHelpers\Arr;
 use DateTime;
 use DateTimeImmutable;
 use DirectoryIterator;
@@ -111,7 +113,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
 
         $last_backups = ['any' => (new DateTime())->setTimestamp(0), 'daily' => (new DateTime())->setTimestamp(0), 'weekly' => (new DateTime())->setTimestamp(0), 'monthly' => (new DateTime())->setTimestamp(0)];
 
-        $path = $this->conf->get(MyHordesConf::CONF_BACKUP_PATH, null);
+        $path = $this->conf->get(MyHordesSetting::BackupPath);
         if ($path === null) $path = "{$this->params->get('kernel.project_dir')}/var/backup";
         if (file_exists($path))
             foreach (new DirectoryIterator($path) as $fileInfo) {
@@ -153,7 +155,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
             if ($s->getStartedAt() === null)
                 $this->helper->capsule('app:cron backup nightly', $output, 'Creating database backup before the attack... ', true);
 
-            $try_limit = $this->conf->get(MyHordesConf::CONF_NIGHTLY_RETRIES, 3);
+            $try_limit = $this->conf->get(MyHordesSetting::NightlyAttackRetries);
             $schedule_id = $s->getId();
 
             $this->entityManager->persist(
@@ -270,7 +272,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
         if (!in_array($domain,['nightly','daily','weekly','monthly','update','manual']))
             throw new Exception('Invalid backup domain!');
 
-        $path = $this->conf->get(MyHordesConf::CONF_BACKUP_PATH, null);
+        $path = $this->conf->get(MyHordesSetting::BackupPath);
 
         if ($path === null) $path = "{$this->params->get('kernel.project_dir')}/var/tmp";
         $path = str_replace("~", $this->params->get('kernel.project_dir'), $path);
@@ -278,7 +280,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
         if (!file_exists($path)) mkdir($path, 0700, true);
         $filename = $path . '/' . (new DateTime())->format('Y-m-d_H-i-s-v_') . $domain . '.sql';
 
-        $compression = $this->conf->get(MyHordesConf::CONF_BACKUP_COMPRESSION, null);
+        $compression = $this->conf->get(MyHordesSetting::BackupCompression);
         if ($compression === null) $str = "> $filename";
         elseif ($compression === 'xz') $str = "| xz > {$filename}.xz";
         elseif ($compression === 'gzip') $str = "| gzip > {$filename}.gz";
@@ -287,7 +289,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
         elseif ($compression === 'pbzip2') $str = "| pbzip2 > {$filename}.bz2";
         else throw new Exception('Invalid compression!');
 
-        $relevant_domain_limit = $this->conf->get(MyHordesConf::CONF_BACKUP_LIMITS_INC . $domain, -1);
+        $relevant_domain_limit = Arr::get($this->conf->get(MyHordesSetting::BackupLimits), $domain, -1);
 
 
         if ($relevant_domain_limit !== 0) {
@@ -388,7 +390,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
                         }
                     }
                     foreach (['nightly', 'daily', 'weekly', 'monthly', 'update', 'manual'] as $sel_domain) {
-                        $domain_limit = $this->conf->get(MyHordesConf::CONF_BACKUP_LIMITS_INC . $sel_domain, -1);
+                        $domain_limit = Arr::get($this->conf->get(MyHordesSetting::BackupLimits), $sel_domain, -1);
 
                         if (!empty($backup_files[$sel_domain]) && $domain_limit >= 0 && count($backup_files[$sel_domain]) > $domain_limit) {
                             rsort($backup_files[$sel_domain]);
@@ -428,7 +430,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
 
 
                     foreach (['nightly', 'daily', 'weekly', 'monthly', 'update', 'manual'] as $sel_domain) {
-                        $domain_limit = $this->conf->get(MyHordesConf::CONF_BACKUP_LIMITS_INC . $sel_domain, -1);
+                        $domain_limit = Arr::get($this->conf->get(MyHordesSetting::BackupLimits), $sel_domain, -1);
 
                         if (!empty($backup_files[$sel_domain]) && $domain_limit >= 0 && count($backup_files[$sel_domain]) > $domain_limit) {
                             rsort($backup_files[$sel_domain]);
@@ -471,7 +473,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
                     closedir($handle);
 
                     foreach (['nightly', 'daily', 'weekly', 'monthly', 'update', 'manual'] as $sel_domain) {
-                        $domain_limit = $this->conf->get(MyHordesConf::CONF_BACKUP_LIMITS_INC . $sel_domain, -1);
+                        $domain_limit = Arr::get($this->conf->get(MyHordesSetting::BackupLimits), $sel_domain, -1);
 
                         if (!empty($backup_files[$sel_domain]) && $domain_limit >= 0 && count($backup_files[$sel_domain]) > $domain_limit) {
                             rsort($backup_files[$sel_domain]);

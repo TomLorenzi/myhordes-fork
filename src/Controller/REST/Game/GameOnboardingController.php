@@ -16,6 +16,7 @@ use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\TownSlotReservation;
 use App\Entity\User;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Response\AjaxResponse;
 use App\Service\Actions\Ghost\ExplainTownConfigAction;
 use App\Service\Actions\Security\GenerateMercureToken;
@@ -60,17 +61,17 @@ class GameOnboardingController extends AbstractController
 
         return match($class->getName()) {
             TownClass::EASY   =>
-                ($sp < $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE, 100 )
-                || $sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_BACK_TO_SMALL, 500 )),
+                ($sp < $conf->get( MyHordesSetting::SoulPointRequirementRemote )
+                || $sp >= $conf->get( MyHordesSetting::SoulPointRequirementSmallReturn )),
             default           => $sp >= $this->getTownClassAccessLimit($class, $conf)
         };
     }
 
     private function getTownClassAccessLimit(TownClass $class, MyHordesConf $conf): int {
         return match($class->getName()) {
-            TownClass::DEFAULT  => $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE, 0 ),
-            TownClass::HARD     => $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_PANDA, 200 ),
-            TownClass::CUSTOM   => $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_CUSTOM, 1000 ),
+            TownClass::DEFAULT  => $conf->get( MyHordesSetting::SoulPointRequirementRemote ),
+            TownClass::HARD     => $conf->get( MyHordesSetting::SoulPointRequirementPanda ),
+            TownClass::CUSTOM   => $conf->get( MyHordesSetting::SoulPointRequirementCustom ),
             default => 0
         };
     }

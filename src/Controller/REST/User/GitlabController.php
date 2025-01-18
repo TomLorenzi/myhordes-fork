@@ -5,13 +5,11 @@ namespace App\Controller\REST\User;
 use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractCoreController;
 use App\Entity\AccountRestriction;
-use App\Response\AjaxResponse;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Service\ConfMaster;
-use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\RateLimitingFactoryProvider;
 use App\Service\UserHandler;
-use App\Structures\MyHordesConf;
 use ArrayHelpers\Arr;
 use Gitlab\Client;
 use Shivas\VersioningBundle\Service\VersionManagerInterface;
@@ -29,7 +27,7 @@ use Symfony\Component\Uid\UuidV4;
 class GitlabController extends CustomAbstractCoreController
 {
     private function validateConfig(ConfMaster $confMaster): bool {
-        $data = $confMaster->getGlobalConf()->get( MyHordesConf::CONF_ISSUE_REPORTING_GITLAB ) ?? [];
+        $data = $confMaster->getGlobalConf()->get( MyHordesSetting::IssueReportingGitlabToken ) ?? [];
         return Arr::get( $data, 'token', null ) && Arr::get( $data, 'project-id', null );
     }
     private function collectProxyInformation(Request $request, ?VersionManagerInterface $version = null): array {
@@ -69,7 +67,7 @@ class GitlabController extends CustomAbstractCoreController
 
         return new JsonResponse([
             'strings' => [
-                'redirect' => (!$blocked && $this->validateConfig( $confMaster )) ? null : $confMaster->getGlobalConf()->get( MyHordesConf::CONF_ISSUE_REPORTING_FALLBACK, '' ),
+                'redirect' => (!$blocked && $this->validateConfig( $confMaster )) ? null : $confMaster->getGlobalConf()->get( MyHordesSetting::IssueReportingFallbackUrl ),
 
                 'common' => [
                     'prompt' => $this->translator->trans('Über dieses Formular kannst du uns einen technischen Fehler melden. Bitte verwende diese Funktion nicht, um uns unangemessene Inhalte oder inhaltliche Vorschläge für zukünftige Updates zu senden.', [], 'global'),
@@ -130,7 +128,7 @@ class GitlabController extends CustomAbstractCoreController
         if ( !$this->isGranted('ROLE_ELEVATED') && !$rateLimiter->reportLimiter($this->getUser())->create( $this->getUser()->getId() )->consume( 2 )->isAccepted())
             return new JsonResponse([], Response::HTTP_TOO_MANY_REQUESTS);
 
-        $data = $confMaster->getGlobalConf()->get( MyHordesConf::CONF_ISSUE_REPORTING_GITLAB ) ?? [];
+        $data = $confMaster->getGlobalConf()->get( MyHordesSetting::IssueReportingGitlabToken ) ?? [];
         $token = Arr::get( $data, 'token', null );
         $project = Arr::get( $data, 'project-id', null );
 

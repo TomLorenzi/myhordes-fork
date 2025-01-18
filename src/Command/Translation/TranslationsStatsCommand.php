@@ -3,28 +3,21 @@
 
 namespace App\Command\Translation;
 
-use App\Service\CommandHelper;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Service\ConfMaster;
-use App\Service\Globals\TranslationConfigGlobal;
-use App\Structures\MyHordesConf;
 use DirectoryIterator;
 use Exception;
 use SplFileInfo;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
-use Symfony\Component\Translation\Dumper\FileDumper;
 use Symfony\Component\Translation\Loader\FileLoader;
-use Symfony\Component\Translation\MessageCatalogue;
-use Symfony\Component\Translation\MessageCatalogueInterface;
 
 #[AsCommand(
     name: 'app:translation:stats',
@@ -69,7 +62,7 @@ class TranslationsStatsCommand extends Command
         foreach ($known_domains as $domain) $stats[$domain] = [];
         $stats['TOTAL'] = [];
 
-        $langs = array_map(function($item) {return $item['code'];}, array_filter($this->confMaster->getGlobalConf()->get(MyHordesConf::CONF_LANGS), function($item) {
+        $langs = array_map(function($item) {return $item['code'];}, array_filter($this->confMaster->getGlobalConf()->get(MyHordesSetting::Languages), function($item) {
             return $item['generate'];
         }));
 

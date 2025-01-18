@@ -4,8 +4,8 @@
 namespace App\EventSubscriber;
 
 use App\Entity\User;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Service\ConfMaster;
-use App\Structures\MyHordesConf;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
@@ -25,7 +25,7 @@ class LanguageSubscriber implements EventSubscriberInterface
                 [, $first_path_segment] = explode('/', $event->getRequest()->getPathInfo());
                 $allLangsCodes = array_map(function ($item) {
                     return $item['code'];
-                }, array_filter($this->conf->getGlobalConf()->get(MyHordesConf::CONF_LANGS), function ($item) {
+                }, array_filter($this->conf->getGlobalConf()->get(MyHordesSetting::Languages), function ($item) {
                     return $item['generate'];
                 }));
 

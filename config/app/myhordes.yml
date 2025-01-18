@@ -41,6 +41,8 @@ parameters:
     coalitions:
       size: 5
       inactive_after_days: 5
+    hxp:
+      first_season: 17
     anti-grief:
       min-sp: 20
       reg-limit: 2

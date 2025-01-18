@@ -9,6 +9,7 @@ use App\Entity\CommunityEventTownPreset;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Messages\Discord\DiscordMessage;
 use App\Service\Actions\Ghost\SanitizeTownConfigAction;
 use App\Service\CrowService;
@@ -16,8 +17,6 @@ use App\Service\EventProxyService;
 use App\Service\JSONRequestParser;
 use App\Service\PermissionHandler;
 use App\Service\User\UserCapabilityService;
-use App\Service\UserHandler;
-use App\Structures\MyHordesConf;
 use DiscordWebhooks\Client;
 use DiscordWebhooks\Embed;
 use Doctrine\Common\Collections\Criteria;
@@ -326,7 +325,7 @@ class EventController extends CustomAbstractCoreController
                 return new JsonResponse([], Response::HTTP_INTERNAL_SERVER_ERROR);
             }
 
-            if ($endpoint = $this->conf->getGlobalConf()->get( MyHordesConf::CONF_ANIM_MAIL_DCHOOK )) {
+            if ($endpoint = $this->conf->getGlobalConf()->get( MyHordesSetting::HookAnimDiscord )) {
                 $discord = (new Client($endpoint))
                     ->message(
                         $option

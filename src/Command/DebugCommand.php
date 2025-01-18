@@ -18,6 +18,7 @@ use App\Entity\TownRankingProxy;
 use App\Entity\TwinoidImport;
 use App\Entity\User;
 use App\Entity\ZombieEstimation;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Enum\EventStages\BuildingValueQuery;
 use App\Service\CitizenHandler;
 use App\Service\CommandHelper;
@@ -32,7 +33,6 @@ use App\Service\TownHandler;
 use App\Service\TwinoidHandler;
 use App\Service\UserHandler;
 use App\Structures\EventConf;
-use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
@@ -417,10 +417,10 @@ class DebugCommand extends LanguageCommand
         }
 
         if ($input->getOption('reapply-twinoid-data')) {
-            $limited = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_LIMITED, false);
-            $threshold = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1);
-            $town_threshold = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1);
-            $town_cutoff = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_TW_CUTOFF, -1);
+            $limited = $this->conf->getGlobalConf()->get(MyHordesSetting::SoulImportLimitsActive);
+            $threshold = $this->conf->getGlobalConf()->get(MyHordesSetting::SoulImportLimitSpThreshold);
+            $town_threshold = $this->conf->getGlobalConf()->get(MyHordesSetting::SoulImportLimitTwThreshold);
+            $town_cutoff = $this->conf->getGlobalConf()->get(MyHordesSetting::SoulImportLimitTwCutoff);
             if ($town_cutoff > 0) $town_cutoff = (new DateTime())->setTimestamp($town_cutoff);
             else $town_cutoff = null;
 

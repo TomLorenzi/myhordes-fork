@@ -6,12 +6,12 @@ use App\Annotations\AdminLogProfile;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\ExternalApp;
 use App\Entity\User;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\Media\ImageService;
 use App\Service\RandomGenerator;
-use App\Structures\MyHordesConf;
 use App\Translation\T;
 use Exception;
 use Symfony\Component\Routing\Attribute\Route;
@@ -45,7 +45,7 @@ class AdminAppController extends AdminActionController
         if ($app === null) return $this->redirect($this->generateUrl('admin_app_view'));
         return $this->render( 'ajax/admin/apps/edit.html.twig', $this->addDefaultTwigArgs(null, [
             'current_app' => $app,
-            'icon_max_size' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)
+            'icon_max_size' => $this->conf->getGlobalConf()->get(MyHordesSetting::AvatarMaxSizeUpload)
         ]));
     }
 
@@ -58,7 +58,7 @@ class AdminAppController extends AdminActionController
         if (!$this->isGranted('ROLE_SUB_ADMIN')) $this->redirect($this->generateUrl('admin_app_view'));
         return $this->render( 'ajax/admin/apps/edit.html.twig', $this->addDefaultTwigArgs(null, [
             'current_app' => null,
-            'icon_max_size' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)
+            'icon_max_size' => $this->conf->getGlobalConf()->get(MyHordesSetting::AvatarMaxSizeUpload)
         ]));
     }
 
@@ -130,7 +130,7 @@ class AdminAppController extends AdminActionController
             else {
                 $payload = $parser->get_base64('icon');
 
-                if (strlen( $payload ) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD))
+                if (strlen( $payload ) > $this->conf->getGlobalConf()->get(MyHordesSetting::AvatarMaxSizeUpload))
                     return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
                 $image = ImageService::createImageFromData( $payload );

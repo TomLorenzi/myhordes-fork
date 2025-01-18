@@ -2,15 +2,13 @@
 
 namespace App\Translation;
 
+use App\Enum\Configuration\MyHordesSetting;
 use App\Service\ConfMaster;
 use App\Service\Globals\TranslationConfigGlobal;
 use App\Service\Translation\TranslationService;
-use App\Structures\Conf;
-use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Translation\Extractor\ExtractorInterface;
 use Symfony\Component\Translation\MessageCatalogue;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ConfigExtractor implements ExtractorInterface
 {
@@ -49,7 +47,7 @@ class ConfigExtractor implements ExtractorInterface
         self::$has_been_run = true;
 
         //<editor-fold desc="Global Domain">
-        $langs = $this->confMaster->getGlobalConf()->get(MyHordesConf::CONF_LANGS);
+        $langs = $this->confMaster->getGlobalConf()->get(MyHordesSetting::Languages);
         foreach ($langs as $lang) {
             $this->insert($c, $lang['label'], 'global', 'app/myhordes.yml');
             if (!empty($lang['tooltip']))

@@ -3,9 +3,6 @@
 namespace App\Controller;
 
 use App\Annotations\GateKeeperProfile;
-use App\Controller\Admin\AdminActionController;
-use App\Controller\CustomAbstractController;
-use App\Entity\AdminAction;
 use App\Entity\Avatar;
 use App\Entity\Award;
 use App\Entity\ExternalApp;
@@ -13,32 +10,26 @@ use App\Entity\MarketingCampaign;
 use App\Entity\OfficialGroup;
 use App\Entity\User;
 use App\Entity\UserGroup;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Response\AjaxResponse;
 use App\Service\Actions\Security\GenerateMercureToken;
 use App\Service\Actions\Security\RegisterNewTokenAction;
-use App\Service\AdminHandler;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\EternalTwinHandler;
 use App\Service\HookExecutor;
 use App\Service\InventoryHandler;
-use App\Service\JSONRequestParser;
 use App\Service\Media\ImageService;
 use App\Service\TimeKeeperService;
-use App\Structures\MyHordesConf;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
-use Exception;
 use App\Translation\T;
-use Psr\Cache\InvalidArgumentException;
 use Shivas\VersioningBundle\Service\VersionManagerInterface as VersionManager;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\ErrorHandler\Exception\FlattenException;
 use Symfony\Component\HttpFoundation\HeaderUtils;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -46,10 +37,8 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\EventListener\AbstractSessionListener;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\HttpKernel\Log\DebugLoggerInterface;
-use Symfony\Component\Mercure\HubRegistry;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Contracts\Cache\ItemInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -94,7 +83,7 @@ class WebController extends CustomAbstractController
     }
 
     private function handleDomainRedirection(): ?Response {
-        $redirect = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_DOMAIN_REDIRECTION, []);
+        $redirect = $this->conf->getGlobalConf()->get(MyHordesSetting::DomainRedirect);
         $request = Request::createFromGlobals();
 
         $current_host = "{$request->getHttpHost()}{$request->getBasePath()}";
@@ -415,7 +404,7 @@ class WebController extends CustomAbstractController
     #[Route(path: 'gateway/eternal-twin-registration', name: 'gateway-etwin-reg')]
     public function gateway_etwin_reg(EternalTwinHandler $etwin, ConfMaster $conf): Response {
         if (!$etwin->isReady()) return new Response('Error: No gateway to EternalTwin is configured.');
-        return new RedirectResponse( $conf->getGlobalConf()->get( MyHordesConf::CONF_ETWIN_REG ) );
+        return new RedirectResponse( $conf->getGlobalConf()->get( MyHordesSetting::EternalTwinReg ) );
     }
 
     /**
@@ -436,7 +425,7 @@ class WebController extends CustomAbstractController
         if (empty( $code )) return new Response('Error: No code obtained!');
 
         if ($target_domain !== null && Request::createFromGlobals()->getHost() !== null && !str_starts_with($target_domain, $request->getHost())) {
-            foreach ($conf->getGlobalConf()->get(MyHordesConf::CONF_DOMAINS) as $domain)
+            foreach ($conf->getGlobalConf()->get(MyHordesSetting::Domains) as $domain)
                 if (str_starts_with( $target_domain, $domain )) return new RedirectResponse( "https://{$target_domain}/twinoid?code={$code}&state={$state}" );
             return new Response('Error: Untrusted domain!');
         }

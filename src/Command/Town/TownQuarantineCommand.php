@@ -3,37 +3,18 @@
 
 namespace App\Command\Town;
 
-use App\Entity\AttackSchedule;
 use App\Entity\Town;
-use App\Entity\TownClass;
-use App\Entity\Zone;
-use App\Enum\Configuration\TownSetting;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Service\ConfMaster;
 use App\Service\CrowService;
-use App\Service\GameEventService;
-use App\Service\GameFactory;
-use App\Service\GameProfilerService;
-use App\Service\GameValidator;
-use App\Service\GazetteService;
-use App\Service\Locksmith;
-use App\Service\NightlyHandler;
-use App\Service\TownHandler;
-use App\Structures\EventConf;
-use App\Structures\MyHordesConf;
-use App\Structures\TownSetup;
-use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use Psr\Log\LoggerInterface;
-use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Helper\Table;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[AsCommand(
     name: 'app:town:quarantine',
@@ -74,7 +55,7 @@ class TownQuarantineCommand extends Command
         $town = $this->entityManager->getRepository(Town::class)->find($town_id);
         if (!$town) throw new Exception(sprintf('Town with ID %d not found.', $town_id));
 
-        $try_limit = $this->conf_master->getGlobalConf()->get(MyHordesConf::CONF_NIGHTLY_RETRIES, 3);
+        $try_limit = $this->conf_master->getGlobalConf()->get(MyHordesSetting::NightlyAttackRetries);
         $town_was_quarantined = $town->getAttackFails() >= $try_limit;
 
         if ($lift && !$town_was_quarantined) return 0;

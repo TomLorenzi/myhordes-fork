@@ -11,6 +11,7 @@ use App\Entity\PrivateMessage;
 use App\Entity\User;
 use App\Entity\UserDescription;
 use App\Enum\AdminReportSpecification;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Enum\NotificationSubscriptionType;
 use App\Enum\UserSetting;
 use App\Event\Common\Social\ContentReportEvents\BlackboardEditContentReportEvent;
@@ -26,7 +27,6 @@ use App\Messages\WebPush\WebPushMessage;
 use App\Service\ConfMaster;
 use App\Service\HTMLService;
 use App\Service\UserHandler;
-use App\Structures\MyHordesConf;
 use DiscordWebhooks\Client;
 use DiscordWebhooks\Embed;
 use Doctrine\Common\Util\ClassUtils;
@@ -170,7 +170,7 @@ final class ContentReportEventListener implements ServiceSubscriberInterface
     }
 
     public function handleReportDiscordNotification(ContentReportEvent $event): void {
-        $endpoint = $this->getService(ConfMaster::class)->getGlobalConf()->get( MyHordesConf::CONF_MOD_MAIL_DCHOOK );
+        $endpoint = $this->getService(ConfMaster::class)->getGlobalConf()->get( MyHordesSetting::HookModDiscord );
         $class = ClassUtils::getRealClass(get_class($event->subject));
 
         if ($endpoint) {
