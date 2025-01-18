@@ -126,7 +126,7 @@ class SkillController extends CustomAbstractCoreController
         if (($all_xp - $xp < 100) || ($pack_reset >= 2) || $user->getActiveCitizen())
             return new JsonResponse([], Response::HTTP_NOT_ACCEPTABLE);
 
-        if (!$unlockableService->performSkillResetForUser($user))
+        if (!$unlockableService->performSkillResetForUser($user, true))
             return new JsonResponse([], Response::HTTP_INTERNAL_SERVER_ERROR);
 
         $lock->release();

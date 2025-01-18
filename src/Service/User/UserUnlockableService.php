@@ -491,17 +491,21 @@ class UserUnlockableService implements ServiceSubscriberInterface
         return true;
     }
 
-    public function performSkillResetForUser(User $user): bool {
+    public function performSkillResetForUser(User $user, Season|true $season): bool {
         $em = $this->getService(EntityManagerInterface::class);
 
-        $criteria = (new Criteria())
+        $entryCriteria = (new Criteria())
+            ->andWhere( new Comparison( 'user', Comparison::EQ, $user ) )
+            ->andWhere( new Comparison( 'season', Comparison::EQ, $season ) );
+
+        $unlockCriteria = (new Criteria())
             ->andWhere( new Comparison( 'user', Comparison::EQ, $user ) );
 
         /** @var Collection<HeroExperienceEntry> $allEntries */
-        $allEntries = $em->getRepository(HeroExperienceEntry::class)->matching($criteria);
+        $allEntries = $em->getRepository(HeroExperienceEntry::class)->matching($entryCriteria);
 
         /** @var Collection<HeroSkillUnlock> $unlocks */
-        $unlocks = $em->getRepository(HeroSkillUnlock::class)->matching($criteria);
+        $unlocks = $em->getRepository(HeroSkillUnlock::class)->matching($unlockCriteria);
 
         if ($allEntries->isEmpty() || $unlocks->isEmpty()) return false;
 
