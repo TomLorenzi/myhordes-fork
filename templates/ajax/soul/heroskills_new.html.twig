@@ -25,10 +25,13 @@
 
 
         <div class="padded cell rw-12">
-            <ul class="tabs plain" x-tab-group="skill-page" x-tab-control x-tab-default="skills">
+            <ul class="tabs plain" x-tab-group="skill-page" x-tab-control x-tab-default="{{ tab is defined and tab is not null ? tab : 'skills' }}">
                 <li class="tab" x-tab-id="skills"><div class="tab-link">{{ 'Fähigkeiten'|trans({},'ghost') }}</div></li>
                 <li class="tab" x-tab-id="points"><div class="tab-link">{{ 'Fähigkeitenpunkte'|trans({},'ghost') }}</div></li>
                 <li class="tab" x-tab-id="history"><div class="tab-link">{{ 'Gesammelte Erfahrung'|trans({},'ghost') }}</div></li>
+                {% if current is not null and current is not empty %}
+                    <li class="tab" x-tab-id="current"><div class="tab-link">{{ 'Aktive Fähigkeiten'|trans({},'ghost') }}</div></li>
+                {% endif %}
             </ul>
 
             <div class="row" x-tab-group="skill-page" x-tab-id="skills" x-tab-target>
@@ -215,6 +218,67 @@
                     </div>
                 </div>
             </div>
+
+            {% if current is not null and current is not empty %}
+                <div class="row" x-tab-group="current" x-tab-id="skills" x-tab-target>
+                    <div class="row">
+                        <div class="padded cell rw-12">
+                            <div class="help">
+                                {{ 'Auf dieser Seite siehst du die Fähigkeiten, die dir in deinem aktuellen Leben zur Verfügung stehen.'|trans({},'soul') }}
+                            </div>
+                        </div>
+                    </div>
+
+                    {% for group in groups %}
+                        <div class="padded cell rw-12">
+                            <div class="skills-history">
+                                <div class="row header">
+                                    <div class="cell padded rw-12 center">
+                                        {{group|trans({}, 'game')}}
+                                    </div>
+                                </div>
+                                <div class="skills-container">
+                                    {% for skill in skills|filter(s => s.groupIdentifier == group and s.id in current) %}
+                                        <div class="row-flex v-top gap unlocked">
+                                            <div class="padded cell rw-12 ability-indicator">
+                                                {% for prev_skill in skills|filter(s => s.groupIdentifier == group and s.level < skill.level) %}
+                                                    <div>
+                                                        <b class="small">{{ [
+                                                                'Anfänger'|trans({}, 'game'),
+                                                                'Lehrling'|trans({}, 'game'),
+                                                                'Experte'|trans({}, 'game'),
+                                                                'Meister'|trans({}, 'game'),
+                                                            ][prev_skill.level] }}</b>
+                                                    </div>
+                                                    <ul>
+                                                        {% for bullet in prev_skill.bullets %}
+                                                            <li>{{ bullet|trans({},'game') }}</li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                    <hr class="full-width" />
+                                                {% endfor %}
+                                                <div>
+                                                    <b class="small">{{ [
+                                                            'Anfänger'|trans({}, 'game'),
+                                                            'Lehrling'|trans({}, 'game'),
+                                                            'Experte'|trans({}, 'game'),
+                                                            'Meister'|trans({}, 'game'),
+                                                        ][skill.level] }}</b>
+                                                </div>
+                                                <ul>
+                                                    {% for bullet in skill.bullets %}
+                                                        <li>{{ bullet|trans({},'game') }}</li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
 
             <div class="row">
                 <div class="padded cell rw-12">

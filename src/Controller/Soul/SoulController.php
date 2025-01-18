@@ -36,6 +36,7 @@ use App\Entity\UserGroupAssociation;
 use App\Entity\UserPendingValidation;
 use App\Entity\UserReferLink;
 use App\Entity\UserSponsorship;
+use App\Enum\Configuration\CitizenProperties;
 use App\Enum\Configuration\MyHordesSetting;
 use App\Enum\DomainBlacklistType;
 use App\Enum\StatisticType;
@@ -418,7 +419,7 @@ class SoulController extends CustomAbstractController
      * @param UserUnlockableService $unlockService
      * @return Response
      */
-    private function soul_heroskill_new( UserUnlockableService $unlockService ): Response {
+    private function soul_heroskill_new( UserUnlockableService $unlockService, ?string $tab ): Response {
 
         $xp = $unlockService->getHeroicExperience( $this->getUser() );
         $xp_total = $unlockService->getHeroicExperience( $this->getUser(), include_deductions: false );
@@ -452,6 +453,8 @@ class SoulController extends CustomAbstractController
             'skills' => $allSkills,
             'unlocked' => array_map( fn(HeroSkillPrototype $skill) => $skill->getId(), $unlocked ),
             'unlockable' => array_map( fn(HeroSkillPrototype $skill) => $skill->getId(), $unlockable ),
+            'current' => $this->getActiveCitizen()?->property( CitizenProperties::ActiveSkillIDs ) ?? null,
+            'tab' => $tab
         ]));
 
     }
@@ -461,9 +464,9 @@ class SoulController extends CustomAbstractController
      * @param bool|null $legacy
      * @return Response
      */
-    #[Route(path: 'jx/soul/heroskill', name: 'soul_heroskill')]
+    #[Route(path: 'jx/soul/heroskill/{tab}', name: 'soul_heroskill')]
     #[Route(path: 'jx/soul/hordes-heroskill', name: 'soul_heroskill_legacy', defaults: ['legacy' => true])]
-    public function soul_heroskill(UserUnlockableService $unlockService, ?bool $legacy = null): Response
+    public function soul_heroskill(UserUnlockableService $unlockService, ?bool $legacy = null, ?string $tab = null): Response
     {
         $user = $this->getUser();
         $legacy ??= $this->entity_manager->getRepository(HeroSkillPrototype::class)->count(['enabled' => true, 'legacy' => false]) === 0;
@@ -472,7 +475,7 @@ class SoulController extends CustomAbstractController
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        return $legacy ? $this->soul_heroskill_legacy($unlockService) : $this->soul_heroskill_new($unlockService);
+        return $legacy ? $this->soul_heroskill_legacy($unlockService) : $this->soul_heroskill_new($unlockService, $tab);
     }
 
     /**
