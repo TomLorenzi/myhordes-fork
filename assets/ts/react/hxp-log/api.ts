@@ -8,6 +8,7 @@ export interface LogEntry {
     text: string,
     'type': number,
     reset: boolean,
+    outdated: boolean,
     past: string|null,
 }
 
