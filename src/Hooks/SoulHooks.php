@@ -14,7 +14,7 @@ class SoulHooks extends HooksCore {
         /** @var UserUnlockableService $unlockService */
         $unlockService = $this->container->get(UserUnlockableService::class);
 
-        $num = $unlockService->hasRecordedHeroicExperienceFor( $user, template: $template, subject: $subject, total: $count );
+        $num = $unlockService->hasRecordedHeroicExperienceFor( $user, template: $template, subject: $subject, season: true, total: $count );
         return [
             'achieved' => $num > 0,
             'total' => $count,
@@ -64,26 +64,30 @@ class SoulHooks extends HooksCore {
             'r_suhard_#00' => [5 => [null, 7]],
         ];
 
+        $pt_2 = [ 1 => 2, 3 => 1, 5 => 1, 8 => 1, 10 => 1 ];
+        $pt_5 = [ 1 => 5, 3 => 2, 5 => 2, 8 => 2, 10 => 2 ];
+        $pt_7 = [ 1 => 7, 3 => 2, 5 => 2, 8 => 2, 10 => 2 ];
+
         $picto_db = [
-            'r_thermal_#00' => 2,
-            'r_ebcstl_#00' =>  2,
-            'r_ebpmv_#00' =>   2,
-            'r_ebgros_#00' =>  2,
-            'r_ebcrow_#00' =>  2,
-            'r_wondrs_#00' =>  2,
-            'r_maso_#00'   =>  2,
+            'r_thermal_#00' => $pt_2,
+            'r_ebcstl_#00' =>  $pt_2,
+            'r_ebpmv_#00' =>   $pt_2,
+            'r_ebgros_#00' =>  $pt_2,
+            'r_ebcrow_#00' =>  $pt_2,
+            'r_wondrs_#00' =>  $pt_2,
+            'r_maso_#00'   =>  $pt_2,
 
-            'r_batgun_#00' =>  5,
-            'r_door_#00'   =>  5,
-            'r_explo2_#00' =>  5,
-            'r_ebuild_#00' =>  5,
+            'r_batgun_#00' =>  $pt_5,
+            'r_door_#00'   =>  $pt_5,
+            'r_explo2_#00' =>  $pt_5,
+            'r_ebuild_#00' =>  $pt_5,
 
-            'r_chstxl_#00' =>  7,
-            'r_dnucl_#00'  =>  7,
-            'r_watgun_#00' =>  7,
-            'r_cmplst_#00' =>  7,
+            'r_chstxl_#00' =>  $pt_7,
+            'r_dnucl_#00'  =>  $pt_7,
+            'r_watgun_#00' =>  $pt_7,
+            'r_cmplst_#00' =>  $pt_7,
 
-            'r_tronco_#00' =>  10,
+            'r_tronco_#00' =>  [ 1 => 10, 2 => 2, 3 => 2, 5 => 2 ],
         ];
 
         $picto_data = [];
@@ -102,6 +106,7 @@ class SoulHooks extends HooksCore {
                             : $this->translator->trans('Wenn du zwischen mindestens {day} Tage in der Stadt überlebt hast!', ['day' => $day], 'soul')
                         )
                         : null,
+                    'valuePost' => null,
                     'icon'  => $picto_proto->getIcon(),
                     'name'  => $this->translator->trans($picto_proto->getLabel(), [], 'game'),
                     'repeat' => true,
@@ -114,14 +119,17 @@ class SoulHooks extends HooksCore {
             $picto_proto = $this->em->getRepository(PictoPrototype::class)->findOneByName($id);
             if (!$picto_proto) continue;
 
-            $picto_data[] = [
-                'value' => $points,
-                'valueNote' => null,
-                'icon'  => $picto_proto->getIcon(),
-                'name'  => $this->translator->trans($picto_proto->getLabel(), [], 'game'),
-                'repeat' => false,
-                ...$this->counter($user, subject: "picto_{$id}"),
-            ];
+            foreach ($points as $count => $value)
+                $picto_data[] = [
+                    'value' => $value,
+                    'valueNote' => null,
+                    'valuePost' => "× $count",
+                    'icon'  => $picto_proto->getIcon(),
+                    'name'  => $this->translator->trans($picto_proto->getLabel(), [], 'game'),
+                    'repeat' => false,
+                    'TEST' => "picto_{$id}" . ( $count > 1 ? "__$count" : "" ),
+                    ...$this->counter($user, subject: "picto_{$id}" . ( $count > 1 ? "__$count" : "" ) ),
+                ];
         }
 
         $other_data = [

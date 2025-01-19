@@ -267,6 +267,24 @@ class PictoService implements ServiceSubscriberInterface
         );
     }
 
+    /**
+     * Fetches a single picto count from the picto rollup table (i.e. a single season or group)
+     * Altering more than one of the filter params from their default value will produce unpredictable results.
+     * @param User $user The user to collect pictos for
+     * @param PictoPrototype $picto The picto prototype to fetch
+     * @param bool $imported Set true to fetch imported pictos
+     * @param bool $old Set true to fetch old (alpha) pictos
+     * @param Season|null $season Set to fetch pictos from a specific season
+     * @return int
+     */
+    public function getSinglePictoCount( User $user, PictoPrototype $picto, bool $imported = false, bool $old = false, Season $season = null ): int {
+        return array_reduce( $this->getService(EntityManagerInterface::class)->getRepository(PictoRollup::class)
+            ->findBy(['user' => $user, 'prototype' => $picto, 'imported' => $imported, 'total' => !( $imported || $old ), 'old' => $old, 'season' => $season]),
+            fn(int $carry, PictoRollup $entry) => $carry + $entry->getCount(),
+            0
+        );
+    }
+
     public function computePictoUnlocks(User $user): void {
 
         $cache = [];
