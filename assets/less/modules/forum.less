@@ -168,12 +168,77 @@
   }
 
   .spoiler {
-    background-image: linear-gradient(-45deg, #0006 25%, #fff0 25%, #fff0 50%, #0006 50%, #0006 75%, #fff0 75%, #fff0 100%);
-    background-size: 12.63px 12.63px; margin: 0 5px;
-    &:not(:hover) { color: transparent; &>* { visibility: hidden; } }
-    &:hover {
-      background-image: linear-gradient(-45deg, #0003 25%, #fff0 25%, #fff0 50%, #0003 50%, #0003 75%, #fff0 75%, #fff0 100%);
-      &>* { animation: delay-pointer-events 500ms linear; }
+    display:inline !important;
+    margin-left: 0px !important;
+    padding-left: 60px !important;
+    padding-right: 0px !important;
+    background-color: #4d5537 !important;
+    background-size: 52px 15px !important;
+    background-image: url('../../img/forum/spoiler.gif') !important;
+    background-repeat: no-repeat !important;
+    background-position: 4px 1px !important;
+    &:not(:hover) { &>* { visibility: hidden; } }
+    &:hover { color: #98a675 !important; background-color: transparent !important; }
+    a, b, i {
+        color: #4d5537 !important;
+        &:hover { color: #98a675 !important; }
+    }
+
+    div:not(.cref), pre, blockquote, ul, ol {
+      visibility: visible !important;
+      color: #4d5537 !important;
+      background-color: #4d5537 !important;
+      opacity: 1 !important;
+    }
+
+    &:not(:hover) pre { border: 1px solid #4d5537 !important; box-shadow: none !important; }
+    &:hover pre { border: 1px dashed #98a675 !important; }
+    &:not(:hover) blockquote {
+      margin-left: 0px !important;
+      border-left: 1px solid #4d5537 !important;
+      border-bottom: 1px solid #4d5537 !important;
+    }
+    &:not(:hover) sideNote { margin-top: 0px !important; margin-bottom: 0px !important; margin-left: 0px !important; } /*don't work yet : we can notice the side note*/
+    &:hover div:not(.cref):not(.modAnnounce), &:hover pre, &:hover blockquote, &:hover ul, &:hover ol {
+      color: #98a675 !important;
+      background-color: transparent !important;
+    }
+    &:hover div.modAnnounce, &:hover div.adminAnnounce, &:hover div.oracleAnnounce {
+      color: #ffffff !important;
+      background-color: #5c0000 !important;
+    }
+  
+    &:has(div:not(.cref):last-child), &:has(pre:last-child), &:has(blockquote:last-child), &:has(ul:last-child), &:has(ol:last-child) { margin-right: 0px !important; }
+
+    &:not(:hover) img, &:not(:hover) span.quoteauthor { visibility: hidden !important; }
+
+    &:not(:hover) img { display: none; } /*find a better solution to images instead of don't display them*/
+    
+    &:has(.username):not(:hover) { border-top: 1px solid #4d5537 !important; }
+    
+    &:has(.username) { background-position: 4px 0px !important; }
+
+    &:has(.username):not(:hover) { border-top-width: 2px !important; }
+  
+    &:has(img):not(:hover) {
+      border-top: 1px solid #4d5537 !important;
+      border-bottom: 1px solid #4d5537 !important;
+    }
+    &:has(img) { background-position: 4px 0px !important; }
+  
+    &:not(:hover) div:not(.cref) *::selection, pre *::selection, blockquote *::selection{
+      color:#4d5537 !important;
+      background-color:#4d5537 !important;
+    }
+  
+    &:not(:hover) div.modAnnounce, &:not(:hover) div.adminAnnounce, &:not(:hover) div.oracleAnnounce { /*don't work yet for oracle&admin announces : they still have no background color!*/
+      background-image:none !important; margin : 0;
+      border:1px solid #00000000 !important; box-shadow: 0 0 2px #00000000; border-radius: 0px;
+    }
+  
+    div:first-child:not(.clear):not(.modAnnounce):not(:has(.modAnnounce)){
+      display:inline !important;
+      margin-left:0px !important;
     }
   }
 
