@@ -188,9 +188,13 @@ final class DeathConfirmationEventListener implements ServiceSubscriberInterface
                 $this->hxp($event->death, 'hxp_profession_day10', false, 2, ['town' => $event->death->getTown()->getName(), 'profession' => $profession->getId()], "profession_day10_{$profession->getName()}");
         }
 
-        // 10xp for surviving day 15
+        // 5xp for surviving day 15
         if ($event->death->getDay() >= 15)
-            $this->hxp( $event->death, 'hxp_common_day15', false, 10, ['town' => $event->death->getTown()->getName()], 'common_day15' );
+            $this->hxp( $event->death, 'hxp_common_day15', true, 5, ['town' => $event->death->getTown()->getName()] );
+
+        // 10xp for surviving day 30 (one-time)
+        if ($event->death->getDay() >= 30)
+            $this->hxp( $event->death, 'hxp_common_day30', false, 10, ['town' => $event->death->getTown()->getName()], 'common_day30' );
     }
 
     public function awardPrimeHxpForPictos(DeathConfirmedEvent $event): void {

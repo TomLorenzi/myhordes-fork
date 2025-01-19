@@ -50,11 +50,18 @@ class SoulHooks extends HooksCore {
                 ];
             }, array_filter( $this->em->getRepository(CitizenProfession::class)->findSelectable(), fn(CitizenProfession $p) => $p->getName() !== 'shaman' )),
             [
-                'value' => 10,
+                'value' => 5,
                 'valueNote'     => null,
                 'description'   => $this->translator->trans('Überlebe insgesamt mindestens {days} Tage in einer Stadt.', ['days' => 15], 'soul'),
+                'repeat' => true,
+                ...$this->counter($user, template: 'hxp_common_day15'),
+            ],
+            [
+                'value' => 10,
+                'valueNote'     => null,
+                'description'   => $this->translator->trans('Überlebe insgesamt mindestens {days} Tage in einer Stadt.', ['days' => 30], 'soul'),
                 'repeat' => false,
-                ...$this->counter($user, subject: 'common_day15'),
+                ...$this->counter($user, subject: 'common_day30'),
             ],
         ];
 
