@@ -494,6 +494,9 @@ class UserUnlockableService implements ServiceSubscriberInterface
     public function performSkillResetForUser(User $user, Season|true $season): bool {
         $em = $this->getService(EntityManagerInterface::class);
 
+        if ($season === true)
+            $season = $this->getService(EntityManagerInterface::class)->getRepository(Season::class)->findOneBy(['current' => true]);
+
         $entryCriteria = (new Criteria())
             ->andWhere( new Comparison( 'user', Comparison::EQ, $user ) )
             ->andWhere( new Comparison( 'season', Comparison::EQ, $season ) );
