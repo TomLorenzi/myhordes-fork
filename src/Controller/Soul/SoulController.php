@@ -500,7 +500,7 @@ class SoulController extends CustomAbstractController
             if ($latest) return $this->redirectToRoute('soul_future', ['id' => $latest->getId()]);
         }
 
-        if (!$changelog) $this->redirectToRoute( 'soul_me' );
+        if (!$changelog) return $this->redirectToRoute( 'soul_me' );
 
         if ($changelog->getLang() !== $lang) {
             $lang_changelog = $this->entity_manager->getRepository(Changelog::class)->findOneBy(['lang' => $lang, 'version' => $changelog->getVersion()]);
