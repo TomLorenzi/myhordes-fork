@@ -2,25 +2,13 @@
 
 namespace App\Controller\Admin;
 
-use App\Annotations\AdminLogProfile;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AttackSchedule;
-use App\Entity\LogEntryTemplate;
-use App\Entity\Town;
-use App\Entity\TownLogEntry;
-use App\Response\AjaxResponse;
-use App\Service\ErrorHelper;
-use App\Structures\MyHordesConf;
+use App\Enum\Configuration\MyHordesSetting;
 use DateTime;
 use DateTimeImmutable;
-use SplFileInfo;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\ResponseHeaderBag;
-use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Contracts\Translation\TranslatorInterface;
-use function Symfony\Component\String\b;
 
 #[Route(path: '/', condition: 'request.isXmlHttpRequest()')]
 #[GateKeeperProfile(allow_during_attack: true)]
@@ -38,7 +26,7 @@ class AdminScheduleController extends AdminActionController
 
         $projection = null;
         if ($last_scheduled_attack) {
-            $datemod = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_NIGHTLY_DATEMOD, 'tomorrow');
+            $datemod = $this->conf->getGlobalConf()->get(MyHordesSetting::NightlyAttackDateModifier);
             if ($datemod !== 'never') {
                 $new_date = (new DateTime())->setTimestamp( $last_scheduled_attack->getTimestamp() )->modify($datemod);
                 if ($new_date !== false && $new_date > $last_scheduled_attack)

@@ -4,12 +4,10 @@
 namespace App\EventSubscriber;
 
 use App\Entity\User;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Messages\Discord\DiscordMessage;
 use App\Service\ConfMaster;
-use App\Structures\MyHordesConf;
 use DiscordWebhooks\Client;
-use DiscordWebhooks\Embed;
-use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -42,9 +40,9 @@ class ExceptionSubscriber implements EventSubscriberInterface
         $version_file = "{$params->get('kernel.project_dir')}/VERSION";
         $this->version = file_exists( $version_file ) ? file_get_contents( $version_file ) : 'NOVER';
 
-        $this->gitlabIssueMail['to']   = $conf->getGlobalConf()->get( MyHordesConf::CONF_FATAL_MAIL_TARGET, null );
-        $this->gitlabIssueMail['from'] = $conf->getGlobalConf()->get( MyHordesConf::CONF_FATAL_MAIL_SOURCE, null );
-        $this->discordEndpoint = $conf->getGlobalConf()->get(MyHordesConf::CONF_FATAL_MAIL_DCHOOK, null );
+        $this->gitlabIssueMail['to']   = $conf->getGlobalConf()->get( MyHordesSetting::HookFatalMailTo );
+        $this->gitlabIssueMail['from'] = $conf->getGlobalConf()->get( MyHordesSetting::HookFatalMailFrom );
+        $this->discordEndpoint = $conf->getGlobalConf()->get(MyHordesSetting::HookFatalDiscord );
     }
 
     public function onKernelException(ExceptionEvent $event) {

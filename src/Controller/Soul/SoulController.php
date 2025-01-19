@@ -5,14 +5,12 @@ namespace App\Controller\Soul;
 use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractController;
 use App\Entity\AccountRestriction;
-use App\Entity\AdminReport;
 use App\Entity\Announcement;
 use App\Entity\AntiSpamDomains;
 use App\Entity\AutomaticEventForecast;
 use App\Entity\Award;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
-use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\ExternalApp;
 use App\Entity\FeatureUnlock;
@@ -29,9 +27,7 @@ use App\Entity\ShoutboxEntry;
 use App\Entity\ShoutboxReadMarker;
 use App\Entity\SocialRelation;
 use App\Entity\Statistic;
-use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
-use App\Entity\TwinoidImport;
 use App\Entity\User;
 use App\Entity\RolePlayTextPage;
 use App\Entity\Season;
@@ -40,7 +36,8 @@ use App\Entity\UserGroupAssociation;
 use App\Entity\UserPendingValidation;
 use App\Entity\UserReferLink;
 use App\Entity\UserSponsorship;
-use App\Enum\AdminReportSpecification;
+use App\Enum\Configuration\CitizenProperties;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Enum\DomainBlacklistType;
 use App\Enum\StatisticType;
 use App\Enum\UserSetting;
@@ -55,7 +52,6 @@ use App\Service\HookExecutor;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\RandomGenerator;
-use App\Service\RateLimitingFactoryProvider;
 use App\Service\User\UserCapabilityService;
 use App\Service\User\UserUnlockableService;
 use App\Service\UserFactory;
@@ -64,7 +60,6 @@ use App\Service\AdminHandler;
 use App\Service\CitizenHandler;
 use App\Service\InventoryHandler;
 use App\Service\TimeKeeperService;
-use App\Structures\MyHordesConf;
 use DateTime;
 use DateTimeImmutable;
 use Doctrine\Common\Collections\Criteria;
@@ -77,12 +72,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Symfony\Component\RateLimiter\RateLimiterFactory;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
-use Symfony\Contracts\Cache\TagAwareCacheInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Validator\Constraints;
 use Symfony\Component\Validator\Validation;
@@ -312,7 +305,7 @@ class SoulController extends CustomAbstractController
             foreach ($all_users as $coa_user)
                 $coa_members[$coa_user->getUser()->getId()] = $coa_user->getAssociationType();
 
-            $coa_full = count($all_users) >= $conf->getGlobalConf()->get(MyHordesConf::CONF_COA_MAX_NUM, 5);
+            $coa_full = count($all_users) >= $conf->getGlobalConf()->get(MyHordesSetting::CoalitionMaxSize);
         }
 
         $reverse_friends = $this->entity_manager->getRepository(User::class)->findInverseFriends($this->getUser(), true);
@@ -426,7 +419,7 @@ class SoulController extends CustomAbstractController
      * @param UserUnlockableService $unlockService
      * @return Response
      */
-    private function soul_heroskill_new( UserUnlockableService $unlockService ): Response {
+    private function soul_heroskill_new( UserUnlockableService $unlockService, ?string $tab ): Response {
 
         $xp = $unlockService->getHeroicExperience( $this->getUser() );
         $xp_total = $unlockService->getHeroicExperience( $this->getUser(), include_deductions: false );
@@ -460,6 +453,8 @@ class SoulController extends CustomAbstractController
             'skills' => $allSkills,
             'unlocked' => array_map( fn(HeroSkillPrototype $skill) => $skill->getId(), $unlocked ),
             'unlockable' => array_map( fn(HeroSkillPrototype $skill) => $skill->getId(), $unlockable ),
+            'current' => $this->getActiveCitizen()?->property( CitizenProperties::ActiveSkillIDs ) ?? null,
+            'tab' => $tab
         ]));
 
     }
@@ -469,9 +464,9 @@ class SoulController extends CustomAbstractController
      * @param bool|null $legacy
      * @return Response
      */
-    #[Route(path: 'jx/soul/heroskill', name: 'soul_heroskill')]
+    #[Route(path: 'jx/soul/heroskill/{tab}', name: 'soul_heroskill')]
     #[Route(path: 'jx/soul/hordes-heroskill', name: 'soul_heroskill_legacy', defaults: ['legacy' => true])]
-    public function soul_heroskill(UserUnlockableService $unlockService, ?bool $legacy = null): Response
+    public function soul_heroskill(UserUnlockableService $unlockService, ?bool $legacy = null, ?string $tab = null): Response
     {
         $user = $this->getUser();
         $legacy ??= $this->entity_manager->getRepository(HeroSkillPrototype::class)->count(['enabled' => true, 'legacy' => false]) === 0;
@@ -480,7 +475,7 @@ class SoulController extends CustomAbstractController
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        return $legacy ? $this->soul_heroskill_legacy($unlockService) : $this->soul_heroskill_new($unlockService);
+        return $legacy ? $this->soul_heroskill_legacy($unlockService) : $this->soul_heroskill_new($unlockService, $tab);
     }
 
     /**
@@ -668,7 +663,7 @@ class SoulController extends CustomAbstractController
 
                 $sp = $user->getAllSoulPoints();
                 $anti_grief =
-                    $user->getAllSoulPoints() < $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_SP, 20) ||
+                    $user->getAllSoulPoints() < $this->conf->getGlobalConf()->get(MyHordesSetting::AntiGriefMinSp) ||
                     $this->user_handler->isRestricted( $user, AccountRestriction::RestrictionGameplay ) ||
                     $this->isGranted( 'ROLE_DUMMY' );
 
@@ -719,8 +714,8 @@ class SoulController extends CustomAbstractController
 
         $user_desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
 
-        $a_max_size = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728);
-        $b_max_size = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_STORAGE, 1048576);
+        $a_max_size = $this->conf->getGlobalConf()->get(MyHordesSetting::AvatarMaxSizeUpload);
+        $b_max_size = $this->conf->getGlobalConf()->get(MyHordesSetting::AvatarMaxSizeProcess);
 
         if     ($a_max_size >= 1048576) $a_max_size = round($a_max_size/1048576, 2) . ' MB';
         elseif ($a_max_size >= 1024)    $a_max_size = round($a_max_size/1024, 0) . ' KB';
@@ -737,12 +732,12 @@ class SoulController extends CustomAbstractController
             'user_desc' => $user_desc ? $user_desc->getText() : null,
             'flags' => $this->getFlagList(),
             'next_name_change_days' => $user->getLastNameChange() ? max(0, (30 * 4) - $user->getLastNameChange()->diff(new DateTime())->days ) : 0,
-            'show_importer'     => $user->getTwinoidID() !== null && $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_ENABLED, true),
-            'avatar_max_size' => [$a_max_size, $b_max_size,$this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)],
+            'show_importer'     => $user->getTwinoidID() !== null && $this->conf->getGlobalConf()->get(MyHordesSetting::SoulImportEnabled),
+            'avatar_max_size' => [$a_max_size, $b_max_size,$this->conf->getGlobalConf()->get(MyHordesSetting::AvatarMaxSizeUpload)],
             'langs' => $this->generatedLangs,
             'team_tickets_in' => $season ? $user->getTeamTicketsFor( $season, '' )->count() : 0,
             'team_tickets_out' => $season ? $user->getTeamTicketsFor( $season, '!' )->count() : 0,
-            'team_tickets_limit' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_FOREIGN_CAP, 3),
+            'team_tickets_limit' => $this->conf->getGlobalConf()->get(MyHordesSetting::AntiGriefForeignCap),
         ]) );
     }
 
@@ -891,7 +886,7 @@ class SoulController extends CustomAbstractController
 
         // if ($team !== '' && $team !== $user->getTeam()) {
         //     $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
-        //     $cap = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_FOREIGN_CAP, 3);
+        //     $cap = $this->conf->getGlobalConf()->get(MyHordesSetting::AntiGriefForeignCap);
         //     if ($cap >= 0 && $cap <= $user->getTeamTicketsFor( $season, '' )->count())
         //         return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         // }

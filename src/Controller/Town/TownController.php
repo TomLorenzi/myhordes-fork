@@ -35,13 +35,12 @@ use App\Entity\UserGroupAssociation;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
-use App\Enum\ActionHandler\PointType;
 use App\Enum\Configuration\CitizenProperties;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Enum\EventStages\BuildingValueQuery;
 use App\Enum\ZoneActivityMarkerType;
 use App\Event\Game\Town\Basic\Well\WellExtractionCheckEvent;
 use App\Service\EventFactory;
-use App\Service\EventProxyService;
 use App\Service\GameEventService;
 use App\Service\GameProfilerService;
 use App\Service\InventoryHandler;
@@ -51,7 +50,6 @@ use App\Service\LogTemplateHandler;
 use App\Service\RateLimitingFactoryProvider;
 use App\Structures\CitizenInfo;
 use App\Structures\ItemRequest;
-use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Translation\T;
 use App\Response\AjaxResponse;
@@ -596,7 +594,7 @@ class TownController extends InventoryAwareController
         if ($this->getActiveCitizen()->getBanished() && $severity > Complaint::SeverityNone)
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
-        $grief_sp = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_SP, 20);
+        $grief_sp = $this->conf->getGlobalConf()->get(MyHordesSetting::AntiGriefMinSp);
         if ($this->getActiveCitizen()->getUser()->getAllSoulPoints() < $grief_sp)
             return AjaxResponse::errorMessage($this->translator->trans( 'Du benötigst mindestens {sp} Seelenpunkte, um Anzeigen gegen andere Bürger erstatten zu können', ['sp' => $grief_sp], 'game' ));
 

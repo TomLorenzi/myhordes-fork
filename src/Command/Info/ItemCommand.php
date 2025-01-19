@@ -8,9 +8,9 @@ use App\Entity\ItemGroup;
 use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\ZonePrototype;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Service\ConfMaster;
 use App\Service\RandomGenerator;
-use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -49,7 +49,7 @@ class ItemCommand extends LanguageCommand
         $output->writeln("<comment>{$item->getLabel()}</comment> [{$item->getName()}]");
         $output->writeln('');
 
-        $all_langs = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_LANGS);
+        $all_langs = $this->conf->getGlobalConf()->get(MyHordesSetting::Languages);
 
         $real_langs = array_map( fn(array $a) => $a['code'], array_filter( $all_langs, fn(array $a) =>  $a['generate'] ) );
         $fake_langs = array_map( fn(array $a) => $a['code'], array_filter( $all_langs, fn(array $a) => !$a['generate'] ) );

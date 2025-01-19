@@ -3,38 +3,10 @@
 namespace App\Controller;
 
 use App\Annotations\GateKeeperProfile;
-use App\Controller\Admin\AdminActionController;
-use App\Controller\CustomAbstractController;
-use App\Entity\AdminAction;
-use App\Entity\Award;
-use App\Entity\ExternalApp;
-use App\Entity\OfficialGroup;
-use App\Entity\User;
-use App\Entity\UserGroup;
-use App\Service\AdminHandler;
-use App\Service\CitizenHandler;
-use App\Service\ConfMaster;
-use App\Service\EternalTwinHandler;
-use App\Service\InventoryHandler;
-use App\Service\JSONRequestParser;
-use App\Service\TimeKeeperService;
-use App\Structures\MyHordesConf;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityManagerInterface;
-use Exception;
-use App\Translation\T;
-use Psr\Cache\InvalidArgumentException;
-use Shivas\VersioningBundle\Service\VersionManagerInterface as VersionManager;
-use Symfony\Component\HttpFoundation\HeaderUtils;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Symfony\Component\HttpKernel\EventListener\AbstractSessionListener;
-use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class SeoController

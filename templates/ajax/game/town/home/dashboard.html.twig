@@ -25,6 +25,8 @@
             {% embed "ajax/game/actions.html.twig" with {'t': citizen.fullPropertySet, 'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes} %}
             {% endembed %}
 
+            <button x-ajax-href="{{ path('soul_heroskill', {tab: 'current'}) }}" class="mt-1"><img alt="" src="{{ asset('build/images/building/small_score.gif') }}" /> {{'Meine aktiven Fähigkeiten ansehen'|trans({}, 'soul')}}</button>
+
             {% if is_granted('ROLE_CROW') and (app.environment == 'dev' or app.environment == 'local') %}
                 <button id="suicid" class="mt-1"><img alt="" src="{{ asset('build/images/building/r_dhang.gif') }}" /> {{'Selbstmord begehen'|trans({}, 'admin')}}</button>
                 <button x-ajax-href="{{ path('admin_users_account_view', {id: home.citizen.user.id}) }}"><img alt="" src="{{ asset('build/images/icons/small_admin.gif') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</button>

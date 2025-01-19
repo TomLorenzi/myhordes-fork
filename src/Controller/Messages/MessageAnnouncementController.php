@@ -9,13 +9,13 @@ use App\Entity\ForumPollAnswer;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\GlobalPoll;
 use App\Entity\User;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Messages\Discord\DiscordMessage;
 use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
 use App\Service\EventProxyService;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
-use App\Structures\MyHordesConf;
 use DateTime;
 use DiscordWebhooks\Client;
 use DiscordWebhooks\Embed;
@@ -267,7 +267,7 @@ class MessageAnnouncementController extends MessageController
 
         $em->flush();
 
-        if (!$announcement->isValidated() && $endpoint = $this->conf->getGlobalConf()->get( MyHordesConf::CONF_ANIM_MAIL_DCHOOK )) {
+        if (!$announcement->isValidated() && $endpoint = $this->conf->getGlobalConf()->get( MyHordesSetting::HookAnimDiscord )) {
             $discord = (new Client($endpoint))
                 ->message(":black_joker: **Please validate my announcement.**");
 

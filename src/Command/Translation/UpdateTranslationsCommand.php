@@ -3,10 +3,10 @@
 
 namespace App\Command\Translation;
 
+use App\Enum\Configuration\MyHordesSetting;
 use App\Service\CommandHelper;
 use App\Service\ConfMaster;
 use App\Service\Globals\TranslationConfigGlobal;
-use App\Structures\MyHordesConf;
 use Exception;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -72,7 +72,7 @@ class UpdateTranslationsCommand extends Command
     {
         $lang = $input->getArgument( 'lang' );
 
-        $langs = ($lang === 'all') ? array_map(function($item) {return $item['code'];}, array_filter($this->confMaster->getGlobalConf()->get(MyHordesConf::CONF_LANGS), function($item) {
+        $langs = ($lang === 'all') ? array_map(function($item) {return $item['code'];}, array_filter($this->confMaster->getGlobalConf()->get(MyHordesSetting::Languages), function($item) {
             return $item['generate'];
         })) : [$lang];
         if (count($langs) === 1) {

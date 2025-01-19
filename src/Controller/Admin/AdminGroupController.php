@@ -5,18 +5,15 @@ namespace App\Controller\Admin;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\OfficialGroup;
 use App\Entity\OfficialGroupMessageLink;
-use App\Entity\Season;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\Media\ImageService;
 use App\Service\PermissionHandler;
-use App\Service\RandomGenerator;
-use App\Structures\MyHordesConf;
-use App\Translation\T;
 use Exception;
 use ReflectionClass;
 use Symfony\Component\HttpFoundation\Response;
@@ -58,7 +55,7 @@ class AdminGroupController extends AdminActionController
         return $this->render( 'ajax/admin/groups/edit.html.twig', $this->addDefaultTwigArgs(null, [
             'current_group' => null,
             'members' => [],
-            'icon_max_size' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728),
+            'icon_max_size' => $this->conf->getGlobalConf()->get(MyHordesSetting::AvatarMaxSizeUpload),
             'types' => (new ReflectionClass(OfficialGroup::class))->getConstants()
         ]));
     }
@@ -78,7 +75,7 @@ class AdminGroupController extends AdminActionController
         return $this->render( 'ajax/admin/groups/edit.html.twig', $this->addDefaultTwigArgs(null, [
             'current_group' => $group_meta,
             'members' => $perm->usersInGroup($group_meta->getUsergroup()),
-            'icon_max_size' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728),
+            'icon_max_size' => $this->conf->getGlobalConf()->get(MyHordesSetting::AvatarMaxSizeUpload),
             'types' => (new ReflectionClass(OfficialGroup::class))->getConstants()
         ]));
     }
@@ -151,7 +148,7 @@ class AdminGroupController extends AdminActionController
 
         if ($parser->has('icon') && $parser->get('icon') !== false) {
             $payload = $parser->get_base64('icon');
-            if (strlen( $payload ) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD))
+            if (strlen( $payload ) > $this->conf->getGlobalConf()->get(MyHordesSetting::AvatarMaxSizeUpload))
                 return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
             $image = ImageService::createImageFromData( $payload );

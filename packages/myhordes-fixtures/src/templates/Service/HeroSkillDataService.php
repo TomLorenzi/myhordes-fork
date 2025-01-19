@@ -127,8 +127,8 @@ class HeroSkillDataService implements FixtureProcessorInterface {
             ->addCitizenProperty( CitizenProperties::WatchSurvivalBonus, 0.02 )
             ->addCitizenProperty( CitizenProperties::AnonymousMessageLimit, -1 )
             ->addItemGrant('photo_4_#00', 'apag', true)
-            ->addCitizenProperty( CitizenProperties::EnableAdvancedTheft, true ) // TODO
-            ->level(3)->unlockAt(75)->commit();
+            ->addCitizenProperty( CitizenProperties::EnableAdvancedTheft, true )
+            ->level(3)->unlockAt(80)->commit();
 
         $container->add()->sort(1)
             ->group('Umsicht')->title('Umsicht')->legacy(false)
@@ -182,7 +182,7 @@ class HeroSkillDataService implements FixtureProcessorInterface {
             ->addCitizenProperty(CitizenProperties::LogPurgeLimit, 1)
             ->addCitizenProperty(CitizenProperties::StatusOverrideMap, ['hsurvive2' => 'hsurvive2_l3'])
             ->unlocksAction('hero_generic_immune2')
-            ->level(3)->unlockAt(75)->commit();
+            ->level(3)->unlockAt(80)->commit();
 
         $container->add()->sort(2)
             ->group('Planung')->title('Planung')->legacy(false)
@@ -230,7 +230,7 @@ class HeroSkillDataService implements FixtureProcessorInterface {
             ->addCitizenProperty( CitizenProperties::ZoneControlSoberBonus, 1 )
             ->addItemGrant('bplan_drop_#00', 'plan')
             ->addItemGrant('cello_box_#00')
-            ->level(3)->unlockAt(75)->commit();
+            ->level(3)->unlockAt(80)->commit();
 
         $container->add()->sort(3)
             ->group('Eifer')->title('Eifer')->legacy(false)
@@ -286,7 +286,7 @@ class HeroSkillDataService implements FixtureProcessorInterface {
             ->addCitizenProperty(CitizenProperties::OxygenTimeBonus, 90)
             ->addCitizenProperty(CitizenProperties::HeroSecondWindBaseSP, 6)
             ->addCitizenProperty(CitizenProperties::HeroSecondWindBonusAP, 4)
-            ->level(3)->unlockAt(75)->commit();
+            ->level(3)->unlockAt(80)->commit();
 
         $container->add()->sort(4)
             ->group('Ruhe')->title('Ruhe')->legacy(false)
@@ -337,7 +337,7 @@ class HeroSkillDataService implements FixtureProcessorInterface {
             ->addCitizenProperty(CitizenProperties::HeroReturnRange, 15)
             ->addCitizenProperty(CitizenProperties::CampingChanceCap, 0.99)
             ->unlocksAction('hero_generic_find_lcky3', 'find')
-            ->level(3)->unlockAt(75)->commit();
+            ->level(3)->unlockAt(80)->commit();
 
         $data = $container->toArray();
     }

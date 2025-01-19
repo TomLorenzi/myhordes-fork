@@ -5,11 +5,8 @@ namespace App\Controller\REST\Admin\Schedule;
 use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractCoreController;
 use App\Entity\AttackSchedule;
-use App\Entity\Citizen;
-use App\Entity\User;
-use App\Enum\UserAccountType;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Service\JSONRequestParser;
-use App\Structures\MyHordesConf;
 use DateTime;
 use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
@@ -30,7 +27,7 @@ class AttackScheduleController extends CustomAbstractCoreController
             $em->remove( $planned[array_key_first($planned)] );
         else {;
             $planned = empty($planned) ? (new AttackSchedule())->setTimestamp( new DateTimeImmutable() ) : $planned[array_key_first($planned)];
-            $datemod = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_NIGHTLY_DATEMOD, 'tomorrow');
+            $datemod = $this->conf->getGlobalConf()->get(MyHordesSetting::NightlyAttackDateModifier);
             if ($datemod !== 'never') {
                 $new_date = (new DateTime())->setTimestamp( $planned->getTimestamp()->getTimestamp() )->modify($datemod);
                 if ($new_date !== false && $new_date > $planned->getTimestamp())

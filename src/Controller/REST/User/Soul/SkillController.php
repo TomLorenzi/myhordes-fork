@@ -17,9 +17,11 @@ use App\Entity\Season;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\UserSponsorship;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Enum\HeroXPType;
 use App\Enum\UserSetting;
 use App\Interfaces\Entity\PictoRollupInterface;
+use App\Service\ConfMaster;
 use App\Service\JSONRequestParser;
 use App\Service\Locksmith;
 use App\Service\LogTemplateHandler;
@@ -48,6 +50,7 @@ class SkillController extends CustomAbstractCoreController
      * @param HeroSkillPrototype $skill
      * @param UserUnlockableService $unlockableService
      * @param Locksmith $locksmith
+     * @param EntityManagerInterface $entityManager
      * @return JsonResponse
      * @throws \Exception
      */
@@ -164,7 +167,8 @@ class SkillController extends CustomAbstractCoreController
                 'value'      => $entry->getValue(),
                 'type'       => $entry->getType()->value,
                 'reset'      => $entry->getReset() > 0,
-                'past'       => $entry->getSeason()?->getCurrent() ? null : (
+                'outdated'   => $entry->isOutdated(),
+                'past'       => (
                     $entry->getSeason() === null
                         ? "BETA"
                         : "S{$entry->getSeason()->getNumber()} - " . $this->translator->trans("Saison {$entry->getSeason()->getNumber()}.{$entry->getSeason()->getSubNumber()}", [], 'season')

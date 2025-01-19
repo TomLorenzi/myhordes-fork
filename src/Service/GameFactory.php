@@ -5,22 +5,13 @@ namespace App\Service;
 
 use App\Entity\AccountRestriction;
 use App\Entity\BuildingPrototype;
-use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
-use App\Entity\CitizenHome;
-use App\Entity\CitizenHomePrototype;
-use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\Forum;
 use App\Entity\Gazette;
-use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
 use App\Entity\MayorMark;
 use App\Entity\Season;
-use App\Entity\Shoutbox;
-use App\Entity\ShoutboxEntry;
-use App\Entity\ShoutboxReadMarker;
-use App\Entity\TeamTicket;
 use App\Entity\Thread;
 use App\Entity\ThreadTag;
 use App\Entity\Town;
@@ -28,15 +19,9 @@ use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
 use App\Entity\TownSlotReservation;
 use App\Entity\User;
-use App\Entity\UserGroup;
-use App\Entity\Zone;
-use App\Entity\ZonePrototype;
-use App\Entity\ZoneTag;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Enum\Configuration\TownSetting;
-use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Service\Maps\MapMaker;
-use App\Service\Maps\MazeMaker;
-use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Structures\TownSetup;
 use App\Traits\System\PrimeInfo;
@@ -45,7 +30,6 @@ use DateInterval;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Collections\Expr\Comparison;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class GameFactory
@@ -651,7 +635,7 @@ class GameFactory
             && $town->getLanguage() !== 'multi'
             && $town->getLanguage() !== $user->getTeam())
         {
-            // $cap = $conf->get(MyHordesConf::CONF_ANTI_GRIEF_FOREIGN_CAP, 3);
+            // $cap = $conf->get(MyHordesSetting::AntiGriefForeignCap);
             // if ($cap >= 0 && $cap <= $user->getTeamTicketsFor( $town->getSeason(), '!' )->count())
             $error = ErrorHelper::ErrorPermissionError;
             return false;
@@ -665,16 +649,16 @@ class GameFactory
             $allowed = false;
             switch ($town->getType()->getName()) {
                 case 'small':
-                    $allowed = ($sp < $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE, 100 ) || $sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_BACK_TO_SMALL, 500 ));
+                    $allowed = ($sp < $conf->get( MyHordesSetting::SoulPointRequirementRemote ) || $sp >= $conf->get( MyHordesSetting::SoulPointRequirementSmallReturn ));
                     break;
                 case 'remote':
-                    $allowed = $sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE, 100 );
+                    $allowed = $sp >= $conf->get( MyHordesSetting::SoulPointRequirementRemote );
                     break;
                 case 'panda':
-                    $allowed = $sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_PANDA, 500 );
+                    $allowed = $sp >= $conf->get( MyHordesSetting::SoulPointRequirementPanda );
                     break;
                 case 'custom':
-                    $allowed = $sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_CUSTOM, 1000 );
+                    $allowed = $sp >= $conf->get( MyHordesSetting::SoulPointRequirementCustom );
                     break;
             }
 

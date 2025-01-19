@@ -3,10 +3,8 @@
 
 namespace App\Command\Translation;
 
-use App\Service\CommandHelper;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Service\ConfMaster;
-use App\Service\Globals\TranslationConfigGlobal;
-use App\Structures\MyHordesConf;
 use Exception;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -124,7 +122,7 @@ class MoveTranslationsDomainCommand extends Command
         if (!$helper->ask($input, $output, new ConfirmationQuestion('Continue? (y/n) ', false)))
             return 0;
 
-        $langs = array_map(function($item) {return $item['code'];}, array_filter($this->confMaster->getGlobalConf()->get(MyHordesConf::CONF_LANGS), function($item) {
+        $langs = array_map(function($item) {return $item['code'];}, array_filter($this->confMaster->getGlobalConf()->get(MyHordesSetting::Languages), function($item) {
             return $item['generate'];
         }));
         foreach ($langs as $lang) {

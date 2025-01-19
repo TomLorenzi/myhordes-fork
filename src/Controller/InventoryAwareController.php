@@ -5,13 +5,11 @@ namespace App\Controller;
 use App\Annotations\GateKeeperProfile;
 use App\Annotations\Semaphore;
 use App\Entity\ActionCounter;
-use App\Entity\AdminReport;
 use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
-use App\Entity\CitizenRankingProxy;
 use App\Entity\FoundRolePlayText;
 use App\Entity\HelpNotificationMarker;
 use App\Entity\HeroicActionPrototype;
@@ -19,7 +17,6 @@ use App\Entity\HomeActionPrototype;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemAction;
-use App\Entity\ItemCategory;
 use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
@@ -28,12 +25,9 @@ use App\Entity\PrivateMessage;
 use App\Entity\Recipe;
 use App\Entity\RuinZone;
 use App\Entity\SpecialActionPrototype;
-use App\Enum\AdminReportSpecification;
 use App\Enum\Configuration\CitizenProperties;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Enum\Game\CitizenPersistentCache;
-use App\Enum\Game\TransferItemModality;
-use App\Enum\Game\TransferItemOption;
-use App\Event\Game\Items\TransferItemEvent;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
@@ -42,7 +36,6 @@ use App\Service\CrowService;
 use App\Service\DeathHandler;
 use App\Service\DoctrineCacheService;
 use App\Service\ErrorHelper;
-use App\Service\EventFactory;
 use App\Service\EventProxyService;
 use App\Service\HookExecutor;
 use App\Service\InventoryHandler;
@@ -54,23 +47,15 @@ use App\Service\TimeKeeperService;
 use App\Service\TownHandler;
 use App\Service\UserHandler;
 use App\Service\ZoneHandler;
-use App\Structures\BankItem;
 use App\Structures\FriendshipActionTarget;
-use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Traits\Controller\EventChainProcessor;
 use App\Translation\T;
-use DateTime;
-use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Query\Expr\Join;
 use Exception;
 use Symfony\Component\Asset\Packages;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\RateLimiter\RateLimiterFactory;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Throwable;
 
 /**
  * Class InventoryAwareController
@@ -536,7 +521,7 @@ class InventoryAwareController extends CustomAbstractController
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
         $attack_protect = $this->getTownConf()->get(TownConf::CONF_MODIFIER_ATTACK_PROTECT, false) ||
-            ($aggressor->getUser()->getAllSoulPoints() < $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_SP, 20));
+            ($aggressor->getUser()->getAllSoulPoints() < $this->conf->getGlobalConf()->get(MyHordesSetting::AntiGriefMinSp));
         if ($attack_protect) {
             foreach ($aggressor->getTown()->getCitizens() as $c)
                 if ($c->getAlive() && $c->hasRole('ghoul'))

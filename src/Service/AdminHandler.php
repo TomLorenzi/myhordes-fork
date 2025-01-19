@@ -3,20 +3,11 @@
 
 namespace App\Service;
 
-use App\Entity\AdminBan;
-use App\Entity\AdminDeletion;
-use App\Entity\AdminReport;
 use App\Entity\Citizen;
 use App\Entity\CauseOfDeath;
-use App\Entity\CitizenRankingProxy;
-use App\Entity\Forum;
-use App\Entity\Picto;
 use App\Entity\Post;
-use App\Entity\Thread;
 use App\Entity\User;
-use App\Service\DeathHandler;
 use App\Structures\MyHordesConf;
-use DateInterval;
 use DateTime;
 use DirectoryIterator;
 use Doctrine\ORM\EntityManagerInterface;

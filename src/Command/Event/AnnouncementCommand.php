@@ -6,9 +6,9 @@ namespace App\Command\Event;
 use App\Entity\Announcement;
 use App\Entity\AutomaticEventForecast;
 use App\Entity\User;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Service\ConfMaster;
 use App\Service\EventProxyService;
-use App\Structures\MyHordesConf;
 use DateTime;
 use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -68,7 +68,7 @@ class AnnouncementCommand extends Command
 
             $lang_fallback_path = ['en', 'fr', 'de', 'es'];
             $lang_mapping = [];
-            $langs = array_map(fn(array $item) => $item['code'], array_filter($global_conf->get(MyHordesConf::CONF_LANGS), fn(array $item) => $item['generate']));
+            $langs = array_map(fn(array $item) => $item['code'], array_filter($global_conf->get(MyHordesSetting::Languages), fn(array $item) => $item['generate']));
             foreach ($langs as $lang)
                 if (file_exists("{$this->kernel->getProjectDir()}/templates/event/{$entry->getEvent()}/$lang.html.twig"))
                     $lang_mapping[$lang] = $lang;

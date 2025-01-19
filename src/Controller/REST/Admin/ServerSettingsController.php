@@ -4,16 +4,9 @@ namespace App\Controller\REST\Admin;
 
 use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractCoreController;
-use App\Entity\AttackSchedule;
-use App\Entity\Citizen;
 use App\Entity\ServerSettings;
-use App\Entity\User;
 use App\Enum\ServerSetting;
-use App\Enum\UserAccountType;
 use App\Service\JSONRequestParser;
-use App\Structures\MyHordesConf;
-use DateTime;
-use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\HttpFoundation\JsonResponse;

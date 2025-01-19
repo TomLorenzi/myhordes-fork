@@ -5,26 +5,20 @@ namespace App\Service;
 
 
 use App\Entity\CauseOfDeath;
-use App\Entity\Citizen;
-use App\Entity\CitizenHome;
-use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\FeatureUnlock;
 use App\Entity\FeatureUnlockPrototype;
-use App\Entity\Inventory;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Season;
-use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserPendingValidation;
-use App\Enum\HeroXPType;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Enum\ServerSetting;
 use App\Service\User\UserUnlockableService;
-use App\Structures\MyHordesConf;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -193,11 +187,11 @@ class UserFactory
     public function postProcessNewUser( User $user): void {
         $conf = $this->conf->getGlobalConf();
 
-        if ($conf->get( MyHordesConf::CONF_STAGING_ENABLED, false )) {
+        if ($conf->get( MyHordesSetting::StagingSettingsEnabled )) {
 
-            if ( $conf->get( MyHordesConf::CONF_STAGING_TOWN_ENABLED, false )) {
+            if ( $conf->get( MyHordesSetting::StagingProtoTownEnabled )) {
 
-                $days = $conf->get( MyHordesConf::CONF_STAGING_TOWN_DAYS, 0 );
+                $days = $conf->get( MyHordesSetting::StagingProtoTownDuration );
                 $score = $days * ($days + 1) / 2;
 
                 $id_offset = 100000000;
@@ -245,11 +239,11 @@ class UserFactory
                 );
             }
 
-            $base_hxp = $conf->get( MyHordesConf::CONF_STAGING_HERODAYS, 0 );
+            $base_hxp = $conf->get( MyHordesSetting::StagingProtoHeroDays );
             if ($base_hxp > 0)
                 $this->unlockService->setLegacyHeroDaysSpent( $user, false, $base_hxp );
 
-            foreach ( $conf->get( MyHordesConf::CONF_STAGING_FEATURES, [] ) as $feature )
+            foreach ( $conf->get( MyHordesSetting::StagingProtoFeatures ) as $feature )
                 $this->entity_manager->persist(
                     (new FeatureUnlock())
                         ->setPrototype( $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findOneBy(['name' => $feature]) )
@@ -385,7 +379,7 @@ class UserFactory
         if ($message === null || $headline === null) return false;
 
         $from_domain = ($_SERVER['SERVER_NAME'] ?? 'localhost');
-        $domain_slice = $this->conf->getGlobalConf()->get( MyHordesConf::CONF_MAIL_DOMAINCAP, 0 );
+        $domain_slice = $this->conf->getGlobalConf()->get( MyHordesSetting::MailDomainCap );
         if ($domain_slice >= 2)
             $from_domain = implode('.', array_slice( explode( '.', $from_domain ), -$domain_slice ));
 

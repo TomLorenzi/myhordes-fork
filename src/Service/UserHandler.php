@@ -4,16 +4,11 @@ namespace App\Service;
 
 use App\Entity\AccountRestriction;
 use App\Entity\AntiSpamDomains;
-use App\Entity\Award;
-use App\Entity\AwardPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\ConsecutiveDeathMarker;
 use App\Entity\FeatureUnlock;
-use App\Entity\FeatureUnlockPrototype;
-use App\Entity\HeroSkillPrototype;
-use App\Entity\Picto;
 use App\Entity\Season;
 use App\Entity\Shoutbox;
 use App\Entity\ShoutboxEntry;
@@ -24,16 +19,14 @@ use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
 use App\Entity\UserSwapPivot;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Enum\DomainBlacklistType;
-use App\Interfaces\Entity\PictoRollupInterface;
 use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
 use App\Service\User\UserCapabilityService;
-use App\Structures\MyHordesConf;
 use Doctrine\ORM\QueryBuilder;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Contracts\Cache\TagAwareCacheInterface;
 
 class UserHandler
 {
@@ -326,7 +319,7 @@ class UserHandler
         $active = false;
 
         $valid_members = [];
-        $timeout = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_COA_MAX_DAYS_INACTIVITY) * 86400;
+        $timeout = $this->conf->getGlobalConf()->get(MyHordesSetting::CoalitionMaxInactivityDays) * 86400;
 
         foreach ($all_coalition_members as $member)
             if (

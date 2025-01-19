@@ -80,7 +80,7 @@ class SponsorshipRewardRepairCommand extends Command
             function(UserSponsorship $s) {
                 if ($s->isSeasonalPayout()) return false;
 
-                $paid_hxp = $this->unlockableService->hasRecordedHeroicExperienceFor($s->getUser(), template: 'hxp_debit_base', total: $total);
+                $paid_hxp = $this->unlockableService->hasRecordedHeroicExperienceFor($s->getUser(), template: 'hxp_debit_base', season: true, total: $total);
                 if ($paid_hxp && $total < 0) {
                     if (!$s->isPayout()) {
                         $success = $this->unlockableService->recordHeroicExperience($s->getSponsor(), HeroXPType::Global, 10, 'hxp_ref_first', variables: [

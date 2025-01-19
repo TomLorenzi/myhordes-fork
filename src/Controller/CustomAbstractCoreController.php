@@ -3,11 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Service\ConfMaster;
-use App\Structures\MyHordesConf;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Session\FlashBagAwareSessionInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -28,7 +27,7 @@ class CustomAbstractCoreController extends AbstractController {
         $this->conf = $conf;
         $this->translator = $translator;
 
-        $this->allLangs = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_LANGS);
+        $this->allLangs = $this->conf->getGlobalConf()->get(MyHordesSetting::Languages);
         $this->allLangsCodes = array_map(function($item) {return $item['code'];}, $this->allLangs);
 
         $this->generatedLangs = array_filter($this->allLangs, function($item) {

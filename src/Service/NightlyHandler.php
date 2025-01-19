@@ -15,8 +15,6 @@ use App\Entity\EscapeTimer;
 use App\Entity\Gazette;
 use App\Entity\GazetteEntryTemplate;
 use App\Entity\GazetteLogEntry;
-use App\Entity\HeroicActionPrototype;
-use App\Entity\HeroSkillPrototype;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemGroup;
@@ -30,25 +28,19 @@ use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZoneTag;
 use App\Enum\Configuration\CitizenProperties;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Enum\Configuration\TownSetting;
 use App\Enum\EventStages\BuildingEffectStage;
 use App\Enum\EventStages\BuildingValueQuery;
 use App\Enum\EventStages\CitizenValueQuery;
-use App\Enum\ItemPoisonType;
-use App\Event\Game\Citizen\CitizenQueryNightwatchDeathChancesEvent;
-use App\Event\Game\Citizen\CitizenQueryNightwatchDefenseEvent;
 use App\Service\Maps\MapMaker;
 use App\Service\Maps\MazeMaker;
 use App\Structures\EventConf;
 use App\Structures\ItemRequest;
-use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Structures\TownDefenseSummary;
 use DateInterval;
 use Doctrine\ORM\EntityManagerInterface;
-use Psr\Container\ContainerExceptionInterface;
-use Psr\Container\NotFoundExceptionInterface;
-use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\Log\LoggerInterface;
 
 class NightlyHandler
@@ -533,7 +525,7 @@ class NightlyHandler
                 $c = 0;
                 foreach ($town->getCitizens() as $foreign) {
                     if (!$foreign->getAlive()) continue;
-                    if ($foreign->getUser()->getAllSoulPoints() < $this->conf->getGlobalConf()->get(MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE)) $c++;
+                    if ($foreign->getUser()->getAllSoulPoints() < $this->conf->getGlobalConf()->get(MyHordesSetting::SoulPointRequirementRemote)) $c++;
                 }
 
                 // The spiritual leader is only given if there's more than 50% of alive citizen with less than 100 SP

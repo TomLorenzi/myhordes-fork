@@ -62,6 +62,9 @@
                         <span class="tool">
                             <img alt="" src="{{ asset('build/images/pictos/' ~ entry['icon'] ~ '.gif') }}" />
                             {{ entry['name'] }}
+                            {% if entry['valuePost'] is not null %}
+                                <span class="small">{{ entry['valuePost'] }}</span>
+                            {% endif %}
                         </span>
                         {% if entry['valueNote'] is not null %}
                             <div class="small"><b>{{ entry['valueNote'] }}</b></div>

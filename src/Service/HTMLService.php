@@ -6,11 +6,10 @@ use App\Entity\Award;
 use App\Entity\Citizen;
 use App\Entity\Emotes;
 use App\Entity\ForumUsagePermissions;
-use App\Entity\Post;
 use App\Entity\Town;
 use App\Entity\User;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Structures\HTMLParserInsight;
-use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManagerInterface;
 use DOMDocument;
 use DOMElement;
@@ -307,7 +306,7 @@ class HTMLService {
 
         $cache = [ 'citizen' => [], 'coalition' => [] ];
 
-        $sys_urls = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_URLS, []);
+        $sys_urls = $this->conf->getGlobalConf()->get(MyHordesSetting::URLs);
         $replace_urls = [];
         foreach ($sys_urls as $url) {
             $replace_urls[] = 'http://' . $url;

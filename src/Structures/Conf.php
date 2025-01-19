@@ -54,6 +54,9 @@ class Conf
         return $this->data;
     }
 
+    /**
+     * @throws Exception
+     */
     public function get(string|Configuration $key, $default = null) {
         if ( is_a( $key, Configuration::class ) ) {
 

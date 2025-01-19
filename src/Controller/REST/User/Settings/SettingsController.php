@@ -2,40 +2,17 @@
 
 namespace App\Controller\REST\User\Settings;
 
-use App\Annotations\GateKeeperProfile;
-use App\Controller\CustomAbstractCoreController;
-use App\Entity\AccountRestriction;
-use App\Entity\Avatar;
-use App\Entity\Award;
-use App\Entity\Citizen;
 use App\Entity\Forum;
 use App\Entity\ForumUsagePermissions;
-use App\Entity\Picto;
-use App\Entity\PictoPrototype;
 use App\Entity\User;
 use App\Enum\UserSetting;
-use App\Response\AjaxResponse;
-use App\Service\Actions\Cache\InvalidateTagsInAllPoolsAction;
-use App\Service\ConfMaster;
-use App\Service\ErrorHelper;
-use App\Service\JSONRequestParser;
-use App\Service\Media\ImageService;
 use App\Service\PermissionHandler;
-use App\Service\UserHandler;
-use App\Structures\Image;
-use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManagerInterface;
-use Exception;
-use Psr\Cache\InvalidArgumentException;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Contracts\Cache\TagAwareCacheInterface;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 
 /**

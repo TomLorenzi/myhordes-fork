@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 
 #[ORM\Entity(repositoryClass: HeroSkillUnlockRepository::class)]
 #[Table]
-#[UniqueConstraint(name: 'hero_skill_unlock_unique', columns: ['user_id', 'season_id', 'skill_id'])]
+#[UniqueConstraint(name: 'hero_skill_unlock_unique', columns: ['user_id', 'skill_id'])]
 class HeroSkillUnlock
 {
     #[ORM\Id]
