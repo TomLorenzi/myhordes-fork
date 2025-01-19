@@ -204,6 +204,9 @@ final class DeathConfirmationEventListener implements ServiceSubscriberInterface
         $pt_5 = [ 1 => 5, 3 => 2, 5 => 2, 8 => 2, 10 => 2 ];
         $pt_7 = [ 1 => 7, 3 => 2, 5 => 2, 8 => 2, 10 => 2 ];
 
+        $pt_2_5  = [ 5 => 2, 10 => 1, 15 => 1, 20 => 1 ];
+        $pt_2_10 = [ 10 => 2, 20 => 1, 30 => 1, 50 => 1 ];
+
         $picto_db = [
             'r_surgrp_#00' => [ 'hxp_picto', false, 'by_day' => null, 'by_count' => [ 1 => 2 ] ],
             'r_surlst_#00' => [ 'hxp_picto', false, 'by_day' => [0 => 0, 5 => 7, 9 => 14, 14 => 21], 'by_count' => null ],
@@ -228,6 +231,17 @@ final class DeathConfirmationEventListener implements ServiceSubscriberInterface
             'r_cmplst_#00' =>  [ 'hxp_picto_first', true, 'by_day' => null, 'by_count' => $pt_7 ],
 
             'r_tronco_#00' =>  [ 'hxp_picto_first', true, 'by_day' => null, 'by_count' => [ 1 => 10, 2 => 2, 3 => 2, 5 => 2 ] ],
+
+            'r_cobaye_#00' =>  [ 'hxp_picto_first', true, 'by_day' => null, 'by_count' => $pt_2_5 ],
+            'r_solban_#00' =>  [ 'hxp_picto_first', true, 'by_day' => null, 'by_count' => $pt_2_5 ],
+            'r_explor_#00' =>  [ 'hxp_picto_first', true, 'by_day' => null, 'by_count' => $pt_2_5 ],
+            'r_mystic_#00' =>  [ 'hxp_picto_first', true, 'by_day' => null, 'by_count' => $pt_2_5 ],
+
+            'r_repair_#00' =>  [ 'hxp_picto_first', true, 'by_day' => null, 'by_count' => $pt_2_10 ],
+            'r_guard_#00'  =>  [ 'hxp_picto_first', true, 'by_day' => null, 'by_count' => $pt_2_10 ],
+            'r_theft_#00'  =>  [ 'hxp_picto_first', true, 'by_day' => null, 'by_count' => $pt_2_10 ],
+            'r_plundr_#00' =>  [ 'hxp_picto_first', true, 'by_day' => null, 'by_count' => $pt_2_10 ],
+            'r_camp_#00'   =>  [ 'hxp_picto_first', true, 'by_day' => null, 'by_count' => $pt_2_10 ],
         ];
 
         foreach ( $picto_db as $picto => [ 0 => $template, 1 => $subject, 'by_day' => $by_day, 'by_count' => $by_count ] ) {

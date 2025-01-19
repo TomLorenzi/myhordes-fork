@@ -74,6 +74,8 @@ class SoulHooks extends HooksCore {
         $pt_2 = [ 1 => 2, 3 => 1, 5 => 1, 8 => 1, 10 => 1 ];
         $pt_5 = [ 1 => 5, 3 => 2, 5 => 2, 8 => 2, 10 => 2 ];
         $pt_7 = [ 1 => 7, 3 => 2, 5 => 2, 8 => 2, 10 => 2 ];
+        $pt_2_5  = [ 5 => 2, 10 => 1, 15 => 1, 20 => 1 ];
+        $pt_2_10 = [ 10 => 2, 20 => 1, 30 => 1, 50 => 1 ];
 
         $picto_db = [
             'r_thermal_#00' => $pt_2,
@@ -95,6 +97,16 @@ class SoulHooks extends HooksCore {
             'r_cmplst_#00' =>  $pt_7,
 
             'r_tronco_#00' =>  [ 1 => 10, 2 => 2, 3 => 2, 5 => 2 ],
+            'r_cobaye_#00' =>  $pt_2_5,
+            'r_solban_#00' =>  $pt_2_5,
+            'r_explor_#00' =>  $pt_2_5,
+            'r_mystic_#00' =>  $pt_2_5,
+
+            'r_repair_#00' =>  $pt_2_10,
+            'r_guard_#00'  =>  $pt_2_10,
+            'r_theft_#00'  =>  $pt_2_10,
+            'r_plundr_#00' =>  $pt_2_10,
+            'r_camp_#00'   =>  $pt_2_10,
         ];
 
         $picto_data = [];
@@ -134,7 +146,6 @@ class SoulHooks extends HooksCore {
                     'icon'  => $picto_proto->getIcon(),
                     'name'  => $this->translator->trans($picto_proto->getLabel(), [], 'game'),
                     'repeat' => false,
-                    'TEST' => "picto_{$id}" . ( $count > 1 ? "__$count" : "" ),
                     ...$this->counter($user, subject: "picto_{$id}" . ( $count > 1 ? "__$count" : "" ) ),
                 ];
         }
