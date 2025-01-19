@@ -104,6 +104,9 @@
     font-weight: bold;
     font-size: 1.25rem;
     text-decoration: none;
+    &:not(.username)::after {
+    content:" :" !important;
+  }
 
     &.raw {
       color: white;
@@ -111,6 +114,7 @@
 
     &.quoteauthor + blockquote {
       margin-top: 0;
+      opacity:1 !important;
     }
   }
 
@@ -197,27 +201,37 @@
   div.crowmsg { margin: 4px 0; border: 1px solid #ddab76; background: #763939; padding: 3px; color: #ecb0b0; &.fixMargin { margin-left: 120px; } }
 
   span.rpauthor {
-    background: url('../../img/forum/rp.png') left top no-repeat;
-    padding-left: 24px; display: block;
+    background: none !important;
+    padding-left: 20px !important;
     font-style: italic; font-size: 1.25rem;
     font-weight: bold; clear: left;
-    &+.rpText { margin-top: 7px; }
+    background: url('../../img/icons/small_rp.gif') !important; background-repeat:no-repeat !important;
+    &:after { content: " :" !important; }
   }
 
   .rpText {
     clear: left;
-    margin: 0 30px 15px 30px; padding: 3px; background-color: #dddbd8; border: 1px solid #efefef; border-top-color: white; border-radius: 6px;
-    box-shadow: 0 0 2px black; position: relative; font-style: italic; line-height: 18px; color: #3b4151;
+    margin: 0px !important; margin-right: 0px !important; padding: 1px 5px 1px 5px !important;
+    min-height:20px !important; line-height: 18px;
+    background-color:#79432b !important; border-radius:10px !important; opacity:1 !important;
+    position: relative; font-style:italic !important; color:#ddab76 !important;
     &:before {
-      content: ""; display: block; background: url('../../img/forum/arrowUp.png') left center no-repeat; position: absolute;
-      top: -6px; left: 5px; width: 100%; height: 8px;
+      content: ""; display: block; background:none !important;
+      width: 100%;
     }
-    b, i {
-      color: #3b4151;
-      font-style: italic;
+    b {
+      color:#afb3cf !important;
+      opacity:1 !important;
+    }
+    i {
+      font-style:italic !important;
+      color:#f0d79e !important;
+      opacity:1 !important;
     }
     .collapsor, a {
-      color: darken(#ddab76, 30%);
+      color:#ddab76 !important;
+      font-weight:inherit !important;
+      opacity:1 !important;
     }
   }
 
