@@ -118,6 +118,11 @@ class UserFactory
             return null;
         }
 
+        if ($user->getPassword() === null) {
+            $error = self::ErrorInvalidParams;
+            return null;
+        }
+
         /** @var UserPendingValidation $existing_val */
         if (($existing_val = $this->entity_manager
             ->getRepository(UserPendingValidation::class)
