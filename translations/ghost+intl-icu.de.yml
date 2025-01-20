@@ -384,3 +384,9 @@ Stadtstart: Stadtstart
 'Diese Stadt wurde von einem Spieler gegründet.': 'Diese Stadt wurde von einem Spieler gegründet.'
 'Sie folgt den normalen Spielregeln und wird an ihrem Ende ins Ranking aufgenommen.': 'Sie folgt den normalen Spielregeln und wird an ihrem Ende ins Ranking aufgenommen.'
 'Wenn du dieser Stadt beitrittst, kannst du {block} Tage danach keiner anderen von einem Spieler gegründeten Stadt beitreten.': 'Wenn du dieser Stadt beitrittst, kannst du {block} Tage danach keiner anderen von einem Spieler gegründeten Stadt beitreten.'
+'Klicke auf den Namen der Stadt, um weitere Informationen zu erhalten.': 'Klicke auf den Namen der Stadt, um weitere Informationen zu erhalten.'
+'Dieser Stadt beitreten': 'Dieser Stadt beitreten'
+Koalition: Koalition
+'Du bist dieser Stadt aufgrund einer aktuellen Beschränkung deines Accounts nicht beitreten.': 'Du bist dieser Stadt aufgrund einer aktuellen Beschränkung deines Accounts nicht beitreten.'
+'Du kannst dieser Stadt nicht beitreten. Fehlercode: {error}': 'Du kannst dieser Stadt nicht beitreten. Fehlercode: {error}'
+'Aktive Fähigkeiten': 'Aktive Fähigkeiten'

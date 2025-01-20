@@ -3177,3 +3177,9 @@ Klinikregister: Klinikregister
 '{citizen} hat {list2} in die Stadt gelockt und dabei folgendes Futter eingesetzt: {list1}.': '{citizen} hat {list2} in die Stadt gelockt und dabei folgendes Futter eingesetzt: {list1}.'
 '{citizen} hat vergeblich versucht Tiere in die Stadt zu locken und dabei folgendes Futter verschwendet: {list1}.': '{citizen} hat vergeblich versucht Tiere in die Stadt zu locken und dabei folgendes Futter verschwendet: {list1}.'
 Tierklinik: Tierklinik
+'Die folgenden Bürger sind der Stadt bereits beigetreten:': 'Die folgenden Bürger sind der Stadt bereits beigetreten:'
+'Du kannst dieser Stadt nicht beitreten, da du nicht auf der Teilnehmerliste stehst.': 'Du kannst dieser Stadt nicht beitreten, da du nicht auf der Teilnehmerliste stehst.'
+'Du kannst dieser Stadt nicht beitreten, da du noch nicht die erforderliche Menge an Seelenpunkten gesammelt hast.': 'Du kannst dieser Stadt nicht beitreten, da du noch nicht die erforderliche Menge an Seelenpunkten gesammelt hast.'
+'Meine Truhe': 'Meine Truhe'
+'30 Tage in "{town}" überlebt.': '30 Tage in "{town}" überlebt.'
+'Auszeichnung {picto} zum {num}ten Mal in "{town}" verdient.': 'Auszeichnung {picto} zum {num}ten Mal in "{town}" verdient.'

@@ -80,7 +80,7 @@ class UpdateTranslationsCommand extends Command
             $output->writeln("Now working on translations for <info>{$lang}</info>...");
 
             $this->conf_trans->setConfigured(true);
-            if ($input->getOption('disable-db') || $input->getOption('prime')) $this->conf_trans->setDatabaseSearch(false);
+            if ($input->getOption('disable-db')) $this->conf_trans->setDatabaseSearch(false);
             if ($input->getOption('disable-twig')) $this->conf_trans->setTwigSearch(false);
             if ($input->getOption('disable-config')) $this->conf_trans->setConfigSearch(false);
 
@@ -99,7 +99,6 @@ class UpdateTranslationsCommand extends Command
             if ($input->getOption('disable-db')) $com .= " --disable-db";
             if ($input->getOption('disable-twig')) $com .= " --disable-twig";
             if ($input->getOption('disable-config')) $com .= " --disable-config";
-            if ($input->getOption('prime')) $com .= " --prime";
 
             $this->helper->capsule($com, $output);
         }
