@@ -3008,6 +3008,10 @@ Nüchtern: crwdns205818:0crwdne205818:0
 'Dein geworbener Spieler {user} hat zum ersten Mal Heldenerfahrung für eine Fähigkeit ausgegeben.': 'crwdns210612:0{user}crwdne210612:0'
 'Dein geworbener Spieler {user} hat zum ersten Mal in dieser Saison Heldenerfahrung für eine Fähigkeit ausgegeben.': 'crwdns210614:0{user}crwdne210614:0'
 'Vergessene Stadt': 'crwdns210616:0crwdne210616:0'
+Meisteringenieur: crwdns211510:0crwdne211510:0
+Meisteringenieur_f: crwdns211512:0crwdne211512:0
+'Techniker - Gewinner des SoH': 'crwdns211514:0crwdne211514:0'
+'Sieg für die Techniker beim Shock of Heroes Event!': 'crwdns211516:0crwdne211516:0'
 'Deine Anstrengungen in den Buddelgruben haben sich gelohnt! Du hast folgendes gefunden: {items_spawn}!': 'crwdns210618:0{items_spawn}crwdne210618:0'
 'Auf den Zinnen fühlst du dich unbesiegbar. Nichts wird dich heute Nacht zum Wanken bringen.': 'crwdns210620:0crwdne210620:0'
 'Auf den Zinnen fühlst du dich gut. Du willst morgen noch am Leben sein.': 'crwdns210622:0crwdne210622:0'
@@ -3173,3 +3177,9 @@ Klinikregister: crwdns210940:0crwdne210940:0
 '{citizen} hat {list2} in die Stadt gelockt und dabei folgendes Futter eingesetzt: {list1}.': 'crwdns210942:0{citizen}crwdnd210942:0{list2}crwdnd210942:0{list1}crwdne210942:0'
 '{citizen} hat vergeblich versucht Tiere in die Stadt zu locken und dabei folgendes Futter verschwendet: {list1}.': 'crwdns210944:0{citizen}crwdnd210944:0{list1}crwdne210944:0'
 Tierklinik: crwdns210946:0crwdne210946:0
+'Die folgenden Bürger sind der Stadt bereits beigetreten:': 'crwdns211518:0crwdne211518:0'
+'Du kannst dieser Stadt nicht beitreten, da du nicht auf der Teilnehmerliste stehst.': 'crwdns211520:0crwdne211520:0'
+'Du kannst dieser Stadt nicht beitreten, da du noch nicht die erforderliche Menge an Seelenpunkten gesammelt hast.': 'crwdns211522:0crwdne211522:0'
+'Meine Truhe': 'crwdns211524:0crwdne211524:0'
+'30 Tage in "{town}" überlebt.': 'crwdns211526:0{town}crwdne211526:0'
+'Auszeichnung {picto} zum {num}ten Mal in "{town}" verdient.': 'crwdns211528:0{picto}crwdnd211528:0{num}crwdnd211528:0{town}crwdne211528:0'

@@ -2965,8 +2965,8 @@ Schritt-Punkte: Point d'Exploration
 'Zur Übersicht meiner Fähigkeiten': 'Pour un aperçu de mes compétences'
 'Du hast eine neue Fähigkeit erworben. Herzlichen Glückwunsch!': 'Vous avez acquis une nouvelle compétence. Félicitations !'
 'Du verfügst aktuell über <strong>{xp} Punkte</strong> an Heldenerfahrung.': 'Vous disposez actuellement de <strong>{xp} points</strong> d''expérience héroïque.'
-'Du kannst eine neue {heroskill_link}!': 'Vous pouvez débloquer une {heroskill_link} !'
-'Heldenfähigkeit freischalten': 'capacité héroïque'
+'Du kannst eine neue {heroskill_link}!': 'Vous pouvez créer un nouveau {heroskill_link} !'
+'Heldenfähigkeit freischalten': 'Débloquer la capacité héroïque'
 'Meine freigeschalteten Fähigkeiten ansehen': 'Voir mes compétences débloquées'
 '{xp} Punkte': '{xp} points'
 'an Heldenerfahrung gesammelt.': 'd''expérience héroïque.'
@@ -3008,8 +3008,8 @@ Nüchtern: Sobre
 'Dein geworbener Spieler {user} hat zum ersten Mal Heldenerfahrung für eine Fähigkeit ausgegeben.': 'Votre joueur parrainé {user} a dépensé de l''expérience héroïque sur une capacité pour la première fois.'
 'Dein geworbener Spieler {user} hat zum ersten Mal in dieser Saison Heldenerfahrung für eine Fähigkeit ausgegeben.': 'Votre joueur parrainé {user} a dépensé de l''expérience héroïque sur une capacité pour la première fois cette saison.'
 'Vergessene Stadt': 'Cité oubliée'
-Meisteringenieur: Maître Ingénieur
-Meisteringenieur_f: Maître Ingénieur
+Meisteringenieur: Chef-Bricoleur
+Meisteringenieur_f: Cheffe-Bricoleuse
 'Techniker - Gewinner des SoH': 'Technicien gagnant du CDH'
 'Sieg für die Techniker beim Shock of Heroes Event!': 'Victoire en tant que Technicien lors du Choc des Héros !'
 'Deine Anstrengungen in den Buddelgruben haben sich gelohnt! Du hast folgendes gefunden: {items_spawn}!': 'Vos efforts lors des fouilles ont porté leurs fruits ! Vous avez trouvé : {items_spawn}!'
@@ -3177,3 +3177,9 @@ Klinikregister: Centre d'essai
 '{citizen} hat {list2} in die Stadt gelockt und dabei folgendes Futter eingesetzt: {list1}.': '{citizen} a attiré {list2} dans la ville en utilisant la nourriture suivante : {list1}.'
 '{citizen} hat vergeblich versucht Tiere in die Stadt zu locken und dabei folgendes Futter verschwendet: {list1}.': '{citizen} a essayé en vain d''attirer des animaux dans la ville et a gaspillé la nourriture suivante : {list1}.'
 Tierklinik: Centre d'essai
+'Die folgenden Bürger sind der Stadt bereits beigetreten:': 'Les citoyens suivants sont déjà entrés dans cette ville :'
+'Du kannst dieser Stadt nicht beitreten, da du nicht auf der Teilnehmerliste stehst.': 'Vous ne pouvez pas entrer dans cette ville, car vous n''êtes pas sur sa liste d''invités.'
+'Du kannst dieser Stadt nicht beitreten, da du noch nicht die erforderliche Menge an Seelenpunkten gesammelt hast.': 'Vous ne pouvez pas rejoindre cette ville car vous n''avez pas suffisamment de points d''âme.'
+'Meine Truhe': 'Mon Coffre'
+'30 Tage in "{town}" überlebt.': 'Survécu 30 jours dans « {town} ».'
+'Auszeichnung {picto} zum {num}ten Mal in "{town}" verdient.': 'Distinction {picto} obtenue pour la {num}ème fois dans « {town} ».'

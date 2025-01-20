@@ -384,3 +384,9 @@ Stadtstart: Départ de la ville
 'Diese Stadt wurde von einem Spieler gegründet.': 'Cette ville a été créée par un joueur.'
 'Sie folgt den normalen Spielregeln und wird an ihrem Ende ins Ranking aufgenommen.': 'Elle suit les règles normales du jeu et est incluse dans le classement des villes.'
 'Wenn du dieser Stadt beitrittst, kannst du {block} Tage danach keiner anderen von einem Spieler gegründeten Stadt beitreten.': 'Si vous rejoignez cette ville, vous ne pourrez rejoindre aucune autre ville créée par un joueur pendant {block} jours après.'
+'Klicke auf den Namen der Stadt, um weitere Informationen zu erhalten.': 'Cliquez sur le nom d''une ville pour voir des informations complémentaires.'
+'Dieser Stadt beitreten': 'Rejoindre cette ville'
+Koalition: Coalition
+'Du bist dieser Stadt aufgrund einer aktuellen Beschränkung deines Accounts nicht beitreten.': 'Vous ne pouvez pas rejoindre cette ville en raison d''une restriction imposée à votre compte.'
+'Du kannst dieser Stadt nicht beitreten. Fehlercode: {error}': 'Vous ne pouvez pas rejoindre cette ville. Code d''erreur : {error}'
+'Aktive Fähigkeiten': 'Capacités actives'

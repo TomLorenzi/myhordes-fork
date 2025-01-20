@@ -384,3 +384,9 @@ Stadtstart: crwdns205810:0crwdne205810:0
 'Diese Stadt wurde von einem Spieler gegründet.': 'crwdns211500:0crwdne211500:0'
 'Sie folgt den normalen Spielregeln und wird an ihrem Ende ins Ranking aufgenommen.': 'crwdns211502:0crwdne211502:0'
 'Wenn du dieser Stadt beitrittst, kannst du {block} Tage danach keiner anderen von einem Spieler gegründeten Stadt beitreten.': 'crwdns211504:0{block}crwdne211504:0'
+'Klicke auf den Namen der Stadt, um weitere Informationen zu erhalten.': 'crwdns211538:0crwdne211538:0'
+'Dieser Stadt beitreten': 'crwdns211540:0crwdne211540:0'
+Koalition: crwdns211542:0crwdne211542:0
+'Du bist dieser Stadt aufgrund einer aktuellen Beschränkung deines Accounts nicht beitreten.': 'crwdns211544:0crwdne211544:0'
+'Du kannst dieser Stadt nicht beitreten. Fehlercode: {error}': 'crwdns211546:0{error}crwdne211546:0'
+'Aktive Fähigkeiten': 'crwdns211548:0crwdne211548:0'

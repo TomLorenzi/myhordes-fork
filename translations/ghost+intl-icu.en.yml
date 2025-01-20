@@ -384,3 +384,9 @@ Stadtstart: City start
 'Diese Stadt wurde von einem Spieler gegründet.': 'This town was created by a player.'
 'Sie folgt den normalen Spielregeln und wird an ihrem Ende ins Ranking aufgenommen.': 'It follows the normal rules of the game and is included in the town rankings.'
 'Wenn du dieser Stadt beitrittst, kannst du {block} Tage danach keiner anderen von einem Spieler gegründeten Stadt beitreten.': 'If you join this town, you will not be able to join any other player-created town for {block} days afterward.'
+'Klicke auf den Namen der Stadt, um weitere Informationen zu erhalten.': 'Click on the name of a town to see additional information.'
+'Dieser Stadt beitreten': 'Join this town'
+Koalition: Coalition
+'Du bist dieser Stadt aufgrund einer aktuellen Beschränkung deines Accounts nicht beitreten.': 'You cannot join this town due to a restriction placed upon your account.'
+'Du kannst dieser Stadt nicht beitreten. Fehlercode: {error}': 'You cannot join this town. Error code: {error}'
+'Aktive Fähigkeiten': 'Active skills'
