@@ -1846,7 +1846,7 @@ Reiseleiter-Ratgeber: the guide to the game for Guides to the World Beyond
 'Wenn du flüchtest, werden dich die Zombies verletzen, aber du wirst trotzdem entkommen...': 'If you flee, you will be wounded by the zombies, but on the other hand, you will be able to leave the zone...'
 'Du kannst versuchen einen Zombie im Nahkampf und ohne Waffen anzugreifen.': 'You can try to engage a zombie in hand to hand combat to make your escape easier.'
 'Diese Aktion kostet dich 1 AP und die Erfolgsaussichten sind ziemlich gering.': 'This action costs 1 AP and has a minimal chance of success.'
-'Dieser Bürger möchte in die Stadt gebracht werden.': "{ref__icu, select,\n                on {{ref__gender, select,\n                        female {This citizen wants to be brought into the city.}\n                        other {This citizen wants to be brought into the city.}\n                    }}\n            other {This citizen wants to be brought into the city.}\n            }"
+'Dieser Bürger möchte in die Stadt gebracht werden.': "{ref__icu, select,\n                on {{ref__gender, select,\n                        female {This citizen wants to be brought into town.}\n                        other {This citizen wants to be brought into town.}\n                    }}\n            other {This citizen wants to be brought into town.}\n            }"
 'Der Leichnam von {citizen} wurde nicht zerstört.': '{citizen}''s corpse has not been destroyed.'
 'Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.': 'It''s entirely possible that it''ll decide to wake up and eat you alive tonight.'
 '<em>Du kannst dein Haus ausbauen und so für eine bessere Verteidigung sorgen. <strong>Wichtige Anmerkung:</strong> Vielleicht wäre es sinnvoller, die dafür benötigten Ressourcen (falls erforderlich) der Stadt zu spenden?</em>': '<em>You can upgrade your home and benefit from improved defences. <strong>Important:</strong> perhaps it would be wise to use your resources to carry out improvements in the town?</em>'
@@ -3008,8 +3008,9 @@ Nüchtern: Sober
 'Fragen & Antworten': 'Questions & Answers'
 'Dein geworbener Spieler {user} hat zum ersten Mal Heldenerfahrung für eine Fähigkeit ausgegeben.': 'Your referred player {user} has spent heroic experience on an ability for the first time.'
 'Dein geworbener Spieler {user} hat zum ersten Mal in dieser Saison Heldenerfahrung für eine Fähigkeit ausgegeben.': 'Your referred player {user} spent heroic experience on an ability for the first time this season.'
-'Vergessene Stadt': 'Forgotten City'
-Meisteringenieur: Master Engineer
-Meisteringenieur_f: Master Engineer
+'Vergessene Stadt': 'Forgotten Town'
+'Überall und nirgens': 'Everywhere and nowhere'
+Meisteringenieur: Handyman Chief
+Meisteringenieur_f: Handywomen Chief
 'Techniker - Gewinner des SoH': 'Technician - Winner of the SoH'
 'Sieg für die Techniker beim Shock of Heroes Event!': 'Victory as a Technician during the Shock of Heroes!'
