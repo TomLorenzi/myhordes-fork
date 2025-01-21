@@ -429,7 +429,7 @@ class MigrateCommand extends Command
 
                 if ($result) {
                     $num = (int)$qh->ask($input, $output, new Question(
-                        "Enter season number (default: 16): ", "16"
+                        "Enter season number (default: 17): ", "17"
                     ) );
                     $subnum = (int)$qh->ask($input, $output, new Question(
                         "Enter sub-season number (default: 0): ", "0"
