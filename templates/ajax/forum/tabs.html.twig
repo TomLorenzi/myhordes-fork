@@ -34,7 +34,9 @@
                             data-fetch-load="{{ id is defined ? path('forum_view', {id: id}) : path('forum_list') }}"
                             data-fetch="{{ path('rest_user_settings_options_forum_flag_off', {id: pinned_forum.id, flag: 'pin'}) }}"
                             data-fetch-method="delete"
-                    >🗙</span>
+                    >
+                        <img class="tab-link-delete" alt="x" src="{{ asset('build/images/icons/small_remove.gif') }}">
+                    </span>
                     <span class="hide-desktop">{{ pinned_forum.localizedSlug(app.locale) }}</span>
                 </div>
             </li>
