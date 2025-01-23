@@ -14,6 +14,8 @@ import Ajax from '../ts/ajax'
 import HTML from '../ts/html'
 import MessageAPI from '../ts/messages'
 import Components from "../ts/react";
+import Sortable from 'sortablejs';
+window.Sortable = Sortable;
 
 import {init} from "../ts/v2/init";
 init();

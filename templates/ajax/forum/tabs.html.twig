@@ -13,7 +13,7 @@
             <span class="hide-sm">{{ 'Weltforen'|trans({},'global') }}</span>
         </div>
     </li>
-    {% if tab == 'fm' and name is defined and id is defined and (not app.user or id not in app.user.pinnedForums|map(p => p.id)) %}
+    {% if tab == 'fm' and name is defined and id is defined and (not app.user or id not in app.user.pinnedForums|map(p => p.forum.id)) %}
         <li {{ { 'tab': true, selected: true }|classes }}>
             <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('forum_view', {id: id}) }}">
                 <img src="{{ asset('build/images/icons/small_rp.gif') }}" alt=""/>
@@ -22,24 +22,76 @@
         </li>
     {% endif %}
     {% if app.user %}
-        {% for pinned_forum in app.user.pinnedForums %}
-            <li {{ { 'tab': true, selected: id is defined and id == pinned_forum.id }|classes }} title="{{ pinned_forum.localizedTitle(app.locale) }}">
-                <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('forum_view', {id: pinned_forum.id}) }}">
-                    <img src="{{ asset('build/images/icons/small_rp.gif') }}" alt=""/>
-                    <span class="hide-sm hide-md hide-lg">{{ (app.user.pinnedForums.count >= 4 and slugify is defined and slugify) ? pinned_forum.localizedSlug(app.locale) : pinned_forum.localizedTitle(app.locale) }}</span>
-                    <span
-                            class="hide-sm hide-md hide-lg"
-                            title="{{ 'Löschen'|trans({},'game') }}"
-                            data-fetch-confirm="{{ 'Bestätigen?'|trans({},'global') }}"
-                            data-fetch-load="{{ id is defined ? path('forum_view', {id: id}) : path('forum_list') }}"
-                            data-fetch="{{ path('rest_user_settings_options_forum_flag_off', {id: pinned_forum.id, flag: 'pin'}) }}"
-                            data-fetch-method="delete"
-                    >
-                        <img class="tab-link-delete" alt="x" src="{{ asset('build/images/icons/small_remove.gif') }}">
-                    </span>
-                    <span class="hide-desktop">{{ pinned_forum.localizedSlug(app.locale) }}</span>
-                </div>
-            </li>
-        {% endfor %}
+        <span id="pinned-forums">
+            {% for pinned_forum in app.user.pinnedForums|sort((a, b) => a.position <=> b.position) %}
+                <li {{ { 'sortable-item': true, 'tab': true, selected: id is defined and id == pinned_forum.forum.id }|classes }} data-id="{{ pinned_forum.forum.id }}" title="{{ pinned_forum.forum.localizedTitle(app.locale) }}">
+                    <div class="tab-link">
+                        <img class="drag-handle" src="{{ asset('build/images/icons/small_rp.gif') }}" alt=""/>
+                        <span x-ajax-sticky x-ajax-href="{{ path('forum_view', {id: pinned_forum.forum.id}) }}">
+                            <span class="hide-sm hide-md hide-lg">
+                                {{ (app.user.pinnedForums.count >= 4 and slugify is defined and slugify) ? pinned_forum.forum.localizedSlug(app.locale) : pinned_forum.forum.localizedTitle(app.locale) }}
+                            </span>
+                            <span
+                                class="hide-sm hide-md hide-lg"
+                                title="{{ 'Löschen'|trans({},'game') }}"
+                                data-fetch-confirm="{{ 'Bestätigen?'|trans({},'global') }}"
+                                data-fetch-load="{{ id is defined ? path('forum_view', {id: id}) : path('forum_list') }}"
+                                data-fetch="{{ path('rest_user_settings_options_forum_flag_off', {id: pinned_forum.forum.id, flag: 'pin'}) }}"
+                                data-fetch-method="delete"
+                            >
+                                <img class="tab-link-delete" alt="x" src="{{ asset('build/images/icons/small_remove.gif') }}">
+                            </span>
+                            <span class="hide-desktop">{{ pinned_forum.forum.localizedSlug(app.locale) }}</span>
+                        </span>
+                    </div>
+                </li>
+            {% endfor %}
+        </span>
     {% endif %}
 </ul>
+
+{% block js %}
+    <script>
+        let forumList = document.getElementById('pinned-forums');
+            console.log("Forum list found:", forumList);
+
+            if (forumList) {
+                new window.Sortable(forumList, {
+                    animation: 150,
+                    ghostClass: 'sortable-ghost',
+                    handle: '.drag-handle',
+                    onEnd: function (evt) {
+                        let order = [];
+                        document.querySelectorAll("#pinned-forums .sortable-item").forEach((el, index) => {
+                            order.push({
+                                id: el.getAttribute('data-id'),
+                                position: index + 1
+                            });
+                        });
+
+                        console.log("New Order:", order);
+
+                        fetch('{{ path('rest_user_settings_options_reorder_pinned_forums') }}', {
+                            method: 'POST',
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json',
+                                'X-Requested-With': 'XMLHttpRequest'
+                            },
+                            body: JSON.stringify(order)
+                        }).then(response => {
+                            if (response.ok) {
+                                console.log("Order updated successfully.");
+                            } else {
+                                console.error("Failed to update order.");
+                            }
+                        }).catch(error => {
+                            console.error("Error:", error);
+                        });
+                    }
+                });
+            } else {
+                console.error("Pinned forums list not found in DOM!");
+            }
+    </script>
+{% endblock %}

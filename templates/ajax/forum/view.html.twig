@@ -229,7 +229,8 @@
                                                 type="checkbox"
                                                 id="f_opt_pin"
                                                 data-fetch-load="{{ path('forum_view', {id: forum.id}) }}"
-                                                {% if app.user.pinnedForums.contains(forum) %}
+                                                {% set pinnedForumIds = app.user.pinnedForums|map(p => p.forum.id) %}
+                                                {% if forum.id in pinnedForumIds %}
                                                     checked
                                                     data-fetch="{{ path('rest_user_settings_options_forum_flag_off', {id: forum.id, flag: 'pin'}) }}"
                                                     data-fetch-method="delete"
