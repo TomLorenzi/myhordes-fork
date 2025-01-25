@@ -53,10 +53,6 @@ export function sharedWorkerMessageHandler(connection: string = null, message: s
     }
 }
 
-export function broadcast(message: string, args: object = {}): void {
-    window.mhWorker?.port.postMessage( {payload: {...args, message}, request: 'broadcast', except: window.mhWorkerIdList} )
-}
-
 async function initLive() {
     require('string.prototype.matchall').shim();
     await initServiceWorker();

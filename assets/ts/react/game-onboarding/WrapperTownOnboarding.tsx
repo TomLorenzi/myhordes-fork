@@ -13,7 +13,6 @@ import {TranslationStrings} from "./strings";
 import {Tooltip} from "../tooltip/Wrapper";
 import {sharedWorkerCall, sharedWorkerMessageHandler} from "../../v2/init";
 import {ServiceWorkerIndicator} from "../service-worker-state/Wrapper";
-import {dialogShim} from "../../shims";
 import {BaseMounter} from "../index";
 import Dialog from "../components/dialog";
 import {html} from "../../v2/helpers";

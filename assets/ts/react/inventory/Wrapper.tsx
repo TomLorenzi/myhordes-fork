@@ -15,7 +15,7 @@ import {TranslationStrings} from "./strings";
 import {useVault} from "../../v2/client-modules/Vault";
 import {VaultItemEntry} from "../../v2/typedef/vault_td";
 import {BaseMounter} from "../index";
-import {emitSignal, useSignal} from "../../v2/client-modules/Signal";
+import {emitSignal, useBroadcastSignal, useSignal} from "../../v2/client-modules/Signal";
 import {ServerInducedSignalProps} from "../../v2/fetch";
 
 declare var $: Global;
@@ -470,6 +470,7 @@ const HordesPassiveInventoryWrapper = (props: passiveMountProps) => {
 
     const [strings, setStrings] = useState<TranslationStrings>( null );
     const [bag, setBag] = useState<InventoryBagData>(null);
+    const [mayBeOutdated, setMayBeOutdated] = useState<boolean>(false);
 
     const vaultData = useVault<VaultItemEntry>(
         'items', bag ? extractAllItems( bag ).map(i => i.p) : null
@@ -478,6 +479,27 @@ const HordesPassiveInventoryWrapper = (props: passiveMountProps) => {
     useEffect(() => {
         api.current.index().then(s => setStrings(s));
     }, []);
+
+    useBroadcastSignal(
+        ['inventory-bag-loaded', 'inventory-changed'],
+        () => {
+            setMayBeOutdated(true)
+        },
+        [props.id]
+    );
+
+    useSignal(
+        'web-navigation',
+        () => {
+            // Attempt to find an active bag
+            const i = document.querySelector(`hordes-inventory[data-inventory-a-id="${props.id}"],hordes-inventory[data-inventory-b-id="${props.id}"]`);
+            if (!i && mayBeOutdated) api.current.inventory(props.id).then(r => {
+                if (!r.bank) setBag(r as InventoryBagData);
+            });
+            if (mayBeOutdated) setMayBeOutdated(false);
+        },
+        [mayBeOutdated]
+    )
 
     useSignal<InventoryBagLoadedSignalProps>(
         'inventory-bag-loaded',

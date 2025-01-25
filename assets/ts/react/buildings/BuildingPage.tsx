@@ -268,7 +268,7 @@ const BuildingInfos= (props: BuildingCompleteProps & {level: number}) => {
                                                                                     src={globals.strings.page.g2}/>)}
         {props.level > 0 && <img alt="" src={globals.strings.page.g1}/>}
         <img alt={props.prototype.name} src={props.prototype.icon} className="building_icon"/>
-        <div className="flex gap">
+        <div className="flex gap" style={{overflow: 'hidden'}}>
             <Tag
                 tagName="span" classNames={{'action-vote': globals.canVote && !props.building.c}} className="building_name"
                 onClick={() => {

@@ -466,6 +466,8 @@ export default class Ajax {
 
             if (callback) callback();
 
+            emitSignal<{url: string}>('web-navigation', {url})
+
             let event = {url: url, post: data, node: target, render: new Promise(resolve => {
                 if (ajax_instance.render_block_stack === 0) resolve(true);
                 else ajax_instance.render_block_promises.push( resolve )
