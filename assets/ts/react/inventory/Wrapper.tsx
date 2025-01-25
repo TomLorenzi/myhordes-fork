@@ -17,6 +17,7 @@ import {VaultItemEntry} from "../../v2/typedef/vault_td";
 import {BaseMounter} from "../index";
 import {emitSignal, useBroadcastSignal, useSignal} from "../../v2/client-modules/Signal";
 import {ServerInducedSignalProps} from "../../v2/fetch";
+import {ItemTooltip} from "../utils";
 
 declare var $: Global;
 declare var c: Const;
@@ -71,6 +72,10 @@ interface escortMountProps {
     name: string,
 }
 
+interface standaloneItemMountProps {
+    item: number,
+}
+
 interface InventoryBagLoadedSignalProps {
     id: number,
     inventory: InventoryResponse,
@@ -97,6 +102,12 @@ export class HordesInventory extends BaseMounter<mountProps>{
 export class HordesPassiveInventory extends BaseMounter<passiveMountProps>{
     protected render(props: passiveMountProps): React.ReactNode {
         return <HordesPassiveInventoryWrapper {...props} parent={this.parent} />;
+    }
+}
+
+export class HordesStandaloneItem extends BaseMounter<standaloneItemMountProps>{
+    protected render(props: standaloneItemMountProps): React.ReactNode {
+        return <HordesStandaloneItemWrapper {...props} />;
     }
 }
 
@@ -439,14 +450,7 @@ const SingleItem = (props: { item: Item, data: VaultItemEntry | null, mods: Inve
         >
             <span className="item-icon"><img src={ props.data?.icon ?? '' } alt={ props.data?.name ?? '...' }/></span>
             {props.item.c > 1 && <span>{props.item.c}</span>}
-            <Tooltip additionalClasses="item">
-                <h1>
-                    {props.data?.name ?? '???'}
-                    {props.item.b && <span className="broken">{globals.strings.props.broken}</span>}
-                    &nbsp;
-                    <img src={props.data?.icon ?? ''} alt={props.data?.name ?? '...'}/>
-                </h1>
-                { props.data?.desc ?? '???' }
+            <ItemTooltip data={props.data} addendum={props.item.b && {className: 'broken', text: globals.strings.props.broken}}>
                 { props.mods.has_drunk && props.data.props.includes('is_water') && <div className="item-addendum">{ globals.strings.props["drink-done"] }</div> }
                 { props.item.e && <div className="item-tag item-tag-essential">{ globals.strings.props.essential }</div> }
                 { props.data.props.includes('single_use') && <div className="item-tag item-tag-use-1">{ globals.strings.props.single_use }</div> }
@@ -458,7 +462,7 @@ const SingleItem = (props: { item: Item, data: VaultItemEntry | null, mods: Inve
                     { globals.strings.props["nw-weapon"] }
                     {props.item.w && <>&nbsp;<em>{ props.item.w }</em></> }
                 </div> }
-            </Tooltip>
+            </ItemTooltip>
         </li>
         :
         <li className="item locked pending"/>
@@ -574,6 +578,24 @@ const HordesPassiveInventoryWrapper = (props: passiveMountProps) => {
     </Globals.Provider>
 
 }
+
+const HordesStandaloneItemWrapper = (props: standaloneItemMountProps) => {
+
+    const vaultData = useVault<VaultItemEntry>(
+        'items', [props.item]
+    )
+
+    const item = (vaultData ?? {})[props.item] ?? null;
+
+    return <div className="inline">
+        { item && <>
+            <img alt={item.name} src={item.icon}/>
+            <ItemTooltip data={item}/>
+        </> }
+    </div>
+
+}
+
 
 const HordesEscortInventoryWrapper = (props: escortMountProps) => {
 

@@ -13,6 +13,7 @@ import {BuildingListGlobal, mountPageProps} from "./Wrapper";
 import {Tag} from "../index";
 import {InventoryAPI, InventoryResourceData} from "../inventory/api";
 import {Tab, TabbedSection} from "../tab-list/TabList";
+import {ItemTooltip} from "../utils";
 
 declare var $: Global;
 declare var c: Const;
@@ -412,6 +413,6 @@ const BuildingResourceItem = (props: BuildingResourceItemProps) => {
             </Tag>/<span className="resource needed">{ props.needed }</span>
         </> }
         { globals.viewMode === "needed" && <span className="resource needed">{ props.needed - props.having}</span> }
-        <Tooltip html={props.item.desc}></Tooltip>
+        <ItemTooltip data={props.item}/>
     </div>
 }

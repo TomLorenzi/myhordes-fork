@@ -7,7 +7,12 @@
 import {HordesMap} from "../react/map/Wrapper";
 import {PersistentShim, Shim} from "../react";
 import {HordesLog} from "../react/log/Wrapper";
-import {HordesEscortInventory, HordesInventory, HordesPassiveInventory} from "../react/inventory/Wrapper";
+import {
+    HordesEscortInventory,
+    HordesInventory,
+    HordesPassiveInventory,
+    HordesStandaloneItem
+} from "../react/inventory/Wrapper";
 import {InventoryBagData, Item} from "../react/inventory/api";
 import {HordesBuildingList, HordesBuildingPage} from "../react/buildings/Wrapper";
 
@@ -125,6 +130,24 @@ customElements.define('hordes-passive-inventory', class HordesPassiveInventoryEl
     protected static observedAttributeNames() {
         return [
             'data-max', 'data-id', 'data-link'
+        ];
+    }
+}, {  });
+
+customElements.define('hordes-standalone-item', class HordesStandaloneItemElement extends Shim<HordesStandaloneItem> {
+    protected generateInstance(): HordesStandaloneItem {
+        return new HordesStandaloneItem();
+    }
+
+    protected generateProps(): object | null {
+        return {
+            item: parseInt(this.dataset.item ?? '0'),
+        }
+    }
+
+    protected static observedAttributeNames() {
+        return [
+            'data-item'
         ];
     }
 }, {  });
