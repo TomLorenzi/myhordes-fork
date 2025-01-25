@@ -26,6 +26,7 @@ export default class VaultServiceModule extends ServiceModule {
 
     protected schedule: number = null;
     protected fetching = false;
+    protected defaultDelay = 15;
 
     protected requests: DataRequest[] = [];
 
@@ -37,17 +38,17 @@ export default class VaultServiceModule extends ServiceModule {
     constructor(p, private readonly scope:Window|SharedWorkerGlobalScope, baseUrl: string|boolean) {
         super(p);
 
-        this.fetch = baseUrl === false ? new Fetch() : new Fetch(`${baseUrl}/rest/v1/game/data`, false);
+        this.fetch = baseUrl === false ? new Fetch('game/data') : new Fetch(`${baseUrl}/rest/v1/game/data`, false);
 
         this.store = createStore('myhordes', 'vault')
         this.ready = true
         this.queueProcess();
     }
 
-    queueProcess = (n: number = 15) => {
+    queueProcess = (n: number = null) => {
         if (this.fetching || !this.ready) return;
         this.scope.clearTimeout(this.schedule);
-        this.schedule = this.scope.setTimeout( () => this.processRequests(), n );
+        this.schedule = this.scope.setTimeout( () => this.processRequests(), n ?? this.defaultDelay );
     }
 
     processRequests = () => {
@@ -77,9 +78,9 @@ export default class VaultServiceModule extends ServiceModule {
                         .reduce( (c, list) => [...c,...list], [] )
                     );
 
-                    return this.fetch.from(t, {ids: [...ids].join(',')}).request().get()
+                    return this.fetch.from(t, {ids: [...ids].join(',')}).withErrorMessages(false).request().get()
                         .then((r: DataResponse) => {
-                            const ports = new Set<MessagePort>( typeRequests.map( r => r.origin ) );
+                            const ports = new Set<MessagePort>(typeRequests.map(r => r.origin));
                             [...ports].forEach(p => p.postMessage({
                                 request: 'vault.updated', payload: {
                                     storage: t,
@@ -90,9 +91,12 @@ export default class VaultServiceModule extends ServiceModule {
                             this.qv = r.v;
                             this.ql = r.l;
 
-                            return this.writeToStorage( t, r )
-                        }).catch(e => {
+                            return this.writeToStorage(t, r)
+                        })
+                        .then( () => this.defaultDelay = Math.max(15, this.defaultDelay - 1000) )
+                        .catch(e => {
                             Console.error('Vault fetch failure', e);
+                            this.defaultDelay = Math.min(15000, this.defaultDelay + 1000);
                             this.requests = [...this.requests, ...typeRequests]
                         });
                 } ))

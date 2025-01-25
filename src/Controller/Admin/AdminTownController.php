@@ -46,6 +46,7 @@ use App\Entity\User;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Enum\Configuration\CitizenProperties;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Enum\Configuration\TownSetting;
 use App\Enum\EventStages\BuildingEffectStage;
 use App\Enum\EventStages\BuildingValueQuery;
@@ -180,7 +181,7 @@ class AdminTownController extends AdminActionController
   * @return Response
   */
  #[Route(path: 'jx/admin/town/dash/{id<\d+>}', name: 'admin_town_dashboard')]
- public function town_explorer_dash(int $id, TownHandler $townHandler): Response {
+ public function town_explorer_dash(int $id, TownHandler $townHandler, KernelInterface $kernel): Response {
 		/** @var Town $town */
 		$town = $this->entity_manager->getRepository(Town::class)->find($id);
 		if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
@@ -193,7 +194,8 @@ class AdminTownController extends AdminActionController
 			'events' => $this->conf->getAllEvents(),
 			'current_event' => $this->conf->getCurrentEvents($town),
 			'langs' => array_merge($this->generatedLangsCodes, ['multi']),
-			'map_public_json' => json_encode($townHandler->get_public_map_blob($town, null, 'door-planner', 'day', "admin/{$town->getId()}", true))
+			'map_public_json' => json_encode($townHandler->get_public_map_blob($town, null, 'door-planner', 'day', "admin/{$town->getId()}", true)),
+            'debug' => $kernel->getEnvironment() === 'dev' || $kernel->getEnvironment() === 'local' || $this->conf->getGlobalConf()->get(MyHordesSetting::StagingSettingsEnabled)
 		])));
 	}
 
@@ -613,7 +615,11 @@ class AdminTownController extends AdminActionController
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if ((str_starts_with($action, 'dbg_') || in_array($action, ['ex_inf'])) && $kernel->getEnvironment() !== 'dev' && $kernel->getEnvironment() !== 'local')
+
+
+        if ((str_starts_with($action, 'dbg_') || in_array($action, ['ex_inf'])) &&
+            !($kernel->getEnvironment() === 'dev' || $kernel->getEnvironment() === 'local' || $this->conf->getGlobalConf()->get(MyHordesSetting::StagingSettingsEnabled))
+        )
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if (in_array($action, [

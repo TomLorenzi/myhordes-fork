@@ -98,7 +98,7 @@
 							{% endif %}
 						</optgroup>
 						{% if is_granted("ROLE_SUB_ADMIN") %}
-							{% if app.environment == 'dev' or app.environment == 'local' %}
+							{% if debug %}
 								<optgroup label="Debug">
 									{% set ctz_engaged = 0 %}
 									{% set ctz_disengaged = 0 %}
