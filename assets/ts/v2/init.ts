@@ -1,4 +1,5 @@
 import Console from "./debug";
+import {html} from "./helpers";
 
 declare global {
     interface Window {
@@ -54,10 +55,6 @@ export function sharedWorkerMessageHandler(connection: string = null, message: s
 
 export function broadcast(message: string, args: object = {}): void {
     window.mhWorker?.port.postMessage( {payload: {...args, message}, request: 'broadcast', except: window.mhWorkerIdList} )
-}
-
-export function html(): HTMLElement {
-    return ((document.getRootNode() as Document).firstElementChild as HTMLElement);
 }
 
 async function initLive() {

@@ -2,6 +2,7 @@
 import {Const, Global} from "../defaults"
 import {bool, string} from "prop-types";
 import {SecureStorage} from "./security";
+import {emitSignal} from "./client-modules/Signal";
 declare var c: Const;
 declare const $: Global;
 
@@ -9,6 +10,11 @@ export interface AjaxV1Response {
     success: boolean|any,
     error?: number|string,
     message?: string,
+}
+
+export interface ServerInducedSignalProps {
+    response: Response|XMLHttpRequest,
+    type: 'fetch'|'xhr',
 }
 
 class FetchCacheEntry {
@@ -259,6 +265,10 @@ export class Fetch {
             case 'process': default:
                 break;
         }
+
+        response.headers.get('X-Client-Signals')?.split(', ').forEach(
+            sig => emitSignal<ServerInducedSignalProps>(sig, {response, type: 'fetch'})
+        )
 
         const session_domain = response.headers.get('X-Session-Domain') ?? null;
         if (session_domain) {

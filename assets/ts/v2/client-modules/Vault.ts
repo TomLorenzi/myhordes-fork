@@ -1,6 +1,7 @@
-import {html, sharedWorkerCall} from "../init";
-import {VaultBuildingEntry, VaultEntry, VaultStorage} from "../typedef/vault_td";
-import {useEffect, DependencyList, useRef, useState, EffectCallback} from "react";
+import {sharedWorkerCall} from "../init";
+import {VaultEntry, VaultStorage} from "../typedef/vault_td";
+import {useEffect, useRef, useState, EffectCallback} from "react";
+import {html} from "../helpers";
 
 export class Vault<V extends VaultEntry> {
 
