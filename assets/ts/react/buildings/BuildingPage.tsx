@@ -268,21 +268,34 @@ const BuildingInfos= (props: BuildingCompleteProps & {level: number}) => {
                                                                                     src={globals.strings.page.g2}/>)}
         {props.level > 0 && <img alt="" src={globals.strings.page.g1}/>}
         <img alt={props.prototype.name} src={props.prototype.icon} className="building_icon"/>
-        <Tag
-            tagName="span" classNames={{'action-vote': globals.canVote && !props.building.c}} className="building_name"
-            onClick={() => {
-                if (globals.canVote && !props.building.c)
-                    globals.api
-                        .vote(props.building.i)
-                        .then(m => {
-                            if (m.message) $.html.message( m.success ? 'notice' : 'error', m.message );
-                            if (m.building) globals.updateBuilding(m.building);
-                        })
-            }}
-        >
-            {props.prototype.name}
-            { globals.canVote && !props.building.c && <Tooltip html={globals.strings.page.vote.can}/>}
-        </Tag>
+        <div className="flex gap">
+            <Tag
+                tagName="span" classNames={{'action-vote': globals.canVote && !props.building.c}} className="building_name"
+                onClick={() => {
+                    if (globals.canVote && !props.building.c)
+                        globals.api
+                            .vote(props.building.i)
+                            .then(m => {
+                                if (m.message) $.html.message( m.success ? 'notice' : 'error', m.message );
+                                if (m.building) globals.updateBuilding(m.building);
+                            })
+                }}
+            >
+                {props.prototype.name}
+                { globals.canVote && !props.building.c && <Tooltip html={globals.strings.page.vote.can}/>}
+            </Tag>
+            { props.building.t &&
+                <div>
+                    <img alt={globals.strings.page.temp.title} src={globals.strings.page.temp.icon} />
+                    <Tooltip additionalClasses="help">
+                        <b>{globals.strings.page.temp.title}</b>
+                        <hr/>
+                        <span dangerouslySetInnerHTML={{__html: globals.strings.page.temp.text}} />
+                    </Tooltip>
+                </div>
+            }
+        </div>
+
         {props.prototype.defense > 0 &&
             <Tag classNames={{
                 defense: !props.building.c || props.building.d0 >= props.prototype.defense,

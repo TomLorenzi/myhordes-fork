@@ -5,6 +5,7 @@ export type Building = {
     i: number,
     p: number,
     l: number,
+    t: boolean,
     c: boolean,
     d0: number,
     db: number,
