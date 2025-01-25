@@ -500,6 +500,16 @@ const HordesPassiveInventoryWrapper = (props: passiveMountProps) => {
         [props.id]
     )
 
+    useSignal<ServerInducedSignalProps>(
+        'inventory-changed-headless',
+        () => {
+            api.current.inventory(props.id).then(r => {
+                if (!r.bank) setBag(r as InventoryBagData);
+            });
+        },
+        [props.id]
+    )
+
     useEffect(() => {
         if (!props.id) return;
 

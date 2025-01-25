@@ -4,6 +4,8 @@ namespace App\Service\Actions\Game\AtomProcessors\Effect;
 
 use App\Entity\FoundRolePlayText;
 use App\Entity\RolePlayText;
+use App\Enum\ClientSignal;
+use App\Service\Globals\ResponseGlobal;
 use App\Service\PictoHandler;
 use App\Service\RandomGenerator;
 use App\Structures\ActionHandler\Execution;
@@ -30,6 +32,8 @@ class ProcessRolePlayTextEffect extends AtomEffectProcessor
         $already_found = !$text || $cache->em->getRepository(FoundRolePlayText::class)->findByUserAndText($cache->citizen->getUser(), $text);
 
         $cache->addTranslationKey('rp_text', $text->getTitle(), true);
+
+        $this->container->get(ResponseGlobal::class)->withConditionalSignal(!$already_found, ClientSignal::InventoryHeadlessUpdate);
 
         if ($already_found)
             $cache->addTag('rp_fail');
