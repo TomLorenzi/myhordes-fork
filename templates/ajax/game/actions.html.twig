@@ -43,8 +43,12 @@
                         <li class="action {% if entry.broken is defined and entry.broken %}broken-item{% endif %}" {% if entry.crossed %}disabled{% elseif entry.broken is defined and entry.broken %}{% elseif entry.targets is null %}x-action-id="{{ entry.id }}" {% if entry.action.confirm %}x-action-confirm="1"{% endif %} x-provoking-id="{{ entry.item.id }}"{% else %}x-target-definition="{{ entry.id }}--{{ entry.item.id }}"{% endif %}>
                         {% endif %}
                             <img src="{{ asset('build/images/item/item_' ~ entry.item.prototype.icon ~ '.gif') }}" alt="{{ entry.item.prototype.label|trans({},'items') }}">
-                            {% if scout and entry.action.keepsCover %}
-                                <img class="float-right" src="{{ asset('build/images/icons/small_stealthy.gif') }}" alt="">
+                            {% if scout %}
+                                {% if entry.action.keepsCover %}
+                                    <img class="float-right" src="{{ asset('build/images/icons/small_stealthy.gif') }}" alt="">
+                                {% else %}
+                                    <img class="float-right" src="{{ asset('build/images/icons/uncloak.gif') }}" alt="">
+                                {% endif %}
                             {% endif %}
                             {% if entry.renderer is not null %}
                                 <span>
