@@ -18,6 +18,8 @@ use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
  * @property ?bool $ignoreSource
  * @method self ignoreTarget(?bool $v)
  * @property ?bool $ignoreTarget
+ * @method self heavy(?bool $v)
+ * @property ?bool $heavy
  */
 class InventorySpaceRequirement extends RequirementsAtom {
 

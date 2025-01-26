@@ -221,10 +221,16 @@ class InventoryHandler
         return $return;
     }
 
-    public function countHeavyItems(Inventory $inventory): int {
+    /**
+     * @param Inventory $inventory
+     * @param array $ignore
+     * @return int
+     */
+    public function countHeavyItems(Inventory $inventory, array $ignore = []): int {
         $c = 0;
         foreach ($inventory->getItems() as $item)
-            if ($item->getPrototype()->getHeavy()) $c += $item->getCount();
+            if ($item->getPrototype()->getHeavy() && !in_array( $item, $ignore ))
+                $c += $item->getCount();
         return $c;
     }
 
