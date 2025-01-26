@@ -1062,11 +1062,11 @@ Flagge: Drapeau
 'Befiehlt {dogname}, dich zu warnen, falls du im Begriff bist, bei einem Diebstahl erwischt zu werden.': 'Ordonne à {dogname} de vous avertir si vous êtes sur le point d''être surpris en train de voler.'
 '{dogname}, "BLEIB"!': '{dogname}, "GARDE"!'
 'Befiehlt {dogname}, dein Haus zu bewachen.': 'Ordonne à {dogname} de garder votre maison.'
-'Schützen lassen': 'Vous protège'
+'Schützen lassen': 'Vous protéger'
 'Eingraben lassen': 'Vous enterre'
 'Eingraben und verstecken lassen': 'Vous enterre et vous cache'
 'Aus der Truhe': 'Dans le Coffre'
-'Schmiere stehen': 'Vigie'
+'Schmiere stehen': 'Faire la vigie'
 'Haus bewachen': 'Garder la maison'
 '{tamer_dog} macht sich bereit, dein Leben zu schützen.': '{tamer_dog} se prépare à protéger votre vie.'
 '{tamer_dog} hat Dir ein gemütliches Grab gebuddelt.': '{tamer_dog} a creusé une tombe confortable pour vous.'
@@ -1078,7 +1078,7 @@ Flagge: Drapeau
 Füttern: Nourrir
 'Du gibst deinem {tamer_dog} {items_consume}, das er gierig hinunterschlingt.{hr}Es vergeht keine Minute bis diese Belohnung Wirkung zeigt: Dein Fifi hat nun leuchtende Augen, ein glänzendes Fell und einen wedelnden Schwanz.': 'Vous donnez à votre {tamer_dog} {items_consume}, qu''il dévore goulûment.{hr}Il ne faut pas une minute pour que cette récompense fasse effet: votre bichon a désormais des yeux brillants, une fourrure brillante et une queue qui remue.'
 'Gut gefüttertes Malteser Hündchen': 'Bichon maltais bien nourri'
-Fußball: Ballon de foot
+Fußball: 'Ballon de foot'
 'Nun, da du dein Hündchen mit einem Leckerli ausreichend gestärkt hast, kann es selbst schwere und sperrige Gegenstände schleppen. Dir fällt auf, dass es ohne Ende sabbert. Es sieht aus, als würde es dich jeden Augenblick anspringen.': 'Maintenant que vous avez suffisamment renforcé votre bichon avec une friandise, il peut transporter seul des objets lourds et encombrants. Vous remarquez qu''il bave constamment. On dirait qu''il vous sauter dessus à tout moment.'
 'Für den kleinen Kick zwischendurch.': 'Pour un petit coup de pied entre les deux.'
 'Nichts entgeht deinem geschulten Blick! All die gesammelten Informationen werden dir morgen helfen, die geschickt und mit maximaler Effizienz durch die Außenwelt zu bewegen.': 'Rien n''échappe à votre œil exercé ! Toutes les informations que vous avez recueillies vous aideront à vous déplacer demain dans l’Outre-Monde avec habileté et efficacité maximale.'
