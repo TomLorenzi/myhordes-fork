@@ -50,5 +50,5 @@
         "ua-parser-js": "1.0.37",
         "uuid": "9.0.1"
     },
-    "packageManager": "yarn@4.2.2"
+    "packageManager": "yarn@4.6.0"
 }
