@@ -35,6 +35,7 @@ class ActionRequirementProvider
         $requirement_container->add()->identifier('room_for_item_no_container')->type( Requirement::MessageOnFail )->add( (new InventorySpaceRequirement())->container(false) )->commit();
         $requirement_container->add()->identifier('room_for_item_in_chest')->type( Requirement::MessageOnFail )->add( (new InventorySpaceRequirement())->ignoreInventory(true)->container(false)->ignoreSource(true) )->commit();
         $requirement_container->add()->identifier('room_for_item_scavenging')->type( Requirement::MessageOnFail )->add( (new InventorySpaceRequirement())->considerTrunk(false)->container(false) )->commit();
+        $requirement_container->add()->identifier('room_for_heavy_item')->type( Requirement::MessageOnFail )->add( (new InventorySpaceRequirement())->container(false)->ignoreSource(true)->considerTrunk(false)->heavy(true) )->commit();
         $requirement_container->add()->identifier('guard_tower_not_max')->type( Requirement::MessageOnFail )->add( (new CustomClassRequirement())->requirement(GuardTowerUseIsNotMaxed::class) )->commit();
 
         $requirement_container->add()->identifier('vote_shaman_needed')->type( Requirement::HideOnFail )->add( (new CustomClassRequirement())->requirement(RoleVote::class)->args(['needed' => 'shaman']) )->commit();

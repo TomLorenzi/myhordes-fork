@@ -275,7 +275,7 @@
                                 {{ post.note|replace({
                                     '{at_00}': '<span class="hide-sm hide-md">' ~ 'in der Stadt oder am Stadttor'|trans({},'game') ~ '</span><span class="hide-lg hide-desktop">' ~ 'Stadt/Stadttor'|trans({}, 'game') ~ '</span>',
                                     '{outside}': 'Draußen'|trans({}, 'game'),
-                                    '{ancient}': 'Vergessene Stadt'|trans({}, 'game'),
+                                    '{ancient}': (variant == 'crow' or post.owner.rightsElevation == 3) ? 'Überall und nirgens'|trans({}, 'game') : 'Vergessene Stadt'|trans({}, 'game'),
                                 })|raw }}
                                 </div>{% endif %}
                         {% endif %}

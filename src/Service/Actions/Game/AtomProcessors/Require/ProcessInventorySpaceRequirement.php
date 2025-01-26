@@ -23,6 +23,10 @@ class ProcessInventorySpaceRequirement extends AtomRequirementProcessor
 
 
         $inv_full = $data->ignoreInventory || ($inventoryHandler->getFreeSize( $cache->citizen->getInventory(), $ignore ) < $data->space);
+        if ($data->heavy && !$data->ignoreInventory) {
+            $inv_has_heavy = $inventoryHandler->countHeavyItems( $cache->citizen->getInventory(), $ignore );
+        } else $inv_has_heavy = false;
+
         $trunk_full = ($data->considerTrunk && $cache->citizen->getZone() === null)
             ? ($inventoryHandler->getFreeSize( $cache->citizen->getHome()->getChest(), $ignore ) < $data->space)
             : null;
@@ -38,8 +42,10 @@ class ProcessInventorySpaceRequirement extends AtomRequirementProcessor
             if ($data->container)
                 $cache->addMessage(T::__('Du brauchst <strong>mehr Platz in deinem Rucksack</strong>, um den Inhalt von {item} mitnehmen zu können.', 'items'), [], 'items');
             else $cache->addMessage(T::__('Du brauchst <strong>mehr Platz in deinem Rucksack</strong>.', 'items'), [], 'items');
-        }
 
-        return !($inv_full && $trunk_full !== false);
+        } elseif ($inv_has_heavy)
+            $cache->addMessage(T::__('Du kannst keinen weiteren schweren Gegenstand tragen!', 'game'), [], 'game');
+
+        return !($inv_full && $trunk_full !== false) && (!$data->heavy || $data->ignoreInventory || !$inv_has_heavy);
     }
 }

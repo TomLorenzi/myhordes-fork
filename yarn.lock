@@ -3089,6 +3089,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/sortablejs@npm:^1":
+  version: 1.15.8
+  resolution: "@types/sortablejs@npm:1.15.8"
+  checksum: 10c0/cac9c8279ead93b5fc6b0dde6bf4b1c4fe067d40d7b2b3415880df823f2efe5779616009488f940a003687ace70cb3d52bda168dfad2b5f4242403cd8f4ed500
+  languageName: node
+  linkType: hard
+
 "@types/unist@npm:*":
   version: 2.0.6
   resolution: "@types/unist@npm:2.0.6"
@@ -9456,6 +9463,7 @@ __metadata:
     "@ruffle-rs/ruffle": "npm:0.1.0-nightly.2024.5.10"
     "@symfony/webpack-encore": "npm:4.6.1"
     "@types/react-dom": "npm:18.2.24"
+    "@types/sortablejs": "npm:^1"
     "@types/uuid": "npm:^9"
     buffer: "npm:6.0.3"
     core-js: "npm:3.36.1"
@@ -9474,6 +9482,7 @@ __metadata:
     react-dom: "npm:18.2.0"
     react-error-boundary: "npm:^4.1.2"
     regenerator-runtime: "npm:0.14.1"
+    sortablejs: "npm:^1.15.6"
     stream: "npm:0.0.2"
     stream-browserify: "npm:3.0.0"
     string.prototype.matchall: "npm:4.0.11"
@@ -10038,6 +10047,13 @@ __metadata:
     ip: "npm:^2.0.0"
     smart-buffer: "npm:^4.2.0"
   checksum: 10c0/5cc9ea8d0f1fae370d7ac319b5dd8973fa24bc58d0194a8140687fd10be53a1f348b1b02b97932ce67ddae0edf459e5da0fe4b13cd5dd22ce46ac4d1a83239ec
+  languageName: node
+  linkType: hard
+
+"sortablejs@npm:^1.15.6":
+  version: 1.15.6
+  resolution: "sortablejs@npm:1.15.6"
+  checksum: 10c0/a75dcf53e5613b4106d46434e40114830f9c6449b3b439bc1925c1fbf0a0c1f044727a8f3d4ae1759fa7beaa33e7eb0c4a413e6aa88d6026577b59f3658ff727
   languageName: node
   linkType: hard
 

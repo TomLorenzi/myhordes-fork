@@ -309,7 +309,7 @@ class MessageGlobalPMController extends MessageController
             $user_cache = [$this->getUser()];
             $users = array_filter( array_reverse( array_map( fn(Post $p) => $p->getOwner(), array_filter(
                 $this->entity_manager->getRepository(Post::class)->findBy(['thread' => $subscription->getThread()], ['date' => 'DESC'], $subscription->getNum()),
-                fn(Post $p) => !$p->getHidden() && $p->getOwner() !== $this->getUser(),
+                fn(Post $p) => !$p->getHidden() && !$p->isAnonymous() && $p->getOwner() !== $this->getUser(),
             ))), function (User $u) use (&$user_cache) {
                 if (in_array($u, $user_cache)) return false;
                 $user_cache[] = $u;

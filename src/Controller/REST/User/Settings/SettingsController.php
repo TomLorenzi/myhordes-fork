@@ -5,6 +5,7 @@ namespace App\Controller\REST\User\Settings;
 use App\Entity\Forum;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\User;
+use App\Entity\PinnedForum;
 use App\Enum\UserSetting;
 use App\Service\PermissionHandler;
 use Doctrine\ORM\EntityManagerInterface;
@@ -12,6 +13,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
 
 
@@ -65,32 +67,86 @@ class SettingsController extends AbstractController
 
     #[Route(path: '/forum/{id}/flags/{flag}', name: 'forum_flag_on', defaults: ['value' => true], methods: ['PUT'])]
     #[Route(path: '/forum/{id}/flags/{flag}', name: 'forum_flag_off', defaults: ['value' => false], methods: ['DELETE'])]
-    public function toggleForumFlag(Forum $forum, string $flag, bool $value, PermissionHandler $perm, EntityManagerInterface $em): JsonResponse {
-        $is_unpin = $flag === 'pin' && $value === false;
+    public function toggleForumFlag(Forum $forum, string $flag, bool $value, PermissionHandler $perm, EntityManagerInterface $em): JsonResponse 
+    {
+        $isUnpin = $flag === 'pin' && $value === false;
+        $user = $this->getUser();
 
-        if (!$is_unpin && !$perm->checkEffectivePermissions( $this->getUser(), $forum, ForumUsagePermissions::PermissionRead ))
+        if (!$isUnpin && !$perm->checkEffectivePermissions($user, $forum, ForumUsagePermissions::PermissionRead)) {
             return new JsonResponse(status: Response::HTTP_NOT_FOUND);
+        }
 
-        if ($forum->getTown())
+        if ($forum->getTown()) {
             return new JsonResponse(status: Response::HTTP_FORBIDDEN);
+        }
 
-        $collection = match ( $flag ) {
-            'mute' => $this->getUser()->getMutedForums(),
-            'pin' => $this->getUser()->getPinnedForums(),
-            default => null
-        };
+        switch ($flag) {
+            case 'mute':
+                $collection = $user->getMutedForums();
+                if ($value && !$collection->contains($forum)) {
+                    $collection->add($forum);
+                } elseif (!$value && $collection->contains($forum)) {
+                    $collection->removeElement($forum);
+                }
+                break;
 
-        if ($collection === null) return new JsonResponse(status: Response::HTTP_NOT_FOUND);
+            case 'pin':
+                $pinnedRepository = $em->getRepository(PinnedForum::class);
+                $pinnedForum = $pinnedRepository->findOneBy([
+                    'user' => $user,
+                    'forum' => $forum
+                ]);
 
-        if ($flag === 'pin' && $value && !$collection->contains( $forum ) && $collection->count() >= 6)
-            return new JsonResponse(status: Response::HTTP_NOT_ACCEPTABLE);
+                if ($value && !$pinnedForum) {
+                    if ($user->getPinnedForums()->count() >= 6) {
+                        return new JsonResponse(status: Response::HTTP_NOT_ACCEPTABLE);
+                    }
+    
+                    $newPinnedForum = new PinnedForum();
+                    $newPinnedForum->setUser($user);
+                    $newPinnedForum->setForum($forum);
+                    $newPinnedForum->setPosition($user->getPinnedForums()->count() + 1);
+                    $em->persist($newPinnedForum);
+                } elseif (!$value && $pinnedForum) {
+                    $em->remove($pinnedForum);
+                }
+                break;
 
-        if ($value) $collection->add( $forum );
-        else $collection->removeElement( $forum );
+            default:
+                return new JsonResponse(status: Response::HTTP_NOT_FOUND);
+        }
 
-        $em->persist( $this->getUser() );
+        $em->persist($user);
         $em->flush();
 
-        return new JsonResponse( ['success' => true] );
+        return new JsonResponse(['success' => true]);
+    }
+
+    #[Route(path: '/pinned-forums-reorder', name: 'reorder_pinned_forums', methods: ['POST'])]
+    public function reorderPinnedForums(Request $request, EntityManagerInterface $em): JsonResponse
+    {
+        $data = json_decode($request->getContent(), true);
+
+        if (!$data || !is_array($data)) {
+            return new JsonResponse(['success' => false, 'message' => 'Invalid data'], JsonResponse::HTTP_BAD_REQUEST);
+        }
+
+        $user = $this->getUser();
+
+        foreach ($data as $item) {
+            $pinnedForum = $em->getRepository(PinnedForum::class)->findOneBy([
+                'user' => $user,
+                'forum' => $item['id']
+            ]);
+
+            if ($pinnedForum) {
+                $pinnedForum->setPosition($item['position']);
+                $em->persist($pinnedForum);
+            }
+        }
+
+        $em->flush();
+
+        return new JsonResponse(['success' => true, 'message' => 'Order updated successfully']);
     }
 }

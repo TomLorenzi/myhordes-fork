@@ -197,8 +197,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: NotificationSubscription::class, orphanRemoval: true)]
     private Collection $notificationSubscriptions;
 
-    #[JoinTable(name: 'user_forum_pinned')]
-    #[ORM\ManyToMany(targetEntity: Forum::class, fetch: 'EXTRA_LAZY')]
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: PinnedForum::class, cascade: ['persist', 'remove'])]
     private Collection $pinnedForums;
 
     public function __construct()
@@ -1174,7 +1173,9 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
      */
     public function getPinnedForums(): Collection
     {
-        return $this->pinnedForums;
+        return $this->pinnedForums->matching(
+            Criteria::create()->orderBy(['position' => Criteria::ASC])
+        );
     }
 
     public function addPinnedForum(Forum $pinnedForum): static
