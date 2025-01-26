@@ -172,6 +172,7 @@
                                 >
                                     {{ 'Fähigkeiten jetzt zurücksetzen'|trans({},'soul') }}
                                 </button>
+                                <hordes-buy-skill-point></hordes-buy-skill-point>
                             </div>
                         </div>
                         <div class="row">
@@ -220,7 +221,7 @@
             </div>
 
             {% if current is not null and current is not empty %}
-                <div class="row" x-tab-group="current" x-tab-id="skills" x-tab-target>
+                <div class="row" x-tab-group="skill-page" x-tab-id="current" x-tab-target>
                     <div class="row">
                         <div class="padded cell rw-12">
                             <div class="help">

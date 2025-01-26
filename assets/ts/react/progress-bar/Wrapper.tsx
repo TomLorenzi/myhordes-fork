@@ -1,13 +1,14 @@
 import * as React from "react";
-import {useLayoutEffect, useRef, useState} from "react";
+import {useEffect, useLayoutEffect, useRef, useState} from "react";
 import {BaseMounter} from "../index";
 
 interface mountProps {
     animateFrom: number,
     animateTo: number,
     limit: number,
-    step: number[],
-    xp: boolean
+    step?: number[],
+    xp?: boolean
+    plain?: boolean
 }
 
 export class HordesProgressBar extends BaseMounter<mountProps> {
@@ -17,7 +18,7 @@ export class HordesProgressBar extends BaseMounter<mountProps> {
 }
 
 export const ProgressBar = (
-    {animateFrom, animateTo, limit, step, xp}: mountProps) => {
+    {animateFrom, animateTo, limit, step, xp, plain}: mountProps) => {
 
     const [baseLimit, setBaseLimit] = useState(xp ? step[0] : limit);
     const [value, setValue] = useState(animateTo);
@@ -31,15 +32,19 @@ export const ProgressBar = (
     const [currentStep, setCurrentStep] = useState(0);
 
     const fun_next_goal = (c: number) => {
-        return c + step[Math.min(currentStep + 1, step.length - 1)];
+        return c + step[Math.min(currentStep + 1, step?.length - 1)];
     }
 
     const fun_level_goal = (s: number) => {
         let c = 0;
         for (let i = 0; i <= s; i++)
-            c += step[Math.min(i, step.length - 1)];
+            c += step[Math.min(i, step?.length - 1)];
         return c;
     }
+
+    useEffect(() => {
+        if (value !== animateTo) setValue(animateTo);
+    }, [animateTo]);
 
     useLayoutEffect(() => {
         const goal = 100 * Math.min(Math.max(0, value/baseLimit), 1);
@@ -83,17 +88,17 @@ export const ProgressBar = (
     }, [baseLimit,value]);
 
     return (
-        <div className="fancy-progress-bar">
+        <div className={`fancy-progress-bar ${plain ? 'plain' : ''}`}>
             <div className="text">
                 {/*xp && <span>{value}&nbsp;/&nbsp;{baseLimit}</span>*/}
             </div>
             <div className="progressbar">
                 <div className="progressbar-container">
                     <div className="base-layer">
-                        <div className={`inner ${xp && animateTo > step[0] ? 'flashy' : ''}`} ref={bar}/>
+                        <div className={`inner ${xp && animateTo > (step ?? [])[0] ? 'flashy' : ''}`} ref={bar}/>
                     </div>
                     <div className="completed-layers" ref={bars}>
-                        {Array.from(Array(Math.min(step.length,currentStep)).keys()).reverse().map(k => <div key={k} data-pack-step={k} className="inner flashy"/>)}
+                        {Array.from(Array(Math.min(step?.length ?? 0,currentStep)).keys()).reverse().map(k => <div key={k} data-pack-step={k} className="inner flashy"/>)}
                     </div>
                 </div>
             </div>

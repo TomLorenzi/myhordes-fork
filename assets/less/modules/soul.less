@@ -875,12 +875,15 @@ hr.section {
     color: #f0d79e; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   }
 
+  &.plain .text { background: url('../../img/soul/heroUp_front_plain.png') round; }
+
   .progressbar {
     background: url('../../img/soul/heroUp_bg.gif') round;
     max-width: 614px; height: 30px; overflow: hidden; padding-right: 4px; margin-top: -31px;
     position: relative;
     .progressbar-container {
       position: absolute; top: 0; bottom: 0; left: 4%; right: 1%;
+      overflow: hidden; border-radius: 999px;
 
       @keyframes flashy-inner {
         0% { filter: saturate(100%) brightness(100%); }
