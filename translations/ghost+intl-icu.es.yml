@@ -384,9 +384,9 @@ Stadtstart: Salida en la ciudad
 'Diese Stadt wurde von einem Spieler gegründet.': 'Este pueblo fue creado por un jugador.'
 'Sie folgt den normalen Spielregeln und wird an ihrem Ende ins Ranking aufgenommen.': 'Sigue las reglas normales del juego y es elegible para la clasificación de pueblos.'
 'Wenn du dieser Stadt beitrittst, kannst du {block} Tage danach keiner anderen von einem Spieler gegründeten Stadt beitreten.': 'Si te unes a este pueblo, no podrás unirte a ningún otra pueblo creado por jugadores durante {block} días después.'
-'Klicke auf den Namen der Stadt, um weitere Informationen zu erhalten.': 'Klicke auf den Namen der Stadt, um weitere Informationen zu erhalten.'
-'Dieser Stadt beitreten': 'Dieser Stadt beitreten'
-Koalition: Koalition
-'Du bist dieser Stadt aufgrund einer aktuellen Beschränkung deines Accounts nicht beitreten.': 'Du bist dieser Stadt aufgrund einer aktuellen Beschränkung deines Accounts nicht beitreten.'
-'Du kannst dieser Stadt nicht beitreten. Fehlercode: {error}': 'Du kannst dieser Stadt nicht beitreten. Fehlercode: {error}'
-'Aktive Fähigkeiten': 'Aktive Fähigkeiten'
+'Klicke auf den Namen der Stadt, um weitere Informationen zu erhalten.': 'Haz click en el nombre de un pueblo para ver más información.'
+'Dieser Stadt beitreten': 'Unirse a este pueblo'
+Koalition: Alianza
+'Du bist dieser Stadt aufgrund einer aktuellen Beschränkung deines Accounts nicht beitreten.': 'No puedes unirte a este pueblo debido a una restricción impuesta en tu cuenta.'
+'Du kannst dieser Stadt nicht beitreten. Fehlercode: {error}': 'No puedes unirte a este pueblo. Código de error: {error}'
+'Aktive Fähigkeiten': 'Habilidades activas'

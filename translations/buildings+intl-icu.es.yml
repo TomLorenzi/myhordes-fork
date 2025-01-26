@@ -379,7 +379,7 @@ Straßenbeleuchtung: Alumbrado público
 'Der Bau eines prächtigen Wachturms mit Kontrollgang macht die Wächter unter den Helden glücklich. Dieses Bauwerk gibt pro Wächter in der Stadt +5 Verteidigungspunkte und erlaubt ihnen, ihre AP in Verteidigungspunkte umzuwandeln und so noch mehr für die Verteidung zu tun.': 'La instalación de una gran y bella torre central hará muy felices a los Héroes Guardianes. Esta construcción da +5 puntos de defensa por guardián en el pueblo y les permite aportar aún más defensas a cambio de PA.'
 'Ermöglicht die Umwandlung von Objekten, mit etwas Anstrengung.': 'Permite la transformación de objetos, con un poquito de esfuerzo.'
 'Zeigt die Windrichtung in der Zeitung an.': 'Permite conocer la dirección del viento en el Boletín.'
-'Die Verteidigung der Stadt wird um 15% erhöht.': 'Las defensas totales del pueblo se ven aumenta permanentemente de un 15%.'
+'Die Verteidigung der Stadt wird um 15% erhöht.': 'La defensa total del pueblo se ve aumentada permanentemente un 15%.'
 Defensivanpassung: Ajustes Defensivos
 'Die Höhle der Aufklärer': 'Cueva de los Exploradores'
 Buddelgruben: Galería de los Excavadores
@@ -480,8 +480,8 @@ Pool: Piscinita
 'Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 336.': 'La defensa de las torretas de agua se multiplica por 5,8 (406 puntos de defensa), pero cuestan 12 raciones de agua por noche.'
 'Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.': 'El coste de construcción (AP) de todos los proyectos de construcción se reduce de un 25%. Aumenta el rendimiento de reparación por un punto.'
 'Die AP-Kosten aller Bauprojekte werden um 35% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.': 'El coste de construcción (AP) de todos los proyectos de construcción se reduce de un 35%. Aumenta el rendimiento de reparación por dos puntos.'
-'Die Verteidigung der Stadt wird um 11% erhöht.': 'Las defensas totales del pueblo se ven aumenta permanentemente de un 11%.'
-'Die Verteidigung der Stadt wird um 13% erhöht.': 'Las defensas totales del pueblo se ven aumenta permanentemente de un 13%.'
+'Die Verteidigung der Stadt wird um 11% erhöht.': 'La defensa total del pueblo se ve aumentada permanentemente un 11%.'
+'Die Verteidigung der Stadt wird um 13% erhöht.': 'La defensa total del pueblo se ve aumentada permanentemente un 13%.'
 'Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche und 1 ungewöhnliche Baupläne sowie.': 'El pueblo recibirá 1 plano común y 1 plano inusual tras el ataque.'
 'Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche und 1 seltene Baupläne sowie.': 'El pueblo recibirá 1 plano inusual y 1 plano raro tras el ataque.'
 'Die Stadt erhält nach dem nächsten Angriff einmalig 1 seltene Baupläne - möglicherweise - eine nette Überraschung.': 'El pueblo recibirá 1 plano raro tras el ataque (¿y tal vez una sorpresa?).'
@@ -515,7 +515,7 @@ Pool: Piscinita
 'Organisierte Müll': 'Vertedero organizado'
 'Rückzugsort für Aufklärer': 'Retiro de los Exploradores'
 'Die Aufklärer haben dich schon immer fasziniert und nie verraten, was sie unter ihrer Haube verbergen... Aber vielleicht ist es das Beste, sie in Ruhe zu lassen. Mit diesem speziellen Rückzugsort können sie sich endlich an die Arbeit machen, ohne die Stadt verlassen zu müssen.': 'Los exploradores siempre te han fascinado y nunca han revelado lo que esconden bajo sus capuchas... Pero tal vez sea mejor dejarlos solos. Gracias a este escondite especial, por fin pueden planear su ruta sin tener que salir del pueblo.'
-Handschleifer: Amoladora manual
+Handschleifer: Afiladora manual
 'Da selbst der Bohrer des Bohrturms nicht durch jede Schicht durchkommt, muss man hin und wieder kleine und mit Dynamit bestückte Tiere in die Tiefe schicken. Dieses Projekt fügt den städtischen Wasserreserven +100 Rationen hinzu.': 'Porque el extractor de agua no puede atravesar algunas rocas, es a veces útil enviar pequeños animales con dinamita por los conductos. Esta construcción aporta +100 raciones de agua al pozo.'
 'Jede gereinigte Seele bringt der Stadt etwas mehr Verteidigung.': 'Cada alma nueva purificada aporta un poco más de defensa al pueblo.'
 'Zusätzlich zum vorherigen Effekt sinkt der Einfluss gequälter Seelen auf den Angriff leicht ab.': 'Además del nivel anterior, cada alma torturada tiene un impacto menor en el ataque nocturno.'
@@ -528,8 +528,8 @@ Handschleifer: Amoladora manual
 'Manche nennen es unschuldig eine "Tierklinik". Aber jeden Abend vor der Wacht weckt das schreckliche Gebell das gesamte Südviertel auf. Auf jeden Fall funktioniert es: Auf den Wällen sind die Labradore verspielt, sauber, fröhlich und stürzen sich wie wild auf Zombies, die dreißigmal so schwer sind wie sie.': 'Inocentemente lo llaman “clínica veterinaria”. Pero cada noche, antes de las vigilias, los horribles ladridos despiertan a todo el distrito sur. En cualquier caso, funciona: en las murallas, estos Bichón son juguetones, limpios, alegres y se lanzan salvajemente a la garganta de zombis que pesan treinta veces más que ellos.'
 'Die kolossale Menge an Wasser, die für den Bau dieses Gebäudes verbraucht wurde, kann nicht mehr konsumiert oder gegen Zombies eingesetzt werden. Während du dich fragst, was dich dazu gebracht hat, eine so kostbare Ressource zu verschwenden, bemerkst du die in goldenen Buchstaben eingravierte Inschrift auf dem Eingangsbogen: "Non est certamen". Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': 'La colosal cantidad de agua utilizada para la construcción de este sitio ya no se puede consumir ni utilizar contra zombis. Mientras te preguntas qué te llevó a desperdiciar un recurso tan precioso, te fijas en la inscripción grabada en letras doradas en el arco de entrada: « Non est certamen ». Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una Distinción rarísima a todos los habitantes del pueblo.'
 'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert.': 'La reducción de las posibilidades de búsqueda nocturna se anula en un radio de 6 km alrededor del pueblo.'
-'Manche nennen es unschuldig eine "Tierklinik". Aber jeden Abend wecken die Schreie der Tiere das gesamte Südviertel auf. Auf jeden Fall funktioniert es: Unsere Haustiere sind verspielt, sauber, fröhlich und stürzen sich durch ihr Training routiniert auf Zombies, die dreißigmal so schwer sind wie sie.': 'Algunos la llaman inocentemente « clínica veterinaria ». Pero cada noche, los gritos de los animales despiertan a todo el barrio sur. En todo caso, funciona: nuestros animales son juguetones, limpios, felices y, gracias a su adiestramiento, pueden atacar zombies que pesan treinta veces su peso.'
+'Manche nennen es unschuldig eine "Tierklinik". Aber jeden Abend wecken die Schreie der Tiere das gesamte Südviertel auf. Auf jeden Fall funktioniert es: Unsere Haustiere sind verspielt, sauber, fröhlich und stürzen sich durch ihr Training routiniert auf Zombies, die dreißigmal so schwer sind wie sie.': 'Algunos lo llaman inocentemente «clínica veterinaria». Pero cada noche, los gritos de los animales despiertan a todo el barrio sur. En todo caso, funciona. Nuestras mascotas son más juguetonas, limpias, felices y, gracias a su adiestramiento, pueden atacar a zombies que pesan treinta veces su peso.'
 'Produziert täglich zusätzlich zu seiner ursprünglichen Produktion Stufe Mutterkorn und Trockene Kräuter.': 'Produce Claviceps Purpúrea y Hierbas, además de su producción original.'
-Basisverteidigung: Basisverteidigung
-Bonusverteidigung: Bonusverteidigung
-'Temporärer Verteidigungsbonus': 'Temporärer Verteidigungsbonus'
+Basisverteidigung: Defensa base
+Bonusverteidigung: Defensa bonus
+'Temporärer Verteidigungsbonus': 'Defensas temporales'
