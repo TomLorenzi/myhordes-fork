@@ -18,6 +18,7 @@ use App\Entity\PictoPrototype;
 use App\Entity\PrivateMessage;
 use App\Entity\PrivateMessageThread;
 use App\Enum\ActionHandler\PointType;
+use App\Enum\ClientSignal;
 use App\Enum\Configuration\CitizenProperties;
 use App\Enum\Game\CitizenPersistentCache;
 use App\Response\AjaxResponse;
@@ -26,6 +27,7 @@ use App\Service\AdminHandler;
 use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
 use App\Service\EventFactory;
+use App\Service\Globals\ResponseGlobal;
 use App\Service\InventoryHandler;
 use App\Service\JSONRequestParser;
 use App\Service\TownHandler;
@@ -406,10 +408,11 @@ class TownHomeController extends TownController
      * @param InventoryHandler $ih
      * @param CitizenHandler $ch
      * @param TownHandler $th
+     * @param ResponseGlobal $response
      * @return Response
      */
     #[Route(path: 'api/town/house/upgrade', name: 'town_house_upgrade_controller')]
-    public function upgrade_house_api(EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, TownHandler $th): Response {
+    public function upgrade_house_api(EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, TownHandler $th, ResponseGlobal $response): Response {
         // Get citizen, town and home object
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
@@ -476,6 +479,9 @@ class TownHomeController extends TownController
 
         $text[]= " " . $this->translator->trans("Du hast {count} Aktionspunkt(e) benutzt.", ['{count}' => "<strong>" . $required_ap . "</strong>", '{raw_count}' => $required_ap], "game");
 
+        $response->withConditionalSignal( $required_ap > 0, ClientSignal::StatusUpdated );
+        $response->withConditionalSignal( !!$required_items, ClientSignal::InventoryUpdated );
+
         $this->addFlash('notice', implode("<hr />", $text));
 
         // Create log & persist
@@ -525,12 +531,12 @@ class TownHomeController extends TownController
     /**
      * @param EntityManagerInterface $em
      * @param InventoryHandler $ih
-     * @param CitizenHandler $ch
+     * @param ResponseGlobal $response
      * @param JSONRequestParser $parser
      * @return Response
      */
     #[Route(path: 'api/town/house/extend', name: 'town_house_extend_controller')]
-    public function extend_house_api(EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, JSONRequestParser $parser): Response {
+    public function extend_house_api(EntityManagerInterface $em, InventoryHandler $ih, ResponseGlobal $response, JSONRequestParser $parser): Response {
         // Get extension ID; fail if missing
         $id = (int)$parser->get('id', -1);
         if ($id <= 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -586,6 +592,9 @@ class TownHomeController extends TownController
             $r = $costs->getResources()->findEntry( $item->getPrototype()->getName() );
             $this->inventory_handler->forceRemoveItem( $item, $r ? $r->getChance() : 1 );
         }
+
+        $response->withConditionalSignal( $costs->getAp() > 0, ClientSignal::StatusUpdated );
+        $response->withConditionalSignal( $costs->getResources(), ClientSignal::InventoryUpdated );
 
         $text = $this->translator->trans("Mit dem Bau der(s) {upgrade} hat dein Haus Stufe {level} erreicht!", ['{upgrade}' => $this->translator->trans($proto->getLabel(), [], 'buildings'), '{level}' => $current->getLevel()], 'game');
 

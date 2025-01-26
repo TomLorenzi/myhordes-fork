@@ -45,9 +45,8 @@
                             {% endtrans %}<br />
                             {% for res in next_level_resources.entries %}
                                 <span class="entity">
-                                    <img alt="{{ res.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ res.prototype.icon ~ '.gif' ) }}">
+                                    <hordes-standalone-item data-item="{{ res.prototype.id }}"></hordes-standalone-item>
                                     x {{ res.chance }}
-                                    {% embed "ajax/game/item_proto_tooltip.html.twig" with {"item": res.prototype} %}{% endembed %}
                                 </span>
                             {% endfor %}
                         {% else %}
@@ -109,7 +108,7 @@
                                     {% if costs.resources %}
                                         {% for res in costs.resources.entries %}
                                             {# @var res \App\Entity\ItemGroupEntry #}
-                                            <img alt="{{ res.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ res.prototype.icon ~ '.gif') }}" />
+                                            <hordes-standalone-item data-item="{{ res.prototype.id }}"></hordes-standalone-item>
                                             {% if not loop.last %}<b class="small">+</b>{% endif %}
                                         {% endfor %}
                                     {% endif %}

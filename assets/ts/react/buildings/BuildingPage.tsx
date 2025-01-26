@@ -13,6 +13,7 @@ import {BuildingListGlobal, mountPageProps} from "./Wrapper";
 import {Tag} from "../index";
 import {InventoryAPI, InventoryResourceData} from "../inventory/api";
 import {Tab, TabbedSection} from "../tab-list/TabList";
+import {ItemTooltip} from "../utils";
 
 declare var $: Global;
 declare var c: Const;
@@ -268,21 +269,34 @@ const BuildingInfos= (props: BuildingCompleteProps & {level: number}) => {
                                                                                     src={globals.strings.page.g2}/>)}
         {props.level > 0 && <img alt="" src={globals.strings.page.g1}/>}
         <img alt={props.prototype.name} src={props.prototype.icon} className="building_icon"/>
-        <Tag
-            tagName="span" classNames={{'action-vote': globals.canVote && !props.building.c}} className="building_name"
-            onClick={() => {
-                if (globals.canVote && !props.building.c)
-                    globals.api
-                        .vote(props.building.i)
-                        .then(m => {
-                            if (m.message) $.html.message( m.success ? 'notice' : 'error', m.message );
-                            if (m.building) globals.updateBuilding(m.building);
-                        })
-            }}
-        >
-            {props.prototype.name}
-            { globals.canVote && !props.building.c && <Tooltip html={globals.strings.page.vote.can}/>}
-        </Tag>
+        <div className="flex gap" style={{overflow: 'hidden'}}>
+            <Tag
+                tagName="span" classNames={{'action-vote': globals.canVote && !props.building.c}} className="building_name"
+                onClick={() => {
+                    if (globals.canVote && !props.building.c)
+                        globals.api
+                            .vote(props.building.i)
+                            .then(m => {
+                                if (m.message) $.html.message( m.success ? 'notice' : 'error', m.message );
+                                if (m.building) globals.updateBuilding(m.building);
+                            })
+                }}
+            >
+                {props.prototype.name}
+                { globals.canVote && !props.building.c && <Tooltip html={globals.strings.page.vote.can}/>}
+            </Tag>
+            { props.building.t &&
+                <div>
+                    <img alt={globals.strings.page.temp.title} src={globals.strings.page.temp.icon} />
+                    <Tooltip additionalClasses="help">
+                        <b>{globals.strings.page.temp.title}</b>
+                        <hr/>
+                        <span dangerouslySetInnerHTML={{__html: globals.strings.page.temp.text}} />
+                    </Tooltip>
+                </div>
+            }
+        </div>
+
         {props.prototype.defense > 0 &&
             <Tag classNames={{
                 defense: !props.building.c || props.building.d0 >= props.prototype.defense,
@@ -399,6 +413,6 @@ const BuildingResourceItem = (props: BuildingResourceItemProps) => {
             </Tag>/<span className="resource needed">{ props.needed }</span>
         </> }
         { globals.viewMode === "needed" && <span className="resource needed">{ props.needed - props.having}</span> }
-        <Tooltip html={props.item.desc}></Tooltip>
+        <ItemTooltip data={props.item}/>
     </div>
 }

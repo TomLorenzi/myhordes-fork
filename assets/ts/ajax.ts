@@ -2,6 +2,8 @@ import {Const, Global} from "./defaults";
 import {dataDrivenFunctions} from "./v2/applicator";
 import {SecureStorage} from "./v2/security";
 import {EventConnector} from "./v2/events";
+import {emitSignal} from "./v2/client-modules/Signal";
+import {ServerInducedSignalProps} from "./v2/fetch";
 
 interface ajaxResponse { error: string, success: any }
 interface ajaxCallback { (data: ajaxResponse, code: number): void }
@@ -431,6 +433,10 @@ export default class Ajax {
                 $.client.setSessionDomain(parseInt(p),parseInt(v1),parseInt(v2),parseInt(v3));
             }
 
+            this.getResponseHeader('X-Client-Signals')?.split(', ').forEach(
+                sig => emitSignal<ServerInducedSignalProps>(sig, {response: this, type: 'xhr'})
+            )
+
             if (this.status >= 400) {
                 this_promise[1]();
                 switch (this.status) {
@@ -459,6 +465,8 @@ export default class Ajax {
             } else ajax_instance.render( this.responseURL, target, this.responseXML, false, !no_hist );
 
             if (callback) callback();
+
+            emitSignal<{url: string}>('web-navigation', {url})
 
             let event = {url: url, post: data, node: target, render: new Promise(resolve => {
                 if (ajax_instance.render_block_stack === 0) resolve(true);
@@ -519,6 +527,10 @@ export default class Ajax {
                 const [p = '0', v1 = '0', v2 = '0', v3 = '0'] = this.getResponseHeader('X-Session-Domain').split(':');
                 $.client.setSessionDomain(parseInt(p),parseInt(v1),parseInt(v2),parseInt(v3));
             }
+
+            this.getResponseHeader('X-Client-Signals')?.split(', ').forEach(
+                sig => emitSignal<ServerInducedSignalProps>(sig, {response: this, type: 'xhr'})
+            )
 
             callback( this.response, this.status );
             if (!no_loader) $.html.removeLoadStack();

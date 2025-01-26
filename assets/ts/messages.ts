@@ -1,5 +1,5 @@
 import {Global} from "./defaults";
-import {broadcast, html} from "./v2/init";
+import {html, broadcast} from "./v2/helpers";
 
 interface callbackTemplate<T extends payload> { (T, bool):void }
 

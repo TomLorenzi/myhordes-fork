@@ -51,6 +51,8 @@ services:
       tags: ['twig.extension']
 
     # Set some services to be public
+    App\Service\Globals\ResponseGlobal:
+      public: true
     App\Service\CitizenHandler:
         public: true
     App\Service\DeathHandler:

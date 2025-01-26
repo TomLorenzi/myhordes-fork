@@ -12,11 +12,12 @@ import {
 import {Tooltip} from "../tooltip/Wrapper";
 import {Const, Global} from "../../defaults";
 import {TranslationStrings} from "./strings";
-import {useVault, Vault} from "../../v2/client-modules/Vault";
-import {VaultItemEntry, VaultStorage} from "../../v2/typedef/vault_td";
-import {string} from "prop-types";
-import {html} from "../../v2/init";
+import {useVault} from "../../v2/client-modules/Vault";
+import {VaultItemEntry} from "../../v2/typedef/vault_td";
 import {BaseMounter} from "../index";
+import {emitSignal, useBroadcastSignal, useSignal} from "../../v2/client-modules/Signal";
+import {ServerInducedSignalProps} from "../../v2/fetch";
+import {ItemTooltip} from "../utils";
 
 declare var $: Global;
 declare var c: Const;
@@ -71,6 +72,15 @@ interface escortMountProps {
     name: string,
 }
 
+interface standaloneItemMountProps {
+    item: number,
+}
+
+interface InventoryBagLoadedSignalProps {
+    id: number,
+    inventory: InventoryResponse,
+    element: HTMLElement
+}
 
 export class HordesInventory extends BaseMounter<mountProps>{
 
@@ -92,6 +102,12 @@ export class HordesInventory extends BaseMounter<mountProps>{
 export class HordesPassiveInventory extends BaseMounter<passiveMountProps>{
     protected render(props: passiveMountProps): React.ReactNode {
         return <HordesPassiveInventoryWrapper {...props} parent={this.parent} />;
+    }
+}
+
+export class HordesStandaloneItem extends BaseMounter<standaloneItemMountProps>{
+    protected render(props: standaloneItemMountProps): React.ReactNode {
+        return <HordesStandaloneItemWrapper {...props} />;
     }
 }
 
@@ -160,6 +176,8 @@ const HordesInventoryWrapper = (props: mountProps &
     {parent: HTMLElement}
 ) => {
 
+    const [internalETag, setInternalETag] = useState(0);
+
     const [strings, setStrings] = useState<TranslationStrings>( null );
     const [loading, setLoading] = useState<boolean>( false );
 
@@ -180,7 +198,7 @@ const HordesInventoryWrapper = (props: mountProps &
             setInventoryA(r);
             setCache(props.inventoryAId, r)
         });
-    }, [props.inventoryAId, props.inventoryAType, props.etag]);
+    }, [props.inventoryAId, props.inventoryAType, props.etag, internalETag]);
 
     useEffect(() => {
         if (!props.inventoryBId || props.inventoryBType === 'none') return;
@@ -188,11 +206,16 @@ const HordesInventoryWrapper = (props: mountProps &
             setInventoryB(r);
             setCache(props.inventoryBId, r)
         });
-    }, [props.inventoryBId, props.inventoryBType, props.etag]);
+    }, [props.inventoryBId, props.inventoryBType, props.etag, internalETag]);
 
-    useEffect(() => {
-        const handler = e => {
-            const {id,inventory,element} = e.detail;
+    useSignal<ServerInducedSignalProps>(
+        'inventory-changed',
+        () => setInternalETag(e => e+1)
+    )
+
+    useSignal<InventoryBagLoadedSignalProps>(
+        'inventory-bag-loaded',
+        ({id,inventory,element}) => {
             if (element === props.parent || (id !== props.inventoryAId && id !== props.inventoryBId))
                 return;
 
@@ -200,15 +223,14 @@ const HordesInventoryWrapper = (props: mountProps &
 
             if (props.inventoryAId === id) setInventoryA(inventory);
             else if (props.inventoryBId === id) setInventoryB(inventory);
-        }
-        html().addEventListener('inventory-bag-loaded', handler);
-        return () => html().removeEventListener('inventory-bag-loaded', handler);
-    }, [props.inventoryAId, props.inventoryBId]);
+        },
+        [props.inventoryAId, props.inventoryBId]
+    )
 
     const setCache = (id: number, inventory: InventoryResponse) => {
         props.setCache(id,inventory.bank ? null : (inventory as InventoryBagData));
         if (!inventory.bank)
-            html().dispatchEvent(new CustomEvent('inventory-bag-loaded', { detail: {id,inventory,element: props.parent} }));
+            emitSignal<InventoryBagLoadedSignalProps>('inventory-bag-loaded', {id,inventory,element: props.parent})
     }
 
     const manageTransfer = (item: number|null, from: number, to: number, direction: string, mod: string = null) =>{
@@ -428,14 +450,7 @@ const SingleItem = (props: { item: Item, data: VaultItemEntry | null, mods: Inve
         >
             <span className="item-icon"><img src={ props.data?.icon ?? '' } alt={ props.data?.name ?? '...' }/></span>
             {props.item.c > 1 && <span>{props.item.c}</span>}
-            <Tooltip additionalClasses="item">
-                <h1>
-                    {props.data?.name ?? '???'}
-                    {props.item.b && <span className="broken">{globals.strings.props.broken}</span>}
-                    &nbsp;
-                    <img src={props.data?.icon ?? ''} alt={props.data?.name ?? '...'}/>
-                </h1>
-                { props.data?.desc ?? '???' }
+            <ItemTooltip data={props.data} addendum={props.item.b && {className: 'broken', text: globals.strings.props.broken}}>
                 { props.mods.has_drunk && props.data.props.includes('is_water') && <div className="item-addendum">{ globals.strings.props["drink-done"] }</div> }
                 { props.item.e && <div className="item-tag item-tag-essential">{ globals.strings.props.essential }</div> }
                 { props.data.props.includes('single_use') && <div className="item-tag item-tag-use-1">{ globals.strings.props.single_use }</div> }
@@ -447,7 +462,7 @@ const SingleItem = (props: { item: Item, data: VaultItemEntry | null, mods: Inve
                     { globals.strings.props["nw-weapon"] }
                     {props.item.w && <>&nbsp;<em>{ props.item.w }</em></> }
                 </div> }
-            </Tooltip>
+            </ItemTooltip>
         </li>
         :
         <li className="item locked pending"/>
@@ -459,6 +474,7 @@ const HordesPassiveInventoryWrapper = (props: passiveMountProps) => {
 
     const [strings, setStrings] = useState<TranslationStrings>( null );
     const [bag, setBag] = useState<InventoryBagData>(null);
+    const [mayBeOutdated, setMayBeOutdated] = useState<boolean>(false);
 
     const vaultData = useVault<VaultItemEntry>(
         'items', bag ? extractAllItems( bag ).map(i => i.p) : null
@@ -467,6 +483,58 @@ const HordesPassiveInventoryWrapper = (props: passiveMountProps) => {
     useEffect(() => {
         api.current.index().then(s => setStrings(s));
     }, []);
+
+    useBroadcastSignal(
+        ['inventory-bag-loaded', 'inventory-changed'],
+        () => {
+            setMayBeOutdated(true)
+        },
+        [props.id]
+    );
+
+    useSignal(
+        'web-navigation',
+        () => {
+            // Attempt to find an active bag
+            const i = document.querySelector(`hordes-inventory[data-inventory-a-id="${props.id}"],hordes-inventory[data-inventory-b-id="${props.id}"]`);
+            if (!i && mayBeOutdated) api.current.inventory(props.id).then(r => {
+                if (!r.bank) setBag(r as InventoryBagData);
+            });
+            if (mayBeOutdated) setMayBeOutdated(false);
+        },
+        [mayBeOutdated]
+    )
+
+    useSignal<InventoryBagLoadedSignalProps>(
+        'inventory-bag-loaded',
+        ({id,inventory}) => {
+            if (id === props.id) setBag(inventory as InventoryBagData);
+        },
+        [props.id]
+    )
+
+    useSignal<ServerInducedSignalProps>(
+        'inventory-changed',
+        () => {
+            // Attempt to find an active bag
+            const i = document.querySelector(`hordes-inventory[data-inventory-a-id="${props.id}"],hordes-inventory[data-inventory-b-id="${props.id}"]`);
+            // No bag here, we need to update ourselves
+            if (!i) api.current.inventory(props.id).then(r => {
+                if (!r.bank) setBag(r as InventoryBagData);
+            });
+        },
+        [props.id]
+    )
+
+    useSignal<ServerInducedSignalProps>(
+        'inventory-changed-headless',
+        () => {
+            api.current.inventory(props.id).then(r => {
+                if (!r.bank) setBag(r as InventoryBagData);
+            });
+        },
+        [props.id]
+    )
 
     useEffect(() => {
         if (!props.id) return;
@@ -480,14 +548,6 @@ const HordesPassiveInventoryWrapper = (props: passiveMountProps) => {
                 if (!r.bank) setBag(r as InventoryBagData);
             });
         }
-
-        const handler = (e: CustomEvent)=> {
-            if (e.detail.id === props.id) setBag(e.detail.inventory);
-        }
-
-        html().addEventListener( 'inventory-bag-loaded', handler );
-        return () => html().removeEventListener( 'inventory-bag-loaded', handler );
-
     }, [props.id]);
 
     useEffect(() => {
@@ -518,6 +578,24 @@ const HordesPassiveInventoryWrapper = (props: passiveMountProps) => {
     </Globals.Provider>
 
 }
+
+const HordesStandaloneItemWrapper = (props: standaloneItemMountProps) => {
+
+    const vaultData = useVault<VaultItemEntry>(
+        'items', [props.item]
+    )
+
+    const item = (vaultData ?? {})[props.item] ?? null;
+
+    return <div className="inline">
+        { item && <>
+            <img alt={item.name} src={item.icon}/>
+            <ItemTooltip data={item}/>
+        </> }
+    </div>
+
+}
+
 
 const HordesEscortInventoryWrapper = (props: escortMountProps) => {
 
@@ -552,6 +630,14 @@ const HordesEscortInventoryWrapper = (props: escortMountProps) => {
 
     }, [props.rucksackId, props.etag]);
 
+    useSignal<InventoryBagLoadedSignalProps>(
+        'inventory-bag-loaded',
+        ({id,inventory}) => {
+            if (id === props.floorId) setFloor(inventory as InventoryBagData);
+        },
+        [props.floorId, open]
+    )
+
     useEffect(() => {
         if (!props.floorId || !open) return;
 
@@ -559,12 +645,6 @@ const HordesEscortInventoryWrapper = (props: escortMountProps) => {
         const i = document.querySelector(`hordes-inventory[data-inventory-a-id="${props.floorId}"],hordes-inventory[data-inventory-b-id="${props.floorId}"]`);
         if (i) setFloor( (i as any).bag(props.floorId) ?? null )
 
-        const handler = (e: CustomEvent)=> {
-            if (e.detail.id === props.floorId) setFloor(e.detail.inventory);
-        }
-
-        html().addEventListener( 'inventory-bag-loaded', handler );
-        return () => html().removeEventListener( 'inventory-bag-loaded', handler );
     }, [props.floorId, open]);
 
     const manageTransfer = (item: number|null, from: number, to: number, direction: string) =>{
@@ -578,7 +658,7 @@ const HordesEscortInventoryWrapper = (props: escortMountProps) => {
             if (toA) setBag(toA as InventoryBagData);
             if (toB) {
                 setFloor(toB as InventoryBagData);
-                html().dispatchEvent(new CustomEvent('inventory-bag-loaded', { detail: {id: props.floorId, inventory: toB, element: props.parent} }));
+                emitSignal<InventoryBagLoadedSignalProps>('inventory-bag-loaded', {id: props.floorId, inventory: toB, element: props.parent})
             }
 
             commonInventoryResponseHandler(s, direction, null, true, props.reload, false);

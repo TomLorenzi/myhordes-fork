@@ -28,6 +28,12 @@ export type TranslationStrings = {
         participate: string,
         abort: string,
 
+        temp: {
+            icon: string,
+            title: string,
+            text: string,
+        }
+
         vote: {
             help: string,
             current: string,

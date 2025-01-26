@@ -1,9 +1,10 @@
 import * as React from "react";
 import {useEffect, useRef, useState} from "react";
 import {Const, Global} from "../../defaults";
-import {html, sharedWorkerCall} from "../../v2/init";
+import {sharedWorkerCall} from "../../v2/init";
 import {Tooltip} from "../tooltip/Wrapper";
 import {BaseMounter} from "../index";
+import {html} from "../../v2/helpers";
 
 declare var c: Const;
 declare var $: Global;
