@@ -167,7 +167,7 @@
     & blockquote { margin-left: 10px; margin-right: 0; opacity: 1; font-size: 1em; }
   }
 
-  .spoiler {
+  .spoiler { /*new design based on community script : https://userstyles.world/style/18493/forum-hordien, improvements done specifically on MH */
     display:inline !important;
     margin-left: 0px !important;
     padding-left: 60px !important;
@@ -178,11 +178,7 @@
     background-repeat: no-repeat !important;
     background-position: 4px 1px !important;
     &:not(:hover) { &>* { visibility: hidden; } }
-    &:hover { color: #98a675 !important; background-color: transparent !important; }
-    a, b, i {
-        color: #4d5537 !important;
-        &:hover { color: #98a675 !important; }
-    }
+    &:hover { background-color: transparent !important; }
 
     div:not(.cref), pre, blockquote, ul, ol {
       visibility: visible !important;
@@ -198,13 +194,13 @@
       border-left: 1px solid #4d5537 !important;
       border-bottom: 1px solid #4d5537 !important;
     }
-    &:not(:hover) sideNote { margin-top: 0px !important; margin-bottom: 0px !important; margin-left: 0px !important; } /*don't work yet : we can notice the side note*/
+    &:not(:hover) .sideNote { margin: 0px !important; font-size: 1.6rem; }
     &:hover div:not(.cref):not(.modAnnounce), &:hover pre, &:hover blockquote, &:hover ul, &:hover ol {
-      color: #98a675 !important;
+      color: white !important;
       background-color: transparent !important;
     }
-    &:hover div.modAnnounce, &:hover div.adminAnnounce, &:hover div.oracleAnnounce {
-      color: #ffffff !important;
+    &:hover div.modAnnounce, &:hover div.adminAnnounce, &:hover div.oracleAnnounce { /*don't work yet for oracle&admin announces : they still have no background color!*/
+      color: white !important;
       background-color: #5c0000 !important;
     }
   
@@ -212,7 +208,7 @@
 
     &:not(:hover) img, &:not(:hover) span.quoteauthor { visibility: hidden !important; }
 
-    &:not(:hover) img { display: none; } /*find a better solution to images instead of don't display them*/
+    &:not(:hover) img { display: none; } /*TODO: find a better solution to images instead of don't display them*/
     
     &:has(.username):not(:hover) { border-top: 1px solid #4d5537 !important; }
     
@@ -225,13 +221,41 @@
       border-bottom: 1px solid #4d5537 !important;
     }
     &:has(img) { background-position: 4px 0px !important; }
+
+    /*&:not(:hover) hr { border-color: @myhordes-smalltext }*/ /*TODO: finds a way to display lines hidden behind spoiler but don't makes it obvious*/
   
-    &:not(:hover) div:not(.cref) *::selection, pre *::selection, blockquote *::selection{
+    &:not(:hover) div:not(.cref) *::selection, pre *::selection, blockquote *::selection {
       color:#4d5537 !important;
       background-color:#4d5537 !important;
     }
+
+    &:not(:hover) ul.poll:not(.global-poll) {
+      border: 1px solid #efdba800;
+      &>li {
+        button.small { display: contents; color: #4d5537 !important; }
+        &.q, &.desc { color:#4d5537 !important; }
+        &:not(.plain):not(.q):not(.desc):before { display: contents; }
+        &:not(.desc)+li { 
+            border-top: none;
+            &.div.right { display: contents; } /*TODO: hide the numbers of vote-bar behind spoiler tag*/
+          }
+        .vote-bar { background: none; }
+      }
+      &:not(.global-poll) > li {
+        &.q {
+          &:before { display: contents; }
+        }
+      }
+    }
+
+    &:hover .glory { background-color: #301a22 !important; } /*TODO: don't work, glory still has no background-color when hovering spoiler*/
+
+    &:not(:hover) .glory {
+      margin: 0; border:1px solid #00000000 !important; box-shadow: 0 0 2px #00000000; border-radius: 0px;
+      &:before { display: none; } 
+    }
   
-    &:not(:hover) div.modAnnounce, &:not(:hover) div.adminAnnounce, &:not(:hover) div.oracleAnnounce { /*don't work yet for oracle&admin announces : they still have no background color!*/
+    &:not(:hover) div.modAnnounce, &:not(:hover) div.adminAnnounce, &:not(:hover) div.oracleAnnounce {
       background-image:none !important; margin : 0;
       border:1px solid #00000000 !important; box-shadow: 0 0 2px #00000000; border-radius: 0px;
     }
@@ -274,7 +298,7 @@
     &:after { content: " :" !important; }
   }
 
-  .rpText {
+  .rpText { /*new design based on community script : https://userstyles.world/style/18493/forum-hordien, improvements done specifically on MH */
     clear: left;
     margin: 0px !important; margin-right: 0px !important; padding: 1px 5px 1px 5px !important;
     min-height:20px !important; line-height: 18px;
