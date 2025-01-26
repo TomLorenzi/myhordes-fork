@@ -1602,16 +1602,32 @@ span.defense-broken,div.defense-broken { .icon_div("../img/icons/small_def_broke
       cursor: pointer;
 
       font-family: @myhordes-tab-font; font-size: 1rem; font-variant: small-caps;
-      color: #f0d79e; padding: 2px 4px 0; text-decoration: underline;
+      color: #f0d79e; padding: 2px 4px 0; text-decoration: none;
+
+      img.drag-handle{
+        cursor: move;
+      }
+
+      img.tab-link-delete{
+        width: 10px;
+        opacity: 0.8;
+      }
     }
 
-    &:not(.tab-floater):hover .tab-link { outline: 1px solid #f0d79e; text-decoration: underline; }
-    &.selected {
-      position: relative; top: 2px;
-      .tab-link {
+    &:not(.tab-floater):hover .tab-link {
+        outline: 1px solid #f0d79e;
+        color: white;
         text-decoration: none;
-        color: white; background-image: url(../img/background/tab_active.gif);
-      }
+    }
+    &.selected .tab-link {
+      text-decoration: none;
+      color: white;
+      background-image: url(../img/background/tab_active.gif);
+    }
+
+    &.sortable-item.sortable-ghost .tab-link {
+        opacity: 0.5;
+        background-color: #ddd;
     }
   }
   &.plain .tab { float: left; }
