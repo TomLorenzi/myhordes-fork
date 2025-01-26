@@ -131,12 +131,16 @@ class MessageController extends CustomAbstractController
                         $town_link = $this->generateUrl('soul_view_town', ['sid' => $user->getId(), 'idtown' => $citizen->getTown()?->getRankingEntry()->getId()]);
                         $post->setNoteIcons(['build/images/soul/small_falsecity.gif']);
                         $post->setNote("<span class=\"pointer hide-sm hide-md\" x-ajax-href=\"{$town_link}\">$town_name</span>");
-                    } elseif (!$this->userCapabilityService->hasRole($user, 'ROLE_DUMMY')) {
-                        $post->setNoteIcons(['build/images/emotes/buried.gif']);
+                    } else {
+                        $post->setNoteIcons($user->getRightsElevation() === 3 ? ['build/images/building/small_appletree.gif'] : ['build/images/emotes/buried.gif']);
                         $note = '{ancient}';
                         $post->setNote("<span class='hide-sm hide-md'>$note</span>");
                     }
                 }
+            } elseif ($post->getType() === 'CROW') {
+                $post->setNoteIcons(['build/images/building/small_appletree.gif']);
+                $note = '{ancient}';
+                $post->setNote("<span class='hide-sm hide-md'>$note</span>");
             }
         }
 
