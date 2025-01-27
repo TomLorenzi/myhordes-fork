@@ -694,7 +694,7 @@ Sekunde(n): Segundo(s)
 'Dieser Bürger ist ernsthaft verletzt.': '¡Ha sido <strong>gravemente herido</strong>!'
 'Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.': 'ha estado tosiendo sangre últimamente... Algunos hablan de una <strong>Infección</strong>.'
 'Dieser Bürger hat eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?': "habría estado mendigando por agua en todo el pueblo..."
-'Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...': "estaría en un grave estado de dependencia... Se dice incluso que se habría vuelto muy violento, y hasta \"anti-comunitario\" por momentos."
+'Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...': "\n            {ref__icu, select,\n                on {\n                    {ref__gender, select,\n                        female {estaría en un grave estado de dependencia... Se dice incluso que se habría vuelto muy violenta, y hasta \"anti-comunitaria\" por momentos.}\n                        other {estaría en un grave estado de dependencia... Se dice incluso que se habría vuelto muy violento, y hasta \"anti-comunitario\" por momentos.}\n                    }\n                }\n            other {estaría en un grave estado de dependencia... Se dice incluso que se habría vuelto muy violento, y hasta \"anti-comunitario\" por momentos.}\n            }\n        "
 'Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...': "no lograría dormir y diría frases incoherentes, hablando de muerte, sombras a su alrededor, voces en su cabeza..."
 'Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!': 'no sería capaz de elegir su oficio. A este paso no sobreviviremos.'
 'Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?': "parece ser alguien importante. ¿Tal vez uno de los creadores?"
@@ -1846,7 +1846,7 @@ Reiseleiter-Ratgeber: Guía del Guía del Ultramundo
 'Wenn du flüchtest, werden dich die Zombies verletzen, aber du wirst trotzdem entkommen...': 'Siempre es una alternativa, pero los zombies te harían mucho daño...'
 'Du kannst versuchen einen Zombie im Nahkampf und ohne Waffen anzugreifen.': 'Intenta escapar atacando a un zombie cuerpo a cuerpo, sin armas.'
 'Diese Aktion kostet dich 1 AP und die Erfolgsaussichten sind ziemlich gering.': 'Requiere 1 PA y tiene pocas probabilidades de éxito.'
-'Dieser Bürger möchte in die Stadt gebracht werden.': "\n            {ref__icu, select,\n                on {\n                    {ref__gender, select,\n                        female {Este ciudadano quiere ser traído a la ciudad.}\n                        other {Este ciudadano quiere ser traído a la ciudad.}\n                    }\n                }\n            other {Este ciudadano quiere ser traído a la ciudad.}\n            }\n        "
+'Dieser Bürger möchte in die Stadt gebracht werden.': "\n            {ref__icu, select,\n                on {\n                    {ref__gender, select,\n                        female {Esta ciudadana quiere ser traída de vuelta al pueblo.}\n                        other {Este ciudadano quiere ser traído de vuelta al pueblo.}\n                    }\n                }\n            other {Este ciudadano quiere ser traído de vuelta al pueblo.}\n            }\n        "
 'Der Leichnam von {citizen} wurde nicht zerstört.': 'El cuerpo de {citizen} no fue destruido.'
 'Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.': 'Hay muchas posibilidades de que resucite esta noche y trate de atacarnos.'
 '<em>Du kannst dein Haus ausbauen und so für eine bessere Verteidigung sorgen. <strong>Wichtige Anmerkung:</strong> Vielleicht wäre es sinnvoller, die dafür benötigten Ressourcen (falls erforderlich) der Stadt zu spenden?</em>': '<em>Puedes mejorar tu vivienda y así gozar de una mejor defensa. <strong>Ponte a pensar:</strong> ¿No sería mejor utilizar tus recursos para mejorar el pueblo?</em>'
@@ -2117,7 +2117,7 @@ Ranking-Ausschluss: Exclusión de clasificación
 'Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses <strong>gegessen</strong>!': '¡La cruz de chocolate fue <strong>devorada</strong> por los habitantes como parte de este trágico evento, que sinvergüenzas!'
 '{citizen} hat <strong>{count} Haufen Schutt</strong> mithilfe von {item} bereinigt.': '{citizen} limpió <strong>{count} montones de escombros</strong> usando {item}.'
 'Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).': 'Esta acción es posible gracias a un edificio en el pueblo (solo los héroes pueden usarlo).'
-'Durch die Lüftungsschächte klettern (in)': 'Trepar por la aeración'
+'Durch die Lüftungsschächte klettern (in)': 'Trepar por el ducto de ventilación'
 'Durch die Lüftungsschächte klettern (out)': 'Trepar por el ducto de ventilación'
 'Höchstens {nw_defense}': "\n              {nw_defense, plural,\n                =0 {¡Ninguno!}\n                other {Por lo menos #}\n              }\n          "
 'Dieser Bürger': "Según las malas lenguas, el habitante {citizen}:"
@@ -3006,8 +3006,8 @@ Nüchtern: Sobrio
 'Allgemein verfügbar': 'Siempre disponible'
 'In diesem Thread können Fragen zum Leben in der Stadt gestellt werden.': 'En este tema se pueden formular preguntas sobre la vida del pueblo.'
 'Fragen & Antworten': 'Preguntas y Respuestas'
-'Dein geworbener Spieler {user} hat zum ersten Mal Heldenerfahrung für eine Fähigkeit ausgegeben.': 'Tu jugador apadrinado {user} usó experiencia heroica sobre una habilidad por la primera vez.'
-'Dein geworbener Spieler {user} hat zum ersten Mal in dieser Saison Heldenerfahrung für eine Fähigkeit ausgegeben.': 'Tu jugador apadrinado {user} usó experiencia heroica sobre una habilidad por la primera vez en esta temporada.'
+'Dein geworbener Spieler {user} hat zum ersten Mal Heldenerfahrung für eine Fähigkeit ausgegeben.': 'Tu jugador referido {user} usó experiencia heroica en una habilidad por primera vez.'
+'Dein geworbener Spieler {user} hat zum ersten Mal in dieser Saison Heldenerfahrung für eine Fähigkeit ausgegeben.': 'Tu jugador referido {user} usó experiencia heroica sobre una habilidad por primera vez en esta temporada.'
 'Vergessene Stadt': 'Ciudad olvidada'
 'Überall und nirgens': 'En todos lados y en ninguno'
 Meisteringenieur: Jefe de Manitas
