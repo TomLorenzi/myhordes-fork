@@ -18,8 +18,8 @@ class ResponseGlobal
         ];
     }
 
-    public function withConditionalSignal(bool $condition, ClientSignal $signal, ...$signals): void {
-        if ($condition) $this->withSignal( $signal, ...$signals );
+    public function withConditionalSignal(mixed $condition, ClientSignal $signal, ...$signals): void {
+        if (!!$condition) $this->withSignal( $signal, ...$signals );
     }
 
     public function getSignals(): array {
