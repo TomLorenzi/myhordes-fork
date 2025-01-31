@@ -45,7 +45,14 @@
         </div>
     {% endif %}
 
-    {{'<strong>STAGING DEBUG:<br>Death (%) : deathChance<br>Injury (%) : woundChance<br>Terror (%) : terrorChance</strong>'|trans({'deathChance': deathChance * 100, 'woundChance': woundChance * 100, 'terrorChance': terrorChance * 100}, 'game')|raw}}
+    {% if debug is defined and debug %}
+        <strong>
+            STAGING DEBUG:<br>
+            Death: {{ deathChance * 100 }}%<br>
+            Injury: {{ woundChance * 100 }}%<br>
+            Terror: {{ terrorChance * 100 }}%
+        </strong>
+    {% endif %}
 
     {{ hook('nightwatchHeader') }}
 

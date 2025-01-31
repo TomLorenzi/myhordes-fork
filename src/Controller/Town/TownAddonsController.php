@@ -18,6 +18,7 @@ use App\Entity\LogEntryTemplate;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Enum\Configuration\CitizenProperties;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Enum\EventStages\BuildingValueQuery;
 use App\Event\Game\Citizen\CitizenQueryNightwatchDeathChancesEvent;
 use App\Event\Game\Citizen\CitizenQueryNightwatchDefenseEvent;
@@ -25,6 +26,7 @@ use App\Event\Game\Citizen\CitizenQueryNightwatchInfoEvent;
 use App\Event\Game\Town\Addon\Dump\DumpInsertionCheckEvent;
 use App\Event\Game\Town\Addon\Dump\DumpRetrieveCheckEvent;
 use App\Event\Game\Town\Addon\Dump\DumpRetrieveExecuteEvent;
+use App\Kernel;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
@@ -353,7 +355,7 @@ class TownAddonsController extends TownController
      * @return Response
      */
     #[Route(path: 'jx/town/nightwatch', name: 'town_nightwatch')]
-    public function addon_nightwatch(TownHandler $th, EventProxyService $proxy): Response
+    public function addon_nightwatch(TownHandler $th, EventProxyService $proxy, KernelInterface $kernel): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
@@ -429,7 +431,8 @@ class TownAddonsController extends TownController
             'zeds_today' => $zeds_today,
             'def' => $this->town_handler->calculate_town_def($town, $defSummary),
             'cap' => $cap,
-            'allow_weapons' => $proxy->queryTownParameter( $town, BuildingValueQuery::NightWatcherWeaponsAllowed ) != 0
+            'allow_weapons' => $proxy->queryTownParameter( $town, BuildingValueQuery::NightWatcherWeaponsAllowed ) != 0,
+            'debug' => $kernel->getEnvironment() === 'dev' || $kernel->getEnvironment() === 'local' || $this->conf->getGlobalConf()->get(MyHordesSetting::StagingSettingsEnabled)
         ]) );
     }
 
