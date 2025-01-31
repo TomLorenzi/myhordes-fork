@@ -751,7 +751,8 @@ class TownAddonsController extends TownController
             $this->entity_manager->persist($log->clinicConvert( $this->getActiveCitizen(), $list1, [] ));
         }
 
-        $this->citizen_handler->inflictStatus($this->getActiveCitizen(), 'tg_tamer_lure');
+        if (!($kernel->getEnvironment() === 'dev' || $kernel->getEnvironment() === 'local' || $this->conf->getGlobalConf()->get(MyHordesSetting::StagingSettingsEnabled)))
+            $this->citizen_handler->inflictStatus($this->getActiveCitizen(), 'tg_tamer_lure');
 
         $this->entity_manager->persist($this->getActiveCitizen());
         $this->entity_manager->persist($town);
