@@ -144,7 +144,7 @@
 
             <div class="padded cell rw-6 rw-md-8 rw-sm-12 actions-box">
                 <button x-ajax-href="{{ url('game_newspaper') }}">{% trans from 'game' %}Lesen Sie das Mitteilungsblatt{% endtrans %}</button>
-                {% if is_granted('ROLE_CROW') and (app.environment == 'dev' or app.environment == 'local') %}
+                {% if is_granted('ROLE_CROW') and debug is defined and debug %}
                     <button x-ajax-href="{{ path('admin_town_dashboard', {id: town.id}) }}"><img alt="" src="{{ asset('build/images/icons/small_admin.gif') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</button>
                 {% endif %}
             </div>

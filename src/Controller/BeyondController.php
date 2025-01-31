@@ -24,6 +24,7 @@ use App\Entity\ZoneActivityMarker;
 use App\Entity\ZoneTag;
 use App\Enum\ActionHandler\PointType;
 use App\Enum\Configuration\CitizenProperties;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Enum\Configuration\TownSetting;
 use App\Enum\EventStages\BuildingValueQuery;
 use App\Enum\Game\TransferItemOption;
@@ -64,6 +65,7 @@ use Psr\Cache\InvalidArgumentException;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Cache\ItemInterface;
 use Symfony\Contracts\Cache\TagAwareCacheInterface;
@@ -252,7 +254,7 @@ class BeyondController extends InventoryAwareController
      */
     #[Route(path: 'jx/beyond/desert/cached/{sect}', name: 'beyond_dashboard', defaults: ['refresh' => false])]
     #[Route(path: 'jx/beyond/desert/refresh/{sect}', name: 'beyond_dashboard_refresh', defaults: ['refresh' => true])]
-    public function desert(TownHandler $th, TagAwareCacheInterface $gameCachePool, string $sect = '', bool $refresh = false): Response
+    public function desert(TownHandler $th, TagAwareCacheInterface $gameCachePool, KernelInterface $kernel, string $sect = '', bool $refresh = false): Response
     {
         $citizen = $this->getActiveCitizen();
         $request = Request::createFromGlobals();
@@ -404,10 +406,13 @@ class BeyondController extends InventoryAwareController
                 'camping_debug' => $camping_debug ?? '',
                 'zone_tags' => $zone_tags,
                 'sect' => $sect,
+
             ];
         }/*, INF*/);
 
-        $args = $this->addDefaultTwigArgs(null, array_merge($data, $this->desert_partial_inventory_args() ), !$inline);
+        $args = $this->addDefaultTwigArgs(null, array_merge($data, $this->desert_partial_inventory_args(), [
+            'debug' => $kernel->getEnvironment() === 'dev' || $kernel->getEnvironment() === 'local' || $this->conf->getGlobalConf()->get(MyHordesSetting::StagingSettingsEnabled)
+        ] ), !$inline);
 
         return $inline
             ? $this->renderBlocks( 'ajax/game/beyond/desert.html.twig', ['content','js'], [ 'ajax/game/game.html.twig' => 'gma' ], $args )

@@ -20,6 +20,7 @@ use App\Entity\PrivateMessageThread;
 use App\Enum\ActionHandler\PointType;
 use App\Enum\ClientSignal;
 use App\Enum\Configuration\CitizenProperties;
+use App\Enum\Configuration\MyHordesSetting;
 use App\Enum\Game\CitizenPersistentCache;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
@@ -38,6 +39,7 @@ use Exception;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Translation\Translator;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -51,7 +53,7 @@ class TownHomeController extends TownController
      * @return Response
      */
     #[Route(path: 'jx/town/house/dash', name: 'town_house_dash')]
-    public function house_dash(): Response
+    public function house_dash(KernelInterface $kernel): Response
     {
         $activeCitizen = $this->getActiveCitizen();
         if (!$activeCitizen->getHasSeenGazette())
@@ -71,6 +73,7 @@ class TownHomeController extends TownController
                 'special_actions' => $this->getSpecialActions(),
                 'actions' => $this->getItemActions(),
                 'recipes' => $this->getItemCombinations(true),
+                'debug' => $kernel->getEnvironment() === 'dev' || $kernel->getEnvironment() === 'local' || $this->conf->getGlobalConf()->get(MyHordesSetting::StagingSettingsEnabled)
             ], $this->house_partial_deco_args(), $this->house_partial_complaints_args())) );
     }
 

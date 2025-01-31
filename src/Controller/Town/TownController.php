@@ -66,6 +66,7 @@ use Psr\Container\NotFoundExceptionInterface;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -136,7 +137,7 @@ class TownController extends InventoryAwareController
      * @return Response
      */
     #[Route(path: 'jx/town/dashboard', name: 'town_dashboard')]
-    public function dashboard(TownHandler $th, GameEventService $gameEvents): Response
+    public function dashboard(TownHandler $th, GameEventService $gameEvents, KernelInterface $kernel): Response
     {
         if (!$this->getActiveCitizen()?->getHasSeenGazette())
             return $this->redirectToRoute('game_newspaper');
@@ -271,7 +272,8 @@ class TownController extends InventoryAwareController
             'is_dehydrated' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'thirst2'),
             'bbe_id' => $this->entity_manager->getRepository(BlackboardEdit::class)->findOneBy(['town' => $town], ['id' => 'DESC'])?->getId() ?? -1,
             'potential_defense_loss' => $this->events->queryTownParameter( $town, BuildingValueQuery::MissingItemDefenseLoss ),
-            'item_def_limit' => $item_def_limit
+            'item_def_limit' => $item_def_limit,
+            'debug' => $kernel->getEnvironment() === 'dev' || $kernel->getEnvironment() === 'local' || $this->conf->getGlobalConf()->get(MyHordesSetting::StagingSettingsEnabled)
         ]) );
     }
 
