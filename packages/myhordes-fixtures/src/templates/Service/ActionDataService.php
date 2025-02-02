@@ -577,6 +577,8 @@ class ActionDataService implements FixtureProcessorInterface {
                 'unequip_bike_first' => [ 'label' => 'Absteigen', 'at00' => true, 'meta' => ['is_not_wounded_hands','bike_now','bike_first'], 'result' => [ 'unequip_item', 'status_tag_no_bike_now', 'status_tag_no_bike_first', 'status_tag_bike_today', 'minus_2sp' ], 'message' => 'Mit ein wenig Trennungsschmerz im Herzen steigst du von deinem Fahrrad ab.' ],
                 //'unequip_bike_again' => [ 'label' => 'Ablegen', 'at00' => true, 'meta' => ['is_not_wounded_hands','bike_now','not_bike_first'], 'result' => [ 'unequip_item', 'status_tag_no_bike_now', 'status_tag_no_bike_first', , 'status_tag_bike_today' ], 'message' => 'Mit ein wenig Trennungsschmerz im Herzen hast du deine Schuhe abgelegt.' ],
 
+                'eat_apple'   => [ 'label' => 'Essen', 'priority' => 1, 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ /*'eat_ap',*/ 'no_full_ap_msg_food' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap8', 'consume_item', [ 'group' => [ ['infect', 15], [ 'do_nothing', 85 ] ] ] ], 'escort_message_key' => 'escort_food_eat' ],
+
                 'nw_break'   => [ 'label' => '', 'meta' => [], 'result' => [ 'break_item' ] ],
                 'nw_destroy' => [ 'label' => '', 'meta' => [], 'result' => [ 'consume_item' ] ],
                 'nw_empty_big_pgun'     => [ 'label' => '', 'meta' => [], 'result' => [ 'morph_big_pgun_empty' ] ],
@@ -731,7 +733,8 @@ class ActionDataService implements FixtureProcessorInterface {
                 'chama_tasty_#00'     => [ 'eat_7ap'],
                 'woodsteak_#00'       => [ 'eat_7ap'],
                 'egg_#00'             => [ 'eat_7ap'],
-                'apple_#00'           => [ 'eat_7ap'],
+                'apple_blue_#00'      => [ 'eat_7ap'],
+                'apple_#00'           => [ 'eat_apple'],
 
                 'disinfect_#00'       => [ 'drug_par_1', 'drug_par_2', 'drug_par_3', 'drug_par_4' ],
                 'drug_#00'            => [ 'drug_6ap_1', 'drug_6ap_2' ],

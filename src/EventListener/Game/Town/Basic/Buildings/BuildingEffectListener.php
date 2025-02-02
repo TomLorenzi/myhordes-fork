@@ -166,8 +166,14 @@ final class BuildingEffectListener implements ServiceSubscriberInterface
 
         $items = match ($event->building->getPrototype()->getName()) {
             'small_appletree_#00'   => in_array( 'item_digger_#00', $this->getService(TownHandler::class)->getCachedBuildingList($event->town, true) )
-                ? [ 'apple_#00'     => mt_rand(3,5) ]    // with fertilizer
-                : [ 'apple_#00'     => mt_rand(2,4) ],   // without fertilizer
+                ? [ // with fertilizer
+                    'apple_blue_#00'     => mt_rand(3,5),
+                    'apple_#00'          => $this->container->get(RandomGenerator::class)->chance(($maximizeProd ? 0.15 : 0.05)) ? 1 : null
+                ]
+                : [ // without fertilizer
+                    'apple_blue_#00'     => mt_rand(2,4),
+                    'apple_#00'          => $this->container->get(RandomGenerator::class)->chance(($maximizeProd ? 0.15 : 0.05)) ? 1 : null
+                ],
             'small_chicken_#00'     => [ 'egg_#00' => mt_rand(2,4) ],
             'item_vegetable_tasty_#00' => in_array( 'item_digger_#00', $this->getService(TownHandler::class)->getCachedBuildingList($event->town, true) )
                 // with fertilizer

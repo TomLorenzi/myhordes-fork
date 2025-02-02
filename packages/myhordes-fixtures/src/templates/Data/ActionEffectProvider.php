@@ -663,6 +663,12 @@ class ActionEffectProvider
             ->add( (new StatusEffect())->point( PointType::SP, 0, relativeToMax: RelativeMaxPoint::RelativeToExtensionMax ) )
             ->commit();
 
+        $effects_container->add()->identifier('eat_ap8')
+            ->add((new StatusEffect())->point( PointType::AP, 2, relativeToMax: true )->addsStatus('haseaten') )
+            ->add((new MessageEffect())->escort(false)->text( 'Einmal ist zwar keinmal, dennoch genießt du dein(e) <span class="tool">{item}</span>. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast <strong>2 zusätzlichen AP erhalten!</strong>'))
+            ->add( (new StatusEffect())->point( PointType::SP, 0, relativeToMax: RelativeMaxPoint::RelativeToExtensionMax ) )
+            ->commit();
+
         $effects_container->clone('infect_no_msg')->identifier('infect')
             ->add((new MessageEffect())->text( 'Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!'))
             ->commit();

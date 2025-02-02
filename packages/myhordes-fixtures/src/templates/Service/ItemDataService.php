@@ -240,7 +240,7 @@ class ItemDataService implements FixtureProcessorInterface {
 		$container->add()->label('Geröstete Marshmallows')->icon('chama_tasty')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Sägemehlsteak')->icon('woodsteak')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
 		$container->add()->label('Ei')->icon('egg')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
-		$container->add()->label('Apfel')->icon('apple')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit();
+		$container->add()->label('Apfel')->icon('apple_blue')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit(); //New regular apple
 		$container->add()->label('Grüne Bierflasche')->icon('vodka_de')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->fragile(true)->commit();
 		$container->add()->label('Vodka Marinostov')->icon('vodka')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->fragile(true)->commit();
 		$container->add()->label("'Wake The Dead'")->icon('rhum')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->fragile(true)->commit();
@@ -389,6 +389,7 @@ class ItemDataService implements FixtureProcessorInterface {
         $container->add()->label('Kamera aus Vorkriegs-Tagen')->icon('photo_4')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->sort(61)->commit();
         $container->add()->label('Quantum Energy')->icon('quantum')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->fragile(true)->commit(); //Cola Quantum
         $container->add()->label('Cellokasten')->icon('cello_box')->category('Box')->deco(0)->heavy(true)->watchpoint(0)->commit(); // Cello box
+        $container->add()->label('Bloody Apple')->icon('apple')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit(); //Bloody Apple
 
         $container->modify('water_#00')->description('Das Wasser gibt dir einmal pro Tag deine Aktionpunkte zurück oder löscht alternativ deinen Durst (unbegrenzt).')->commit();
         $container->modify('pile_#00')->description('Die Batterie ist für vieles nützlich. Allerdings ist sie auch ziemlich schnell leer ...')->commit();
@@ -638,7 +639,7 @@ class ItemDataService implements FixtureProcessorInterface {
 		$container->modify('bplan_box_#00')->description('Dieser Koffer enthält mehrere Dokumente und obskure Gegenstände (Bleistift, Kompass, Plastiklineale,...). Nichts was dir irgendwie helfen würde, in der Wüste zu überleben. ...zumindest auf den ersten Blick.')->commit();
 		$container->modify('bplan_box_e_#00')->description('Dieser Koffer enthält höchstwahrscheinlich ein sehr seltenes und kostbares Dokument...')->commit();
 		$container->modify('egg_#00')->description('Hier in dieser Einöde ein Ei zu finden, sollte dich eigentlich glücklich machen. Aber eine Frage lässt dir einfach keine Ruhe: Wo zum Teufel steckt das verdammte Huhn...')->commit();
-		$container->modify('apple_#00')->description('Als einer davon auf Sir Newton\'s Kopf fiel dachte er mit Sicherheit nicht zuerst an das erste universelle Gesetz der Schwerkraft... aber es sollten immerhin ein paar Vitamine enthalten sein.')->commit();
+		$container->modify('apple_blue_#00')->description('Als einer davon auf Sir Newton\'s Kopf fiel dachte er mit Sicherheit nicht zuerst an das erste universelle Gesetz der Schwerkraft... aber es sollten immerhin ein paar Vitamine enthalten sein.')->commit();
 		$container->modify('boomfruit_#00')->description('Sie ist sehr groß, fruchtig und macht "tick-tack".')->commit();
 		$container->modify('bplan_drop_#00')->description('Diese kleine Ledertasche scheint Unterlagen zu enthalten. Du betest inständig, dass es sich dabei um ein Männermagazin handelt, oder den Bauplan für ein neues, mächiges Gebäude. ...und nicht um die verblichenen Kopien einer Umsatzschätzung der Buchhaltung.')->commit();
 		$container->modify('magneticKey_#00')->description('Mit diesem HighTech-Schlüssel lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen. Nur Angehörige der Elite können sich damit brüsten, so einen Schlüssel zu besitzen. Leider ist der Schlüssel in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.')->commit();
@@ -763,6 +764,7 @@ class ItemDataService implements FixtureProcessorInterface {
         $container->modify('photo_4_#00')->description('Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest! Eine kleine Zahl an der Seite zeigt an, dass  noch ein Foto übrig ist.')->commit();
         $container->modify('quantum_#00')->description('"Mach den Sprung... genieße eine Quantum!" Der Slogan auf der Flasche ist verlockend, die leuchtend blaue Farbe jedoch nicht...')->commit();
         $container->modify('cello_box_#00')->description('Du weißt nicht einmal mehr, wo du das her hast... Die Farbe fängt schon an, sich abzulösen. Ist das Teil wirklich nützlich?')->commit(); // Cello box
+        $container->modify('apple_#00')->description('Unlike all the other apples on the tree, this one grew with a shimmering red colour. It doesn\'t really inspire confidence, it\'s a very strange colour for an apple, it\'s a good idea to eat it?')->commit(); //Bloody Apple, TODO : correction description & translation
 
         // Installed Crow Garland
         $container->clone('xmas_gift_#00')->label('Aufgehängte Krähengirlande')->deco(5)->commit();
