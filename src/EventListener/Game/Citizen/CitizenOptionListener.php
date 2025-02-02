@@ -44,7 +44,7 @@ final class CitizenOptionListener implements ServiceSubscriberInterface
             $event->pushOption(
                 Recipe::WorkshopTypeTechSpecific,
                 $counter >= 1,
-                $event->citizen->getProfession()->getName() == "tech" ? 4 : 6,
+                $event->citizen->getProfession()->getName() == "tech" ? 3 : 5,
                 $trans->trans('Techniker-Werkstatt', [], 'buildings'),
                 $counter >= 1
                     ? $trans->trans('Du hast die Techniker-Werkbank <strong>heute bereits verwendet</strong>. Komm morgen wieder.', [], 'game')
