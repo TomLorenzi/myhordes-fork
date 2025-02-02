@@ -969,6 +969,7 @@ class ActionDataService implements FixtureProcessorInterface {
 
                 'tamed_pet_#00'      => [ 'hero_tamer_1', 'hero_tamer_1b', 'hero_tamer_3', 'hero_tamer_4', 'hero_tamer_5', 'hero_tamer_6', 'hero_tamer_7', 'hero_tamer_8', 'hero_tamer_9', 'pet_doggo' ],
                 'tamed_pet_drug_#00' => [ 'hero_tamer_2', 'hero_tamer_2b', 'hero_tamer_4b', 'hero_tamer_5', 'hero_tamer_5b', 'hero_tamer_6b', 'hero_tamer_7b', 'hero_tamer_8b', 'hero_tamer_9' ],
+                'tamed_pet_off_#00' => [ 'pet_doggo' ],
                 'soccer_#00'  => [ 'play_soccer_1', 'play_soccer_2'],
                 'quantum_#00'  => [ 'drink_quantum_1', 'drink_quantum_2', 'drink_quantum_3'],
 
