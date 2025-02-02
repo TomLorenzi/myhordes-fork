@@ -411,10 +411,12 @@ class ActionEffectProvider
                                                                         ->addSpawnList(['drug_#00', 'bandage_#00'], 5)
         )->commit();
         $effects_container->add()->identifier('building_survivalist_a')->add((new ItemEffect())
+                                                                                 ->spawnAt(ItemDropTarget::DropTargetFloor)
                                                                                  ->addSpawn('water_cup_part_#00', 3)
                                                                                  ->addSpawn('water_cup_#00', 1)
         )->commit();
         $effects_container->add()->identifier('building_survivalist_b')->add((new ItemEffect())
+                                                                                 ->spawnAt(ItemDropTarget::DropTargetFloor)
                                                                                  ->addSpawnWithVariableCount('water_cup_#00', min: 1, max: 3)
         )->commit();
         //</editor-fold>
