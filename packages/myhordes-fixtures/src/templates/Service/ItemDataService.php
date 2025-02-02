@@ -389,7 +389,7 @@ class ItemDataService implements FixtureProcessorInterface {
         $container->add()->label('Kamera aus Vorkriegs-Tagen')->icon('photo_4')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->sort(61)->commit();
         $container->add()->label('Quantum Energy')->icon('quantum')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->fragile(true)->commit(); //Cola Quantum
         $container->add()->label('Cellokasten')->icon('cello_box')->category('Box')->deco(0)->heavy(true)->watchpoint(0)->commit(); // Cello box
-        $container->add()->label('Bloody Apple')->icon('apple')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit(); //Bloody Apple
+        $container->add()->label('Blutapfel')->icon('apple')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit(); //Bloody Apple
 
         $container->modify('water_#00')->description('Das Wasser gibt dir einmal pro Tag deine Aktionpunkte zurück oder löscht alternativ deinen Durst (unbegrenzt).')->commit();
         $container->modify('pile_#00')->description('Die Batterie ist für vieles nützlich. Allerdings ist sie auch ziemlich schnell leer ...')->commit();
@@ -756,7 +756,7 @@ class ItemDataService implements FixtureProcessorInterface {
         $container->modify('medic_#00')->description('Was willst du mit diesen ganzen Verbänden? Was abgerissen wurde ist weg. Die kleine Pillen hingegen sind immer von Nutzen.')->commit();
         $container->modify('shoe_#00')->description('Sie sind nicht mehr ganz neuwertig und riechen etwas streng... Trotzdem kannst du dich mit ihnen leichter durch das unwegsame Gelände in der Außenwelt bewegen.')->commit();
         $container->modify('bike_part_#00')->description('Ein schönes Fahrrad, aber der wichtigste Teil davon fehlt: ein Lenker.')->commit();
-        $container->modify('bike_#00')->description('Das Fahrrad alle maßgeschneiderten Landes, mit denen Sie überall hin gehen können, wo immer Sie wollen.')->commit();
+        $container->modify('bike_#00')->description('Ein Fahrrad für jeden Untergrund - damit kannst du überall dorthin kommen, wo du gerne sein möchtest.')->commit();
         $container->modify('flag_#00')->description('Eine lächerlich sichtbare Flagge. Vielleicht, wenn Sie es winken, wird etwas passieren ...?')->commit();
         $container->modify('soccer_#00')->description('Für den kleinen Kick zwischendurch.')->commit();
         $container->modify('soccer_part_#00')->description('Ein Ball, mit dem wir einiges an Spaß haben könnten. Wenn er nur nicht schon geplatzt wäre...')->commit();
@@ -764,7 +764,7 @@ class ItemDataService implements FixtureProcessorInterface {
         $container->modify('photo_4_#00')->description('Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest! Eine kleine Zahl an der Seite zeigt an, dass  noch ein Foto übrig ist.')->commit();
         $container->modify('quantum_#00')->description('"Mach den Sprung... genieße eine Quantum!" Der Slogan auf der Flasche ist verlockend, die leuchtend blaue Farbe jedoch nicht...')->commit();
         $container->modify('cello_box_#00')->description('Du weißt nicht einmal mehr, wo du das her hast... Die Farbe fängt schon an, sich abzulösen. Ist das Teil wirklich nützlich?')->commit(); // Cello box
-        $container->modify('apple_#00')->description('Unlike all the other apples on the tree, this one grew with a shimmering red colour. It doesn\'t really inspire confidence, it\'s a very strange colour for an apple, it\'s a good idea to eat it?')->commit(); //Bloody Apple, TODO : correction description & translation
+        $container->modify('apple_#00')->description('Anders als die restlichen Äpfel an diesem Baum erstrahlt dieser in einem leuchtenden Rot. Das ist schon merkwürdig, einen Apfel mit einer solchen untypischen Farbe in der Hand zu halten... Ob es so eine gute Idee ist, ihn zu essen?')->commit(); //Bloody Apple
 
         // Installed Crow Garland
         $container->clone('xmas_gift_#00')->label('Aufgehängte Krähengirlande')->deco(5)->commit();

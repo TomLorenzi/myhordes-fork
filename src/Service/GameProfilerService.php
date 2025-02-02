@@ -163,11 +163,17 @@ class GameProfilerService {
         );
     }
 
-    public function recordRecipeExecuted( Recipe $recipe, Citizen $citizen, ?ItemPrototype $result ): void {
+    public function recordRecipeExecuted( Recipe $recipe, Citizen $citizen, ItemPrototype|array|null $result ): void {
+        if (is_array($result)) $result = array_filter( $result );
+        $primary = is_array($result) ? ($result[array_key_first($result)] ?? null) : $result;
+
         $this->maybe_persist(
             $this->init( GameProfileEntryType::RecipeExecuted, $citizen->getTown(), $citizen )
                 ?->setForeign1( $recipe->getId() )
-                ?->setForeign2( $result?->getId() )
+                ?->setForeign2( $primary?->getId() )
+                ?->setData(is_array($result) && count($result) > 1 ? [
+                    'all' => array_map( fn(ItemPrototype $p) => $p->getId(), $result ),
+                ] : null)
         );
     }
 

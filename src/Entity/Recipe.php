@@ -49,6 +49,10 @@ class Recipe
     private $stealthy = false;
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $tooltip_string;
+
+    #[ORM\Column]
+    private bool $multiOut = false;
+
     public function __construct()
     {
         $this->provoking = new ArrayCollection();
@@ -181,6 +185,18 @@ class Recipe
     public function setTooltipString(?string $tooltip_string): self
     {
         $this->tooltip_string = $tooltip_string;
+
+        return $this;
+    }
+
+    public function isMultiOut(): ?bool
+    {
+        return $this->multiOut;
+    }
+
+    public function setMultiOut(bool $multiOut): static
+    {
+        $this->multiOut = $multiOut;
 
         return $this;
     }

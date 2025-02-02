@@ -474,7 +474,7 @@ class ActionHandler
         return self::ErrorNone;
     }
 
-    public function execute_recipe( Citizen &$citizen, Recipe $recipe, ?array &$remove, ?string &$message, int $penalty = 0 ): int {
+    public function execute_recipe(Citizen $citizen, Recipe $recipe, ?array &$remove, ?string &$message, int $penalty = 0 ): int {
         $town = $citizen->getTown();
         $c_inv = $citizen->getInventory();
         $t_inv = $citizen->getTown()->getBank();
@@ -526,12 +526,20 @@ class ActionHandler
         if ($recipe->getType() === Recipe::WorkshopTypeTechSpecific)
             $citizen->getSpecificActionCounter(ActionCounter::ActionTypeSpecialActionTech)->increment();
 
-        $new_item = $this->random_generator->pickItemPrototypeFromGroup( $recipe->getResult(), $this->conf->getTownConfiguration( $citizen->getTown() ), $this->conf->getCurrentEvents( $citizen->getTown() ) );
-        $this->proxyService->placeItem( $citizen, $this->item_factory->createItem( $new_item ) , $target_inv, true, $silent );
-        $this->gps->recordRecipeExecuted( $recipe, $citizen, $new_item );
+        $new_items = [];
+        if ($recipe->isMultiOut())
+            foreach ($recipe->getResult()->getEntries() as $result)
+                for ($i = 0; $i < $result->getChance(); $i++)
+                    $new_items[] = $result->getPrototype();
+        else
+            $new_items[] = $this->random_generator->pickItemPrototypeFromGroup( $recipe->getResult(), $this->conf->getTownConfiguration( $citizen->getTown() ), $this->conf->getCurrentEvents( $citizen->getTown() ) );
+
+        foreach ($new_items as $new_item)
+            $this->proxyService->placeItem( $citizen, $this->item_factory->createItem( $new_item ) , $target_inv, true, $silent );
+        $this->gps->recordRecipeExecuted( $recipe, $citizen, $new_items );
 
         if (in_array($recipe->getType(), $workshop_types))
-            $this->entity_manager->persist( $this->log->workshopConvert( $citizen, array_map( function(Item $e) { return array($e->getPrototype()); }, $items  ), array([$new_item]) ) );
+            $this->entity_manager->persist( $this->log->workshopConvert( $citizen, array_map( fn(Item $e)  => [$e->getPrototype()], $items  ), array_map( fn(ItemPrototype $e)  => [$e], $new_items ) ) );
 
         switch ( $recipe->getType() ) {
             case Recipe::WorkshopType:
@@ -541,9 +549,12 @@ class ActionHandler
                   "Öffnen"      => T::__('Du hast {item_list} in der Werkstatt geöffnet und erhälst {item}.', 'game'),
                   "Zerlegen"    => T::__('Du hast {item_list} in der Werkstatt zu {item} zerlegt.', 'game'),
                   default       => match (true) {
-                      $used_bp === 0                 => T::__('Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> verbraucht.', 'game'),
-                      $used_bp > 0 && $used_ap <= 0  => T::__('Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{cp} Baupunkt(e)</strong> verbraucht.', 'game'),
-                      default                        => T::__('Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> und <strong>{cp} Baupunkt(e)</strong> verbraucht.', 'game'),
+                      count($new_items) === 1 && $used_bp === 0                 => T::__('Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> verbraucht.', 'game'),
+                      count($new_items) === 1 && $used_bp > 0 && $used_ap <= 0  => T::__('Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{cp} Baupunkt(e)</strong> verbraucht.', 'game'),
+                      count($new_items) === 1                                   => T::__('Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> und <strong>{cp} Baupunkt(e)</strong> verbraucht.', 'game'),
+                      $used_bp === 0                 => T::__('Du hast {item} hergestellt. Die Gegenstände wurden in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> verbraucht.', 'game'),
+                      $used_bp > 0 && $used_ap <= 0  => T::__('Du hast {item} hergestellt. Die Gegenstände wurden in der Bank abgelegt.<hr />Du hast dafür <strong>{cp} Baupunkt(e)</strong> verbraucht.', 'game'),
+                      default                        => T::__('Du hast {item} hergestellt. Die Gegenstände wurden in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> und <strong>{cp} Baupunkt(e)</strong> verbraucht.', 'game'),
                   }
               };
               $this->picto_handler->give_picto($citizen, "r_refine_#00");
@@ -559,7 +570,7 @@ class ActionHandler
 
         $message = $this->translator->trans( $base, [
             '{item_list}' => $this->wrap_concat( $list ),
-            '{item}' => $this->wrap( $new_item ),
+            '{item}' => $this->wrap_concat( $new_items ),
             '{ap}' => $used_ap <= 0 ? "0" : $used_ap,
             '{cp}' => $used_bp <= 0 ? "0" : $used_bp,
         ], 'game' );

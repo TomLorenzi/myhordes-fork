@@ -180,6 +180,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
                     $recipe->addKeep( $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $item]));
             }
             $recipe->setTooltipString($recipe_data['tooltip'] ?? null);
+            $recipe->setMultiOut($recipe_data['multi_out'] ?? false);
             $manager->persist($recipe);
 
             $progress->advance();
