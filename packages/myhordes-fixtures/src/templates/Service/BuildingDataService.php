@@ -588,7 +588,7 @@ class BuildingDataService implements FixtureProcessorInterface {
             ->isTemporary(0)->defense(0)->ap(30)->health(30)->blueprintLevel(3)->resources(["explo_#00" => 1, "wood_beam_#00" => 3, "deto_#00" => 1,])->orderBy(3)->commit();
 
         $container->add()->parentBuilding($item_firework_tube)
-            ->icon('small_survarea')->label('Naturbereich der Überlebenskünstler')->description('Um die Einsiedler nicht zu verwirren, die zwischen all diesen Baustellen festsitzen, haben wir ein kleines Paradies für sie gebaut! Der Vorteil ist, dass sie ihre Talente nutzen können, um eine trinkbare Flüssigkeit zu gewinnen. Ist es heutzutage wirklich noch wichtig, was es ist?')
+            ->icon('small_survarea')->label('Naturbereich der Überlebenskünstler')->description('Ein kleines Stück Paradies, das aus ein paar Grashalmen im Schatten von Dächern und halbierten Dosen besteht, die senkrecht in den Himmel gehoben werden, so eine geheimnisvolle Theorie aus dem Survival-Handbuch der Einsiedler. Angeblich soll dies „die Brise einfangen“ ... ein Rätsel. Aber der Punkt ist, dass man dadurch ein wenig Wasser sammeln kann!')
             ->isTemporary(0)->defense(0)->ap(30)->blueprintLevel(3)->resources(["ryebag_#00" => 2,"wood2_#00" => 5,"radio_on_#00" => 1,"oilcan_#00" => 2,])->orderBy(4)->commit();
 
         $container->add()->parentBuilding($item_bgrenade)

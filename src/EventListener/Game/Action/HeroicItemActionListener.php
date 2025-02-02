@@ -169,7 +169,7 @@ final class HeroicItemActionListener implements ServiceSubscriberInterface
                     }
 
                     $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->outsideDigSurvivalist( $event->citizen ) );
-                    $event->cache->addTranslationKey('casino', $this->getService(TranslatorInterface::class)->trans($drink ? 'Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.' : 'Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....', [], 'items'));
+                    $event->cache->addTranslationKey('casino', $this->getService(TranslatorInterface::class)->trans($drink ? 'Als Sie Ihre Umgebung untersuchen, stoßen Sie auf eine Pfütze mit stehendem Wasser. Da Sie wirklich keine andere Wahl haben, zwingen Sie sich, alles auszutrinken (und auch alles, was darin schwamm)...' : 'Fest entschlossen etwas Essbares zu finden, machst du dich auf, die Umgebung abzusuchen... Du findest schließlich <strong>eine Handvoll schleimiger Würmer, die sich hin- und herwinden</strong>. Dein Handbuch stellt zu dieser Art Würmern nüchtern fest: Sie sind genießbar! <strong>Ohne lange zu zögern, schlingst du die Dinger runter</strong>.', [], 'items'));
 
                 } else
                     $event->cache->addTranslationKey('casino', $this->getService(TranslatorInterface::class)->trans('So viel zum Survivalbuch. Kein Wunder, dass dieses Buch nicht über die Grundstufe hinausgekommen ist... Du hast absolut nichts gefunden, aber das wusstest du wahrscheinlich schon.', [], 'items'));

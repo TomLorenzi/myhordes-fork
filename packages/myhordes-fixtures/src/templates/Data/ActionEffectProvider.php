@@ -410,14 +410,19 @@ class ActionEffectProvider
                                                                         ->addSpawn('cyanure_#00', 10)
                                                                         ->addSpawnList(['drug_#00', 'bandage_#00'], 5)
         )->commit();
-        $effects_container->add()->identifier('building_survivalist_a')->add((new ItemEffect())
+        $effects_container->add()->identifier('building_survivalist_a')->add((new ItemEffect()) //Nature Area gain for non-survivalists
                                                                                  ->spawnAt(ItemDropTarget::DropTargetFloor)
-                                                                                 ->addSpawn('water_cup_part_#00', 3)
-                                                                                 ->addSpawn('water_cup_#00', 1)
+                                                                                 ->addSpawn('water_cup_part_#00', 50)
+                                                                                 ->addSpawn('water_cup_#00', 50)
         )->commit();
-        $effects_container->add()->identifier('building_survivalist_b')->add((new ItemEffect())
+        $effects_container->add()->identifier('building_survivalist_b')->add((new ItemEffect()) //Nature Area fixed guaranted gain for survivalists
                                                                                  ->spawnAt(ItemDropTarget::DropTargetFloor)
-                                                                                 ->addSpawnWithVariableCount('water_cup_#00', min: 1, max: 3)
+                                                                                 ->addSpawn('water_cup_part_#00')
+        )->commit();
+        $effects_container->add()->identifier('building_survivalist_c')->add((new ItemEffect()) //Nature Area lucky gain for survivalists
+                                                                                 ->spawnAt(ItemDropTarget::DropTargetFloor)
+                                                                                 ->addSpawn('water_cup_#00', 50)
+                                                                                 ->addSpawn('water_cup_#00', 50, count: 2)
         )->commit();
         //</editor-fold>
 
