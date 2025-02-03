@@ -255,13 +255,14 @@ class BuildingController extends CustomAbstractCoreController
         $messages[] = "";
 
         // Notice
+        $plan = "<strong>{$this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings')}</strong>";
         if(!$was_completed) {
             if($building->getAp() < $building->getPrototype()->getAp()){
-                $messages[] = $this->translator->trans("Du hast am Bauprojekt {plan} mitgeholfen.", ["{plan}" => "<strong>" . $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings') . "</strong>"], 'game');
+                $messages[] = $this->translator->trans("Du hast am Bauprojekt {plan} mitgeholfen.", ["{plan}" => $plan], 'game');
             } else {
-                $messages[] = $this->translator->trans("Hurra! Folgendes Gebäude wurde fertiggestellt: {plan}!", ['{plan}' => "<strong>" . $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings') . "</strong>"], 'game');
+                $messages[] = $this->translator->trans("Hurra! Folgendes Gebäude wurde fertiggestellt: {plan}!", ['{plan}' => $plan], 'game');
             }
-        }
+        } else $messages[] = $this->translator->trans("Du hast bei der Reparatur des Gebäudes {plan} mitgeholfen.", ["{plan}" => $plan], 'game');
 
         // If the building was not previously completed but reached 100%, complete the building and trigger the completion handler
         $building->setComplete( $building->getComplete() || $building->getAp() >= $building->getPrototype()->getAp() );
