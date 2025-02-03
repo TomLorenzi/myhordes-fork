@@ -364,6 +364,8 @@ const BuildingActions= (props: BuildingCompleteProps) => {
     const input = useRef<HTMLInputElement>();
     const [loading, setLoading] = useState<boolean>(false);
 
+    const [inputValid, setInputValid] = useState<boolean>(true);
+
     return <div className="building_action cell">
         { !props.locked && ( !props.building.c || props.building.a[0] < props.building.a[1] ) && <div className="relative">
             <button
@@ -374,8 +376,19 @@ const BuildingActions= (props: BuildingCompleteProps) => {
                 { props.building.c && <Tooltip additionalClasses="help" html={globals.strings.page.hp_ratio_help.replace('{remaining}', `${props.missing_ap}`)} /> }
             </button>
             { res_ok && globals.selectedBuilding.value?.i === props.building.i && <div className="ap-prompt" data-disabled={loading ? "disabled" : ""}>
-                <input ref={input} type="number" defaultValue={Math.min(1, props.missing_ap)} style={{marginBottom: "3px"}} min={Math.min(1, props.missing_ap)} max={Math.min(9, props.missing_ap)}/>
+                <input
+                    ref={input}
+                    type="number"
+                    defaultValue={Math.min(1, props.missing_ap)}
+                    style={{marginBottom: "3px"}} min={Math.min(1, props.missing_ap)} max={Math.min(9, props.missing_ap)}
+                    onChange={() => {
+                        if (input.current.value.match(/^\d+$/) === null) setInputValid(false);
+                        else if (parseInt( input.current.value ) < Math.min(1, props.missing_ap)) setInputValid(false);
+                        else setInputValid(true);
+                    }}
+                />
                 <button
+                    disabled={!inputValid}
                     className="button center"
                     onClick={() => {
                         setLoading(true);

@@ -198,6 +198,10 @@ class BuildingController extends CustomAbstractCoreController
         } else {
             $missing_ap = ceil(($building->getPrototype()->getHp() - $building->getHp()) / $hpToAp);
         }
+
+        if ($ap === 0 && $missing_ap > 0)
+            return new JsonResponse(status: Response::HTTP_NOT_ACCEPTABLE);
+
         $ap = max(0, min( $ap, $missing_ap ) );
 
         if ($ap <= 0 && $was_completed)
