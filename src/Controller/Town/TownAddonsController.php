@@ -235,7 +235,8 @@ class TownAddonsController extends TownController
         if (!$th->getBuilding($town, 'small_refine_#00', true))
             return $this->redirect($this->generateUrl('town_dashboard'));
 
-        $have_saw  = $iv->countSpecificItems( $c_inv, $this->entity_manager->getRepository( ItemPrototype::class )->findOneBy( ['name' => 'saw_tool_#00'] ), false, false ) > 0;
+        $have_saw  = $iv->countSpecificItems( $c_inv, $this->entity_manager->getRepository( ItemPrototype::class )->findOneBy( ['name' => 'saw_tool_#00'] ), false, false ) > 0 ||
+                     $iv->countSpecificItems( $c_inv, $this->entity_manager->getRepository( ItemPrototype::class )->findOneBy( ['name' => 'saw_tool_temp_#00'] ), false, false ) > 0;
         $have_manu = $th->getBuilding($town, 'small_factory_#00', true) !== null;
 
         $recipeData = $this->events->citizenWorkshopOptions( $this->getActiveCitizen() );

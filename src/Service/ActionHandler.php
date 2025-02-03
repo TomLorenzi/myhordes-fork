@@ -492,12 +492,21 @@ class ActionHandler
         $remove = [];
         $workshop_types = [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific, Recipe::WorkshopTypeTechSpecific];
 
+        $break_item = null;
+        $break_chance = 0;
+
         $silent = false;
         if (in_array($recipe->getType(), $workshop_types)) {
             $have_saw  = $this->inventory_handler->countSpecificItems( $c_inv, $this->entity_manager->getRepository( ItemPrototype::class )->findOneBy(['name' => 'saw_tool_#00']), false, false ) > 0;
             $have_manu = $this->town_handler->getBuilding($town, 'small_factory_#00', true) !== null;
 
-            $ap = $penalty + (3 - ($have_saw ? 1 : 0) - ($have_manu ? 1 : 0));
+            $breakable_saw = $have_saw ? null : ($this->inventory_handler->fetchSpecificItems( $c_inv, ['saw_tool_temp_#00'] )[0] ?? null);
+            if ($breakable_saw) {
+                $break_chance = 0.15;
+                $break_item = $breakable_saw;
+            }
+
+            $ap = $penalty + (3 - (($have_saw || $breakable_saw) ? 1 : 0) - ($have_manu ? 1 : 0));
             $silent = true;
         } else $ap = $penalty;
 
@@ -574,6 +583,14 @@ class ActionHandler
             '{ap}' => $used_ap <= 0 ? "0" : $used_ap,
             '{cp}' => $used_bp <= 0 ? "0" : $used_bp,
         ], 'game' );
+
+        $break = ($break_item && $this->random_generator->chance( $break_chance ));
+        if ($break) {
+            $message .= '<hr/>' . $this->translator->trans( 'Ups, dein(e) {item} scheint dabei kaputt gegangen zu sein...', [
+                    '{item}' => $this->wrap( $break_item->getPrototype() ),
+                ], 'game' );
+            $this->entity_manager->persist( $break_item->setBroken(true) );
+        }
 
         return self::ErrorNone;
     }

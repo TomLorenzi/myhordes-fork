@@ -390,6 +390,7 @@ class ItemDataService implements FixtureProcessorInterface {
         $container->add()->label('Quantum Energy')->icon('quantum')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->fragile(true)->commit(); //Cola Quantum
         $container->add()->label('Cellokasten')->icon('cello_box')->category('Box')->deco(0)->heavy(true)->watchpoint(0)->commit(); // Cello box
         $container->add()->label('Blutapfel')->icon('apple')->category('Food')->deco(0)->heavy(false)->watchpoint(0)->commit(); //Bloody Apple
+        $container->add()->label('Improvisierte Säge')->icon('saw_tool_temp')->category('Misc')->deco(0)->heavy(false)->watchpoint(0)->commit(); // Improvised saw
 
         $container->modify('water_#00')->description('Das Wasser gibt dir einmal pro Tag deine Aktionpunkte zurück oder löscht alternativ deinen Durst (unbegrenzt).')->commit();
         $container->modify('pile_#00')->description('Die Batterie ist für vieles nützlich. Allerdings ist sie auch ziemlich schnell leer ...')->commit();
@@ -765,6 +766,7 @@ class ItemDataService implements FixtureProcessorInterface {
         $container->modify('quantum_#00')->description('"Mach den Sprung... genieße eine Quantum!" Der Slogan auf der Flasche ist verlockend, die leuchtend blaue Farbe jedoch nicht...')->commit();
         $container->modify('cello_box_#00')->description('Du weißt nicht einmal mehr, wo du das her hast... Die Farbe fängt schon an, sich abzulösen. Ist das Teil wirklich nützlich?')->commit(); // Cello box
         $container->modify('apple_#00')->description('Anders als die restlichen Äpfel an diesem Baum erstrahlt dieser in einem leuchtenden Rot. Das ist schon merkwürdig, einen Apfel mit einer solchen untypischen Farbe in der Hand zu halten... Ob es so eine gute Idee ist, ihn zu essen?')->commit(); //Bloody Apple
+        $container->modify('saw_tool_temp_#00')->description('Mit ein bisschen Fantasie kann man dieses Teil als eine Säge bezeichnen. Mit ein bisschen mehr Fantasie kann man es vielleicht sogar benutzen.')->commit(); // Makeshift hacksaw
 
         // Installed Crow Garland
         $container->clone('xmas_gift_#00')->label('Aufgehängte Krähengirlande')->deco(5)->commit();
