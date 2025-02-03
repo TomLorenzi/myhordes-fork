@@ -395,7 +395,13 @@ const BuildingActions= (props: BuildingCompleteProps) => {
                         globals.api.build(props.building.i, parseInt(input.current.value))
                             .then(m => {
                                 if (m.message) $.html.message( m.success ? 'notice' : 'error', m.message );
-                                if (m.success) globals.selectedBuilding.setValue(null);
+                                if (m.success) {
+                                    globals.selectedBuilding.setValue(null);
+                                    document.querySelectorAll('hordes-log[data-etag]').forEach((logElem) => {
+                                        const [et_static, et_custom = '0'] = (logElem as HTMLElement).dataset.etag.split('-');
+                                        (logElem as HTMLElement).dataset.etag = `${et_static}-${parseInt(et_custom)+1}`;
+                                    });
+                                }
                                 if (m.building) globals.updateBuilding(m.building);
                             })
                             .finally( () => setLoading(false) )
