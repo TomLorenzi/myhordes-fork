@@ -3008,6 +3008,7 @@ Nüchtern: crwdns205818:0crwdne205818:0
 'Dein geworbener Spieler {user} hat zum ersten Mal Heldenerfahrung für eine Fähigkeit ausgegeben.': 'crwdns210612:0{user}crwdne210612:0'
 'Dein geworbener Spieler {user} hat zum ersten Mal in dieser Saison Heldenerfahrung für eine Fähigkeit ausgegeben.': 'crwdns210614:0{user}crwdne210614:0'
 'Vergessene Stadt': 'crwdns210616:0crwdne210616:0'
+'Überall und nirgens': 'crwdns211552:0crwdne211552:0'
 Meisteringenieur: crwdns211510:0crwdne211510:0
 Meisteringenieur_f: crwdns211512:0crwdne211512:0
 'Techniker - Gewinner des SoH': 'crwdns211514:0crwdne211514:0'
@@ -3183,3 +3184,6 @@ Tierklinik: crwdns210946:0crwdne210946:0
 'Meine Truhe': 'crwdns211524:0crwdne211524:0'
 '30 Tage in "{town}" überlebt.': 'crwdns211526:0{town}crwdne211526:0'
 'Auszeichnung {picto} zum {num}ten Mal in "{town}" verdient.': 'crwdns211528:0{picto}crwdnd211528:0{num}crwdnd211528:0{town}crwdne211528:0'
+'Du hast {item} hergestellt. Die Gegenstände wurden in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> verbraucht.': 'crwdns211572:0{item}crwdnd211572:0{ap}crwdne211572:0'
+'Du hast {item} hergestellt. Die Gegenstände wurden in der Bank abgelegt.<hr />Du hast dafür <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'crwdns211574:0{item}crwdnd211574:0{cp}crwdne211574:0'
+'Du hast {item} hergestellt. Die Gegenstände wurden in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> und <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'crwdns211576:0{item}crwdnd211576:0{ap}crwdnd211576:0{cp}crwdne211576:0'

@@ -3184,3 +3184,6 @@ Tierklinik: Centre d'essai
 'Meine Truhe': 'Mon Coffre'
 '30 Tage in "{town}" überlebt.': 'Survécu 30 jours dans « {town} ».'
 'Auszeichnung {picto} zum {num}ten Mal in "{town}" verdient.': 'Distinction {picto} obtenue pour la {num}ème fois dans « {town} ».'
+'Du hast {item} hergestellt. Die Gegenstände wurden in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> verbraucht.': 'Après quelques bricolages, vous avez fabriqué {item}. Les objets ont été placés dans la banque.<hr />Vous avez dépensé <strong>{ap} points d''action</strong> pour le faire.'
+'Du hast {item} hergestellt. Die Gegenstände wurden in der Bank abgelegt.<hr />Du hast dafür <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'Après quelques bricolages, vous avez fabriqué {item}. Les objets ont été déposés à la banque.<hr />Vous avez utilisé <strong>{cp} points de chantier</strong> pour cela.'
+'Du hast {item} hergestellt. Die Gegenstände wurden in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> und <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'Après quelques bricolages, vous avez obtenu {item} (l''objet a été placé en banque).<hr />Vous avez utilisé <strong>{ap} points d''action</strong> et <strong>{cp} points de chantier</strong>.'

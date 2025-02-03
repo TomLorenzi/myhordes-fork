@@ -3068,7 +3068,7 @@ Leichenverbrenner: Cremación de cuerpos
 'Du verbrennst {disposed}s Körper mit deiner Fackel, bevor du die Asche zu Staub im Wind verwehen lässt. Vielleicht hättest du etwas Sinnvolleres damit machen können...': 'Quemas el cuerpo de {disposed} con tu antorcha antes de dejar que las cenizas se conviertan en polvo con el viento. Tal vez podrías haber hecho algo más útil con él...'
 '{citizen} hat die Asche von {disposed} im Gemüsebeet verstreut.': '{citizen} esparció las cenizas de {disposed} en la Huerta.'
 'Die Sportkrähe': 'El Cuervo deportivo'
-'Das Grab der ehemaligen Sportler...': 'La tumba de ex-deportistas...'
+'Das Grab der ehemaligen Sportler...': 'Un antiguo polideportivo yace ante ti. La arena reina en las antiguas canchas de baloncesto y únicamente encuentras grietas, polvo y arena en los campos de fútbol. Te preguntas, ¿que habrá sido de los grandes deportistas que tanto practicaban aquí a diario?...'
 Wachthund: Perro guardián
 'Gedopter Wachthund': 'Perro guardián dopado'
 'Schmiere stehen': 'Vigila'
@@ -3082,7 +3082,7 @@ Wachthund: Perro guardián
 '15 Tage in "{town}" überlebt.': '15 días en el pueblo "{town}".'
 'Auszeichnung {picto} in "{town}" verdient.': 'Distinción {picto} ganada en el pueblo "{town}".'
 'Auszeichnung {picto} zum ersten Mal in "{town}" verdient.': 'Distinción {picto} ganada por primera vez en el pueblo "{town}".'
-Strategie: Sábio
+Strategie: Sabio
 Umsicht: Universitario
 Planung: Planificador
 Eifer: Exuberante
@@ -3178,9 +3178,12 @@ Klinikregister: Centro de pruebas de Domadores
 '{citizen} hat {list2} in die Stadt gelockt und dabei folgendes Futter eingesetzt: {list1}.': '{citizen} atrajo a {list2} al pueblo utilizando la siguiente comida: {list1}.'
 '{citizen} hat vergeblich versucht Tiere in die Stadt zu locken und dabei folgendes Futter verschwendet: {list1}.': '{citizen} intentó sin éxito atraer animales al pueblo y desperdició la siguiente comida: {list1}.'
 Tierklinik: Centro de pruebas
-'Die folgenden Bürger sind der Stadt bereits beigetreten:': 'Die folgenden Bürger sind der Stadt bereits beigetreten:'
-'Du kannst dieser Stadt nicht beitreten, da du nicht auf der Teilnehmerliste stehst.': 'Du kannst dieser Stadt nicht beitreten, da du nicht auf der Teilnehmerliste stehst.'
-'Du kannst dieser Stadt nicht beitreten, da du noch nicht die erforderliche Menge an Seelenpunkten gesammelt hast.': 'Du kannst dieser Stadt nicht beitreten, da du noch nicht die erforderliche Menge an Seelenpunkten gesammelt hast.'
-'Meine Truhe': 'Meine Truhe'
-'30 Tage in "{town}" überlebt.': '30 Tage in "{town}" überlebt.'
-'Auszeichnung {picto} zum {num}ten Mal in "{town}" verdient.': 'Auszeichnung {picto} zum {num}ten Mal in "{town}" verdient.'
+'Die folgenden Bürger sind der Stadt bereits beigetreten:': 'Los siguientes habitantes ya han entrado al pueblo:'
+'Du kannst dieser Stadt nicht beitreten, da du nicht auf der Teilnehmerliste stehst.': 'No puedes entrar a este pueblo ya que no estás en la lista de invitados.'
+'Du kannst dieser Stadt nicht beitreten, da du noch nicht die erforderliche Menge an Seelenpunkten gesammelt hast.': 'No puedes acceder a este pueblo ya que no cuentas con los suficientes puntos de alma.'
+'Meine Truhe': 'Mi baúl'
+'30 Tage in "{town}" überlebt.': '30 días sobrevividos en "{town}".'
+'Auszeichnung {picto} zum {num}ten Mal in "{town}" verdient.': 'Distinción {picto} ganada por {num}ª vez en "{town}".'
+'Du hast {item} hergestellt. Die Gegenstände wurden in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> verbraucht.': 'Después de algunos retoques, has creado {item}. Los objetos han sido depositados en el Almacén.<hr />Para ello has utilizado <strong>{ap} puntos de acción</strong>.'
+'Du hast {item} hergestellt. Die Gegenstände wurden in der Bank abgelegt.<hr />Du hast dafür <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'Después de algunos retoques, has creado {item}. Los objetos han sido depositados en el Almacén.<hr />Para ello has utilizado <strong>{cp} puntos de construcción</strong>.'
+'Du hast {item} hergestellt. Die Gegenstände wurden in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> und <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'Con un poco de ingenio, has obtenido {item} (el objeto ha sido puesto en el Almacén).<hr />Has utilizado <strong>{ap} puntos de acción</strong> y <strong>{cp} puntos de construcción</strong>.'

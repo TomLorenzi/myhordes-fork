@@ -596,14 +596,14 @@ Push-Benachrichtigungen: Push notifications
 'Die Ergebnisse dieser Umfrage werden ab {date} angezeigt.': 'The results of this survey will be displayed from {date}.'
 'Du kannst mehrere Antworten (oder auch keine Antwort) auswählen.': 'You can select several answers (or none).'
 'Einstellungen für Push-Benachrichtigungen': 'Push notification settings'
-'Push-Benachrichrichtigung erhalten, wenn Freunde einer Stadt beitreten': 'Receive push notifications when friends join a city'
+'Push-Benachrichrichtigung erhalten, wenn Freunde einer Stadt beitreten': 'Receive push notifications when friends join a town'
 'Allgemeine Einstellungen für Benachrichtigungen': 'General notification settings'
 'Damit du benachrichtigt wirst, wenn ein Freund eine Stadt betritt, muss dieser dich ebenfalls als Freund hinzugefügt haben. Du wirst zudem nur benachrichtigt, wenn du dieser Stadt ebenfalls beitreten könntest (dich also beispielsweise nicht bereits in einer anderen Stadt aufhälst).': 'To be notified when a friend enters a city, they must also have added you as a friend. You will also only be notified if you could also join this city (e.g. if you are not already in another city).'
 'Größeres PM-Icon verwenden': 'Use larger Private-Message icon'
 'Wenn aktiviert wird das PM-Icon am oberen rechten Rand der Seite größer dargestellt, um sich leichter klicken zu lassen.': 'When enabled, the Private Message icon at the top right of the page will be larger to make it easier to click.'
 'Fehlerberichte erfassen': 'Capture error report'
 'Du kannst keine Fehlerberichte über die MyHordes-Benutzeroberfläche erfassen und an Gitlab senden.': 'You cannot collect bug reports and submit them to Gitlab through the MyHordes interface.'
-'Push-Benachrichrichtigung über eine neue Nachricht in meinen offiziellen Gruppen erhalten': 'Receive push notification of a new message in my official groups'
+'Push-Benachrichrichtigung über eine neue Nachricht in meinen offiziellen Gruppen erhalten': 'Receive push notifications for new messages in my official groups'
 'Push-Benachrichrichtigung für Meldungen an die Moderation erhalten': 'Receive push notifications for reports to moderation'
 'Push-Benachrichrichtigung für offizielle Ankündigungen auf MyHordes erhalten.': 'Receive push notifications for official announcements of MyHordes.'
 'Push-Benachrichrichtigung für Community-Events erhalten.': 'Receive push notifications for community events.'
@@ -615,7 +615,7 @@ Push-Benachrichtigungen: Push notifications
 'Deine bisherigen Verdienste': 'Your previous merits'
 Beschreibung: Description
 '{num} oder mehr Seelenpunkte gesammelt': '{num} or more soul points collected'
-Fähigkeiten-Resets: Skill resets
+Fähigkeiten-Resets: Skills reset
 'Sobald du mindestens {num} Erfahrungspunkte ausgegeben hast, kannst du deine Fertigkeiten zurücksetzen.': 'Once you have spent at least {num} experience points, you can reset your skills.'
 'Du verlierst dann alle Erfahrungspunkte und Fertigkeiten, die du in dieser Saison erspielt hast, erhälst aber für den Rest der Saison einen zusätzlichen Fähigkeitenpunkt.': 'You will then lose all experience points and skills you have earned this season, but will receive an additional skill point for the rest of the season.'
 'Pro Saison kannst du deine Fähigkeiten maximal {num} Mal zurücksetzen.': 'You can reset your skills a maximum of {num} times per season.'

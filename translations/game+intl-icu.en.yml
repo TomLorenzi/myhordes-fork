@@ -2995,8 +2995,8 @@ Sofort: Immediately
 Nüchtern: Sober
 'Es ist wichtig, regelmäßig zu trinken!': 'It is important to drink regularly!'
 'Du bist nüchtern, gut gemacht!': 'You are sober, well done!'
-'Willkommen in deiner ersten Stadt': 'Welcome to your first city'
-'Willkommen! Dies ist ein Spiel, das sowohl auf Zusammenarbeit als auch Verrat zwischen den Spielern basiert. Der Feind kann ein Zombie oder dein Nachbar sein. Wir laden dich ein, das Forum deiner Stadt zu nutzen, um dich mit anderen Spielern zu koordinieren, zu diskutieren und euch vor Gefahren außerhalb und innerhalb der Stadt zu warnen.': 'Welcome! This is a game based on both cooperation and betrayal between players. The enemy can be a zombie or your neighbor. We invite you to use your city''s forum to coordinate with other players, discuss and warn each other about dangers outside and inside the city.'
+'Willkommen in deiner ersten Stadt': 'Welcome to your first town'
+'Willkommen! Dies ist ein Spiel, das sowohl auf Zusammenarbeit als auch Verrat zwischen den Spielern basiert. Der Feind kann ein Zombie oder dein Nachbar sein. Wir laden dich ein, das Forum deiner Stadt zu nutzen, um dich mit anderen Spielern zu koordinieren, zu diskutieren und euch vor Gefahren außerhalb und innerhalb der Stadt zu warnen.': 'Welcome! This is a game based on both cooperation and betrayal between players. The enemy can be a zombie or your neighbor. We invite you to use your town''s forum to coordinate with other players, discuss and warn each other about dangers outside and inside town.'
 'Ist das die Identität, die du in dieser Stadt annehmen möchtest? Prüfe deine Wahl sorgfältig, denn du kannst sie für die Dauer der Stadt nicht mehr ändern!': 'Is this the identity you want to adopt in this town? Review your choice carefully, because you can''t change it for the duration of the town!'
 'Dein Beruf': 'Your profession'
 'Deine Fähigkeiten': 'Your skills'
@@ -3184,3 +3184,6 @@ Tierklinik: Experiment Center
 'Meine Truhe': 'My Chest'
 '30 Tage in "{town}" überlebt.': 'Survived 30 days in "{town}".'
 'Auszeichnung {picto} zum {num}ten Mal in "{town}" verdient.': 'Distinction {picto} earned for the {num}. time in "{town}".'
+'Du hast {item} hergestellt. Die Gegenstände wurden in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> verbraucht.': 'After some DIY (thumb hammering, sweating, and colorful language), you have crafted {item}. The items have been placed in the bank.<hr />You spent <strong>{ap} action points</strong> to do so.'
+'Du hast {item} hergestellt. Die Gegenstände wurden in der Bank abgelegt.<hr />Du hast dafür <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'After some DIY (thumb hammering, sweating, and colorful language), you have crafted {item}. The items have been placed in the bank.<hr />You spent <strong>{cp} action points</strong> to do so.'
+'Du hast {item} hergestellt. Die Gegenstände wurden in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> und <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'After some DIY (thumb hammering, sweating, and colorful language), you have obtained {item} (the object has been placed in the bank).<hr />You have used <strong>{ap} action points</strong> and <strong>{cp} construction points</strong>.'
