@@ -41,6 +41,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Cache\ItemInterface;
 use Symfony\Contracts\Cache\TagAwareCacheInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[Route(path: '/rest/v1/user/soul/skills', name: 'rest_user_soul_skills_', condition: "request.headers.get('Accept') === 'application/json'")]
 #[IsGranted('ROLE_USER')]
@@ -136,11 +137,10 @@ class SkillController extends CustomAbstractCoreController
     }
 
     /**
-     * @param Packages $assets
      * @return JsonResponse
      */
     #[Route(path: '/hxp/index', name: 'hxp_index', methods: ['GET'])]
-    public function index(Packages $assets): JsonResponse {
+    public function hxp_index(): JsonResponse {
         return new JsonResponse([
             'common' => [
                 'empty'  => $this->translator->trans( 'Keine Heldenerfahrung gesammelt', [], 'soul'),
@@ -235,5 +235,53 @@ class SkillController extends CustomAbstractCoreController
             'additional' => count($data) > $elements
         ]);
 
+    }
+
+    #[Route(path: '/hxp/pack', name: 'hxp_pack_base', methods: ['GET'])]
+    #[GateKeeperProfile('skip')]
+    public function hxp_pack_index(TranslatorInterface $trans, Packages $asset, EntityManagerInterface $em, ConfMaster $conf): JsonResponse {
+        return new JsonResponse([
+            'skills' => [
+                'levels' => [
+                    $trans->trans('Anfänger', [], 'game'),
+                    $trans->trans('Lehrling', [], 'game'),
+                    $trans->trans('Experte', [], 'game'),
+                    $trans->trans('Meister', [], 'game'),
+                ]
+            ],
+        ]);
+    }
+
+    /**
+     * @param UserUnlockableService $unlockableService
+     * @param TranslatorInterface $trans
+     * @param Packages $asset
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    #[Route(path: '/hxp/pack/list', name: 'hxp_pack_skill_list', methods: ['GET'])]
+    public function skill_list(
+        UserUnlockableService $unlockableService,
+        TranslatorInterface $trans,
+        Packages $asset,
+    ): JsonResponse {
+        $user = $this->getUser();
+
+        return new JsonResponse([
+            'skills' => array_values(array_map(fn(HeroSkillPrototype $p) => [
+                'id' => $p->getId(),
+                'title' => $trans->trans($p->getTitle(), [], 'game'),
+                'description' => $trans->trans($p->getDescription(), [], 'game'),
+                'bullets' => array_map(fn(string $s) => $trans->trans($s, [], 'game'), $p->getBullets()),
+                'icon' => $asset->getUrl("build/images/heroskill/{$p->getIcon()}.gif"),
+                'level' => $p->getLevel(),
+                'sort' => $p->getSort(),
+                'group' => $trans->trans($p->getGroupIdentifier(), [], 'game'),
+                'value' => $p->getDaysNeeded(),
+                'locked' => $p->getDaysNeeded() <= 0,
+            ], $unlockableService->getUnlockedHeroicSkillsByUser( $user ))),
+            'hxp' => $unlockableService->getHeroicExperience( $user ),
+            'hxp_needed' => 200,
+        ]);
     }
 }
