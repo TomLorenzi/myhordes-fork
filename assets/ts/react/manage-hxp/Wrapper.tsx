@@ -11,7 +11,7 @@ declare var c: Const;
 declare var $: Global;
 
 type Props = {
-
+    reload: string,
 }
 
 export class HordesBuySkillPoint extends BaseMounter<Props>{
@@ -31,14 +31,12 @@ const HordesBuySkillPointWrapper = (props: Props) => {
     const [strings, setStrings] = useState<TranslationStrings>(null);
     const [skillData, setSkillData] = useState<SkillState>(null);
 
-    const [availableHxp, setAvailableHxp] = useState(0);
     const [levels, setLevels] = useState<{[key:string]: number|null}>({})
 
     useEffect(() => {
         apiRef.current.index().then(data => setStrings(data));
         apiRef.current.skills().then( s => {
             setSkillData(s);
-            setAvailableHxp(s.hxp);
         } );
     }, []);
 
@@ -54,8 +52,6 @@ const HordesBuySkillPointWrapper = (props: Props) => {
         if (skill.locked || !levels[skill.group]) return l;
         return (skill.level >= levels[skill.group]) ? (skill.value+l) : l;
     }, 0) ?? 0)
-
-    console.log(levels);
 
     return <Globals.Provider value={{
         strings,
@@ -94,6 +90,14 @@ const HordesBuySkillPointWrapper = (props: Props) => {
                     <b>{ hxp_sum } / { skillData?.hxp_needed }</b>
                 </div>
             </div>
+            <button onClick={() => {
+                apiRef.current.sell_skills( skillData.skills.filter(skill =>
+                    (levels[skill.group] ?? null) !== null &&
+                    skill.level >= levels[skill.group]
+                ).map(skill => skill.id) ).then(() => {
+                    $.ajax.load(null, props.reload)
+                });
+            }}>OK</button>
         </div> }
     </Globals.Provider>
 

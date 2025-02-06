@@ -437,7 +437,7 @@ class SoulController extends CustomAbstractController
             if (!in_array($skill->getGroupIdentifier(), $groups))
                 $groups[] = $skill->getGroupIdentifier();
 
-        $pack_reset = $unlockService->getResetPackPoints( $this->getUser(), true );
+        $pack_reset = $unlockService->getResetPackPoints( $this->getUser() );
         $pack_temp  = $unlockService->getTemporaryPackPoints( $this->getUser(), $end );
 
         return $this->render( 'ajax/soul/heroskills_new.html.twig', $this->addDefaultTwigArgs("soul_me", [

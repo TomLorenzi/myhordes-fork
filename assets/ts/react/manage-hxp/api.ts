@@ -37,4 +37,9 @@ export class HxpManagementApi {
         return this.fetch.from('/list')
             .request().get() as Promise<SkillState>;
     }
+
+    public sell_skills(skills: number[]): Promise<boolean> {
+        return this.fetch.from('/', {sell: skills.join(',')})
+            .request().delete().then(s => s.success ?? false) as Promise<boolean>;
+    }
 }

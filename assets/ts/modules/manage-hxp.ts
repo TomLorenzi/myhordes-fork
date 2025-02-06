@@ -14,11 +14,11 @@ customElements.define('hordes-buy-skill-point', class HordesBuySkillPointElement
 
     protected generateProps(): object {
         return {
-
+            reload: this.dataset.reload
         };
     }
 
-    protected static observedAttributeNames(): string[] { return []; };
+    protected static observedAttributeNames(): string[] { return ['data-reload']; };
 
     protected generateInstance(): HordesBuySkillPoint {
         return new HordesBuySkillPoint();

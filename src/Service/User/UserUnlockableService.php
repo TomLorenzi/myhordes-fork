@@ -108,7 +108,7 @@ class UserUnlockableService implements ServiceSubscriberInterface
             $value = $this->gameCachePool->get($key, function (ItemInterface $item) use ($user, $season, $subject, $include_legacy, $include_deductions, $include_outdated) {
                 $item->expiresAfter(86400)->tag(["user-{$user->getId()}-hxp",'hxp']);
 
-                $qb = $this->generateDefaultQuery($user)
+                $qb = $this->generateDefaultQuery($user, ignore_reset: true)
                     ->select('SUM(x.value)');
 
                 if (!$include_legacy)
@@ -144,38 +144,23 @@ class UserUnlockableService implements ServiceSubscriberInterface
 
     /**
      * Returns the amount of resets the user has done
-     * @note The return value of this function is cached
      * @param User $user User
-     * @param Season|bool|null $season Season; can be an explicit Season object or true (current season)
+     * @param \DateTimeImmutable|null $end
      * @return int
-     * @throws \Exception
      */
-    public function getResetPackPoints(User $user, Season|true $season = true): int {
+    public function getResetPackPoints(User $user, ?\DateTimeImmutable &$end = null): int {
+        $end = null;
+        $logs = $this->generateDefaultQuery($user, true)
+            ->select('COUNT(x.id)', 'MIN(x.created)')
+            ->andWhere('x.type != :legacy')->setParameter('legacy', HeroXPType::Legacy->value)
+            ->andWhere('x.created >= :cutoff')->setParameter('cutoff', new \DateTime('now - 120days'))
+            ->andWhere('x.subject = :subject')->setParameter('subject', 'paid_skill_reset')
+            ->getQuery()->getOneOrNullResult();
 
-        $season = $season === true
-            ? $this->getService(EntityManagerInterface::class)->getRepository(Season::class)->findOneBy(['current' => true])
-            : $season;
+        if ($logs[1] === 0) return 0;
+        $end = \DateTimeImmutable::createFromFormat( 'Y-m-d H:i:s', $logs[2] )->modify('+ 120days');
 
-        if (!$season) return 0;
-
-        $key = "hxp_pts_{$user->getId()}_s{$season->getId()}";
-
-        try {
-            $value = $this->gameCachePool->get($key, function (ItemInterface $item) use ($user, $season) {
-                $item->expiresAfter(86400)->tag(["user-{$user->getId()}-hxp",'hxp']);
-
-                $qb = $this->generateDefaultQuery($user, true)
-                    ->select('MAX(x.reset)')
-                    ->andWhere('x.type != :legacy')->setParameter('legacy', HeroXPType::Legacy->value)
-                    ->andWhere('x.season = :season')->setParameter('season', $season);
-
-                return ($qb->getQuery()->getSingleScalarResult() ?? 0);
-            });
-
-            return max(0, $value);
-        } catch (InvalidArgumentException $t) {
-            return 0;
-        }
+        return $logs[1];
     }
 
     public function getTemporaryPackPoints(User $user, ?\DateTimeImmutable &$end = null): int {
@@ -227,7 +212,7 @@ class UserUnlockableService implements ServiceSubscriberInterface
      */
     public function getPackPoints(User $user): int {
         return
-            $this->getResetPackPoints($user,true) +
+            $this->getResetPackPoints($user) +
             $this->getTemporaryPackPoints($user) +
             $this->getBasePackPoints($user);
     }
@@ -491,7 +476,7 @@ class UserUnlockableService implements ServiceSubscriberInterface
         return true;
     }
 
-    public function performSkillResetForUser(User $user, Season|true $season): bool {
+    public function performSkillResetForUser(User $user, Season|true $season, ?array $skill_ids = null): bool {
         $em = $this->getService(EntityManagerInterface::class);
 
         if ($season === true)
@@ -503,14 +488,14 @@ class UserUnlockableService implements ServiceSubscriberInterface
 
         $unlockCriteria = (new Criteria())
             ->andWhere( new Comparison( 'user', Comparison::EQ, $user ) );
+        if ($skill_ids !== null)
+            $unlockCriteria->andWhere( new Comparison( 'skill', Comparison::IN, $skill_ids ) );
 
         /** @var Collection<HeroExperienceEntry> $allEntries */
         $allEntries = $em->getRepository(HeroExperienceEntry::class)->matching($entryCriteria);
 
         /** @var Collection<HeroSkillUnlock> $unlocks */
         $unlocks = $em->getRepository(HeroSkillUnlock::class)->matching($unlockCriteria);
-
-        if ($allEntries->isEmpty() || $unlocks->isEmpty()) return false;
 
         foreach ($allEntries as $entry)
             $em->persist( $entry->setReset( $entry->getReset() + 1 ) );

@@ -122,7 +122,7 @@ class SkillController extends CustomAbstractCoreController
         $xp = $unlockableService->getHeroicExperience( $user );
         $all_xp = $unlockableService->getHeroicExperience( $user, include_deductions: false );
 
-        $pack_reset = $unlockableService->getResetPackPoints( $this->getUser(), true );
+        $pack_reset = $unlockableService->getResetPackPoints( $this->getUser() );
 
         if (($all_xp - $xp < 100) || ($pack_reset >= 2) || $user->getActiveCitizen())
             return new JsonResponse([], Response::HTTP_NOT_ACCEPTABLE);
@@ -166,7 +166,7 @@ class SkillController extends CustomAbstractCoreController
                 'timestamp'  => $entry->getCreated()->getTimestamp(),
                 'value'      => $entry->getValue(),
                 'type'       => $entry->getType()->value,
-                'reset'      => $entry->getReset() > 0,
+                'reset'      => false,
                 'outdated'   => $entry->isOutdated(),
                 'past'       => (
                     $entry->getSeason() === null
@@ -283,5 +283,72 @@ class SkillController extends CustomAbstractCoreController
             'hxp' => $unlockableService->getHeroicExperience( $user ),
             'hxp_needed' => 200,
         ]);
+    }
+
+    /**
+     * @param UserUnlockableService $unlockableService
+     * @param Locksmith $locksmith
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    #[Route(path: '/hxp/pack', name: 'hxp_pack_delete', methods: ['DELETE'])]
+    public function hxp_reset(
+        Request $request,
+        UserUnlockableService $unlockableService,
+        Locksmith $locksmith
+    ): JsonResponse {
+        $user = $this->getUser();
+
+        $lock = $locksmith->waitForLock("debit_unlock_{$user->getId()}");
+
+        $xp = $unlockableService->getHeroicExperience( $user );
+        $skills = $unlockableService->getUnlockedHeroicSkillsByUser( $user );
+
+        $pack_reset = $unlockableService->getResetPackPoints( $this->getUser() );
+
+        if ($pack_reset >= 2 || $user->getActiveCitizen())
+            return new JsonResponse([], Response::HTTP_NOT_ACCEPTABLE);
+
+        $skills = array_combine( array_map( fn(HeroSkillPrototype $s) => $s->getId(), $skills ), $skills );
+        $sell_skill_ids = array_values(
+            array_filter( array_map(fn(string $s) => (int)$s, explode(',', $request->query->get('sell'))), fn($v) => $v > 0 )
+        );
+
+        $sell_value = 0;
+        $level_by_group = [];
+        foreach ($sell_skill_ids as $id) {
+            if (($skills[$id]?->getDaysNeeded() ?? 0) <= 0)
+                return new JsonResponse([], Response::HTTP_NOT_ACCEPTABLE);
+
+            $level_by_group[ $skills[$id]->getGroupIdentifier() ] = min(
+                $level_by_group[ $skills[$id]->getGroupIdentifier() ] ?? PHP_INT_MAX,
+                $skills[$id]->getLevel()
+            );
+
+            $sell_value += $skills[$id]->getDaysNeeded();
+        }
+
+        if ($sell_value + $xp < 200)
+            return new JsonResponse([], Response::HTTP_NOT_ACCEPTABLE);
+
+        foreach ($skills as $skill) {
+            if (!array_key_exists($skill->getGroupIdentifier(), $level_by_group)) continue;
+
+            if ($skill->getLevel() >= $level_by_group[ $skill->getGroupIdentifier() ] && !in_array( $skill->getId(), $sell_skill_ids ))
+                return new JsonResponse([], Response::HTTP_NOT_ACCEPTABLE);
+        }
+
+        $debited = $unlockableService->recordHeroicExperience($user, HeroXPType::Global, $sell_value - 200, 'hxp_paid_skill_reset', 'paid_skill_reset', [
+            'cost' => 200,
+            'sold' => $sell_value
+        ], null, null, true);
+
+        if (!$debited || !$unlockableService->performSkillResetForUser($user, true, $sell_skill_ids))
+            return new JsonResponse([], Response::HTTP_INTERNAL_SERVER_ERROR);
+
+        $lock->release();
+
+        $this->addFlash('notice', $this->translator->trans( 'Du hast deine Fähigkeiten und Heldenerfahrung zurückgesetzt und dafür einen zusätzlichen Fähigkeiten-Punkt erhalten!', [], 'game'));
+        return new JsonResponse(['success' => true]);
     }
 }
