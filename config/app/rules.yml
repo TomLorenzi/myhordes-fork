@@ -312,6 +312,7 @@ parameters:
         survival_picto: 'r_pande_#00'
         ghoul_mode: airborne
 
+      ruins: 25
       explorable_ruins: 2
 
       times:
