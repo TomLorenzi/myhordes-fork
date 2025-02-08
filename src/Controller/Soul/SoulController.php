@@ -437,7 +437,7 @@ class SoulController extends CustomAbstractController
             if (!in_array($skill->getGroupIdentifier(), $groups))
                 $groups[] = $skill->getGroupIdentifier();
 
-        $pack_reset = $unlockService->getResetPackPoints( $this->getUser() );
+        $pack_reset = $unlockService->getResetPackPoints( $this->getUser(), $end_pack );
         $pack_temp  = $unlockService->getTemporaryPackPoints( $this->getUser(), $end );
 
         return $this->render( 'ajax/soul/heroskills_new.html.twig', $this->addDefaultTwigArgs("soul_me", [
@@ -446,9 +446,10 @@ class SoulController extends CustomAbstractController
             'steps' => array_map( fn(HeroSkillPrototype $skill) => $skill->getDaysNeeded(), $unlockService->getUnlockableHeroicSkillsByUser( $this->getUser(), limitToCurrent: false ) ),
             'pack_base' => $unlockService->getBasePackPoints( $this->getUser() ),
             'pack_reset' => $pack_reset,
+            'pack_reset_end' => $end_pack?->getTimestamp(),
             'pack_tmp' => $pack_temp,
             'pack_tmp_end' => $end?->getTimestamp(),
-            'pack_can_reset' => ($xp_total - $xp >= 100 && $pack_reset < 2) && !$this->getUser()->getActiveCitizen(),
+            'pack_can_reset' => $pack_reset < 2 && !$this->getUser()->getActiveCitizen(),
             'groups' => $groups,
             'skills' => $allSkills,
             'unlocked' => array_map( fn(HeroSkillPrototype $skill) => $skill->getId(), $unlocked ),

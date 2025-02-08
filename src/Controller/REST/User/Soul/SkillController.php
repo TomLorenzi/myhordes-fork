@@ -105,38 +105,6 @@ class SkillController extends CustomAbstractCoreController
     }
 
     /**
-     * @param UserUnlockableService $unlockableService
-     * @param Locksmith $locksmith
-     * @return JsonResponse
-     * @throws \Exception
-     */
-    #[Route(path: '', name: 'debit_delete', methods: ['DELETE'])]
-    public function reset(
-        UserUnlockableService $unlockableService,
-        Locksmith $locksmith
-    ): JsonResponse {
-        $user = $this->getUser();
-
-        $lock = $locksmith->waitForLock("debit_unlock_{$user->getId()}");
-
-        $xp = $unlockableService->getHeroicExperience( $user );
-        $all_xp = $unlockableService->getHeroicExperience( $user, include_deductions: false );
-
-        $pack_reset = $unlockableService->getResetPackPoints( $this->getUser() );
-
-        if (($all_xp - $xp < 100) || ($pack_reset >= 2) || $user->getActiveCitizen())
-            return new JsonResponse([], Response::HTTP_NOT_ACCEPTABLE);
-
-        if (!$unlockableService->performSkillResetForUser($user, true))
-            return new JsonResponse([], Response::HTTP_INTERNAL_SERVER_ERROR);
-
-        $lock->release();
-
-        $this->addFlash('notice', $this->translator->trans( 'Du hast deine Fähigkeiten und Heldenerfahrung zurückgesetzt und dafür einen zusätzlichen Fähigkeiten-Punkt erhalten!', [], 'game'));
-        return new JsonResponse(['success' => true]);
-    }
-
-    /**
      * @return JsonResponse
      */
     #[Route(path: '/hxp/index', name: 'hxp_index', methods: ['GET'])]
@@ -249,6 +217,22 @@ class SkillController extends CustomAbstractCoreController
                     $trans->trans('Meister', [], 'game'),
                 ]
             ],
+            'table' => [
+                'skill' => $trans->trans('Fähigkeit', [], 'game'),
+                'level' => $trans->trans('Level', [], 'soul'),
+                'sell' => $trans->trans('Verkaufswert', [], 'soul'),
+                'xp' => $trans->trans('Gesammelte Erfahrung', [], 'ghost'),
+                'button' => $trans->trans('Auswahl bestätigen', [], 'global'),
+            ],
+            'help' => [
+                'skills' => $trans->trans('Du kannst jede deiner bereits freigeschalteten Fähigkeiten verkaufen, um die notwendigen Erfahrungspunkte zu erhalten.', [], 'soul'),
+                'active' => $trans->trans('Diese Fähigkeit ist zum Verkauf markiert.', [], 'soul'),
+                'inactive' => $trans->trans('Diese Fähigkeit kann für {sum} Erfahrungspunkte verkauft werden.', [], 'soul'),
+                'confirm_skills' => $trans->trans('Möchtest du die gewählten Fähigkeiten verkaufen, um einen neuen Fähigkeitenpunkt zu erwerben? Diese Aktion kann nicht rückgängig gemacht werden!', [], 'soul'),
+                'confirm_xp' => $trans->trans('Möchtest du {sum} Erfahrungspunkte ausgeben, um einen neuen Fähigkeitenpunkt zu erwerben? Diese Aktion kann nicht rückgängig gemacht werden!', ['sum' => 200], 'soul'),
+                'confirm_both' => $trans->trans('Möchtest du die gewählten Fähigkeiten verkaufen sowie {sum} zusätzliche Erfahrungspunkte ausgeben, um einen neuen Fähigkeitenpunkt zu erwerben? Diese Aktion kann nicht rückgängig gemacht werden!', [], 'soul'),
+                'confirm_overflow' => $trans->trans('Die durch den Verkauf von Fähigkeiten generierte überschüssige Erfahrung in Höhe von {overflow} Erfahrungspunkten wird dir nach dem Kauf des Fähigkeitenpunkts erstattet.', [], 'soul'),
+            ]
         ]);
     }
 
@@ -348,7 +332,7 @@ class SkillController extends CustomAbstractCoreController
 
         $lock->release();
 
-        $this->addFlash('notice', $this->translator->trans( 'Du hast deine Fähigkeiten und Heldenerfahrung zurückgesetzt und dafür einen zusätzlichen Fähigkeiten-Punkt erhalten!', [], 'game'));
+        $this->addFlash('notice', $this->translator->trans( 'Du hast einen zusätzlichen Fähigkeitenpunkt erhalten!', [], 'game'));
         return new JsonResponse(['success' => true]);
     }
 }

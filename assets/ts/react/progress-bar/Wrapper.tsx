@@ -8,7 +8,8 @@ interface mountProps {
     limit: number,
     step?: number[],
     xp?: boolean
-    plain?: boolean
+    plain?: boolean,
+    text?: string,
 }
 
 export class HordesProgressBar extends BaseMounter<mountProps> {
@@ -18,7 +19,7 @@ export class HordesProgressBar extends BaseMounter<mountProps> {
 }
 
 export const ProgressBar = (
-    {animateFrom, animateTo, limit, step, xp, plain}: mountProps) => {
+    {animateFrom, animateTo, limit, step, xp, plain, text}: mountProps) => {
 
     const [baseLimit, setBaseLimit] = useState(xp ? step[0] : limit);
     const [value, setValue] = useState(animateTo);
@@ -90,7 +91,7 @@ export const ProgressBar = (
     return (
         <div className={`fancy-progress-bar ${plain ? 'plain' : ''}`}>
             <div className="text">
-                {/*xp && <span>{value}&nbsp;/&nbsp;{baseLimit}</span>*/}
+                {text && <span>{text}</span>}
             </div>
             <div className="progressbar">
                 <div className="progressbar-container">
