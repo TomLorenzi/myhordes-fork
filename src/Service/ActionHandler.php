@@ -523,11 +523,13 @@ class ActionHandler
         if (empty($items)) return ErrorHelper::ErrorItemsMissing;
 
         $list = [];
+        $consumed = [];
         foreach ($items as $item) {
             if($recipe->getKeep()->contains($item->getPrototype())) continue;
             $r = $recipe->getSource()->findEntry( $item->getPrototype()->getName() );
             $this->inventory_handler->forceRemoveItem( $item, $r->getChance() );
             $list[] = $item->getPrototype();
+            $consumed[] = ['item' => $item->getPrototype(), 'count' => $r->getChance()];
         }
 
         $this->citizen_handler->deductPointsWithFallback( $citizen, PointType::AP, PointType::CP, $ap, $used_ap, $used_bp);
@@ -548,7 +550,7 @@ class ActionHandler
         $this->gps->recordRecipeExecuted( $recipe, $citizen, $new_items );
 
         if (in_array($recipe->getType(), $workshop_types))
-            $this->entity_manager->persist( $this->log->workshopConvert( $citizen, array_map( fn(Item $e)  => [$e->getPrototype()], $items  ), array_map( fn(ItemPrototype $e)  => [$e], $new_items ) ) );
+            $this->entity_manager->persist( $this->log->workshopConvert( $citizen, $consumed, array_map( fn(ItemPrototype $e)  => [$e], $new_items ) ) );
 
         switch ( $recipe->getType() ) {
             case Recipe::WorkshopType:
