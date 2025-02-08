@@ -96,6 +96,7 @@ Encore
     .addEntry('module-avatar-creator', './assets/ts/modules/avatar-creator.ts')
     .addEntry('module-notification-manager', './assets/ts/modules/notification-manager.ts')
     .addEntry('module-game-onboarding', './assets/ts/modules/game-onboarding.ts')
+    .addEntry('module-manage-hxp', './assets/ts/modules/manage-hxp.ts')
     //.addEntry('page2', './assets/js/page2.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.

@@ -157,21 +157,29 @@
                         <div class="row">
                             <div class="padded cell rw-3"><b>+ {{ pack_reset }}</b></div>
                             <div class="padded cell rw-9">
-                                <div>{{ 'Fähigkeiten-Resets'|trans({num: 100}, 'soul') }}</div>
-                                <div class="small">
-                                    {{ 'Sobald du mindestens {num} Erfahrungspunkte ausgegeben hast, kannst du deine Fertigkeiten zurücksetzen.'|trans({num: 100}, 'soul') }}
-                                    {{ 'Du verlierst dann alle Erfahrungspunkte und Fertigkeiten, die du in dieser Saison erspielt hast, erhälst aber für den Rest der Saison einen zusätzlichen Fähigkeitenpunkt.'|trans({}, 'soul') }}
-                                    {{ 'Pro Saison kannst du deine Fähigkeiten maximal {num} Mal zurücksetzen.'|trans({num: 2}, 'soul') }}
+                                <div>{{ 'Erworbene Fähigkeitenpunkte'|trans({}, 'soul') }}</div>
+                                {% if pack_reset > 0 %}
+                                    <div class="small">
+                                        {{ 'Verbleibende Zeit'|trans({},'soul') }}:
+                                        {% if (pack_reset_end-date().timestamp) < 259200 %}
+                                            <b x-countdown-to="{{ pack_reset_end }}" x-countdown-force-hours="1" countdown-clock="true"></b>
+                                        {% else %}
+                                            <b>{{ '{d} Tage'|trans({d: ((pack_reset_end-date().timestamp)/86400)|round}, 'soul') }}</b>
+                                        {% endif %}
+                                    </div>
+                                    <br />
+                                {% endif %}
+                                <div class="small" style="margin-bottom: 12px">
+                                    {{ 'Du kannst {num} Erfahrungspunkte ausgegeben, um einen zusätzlichen Fähigkeitenpunkt zu erwerben.'|trans({num: 200}, 'soul') }}
+                                    {{ 'Hierfür kannst du sowohl deine aktuell verfügbare Erfahrung verwenden, als auch bereits erworbene Fähigkeiten verkaufen.'|trans({}, 'soul') }}
+                                    {{ 'Ein so erworbener Fähigkeitenpunkt steht dir für insgesamt {num} Tage nach dem Kauf zur Verfügung.'|trans({num: 120}, 'soul') }}
+                                    {{ 'Du kannst maximal {num} solcher Fähigkeitspunkte zur gleichen Zeit besitzen.'|trans({num: 2}, 'soul') }}
                                 </div>
-                                <button
-                                        {{ {disabled: pack_can_reset ? false : 'disabled'}|attributes }}
-                                        data-fetch="{{ path('rest_user_soul_skills_debit_delete') }}"
-                                        data-fetch-load="{{ path('soul_heroskill') }}"
-                                        data-fetch-method="delete"
-                                        data-fetch-confirm="{{ 'Bist du sicher, dass du deine Fähigkeiten zurücksetzen möchtest? Du wirst all deine Heldenerfahrung und Fähigkeiten verlieren. Diese Aktion kann nicht rückgängig gemacht werden!'|trans({},'global') }}"
-                                >
-                                    {{ 'Fähigkeiten jetzt zurücksetzen'|trans({},'soul') }}
-                                </button>
+                                <hordes-buy-skill-point
+                                        data-proxy="{{ 'Fähigkeitenpunkt erwerben...'|trans({},'soul') }}"
+                                        data-enabled="{{ pack_can_reset ? 1 : 0 }}"
+                                        data-reload="{{ path('soul_heroskill') }}"
+                                ></hordes-buy-skill-point>
                             </div>
                         </div>
                         <div class="row">
@@ -190,7 +198,7 @@
                                 </div>
                                 {% if pack_tmp > 0 %}
                                     <div class="small">
-                                        {{ 'Verbleibende Zeit'|trans({},'soul') }}
+                                        {{ 'Verbleibende Zeit'|trans({},'soul') }}:
                                         <b x-countdown-to="{{ pack_tmp_end }}" x-countdown-force-hours="1" countdown-clock="true"></b>
                                     </div>
                                 {% endif %}
@@ -220,7 +228,7 @@
             </div>
 
             {% if current is not null and current is not empty %}
-                <div class="row" x-tab-group="current" x-tab-id="skills" x-tab-target>
+                <div class="row" x-tab-group="skill-page" x-tab-id="current" x-tab-target>
                     <div class="row">
                         <div class="padded cell rw-12">
                             <div class="help">

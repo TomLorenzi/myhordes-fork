@@ -872,6 +872,7 @@ hr.section {
   .text {
     background: url('../../img/soul/heroUp_front.gif') round;
     max-width: 614px; height: 32px; line-height: 32px; z-index: 2; position: relative;
+    text-align: center;
     color: #f0d79e; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   }
 
@@ -881,6 +882,7 @@ hr.section {
     position: relative;
     .progressbar-container {
       position: absolute; top: 0; bottom: 0; left: 4%; right: 1%;
+      overflow: hidden; border-radius: 999px;
 
       @keyframes flashy-inner {
         0% { filter: saturate(100%) brightness(100%); }
@@ -905,6 +907,31 @@ hr.section {
 
       .completed-layers>.inner.flashy { filter: hue-rotate(45deg) brightness(170%); border-right: 2px solid rgba(0,0,0,0.2); box-shadow: 0 0 5px black; }
     }
+
+  }
+
+  &.plain {
+    max-width: 596px;
+    .text { background: url('../../img/soul/heroUp_front_plain.png') round; }
+    .progressbar {
+      background: url('../../img/soul/heroUp_bg_plain.gif') round;
+      max-width: 596px; height: 30px;
+      .progressbar-container { left: 1%; }
+    }
+  }
+}
+
+.xp-merchant {
+  .skill-sell {
+
+    &>div { height: 16px; width: 16px; background-position: center; background-repeat: no-repeat; }
+
+    &.skill-sell-enabled:not(.skill-sell-locked) { cursor: pointer }
+    &:not(.skill-sell-enabled):not(.skill-sell-locked) { opacity: 0.5 }
+
+    &.skill-sell-locked > div { background-image: url("../../img/icons/lock.gif") }
+    &:not(.skill-sell-locked) > div.active { background-image: url("../../img/icons/tickOn.gif") }
+    &:not(.skill-sell-locked) > div.inactive { background-image: url("../../img/icons/tickOff.gif") }
 
   }
 }

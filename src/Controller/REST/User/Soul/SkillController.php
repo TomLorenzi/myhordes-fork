@@ -41,6 +41,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Cache\ItemInterface;
 use Symfony\Contracts\Cache\TagAwareCacheInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[Route(path: '/rest/v1/user/soul/skills', name: 'rest_user_soul_skills_', condition: "request.headers.get('Accept') === 'application/json'")]
 #[IsGranted('ROLE_USER')]
@@ -104,43 +105,10 @@ class SkillController extends CustomAbstractCoreController
     }
 
     /**
-     * @param UserUnlockableService $unlockableService
-     * @param Locksmith $locksmith
-     * @return JsonResponse
-     * @throws \Exception
-     */
-    #[Route(path: '', name: 'debit_delete', methods: ['DELETE'])]
-    public function reset(
-        UserUnlockableService $unlockableService,
-        Locksmith $locksmith
-    ): JsonResponse {
-        $user = $this->getUser();
-
-        $lock = $locksmith->waitForLock("debit_unlock_{$user->getId()}");
-
-        $xp = $unlockableService->getHeroicExperience( $user );
-        $all_xp = $unlockableService->getHeroicExperience( $user, include_deductions: false );
-
-        $pack_reset = $unlockableService->getResetPackPoints( $this->getUser(), true );
-
-        if (($all_xp - $xp < 100) || ($pack_reset >= 2) || $user->getActiveCitizen())
-            return new JsonResponse([], Response::HTTP_NOT_ACCEPTABLE);
-
-        if (!$unlockableService->performSkillResetForUser($user, true))
-            return new JsonResponse([], Response::HTTP_INTERNAL_SERVER_ERROR);
-
-        $lock->release();
-
-        $this->addFlash('notice', $this->translator->trans( 'Du hast deine Fähigkeiten und Heldenerfahrung zurückgesetzt und dafür einen zusätzlichen Fähigkeiten-Punkt erhalten!', [], 'game'));
-        return new JsonResponse(['success' => true]);
-    }
-
-    /**
-     * @param Packages $assets
      * @return JsonResponse
      */
     #[Route(path: '/hxp/index', name: 'hxp_index', methods: ['GET'])]
-    public function index(Packages $assets): JsonResponse {
+    public function hxp_index(): JsonResponse {
         return new JsonResponse([
             'common' => [
                 'empty'  => $this->translator->trans( 'Keine Heldenerfahrung gesammelt', [], 'soul'),
@@ -166,7 +134,7 @@ class SkillController extends CustomAbstractCoreController
                 'timestamp'  => $entry->getCreated()->getTimestamp(),
                 'value'      => $entry->getValue(),
                 'type'       => $entry->getType()->value,
-                'reset'      => $entry->getReset() > 0,
+                'reset'      => false,
                 'outdated'   => $entry->isOutdated(),
                 'past'       => (
                     $entry->getSeason() === null
@@ -235,5 +203,136 @@ class SkillController extends CustomAbstractCoreController
             'additional' => count($data) > $elements
         ]);
 
+    }
+
+    #[Route(path: '/hxp/pack', name: 'hxp_pack_base', methods: ['GET'])]
+    #[GateKeeperProfile('skip')]
+    public function hxp_pack_index(TranslatorInterface $trans, Packages $asset, EntityManagerInterface $em, ConfMaster $conf): JsonResponse {
+        return new JsonResponse([
+            'skills' => [
+                'levels' => [
+                    $trans->trans('Anfänger', [], 'game'),
+                    $trans->trans('Lehrling', [], 'game'),
+                    $trans->trans('Experte', [], 'game'),
+                    $trans->trans('Meister', [], 'game'),
+                ]
+            ],
+            'table' => [
+                'skill' => $trans->trans('Fähigkeit', [], 'game'),
+                'level' => $trans->trans('Level', [], 'soul'),
+                'sell' => $trans->trans('Verkaufswert', [], 'soul'),
+                'xp' => $trans->trans('Gesammelte Erfahrung', [], 'ghost'),
+                'button' => $trans->trans('Auswahl bestätigen', [], 'global'),
+            ],
+            'help' => [
+                'skills' => $trans->trans('Du kannst jede deiner bereits freigeschalteten Fähigkeiten verkaufen, um die notwendigen Erfahrungspunkte zu erhalten.', [], 'soul'),
+                'active' => $trans->trans('Diese Fähigkeit ist zum Verkauf markiert.', [], 'soul'),
+                'inactive' => $trans->trans('Diese Fähigkeit kann für {sum} Erfahrungspunkte verkauft werden.', [], 'soul'),
+                'confirm_skills' => $trans->trans('Möchtest du die gewählten Fähigkeiten verkaufen, um einen neuen Fähigkeitenpunkt zu erwerben? Diese Aktion kann nicht rückgängig gemacht werden!', [], 'soul'),
+                'confirm_xp' => $trans->trans('Möchtest du {sum} Erfahrungspunkte ausgeben, um einen neuen Fähigkeitenpunkt zu erwerben? Diese Aktion kann nicht rückgängig gemacht werden!', ['sum' => 200], 'soul'),
+                'confirm_both' => $trans->trans('Möchtest du die gewählten Fähigkeiten verkaufen sowie {sum} zusätzliche Erfahrungspunkte ausgeben, um einen neuen Fähigkeitenpunkt zu erwerben? Diese Aktion kann nicht rückgängig gemacht werden!', [], 'soul'),
+                'confirm_overflow' => $trans->trans('Die durch den Verkauf von Fähigkeiten generierte überschüssige Erfahrung in Höhe von {overflow} Erfahrungspunkten wird dir nach dem Kauf des Fähigkeitenpunkts erstattet.', [], 'soul'),
+            ]
+        ]);
+    }
+
+    /**
+     * @param UserUnlockableService $unlockableService
+     * @param TranslatorInterface $trans
+     * @param Packages $asset
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    #[Route(path: '/hxp/pack/list', name: 'hxp_pack_skill_list', methods: ['GET'])]
+    public function skill_list(
+        UserUnlockableService $unlockableService,
+        TranslatorInterface $trans,
+        Packages $asset,
+    ): JsonResponse {
+        $user = $this->getUser();
+
+        return new JsonResponse([
+            'skills' => array_values(array_map(fn(HeroSkillPrototype $p) => [
+                'id' => $p->getId(),
+                'title' => $trans->trans($p->getTitle(), [], 'game'),
+                'description' => $trans->trans($p->getDescription(), [], 'game'),
+                'bullets' => array_map(fn(string $s) => $trans->trans($s, [], 'game'), $p->getBullets()),
+                'icon' => $asset->getUrl("build/images/heroskill/{$p->getIcon()}.gif"),
+                'level' => $p->getLevel(),
+                'sort' => $p->getSort(),
+                'group' => $trans->trans($p->getGroupIdentifier(), [], 'game'),
+                'value' => $p->getDaysNeeded(),
+                'locked' => $p->getDaysNeeded() <= 0,
+            ], $unlockableService->getUnlockedHeroicSkillsByUser( $user ))),
+            'hxp' => $unlockableService->getHeroicExperience( $user ),
+            'hxp_needed' => 200,
+        ]);
+    }
+
+    /**
+     * @param UserUnlockableService $unlockableService
+     * @param Locksmith $locksmith
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    #[Route(path: '/hxp/pack', name: 'hxp_pack_delete', methods: ['DELETE'])]
+    public function hxp_reset(
+        Request $request,
+        UserUnlockableService $unlockableService,
+        Locksmith $locksmith
+    ): JsonResponse {
+        $user = $this->getUser();
+
+        $lock = $locksmith->waitForLock("debit_unlock_{$user->getId()}");
+
+        $xp = $unlockableService->getHeroicExperience( $user );
+        $skills = $unlockableService->getUnlockedHeroicSkillsByUser( $user );
+
+        $pack_reset = $unlockableService->getResetPackPoints( $this->getUser() );
+
+        if ($pack_reset >= 2 || $user->getActiveCitizen())
+            return new JsonResponse([], Response::HTTP_NOT_ACCEPTABLE);
+
+        $skills = array_combine( array_map( fn(HeroSkillPrototype $s) => $s->getId(), $skills ), $skills );
+        $sell_skill_ids = array_values(
+            array_filter( array_map(fn(string $s) => (int)$s, explode(',', $request->query->get('sell'))), fn($v) => $v > 0 )
+        );
+
+        $sell_value = 0;
+        $level_by_group = [];
+        foreach ($sell_skill_ids as $id) {
+            if (($skills[$id]?->getDaysNeeded() ?? 0) <= 0)
+                return new JsonResponse([], Response::HTTP_NOT_ACCEPTABLE);
+
+            $level_by_group[ $skills[$id]->getGroupIdentifier() ] = min(
+                $level_by_group[ $skills[$id]->getGroupIdentifier() ] ?? PHP_INT_MAX,
+                $skills[$id]->getLevel()
+            );
+
+            $sell_value += $skills[$id]->getDaysNeeded();
+        }
+
+        if ($sell_value + $xp < 200)
+            return new JsonResponse([], Response::HTTP_NOT_ACCEPTABLE);
+
+        foreach ($skills as $skill) {
+            if (!array_key_exists($skill->getGroupIdentifier(), $level_by_group)) continue;
+
+            if ($skill->getLevel() >= $level_by_group[ $skill->getGroupIdentifier() ] && !in_array( $skill->getId(), $sell_skill_ids ))
+                return new JsonResponse([], Response::HTTP_NOT_ACCEPTABLE);
+        }
+
+        $debited = $unlockableService->recordHeroicExperience($user, HeroXPType::Global, $sell_value - 200, 'hxp_paid_skill_reset', 'paid_skill_reset', [
+            'cost' => 200,
+            'sold' => $sell_value
+        ], null, null, true);
+
+        if (!$debited || !$unlockableService->performSkillResetForUser($user, true, $sell_skill_ids))
+            return new JsonResponse([], Response::HTTP_INTERNAL_SERVER_ERROR);
+
+        $lock->release();
+
+        $this->addFlash('notice', $this->translator->trans( 'Du hast einen zusätzlichen Fähigkeitenpunkt erhalten!', [], 'game'));
+        return new JsonResponse(['success' => true]);
     }
 }

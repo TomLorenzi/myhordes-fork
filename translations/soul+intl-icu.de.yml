@@ -663,3 +663,18 @@ Erworben: Erworben
 'Lade neue Spieler zu MyHordes ein und kümmere dich rührend um sie, bis sie das erste Mal Erfahrung für eine Fähigkeit ausgeben.': 'Lade neue Spieler zu MyHordes ein und kümmere dich rührend um sie, bis sie das erste Mal Erfahrung für eine Fähigkeit ausgeben.'
 'Auf dieser Seite siehst du die Fähigkeiten, die dir in deinem aktuellen Leben zur Verfügung stehen.': 'Auf dieser Seite siehst du die Fähigkeiten, die dir in deinem aktuellen Leben zur Verfügung stehen.'
 'Meine aktiven Fähigkeiten ansehen': 'Meine aktiven Fähigkeiten ansehen'
+Level: Level
+Verkaufswert: Verkaufswert
+'Du kannst jede deiner bereits freigeschalteten Fähigkeiten verkaufen, um die notwendigen Erfahrungspunkte zu erhalten.': 'Du kannst jede deiner bereits freigeschalteten Fähigkeiten verkaufen, um die notwendigen Erfahrungspunkte zu erhalten.'
+'Diese Fähigkeit ist zum Verkauf markiert.': 'Diese Fähigkeit ist zum Verkauf markiert.'
+'Diese Fähigkeit kann für {sum} Erfahrungspunkte verkauft werden.': 'Diese Fähigkeit kann für {sum} Erfahrungspunkte verkauft werden.'
+'Möchtest du die gewählten Fähigkeiten verkaufen, um einen neuen Fähigkeitenpunkt zu erwerben? Diese Aktion kann nicht rückgängig gemacht werden!': 'Möchtest du die gewählten Fähigkeiten verkaufen, um einen neuen Fähigkeitenpunkt zu erwerben? Diese Aktion kann nicht rückgängig gemacht werden!'
+'Möchtest du {sum} Erfahrungspunkte ausgeben, um einen neuen Fähigkeitenpunkt zu erwerben? Diese Aktion kann nicht rückgängig gemacht werden!': 'Möchtest du {sum} Erfahrungspunkte ausgeben, um einen neuen Fähigkeitenpunkt zu erwerben? Diese Aktion kann nicht rückgängig gemacht werden!'
+'Möchtest du die gewählten Fähigkeiten verkaufen sowie {sum} zusätzliche Erfahrungspunkte ausgeben, um einen neuen Fähigkeitenpunkt zu erwerben? Diese Aktion kann nicht rückgängig gemacht werden!': 'Möchtest du die gewählten Fähigkeiten verkaufen sowie {sum} zusätzliche Erfahrungspunkte ausgeben, um einen neuen Fähigkeitenpunkt zu erwerben? Diese Aktion kann nicht rückgängig gemacht werden!'
+'Die durch den Verkauf von Fähigkeiten generierte überschüssige Erfahrung in Höhe von {overflow} Erfahrungspunkten wird dir nach dem Kauf des Fähigkeitenpunkts erstattet.': 'Die durch den Verkauf von Fähigkeiten generierte überschüssige Erfahrung in Höhe von {overflow} Erfahrungspunkten wird dir nach dem Kauf des Fähigkeitenpunkts erstattet.'
+'Erworbene Fähigkeitenpunkte': 'Erworbene Fähigkeitenpunkte'
+'Du kannst {num} Erfahrungspunkte ausgegeben, um einen zusätzlichen Fähigkeitenpunkt zu erwerben.': 'Du kannst {num} Erfahrungspunkte ausgegeben, um einen zusätzlichen Fähigkeitenpunkt zu erwerben.'
+'Hierfür kannst du sowohl deine aktuell verfügbare Erfahrung verwenden, als auch bereits erworbene Fähigkeiten verkaufen.': 'Hierfür kannst du sowohl deine aktuell verfügbare Erfahrung verwenden, als auch bereits erworbene Fähigkeiten verkaufen.'
+'Ein so erworbener Fähigkeitenpunkt steht dir für insgesamt {num} Tage nach dem Kauf zur Verfügung.': 'Ein so erworbener Fähigkeitenpunkt steht dir für insgesamt {num} Tage nach dem Kauf zur Verfügung.'
+'Du kannst maximal {num} solcher Fähigkeitspunkte zur gleichen Zeit besitzen.': 'Du kannst maximal {num} solcher Fähigkeitspunkte zur gleichen Zeit besitzen.'
+'Fähigkeitenpunkt erwerben...': 'Fähigkeitenpunkt erwerben...'
