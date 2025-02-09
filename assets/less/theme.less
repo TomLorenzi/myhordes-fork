@@ -2272,3 +2272,11 @@ i.h-icon {
     }
   }
 }
+
+.cite {
+  &::before { content: "« " }
+  &::after { content: " »" }
+
+  &:not(.limit) {overflow-wrap: break-word;}
+  &.limit { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+}
