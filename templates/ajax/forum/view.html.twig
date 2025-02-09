@@ -134,6 +134,7 @@
                         tab: forum.town and app.user.activeCitizen and app.user.activeCitizen.town == forum.town ? 'fv' : 'fm',
                         name: forum.localizedTitle(app.locale),
                         id: forum.id,
+                        tid: select,
                         has_fv: app.user.activeCitizen and app.user.activeCitizen.town.forum and (at_night is not defined or not at_night)
                     } only %}
                 </div>

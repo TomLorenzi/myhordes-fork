@@ -15,6 +15,7 @@ use App\Entity\ForumUsagePermissions;
 use App\Entity\GlobalPrivateMessage;
 use App\Entity\LogEntryTemplate;
 use App\Entity\OfficialGroup;
+use App\Entity\PinnedForum;
 use App\Entity\Post;
 use App\Entity\Thread;
 use App\Entity\ThreadReadMarker;
@@ -1001,6 +1002,7 @@ class MessageForumController extends MessageController
             'locked' => $thread->getLocked(),
             'solved' => $thread->getLocked() && $thread->getSolved(),
             'pinned' => $thread->getPinned(),
+            'user_pinned' => $em->getRepository(PinnedForum::class)->count(['user' => $user, 'forum' => $forum, 'thread' => $thread]) > 0,
             'title' => $thread->getTranslatable() ? $this->translator->trans($thread->getTitle(), [], 'game') : $thread->getTitle(),
             'thread' => $thread,
             'fid' => $fid,
