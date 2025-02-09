@@ -3187,3 +3187,5 @@ Tierklinik: crwdns210946:0crwdne210946:0
 'Du hast {item} hergestellt. Die Gegenstände wurden in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> verbraucht.': 'crwdns211572:0{item}crwdnd211572:0{ap}crwdne211572:0'
 'Du hast {item} hergestellt. Die Gegenstände wurden in der Bank abgelegt.<hr />Du hast dafür <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'crwdns211574:0{item}crwdnd211574:0{cp}crwdne211574:0'
 'Du hast {item} hergestellt. Die Gegenstände wurden in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> und <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'crwdns211576:0{item}crwdnd211576:0{ap}crwdnd211576:0{cp}crwdne211576:0'
+'Ups, dein(e) {item} scheint dabei kaputt gegangen zu sein...': 'crwdns211578:0{item}crwdne211578:0'
+'Du hast bei der Reparatur des Gebäudes {plan} mitgeholfen.': 'crwdns211584:0{plan}crwdne211584:0'

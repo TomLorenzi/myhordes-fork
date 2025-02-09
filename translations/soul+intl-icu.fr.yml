@@ -663,3 +663,18 @@ Erworben: Acquis
 'Lade neue Spieler zu MyHordes ein und kümmere dich rührend um sie, bis sie das erste Mal Erfahrung für eine Fähigkeit ausgeben.': 'Invitez de nouveaux joueurs sur MyHordes et prenez soin d’eux jusqu’à ce qu’ils dépensent de l’expérience sur une compétence pour la première fois.'
 'Auf dieser Seite siehst du die Fähigkeiten, die dir in deinem aktuellen Leben zur Verfügung stehen.': 'Cette page présente les compétences à votre disposition dans votre ville actuelle.'
 'Meine aktiven Fähigkeiten ansehen': 'Voir mes compétences actives'
+Level: Niveau
+Verkaufswert: Valeur de vente
+'Du kannst jede deiner bereits freigeschalteten Fähigkeiten verkaufen, um die notwendigen Erfahrungspunkte zu erhalten.': 'Vous pouvez vendre n''importe laquelle de vos compétences déjà débloquées pour obtenir les points d''expérience nécessaires.'
+'Diese Fähigkeit ist zum Verkauf markiert.': 'Cette compétence est marquée pour la vente.'
+'Diese Fähigkeit kann für {sum} Erfahrungspunkte verkauft werden.': 'Cette compétence peut être vendue pour {sum} points d''expérience.'
+'Möchtest du die gewählten Fähigkeiten verkaufen, um einen neuen Fähigkeitenpunkt zu erwerben? Diese Aktion kann nicht rückgängig gemacht werden!': 'Voulez-vous vendre les compétences sélectionnées pour acheter un nouveau point de compétence ? Cette action ne peut pas être annulée !'
+'Möchtest du {sum} Erfahrungspunkte ausgeben, um einen neuen Fähigkeitenpunkt zu erwerben? Diese Aktion kann nicht rückgängig gemacht werden!': 'Voulez-vous dépenser {sum} points d''expérience pour acquérir un nouveau point de compétence ? Cette action ne peut pas être annulée !'
+'Möchtest du die gewählten Fähigkeiten verkaufen sowie {sum} zusätzliche Erfahrungspunkte ausgeben, um einen neuen Fähigkeitenpunkt zu erwerben? Diese Aktion kann nicht rückgängig gemacht werden!': 'Voulez-vous vendre les compétences sélectionnées et dépenser {sum} points d''expérience supplémentaires pour acquérir un nouveau point de compétence ? Cette action ne peut pas être annulée !'
+'Die durch den Verkauf von Fähigkeiten generierte überschüssige Erfahrung in Höhe von {overflow} Erfahrungspunkten wird dir nach dem Kauf des Fähigkeitenpunkts erstattet.': 'L''expérience excédentaire générée par la vente de compétences, s''élevant à {overflow} points d''expérience, vous sera remboursée après l''achat du point de compétence.'
+'Erworbene Fähigkeitenpunkte': 'Points de compétence acquis'
+'Du kannst {num} Erfahrungspunkte ausgegeben, um einen zusätzlichen Fähigkeitenpunkt zu erwerben.': 'Vous pouvez dépenser {num} points d''expérience pour acquérir un point de compétence supplémentaire.'
+'Hierfür kannst du sowohl deine aktuell verfügbare Erfahrung verwenden, als auch bereits erworbene Fähigkeiten verkaufen.': 'Vous pouvez utiliser votre expérience actuelle ou vendre des compétences que vous avez déjà acquises.'
+'Ein so erworbener Fähigkeitenpunkt steht dir für insgesamt {num} Tage nach dem Kauf zur Verfügung.': 'Un point de compétence acquis de cette manière est à votre disposition pendant un total de {num} jours après l''achat.'
+'Du kannst maximal {num} solcher Fähigkeitspunkte zur gleichen Zeit besitzen.': 'Vous pouvez avoir un maximum de {num} points de compétence de ce type à tout moment.'
+'Fähigkeitenpunkt erwerben...': 'Acquérir des points de compétence...'

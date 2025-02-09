@@ -663,3 +663,18 @@ Erworben: crwdns210564:0crwdne210564:0
 'Lade neue Spieler zu MyHordes ein und kümmere dich rührend um sie, bis sie das erste Mal Erfahrung für eine Fähigkeit ausgeben.': 'crwdns210594:0crwdne210594:0'
 'Auf dieser Seite siehst du die Fähigkeiten, die dir in deinem aktuellen Leben zur Verfügung stehen.': 'crwdns211506:0crwdne211506:0'
 'Meine aktiven Fähigkeiten ansehen': 'crwdns211508:0crwdne211508:0'
+Level: crwdns211586:0crwdne211586:0
+Verkaufswert: crwdns211588:0crwdne211588:0
+'Du kannst jede deiner bereits freigeschalteten Fähigkeiten verkaufen, um die notwendigen Erfahrungspunkte zu erhalten.': 'crwdns211590:0crwdne211590:0'
+'Diese Fähigkeit ist zum Verkauf markiert.': 'crwdns211592:0crwdne211592:0'
+'Diese Fähigkeit kann für {sum} Erfahrungspunkte verkauft werden.': 'crwdns211594:0{sum}crwdne211594:0'
+'Möchtest du die gewählten Fähigkeiten verkaufen, um einen neuen Fähigkeitenpunkt zu erwerben? Diese Aktion kann nicht rückgängig gemacht werden!': 'crwdns211596:0crwdne211596:0'
+'Möchtest du {sum} Erfahrungspunkte ausgeben, um einen neuen Fähigkeitenpunkt zu erwerben? Diese Aktion kann nicht rückgängig gemacht werden!': 'crwdns211598:0{sum}crwdne211598:0'
+'Möchtest du die gewählten Fähigkeiten verkaufen sowie {sum} zusätzliche Erfahrungspunkte ausgeben, um einen neuen Fähigkeitenpunkt zu erwerben? Diese Aktion kann nicht rückgängig gemacht werden!': 'crwdns211600:0{sum}crwdne211600:0'
+'Die durch den Verkauf von Fähigkeiten generierte überschüssige Erfahrung in Höhe von {overflow} Erfahrungspunkten wird dir nach dem Kauf des Fähigkeitenpunkts erstattet.': 'crwdns211602:0{overflow}crwdne211602:0'
+'Erworbene Fähigkeitenpunkte': 'crwdns211604:0crwdne211604:0'
+'Du kannst {num} Erfahrungspunkte ausgegeben, um einen zusätzlichen Fähigkeitenpunkt zu erwerben.': 'crwdns211606:0{num}crwdne211606:0'
+'Hierfür kannst du sowohl deine aktuell verfügbare Erfahrung verwenden, als auch bereits erworbene Fähigkeiten verkaufen.': 'crwdns211608:0crwdne211608:0'
+'Ein so erworbener Fähigkeitenpunkt steht dir für insgesamt {num} Tage nach dem Kauf zur Verfügung.': 'crwdns211610:0{num}crwdne211610:0'
+'Du kannst maximal {num} solcher Fähigkeitspunkte zur gleichen Zeit besitzen.': 'crwdns211612:0{num}crwdne211612:0'
+'Fähigkeitenpunkt erwerben...': 'crwdns211614:0crwdne211614:0'

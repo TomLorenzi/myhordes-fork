@@ -43,7 +43,7 @@ Stadtmodifikationen: Personalización del pueblo
 'Begehbare Ruinen aktivieren': 'Activa las exploraciones de las ruinas avanzadas'
 'Seelen & Schamane:': 'Almas & Chamán:'
 'Eskorte:': 'Escolta:'
-'Eskorten aktivieren': 'Activa las escoltas ciudadanas'
+'Eskorten aktivieren': 'Activa las escoltas'
 'Verbannung:': 'Destierro:'
 'Verbannung aktivieren': 'Activa los habitantes desterrados'
 'Nachtmodus:': 'Modo noche:'
@@ -201,8 +201,8 @@ Nachtwache: Vigilia
 Nachtmodus: Modo nocturno
 Zeitzone: Zona horaria
 Spielmodifikationen: Modificaciones del juego
-Bürger-Aliase: Alias ​​ciudadanos
-'Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen.': 'Permite a un ciudadano seleccionar un alias en lugar de su nombre habitual para esta ciudad.'
+Bürger-Aliase: Alias ​​habitantes
+'Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen.': 'Permite a un habitante seleccionar un alias en lugar de su nombre habitual para este pueblo.'
 Exploration: Exploración
 Eskorte: Escolta
 Verbannung: Destierros
@@ -232,13 +232,13 @@ Reduziert: Reducido
 Teilnahme: Participación
 'Verkörperung in der Stadt': 'Encarnado en la ciudad'
 'Verkörpert dich in der Stadt bei ihrer Entstehung.': 'Encarnado en la ciudad durante su creación.'
-'Du wirst weder verkörpert, noch erhälst du Zugang zum Stadtforum.': 'No estás encarnado y no tendrás acceso al foro de la ciudad.'
+'Du wirst weder verkörpert, noch erhälst du Zugang zum Stadtforum.': 'No estás encarnado y no tendrás acceso al foro del pueblo.'
 Verwaltung: Administración
 'Nach 2 Tagen negieren': 'Cancelar después de 2 días'
 'Tor versperren': 'Bloquear la puerta'
 'Erweiterte Einstellungen': 'Ajustes avanzados'
 'Manuelles Event-Management': 'Gestión manual de eventos'
-'Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.': 'Deshabilita la gestión normal de eventos de la ciudad y, en su lugar, determina manualmente qué contenido de eventos está disponible durante la duración de la ciudad.'
+'Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.': 'Deshabilita la gestión normal de eventos del pueblo y, en su lugar, determina manualmente qué contenido de eventos está disponible durante la duración del pueblo.'
 'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. Du kannst den neuen Generator testen wenn du möchtest, oder vorerst den alten Generator weiter verwenden.': 'Hemos rediseñado nuestro creador de pueblos para agregar nuevas funciones. Puede probar el nuevo creador si lo desea, o continuar usando el antiguo por ahora.'
 'Den neuen Generator ausprobieren': 'Prueba el nuevo creador'
 'Erneutes Buddeln': 'Excavaciones repetidas'
@@ -360,10 +360,10 @@ Roulette: Ruleta
 Fähigkeiten: Habilidades
 Fähigkeitenpunkte: Puntos de habilidad
 'Eine Stadt gründen': 'Crear un pueblo'
-'Privatstädte ermöglichen es, zahlreiche Spielregeln anzupassen und den Zugang zur Stadt einzuschränken.': 'Las ciudades privadas permiten adaptar muchas reglas del juego y restringir el acceso a la ciudad.'
+'Privatstädte ermöglichen es, zahlreiche Spielregeln anzupassen und den Zugang zur Stadt einzuschränken.': 'Los pueblos privados permiten adaptar muchas reglas del juego y restringir el acceso al pueblo.'
 'Sie sind jedoch grundsätzlich vom Ranking ausgeschlossen!': 'Sin embargo, ¡generalmente están excluidos del ranking!'
-'Öffentliche Städte folgen den normalen Regeln von MyHordes. Falls du mit einer größeren Gruppe von Spielern unterwegs bist, kannst du hier für eine öffentliche Stadt für einen bestimmten Zeitpunkt vormerken.': 'Las ciudades públicas siguen las reglas normales de MyHordes. Si viajas con un grupo más grande de jugadores, puedes reservar una ciudad pública para un horario específico aquí.'
-'Ist eine solche Stadt erstellt, kann jeder Spieler ihr beitreten.': 'Una vez creada dicha ciudad, cualquier jugador puede unirse a ella.'
+'Öffentliche Städte folgen den normalen Regeln von MyHordes. Falls du mit einer größeren Gruppe von Spielern unterwegs bist, kannst du hier für eine öffentliche Stadt für einen bestimmten Zeitpunkt vormerken.': 'Los pueblos públicos siguen las reglas normales de MyHordes. Si viajas con un grupo más grande de jugadores, puedes reservar un pueblo público para un horario específico aquí.'
+'Ist eine solche Stadt erstellt, kann jeder Spieler ihr beitreten.': 'Una vez creado dicho pueblo, cualquier jugador podrá unirse a él.'
 'Öffentliche Städte sind im Gegensatz zu Privaten Städten NICHT vom Ranking ausgeschlossen.': 'A diferencia de las ciudades privadas, las ciudades públicas NO quedan excluidas del ranking.'
 'Wichtig:': 'Importante:'
 'Wenn du eine öffentliche Stadt anlegst, kannst du für bis zu {days} Tage nach dem Stadtstart keiner öffentlichen Stadt beitreten, die von einem anderen Spieler angelegt wurde.': 'Cuando creas una ciudad pública, no puedes unirte a una ciudad pública creada por otro jugador hasta {days} días después de que comience la ciudad.'
