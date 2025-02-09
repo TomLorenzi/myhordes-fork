@@ -2307,6 +2307,14 @@ i.h-icon {
   }
 }
 
+.cite {
+  &::before { content: "« " }
+  &::after { content: " »" }
+
+  &:not(.limit) {overflow-wrap: break-word;}
+  &.limit { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+}
+
 // Header
 html body[data-theme-name="none"] #wrapper:not(.attract) > #header { background-image: url('../img/background/bg_content_header.gif'); }
 html body[data-theme-name="none"][data-theme-primary-modifier="panda"] #wrapper:not(.attract) > #header { background-image: url('../img/background/bg_content_header_hc.gif'); }

@@ -42,7 +42,7 @@ scope.addEventListener('message', e => {
             break;
 
         // Respond with current push subscription (if available)
-        case 'pushSubscription':
+        case 'push.subscribe':
             // There can be no subscription without notification permissions
             if (Notification.permission !== 'granted') respond(e, null);
             // If we have already subscribed in the past, return existing subscription

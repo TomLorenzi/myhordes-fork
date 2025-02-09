@@ -9,17 +9,29 @@ use Doctrine\ORM\Mapping as ORM;
 class PinnedForum
 {
     #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
+
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'pinnedForums')]
     #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private ?User $user = null;
 
-    #[ORM\Id]
     #[ORM\ManyToOne(targetEntity: Forum::class)]
-    #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'CASCADE')]
     private ?Forum $forum = null;
+
+    #[ORM\ManyToOne(targetEntity: Thread::class)]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'CASCADE')]
+    private ?Thread $thread = null;
 
     #[ORM\Column(type: 'integer')]
     private ?int $position = null;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
     public function getUser(): ?User
     {
@@ -51,6 +63,18 @@ class PinnedForum
     public function setPosition(int $position): self
     {
         $this->position = $position;
+        return $this;
+    }
+
+    public function getThread(): ?Thread
+    {
+        return $this->thread;
+    }
+
+    public function setThread(?Thread $thread): static
+    {
+        $this->thread = $thread;
+
         return $this;
     }
 }

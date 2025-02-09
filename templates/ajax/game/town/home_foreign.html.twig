@@ -186,7 +186,7 @@
             <div class="row">
                 <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Persönliche Beschreibung'|trans({},'game') }} :</span></div>
                 <div class="cell rw-7 rw-lg-6">
-                    « {{ owner.home.description }} »
+                    <div class="cite">{{ owner.home.description }}</div>
                     <div class="float-right">
                         <hordes-content-report data-principal-id="{{ owner.id }}" data-report="citizen-description" data-selector="img" data-title="{{ 'Unangemessenen Inhalt melden'|trans({},'global') }}"><img class="pointer" title="{{ 'Unangemessenen Inhalt melden'|trans({},'global') }}" alt="!" src="{{ asset('build/images/forum/warning.png') }}"></hordes-content-report>
                     </div>

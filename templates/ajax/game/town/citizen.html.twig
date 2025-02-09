@@ -102,7 +102,7 @@
                 <div class="cell factor-0 citizen-{{ citizen.alive ? (citizen.online ? 'online' : 'offline') : 'dead' }}" style="flex-basis: 8px;" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">&nbsp;</div>
                 
                 <div class="userCell padded cell factor-1 small content-center-vertical citizen-box {% if citizen == me%} citizen-box-name-me {% else %} citizen-box-name {% endif %}" x-visit-path="{{ path('town_visit', {id: citizen.id}) }}"  x-citizen-id="{{citizen.id}}">
-                    <div style="max-height: 100px">
+                    <div style="max-height: 100px; max-width: 100%">
                         <div style="display: inline">
                             {% if citizen.alive %}
                                 <img alt="{{ citizen.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.profession.icon ~ '.gif') }}" />
@@ -155,9 +155,9 @@
                             {% endif %}
                         </div>
                         <div style="display: inline">
-                            {% if citizen.alive %}
-                                <span class="small" style="color: #ffe0c0">{{ citizen.home.description }}</span>
-                            {% else %}
+                            {% if citizen.alive and citizen.home.description is not empty %}
+                                <span class="small cite limit" style="color: #ffe0c0">{{ citizen.home.description }}</span>
+                            {% elseif not citizen.alive %}
                                 {% if citizen.lastWords is null %}
                                     <span>--</span>
                                 {% elseif citizen.lastWords is empty %}

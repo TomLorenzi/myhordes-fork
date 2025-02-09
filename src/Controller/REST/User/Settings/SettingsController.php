@@ -3,6 +3,7 @@
 namespace App\Controller\REST\User\Settings;
 
 use App\Entity\Forum;
+use App\Entity\Thread;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\User;
 use App\Entity\PinnedForum;
@@ -67,7 +68,7 @@ class SettingsController extends AbstractController
 
     #[Route(path: '/forum/{id}/flags/{flag}', name: 'forum_flag_on', defaults: ['value' => true], methods: ['PUT'])]
     #[Route(path: '/forum/{id}/flags/{flag}', name: 'forum_flag_off', defaults: ['value' => false], methods: ['DELETE'])]
-    public function toggleForumFlag(Forum $forum, string $flag, bool $value, PermissionHandler $perm, EntityManagerInterface $em): JsonResponse 
+    public function toggleForumFlag(Request $request, Forum $forum, string $flag, bool $value, PermissionHandler $perm, EntityManagerInterface $em): JsonResponse
     {
         $isUnpin = $flag === 'pin' && $value === false;
         $user = $this->getUser();
@@ -92,9 +93,18 @@ class SettingsController extends AbstractController
 
             case 'pin':
                 $pinnedRepository = $em->getRepository(PinnedForum::class);
+                $thread = null;
+                $thread_id = $request->query->get('thread');
+                if ($thread_id !== null) {
+                    $thread = $em->getRepository(Thread::class)->find($thread_id);
+                    if ($thread?->getHidden() || $thread?->getForum()->getId() !== $forum->getId())
+                        return new JsonResponse(status: Response::HTTP_NOT_ACCEPTABLE);
+                }
+
                 $pinnedForum = $pinnedRepository->findOneBy([
                     'user' => $user,
-                    'forum' => $forum
+                    'forum' => $forum,
+                    'thread' => $thread,
                 ]);
 
                 if ($value && !$pinnedForum) {
@@ -104,7 +114,7 @@ class SettingsController extends AbstractController
     
                     $newPinnedForum = new PinnedForum();
                     $newPinnedForum->setUser($user);
-                    $newPinnedForum->setForum($forum);
+                    $newPinnedForum->setForum($forum)->setThread($thread);
                     $newPinnedForum->setPosition($user->getPinnedForums()->count() + 1);
                     $em->persist($newPinnedForum);
                 } elseif (!$value && $pinnedForum) {
@@ -134,10 +144,7 @@ class SettingsController extends AbstractController
         $user = $this->getUser();
 
         foreach ($data as $item) {
-            $pinnedForum = $em->getRepository(PinnedForum::class)->findOneBy([
-                'user' => $user,
-                'forum' => $item['id']
-            ]);
+            $pinnedForum = $em->getRepository(PinnedForum::class)->find($item['id']);
 
             if ($pinnedForum) {
                 $pinnedForum->setPosition($item['position']);

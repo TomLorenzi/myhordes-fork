@@ -767,7 +767,13 @@ class HTMLService {
     }
 
     protected $emote_cache = null;
-    public function get_emotes(bool $url_only = false, User $user = null): array {
+
+    /**
+     * @param bool $url_only
+     * @param User|string|null $user User or language string
+     * @return array
+     */
+    public function get_emotes(bool $url_only = false, User|string $user = null): array {
         if ($this->emote_cache !== null) return $this->emote_cache;
 
         $this->emote_cache = [];
@@ -776,13 +782,13 @@ class HTMLService {
             /** @var $value Emotes */
             $path = $value->getPath();
             if($value->getI18n())
-                $path = str_replace("{lang}", ($user !== null ? $user->getLanguage() : "de"), $path);
+                $path = str_replace("{lang}", ($user !== null ? (is_string( $user ) ? $user : $user->getLanguage()) : "de"), $path);
             $this->emote_cache[$value->getTag()] = $url_only ? $path : "<img alt='{$value->getTag()}' src='{$this->asset->getUrl( $path )}'/>";
         }
         return $this->emote_cache;
     }
 
-    public function prepareEmotes(string $str, User $user = null, Town $town_context = null): string {
+    public function prepareEmotes(string $str, User|string $user = null, Town $town_context = null): string {
         $emotes = $this->get_emotes(false, $user);
 
         $fixed_account_translators = [
