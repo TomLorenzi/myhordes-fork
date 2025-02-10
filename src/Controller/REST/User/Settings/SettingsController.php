@@ -101,7 +101,7 @@ class SettingsController extends AbstractController
             return new JsonResponse(status: Response::HTTP_NOT_FOUND);
         }
 
-        if ($forum->getTown()) {
+        if ($forum->getTown() && !$request->query->has('thread')) {
             return new JsonResponse(status: Response::HTTP_FORBIDDEN);
         }
 

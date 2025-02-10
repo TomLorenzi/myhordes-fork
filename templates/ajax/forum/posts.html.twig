@@ -130,20 +130,22 @@
                     {% endif %}
                 </div>
                 <div class="cell padded grow-1 right">
-                   <div
-                           class="forum-button"
-                           data-fetch-load="{{ path('forum_thread_view', {fid: thread.forum.id, tid: thread.id}) }}"
-                           data-fetch="{{ path('rest_user_settings_options_forum_flag_off', {id: thread.forum.id, flag: 'pin', thread: thread.id}) }}"
-                           data-fetch-method="{{ user_pinned ? 'delete' : 'put' }}"
-                   >
-                       {% if user_pinned %}
-                           <img alt="" src="{{ asset('build/images/icons/tickOn.gif') }}" />
-                       {% else %}
-                           <img alt="" src="{{ asset('build/images/icons/tickOff.gif') }}" />
-                       {% endif %}
-                       <span>{{ user_pinned ? 'Angepinnt'|trans({},'global') : 'Anpinnen'|trans({},'global') }}</span>
-                       <div class="tooltip forum-tooltip">{{ user_pinned ? 'Dieses Thema wird nicht länger in der Tab-Leiste angezeigt.'|trans({},'global') : 'Dieses Thema wird in der Tab-Leiste im oberen Bereich der Forenansicht angeheftet, damit du schneller darauf zugreifen kannst. Du kannst maximal 6 Foren oder Themen anpinnen.'|trans({}, 'global')}}</div>
-                   </div>
+                    {% if app.user is defined and (app.user.pinnedForums|length < 6 or user_pinned) %}
+                        <div
+                                class="forum-button"
+                                data-fetch-load="{{ path('forum_thread_view', {fid: thread.forum.id, tid: thread.id}) }}"
+                                data-fetch="{{ path('rest_user_settings_options_forum_flag_off', {id: thread.forum.id, flag: 'pin', thread: thread.id}) }}"
+                                data-fetch-method="{{ user_pinned ? 'delete' : 'put' }}"
+                        >
+                            {% if user_pinned %}
+                                <img alt="" src="{{ asset('build/images/icons/tickOn.gif') }}" />
+                            {% else %}
+                                <img alt="" src="{{ asset('build/images/icons/tickOff.gif') }}" />
+                            {% endif %}
+                            <span>{{ user_pinned ? 'Angepinnt'|trans({},'global') : 'Anpinnen'|trans({},'global') }}</span>
+                            <div class="tooltip forum-tooltip">{{ user_pinned ? 'Dieses Thema wird nicht länger in der Tab-Leiste angezeigt.'|trans({},'global') : 'Dieses Thema wird in der Tab-Leiste im oberen Bereich der Forenansicht angeheftet, damit du schneller darauf zugreifen kannst. Du kannst maximal 6 Foren oder Themen anpinnen.'|trans({}, 'global')}}</div>
+                        </div>
+                    {% endif %}
                     <div x-forum-action="{{ subscribed ? 'unsub' : 'sub' }}" class="forum-button">
                         {% if subscribed %}
                             <img alt="" src="{{ asset('build/images/icons/tickOn.gif') }}" />
