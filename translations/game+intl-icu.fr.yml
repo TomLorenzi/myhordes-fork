@@ -41,7 +41,7 @@ verlassen: 'a quitté la ville'
 'Du hast heute bereits eine Verbesserung deines Hauses vorgenommen.': 'Vous avez déjà amélioré votre maison aujourd’hui.'
 'Dieser Gegenstand ist außerhalb deiner Reichweite.': 'Cet endroit est hors de votre portée.'
 'Du hast keinen Platz mehr für diesen Gegenstand!': 'Vous n’avez plus de place pour cet objet !'
-'Du kannst keinen weiteren schweren Gegenstand tragen!': 'Vous ne pouvez <strong>pas</strong> prendre cet objet.<hr />Vous êtes limité(e) à un objet encombrant à la fois sur vous.'
+'Du kannst keinen weiteren schweren Gegenstand tragen!': "\n            {ref__icu, select,\n                on {\n                    {ref__gender, select,\n                        female {Vous ne pouvez <strong>pas</strong> prendre cet objet.<hr />Vous êtes limitée à un objet encombrant à la fois sur vous.}\n                        other {Vous ne pouvez <strong>pas</strong> prendre cet objet.<hr />Vous êtes limité à un objet encombrant à la fois sur vous.}\n                    }\n                }\n            other {Vous ne pouvez <strong>pas</strong> prendre cet objet.<hr />Vous êtes limité(e) à un objet encombrant à la fois sur vous.}\n            }\n        "
 'Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.': 'Cette action est bloquée pendant <strong>15 minutes environ</strong> (protection anti-abus).<hr /><strong>Attention : si vous tentez de répéter cette action avant la fin du délai, la durée de ce blocage sera prolongée !</strong>'
 'Du hast heute schon <strong>einen Diebstahl</strong> begangen.': 'Vous avez déjà commis <strong>un vol</strong> aujourd’hui.'
 'Du siehst keine Möglichkeit, hier einzubrechen ...': 'Cette maison est protégée (verrou ou autre…) et ne peut être cambriolée.'
@@ -1186,7 +1186,7 @@ Seelenverwerter: Aruspice maudit
 Höllenwächter: Maître gardien
 Kerberos: Paladin
 'Die letzte Verteidigungslinie': 'Dernier rempart'
-'Du kommst hier NICHT durch!': 'Vous.. ne.. passerez.. PAS !'
+'Du kommst hier NICHT durch!': 'Vous… ne… passerez… PAS !'
 Hekatoncheir: Citoyen infranchissable
 Kantinenkoch: Cuistot de cantine
 'Kleiner Küchenchef': 'Petit chef cuistot'

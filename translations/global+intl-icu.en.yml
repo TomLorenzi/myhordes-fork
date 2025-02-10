@@ -179,7 +179,7 @@ Code: Code
 Kein: None
 'Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...': 'This message was personally delivered to you by the Crow. He hovers over your town and always keeps a watchful eye on you...'
 'Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude <strong>Kleiner Friedhof</strong>.': 'This bonus has been obtained thanks to your old friends and the <strong>Small Cemetary</strong> building.'
-'Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.': 'This bonus is only available if the watchmen are in the town during the attack.'
+'Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.': 'These defences are provided by citizens on watch duty at the time of the attack.'
 'Diese Kosten können durch den Aufbau der <strong>Müll für Alle</strong>.': 'This cost can be reduced by building an <strong>Free dump</strong>.'
 Ausblenden: Hide
 Nachricht: Your message
@@ -553,7 +553,7 @@ PN: PM
 'Du hast einen neuen Freund!': 'You have a new friend!'
 'Städte mit hoher Priorität anlegen': 'Create the city as a priority'
 'Städte werden mit hoher Priorität angelegt': 'The city will be created in priority'
-'Die Städte werden innerhalb der nächsten 30 Minuten erzeugt, statt erst beim nächsten Angriff. Bitte verwendet diese Funktion nur in Notfällen.': 'The city will be created within 30 minutes, instead of the next attack. Please only use this feature in an emergency.'
+'Die Städte werden innerhalb der nächsten 30 Minuten erzeugt, statt erst beim nächsten Angriff. Bitte verwendet diese Funktion nur in Notfällen.': 'The town will be created within 30 minutes, instead of the next attack. Please only use this feature in an emergency.'
 'Bitte verwendet diese Funktion nur in Notfällen. Fortfahren?': 'This feature is only to be used in an emergency. Continue?'
 'Kein Tag': 'No tag'
 ENTER: ENTRY
@@ -638,3 +638,6 @@ Verbunden: Connected
 'Anonymer Post': 'Anonymous Post'
 'Bist du sicher, dass du deine Fähigkeiten zurücksetzen möchtest? Du wirst all deine Heldenerfahrung und Fähigkeiten verlieren. Diese Aktion kann nicht rückgängig gemacht werden!': 'Are you sure you want to reset your skills? You will lose all your heroic experience and skills. This action cannot be undone!'
 'Dieser Spieler ist ein Mitglied der Künstlergilde auf MyHordes.': 'This player is part of the Artist''s Guild on MyHordes.'
+Angepinnt: Pinned
+'Dieses Thema wird nicht länger in der Tab-Leiste angezeigt.': 'This topic will no longer be shown in the tab bar.'
+'Dieses Thema wird in der Tab-Leiste im oberen Bereich der Forenansicht angeheftet, damit du schneller darauf zugreifen kannst. Du kannst maximal 6 Foren oder Themen anpinnen.': 'If this option is enabled, this topic will be pinned in the tab list at the top of the forum view so that you can access it more quickly. You can pin a maximum of 6 forums or topics.'
