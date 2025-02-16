@@ -884,8 +884,10 @@ class BeyondController extends InventoryAwareController
             $movement_interrupted = true;
         }
 
+        $primaryPointSource = $zone->getDistance() < 3 ? PointType::AP : PointType::SP;
+
         if ($movement_interrupted) {
-            $this->citizen_handler->setAP( $citizen, true, -1 );
+            $this->citizen_handler->deductPointsWithFallback($citizen, PointType::AP, $primaryPointSource, 1 );
             $this->entity_manager->persist($citizen);
             $this->entity_manager->flush();
             return AjaxResponse::success();
@@ -899,8 +901,6 @@ class BeyondController extends InventoryAwareController
 
         $others_are_here = $zone->getCitizens()->count() > count($movers);
         $away_from_town = (abs($zone->getX()) + abs($zone->getY())) < (abs($new_zone->getX()) + abs($new_zone->getY()));
-
-        $primaryPointSource = $zone->getDistance() < 3 ? PointType::AP : PointType::SP;
 
         foreach ($movers as $mover) {
             // Check if citizen moves as a scout
