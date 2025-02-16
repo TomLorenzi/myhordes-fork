@@ -483,9 +483,9 @@ class InventoryAwareController extends CustomAbstractController
                 if ($this->random_generator->chance($cc)) {
 
                     $this->entity_manager->persist($this->log->citizenTownGhoulAttack($aggressor,$victim));
-                    $notes[] = $this->translator->trans( 'Gut gemacht!', [], 'game' );
+                    $notes[] = $this->translator->trans( 'Du wurdest beobachtet! Die anderen Bürger wurden gewarnt!', [], 'game' );
 
-                } else $notes[] = $this->translator->trans( 'Du wurdest beobachtet! Die anderen Bürger wurden gewarnt!', [], 'game' );
+                } else $notes[] = $this->translator->trans( 'Gut gemacht!', [], 'game' );
             }
 
             if ($give_ap > $aggressor->getAp())
