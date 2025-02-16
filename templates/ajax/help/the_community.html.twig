@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Die Gemeinschaft'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Die Gemeinschaft'|trans({},'help')|raw }}</h1>
 <h2>{{ 'Überleben durch Kommunikation und Kooperation'|trans({},'help')|raw }}</h2>
 <p>{{ 'So wie der Aufklärer eine wichtige Aufgabe für die Gemeinschaft erfüllt, trägt jeder Spieler, ungeachtet seines Berufs, zum Überleben der Gemeinschaft bei. Keine Frage, man kann auch alleine überleben. Manchmal, wenn sonst niemand mehr da ist, ist das auch die letzte Möglichkeit. Trotzdem steht die Kooperation in \'MyHordes\' im Mittelpunkt. Aufgaben und Rollen sollten besprochen und aufgeteilt werden, wenn die Gemeinschaft als Ganzes überleben möchte. So können manche Spieler sich um das Einsammeln von Rohstoffen kümmern, während andere ihre Aktionspunkte auf den Baustellen einsetzen.'|trans({},'help')|raw }}</p>
@@ -27,5 +29,7 @@
 <strong>{{ 'Private Nachrichten können nur in der Stadt gelesen werden.'|trans({},'help')|raw }}</strong>
 </p>
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'constructing_new_buildings'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Neue Gebäude bauen'|trans({},'help') }}</strong></a>
+{% endblock %}
+{% block helpContentPost %}
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'constructing_new_buildings'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Neue Gebäude bauen'|trans({},'help') }}</strong></a>
 {% endblock %}

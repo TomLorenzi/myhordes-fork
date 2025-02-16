@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Der Reiseleiter in der Außenwelt'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Der Reiseleiter in der Außenwelt'|trans({},'help')|raw }}</h1>
 <img class="pip" alt="pip" src="{{ asset('build/images/professions/select/guide.png') }}">
 <p>
@@ -18,5 +20,7 @@
 {{ 'So wird der Anführer ein wichtiger Teil des Überlebens der Stadt und seiner Nachbarn... Aber wie lange wird dieser neue Anführer überhaupt überleben???'|trans({},'help')|raw }}
 </p>
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'welcome_to_the_town'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Herzlich willkommen in der Stadt'|trans({},'help') }}</strong></a>
+{% endblock %}
+{% block helpContentPost %}
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'welcome_to_the_town'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Herzlich willkommen in der Stadt'|trans({},'help') }}</strong></a>
 {% endblock %}

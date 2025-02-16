@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Wildes Campen'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help') }}</div>
 <h1>{{'Wildes Campen'|trans({}, 'help')}}</h1>
 <img class="art" alt="" src="{{ asset('build/images/help/nightCamping.png') }}">
 <p>
@@ -115,5 +117,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.'|trans({},'help')|raw }}
 {{ 'Um diese Auszeichnung zu erhalten, muss die Stadt mindestens <strong>10 volle Tage</strong> überlebt haben.'|trans({},'help')|raw }}
 </p>
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'ruin_exploration'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Gebäude untersuchen'|trans({},'help') }}</strong></a>
+{% endblock %}
+{% block helpContentPost %}
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'ruin_exploration'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Gebäude untersuchen'|trans({},'help') }}</strong></a>
 {% endblock %}

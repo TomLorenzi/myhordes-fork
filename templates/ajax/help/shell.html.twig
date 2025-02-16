@@ -164,7 +164,11 @@
         </div>
         <div class="padded cell rw-8 rw-sm-12">
             <div class="row help-content">
+                {% block helpContentPre %}
+                {% endblock %}
                 {% block helpContent %}
+                {% endblock %}
+                {% block helpContentPost %}
                 {% endblock %}
             </div>
         </div>

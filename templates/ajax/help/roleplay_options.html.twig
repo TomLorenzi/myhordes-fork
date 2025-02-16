@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Rollenspieloptionen'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Rollenspieloptionen'|trans({},'help')|raw }}</h1>
 <p>
 {{ 'In den verschiedenen Foren und Chatmöglichkeiten der Außenwelt können bestimmte Rollenspielelemente verwendet werden. Diese dienen allgemein dem Ambiente des Spiels.'|trans({},'help')|raw }}
@@ -23,5 +25,7 @@
 {{ 'Du kannst dich ihrer bedienen, um neue (Foren-)Spiele zu erfinden oder bestimmte Entscheidungen nach dem Zufallsprinzip zu treffen. Gehe jedoch sparsam damit um!'|trans({},'help')|raw }}
 </p>
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'seasons_and_rankings'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Saisons und Ranglisten'|trans({},'help') }}</strong></a>
+{% endblock %}
+{% block helpContentPost %}
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'seasons_and_rankings'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Saisons und Ranglisten'|trans({},'help') }}</strong></a>
 {% endblock %}

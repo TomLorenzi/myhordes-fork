@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Nachts'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Nachts'|trans({},'help')|raw }}</h1>
 <img class="art" alt="" src="{{ asset('build/images/help/night.png') }}">
 <p>
@@ -25,8 +27,10 @@
 <sup> 1 </sup>: {{ 'Diese Regeln gelten nicht in "Kleinstadt"-Karten.'|trans({},'help')|raw }}
 </em>
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'extreme_camping'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Wildes Campen'|trans({},'help') }}</strong></a>
-<script>
-    (()=>{ $.html.forEach( '[data-time]', e => e.innerText = (new Date( e.dataset.time )).toLocaleTimeString([], {timeStyle: 'short'}) ) })()
-</script>
+{% endblock %}
+{% block helpContentPost %}
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'extreme_camping'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Wildes Campen'|trans({},'help') }}</strong></a>
+    <script>
+        (()=>{ $.html.forEach( '[data-time]', e => e.innerText = (new Date( e.dataset.time )).toLocaleTimeString([], {timeStyle: 'short'}) ) })()
+    </script>
 {% endblock %}

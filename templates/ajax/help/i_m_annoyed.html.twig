@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Fehlverhalten melden'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Fehlverhalten melden'|trans({},'help')|raw }}</h1>
 <div class="help">
 <img class="art artRight" alt="" src="{{ asset('build/images/help/report.' ~ app.request.locale|e('html_attr') ~ '.png') }}">
@@ -31,5 +33,7 @@
 </ul>
 <p>{{ 'Diese Liste ist nicht erschöpfend und keineswegs humoristisch gemeint.'|trans({},'help')|raw }}</p>
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'about_accountsitting'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Zum Thema \'Sitting\'...'|trans({},'help') }}</strong></a>
+{% endblock %}
+{% block helpContentPost %}
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'about_accountsitting'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Zum Thema \'Sitting\'...'|trans({},'help') }}</strong></a>
 {% endblock %}

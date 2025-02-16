@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Externe Scripte'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Externe Scripte'|trans({},'help')|raw }}</h1>
 <p class="help">
 {{ 'Mithilfe von Scripten können Spieler die Funktionen und Benutzeroberfläche von MyHordes an ihre Bedürfnisse anpassen. Damit das Spiel dennoch für alle fair bleibt, gelten einige Regeln für den Einsatz von Scripten (unabhängig davon, ob ihr eure Scripte weitergebt oder nur für euch selbst verwendet).'|trans({},'help')|raw }}

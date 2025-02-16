@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Zerstörte Stadt'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Zerstörte Stadt'|trans({},'help')|raw }}</h1>
 <p>
 {{ 'Wenn eine Stadt beim Angriff um Mitternacht komplett <strong>verlassen</strong> ist (z.B.: weil alle Bürger in der Außenwelt campen ODER weil alle in der Stadt gestorben sind), gilt sie als <strong>zerstört</strong>. Folgende Regeländerungen treten dann in Kraft:'|trans({},'help')|raw }}
@@ -19,5 +21,7 @@
 <strong>{{ 'Meide diesen verfluchten Ort!'|trans({},'help')|raw }}</strong>
 </p>
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'hardcore_towns'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Städte des Pandämoniums'|trans({},'help') }}</strong></a>
+{% endblock %}
+{% block helpContentPost %}
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'hardcore_towns'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Städte des Pandämoniums'|trans({},'help') }}</strong></a>
 {% endblock %}

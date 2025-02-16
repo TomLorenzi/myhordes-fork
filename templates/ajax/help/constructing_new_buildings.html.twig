@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Neue Gebäude bauen'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Neue Gebäude bauen'|trans({},'help')|raw }}</h1>
 <p>
 {{'Die Städte in MyHordes sind nicht statisch, in der alles so bleibt wie es vorgefunden wird. Es ist deine Aufgabe deine Stadt auszubauen und ihre Verteidigung zu verbessern. Dazu sind folgende Schritte notwendig:'|trans({},'help')|raw }}
@@ -24,5 +26,7 @@
 Es handelt sich in aller Regel um sehr effektive Verteidigungsmaßnahmen, die nicht sehr teuer sind, dafür aber jeden Tag neu aufgebaut werden müssen.'|trans({},'help')|raw }}
 </p>
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'blueprints'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Baupläne'|trans({},'help') }}</strong></a>
+{% endblock %}
+{% block helpContentPost %}
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'blueprints'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Baupläne'|trans({},'help') }}</strong></a>
 {% endblock %}

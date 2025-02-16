@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Gebäude untersuchen'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Gebäude untersuchen'|trans({},'help')|raw }}</h1>
 <img class="art" alt="" src="{{ asset('build/images/help/explo1.png') }}">
 <p>
@@ -40,5 +42,7 @@ Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es bes
 </p>
 <div class="clear"></div>
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'lost_souls'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Verlorene Seelen'|trans({},'help') }}</strong></a>
+{% endblock %}
+{% block helpContentPost %}
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'lost_souls'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Verlorene Seelen'|trans({},'help') }}</strong></a>
 {% endblock %}

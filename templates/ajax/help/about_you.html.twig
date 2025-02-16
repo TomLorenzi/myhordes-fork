@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Du'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Du'|trans({},'help')|raw }}</h1>
 <p>
 {{ 'Im Laufe deines Spielerlebens wirst du in MyHordes zahlreiche Gegenstände in der Wüste finden, beim Bau verschiedener Gebäude mithelfen, dir Krankheiten einfangen und auch Drogen konsumieren...'|trans({},'help')|raw }}
@@ -10,5 +12,7 @@
 <strong>{{ 'Damit du immer die richtigen Entscheidungen triffst, ist es wichtig, die Übersicht zu behalten.'|trans({},'help')|raw }}</strong>
 </p>
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'health'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Dein Gesundheitszustand'|trans({},'help') }}</strong></a>
+{% endblock %}
+{% block helpContentPost %}
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'health'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Dein Gesundheitszustand'|trans({},'help') }}</strong></a>
 {% endblock %}

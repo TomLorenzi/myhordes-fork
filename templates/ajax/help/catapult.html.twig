@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Das Katapult'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Das Katapult'|trans({},'help')|raw }}</h1>
 <p>
 {{ '<strong>Das Katapult ist ein äußerst mächtiges Werkzeug, mit dem die Stadt jede Art von Gegenstand in die Wüste schießen kann.</strong> Das ist sehr nützlich, wenn man weit entfernte Bürger versorgen möchte (Lebensmittel, Wasser, Waffen etc...).'|trans({},'help')|raw }}
@@ -22,5 +24,7 @@ Darüber hinaus besteht die Gefahr, dass manche, <i>seltene</i> Gegenstände den
 <li>{{ 'Sollten sich schließlich alle um diese Aufgabe drücken, trifft es einen zufällig ausgewählten Bürger.'|trans({},'help')|raw }}</li>
 </ul>
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'towns_in_nondistantregions'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Kleine Karten'|trans({},'help') }}</strong></a>
+{% endblock %}
+{% block helpContentPost %}
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'towns_in_nondistantregions'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Kleine Karten'|trans({},'help') }}</strong></a>
 {% endblock %}

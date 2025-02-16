@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Der Eskortenmodus'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Der Eskortenmodus'|trans({},'help')|raw }}</h1>
 <p>
 {{ 'Sobald du dich in der Außenwelt befindest, kannst du jederzeit den <strong>Eskortenmodus aktivieren und auf eine Eskorte warten.</strong> Dazu musst du lediglich auf den gleichnamigen Knopf drücken.'|trans({},'help')|raw }}
@@ -24,5 +26,7 @@
 <p>{{ 'Diese Option ist von Haus aus aktiviert und schränkt die Handlungsmöglichkeiten deines Anführers (der Bürger, der sich deiner angenommen hat) erheblich ein. <strong>Er darf dich dann unter keinen Umständen von der Stadt entfernen, sondern dich ihr nur näher bringen.'|trans({},'help')|raw }}</strong>
 </p>
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'fighting_the_hordes_in_the_world_beyond'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Zombies im Freien bekämpfen'|trans({},'help') }}</strong></a>
+{% endblock %}
+{% block helpContentPost %}
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'fighting_the_hordes_in_the_world_beyond'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Zombies im Freien bekämpfen'|trans({},'help') }}</strong></a>
 {% endblock %}

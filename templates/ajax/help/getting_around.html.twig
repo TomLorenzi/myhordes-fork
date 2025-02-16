@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Sich bewegen'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Sich bewegen'|trans({},'help')|raw }}</h1>
 <h2>{{ 'Aktionspunkte und Erschöpfung'|trans({},'help')|raw }}</h2>
 <p>
@@ -43,5 +45,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du {img_tired} <st
 Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen Lebens noch einmal Revue passieren... Wer weiß, vielleicht hast du schon morgen selbst Appetit auf Menschenfleisch?'|trans({},'help')|raw }}
 </p>
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'map'})|raw }}"><img src="{{ asset('build/images/icons/small_move.gif')|raw }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Die Karte'|trans({},'help')|raw }}</strong></a>
+{% endblock %}
+{% block helpContentPost %}
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'map'})|raw }}"><img src="{{ asset('build/images/icons/small_move.gif')|raw }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Die Karte'|trans({},'help')|raw }}</strong></a>
 {% endblock %}

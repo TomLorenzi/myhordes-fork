@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Einsiedler'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Einsiedler'|trans({},'help')|raw }}</h1>
 <img class="pip" alt="pip" src="{{ asset('build/images/professions/select/book.gif') }}">
 <p>
@@ -26,5 +28,7 @@
 kann er weder Nahrung noch Wasser finden, wenn er sich in Zonen aufhält, die weniger als 4 km von einer Stadt entfernt sind.'|trans({},'help')|raw }}</strong> 
 </p>
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'tamer'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Dompteur'|trans({},'help') }}</strong></a>
+{% endblock %}
+{% block helpContentPost %}
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'tamer'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Dompteur'|trans({},'help') }}</strong></a>
 {% endblock %}

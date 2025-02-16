@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Techniker'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Techniker'|trans({},'help')|raw }}</h1>
 <img class="pip" alt="pip" src="{{ asset('build/images/professions/select/tech.gif') }}">
 <p>
@@ -27,5 +29,7 @@ Motivation und kann seine <strong>{img_bp} Baupunkte</strong> nicht einsetzen.'|
 Aus dem Abdruck eines bestimmten Schlosses kann er außerdem einen Einmal-Schlüssel herstellen, mit dem sich ebendiese Tür später öffnen lässt.'|trans({},'help')|raw }}
 </p>
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'town_roles'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Die Rollen'|trans({},'help') }}</strong></a>
+{% endblock %}
+{% block helpContentPost %}
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'town_roles'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Die Rollen'|trans({},'help') }}</strong></a>
 {% endblock %}

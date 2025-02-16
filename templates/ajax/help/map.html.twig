@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Die Karte'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Die Karte'|trans({},'help')|raw }}</h1>
 <div class="noJustify">
 <h2>{{ 'Standortansicht'|trans({},'help')|raw }}</h2>
@@ -57,5 +59,7 @@
 </ul>
 </div>
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'exploring_and_scavenging'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Erkunden und Graben'|trans({},'help') }}</strong></a>
+{% endblock %}
+{% block helpContentPost %}
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'exploring_and_scavenging'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Erkunden und Graben'|trans({},'help') }}</strong></a>
 {% endblock %}

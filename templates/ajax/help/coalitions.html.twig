@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Kleine Koalitionen'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Kleine Koalitionen'|trans({},'help')|raw }}</h1>
 <p>{{ 'Der Spielmodus <strong>Kleine Koalitionen</strong> ist sehr einfach und sehr effektiv.
 Es basiert auf folgenden zwei Konzepten:'|trans({},'help')|raw }}</p>
@@ -41,5 +43,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
 <dd>{{ 'Wenn du noch keine Stadt gewählt hast, spielst du automatisch in der Stadt deines Freundes. Sobald du dich das nächste Mal einloggst, bist du in der gewählten Stadt.'|trans({},'help')|raw }}</dd>
 </dl>
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'house_and_work'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Haus &amp; Hausarbeiten'|trans({},'help') }}</strong></a>
+{% endblock %}
+{% block helpContentPost %}
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'house_and_work'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Haus &amp; Hausarbeiten'|trans({},'help') }}</strong></a>
 {% endblock %}

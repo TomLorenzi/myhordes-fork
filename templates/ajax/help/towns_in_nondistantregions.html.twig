@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Kleine Karten'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Kleine Karten'|trans({},'help')|raw }}</h1>
 <p>{{ 'Kleine Städte (Kartentyp "Kleine Karte") sind für die neuen Spieler bei "Die Verdammten" gedacht. Hier geht es vor allem um das Lernen der Grundlagen. 
 Diese Städte sind darum auch weniger schwer und eine Stadt verfügt z.B. bereits über einige Gebäude. Grundsätzlich stehen diese Städte aber allen Spielern offen.'|trans({},'help')|raw }}</p>
@@ -22,5 +24,7 @@ Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. 
 </ul>
 <p></p>
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'devastated_town'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Zerstörte Stadt'|trans({},'help') }}</strong></a>
+{% endblock %}
+{% block helpContentPost %}
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'devastated_town'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Zerstörte Stadt'|trans({},'help') }}</strong></a>
 {% endblock %}

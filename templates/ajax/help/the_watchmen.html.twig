@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Die Nachtwächter'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Die Nachtwächter'|trans({},'help')|raw }}</h1>
 <h2>{{ 'Wer sind Sie?'|trans({},'help')|raw }}</h2>
 <p>
@@ -28,5 +30,7 @@ Eine davon ist es der <strong>Nachtwache</strong> beizutreten.'|trans({},'help')
 <p>{{ 'Du kannst deinen Posten bis kurz vor dem Angriff verlassen.'|trans({},'help')|raw }}</p>
 <p><strong>{{ 'Das heißt allerdings nicht, dass deine stadtloyalen Mitbürger dein Handeln auch gutheißen würden...'|trans({},'help')|raw }}</strong></p>
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'crimes_and_punishment'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Recht und Gesetz'|trans({},'help') }}</strong></a>
+{% endblock %}
+{% block helpContentPost %}
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'crimes_and_punishment'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Recht und Gesetz'|trans({},'help') }}</strong></a>
 {% endblock %}

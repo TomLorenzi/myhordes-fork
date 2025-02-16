@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Stadt unter Quarantäne'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Stadt unter Quarantäne'|trans({},'help')|raw }}</h1>
 <p>
 <strong>{{ 'Sollte beim nächtlichen Angriff der Zombiehorde ein technischer Fehler auftreten, wird die betroffene Stadt unter Quarantäne gestellt.'|trans({},'help')|raw }}</strong>
@@ -27,5 +29,7 @@
 </p> #}
 </div>
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'i_m_annoyed'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Fehlverhalten melden'|trans({},'help') }}</strong></a>
+{% endblock %}
+{% block helpContentPost %}
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'i_m_annoyed'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Fehlverhalten melden'|trans({},'help') }}</strong></a>
 {% endblock %}

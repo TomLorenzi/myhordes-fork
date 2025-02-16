@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Zombies im Freien bekämpfen'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Zombies im Freien bekämpfen'|trans({},'help')|raw }}</h1>
 <h2>{{ 'Wie tötet man einen Zombie?'|trans({},'help')|raw }}</h2>
 <img class="pip" alt="" src="{{ asset('build/images/professions/select/hero.gif') }}">
@@ -21,5 +23,7 @@
 <p>
 {{ 'Wenn\'s mal Probleme geben sollte, ist eine <span x-ajax-href={url_cp}>Flucht</span> nicht verkehrt...'|trans({'{url_cp}': url('help', {'name': 'control_points'})},'help')|raw }}
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'the_night'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Nachts'|trans({},'help') }}</strong></a>
+{% endblock %}
+{% block helpContentPost %}
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'the_night'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Nachts'|trans({},'help') }}</strong></a>
 {% endblock %}

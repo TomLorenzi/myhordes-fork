@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Verlorene Seelen'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Verlorene Seelen'|trans({},'help')|raw }}</h1>
 <p>
 {{ '<strong>Die Seelen {img_blue_soul} verschiedener Mitbürger wandern rastlos in den öden Weiten der Außenwelt umher.</strong>
@@ -26,5 +28,7 @@ Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine b
 {{ 'Sobald du eine Seele in die Stadt gebracht hast, muss sie gereinigt werden. Hierfür ist das Gebäude Seelenreinigungsquelle erforderlich. <strong>Denk daran dass eine gequälte Seele bei jedem Angriff Unglück bringt, auch wenn sie in der Stadt ist!</strong>'|trans({},'help')|raw }}
 </p>
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'about_you'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Du'|trans({},'help') }}</strong></a>
+{% endblock %}
+{% block helpContentPost %}
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'about_you'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Du'|trans({},'help') }}</strong></a>
 {% endblock %}

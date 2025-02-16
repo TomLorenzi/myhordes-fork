@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Inventar'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Inventar'|trans({},'help')|raw }}</h1>
 <h2>{{ 'Der Rucksack'|trans({},'help')|raw }}</h2>
 <img class="art" alt="" src="{{ asset('build/images/help/bag.' ~ app.request.locale|e('html_attr') ~ '.png') }}">
@@ -27,5 +29,7 @@ Außerdem führst du <strong>zusätzlich</strong> zu deiner normalen Bürgerklei
 werden <strong>automatisch</strong> der <strong>Hauseinrichtung</strong> hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)'|trans({'{img_carpet}': '<img alt="" src="' ~ asset("build/images/item/item_carpet.gif") ~ '">'},'help')|raw }}
 </p>
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'your_soul'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Deine Seele'|trans({},'help') }}</strong></a>
+{% endblock %}
+{% block helpContentPost %}
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'your_soul'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Deine Seele'|trans({},'help') }}</strong></a>
 {% endblock %}

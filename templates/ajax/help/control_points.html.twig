@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Die Kontrollpunkte'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Die Kontrollpunkte'|trans({},'help')|raw }}</h1>
 <img class="art" alt="" src="{{ asset('build/images/help/dom.' ~ app.request.locale|e('html_attr') ~ '.png') }}">
 <p>
@@ -63,5 +65,7 @@
     <li>{{ 'wieder die Kontrolle zu erlangen.'|trans({},'help')|raw }}</li>
 </ul>
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'escort_mode'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Der Eskortenmodus'|trans({},'help') }}</strong></a>
+{% endblock %}
+{% block helpContentPost %}
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'escort_mode'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Der Eskortenmodus'|trans({},'help') }}</strong></a>
 {% endblock %}

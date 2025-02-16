@@ -1,7 +1,9 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Der Angriff der Zombiehorde'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContentPre %}
+    <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+{% endblock %}
 {% block helpContent %}
-<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Der Angriff der Zombiehorde'|trans({},'help')|raw }}</h1>
 <img class="art" alt="" src="{{ asset('build/images/help/attack.png') }}">
 <p>
@@ -58,8 +60,10 @@ Lies dir den entsprechenden Abschnitt bitte <span x-ajax-href={url_lms}>hier</sp
 <li>Die nächtlichen Angriffe nehmen von Tag zu Tag zu, zögere nicht allzu lang, die Stadtverteidigung zu verbessern!</li>
 </ul> #}
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'the_watchmen'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Die Nachtwächter'|trans({},'help') }}</strong></a>
-<script>
-    (()=>{ $.html.forEach( '[data-time]', e => e.innerText = (new Date( e.dataset.time )).toLocaleTimeString([], {timeStyle: 'short'}) ) })()
-</script>
+{% endblock %}
+{% block helpContentPost %}
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'the_watchmen'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Die Nachtwächter'|trans({},'help') }}</strong></a>
+    <script>
+        (()=>{ $.html.forEach( '[data-time]', e => e.innerText = (new Date( e.dataset.time )).toLocaleTimeString([], {timeStyle: 'short'}) ) })()
+    </script>
 {% endblock %}
