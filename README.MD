@@ -1,5 +1,5 @@
 MyHordes is an open implementation of the browser game "Hordes" and its other versions made by Motion-Twin, developed by the 
-community.
+community. This is a fork of original repo : https://gitlab.com/eternaltwin/myhordes
 
 # License
 
